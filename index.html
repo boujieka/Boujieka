@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FI-06 — Financement mixte et finance climatique | e-learning ATE</title>
+  <meta name="description" content="Cours en ligne auto-rythmé FI-06 — Financement mixte et finance climatique pour l'accès à l'énergie. Académie de la Transition Énergétique (ATE), Aigle Group." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%E2%9A%A1%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <!-- ============================ HEADER ============================ -->
+  <header class="app-header">
+    <button id="navToggle" class="nav-toggle" aria-label="Afficher le sommaire" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="brand">
+      <span class="brand-badge">ATE</span>
+      <div class="brand-text">
+        <strong>Académie de la Transition Énergétique</strong>
+        <small>FI-06 · Cours en ligne auto-rythmé</small>
+      </div>
+    </div>
+    <div class="header-progress" title="Progression du cours">
+      <div class="header-progress-bar"><span id="headerProgressFill"></span></div>
+      <span id="headerProgressLabel" class="header-progress-label">0 %</span>
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- ============================ SIDEBAR ============================ -->
+    <aside class="sidebar" id="sidebar">
+      <nav id="sideNav" class="side-nav" aria-label="Sommaire du cours"></nav>
+      <button id="resetBtn" class="reset-btn" title="Effacer votre progression enregistrée">↺ Réinitialiser ma progression</button>
+    </aside>
+    <div class="sidebar-scrim" id="sidebarScrim" hidden></div>
+
+    <!-- ============================ MAIN ============================ -->
+    <main id="view" class="view" tabindex="-1"></main>
+  </div>
+
+  <footer class="app-footer">
+    <span id="footerMeta"></span>
+  </footer>
+
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
