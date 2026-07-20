@@ -40,7 +40,8 @@ export default async function LandingPage() {
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <Wordmark />
           <nav className="flex items-center gap-4 text-sm">
-            <Link href="#chaine" className="hidden text-navy-500 hover:text-navy-800 sm:inline">La plateforme</Link>
+            <Link href="#pour-qui" className="hidden text-navy-500 hover:text-navy-800 sm:inline">Pour qui</Link>
+            <Link href="#methode" className="hidden text-navy-500 hover:text-navy-800 sm:inline">Méthode</Link>
             {session ? (
               <Link href="/dashboard" className="btn-primary">Tableau de bord</Link>
             ) : (
@@ -53,83 +54,133 @@ export default async function LandingPage() {
         </div>
       </header>
 
-      {/* Hero — sobre, navy */}
+      {/* Hero — orienté résultat */}
       <section className="relative overflow-hidden bg-navy-700 text-white">
-        <div
-          className="pointer-events-none absolute inset-0 -z-10"
-          style={{ background: "linear-gradient(180deg, #0a1e3f 0%, #0b2148 100%)" }}
-        />
+        <div className="pointer-events-none absolute inset-0 -z-10" style={{ background: "linear-gradient(180deg, #0a1e3f 0%, #0b2148 100%)" }} />
         <SolarDisc className="pointer-events-none absolute -right-24 top-10 -z-10 h-72 w-72 opacity-25" />
-        <div className="mx-auto max-w-6xl px-6 py-24">
+        <div className="mx-auto max-w-6xl px-6 py-20">
           <div className="max-w-3xl">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-200">
-              Plateforme d'origination — énergie renouvelable C&amp;I
+              Origination de projets solaire + stockage · industrie &amp; tertiaire
             </p>
             <h1 className="mt-4 text-balance text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl">
-              Solaire et stockage pour l'industrie, chiffrés sur deux objectifs&nbsp;: décarboner et sécuriser l'approvisionnement.
+              Moins de coupures, une facture maîtrisée, chaque tonne de CO₂ prouvée.
             </h1>
-            <p className="mt-6 max-w-[54ch] text-lg text-navy-100">
-              ATEN relie entreprises consommatrices et développeurs. Chaque opportunité est instruite,
-              dimensionnée et mise en relation sur des grandeurs mesurées, non des intentions.
+            <p className="mt-6 max-w-[56ch] text-lg text-navy-100">
+              ATEN chiffre un projet solaire + stockage <span className="font-semibold text-white">avant d'engager</span> :
+              taux de couverture, économies contre le réseau et CO₂ évité, puis met l'opportunité qualifiée en
+              relation avec les bons développeurs.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link href={session ? "/dashboard" : "/register"} className="btn-gold text-base">Commencer</Link>
-              <Link href="/login" className="btn border border-white/25 text-white hover:bg-white/10">Connexion</Link>
+            {/* Entrée par rôle — marché biface */}
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+              <RoleEntry
+                accent="gold"
+                who="Vous consommez de l'énergie"
+                promise="Sécurisez votre approvisionnement et réduisez votre coût énergétique, preuves à l'appui."
+                cta="Évaluer un site"
+                href={session ? "/dashboard" : "/register"}
+              />
+              <RoleEntry
+                accent="vert"
+                who="Vous développez des projets"
+                promise="Accédez à des opportunités C&I déjà qualifiées, dimensionnées et notées pour la bancabilité."
+                cta="Voir les opportunités"
+                href={session ? "/opportunities" : "/register"}
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Deux objectifs mesurés — le cœur du produit */}
+      {/* Bande de crédibilité — méthode, pas déclaratif */}
+      <section className="border-b border-navy-100 bg-navy-800 text-white">
+        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-6 py-8 sm:grid-cols-4">
+          <Proof k="8760 pas" v="Simulation horaire du bilan énergétique sur une année type." />
+          <Proof k="NASA POWER" v="Productible solaire à partir de l'irradiation du site." />
+          <Proof k="Facteur pays" v="CO₂ évité via le facteur d'émission réseau national." />
+          <Proof k="Modèle intermédié" v="Mise en relation validée par l'opérateur de la plateforme." />
+        </div>
+      </section>
+
+      {/* Deux objectifs mesurés */}
       <section className="border-b border-navy-100 bg-navy-50">
-        <div className="mx-auto grid max-w-6xl gap-6 px-6 py-14 md:grid-cols-2">
-          <Objective
-            accent="vert"
-            label="Décarbonisation"
-            headline="tCO₂ évitées"
-            body="Calculées via le facteur d'émission réseau du pays, agrégées au niveau du portefeuille."
-          />
-          <Objective
+        <div className="mx-auto max-w-6xl px-6 py-14">
+          <p className="text-xs font-semibold uppercase tracking-widest text-navy-400">Deux objectifs, mesurés — pas déclarés</p>
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            <Objective
+              accent="gold"
+              label="Sécurité d'approvisionnement"
+              headline="Taux de couverture"
+              body="Issu d'une simulation horaire sur 8760 pas, avec déficit résiduel et coût de la fiabilité chiffrés."
+            />
+            <Objective
+              accent="vert"
+              label="Décarbonisation"
+              headline="tCO₂ évitées"
+              body="Calculées via le facteur d'émission réseau du pays, auditables et agrégées au portefeuille."
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Pour qui — valeur par face */}
+      <section id="pour-qui" className="mx-auto max-w-6xl px-6 py-16">
+        <h2 className="text-balance text-2xl font-semibold sm:text-3xl">Une plateforme, deux faces</h2>
+        <div className="mt-8 grid gap-6 md:grid-cols-2">
+          <AudienceCard
             accent="gold"
-            label="Sécurité d'approvisionnement"
-            headline="Taux de couverture"
-            body="Issu d'une simulation horaire sur 8760 pas, avec déficit résiduel et coût de la fiabilité."
+            title="Offtakers — entreprises consommatrices"
+            points={[
+              "Un chiffrage indépendant avant tout engagement contractuel",
+              "La valeur de la résilience intégrée : coût des coupures et couverture cible",
+              "Un dossier prêt à discuter : note de concept, économies, CO₂ évité",
+            ]}
+          />
+          <AudienceCard
+            accent="vert"
+            title="Développeurs — firmes de projet"
+            points={[
+              "Un flux d'opportunités C&I pré-qualifiées, pas des pistes froides",
+              "Un appariement pondéré sur votre zone, votre taille et vos technologies",
+              "Un score de bancabilité pour prioriser vos efforts commerciaux",
+            ]}
           />
         </div>
       </section>
 
-      {/* La chaîne d'origination — 3 phases */}
-      <section id="chaine" className="mx-auto max-w-6xl px-6 py-16">
-        <h2 className="text-balance text-2xl font-semibold sm:text-3xl">De la donnée de site à la mise en relation</h2>
-        <p className="mt-2 max-w-[56ch] text-navy-500">
-          Chaque phase alimente la suivante&nbsp;: la qualité de l'origination détermine la pertinence des
-          appariements.
-        </p>
-        <div className="mt-10 grid gap-6 lg:grid-cols-3">
-          {phases.map((p, i) => (
-            <div key={p.phase} className="rounded-xl border border-navy-100 bg-white p-6 shadow-card">
-              <div className="flex items-baseline gap-2">
-                <span className="text-sm font-bold tabular-nums text-gold-600">0{i + 1}</span>
-                <h3 className="text-lg font-semibold text-navy-800">{p.phase}</h3>
+      {/* Méthode — la chaîne d'origination */}
+      <section id="methode" className="border-t border-navy-100 bg-navy-50 py-16">
+        <div className="mx-auto max-w-6xl px-6">
+          <h2 className="text-balance text-2xl font-semibold sm:text-3xl">De la donnée de site à la mise en relation</h2>
+          <p className="mt-2 max-w-[56ch] text-navy-500">
+            Chaque phase alimente la suivante&nbsp;: la qualité de l'origination détermine la pertinence des appariements.
+          </p>
+          <div className="mt-10 grid gap-6 lg:grid-cols-3">
+            {phases.map((p, i) => (
+              <div key={p.phase} className="rounded-xl border border-navy-100 bg-white p-6 shadow-card">
+                <div className="flex items-baseline gap-2">
+                  <span className="text-sm font-bold tabular-nums text-gold-600">0{i + 1}</span>
+                  <h3 className="text-lg font-semibold text-navy-800">{p.phase}</h3>
+                </div>
+                <ul className="mt-4 space-y-4">
+                  {p.items.map((it) => (
+                    <li key={it.t} className="border-l-2 border-navy-100 pl-3">
+                      <div className="font-medium text-navy-800">{it.t}</div>
+                      <div className="text-sm text-navy-500">{it.d}</div>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="mt-4 space-y-4">
-                {p.items.map((it) => (
-                  <li key={it.t} className="border-l-2 border-navy-100 pl-3">
-                    <div className="font-medium text-navy-800">{it.t}</div>
-                    <div className="text-sm text-navy-500">{it.d}</div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Appel à l'action final */}
+      {/* CTA final */}
       <section className="border-t border-navy-100 bg-navy-700 text-white">
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-6 py-14 sm:flex-row sm:items-center">
           <div>
-            <h2 className="text-2xl font-semibold">Prêt à originer votre premier projet&nbsp;?</h2>
+            <h2 className="text-2xl font-semibold">Chiffrez votre premier projet</h2>
             <p className="mt-1 text-navy-100">Créez un compte offtaker ou développeur en quelques minutes.</p>
           </div>
           <Link href={session ? "/dashboard" : "/register"} className="btn-gold text-base">
@@ -143,24 +194,50 @@ export default async function LandingPage() {
           <span className="[&_*]:!text-white">
             <Wordmark />
           </span>
-          <span>Décarbonisation &amp; sécurité d'approvisionnement</span>
+          <span>Décarbonisation &amp; sécurité d'approvisionnement · méthodologie transparente</span>
         </div>
       </footer>
     </div>
   );
 }
 
-function Objective({
+function RoleEntry({
   accent,
-  label,
-  headline,
-  body,
+  who,
+  promise,
+  cta,
+  href,
 }: {
   accent: "gold" | "vert";
-  label: string;
-  headline: string;
-  body: string;
+  who: string;
+  promise: string;
+  cta: string;
+  href: string;
 }) {
+  return (
+    <div className="rounded-xl border border-white/12 bg-white/[0.04] p-4">
+      <div className={`flex items-center gap-2 text-sm font-semibold ${accent === "vert" ? "text-vert-300" : "text-gold-200"}`}>
+        <span className={`h-2 w-2 rounded-full ${accent === "vert" ? "bg-vert" : "bg-gold"}`} />
+        {who}
+      </div>
+      <p className="mt-2 text-sm text-navy-100">{promise}</p>
+      <Link href={href} className="mt-3 inline-flex text-sm font-medium text-white underline decoration-white/30 underline-offset-4 hover:decoration-white">
+        {cta} →
+      </Link>
+    </div>
+  );
+}
+
+function Proof({ k, v }: { k: string; v: string }) {
+  return (
+    <div>
+      <div className="text-sm font-semibold text-gold-200">{k}</div>
+      <div className="mt-1 text-xs leading-relaxed text-navy-200">{v}</div>
+    </div>
+  );
+}
+
+function Objective({ accent, label, headline, body }: { accent: "gold" | "vert"; label: string; headline: string; body: string }) {
   return (
     <div className="rounded-xl border border-navy-100 bg-white p-6 shadow-card">
       <span className={`inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest ${accent === "vert" ? "text-vert-700" : "text-gold-700"}`}>
@@ -169,6 +246,25 @@ function Objective({
       </span>
       <div className="mt-3 text-3xl font-semibold tracking-tight text-navy-800">{headline}</div>
       <p className="mt-2 max-w-[42ch] text-navy-500">{body}</p>
+    </div>
+  );
+}
+
+function AudienceCard({ accent, title, points }: { accent: "gold" | "vert"; title: string; points: string[] }) {
+  return (
+    <div className="rounded-xl border border-navy-100 bg-white p-6 shadow-card">
+      <div className="flex items-center gap-2">
+        <span className={`h-2.5 w-2.5 rounded-full ${accent === "vert" ? "bg-vert" : "bg-gold"}`} />
+        <h3 className="text-lg font-semibold text-navy-800">{title}</h3>
+      </div>
+      <ul className="mt-4 space-y-2.5">
+        {points.map((p) => (
+          <li key={p} className="flex gap-2 text-sm text-navy-600">
+            <span className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${accent === "vert" ? "bg-vert-300" : "bg-gold-300"}`} />
+            {p}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
