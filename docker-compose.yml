@@ -1,0 +1,50 @@
+# ---------------------------------------------------------------------------
+# ATEN — pile complète locale/serveur : PostgreSQL + application.
+#   docker compose up --build
+# L'application applique les migrations au démarrage puis démarre sur :3000.
+# Renseigner AUTH_SECRET (et ANTHROPIC_API_KEY si souhaité) via un .env.
+# ---------------------------------------------------------------------------
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: aten
+      POSTGRES_PASSWORD: aten
+      POSTGRES_DB: aten
+    volumes:
+      - aten_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aten -d aten"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: "postgresql://aten:aten@db:5432/aten?schema=public"
+      AUTH_SECRET: "${AUTH_SECRET:?Définir AUTH_SECRET dans .env}"
+      ANTHROPIC_API_KEY: "${ANTHROPIC_API_KEY:-}"
+      NEXT_PUBLIC_SITE_URL: "${NEXT_PUBLIC_SITE_URL:-http://localhost:3000}"
+    ports:
+      - "3000:3000"
+
+  # Amorçage optionnel (facteurs d'émission + jeu de démo + cas INDUCO) :
+  #   docker compose run --rm seed
+  seed:
+    build: .
+    profiles: ["seed"]
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: "postgresql://aten:aten@db:5432/aten?schema=public"
+    command: ["sh", "-c", "npx prisma migrate deploy && npm run db:seed"]
+
+volumes:
+  aten_pgdata:

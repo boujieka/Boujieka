@@ -1,0 +1,472 @@
+// ===========================================================================
+// ATEN — Schéma de base de données de référence
+// Plateforme d'origination et de mise en relation pour projets EnR C&I
+// 7 domaines : Identité · Offtaker · Développeur · Origination ·
+//              Analyse · Mise en relation · Référence & IA
+//
+// Conventions : PK en UUID · created_at/updated_at sur les tables
+// transactionnelles · suppression logique par deleted_at sur les entités
+// métier principales.
+// ===========================================================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ---------------------------------------------------------------------------
+// Énumérations
+// ---------------------------------------------------------------------------
+
+enum OrganizationType {
+  offtaker
+  developer
+}
+
+enum UserRole {
+  offtaker
+  developer
+  admin
+}
+
+enum LoadCriticality {
+  faible
+  moyenne
+  elevee
+  critique
+}
+
+enum FinancingCapacity {
+  equity
+  dette
+  mixte
+  aucune
+}
+
+enum Technology {
+  solaire
+  stockage
+  hybride
+  groupe_backup
+}
+
+enum OpportunityStage {
+  identifiee
+  qualifiee
+  term_sheet
+  mandat
+  bouclage_financier
+  realisee
+  abandonnee
+}
+
+enum QualificationStatus {
+  non_qualifiee
+  qualifiee
+  rejetee
+}
+
+enum SimulationMethod {
+  cible_fixee
+  optimisation_economique
+}
+
+enum Rating {
+  A
+  B
+  C
+  D
+}
+
+enum MatchStatus {
+  propose
+  valide_admin
+  ecarte
+}
+
+enum EoiStatus {
+  soumise
+  acceptee
+  refusee
+}
+
+enum GeneratedBy {
+  ia
+  humain
+}
+
+enum AiTaskType {
+  qualification
+  extraction_facture
+  note_concept
+  explication_matching
+}
+
+// ===========================================================================
+// 3. Domaine Identité et accès
+// ===========================================================================
+
+model Organization {
+  id          String           @id @default(uuid())
+  name        String
+  type        OrganizationType
+  country     String
+  sector      String?
+  description String?
+  website     String?
+  createdAt   DateTime         @default(now()) @map("created_at")
+  updatedAt   DateTime         @updatedAt @map("updated_at")
+  deletedAt   DateTime?        @map("deleted_at")
+
+  users             User[]
+  sites             Site[]
+  developerProfile  DeveloperProfile?
+
+  @@index([type])
+  @@map("organizations")
+}
+
+model User {
+  id             String   @id @default(uuid())
+  organizationId String   @map("organization_id")
+  email          String   @unique
+  passwordHash   String   @map("password_hash")
+  fullName       String   @map("full_name")
+  role           UserRole
+  isActive       Boolean  @default(true) @map("is_active")
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
+
+  organization      Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  ownedOpportunities Opportunity[] @relation("OpportunityOwner")
+  sentMessages       Message[]     @relation("MessageSender")
+  receivedMessages   Message[]     @relation("MessageRecipient")
+  aiInteractions     AiInteraction[]
+
+  @@index([organizationId])
+  @@map("users")
+}
+
+// ===========================================================================
+// 4. Domaine Offtaker
+// ===========================================================================
+
+model Site {
+  id                  String          @id @default(uuid())
+  organizationId      String          @map("organization_id")
+  name                String
+  latitude            Float
+  longitude           Float
+  country             String
+  availableAreaM2     Float?          @map("available_area_m2")
+  currentGridTariff   Float?          @map("current_grid_tariff")
+  annualConsumptionKwh Float?         @map("annual_consumption_kwh")
+  peakDemandKw        Float?          @map("peak_demand_kw")
+  loadCriticality     LoadCriticality @default(moyenne) @map("load_criticality")
+  outageCostPerHour   Float?          @map("outage_cost_per_hour")
+  gridOutageHoursYear Float?          @map("grid_outage_hours_year")
+  createdAt           DateTime        @default(now()) @map("created_at")
+  updatedAt           DateTime        @updatedAt @map("updated_at")
+  deletedAt           DateTime?       @map("deleted_at")
+
+  organization Organization  @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  loadProfile  LoadProfile?
+  opportunities Opportunity[]
+
+  @@index([organizationId])
+  @@index([country])
+  @@map("sites")
+}
+
+/// Courbe de charge horaire d'un site sur une année type de 8760 pas.
+/// Stockée en tableau numérique unique (JSONB) — recommandé pour la simulation.
+model LoadProfile {
+  id             String   @id @default(uuid())
+  siteId         String   @unique @map("site_id")
+  /// Tableau de 8760 valeurs de charge (kW) — un pas par heure de l'année type.
+  hourlyKw       Json     @map("hourly_kw")
+  /// Origine : "reel" (donnée horaire mesurée) ou "profil_type:<secteur>".
+  source         String   @default("profil_type")
+  sectorTemplate String?  @map("sector_template")
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
+
+  site Site @relation(fields: [siteId], references: [id], onDelete: Cascade)
+
+  @@map("load_profiles")
+}
+
+// ===========================================================================
+// 5. Domaine Développeur
+// ===========================================================================
+
+model DeveloperProfile {
+  id               String            @id @default(uuid())
+  organizationId   String            @unique @map("organization_id")
+  minProjectSizeKw Float             @map("min_project_size_kw")
+  maxProjectSizeKw Float             @map("max_project_size_kw")
+  financingCapacity FinancingCapacity @map("financing_capacity")
+  trackRecordMw    Float             @default(0) @map("track_record_mw")
+  projectsCompleted Int              @default(0) @map("projects_completed")
+  createdAt        DateTime          @default(now()) @map("created_at")
+  updatedAt        DateTime          @updatedAt @map("updated_at")
+
+  organization  Organization           @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  zones         DeveloperZone[]
+  technologies  DeveloperTechnology[]
+  matches       Match[]
+  expressions   ExpressionOfInterest[]
+
+  @@map("developer_profiles")
+}
+
+model DeveloperZone {
+  id                 String  @id @default(uuid())
+  developerProfileId String  @map("developer_profile_id")
+  country            String
+  region             String?
+
+  developerProfile DeveloperProfile @relation(fields: [developerProfileId], references: [id], onDelete: Cascade)
+
+  @@index([developerProfileId])
+  @@index([country])
+  @@map("developer_zones")
+}
+
+model DeveloperTechnology {
+  id                 String     @id @default(uuid())
+  developerProfileId String     @map("developer_profile_id")
+  technology         Technology
+
+  developerProfile DeveloperProfile @relation(fields: [developerProfileId], references: [id], onDelete: Cascade)
+
+  @@unique([developerProfileId, technology])
+  @@map("developer_technologies")
+}
+
+// ===========================================================================
+// 6. Domaine Origination
+// ===========================================================================
+
+model Opportunity {
+  id                   String              @id @default(uuid())
+  siteId               String              @map("site_id")
+  title                String
+  stage                OpportunityStage    @default(identifiee)
+  qualificationStatus  QualificationStatus @default(non_qualifiee) @map("qualification_status")
+  qualificationSummary String?             @map("qualification_summary")
+  /// Taux de couverture cible imposé par l'utilisateur (ex. 0.95).
+  targetReliabilityRate Float              @default(0.95) @map("target_reliability_rate")
+  ownerUserId          String?             @map("owner_user_id")
+  createdAt            DateTime            @default(now()) @map("created_at")
+  updatedAt            DateTime            @updatedAt @map("updated_at")
+  deletedAt            DateTime?           @map("deleted_at")
+
+  site                Site                 @relation(fields: [siteId], references: [id], onDelete: Cascade)
+  owner               User?                @relation("OpportunityOwner", fields: [ownerUserId], references: [id], onDelete: SetNull)
+  prefeasibility      PrefeasibilityStudy?
+  decarbonization     DecarbonizationMetric?
+  bankability         BankabilityScore?
+  matches             Match[]
+  expressions         ExpressionOfInterest[]
+  messages            Message[]
+  conceptNotes        ConceptNote[]
+  aiInteractions      AiInteraction[]
+
+  @@index([siteId])
+  @@index([stage])
+  @@index([qualificationStatus])
+  @@map("opportunities")
+}
+
+// ===========================================================================
+// 7. Domaine Analyse
+// ===========================================================================
+
+model PrefeasibilityStudy {
+  id                String           @id @default(uuid())
+  opportunityId     String           @unique @map("opportunity_id")
+  pvSizeKwp         Float            @map("pv_size_kwp")
+  batterySizeKwh    Float            @map("battery_size_kwh")
+  backupSizeKw      Float            @map("backup_size_kw")
+  annualYieldKwh    Float            @map("annual_yield_kwh")
+  coverageRate      Float            @map("coverage_rate")
+  residualDeficitKwh Float           @map("residual_deficit_kwh")
+  reliabilityCost   Float            @map("reliability_cost")
+  simulationMethod  SimulationMethod @default(cible_fixee) @map("simulation_method")
+  /// Trace des hypothèses de simulation (ratio de performance, rendement, etc.).
+  assumptions       Json?
+  createdAt         DateTime         @default(now()) @map("created_at")
+  updatedAt         DateTime         @updatedAt @map("updated_at")
+
+  opportunity        Opportunity          @relation(fields: [opportunityId], references: [id], onDelete: Cascade)
+  technoEconomicModel TechnoEconomicModel?
+
+  @@map("prefeasibility_studies")
+}
+
+model TechnoEconomicModel {
+  id                    String   @id @default(uuid())
+  prefeasibilityStudyId String   @unique @map("prefeasibility_study_id")
+  capex                 Float
+  opexAnnual            Float    @map("opex_annual")
+  ppaTariff             Float    @map("ppa_tariff")
+  irr                   Float?
+  paybackYears          Float?   @map("payback_years")
+  annualSavings         Float    @map("annual_savings")
+  currency              String   @default("USD")
+  createdAt             DateTime @default(now()) @map("created_at")
+  updatedAt             DateTime @updatedAt @map("updated_at")
+
+  prefeasibilityStudy PrefeasibilityStudy @relation(fields: [prefeasibilityStudyId], references: [id], onDelete: Cascade)
+
+  @@map("techno_economic_models")
+}
+
+/// Table de référence des facteurs d'émission réseau par pays.
+model GridEmissionFactor {
+  id                      String   @id @default(uuid())
+  country                 String   @unique
+  emissionFactorTco2PerMwh Float   @map("emission_factor_tco2_per_mwh")
+  source                  String?
+  year                    Int?
+  createdAt               DateTime @default(now()) @map("created_at")
+  updatedAt               DateTime @updatedAt @map("updated_at")
+
+  decarbonizationMetrics DecarbonizationMetric[]
+
+  @@map("grid_emission_factors")
+}
+
+model DecarbonizationMetric {
+  id                     String   @id @default(uuid())
+  opportunityId          String   @unique @map("opportunity_id")
+  gridEmissionFactorId   String?  @map("grid_emission_factor_id")
+  annualCo2AvoidedTonnes Float    @map("annual_co2_avoided_tonnes")
+  lifetimeCo2AvoidedTonnes Float  @map("lifetime_co2_avoided_tonnes")
+  createdAt              DateTime @default(now()) @map("created_at")
+  updatedAt              DateTime @updatedAt @map("updated_at")
+
+  opportunity        Opportunity         @relation(fields: [opportunityId], references: [id], onDelete: Cascade)
+  gridEmissionFactor GridEmissionFactor? @relation(fields: [gridEmissionFactorId], references: [id], onDelete: SetNull)
+
+  @@map("decarbonization_metrics")
+}
+
+/// Score de bancabilité intégrant une dimension de résilience (sécurité d'appro.).
+model BankabilityScore {
+  id                  String   @id @default(uuid())
+  opportunityId       String   @unique @map("opportunity_id")
+  financialScore      Float    @map("financial_score")
+  technicalScore      Float    @map("technical_score")
+  resilienceScore     Float    @map("resilience_score")
+  decarbonizationScore Float   @map("decarbonization_score")
+  totalScore          Float    @map("total_score")
+  rating              Rating
+  createdAt           DateTime @default(now()) @map("created_at")
+  updatedAt           DateTime @updatedAt @map("updated_at")
+
+  opportunity Opportunity @relation(fields: [opportunityId], references: [id], onDelete: Cascade)
+
+  @@map("bankability_scores")
+}
+
+// ===========================================================================
+// 8. Domaine Mise en relation
+// ===========================================================================
+
+model Match {
+  id                  String      @id @default(uuid())
+  opportunityId       String      @map("opportunity_id")
+  developerProfileId  String      @map("developer_profile_id")
+  geographyScore      Float       @map("geography_score")
+  sizeScore           Float       @map("size_score")
+  technologyScore     Float       @map("technology_score")
+  bankabilityAlignment Float      @map("bankability_alignment")
+  compatibilityScore  Float       @map("compatibility_score")
+  explanation         String?
+  status              MatchStatus @default(propose)
+  createdAt           DateTime    @default(now()) @map("created_at")
+  updatedAt           DateTime    @updatedAt @map("updated_at")
+
+  opportunity      Opportunity      @relation(fields: [opportunityId], references: [id], onDelete: Cascade)
+  developerProfile DeveloperProfile @relation(fields: [developerProfileId], references: [id], onDelete: Cascade)
+
+  @@unique([opportunityId, developerProfileId])
+  @@index([opportunityId])
+  @@index([developerProfileId])
+  @@map("matches")
+}
+
+model ExpressionOfInterest {
+  id                 String    @id @default(uuid())
+  opportunityId      String    @map("opportunity_id")
+  developerProfileId String    @map("developer_profile_id")
+  message            String?
+  status             EoiStatus @default(soumise)
+  createdAt          DateTime  @default(now()) @map("created_at")
+  updatedAt          DateTime  @updatedAt @map("updated_at")
+
+  opportunity      Opportunity      @relation(fields: [opportunityId], references: [id], onDelete: Cascade)
+  developerProfile DeveloperProfile @relation(fields: [developerProfileId], references: [id], onDelete: Cascade)
+
+  @@unique([opportunityId, developerProfileId])
+  @@map("expressions_of_interest")
+}
+
+model Message {
+  id              String    @id @default(uuid())
+  opportunityId   String    @map("opportunity_id")
+  senderUserId    String    @map("sender_user_id")
+  recipientUserId String    @map("recipient_user_id")
+  body            String
+  readAt          DateTime? @map("read_at")
+  createdAt       DateTime  @default(now()) @map("created_at")
+
+  opportunity Opportunity @relation(fields: [opportunityId], references: [id], onDelete: Cascade)
+  sender      User        @relation("MessageSender", fields: [senderUserId], references: [id], onDelete: Cascade)
+  recipient   User        @relation("MessageRecipient", fields: [recipientUserId], references: [id], onDelete: Cascade)
+
+  @@index([opportunityId])
+  @@map("messages")
+}
+
+// ===========================================================================
+// 9. Domaine Référence et IA
+// ===========================================================================
+
+model ConceptNote {
+  id            String      @id @default(uuid())
+  opportunityId String      @map("opportunity_id")
+  content       String
+  generatedBy   GeneratedBy @default(ia) @map("generated_by")
+  version       Int         @default(1)
+  createdAt     DateTime    @default(now()) @map("created_at")
+  updatedAt     DateTime    @updatedAt @map("updated_at")
+
+  opportunity Opportunity @relation(fields: [opportunityId], references: [id], onDelete: Cascade)
+
+  @@index([opportunityId])
+  @@map("concept_notes")
+}
+
+/// Journal des appels à l'API Claude (traçabilité et maîtrise des coûts).
+model AiInteraction {
+  id            String     @id @default(uuid())
+  userId        String?    @map("user_id")
+  opportunityId String?    @map("opportunity_id")
+  taskType      AiTaskType @map("task_type")
+  model         String
+  tokensUsed    Int        @default(0) @map("tokens_used")
+  createdAt     DateTime   @default(now()) @map("created_at")
+
+  user        User?        @relation(fields: [userId], references: [id], onDelete: SetNull)
+  opportunity Opportunity? @relation(fields: [opportunityId], references: [id], onDelete: SetNull)
+
+  @@index([opportunityId])
+  @@map("ai_interactions")
+}
