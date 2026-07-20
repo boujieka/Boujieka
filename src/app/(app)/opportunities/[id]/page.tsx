@@ -189,6 +189,12 @@ export default async function OpportunityDetailPage({ params }: { params: { id: 
             </div>
           </div>
         )}
+        {pf && (
+          <p className="mt-4 border-t border-navy-50 pt-3 text-xs text-navy-400">
+            Estimation de pré-faisabilité fondée sur des données publiques (NASA POWER, facteurs d'émission) et des
+            hypothèses paramétrables — non contractuelle. À confirmer par une étude détaillée.
+          </p>
+        )}
       </Card>
 
       {/* Technico-économique + Décarbonisation + Bancabilité */}

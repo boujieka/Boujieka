@@ -196,11 +196,18 @@ export default async function LandingPage() {
       </section>
 
       <footer className="bg-navy-900 py-8">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-2 px-6 text-sm text-navy-300">
-          <span className="[&_*]:!text-white">
-            <Wordmark />
-          </span>
-          <span>Décarbonisation &amp; sécurité d'approvisionnement · méthodologie transparente</span>
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="flex flex-wrap items-center justify-between gap-2 text-sm text-navy-300">
+            <span className="[&_*]:!text-white">
+              <Wordmark />
+            </span>
+            <span>Décarbonisation &amp; sécurité d'approvisionnement · méthodologie transparente</span>
+          </div>
+          <p className="mt-4 border-t border-white/10 pt-4 text-xs text-navy-400">
+            Les chiffrages présentés (taux de couverture, économies, CO₂ évité, dimensionnement) sont des
+            estimations de pré-faisabilité fondées sur des données publiques et des hypothèses paramétrables.
+            Ils ne constituent pas une offre ni un engagement contractuel.
+          </p>
         </div>
       </footer>
     </div>
