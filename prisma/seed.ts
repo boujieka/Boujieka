@@ -212,9 +212,97 @@ async function seedDemo() {
   console.log("  Connexions : offtaker@aten.demo · developer@aten.demo · admin@aten.demo (mdp : demo1234)");
 }
 
+/**
+ * Cas d'usage réel — Industrie du Congo (INDUCO), Brazzaville.
+ * Preneur d'ancrage industriel : unité manufacturière multi-produits (~700
+ * emplois) alimentée par diesel de secours devenu source principale
+ * (~2,64 M USD/an), plafonnée à ~50 % de sa capacité, avec un déficit de
+ * puissance hors réseau d'environ 1 680 kW et 20 200 m² de toitures.
+ * Chiffres indicatifs, à consolider en étude de faisabilité.
+ */
+async function seedInduco() {
+  const password = await hash("demo1234", 10);
+
+  const org = await prisma.organization.upsert({
+    where: { id: "00000000-0000-0000-0000-0000000000d1" },
+    update: {},
+    create: {
+      id: "00000000-0000-0000-0000-0000000000d1",
+      name: "Industrie du Congo (INDUCO)",
+      type: "offtaker",
+      country: "CG",
+      sector: "Industrie manufacturière multi-produits",
+      description:
+        "Unité manufacturière multi-produits à Brazzaville (~700 emplois), " +
+        "confrontée à une insécurité chronique d'approvisionnement électrique.",
+    },
+  });
+
+  await prisma.user.upsert({
+    where: { email: "induco@aten.demo" },
+    update: {},
+    create: {
+      organizationId: org.id,
+      email: "induco@aten.demo",
+      passwordHash: password,
+      fullName: "Direction INDUCO",
+      role: "offtaker",
+    },
+  });
+
+  const site = await prisma.site.upsert({
+    where: { id: "00000000-0000-0000-0000-0000000000d2" },
+    update: {},
+    create: {
+      id: "00000000-0000-0000-0000-0000000000d2",
+      organizationId: org.id,
+      name: "Site de Massissia (Madibou, Brazzaville)",
+      latitude: -4.35,
+      longitude: 15.18,
+      country: "CG",
+      availableAreaM2: 20200, // trois hangars
+      // Coût actuel de l'énergie, dominé par le diesel de secours (USD/kWh).
+      currentGridTariff: 0.35,
+      annualConsumptionKwh: 24_000_000, // pleine production visée (~2,7 MW moyen)
+      peakDemandKw: 4600, // puissance en pleine production (transfo 5 750 kVA)
+      loadCriticality: "critique",
+      outageCostPerHour: 4000, // diesel + production perdue
+      gridOutageHoursYear: 3000, // réseau E2C peu fiable → diesel en source principale
+    },
+  });
+
+  const hourlyKw = generateSectoralProfile("industrie_continue", 24_000_000, 4600);
+  await prisma.loadProfile.upsert({
+    where: { siteId: site.id },
+    update: { hourlyKw, source: "profil_type:industrie_continue", sectorTemplate: "industrie_continue" },
+    create: {
+      siteId: site.id,
+      hourlyKw,
+      source: "profil_type:industrie_continue",
+      sectorTemplate: "industrie_continue",
+    },
+  });
+
+  await prisma.opportunity.upsert({
+    where: { id: "00000000-0000-0000-0000-0000000000d3" },
+    update: {},
+    create: {
+      id: "00000000-0000-0000-0000-0000000000d3",
+      siteId: site.id,
+      title: "Solaire + stockage + secours — INDUCO Brazzaville",
+      stage: "identifiee",
+      targetReliabilityRate: 0.97, // fermeté de fourniture recherchée
+    },
+  });
+
+  console.log("✔ Cas d'usage INDUCO (Industrie du Congo, Brazzaville)");
+  console.log("  Connexion : induco@aten.demo (mdp : demo1234)");
+}
+
 async function main() {
   await seedEmissionFactors();
   await seedDemo();
+  await seedInduco();
 }
 
 main()

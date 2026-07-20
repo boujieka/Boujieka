@@ -43,6 +43,7 @@ export default async function LandingPage() {
           <nav className="flex items-center gap-4 text-sm">
             <Link href="#pour-qui" className="hidden text-navy-500 hover:text-navy-800 sm:inline">Pour qui</Link>
             <Link href="#methode" className="hidden text-navy-500 hover:text-navy-800 sm:inline">Méthode</Link>
+            <Link href="#cas" className="hidden text-navy-500 hover:text-navy-800 sm:inline">Cas d'usage</Link>
             {session ? (
               <Link href="/dashboard" className="btn-primary">Tableau de bord</Link>
             ) : (
@@ -182,6 +183,31 @@ export default async function LandingPage() {
         </div>
       </section>
 
+      {/* Cas d'usage — INDUCO */}
+      <section id="cas" className="mx-auto max-w-6xl px-6 py-16">
+        <p className="text-xs font-semibold uppercase tracking-widest text-navy-400">Cas d'usage — preneur d'ancrage</p>
+        <div className="mt-4 grid gap-8 lg:grid-cols-[1fr,1.1fr] lg:items-center">
+          <div>
+            <h2 className="text-balance text-2xl font-semibold sm:text-3xl">INDUCO — Industrie du Congo, Brazzaville</h2>
+            <p className="mt-3 max-w-[52ch] text-navy-500">
+              Unité manufacturière multi-produits (~700 emplois) dont le réseau public peu fiable a fait du diesel
+              de secours la source principale. Résultat : une énergie plusieurs fois plus chère que le réseau et une
+              production plafonnée. Le défi qu'ATEN chiffre : <span className="font-medium text-navy-700">solaire +
+              stockage adossé à un PPA</span>, groupes conservés en secours ferme.
+            </p>
+            <p className="mt-3 text-xs text-navy-400">
+              Chiffres indicatifs, à consolider en étude de faisabilité. Exemple illustratif, non contractuel.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <CaseStat value="≈ 1 680 kW" label="Déficit de puissance à reconstituer hors réseau" accent="gold" />
+            <CaseStat value="≈ 2,64 M$/an" label="Dépense de génération diesel actuelle" accent="gold" />
+            <CaseStat value="20 200 m²" label="Toitures mobilisables en solaire" accent="vert" />
+            <CaseStat value="≈ 50 %" label="Capacité de production aujourd'hui atteinte" accent="navy" />
+          </div>
+        </div>
+      </section>
+
       {/* CTA final */}
       <section className="border-t border-navy-100 bg-navy-700 text-white">
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-6 py-14 sm:flex-row sm:items-center">
@@ -210,6 +236,16 @@ export default async function LandingPage() {
           </p>
         </div>
       </footer>
+    </div>
+  );
+}
+
+function CaseStat({ value, label, accent }: { value: string; label: string; accent: "gold" | "vert" | "navy" }) {
+  const bar = accent === "gold" ? "border-l-gold" : accent === "vert" ? "border-l-vert" : "border-l-navy";
+  return (
+    <div className={`rounded-xl border border-navy-100 border-l-4 ${bar} bg-white p-4 shadow-card`}>
+      <div className="text-2xl font-semibold tracking-tight text-navy-800 tabular-nums">{value}</div>
+      <div className="mt-1 text-xs text-navy-500">{label}</div>
     </div>
   );
 }
