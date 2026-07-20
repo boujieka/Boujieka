@@ -62,33 +62,35 @@ export default async function LandingPage() {
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 lg:grid-cols-[1.15fr,0.85fr]">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-200">
-              Origination de projets solaire + stockage · industrie &amp; tertiaire
+              Pré-faisabilité &amp; origination · solaire + stockage C&amp;I
             </p>
             <h1 className="mt-4 text-balance text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl">
               Moins de coupures, une facture maîtrisée, chaque tonne de CO₂ prouvée.
             </h1>
-            <p className="mt-6 max-w-[56ch] text-lg text-navy-100">
-              ATEN chiffre un projet solaire + stockage <span className="font-semibold text-white">avant d'engager</span> :
-              taux de couverture, économies contre le réseau et CO₂ évité, puis met l'opportunité qualifiée en
-              relation avec les bons développeurs.
+            <p className="mt-4 text-lg font-medium text-gold-200">
+              Le chiffrage de pré-faisabilité qui valorise votre résilience.
             </p>
-            {/* Entrée par rôle — marché biface */}
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
-              <RoleEntry
-                accent="gold"
-                who="Vous consommez de l'énergie"
-                promise="Sécurisez votre approvisionnement et réduisez votre coût énergétique, preuves à l'appui."
-                cta="Évaluer un site"
-                href={session ? "/dashboard" : "/register"}
-              />
-              <RoleEntry
-                accent="vert"
-                who="Vous développez des projets"
-                promise="Accédez à des opportunités C&I déjà qualifiées, dimensionnées et notées pour la bancabilité."
-                cta="Voir les opportunités"
-                href={session ? "/opportunities" : "/register"}
-              />
+            <p className="mt-4 max-w-[56ch] text-lg text-navy-100">
+              Pour les entreprises consommatrices : ATEN chiffre un projet solaire + stockage
+              <span className="font-semibold text-white"> avant d'engager</span> — taux de couverture, économies
+              contre le réseau et CO₂ évité — puis met l'opportunité qualifiée en relation avec les bons développeurs.
+            </p>
+
+            {/* CTA principal — face offtaker prioritaire */}
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <Link href={session ? "/sites/new" : "/register"} className="btn-gold text-base">Évaluer un site</Link>
+              <Link href="/login" className="btn border border-white/25 text-white hover:bg-white/10">Connexion</Link>
             </div>
+            {/* Entrée secondaire — face développeur */}
+            <p className="mt-5 text-sm text-navy-200">
+              Vous développez des projets ?{" "}
+              <Link
+                href={session ? "/opportunities" : "/register"}
+                className="font-medium text-vert-300 underline decoration-vert-300/40 underline-offset-4 hover:decoration-vert-300"
+              >
+                Accéder aux opportunités qualifiées →
+              </Link>
+            </p>
           </div>
           <div className="lg:justify-self-end lg:max-w-sm">
             <HeroPreview />
@@ -201,33 +203,6 @@ export default async function LandingPage() {
           <span>Décarbonisation &amp; sécurité d'approvisionnement · méthodologie transparente</span>
         </div>
       </footer>
-    </div>
-  );
-}
-
-function RoleEntry({
-  accent,
-  who,
-  promise,
-  cta,
-  href,
-}: {
-  accent: "gold" | "vert";
-  who: string;
-  promise: string;
-  cta: string;
-  href: string;
-}) {
-  return (
-    <div className="rounded-xl border border-white/12 bg-white/[0.04] p-4">
-      <div className={`flex items-center gap-2 text-sm font-semibold ${accent === "vert" ? "text-vert-300" : "text-gold-200"}`}>
-        <span className={`h-2 w-2 rounded-full ${accent === "vert" ? "bg-vert" : "bg-gold"}`} />
-        {who}
-      </div>
-      <p className="mt-2 text-sm text-navy-100">{promise}</p>
-      <Link href={href} className="mt-3 inline-flex text-sm font-medium text-white underline decoration-white/30 underline-offset-4 hover:decoration-white">
-        {cta} →
-      </Link>
     </div>
   );
 }
