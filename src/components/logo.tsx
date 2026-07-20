@@ -23,6 +23,35 @@ export function Logo({ size = 32 }: { size?: number }) {
   );
 }
 
+/** Grand disque solaire décoratif (hero landing) — couronne de rayons animée. */
+export function SolarDisc({ className = "" }: { className?: string }) {
+  const rays = Array.from({ length: 16 }).map((_, i) => {
+    const a = (i / 16) * Math.PI * 2;
+    const c = 100;
+    const x1 = c + Math.cos(a) * 54;
+    const y1 = c + Math.sin(a) * 54;
+    const x2 = c + Math.cos(a) * 66;
+    const y2 = c + Math.sin(a) * 66;
+    return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} />;
+  });
+  return (
+    <svg viewBox="0 0 200 200" className={className} aria-hidden>
+      <defs>
+        <radialGradient id="aten-sun" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#e9d084" />
+          <stop offset="60%" stopColor="#c9a227" />
+          <stop offset="100%" stopColor="#a9871c" />
+        </radialGradient>
+      </defs>
+      <g className="aten-spin" stroke="#c9a227" strokeWidth={2.4} strokeLinecap="round" opacity={0.5}>
+        {rays}
+      </g>
+      <circle cx={100} cy={100} r={46} fill="url(#aten-sun)" />
+      <path d="M100 40 A60 60 0 0 1 160 100" fill="none" stroke="#1fa36a" strokeWidth={5} strokeLinecap="round" />
+    </svg>
+  );
+}
+
 export function Wordmark() {
   return (
     <span className="flex items-center gap-2">

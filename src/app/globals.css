@@ -68,3 +68,15 @@
   .rating-C { @apply badge bg-gold-50 text-gold-800; }
   .rating-D { @apply badge bg-navy-100 text-navy-600; }
 }
+
+/* Disque solaire — rotation lente de la couronne de rayons (landing). */
+@keyframes aten-spin {
+  to { transform: rotate(360deg); }
+}
+.aten-spin {
+  transform-origin: 50% 50%;
+  animation: aten-spin 90s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .aten-spin { animation: none; }
+}
