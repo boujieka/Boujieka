@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Wordmark, SolarDisc } from "@/components/logo";
+import { HeroPreview } from "@/components/hero-preview";
 import { getSession } from "@/lib/auth/session";
 
 export default async function LandingPage() {
@@ -57,9 +58,9 @@ export default async function LandingPage() {
       {/* Hero — orienté résultat */}
       <section className="relative overflow-hidden bg-navy-700 text-white">
         <div className="pointer-events-none absolute inset-0 -z-10" style={{ background: "linear-gradient(180deg, #0a1e3f 0%, #0b2148 100%)" }} />
-        <SolarDisc className="pointer-events-none absolute -right-24 top-10 -z-10 h-72 w-72 opacity-25" />
-        <div className="mx-auto max-w-6xl px-6 py-20">
-          <div className="max-w-3xl">
+        <SolarDisc className="pointer-events-none absolute -right-24 top-10 -z-10 h-72 w-72 opacity-20" />
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 lg:grid-cols-[1.15fr,0.85fr]">
+          <div>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-200">
               Origination de projets solaire + stockage · industrie &amp; tertiaire
             </p>
@@ -88,6 +89,9 @@ export default async function LandingPage() {
                 href={session ? "/opportunities" : "/register"}
               />
             </div>
+          </div>
+          <div className="lg:justify-self-end lg:max-w-sm">
+            <HeroPreview />
           </div>
         </div>
       </section>
