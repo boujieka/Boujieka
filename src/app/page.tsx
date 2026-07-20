@@ -65,7 +65,7 @@ export default async function LandingPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-200">
               Pré-faisabilité &amp; origination · solaire + stockage C&amp;I
             </p>
-            <h1 className="mt-4 text-balance text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl">
+            <h1 className="mt-4 text-balance text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl">
               Moins de coupures, une facture maîtrisée, chaque tonne de CO₂ prouvée.
             </h1>
             <p className="mt-4 text-lg font-medium text-gold-200">
@@ -212,7 +212,7 @@ export default async function LandingPage() {
       <section className="border-t border-navy-100 bg-navy-700 text-white">
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-6 py-14 sm:flex-row sm:items-center">
           <div>
-            <h2 className="text-2xl font-semibold">Chiffrez votre premier projet</h2>
+            <h2 className="text-2xl font-semibold text-white">Chiffrez votre premier projet</h2>
             <p className="mt-1 text-navy-100">Créez un compte offtaker ou développeur en quelques minutes.</p>
           </div>
           <Link href={session ? "/dashboard" : "/register"} className="btn-gold text-base">
