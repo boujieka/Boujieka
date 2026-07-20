@@ -50,6 +50,13 @@ Comptes de démonstration (mot de passe `demo1234`) :
 | `npm run prisma:migrate` | migration de développement |
 | `npm run db:seed` | amorçage |
 
+## Déploiement
+
+Voir **[`DEPLOYMENT.md`](DEPLOYMENT.md)** — mise en production sur **Vercel**, **Docker /
+Docker Compose** (`Dockerfile`, `docker-compose.yml`) ou **serveur manuel**, avec la liste
+des variables d'environnement, l'application des migrations (`prisma migrate deploy`) et le
+pooling de connexions Prisma en serverless.
+
 ## Architecture des rôles
 
 Trois rôles applicatifs, un middleware d'accès (`src/middleware.ts`) et des garde-fous serveur (`src/lib/auth/guards.ts`) :
