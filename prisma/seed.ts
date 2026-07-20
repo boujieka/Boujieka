@@ -260,14 +260,30 @@ async function seedInduco() {
       latitude: -4.35,
       longitude: 15.18,
       country: "CG",
-      availableAreaM2: 20200, // trois hangars
-      // Coût actuel de l'énergie, dominé par le diesel de secours (USD/kWh).
-      currentGridTariff: 0.35,
-      annualConsumptionKwh: 24_000_000, // pleine production visée (~2,7 MW moyen)
-      peakDemandKw: 4600, // puissance en pleine production (transfo 5 750 kVA)
+      availableAreaM2: 20200, // trois hangars (note §3.3)
+      // Coût actuel de l'énergie, dominé par le diesel devenu source principale.
+      // Dérivation : 2,64 M$/an ÷ ~12 GWh servis (production plafonnée à 50 %)
+      // ≈ 0,22 $/kWh de carburant ; + O&M, lubrifiants et révisions (~35 %)
+      // ≈ 0,30 $/kWh. Ce n'est PAS le tarif E2C nominal (réseau indisponible la
+      // majorité du temps) mais le coût réellement supporté — base des économies.
+      currentGridTariff: 0.3,
+      // Énergie en PLEINE production (charge à servir pour lever le plafond à
+      // 50 %) : ≈ 24 GWh/an, soit un fonctionnement largement continu à ~2 740 kW
+      // moyen (= 4 600 kW de pointe × facteur de charge ~0,60). Le profil horaire
+      // est modélisé comme continu (gabarit « industrie_continue »).
+      annualConsumptionKwh: 24_000_000,
+      // Pointe de CONCEPTION en pleine production (transfo 5 750 kVA × cos φ 0,8
+      // ≈ 4 600 kW) — supérieure au tirage horaire moyen ; réserve pour
+      // l'expansion (projet de recyclage évoqué dans la note).
+      peakDemandKw: 4600,
       loadCriticality: "critique",
-      outageCostPerHour: 4000, // diesel + production perdue
-      gridOutageHoursYear: 3000, // réseau E2C peu fiable → diesel en source principale
+      // Coût d'une heure de non-fourniture ≈ déficit hors réseau 1 680 kW ×
+      // valeur de la charge perdue (VoLL industriel conservateur ~2 $/kWh)
+      // ≈ 3 400 $/h. Cohérent avec un coût d'opportunité > facture diesel (note §4).
+      outageCostPerHour: 3400,
+      // Réseau E2C indisponible la majorité du temps (diesel = source principale) :
+      // ~57 % de 8760 h ≈ 5 000 h/an d'indisponibilité subie.
+      gridOutageHoursYear: 5000,
     },
   });
 
