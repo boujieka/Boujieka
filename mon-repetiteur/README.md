@@ -1,86 +1,121 @@
 # Mon Répétiteur
 
-An AI-assisted tutoring app for the French national curriculum (Éducation
-nationale), covering collège and lycée across the core subjects.
+A mobile-first, AI-powered exam-prep platform for students preparing for
+Cameroon's terminal secondary examinations: **Terminale C** (Francophone,
+Baccalauréat) and **GCE A-Level** (Anglophone). See `PRD.md` for the full
+product spec and `CLAUDE.md` for engineering/process rules — both are the
+source of truth ahead of this README.
 
-## Build pipeline
-
-The project is built in six gated phases — each one followed by an audit
-(lint + typecheck + test + build) before the next phase begins:
+## Core loop
 
 ```
-Foundation → Audit → Database → Audit → Curriculum → Audit →
-Exercises → Audit → AI Tutor → Audit → Exams → Audit
+LEARN → PRACTICE → TEST → DIAGNOSE → GET HELP → PRACTICE AGAIN → IMPROVE
 ```
 
-- **Foundation** — project scaffold: Next.js + TypeScript, Tailwind, ESLint,
-  Prisma (Postgres), Vitest, CI.
-- **Database** (this phase) — Prisma schema for users, subjects, curriculum
-  topics, exercises, exams, and AI tutor sessions; initial migration; seed
-  skeleton for the subject taxonomy.
-- **Curriculum** — structured content for the French programme scolaire.
-- **Exercises** — practice exercise bank tied to curriculum topics.
-- **AI Tutor** — conversational tutoring assistant.
-- **Exams** — timed assessments and results/analytics.
+## Build phases
+
+Per `CLAUDE.md` §36, each phase has a checks gate (lint + typecheck + test +
+build, `CLAUDE.md` §30) before the next one starts:
+
+```
+Phase 0  Repository discovery
+Phase 1  Foundation        — Next.js + TS + Tailwind + Supabase, auth  ← current
+Phase 2  Curriculum        — programs/classes/subjects/topics/skills/lessons
+Phase 3  Exercises         — exercise bank, scoring, attempts
+Phase 4  Exam archive      — past papers with rights metadata
+Phase 5  Dashboard
+Phase 6  AI Tutor
+Phase 7  Mock exams (P1)
+Phase 8  Study plans (P1)
+Phase 9  Admin CMS (P1)
+Phase 10 QA
+```
 
 ## Stack
 
-- [Next.js](https://nextjs.org) (App Router) + TypeScript
-- [Tailwind CSS](https://tailwindcss.com)
-- [Prisma](https://www.prisma.io) + PostgreSQL
+- [Next.js](https://nextjs.org) 16 (App Router) + TypeScript + Tailwind CSS
+- [Supabase](https://supabase.com): Postgres, Auth, Storage, pgvector — all
+  access goes through Row Level Security (`CLAUDE.md` §12)
 - [Vitest](https://vitest.dev) + React Testing Library
 
 ## Getting started
 
-Requires a local Postgres instance (used for both dev and the test suite's
-DB integration tests).
+Requires [Docker](https://docs.docker.com/get-docker/) (the Supabase CLI
+runs Postgres/Auth/Storage locally in containers).
 
 ```bash
 npm install
-cp .env.example .env      # then point DATABASE_URL at your Postgres
-npm run db:generate       # generate the Prisma client
-npm run db:migrate        # create the dev DB schema (needs shadow DB privileges)
-npm run db:seed           # seed the subject taxonomy
+npm run db:start      # starts the local Supabase stack, applies migrations
+npm run db:types      # generate src/lib/supabase/database.types.ts
+cp .env.example .env  # fill in from `npx supabase status`
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
 
+`npm run db:start` prints `API_URL` / `ANON_KEY` / `SERVICE_ROLE_KEY` — map
+those to `NEXT_PUBLIC_SUPABASE_URL` / `NEXT_PUBLIC_SUPABASE_ANON_KEY` /
+`SUPABASE_SERVICE_ROLE_KEY` in `.env`. Local Studio UI is at
+`http://127.0.0.1:54323`; local email testing (signup confirmations, if
+enabled) is at `http://127.0.0.1:54324`.
+
 ## Scripts
 
-| Script                      | Purpose                                          |
-| ---------------------------- | ------------------------------------------------- |
-| `npm run dev`                | Start the dev server                              |
-| `npm run build`              | Production build                                  |
-| `npm run lint`                | ESLint                                            |
-| `npm run typecheck`          | TypeScript, no emit                               |
-| `npm run test`                | Run tests once (Vitest, incl. DB integration)     |
-| `npm run test:watch`         | Run tests in watch mode                           |
-| `npm run db:generate`        | Regenerate the Prisma client                      |
-| `npm run db:migrate`         | Create/apply migrations in dev (needs shadow DB)  |
-| `npm run db:migrate:deploy`  | Apply existing migrations (used by CI/prod)       |
-| `npm run db:seed`            | Seed the subject taxonomy                         |
-| `npm run db:studio`          | Open Prisma Studio                                |
+| Script                 | Purpose                                              |
+| ----------------------- | ------------------------------------------------------ |
+| `npm run dev`           | Start the dev server                                    |
+| `npm run build`         | Production build                                        |
+| `npm run lint`          | ESLint                                                   |
+| `npm run typecheck`     | TypeScript, no emit                                      |
+| `npm run test`          | Run tests once (Vitest, incl. Supabase/RLS integration)  |
+| `npm run test:watch`    | Run tests in watch mode                                  |
+| `npm run db:start`      | Start the local Supabase stack                           |
+| `npm run db:stop`       | Stop it                                                   |
+| `npm run db:reset`      | Recreate the local DB from `supabase/migrations/` + seed |
+| `npm run db:migration:new` | Scaffold a new migration file                         |
+| `npm run db:diff`       | Diff local schema vs. migrations                         |
+| `npm run db:types`      | Regenerate `src/lib/supabase/database.types.ts`          |
 
 ## Database
 
-Schema lives in `prisma/schema.prisma`. Core entities: `User` (with
-`ParentStudentLink` for guardian↔student relationships), `Subject` →
-`CurriculumTopic` (self-referencing for sub-topics) → `Exercise`, `Exam` /
-`ExamQuestion` / `ExamAttempt` / `ExamAnswer`, `TutorSession` /
-`TutorMessage`, and `TopicProgress` for per-student mastery tracking.
+Schema lives in `supabase/migrations/*.sql`. Every table has Row Level
+Security enabled — see `CLAUDE.md` §12/§13; `supabase/migrations/*_profiles.sql`
+is the reference pattern (RLS policies **and** explicit `GRANT`s — Postgres
+requires both, RLS alone isn't enough). Regenerate
+`src/lib/supabase/database.types.ts` (committed, not gitignored — CI checks
+it isn't stale) after every schema change.
 
-`prisma/seed.ts` seeds only the `Subject` taxonomy — full curriculum content
-is populated in the Curriculum phase.
+Current tables: `profiles` (role-gated; role changes only via `service_role`,
+enforced by a trigger, not just a policy). Phase 2 adds
+`programs`/`classes`/`subjects`/`topics`/`skills`/`lessons`; see `PRD.md` §8
+for the full planned entity list.
 
-## Audit checklist
+## Auth
 
-Each phase's audit runs, and must pass, before the next phase starts:
+Supabase Auth, email/password. `src/lib/supabase/{client,server,admin}.ts`
+are the three client variants (browser / per-request server / service-role —
+see file comments for when to use which). `src/proxy.ts` is this Next.js
+version's renamed `middleware.ts` (see `AGENTS.md`); it refreshes the
+session cookie on every request. Business logic lives in `src/services/`,
+not in components or route files (`CLAUDE.md` §6/§8).
+
+## Checks gate
+
+Required before any phase is considered done (`CLAUDE.md` §30):
 
 ```bash
-npm run db:generate && npm run db:migrate:deploy && \
 npm run lint && npm run typecheck && npm run test && npm run build
 ```
 
-CI runs the same checks (against a Postgres service container) on every
+CI runs the same checks against a real local Supabase stack on every
 push/PR touching `mon-repetiteur/` (`.github/workflows/mon-repetiteur-ci.yml`).
+
+## Known limitations (Phase 1)
+
+- Auth is email/password only; local dev has email confirmation disabled
+  (`supabase/config.toml`) so signup logs straight in — a deployed project's
+  confirmation behavior may differ and isn't tested here.
+- Onboarding (program/class selection) isn't implemented yet — it depends on
+  the `programs`/`classes` tables Phase 2 adds.
+- No E2E (Playwright) suite yet — routes were smoke-tested manually via a
+  built `next start` server; automated E2E is Phase 10 (QA) per `CLAUDE.md` §36.
