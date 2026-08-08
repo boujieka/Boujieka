@@ -276,6 +276,136 @@ export type Database = {
           },
         ]
       }
+      mock_exam_answers: {
+        Row: {
+          answer: Json
+          id: string
+          is_correct: boolean | null
+          mock_exam_id: string
+          mock_exam_question_id: string
+        }
+        Insert: {
+          answer: Json
+          id?: string
+          is_correct?: boolean | null
+          mock_exam_id: string
+          mock_exam_question_id: string
+        }
+        Update: {
+          answer?: Json
+          id?: string
+          is_correct?: boolean | null
+          mock_exam_id?: string
+          mock_exam_question_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "mock_exam_answers_mock_exam_id_fkey"
+            columns: ["mock_exam_id"]
+            isOneToOne: false
+            referencedRelation: "mock_exams"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "mock_exam_answers_mock_exam_question_id_fkey"
+            columns: ["mock_exam_question_id"]
+            isOneToOne: true
+            referencedRelation: "mock_exam_questions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      mock_exam_questions: {
+        Row: {
+          exercise_id: string
+          id: string
+          mock_exam_id: string
+          order: number
+        }
+        Insert: {
+          exercise_id: string
+          id?: string
+          mock_exam_id: string
+          order?: number
+        }
+        Update: {
+          exercise_id?: string
+          id?: string
+          mock_exam_id?: string
+          order?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "mock_exam_questions_exercise_id_fkey"
+            columns: ["exercise_id"]
+            isOneToOne: false
+            referencedRelation: "exercises"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "mock_exam_questions_mock_exam_id_fkey"
+            columns: ["mock_exam_id"]
+            isOneToOne: false
+            referencedRelation: "mock_exams"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      mock_exams: {
+        Row: {
+          class_id: string
+          id: string
+          profile_id: string
+          score: number | null
+          started_at: string
+          status: Database["public"]["Enums"]["mock_exam_status"]
+          subject_id: string
+          submitted_at: string | null
+        }
+        Insert: {
+          class_id: string
+          id?: string
+          profile_id: string
+          score?: number | null
+          started_at?: string
+          status?: Database["public"]["Enums"]["mock_exam_status"]
+          subject_id: string
+          submitted_at?: string | null
+        }
+        Update: {
+          class_id?: string
+          id?: string
+          profile_id?: string
+          score?: number | null
+          started_at?: string
+          status?: Database["public"]["Enums"]["mock_exam_status"]
+          subject_id?: string
+          submitted_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "mock_exams_class_id_fkey"
+            columns: ["class_id"]
+            isOneToOne: false
+            referencedRelation: "classes"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "mock_exams_profile_id_fkey"
+            columns: ["profile_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "mock_exams_subject_id_fkey"
+            columns: ["subject_id"]
+            isOneToOne: false
+            referencedRelation: "subjects"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           created_at: string
@@ -492,6 +622,7 @@ export type Database = {
         | "true_false"
         | "short_answer"
         | "free_response"
+      mock_exam_status: "in_progress" | "submitted"
       user_role: "student" | "parent" | "teacher" | "admin"
     }
     CompositeTypes: {
@@ -639,6 +770,7 @@ export const Constants = {
         "short_answer",
         "free_response",
       ],
+      mock_exam_status: ["in_progress", "submitted"],
       user_role: ["student", "parent", "teacher", "admin"],
     },
   },

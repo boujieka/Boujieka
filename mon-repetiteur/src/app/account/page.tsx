@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getCurrentProfile } from "@/services/profiles";
+import { startMockExamAction } from "@/app/exam/actions";
 import { LogoutButton } from "./logout-button";
 
 export default async function AccountPage() {
@@ -26,6 +27,11 @@ export default async function AccountPage() {
       <Link href="/progress" className="text-sm underline">
         Ma progression
       </Link>
+      <form action={startMockExamAction}>
+        <button type="submit" className="text-sm underline">
+          Passer un examen blanc
+        </button>
+      </form>
       <LogoutButton />
     </main>
   );
