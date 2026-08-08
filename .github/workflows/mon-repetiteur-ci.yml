@@ -1,0 +1,47 @@
+name: mon-repetiteur CI
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - "mon-repetiteur/**"
+      - ".github/workflows/mon-repetiteur-ci.yml"
+  pull_request:
+    paths:
+      - "mon-repetiteur/**"
+      - ".github/workflows/mon-repetiteur-ci.yml"
+
+defaults:
+  run:
+    working-directory: mon-repetiteur
+
+jobs:
+  audit:
+    name: Lint, typecheck, test, build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: mon-repetiteur/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate Prisma client
+        run: npm run db:generate
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Test
+        run: npm run test
+
+      - name: Build
+        run: npm run build
