@@ -29,8 +29,8 @@ Phase 3  Exercises         — exercise bank, scoring, attempts     ✅
          Progress          — skill_progress tracking              ✅
 Phase 6  AI Tutor          — AIService, pedagogical prompt, chat UI  ✅
          Mock Exam         — createMockExam/submitMockExam        ✅
-         GCE A-Level       — second program                       ← current
-Phase 4  Exam archive      — past papers with rights metadata
+         GCE A-Level       — second program                       ✅
+Phase 4  Exam archive      — past papers with rights metadata     ✅
 Phase 5  Dashboard
 Phase 7  Mock exams as a general P1 feature (beyond the first vertical)
 Phase 8  Study plans (P1)
@@ -100,8 +100,11 @@ immutable once written, scored server-side — see `lib/scoring.ts`);
 `skill_progress` (maintained by a trigger on `attempts` insert, not written
 directly); `ai_conversations`/`ai_messages` (private to their owner, no
 staff bypass — unlike everything else above); `mock_exams`/
-`mock_exam_questions`/`mock_exam_answers`. See `PRD.md` §8 for the full
-planned entity list (Exam archive, Dashboard, Study plans, Admin CMS still
+`mock_exam_questions`/`mock_exam_answers`; `exams`/`exam_questions` (past
+papers — `rights_status` gates whether `source_url` ever reaches a client,
+stripped server-side in `lib/exam-rights.ts`, never left to the UI to
+remember; see `CLAUDE.md` §15). See `PRD.md` §8 for the full planned
+entity list (Dashboard, Study plans, Admin CMS still
 to come).
 
 ## Auth
@@ -143,6 +146,11 @@ push/PR touching `mon-repetiteur/` (`.github/workflows/mon-repetiteur-ci.yml`).
 - Lesson/exercise content across both programs is placeholder text I wrote,
   not sourced against the official OBC / Cameroon GCE Board syllabi — every
   row stays `draft` for exactly this reason (see `PRD.md` §6/§14).
+- The Exam archive has no real past papers yet — both seeded rows are
+  explicitly `[DEMO]`-labeled with `rights_status='unknown'` and no
+  `source_url`. No file upload/storage is wired up yet either (`exams` is
+  an index that can point at an external `source_url`, not a file host) —
+  see the migration's header comment for why that's deliberate for now.
 - `/learn` assumes one subject per program (picks `subjects[0]`) and the
   highest-`order` class as the "current" one — stops being safe the moment
   a program gets a second subject or the target class isn't simply

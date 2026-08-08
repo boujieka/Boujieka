@@ -171,6 +171,115 @@ export type Database = {
           },
         ]
       }
+      exam_questions: {
+        Row: {
+          exam_id: string
+          exercise_id: string
+          id: string
+          order: number
+        }
+        Insert: {
+          exam_id: string
+          exercise_id: string
+          id?: string
+          order?: number
+        }
+        Update: {
+          exam_id?: string
+          exercise_id?: string
+          id?: string
+          order?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "exam_questions_exam_id_fkey"
+            columns: ["exam_id"]
+            isOneToOne: false
+            referencedRelation: "exams"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "exam_questions_exercise_id_fkey"
+            columns: ["exercise_id"]
+            isOneToOne: false
+            referencedRelation: "exercises"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      exams: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          id: string
+          permission_reference: string | null
+          program_id: string
+          rights_status: Database["public"]["Enums"]["exam_rights_status"]
+          session: string | null
+          source: string | null
+          source_url: string | null
+          status: Database["public"]["Enums"]["content_status"]
+          subject_id: string
+          title: string
+          updated_at: string
+          year: number
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          permission_reference?: string | null
+          program_id: string
+          rights_status?: Database["public"]["Enums"]["exam_rights_status"]
+          session?: string | null
+          source?: string | null
+          source_url?: string | null
+          status?: Database["public"]["Enums"]["content_status"]
+          subject_id: string
+          title: string
+          updated_at?: string
+          year: number
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          permission_reference?: string | null
+          program_id?: string
+          rights_status?: Database["public"]["Enums"]["exam_rights_status"]
+          session?: string | null
+          source?: string | null
+          source_url?: string | null
+          status?: Database["public"]["Enums"]["content_status"]
+          subject_id?: string
+          title?: string
+          updated_at?: string
+          year?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "exams_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "exams_program_id_fkey"
+            columns: ["program_id"]
+            isOneToOne: false
+            referencedRelation: "programs"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "exams_subject_id_fkey"
+            columns: ["subject_id"]
+            isOneToOne: false
+            referencedRelation: "subjects"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       exercises: {
         Row: {
           content: Json
@@ -617,6 +726,12 @@ export type Database = {
         | "published"
         | "archived"
       difficulty_level: "easy" | "medium" | "hard"
+      exam_rights_status:
+        | "verified"
+        | "permission_required"
+        | "publicly_reusable"
+        | "restricted"
+        | "unknown"
       exercise_type:
         | "multiple_choice"
         | "true_false"
@@ -764,6 +879,13 @@ export const Constants = {
         "archived",
       ],
       difficulty_level: ["easy", "medium", "hard"],
+      exam_rights_status: [
+        "verified",
+        "permission_required",
+        "publicly_reusable",
+        "restricted",
+        "unknown",
+      ],
       exercise_type: [
         "multiple_choice",
         "true_false",

@@ -252,3 +252,30 @@ select sk.id, es.type::exercise_type, es.difficulty::difficulty_level, es.prompt
 from exercise_seed es
 join public.skills sk on sk.title = es.skill_title
 on conflict (skill_id, prompt) do update set content = excluded.content;
+
+-- ---------------------------------------------------------------------------
+-- Exam archive: DEMO entries only (CLAUDE.md §16) — no real past paper has
+-- been sourced for either program yet. rights_status stays 'unknown'
+-- (the honest default: nothing has been verified) and there is
+-- deliberately no source_url, since inventing one — even pointing at a
+-- real exam board's site — would assert a specific document exists and
+-- is reachable there, which hasn't been checked. Unlike lesson/exercise
+-- content, these ARE marked 'published': the archive listing itself
+-- (title/year, clearly DEMO) isn't unvalidated educational content the
+-- same way a lesson's explanation is, and hiding it would leave the
+-- Exam archive feature with nothing to show without manual promotion.
+-- ---------------------------------------------------------------------------
+
+insert into public.exams (program_id, subject_id, year, title, status, rights_status, source)
+select p.id, s.id, 2023, e.title, 'published', 'unknown', e.source
+from public.programs p
+join public.subjects s on s.program_id = p.id
+join (values
+  ('terminale_c', 'mathematiques',
+   '[DEMO] Exemple d''entree d''archive - Mathematiques',
+   'Contenu de demonstration : aucun document reel. Aucune epreuve officielle n''a encore ete sourcee pour ce programme.'),
+  ('gce_a_level', 'mathematics',
+   '[DEMO] Example archive entry - Mathematics',
+   'Demo content only: no real document. No official past paper has been sourced for this program yet.')
+) as e(program_code, subject_slug, title, source) on e.program_code = p.code and e.subject_slug = s.slug
+on conflict (subject_id, year, title) do update set source = excluded.source;

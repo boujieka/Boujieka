@@ -84,13 +84,18 @@ export default async function LearnPage({
           <h1 className="text-2xl font-semibold text-black dark:text-zinc-50">
             {subject.name}
           </h1>
-          <form action={startMockExamAction}>
-            <input type="hidden" name="subjectId" value={subject.id} />
-            <input type="hidden" name="classId" value={targetClass.id} />
-            <button type="submit" className="shrink-0 text-xs underline">
-              Passer un examen blanc
-            </button>
-          </form>
+          <div className="flex shrink-0 items-center gap-3">
+            <Link href={`/archive?program=${program.code}`} className="text-xs underline">
+              Archive des épreuves
+            </Link>
+            <form action={startMockExamAction}>
+              <input type="hidden" name="subjectId" value={subject.id} />
+              <input type="hidden" name="classId" value={targetClass.id} />
+              <button type="submit" className="text-xs underline">
+                Passer un examen blanc
+              </button>
+            </form>
+          </div>
         </div>
       </div>
 
