@@ -110,3 +110,46 @@ select isk.id, ls.title, ls.content, 'draft'
 from lesson_seed ls
 join inserted_skills isk on isk.title = ls.skill_title
 on conflict (skill_id, title) do update set content = excluded.content;
+
+-- ---------------------------------------------------------------------------
+-- Phase 3: one auto-gradable exercise per skill. Same draft-until-validated
+-- rule as lessons — these are ordinary, well-established maths facts (not
+-- Cameroon-specific syllabus minutiae), but stay in 'draft' pending human
+-- review, per CLAUDE.md §14.
+-- ---------------------------------------------------------------------------
+
+with exercise_seed (skill_title, type, difficulty, prompt, content) as (
+  values
+    ('Vocabulaire des probabilités', 'multiple_choice', 'easy',
+     'Comment note-t-on l''evenement contraire de A ?',
+     '{"choices": ["A inter B", "non A", "A union B", "P(A)"], "correctIndex": 1}'::jsonb),
+    ('Probabilités conditionnelles', 'true_false', 'medium',
+     'Si A et B sont independants, alors P(A inter B) = P(A) x P(B).',
+     '{"answer": true}'::jsonb),
+    ('Variables aléatoires et loi binomiale', 'multiple_choice', 'medium',
+     'Pour une loi binomiale B(n, p), l''esperance E(X) est egale a :',
+     '{"choices": ["n x p", "n + p", "p / n", "n x p x (1-p)"], "correctIndex": 0}'::jsonb),
+    ('Limites et continuité', 'true_false', 'easy',
+     'Si une fonction est derivable en un point, alors elle est continue en ce point.',
+     '{"answer": true}'::jsonb),
+    ('Dérivation et étude de fonctions', 'multiple_choice', 'easy',
+     'La derivee de f(x) = x^2 est :',
+     '{"choices": ["x", "2x", "x^2", "2"], "correctIndex": 1}'::jsonb),
+    ('Fonction exponentielle et logarithme népérien', 'true_false', 'easy',
+     'ln(e) = 1.',
+     '{"answer": true}'::jsonb),
+    ('Forme algébrique et opérations', 'multiple_choice', 'easy',
+     'Le conjugue de z = 3 + 2i est :',
+     '{"choices": ["3 - 2i", "-3 + 2i", "3 + 2i", "-3 - 2i"], "correctIndex": 0}'::jsonb),
+    ('Forme trigonométrique et exponentielle', 'true_false', 'medium',
+     'Le module de z = i est egal a 1.',
+     '{"answer": true}'::jsonb),
+    ('Équations dans l''ensemble des nombres complexes', 'multiple_choice', 'hard',
+     'Dans l''ensemble des nombres complexes, l''equation x^2 + 1 = 0 a pour solutions :',
+     '{"choices": ["x = 1 et x = -1", "x = i et x = -i", "Aucune solution", "x = 0"], "correctIndex": 1}'::jsonb)
+)
+insert into public.exercises (skill_id, type, difficulty, prompt, content, status)
+select sk.id, es.type::exercise_type, es.difficulty::difficulty_level, es.prompt, es.content, 'draft'
+from exercise_seed es
+join public.skills sk on sk.title = es.skill_title
+on conflict (skill_id, prompt) do update set content = excluded.content;

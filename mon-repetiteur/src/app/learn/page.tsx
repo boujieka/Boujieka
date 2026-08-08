@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getCurrentProfile } from "@/services/profiles";
 import {
@@ -70,9 +71,14 @@ export default async function LearnPage() {
                   key={skill.id}
                   className="rounded border border-zinc-200 p-3 dark:border-zinc-800"
                 >
-                  <p className="text-sm font-medium text-black dark:text-zinc-50">
-                    {skill.title}
-                  </p>
+                  <div className="flex items-center justify-between gap-2">
+                    <p className="text-sm font-medium text-black dark:text-zinc-50">
+                      {skill.title}
+                    </p>
+                    <Link href={`/practice/${skill.id}`} className="shrink-0 text-xs underline">
+                      S&apos;entraîner
+                    </Link>
+                  </div>
                   {lessons.length === 0 ? (
                     <p className="mt-1 text-sm text-zinc-500">
                       Leçon pas encore publiée.

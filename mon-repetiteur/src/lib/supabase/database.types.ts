@@ -34,6 +34,47 @@ export type Database = {
   }
   public: {
     Tables: {
+      attempts: {
+        Row: {
+          answer: Json
+          attemptable_id: string
+          attemptable_type: Database["public"]["Enums"]["attemptable_type"]
+          attempted_at: string
+          id: string
+          is_correct: boolean | null
+          profile_id: string
+          score: number | null
+        }
+        Insert: {
+          answer: Json
+          attemptable_id: string
+          attemptable_type: Database["public"]["Enums"]["attemptable_type"]
+          attempted_at?: string
+          id?: string
+          is_correct?: boolean | null
+          profile_id: string
+          score?: number | null
+        }
+        Update: {
+          answer?: Json
+          attemptable_id?: string
+          attemptable_type?: Database["public"]["Enums"]["attemptable_type"]
+          attempted_at?: string
+          id?: string
+          is_correct?: boolean | null
+          profile_id?: string
+          score?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "attempts_profile_id_fkey"
+            columns: ["profile_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       classes: {
         Row: {
           code: string
@@ -62,6 +103,60 @@ export type Database = {
             columns: ["program_id"]
             isOneToOne: false
             referencedRelation: "programs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      exercises: {
+        Row: {
+          content: Json
+          created_at: string
+          created_by: string | null
+          difficulty: Database["public"]["Enums"]["difficulty_level"]
+          id: string
+          prompt: string
+          skill_id: string
+          status: Database["public"]["Enums"]["content_status"]
+          type: Database["public"]["Enums"]["exercise_type"]
+          updated_at: string
+        }
+        Insert: {
+          content: Json
+          created_at?: string
+          created_by?: string | null
+          difficulty?: Database["public"]["Enums"]["difficulty_level"]
+          id?: string
+          prompt: string
+          skill_id: string
+          status?: Database["public"]["Enums"]["content_status"]
+          type: Database["public"]["Enums"]["exercise_type"]
+          updated_at?: string
+        }
+        Update: {
+          content?: Json
+          created_at?: string
+          created_by?: string | null
+          difficulty?: Database["public"]["Enums"]["difficulty_level"]
+          id?: string
+          prompt?: string
+          skill_id?: string
+          status?: Database["public"]["Enums"]["content_status"]
+          type?: Database["public"]["Enums"]["exercise_type"]
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "exercises_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "exercises_skill_id_fkey"
+            columns: ["skill_id"]
+            isOneToOne: false
+            referencedRelation: "skills"
             referencedColumns: ["id"]
           },
         ]
@@ -280,12 +375,19 @@ export type Database = {
       is_staff: { Args: never; Returns: boolean }
     }
     Enums: {
+      attemptable_type: "exercise"
       content_status:
         | "draft"
         | "under_review"
         | "validated"
         | "published"
         | "archived"
+      difficulty_level: "easy" | "medium" | "hard"
+      exercise_type:
+        | "multiple_choice"
+        | "true_false"
+        | "short_answer"
+        | "free_response"
       user_role: "student" | "parent" | "teacher" | "admin"
     }
     CompositeTypes: {
@@ -417,12 +519,20 @@ export const Constants = {
   },
   public: {
     Enums: {
+      attemptable_type: ["exercise"],
       content_status: [
         "draft",
         "under_review",
         "validated",
         "published",
         "archived",
+      ],
+      difficulty_level: ["easy", "medium", "hard"],
+      exercise_type: [
+        "multiple_choice",
+        "true_false",
+        "short_answer",
+        "free_response",
       ],
       user_role: ["student", "parent", "teacher", "admin"],
     },
