@@ -72,6 +72,23 @@ export async function getSkills(topicId: string): Promise<Skill[]> {
   return data;
 }
 
+/** Lessons for a skill. RLS decides visibility (published, own draft, or staff) —
+ * an empty result for a student can mean "no lesson yet" or "not published yet",
+ * which the UI should treat the same way (CLAUDE.md §23 empty state). */
+export async function getLessonsForSkill(skillId: string): Promise<Lesson[]> {
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from("lessons")
+    .select("*")
+    .eq("skill_id", skillId)
+    .order("created_at");
+  if (error) {
+    console.error("getLessonsForSkill:", error.message);
+    return [];
+  }
+  return data;
+}
+
 /** A single lesson. RLS decides visibility (published, or own draft, or staff). */
 export async function getLesson(lessonId: string): Promise<Lesson | null> {
   const supabase = await createClient();

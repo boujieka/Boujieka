@@ -27,3 +27,86 @@ join (values
   ('gce_a_level', 'upper_sixth', 'Upper Sixth', 1)
 ) as c(program_code, code, name, "order") on c.program_code = p.code
 on conflict (program_id, code) do update set name = excluded.name, "order" = excluded."order";
+
+-- ---------------------------------------------------------------------------
+-- First vertical (PRD.md §5/§37): Terminale C -> Mathématiques ->
+-- Probabilités / Fonctions / Nombres complexes.
+--
+-- Lesson content below is a first-pass draft, NOT sourced against the
+-- official OBC syllabus (see PRD.md §6's open assumptions) — every lesson
+-- stays at status='draft' here. Nothing in this file sets status to
+-- 'published'; that's a deliberate human action per CLAUDE.md §14, not
+-- something seed data does for itself.
+-- ---------------------------------------------------------------------------
+
+with target_subject as (
+  insert into public.subjects (program_id, slug, name)
+  select p.id, 'mathematiques', 'Mathématiques'
+  from public.programs p where p.code = 'terminale_c'
+  on conflict (program_id, slug) do update set name = excluded.name
+  returning id
+),
+target_class as (
+  select c.id from public.classes c
+  join public.programs p on p.id = c.program_id
+  where p.code = 'terminale_c' and c.code = 'terminale'
+),
+topic_seed (title, "order") as (
+  values
+    ('Probabilités', 1),
+    ('Fonctions', 2),
+    ('Nombres complexes', 3)
+),
+inserted_topics as (
+  insert into public.topics (subject_id, class_id, title, "order")
+  select (select id from target_subject), (select id from target_class), ts.title, ts."order"
+  from topic_seed ts
+  on conflict (subject_id, class_id, title) do update set "order" = excluded."order"
+  returning id, title
+),
+skill_seed (topic_title, title, "order") as (
+  values
+    ('Probabilités', 'Vocabulaire des probabilités', 1),
+    ('Probabilités', 'Probabilités conditionnelles', 2),
+    ('Probabilités', 'Variables aléatoires et loi binomiale', 3),
+    ('Fonctions', 'Limites et continuité', 1),
+    ('Fonctions', 'Dérivation et étude de fonctions', 2),
+    ('Fonctions', 'Fonction exponentielle et logarithme népérien', 3),
+    ('Nombres complexes', 'Forme algébrique et opérations', 1),
+    ('Nombres complexes', 'Forme trigonométrique et exponentielle', 2),
+    ('Nombres complexes', 'Équations dans l''ensemble des nombres complexes', 3)
+),
+inserted_skills as (
+  insert into public.skills (topic_id, title, "order")
+  select it.id, ss.title, ss."order"
+  from skill_seed ss
+  join inserted_topics it on it.title = ss.topic_title
+  on conflict (topic_id, title) do update set "order" = excluded."order"
+  returning id, title
+),
+lesson_seed (skill_title, title, content) as (
+  values
+    ('Vocabulaire des probabilités', 'Introduction au vocabulaire des probabilités',
+     'Brouillon (non valide) : univers, issue, evenement, evenement contraire, evenements incompatibles ; calcul de probabilites par denombrement. A valider par rapport au programme officiel de l''OBC avant publication.'),
+    ('Probabilités conditionnelles', 'Probabilites conditionnelles et independance',
+     'Brouillon (non valide) : probabilite conditionnelle P(A|B), formule des probabilites totales, independance de deux evenements. A valider par rapport au programme officiel de l''OBC avant publication.'),
+    ('Variables aléatoires et loi binomiale', 'Variables aleatoires et loi binomiale',
+     'Brouillon (non valide) : variable aleatoire discrete, esperance et variance, epreuve de Bernoulli, loi binomiale B(n, p). A valider par rapport au programme officiel de l''OBC avant publication.'),
+    ('Limites et continuité', 'Limites et continuite d''une fonction',
+     'Brouillon (non valide) : limite d''une fonction en un point ou a l''infini, continuite, theoreme des valeurs intermediaires. A valider par rapport au programme officiel de l''OBC avant publication.'),
+    ('Dérivation et étude de fonctions', 'Derivation et etude de fonctions',
+     'Brouillon (non valide) : nombre derive, fonction derivee, sens de variation, extremums, construction d''un tableau de variations. A valider par rapport au programme officiel de l''OBC avant publication.'),
+    ('Fonction exponentielle et logarithme népérien', 'Fonction exponentielle et logarithme neperien',
+     'Brouillon (non valide) : proprietes de la fonction exponentielle, fonction logarithme neperien comme reciproque, resolution d''equations. A valider par rapport au programme officiel de l''OBC avant publication.'),
+    ('Forme algébrique et opérations', 'Nombres complexes : forme algebrique et operations',
+     'Brouillon (non valide) : nombre complexe sous forme algebrique a + ib, addition, multiplication, conjugue, module. A valider par rapport au programme officiel de l''OBC avant publication.'),
+    ('Forme trigonométrique et exponentielle', 'Nombres complexes : forme trigonometrique et exponentielle',
+     'Brouillon (non valide) : module et argument, forme trigonometrique, notation exponentielle e^(i*theta), formules de Moivre et d''Euler. A valider par rapport au programme officiel de l''OBC avant publication.'),
+    ('Équations dans l''ensemble des nombres complexes', 'Equations dans l''ensemble des nombres complexes',
+     'Brouillon (non valide) : resolution d''equations du second degre a coefficients reels dans l''ensemble des nombres complexes, racines carrees d''un nombre complexe. A valider par rapport au programme officiel de l''OBC avant publication.')
+)
+insert into public.lessons (skill_id, title, content, status)
+select isk.id, ls.title, ls.content, 'draft'
+from lesson_seed ls
+join inserted_skills isk on isk.title = ls.skill_title
+on conflict (skill_id, title) do update set content = excluded.content;

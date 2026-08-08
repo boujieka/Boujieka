@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getCurrentProfile } from "@/services/profiles";
 import { LogoutButton } from "./logout-button";
@@ -19,6 +20,9 @@ export default async function AccountPage() {
         <dt className="text-zinc-500">Rôle</dt>
         <dd className="text-black dark:text-zinc-50">{profile.role}</dd>
       </dl>
+      <Link href="/learn" className="text-sm underline">
+        Voir le programme
+      </Link>
       <LogoutButton />
     </main>
   );
