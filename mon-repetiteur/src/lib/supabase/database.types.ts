@@ -34,6 +34,89 @@ export type Database = {
   }
   public: {
     Tables: {
+      classes: {
+        Row: {
+          code: string
+          id: string
+          name: string
+          order: number
+          program_id: string
+        }
+        Insert: {
+          code: string
+          id?: string
+          name: string
+          order?: number
+          program_id: string
+        }
+        Update: {
+          code?: string
+          id?: string
+          name?: string
+          order?: number
+          program_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "classes_program_id_fkey"
+            columns: ["program_id"]
+            isOneToOne: false
+            referencedRelation: "programs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      lessons: {
+        Row: {
+          content: string
+          created_at: string
+          created_by: string | null
+          id: string
+          published_at: string | null
+          skill_id: string
+          status: Database["public"]["Enums"]["content_status"]
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          published_at?: string | null
+          skill_id: string
+          status?: Database["public"]["Enums"]["content_status"]
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          published_at?: string | null
+          skill_id?: string
+          status?: Database["public"]["Enums"]["content_status"]
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "lessons_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "lessons_skill_id_fkey"
+            columns: ["skill_id"]
+            isOneToOne: false
+            referencedRelation: "skills"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           created_at: string
@@ -58,14 +141,151 @@ export type Database = {
         }
         Relationships: []
       }
+      programs: {
+        Row: {
+          code: string
+          created_at: string
+          id: string
+          language: string
+          name: string
+        }
+        Insert: {
+          code: string
+          created_at?: string
+          id?: string
+          language: string
+          name: string
+        }
+        Update: {
+          code?: string
+          created_at?: string
+          id?: string
+          language?: string
+          name?: string
+        }
+        Relationships: []
+      }
+      skills: {
+        Row: {
+          id: string
+          order: number
+          title: string
+          topic_id: string
+        }
+        Insert: {
+          id?: string
+          order?: number
+          title: string
+          topic_id: string
+        }
+        Update: {
+          id?: string
+          order?: number
+          title?: string
+          topic_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "skills_topic_id_fkey"
+            columns: ["topic_id"]
+            isOneToOne: false
+            referencedRelation: "topics"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      subjects: {
+        Row: {
+          id: string
+          name: string
+          program_id: string
+          slug: string
+        }
+        Insert: {
+          id?: string
+          name: string
+          program_id: string
+          slug: string
+        }
+        Update: {
+          id?: string
+          name?: string
+          program_id?: string
+          slug?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "subjects_program_id_fkey"
+            columns: ["program_id"]
+            isOneToOne: false
+            referencedRelation: "programs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      topics: {
+        Row: {
+          class_id: string
+          id: string
+          order: number
+          parent_id: string | null
+          subject_id: string
+          title: string
+        }
+        Insert: {
+          class_id: string
+          id?: string
+          order?: number
+          parent_id?: string | null
+          subject_id: string
+          title: string
+        }
+        Update: {
+          class_id?: string
+          id?: string
+          order?: number
+          parent_id?: string | null
+          subject_id?: string
+          title?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "topics_class_id_fkey"
+            columns: ["class_id"]
+            isOneToOne: false
+            referencedRelation: "classes"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "topics_parent_id_fkey"
+            columns: ["parent_id"]
+            isOneToOne: false
+            referencedRelation: "topics"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "topics_subject_id_fkey"
+            columns: ["subject_id"]
+            isOneToOne: false
+            referencedRelation: "subjects"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      is_staff: { Args: never; Returns: boolean }
     }
     Enums: {
+      content_status:
+        | "draft"
+        | "under_review"
+        | "validated"
+        | "published"
+        | "archived"
       user_role: "student" | "parent" | "teacher" | "admin"
     }
     CompositeTypes: {
@@ -197,6 +417,13 @@ export const Constants = {
   },
   public: {
     Enums: {
+      content_status: [
+        "draft",
+        "under_review",
+        "validated",
+        "published",
+        "archived",
+      ],
       user_role: ["student", "parent", "teacher", "admin"],
     },
   },
