@@ -2,10 +2,23 @@ import { notFound, redirect } from "next/navigation";
 import { getCurrentProfile } from "@/services/profiles";
 import { getMockExamWithQuestions } from "@/services/mock-exam";
 import { submitMockExamAction } from "./actions";
+import { AppShell } from "@/components/app-shell";
+import { PageHeader } from "@/components/ui/page-header";
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { EmptyState } from "@/components/ui/empty-state";
+import { cn } from "@/lib/cn";
 
 interface MultipleChoiceContent {
   choices: string[];
   correctIndex: number;
+}
+
+function scoreTone(score: number): "success" | "warning" | "danger" {
+  if (score >= 0.7) return "success";
+  if (score >= 0.4) return "warning";
+  return "danger";
 }
 
 export default async function MockExamPage({
@@ -28,104 +41,126 @@ export default async function MockExamPage({
   }
 
   if (mockExam.status === "submitted") {
+    const score = mockExam.score ?? 0;
     return (
-      <main className="mx-auto flex min-h-screen max-w-2xl flex-col gap-6 px-6 py-12">
-        <h1 className="text-2xl font-semibold text-black dark:text-zinc-50">
-          Résultat de l&apos;examen
-        </h1>
-        <p className="text-3xl font-semibold tabular-nums text-black dark:text-zinc-50">
-          {Math.round((mockExam.score ?? 0) * 100)}%
-        </p>
-        <ul className="flex flex-col gap-2">
-          {questions.map((question) => (
-            <li
-              key={question.id}
-              className="rounded border border-zinc-200 p-3 text-sm dark:border-zinc-800"
-            >
-              {question.exercise.prompt}
-            </li>
-          ))}
-        </ul>
-      </main>
+      <AppShell>
+        <main className="mx-auto flex max-w-2xl flex-col gap-6 px-6 py-8 sm:py-12">
+          <PageHeader title="Résultat de l'examen" />
+
+          <Card className="flex flex-col items-center gap-2 py-8 text-center">
+            <p className="text-5xl font-semibold tabular-nums text-zinc-950 dark:text-zinc-50">
+              {Math.round(score * 100)}%
+            </p>
+            <Badge tone={scoreTone(score)}>
+              {questions.filter((q) => q.isCorrect).length} / {questions.length} correctes
+            </Badge>
+          </Card>
+
+          <ul className="flex flex-col gap-2">
+            {questions.map((question, index) => (
+              <li key={question.id}>
+                <Card className="flex items-center justify-between gap-3">
+                  <p className="text-sm text-zinc-700 dark:text-zinc-300">
+                    {index + 1}. {question.exercise.prompt}
+                  </p>
+                  {question.isCorrect === null ? (
+                    <Badge tone="neutral" className="shrink-0">
+                      Non noté
+                    </Badge>
+                  ) : (
+                    <Badge tone={question.isCorrect ? "success" : "danger"} className="shrink-0">
+                      {question.isCorrect ? "Correct" : "Incorrect"}
+                    </Badge>
+                  )}
+                </Card>
+              </li>
+            ))}
+          </ul>
+        </main>
+      </AppShell>
     );
   }
 
   const submitAction = submitMockExamAction.bind(null, mockExamId);
 
   return (
-    <main className="mx-auto flex min-h-screen max-w-2xl flex-col gap-6 px-6 py-12">
-      <h1 className="text-2xl font-semibold text-black dark:text-zinc-50">
-        Examen blanc — Mathématiques
-      </h1>
+    <AppShell>
+      <main className="mx-auto flex max-w-2xl flex-col gap-6 px-6 py-8 sm:py-12">
+        <PageHeader title="Examen blanc — Mathématiques" />
 
-      {questions.length === 0 ? (
-        <p className="text-zinc-500">
-          Aucun exercice publié disponible pour cet examen pour le moment.
-        </p>
-      ) : (
-        <form action={submitAction} className="flex flex-col gap-6">
-          {questions.map((question, index) => (
-            <fieldset
-              key={question.id}
-              className="rounded border border-zinc-200 p-4 dark:border-zinc-800"
-            >
-              <legend className="text-sm font-medium text-black dark:text-zinc-50">
-                {index + 1}. {question.exercise.prompt}
-              </legend>
-              <div className="mt-2 flex flex-col gap-2">
-                {question.exercise.type === "multiple_choice"
-                  ? (question.exercise.content as unknown as MultipleChoiceContent).choices.map(
-                      (choice, choiceIndex) => (
-                        <label key={choiceIndex} className="flex items-center gap-2 text-sm">
-                          <input
-                            type="radio"
-                            name={`question:${question.id}`}
-                            value={choiceIndex}
-                            required
-                          />
-                          {choice}
-                        </label>
-                      ),
-                    )
-                  : question.exercise.type === "true_false"
-                    ? (
-                        <div className="flex gap-4 text-sm">
-                          <label className="flex items-center gap-2">
+        {questions.length === 0 ? (
+          <EmptyState message="Aucun exercice publié disponible pour cet examen pour le moment." />
+        ) : (
+          <form action={submitAction} className="flex flex-col gap-4">
+            {questions.map((question, index) => (
+              <fieldset
+                key={question.id}
+                className="flex flex-col gap-3 rounded-xl border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-900"
+              >
+                <legend className="text-sm font-medium text-zinc-950 dark:text-zinc-50">
+                    {index + 1}. {question.exercise.prompt}
+                  </legend>
+                  <div className="flex flex-col gap-2">
+                    {question.exercise.type === "multiple_choice"
+                      ? (
+                          question.exercise.content as unknown as MultipleChoiceContent
+                        ).choices.map((choice, choiceIndex) => (
+                          <label key={choiceIndex} className={choiceClasses}>
                             <input
                               type="radio"
                               name={`question:${question.id}`}
-                              value="true"
+                              value={choiceIndex}
                               required
+                              className="accent-indigo-600"
                             />
-                            Vrai
+                            {choice}
                           </label>
-                          <label className="flex items-center gap-2">
-                            <input
-                              type="radio"
-                              name={`question:${question.id}`}
-                              value="false"
-                              required
-                            />
-                            Faux
-                          </label>
-                        </div>
-                      )
-                    : (
-                        <p className="text-sm text-zinc-500">
-                          Ce type d&apos;exercice n&apos;est pas encore pris en charge.
-                        </p>
-                      )}
-              </div>
-            </fieldset>
-          ))}
-          <button
-            type="submit"
-            className="w-fit rounded bg-black px-4 py-2 text-sm text-white dark:bg-white dark:text-black"
-          >
-            Soumettre l&apos;examen
-          </button>
-        </form>
-      )}
-    </main>
+                        ))
+                      : question.exercise.type === "true_false"
+                        ? (
+                            <>
+                              <label className={choiceClasses}>
+                                <input
+                                  type="radio"
+                                  name={`question:${question.id}`}
+                                  value="true"
+                                  required
+                                  className="accent-indigo-600"
+                                />
+                                Vrai
+                              </label>
+                              <label className={choiceClasses}>
+                                <input
+                                  type="radio"
+                                  name={`question:${question.id}`}
+                                  value="false"
+                                  required
+                                  className="accent-indigo-600"
+                                />
+                                Faux
+                              </label>
+                            </>
+                          )
+                        : (
+                            <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                              Ce type d&apos;exercice n&apos;est pas encore pris en charge.
+                            </p>
+                          )}
+                  </div>
+              </fieldset>
+            ))}
+            <Button type="submit" className="w-fit">
+              Soumettre l&apos;examen
+            </Button>
+          </form>
+        )}
+      </main>
+    </AppShell>
   );
 }
+
+const choiceClasses = cn(
+  "flex cursor-pointer items-center gap-3 rounded-lg border border-zinc-200 px-3 py-2.5 text-sm",
+  "has-[:checked]:border-indigo-500 has-[:checked]:bg-indigo-50",
+  "dark:border-zinc-700 dark:has-[:checked]:border-indigo-500 dark:has-[:checked]:bg-indigo-950",
+);

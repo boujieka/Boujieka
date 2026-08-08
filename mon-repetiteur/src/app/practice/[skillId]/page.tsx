@@ -2,6 +2,9 @@ import { redirect } from "next/navigation";
 import { getCurrentProfile } from "@/services/profiles";
 import { getExercises } from "@/services/exercises";
 import { ExerciseCard } from "./exercise-card";
+import { AppShell } from "@/components/app-shell";
+import { PageHeader } from "@/components/ui/page-header";
+import { EmptyState } from "@/components/ui/empty-state";
 
 export default async function PracticePage({
   params,
@@ -17,15 +20,21 @@ export default async function PracticePage({
   const exercises = await getExercises(skillId);
 
   return (
-    <main className="mx-auto flex min-h-screen max-w-2xl flex-col gap-4 px-6 py-12">
-      <h1 className="text-2xl font-semibold text-black dark:text-zinc-50">
-        S&apos;entraîner
-      </h1>
-      {exercises.length === 0 ? (
-        <p className="text-zinc-500">Aucun exercice disponible pour le moment.</p>
-      ) : (
-        exercises.map((exercise) => <ExerciseCard key={exercise.id} exercise={exercise} />)
-      )}
-    </main>
+    <AppShell>
+      <main className="mx-auto flex max-w-2xl flex-col gap-6 px-6 py-8 sm:py-12">
+        <PageHeader title="S'entraîner" />
+        {exercises.length === 0 ? (
+          <EmptyState message="Aucun exercice disponible pour le moment." />
+        ) : (
+          <ul className="flex flex-col gap-4">
+            {exercises.map((exercise) => (
+              <li key={exercise.id}>
+                <ExerciseCard exercise={exercise} />
+              </li>
+            ))}
+          </ul>
+        )}
+      </main>
+    </AppShell>
   );
 }

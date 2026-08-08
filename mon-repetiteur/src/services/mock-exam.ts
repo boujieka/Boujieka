@@ -80,6 +80,9 @@ export async function createMockExam(
 
 export interface MockExamQuestionWithExercise extends MockExamQuestion {
   exercise: Exercise;
+  /** null before the exam is submitted, or if the exercise type isn't
+   * auto-gradable (see scoreExercise). */
+  isCorrect: boolean | null;
 }
 
 export async function getMockExamWithQuestions(mockExamId: string): Promise<{
@@ -99,11 +102,20 @@ export async function getMockExamWithQuestions(mockExamId: string): Promise<{
 
   const { data: questions } = await supabase
     .from("mock_exam_questions")
-    .select("*, exercise:exercises(*)")
+    .select("*, exercise:exercises(*), mock_exam_answers(is_correct)")
     .eq("mock_exam_id", mockExamId)
     .order("order");
 
-  return { mockExam, questions: (questions ?? []) as MockExamQuestionWithExercise[] };
+  const withCorrectness = (questions ?? []).map((question) => {
+    const { mock_exam_answers, ...rest } = question as unknown as MockExamQuestionWithExercise & {
+      // PostgREST returns null here (not []) when no answer row exists yet
+      // — i.e. for every question while the exam is still in progress.
+      mock_exam_answers: { is_correct: boolean | null }[] | null;
+    };
+    return { ...rest, isCorrect: mock_exam_answers?.[0]?.is_correct ?? null };
+  });
+
+  return { mockExam, questions: withCorrectness };
 }
 
 export interface SubmitMockExamResult {

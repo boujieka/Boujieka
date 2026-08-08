@@ -3,6 +3,8 @@
 import { useActionState, useEffect, useRef, useState } from "react";
 import { sendMessageAction, type SendMessageState } from "./actions";
 import type { AiMessage } from "@/types/ai";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/cn";
 
 const initialState: SendMessageState = {
   error: null,
@@ -58,18 +60,21 @@ export function TutorChat({
     <>
       <div className="flex flex-col gap-3">
         {messages.length === 0 ? (
-          <p className="text-sm text-zinc-500">Commence la conversation ci-dessous.</p>
+          <p className="text-sm text-zinc-500 dark:text-zinc-400">
+            Commence la conversation ci-dessous.
+          </p>
         ) : (
           messages
             .filter((message) => message.role !== "system")
             .map((message) => (
               <div
                 key={message.id}
-                className={`max-w-[85%] rounded p-3 text-sm ${
+                className={cn(
+                  "max-w-[85%] whitespace-pre-wrap rounded-2xl px-4 py-2.5 text-sm leading-relaxed",
                   message.role === "user"
-                    ? "self-end bg-black text-white dark:bg-white dark:text-black"
-                    : "self-start bg-zinc-100 text-black dark:bg-zinc-800 dark:text-zinc-50"
-                }`}
+                    ? "self-end rounded-br-sm bg-indigo-600 text-white"
+                    : "self-start rounded-bl-sm bg-zinc-100 text-zinc-950 dark:bg-zinc-800 dark:text-zinc-50",
+                )}
               >
                 {message.content}
               </div>
@@ -83,20 +88,16 @@ export function TutorChat({
           required
           rows={2}
           placeholder="Pose ta question…"
-          className="rounded border border-zinc-300 px-3 py-2 text-sm dark:border-zinc-700 dark:bg-zinc-900"
+          className="rounded-lg border border-zinc-300 px-3 py-2.5 text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 dark:border-zinc-700 dark:bg-zinc-900 dark:focus-visible:ring-offset-zinc-950"
         />
         {state.error ? (
-          <p role="alert" className="text-sm text-red-600 dark:text-red-400">
+          <p role="alert" className="text-sm text-rose-600 dark:text-rose-400">
             {state.error}
           </p>
         ) : null}
-        <button
-          type="submit"
-          disabled={pending}
-          className="w-fit rounded bg-black px-4 py-2 text-sm text-white disabled:opacity-50 dark:bg-white dark:text-black"
-        >
+        <Button type="submit" disabled={pending} className="w-fit">
           {pending ? "Envoi…" : "Envoyer"}
-        </button>
+        </Button>
       </form>
     </>
   );
