@@ -10,6 +10,7 @@ import {
   getTopics,
 } from "@/services/curriculum";
 import type { Skill, Topic } from "@/types/curriculum";
+import { startTutorConversationAction } from "@/app/tutor/actions";
 
 // First vertical only (PRD.md §5): Terminale C -> Mathématiques. Program
 // picking, multi-subject navigation, etc. are later work — this page's job
@@ -75,9 +76,19 @@ export default async function LearnPage() {
                     <p className="text-sm font-medium text-black dark:text-zinc-50">
                       {skill.title}
                     </p>
-                    <Link href={`/practice/${skill.id}`} className="shrink-0 text-xs underline">
-                      S&apos;entraîner
-                    </Link>
+                    <div className="flex shrink-0 items-center gap-3">
+                      <Link href={`/practice/${skill.id}`} className="text-xs underline">
+                        S&apos;entraîner
+                      </Link>
+                      <form action={startTutorConversationAction}>
+                        <input type="hidden" name="skillId" value={skill.id} />
+                        <input type="hidden" name="topicId" value={topic.id} />
+                        <input type="hidden" name="subjectId" value={subject.id} />
+                        <button type="submit" className="text-xs underline">
+                          Demander de l&apos;aide
+                        </button>
+                      </form>
+                    </div>
                   </div>
                   {lessons.length === 0 ? (
                     <p className="mt-1 text-sm text-zinc-500">

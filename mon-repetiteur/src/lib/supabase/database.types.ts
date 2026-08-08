@@ -34,6 +34,70 @@ export type Database = {
   }
   public: {
     Tables: {
+      ai_conversations: {
+        Row: {
+          context: Json
+          ended_at: string | null
+          id: string
+          profile_id: string
+          started_at: string
+        }
+        Insert: {
+          context?: Json
+          ended_at?: string | null
+          id?: string
+          profile_id: string
+          started_at?: string
+        }
+        Update: {
+          context?: Json
+          ended_at?: string | null
+          id?: string
+          profile_id?: string
+          started_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ai_conversations_profile_id_fkey"
+            columns: ["profile_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      ai_messages: {
+        Row: {
+          content: string
+          conversation_id: string
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["ai_message_role"]
+        }
+        Insert: {
+          content: string
+          conversation_id: string
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["ai_message_role"]
+        }
+        Update: {
+          content?: string
+          conversation_id?: string
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["ai_message_role"]
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ai_messages_conversation_id_fkey"
+            columns: ["conversation_id"]
+            isOneToOne: false
+            referencedRelation: "ai_conversations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       attempts: {
         Row: {
           answer: Json
@@ -414,6 +478,7 @@ export type Database = {
       is_staff: { Args: never; Returns: boolean }
     }
     Enums: {
+      ai_message_role: "user" | "assistant" | "system"
       attemptable_type: "exercise"
       content_status:
         | "draft"
@@ -558,6 +623,7 @@ export const Constants = {
   },
   public: {
     Enums: {
+      ai_message_role: ["user", "assistant", "system"],
       attemptable_type: ["exercise"],
       content_status: [
         "draft",
