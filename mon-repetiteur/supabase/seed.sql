@@ -153,3 +153,102 @@ select sk.id, es.type::exercise_type, es.difficulty::difficulty_level, es.prompt
 from exercise_seed es
 join public.skills sk on sk.title = es.skill_title
 on conflict (skill_id, prompt) do update set content = excluded.content;
+
+-- ---------------------------------------------------------------------------
+-- Second program (GCE A-Level -> Mathematics, Upper Sixth), proving the
+-- schema/RLS is genuinely program-agnostic rather than Terminale-C-only.
+-- Same draft-until-validated rule, same honesty caveat as the Terminale C
+-- block above: these are standard, internationally-recognized A-Level
+-- topic names and textbook facts (not exam-board-specific claims), still
+-- explicitly NOT sourced against the actual Cameroon GCE Board syllabus
+-- (PRD.md §6's open assumption #2) — hence 'draft', not 'published'.
+-- ---------------------------------------------------------------------------
+
+with target_subject as (
+  insert into public.subjects (program_id, slug, name)
+  select p.id, 'mathematics', 'Mathematics'
+  from public.programs p where p.code = 'gce_a_level'
+  on conflict (program_id, slug) do update set name = excluded.name
+  returning id
+),
+target_class as (
+  select c.id from public.classes c
+  join public.programs p on p.id = c.program_id
+  where p.code = 'gce_a_level' and c.code = 'upper_sixth'
+),
+topic_seed (title, "order") as (
+  values
+    ('Algebra and Functions', 1),
+    ('Statistics', 2)
+),
+inserted_topics as (
+  insert into public.topics (subject_id, class_id, title, "order")
+  select (select id from target_subject), (select id from target_class), ts.title, ts."order"
+  from topic_seed ts
+  on conflict (subject_id, class_id, title) do update set "order" = excluded."order"
+  returning id, title
+),
+skill_seed (topic_title, title, "order") as (
+  values
+    ('Algebra and Functions', 'Quadratic equations', 1),
+    ('Algebra and Functions', 'Indices and surds', 2),
+    ('Algebra and Functions', 'Functions and graphs', 3),
+    ('Statistics', 'Probability', 1),
+    ('Statistics', 'Data representation', 2),
+    ('Statistics', 'The normal distribution', 3)
+),
+inserted_skills as (
+  insert into public.skills (topic_id, title, "order")
+  select it.id, ss.title, ss."order"
+  from skill_seed ss
+  join inserted_topics it on it.title = ss.topic_title
+  on conflict (topic_id, title) do update set "order" = excluded."order"
+  returning id, title
+),
+lesson_seed (skill_title, title, content) as (
+  values
+    ('Quadratic equations', 'Introduction to quadratic equations',
+     'Draft (unvalidated): the quadratic formula, the discriminant, and what its sign tells you about the roots. Pending review against the official GCE Board syllabus before publication.'),
+    ('Indices and surds', 'Laws of indices and surds',
+     'Draft (unvalidated): index laws (a^m x a^n = a^(m+n), etc.) and simplifying surds. Pending review against the official GCE Board syllabus before publication.'),
+    ('Functions and graphs', 'Functions, domain, range and graphs',
+     'Draft (unvalidated): function notation, domain/range, and the horizontal-line test for one-to-one functions. Pending review against the official GCE Board syllabus before publication.'),
+    ('Probability', 'Introduction to probability',
+     'Draft (unvalidated): sample spaces, mutually exclusive events, the addition rule. Pending review against the official GCE Board syllabus before publication.'),
+    ('Data representation', 'Representing and summarizing data',
+     'Draft (unvalidated): mean, median, mode, and common ways to represent a data set. Pending review against the official GCE Board syllabus before publication.'),
+    ('The normal distribution', 'The normal distribution',
+     'Draft (unvalidated): the standard normal distribution, its mean and standard deviation. Pending review against the official GCE Board syllabus before publication.')
+)
+insert into public.lessons (skill_id, title, content, status)
+select isk.id, ls.title, ls.content, 'draft'
+from lesson_seed ls
+join inserted_skills isk on isk.title = ls.skill_title
+on conflict (skill_id, title) do update set content = excluded.content;
+
+with exercise_seed (skill_title, type, difficulty, prompt, content) as (
+  values
+    ('Quadratic equations', 'true_false', 'medium',
+     'If the discriminant b^2 - 4ac is negative, the quadratic equation has no real roots.',
+     '{"answer": true}'::jsonb),
+    ('Indices and surds', 'multiple_choice', 'easy',
+     'Simplify: 2^3 x 2^2 =',
+     '{"choices": ["2^5", "2^6", "2^1", "4^5"], "correctIndex": 0}'::jsonb),
+    ('Functions and graphs', 'true_false', 'medium',
+     'A function is one-to-one if it passes the horizontal line test.',
+     '{"answer": true}'::jsonb),
+    ('Probability', 'multiple_choice', 'easy',
+     'For mutually exclusive events A and B, P(A or B) equals:',
+     '{"choices": ["P(A) + P(B)", "P(A) x P(B)", "P(A) - P(B)", "P(A) / P(B)"], "correctIndex": 0}'::jsonb),
+    ('Data representation', 'true_false', 'easy',
+     'The median is the middle value of an ordered data set.',
+     '{"answer": true}'::jsonb),
+    ('The normal distribution', 'multiple_choice', 'medium',
+     'For a standard normal distribution, the mean is:',
+     '{"choices": ["0", "1", "100", "undefined"], "correctIndex": 0}'::jsonb)
+)
+insert into public.exercises (skill_id, type, difficulty, prompt, content, status)
+select sk.id, es.type::exercise_type, es.difficulty::difficulty_level, es.prompt, es.content, 'draft'
+from exercise_seed es
+join public.skills sk on sk.title = es.skill_title
+on conflict (skill_id, prompt) do update set content = excluded.content;

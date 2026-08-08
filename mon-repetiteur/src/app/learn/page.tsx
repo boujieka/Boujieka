@@ -11,37 +11,45 @@ import {
 } from "@/services/curriculum";
 import type { Skill, Topic } from "@/types/curriculum";
 import { startTutorConversationAction } from "@/app/tutor/actions";
+import { startMockExamAction } from "@/app/exam/actions";
 
-// First vertical only (PRD.md §5): Terminale C -> Mathématiques. Program
-// picking, multi-subject navigation, etc. are later work — this page's job
-// right now is to prove the loop's LEARN step against real data.
-export default async function LearnPage() {
+const DEFAULT_PROGRAM_CODE = "terminale_c";
+
+export default async function LearnPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ program?: string }>;
+}) {
   const profile = await getCurrentProfile();
   if (!profile) {
     redirect("/login");
   }
 
-  const programs = await getPrograms();
-  const program = programs.find((p) => p.code === "terminale_c");
+  const { program: requestedProgramCode } = await searchParams;
 
-  if (!program) {
-    return (
-      <Empty message="Aucun programme disponible pour le moment." />
-    );
+  const programs = await getPrograms();
+  if (programs.length === 0) {
+    return <Empty message="Aucun programme disponible pour le moment." />;
   }
+  const program =
+    programs.find((p) => p.code === (requestedProgramCode ?? DEFAULT_PROGRAM_CODE)) ??
+    programs[0];
 
   const [classes, subjects] = await Promise.all([
     getClasses(program.id),
     getSubjects(program.id),
   ]);
-  const terminaleClass = classes.find((c) => c.code === "terminale");
-  const subject = subjects.find((s) => s.slug === "mathematiques");
+  // The terminal (exam) year is the highest-order class. Each program has
+  // exactly one subject for now, so the first one is unambiguous — this
+  // stops being safe the moment a program gets a second subject.
+  const targetClass = [...classes].sort((a, b) => b.order - a.order)[0];
+  const subject = subjects[0];
 
-  if (!terminaleClass || !subject) {
+  if (!targetClass || !subject) {
     return <Empty message="Programme non encore configuré." />;
   }
 
-  const topics = await getTopics(subject.id, terminaleClass.id);
+  const topics = await getTopics(subject.id, targetClass.id);
   const topicsWithSkills = await Promise.all(
     topics.map(async (topic) => ({
       topic,
@@ -51,11 +59,39 @@ export default async function LearnPage() {
 
   return (
     <main className="mx-auto flex min-h-screen max-w-2xl flex-col gap-8 px-6 py-12">
-      <div>
-        <p className="text-sm text-zinc-500">{program.name}</p>
-        <h1 className="text-2xl font-semibold text-black dark:text-zinc-50">
-          {subject.name}
-        </h1>
+      <div className="flex flex-col gap-2">
+        {programs.length > 1 ? (
+          <nav className="flex gap-3 text-xs">
+            {programs.map((p) => (
+              <Link
+                key={p.id}
+                href={`/learn?program=${p.code}`}
+                className={
+                  p.id === program.id
+                    ? "font-semibold underline"
+                    : "text-zinc-500 underline dark:text-zinc-400"
+                }
+              >
+                {p.name}
+              </Link>
+            ))}
+          </nav>
+        ) : null}
+        <p className="text-sm text-zinc-500">
+          {program.name} — {targetClass.name}
+        </p>
+        <div className="flex items-center justify-between gap-2">
+          <h1 className="text-2xl font-semibold text-black dark:text-zinc-50">
+            {subject.name}
+          </h1>
+          <form action={startMockExamAction}>
+            <input type="hidden" name="subjectId" value={subject.id} />
+            <input type="hidden" name="classId" value={targetClass.id} />
+            <button type="submit" className="shrink-0 text-xs underline">
+              Passer un examen blanc
+            </button>
+          </form>
+        </div>
       </div>
 
       {topicsWithSkills.length === 0 ? (
