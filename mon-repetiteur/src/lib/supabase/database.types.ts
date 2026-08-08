@@ -260,6 +260,45 @@ export type Database = {
         }
         Relationships: []
       }
+      skill_progress: {
+        Row: {
+          id: string
+          mastery_score: number
+          profile_id: string
+          skill_id: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          mastery_score?: number
+          profile_id: string
+          skill_id: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          mastery_score?: number
+          profile_id?: string
+          skill_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "skill_progress_profile_id_fkey"
+            columns: ["profile_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "skill_progress_skill_id_fkey"
+            columns: ["skill_id"]
+            isOneToOne: false
+            referencedRelation: "skills"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       skills: {
         Row: {
           id: string

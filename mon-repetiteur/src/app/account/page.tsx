@@ -23,6 +23,9 @@ export default async function AccountPage() {
       <Link href="/learn" className="text-sm underline">
         Voir le programme
       </Link>
+      <Link href="/progress" className="text-sm underline">
+        Ma progression
+      </Link>
       <LogoutButton />
     </main>
   );
