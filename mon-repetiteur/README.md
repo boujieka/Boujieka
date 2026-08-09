@@ -6,6 +6,18 @@ Baccalauréat) and **GCE A-Level** (Anglophone). See `PRD.md` for the full
 product spec and `CLAUDE.md` for engineering/process rules — both are the
 source of truth ahead of this README.
 
+**Live:** https://mon-repetiteur.netlify.app — deployed on Netlify
+(`netlify.toml`), backed by a production Supabase project (schema +
+seed applied via the Management API, since this deploy environment can
+only reach the internet over HTTPS — direct Postgres connections,
+including the connection pooler, aren't reachable, so the usual
+`supabase db push` route doesn't work here; the Management API's
+`/database/query` endpoint does the same job over HTTPS). Verified end
+to end against the live project: signup → `handle_new_user` trigger →
+`profiles` row → password login, all via real Supabase Auth calls, not
+mocked. No `ANTHROPIC_API_KEY` is configured there yet, so the AI Tutor
+shows its "not configured" state in production, same as local dev.
+
 ## Core loop
 
 ```
@@ -132,8 +144,12 @@ a real local Supabase stack on every push/PR touching `mon-repetiteur/`
 ## Known limitations
 
 - Auth is email/password only; local dev has email confirmation disabled
-  (`supabase/config.toml`) so signup logs straight in — a deployed project's
-  confirmation behavior may differ and isn't tested here.
+  (`supabase/config.toml`) so signup logs straight in. The production
+  Supabase project uses its default (confirmation required, real-looking
+  email addresses only — verified: `@example.com` is rejected as
+  undeliverable at signup) and Supabase's default low-volume email
+  service; a real launch should configure a proper SMTP provider before
+  relying on it at any scale.
 - No dedicated onboarding flow (program/class selection at signup) — a
   student currently picks a program via `/learn`'s switcher instead. The
   `e2e/` suite's README notes this explicitly rather than claiming
