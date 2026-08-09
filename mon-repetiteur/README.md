@@ -15,8 +15,11 @@ including the connection pooler, aren't reachable, so the usual
 `/database/query` endpoint does the same job over HTTPS). Verified end
 to end against the live project: signup → `handle_new_user` trigger →
 `profiles` row → password login, all via real Supabase Auth calls, not
-mocked. No `ANTHROPIC_API_KEY` is configured there yet, so the AI Tutor
-shows its "not configured" state in production, same as local dev.
+mocked. `ANTHROPIC_API_KEY` is configured in production — the AI Tutor
+genuinely calls the model there (verified with two real exchanges: both
+messages and both replies persisted correctly, replies were on-topic
+and followed the pedagogical flow from `CLAUDE.md` §17) — but see the
+Netlify/Supabase region mismatch under Known limitations.
 
 ## Core loop
 
@@ -159,11 +162,23 @@ a real local Supabase stack on every push/PR touching `mon-repetiteur/`
   creation there is scoped to `multiple_choice`/`true_false`, matching
   what the student-facing practice/exam pages can render — see
   `services/admin.ts`'s header comment.
-- The AI Tutor's actual model call is unverified in this environment — no
-  `ANTHROPIC_API_KEY` was available. Everything up to that call (auth,
-  persistence, RLS, prompt construction, exam-mode gating, the "not
-  configured" degradation path) is real and tested; the live conversation
-  itself isn't.
+- **AI Tutor / Netlify function region mismatch**: Netlify's functions
+  for this site run in `cmh` (Ohio, `us-east-2`) while the Supabase
+  project is in `eu-west-3` (Paris). A tutor message-send does several
+  sequential DB round trips (profile check, exam-mode check, conversation
+  fetch, two message inserts) plus the model call itself, all crossing
+  the Atlantic each way — verified against the live site: both round
+  trips completed correctly server-side (message saved, real reply
+  generated and saved) but took 30+ seconds and the client-facing
+  request 502'd before the response could return, meaning the browser
+  wouldn't show the new messages without a manual refresh even though no
+  data was lost. Attempted a `netlify.toml` `[functions] region` pin to
+  `eu-west-3` to fix this — deployed cleanly but had no measurable
+  effect (function still ran in `cmh`), so it was reverted rather than
+  left as dead config; regional Functions appear to need a Netlify
+  paid-plan feature or a dashboard-only setting, neither confirmed from
+  here. Real fix is either that (once available) or reducing the number
+  of sequential round trips in the tutor send path.
 - Lesson/exercise content across both programs is placeholder text I wrote,
   not sourced against the official OBC / Cameroon GCE Board syllabi — every
   row stays `draft` for exactly this reason (see `PRD.md` §6/§14).
