@@ -31,11 +31,11 @@ Phase 6  AI Tutor          — AIService, pedagogical prompt, chat UI  ✅
          Mock Exam         — createMockExam/submitMockExam        ✅
          GCE A-Level       — second program                       ✅
 Phase 4  Exam archive      — past papers with rights metadata     ✅
-Phase 5  Dashboard
-Phase 7  Mock exams as a general P1 feature (beyond the first vertical)
-Phase 8  Study plans (P1)
-Phase 9  Admin CMS (P1)
-Phase 10 QA (Playwright E2E suite; so far verified manually per phase)
+Phase 5  Dashboard         — progress/weak skills/recent activity/entry points  ✅
+         Design system     — UI redesign across every page        ✅
+Phase 8  Study plans (P1)  — AIService.generateStudyPlan(), /plan  ✅
+Phase 9  Admin CMS (P1)    — /admin, content-lifecycle authoring   ✅
+Phase 10 QA                — committed Playwright E2E suite (`e2e/`)  ✅
 ```
 
 ## Stack
@@ -76,6 +76,7 @@ enabled) is at `http://127.0.0.1:54324`.
 | `npm run typecheck`     | TypeScript, no emit                                      |
 | `npm run test`          | Run tests once (Vitest, incl. Supabase/RLS integration)  |
 | `npm run test:watch`    | Run tests in watch mode                                  |
+| `npm run test:e2e`      | Real-browser Playwright suite — builds, starts a server, runs `e2e/**`, tears down (see `e2e/README.md`) |
 | `npm run db:start`      | Start the local Supabase stack                           |
 | `npm run db:stop`       | Stop it                                                   |
 | `npm run db:reset`      | Recreate the local DB from `supabase/migrations/` + seed |
@@ -103,9 +104,9 @@ staff bypass — unlike everything else above); `mock_exams`/
 `mock_exam_questions`/`mock_exam_answers`; `exams`/`exam_questions` (past
 papers — `rights_status` gates whether `source_url` ever reaches a client,
 stripped server-side in `lib/exam-rights.ts`, never left to the UI to
-remember; see `CLAUDE.md` §15). See `PRD.md` §8 for the full planned
-entity list (Dashboard, Study plans, Admin CMS still
-to come).
+remember; see `CLAUDE.md` §15); `study_plans`/`study_sessions` (generated
+deterministically from weak/unattempted skills, not LLM-invented — see
+`services/study-plan.ts`). See `PRD.md` §8 for the full entity list.
 
 ## Auth
 
@@ -124,8 +125,9 @@ Required before any phase is considered done (`CLAUDE.md` §30):
 npm run lint && npm run typecheck && npm run test && npm run build
 ```
 
-CI runs the same checks against a real local Supabase stack on every
-push/PR touching `mon-repetiteur/` (`.github/workflows/mon-repetiteur-ci.yml`).
+CI runs the same checks — plus the E2E suite (`npm run test:e2e`) — against
+a real local Supabase stack on every push/PR touching `mon-repetiteur/`
+(`.github/workflows/mon-repetiteur-ci.yml`).
 
 ## Known limitations
 
@@ -133,11 +135,14 @@ push/PR touching `mon-repetiteur/` (`.github/workflows/mon-repetiteur-ci.yml`).
   (`supabase/config.toml`) so signup logs straight in — a deployed project's
   confirmation behavior may differ and isn't tested here.
 - No dedicated onboarding flow (program/class selection at signup) — a
-  student currently picks a program via `/learn`'s switcher instead.
-- No E2E (Playwright) suite committed yet — every phase above was
-  smoke-tested manually via a built `next start` server + a throwaway
-  script (not committed as test infra); automated E2E is Phase 10 (QA) per
-  `CLAUDE.md` §36.
+  student currently picks a program via `/learn`'s switcher instead. The
+  `e2e/` suite's README notes this explicitly rather than claiming
+  coverage of a flow that doesn't exist.
+- The Admin CMS (`/admin`) has no edit-existing-content form (create +
+  status transitions only) and no `exam_questions` attachment UI; exercise
+  creation there is scoped to `multiple_choice`/`true_false`, matching
+  what the student-facing practice/exam pages can render — see
+  `services/admin.ts`'s header comment.
 - The AI Tutor's actual model call is unverified in this environment — no
   `ANTHROPIC_API_KEY` was available. Everything up to that call (auth,
   persistence, RLS, prompt construction, exam-mode gating, the "not
