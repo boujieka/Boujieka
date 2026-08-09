@@ -5,6 +5,7 @@ import type { AIProvider } from "./provider";
 import { buildSystemPrompt } from "./prompt";
 import { resolveTutorContext } from "./context";
 import { isExamModeActive } from "./exam-mode";
+import { generateStudyPlan } from "@/services/study-plan";
 import type { AiConversation, AiMessage, TutorContext } from "@/types/ai";
 import type { Json } from "@/lib/supabase/database.types";
 
@@ -207,7 +208,5 @@ export const AIService = {
     error: "Pas encore implémenté — prévu avec l'enrichissement du suivi de progression.",
   }),
 
-  generateStudyPlan: async (): Promise<{ error: string }> => ({
-    error: "Pas encore implémenté — prévu pour la phase Study Plans.",
-  }),
+  generateStudyPlan: () => generateStudyPlan(),
 };

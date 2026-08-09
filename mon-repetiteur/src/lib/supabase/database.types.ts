@@ -631,6 +631,77 @@ export type Database = {
           },
         ]
       }
+      study_plans: {
+        Row: {
+          created_at: string
+          id: string
+          profile_id: string
+          status: Database["public"]["Enums"]["study_plan_status"]
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          profile_id: string
+          status?: Database["public"]["Enums"]["study_plan_status"]
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          profile_id?: string
+          status?: Database["public"]["Enums"]["study_plan_status"]
+        }
+        Relationships: [
+          {
+            foreignKeyName: "study_plans_profile_id_fkey"
+            columns: ["profile_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      study_sessions: {
+        Row: {
+          completed_at: string | null
+          id: string
+          order: number
+          scheduled_for: string
+          skill_id: string
+          study_plan_id: string
+        }
+        Insert: {
+          completed_at?: string | null
+          id?: string
+          order?: number
+          scheduled_for: string
+          skill_id: string
+          study_plan_id: string
+        }
+        Update: {
+          completed_at?: string | null
+          id?: string
+          order?: number
+          scheduled_for?: string
+          skill_id?: string
+          study_plan_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "study_sessions_skill_id_fkey"
+            columns: ["skill_id"]
+            isOneToOne: false
+            referencedRelation: "skills"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "study_sessions_study_plan_id_fkey"
+            columns: ["study_plan_id"]
+            isOneToOne: false
+            referencedRelation: "study_plans"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       subjects: {
         Row: {
           id: string
@@ -738,6 +809,7 @@ export type Database = {
         | "short_answer"
         | "free_response"
       mock_exam_status: "in_progress" | "submitted"
+      study_plan_status: "active" | "completed" | "cancelled"
       user_role: "student" | "parent" | "teacher" | "admin"
     }
     CompositeTypes: {
@@ -893,6 +965,7 @@ export const Constants = {
         "free_response",
       ],
       mock_exam_status: ["in_progress", "submitted"],
+      study_plan_status: ["active", "completed", "cancelled"],
       user_role: ["student", "parent", "teacher", "admin"],
     },
   },

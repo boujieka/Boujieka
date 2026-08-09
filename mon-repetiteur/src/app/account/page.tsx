@@ -8,7 +8,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { EmptyState } from "@/components/ui/empty-state";
-import { BookIcon, ChartIcon, ArchiveIcon } from "@/components/ui/icons";
+import { BookIcon, ChartIcon, ArchiveIcon, CalendarIcon } from "@/components/ui/icons";
 import { cn } from "@/lib/cn";
 
 const ROLE_LABELS: Record<string, string> = {
@@ -21,6 +21,7 @@ const ROLE_LABELS: Record<string, string> = {
 const QUICK_LINKS = [
   { href: "/learn", label: "Voir le programme", description: "Cours et exercices", icon: BookIcon },
   { href: "/progress", label: "Ma progression", description: "Points forts et faibles", icon: ChartIcon },
+  { href: "/plan", label: "Plan de révision", description: "Séances programmées", icon: CalendarIcon },
   { href: "/archive", label: "Archive des épreuves", description: "Sujets des années précédentes", icon: ArchiveIcon },
 ];
 
