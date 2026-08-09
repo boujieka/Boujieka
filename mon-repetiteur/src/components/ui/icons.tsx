@@ -85,3 +85,12 @@ export function CalendarIcon(props: SVGProps<SVGSVGElement>) {
     </IconBase>
   );
 }
+
+export function AdminIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <IconBase {...props}>
+      <circle cx="12" cy="12" r="3" />
+      <path d="M12 3.5v2.3M12 18.2v2.3M20.5 12h-2.3M5.8 12H3.5M17.8 6.2l-1.6 1.6M7.8 16.2l-1.6 1.6M17.8 17.8l-1.6-1.6M7.8 7.8 6.2 6.2" />
+    </IconBase>
+  );
+}

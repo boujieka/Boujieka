@@ -8,7 +8,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { EmptyState } from "@/components/ui/empty-state";
-import { BookIcon, ChartIcon, ArchiveIcon, CalendarIcon } from "@/components/ui/icons";
+import { BookIcon, ChartIcon, ArchiveIcon, CalendarIcon, AdminIcon } from "@/components/ui/icons";
 import { cn } from "@/lib/cn";
 
 const ROLE_LABELS: Record<string, string> = {
@@ -48,6 +48,18 @@ export default async function AccountPage() {
   }
 
   const { profile, weakSkills, recentActivity, activeMockExam, stats } = data;
+  const isStaff = profile.role === "teacher" || profile.role === "admin";
+  const quickLinks = isStaff
+    ? [
+        ...QUICK_LINKS,
+        {
+          href: "/admin",
+          label: "Administration",
+          description: "Leçons, exercices, épreuves",
+          icon: AdminIcon,
+        },
+      ]
+    : QUICK_LINKS;
 
   return (
     <AppShell>
@@ -169,7 +181,7 @@ export default async function AccountPage() {
         </section>
 
         <ul className="flex flex-col gap-3">
-          {QUICK_LINKS.map(({ href, label, description, icon: Icon }) => (
+          {quickLinks.map(({ href, label, description, icon: Icon }) => (
             <li key={href}>
               <Link href={href}>
                 <Card className="flex items-center gap-3 transition-colors hover:border-indigo-300 dark:hover:border-indigo-700">
