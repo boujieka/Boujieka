@@ -1,2 +1,3 @@
 assets/audio/lines/
 renders/*.tmp
+__pycache__/
