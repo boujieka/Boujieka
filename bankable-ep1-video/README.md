@@ -4,7 +4,9 @@ A voiced motion-comic video of the story pages (book pages 4–24) of
 *Bankable Is Not Enough, Episode 1: The Signing* by Emmanuel Boujieka Kamga,
 built with [HyperFrames](https://github.com/heygen-com/hyperframes).
 
-- Output: `renders/bankable-is-not-enough-ep1.mp4` — 1920×1080, 30 fps, ~13 min 40 s
+- Output: `renders/bankable-ep1-1080p.mp4` (1920×1080, 82 MB) and
+  `renders/bankable-ep1-720p.mp4` (1280×720, 27 MB, for messaging) — 30 fps, 13 min 40 s.
+  The full-quality master (~512 MB) is not committed; re-render it with the command below.
 - Captions: `captions.srt` (upload alongside the video on YouTube, LinkedIn, etc.)
 
 ## What's in it
