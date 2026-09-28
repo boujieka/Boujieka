@@ -22,6 +22,7 @@ from animate import PUPPET_VIEW  # noqa: E402
 
 ROLES = dict(BOOK_ROLES)
 import music  # noqa: E402
+from lang import ui, LANG  # noqa: E402
 
 ROOT = os.path.dirname(HERE)
 
@@ -38,6 +39,16 @@ CONFIGS = {
                         "region": (0, 64, 1920, 1016), "captions": False, "title": "The MoU Trap - Briefing: Energy ministries and Regulators"},
     "trap_partners": {"story": "story_trap_briefs:PARTNERS", "out": "mou-trap-training/5-briefing-developers-partners", "W": 1920, "H": 1080,
                       "region": (0, 64, 1920, 1016), "captions": False, "title": "The MoU Trap - Briefing: Developers and Development partners"},
+    "trap_core_fr": {"story": "story_trap_core_fr", "out": "mou-trap-training-fr/1-module-principal", "W": 1920, "H": 1080,
+                  "region": (0, 64, 1920, 1016), "captions": False, "title": "Le piège du MoU - Module principal"},
+    "trap_ministers_fr": {"story": "story_trap_briefs_fr:MINISTERS", "out": "mou-trap-training-fr/2-briefing-ministres-gouvernement", "W": 1920, "H": 1080,
+                  "region": (0, 64, 1920, 1016), "captions": False, "title": "Le piège du MoU - Briefing : Ministres et Gouvernement"},
+    "trap_finance_fr": {"story": "story_trap_briefs_fr:FINANCE", "out": "mou-trap-training-fr/3-briefing-finances-compagnies", "W": 1920, "H": 1080,
+                  "region": (0, 64, 1920, 1016), "captions": False, "title": "Le piège du MoU - Briefing : Finances et compagnies d'électricité"},
+    "trap_regulators_fr": {"story": "story_trap_briefs_fr:REGULATORS", "out": "mou-trap-training-fr/4-briefing-energie-regulateurs", "W": 1920, "H": 1080,
+                  "region": (0, 64, 1920, 1016), "captions": False, "title": "Le piège du MoU - Briefing : Énergie et régulateurs"},
+    "trap_partners_fr": {"story": "story_trap_briefs_fr:PARTNERS", "out": "mou-trap-training-fr/5-briefing-developpeurs-partenaires", "W": 1920, "H": 1080,
+                  "region": (0, 64, 1920, 1016), "captions": False, "title": "Le piège du MoU - Briefing : Développeurs et partenaires"},
     "short": {"story": "story_short", "out": "bankable-ep1-short", "W": 1080, "H": 1920,
               "region": (0, 250, 1080, 880), "captions": True, "title": "Bankable Is Not Enough - Episode 1 (Short)"},
 }
@@ -166,8 +177,7 @@ def main(which):
             srt.append(f"{n}\n{fmt_srt(st)} --> {fmt_srt(st + d)}\n{who}{spoken_to_text(text)}\n")
     open(os.path.join(out, "captions.srt"), "w").write("\n".join(srt))
     chap = []
-    names = {"title": "Title", "ladder": "Bankable vs sustainable", "checklist": "Before you sign",
-             "redteam": "Red team", "lesson": "The lesson"}
+    names = {k: ui(k) for k in ("title", "ladder", "checklist", "redteam", "lesson")}
     for seg in segs:
         sh = seg["shot"]
         if sh["kind"] != "screen" or sh["layout"] not in ("act", *names):
@@ -179,7 +189,7 @@ def main(which):
         m, s_ = divmod(int(seg["start"]), 60)
         chap.append(f"{m:02d}:{s_:02d} {label}")
     if not chap or not chap[0].startswith("00:00"):
-        chap.insert(0, "00:00 Cold open")
+        chap.insert(0, "00:00 " + ui("cold_open"))
     open(os.path.join(out, "chapters.txt"), "w").write("\n".join(chap) + "\n")
 
     write_html(cfg, story, segs, total, out)

@@ -43,16 +43,26 @@ _kokoro = None
 
 
 def tts(voice_key, text):
+    from lang import LANG, FR_VOICES
     voice = VOICES[voice_key]
-    key = hashlib.sha1(f"{voice}|{text}".encode()).hexdigest()[:16]
+    recipe, speed, lang = None, 1.0, None
+    if LANG == "fr":
+        recipe, speed = FR_VOICES[voice_key]
+        voice, lang = "+".join(f"{v}:{w}" for v, w in recipe), "fr-fr"
+    key = hashlib.sha1(f"{voice}|{speed}|{text}".encode()).hexdigest()[:16] if recipe else \
+        hashlib.sha1(f"{voice}|{text}".encode()).hexdigest()[:16]
     path = os.path.join(LINES_DIR, f"{key}.wav")
     if not os.path.exists(path):
         global _kokoro
         if _kokoro is None:
             from kokoro_onnx import Kokoro
             _kokoro = Kokoro(MODEL, VOICEPACK)
-        lang = "en-gb" if voice.startswith("b") else "en-us"
-        samples, sr = _kokoro.create(text, voice=voice, speed=1.0, lang=lang)
+        if recipe:
+            style = sum(_kokoro.get_voice_style(v) * w for v, w in recipe)
+            samples, sr = _kokoro.create(text, voice=style, speed=speed, lang=lang)
+        else:
+            lang = "en-gb" if voice.startswith("b") else "en-us"
+            samples, sr = _kokoro.create(text, voice=voice, speed=1.0, lang=lang)
         assert sr == SR
         sf.write(path, samples, sr)
     data, _ = sf.read(path, dtype="float32")

@@ -6,6 +6,7 @@ play generic roles; they never portray a real person.
 """
 from v2cards import *  # noqa: F401,F403
 from v2cards import esc, part, screen, badge
+from lang import ui, LANG
 
 ROLES = {
     "KERBU": ("MINISTER KERBU", "Government · signs the MoU"),
@@ -18,10 +19,23 @@ ROLES = {
 }
 
 
+ROLES_FR = {
+    "KERBU": ("MINISTRE KERBU", "Gouvernement · signe le MoU"),
+    "ENILEC": ("ENILEC MOK", "Ministère des Finances · le dernier rempart"),
+    "PAUL": ("PAUL AHMAK", "Compagnie d'électricité · l'acheteur qui paie"),
+    "EMSON": ("EMSON ANAHCT", "Développeur · détient l'option"),
+    "TIDIANIE": ("TIDIANIE EUGOM", "Prêteur · arrive en dernier"),
+    "BELPAU": ("BELPAU", "Analyste · pose les questions"),
+    "RESIDENT": ("RÉSIDENT", "Consommateur"),
+}
+if LANG == "fr":
+    ROLES = ROLES_FR
+
+
 def stat(value, label, source, spoken, code="fact", hold=0.8, music=None, sting=None):
     return screen("big", [part(badge(code)),
                           part(f'<div class="stat">{value}</div><div class="stat-l">{label}</div>', spoken, hold),
-                          part(f'<div class="src">Source: {esc(source)}</div>', [], 0.3)],
+                          part(f'<div class="src">{ui("source")} {esc(source)}</div>', [], 0.3)],
                   code, music or ("drone" if code == "red" else "bed"), sting)
 
 
@@ -38,7 +52,7 @@ def fact(text, spoken, source=None, code="fact", sub=None, hold=0.8, music=None,
     if sub:
         parts.append(part(f'<div class="big-sub">{sub[0]}</div>', sub[1], 0.6))
     if source:
-        parts.append(part(f'<div class="src">Source: {esc(source)}</div>', [], 0.3))
+        parts.append(part(f'<div class="src">{ui("source")} {esc(source)}</div>', [], 0.3))
     return screen("big", parts, code, music or ("drone" if code == "red" else "bed"), sting)
 
 
@@ -51,7 +65,7 @@ def table(title, head, rows, spoken_rows, intro=(), source="author (Chapter 1)",
     for r, sp in zip(rows, spoken_rows):
         cells = "".join(f"<div>{esc(c)}</div>" for c in r)
         parts.append(part(f'<div class="trow" style="grid-template-columns:{cols}">{cells}</div>', sp, 0.3))
-    parts.append(part(f'<div class="src">Source: {esc(source)}</div>', [], 0.8))
+    parts.append(part(f'<div class="src">{ui("source")} {esc(source)}</div>', [], 0.8))
     return screen("table", parts, code, "bed")
 
 
@@ -72,7 +86,7 @@ def timeline(title, events, intro, source, code="fact"):
     for year, text, spoken in events:
         row.append(part(f'<div class="tl-i"><b>{esc(year)}</b><span>{esc(text)}</span></div>', spoken, 0.25))
     parts += row
-    parts.append(part(f'<div class="src">Source: {esc(source)}</div>', [], 0.8))
+    parts.append(part(f'<div class="src">{ui("source")} {esc(source)}</div>', [], 0.8))
     return screen("timeline", parts, code, "tension")
 
 
@@ -92,19 +106,28 @@ def trap_lesson(l1, l2, l3):
 
 
 def trap_credits():
-    return screen("credits", [
-        part('<div class="cr-t">THE MoU TRAP</div><div class="cr-s">BANKABLE IS NOT ENOUGH · PART I · CHAPTER 1</div>'),
-        part('<p>Based on &ldquo;The MoU trap&rdquo;, Chapter 1 of <i>Bankable Is Not Enough</i>, by Emmanuel Boujieka Kamga.</p>'
-             '<p>Case figures are taken from the sources cited on screen, with the chapter&rsquo;s caveats. '
-             'The full reference list is in the chapter.</p>'
-             '<p>The cartoon characters are fictional and play generic roles. They do not represent any real person or institution.</p>'
-             '<p>For education and capacity building. Not legal, financial or investment advice.</p>'
-             '<p class="dim">Voices are synthetic (Kokoro-82M). Music is procedurally generated.</p>', [], 6.0)],
-        None, "theme")
+    if LANG == "fr":
+        head = '<div class="cr-t">LE PIÈGE DU MoU</div><div class="cr-s">BANCABLE NE SUFFIT PAS · PARTIE I · CHAPITRE 1</div>'
+        body = ('<p>D&rsquo;après &laquo; The MoU trap &raquo;, chapitre 1 de <i>Bankable Is Not Enough</i>, d&rsquo;Emmanuel Boujieka Kamga.</p>'
+                '<p>Les chiffres des cas proviennent des sources citées à l&rsquo;écran, avec les réserves du chapitre. '
+                'La liste complète des références figure dans le chapitre.</p>'
+                '<p>Les personnages sont fictifs et jouent des rôles génériques. Ils ne représentent aucune personne ni institution réelle.</p>'
+                '<p>À des fins de formation et de renforcement des capacités. Ne constitue pas un conseil juridique, financier ou d&rsquo;investissement.</p>'
+                '<p class="dim">Voix de synthèse (Kokoro-82M). Musique générée de façon procédurale.</p>')
+    else:
+        head = '<div class="cr-t">THE MoU TRAP</div><div class="cr-s">BANKABLE IS NOT ENOUGH · PART I · CHAPTER 1</div>'
+        body = ('<p>Based on &ldquo;The MoU trap&rdquo;, Chapter 1 of <i>Bankable Is Not Enough</i>, by Emmanuel Boujieka Kamga.</p>'
+                '<p>Case figures are taken from the sources cited on screen, with the chapter&rsquo;s caveats. '
+                'The full reference list is in the chapter.</p>'
+                '<p>The cartoon characters are fictional and play generic roles. They do not represent any real person or institution.</p>'
+                '<p>For education and capacity building. Not legal, financial or investment advice.</p>'
+                '<p class="dim">Voices are synthetic (Kokoro-82M). Music is procedurally generated.</p>')
+    return screen("credits", [part(head), part(body, [], 6.0)], None, "theme")
 
 
 def brief_title(audience, hook, spoken):
     return screen("act", [part(f'<div class="act-label">BRIEFING · {esc(audience)}</div>'),
                           part(f'<div class="act-title">{hook}</div>', spoken, 1.0),
-                          part('<div class="src" style="color:#cfe3df">The MoU Trap · Bankable Is Not Enough, Chapter 1</div>', [], 0.4)],
+                          part('<div class="src" style="color:#cfe3df">' + ("Le piège du MoU · Bancable ne suffit pas, chapitre 1" if LANG == "fr"
+                  else "The MoU Trap · Bankable Is Not Enough, Chapter 1") + '</div>', [], 0.4)],
                   None, "theme", "act", 0)

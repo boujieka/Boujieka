@@ -3,6 +3,8 @@
 Scenes let the puppets act out situations that have no page in the book:
 a signing ceremony, a cabinet table with empty chairs, an office, a dark city.
 """
+from lang import ui
+
 INK = "#1d2230"
 
 
@@ -26,7 +28,7 @@ def _ceremony():
     return (f'<rect width="1920" height="1080" fill="#8a2130"/>'
             f'<rect x="0" y="0" width="1920" height="1080" fill="url(#spot)"/>'
             f'<rect x="460" y="70" width="1000" height="130" rx="14" fill="#13615f" stroke="{INK}" stroke-width="8"/>'
-            f'<text x="960" y="160" text-anchor="middle" font-family="Bangers" font-size="84" fill="#fff">MoU SIGNING CEREMONY</text>'
+            f'<text x="960" y="160" text-anchor="middle" font-family="Bangers" font-size="84" fill="#fff">{ui("ceremony")}</text>'
             + lights +
             f'<rect x="300" y="690" width="1320" height="60" fill="#6b4a2c" stroke="{INK}" stroke-width="6"/>'
             f'<rect x="330" y="750" width="1260" height="200" fill="#7c5634" stroke="{INK}" stroke-width="6"/>' + crowd)

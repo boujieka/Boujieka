@@ -11,6 +11,8 @@ Visual codes (constant across the series):
 """
 import html as _h
 
+from lang import ui
+
 N, B, E, T, K, M, P = "NARRATOR", "BELPAU", "ENILEC", "TIDIANIE", "KERBU", "EMSON", "PAUL"
 esc = _h.escape
 
@@ -43,7 +45,7 @@ def screen(layout, parts, code=None, music="bed", sting=None, chapter=None, tail
 
 
 def badge(code):
-    label = {"fact": "FACT", "decision": "DECISION", "red": "RED TEAM"}.get(code)
+    label = ui(code) if code in ("fact", "decision", "red") else None
     return f'<div class="badge {code}">{label}</div>' if label else ""
 
 
@@ -63,14 +65,14 @@ def act(label, title, lines, chapter, music="bed"):
 
 
 def stop(role, facts, question, options, silence=4, after=None):
-    parts = [part('<div class="stop-sign">STOP</div>', [(N, "Stop.")], 0.2),
+    parts = [part('<div class="stop-sign">STOP</div>', [(N, ui("stop_spoken"))], 0.2),
              part(f'<div class="stop-role">{esc(role[0])}</div>', [(N, role[1])], 0.2)]
     for txt, spoken in facts:
         parts.append(part(f'<div class="stop-fact">{esc(txt)}</div>', [(N, spoken)], 0.1))
     parts.append(part(f'<div class="stop-q">{esc(question)}</div>', [(N, question)], 0.3))
     opts = "".join(f'<div class="opt"><b>{k}</b>{esc(v)}</div>' for k, v in options)
     parts.append(part(f'<div class="stop-opts">{opts}</div>', [], 0.3))
-    parts.append(part('<div class="stop-pause">Pause the video and answer before continuing.</div>',
+    parts.append(part(f'<div class="stop-pause">{esc(ui("pause"))}</div>',
                       [], silence, countdown=silence))
     if after:
         parts.append(part(f'<div class="stop-after">{esc(after[0])}</div>', [(N, after[1])], 0.4))
@@ -81,11 +83,11 @@ def stop(role, facts, question, options, silence=4, after=None):
 
 def decision(question, evidence, verdict, lines_q, lines_e, lines_d, extra=None):
     parts = [part(badge("decision")),
-             part(f'<div class="dn-h">THE QUESTION</div><div class="dn-q">{esc(question)}</div>', lines_q, 0.3),
-             part('<div class="dn-h">THE EVIDENCE</div>', [], 0)]
+             part(f'<div class="dn-h">{ui("q")}</div><div class="dn-q">{esc(question)}</div>', lines_q, 0.3),
+             part(f'<div class="dn-h">{ui("ev")}</div>', [], 0)]
     for i, ev in enumerate(evidence):
         parts.append(part(f'<div class="dn-ev">{esc(ev)}</div>', lines_e[i] if i < len(lines_e) else [], 0.15))
-    parts.append(part(f'<div class="dn-h">THE DECISION</div><div class="dn-d">{esc(verdict)}</div>', lines_d, 0.9))
+    parts.append(part(f'<div class="dn-h">{ui("dec")}</div><div class="dn-d">{esc(verdict)}</div>', lines_d, 0.9))
     if extra:
         parts.append(part(f'<div class="dn-x">{esc(extra[0])}</div>', extra[1], 0.8))
     return screen("decision", parts, "decision", "bed")
@@ -139,7 +141,7 @@ def roles(intro, items, table=None):
 
 
 def legend(lines_intro, rows):
-    parts = [part('<div class="lg-title">THREE SIGNALS</div>', lines_intro, 0.2)]
+    parts = [part(f'<div class="lg-title">{ui("signals")}</div>', lines_intro, 0.2)]
     for code, desc, spoken in rows:
         parts.append(part(f'<div class="lg-row">{badge(code)}<span>{esc(desc)}</span></div>', spoken, 0.3))
     return screen("legend", parts, None, "bed")
