@@ -279,7 +279,7 @@ def write_html(cfg, story, segs, total, out):
             txt = html.escape(spoken_to_text(text))
             if who:
                 bx = min(max(who["x"], 380), W - 380)
-                by = max(30, who["y"] - who["size"] * 1.9 - 250)
+                by = 96  # below the chapter bar; the tail points down to the speaker
                 tail = max(-260, min(260, who["x"] - bx))
                 bubbles.append(f'<div class="bubble" id="{bid}" style="left:{bx - 340}px;top:{by}px">'
                                f'<p>{txt}</p><i style="left:{340 + tail - 20}px"></i></div>')

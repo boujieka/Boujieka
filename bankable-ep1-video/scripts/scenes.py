@@ -66,7 +66,7 @@ def prop(kind, x, y, label="", s=1.0):
                 f'<rect x="-110" y="20" width="220" height="40" rx="10" fill="#7c5634" stroke="{INK}" stroke-width="7"/>'
                 f'<rect x="-100" y="60" width="16" height="120" fill="#5a3d23"/><rect x="84" y="60" width="16" height="120" fill="#5a3d23"/>'
                 f'<rect x="-120" y="-250" width="240" height="64" rx="8" fill="#fff" stroke="{INK}" stroke-width="5"/>'
-                f'<text x="0" y="-206" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="30" fill="{INK}">{label}</text>')
+                f'<text x="0" y="-206" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="{30 if len(label) <= 11 else 22}" fill="{INK}">{label}</text>')
         return f'<svg class="prop" style="left:{x - 150 * s}px;top:{y - 280 * s}px" width="{300 * s}" height="{480 * s}" viewBox="-150 -280 300 480">{body}</svg>'
     if kind == "table":
         return (f'<svg class="prop" style="left:{x}px;top:{y}px" width="{label or 1400}" height="120" viewBox="0 0 {label or 1400} 120">'
