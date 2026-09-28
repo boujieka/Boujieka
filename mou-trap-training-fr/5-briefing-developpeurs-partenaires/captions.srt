@@ -1,0 +1,79 @@
+1
+00:00:01,050 --> 00:00:07,621
+Briefing pour les développeurs et les partenaires au développement. Comptez ce qui se boucle, pas ce qui se signe.
+
+2
+00:00:10,721 --> 00:00:15,500
+Emson Anahct: Des jalons, une date d'échéance et une garantie de développement, dans le protocole d'accord ?
+
+3
+00:00:15,800 --> 00:00:19,512
+Tidianie Eugom: Les développeurs sérieux n'ont pas grand-chose à craindre de tout cela.
+
+4
+00:00:21,262 --> 00:00:30,521
+Moins de dix pour cent des projets d'infrastructure africains atteignent le bouclage financier, selon l'estimation de McKinsey, qui couvre tous les secteurs.
+
+5
+00:00:33,571 --> 00:00:42,659
+À la signature, les partenaires au développement obtiennent la preuve d'un portefeuille de projets, sans coût direct. L'incitation est de compter ce qui est signé.
+
+6
+00:00:45,709 --> 00:00:57,357
+Au Nigeria, des développeurs auraient versé des cautions, et les projets se sont enlisés quand même, à cause du tarif, de l'acheteur et du soutien de l'État. Donner un prix à l'option ne suffit pas à lui seul.
+
+7
+00:01:00,407 --> 00:01:03,330
+Note de décision. Ce portefeuille est-il réel ?
+
+8
+00:01:04,230 --> 00:01:07,792
+Des protocoles d'accord signés sont des options, pas des projets.
+
+9
+00:01:08,242 --> 00:01:11,592
+La plupart des projets échouent au stade de la faisabilité.
+
+10
+00:01:12,042 --> 00:01:19,722
+Et même quand les institutions de financement du développement co-développent, le ministère des Finances découvre souvent le projet tard.
+
+11
+00:01:20,172 --> 00:01:28,385
+Votre décision : mesurer les portefeuilles par le nombre de projets qui réussissent les deux tests, et non par le nombre de protocoles d'accord signés.
+
+12
+00:01:29,585 --> 00:01:36,049
+Et les développeurs doivent s'attendre à des jalons, des dates d'échéance et, si nécessaire, des garanties de développement.
+
+13
+00:01:38,499 --> 00:01:39,224
+Stop.
+
+14
+00:01:39,724 --> 00:01:42,455
+Vous gérez un programme énergétique national.
+
+15
+00:01:42,955 --> 00:01:46,304
+Votre rapport recense quarante protocoles d'accord signés.
+
+16
+00:01:46,704 --> 00:01:49,456
+Peu ont été testés par les prêteurs, ou par l'État.
+
+17
+00:01:49,856 --> 00:01:50,987
+Que déclarez-vous ?
+
+18
+00:01:58,187 --> 00:02:01,024
+Un portefeuille n'est pas un décompte de signatures.
+
+19
+00:02:03,074 --> 00:02:04,546
+Comptez ce qui se boucle.
+
+20
+00:02:05,446 --> 00:02:10,075
+Durablement : avec les deux tests réussis, et la réponse de l'État rendue publique.

@@ -1,0 +1,83 @@
+1
+00:00:01,050 --> 00:00:07,962
+Briefing pour les ministères de l'Énergie, les régulateurs et les services des achats publics. Filtrer à l'entrée.
+
+2
+00:00:11,062 --> 00:00:16,779
+Ministre Kerbu: Un développeur nous a apporté cette proposition directement. Il peut signer la semaine prochaine.
+
+3
+00:00:17,079 --> 00:00:20,621
+Belpau: Alors testons-la contre le plan de moindre coût avant toute signature.
+
+4
+00:00:22,371 --> 00:00:33,464
+Les lignes directrices de la Banque mondiale préviennent que les offres spontanées rencontrent souvent des difficultés, notamment en détournant des ressources publiques des plans stratégiques du gouvernement.
+
+5
+00:00:36,714 --> 00:00:50,090
+Le tarif solaire du Nigeria a été fixé administrativement, avant toute découverte concurrentielle des prix. Quand les coûts du solaire ont baissé, le gouvernement a voulu le rouvrir, et le programme s'est enlisé dans ce différend.
+
+6
+00:00:53,140 --> 00:01:04,724
+Un protocole d'accord coûte peu à obtenir et vaut cher à détenir. Au Nigeria, certains développeurs locaux attendaient, selon la presse, de revendre leurs projets à des entreprises internationales.
+
+7
+00:01:07,774 --> 00:01:13,150
+Note de décision. Ce projet est-il nécessaire, et une mise en concurrence ferait-elle mieux ?
+
+8
+00:01:14,050 --> 00:01:19,213
+Les offres spontanées contournent la planification, la découverte des prix et le contrôle.
+
+9
+00:01:19,663 --> 00:01:22,052
+Un tarif publié devient la référence.
+
+10
+00:01:22,502 --> 00:01:25,787
+Et une exclusivité sans progrès bloque de meilleurs projets.
+
+11
+00:01:26,237 --> 00:01:32,552
+Votre décision : tester tout protocole d'accord hors du plan de moindre coût contre le plan, avant sa signature.
+
+12
+00:01:33,752 --> 00:01:43,288
+Mettre en concurrence par défaut. Exiger des jalons, des dates d'échéance et des garanties de développement. Et tenir et publier le registre des protocoles d'accord.
+
+13
+00:01:45,738 --> 00:01:46,463
+Stop.
+
+14
+00:01:46,963 --> 00:01:49,459
+Vous dirigez le service des achats publics.
+
+15
+00:01:49,959 --> 00:01:53,458
+Une offre spontanée promet de l'électricité en dix-huit mois.
+
+16
+00:01:53,858 --> 00:01:56,247
+Son tarif indicatif semble attrayant.
+
+17
+00:01:56,647 --> 00:01:58,823
+Elle demande cinq ans d'exclusivité.
+
+18
+00:01:59,223 --> 00:02:00,439
+Que recommandez-vous ?
+
+19
+00:02:07,639 --> 00:02:09,645
+Découvrez le prix avant de l'imprimer.
+
+20
+00:02:11,695 --> 00:02:12,954
+Filtrer à l'entrée.
+
+21
+00:02:13,854 --> 00:02:16,264
+Chaque chiffre publié devient une référence.
