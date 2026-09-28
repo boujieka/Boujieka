@@ -2,3 +2,4 @@ assets/audio/lines/
 __pycache__/
 # master render (~512 MB) exceeds GitHub limits; regenerate with npm run render
 renders/bankable-is-not-enough-ep1.mp4
+renders/work-*/
