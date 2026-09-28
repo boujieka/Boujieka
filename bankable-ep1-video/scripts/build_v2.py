@@ -16,7 +16,11 @@ sys.path.insert(0, HERE)
 from build import tts, SR, PANELS, puppet_layer, pid_for  # noqa: E402
 from animate import place_puppets, animate_shot  # noqa: E402
 from puppets import puppet_svg  # noqa: E402
-from v2cards import ROLES  # noqa: E402
+from v2cards import ROLES as BOOK_ROLES  # noqa: E402
+from scenes import background, prop  # noqa: E402
+from animate import PUPPET_VIEW  # noqa: E402
+
+ROLES = dict(BOOK_ROLES)
 import music  # noqa: E402
 
 ROOT = os.path.dirname(HERE)
@@ -24,6 +28,16 @@ ROOT = os.path.dirname(HERE)
 CONFIGS = {
     "training": {"story": "story_training", "out": "bankable-ep1-training", "W": 1920, "H": 1080,
                  "region": (0, 64, 1920, 1016), "captions": False, "title": "Bankable Is Not Enough - Episode 1 (Training)"},
+    "trap_core": {"story": "story_trap_core", "out": "mou-trap-training/1-core-module", "W": 1920, "H": 1080,
+                  "region": (0, 64, 1920, 1016), "captions": False, "title": "The MoU Trap - Core module"},
+    "trap_ministers": {"story": "story_trap_briefs:MINISTERS", "out": "mou-trap-training/2-briefing-ministers-cabinet", "W": 1920, "H": 1080,
+                       "region": (0, 64, 1920, 1016), "captions": False, "title": "The MoU Trap - Briefing: Ministers and Cabinet"},
+    "trap_finance": {"story": "story_trap_briefs:FINANCE", "out": "mou-trap-training/3-briefing-finance-utilities", "W": 1920, "H": 1080,
+                     "region": (0, 64, 1920, 1016), "captions": False, "title": "The MoU Trap - Briefing: Finance and Utilities"},
+    "trap_regulators": {"story": "story_trap_briefs:REGULATORS", "out": "mou-trap-training/4-briefing-energy-regulators", "W": 1920, "H": 1080,
+                        "region": (0, 64, 1920, 1016), "captions": False, "title": "The MoU Trap - Briefing: Energy ministries and Regulators"},
+    "trap_partners": {"story": "story_trap_briefs:PARTNERS", "out": "mou-trap-training/5-briefing-developers-partners", "W": 1920, "H": 1080,
+                      "region": (0, 64, 1920, 1016), "captions": False, "title": "The MoU Trap - Briefing: Developers and Development partners"},
     "short": {"story": "story_short", "out": "bankable-ep1-short", "W": 1080, "H": 1920,
               "region": (0, 250, 1080, 880), "captions": True, "title": "Bankable Is Not Enough - Episode 1 (Short)"},
 }
@@ -59,7 +73,7 @@ def layout(shots):
         if shot.get("chapter") is not None:
             chapter = shot["chapter"]
         seg["chapter"] = chapter
-        if shot["kind"] in ("panel", "pan"):
+        if shot["kind"] in ("panel", "pan", "scene"):
             cut = shot.get("cut")
             cur = t + (0.35 if cut else 0.8)
             for spk, text in shot["lines"]:
@@ -111,13 +125,19 @@ def music_plan(segs):
 def main(which):
     cfg = CONFIGS[which]
     W, H, region = cfg["W"], cfg["H"], cfg["region"]
-    story = importlib.import_module(cfg["story"])
+    modname, _, attr = cfg["story"].partition(":")
+    story = importlib.import_module(modname)
+    if attr:  # a module holding several storyboards
+        import types
+        story = types.SimpleNamespace(SHOTS=getattr(story, attr), CHAPTERS=story.CHAPTERS,
+                                      ROLES=getattr(story, "ROLES", BOOK_ROLES))
+    ROLES.clear(); ROLES.update(getattr(story, "ROLES", BOOK_ROLES))
     segs, total = layout(story.SHOTS)
     out = os.path.join(os.path.dirname(ROOT), cfg["out"])
-    os.makedirs(os.path.join(out, "audio"), exist_ok=True)
+    os.makedirs(os.path.join(out, "audio"), exist_ok=True)  # also creates the series folder
     link = os.path.join(out, "assets")
     if not os.path.islink(link):
-        os.symlink("../bankable-ep1-video/assets", link)
+        os.symlink(os.path.relpath(os.path.join(ROOT, "assets"), out), link)
 
     # ---------------- audio: voice + music -> stereo 48 kHz AAC
     voice = np.zeros(int((total + 1) * SR), np.float32)
@@ -153,7 +173,7 @@ def main(which):
         if sh["kind"] != "screen" or sh["layout"] not in ("act", *names):
             continue
         if sh["layout"] == "act":
-            label = " ".join(re.sub("<[^>]+>", " ", sh["parts"][0]["html"] + " - " + sh["parts"][1]["html"]).split()).title()
+            label = " ".join(re.sub("<[^>]+>", " ", sh["parts"][0]["html"] + " - " + sh["parts"][1]["html"]).split()).title().replace("Mou", "MoU")
         else:
             label = names[sh["layout"]]
         m, s_ = divmod(int(seg["start"]), 60)
@@ -165,9 +185,9 @@ def main(which):
     write_html(cfg, story, segs, total, out)
     for f, src in [("package.json", None), ("hyperframes.json", None)]:
         p = os.path.join(ROOT, f)
-        txt = open(p).read().replace("bankable-ep1-video", cfg["out"])
+        txt = open(p).read().replace("bankable-ep1-video", os.path.basename(cfg["out"]))
         open(os.path.join(out, f), "w").write(txt)
-    json.dump({"id": cfg["out"], "name": cfg["title"]}, open(os.path.join(out, "meta.json"), "w"), indent=2)
+    json.dump({"id": os.path.basename(cfg["out"]), "name": cfg["title"]}, open(os.path.join(out, "meta.json"), "w"), indent=2)
     print(f"{which}: shots={len(segs)} lines={n} total={total:.1f}s -> {out}")
 
 
@@ -181,7 +201,7 @@ def write_html(cfg, story, segs, total, out):
     wins = []
     for i, seg in enumerate(segs):
         sh = seg["shot"]
-        if sh["kind"] == "screen":
+        if sh["kind"] in ("screen", "scene"):
             continue
         if wins and wins[-1]["page"] == sh["page"] and wins[-1]["last"] == i - 1:
             wins[-1]["end"] = seg["start"] + seg["dur"]; wins[-1]["last"] = i
@@ -203,7 +223,7 @@ def write_html(cfg, story, segs, total, out):
     prev = None
     for i, seg in enumerate(segs):
         sh = seg["shot"]; st, dur = seg["start"], seg["dur"]
-        if sh["kind"] == "screen":
+        if sh["kind"] in ("screen", "scene"):
             prev = None
             continue
         win = next(w for w in wins if w["first"] <= i <= w["last"])
@@ -237,6 +257,47 @@ def write_html(cfg, story, segs, total, out):
             if pups:
                 lines = [(spk, lst, tts(spk, text)[1]) for spk, text, lst, _ in seg["lines"]]
                 animate_shot(js, pups, lines, st, st + dur, SR)
+
+    # ---------------- cartoon scenes
+    vx, vy, vw, vh = PUPPET_VIEW
+    for i, seg in enumerate(segs):
+        sh = seg["shot"]
+        if sh["kind"] != "scene":
+            continue
+        cid = f"k{i}"; st, dur = seg["start"], seg["dur"]
+        pups, svgs = [], []
+        for j, a in enumerate(sh["cast"]):
+            pid = f"{cid}a{j}"; k = a["size"] / 100
+            svgs.append(f'<svg class="puppet" style="left:{a["x"] + vx * k:.1f}px;top:{a["y"] + vy * k:.1f}px" '
+                        f'width="{vw * k:.1f}" height="{vh * k:.1f}" viewBox="{vx} {vy} {vw} {vh}">'
+                        f'{puppet_svg(pid, a["who"], a["look"], a["mood"], a["arm"])}</svg>')
+            pups.append((pid, a))
+        bubbles = []
+        for n, (spk, text, lst, d) in enumerate(seg["lines"]):
+            bid = f"{cid}b{n}"
+            who = next((a for a in sh["cast"] if a["who"] == spk), None)
+            txt = html.escape(spoken_to_text(text))
+            if who:
+                bx = min(max(who["x"], 380), W - 380)
+                by = max(30, who["y"] - who["size"] * 1.9 - 250)
+                tail = max(-260, min(260, who["x"] - bx))
+                bubbles.append(f'<div class="bubble" id="{bid}" style="left:{bx - 340}px;top:{by}px">'
+                               f'<p>{txt}</p><i style="left:{340 + tail - 20}px"></i></div>')
+            else:
+                bubbles.append(f'<div class="narr" id="{bid}">{txt}</div>')
+            js.append(f'tl.set("#{bid}", {{opacity: 0, scale: 0.9}}, 0);')
+            js.append(f'tl.to("#{bid}", {{opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2)"}}, {lst - 0.1:.3f});')
+            js.append(f'tl.to("#{bid}", {{opacity: 0, duration: 0.2}}, {lst + d + 0.15:.3f});')
+        body.append(f'<section id="{cid}" class="clip scene" data-start="{max(0, st - 0.3):.3f}" '
+                    f'data-duration="{dur + min(st, 0.3):.3f}" data-track-index="5">{background(sh["bg"])}'
+                    f'{"".join(prop(*p) for p in sh["props"])}{"".join(svgs)}{"".join(bubbles)}</section>')
+        js.append(f'tl.set("#{cid}", {{opacity: 0}}, 0);')
+        js.append(f'tl.to("#{cid}", {{opacity: 1, duration: 0.35}}, {max(0, st - 0.3):.3f});')
+        if i < len(segs) - 1:
+            js.append(f'tl.to("#{cid}", {{opacity: 0, duration: 0.35}}, {st + dur - 0.35:.3f});')
+        if pups:
+            lines = [(spk, lst, tts(spk, text)[1]) for spk, text, lst, _ in seg["lines"]]
+            animate_shot(js, pups, lines, st, st + dur, SR)
 
     # ---------------- screens
     for i, seg in enumerate(segs):

@@ -123,6 +123,7 @@
       /* ROLES */
       .l-roles .inner { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 18px 26px; max-width: 1800px; }
       .portrait .l-roles .inner { max-width: 1040px; }
+      .l-roles .part:first-child { width: 100%; }
       .roles-title { width: 100%; font: 400 96px Bangers, sans-serif; color: var(--teal); }
       .role { width: 270px; display: flex; flex-direction: column; align-items: center; }
       .portrait .role { width: 310px; }
@@ -166,6 +167,56 @@
       .cr-t { font: 400 110px Bangers, sans-serif; } .cr-s { font: 700 28px Poppins, sans-serif; letter-spacing: 0.2em; color: var(--yellow); }
       .l-credits p { font: 400 30px/1.45 Poppins, sans-serif; max-width: 1300px; margin: 6px auto; }
       .l-credits .dim { opacity: 0.65; font-size: 24px; }
+
+      /* ---------- cartoon scenes ---------- */
+      .scene { background: #e6ede8; overflow: hidden; }
+      .scene .bg { position: absolute; left: 0; top: 0; }
+      .prop, .scene .puppet { position: absolute; overflow: visible; }
+      .placard { position: absolute; transform-origin: 0 0; font: 400 58px Bangers, sans-serif; letter-spacing: 0.03em;
+                 background: #fff; border: 6px solid var(--ink); border-radius: 12px; padding: 10px 26px 4px; box-shadow: 8px 8px 0 rgba(0,0,0,0.25); }
+      .placard.red { background: var(--red); color: #fff; }
+      .bubble { position: absolute; width: 680px; background: #fff; border: 6px solid var(--ink); border-radius: 60px;
+                padding: 26px 40px; text-align: center; box-shadow: 6px 6px 0 rgba(0,0,0,0.18); }
+      .bubble p { font: 600 36px/1.3 Poppins, sans-serif; color: var(--ink); }
+      .bubble i { position: absolute; bottom: -44px; width: 40px; height: 44px; background: var(--ink);
+                  clip-path: polygon(0 0, 100% 0, 50% 100%); }
+      .bubble i::after { content: ""; position: absolute; left: 7px; top: -2px; width: 26px; height: 32px; background: #fff;
+                         clip-path: polygon(0 0, 100% 0, 50% 100%); }
+      .narr { position: absolute; left: 60px; top: 90px; max-width: 900px; background: var(--yellow); border: 5px solid var(--ink);
+              font: 600 36px/1.3 Poppins, sans-serif; padding: 16px 28px; box-shadow: 6px 6px 0 rgba(0,0,0,0.25); }
+
+      /* ---------- data cards (sources shown) ---------- */
+      .src { font: 600 22px Poppins, sans-serif; color: #7a705b; font-style: italic; }
+      .c-red .src { color: #c9a9a4; }
+      .stat { font: 400 200px/0.9 Bangers, sans-serif; color: var(--teal); }
+      .c-red .stat { color: #ff6b5c; }
+      .stat-l { font: 700 50px/1.2 Poppins, sans-serif; }
+      .tbl { border-collapse: collapse; font: 600 30px/1.3 Poppins, sans-serif; text-align: left; background: #fff; }
+      .tbl th { background: var(--ink); color: #fff; padding: 14px 20px; font-size: 26px; letter-spacing: 0.06em; }
+      .tbl td { border: 3px solid var(--ink); padding: 14px 20px; vertical-align: top; }
+      .tbl td:first-child { font: 400 40px Bangers, sans-serif; letter-spacing: 0.03em; }
+      .l-table .inner { gap: 0; }
+      .l-table .part { width: 1680px; }
+      .trow { display: grid; background: #fff; border: 3px solid var(--ink); border-top: none; text-align: left;
+              font: 600 28px/1.3 Poppins, sans-serif; }
+      .trow > div { padding: 12px 18px; border-left: 3px solid var(--ink); }
+      .trow > div:first-child { border-left: none; font: 400 38px Bangers, sans-serif; letter-spacing: 0.03em; }
+      .trow.th { background: var(--ink); color: #fff; border-top: 3px solid var(--ink); margin-top: 14px; }
+      .trow.th > div { font: 700 22px Poppins, sans-serif; letter-spacing: 0.08em; border-color: #3a4052; }
+      .l-table .part:first-child, .l-table .part:nth-child(2) { width: auto; }
+      .l-table .src, .l-table .dn-q { text-align: center; }
+      .l-timeline .inner { flex-direction: row; flex-wrap: wrap; justify-content: center; max-width: 1700px; }
+      .l-timeline .part:nth-child(1), .l-timeline .part:nth-child(2), .l-timeline .part:last-child { width: 100%; }
+      .l-layers .inner { gap: 4px; }
+      .timeline { display: flex; gap: 0; align-items: stretch; }
+      .tl-i { width: 300px; border-top: 10px solid var(--teal); padding: 16px 14px 0; text-align: left; position: relative; }
+      .tl-i::before { content: ""; position: absolute; top: -20px; left: 10px; width: 30px; height: 30px; border-radius: 50%; background: var(--yellow); border: 5px solid var(--ink); }
+      .tl-i b { font: 400 54px Bangers, sans-serif; display: block; }
+      .tl-i span { font: 600 26px/1.3 Poppins, sans-serif; }
+      .layer { width: 1300px; display: grid; grid-template-columns: 300px 1fr; gap: 24px; align-items: center; text-align: left;
+                       background: #fff; border: 4px solid var(--ink); border-radius: 12px; padding: 14px 26px; margin: 6px 0; }
+      .layer b { font: 400 56px Bangers, sans-serif; } .layer span { font: 600 30px/1.3 Poppins, sans-serif; }
+      .layer em { font-style: normal; color: var(--teal); display: block; font-size: 26px; }
 
       /* ---------- chapter bar, speaker tags, captions ---------- */
       .chapbar { inset: 0 0 auto 0; height: 64px; display: flex; justify-content: center; gap: 8px; align-items: center;

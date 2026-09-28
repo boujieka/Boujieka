@@ -127,11 +127,12 @@ def flow(steps, lines_each, code="fact"):
     return screen("flow", parts, code, "tension")
 
 
-def roles(intro, items):
-    """items: [(WHO, spoken)] -> puppet lineup, each labelled with its risk."""
+def roles(intro, items, table=None):
+    """items: [(WHO, spoken)] -> puppet lineup, each labelled with its role."""
+    table = table or ROLES
     parts = [part(f'<div class="roles-title">{esc(intro[0])}</div>', intro[1], 0.3)]
     for who, spoken in items:
-        name, role = ROLES[who]
+        name, role = table[who]
         parts.append(part(f'<div class="role" data-who="{who}"><div class="pup" data-who="{who}"></div>'
                           f'<b>{esc(name)}</b><i>{esc(role)}</i></div>', spoken, 0.15, cls="role-part"))
     return screen("roles", parts, None, "bed")
@@ -166,3 +167,15 @@ def credits(extra=""):
                                    '<p>For education and capacity building. Not legal, financial or investment advice.</p>'
                                    f'{extra}<p class="dim">Voices are synthetic (Kokoro-82M). Music is procedurally generated.</p>', [], 5.5)],
                   None, "theme")
+
+
+def actor(who, x, y, size=110, look=0, mood="neutral", arm=False):
+    """A puppet on a cartoon stage: face centre (x, y) in stage px, head radius `size` px."""
+    return {"who": who, "x": x, "y": y, "size": size, "look": look, "mood": mood, "arm": arm}
+
+
+def scene(bg, cast, lines, props=(), cut=False, music="bed", chapter=None):
+    """A cartoon scene: drawn background, puppets that talk (speech bubbles, lip-sync),
+    narration boxes for the narrator's lines."""
+    return {"kind": "scene", "bg": bg, "cast": list(cast), "lines": lines, "props": list(props),
+            "cut": cut, "music": music, "chapter": chapter}
