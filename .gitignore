@@ -8,3 +8,6 @@ out
 
 # Cue-sheet build output
 .cues-build
+
+# Personal, machine-scoped Claude Code overrides
+.claude/settings.local.json

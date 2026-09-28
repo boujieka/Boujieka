@@ -1,10 +1,13 @@
 # Topview Canvas — setup and queued task
 
-Prepared 2026-09-28. **Not yet run.** The Topview plugin is not installed and not
-authorized; this file holds the steps and the brief so neither has to be
-reconstructed later.
+Status as of 2026-09-28:
 
-## 1. Install (run locally, not in a cloud session)
+- **Marketplace added** — `topview` (git, github.com/topviewai/plugins), registered in user settings.
+- **Plugin installed** — `topview-browser@topview` v1.0.4, scope user, enabled.
+- **Authorization NOT completed** — the MCP server is unreachable from this
+  environment, so OAuth never starts. See below.
+
+## 1. Install
 
 From <https://github.com/topviewai/plugins/blob/main/docs/claude.md>:
 
@@ -13,15 +16,24 @@ claude plugin marketplace add https://github.com/topviewai/plugins --scope user 
 claude plugin install topview-browser@topview --scope user
 ```
 
-Then start a **new conversation**. OAuth is negotiated on the first tool call
-against the plugin's MCP server (`https://mcp-browser.topview.ai`, HTTP
-transport) — there is no auth block to pre-fill.
+Then start a **new conversation** — the plugin's MCP server is loaded at session
+start, so it is not live in the session that installed it. OAuth is negotiated on
+the first tool call against `https://mcp-browser.topview.ai` (HTTP transport);
+there is no auth block to pre-fill.
 
-Setup is not complete until an authorized read-only call succeeds.
+### Blocker hit here: network egress
 
-> Do not run this inside a Claude Code cloud session. `--scope user` writes into
-> an ephemeral container that is reclaimed after the session, and the OAuth
-> handshake needs an interactive browser the session does not have.
+```
+claude mcp list
+plugin:topview-browser:topview-browser: https://mcp-browser.topview.ai (HTTP)
+  x Failed to connect - ERR_PROXY_TUNNEL: Proxy refused to open a tunnel: 403 Forbidden
+```
+
+The environment's network policy denies `CONNECT mcp-browser.topview.ai:443`.
+Authorization cannot begin until that host is reachable — either raise the
+environment's network access level or add `mcp-browser.topview.ai` to its allowed
+domains, in the cloud environment's settings. On a normal local machine this does
+not apply.
 
 ## 2. The queued task
 
