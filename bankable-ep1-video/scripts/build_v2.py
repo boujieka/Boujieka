@@ -331,13 +331,19 @@ def write_html(cfg, story, segs, total, out):
         body.append(f'<section id="{sid}" class="clip screen l-{sh["layout"]} c-{sh["code"] or "none"}" '
                     f'data-start="{max(0, st - 0.3):.3f}" data-duration="{dur + min(st, 0.3):.3f}" data-track-index="5">'
                     f'<div class="inner">{"".join(parts_html)}</div></section>')
-        js.append(f'tl.set("#{sid}", {{opacity: 0}}, 0);')
-        js.append(f'tl.to("#{sid}", {{opacity: 1, duration: 0.35}}, {max(0, st - 0.3):.3f});')  # overlap the outgoing shot
+        if sh.get("first_visible"):  # opening logo: fully visible on frame 0 (no black thumbnail)
+            js.append(f'tl.set("#{sid}", {{opacity: 1}}, 0);')
+        else:
+            js.append(f'tl.set("#{sid}", {{opacity: 0}}, 0);')
+            js.append(f'tl.to("#{sid}", {{opacity: 1, duration: 0.35}}, {max(0, st - 0.3):.3f});')  # overlap the outgoing shot
         if i < len(segs) - 1:
             js.append(f'tl.to("#{sid}", {{opacity: 0, duration: 0.35}}, {st + dur - 0.35:.3f});')
         for j, (ps, pe) in enumerate(seg["parts"]):
-            js.append(f'tl.set("#{sid}p{j}", {{opacity: 0, y: 26}}, 0);')
-            js.append(f'tl.to("#{sid}p{j}", {{opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}}, {max(st, ps):.3f});')
+            if sh.get("first_visible"):
+                js.append(f'tl.fromTo("#{sid}p{j}", {{scale: 1}}, {{scale: 1.04, duration: {seg["dur"]:.3f}, ease: "none"}}, 0);')
+            else:
+                js.append(f'tl.set("#{sid}p{j}", {{opacity: 0, y: 26}}, 0);')
+                js.append(f'tl.to("#{sid}p{j}", {{opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}}, {max(st, ps):.3f});')
             p = sh["parts"][j]
             if p["countdown"]:
                 for k in range(p["countdown"]):

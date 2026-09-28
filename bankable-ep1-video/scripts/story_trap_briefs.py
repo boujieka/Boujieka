@@ -8,6 +8,7 @@ from trap_common import *  # noqa: F401,F403
 CHAPTERS = ["THE SITUATION", "THE EVIDENCE", "YOUR DECISIONS"]
 
 MINISTERS = [
+    logo_intro(),
     brief_title("MINISTERS & CABINET", "YOUR SIGNATURE<br/>IS NOT FREE", [(N, "Briefing for ministers and cabinet. Your signature is not free.")]),
     scene("ceremony", [actor(K, 700, 470, 125, 1, "happy"), actor(M, 1260, 470, 125, -1, "happy")],
           [(K, "Today we sign for one hundred megawatts of power for our people!"),
@@ -40,6 +41,7 @@ MINISTERS = [
 ]
 
 FINANCE = [
+    logo_intro(),
     brief_title("MINISTRIES OF FINANCE & UTILITIES", "ABSENT AT SIGNATURE.<br/>PRESENT WHEN IT IS PAID.",
                 [(N, "Briefing for ministries of finance and utilities. Absent at signature. Present when it is paid.")]),
     scene("cabinet", [actor(E, 620, 500, 130, 1, "worried"), actor(P, 1300, 500, 130, -1, "worried")],
@@ -81,6 +83,7 @@ FINANCE = [
 ]
 
 REGULATORS = [
+    logo_intro(),
     brief_title("ENERGY MINISTRIES, REGULATORS & PROCUREMENT", "FILTER<br/>AT THE GATE",
                 [(N, "Briefing for energy ministries, regulators and procurement units. Filter at the gate.")]),
     scene("office", [actor(K, 620, 500, 130, 1, "neutral"), actor(B, 1300, 500, 130, -1, "neutral")],
@@ -119,6 +122,7 @@ REGULATORS = [
 ]
 
 PARTNERS = [
+    logo_intro(),
     brief_title("DEVELOPERS & DEVELOPMENT PARTNERS", "COUNT WHAT CLOSES,<br/>NOT WHAT IS SIGNED",
                 [(N, "Briefing for developers and development partners. Count what closes, not what is signed.")]),
     scene("office", [actor(M, 620, 500, 130, 1, "worried"), actor(T, 1300, 500, 130, -1, "happy")],

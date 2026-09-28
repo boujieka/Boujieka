@@ -9,6 +9,7 @@ from trap_common import *  # noqa: F401,F403
 CHAPTERS = ["LE CAS", "LE PIÈGE", "LES CAUSES", "LES ISSUES", "LA SORTIE"]
 
 SHOTS = [
+    logo_intro(),
     # ================= OUVERTURE (dessin animé) =================
     scene("ceremony", [actor(K, 640, 470, 120, 1, "happy"), actor(M, 1280, 470, 120, -1, "happy")],
           [(N, "Quelque part en Afrique, un accord énergétique est signé devant les caméras."),

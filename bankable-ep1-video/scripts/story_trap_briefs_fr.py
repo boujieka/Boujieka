@@ -4,6 +4,7 @@ from trap_common import *  # noqa: F401,F403
 CHAPTERS = ["LA SITUATION", "LES FAITS", "VOS DÉCISIONS"]
 
 MINISTERS = [
+    logo_intro(),
     brief_title("MINISTRES & GOUVERNEMENT", "VOTRE SIGNATURE<br/>N'EST PAS GRATUITE", [(N, "Briefing pour les ministres et le gouvernement. Votre signature n'est pas gratuite.")]),
     scene("ceremony", [actor(K, 700, 470, 125, 1, "happy"), actor(M, 1260, 470, 125, -1, "happy")],
           [(K, "Aujourd'hui, nous signons pour cent mégawatts d'électricité pour notre peuple !"),
@@ -37,6 +38,7 @@ MINISTERS = [
 ]
 
 FINANCE = [
+    logo_intro(),
     brief_title("MINISTÈRES DES FINANCES & COMPAGNIES D'ÉLECTRICITÉ", "ABSENTS À LA SIGNATURE.<br/>PRÉSENTS QUAND IL FAUT PAYER.",
                 [(N, "Briefing pour les ministères des Finances et les compagnies d'électricité. Absents à la signature. Présents quand il faut payer.")]),
     scene("cabinet", [actor(E, 620, 500, 130, 1, "worried"), actor(P, 1300, 500, 130, -1, "worried")],
@@ -78,6 +80,7 @@ FINANCE = [
 ]
 
 REGULATORS = [
+    logo_intro(),
     brief_title("MINISTÈRES DE L'ÉNERGIE, RÉGULATEURS & ACHATS PUBLICS", "FILTRER<br/>À L'ENTRÉE",
                 [(N, "Briefing pour les ministères de l'Énergie, les régulateurs et les services des achats publics. Filtrer à l'entrée.")]),
     scene("office", [actor(K, 620, 500, 130, 1, "neutral"), actor(B, 1300, 500, 130, -1, "neutral")],
@@ -116,6 +119,7 @@ REGULATORS = [
 ]
 
 PARTNERS = [
+    logo_intro(),
     brief_title("DÉVELOPPEURS & PARTENAIRES AU DÉVELOPPEMENT", "COMPTEZ CE QUI SE BOUCLE,<br/>PAS CE QUI SE SIGNE",
                 [(N, "Briefing pour les développeurs et les partenaires au développement. Comptez ce qui se boucle, pas ce qui se signe.")]),
     scene("office", [actor(M, 620, 500, 130, 1, "worried"), actor(T, 1300, 500, 130, -1, "happy")],

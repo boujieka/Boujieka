@@ -32,6 +32,14 @@ if LANG == "fr":
     ROLES = ROLES_FR
 
 
+def logo_intro(hold=3.6):
+    """Opening card with the Courant Continental logo; visible from the very first frame."""
+    s = screen("logo", [part('<img class="brand" src="assets/art/courant-continental.png" alt="Courant Continental"/>', [], hold)],
+               None, "theme", "act", tail=0.6)
+    s["first_visible"] = True
+    return s
+
+
 def stat(value, label, source, spoken, code="fact", hold=0.8, music=None, sting=None):
     return screen("big", [part(badge(code)),
                           part(f'<div class="stat">{value}</div><div class="stat-l">{label}</div>', spoken, hold),

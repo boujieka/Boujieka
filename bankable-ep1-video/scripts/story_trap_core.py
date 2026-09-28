@@ -8,6 +8,7 @@ from trap_common import *  # noqa: F401,F403
 CHAPTERS = ["THE CASE", "THE TRAP", "THE CAUSES", "THE EXITS", "THE WAY OUT"]
 
 SHOTS = [
+    logo_intro(),
     # ================= COLD OPEN (cartoon) =================
     scene("ceremony", [actor(K, 640, 470, 120, 1, "happy"), actor(M, 1280, 470, 120, -1, "happy")],
           [(N, "Somewhere in Africa, a power deal is signed in front of the cameras."),
