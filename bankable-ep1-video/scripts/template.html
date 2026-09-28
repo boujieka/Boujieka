@@ -79,6 +79,24 @@
         width: 2519px;
         height: 3582px;
       }
+      .pz {
+        position: absolute;
+        overflow: hidden;
+      }
+      .puppet {
+        position: absolute;
+        overflow: visible;
+      }
+      .bub {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 2519px;
+        height: 3582px;
+        background-size: 2519px 3582px;
+        -webkit-mask-size: 2519px 3582px;
+        mask-size: 2519px 3582px;
+      }
       .focus-wrap {
         pointer-events: none;
       }
@@ -169,8 +187,10 @@
         letter-spacing: 0.02em;
       }
       .title .lineup {
-        width: 900px;
+        display: flex;
+        gap: 14px;
         margin-top: 6px;
+        border-bottom: 8px solid var(--ink);
       }
       .title .author {
         font-family: Bangers, "Liberation Sans", sans-serif;

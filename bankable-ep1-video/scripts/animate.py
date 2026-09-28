@@ -21,6 +21,26 @@ PANELS = {int(k): v for k, v in json.load(open(os.path.join(ROOT, "scripts", "pa
 # Corrections where clothing colour misled the detector: (page, panel, rounded cx) -> who
 FIX = {(6, 0, 851): "KERBU", (10, 0, 1817): "PAUL", (10, 1, 624): "BELPAU", (22, 2, 1578): "ENILEC"}
 
+# Expressions matching the book's drawings: (page, panel, who) -> mood
+MOODS = {
+    (7, 0, "EMSON"): "happy", (8, 0, "EMSON"): "happy", (8, 2, "KERBU"): "happy",
+    (9, 1, "KERBU"): "angry", (9, 2, "PAUL"): "worried", (10, 0, "BELPAU"): "worried",
+    (10, 1, "BELPAU"): "worried", (11, 1, "BELPAU"): "worried", (11, 2, "PAUL"): "worried",
+    (12, 1, "PAUL"): "worried", (12, 1, "BELPAU"): "worried", (13, 0, "ENILEC"): "worried",
+    (13, 1, "ENILEC"): "angry", (15, 0, "ENILEC"): "angry", (15, 0, "BELPAU"): "worried",
+    (15, 2, "ENILEC"): "angry", (16, 1, "ENILEC"): "angry", (16, 2, "TIDIANIE"): "worried",
+    (16, 3, "ENILEC"): "angry", (17, 1, "ENILEC"): "angry", (17, 2, "BELPAU"): "worried",
+    (18, 0, "KERBU"): "angry", (18, 0, "ENILEC"): "angry", (18, 1, "BELPAU"): "angry",
+    (20, 0, "EMSON"): "happy", (20, 0, "KERBU"): "happy",
+}
+for _k in [(19, i, w) for i in range(5) for w in ("PAUL", "BELPAU", "TIDIANIE", "ENILEC", "EMSON", "KERBU")] + \
+          [(22, i, w) for i in range(4) for w in ("PAUL", "BELPAU", "TIDIANIE", "ENILEC", "EMSON", "KERBU")] + \
+          [(21, 0, w) for w in ("PAUL", "BELPAU", "ENILEC")]:
+    MOODS.setdefault(_k, "happy")
+
+# Panels where the book draws a raised hand: (page, panel, who)
+ARMS = {(11, 1, "BELPAU"), (18, 1, "BELPAU")}
+
 PUPPET_VIEW = (-290, -270, 580, 750)  # x, y, w, h in puppet units (head radius 100)
 FPS_LIP = 15
 
@@ -34,11 +54,12 @@ def place_puppets(page, panel):
         others = [g["cx"] for g in faces if g is not f]
         target = (sum(others) / len(others)) if others else (px + pw / 2)
         look = 0.0 if abs(target - f["cx"]) < 40 else (1.0 if target > f["cx"] else -1.0)
-        out.append({"who": who, "cx": f["cx"], "cy": f["cy"], "k": f["r"] / 100 * 1.05, "look": look})
+        out.append({"who": who, "cx": f["cx"], "cy": f["cy"], "k": f["r"] / 100 * 1.05, "look": look,
+                    "mood": MOODS.get((page, panel, who), "neutral"), "arm": (page, panel, who) in ARMS})
     return out
 
 
-def puppet_markup(pid, p, panel_rect, mood="neutral"):
+def puppet_markup(pid, p, panel_rect, mood=None):
     """Absolutely-positioned <svg> for one puppet, in panel-local pixels."""
     px, py, _, _ = panel_rect
     vx, vy, vw, vh = PUPPET_VIEW
@@ -46,7 +67,7 @@ def puppet_markup(pid, p, panel_rect, mood="neutral"):
     left = p["cx"] - px + vx * k
     top = p["cy"] - py + vy * k
     return (f'<svg class="puppet" style="left:{left:.1f}px;top:{top:.1f}px" width="{vw * k:.1f}" height="{vh * k:.1f}" '
-            f'viewBox="{vx} {vy} {vw} {vh}">{puppet_svg(pid, p["who"], p["look"], mood)}</svg>')
+            f'viewBox="{vx} {vy} {vw} {vh}">{puppet_svg(pid, p["who"], p["look"], mood or p["mood"], p.get("arm", False))}</svg>')
 
 
 def lip_keys(samples, sr):
@@ -122,18 +143,25 @@ def animate_shot(js, puppets, lines, t0, t1, sr):
         dur = len(samples) / sr
         if pid:
             for t, v in lip_keys(samples, sr):
-                js.append(f'tl.to("#{pid}-mouth", {{scaleY: {0.14 + 0.86 * v:.2f}, svgOrigin: "0 46", duration: {1 / FPS_LIP:.3f}, ease: "none"}}, {st + t:.3f});')
+                js.append(f'tl.to("#{pid}-mouth", {{scaleY: {0.14 + 0.86 * v:.2f}, svgOrigin: "0 46", duration: {1 / FPS_LIP - 0.004:.3f}, ease: "none"}}, {st + t:.3f});')
             # head: gentle nods and tilts through the line
             n = max(1, int(dur / 0.55))
             for i in range(n):
                 a = ((seed(pid, st, i) % 5) - 2) * 1.1
                 js.append(f'tl.to("#{pid}-head", {{rotation: {a:.2f}, y: {-4 if i % 2 == 0 else 0}, svgOrigin: "0 110", '
-                          f'duration: {dur / n:.3f}, ease: "sine.inOut"}}, {st + i * dur / n:.3f});')
-            js.append(f'tl.to("#{pid}-head", {{rotation: 0, y: 0, svgOrigin: "0 110", duration: 0.4, ease: "sine.inOut"}}, {st + dur:.3f});')
+                          f'duration: {dur / n - 0.01:.3f}, ease: "sine.inOut"}}, {st + i * dur / n:.3f});')
+            js.append(f'tl.to("#{pid}-head", {{rotation: 0, y: 0, svgOrigin: "0 110", duration: 0.25, ease: "sine.inOut"}}, {st + dur:.3f});')
+            arm = next((p for q, p in puppets if q == pid and p.get("arm")), None)
+            if arm:  # a small emphatic wave of the raised hand
+                m = max(1, int(dur / 0.8))
+                for i in range(m):
+                    js.append(f'tl.to("#{pid}-arm", {{rotation: {6 if i % 2 == 0 else -2}, svgOrigin: "110 262", '
+                              f'duration: {dur / m - 0.01:.3f}, ease: "sine.inOut"}}, {st + i * dur / m:.3f});')
+                js.append(f'tl.to("#{pid}-arm", {{rotation: 0, svgOrigin: "110 262", duration: 0.25}}, {st + dur:.3f});')
         # listeners lean slightly toward the speaker
         for lpid, p in puppets:
             if lpid == pid:
                 continue
             tilt = 2.5 * (p["look"] or 1)
-            js.append(f'tl.to("#{lpid}-head", {{rotation: {tilt:.2f}, svgOrigin: "0 110", duration: 0.6, ease: "sine.inOut"}}, {st:.3f});')
-            js.append(f'tl.to("#{lpid}-head", {{rotation: 0, svgOrigin: "0 110", duration: 0.6, ease: "sine.inOut"}}, {st + dur:.3f});')
+            js.append(f'tl.to("#{lpid}-head", {{rotation: {tilt:.2f}, svgOrigin: "0 110", duration: 0.5, ease: "sine.inOut"}}, {st:.3f});')
+            js.append(f'tl.to("#{lpid}-head", {{rotation: 0, svgOrigin: "0 110", duration: 0.25, ease: "sine.inOut"}}, {st + dur:.3f});')

@@ -1,4 +1,8 @@
-"""One-panel prototype of the animated puppets (page 19, panel 1)."""
+"""One-panel prototype of the animated puppets (page 19, panel 1).
+
+Writes proto.html at the project root; delete it after review, because two root
+compositions make `hyperframes lint` fail.
+"""
 import os, subprocess, sys
 import numpy as np, soundfile as sf
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))

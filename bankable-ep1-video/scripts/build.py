@@ -13,6 +13,8 @@ import soundfile as sf
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 from storyboard import SHOTS, VOICES  # noqa: E402
+from animate import FACES, place_puppets, puppet_markup, animate_shot, bubble_mask, blink_times  # noqa: E402
+from puppets import puppet_svg  # noqa: E402
 
 W, H = 1920, 1080
 SR = 24000
@@ -150,7 +152,7 @@ def write_html(timeline, total):
         st = max(0, w["start"] - X / 2); en = min(total, w["end"] + X / 2)
         w["id"] = f"p{k}"
         body.append(f'      <div id="{w["id"]}" class="clip page" data-start="{st:.3f}" data-duration="{en - st:.3f}" data-track-index="1">'
-                    f'<div class="cam"><img src="assets/pages/pg-{w["page"]:03d}.jpg" alt="" /></div></div>')
+                    f'<div class="cam"><img src="assets/pages/pg-{w["page"]:03d}.jpg" alt="" />{puppet_layer(w["id"], w["page"])}</div></div>')
         js.append(f'tl.fromTo("#{w["id"]}", {{opacity: 0}}, {{opacity: 1, duration: {X}, ease: "power1.inOut"}}, {st:.3f});')
         js.append(f'tl.to("#{w["id"]}", {{opacity: 0, duration: {X}, ease: "power1.inOut"}}, {en - X:.3f});')
 
@@ -182,6 +184,11 @@ def write_html(timeline, total):
         js.append(f'tl.to("{sel}", {{x: {hold_state["x"]}, y: {hold_state["y"]}, scale: {hold_state["scale"]}, duration: {hold:.3f}, ease: "{ease}"}}, {st + move:.3f});')
         js.append(f'tl.to(".focus", {{width: {hold_state["mw"]}, height: {hold_state["mh"]}, duration: {hold:.3f}, ease: "{ease}"}}, {st + move:.3f});')
         prev_page = win["id"]
+        # talking puppets in the framed panel(s)
+        panels = [s[2]] if s[0] == "panel" else (s[2] if s[0] == "group" else [])
+        pups = [(pid_for(win["id"], s[1], pn, j), p) for pn in panels for j, p in enumerate(place_puppets(s[1], pn))]
+        if pups:
+            animate_shot(js, pups, [(spk, lst, data) for spk, _, lst, _, data in seg["lines"]], st, st + dur, SR)
 
     body.append(f'      <div id="focus-wrap" class="clip focus-wrap" data-start="0" data-duration="{total:.3f}" data-track-index="2"><div class="focus"></div></div>')
 
@@ -221,13 +228,39 @@ def write_html(timeline, total):
     open(os.path.join(ROOT, "index.html"), "w").write(out)
 
 
+def pid_for(win_id, page, panel, j):
+    return f"{win_id}-{panel}-{j}"
+
+
+def puppet_layer(win_id, page):
+    """Puppets for every drawn character on the page, plus the bubble overlay."""
+    if page not in FACES or not FACES[page]:
+        return ""
+    out = []
+    for pn, rect in enumerate(PANELS[page]):
+        pups = place_puppets(page, pn)
+        if not pups:
+            continue
+        x, y, w, h = rect
+        svgs = "".join(puppet_markup(pid_for(win_id, page, pn, j), p, (x + 6, y + 6, w, h)) for j, p in enumerate(pups))
+        out.append(f'<div class="pz" style="left:{x + 6}px;top:{y + 6}px;width:{w - 12}px;height:{h - 12}px">{svgs}</div>')
+    mask = f"assets/masks/bubbles-{page:03d}.png"
+    if not os.path.exists(os.path.join(ROOT, mask)):
+        bubble_mask(page, os.path.join(ROOT, mask))
+    out.append(f'<div class="bub" style="background-image:url(assets/pages/pg-{page:03d}.jpg);'
+               f'-webkit-mask-image:url({mask});mask-image:url({mask})"></div>')
+    return "".join(out)
+
+
 def card_html(cid, kind, data, st, dur):
     a = f'id="{cid}" class="clip card {kind}" data-start="{st:.3f}" data-duration="{dur:.3f}" data-track-index="5"'
     if kind == "title":
         inner = ('<div class="kicker in">A CAPACITY BUILDING SERIES ON AFRICA\'S POWER DEALS</div>'
                  '<div class="t1 in">BANKABLE</div><div class="t2 in">IS NOT ENOUGH</div>'
                  '<div class="bar"></div><div class="ep in">EPISODE 1: THE SIGNING</div>'
-                 '<img class="lineup in" src="assets/art/cast-lineup.png" alt="" />'
+                 '<div class="lineup in">' + "".join(
+                     f'<svg viewBox="-290 -270 580 690" width="150" height="178">{puppet_svg(f"t{i}", w, 0, "happy")}</svg>'
+                     for i, w in enumerate(["BELPAU", "ENILEC", "KERBU", "EMSON", "TIDIANIE", "PAUL"])) + '</div>'
                  '<div class="author in">EMMANUEL BOUJIEKA KAMGA</div>')
     elif kind == "chapter":
         inner = (f'<div class="num in">{html.escape(data["n"])}</div><div class="bar"></div>'

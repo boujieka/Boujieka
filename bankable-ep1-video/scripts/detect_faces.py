@@ -69,7 +69,7 @@ def classify(img, cx, cy, r):
 def main():
     faces = {}
     for page, boxes in PANELS.items():
-        if page < 5 or page > 22:
+        if page < 3 or page > 22 or page == 4:
             continue
         img = np.asarray(Image.open(os.path.join(ROOT, "assets", "pages", f"pg-{page:03d}.jpg")).convert("RGB"))
         blobs = eye_blobs(img)

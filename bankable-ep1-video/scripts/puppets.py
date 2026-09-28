@@ -205,9 +205,24 @@ BUILD = {
 }
 
 
-def puppet_svg(pid, who, look=0.0, mood="neutral"):
+SLEEVE = {"BELPAU": "#1f3a5f", "ENILEC": "#2360a8", "KERBU": "#23386e", "EMSON": "#3a404d",
+          "TIDIANIE": "#8c2a42", "PAUL": "#76502f"}
+
+
+def raised_arm(pid, who, skin):
+    """Hand raised beside the body (covers the book's raised-hand pose)."""
+    col = SLEEVE[who]
+    return (f'<g id="{pid}-arm">'
+            f'<path d="M 110 262 L 232 92" stroke="{INK}" stroke-width="80" stroke-linecap="round"/>'
+            f'<path d="M 110 262 L 232 92" stroke="{col}" stroke-width="70" stroke-linecap="round"/>'
+            f'<path d="M 206 60 Q 200 22 214 18 L 222 40 L 226 8 Q 238 2 242 12 L 244 38 L 252 12 Q 264 10 266 22 L 262 46 L 272 30 Q 284 32 280 46 L 266 88 Q 248 110 222 100 Q 202 88 206 60 Z" '
+            f'fill="{skin}" stroke="{INK}" stroke-width="{SW}" stroke-linejoin="round"/></g>')
+
+
+def puppet_svg(pid, who, look=0.0, mood="neutral", arm=False):
     """Return the inner SVG markup for one puppet (no <svg> wrapper)."""
     skin = SKIN[who]
     body, head = BUILD[who]
     return (f'<g id="{pid}-body">{body(pid, skin)}</g>'
+            + (raised_arm(pid, who, skin) if arm else "") +
             f'<g id="{pid}-head">{head(pid, skin, look, mood)}</g>')
