@@ -1,559 +1,559 @@
 1
-00:00:00,800 --> 00:00:05,152
+00:00:05,450 --> 00:00:09,802
 Quelque part en Afrique, un accord énergétique est signé devant les caméras.
 
 2
-00:00:05,452 --> 00:00:09,399
+00:00:10,102 --> 00:00:14,049
 Ministre Kerbu: Aujourd'hui, nous signons pour cent mégawatts d'électricité pour notre peuple !
 
 3
-00:00:09,699 --> 00:00:12,344
+00:00:14,349 --> 00:00:16,994
 Emson Anahct: Nous sommes prêts à construire, Monsieur le Ministre.
 
 4
-00:00:12,644 --> 00:00:16,100
+00:00:17,294 --> 00:00:20,750
 Tout le monde applaudit. Mais qui, dans cette salle, portera le risque ?
 
 5
-00:00:17,850 --> 00:00:25,295
+00:00:22,500 --> 00:00:29,945
 Le piège du protocole d'accord. Un module de formation pour les ministres, les cabinets, les régulateurs, et leurs partenaires.
 
 6
-00:00:28,545 --> 00:00:32,662
+00:00:33,195 --> 00:00:37,312
 Six sièges autour de la table. Chacun voit le même accord différemment.
 
 7
-00:00:33,262 --> 00:00:34,777
+00:00:37,912 --> 00:00:39,427
 Le gouvernement, qui signe.
 
 8
-00:00:35,227 --> 00:00:37,894
+00:00:39,877 --> 00:00:42,544
 Le ministère des Finances, qui se porte garant.
 
 9
-00:00:38,344 --> 00:00:40,733
+00:00:42,994 --> 00:00:45,383
 La compagnie d'électricité, qui doit payer.
 
 10
-00:00:41,183 --> 00:00:43,359
+00:00:45,833 --> 00:00:48,009
 Le développeur, qui détient l'option.
 
 11
-00:00:43,809 --> 00:00:45,814
+00:00:48,459 --> 00:00:50,464
 Le prêteur, qui arrive en dernier.
 
 12
-00:00:46,264 --> 00:00:48,312
+00:00:50,914 --> 00:00:52,962
 Et l'analyste, qui pose les questions.
 
 13
-00:00:50,112 --> 00:00:51,797
+00:00:54,762 --> 00:00:56,447
 Trois signaux guident ce module.
 
 14
-00:00:52,297 --> 00:00:54,857
+00:00:56,947 --> 00:00:59,507
 En bleu : les faits documentés, avec leur source.
 
 15
-00:00:55,457 --> 00:00:58,167
+00:01:00,107 --> 00:01:02,817
 En jaune : ce que les décideurs doivent examiner.
 
 16
-00:00:58,767 --> 00:01:01,241
+00:01:03,417 --> 00:01:05,891
 En rouge : ce qui pourrait faire échouer l'accord.
 
 17
-00:01:03,191 --> 00:01:08,140
+00:01:07,841 --> 00:01:12,790
 Quand vous voyez stop, mettez la vidéo en pause, et discutez-en avec votre équipe.
 
 18
-00:01:10,690 --> 00:01:13,741
+00:01:15,340 --> 00:01:18,391
 Première partie. Quatorze contrats, aucun mégawatt.
 
 19
-00:01:16,591 --> 00:01:25,274
+00:01:21,241 --> 00:01:29,924
 En juillet deux mille seize, l'acheteur d'électricité en gros du Nigeria signe des contrats d'achat d'électricité avec quatorze développeurs solaires.
 
 20
-00:01:28,324 --> 00:01:35,428
+00:01:32,974 --> 00:01:40,078
 Au total, quelque mille cent vingt-cinq mégawatts, à onze cents et demi de dollar le kilowattheure, fixés pour vingt ans.
 
 21
-00:01:38,478 --> 00:01:45,838
+00:01:43,128 --> 00:01:50,488
 L'objectif : une première production en dix-huit mois. Dix développeurs auraient versé une caution pour montrer leur détermination.
 
 22
-00:01:48,888 --> 00:01:53,645
+00:01:53,538 --> 00:01:58,295
 Trois ans plus tard, aucun des quatorze projets n'avait atteint le bouclage financier.
 
 23
-00:01:56,695 --> 00:02:03,351
+00:02:01,345 --> 00:02:08,001
 Les prix du solaire avaient baissé, et le gouvernement voulait désormais ramener le tarif à environ sept cents et demi.
 
 24
-00:02:06,401 --> 00:02:16,278
+00:02:11,051 --> 00:02:20,928
 Les accords d'options de vente et d'achat attendus par les prêteurs, et les garanties partielles de risque qui devaient les soutenir, n'ont pas été conclus pour la plupart des projets.
 
 25
-00:02:19,328 --> 00:02:26,603
+00:02:23,978 --> 00:02:31,253
 En deux mille vingt, une publication spécialisée résumait : mille cent vingt-cinq mégawatts promis. Pas un seul électron livré.
 
 26
-00:02:29,553 --> 00:02:37,276
+00:02:34,203 --> 00:02:41,926
 Ce n'étaient pas de simples protocoles d'accord. C'étaient des contrats signés, et la plupart des développeurs avaient mis de l'argent sur la table.
 
 27
-00:02:38,176 --> 00:02:47,157
+00:02:42,826 --> 00:02:51,807
 Ils se sont pourtant arrêtés là où s'arrêtent tant de protocoles d'accord en Afrique : au moment où un engagement signé doit devenir un engagement finançable.
 
 28
-00:02:49,707 --> 00:02:54,336
+00:02:54,357 --> 00:02:58,986
 Deuxième partie. Ce qu'engage un protocole d'accord, et ce qu'il n'engage pas.
 
 29
-00:02:57,186 --> 00:03:08,493
+00:03:01,836 --> 00:03:13,143
 Un protocole d'accord exprime une intention de coopérer. Sur son engagement central, la plupart n'engagent personne. Aucune des parties n'est obligée de construire, d'acheter, ni de payer.
 
 30
-00:03:11,243 --> 00:03:15,958
+00:03:15,893 --> 00:03:20,608
 Mais la lecture juridique sous-estime ce que fait réellement un protocole d'accord.
 
 31
-00:03:16,458 --> 00:03:20,468
+00:03:21,108 --> 00:03:25,118
 Une exclusivité sur un site ou une ressource, qui écarte les concurrents.
 
 32
-00:03:21,018 --> 00:03:25,733
+00:03:25,668 --> 00:03:30,383
 Un tarif indicatif, qui devient la référence de toute négociation ultérieure.
 
 33
-00:03:26,283 --> 00:03:30,614
+00:03:30,933 --> 00:03:35,264
 Des promesses d'aide de l'État, attendues avant que quiconque n'en ait évalué le coût.
 
 34
-00:03:31,164 --> 00:03:37,564
+00:03:35,814 --> 00:03:42,214
 Et une signature publique : un engagement politique plus difficile à retirer que n'importe quelle clause du document.
 
 35
-00:03:39,514 --> 00:03:42,650
+00:03:44,164 --> 00:03:47,300
 Belpau: Le protocole d'accord dit que le tarif n'est qu'indicatif.
 
 36
-00:03:42,950 --> 00:03:46,086
+00:03:47,600 --> 00:03:50,736
 Enilec Mok: Toutes les négociations à venir partiront de ce chiffre.
 
 37
-00:03:47,836 --> 00:03:49,905
+00:03:52,486 --> 00:03:54,555
 Trois étapes. Trois types d'engagement.
 
 38
-00:03:50,705 --> 00:03:56,401
+00:03:55,355 --> 00:04:01,051
 Au stade du protocole d'accord, peu de chose engage en droit. L'État envoie un signal politique.
 
 39
-00:03:57,001 --> 00:04:03,593
+00:04:01,651 --> 00:04:08,243
 Au stade du contrat : tarif, durée et obligations, avec des paiements futurs conditionnés à la mise en service.
 
 40
-00:04:04,193 --> 00:04:10,529
+00:04:08,843 --> 00:04:15,179
 Au bouclage financier, tout est financé, et les obligations de l'État sont fixées pour toute la durée du contrat.
 
 41
-00:04:13,579 --> 00:04:17,120
+00:04:18,229 --> 00:04:21,770
 Le piège se situe entre la première étape et la troisième.
 
 42
-00:04:18,220 --> 00:04:27,180
+00:04:22,870 --> 00:04:31,830
 Certains engagements n'aboutissent jamais. D'autres aboutissent, à des conditions esquissées quand le projet était le moins testé, et le gouvernement le moins préparé.
 
 43
-00:04:29,730 --> 00:04:36,983
+00:04:34,380 --> 00:04:41,633
 Un protocole d'accord, et souvent le premier contrat qui le suit, est signé avant que quiconque n'ait appliqué l'un de ces deux tests.
 
 44
-00:04:37,483 --> 00:04:41,281
+00:04:42,133 --> 00:04:45,931
 Le test du prêteur : le projet peut-il rembourser sa dette ?
 
 45
-00:04:41,831 --> 00:04:49,553
+00:04:46,481 --> 00:04:54,203
 Le test de l'État : le système électrique et les finances publiques peuvent-ils porter les obligations du projet pendant vingt ans ou plus ?
 
 46
-00:04:51,753 --> 00:04:54,441
+00:04:56,403 --> 00:04:59,091
 Troisième partie. Pourquoi les projets s'enlisent.
 
 47
-00:04:57,291 --> 00:05:09,430
+00:05:01,941 --> 00:05:14,080
 Pour l'ensemble des infrastructures africaines, McKinsey estimait que moins de dix pour cent des projets atteignent le bouclage financier. Le chiffre couvre tous les secteurs : c'est un ordre de grandeur.
 
 48
-00:05:12,480 --> 00:05:27,264
+00:05:17,130 --> 00:05:31,914
 Hors Afrique du Sud, l'investissement privé dans la production électrique de mille neuf cent quatre-vingt-dix à deux mille quatorze représente environ un quart des besoins estimés d'une seule année. La comparaison est imparfaite, car les besoins incluent les réseaux.
 
 49
-00:05:30,314 --> 00:05:34,111
+00:05:34,964 --> 00:05:38,761
 Le même schéma se retrouve à l'échelle d'une grande centrale au gaz.
 
 50
-00:05:34,611 --> 00:05:42,675
+00:05:39,261 --> 00:05:47,325
 Qua Iboe. En deux mille quatorze, la Banque mondiale approuve une garantie partielle de risque pouvant atteindre cent cinquante millions de dollars.
 
 51
-00:05:43,225 --> 00:05:46,916
+00:05:47,875 --> 00:05:51,566
 En deux mille dix-sept, le gouvernement approuve le contrat d'achat.
 
 52
-00:05:47,466 --> 00:05:53,525
+00:05:52,116 --> 00:05:58,175
 En deux mille dix-huit, après deux prolongations, le délai de signature des accords de garantie expire.
 
 53
-00:05:54,075 --> 00:05:56,997
+00:05:58,725 --> 00:06:01,647
 En deux mille vingt, le projet est signalé comme bloqué.
 
 54
-00:05:57,547 --> 00:06:01,665
+00:06:02,197 --> 00:06:06,315
 Et début deux mille vingt-six, une base de données le classe comme abandonné.
 
 55
-00:06:04,665 --> 00:06:20,302
+00:06:09,315 --> 00:06:24,952
 Personne ne sait combien de protocoles d'accord énergétiques les gouvernements africains ont signés, ni combien aboutissent. Les bases de données recensent les projets bouclés. Les gouvernements publient rarement leurs protocoles, et les développeurs n'annoncent pas quand l'un d'eux devient caduc.
 
 56
-00:06:21,402 --> 00:06:23,429
+00:06:26,052 --> 00:06:28,079
 C'est le problème du dénominateur.
 
 57
-00:06:25,979 --> 00:06:29,520
+00:06:30,629 --> 00:06:34,170
 Quatre explications circulent. Chacune est en partie juste.
 
 58
-00:06:30,020 --> 00:06:37,700
+00:06:34,670 --> 00:06:42,350
 La couche du promoteur : le développeur. Filtrer les promoteurs, limiter l'exclusivité, exiger des jalons et des garanties.
 
 59
-00:06:38,250 --> 00:06:47,168
+00:06:42,900 --> 00:06:51,818
 La couche de la procédure : la manière dont le projet a été initié. Mettre en concurrence par défaut, et tester les offres spontanées contre le plan.
 
 60
-00:06:47,718 --> 00:06:53,691
+00:06:52,368 --> 00:06:58,341
 La couche du système : le plan, le réseau et l'acheteur. Réparer le système avant d'ajouter des contrats.
 
 61
-00:06:54,241 --> 00:07:02,326
+00:06:58,891 --> 00:07:06,976
 La couche budgétaire : la capacité de soutien de l'État. Appliquer le test souverain, et dimensionner le soutien à l'espace budgétaire.
 
 62
-00:07:02,876 --> 00:07:09,234
+00:07:07,526 --> 00:07:13,884
 Ce ne sont pas des explications rivales, mais des couches. La vraie question est de savoir laquelle bloque en premier.
 
 63
-00:07:12,084 --> 00:07:24,521
+00:07:16,734 --> 00:07:29,171
 Les promoteurs de Qua Iboe étaient solides, et le projet s'est tout de même enlisé. En deux mille dix-huit, un responsable confiait à Reuters que la centrale entrerait dans un système illiquide et insolvable.
 
 64
-00:07:27,471 --> 00:07:28,196
+00:07:32,121 --> 00:07:32,846
 Stop.
 
 65
-00:07:28,696 --> 00:07:30,659
+00:07:33,346 --> 00:07:35,309
 Vous êtes le ministre de l'Énergie.
 
 66
-00:07:31,159 --> 00:07:35,404
+00:07:35,809 --> 00:07:40,054
 Un développeur vous propose un protocole d'accord pour une nouvelle centrale.
 
 67
-00:07:35,804 --> 00:07:38,044
+00:07:40,454 --> 00:07:42,694
 Elle ne figure pas dans le plan de moindre coût.
 
 68
-00:07:38,444 --> 00:07:41,538
+00:07:43,094 --> 00:07:46,188
 La signature pourrait avoir lieu la semaine prochaine.
 
 69
-00:07:41,938 --> 00:07:43,218
+00:07:46,588 --> 00:07:47,868
 Que faites-vous d'abord ?
 
 70
-00:07:50,418 --> 00:07:54,044
+00:07:55,068 --> 00:07:58,694
 Gardez votre réponse. Regardez d'abord qui est dans la salle.
 
 71
-00:07:56,144 --> 00:08:03,291
+00:08:00,794 --> 00:08:07,941
 Pourquoi le piège persiste-t-il, alors que tout le monde sait le décrire ? Regardez qui est dans la salle au moment de la signature.
 
 72
-00:08:03,591 --> 00:08:08,860
+00:08:08,241 --> 00:08:13,510
 Ministre Kerbu: Une réponse visible aux coupures d'électricité. Et cela ne nous coûte presque rien aujourd'hui.
 
 73
-00:08:09,160 --> 00:08:13,107
+00:08:13,810 --> 00:08:17,757
 Emson Anahct: Pour moi, c'est une option sur un site. Et une option, cela se revend.
 
 74
-00:08:13,407 --> 00:08:23,263
+00:08:18,057 --> 00:08:27,913
 La compagnie d'électricité, qui devra payer, n'est souvent pas partie à l'accord. Le ministère des Finances n'est pas dans la salle. Et les prêteurs arrivent des années plus tard.
 
 75
-00:08:25,613 --> 00:08:27,554
+00:08:30,263 --> 00:08:32,204
 Le gouvernement : signer volontiers.
 
 76
-00:08:28,154 --> 00:08:30,608
+00:08:32,804 --> 00:08:35,258
 Le développeur : collectionner les options.
 
 77
-00:08:31,208 --> 00:08:34,002
+00:08:35,858 --> 00:08:38,652
 La compagnie d'électricité : rester passive.
 
 78
-00:08:34,602 --> 00:08:36,864
+00:08:39,252 --> 00:08:41,514
 Les prêteurs : aucun filtre précoce.
 
 79
-00:08:37,464 --> 00:08:40,514
+00:08:42,114 --> 00:08:45,164
 Les partenaires au développement : compter ce qui est signé.
 
 80
-00:08:43,264 --> 00:08:48,747
+00:08:47,914 --> 00:08:53,397
 Une signature est récompensée aujourd'hui. Son coût est payé plus tard, et par quelqu'un d'autre.
 
 81
-00:08:49,847 --> 00:08:55,116
+00:08:54,497 --> 00:08:59,766
 C'est pourquoi même des pays dotés de ministères compétents signent de mauvais protocoles d'accord.
 
 82
-00:08:57,666 --> 00:09:00,546
+00:09:02,316 --> 00:09:05,196
 Quatrième partie. Deux issues, toutes deux coûteuses.
 
 83
-00:09:03,146 --> 00:09:18,229
+00:09:07,796 --> 00:09:22,879
 Première issue : le projet s'enlise. Des années de travail ministériel et de dépenses des développeurs ne produisent aucun électron. Les sites restent bloqués. Un tarif publié devient une référence contre laquelle les futurs soumissionnaires devront argumenter.
 
 84
-00:09:19,979 --> 00:09:33,974
+00:09:24,629 --> 00:09:38,624
 Et quand un gouvernement rouvre des conditions qu'il a signées, les investisseurs le remarquent. Au Nigeria, des analystes ont averti que cela pouvait affaiblir la confiance des investisseurs et relever le profil de risque de tout le pays.
 
 85
-00:09:36,724 --> 00:09:49,076
+00:09:41,374 --> 00:09:53,726
 Seconde issue : le projet aboutit. Et ce peut être pire. La pression monte pour accorder aux prêteurs tout ce qu'ils exigent : une garantie de l'État, des paiements de capacité fixes, un tarif en devises fortes.
 
 86
-00:09:51,826 --> 00:10:00,829
+00:09:56,476 --> 00:10:05,479
 Le Ghana. Pendant et après une grave crise d'approvisionnement, la compagnie de distribution signe quarante-trois contrats d'achat, sans mise en concurrence.
 
 87
-00:10:03,879 --> 00:10:10,172
+00:10:08,529 --> 00:10:14,822
 La Banque mondiale prévoyait mille neuf cents mégawatts de capacité excédentaire en deux mille dix-neuf.
 
 88
-00:10:13,222 --> 00:10:19,451
+00:10:17,872 --> 00:10:24,101
 En deux mille dix-neuf, les arriérés nets du secteur atteignaient deux virgule soixante-quinze milliards de dollars.
 
 89
-00:10:22,501 --> 00:10:29,306
+00:10:27,151 --> 00:10:33,956
 Et le pays payait, selon la presse, plus de cinq cents millions de dollars par an pour de l'électricité qu'il n'utilisait pas.
 
 90
-00:10:32,356 --> 00:10:38,329
+00:10:37,006 --> 00:10:42,979
 Les contrats financés avaient satisfait leurs prêteurs. Pris ensemble, ils ont échoué au test de l'État.
 
 91
-00:10:41,279 --> 00:10:49,044
+00:10:45,929 --> 00:10:53,694
 Les deux issues ont une même cause. Les questions décisives ont été posées trop tard, ou par des personnes sans pouvoir de dire non.
 
 92
-00:10:49,544 --> 00:10:51,400
+00:10:54,194 --> 00:10:56,050
 La centrale est-elle nécessaire ?
 
 93
-00:10:51,950 --> 00:10:54,574
+00:10:56,600 --> 00:10:59,224
 Le réseau peut-il absorber sa production ?
 
 94
-00:10:55,124 --> 00:10:56,682
+00:10:59,774 --> 00:11:01,332
 L'acheteur peut-il payer ?
 
 95
-00:10:57,232 --> 00:11:00,581
+00:11:01,882 --> 00:11:05,231
 L'État peut-il assumer la garantie si l'acheteur ne paie pas ?
 
 96
-00:11:02,781 --> 00:11:05,234
+00:11:07,431 --> 00:11:09,884
 Cinquième partie. La sortie du piège.
 
 97
-00:11:07,784 --> 00:11:15,656
+00:11:12,434 --> 00:11:20,306
 Un examen honnête prend au sérieux la défense des protocoles d'accord. Certains projets ne peuvent pas être mis en concurrence d'emblée.
 
 98
-00:11:16,756 --> 00:11:27,529
+00:11:21,406 --> 00:11:32,179
 Un grand site hydroélectrique, une interconnexion transfrontalière, un premier projet dans une nouvelle technologie, ou un petit marché sans équipe pour organiser un appel d'offres.
 
 99
-00:11:30,079 --> 00:11:46,420
+00:11:34,729 --> 00:11:51,070
 La centrale hydroélectrique de Nachtigal, au Cameroun, a été développée dans le cadre d'un accord de développement conjoint, et non, selon les sources publiques, d'un appel d'offres. Elle a atteint le bouclage financier avec une tranche en monnaie locale d'une durée inédite pour les banques locales.
 
 100
-00:11:49,470 --> 00:12:02,227
+00:11:54,120 --> 00:12:06,877
 Mais quelques mois après sa mise en service complète en deux mille vingt-cinq, la presse indiquait que sa garantie de paiement était largement utilisée. Un projet bien structuré reste exposé à un acheteur fragile.
 
 101
-00:12:05,577 --> 00:12:09,588
+00:12:10,227 --> 00:12:14,238
 Un protocole d'accord vérifié contre le plan avant la signature,
 
 102
-00:12:10,138 --> 00:12:12,548
+00:12:14,788 --> 00:12:17,198
 assorti de jalons et d'une date d'échéance,
 
 103
-00:12:13,098 --> 00:12:17,301
+00:12:17,748 --> 00:12:21,951
 examiné par la compagnie d'électricité et le ministère des Finances,
 
 104
-00:12:17,851 --> 00:12:18,790
+00:12:22,501 --> 00:12:23,440
 et publié,
 
 105
-00:12:19,340 --> 00:12:22,348
+00:12:23,990 --> 00:12:26,998
 n'est plus un piège. C'est un outil de développement.
 
 106
-00:12:25,498 --> 00:12:28,357
+00:12:30,148 --> 00:12:33,007
 Le piège a cinq coûts. L'électricité non livrée.
 
 107
-00:12:28,907 --> 00:12:30,464
+00:12:33,557 --> 00:12:35,114
 De meilleurs projets bloqués.
 
 108
-00:12:31,014 --> 00:12:33,105
+00:12:35,664 --> 00:12:37,755
 Une attention publique rare, consommée.
 
 109
-00:12:33,655 --> 00:12:37,025
+00:12:38,305 --> 00:12:41,675
 La crédibilité perdue quand on rouvre des conditions signées.
 
 110
-00:12:37,575 --> 00:12:41,287
+00:12:42,225 --> 00:12:45,937
 Et les passifs créés quand des projets piégés aboutissent sous la pression.
 
 111
-00:12:43,487 --> 00:12:46,260
+00:12:48,137 --> 00:12:50,910
 Il faut avancer le coût, et les porteurs du risque.
 
 112
-00:12:46,760 --> 00:12:53,374
+00:12:51,410 --> 00:12:58,024
 Filtrer à l'entrée : aucun protocole d'accord hors du plan de moindre coût sans l'avoir d'abord testé contre le plan.
 
 113
-00:12:53,924 --> 00:12:59,257
+00:12:58,574 --> 00:13:03,907
 Donner un prix à l'option, avec des garanties de développement, des jalons et des clauses d'échéance.
 
 114
-00:12:59,807 --> 00:13:10,495
+00:13:04,457 --> 00:13:15,145
 Associer tôt les porteurs du risque : la compagnie d'électricité et le ministère des Finances examinent tout protocole d'accord pouvant entraîner des paiements fixes ou un soutien de l'État.
 
 115
-00:13:11,045 --> 00:13:14,522
+00:13:15,695 --> 00:13:19,172
 Et publier un registre des protocoles d'accord et de leur statut.
 
 116
-00:13:16,722 --> 00:13:28,306
+00:13:21,372 --> 00:13:32,956
 Le Nigeria montre que donner un prix à l'option ne suffit pas à lui seul. Des cautions ont été versées, et les projets se sont enlisés quand même, à cause du tarif, de l'acheteur et du soutien de l'État.
 
 117
-00:13:29,406 --> 00:13:33,203
+00:13:34,056 --> 00:13:37,853
 Le piège doit être refermé à chaque étape où un projet est testé.
 
 118
-00:13:35,753 --> 00:13:39,977
+00:13:40,403 --> 00:13:44,627
 D'où le test du bouclage financier durable, proposé dans le livre.
 
 119
-00:13:41,277 --> 00:13:50,749
+00:13:45,927 --> 00:13:55,399
 Un accord énergétique ne se boucle que lorsque le test du prêteur et le test de l'État ont été réussis, et que la réponse de l'État a été rendue publique.
 
 120
-00:13:53,049 --> 00:13:55,652
+00:13:57,699 --> 00:14:00,302
 Ministre Kerbu: Avant de signer quoi que ce soit : qui l'a examiné ?
 
 121
-00:13:55,952 --> 00:13:59,642
+00:14:00,602 --> 00:14:04,292
 Enilec Mok: Les Finances. Tout soutien est dimensionné à notre espace budgétaire.
 
 122
-00:13:59,942 --> 00:14:03,185
+00:14:04,592 --> 00:14:07,835
 Paul Ahmak: La compagnie aussi. Nous pouvons payer ce que nous achetons.
 
 123
-00:14:03,485 --> 00:14:07,645
+00:14:08,135 --> 00:14:12,295
 Belpau: Il figure dans le plan de moindre coût, avec des jalons et une date d'échéance.
 
 124
-00:14:07,945 --> 00:14:09,310
+00:14:12,595 --> 00:14:13,960
 Tidianie Eugom: Alors nous pouvons prêter.
 
 125
-00:14:09,610 --> 00:14:11,338
+00:14:14,260 --> 00:14:15,988
 Ministre Kerbu: Alors nous signons, et nous publions.
 
 126
-00:14:13,088 --> 00:14:17,312
+00:14:17,738 --> 00:14:21,962
 Red team. Qu'est-ce qui transforme un protocole d'accord en piège ?
 
 127
-00:14:18,112 --> 00:14:21,376
+00:14:22,762 --> 00:14:26,026
 Il est signé avant que l'un ou l'autre test ne soit appliqué.
 
 128
-00:14:21,926 --> 00:14:24,315
+00:14:26,576 --> 00:14:28,965
 Il ne coûte presque rien à ses signataires.
 
 129
-00:14:24,865 --> 00:14:28,471
+00:14:29,515 --> 00:14:33,121
 Et les porteurs du risque sont absents au moment de la signature.
 
 130
-00:14:29,021 --> 00:14:33,031
+00:14:33,671 --> 00:14:37,681
 Amenez les porteurs du risque, et leurs tests, au début du processus.
 
 131
-00:14:35,881 --> 00:14:39,934
+00:14:40,531 --> 00:14:44,584
 Avant de signer un protocole d'accord énergétique, posez cinq questions.
 
 132
-00:14:40,534 --> 00:14:44,481
+00:14:45,184 --> 00:14:49,131
 Un. Figure-t-il dans le plan de moindre coût, ou a-t-il été testé contre lui ?
 
 133
-00:14:45,281 --> 00:14:50,529
+00:14:49,931 --> 00:14:55,179
 Deux. Comporte-t-il des jalons, une date d'échéance et, si nécessaire, une garantie de développement ?
 
 134
-00:14:51,329 --> 00:14:56,129
+00:14:55,979 --> 00:15:00,779
 Trois. La compagnie d'électricité et le ministère des Finances l'ont-ils examiné ?
 
 135
-00:14:56,929 --> 00:15:02,198
+00:15:01,579 --> 00:15:06,848
 Quatre. Quelle couche pourrait le bloquer : le promoteur, la procédure, le système, ou le budget ?
 
 136
-00:15:02,998 --> 00:15:05,452
+00:15:07,648 --> 00:15:10,102
 Cinq. Sera-t-il publié dans le registre ?
 
 137
-00:15:06,252 --> 00:15:08,193
+00:15:10,902 --> 00:15:12,843
 Sinon, il n'est pas prêt à être signé.
 
 138
-00:15:11,343 --> 00:15:14,351
+00:15:15,993 --> 00:15:19,001
 Un protocole d'accord ne coûte presque rien à signer.
 
 139
-00:15:15,251 --> 00:15:17,278
+00:15:19,901 --> 00:15:21,928
 Il peut coûter très cher plus tard.
 
 140
-00:15:18,378 --> 00:15:21,770
+00:15:23,028 --> 00:15:26,420
 Amenez les porteurs du risque, et leurs tests, dès le départ.

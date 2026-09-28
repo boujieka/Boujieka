@@ -1,559 +1,559 @@
 1
-00:00:00,800 --> 00:00:05,152
+00:00:05,450 --> 00:00:09,802
 Somewhere in Africa, a power deal is signed in front of the cameras.
 
 2
-00:00:05,452 --> 00:00:09,079
+00:00:10,102 --> 00:00:13,729
 Minister Kerbu: Today we sign for one hundred megawatts of power for our people!
 
 3
-00:00:09,379 --> 00:00:11,277
+00:00:14,029 --> 00:00:15,927
 Emson Anahct: We are ready to build, Minister.
 
 4
-00:00:11,577 --> 00:00:15,439
+00:00:16,227 --> 00:00:20,089
 Everyone applauds. But who in this room will carry the risk?
 
 5
-00:00:17,189 --> 00:00:23,354
+00:00:21,839 --> 00:00:28,004
 The MoU trap. A training module for ministers, cabinets, regulators, and their partners.
 
 6
-00:00:26,604 --> 00:00:30,721
+00:00:31,254 --> 00:00:35,371
 Six seats at the table. Each one sees the same deal differently.
 
 7
-00:00:31,321 --> 00:00:33,327
+00:00:35,971 --> 00:00:37,977
 The government, which signs.
 
 8
-00:00:33,777 --> 00:00:36,913
+00:00:38,427 --> 00:00:41,563
 The ministry of finance, which stands behind it.
 
 9
-00:00:37,363 --> 00:00:39,539
+00:00:42,013 --> 00:00:44,189
 The utility, which must pay.
 
 10
-00:00:39,989 --> 00:00:42,335
+00:00:44,639 --> 00:00:46,985
 The developer, who holds the option.
 
 11
-00:00:42,785 --> 00:00:44,897
+00:00:47,435 --> 00:00:49,547
 The lender, who arrives last.
 
 12
-00:00:45,347 --> 00:00:48,035
+00:00:49,997 --> 00:00:52,685
 And the analyst, who asks the questions.
 
 13
-00:00:49,835 --> 00:00:52,374
+00:00:54,485 --> 00:00:57,024
 Three signals guide this module.
 
 14
-00:00:52,874 --> 00:00:55,455
+00:00:57,524 --> 00:01:00,105
 Blue: documented facts, with their source.
 
 15
-00:00:56,055 --> 00:00:59,084
+00:01:00,705 --> 00:01:03,734
 Yellow: what decision-makers must examine.
 
 16
-00:00:59,684 --> 00:01:01,775
+00:01:04,334 --> 00:01:06,425
 Red: what could make the deal fail.
 
 17
-00:01:03,725 --> 00:01:07,522
+00:01:08,375 --> 00:01:12,172
 When you see stop, pause the video and discuss with your team.
 
 18
-00:01:10,072 --> 00:01:12,995
+00:01:14,722 --> 00:01:17,645
 Part one. Fourteen contracts, no power.
 
 19
-00:01:15,845 --> 00:01:25,104
+00:01:20,495 --> 00:01:29,754
 In July 2016, Nigeria's bulk electricity trader signed power purchase agreements with fourteen solar developers.
 
 20
-00:01:28,154 --> 00:01:36,837
+00:01:32,804 --> 00:01:41,487
 Together, some eleven hundred and twenty-five megawatts, at eleven and a half US cents per kilowatt-hour, fixed for twenty years.
 
 21
-00:01:39,887 --> 00:01:48,356
+00:01:44,537 --> 00:01:53,006
 The target was first power in eighteen months. Ten developers reportedly paid security bonds to show they meant to move quickly.
 
 22
-00:01:51,406 --> 00:01:55,843
+00:01:56,056 --> 00:02:00,493
 Three years later, none of the fourteen had reached financial close.
 
 23
-00:01:58,893 --> 00:02:05,634
+00:02:03,543 --> 00:02:10,284
 Solar prices had fallen, and the government now wanted to cut the tariff to around seven and a half cents.
 
 24
-00:02:08,684 --> 00:02:18,071
+00:02:13,334 --> 00:02:22,721
 The put and call option agreements that lenders expected, and the partial risk guarantees behind them, were not concluded for most of the projects.
 
 25
-00:02:21,121 --> 00:02:30,550
+00:02:25,771 --> 00:02:35,200
 In 2020, a specialist publication summed it up. Eleven hundred and twenty-five megawatts promised. Not one electron delivered.
 
 26
-00:02:33,500 --> 00:02:40,519
+00:02:38,150 --> 00:02:45,169
 These were not memoranda of understanding. They were signed PPAs, and most developers had put money down.
 
 27
-00:02:41,419 --> 00:02:50,315
+00:02:46,069 --> 00:02:54,965
 They still stopped where a great many African power MoUs stop: at the moment when a signed commitment has to become a financeable one.
 
 28
-00:02:52,865 --> 00:02:56,470
+00:02:57,515 --> 00:03:01,120
 Part two. What an MoU binds, and what it does not.
 
 29
-00:02:59,320 --> 00:03:11,437
+00:03:03,970 --> 00:03:16,087
 A memorandum of understanding records an intention to cooperate. On its central commitment, most MoUs bind no one. Neither side is obliged to build, to buy, or to pay.
 
 30
-00:03:14,187 --> 00:03:18,603
+00:03:18,837 --> 00:03:23,253
 But the legal reading understates what an MoU does in practice.
 
 31
-00:03:19,103 --> 00:03:23,882
+00:03:23,753 --> 00:03:28,532
 Exclusivity over a site or a resource, which keeps competitors out.
 
 32
-00:03:24,432 --> 00:03:29,850
+00:03:29,082 --> 00:03:34,500
 An indicative tariff, which becomes the reference point for every later negotiation.
 
 33
-00:03:30,400 --> 00:03:34,646
+00:03:35,050 --> 00:03:39,296
 Promises of state help, expected before anyone has priced them.
 
 34
-00:03:35,196 --> 00:03:41,724
+00:03:39,846 --> 00:03:46,374
 And a public signing: a political commitment that is harder to withdraw than any clause in the document.
 
 35
-00:03:43,674 --> 00:03:46,298
+00:03:48,324 --> 00:03:50,948
 Belpau: The MoU says the tariff is only indicative.
 
 36
-00:03:46,598 --> 00:03:49,734
+00:03:51,248 --> 00:03:54,384
 Enilec Mok: Every negotiation after today will start from that number.
 
 37
-00:03:51,484 --> 00:03:54,257
+00:03:56,134 --> 00:03:58,907
 Three stages. Three kinds of commitment.
 
 38
-00:03:55,057 --> 00:04:00,476
+00:03:59,707 --> 00:04:05,126
 At the MoU stage, little binds in law. The state gives a political signal.
 
 39
-00:04:01,076 --> 00:04:07,839
+00:04:05,726 --> 00:04:12,489
 At the contract stage: tariff, term and obligations, with future payments conditional on operation.
 
 40
-00:04:08,439 --> 00:04:15,095
+00:04:13,089 --> 00:04:19,745
 At financial close, it is all funded, and the state's obligations are fixed for the life of the contract.
 
 41
-00:04:18,145 --> 00:04:21,537
+00:04:22,795 --> 00:04:26,187
 The trap lies between the first stage and the third.
 
 42
-00:04:22,637 --> 00:04:31,469
+00:04:27,287 --> 00:04:36,119
 Some commitments never close. Others do close, on terms first sketched when the project was least tested, and the government least prepared.
 
 43
-00:04:34,019 --> 00:04:41,315
+00:04:38,669 --> 00:04:45,965
 An MoU, and often the first contract after it, is signed before anyone has applied either of two tests.
 
 44
-00:04:41,815 --> 00:04:45,036
+00:04:46,465 --> 00:04:49,686
 The lender's test: can the project repay its debt?
 
 45
-00:04:45,586 --> 00:04:53,416
+00:04:50,236 --> 00:04:58,066
 The state's test: can the power system and the public finances carry the project's obligations for twenty years or more?
 
 46
-00:04:55,616 --> 00:04:57,856
+00:05:00,266 --> 00:05:02,506
 Part three. Why projects stall.
 
 47
-00:05:00,706 --> 00:05:12,589
+00:05:05,356 --> 00:05:17,239
 Across African infrastructure, McKinsey estimated that fewer than ten percent of projects reach financial close. It covers all sectors, so read it as an order of magnitude.
 
 48
-00:05:15,639 --> 00:05:30,999
+00:05:20,289 --> 00:05:35,649
 Outside South Africa, private power investment from 1990 to 2014 came to roughly a quarter of one year's estimated needs. The comparison is imperfect, because the needs include the grid.
 
 49
-00:05:34,049 --> 00:05:38,060
+00:05:38,699 --> 00:05:42,710
 The same pattern appears at the scale of a large gas plant.
 
 50
-00:05:38,560 --> 00:05:47,754
+00:05:43,210 --> 00:05:52,404
 Qua Iboe. In 2014, the World Bank approved a partial risk guarantee of up to one hundred and fifty million dollars.
 
 51
-00:05:48,304 --> 00:05:52,806
+00:05:52,954 --> 00:05:57,456
 In 2017, the government approved the PPA.
 
 52
-00:05:53,356 --> 00:06:00,289
+00:05:58,006 --> 00:06:04,939
 In 2018, after two extensions, the deadline to sign the guarantee agreements expired.
 
 53
-00:06:00,839 --> 00:06:04,508
+00:06:05,489 --> 00:06:09,158
 By 2020, it was reported as stalled.
 
 54
-00:06:05,058 --> 00:06:10,413
+00:06:09,708 --> 00:06:15,063
 And in early 2026, a project database listed it as shelved.
 
 55
-00:06:13,413 --> 00:06:28,922
+00:06:18,063 --> 00:06:33,572
 No one knows how many power MoUs African governments have signed, or how many reach financial close. Databases record projects that closed. Governments often do not publish MoUs, and developers do not announce when one lapses.
 
 56
-00:06:30,022 --> 00:06:32,348
+00:06:34,672 --> 00:06:36,998
 This is the denominator problem.
 
 57
-00:06:34,898 --> 00:06:38,567
+00:06:39,548 --> 00:06:43,217
 Four explanations circulate. Each is partly right.
 
 58
-00:06:39,067 --> 00:06:46,513
+00:06:43,717 --> 00:06:51,163
 The sponsor layer: the developer. Screen sponsors, limit exclusivity, and attach milestones and securities.
 
 59
-00:06:47,063 --> 00:06:55,447
+00:06:51,713 --> 00:07:00,097
 The process layer: how the project was originated. Compete by default, and test unsolicited proposals against the plan.
 
 60
-00:06:55,997 --> 00:07:02,119
+00:07:00,647 --> 00:07:06,769
 The system layer: the plan, the grid and the buyer. Fix the system before adding contracts.
 
 61
-00:07:02,669 --> 00:07:10,029
+00:07:07,319 --> 00:07:14,679
 The fiscal layer: the state's capacity to support. Apply the sovereign test, and size support to fiscal space.
 
 62
-00:07:10,579 --> 00:07:15,977
+00:07:15,229 --> 00:07:20,627
 They are not rivals. They are layers. The useful question is which one binds first.
 
 63
-00:07:18,827 --> 00:07:30,859
+00:07:23,477 --> 00:07:35,509
 Qua Iboe had credible sponsors, and it stalled all the same. In 2018, an official told Reuters the plant would enter a system that is illiquid and insolvent.
 
 64
-00:07:33,809 --> 00:07:34,492
+00:07:38,459 --> 00:07:39,142
 Stop.
 
 65
-00:07:34,992 --> 00:07:37,466
+00:07:39,642 --> 00:07:42,116
 You are the Minister of Energy.
 
 66
-00:07:37,966 --> 00:07:41,337
+00:07:42,616 --> 00:07:45,987
 A developer offers an MoU for a new plant.
 
 67
-00:07:41,737 --> 00:07:44,105
+00:07:46,387 --> 00:07:48,755
 It is not in the least-cost plan.
 
 68
-00:07:44,505 --> 00:07:47,001
+00:07:49,155 --> 00:07:51,651
 The signing could be ready next week.
 
 69
-00:07:47,401 --> 00:07:48,766
+00:07:52,051 --> 00:07:53,416
 What do you do first?
 
 70
-00:07:55,966 --> 00:07:59,401
+00:08:00,616 --> 00:08:04,051
 Hold your answer. First, look at who is in the room.
 
 71
-00:08:01,501 --> 00:08:07,624
+00:08:06,151 --> 00:08:12,274
 Why does the trap persist, when everyone can describe it? Look at who is in the room at signature.
 
 72
-00:08:07,924 --> 00:08:12,596
+00:08:12,574 --> 00:08:17,246
 Minister Kerbu: A visible answer to power shortages. And it costs us almost nothing today.
 
 73
-00:08:12,896 --> 00:08:17,034
+00:08:17,546 --> 00:08:21,684
 Emson Anahct: For me, it is an option on a site. And options can be sold.
 
 74
-00:08:17,334 --> 00:08:25,825
+00:08:21,984 --> 00:08:30,475
 The utility, which must pay, is often not a party. The ministry of finance is not in the room. The lenders arrive years later.
 
 75
-00:08:28,175 --> 00:08:30,244
+00:08:32,825 --> 00:08:34,894
 The government: sign readily.
 
 76
-00:08:30,844 --> 00:08:32,935
+00:08:35,494 --> 00:08:37,585
 The developer: collect options.
 
 77
-00:08:33,535 --> 00:08:35,668
+00:08:38,185 --> 00:08:40,318
 The utility: stay passive.
 
 78
-00:08:36,268 --> 00:08:38,508
+00:08:40,918 --> 00:08:43,158
 The lenders: no early filter.
 
 79
-00:08:39,108 --> 00:08:41,988
+00:08:43,758 --> 00:08:46,638
 Development partners: count what is signed.
 
 80
-00:08:44,738 --> 00:08:50,285
+00:08:49,388 --> 00:08:54,935
 A signature is rewarded today. Its cost is paid later, and by someone else.
 
 81
-00:08:51,385 --> 00:08:56,270
+00:08:56,035 --> 00:09:00,920
 That is why countries with capable ministries also sign weak MoUs.
 
 82
-00:08:58,820 --> 00:09:01,529
+00:09:03,470 --> 00:09:06,179
 Part four. Two exits, both costly.
 
 83
-00:09:04,129 --> 00:09:17,249
+00:09:08,779 --> 00:09:21,899
 Exit one: the project stalls. Years of ministry time and developer spending produce no power. Sites stay locked up. A published tariff becomes a benchmark that later bidders must argue against.
 
 84
-00:09:18,999 --> 00:09:30,796
+00:09:23,649 --> 00:09:35,446
 And when a government reopens terms it has signed, investors take note. In Nigeria, analysts warned it could weaken investor trust and raise the country's overall risk profile.
 
 85
-00:09:33,546 --> 00:09:45,301
+00:09:38,196 --> 00:09:49,951
 Exit two: the project closes. And it can be worse. Pressure builds to give lenders whatever they require: a state guarantee, fixed capacity payments, a hard currency tariff.
 
 86
-00:09:48,051 --> 00:09:57,608
+00:09:52,701 --> 00:10:02,258
 Ghana. During and after a severe supply crisis, the distribution utility signed forty-three PPAs through noncompetitive processes.
 
 87
-00:10:00,658 --> 00:10:07,527
+00:10:05,308 --> 00:10:12,177
 The World Bank projected nineteen hundred megawatts of excess capacity by 2019.
 
 88
-00:10:10,577 --> 00:10:16,785
+00:10:15,227 --> 00:10:21,435
 In 2019, net sector arrears stood at two point seven five billion dollars.
 
 89
-00:10:19,835 --> 00:10:27,579
+00:10:24,485 --> 00:10:32,229
 And the country was reported to be paying more than five hundred million dollars a year for electricity it did not use.
 
 90
-00:10:30,629 --> 00:10:37,264
+00:10:35,279 --> 00:10:41,914
 The contracts that were financed had satisfied their lenders. Taken together, they failed the state's test.
 
 91
-00:10:40,214 --> 00:10:47,681
+00:10:44,864 --> 00:10:52,331
 Both exits share a cause. The deciding questions were asked too late, or by people with no authority to say no.
 
 92
-00:10:48,181 --> 00:10:49,738
+00:10:52,831 --> 00:10:54,388
 Is the plant needed?
 
 93
-00:10:50,288 --> 00:10:52,336
+00:10:54,938 --> 00:10:56,986
 Can the grid carry its output?
 
 94
-00:10:52,886 --> 00:10:54,294
+00:10:57,536 --> 00:10:58,944
 Can the buyer pay?
 
 95
-00:10:54,844 --> 00:10:58,108
+00:10:59,494 --> 00:11:02,758
 Can the state carry the backstop if the buyer cannot?
 
 96
-00:11:00,308 --> 00:11:02,143
+00:11:04,958 --> 00:11:06,793
 Part five. The way out.
 
 97
-00:11:04,693 --> 00:11:11,178
+00:11:09,343 --> 00:11:15,828
 A fair account takes the case for MoUs seriously. Some projects cannot be tendered at the outset.
 
 98
-00:11:12,278 --> 00:11:21,878
+00:11:16,928 --> 00:11:26,528
 A large hydropower site, a cross-border interconnector, a first project in a new technology, or a small market without staff to run a tender.
 
 99
-00:11:24,428 --> 00:11:40,065
+00:11:29,078 --> 00:11:44,715
 Cameroon's Nachtigal hydropower plant was developed under a joint development agreement, not, as far as public sources show, a tender. It reached financial close with a local currency tranche of unprecedented tenor for local banks.
 
 100
-00:11:43,115 --> 00:11:55,702
+00:11:47,765 --> 00:12:00,352
 But within months of full commissioning in 2025, the press reported that its payment guarantee was largely drawn. A well-structured project remains exposed to a weak buyer.
 
 101
-00:11:59,052 --> 00:12:02,679
+00:12:03,702 --> 00:12:07,329
 An MoU checked against the plan before signature,
 
 102
-00:12:03,229 --> 00:12:05,917
+00:12:07,879 --> 00:12:10,567
 with milestones and a sunset date,
 
 103
-00:12:06,467 --> 00:12:09,901
+00:12:11,117 --> 00:12:14,551
 reviewed by the utility and the ministry of finance,
 
 104
-00:12:10,451 --> 00:12:11,539
+00:12:15,101 --> 00:12:16,189
 and published,
 
 105
-00:12:12,089 --> 00:12:15,332
+00:12:16,739 --> 00:12:19,982
 is no longer a trap. It is a development tool.
 
 106
-00:12:18,482 --> 00:12:21,789
+00:12:23,132 --> 00:12:26,439
 The trap has five costs. Power not delivered.
 
 107
-00:12:22,339 --> 00:12:24,003
+00:12:26,989 --> 00:12:28,653
 Better projects blocked.
 
 108
-00:12:24,553 --> 00:12:27,155
+00:12:29,203 --> 00:12:31,805
 Scarce public attention consumed.
 
 109
-00:12:27,705 --> 00:12:31,076
+00:12:32,355 --> 00:12:35,726
 Credibility lost when signed terms are reopened.
 
 110
-00:12:31,626 --> 00:12:36,063
+00:12:36,276 --> 00:12:40,713
 And liabilities created when trapped projects close under pressure.
 
 111
-00:12:38,263 --> 00:12:41,079
+00:12:42,913 --> 00:12:45,729
 Bring the cost, and the risk bearers, forward.
 
 112
-00:12:41,579 --> 00:12:48,128
+00:12:46,229 --> 00:12:52,778
 Filter at entry: no MoU outside the least-cost plan unless it has been tested against the plan.
 
 113
-00:12:48,678 --> 00:12:53,350
+00:12:53,328 --> 00:12:58,000
 Price the option, with securities, milestones and sunset clauses.
 
 114
-00:12:53,900 --> 00:13:02,946
+00:12:58,550 --> 00:13:07,596
 Bring the risk bearers in early: the utility and the ministry of finance review any MoU that could lead to fixed payments or state support.
 
 115
-00:13:03,496 --> 00:13:07,528
+00:13:08,146 --> 00:13:12,178
 And publish a register of power MoUs and their status.
 
 116
-00:13:09,728 --> 00:13:20,523
+00:13:14,378 --> 00:13:25,173
 Nigeria shows that pricing the option is not enough on its own. Securities were posted, and the projects still stalled, on the tariff, the buyer and state support.
 
 117
-00:13:21,623 --> 00:13:25,868
+00:13:26,273 --> 00:13:30,518
 The trap has to be closed at every point where a project is tested.
 
 118
-00:13:28,418 --> 00:13:32,855
+00:13:33,068 --> 00:13:37,505
 Hence the Sustainable Financial Close Test proposed in the book.
 
 119
-00:13:34,155 --> 00:13:42,753
+00:13:38,805 --> 00:13:47,403
 A power deal closes only when both the lender's test and the state's test have been passed, and the state's answer has been made public.
 
 120
-00:13:45,053 --> 00:13:47,229
+00:13:49,703 --> 00:13:51,879
 Minister Kerbu: Before we sign anything: who has reviewed it?
 
 121
-00:13:47,529 --> 00:13:51,049
+00:13:52,179 --> 00:13:55,699
 Enilec Mok: Finance has. Any support is sized to our fiscal space.
 
 122
-00:13:51,349 --> 00:13:54,272
+00:13:55,999 --> 00:13:58,922
 Paul Ahmak: The utility has. We can pay for what we buy.
 
 123
-00:13:54,572 --> 00:13:58,326
+00:13:59,222 --> 00:14:02,976
 Belpau: It is in the least-cost plan, with milestones and a sunset date.
 
 124
-00:13:58,626 --> 00:14:00,077
+00:14:03,276 --> 00:14:04,727
 Tidianie Eugom: Then we can lend against it.
 
 125
-00:14:00,377 --> 00:14:01,934
+00:14:05,027 --> 00:14:06,584
 Minister Kerbu: Then we sign, and we publish it.
 
 126
-00:14:03,684 --> 00:14:06,841
+00:14:08,334 --> 00:14:11,491
 Red team. What turns an MoU into a trap?
 
 127
-00:14:07,641 --> 00:14:10,671
+00:14:12,291 --> 00:14:15,321
 It is signed before either test is applied.
 
 128
-00:14:11,221 --> 00:14:14,058
+00:14:15,871 --> 00:14:18,708
 It costs its signatories almost nothing.
 
 129
-00:14:14,608 --> 00:14:17,701
+00:14:19,258 --> 00:14:22,351
 And the risk bearers are absent when it is signed.
 
 130
-00:14:18,251 --> 00:14:22,475
+00:14:22,901 --> 00:14:27,125
 Bring the risk bearers, and their tests, to the start of the process.
 
 131
-00:14:25,325 --> 00:14:29,314
+00:14:29,975 --> 00:14:33,964
 Before any power MoU is signed, ask five questions.
 
 132
-00:14:29,914 --> 00:14:33,584
+00:14:34,564 --> 00:14:38,234
 One. Is it in the least-cost plan, or tested against it?
 
 133
-00:14:34,384 --> 00:14:40,741
+00:14:39,034 --> 00:14:45,391
 Two. Does it carry milestones, a sunset date and, where appropriate, a development security?
 
 134
-00:14:41,541 --> 00:14:45,466
+00:14:46,191 --> 00:14:50,116
 Three. Have the utility and the ministry of finance reviewed it?
 
 135
-00:14:46,266 --> 00:14:50,981
+00:14:50,916 --> 00:14:55,631
 Four. Which layer could block it: sponsor, process, system, or fiscal?
 
 136
-00:14:51,781 --> 00:14:54,533
+00:14:56,431 --> 00:14:59,183
 Five. Will it be published in the register?
 
 137
-00:14:55,333 --> 00:14:57,594
+00:14:59,983 --> 00:15:02,244
 If not, it is not ready to sign.
 
 138
-00:15:00,744 --> 00:15:03,773
+00:15:05,394 --> 00:15:08,423
 An MoU costs almost nothing to sign.
 
 139
-00:15:04,673 --> 00:15:07,020
+00:15:09,323 --> 00:15:11,670
 It can cost a great deal later.
 
 140
-00:15:08,120 --> 00:15:11,427
+00:15:12,770 --> 00:15:16,077
 Bring the risk bearers, and their tests, to the start.

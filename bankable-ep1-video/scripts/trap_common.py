@@ -81,7 +81,7 @@ def layers(title, items, intro=(), code="decision", music="bed", closing=None):
     """items: [(name, text, sub, spoken)] stacked cards revealed one by one."""
     parts = [part(badge(code)), part(f'<div class="dn-q">{esc(title)}</div>', intro, 0.2)]
     for name, text, sub, spoken in items:
-        parts.append(part(f'<div class="layer"><b>{esc(name)}</b><span>{esc(text)}'
+        parts.append(part(f'<div class="layer{" num" if name.isdigit() else ""}"><b>{esc(name)}</b><span>{esc(text)}'
                           f'{f"<em>{esc(sub)}</em>" if sub else ""}</span></div>', spoken, 0.25))
     if closing:
         parts.append(part(f'<div class="dn-x">{esc(closing[0])}</div>', closing[1], 0.9))

@@ -1,79 +1,79 @@
 1
-00:00:01,050 --> 00:00:05,466
+00:00:05,700 --> 00:00:10,116
 Briefing for ministers and cabinet. Your signature is not free.
 
 2
-00:00:08,566 --> 00:00:12,193
+00:00:13,216 --> 00:00:16,843
 Minister Kerbu: Today we sign for one hundred megawatts of power for our people!
 
 3
-00:00:12,493 --> 00:00:21,175
+00:00:17,143 --> 00:00:25,825
 A public signing, especially with a head of state, creates a political commitment that is harder to withdraw than any clause in the document.
 
 4
-00:00:22,625 --> 00:00:31,926
+00:00:27,275 --> 00:00:36,576
 At signature, government gets a visible response to power shortages, at almost no cost. The cost comes later, and it is paid by someone else.
 
 5
-00:00:34,676 --> 00:00:48,628
+00:00:39,326 --> 00:00:53,278
 Exit one: it stalls. Nigeria signed fourteen solar PPAs in 2016. Four years later, a headline read: eleven hundred and twenty-five megawatts promised, not one electron delivered.
 
 6
-00:00:51,878 --> 00:01:04,657
+00:00:56,528 --> 00:01:09,307
 Exit two: it closes on weak terms. In Ghana, after forty-three noncompetitive PPAs, net sector arrears stood at two point seven five billion dollars in 2019.
 
 7
-00:01:07,707 --> 00:01:13,424
+00:01:12,357 --> 00:01:18,074
 Decision note. Before the ceremony: who will carry the risk, and have they tested the deal?
 
 8
-00:01:14,324 --> 00:01:18,463
+00:01:18,974 --> 00:01:23,113
 The utility and the treasury are usually absent at signature.
 
 9
-00:01:18,913 --> 00:01:21,558
+00:01:23,563 --> 00:01:26,208
 The lenders arrive years later.
 
 10
-00:01:22,008 --> 00:01:25,230
+00:01:26,658 --> 00:01:29,880
 And an indicative tariff becomes the reference point.
 
 11
-00:01:25,680 --> 00:01:44,560
+00:01:30,330 --> 00:01:49,210
 Your decisions. Publish a register of power MoUs, and let lapsed options expire. Allow no MoU outside the least-cost plan unless it has been tested against it. And let Finance and the utility review any MoU that could lead to fixed payments or state support, before signature.
 
 12
-00:01:47,110 --> 00:01:47,793
+00:01:51,760 --> 00:01:52,443
 Stop.
 
 13
-00:01:48,293 --> 00:01:49,850
+00:01:52,943 --> 00:01:54,500
 You chair the cabinet.
 
 14
-00:01:50,350 --> 00:01:53,806
+00:01:55,000 --> 00:01:58,456
 A signing is scheduled for Friday, before the cameras.
 
 15
-00:01:54,206 --> 00:01:56,617
+00:01:58,856 --> 00:02:01,267
 Finance has not seen the MoU.
 
 16
-00:01:57,017 --> 00:02:00,046
+00:02:01,667 --> 00:02:04,696
 The project is not in the least-cost plan.
 
 17
-00:02:00,446 --> 00:02:01,747
+00:02:05,096 --> 00:02:06,397
 What do you decide?
 
 18
-00:02:08,947 --> 00:02:13,321
+00:02:13,597 --> 00:02:17,971
 Momentum is the trap. Test the deal before the cameras arrive.
 
 19
-00:02:15,371 --> 00:02:17,547
+00:02:20,021 --> 00:02:22,197
 Your signature is not free.
 
 20
-00:02:18,447 --> 00:02:21,924
+00:02:23,097 --> 00:02:26,574
 Bring the risk bearers into the room, before the cameras.

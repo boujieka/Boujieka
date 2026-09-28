@@ -1,79 +1,79 @@
 1
-00:00:01,050 --> 00:00:07,621
+00:00:05,700 --> 00:00:12,271
 Briefing pour les développeurs et les partenaires au développement. Comptez ce qui se boucle, pas ce qui se signe.
 
 2
-00:00:10,721 --> 00:00:15,500
+00:00:15,371 --> 00:00:20,150
 Emson Anahct: Des jalons, une date d'échéance et une garantie de développement, dans le protocole d'accord ?
 
 3
-00:00:15,800 --> 00:00:19,512
+00:00:20,450 --> 00:00:24,162
 Tidianie Eugom: Les développeurs sérieux n'ont pas grand-chose à craindre de tout cela.
 
 4
-00:00:21,262 --> 00:00:30,521
+00:00:25,912 --> 00:00:35,171
 Moins de dix pour cent des projets d'infrastructure africains atteignent le bouclage financier, selon l'estimation de McKinsey, qui couvre tous les secteurs.
 
 5
-00:00:33,571 --> 00:00:42,659
+00:00:38,221 --> 00:00:47,309
 À la signature, les partenaires au développement obtiennent la preuve d'un portefeuille de projets, sans coût direct. L'incitation est de compter ce qui est signé.
 
 6
-00:00:45,709 --> 00:00:57,357
+00:00:50,359 --> 00:01:02,007
 Au Nigeria, des développeurs auraient versé des cautions, et les projets se sont enlisés quand même, à cause du tarif, de l'acheteur et du soutien de l'État. Donner un prix à l'option ne suffit pas à lui seul.
 
 7
-00:01:00,407 --> 00:01:03,330
+00:01:05,057 --> 00:01:07,980
 Note de décision. Ce portefeuille est-il réel ?
 
 8
-00:01:04,230 --> 00:01:07,792
+00:01:08,880 --> 00:01:12,442
 Des protocoles d'accord signés sont des options, pas des projets.
 
 9
-00:01:08,242 --> 00:01:11,592
+00:01:12,892 --> 00:01:16,242
 La plupart des projets échouent au stade de la faisabilité.
 
 10
-00:01:12,042 --> 00:01:19,722
+00:01:16,692 --> 00:01:24,372
 Et même quand les institutions de financement du développement co-développent, le ministère des Finances découvre souvent le projet tard.
 
 11
-00:01:20,172 --> 00:01:28,385
+00:01:24,822 --> 00:01:33,035
 Votre décision : mesurer les portefeuilles par le nombre de projets qui réussissent les deux tests, et non par le nombre de protocoles d'accord signés.
 
 12
-00:01:29,585 --> 00:01:36,049
+00:01:34,235 --> 00:01:40,699
 Et les développeurs doivent s'attendre à des jalons, des dates d'échéance et, si nécessaire, des garanties de développement.
 
 13
-00:01:38,499 --> 00:01:39,224
+00:01:43,149 --> 00:01:43,874
 Stop.
 
 14
-00:01:39,724 --> 00:01:42,455
+00:01:44,374 --> 00:01:47,105
 Vous gérez un programme énergétique national.
 
 15
-00:01:42,955 --> 00:01:46,304
+00:01:47,605 --> 00:01:50,954
 Votre rapport recense quarante protocoles d'accord signés.
 
 16
-00:01:46,704 --> 00:01:49,456
+00:01:51,354 --> 00:01:54,106
 Peu ont été testés par les prêteurs, ou par l'État.
 
 17
-00:01:49,856 --> 00:01:50,987
+00:01:54,506 --> 00:01:55,637
 Que déclarez-vous ?
 
 18
-00:01:58,187 --> 00:02:01,024
+00:02:02,837 --> 00:02:05,674
 Un portefeuille n'est pas un décompte de signatures.
 
 19
-00:02:03,074 --> 00:02:04,546
+00:02:07,724 --> 00:02:09,196
 Comptez ce qui se boucle.
 
 20
-00:02:05,446 --> 00:02:10,075
+00:02:10,096 --> 00:02:14,725
 Durablement : avec les deux tests réussis, et la réponse de l'État rendue publique.
