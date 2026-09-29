@@ -66,7 +66,7 @@ html,body{{margin:0;width:{W}px;height:{H}px;overflow:hidden;background:#1d2733}
 </style></head><body>
 <div class="pic"></div><div class="stripe"></div><div class="panel"></div>
 <div class="txt"><div class="series">{t['series']}</div>
-<div class="badge">{t['ep']} {n}/7</div>
+<div class="badge">{t.get('badge') or f"{t['ep']} {n}/7"}</div>
 <div class="title">{title}</div><div class="sub">{t['sub']}</div></div>
 <img class="logo" src="data:image/png;base64,{logo}">
 </body></html>"""
