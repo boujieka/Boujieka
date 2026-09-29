@@ -47,7 +47,8 @@ def end_card(n):
     if n < N_EP:
         nxt = TITLES[n]
         head = f'{NEXT} · {EP} {n + 1}/{N_EP}'
-        say = (f"Prochain épisode : {_spoken_title(nxt)}." if LANG == "fr" else f"Next episode: {_spoken_title(nxt)}.")
+        end = "" if nxt.endswith("?") else "."
+        say = (f"Prochain épisode : {_spoken_title(nxt)}{end}" if LANG == "fr" else f"Next episode: {_spoken_title(nxt)}{end}")
         body = esc(nxt)
     else:
         head, nxt = LAST, ""
