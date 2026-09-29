@@ -1,0 +1,107 @@
+1
+00:00:04,900 --> 00:00:09,636
+Le piège du protocole d'accord. Épisode 1. Quatorze contrats, aucun mégawatt
+
+2
+00:00:12,136 --> 00:00:16,488
+Quelque part en Afrique, un accord énergétique est signé devant les caméras.
+
+3
+00:00:16,788 --> 00:00:20,735
+Ministre Kerbu: Aujourd'hui, nous signons pour cent mégawatts d'électricité pour notre peuple !
+
+4
+00:00:21,035 --> 00:00:23,680
+Emson Anahct: Nous sommes prêts à construire, Monsieur le Ministre.
+
+5
+00:00:23,980 --> 00:00:27,436
+Tout le monde applaudit. Mais qui, dans cette salle, portera le risque ?
+
+6
+00:00:28,886 --> 00:00:33,003
+Six sièges autour de la table. Chacun voit le même accord différemment.
+
+7
+00:00:33,603 --> 00:00:35,118
+Le gouvernement, qui signe.
+
+8
+00:00:35,568 --> 00:00:38,235
+Le ministère des Finances, qui se porte garant.
+
+9
+00:00:38,685 --> 00:00:41,074
+La compagnie d'électricité, qui doit payer.
+
+10
+00:00:41,524 --> 00:00:43,700
+Le développeur, qui détient l'option.
+
+11
+00:00:44,150 --> 00:00:46,155
+Le prêteur, qui arrive en dernier.
+
+12
+00:00:46,605 --> 00:00:48,653
+Et l'analyste, qui pose les questions.
+
+13
+00:00:50,453 --> 00:00:52,138
+Trois signaux guident ce module.
+
+14
+00:00:52,638 --> 00:00:55,198
+En bleu : les faits documentés, avec leur source.
+
+15
+00:00:55,798 --> 00:00:58,508
+En jaune : ce que les décideurs doivent examiner.
+
+16
+00:00:59,108 --> 00:01:01,582
+En rouge : ce qui pourrait faire échouer l'accord.
+
+17
+00:01:03,832 --> 00:01:06,883
+Première partie. Quatorze contrats, aucun mégawatt.
+
+18
+00:01:09,733 --> 00:01:18,416
+En juillet deux mille seize, l'acheteur d'électricité en gros du Nigeria signe des contrats d'achat d'électricité avec quatorze développeurs solaires.
+
+19
+00:01:21,466 --> 00:01:28,570
+Au total, quelque mille cent vingt-cinq mégawatts, à onze cents et demi de dollar le kilowattheure, fixés pour vingt ans.
+
+20
+00:01:31,620 --> 00:01:38,980
+L'objectif : une première production en dix-huit mois. Dix développeurs auraient versé une caution pour montrer leur détermination.
+
+21
+00:01:42,030 --> 00:01:46,787
+Trois ans plus tard, aucun des quatorze projets n'avait atteint le bouclage financier.
+
+22
+00:01:49,837 --> 00:01:56,493
+Les prix du solaire avaient baissé, et le gouvernement voulait désormais ramener le tarif à environ sept cents et demi.
+
+23
+00:01:59,543 --> 00:02:09,420
+Les accords d'options de vente et d'achat attendus par les prêteurs, et les garanties partielles de risque qui devaient les soutenir, n'ont pas été conclus pour la plupart des projets.
+
+24
+00:02:12,470 --> 00:02:19,745
+En deux mille vingt, une publication spécialisée résumait : mille cent vingt-cinq mégawatts promis. Pas un seul électron livré.
+
+25
+00:02:22,695 --> 00:02:30,418
+Ce n'étaient pas de simples protocoles d'accord. C'étaient des contrats signés, et la plupart des développeurs avaient mis de l'argent sur la table.
+
+26
+00:02:31,318 --> 00:02:40,299
+Ils se sont pourtant arrêtés là où s'arrêtent tant de protocoles d'accord en Afrique : au moment où un engagement signé doit devenir un engagement finançable.
+
+27
+00:02:42,849 --> 00:02:46,561
+Prochain épisode : Ce qu'engage vraiment un protocole d'accord.

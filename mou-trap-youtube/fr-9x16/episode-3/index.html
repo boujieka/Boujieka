@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width={{W}}, height={{H}}" />
+    <meta name="viewport" content="width=1080, height=1920" />
     <script src="assets/vendor/gsap.min.js"></script>
     <style>
       @font-face { font-family: "Bangers"; src: url("assets/fonts/bangers-latin-400-normal.woff2") format("woff2"); font-weight: 400; }
@@ -17,8 +17,8 @@
       }
       .portrait { --fs-big: 92px; --fs-sub: 42px; --fs-body: 42px; --fs-title: 150px; --pad: 70px; }
       * { margin: 0; padding: 0; box-sizing: border-box; }
-      html, body { width: {{W}}px; height: {{H}}px; overflow: hidden; background: var(--stage); }
-      #root { position: relative; width: {{W}}px; height: {{H}}px; overflow: hidden; background: var(--stage);
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--stage); }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--stage);
               font-family: Poppins, "Liberation Sans", sans-serif; color: var(--ink); }
       .clip { position: absolute; inset: 0; }
 
@@ -54,7 +54,7 @@
 
       .l-act { background: radial-gradient(ellipse at 50% 40%, var(--teal) 0%, var(--teal-dk) 70%); color: #fff; }
       .act-label { font: 400 64px Bangers, sans-serif; letter-spacing: 0.08em; color: var(--ink); background: var(--yellow); padding: 6px 30px 0; border-radius: 8px; }
-      .act-title { font: 400 var(--fs-title)/1.22 Bangers, sans-serif; letter-spacing: 0.02em; }
+      .act-title { font: 400 var(--fs-title)/0.95 Bangers, sans-serif; letter-spacing: 0.02em; }
 
       .l-title { background: #fdfbf5; }
       .l-title .kicker { font: 700 26px Poppins, sans-serif; letter-spacing: 0.22em; color: var(--teal); }
@@ -112,7 +112,7 @@
 
       /* RED TEAM */
       .l-redteam .inner { gap: 24px; }
-      .rt-q { font: 400 120px/1.2 Bangers, sans-serif; color: #fff; }
+      .rt-q { font: 400 120px/1 Bangers, sans-serif; color: #fff; }
       .portrait .rt-q { font-size: 104px; }
       .rt-a { font: 600 48px Poppins, sans-serif; color: #fff; border: 3px solid #7a2a26; background: rgba(200, 55, 45, 0.18);
               border-radius: 12px; padding: 14px 30px; min-width: 900px; text-align: left; }
@@ -130,7 +130,7 @@
       .l-roles .inner { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 18px 26px; max-width: 1800px; }
       .portrait .l-roles .inner { max-width: 1040px; }
       .l-roles .part:first-child { width: 100%; }
-      .roles-title { width: 100%; font: 400 96px/1.2 Bangers, sans-serif; color: var(--teal); }
+      .roles-title { width: 100%; font: 400 96px Bangers, sans-serif; color: var(--teal); }
       .role { width: 270px; display: flex; flex-direction: column; align-items: center; }
       .portrait .role { width: 310px; }
       .role .pup { width: 230px; height: 272px; }
@@ -159,14 +159,14 @@
 
       /* CHECKLIST */
       .l-checklist .inner { gap: 14px; align-items: flex-start; }
-      .ck-title { font: 400 120px/1.2 Bangers, sans-serif; align-self: center; }
+      .ck-title { font: 400 120px Bangers, sans-serif; align-self: center; }
       .ck-q { font: 600 44px Poppins, sans-serif; text-align: left; display: flex; gap: 26px; }
       .ck-q b { font: 400 54px Bangers, sans-serif; color: var(--ink); background: var(--yellow); border-radius: 8px; padding: 0 12px; height: fit-content; }
       .ck-c { font: 700 52px Poppins, sans-serif; color: var(--red); align-self: center; margin-top: 20px; text-align: center; }
 
       /* LESSON + CREDITS */
       .l-lesson { background: radial-gradient(ellipse at 50% 40%, var(--teal) 0%, var(--teal-dk) 70%); color: #fff; }
-      .ls1 { font: 400 150px/1.22 Bangers, sans-serif; }
+      .ls1 { font: 400 150px/1 Bangers, sans-serif; }
       .ls2 { font: 700 64px Poppins, sans-serif; color: var(--yellow); }
       .ls3 { font: 600 44px Poppins, sans-serif; opacity: 0.9; }
       .l-credits { background: var(--teal-dk); color: #fff; }
@@ -220,8 +220,6 @@
       .c-red .layer b { color: #ff6b5c; font-size: 60px; }
       .c-red .layer span { font-size: 36px; }
       .c-red .layer em { color: #f3d6d2; }
-      .landscape .c-red .layer { width: 1440px; grid-template-columns: 420px 1fr; padding: 10px 26px; }
-      .landscape .c-red .layer b { font-size: 50px; line-height: 1; }
       .layer.num { grid-template-columns: 80px 1fr; width: 1100px; }
       .timeline { display: flex; gap: 0; align-items: stretch; }
       .tl-i { width: 300px; border-top: 10px solid var(--teal); padding: 16px 14px 0; text-align: left; position: relative; }
@@ -270,7 +268,6 @@
       .portrait .chapbar { height: 140px; flex-wrap: wrap; align-content: center; padding: 0 30px; row-gap: 6px; }
       .portrait .ch { font-size: 28px; padding: 0 14px; }
       .portrait .ch span { font-size: 24px; }
-      .portrait.episodes .ch { font-size: 23px; letter-spacing: 0.06em; white-space: nowrap; }
       .tag { inset: auto; left: 56px; bottom: 44px; opacity: 0; display: flex; flex-direction: column; gap: 2px;
              padding: 12px 22px 12px 18px; background: var(--ink); border-left: 8px solid var(--yellow); border-radius: 6px; color: #fff;
              box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35); }
@@ -282,13 +279,140 @@
     </style>
   </head>
   <body>
-    <div id="root" class="{{ORIENT}}" data-composition-id="main" data-start="0" data-duration="{{TOTAL}}" data-width="{{W}}" data-height="{{H}}">
-{{BODY}}
+    <div id="root" class="portrait episodes" data-composition-id="main" data-start="0" data-duration="173.688" data-width="1080" data-height="1920">
+<div id="focus-wrap" class="clip focus-wrap" data-start="0" data-duration="173.688" data-track-index="2"><div class="focus" style="left:540.0px;top:690.0px"></div></div>
+<section id="s0" class="clip screen l-logo c-none" data-start="0.000" data-duration="3.850" data-track-index="5"><div class="inner"><div class="part " id="s0p0"><img class="brand" src="assets/art/courant-continental.png" alt="Courant Continental"/></div></div></section>
+<section id="s1" class="clip screen l-act c-none" data-start="3.550" data-duration="7.615" data-track-index="5"><div class="inner"><div class="part " id="s1p0"><div class="act-label">LE PIÈGE DU MoU · ÉPISODE 3/7</div></div><div class="part " id="s1p1"><div class="act-title">POURQUOI LES PROJETS S&#x27;ENLISENT</div></div></div></section>
+<section id="s2" class="clip screen l-act c-none" data-start="10.865" data-duration="5.838" data-track-index="5"><div class="inner"><div class="part " id="s2p0"><div class="act-label">03</div></div><div class="part " id="s2p1"><div class="act-title">POURQUOI LES PROJETS<br/>S'ENLISENT</div></div></div></section>
+<section id="s3" class="clip screen l-big c-fact" data-start="16.403" data-duration="15.489" data-track-index="5"><div class="inner"><div class="part " id="s3p0"><div class="badge fact">FAIT</div></div><div class="part " id="s3p1"><div class="stat">&lt; 10 %</div><div class="stat-l">des projets d'infrastructure africains atteignent le bouclage financier ; 80 % échouent au stade de la faisabilité</div></div><div class="part " id="s3p2"><div class="src">Source : McKinsey 2020 · toutes infrastructures ; un ordre de grandeur seulement</div></div></div></section>
+<section id="s4" class="clip screen l-big c-fact" data-start="31.592" data-duration="18.134" data-track-index="5"><div class="inner"><div class="part " id="s4p0"><div class="badge fact">FAIT</div></div><div class="part " id="s4p1"><div class="stat">&asymp; &frac14;</div><div class="stat-l">25 ans d'investissement privé dans l'électricité hors Afrique du Sud &asymp; un quart des besoins d'une seule année</div></div><div class="part " id="s4p2"><div class="src">Source : Eberhard et al. 2016, via tralac · les besoins incluent transport et distribution</div></div></div></section>
+<section id="s5" class="clip screen l-timeline c-fact" data-start="49.426" data-duration="34.651" data-track-index="5"><div class="inner"><div class="part " id="s5p0"><div class="badge fact">FAIT</div></div><div class="part " id="s5p1"><div class="dn-q">Qua Iboe, Nigeria · centrale au gaz de 533 MW</div></div><div class="part " id="s5p2"><div class="tl-i"><b>2014</b><span>La Banque mondiale approuve une garantie partielle de risque de 150 M$ maximum</span></div></div><div class="part " id="s5p3"><div class="tl-i"><b>2017</b><span>Le gouvernement fédéral approuve le PPA</span></div></div><div class="part " id="s5p4"><div class="tl-i"><b>2018</b><span>Le dernier délai de signature des accords de garantie expire</span></div></div><div class="part " id="s5p5"><div class="tl-i"><b>2020</b><span>Projet signalé comme bloqué</span></div></div><div class="part " id="s5p6"><div class="tl-i"><b>2026</b><span>Classé « abandonné » dans une base de données</span></div></div><div class="part " id="s5p7"><div class="src">Source : Banque mondiale 2014 ; TheCable 2020 ; Global Energy Monitor 2026</div></div></div></section>
+<section id="s6" class="clip screen l-big c-fact" data-start="83.777" data-duration="21.614" data-track-index="5"><div class="inner"><div class="part " id="s6p0"><div class="badge fact">FAIT</div></div><div class="part " id="s6p1"><div class="big-text">Personne ne compte les MoU<br/>qui n'ont mené nulle part.</div></div><div class="part " id="s6p2"><div class="big-sub">Le problème du dénominateur.</div></div></div></section>
+<section id="s7" class="clip screen l-layers c-decision" data-start="105.091" data-duration="46.405" data-track-index="5"><div class="inner"><div class="part " id="s7p0"><div class="badge decision">DÉCISION</div></div><div class="part " id="s7p1"><div class="dn-q">Quatre explications, lues comme des couches</div></div><div class="part " id="s7p2"><div class="layer"><b>PROMOTEUR</b><span>Le développeur manque de capital, d&#x27;expérience ou de partenaires.<em>Filtrer les promoteurs ; limiter l&#x27;exclusivité ; exiger jalons et garanties.</em></span></div></div><div class="part " id="s7p3"><div class="layer"><b>PROCÉDURE</b><span>La manière dont le projet a été initié.<em>Mettre en concurrence par défaut ; tester les offres spontanées contre le plan.</em></span></div></div><div class="part " id="s7p4"><div class="layer"><b>SYSTÈME</b><span>Le plan, le réseau et l&#x27;acheteur.<em>Réparer le système avant d&#x27;ajouter des contrats.</em></span></div></div><div class="part " id="s7p5"><div class="layer"><b>BUDGET</b><span>La capacité de soutien de l&#x27;État.<em>Appliquer le test souverain ; dimensionner le soutien à l&#x27;espace budgétaire.</em></span></div></div><div class="part " id="s7p6"><div class="dn-x">Pas des rivales : des couches. Laquelle bloque en premier ?</div></div></div></section>
+<section id="s8" class="clip screen l-big c-fact" data-start="151.196" data-duration="15.987" data-track-index="5"><div class="inner"><div class="part " id="s8p0"><div class="badge fact">FAIT</div></div><div class="part " id="s8p1"><div class="big-text">&ldquo;entrerait dans un système illiquide et insolvable&rdquo;</div></div><div class="part " id="s8p2"><div class="src">Un responsable cité par Reuters, 2018, à propos de Qua Iboe (traduction)</div></div></div></section>
+<section id="s9" class="clip screen l-lesson c-none" data-start="166.883" data-duration="6.805" data-track-index="5"><div class="inner"><div class="part " id="s9p0"><div class="ls2">Prochain épisode · ÉPISODE 4/7</div></div><div class="part " id="s9p1"><div class="ls1">Qui est dans la salle ?</div></div><div class="part " id="s9p2"><div class="ls3">Abonnez-vous à Courant Continental</div></div></div></section>
+<div id="chapbar" class="clip chapbar" data-start="3.850" data-duration="169.838" data-track-index="3"><div class="ch" id="ch0"><span>03</span>ÉPISODE 3/7 · POURQUOI LES PROJETS S&#x27;ENLISENT</div></div>
+<div class="clip tag" id="tag-KERBU" data-start="0" data-duration="173.688" data-track-index="4"><b>MINISTRE KERBU</b><span>Gouvernement · signe le MoU</span></div>
+<div class="clip tag" id="tag-ENILEC" data-start="0" data-duration="173.688" data-track-index="4"><b>ENILEC MOK</b><span>Ministère des Finances · le dernier rempart</span></div>
+<div class="clip tag" id="tag-PAUL" data-start="0" data-duration="173.688" data-track-index="4"><b>PAUL AHMAK</b><span>Compagnie d&#x27;électricité · l&#x27;acheteur qui paie</span></div>
+<div class="clip tag" id="tag-EMSON" data-start="0" data-duration="173.688" data-track-index="4"><b>EMSON ANAHCT</b><span>Développeur · détient l&#x27;option</span></div>
+<div class="clip tag" id="tag-TIDIANIE" data-start="0" data-duration="173.688" data-track-index="4"><b>TIDIANIE EUGOM</b><span>Prêteur · arrive en dernier</span></div>
+<div class="clip tag" id="tag-BELPAU" data-start="0" data-duration="173.688" data-track-index="4"><b>BELPAU</b><span>Analyste · pose les questions</span></div>
+<div class="clip tag" id="tag-RESIDENT" data-start="0" data-duration="173.688" data-track-index="4"><b>RÉSIDENT</b><span>Consommateur</span></div>
+<audio id="mix" src="audio/mix.m4a" data-start="0" data-duration="173.688" data-track-index="7" data-volume="1"></audio>
     </div>
     <script>
       window.__timelines = window.__timelines || {};
       const tl = gsap.timeline({ paused: true });
-      {{JS}}
+      tl.set("#s0", {opacity: 1}, 0);
+      tl.to("#s0", {opacity: 0, duration: 0.35}, 3.500);
+      tl.fromTo("#s0p0", {scale: 1}, {scale: 1.04, duration: 3.850, ease: "none"}, 0);
+      tl.set("#s1", {opacity: 0}, 0);
+      tl.to("#s1", {opacity: 1, duration: 0.35}, 3.550);
+      tl.to("#s1", {opacity: 0, duration: 0.35}, 10.815);
+      tl.set("#s1p0", {opacity: 0, y: 26}, 0);
+      tl.to("#s1p0", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 4.300);
+      tl.set("#s1p1", {opacity: 0, y: 26}, 0);
+      tl.to("#s1p1", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 4.600);
+      tl.set("#s2", {opacity: 0}, 0);
+      tl.to("#s2", {opacity: 1, duration: 0.35}, 10.865);
+      tl.to("#s2", {opacity: 0, duration: 0.35}, 16.353);
+      tl.set("#s2p0", {opacity: 0, y: 26}, 0);
+      tl.to("#s2p0", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 11.615);
+      tl.set("#s2p1", {opacity: 0, y: 26}, 0);
+      tl.to("#s2p1", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 11.915);
+      tl.set("#s3", {opacity: 0}, 0);
+      tl.to("#s3", {opacity: 1, duration: 0.35}, 16.403);
+      tl.to("#s3", {opacity: 0, duration: 0.35}, 31.542);
+      tl.set("#s3p0", {opacity: 0, y: 26}, 0);
+      tl.to("#s3p0", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 17.153);
+      tl.set("#s3p1", {opacity: 0, y: 26}, 0);
+      tl.to("#s3p1", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 17.453);
+      tl.set("#s3p2", {opacity: 0, y: 26}, 0);
+      tl.to("#s3p2", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 30.692);
+      tl.set("#s4", {opacity: 0}, 0);
+      tl.to("#s4", {opacity: 1, duration: 0.35}, 31.592);
+      tl.to("#s4", {opacity: 0, duration: 0.35}, 49.376);
+      tl.set("#s4p0", {opacity: 0, y: 26}, 0);
+      tl.to("#s4p0", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 32.342);
+      tl.set("#s4p1", {opacity: 0, y: 26}, 0);
+      tl.to("#s4p1", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 32.642);
+      tl.set("#s4p2", {opacity: 0, y: 26}, 0);
+      tl.to("#s4p2", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 48.526);
+      tl.set("#s5", {opacity: 0}, 0);
+      tl.to("#s5", {opacity: 1, duration: 0.35}, 49.426);
+      tl.to("#s5", {opacity: 0, duration: 0.35}, 83.727);
+      tl.set("#s5p0", {opacity: 0, y: 26}, 0);
+      tl.to("#s5p0", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 50.176);
+      tl.set("#s5p1", {opacity: 0, y: 26}, 0);
+      tl.to("#s5p1", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 50.476);
+      tl.set("#s5p2", {opacity: 0, y: 26}, 0);
+      tl.to("#s5p2", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 54.773);
+      tl.set("#s5p3", {opacity: 0, y: 26}, 0);
+      tl.to("#s5p3", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 63.387);
+      tl.set("#s5p4", {opacity: 0, y: 26}, 0);
+      tl.to("#s5p4", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 67.628);
+      tl.set("#s5p5", {opacity: 0, y: 26}, 0);
+      tl.to("#s5p5", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 74.237);
+      tl.set("#s5p6", {opacity: 0, y: 26}, 0);
+      tl.to("#s5p6", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 77.709);
+      tl.set("#s5p7", {opacity: 0, y: 26}, 0);
+      tl.to("#s5p7", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 82.377);
+      tl.set("#s6", {opacity: 0}, 0);
+      tl.to("#s6", {opacity: 1, duration: 0.35}, 83.777);
+      tl.to("#s6", {opacity: 0, duration: 0.35}, 105.041);
+      tl.set("#s6p0", {opacity: 0, y: 26}, 0);
+      tl.to("#s6p0", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 84.527);
+      tl.set("#s6p1", {opacity: 0, y: 26}, 0);
+      tl.to("#s6p1", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 84.827);
+      tl.set("#s6p2", {opacity: 0, y: 26}, 0);
+      tl.to("#s6p2", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 101.564);
+      tl.set("#s7", {opacity: 0}, 0);
+      tl.to("#s7", {opacity: 1, duration: 0.35}, 105.091);
+      tl.to("#s7", {opacity: 0, duration: 0.35}, 151.146);
+      tl.set("#s7p0", {opacity: 0, y: 26}, 0);
+      tl.to("#s7p0", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 105.841);
+      tl.set("#s7p1", {opacity: 0, y: 26}, 0);
+      tl.to("#s7p1", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 106.141);
+      tl.set("#s7p2", {opacity: 0, y: 26}, 0);
+      tl.to("#s7p2", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 110.182);
+      tl.set("#s7p3", {opacity: 0, y: 26}, 0);
+      tl.to("#s7p3", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 118.412);
+      tl.set("#s7p4", {opacity: 0, y: 26}, 0);
+      tl.to("#s7p4", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 127.880);
+      tl.set("#s7p5", {opacity: 0, y: 26}, 0);
+      tl.to("#s7p5", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 134.403);
+      tl.set("#s7p6", {opacity: 0, y: 26}, 0);
+      tl.to("#s7p6", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 143.038);
+      tl.set("#s8", {opacity: 0}, 0);
+      tl.to("#s8", {opacity: 1, duration: 0.35}, 151.196);
+      tl.to("#s8", {opacity: 0, duration: 0.35}, 166.833);
+      tl.set("#s8p0", {opacity: 0, y: 26}, 0);
+      tl.to("#s8p0", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 151.946);
+      tl.set("#s8p1", {opacity: 0, y: 26}, 0);
+      tl.to("#s8p1", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 152.246);
+      tl.set("#s8p2", {opacity: 0, y: 26}, 0);
+      tl.to("#s8p2", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 165.983);
+      tl.set("#s9", {opacity: 0}, 0);
+      tl.to("#s9", {opacity: 1, duration: 0.35}, 166.883);
+      tl.set("#s9p0", {opacity: 0, y: 26}, 0);
+      tl.to("#s9p0", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 167.633);
+      tl.set("#s9p1", {opacity: 0, y: 26}, 0);
+      tl.to("#s9p1", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 167.933);
+      tl.set("#s9p2", {opacity: 0, y: 26}, 0);
+      tl.to("#s9p2", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 171.188);
+      tl.set("#chapbar", {opacity: 0}, 0);
+      tl.to("#chapbar", {opacity: 1, duration: 0.6}, 3.850);
+      tl.set("#ch0", {opacity: 0.4}, 0);
+      tl.to("#ch0", {opacity: 1, duration: 0.4}, 3.860);
+      tl.to("#ch0 span", {backgroundColor: "#f0b429", color: "#1d2230", duration: 0.4}, 3.860);
+      tl.set("#tag-KERBU", {opacity: 0, x: -24}, 0);
+      tl.set("#tag-ENILEC", {opacity: 0, x: -24}, 0);
+      tl.set("#tag-PAUL", {opacity: 0, x: -24}, 0);
+      tl.set("#tag-EMSON", {opacity: 0, x: -24}, 0);
+      tl.set("#tag-TIDIANIE", {opacity: 0, x: -24}, 0);
+      tl.set("#tag-BELPAU", {opacity: 0, x: -24}, 0);
+      tl.set("#tag-RESIDENT", {opacity: 0, x: -24}, 0);
       window.__timelines["main"] = tl;
       tl.seek(0);
     </script>

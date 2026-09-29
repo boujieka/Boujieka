@@ -19,7 +19,7 @@ TXT = {
     "en": {"series": "THE MoU TRAP", "ep": "EPISODE", "sub": "Power deals in Africa · 7-part series",
            "titles": ["Fourteen contracts, no power", "What an MoU really binds", "Why projects stall",
                       "Who is in the room?", "When the deal closes anyway", "Closing the trap", "Before you sign"]},
-    "fr": {"series": "LE PIÈGE DU MoU", "ep": "ÉPISODE", "sub": "Contrats d'électricité en Afrique · série en 7 épisodes",
+    "fr": {"series": "LE PIÈGE DU MoU", "ep": "ÉPISODE", "sub": "Série en 7 épisodes",
            "titles": ["Quatorze contrats, aucun mégawatt", "Ce qu'engage vraiment un MoU", "Pourquoi les projets s'enlisent",
                       "Qui est dans la salle ?", "Quand l'accord aboutit quand même", "Refermer le piège", "Avant de signer"]},
 }
@@ -45,6 +45,8 @@ def page(W, H, frame, n, t, fx="30%"):
         panel = "left:560px;top:0;width:720px;height:720px;clip-path:polygon(160px 0,100% 0,100% 100%,0 100%);"
         txt = "left:750px;top:60px;width:500px;"
         tsize, badge, logo_css = 84, 44, "right:34px;bottom:28px;height:120px;"
+    if len(title) > 24:  # long (mostly French) titles: keep the block clear of the logo and edges
+        tsize = round(tsize * 0.84)
     return f"""<!doctype html><html><head><meta charset="utf-8"><style>
 @font-face{{font-family:Bangers;src:{font('bangers-latin-400-normal.woff2')}}}
 @font-face{{font-family:Poppins;font-weight:700;src:{font('poppins-latin-700-normal.woff2')}}}
@@ -58,7 +60,7 @@ html,body{{margin:0;width:{W}px;height:{H}px;overflow:hidden;background:#1d2733}
 .series{{font:700 {badge * 0.62:.0f}px Poppins,sans-serif;letter-spacing:.12em;color:#f2b632}}
 .badge{{display:inline-block;margin:14px 0 18px;padding:6px 22px;background:#c8372d;color:#fff;
   font:400 {badge}px/1.1 Bangers,sans-serif;letter-spacing:.06em;transform:rotate(-2deg)}}
-.title{{font:400 {tsize}px/0.98 Bangers,sans-serif;letter-spacing:.02em;text-shadow:0 5px 0 #000}}
+.title{{font:400 {tsize}px/1.2 Bangers,sans-serif;letter-spacing:.02em;text-shadow:0 5px 0 #000}}
 .sub{{margin-top:22px;font:600 {badge * 0.5:.0f}px Poppins,sans-serif;color:#cfd8e3}}
 .logo{{position:absolute;{logo_css}z-index:3;background:#fff;padding:8px 14px;border-radius:10px}}
 </style></head><body>

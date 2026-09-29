@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width={{W}}, height={{H}}" />
+    <meta name="viewport" content="width=1080, height=1920" />
     <script src="assets/vendor/gsap.min.js"></script>
     <style>
       @font-face { font-family: "Bangers"; src: url("assets/fonts/bangers-latin-400-normal.woff2") format("woff2"); font-weight: 400; }
@@ -17,8 +17,8 @@
       }
       .portrait { --fs-big: 92px; --fs-sub: 42px; --fs-body: 42px; --fs-title: 150px; --pad: 70px; }
       * { margin: 0; padding: 0; box-sizing: border-box; }
-      html, body { width: {{W}}px; height: {{H}}px; overflow: hidden; background: var(--stage); }
-      #root { position: relative; width: {{W}}px; height: {{H}}px; overflow: hidden; background: var(--stage);
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--stage); }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--stage);
               font-family: Poppins, "Liberation Sans", sans-serif; color: var(--ink); }
       .clip { position: absolute; inset: 0; }
 
@@ -54,7 +54,7 @@
 
       .l-act { background: radial-gradient(ellipse at 50% 40%, var(--teal) 0%, var(--teal-dk) 70%); color: #fff; }
       .act-label { font: 400 64px Bangers, sans-serif; letter-spacing: 0.08em; color: var(--ink); background: var(--yellow); padding: 6px 30px 0; border-radius: 8px; }
-      .act-title { font: 400 var(--fs-title)/1.22 Bangers, sans-serif; letter-spacing: 0.02em; }
+      .act-title { font: 400 var(--fs-title)/0.95 Bangers, sans-serif; letter-spacing: 0.02em; }
 
       .l-title { background: #fdfbf5; }
       .l-title .kicker { font: 700 26px Poppins, sans-serif; letter-spacing: 0.22em; color: var(--teal); }
@@ -112,7 +112,7 @@
 
       /* RED TEAM */
       .l-redteam .inner { gap: 24px; }
-      .rt-q { font: 400 120px/1.2 Bangers, sans-serif; color: #fff; }
+      .rt-q { font: 400 120px/1 Bangers, sans-serif; color: #fff; }
       .portrait .rt-q { font-size: 104px; }
       .rt-a { font: 600 48px Poppins, sans-serif; color: #fff; border: 3px solid #7a2a26; background: rgba(200, 55, 45, 0.18);
               border-radius: 12px; padding: 14px 30px; min-width: 900px; text-align: left; }
@@ -130,7 +130,7 @@
       .l-roles .inner { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 18px 26px; max-width: 1800px; }
       .portrait .l-roles .inner { max-width: 1040px; }
       .l-roles .part:first-child { width: 100%; }
-      .roles-title { width: 100%; font: 400 96px/1.2 Bangers, sans-serif; color: var(--teal); }
+      .roles-title { width: 100%; font: 400 96px Bangers, sans-serif; color: var(--teal); }
       .role { width: 270px; display: flex; flex-direction: column; align-items: center; }
       .portrait .role { width: 310px; }
       .role .pup { width: 230px; height: 272px; }
@@ -159,14 +159,14 @@
 
       /* CHECKLIST */
       .l-checklist .inner { gap: 14px; align-items: flex-start; }
-      .ck-title { font: 400 120px/1.2 Bangers, sans-serif; align-self: center; }
+      .ck-title { font: 400 120px Bangers, sans-serif; align-self: center; }
       .ck-q { font: 600 44px Poppins, sans-serif; text-align: left; display: flex; gap: 26px; }
       .ck-q b { font: 400 54px Bangers, sans-serif; color: var(--ink); background: var(--yellow); border-radius: 8px; padding: 0 12px; height: fit-content; }
       .ck-c { font: 700 52px Poppins, sans-serif; color: var(--red); align-self: center; margin-top: 20px; text-align: center; }
 
       /* LESSON + CREDITS */
       .l-lesson { background: radial-gradient(ellipse at 50% 40%, var(--teal) 0%, var(--teal-dk) 70%); color: #fff; }
-      .ls1 { font: 400 150px/1.22 Bangers, sans-serif; }
+      .ls1 { font: 400 150px/1 Bangers, sans-serif; }
       .ls2 { font: 700 64px Poppins, sans-serif; color: var(--yellow); }
       .ls3 { font: 600 44px Poppins, sans-serif; opacity: 0.9; }
       .l-credits { background: var(--teal-dk); color: #fff; }
@@ -220,8 +220,6 @@
       .c-red .layer b { color: #ff6b5c; font-size: 60px; }
       .c-red .layer span { font-size: 36px; }
       .c-red .layer em { color: #f3d6d2; }
-      .landscape .c-red .layer { width: 1440px; grid-template-columns: 420px 1fr; padding: 10px 26px; }
-      .landscape .c-red .layer b { font-size: 50px; line-height: 1; }
       .layer.num { grid-template-columns: 80px 1fr; width: 1100px; }
       .timeline { display: flex; gap: 0; align-items: stretch; }
       .tl-i { width: 300px; border-top: 10px solid var(--teal); padding: 16px 14px 0; text-align: left; position: relative; }
@@ -270,7 +268,6 @@
       .portrait .chapbar { height: 140px; flex-wrap: wrap; align-content: center; padding: 0 30px; row-gap: 6px; }
       .portrait .ch { font-size: 28px; padding: 0 14px; }
       .portrait .ch span { font-size: 24px; }
-      .portrait.episodes .ch { font-size: 23px; letter-spacing: 0.06em; white-space: nowrap; }
       .tag { inset: auto; left: 56px; bottom: 44px; opacity: 0; display: flex; flex-direction: column; gap: 2px;
              padding: 12px 22px 12px 18px; background: var(--ink); border-left: 8px solid var(--yellow); border-radius: 6px; color: #fff;
              box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35); }
@@ -282,13 +279,126 @@
     </style>
   </head>
   <body>
-    <div id="root" class="{{ORIENT}}" data-composition-id="main" data-start="0" data-duration="{{TOTAL}}" data-width="{{W}}" data-height="{{H}}">
-{{BODY}}
+    <div id="root" class="portrait episodes" data-composition-id="main" data-start="0" data-duration="125.031" data-width="1080" data-height="1920">
+<div id="focus-wrap" class="clip focus-wrap" data-start="0" data-duration="125.031" data-track-index="2"><div class="focus" style="left:540.0px;top:690.0px"></div></div>
+<section id="s0" class="clip screen l-logo c-none" data-start="0.000" data-duration="3.850" data-track-index="5"><div class="inner"><div class="part " id="s0p0"><img class="brand" src="assets/art/courant-continental.png" alt="Courant Continental"/></div></div></section>
+<section id="s1" class="clip screen l-act c-none" data-start="3.550" data-duration="7.061" data-track-index="5"><div class="inner"><div class="part " id="s1p0"><div class="act-label">LE PIÈGE DU MoU · ÉPISODE 6/7</div></div><div class="part " id="s1p1"><div class="act-title">REFERMER LE PIÈGE</div></div></div></section>
+<section id="s2" class="clip screen l-layers c-decision" data-start="10.311" data-duration="20.221" data-track-index="5"><div class="inner"><div class="part " id="s2p0"><div class="badge decision">DÉCISION</div></div><div class="part " id="s2p1"><div class="dn-q">Pas une interdiction. Un meilleur MoU.</div></div><div class="part " id="s2p2"><div class="layer"><b>VÉRIFIÉ</b><span>Contre le plan de moindre coût, avant la signature</span></div></div><div class="part " id="s2p3"><div class="layer"><b>DATÉ</b><span>Avec des jalons et une date d&#x27;échéance</span></div></div><div class="part " id="s2p4"><div class="layer"><b>EXAMINÉ</b><span>Par la compagnie et le ministère des Finances, s&#x27;il peut créer des obligations fixes</span></div></div><div class="part " id="s2p5"><div class="layer"><b>PUBLIÉ</b><span>Dans un registre public</span></div></div><div class="part " id="s2p6"><div class="dn-x">n&#x27;est plus un piège. C&#x27;est un outil de développement.</div></div></div></section>
+<section id="s3" class="clip screen l-layers c-red" data-start="30.232" data-duration="18.589" data-track-index="5"><div class="inner"><div class="part " id="s3p0"><div class="badge red">RED TEAM</div></div><div class="part " id="s3p1"><div class="dn-q">Les cinq coûts du piège</div></div><div class="part " id="s3p2"><div class="layer num"><b>1</b><span>L&#x27;électricité non livrée</span></div></div><div class="part " id="s3p3"><div class="layer num"><b>2</b><span>De meilleurs projets bloqués</span></div></div><div class="part " id="s3p4"><div class="layer num"><b>3</b><span>L&#x27;attention publique consommée</span></div></div><div class="part " id="s3p5"><div class="layer num"><b>4</b><span>La crédibilité perdue quand on rouvre les conditions</span></div></div><div class="part " id="s3p6"><div class="layer num"><b>5</b><span>Les passifs créés quand les projets piégés aboutissent</span></div></div></div></section>
+<section id="s4" class="clip screen l-layers c-decision" data-start="48.521" data-duration="33.535" data-track-index="5"><div class="inner"><div class="part " id="s4p0"><div class="badge decision">DÉCISION</div></div><div class="part " id="s4p1"><div class="dn-q">Quatre mesures pour refermer le piège</div></div><div class="part " id="s4p2"><div class="layer"><b>FILTRER À L&#x27;ENTRÉE</b><span>Aucun MoU hors du plan de moindre coût sans test préalable</span></div></div><div class="part " id="s4p3"><div class="layer"><b>DONNER UN PRIX À L&#x27;OPTION</b><span>Garanties de développement, jalons, clauses d&#x27;échéance</span></div></div><div class="part " id="s4p4"><div class="layer"><b>ASSOCIER TÔT LES PORTEURS DU RISQUE</b><span>La compagnie et les Finances examinent tout MoU pouvant créer des paiements fixes ou un soutien de l&#x27;État</span></div></div><div class="part " id="s4p5"><div class="layer"><b>PUBLIER UN REGISTRE</b><span>Les MoU et leur statut ; laisser expirer les options caduques</span></div></div></div></section>
+<section id="s5" class="clip screen l-big c-decision" data-start="81.756" data-duration="19.331" data-track-index="5"><div class="inner"><div class="part " id="s5p0"><div class="badge decision">DÉCISION</div></div><div class="part " id="s5p1"><div class="big-text">Donner un prix à l'option ne suffit pas à lui seul.</div></div><div class="part " id="s5p2"><div class="big-sub">Il faut refermer le piège à chaque étape où le projet est testé.</div></div></div></section>
+<section id="s6" class="clip screen l-big c-decision" data-start="100.787" data-duration="17.846" data-track-index="5"><div class="inner"><div class="part " id="s6p0"><div class="badge decision">DÉCISION</div></div><div class="part " id="s6p1"><div class="big-text">Le test du bouclage financier durable</div></div><div class="part " id="s6p2"><div class="big-sub">Un accord ne se boucle que lorsque le test du prêteur et le test de l'État sont réussis, et que la réponse de l'État est rendue publique.</div></div></div></section>
+<section id="s7" class="clip screen l-lesson c-none" data-start="118.333" data-duration="6.698" data-track-index="5"><div class="inner"><div class="part " id="s7p0"><div class="ls2">Prochain épisode · ÉPISODE 7/7</div></div><div class="part " id="s7p1"><div class="ls1">Avant de signer</div></div><div class="part " id="s7p2"><div class="ls3">Abonnez-vous à Courant Continental</div></div></div></section>
+<div id="chapbar" class="clip chapbar" data-start="3.850" data-duration="121.181" data-track-index="3"><div class="ch" id="ch0"><span>06</span>ÉPISODE 6/7 · REFERMER LE PIÈGE</div></div>
+<div class="clip tag" id="tag-KERBU" data-start="0" data-duration="125.031" data-track-index="4"><b>MINISTRE KERBU</b><span>Gouvernement · signe le MoU</span></div>
+<div class="clip tag" id="tag-ENILEC" data-start="0" data-duration="125.031" data-track-index="4"><b>ENILEC MOK</b><span>Ministère des Finances · le dernier rempart</span></div>
+<div class="clip tag" id="tag-PAUL" data-start="0" data-duration="125.031" data-track-index="4"><b>PAUL AHMAK</b><span>Compagnie d&#x27;électricité · l&#x27;acheteur qui paie</span></div>
+<div class="clip tag" id="tag-EMSON" data-start="0" data-duration="125.031" data-track-index="4"><b>EMSON ANAHCT</b><span>Développeur · détient l&#x27;option</span></div>
+<div class="clip tag" id="tag-TIDIANIE" data-start="0" data-duration="125.031" data-track-index="4"><b>TIDIANIE EUGOM</b><span>Prêteur · arrive en dernier</span></div>
+<div class="clip tag" id="tag-BELPAU" data-start="0" data-duration="125.031" data-track-index="4"><b>BELPAU</b><span>Analyste · pose les questions</span></div>
+<div class="clip tag" id="tag-RESIDENT" data-start="0" data-duration="125.031" data-track-index="4"><b>RÉSIDENT</b><span>Consommateur</span></div>
+<audio id="mix" src="audio/mix.m4a" data-start="0" data-duration="125.031" data-track-index="7" data-volume="1"></audio>
     </div>
     <script>
       window.__timelines = window.__timelines || {};
       const tl = gsap.timeline({ paused: true });
-      {{JS}}
+      tl.set("#s0", {opacity: 1}, 0);
+      tl.to("#s0", {opacity: 0, duration: 0.35}, 3.500);
+      tl.fromTo("#s0p0", {scale: 1}, {scale: 1.04, duration: 3.850, ease: "none"}, 0);
+      tl.set("#s1", {opacity: 0}, 0);
+      tl.to("#s1", {opacity: 1, duration: 0.35}, 3.550);
+      tl.to("#s1", {opacity: 0, duration: 0.35}, 10.261);
+      tl.set("#s1p0", {opacity: 0, y: 26}, 0);
+      tl.to("#s1p0", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 4.300);
+      tl.set("#s1p1", {opacity: 0, y: 26}, 0);
+      tl.to("#s1p1", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 4.600);
+      tl.set("#s2", {opacity: 0}, 0);
+      tl.to("#s2", {opacity: 1, duration: 0.35}, 10.311);
+      tl.to("#s2", {opacity: 0, duration: 0.35}, 30.182);
+      tl.set("#s2p0", {opacity: 0, y: 26}, 0);
+      tl.to("#s2p0", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 11.061);
+      tl.set("#s2p1", {opacity: 0, y: 26}, 0);
+      tl.to("#s2p1", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 11.361);
+      tl.set("#s2p2", {opacity: 0, y: 26}, 0);
+      tl.to("#s2p2", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 11.661);
+      tl.set("#s2p3", {opacity: 0, y: 26}, 0);
+      tl.to("#s2p3", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 16.222);
+      tl.set("#s2p4", {opacity: 0, y: 26}, 0);
+      tl.to("#s2p4", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 19.182);
+      tl.set("#s2p5", {opacity: 0, y: 26}, 0);
+      tl.to("#s2p5", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 23.935);
+      tl.set("#s2p6", {opacity: 0, y: 26}, 0);
+      tl.to("#s2p6", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 25.424);
+      tl.set("#s3", {opacity: 0}, 0);
+      tl.to("#s3", {opacity: 1, duration: 0.35}, 30.232);
+      tl.to("#s3", {opacity: 0, duration: 0.35}, 48.471);
+      tl.set("#s3p0", {opacity: 0, y: 26}, 0);
+      tl.to("#s3p0", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 30.982);
+      tl.set("#s3p1", {opacity: 0, y: 26}, 0);
+      tl.to("#s3p1", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 31.282);
+      tl.set("#s3p2", {opacity: 0, y: 26}, 0);
+      tl.to("#s3p2", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 31.582);
+      tl.set("#s3p3", {opacity: 0, y: 26}, 0);
+      tl.to("#s3p3", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 34.991);
+      tl.set("#s3p4", {opacity: 0, y: 26}, 0);
+      tl.to("#s3p4", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 37.098);
+      tl.set("#s3p5", {opacity: 0, y: 26}, 0);
+      tl.to("#s3p5", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 39.739);
+      tl.set("#s3p6", {opacity: 0, y: 26}, 0);
+      tl.to("#s3p6", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 43.659);
+      tl.set("#s4", {opacity: 0}, 0);
+      tl.to("#s4", {opacity: 1, duration: 0.35}, 48.521);
+      tl.to("#s4", {opacity: 0, duration: 0.35}, 81.706);
+      tl.set("#s4p0", {opacity: 0, y: 26}, 0);
+      tl.to("#s4p0", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 49.271);
+      tl.set("#s4p1", {opacity: 0, y: 26}, 0);
+      tl.to("#s4p1", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 49.571);
+      tl.set("#s4p2", {opacity: 0, y: 26}, 0);
+      tl.to("#s4p2", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 52.844);
+      tl.set("#s4p3", {opacity: 0, y: 26}, 0);
+      tl.to("#s4p3", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 60.008);
+      tl.set("#s4p4", {opacity: 0, y: 26}, 0);
+      tl.to("#s4p4", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 65.891);
+      tl.set("#s4p5", {opacity: 0, y: 26}, 0);
+      tl.to("#s4p5", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 77.129);
+      tl.set("#s5", {opacity: 0}, 0);
+      tl.to("#s5", {opacity: 1, duration: 0.35}, 81.756);
+      tl.to("#s5", {opacity: 0, duration: 0.35}, 100.737);
+      tl.set("#s5p0", {opacity: 0, y: 26}, 0);
+      tl.to("#s5p0", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 82.506);
+      tl.set("#s5p1", {opacity: 0, y: 26}, 0);
+      tl.to("#s5p1", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 82.806);
+      tl.set("#s5p2", {opacity: 0, y: 26}, 0);
+      tl.to("#s5p2", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 95.490);
+      tl.set("#s6", {opacity: 0}, 0);
+      tl.to("#s6", {opacity: 1, duration: 0.35}, 100.787);
+      tl.to("#s6", {opacity: 0, duration: 0.35}, 118.283);
+      tl.set("#s6p0", {opacity: 0, y: 26}, 0);
+      tl.to("#s6p0", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 101.537);
+      tl.set("#s6p1", {opacity: 0, y: 26}, 0);
+      tl.to("#s6p1", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 101.837);
+      tl.set("#s6p2", {opacity: 0, y: 26}, 0);
+      tl.to("#s6p2", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 107.361);
+      tl.set("#s7", {opacity: 0}, 0);
+      tl.to("#s7", {opacity: 1, duration: 0.35}, 118.333);
+      tl.set("#s7p0", {opacity: 0, y: 26}, 0);
+      tl.to("#s7p0", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 119.083);
+      tl.set("#s7p1", {opacity: 0, y: 26}, 0);
+      tl.to("#s7p1", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 119.383);
+      tl.set("#s7p2", {opacity: 0, y: 26}, 0);
+      tl.to("#s7p2", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 122.531);
+      tl.set("#chapbar", {opacity: 0}, 0);
+      tl.to("#chapbar", {opacity: 1, duration: 0.6}, 3.850);
+      tl.set("#ch0", {opacity: 0.4}, 0);
+      tl.to("#ch0", {opacity: 1, duration: 0.4}, 3.860);
+      tl.to("#ch0 span", {backgroundColor: "#f0b429", color: "#1d2230", duration: 0.4}, 3.860);
+      tl.set("#tag-KERBU", {opacity: 0, x: -24}, 0);
+      tl.set("#tag-ENILEC", {opacity: 0, x: -24}, 0);
+      tl.set("#tag-PAUL", {opacity: 0, x: -24}, 0);
+      tl.set("#tag-EMSON", {opacity: 0, x: -24}, 0);
+      tl.set("#tag-TIDIANIE", {opacity: 0, x: -24}, 0);
+      tl.set("#tag-BELPAU", {opacity: 0, x: -24}, 0);
+      tl.set("#tag-RESIDENT", {opacity: 0, x: -24}, 0);
       window.__timelines["main"] = tl;
       tl.seek(0);
     </script>

@@ -1,0 +1,95 @@
+1
+00:00:04,900 --> 00:00:08,932
+Le piège du protocole d'accord. Épisode 4. Qui est dans la salle ?
+
+2
+00:00:11,382 --> 00:00:12,107
+Stop.
+
+3
+00:00:12,607 --> 00:00:14,570
+Vous êtes le ministre de l'Énergie.
+
+4
+00:00:15,070 --> 00:00:19,315
+Un développeur vous propose un protocole d'accord pour une nouvelle centrale.
+
+5
+00:00:19,715 --> 00:00:21,955
+Elle ne figure pas dans le plan de moindre coût.
+
+6
+00:00:22,355 --> 00:00:25,449
+La signature pourrait avoir lieu la semaine prochaine.
+
+7
+00:00:25,849 --> 00:00:27,129
+Que faites-vous d'abord ?
+
+8
+00:00:34,329 --> 00:00:37,955
+Gardez votre réponse. Regardez d'abord qui est dans la salle.
+
+9
+00:00:40,055 --> 00:00:47,202
+Pourquoi le piège persiste-t-il, alors que tout le monde sait le décrire ? Regardez qui est dans la salle au moment de la signature.
+
+10
+00:00:47,502 --> 00:00:52,771
+Ministre Kerbu: Une réponse visible aux coupures d'électricité. Et cela ne nous coûte presque rien aujourd'hui.
+
+11
+00:00:53,071 --> 00:00:57,018
+Emson Anahct: Pour moi, c'est une option sur un site. Et une option, cela se revend.
+
+12
+00:00:57,318 --> 00:01:07,174
+La compagnie d'électricité, qui devra payer, n'est souvent pas partie à l'accord. Le ministère des Finances n'est pas dans la salle. Et les prêteurs arrivent des années plus tard.
+
+13
+00:01:09,524 --> 00:01:11,465
+Le gouvernement : signer volontiers.
+
+14
+00:01:12,065 --> 00:01:14,519
+Le développeur : collectionner les options.
+
+15
+00:01:15,119 --> 00:01:17,913
+La compagnie d'électricité : rester passive.
+
+16
+00:01:18,513 --> 00:01:20,775
+Les prêteurs : aucun filtre précoce.
+
+17
+00:01:21,375 --> 00:01:24,425
+Les partenaires au développement : compter ce qui est signé.
+
+18
+00:01:27,175 --> 00:01:32,658
+Une signature est récompensée aujourd'hui. Son coût est payé plus tard, et par quelqu'un d'autre.
+
+19
+00:01:33,758 --> 00:01:39,027
+C'est pourquoi même des pays dotés de ministères compétents signent de mauvais protocoles d'accord.
+
+20
+00:01:41,577 --> 00:01:44,457
+Quatrième partie. Deux issues, toutes deux coûteuses.
+
+21
+00:01:47,057 --> 00:02:02,140
+Première issue : le projet s'enlise. Des années de travail ministériel et de dépenses des développeurs ne produisent aucun électron. Les sites restent bloqués. Un tarif publié devient une référence contre laquelle les futurs soumissionnaires devront argumenter.
+
+22
+00:02:03,890 --> 00:02:17,885
+Et quand un gouvernement rouvre des conditions qu'il a signées, les investisseurs le remarquent. Au Nigeria, des analystes ont averti que cela pouvait affaiblir la confiance des investisseurs et relever le profil de risque de tout le pays.
+
+23
+00:02:20,635 --> 00:02:32,987
+Seconde issue : le projet aboutit. Et ce peut être pire. La pression monte pour accorder aux prêteurs tout ce qu'ils exigent : une garantie de l'État, des paiements de capacité fixes, un tarif en devises fortes.
+
+24
+00:02:35,737 --> 00:02:38,596
+Prochain épisode : Quand l'accord aboutit quand même.

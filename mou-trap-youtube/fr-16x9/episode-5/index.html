@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width={{W}}, height={{H}}" />
+    <meta name="viewport" content="width=1920, height=1080" />
     <script src="assets/vendor/gsap.min.js"></script>
     <style>
       @font-face { font-family: "Bangers"; src: url("assets/fonts/bangers-latin-400-normal.woff2") format("woff2"); font-weight: 400; }
@@ -17,8 +17,8 @@
       }
       .portrait { --fs-big: 92px; --fs-sub: 42px; --fs-body: 42px; --fs-title: 150px; --pad: 70px; }
       * { margin: 0; padding: 0; box-sizing: border-box; }
-      html, body { width: {{W}}px; height: {{H}}px; overflow: hidden; background: var(--stage); }
-      #root { position: relative; width: {{W}}px; height: {{H}}px; overflow: hidden; background: var(--stage);
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--stage); }
+      #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; background: var(--stage);
               font-family: Poppins, "Liberation Sans", sans-serif; color: var(--ink); }
       .clip { position: absolute; inset: 0; }
 
@@ -54,7 +54,7 @@
 
       .l-act { background: radial-gradient(ellipse at 50% 40%, var(--teal) 0%, var(--teal-dk) 70%); color: #fff; }
       .act-label { font: 400 64px Bangers, sans-serif; letter-spacing: 0.08em; color: var(--ink); background: var(--yellow); padding: 6px 30px 0; border-radius: 8px; }
-      .act-title { font: 400 var(--fs-title)/1.22 Bangers, sans-serif; letter-spacing: 0.02em; }
+      .act-title { font: 400 var(--fs-title)/0.95 Bangers, sans-serif; letter-spacing: 0.02em; }
 
       .l-title { background: #fdfbf5; }
       .l-title .kicker { font: 700 26px Poppins, sans-serif; letter-spacing: 0.22em; color: var(--teal); }
@@ -112,7 +112,7 @@
 
       /* RED TEAM */
       .l-redteam .inner { gap: 24px; }
-      .rt-q { font: 400 120px/1.2 Bangers, sans-serif; color: #fff; }
+      .rt-q { font: 400 120px/1 Bangers, sans-serif; color: #fff; }
       .portrait .rt-q { font-size: 104px; }
       .rt-a { font: 600 48px Poppins, sans-serif; color: #fff; border: 3px solid #7a2a26; background: rgba(200, 55, 45, 0.18);
               border-radius: 12px; padding: 14px 30px; min-width: 900px; text-align: left; }
@@ -130,7 +130,7 @@
       .l-roles .inner { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 18px 26px; max-width: 1800px; }
       .portrait .l-roles .inner { max-width: 1040px; }
       .l-roles .part:first-child { width: 100%; }
-      .roles-title { width: 100%; font: 400 96px/1.2 Bangers, sans-serif; color: var(--teal); }
+      .roles-title { width: 100%; font: 400 96px Bangers, sans-serif; color: var(--teal); }
       .role { width: 270px; display: flex; flex-direction: column; align-items: center; }
       .portrait .role { width: 310px; }
       .role .pup { width: 230px; height: 272px; }
@@ -159,14 +159,14 @@
 
       /* CHECKLIST */
       .l-checklist .inner { gap: 14px; align-items: flex-start; }
-      .ck-title { font: 400 120px/1.2 Bangers, sans-serif; align-self: center; }
+      .ck-title { font: 400 120px Bangers, sans-serif; align-self: center; }
       .ck-q { font: 600 44px Poppins, sans-serif; text-align: left; display: flex; gap: 26px; }
       .ck-q b { font: 400 54px Bangers, sans-serif; color: var(--ink); background: var(--yellow); border-radius: 8px; padding: 0 12px; height: fit-content; }
       .ck-c { font: 700 52px Poppins, sans-serif; color: var(--red); align-self: center; margin-top: 20px; text-align: center; }
 
       /* LESSON + CREDITS */
       .l-lesson { background: radial-gradient(ellipse at 50% 40%, var(--teal) 0%, var(--teal-dk) 70%); color: #fff; }
-      .ls1 { font: 400 150px/1.22 Bangers, sans-serif; }
+      .ls1 { font: 400 150px/1 Bangers, sans-serif; }
       .ls2 { font: 700 64px Poppins, sans-serif; color: var(--yellow); }
       .ls3 { font: 600 44px Poppins, sans-serif; opacity: 0.9; }
       .l-credits { background: var(--teal-dk); color: #fff; }
@@ -220,8 +220,6 @@
       .c-red .layer b { color: #ff6b5c; font-size: 60px; }
       .c-red .layer span { font-size: 36px; }
       .c-red .layer em { color: #f3d6d2; }
-      .landscape .c-red .layer { width: 1440px; grid-template-columns: 420px 1fr; padding: 10px 26px; }
-      .landscape .c-red .layer b { font-size: 50px; line-height: 1; }
       .layer.num { grid-template-columns: 80px 1fr; width: 1100px; }
       .timeline { display: flex; gap: 0; align-items: stretch; }
       .tl-i { width: 300px; border-top: 10px solid var(--teal); padding: 16px 14px 0; text-align: left; position: relative; }
@@ -270,7 +268,6 @@
       .portrait .chapbar { height: 140px; flex-wrap: wrap; align-content: center; padding: 0 30px; row-gap: 6px; }
       .portrait .ch { font-size: 28px; padding: 0 14px; }
       .portrait .ch span { font-size: 24px; }
-      .portrait.episodes .ch { font-size: 23px; letter-spacing: 0.06em; white-space: nowrap; }
       .tag { inset: auto; left: 56px; bottom: 44px; opacity: 0; display: flex; flex-direction: column; gap: 2px;
              padding: 12px 22px 12px 18px; background: var(--ink); border-left: 8px solid var(--yellow); border-radius: 6px; color: #fff;
              box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35); }
@@ -282,13 +279,154 @@
     </style>
   </head>
   <body>
-    <div id="root" class="{{ORIENT}}" data-composition-id="main" data-start="0" data-duration="{{TOTAL}}" data-width="{{W}}" data-height="{{H}}">
-{{BODY}}
+    <div id="root" class="landscape" data-composition-id="main" data-start="0" data-duration="151.420" data-width="1920" data-height="1080">
+<div id="focus-wrap" class="clip focus-wrap" data-start="0" data-duration="151.420" data-track-index="2"><div class="focus" style="left:960.0px;top:572.0px"></div></div>
+<section id="s0" class="clip screen l-logo c-none" data-start="0.000" data-duration="3.850" data-track-index="5"><div class="inner"><div class="part " id="s0p0"><img class="brand" src="assets/art/courant-continental.png" alt="Courant Continental"/></div></div></section>
+<section id="s1" class="clip screen l-act c-none" data-start="3.550" data-duration="7.701" data-track-index="5"><div class="inner"><div class="part " id="s1p0"><div class="act-label">LE PIÈGE DU MoU · ÉPISODE 5/7</div></div><div class="part " id="s1p1"><div class="act-title">QUAND L&#x27;ACCORD ABOUTIT QUAND MÊME</div></div></div></section>
+<section id="s2" class="clip screen l-big c-fact" data-start="10.951" data-duration="12.353" data-track-index="5"><div class="inner"><div class="part " id="s2p0"><div class="badge fact">FAIT</div></div><div class="part " id="s2p1"><div class="stat">43</div><div class="stat-l">PPA signés par la compagnie de distribution du Ghana hors mise en concurrence, 2014 à 2017</div></div><div class="part " id="s2p2"><div class="src">Source : Banque mondiale 2018</div></div></div></section>
+<section id="s3" class="clip screen l-big c-fact" data-start="23.004" data-duration="9.643" data-track-index="5"><div class="inner"><div class="part " id="s3p0"><div class="badge fact">FAIT</div></div><div class="part " id="s3p1"><div class="stat">1 900 MW</div><div class="stat-l">de capacité excédentaire prévus pour 2019</div></div><div class="part " id="s3p2"><div class="src">Source : Banque mondiale 2018</div></div></div></section>
+<section id="s4" class="clip screen l-big c-red" data-start="32.347" data-duration="9.579" data-track-index="5"><div class="inner"><div class="part " id="s4p0"><div class="badge red">RED TEAM</div></div><div class="part " id="s4p1"><div class="stat">2,75 Md$</div><div class="stat-l">d'arriérés nets du secteur au lancement du programme de redressement, 2019</div></div><div class="part " id="s4p2"><div class="src">Source : Ministère de l&#x27;Énergie du Ghana, 2019</div></div></div></section>
+<section id="s5" class="clip screen l-big c-red" data-start="41.626" data-duration="10.155" data-track-index="5"><div class="inner"><div class="part " id="s5p0"><div class="badge red">RED TEAM</div></div><div class="part " id="s5p1"><div class="stat">&gt; 500 M$</div><div class="stat-l">par an, payés selon la presse pour de l'électricité non utilisée</div></div><div class="part " id="s5p2"><div class="src">Source : ESI Africa, presse spécialisée ; non vérifié auprès d&#x27;un document officiel</div></div></div></section>
+<section id="s6" class="clip screen l-big c-red" data-start="51.481" data-duration="9.223" data-track-index="5"><div class="inner"><div class="part " id="s6p0"><div class="badge red">RED TEAM</div></div><div class="part " id="s6p1"><div class="big-text">Les contrats ont satisfait leurs prêteurs.<br/>Ensemble, ils ont échoué au test de l'État.</div></div></div></section>
+<section id="s7" class="clip screen l-layers c-red" data-start="60.404" data-duration="21.802" data-track-index="5"><div class="inner"><div class="part " id="s7p0"><div class="badge red">RED TEAM</div></div><div class="part " id="s7p1"><div class="dn-q">Les deux issues naissent de la même omission</div></div><div class="part " id="s7p2"><div class="layer"><b>BESOIN</b><span>La centrale est-elle nécessaire ?</span></div></div><div class="part " id="s7p3"><div class="layer"><b>RÉSEAU</b><span>Le réseau peut-il absorber sa production ?</span></div></div><div class="part " id="s7p4"><div class="layer"><b>ACHETEUR</b><span>L&#x27;acheteur peut-il payer ?</span></div></div><div class="part " id="s7p5"><div class="layer"><b>ÉTAT</b><span>L&#x27;État peut-il assumer la garantie si l&#x27;acheteur ne paie pas ?</span></div></div></div></section>
+<section id="s8" class="clip screen l-act c-none" data-start="81.906" data-duration="5.603" data-track-index="5"><div class="inner"><div class="part " id="s8p0"><div class="act-label">05</div></div><div class="part " id="s8p1"><div class="act-title">LA SORTIE DU PIÈGE</div></div></div></section>
+<section id="s9" class="clip screen l-big c-none" data-start="87.209" data-duration="22.295" data-track-index="5"><div class="inner"><div class="part " id="s9p0"><div class="big-text">Certains projets ne peuvent pas<br/>être mis en concurrence d'emblée.</div></div><div class="part " id="s9p1"><div class="big-sub">Grande hydroélectricité · interconnexions transfrontalières · première technologie dans un pays · petits marchés</div></div></div></section>
+<section id="s10" class="clip screen l-big c-fact" data-start="109.204" data-duration="19.691" data-track-index="5"><div class="inner"><div class="part " id="s10p0"><div class="badge fact">FAIT</div></div><div class="part " id="s10p1"><div class="big-text">Nachtigal, Cameroun : un accord de développement conjoint,<br/>et une tranche en monnaie locale d'une durée inédite.</div></div><div class="part " id="s10p2"><div class="src">Source : Power Technology 2021 ; IFC 2019</div></div></div></section>
+<section id="s11" class="clip screen l-big c-red" data-start="128.595" data-duration="16.107" data-track-index="5"><div class="inner"><div class="part " id="s11p0"><div class="badge red">RED TEAM</div></div><div class="part " id="s11p1"><div class="big-text">2025 : sa garantie de paiement aurait été<br/>largement utilisée.</div></div><div class="part " id="s11p2"><div class="src">Source : Ecofin Agency 2025 (presse ; aucune déclaration officielle trouvée)</div></div></div></section>
+<section id="s12" class="clip screen l-lesson c-none" data-start="144.402" data-duration="7.018" data-track-index="5"><div class="inner"><div class="part " id="s12p0"><div class="ls2">Prochain épisode · ÉPISODE 6/7</div></div><div class="part " id="s12p1"><div class="ls1">Refermer le piège</div></div><div class="part " id="s12p2"><div class="ls3">Abonnez-vous à Courant Continental</div></div></div></section>
+<div id="chapbar" class="clip chapbar" data-start="3.850" data-duration="147.570" data-track-index="3"><div class="ch" id="ch0"><span>05</span>ÉPISODE 5/7 · QUAND L&#x27;ACCORD ABOUTIT QUAND MÊME</div></div>
+<div class="clip tag" id="tag-KERBU" data-start="0" data-duration="151.420" data-track-index="4"><b>MINISTRE KERBU</b><span>Gouvernement · signe le MoU</span></div>
+<div class="clip tag" id="tag-ENILEC" data-start="0" data-duration="151.420" data-track-index="4"><b>ENILEC MOK</b><span>Ministère des Finances · le dernier rempart</span></div>
+<div class="clip tag" id="tag-PAUL" data-start="0" data-duration="151.420" data-track-index="4"><b>PAUL AHMAK</b><span>Compagnie d&#x27;électricité · l&#x27;acheteur qui paie</span></div>
+<div class="clip tag" id="tag-EMSON" data-start="0" data-duration="151.420" data-track-index="4"><b>EMSON ANAHCT</b><span>Développeur · détient l&#x27;option</span></div>
+<div class="clip tag" id="tag-TIDIANIE" data-start="0" data-duration="151.420" data-track-index="4"><b>TIDIANIE EUGOM</b><span>Prêteur · arrive en dernier</span></div>
+<div class="clip tag" id="tag-BELPAU" data-start="0" data-duration="151.420" data-track-index="4"><b>BELPAU</b><span>Analyste · pose les questions</span></div>
+<div class="clip tag" id="tag-RESIDENT" data-start="0" data-duration="151.420" data-track-index="4"><b>RÉSIDENT</b><span>Consommateur</span></div>
+<audio id="mix" src="audio/mix.m4a" data-start="0" data-duration="151.420" data-track-index="7" data-volume="1"></audio>
     </div>
     <script>
       window.__timelines = window.__timelines || {};
       const tl = gsap.timeline({ paused: true });
-      {{JS}}
+      tl.set("#s0", {opacity: 1}, 0);
+      tl.to("#s0", {opacity: 0, duration: 0.35}, 3.500);
+      tl.fromTo("#s0p0", {scale: 1}, {scale: 1.04, duration: 3.850, ease: "none"}, 0);
+      tl.set("#s1", {opacity: 0}, 0);
+      tl.to("#s1", {opacity: 1, duration: 0.35}, 3.550);
+      tl.to("#s1", {opacity: 0, duration: 0.35}, 10.901);
+      tl.set("#s1p0", {opacity: 0, y: 26}, 0);
+      tl.to("#s1p0", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 4.300);
+      tl.set("#s1p1", {opacity: 0, y: 26}, 0);
+      tl.to("#s1p1", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 4.600);
+      tl.set("#s2", {opacity: 0}, 0);
+      tl.to("#s2", {opacity: 1, duration: 0.35}, 10.951);
+      tl.to("#s2", {opacity: 0, duration: 0.35}, 22.954);
+      tl.set("#s2p0", {opacity: 0, y: 26}, 0);
+      tl.to("#s2p0", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 11.701);
+      tl.set("#s2p1", {opacity: 0, y: 26}, 0);
+      tl.to("#s2p1", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 12.001);
+      tl.set("#s2p2", {opacity: 0, y: 26}, 0);
+      tl.to("#s2p2", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 22.104);
+      tl.set("#s3", {opacity: 0}, 0);
+      tl.to("#s3", {opacity: 1, duration: 0.35}, 23.004);
+      tl.to("#s3", {opacity: 0, duration: 0.35}, 32.297);
+      tl.set("#s3p0", {opacity: 0, y: 26}, 0);
+      tl.to("#s3p0", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 23.754);
+      tl.set("#s3p1", {opacity: 0, y: 26}, 0);
+      tl.to("#s3p1", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 24.054);
+      tl.set("#s3p2", {opacity: 0, y: 26}, 0);
+      tl.to("#s3p2", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 31.447);
+      tl.set("#s4", {opacity: 0}, 0);
+      tl.to("#s4", {opacity: 1, duration: 0.35}, 32.347);
+      tl.to("#s4", {opacity: 0, duration: 0.35}, 41.576);
+      tl.set("#s4p0", {opacity: 0, y: 26}, 0);
+      tl.to("#s4p0", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 33.097);
+      tl.set("#s4p1", {opacity: 0, y: 26}, 0);
+      tl.to("#s4p1", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 33.397);
+      tl.set("#s4p2", {opacity: 0, y: 26}, 0);
+      tl.to("#s4p2", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 40.726);
+      tl.set("#s5", {opacity: 0}, 0);
+      tl.to("#s5", {opacity: 1, duration: 0.35}, 41.626);
+      tl.to("#s5", {opacity: 0, duration: 0.35}, 51.431);
+      tl.set("#s5p0", {opacity: 0, y: 26}, 0);
+      tl.to("#s5p0", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 42.376);
+      tl.set("#s5p1", {opacity: 0, y: 26}, 0);
+      tl.to("#s5p1", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 42.676);
+      tl.set("#s5p2", {opacity: 0, y: 26}, 0);
+      tl.to("#s5p2", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 50.581);
+      tl.set("#s6", {opacity: 0}, 0);
+      tl.to("#s6", {opacity: 1, duration: 0.35}, 51.481);
+      tl.to("#s6", {opacity: 0, duration: 0.35}, 60.354);
+      tl.set("#s6p0", {opacity: 0, y: 26}, 0);
+      tl.to("#s6p0", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 52.231);
+      tl.set("#s6p1", {opacity: 0, y: 26}, 0);
+      tl.to("#s6p1", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 52.531);
+      tl.set("#s7", {opacity: 0}, 0);
+      tl.to("#s7", {opacity: 1, duration: 0.35}, 60.404);
+      tl.to("#s7", {opacity: 0, duration: 0.35}, 81.856);
+      tl.set("#s7p0", {opacity: 0, y: 26}, 0);
+      tl.to("#s7p0", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 61.154);
+      tl.set("#s7p1", {opacity: 0, y: 26}, 0);
+      tl.to("#s7p1", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 61.454);
+      tl.set("#s7p2", {opacity: 0, y: 26}, 0);
+      tl.to("#s7p2", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 69.719);
+      tl.set("#s7p3", {opacity: 0, y: 26}, 0);
+      tl.to("#s7p3", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 72.125);
+      tl.set("#s7p4", {opacity: 0, y: 26}, 0);
+      tl.to("#s7p4", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 75.299);
+      tl.set("#s7p5", {opacity: 0, y: 26}, 0);
+      tl.to("#s7p5", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 77.407);
+      tl.set("#s8", {opacity: 0}, 0);
+      tl.to("#s8", {opacity: 1, duration: 0.35}, 81.906);
+      tl.to("#s8", {opacity: 0, duration: 0.35}, 87.159);
+      tl.set("#s8p0", {opacity: 0, y: 26}, 0);
+      tl.to("#s8p0", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 82.656);
+      tl.set("#s8p1", {opacity: 0, y: 26}, 0);
+      tl.to("#s8p1", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 82.956);
+      tl.set("#s9", {opacity: 0}, 0);
+      tl.to("#s9", {opacity: 1, duration: 0.35}, 87.209);
+      tl.to("#s9", {opacity: 0, duration: 0.35}, 109.154);
+      tl.set("#s9p0", {opacity: 0, y: 26}, 0);
+      tl.to("#s9p0", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 87.959);
+      tl.set("#s9p1", {opacity: 0, y: 26}, 0);
+      tl.to("#s9p1", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 96.931);
+      tl.set("#s10", {opacity: 0}, 0);
+      tl.to("#s10", {opacity: 1, duration: 0.35}, 109.204);
+      tl.to("#s10", {opacity: 0, duration: 0.35}, 128.545);
+      tl.set("#s10p0", {opacity: 0, y: 26}, 0);
+      tl.to("#s10p0", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 109.954);
+      tl.set("#s10p1", {opacity: 0, y: 26}, 0);
+      tl.to("#s10p1", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 110.254);
+      tl.set("#s10p2", {opacity: 0, y: 26}, 0);
+      tl.to("#s10p2", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 127.695);
+      tl.set("#s11", {opacity: 0}, 0);
+      tl.to("#s11", {opacity: 1, duration: 0.35}, 128.595);
+      tl.to("#s11", {opacity: 0, duration: 0.35}, 144.352);
+      tl.set("#s11p0", {opacity: 0, y: 26}, 0);
+      tl.to("#s11p0", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 129.345);
+      tl.set("#s11p1", {opacity: 0, y: 26}, 0);
+      tl.to("#s11p1", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 129.645);
+      tl.set("#s11p2", {opacity: 0, y: 26}, 0);
+      tl.to("#s11p2", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 143.502);
+      tl.set("#s12", {opacity: 0}, 0);
+      tl.to("#s12", {opacity: 1, duration: 0.35}, 144.402);
+      tl.set("#s12p0", {opacity: 0, y: 26}, 0);
+      tl.to("#s12p0", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 145.152);
+      tl.set("#s12p1", {opacity: 0, y: 26}, 0);
+      tl.to("#s12p1", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 145.452);
+      tl.set("#s12p2", {opacity: 0, y: 26}, 0);
+      tl.to("#s12p2", {opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}, 148.920);
+      tl.set("#chapbar", {opacity: 0}, 0);
+      tl.to("#chapbar", {opacity: 1, duration: 0.6}, 3.850);
+      tl.set("#ch0", {opacity: 0.4}, 0);
+      tl.to("#ch0", {opacity: 1, duration: 0.4}, 3.860);
+      tl.to("#ch0 span", {backgroundColor: "#f0b429", color: "#1d2230", duration: 0.4}, 3.860);
+      tl.set("#tag-KERBU", {opacity: 0, x: -24}, 0);
+      tl.set("#tag-ENILEC", {opacity: 0, x: -24}, 0);
+      tl.set("#tag-PAUL", {opacity: 0, x: -24}, 0);
+      tl.set("#tag-EMSON", {opacity: 0, x: -24}, 0);
+      tl.set("#tag-TIDIANIE", {opacity: 0, x: -24}, 0);
+      tl.set("#tag-BELPAU", {opacity: 0, x: -24}, 0);
+      tl.set("#tag-RESIDENT", {opacity: 0, x: -24}, 0);
       window.__timelines["main"] = tl;
       tl.seek(0);
     </script>
