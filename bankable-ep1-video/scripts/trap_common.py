@@ -139,3 +139,34 @@ def brief_title(audience, hook, spoken):
                           part('<div class="src" style="color:#cfe3df">' + ("Le piège du MoU · Bancable ne suffit pas, chapitre 1" if LANG == "fr"
                   else "The MoU Trap · Bankable Is Not Enough, Chapter 1") + '</div>', [], 0.4)],
                   None, "theme", "act", 0)
+
+
+def matrix(title, cols, rows, cells, intro=(), code="decision", arrow=None, closing=None, music="bed", reveal=True, src=None):
+    """2x2 matrix (Chapter 2's two-test matrix, the fiscal risk matrix).
+
+    cols/rows: two header labels each. cells: 4 x (tone, name, text, spoken) in reading order
+    (top-left, top-right, bottom-left, bottom-right); tone in green/red/yellow/grey/blue.
+    reveal=False shows every cell at once (for a recap). arrow: (label, spoken) draws the
+    bottom-left -> top-right diagonal.
+    """
+    parts = [part(badge(code), [], 0, "mx-full"), part(f'<div class="dn-q">{esc(title)}</div>', intro, 0.2, "mx-full"),
+             part("", [], 0, "mx-corner"),
+             part(f'<div class="mx-h">{esc(cols[0])}</div>', [], 0), part(f'<div class="mx-h">{esc(cols[1])}</div>', [], 0)]
+    for r in range(2):
+        parts.append(part(f'<div class="mx-rh">{esc(rows[r])}</div>', [], 0))
+        for c in range(2):
+            tone, name, text, spoken = cells[r * 2 + c]
+            parts.append(part(f'<div class="mx-q {tone}"><b>{esc(name)}</b><span>{esc(text)}</span></div>',
+                              spoken if reveal else [], 0.35 if reveal else 0))
+    if arrow:
+        parts.append(part('<svg class="mx-arrow" viewBox="0 0 100 100" preserveAspectRatio="none">'
+                          '<defs><marker id="mxa" markerWidth="4" markerHeight="4" refX="2.2" refY="2" orient="auto">'
+                          '<path d="M0,0 L4,2 L0,4 z" fill="#e8483b"/></marker></defs>'
+                          '<line x1="20" y1="82" x2="80" y2="22" stroke="#e8483b" stroke-width="2.2" '
+                          'stroke-dasharray="4 3" marker-end="url(#mxa)" vector-effect="non-scaling-stroke"/></svg>'
+                          f'<div class="mx-al">{esc(arrow[0])}</div>', arrow[1], 0.6, "mx-over"))
+    if closing:
+        parts.append(part(f'<div class="dn-x">{esc(closing[0])}</div>', closing[1], 0.9, "mx-full"))
+    if src:
+        parts.append(part(f'<div class="src">{ui("source")} {esc(src)}</div>', [], 0.5, "mx-full"))
+    return screen("matrix", parts, code, music)

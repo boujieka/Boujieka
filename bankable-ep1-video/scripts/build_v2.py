@@ -80,6 +80,11 @@ CONFIGS = {
     "short": {"story": "story_short", "out": "bankable-ep1-short", "W": 1080, "H": 1920,
               "region": (0, 250, 1080, 880), "captions": True, "title": "Bankable Is Not Enough - Episode 1 (Short)"},
 }
+# Chapter 2 long-form YouTube videos (run ch2_fr with VIDEO_LANG=fr)
+CONFIGS["ch2"] = {"story": "story_ch2", "out": "bankable-ch2-youtube/en", "W": 1920, "H": 1080,
+                  "region": (0, 64, 1920, 1016), "captions": False, "title": "Two Tests, One Framework - Chapter 2"}
+CONFIGS["ch2_fr"] = {"story": "story_ch2_fr", "out": "bankable-ch2-youtube/fr", "W": 1920, "H": 1080,
+                     "region": (0, 64, 1920, 1016), "captions": False, "title": "Deux tests, un cadre - Chapitre 2"}
 # French YouTube episodes: same cuts, run with VIDEO_LANG=fr
 for _n in range(1, 8):
     for _o in ("h", "v"):
