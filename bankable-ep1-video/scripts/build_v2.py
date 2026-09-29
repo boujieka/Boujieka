@@ -191,22 +191,27 @@ def main(which):
         os.symlink(os.path.relpath(os.path.join(ROOT, "assets"), out), link)
 
     # ---------------- audio: voice + music -> stereo 48 kHz AAC
-    voice = np.zeros(int((total + 1) * SR), np.float32)
-    for seg in segs:
+    # SKIP_AUDIO=1 keeps the existing mix (layout-only rebuilds; timings must be unchanged)
+    skip_audio = os.environ.get("SKIP_AUDIO") == "1" and os.path.exists(os.path.join(out, "audio", "mix.m4a"))
+    voice = np.zeros(int((total + 1) * SR), np.float32) if not skip_audio else None
+    for seg in segs if not skip_audio else []:
         for spk, text, st, _ in seg["lines"]:
             _, d = tts(spk, text); i = int(round(st * SR)); voice[i:i + len(d)] += d
-    voice = voice[:int(total * SR)]
-    voice *= 0.89 / (float(np.max(np.abs(voice))) or 1)
-    cues, stings = music_plan(segs)
-    score = music.render_score(total, cues, stings, voice)
-    mix = voice + score[:len(voice)]
-    mix *= min(1.0, 0.97 / float(np.max(np.abs(mix))))
-    st48 = resample_poly(mix, 2, 1).astype(np.float32)
-    wav = os.path.join(out, "audio", "_mix.wav")
-    sf.write(wav, np.stack([st48, st48], axis=1), 48000)
-    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", wav, "-c:a", "aac", "-b:a", "192k",
-                    os.path.join(out, "audio", "mix.m4a")], check=True)
-    os.remove(wav)
+    if skip_audio:
+        print("SKIP_AUDIO: keeping existing mix.m4a")
+    else:
+        voice = voice[:int(total * SR)]
+        voice *= 0.89 / (float(np.max(np.abs(voice))) or 1)
+        cues, stings = music_plan(segs)
+        score = music.render_score(total, cues, stings, voice)
+        mix = voice + score[:len(voice)]
+        mix *= min(1.0, 0.97 / float(np.max(np.abs(mix))))
+        st48 = resample_poly(mix, 2, 1).astype(np.float32)
+        wav = os.path.join(out, "audio", "_mix.wav")
+        sf.write(wav, np.stack([st48, st48], axis=1), 48000)
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", wav, "-c:a", "aac", "-b:a", "192k",
+                        os.path.join(out, "audio", "mix.m4a")], check=True)
+        os.remove(wav)
 
     # ---------------- captions + chapters
     srt, n = [], 0

@@ -1,0 +1,511 @@
+1
+00:00:05,450 --> 00:00:11,615
+Every power deal in Africa has a day on which everyone in the room agrees it has succeeded.
+
+2
+00:00:11,915 --> 00:00:15,542
+Tidianie Eugom: The loan agreements are signed. The first drawdown has gone through.
+
+3
+00:00:15,842 --> 00:00:17,314
+Minister Kerbu: A milestone for our country!
+
+4
+00:00:17,614 --> 00:00:19,790
+Emson Anahct: Four years of work. We made it.
+
+5
+00:00:20,090 --> 00:00:27,642
+For the lenders, this is financial close. For the minister, a milestone. For the developer, the end of years of work.
+
+6
+00:00:29,392 --> 00:00:37,200
+Two tests, one framework. Why a power deal that lenders will finance has passed only half of its examination.
+
+7
+00:00:40,750 --> 00:00:55,235
+Take a composite case, assembled from patterns that recur across the continent, rather than from any single transaction. A one hundred and twenty megawatt plant reaches financial close after four years of negotiation.
+
+8
+00:00:58,585 --> 00:01:08,313
+Its power purchase agreement obliges the state utility to pay for the plant's capacity in U.S. dollars, whether or not it takes the energy.
+
+9
+00:01:08,863 --> 00:01:13,236
+A partial risk guarantee stands behind the utility's payments.
+
+10
+00:01:13,786 --> 00:01:17,605
+By every standard that lenders apply, the project is sound.
+
+11
+00:01:20,205 --> 00:01:27,437
+Five years on, demand has grown more slowly than the plan assumed, and cheaper capacity has come online.
+
+12
+00:01:28,937 --> 00:01:33,374
+Paul Ahmak: We are paying for energy we do not need, in a currency we do not earn.
+
+13
+00:01:33,674 --> 00:01:37,216
+Paul Ahmak: And our customers pay tariffs that do not cover our costs.
+
+14
+00:01:37,516 --> 00:01:42,486
+Enilec Mok: The arrears have built up. Now the guarantee is called, and it lands on the national budget.
+
+15
+00:01:44,236 --> 00:01:52,471
+Nothing in this story involves a failed project. The plant runs, the lenders are repaid, and the sponsors earn their return.
+
+16
+00:01:53,571 --> 00:01:58,648
+What failed was something that no one in the signing room had been asked to check.
+
+17
+00:02:01,198 --> 00:02:07,641
+This chapter gives that check a name. Every independent power project must pass two examinations.
+
+18
+00:02:08,141 --> 00:02:11,661
+The first asks whether the project can be financed.
+
+19
+00:02:12,211 --> 00:02:18,845
+The second asks whether the power system and the public purse can carry it, for the life of its contract.
+
+20
+00:02:21,045 --> 00:02:23,861
+Part one. What lenders mean by bankable.
+
+21
+00:02:26,411 --> 00:02:36,758
+In this book, a project is bankable when prudent lenders, after full due diligence, are prepared to lend to it on terms that allow it to reach financial close.
+
+22
+00:02:37,858 --> 00:02:48,034
+The definition is deliberately narrow. It is a judgement made by those who provide the debt, over the life of that debt, about the likelihood of being repaid.
+
+23
+00:02:50,884 --> 00:02:55,428
+Are the revenues secured by contract, and large enough to service the debt?
+
+24
+00:02:55,978 --> 00:02:58,175
+Will the buyer pay, and can it?
+
+25
+00:02:58,725 --> 00:03:04,123
+Are construction, operating and resource risks held by parties able to bear them?
+
+26
+00:03:04,673 --> 00:03:08,299
+Can the lenders step in if the project company fails?
+
+27
+00:03:08,849 --> 00:03:12,711
+And are the sponsors experienced and adequately capitalised?
+
+28
+00:03:14,911 --> 00:03:34,815
+The practitioner literature is clear about which question weighs most: the creditworthiness of whoever carries the ultimate payment obligation. The Power Africa handbook also observes that capital for utility-scale clean energy in Africa costs at least two to three times as much as in advanced economies.
+
+29
+00:03:38,165 --> 00:03:45,738
+A capacity charge, or a take or pay clause, pays for availability rather than for energy actually dispatched.
+
+30
+00:03:46,288 --> 00:03:49,232
+The tariff is indexed to a hard currency.
+
+31
+00:03:49,782 --> 00:03:57,697
+A sovereign guarantee, a letter of credit, or a partial risk guarantee from a multilateral bank stands behind the buyer.
+
+32
+00:03:58,247 --> 00:04:03,410
+And termination payments repay the debt in full if the contract ends early.
+
+33
+00:04:05,610 --> 00:04:19,541
+Each of these makes the project easier to finance, and each does so by moving risk away from it. That is the first point to hold. Bankability is achieved largely by relocating risk, rather than removing it.
+
+34
+00:04:22,291 --> 00:04:37,075
+The chance that demand falls short, that the currency weakens, or that the utility stops paying, does not disappear at financial close. By contract, it passes to the utility, to its customers and, in the end, to the state.
+
+35
+00:04:38,175 --> 00:04:43,786
+The lender's test is passed because someone else has agreed to carry what the lender will not.
+
+36
+00:04:46,336 --> 00:04:57,963
+None of this is a criticism of lenders. Their duty is to protect depositors and shareholders over the life of a loan, and these instruments are the rational way to do so.
+
+37
+00:04:59,063 --> 00:05:08,556
+The difficulty lies elsewhere. In most African power markets, no test of equal rigour is applied on behalf of those who receive the risk.
+
+38
+00:05:11,106 --> 00:05:16,269
+Part two. What earlier research established. Four strands deserve full credit.
+
+39
+00:05:19,119 --> 00:05:37,935
+First, the determinants of success. Anton Eberhard, Katharine Gratwick and their colleagues assembled the most systematic evidence on private power in Sub-Saharan Africa. Their central conclusion: IPPs require dynamic, least-cost planning, linked to timely competitive procurement.
+
+40
+00:05:41,185 --> 00:05:55,350
+They also recorded why so many governments bypassed that discipline: a general perception that direct negotiation would allow a quick fix. That perception is where the MoU trap of chapter one begins.
+
+41
+00:05:58,600 --> 00:06:09,587
+Second, the fragility of the buyer. Of thirty-nine Sub-Saharan countries examined, only two, the Seychelles and Uganda, had a financially viable power sector.
+
+42
+00:06:12,637 --> 00:06:28,466
+Only nineteen covered their operating costs, and the resulting quasi-fiscal deficits averaged one and a half percent of G-D-P. In most markets, the counterparty to a twenty-year PPA is an entity that cannot pay its own way.
+
+43
+00:06:31,516 --> 00:06:53,916
+Third, the limits of reform. Looking back at the reforms of the nineteen-nineties, Foster and Rana show that private capital financed a large expansion of generation, but far less of distribution. Their conclusion: cost recovery remains an elusive goal. Private money went where contracts could protect it, and stayed away from where revenue is actually collected.
+
+44
+00:06:57,166 --> 00:07:21,273
+Fourth, risk allocation in auctions. In January 2026, the International Renewable Energy Agency published a report on auction design with its partners. The World Bank's energy programme summarises the main finding: auctions now dominate renewable procurement, delivering low prices, but often shifting risks and macroeconomic burdens to developing countries.
+
+45
+00:07:24,823 --> 00:07:38,732
+First, a change of angle. A weak buyer and a heavy fiscal burden are not only obstacles to bankability. They are also its consequences, when projects close on terms made possible by those same weaknesses.
+
+46
+00:07:39,282 --> 00:07:56,264
+Second, a change of level. Many contracts that matter in Mission three hundred countries were never auctioned. They came out of MoUs and direct negotiation. So the state's test is applied to each transaction, before it is signed, and the result is published.
+
+47
+00:07:56,814 --> 00:08:13,646
+Third, a change of evidence. One project in each Mission three hundred compact country, selected by a rule that ignores the outcome, so that projects that stalled are studied alongside those that closed, and closed ones are followed into their years of operation.
+
+48
+00:08:15,846 --> 00:08:17,894
+Part three. The missing test.
+
+49
+00:08:20,494 --> 00:08:26,041
+Belpau: The lenders checked that they will be repaid. Who checked that the system can carry this for twenty years?
+
+50
+00:08:26,341 --> 00:08:29,285
+Enilec Mok: That test is ours. And today, no one applies it.
+
+51
+00:08:31,035 --> 00:08:49,830
+The second test asks whether the power system and the public finances can carry a project's obligations for the whole life of its contract. It is applied on behalf of those who receive the risk that bankability moves: the utility, its customers, the treasury, and finally the taxpayer.
+
+52
+00:08:52,580 --> 00:08:55,737
+It differs from the lender's test in three respects.
+
+53
+00:08:56,537 --> 00:09:08,079
+Its horizon is the contract, not the loan. Loan tenors are often shorter than the agreements they finance, and some obligations fall due after the lenders have been repaid.
+
+54
+00:09:08,679 --> 00:09:21,116
+Its unit is the system, not the plant. A plant can be efficient and still be the wrong addition to a system that did not need it, cannot evacuate its output, or could have bought the energy more cheaply.
+
+55
+00:09:21,716 --> 00:09:35,455
+And its question is affordability, not repayment. The lender asks whether someone will pay. The state must ask what that payment will cost, under realistic demand, tariffs and exchange rates, rather than planned ones.
+
+56
+00:09:40,005 --> 00:09:54,128
+Public finance offers a precise way to see where these costs sit: Polackova's fiscal risk matrix. Direct and explicit: budget transfers voted in advance, and payments where the state is itself the buyer.
+
+57
+00:09:54,778 --> 00:10:04,548
+Contingent and explicit: sovereign guarantees, put and call option agreements, termination payments, and indemnities to multilateral guarantors.
+
+58
+00:10:05,498 --> 00:10:14,650
+Direct but implicit: recurring subsidies to cover the gap between tariffs and costs, including capacity payments for surplus plant.
+
+59
+00:10:15,300 --> 00:10:21,551
+And contingent and implicit: clearing the utility's arrears, and rescuing it if it cannot pay.
+
+60
+00:10:24,351 --> 00:10:38,879
+The obligations that have cost African treasuries most in the power sector often sit in the implicit cells. And implicit obligations rarely appear in debt statistics or budget documents, until they have to be paid.
+
+61
+00:10:41,629 --> 00:11:06,354
+Ghana shows what happens when the second test is not applied. The I-M-F attributes the country's large power sector shortfalls to tariffs below cost recovery, distribution and collection losses, and excess capacity combined with take or pay contracts. By the end of 2022, energy sector debt had reached one point six billion dollars, owed mainly to IPPs and fuel suppliers.
+
+62
+00:11:09,404 --> 00:11:23,719
+The programme agreed with the Fund in 2023 made an updated recovery plan a structural benchmark, and gave priority to renegotiating PPAs to reduce the take or pay liability.
+
+63
+00:11:26,769 --> 00:11:46,268
+In late 2024, the I-M-F described the energy sector as a major source of fiscal risk in Ghana, with that year's shortfall projected at about two point two percent of G-D-P. Many of the contracts behind that liability passed the lender's test. Nobody administered the second.
+
+64
+00:11:49,518 --> 00:11:54,894
+This leads to the idea at the centre of the book: sustainable financial close.
+
+65
+00:11:56,194 --> 00:12:14,498
+A financial close at which the project has passed both tests. Lenders are willing to finance it, and a documented assessment, made before signature, shows that the power system and the public finances can carry its obligations over the life of the contract, under realistic stress.
+
+66
+00:12:17,348 --> 00:12:21,999
+The assessment must exist before signature, not after arrears appear.
+
+67
+00:12:22,549 --> 00:12:28,906
+It must be written down, so that the obligation is visible to parliament, the regulator and the public.
+
+68
+00:12:29,456 --> 00:12:41,531
+And it must be stressed, because the scenarios that break sustainability are the ones plans seldom assume: slower demand, depreciation, late transmission, and cheaper alternatives.
+
+69
+00:12:43,731 --> 00:13:06,408
+The timing matters. By September 2025, twenty-nine African countries had adopted national energy compacts under Mission three hundred, and the World Bank now reports thirty-six. If that capital arrives on the contractual terms of the last generation of IPPs, the same liabilities will follow, on a larger scale.
+
+70
+00:13:09,458 --> 00:13:12,231
+Part four. Where the two tests part company.
+
+71
+00:13:15,081 --> 00:13:22,889
+Combining the two tests gives four possible outcomes. Only one should end in a signed contract backed by the state.
+
+72
+00:13:24,589 --> 00:13:31,821
+Sustainable financial close. Lenders finance the project, and the system can carry it. This is the target.
+
+73
+00:13:32,471 --> 00:13:42,903
+The liability trap. Lenders finance the project, because risk has been moved to the utility and the state, which cannot carry it over the life of the contract.
+
+74
+00:13:43,853 --> 00:13:52,088
+The reform gap. The system needs the project and could afford it, but the buyer, or the wider risk environment, deters lenders.
+
+75
+00:13:52,738 --> 00:14:00,930
+And the MoU graveyard. The project is neither financeable nor needed on these terms, and the MoU should be allowed to lapse.
+
+76
+00:14:04,030 --> 00:14:14,633
+Where a project reaches sustainable financial close, the priority is speed, because delay has a real price in unserved demand and diesel generation.
+
+77
+00:14:15,183 --> 00:14:25,252
+The reform gap calls for work on the system: tariff reform, clearing arrears, better procurement, or credit enhancement sized to what the state can afford.
+
+78
+00:14:25,802 --> 00:14:36,981
+The liability trap calls for restructuring before signature: a smaller plant, a different tariff, lighter take or pay, local currency pricing, or no contract at all.
+
+79
+00:14:37,531 --> 00:14:47,685
+And the MoU graveyard calls for discipline. Letting a weak MoU lapse costs little. Carrying it into negotiation costs years of official attention.
+
+80
+00:14:49,885 --> 00:14:54,728
+The matrix also reveals a risk that neither test catches on its own.
+
+81
+00:14:57,928 --> 00:15:15,677
+The tools used to lift a project out of the reform gap are the same tools that can push it into the liability trap. A guarantee, a dollar tariff, or a generous take or pay clause can turn an unbankable project into a bankable one. The book calls this diagonal risk.
+
+82
+00:15:16,577 --> 00:15:26,177
+Whether the project also becomes sustainable depends on whether those instruments were sized against the system's needs, and the state's capacity to pay.
+
+83
+00:15:28,777 --> 00:15:33,214
+Tidianie Eugom: This project is stuck in the reform gap. It needs more credit enhancement.
+
+84
+00:15:33,514 --> 00:15:37,717
+Enilec Mok: Every guarantee we add lands on the budget. I see a liability trap.
+
+85
+00:15:38,017 --> 00:15:46,401
+Each side is right about its own quadrant. Without the second test, neither can tell which quadrant a particular project is heading for.
+
+86
+00:15:47,851 --> 00:15:48,534
+Stop.
+
+87
+00:15:49,034 --> 00:15:51,466
+You are the Minister of Finance.
+
+88
+00:15:51,966 --> 00:15:55,016
+Lenders are ready to finance a new plant.
+
+89
+00:15:55,416 --> 00:15:59,470
+They ask for dollar capacity payments and a sovereign guarantee.
+
+90
+00:15:59,870 --> 00:16:03,710
+No one has estimated the largest call on the budget.
+
+91
+00:16:04,110 --> 00:16:06,435
+What do you ask for before signature?
+
+92
+00:16:13,635 --> 00:16:17,560
+The answer is the second test. Here is how to apply it.
+
+93
+00:16:19,910 --> 00:16:23,174
+Part five. Seven dimensions, two questions.
+
+94
+00:16:26,024 --> 00:16:35,859
+The framework examines each project along seven dimensions, and asks two questions of each: the one a lender asks, and the one the state must ask.
+
+95
+00:16:36,659 --> 00:16:45,149
+Need. The lender asks: is there a market? The state must ask: is this the cheapest way to meet a need the plan has identified?
+
+96
+00:16:45,749 --> 00:16:57,291
+Grid. The lender asks whether the plant is paid if the grid fails. The state asks whether the grid can take the output, without curtailment, or payments for energy never delivered.
+
+97
+00:16:57,891 --> 00:17:07,128
+Buyer and revenue. Will the buyer pay, or will someone pay for it? Against: do tariffs and collections fund the contract without new subsidy?
+
+98
+00:17:07,728 --> 00:17:16,752
+Fiscal exposure. Is there a sovereign backstop? Against: what is the largest call the budget could face, and does it fit the debt framework?
+
+99
+00:17:20,402 --> 00:17:35,122
+Contract and risk allocation. The lender asks whether risk has left the project. The state asks whether each risk is held by the party able to manage it at least cost. The same clause can satisfy one and fail the other.
+
+100
+00:17:35,722 --> 00:17:43,466
+Sponsor and process. Is the sponsor credible? Against: was the project selected competitively, against the plan?
+
+101
+00:17:44,066 --> 00:17:53,858
+And financing structure. Can the debt and equity be raised? Against: does the structure add currency or refinancing risk that the state will carry?
+
+102
+00:17:56,908 --> 00:18:08,001
+Several dimensions come straight from earlier research. The grid dimension reflects a point the practitioner handbooks make bluntly: power plants do not function in a vacuum.
+
+103
+00:18:11,551 --> 00:18:21,599
+First, fiscal exposure becomes a transaction test, assessed for each project before signature, rather than for the sector once arrears have appeared.
+
+104
+00:18:22,149 --> 00:18:25,690
+Second, every dimension carries the state's question.
+
+105
+00:18:26,240 --> 00:18:30,742
+Third, the framework is tested against two outcomes, rather than one.
+
+106
+00:18:33,542 --> 00:18:39,451
+Outcome A: financial close. Whether, and how quickly, the project passed the lender's test.
+
+107
+00:18:40,051 --> 00:18:52,489
+Outcome B: distress after commissioning. Whether the project later failed the state's test: persistent arrears, renegotiation, a guarantee called, or capacity paid for but not used.
+
+108
+00:18:55,539 --> 00:19:01,704
+Most evaluations stop at outcome A, and a project that closes is counted as a success.
+
+109
+00:19:02,804 --> 00:19:07,306
+Outcome B asks whether that success lasted, and at whose expense.
+
+110
+00:19:09,856 --> 00:19:31,232
+The framework is applied to one project in each country with a Mission three hundred compact, chosen by a rule fixed before any coding began: in essence, the largest grid-connected private generation project in a defined period, whatever became of it. Because the rule ignores outcomes, the sample cannot be arranged to suit the argument.
+
+111
+00:19:32,332 --> 00:19:41,292
+Each project is coded from public sources only. Where a country has no qualifying project, the absence is recorded as a finding.
+
+112
+00:19:44,142 --> 00:19:57,155
+Five limits. One: the sample is too small for statistical inference, so the analysis uses structured, focused comparison, looking for recurring combinations of conditions, not probabilities.
+
+113
+00:19:57,705 --> 00:20:04,916
+Two: failures leave thinner records than successes. The bias is corrected where possible, and flagged where not.
+
+114
+00:20:05,466 --> 00:20:12,762
+Three: much of what the second test needs is not public. Where it is missing, the coding says so, rather than guessing.
+
+115
+00:20:13,312 --> 00:20:20,821
+Four: outcome B needs time. For recent projects, it is recorded as not yet observable, not as a success.
+
+116
+00:20:21,371 --> 00:20:28,710
+Five: the framework diagnoses, and does not rate. It issues no verdict on the named projects in the sample.
+
+117
+00:20:31,210 --> 00:20:47,722
+The two tests change who must be in the room. Ministries of finance should have a formal role before any PPA with take or pay obligations or state support is signed, backed by an estimate of the largest call the budget could face under stress.
+
+118
+00:20:48,272 --> 00:20:58,107
+Regulators and planning agencies should confirm that each project fits the least-cost plan, and that the grid can take its output on the commissioning date.
+
+119
+00:20:58,657 --> 00:21:12,993
+And development finance institutions should size credit enhancement against what the state can carry, not only against what lenders require, so that the tools that close the reform gap do not open the liability trap.
+
+120
+00:21:14,943 --> 00:21:17,162
+Minister Kerbu: Before we sign: has it passed both tests?
+
+121
+00:21:17,462 --> 00:21:20,022
+Tidianie Eugom: The lender's test, yes. We can finance it.
+
+122
+00:21:20,322 --> 00:21:25,015
+Enilec Mok: And the state's test. Finance has stressed the largest call on the budget. It fits.
+
+123
+00:21:25,315 --> 00:21:28,494
+Paul Ahmak: The grid can take the output on the commissioning date.
+
+124
+00:21:28,794 --> 00:21:31,055
+Belpau: It is written down, and ready to publish.
+
+125
+00:21:31,355 --> 00:21:33,787
+Minister Kerbu: Then we sign, and we publish the state's answer.
+
+126
+00:21:35,237 --> 00:21:41,274
+A power project that lenders will finance has passed only half of its examination.
+
+127
+00:21:42,174 --> 00:21:48,084
+The other half asks whether the system and the state can carry it, for the life of the contract.
+
+128
+00:21:49,184 --> 00:21:57,248
+Sustainable financial close requires both answers to be yes, written down and published, before the contract is signed.

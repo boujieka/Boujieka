@@ -217,7 +217,12 @@
       .l-logo { background: #ffffff; }
       .l-matrix .inner { display: grid; grid-template-columns: 300px 700px 700px; gap: 12px; align-items: stretch;
                          position: relative; padding-top: 40px; }
-      .l-matrix .mx-full { grid-column: 1 / -1; justify-self: center; }
+      .l-matrix .inner { grid-template-areas: "b b b" "t t t" "c h1 h2" "r1 q1 q2" "r2 q3 q4" "x x x" "s s s"; }
+      .l-matrix .mx-b { grid-area: b; justify-self: center; } .l-matrix .mx-t { grid-area: t; justify-self: center; }
+      .l-matrix .mx-x { grid-area: x; justify-self: center; } .l-matrix .mx-s { grid-area: s; justify-self: center; }
+      .l-matrix .mx-c { grid-area: c; } .l-matrix .mx-h1 { grid-area: h1; } .l-matrix .mx-h2 { grid-area: h2; }
+      .l-matrix .mx-r1 { grid-area: r1; } .l-matrix .mx-r2 { grid-area: r2; }
+      .l-matrix .mx-q1 { grid-area: q1; } .l-matrix .mx-q2 { grid-area: q2; } .l-matrix .mx-q3 { grid-area: q3; } .l-matrix .mx-q4 { grid-area: q4; }
       .mx-h, .mx-rh { font: 700 26px/1.25 Poppins, sans-serif; letter-spacing: 0.08em; text-transform: uppercase;
                       color: var(--ink); background: rgba(0,0,0,0.06); border-radius: 10px; padding: 12px 16px; height: 100%;
                       display: flex; align-items: center; justify-content: center; box-sizing: border-box; }
@@ -230,7 +235,9 @@
       .mx-q.yellow { background: #fdf0c8; border-color: #b8860b; } .mx-q.yellow b { color: #8a6400; }
       .mx-q.grey { background: #ebe8e1; border-color: #7a705b; } .mx-q.grey b { color: #5a5345; }
       .mx-q.blue { background: #e2ecf7; border-color: #2f67a8; } .mx-q.blue b { color: #2f67a8; }
-      .mx-over { position: absolute; left: 312px; right: 0; top: 0; bottom: 0; pointer-events: none; }
+      .l-matrix .mx-over { grid-area: q1 / q1 / q4 / q4; position: relative; z-index: 2; pointer-events: none; }
+      .c-red .mx-h, .c-red .mx-rh { color: #f3d6d2; background: rgba(255,255,255,0.08); }
+      .c-red .l-matrix .dn-x, .l-matrix.c-red .dn-x { color: #f3d6d2; }
       .mx-arrow { position: absolute; inset: 0; width: 100%; height: 100%; }
       .mx-al { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-24deg);
                font: 400 54px Bangers, sans-serif; color: #fff; background: #e8483b; padding: 4px 22px; border-radius: 8px;

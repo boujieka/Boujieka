@@ -149,24 +149,24 @@ def matrix(title, cols, rows, cells, intro=(), code="decision", arrow=None, clos
     reveal=False shows every cell at once (for a recap). arrow: (label, spoken) draws the
     bottom-left -> top-right diagonal.
     """
-    parts = [part(badge(code), [], 0, "mx-full"), part(f'<div class="dn-q">{esc(title)}</div>', intro, 0.2, "mx-full"),
-             part("", [], 0, "mx-corner"),
-             part(f'<div class="mx-h">{esc(cols[0])}</div>', [], 0), part(f'<div class="mx-h">{esc(cols[1])}</div>', [], 0)]
+    parts = [part(badge(code), [], 0, "mx-b"), part(f'<div class="dn-q">{esc(title)}</div>', intro, 0.2, "mx-t"),
+             part("", [], 0, "mx-c"),
+             part(f'<div class="mx-h">{esc(cols[0])}</div>', [], 0, "mx-h1"), part(f'<div class="mx-h">{esc(cols[1])}</div>', [], 0, "mx-h2")]
     for r in range(2):
-        parts.append(part(f'<div class="mx-rh">{esc(rows[r])}</div>', [], 0))
+        parts.append(part(f'<div class="mx-rh">{esc(rows[r])}</div>', [], 0, f"mx-r{r + 1}"))
         for c in range(2):
             tone, name, text, spoken = cells[r * 2 + c]
             parts.append(part(f'<div class="mx-q {tone}"><b>{esc(name)}</b><span>{esc(text)}</span></div>',
-                              spoken if reveal else [], 0.35 if reveal else 0))
+                              spoken if reveal else [], 0.35 if reveal else 0, f"mx-q{r * 2 + c + 1}"))
     if arrow:
         parts.append(part('<svg class="mx-arrow" viewBox="0 0 100 100" preserveAspectRatio="none">'
-                          '<defs><marker id="mxa" markerWidth="4" markerHeight="4" refX="2.2" refY="2" orient="auto">'
+                          '<defs><marker id="mxa" markerWidth="3" markerHeight="3" refX="2" refY="2" markerUnits="strokeWidth" viewBox="0 0 4 4" orient="auto">'
                           '<path d="M0,0 L4,2 L0,4 z" fill="#e8483b"/></marker></defs>'
-                          '<line x1="20" y1="82" x2="80" y2="22" stroke="#e8483b" stroke-width="2.2" '
-                          'stroke-dasharray="4 3" marker-end="url(#mxa)" vector-effect="non-scaling-stroke"/></svg>'
+                          '<line x1="18" y1="80" x2="84" y2="16" stroke="#e8483b" stroke-width="10" '
+                          'stroke-dasharray="26 14" marker-end="url(#mxa)" vector-effect="non-scaling-stroke"/></svg>'
                           f'<div class="mx-al">{esc(arrow[0])}</div>', arrow[1], 0.6, "mx-over"))
     if closing:
-        parts.append(part(f'<div class="dn-x">{esc(closing[0])}</div>', closing[1], 0.9, "mx-full"))
+        parts.append(part(f'<div class="dn-x">{esc(closing[0])}</div>', closing[1], 0.9, "mx-x"))
     if src:
-        parts.append(part(f'<div class="src">{ui("source")} {esc(src)}</div>', [], 0.5, "mx-full"))
+        parts.append(part(f'<div class="src">{ui("source")} {esc(src)}</div>', [], 0.5, "mx-s"))
     return screen("matrix", parts, code, music)
