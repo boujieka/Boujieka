@@ -80,6 +80,13 @@ CONFIGS = {
     "short": {"story": "story_short", "out": "bankable-ep1-short", "W": 1080, "H": 1920,
               "region": (0, 250, 1080, 880), "captions": True, "title": "Bankable Is Not Enough - Episode 1 (Short)"},
 }
+# French YouTube episodes: same cuts, run with VIDEO_LANG=fr
+for _n in range(1, 8):
+    for _o in ("h", "v"):
+        _c = dict(CONFIGS[f"ep{_n}_{_o}"])
+        _c["out"] = _c["out"].replace("/en-", "/fr-")
+        _c["title"] = f"Le piège du MoU - Épisode {_n}" + (" (Shorts)" if _o == "v" else "")
+        CONFIGS[f"ep{_n}_{_o}_fr"] = _c
 
 GAP, FIT = 0.3, 0.95
 
