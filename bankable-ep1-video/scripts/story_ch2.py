@@ -25,7 +25,7 @@ def ch2_credits():
 SHOTS = [
     logo_intro(),
     # ================= COLD OPEN: THE DAY THE DEAL CLOSES =================
-    scene("ceremony", [actor(K, 520, 470, 115, 1, "happy"), actor(M, 960, 470, 115, -1, "happy"), actor(T, 1400, 470, 115, -1, "happy")],
+    scene("closing", [actor(K, 520, 470, 115, 1, "happy"), actor(M, 960, 470, 115, -1, "happy"), actor(T, 1400, 470, 115, -1, "happy")],
           [(N, "Every power deal in Africa has a day on which everyone in the room agrees it has succeeded."),
            (T, "The loan agreements are signed. The first drawdown has gone through."),
            (K, "A milestone for our country!"),

@@ -20,7 +20,7 @@ def _office(flag=True):
             f'<rect y="760" width="1920" height="320" fill="#c9b08a"/><path d="M 0 760 H 1920" stroke="{INK}" stroke-width="6"/>')
 
 
-def _ceremony():
+def _ceremony(banner="ceremony"):
     lights = "".join(f'<circle cx="{x}" cy="{y}" r="{r}" fill="#fff" opacity="0.9"/>'
                      for x, y, r in [(200, 170, 16), (1720, 210, 20), (1560, 120, 12), (380, 280, 10), (1320, 90, 14)])
     crowd = "".join(f'<circle cx="{60 + i * 120}" cy="1000" r="70" fill="{c}"/>'
@@ -28,7 +28,7 @@ def _ceremony():
     return (f'<rect width="1920" height="1080" fill="#8a2130"/>'
             f'<rect x="0" y="0" width="1920" height="1080" fill="url(#spot)"/>'
             f'<rect x="460" y="70" width="1000" height="130" rx="14" fill="#13615f" stroke="{INK}" stroke-width="8"/>'
-            f'<text x="960" y="160" text-anchor="middle" font-family="Bangers" font-size="84" fill="#fff">{ui("ceremony")}</text>'
+            f'<text x="960" y="160" text-anchor="middle" font-family="Bangers" font-size="84" fill="#fff">{ui(banner)}</text>'
             + lights +
             f'<rect x="300" y="690" width="1320" height="60" fill="#6b4a2c" stroke="{INK}" stroke-width="6"/>'
             f'<rect x="330" y="750" width="1260" height="200" fill="#7c5634" stroke="{INK}" stroke-width="6"/>' + crowd)
@@ -51,7 +51,7 @@ def _city():
     return f'<rect width="1920" height="1080" fill="#0f1733"/>{stars}{b}{wins}'
 
 
-BACKGROUNDS = {"office": _office, "ceremony": _ceremony, "cabinet": _cabinet, "city": _city}
+BACKGROUNDS = {"office": _office, "ceremony": _ceremony, "closing": lambda: _ceremony("closing"), "cabinet": _cabinet, "city": _city}
 
 DEFS = ('<defs><radialGradient id="spot" cx="50%" cy="30%" r="70%"><stop offset="0" stop-color="#ffd27a" stop-opacity="0.35"/>'
         '<stop offset="1" stop-color="#000" stop-opacity="0.25"/></radialGradient></defs>')

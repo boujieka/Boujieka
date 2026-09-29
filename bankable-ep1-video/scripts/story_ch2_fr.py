@@ -27,7 +27,7 @@ def ch2_credits():
 SHOTS = [
     logo_intro(),
     # ================= OUVERTURE : LE JOUR DU BOUCLAGE =================
-    scene("ceremony", [actor(K, 520, 470, 115, 1, "happy"), actor(M, 960, 470, 115, -1, "happy"), actor(T, 1400, 470, 115, -1, "happy")],
+    scene("closing", [actor(K, 520, 470, 115, 1, "happy"), actor(M, 960, 470, 115, -1, "happy"), actor(T, 1400, 470, 115, -1, "happy")],
           [(N, "Chaque accord électrique en Afrique connaît un jour où tout le monde, dans la salle, s'accorde à dire qu'il a réussi."),
            (T, "Les contrats de prêt sont signés. Le premier décaissement est passé."),
            (K, "Une étape majeure pour notre pays !"),

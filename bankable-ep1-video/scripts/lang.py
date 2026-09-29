@@ -12,12 +12,12 @@ LANG = os.environ.get("VIDEO_LANG", "en")
 UI = {
     "en": {"fact": "FACT", "decision": "DECISION", "red": "RED TEAM", "stop_spoken": "Stop.",
            "pause": "Pause the video and answer before continuing.", "q": "THE QUESTION", "ev": "THE EVIDENCE",
-           "dec": "THE DECISION", "signals": "THREE SIGNALS", "source": "Source:", "ceremony": "MoU SIGNING CEREMONY",
+           "dec": "THE DECISION", "signals": "THREE SIGNALS", "source": "Source:", "ceremony": "MoU SIGNING CEREMONY", "closing": "FINANCIAL CLOSE",
            "cold_open": "Cold open", "title": "Title", "ladder": "Bankable vs sustainable", "checklist": "Before you sign",
            "redteam": "Red team", "lesson": "The lesson"},
     "fr": {"fact": "FAIT", "decision": "DÉCISION", "red": "RED TEAM", "stop_spoken": "Stop.",
            "pause": "Mettez la vidéo en pause et répondez avant de continuer.", "q": "LA QUESTION", "ev": "LES FAITS",
-           "dec": "LA DÉCISION", "signals": "TROIS SIGNAUX", "source": "Source :", "ceremony": "SIGNATURE DU MoU",
+           "dec": "LA DÉCISION", "signals": "TROIS SIGNAUX", "source": "Source :", "ceremony": "SIGNATURE DU MoU", "closing": "BOUCLAGE FINANCIER",
            "cold_open": "Ouverture", "title": "Titre", "ladder": "Bancable ou durable", "checklist": "Avant de signer",
            "redteam": "Red team", "lesson": "La leçon"},
 }
