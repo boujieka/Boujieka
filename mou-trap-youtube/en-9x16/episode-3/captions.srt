@@ -1,0 +1,79 @@
+1
+00:00:04,900 --> 00:00:08,697
+The MoU trap. Episode 3. Why projects stall
+
+2
+00:00:11,447 --> 00:00:13,687
+Part three. Why projects stall.
+
+3
+00:00:16,537 --> 00:00:28,420
+Across African infrastructure, McKinsey estimated that fewer than ten percent of projects reach financial close. It covers all sectors, so read it as an order of magnitude.
+
+4
+00:00:31,470 --> 00:00:46,830
+Outside South Africa, private power investment from 1990 to 2014 came to roughly a quarter of one year's estimated needs. The comparison is imperfect, because the needs include the grid.
+
+5
+00:00:49,880 --> 00:00:53,891
+The same pattern appears at the scale of a large gas plant.
+
+6
+00:00:54,391 --> 00:01:03,585
+Qua Iboe. In 2014, the World Bank approved a partial risk guarantee of up to one hundred and fifty million dollars.
+
+7
+00:01:04,135 --> 00:01:08,637
+In 2017, the government approved the PPA.
+
+8
+00:01:09,187 --> 00:01:16,120
+In 2018, after two extensions, the deadline to sign the guarantee agreements expired.
+
+9
+00:01:16,670 --> 00:01:20,339
+By 2020, it was reported as stalled.
+
+10
+00:01:20,889 --> 00:01:26,244
+And in early 2026, a project database listed it as shelved.
+
+11
+00:01:29,244 --> 00:01:44,753
+No one knows how many power MoUs African governments have signed, or how many reach financial close. Databases record projects that closed. Governments often do not publish MoUs, and developers do not announce when one lapses.
+
+12
+00:01:45,853 --> 00:01:48,179
+This is the denominator problem.
+
+13
+00:01:50,729 --> 00:01:54,398
+Four explanations circulate. Each is partly right.
+
+14
+00:01:54,898 --> 00:02:02,344
+The sponsor layer: the developer. Screen sponsors, limit exclusivity, and attach milestones and securities.
+
+15
+00:02:02,894 --> 00:02:11,278
+The process layer: how the project was originated. Compete by default, and test unsolicited proposals against the plan.
+
+16
+00:02:11,828 --> 00:02:17,950
+The system layer: the plan, the grid and the buyer. Fix the system before adding contracts.
+
+17
+00:02:18,500 --> 00:02:25,860
+The fiscal layer: the state's capacity to support. Apply the sovereign test, and size support to fiscal space.
+
+18
+00:02:26,410 --> 00:02:31,808
+They are not rivals. They are layers. The useful question is which one binds first.
+
+19
+00:02:34,658 --> 00:02:46,690
+Qua Iboe had credible sponsors, and it stalled all the same. In 2018, an official told Reuters the plant would enter a system that is illiquid and insolvent.
+
+20
+00:02:49,940 --> 00:02:52,415
+Next episode: Who is in the room?.

@@ -1,0 +1,107 @@
+1
+00:00:04,900 --> 00:00:09,359
+The MoU trap. Episode 1. Fourteen contracts, no power
+
+2
+00:00:11,859 --> 00:00:16,211
+Somewhere in Africa, a power deal is signed in front of the cameras.
+
+3
+00:00:16,511 --> 00:00:20,138
+Minister Kerbu: Today we sign for one hundred megawatts of power for our people!
+
+4
+00:00:20,438 --> 00:00:22,336
+Emson Anahct: We are ready to build, Minister.
+
+5
+00:00:22,636 --> 00:00:26,498
+Everyone applauds. But who in this room will carry the risk?
+
+6
+00:00:27,948 --> 00:00:32,065
+Six seats at the table. Each one sees the same deal differently.
+
+7
+00:00:32,665 --> 00:00:34,671
+The government, which signs.
+
+8
+00:00:35,121 --> 00:00:38,257
+The ministry of finance, which stands behind it.
+
+9
+00:00:38,707 --> 00:00:40,883
+The utility, which must pay.
+
+10
+00:00:41,333 --> 00:00:43,679
+The developer, who holds the option.
+
+11
+00:00:44,129 --> 00:00:46,241
+The lender, who arrives last.
+
+12
+00:00:46,691 --> 00:00:49,379
+And the analyst, who asks the questions.
+
+13
+00:00:51,179 --> 00:00:53,718
+Three signals guide this module.
+
+14
+00:00:54,218 --> 00:00:56,799
+Blue: documented facts, with their source.
+
+15
+00:00:57,399 --> 00:01:00,428
+Yellow: what decision-makers must examine.
+
+16
+00:01:01,028 --> 00:01:03,119
+Red: what could make the deal fail.
+
+17
+00:01:05,369 --> 00:01:08,292
+Part one. Fourteen contracts, no power.
+
+18
+00:01:11,142 --> 00:01:20,401
+In July 2016, Nigeria's bulk electricity trader signed power purchase agreements with fourteen solar developers.
+
+19
+00:01:23,451 --> 00:01:32,134
+Together, some eleven hundred and twenty-five megawatts, at eleven and a half US cents per kilowatt-hour, fixed for twenty years.
+
+20
+00:01:35,184 --> 00:01:43,653
+The target was first power in eighteen months. Ten developers reportedly paid security bonds to show they meant to move quickly.
+
+21
+00:01:46,703 --> 00:01:51,140
+Three years later, none of the fourteen had reached financial close.
+
+22
+00:01:54,190 --> 00:02:00,931
+Solar prices had fallen, and the government now wanted to cut the tariff to around seven and a half cents.
+
+23
+00:02:03,981 --> 00:02:13,368
+The put and call option agreements that lenders expected, and the partial risk guarantees behind them, were not concluded for most of the projects.
+
+24
+00:02:16,418 --> 00:02:25,847
+In 2020, a specialist publication summed it up. Eleven hundred and twenty-five megawatts promised. Not one electron delivered.
+
+25
+00:02:28,797 --> 00:02:35,816
+These were not memoranda of understanding. They were signed PPAs, and most developers had put money down.
+
+26
+00:02:36,716 --> 00:02:45,612
+They still stopped where a great many African power MoUs stop: at the moment when a signed commitment has to become a financeable one.
+
+27
+00:02:48,162 --> 00:02:51,511
+Next episode: What an MoU really binds.

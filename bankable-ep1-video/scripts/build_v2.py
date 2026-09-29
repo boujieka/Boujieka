@@ -49,6 +49,34 @@ CONFIGS = {
                   "region": (0, 64, 1920, 1016), "captions": False, "title": "Le piège du MoU - Briefing : Énergie et régulateurs"},
     "trap_partners_fr": {"story": "story_trap_briefs_fr:PARTNERS", "out": "mou-trap-training-fr/5-briefing-developpeurs-partenaires", "W": 1920, "H": 1080,
                   "region": (0, 64, 1920, 1016), "captions": False, "title": "Le piège du MoU - Briefing : Développeurs et partenaires"},
+    "ep1_h": {"story": "story_trap_episodes:EP1", "out": "mou-trap-youtube/en-16x9/episode-1", "W": 1920, "H": 1080,
+               "region": (0, 64, 1920, 1016), "captions": False, "title": "The MoU Trap - Episode 1", "episode": 1},
+    "ep1_v": {"story": "story_trap_episodes:EP1", "out": "mou-trap-youtube/en-9x16/episode-1", "W": 1080, "H": 1920,
+               "region": (0, 250, 1080, 880), "captions": True, "root_class": "episodes", "title": "The MoU Trap - Episode 1 (Shorts)", "episode": 1},
+    "ep2_h": {"story": "story_trap_episodes:EP2", "out": "mou-trap-youtube/en-16x9/episode-2", "W": 1920, "H": 1080,
+               "region": (0, 64, 1920, 1016), "captions": False, "title": "The MoU Trap - Episode 2", "episode": 2},
+    "ep2_v": {"story": "story_trap_episodes:EP2", "out": "mou-trap-youtube/en-9x16/episode-2", "W": 1080, "H": 1920,
+               "region": (0, 250, 1080, 880), "captions": True, "root_class": "episodes", "title": "The MoU Trap - Episode 2 (Shorts)", "episode": 2},
+    "ep3_h": {"story": "story_trap_episodes:EP3", "out": "mou-trap-youtube/en-16x9/episode-3", "W": 1920, "H": 1080,
+               "region": (0, 64, 1920, 1016), "captions": False, "title": "The MoU Trap - Episode 3", "episode": 3},
+    "ep3_v": {"story": "story_trap_episodes:EP3", "out": "mou-trap-youtube/en-9x16/episode-3", "W": 1080, "H": 1920,
+               "region": (0, 250, 1080, 880), "captions": True, "root_class": "episodes", "title": "The MoU Trap - Episode 3 (Shorts)", "episode": 3},
+    "ep4_h": {"story": "story_trap_episodes:EP4", "out": "mou-trap-youtube/en-16x9/episode-4", "W": 1920, "H": 1080,
+               "region": (0, 64, 1920, 1016), "captions": False, "title": "The MoU Trap - Episode 4", "episode": 4},
+    "ep4_v": {"story": "story_trap_episodes:EP4", "out": "mou-trap-youtube/en-9x16/episode-4", "W": 1080, "H": 1920,
+               "region": (0, 250, 1080, 880), "captions": True, "root_class": "episodes", "title": "The MoU Trap - Episode 4 (Shorts)", "episode": 4},
+    "ep5_h": {"story": "story_trap_episodes:EP5", "out": "mou-trap-youtube/en-16x9/episode-5", "W": 1920, "H": 1080,
+               "region": (0, 64, 1920, 1016), "captions": False, "title": "The MoU Trap - Episode 5", "episode": 5},
+    "ep5_v": {"story": "story_trap_episodes:EP5", "out": "mou-trap-youtube/en-9x16/episode-5", "W": 1080, "H": 1920,
+               "region": (0, 250, 1080, 880), "captions": True, "root_class": "episodes", "title": "The MoU Trap - Episode 5 (Shorts)", "episode": 5},
+    "ep6_h": {"story": "story_trap_episodes:EP6", "out": "mou-trap-youtube/en-16x9/episode-6", "W": 1920, "H": 1080,
+               "region": (0, 64, 1920, 1016), "captions": False, "title": "The MoU Trap - Episode 6", "episode": 6},
+    "ep6_v": {"story": "story_trap_episodes:EP6", "out": "mou-trap-youtube/en-9x16/episode-6", "W": 1080, "H": 1920,
+               "region": (0, 250, 1080, 880), "captions": True, "root_class": "episodes", "title": "The MoU Trap - Episode 6 (Shorts)", "episode": 6},
+    "ep7_h": {"story": "story_trap_episodes:EP7", "out": "mou-trap-youtube/en-16x9/episode-7", "W": 1920, "H": 1080,
+               "region": (0, 64, 1920, 1016), "captions": False, "title": "The MoU Trap - Episode 7", "episode": 7},
+    "ep7_v": {"story": "story_trap_episodes:EP7", "out": "mou-trap-youtube/en-9x16/episode-7", "W": 1080, "H": 1920,
+               "region": (0, 250, 1080, 880), "captions": True, "root_class": "episodes", "title": "The MoU Trap - Episode 7 (Shorts)", "episode": 7},
     "short": {"story": "story_short", "out": "bankable-ep1-short", "W": 1080, "H": 1920,
               "region": (0, 250, 1080, 880), "captions": True, "title": "Bankable Is Not Enough - Episode 1 (Short)"},
 }
@@ -140,7 +168,7 @@ def main(which):
     story = importlib.import_module(modname)
     if attr:  # a module holding several storyboards
         import types
-        story = types.SimpleNamespace(SHOTS=getattr(story, attr), CHAPTERS=story.CHAPTERS,
+        story = types.SimpleNamespace(SHOTS=getattr(story, attr), CHAPTERS=getattr(story, attr + "_CHAPTERS", story.CHAPTERS),
                                       ROLES=getattr(story, "ROLES", BOOK_ROLES))
     ROLES.clear(); ROLES.update(getattr(story, "ROLES", BOOK_ROLES))
     segs, total = layout(story.SHOTS)
@@ -298,9 +326,11 @@ def write_html(cfg, story, segs, total, out):
             js.append(f'tl.set("#{bid}", {{opacity: 0, scale: 0.9}}, 0);')
             js.append(f'tl.to("#{bid}", {{opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2)"}}, {lst - 0.1:.3f});')
             js.append(f'tl.to("#{bid}", {{opacity: 0, duration: 0.2}}, {lst + d + 0.15:.3f});')
+        inner = f'{background(sh["bg"])}{"".join(prop(*p) for p in sh["props"])}{"".join(svgs)}{"".join(bubbles)}'
+        if H > W:  # portrait: the 16:9 stage sits at the top; captions carry the dialogue below it
+            inner = f'<div class="stage16">{inner}</div>'
         body.append(f'<section id="{cid}" class="clip scene" data-start="{max(0, st - 0.3):.3f}" '
-                    f'data-duration="{dur + min(st, 0.3):.3f}" data-track-index="5">{background(sh["bg"])}'
-                    f'{"".join(prop(*p) for p in sh["props"])}{"".join(svgs)}{"".join(bubbles)}</section>')
+                    f'data-duration="{dur + min(st, 0.3):.3f}" data-track-index="5">{inner}</section>')
         js.append(f'tl.set("#{cid}", {{opacity: 0}}, 0);')
         js.append(f'tl.to("#{cid}", {{opacity: 1, duration: 0.35}}, {max(0, st - 0.3):.3f});')
         if i < len(segs) - 1:
@@ -362,7 +392,7 @@ def write_html(cfg, story, segs, total, out):
         if seg["chapter"] is not None and (not changes or changes[-1][1] != seg["chapter"]):
             changes.append((seg["start"], seg["chapter"]))
     first = changes[0][0] if changes else total
-    items = "".join(f'<div class="ch" id="ch{k}"><span>{k + 1:02d}</span>{html.escape(c)}</div>' for k, c in enumerate(chapters))
+    items = "".join(f'<div class="ch" id="ch{k}"><span>{k + cfg.get("episode", 1):02d}</span>{html.escape(c)}</div>' for k, c in enumerate(chapters))
     body.append(f'<div id="chapbar" class="clip chapbar" data-start="{first:.3f}" data-duration="{total - first:.3f}" data-track-index="3">{items}</div>')
     js.append('tl.set("#chapbar", {opacity: 0}, 0);')
     js.append(f'tl.to("#chapbar", {{opacity: 1, duration: 0.6}}, {first:.3f});')
@@ -397,7 +427,7 @@ def write_html(cfg, story, segs, total, out):
 
     body.append(f'<audio id="mix" src="audio/mix.m4a" data-start="0" data-duration="{total:.3f}" data-track-index="7" data-volume="1"></audio>')
     tpl = open(os.path.join(HERE, "template_v2.html")).read()
-    orient = "portrait" if H > W else "landscape"
+    orient = ("portrait" if H > W else "landscape") + (" " + cfg["root_class"] if cfg.get("root_class") else "")
     page = (tpl.replace("{{W}}", str(W)).replace("{{H}}", str(H)).replace("{{ORIENT}}", orient)
                .replace("{{TOTAL}}", f"{total:.3f}").replace("{{BODY}}", "\n".join(body))
                .replace("{{JS}}", "\n      ".join(js)))
