@@ -1,0 +1,511 @@
+1
+00:00:05,450 --> 00:00:11,658
+Chaque accord électrique en Afrique connaît un jour où tout le monde, dans la salle, s'accorde à dire qu'il a réussi.
+
+2
+00:00:11,958 --> 00:00:16,289
+Tidianie Eugom: Les contrats de prêt sont signés. Le premier décaissement est passé.
+
+3
+00:00:16,589 --> 00:00:18,317
+Ministre Kerbu: Une étape majeure pour notre pays !
+
+4
+00:00:18,617 --> 00:00:20,622
+Emson Anahct: Quatre ans de travail. Nous y sommes.
+
+5
+00:00:20,922 --> 00:00:29,178
+Pour les prêteurs, c'est le bouclage financier. Pour le ministre, une étape à annoncer. Pour le développeur, la fin de longues années de travail.
+
+6
+00:00:30,928 --> 00:00:38,672
+Deux tests, un cadre. Pourquoi un projet électrique que les prêteurs acceptent de financer n'a réussi que la moitié de son examen.
+
+7
+00:00:42,222 --> 00:00:55,705
+Prenons un cas composite, construit à partir de situations qui se répètent sur le continent, et non d'une transaction particulière. Une centrale de cent vingt mégawatts atteint le bouclage financier après quatre ans de négociation.
+
+8
+00:00:59,055 --> 00:01:06,479
+Son contrat d'achat oblige la compagnie publique à payer la capacité de la centrale en dollars, qu'elle prenne l'énergie ou non.
+
+9
+00:01:07,029 --> 00:01:10,698
+Une garantie partielle de risque soutient les paiements de la compagnie.
+
+10
+00:01:11,248 --> 00:01:15,131
+Selon tous les critères qu'appliquent les prêteurs, le projet est solide.
+
+11
+00:01:17,731 --> 00:01:24,515
+Cinq ans plus tard, la demande a crû moins vite que prévu, et des capacités moins chères ont été mises en service.
+
+12
+00:01:26,015 --> 00:01:30,751
+Paul Ahmak: Nous payons une énergie dont nous n'avons pas besoin, dans une monnaie que nous ne gagnons pas.
+
+13
+00:01:31,051 --> 00:01:33,782
+Paul Ahmak: Et nos clients paient des tarifs qui ne couvrent pas nos coûts.
+
+14
+00:01:34,082 --> 00:01:39,778
+Enilec Mok: Les arriérés se sont accumulés. La garantie est appelée, et la dette atterrit sur le budget national.
+
+15
+00:01:41,528 --> 00:01:50,125
+Rien, dans cette histoire, ne relève d'un projet raté. La centrale fonctionne, les prêteurs sont remboursés, et les promoteurs touchent leur rendement.
+
+16
+00:01:51,225 --> 00:01:57,604
+Ce qui a échoué, c'est une vérification que personne, dans la salle de signature, n'avait été chargé de faire.
+
+17
+00:02:00,154 --> 00:02:07,130
+Ce chapitre donne un nom à cette vérification. Tout projet de production indépendante doit réussir deux examens.
+
+18
+00:02:07,630 --> 00:02:10,745
+Le premier demande si le projet peut être financé.
+
+19
+00:02:11,295 --> 00:02:18,292
+Le second demande si le système électrique et les finances publiques peuvent le porter, pendant toute la durée de son contrat.
+
+20
+00:02:20,492 --> 00:02:23,692
+Première partie. Ce que les prêteurs appellent bancable.
+
+21
+00:02:26,242 --> 00:02:37,101
+Dans ce livre, un projet est bancable lorsque des prêteurs prudents, après une diligence complète, acceptent de lui prêter à des conditions qui lui permettent d'atteindre le bouclage financier.
+
+22
+00:02:38,201 --> 00:02:47,865
+La définition est volontairement étroite. C'est un jugement porté par ceux qui apportent la dette, sur la durée de cette dette, quant à la probabilité d'être remboursés.
+
+23
+00:02:50,715 --> 00:02:55,152
+Les revenus sont-ils garantis par contrat, et suffisants pour servir la dette ?
+
+24
+00:02:55,702 --> 00:02:58,326
+L'acheteur paiera-t-il, et en a-t-il les moyens ?
+
+25
+00:02:58,876 --> 00:03:05,383
+Les risques de construction, d'exploitation et de ressource sont-ils portés par des parties capables de les assumer ?
+
+26
+00:03:05,933 --> 00:03:10,242
+Les prêteurs peuvent-ils reprendre la main si la société de projet défaille ?
+
+27
+00:03:10,792 --> 00:03:14,952
+Et les promoteurs sont-ils expérimentés et suffisamment capitalisés ?
+
+28
+00:03:17,152 --> 00:03:35,179
+La littérature professionnelle est claire sur la question qui pèse le plus : la solvabilité de celui qui porte l'obligation de paiement finale. Le guide de Power Africa observe aussi que le capital pour l'énergie propre à grande échelle coûte en Afrique au moins deux à trois fois plus que dans les économies avancées.
+
+29
+00:03:38,529 --> 00:03:45,996
+Un paiement de capacité, ou une clause take or pay, rémunère la disponibilité plutôt que l'énergie réellement appelée.
+
+30
+00:03:46,546 --> 00:03:49,106
+Le tarif est indexé sur une devise forte.
+
+31
+00:03:49,656 --> 00:03:56,909
+Une garantie souveraine, une lettre de crédit, ou une garantie partielle de risque d'une banque multilatérale soutient l'acheteur.
+
+32
+00:03:57,459 --> 00:04:03,603
+Et des indemnités de résiliation remboursent toute la dette si le contrat prend fin de manière anticipée.
+
+33
+00:04:05,803 --> 00:04:19,456
+Chacune de ces protections rend le projet plus facile à financer, et chacune le fait en éloignant le risque du projet. C'est le premier point à retenir. La bancabilité s'obtient largement en déplaçant le risque, plutôt qu'en le supprimant.
+
+34
+00:04:22,206 --> 00:04:35,177
+Le risque que la demande soit insuffisante, que la monnaie se déprécie, ou que la compagnie cesse de payer, ne disparaît pas au bouclage financier. Par contrat, il passe à la compagnie, à ses clients et, au bout du compte, à l'État.
+
+35
+00:04:36,277 --> 00:04:42,805
+Le test du prêteur est réussi parce que quelqu'un d'autre a accepté de porter ce que le prêteur refuse de porter.
+
+36
+00:04:45,355 --> 00:04:54,976
+Ce n'est pas une critique des prêteurs. Leur devoir est de protéger déposants et actionnaires sur la durée d'un prêt, et ces instruments sont la façon rationnelle de le faire.
+
+37
+00:04:56,076 --> 00:05:05,506
+La difficulté est ailleurs. Dans la plupart des marchés électriques africains, aucun test d'une rigueur égale n'est appliqué au nom de ceux qui reçoivent le risque.
+
+38
+00:05:08,056 --> 00:05:13,624
+Deuxième partie. Ce qu'a établi la recherche. Quatre courants méritent d'être pleinement reconnus.
+
+39
+00:05:16,474 --> 00:05:35,269
+D'abord, les facteurs de succès. Anton Eberhard, Katharine Gratwick et leurs collègues ont réuni les données les plus systématiques sur la production privée en Afrique subsaharienne. Leur conclusion centrale : les producteurs indépendants exigent une planification dynamique au moindre coût, liée à des appels d'offres organisés en temps voulu.
+
+40
+00:05:38,519 --> 00:05:52,727
+Ils ont aussi relevé pourquoi tant de gouvernements ont contourné cette discipline : la perception générale que la négociation directe permettrait une solution rapide. C'est là que commence le piège du protocole d'accord, décrit au chapitre un.
+
+41
+00:05:55,977 --> 00:06:06,345
+Ensuite, la fragilité de l'acheteur. Sur trente-neuf pays subsahariens étudiés, deux seulement, les Seychelles et l'Ouganda, avaient un secteur électrique financièrement viable.
+
+42
+00:06:09,395 --> 00:06:26,248
+Dix-neuf seulement couvraient leurs coûts d'exploitation, et les déficits quasi budgétaires qui en résultaient atteignaient en moyenne un virgule cinq pour cent du P-I-B. Dans la plupart des marchés, la contrepartie d'un contrat d'achat de vingt ans est une entité qui ne peut pas assurer son propre équilibre.
+
+43
+00:06:29,298 --> 00:06:50,055
+Troisièmement, les limites des réformes. Revenant sur les réformes des années quatre-vingt-dix, Foster et Rana montrent que les capitaux privés ont financé une forte expansion de la production, mais beaucoup moins la distribution. Leur conclusion : le recouvrement des coûts reste un objectif insaisissable. L'argent privé est allé là où les contrats pouvaient le protéger, et s'est tenu à l'écart de là où les recettes sont réellement collectées.
+
+44
+00:06:53,305 --> 00:07:15,684
+Quatrièmement, la répartition des risques dans les enchères. En janvier deux mille vingt-six, l'Agence internationale pour les énergies renouvelables a publié un rapport sur la conception des enchères, avec ses partenaires. Le programme énergie de la Banque mondiale en résume le constat principal : les enchères dominent désormais les achats d'énergie renouvelable, avec des prix bas, mais en transférant souvent les risques et les charges macroéconomiques vers les pays en développement.
+
+45
+00:07:19,234 --> 00:07:33,442
+D'abord, un changement d'angle. Un acheteur fragile et une lourde charge budgétaire ne sont pas seulement des obstacles à la bancabilité. Ils en sont aussi les conséquences, quand des projets bouclent à des conditions rendues possibles par ces mêmes faiblesses.
+
+46
+00:07:33,992 --> 00:07:50,568
+Ensuite, un changement de niveau. Beaucoup de contrats qui comptent dans les pays de Mission trois cents n'ont jamais été mis aux enchères. Ils sont nés de protocoles d'accord et de négociations directes. Le test de l'État s'applique donc à chaque transaction, avant sa signature, et son résultat est publié.
+
+47
+00:07:51,118 --> 00:08:05,049
+Enfin, un changement de preuves. Un projet dans chaque pays doté d'un pacte Mission trois cents, choisi par une règle qui ignore l'issue, pour étudier les projets bloqués à côté de ceux qui ont bouclé, et suivre ces derniers pendant leurs années d'exploitation.
+
+48
+00:08:07,249 --> 00:08:09,468
+Troisième partie. Le test manquant.
+
+49
+00:08:12,068 --> 00:08:18,873
+Belpau: Les prêteurs ont vérifié qu'ils seront remboursés. Qui a vérifié que le système peut porter ce contrat pendant vingt ans ?
+
+50
+00:08:19,173 --> 00:08:22,608
+Enilec Mok: Ce test-là est le nôtre. Et aujourd'hui, personne ne l'applique.
+
+51
+00:08:24,358 --> 00:08:41,382
+Le second test demande si le système électrique et les finances publiques peuvent porter les obligations d'un projet pendant toute la durée de son contrat. Il s'applique au nom de ceux qui reçoivent le risque que la bancabilité déplace : la compagnie, ses clients, le Trésor et, finalement, le contribuable.
+
+52
+00:08:44,132 --> 00:08:46,756
+Il diffère du test du prêteur sur trois points.
+
+53
+00:08:47,556 --> 00:08:57,561
+Son horizon est le contrat, pas le prêt. Les prêts sont souvent plus courts que les contrats qu'ils financent, et certaines obligations tombent après le remboursement des prêteurs.
+
+54
+00:08:58,161 --> 00:09:11,495
+Son unité est le système, pas la centrale. Une centrale peut être efficace et pourtant mal choisie, pour un système qui n'en avait pas besoin, qui ne peut pas évacuer sa production, ou qui aurait pu acheter l'énergie moins cher.
+
+55
+00:09:12,095 --> 00:09:25,855
+Et sa question est l'accessibilité financière, pas le remboursement. Le prêteur demande si quelqu'un paiera. L'État doit demander combien coûtera ce paiement, avec une demande, des tarifs et des taux de change réalistes, et non prévus.
+
+56
+00:09:30,405 --> 00:09:44,570
+Les finances publiques offrent une façon précise de voir où se situent ces coûts : la matrice des risques budgétaires de Polackova. Directes et explicites : les transferts budgétaires votés à l'avance, et les paiements quand l'État est lui-même l'acheteur.
+
+57
+00:09:45,220 --> 00:09:55,994
+Conditionnelles et explicites : les garanties souveraines, les accords d'options d'achat et de vente, les indemnités de résiliation, et les engagements envers les garants multilatéraux.
+
+58
+00:09:56,944 --> 00:10:06,394
+Directes mais implicites : les subventions récurrentes qui comblent l'écart entre tarifs et coûts, y compris les paiements de capacité pour des centrales excédentaires.
+
+59
+00:10:07,044 --> 00:10:13,594
+Et conditionnelles et implicites : l'apurement des arriérés de la compagnie, et son sauvetage si elle ne peut pas payer.
+
+60
+00:10:16,394 --> 00:10:31,733
+Les obligations qui ont le plus coûté aux trésors africains dans le secteur électrique se trouvent souvent dans les cases implicites. Et les obligations implicites apparaissent rarement dans les statistiques de la dette ou les documents budgétaires, jusqu'au jour où il faut les payer.
+
+61
+00:10:34,483 --> 00:10:56,158
+Le Ghana montre ce qui arrive quand le second test n'est pas appliqué. Le F-M-I attribue les déficits du secteur à des tarifs inférieurs aux coûts, à des pertes de distribution et de recouvrement, et à une surcapacité combinée à des contrats take or pay. Fin deux mille vingt-deux, la dette du secteur énergétique atteignait un virgule six milliard de dollars, due surtout aux producteurs indépendants et aux fournisseurs de combustible.
+
+62
+00:10:59,208 --> 00:11:12,904
+Le programme conclu avec le Fonds en deux mille vingt-trois a fait d'un plan de redressement actualisé un repère structurel, et a donné la priorité à la renégociation des contrats d'achat pour réduire le passif take or pay.
+
+63
+00:11:15,954 --> 00:11:33,554
+Fin deux mille vingt-quatre, le F-M-I qualifiait le secteur énergétique de source majeure de risque budgétaire au Ghana, avec un déficit estimé à environ deux virgule deux pour cent du P-I-B pour l'année. Beaucoup des contrats à l'origine de ce passif avaient réussi le test du prêteur. Personne n'a fait passer le second.
+
+64
+00:11:36,804 --> 00:11:40,601
+D'où l'idée au centre du livre : le bouclage financier durable.
+
+65
+00:11:41,901 --> 00:11:59,544
+Un bouclage financier où le projet a réussi les deux tests. Les prêteurs acceptent de le financer, et une évaluation documentée, faite avant la signature, montre que le système électrique et les finances publiques peuvent porter ses obligations pendant toute la durée du contrat, sous un stress réaliste.
+
+66
+00:12:02,394 --> 00:12:07,557
+L'évaluation doit exister avant la signature, et non après l'apparition des arriérés.
+
+67
+00:12:08,107 --> 00:12:13,717
+Elle doit être écrite, pour que l'obligation soit visible du parlement, du régulateur et du public.
+
+68
+00:12:14,267 --> 00:12:27,558
+Et elle doit être soumise à des scénarios de stress, car ceux qui rompent la soutenabilité sont ceux que les plans supposent rarement : une demande plus lente, une dépréciation, un réseau de transport en retard, et des solutions moins chères.
+
+69
+00:12:29,758 --> 00:12:49,491
+Le moment compte. En septembre deux mille vingt-cinq, vingt-neuf pays africains avaient adopté un pacte énergétique national dans le cadre de Mission trois cents, et la Banque mondiale en compte aujourd'hui trente-six. Si ces capitaux arrivent aux conditions contractuelles de la dernière génération de producteurs indépendants, les mêmes passifs suivront, à plus grande échelle.
+
+70
+00:12:52,541 --> 00:12:55,400
+Quatrième partie. Là où les deux tests divergent.
+
+71
+00:12:58,250 --> 00:13:05,717
+La combinaison des deux tests donne quatre issues possibles. Une seule devrait aboutir à un contrat signé et soutenu par l'État.
+
+72
+00:13:07,417 --> 00:13:13,923
+Le bouclage financier durable. Les prêteurs financent le projet, et le système peut le porter. C'est la cible.
+
+73
+00:13:14,573 --> 00:13:24,280
+Le piège du passif. Les prêteurs financent le projet parce que le risque a été transféré à la compagnie et à l'État, qui ne peuvent pas le porter pendant la durée du contrat.
+
+74
+00:13:25,230 --> 00:13:33,849
+Le fossé des réformes. Le système a besoin du projet et pourrait se le permettre, mais l'acheteur, ou l'environnement de risque, dissuade les prêteurs.
+
+75
+00:13:34,499 --> 00:13:42,669
+Et le cimetière des protocoles d'accord. Le projet n'est ni finançable, ni utile à ces conditions, et le protocole doit pouvoir expirer.
+
+76
+00:13:45,769 --> 00:13:55,113
+Quand un projet atteint le bouclage durable, la priorité est la vitesse, car le retard a un prix réel, en demande non servie et en production au diesel.
+
+77
+00:13:55,663 --> 00:14:07,588
+Le fossé des réformes appelle un travail sur le système : réforme tarifaire, apurement des arriérés, meilleure passation des marchés, ou rehaussement de crédit à la mesure de ce que l'État peut se permettre.
+
+78
+00:14:08,138 --> 00:14:20,362
+Le piège du passif appelle une restructuration avant la signature : une centrale plus petite, un autre tarif, moins de take or pay, une tarification en monnaie locale, ou pas de contrat du tout.
+
+79
+00:14:20,912 --> 00:14:31,451
+Et le cimetière des protocoles d'accord appelle la discipline. Laisser expirer un protocole faible coûte peu. Le porter jusqu'à la négociation coûte des années d'attention publique.
+
+80
+00:14:33,651 --> 00:14:37,939
+La matrice révèle aussi un risque qu'aucun des deux tests ne détecte seul.
+
+81
+00:14:41,139 --> 00:14:57,438
+Les outils qui sortent un projet du fossé des réformes sont les mêmes qui peuvent le pousser dans le piège du passif. Une garantie, un tarif en dollars, ou une clause take or pay généreuse peuvent rendre bancable un projet qui ne l'était pas. Le livre appelle cela le risque diagonal.
+
+82
+00:14:58,338 --> 00:15:07,724
+Que le projet devienne aussi durable dépend de ceci : ces instruments ont-ils été calibrés sur les besoins du système, et sur la capacité de l'État à payer ?
+
+83
+00:15:10,324 --> 00:15:16,063
+Tidianie Eugom: Ce projet est coincé dans le fossé des réformes. Il lui faut plus de rehaussement de crédit.
+
+84
+00:15:16,363 --> 00:15:21,120
+Enilec Mok: Chaque garantie ajoutée atterrit sur le budget. Moi, je vois un piège du passif.
+
+85
+00:15:21,420 --> 00:15:29,164
+Chacun a raison dans sa propre case. Sans le second test, aucun des deux ne peut dire vers quelle case se dirige un projet donné.
+
+86
+00:15:30,614 --> 00:15:31,339
+Stop.
+
+87
+00:15:31,839 --> 00:15:33,759
+Vous êtes le ministre des Finances.
+
+88
+00:15:34,259 --> 00:15:37,289
+Les prêteurs sont prêts à financer une nouvelle centrale.
+
+89
+00:15:37,689 --> 00:15:41,870
+Ils demandent des paiements de capacité en dollars et une garantie souveraine.
+
+90
+00:15:42,270 --> 00:15:45,427
+Personne n'a estimé l'appel maximal sur le budget.
+
+91
+00:15:45,827 --> 00:15:47,705
+Qu'exigez-vous avant la signature ?
+
+92
+00:15:54,905 --> 00:15:58,339
+La réponse, c'est le second test. Voici comment l'appliquer.
+
+93
+00:16:00,689 --> 00:16:03,505
+Cinquième partie. Sept dimensions, deux questions.
+
+94
+00:16:06,355 --> 00:16:14,590
+Le cadre examine chaque projet selon sept dimensions, et pose deux questions sur chacune : celle du prêteur, et celle que l'État doit poser.
+
+95
+00:16:15,390 --> 00:16:23,987
+Le besoin. Le prêteur demande : y a-t-il un marché ? L'État doit demander : est-ce le moyen le moins cher de couvrir un besoin identifié par le plan ?
+
+96
+00:16:24,587 --> 00:16:35,936
+Le réseau. Le prêteur demande si la centrale est payée quand le réseau défaille. L'État demande si le réseau peut absorber la production, sans écrêtement, ni paiement d'énergie jamais livrée.
+
+97
+00:16:36,536 --> 00:16:46,200
+L'acheteur et les revenus. L'acheteur paiera-t-il, ou quelqu'un paiera-t-il pour lui ? Face à : les tarifs et les recouvrements financent-ils le contrat sans nouvelle subvention ?
+
+98
+00:16:46,800 --> 00:16:56,230
+L'exposition budgétaire. Existe-t-il un filet souverain ? Face à : quel est l'appel maximal que le budget pourrait subir, et tient-il dans le cadre de la dette ?
+
+99
+00:16:59,880 --> 00:17:13,512
+Contrat et répartition des risques. Le prêteur demande si le risque a quitté le projet. L'État demande si chaque risque est porté par la partie capable de le gérer au moindre coût. La même clause peut satisfaire l'un et échouer à l'autre.
+
+100
+00:17:14,112 --> 00:17:22,347
+Promoteur et procédure. Le promoteur est-il crédible ? Face à : le projet a-t-il été choisi par mise en concurrence, selon le plan ?
+
+101
+00:17:22,947 --> 00:17:32,888
+Et structure de financement. La dette et les fonds propres peuvent-ils être levés ? Face à : la structure ajoute-t-elle un risque de change ou de refinancement que l'État portera ?
+
+102
+00:17:35,938 --> 00:17:47,607
+Plusieurs dimensions viennent directement de la recherche antérieure. La dimension réseau reprend un point que les guides professionnels formulent sans détour : les centrales ne fonctionnent pas dans le vide.
+
+103
+00:17:51,157 --> 00:18:01,205
+D'abord, l'exposition budgétaire devient un test par transaction, évalué pour chaque projet avant la signature, et non pour le secteur une fois les arriérés apparus.
+
+104
+00:18:01,755 --> 00:18:04,720
+Ensuite, chaque dimension porte la question de l'État.
+
+105
+00:18:05,270 --> 00:18:08,897
+Enfin, le cadre est testé sur deux issues, et non sur une seule.
+
+106
+00:18:11,697 --> 00:18:17,692
+L'issue A : le bouclage financier. Si, et à quelle vitesse, le projet a réussi le test du prêteur.
+
+107
+00:18:18,292 --> 00:18:30,452
+L'issue B : les difficultés après la mise en service. Si le projet a ensuite échoué au test de l'État : arriérés persistants, renégociation, garantie appelée, ou capacité payée mais inutilisée.
+
+108
+00:18:33,502 --> 00:18:39,134
+La plupart des évaluations s'arrêtent à l'issue A, et un projet qui boucle est compté comme un succès.
+
+109
+00:18:40,234 --> 00:18:43,711
+L'issue B demande si ce succès a duré, et aux dépens de qui.
+
+110
+00:18:46,261 --> 00:19:05,184
+Le cadre est appliqué à un projet dans chaque pays doté d'un pacte Mission trois cents, choisi par une règle fixée avant tout codage : pour l'essentiel, le plus grand projet de production privée raccordé au réseau sur une période définie, quel qu'ait été son sort. Parce que la règle ignore l'issue, l'échantillon ne peut pas être arrangé pour servir la démonstration.
+
+111
+00:19:06,284 --> 00:19:15,030
+Chaque projet est codé à partir de sources publiques uniquement. Quand un pays n'a aucun projet éligible, cette absence est consignée comme un résultat.
+
+112
+00:19:17,880 --> 00:19:30,125
+Cinq limites. Un : l'échantillon est trop petit pour une inférence statistique. L'analyse procède par comparaison structurée et ciblée, à la recherche de combinaisons de conditions, et non de probabilités.
+
+113
+00:19:30,675 --> 00:19:37,033
+Deux : les échecs laissent moins de traces que les succès. Ce biais est corrigé quand c'est possible, et signalé sinon.
+
+114
+00:19:37,583 --> 00:19:45,540
+Trois : une grande part de ce qu'exige le second test n'est pas publique. Quand l'information manque, le codage le dit, plutôt que de deviner.
+
+115
+00:19:46,090 --> 00:19:52,981
+Quatre : l'issue B prend du temps. Pour les projets récents, elle est notée comme pas encore observable, et non comme un succès.
+
+116
+00:19:53,531 --> 00:19:59,952
+Cinq : le cadre diagnostique, il ne note pas. Il ne rend aucun verdict sur les projets nommés de l'échantillon.
+
+117
+00:20:02,452 --> 00:20:19,263
+Les deux tests changent qui doit être dans la salle. Les ministères des Finances devraient avoir un rôle formel avant la signature de tout contrat d'achat comportant du take or pay ou un soutien de l'État, appuyé sur une estimation de l'appel maximal que le budget pourrait subir sous stress.
+
+118
+00:20:19,813 --> 00:20:31,397
+Les régulateurs et les agences de planification devraient confirmer que chaque projet s'inscrit dans le plan de moindre coût, et que le réseau pourra absorber sa production à la date de mise en service.
+
+119
+00:20:31,947 --> 00:20:45,749
+Et les institutions de financement du développement devraient calibrer le rehaussement de crédit sur ce que l'État peut porter, et pas seulement sur ce qu'exigent les prêteurs, pour que les outils qui comblent le fossé des réformes n'ouvrent pas le piège du passif.
+
+120
+00:20:47,699 --> 00:20:50,067
+Ministre Kerbu: Avant de signer : a-t-il réussi les deux tests ?
+
+121
+00:20:50,367 --> 00:20:53,844
+Tidianie Eugom: Le test du prêteur, oui. Nous pouvons le financer.
+
+122
+00:20:54,144 --> 00:21:00,416
+Enilec Mok: Et le test de l'État. Les Finances ont évalué l'appel maximal sur le budget, sous stress. Il tient.
+
+123
+00:21:00,716 --> 00:21:04,492
+Paul Ahmak: Le réseau pourra absorber la production à la mise en service.
+
+124
+00:21:04,792 --> 00:21:06,670
+Belpau: C'est écrit, et prêt à être publié.
+
+125
+00:21:06,970 --> 00:21:09,786
+Ministre Kerbu: Alors nous signons, et nous publions la réponse de l'État.
+
+126
+00:21:11,236 --> 00:21:16,996
+Un projet électrique que les prêteurs acceptent de financer n'a réussi que la moitié de son examen.
+
+127
+00:21:17,896 --> 00:21:23,485
+L'autre moitié demande si le système et l'État peuvent le porter, pendant toute la durée du contrat.
+
+128
+00:21:24,585 --> 00:21:31,988
+Le bouclage financier durable exige que les deux réponses soient positives, écrites et publiées, avant la signature du contrat.
