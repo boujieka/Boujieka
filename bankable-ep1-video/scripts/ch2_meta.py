@@ -30,7 +30,7 @@ TXT = {
         "lang": "English",
     },
     "fr": {
-        "title": "Deux tests, un cadre : pourquoi un projet électrique bancable ne suffit pas | Bancable ne suffit pas, ch. 2",
+        "title": "Deux tests, un cadre : pourquoi un projet bancable ne suffit pas | Bancable ne suffit pas, ch. 2",
         "summary": ("Un projet électrique que les prêteurs acceptent de financer n'a réussi que la moitié de son examen. "
                     "Ce chapitre présente le test du prêteur et le test manquant de l'État, la matrice des deux tests "
                     "(bouclage durable, piège du passif, fossé des réformes, cimetière des MoU), le risque diagonal, et un "

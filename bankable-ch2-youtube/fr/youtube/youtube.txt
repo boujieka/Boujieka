@@ -1,0 +1,38 @@
+TITLE
+Deux tests, un cadre : pourquoi un projet bancable ne suffit pas | Bancable ne suffit pas, ch. 2
+
+DESCRIPTION
+Un projet électrique que les prêteurs acceptent de financer n'a réussi que la moitié de son examen. Ce chapitre présente le test du prêteur et le test manquant de l'État, la matrice des deux tests (bouclage durable, piège du passif, fossé des réformes, cimetière des MoU), le risque diagonal, et un cadre de sept dimensions et deux questions pour les projets électriques africains.
+
+Une vidéo de formation en dessin animé pour les ministres, les ministères des Finances, les régulateurs, les compagnies d'électricité, les prêteurs et les partenaires au développement.
+
+Précédent : chapitre 1, Le piège du MoU (module complet et série en 7 épisodes sur cette chaîne).
+
+CHAPTERS
+0:00 Le jour du bouclage
+0:29 Deux tests, un cadre
+2:19 1 · Ce que les prêteurs appellent bancable
+5:07 2 · Ce qu'a établi la recherche
+8:06 3 · Le test manquant
+12:51 4 · Où les deux tests divergent
+15:59 5 · Sept dimensions, deux questions
+21:10 Le message clé
+
+Principales sources citées à l'écran (références complètes dans le chapitre) :
+- CLDP and ALSF 2024 (Power Africa, Understanding Power Project Financing)
+- Eberhard and Gratwick 2011; Eberhard et al. 2016, 2017
+- Kojima and Trimble 2016; Trimble et al. 2016
+- Foster and Rana 2020
+- IRENA 2026; ESMAP 2026
+- Polackova 1999
+- IMF 2023, 2024a, 2024b (Ghana)
+- World Bank 2025 and n.d. (Mission 300)
+
+La centrale de 120 MW est un cas composite, pas une transaction réelle. Les personnages sont fictifs. Les chiffres et citations sont ceux des sources indiquées à l'écran ; les citations sont traduites librement de l'anglais. Ils sont résumés ici, sans vérification indépendante.
+D'après le chapitre 2 de Bankable Is Not Enough, d'Emmanuel Boujieka Kamga. Une production Courant Continental.
+
+#Énergie #Afrique #Électricité #FinancementDeProjets #FinancesPubliques #Mission300
+
+SETTINGS (suggested)
+Category: Education · Language: French · Captions: upload captions.srt from the project folder
+Thumbnail: thumbnail.png
