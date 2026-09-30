@@ -12,3 +12,13 @@ What the filter (`kindle.lua`) changes for the ebook:
 - nests the table of contents: part > chapter; sections stay inside each chapter
 
 The manuscript and the built EPUB are not stored in this repository.
+
+## Paperback interior (KDP, 6 x 9 in, no bleed)
+
+    ./build_paperback.sh Bankable_Is_Not_Enough_Master_Manuscript.docx path/to/CharisSIL-6.200
+
+- 6 x 9 in pages; margins 0.875 in inside (gutter), 0.6 in outside, 0.8 in top and bottom
+- Charis SIL (SIL Open Font License), embedded
+- the paperback ISBN (BOOK_ISBN, default 9798178190425) replaces the ISBN placeholder line on the copyright page
+- front matter numbered in roman; Part I starts at page 1 on a right-hand page; parts and chapters open on right-hand pages
+- contents page with page numbers; running heads (book title left, section title right); footnotes at the foot of the page

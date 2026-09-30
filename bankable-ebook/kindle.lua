@@ -46,7 +46,12 @@ function Pandoc(doc)
     end
 
     if t and t:find("[ISBN, paperback]", 1, true) then
+      -- ebook: drop the placeholder (KDP assigns an ASIN); print: BOOK_ISBN replaces it
       removed_isbn = removed_isbn + 1
+      local isbn = os.getenv("BOOK_ISBN")
+      if isbn and isbn ~= "" then
+        table.insert(front, pandoc.Para(pandoc.Str("ISBN " .. isbn .. " (paperback)")))
+      end
       i = i + 1
       goto continue
     end
