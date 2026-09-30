@@ -45,6 +45,23 @@ function Pandoc(doc)
       if b.t == "Header" and b.level == 1 then skipping = false else i = i + 1; goto continue end
     end
 
+    -- author's edits (Oct 2026): no publisher placeholder, no Declaration of Interests,
+    -- preface signed "Brazzaville and Yaoundé, October 2026"
+    if t and t:find("[Publisher or imprint, and address]", 1, true) then
+      i = i + 1
+      goto continue
+    end
+    if b.t == "Header" and b.level == 1 and text(b) == "Declaration of Interests" then
+      i = i + 1
+      while i <= n and not (blocks[i].t == "Header" and blocks[i].level == 1) do i = i + 1 end
+      goto continue
+    end
+    if t and t:find("Brazzaville and Yaound", 1, true) then
+      table.insert(out, pandoc.Para({pandoc.Strong(pandoc.Str("Emmanuel Boujieka Kamga")), pandoc.LineBreak(),
+                                     pandoc.Str("Brazzaville and Yaoundé, October 2026")}))
+      i = i + 1
+      goto continue
+    end
     if t and t:find("[ISBN, paperback]", 1, true) then
       -- ebook: drop the placeholder (KDP assigns an ASIN); print: BOOK_ISBN replaces it
       removed_isbn = removed_isbn + 1
