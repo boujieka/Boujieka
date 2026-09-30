@@ -1,0 +1,25 @@
+/* Kindle-friendly styles: let the reader control font and size; keep tables readable. */
+body { margin: 0; line-height: 1.4; }
+p { margin: 0 0 0.6em 0; text-align: left; }
+h1, h2, h3, h4 { font-weight: bold; line-height: 1.2; page-break-after: avoid; text-align: left; }
+h1 { font-size: 1.6em; margin: 1.5em 0 0.8em 0; }
+h2 { font-size: 1.3em; margin: 1.4em 0 0.6em 0; }
+h3 { font-size: 1.1em; margin: 1.2em 0 0.4em 0; }
+h4 { font-size: 1.0em; margin: 1em 0 0.3em 0; }
+h1.part { font-size: 1.8em; text-align: center; margin-top: 35%; letter-spacing: 0.04em; }
+h2.chapter { font-size: 1.5em; margin-top: 0.4em; }
+div.kicker p { font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.08em; color: #555555; margin: 0 0 1.2em 0; }
+div.byline p { font-style: italic; color: #555555; margin-bottom: 1.5em; }
+div.titlepage { text-align: center; margin-top: 20%; }
+div.titlepage p { text-align: center; margin-bottom: 1em; }
+div.titlepage p:first-child { font-size: 2em; line-height: 1.2; }
+div.copyright { font-size: 0.85em; margin-top: 2em; }
+h1.hidden { display: none; }
+table { border-collapse: collapse; width: 100%; margin: 1em 0; font-size: 0.85em; }
+th, td { border: 1px solid #888888; padding: 0.25em 0.4em; vertical-align: top; text-align: left; }
+th { font-weight: bold; }
+caption { font-size: 0.9em; font-style: italic; margin-bottom: 0.3em; }
+blockquote { margin: 0.8em 1.2em; }
+a { text-decoration: none; }
+section.footnotes, aside.footnote { font-size: 0.85em; }
+nav#toc ol { list-style-type: none; }
