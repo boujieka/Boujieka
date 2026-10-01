@@ -1,0 +1,119 @@
+1
+00:00:01,200 --> 00:00:06,921
+Formation à l'utilisation du calculateur de faisabilité de mini-réseau.
+
+2
+00:00:06,971 --> 00:00:09,721
+Par Emmanuel Boujieka Kamga.
+
+3
+00:00:11,271 --> 00:00:19,279
+Ce calculateur évalue un mini-réseau hybride solaire, batterie et diesel au stade de la préfaisabilité.
+
+4
+00:00:19,329 --> 00:00:30,193
+Il répond à trois questions : le projet est-il viable avec ses seules recettes, peut-il porter une dette, et quelle subvention comble l'écart ?
+
+5
+00:00:31,743 --> 00:00:40,964
+Ouvrez l'onglet Hypothèses. Vous ne modifiez que les cellules jaunes à texte bleu ; toutes les autres sont des formules.
+
+6
+00:00:41,014 --> 00:00:50,021
+Commencez par le projet : durée de vie, taux minimal, cible des fonds propres, DSCR minimum, indexation et fiscalité.
+
+7
+00:00:50,071 --> 00:00:56,364
+Gardez le taux minimal et l'indexation sur la même base, toutes deux nominales.
+
+8
+00:00:57,914 --> 00:01:04,779
+Quatre multiplicateurs mettent sous tension le tarif, la demande, le CAPEX et les OPEX.
+
+9
+00:01:04,829 --> 00:01:13,550
+La valeur 1,00 conserve vos saisies ; 0,85 sur la demande simule une consommation inférieure de quinze pour cent.
+
+10
+00:01:15,100 --> 00:01:22,964
+Saisissez chaque segment : nombre de clients, consommation mensuelle, tarif et frais de raccordement.
+
+11
+00:01:23,014 --> 00:01:31,807
+Réglez ensuite la montée en charge des raccordements, la croissance de la consommation et le taux de recouvrement.
+
+12
+00:01:31,857 --> 00:01:41,579
+Préférez des données d'enquête ou de comptage à une liste d'équipements, qui surestime souvent la demande des premières années.
+
+13
+00:01:43,129 --> 00:01:51,136
+Le calculateur dimensionne le PV, la batterie et le diesel à partir de l'énergie vendue en année trois.
+
+14
+00:01:51,186 --> 00:01:59,979
+L'énergie solaire consommée la nuit transite par la batterie : les pertes de stockage augmentent le PV nécessaire.
+
+15
+00:02:00,029 --> 00:02:06,464
+Si vous disposez d'une conception, saisissez vos valeurs dans la colonne Forçage.
+
+16
+00:02:08,014 --> 00:02:17,307
+Saisissez les coûts unitaires du PV, du stockage, du groupe, du réseau et des compteurs, puis les charges d'exploitation.
+
+17
+00:02:17,357 --> 00:02:27,079
+Le remplacement des batteries peut être lissé par une réserve de maintenance, qui stabilise le DSCR les années de remplacement.
+
+18
+00:02:28,629 --> 00:02:39,064
+Décrivez le financement : subvention initiale, RBF par nouveau raccordement avec son délai de vérification, et conditions du prêt senior.
+
+19
+00:02:39,114 --> 00:02:46,550
+Le RBF arrive après la mise en service et la vérification : le développeur doit le préfinancer.
+
+20
+00:02:48,100 --> 00:03:01,250
+Le tableau de bord présente le TRI et la VAN du projet avant et après subventions, le LCOE face à la recette encaissée actualisée, le DSCR et la rentabilité des fonds propres.
+
+21
+00:03:01,300 --> 00:03:09,950
+Comparez le LCOE à la recette encaissée, pas au tarif de l'année un : les deux sont actualisés de la même façon.
+
+22
+00:03:11,500 --> 00:03:20,079
+Le déficit de viabilité est la subvention initiale qui ramène à zéro la VAN avant subventions, au taux minimal.
+
+23
+00:03:20,129 --> 00:03:28,921
+Dans l'exemple, il atteint 907 dollars par raccordement, et la subvention et le RBF prévus le comblent tout juste.
+
+24
+00:03:28,971 --> 00:03:38,621
+Cinq verdicts résument la bancabilité. Ici, le covenant de dette est respecté, mais les fonds propres restent sous leur cible.
+
+25
+00:03:40,171 --> 00:03:51,250
+Les graphiques présentent vingt ans de recettes, d'OPEX et de CFADS face au service de la dette, ainsi que la répartition entre solaire et diesel.
+
+26
+00:03:52,800 --> 00:04:01,879
+Avant d'utiliser un résultat, ouvrez l'onglet Contrôles. Chaque ligne doit afficher OK, et le tableau de bord TOUT OK.
+
+27
+00:04:03,429 --> 00:04:11,793
+Le manuel PDF de quinze pages détaille la méthode, les formules, l'exemple commenté et les limites d'emploi.
+
+28
+00:04:11,843 --> 00:04:18,850
+Les valeurs d'exemple sont illustratives : remplacez-les par les données de votre projet.
+
+29
+00:04:20,400 --> 00:04:27,836
+Vous recevez le classeur en français et en anglais, le manuel PDF et les contrôles d'intégrité.
+
+30
+00:04:27,886 --> 00:04:35,107
+Les valeurs de l'exemple sont illustratives : remplacez-les par les données de votre projet.

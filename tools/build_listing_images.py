@@ -166,10 +166,10 @@ def run(cmd, **kw):
     return r.stdout
 
 
-def passes(product):
+def passes(product, views=None):
     """Split views so that each pass has at most one view per sheet."""
     out = []
-    for key, (sheet, rng) in VIEWS[product].items():
+    for key, (sheet, rng) in (views or VIEWS[product]).items():
         for p in out:
             if sheet not in {s for s, _ in p.values()}:
                 p[key] = (sheet, rng)
@@ -188,11 +188,12 @@ def crop(img, pad=18):
     return img.crop((max(0, l - pad), max(0, t - pad), min(img.width, r + pad), min(img.height, b + pad)))
 
 
-def render_views(product, lang):
+def render_views(product, lang, views=None, tag="img"):
+    """Render each view (sheet, range) of the product workbook to a cropped image. Returns {key: Image}."""
     spec = PRODUCTS[product]
     shots = {}
-    for i, views in enumerate(passes(product)):
-        work = TMP / f"{product}_{lang}_{i}"
+    for i, views in enumerate(passes(product, views)):
+        work = TMP / f"{tag}_{product}_{lang}_{i}"
         if work.exists():
             shutil.rmtree(work)
         work.mkdir(parents=True)

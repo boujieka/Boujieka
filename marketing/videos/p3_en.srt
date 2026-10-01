@@ -1,0 +1,95 @@
+1
+00:00:01,200 --> 00:00:07,064
+How to use the Energy Access Fund Manager Model, RBF & Portfolio Edition.
+
+2
+00:00:07,114 --> 00:00:09,864
+By Emmanuel Boujieka Kamga.
+
+3
+00:00:11,414 --> 00:00:22,493
+The Fund Manager Edition helps the manager of a grant or RBF window decide which projects to support, with how much, and what portfolio that buys.
+
+4
+00:00:24,043 --> 00:00:35,979
+Start with the fund: its size, management and technical assistance costs, the over-commitment ratio, and the concentration limits per project and per country.
+
+5
+00:00:36,029 --> 00:00:41,607
+Over-commitment is prudent only if expected under-delivery covers it.
+
+6
+00:00:43,157 --> 00:00:51,379
+Choose a support profile: RBF per connection by customer type, capital grant share, caps and RBF tranches.
+
+7
+00:00:51,429 --> 00:00:57,150
+Use the Custom profile to mirror the published rules of your programme.
+
+8
+00:00:58,700 --> 00:01:09,779
+Eight eligibility criteria can be switched on or off: size, unit cost, renewable share, co-finance, readiness, tariff, productive use and country.
+
+9
+00:01:11,329 --> 00:01:18,979
+Set the scoring weights, which must total one hundred percent, ideally before applications arrive.
+
+10
+00:01:19,029 --> 00:01:26,679
+The delivery table links each risk rating to the share of connections you expect to see delivered.
+
+11
+00:01:28,229 --> 00:01:39,379
+Enter one row per applicant. You can paste CAPEX, viability gap and CO2 from the Developer Edition; the viability gap feeds the additionality test.
+
+12
+00:01:40,929 --> 00:01:49,364
+Each project is tested against every active criterion. A rejected project shows the first criterion it fails.
+
+13
+00:01:49,414 --> 00:01:54,493
+In the example, eight of the fourteen applicants are eligible.
+
+14
+00:01:56,043 --> 00:02:07,836
+Eligible projects are funded in score order. Each row looks only at the rows above it, so the envelope and country limits apply without circular references.
+
+15
+00:02:07,886 --> 00:02:15,036
+Here project N is limited by the country ceiling, and project B by the end of the envelope.
+
+16
+00:02:16,586 --> 00:02:26,450
+Grants are paid at commissioning. RBF is paid in two tranches as connections are verified, reduced by the expected delivery rate.
+
+17
+00:02:26,500 --> 00:02:33,007
+The fund cash position then shows whether commitments stay within available funds.
+
+18
+00:02:34,557 --> 00:02:47,064
+During the life of the fund, enter verified connections and payments to date. The tracker compares progress with the expected profile and gives each project a status.
+
+19
+00:02:48,614 --> 00:03:02,193
+The dashboard sums up the portfolio: 2.55 million dollars allocated, about 7,960 connections funded, private capital mobilised, cost per connection, concentration and four verdicts.
+
+20
+00:03:02,243 --> 00:03:11,250
+The over-commitment indicator shows that this grant-heavy portfolio can only absorb an over-commitment of about 1.02.
+
+21
+00:03:12,800 --> 00:03:22,450
+Twelve checks confirm the weights, the limits and the disbursement schedule. Use the results only when the sheet reads ALL OK.
+
+22
+00:03:24,000 --> 00:03:38,650
+The fifteen-page manual explains the method, the scoring, the allocation rules, the worked example and the limits of use. The model supports decisions; it does not replace an investment committee.
+
+23
+00:03:40,200 --> 00:03:47,136
+You receive the workbook in English and French, the PDF manual and the integrity checks.
+
+24
+00:03:47,186 --> 00:03:53,836
+The example values are illustrative: replace them with the data of your own project.

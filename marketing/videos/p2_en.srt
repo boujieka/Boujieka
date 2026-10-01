@@ -1,0 +1,119 @@
+1
+00:00:01,200 --> 00:00:06,421
+How to use the Energy Access Financial Model, Developer Edition.
+
+2
+00:00:06,471 --> 00:00:09,221
+By Emmanuel Boujieka Kamga.
+
+3
+00:00:10,771 --> 00:00:18,350
+The Developer Edition follows a mini-grid project from community demand to the financing request.
+
+4
+00:00:18,400 --> 00:00:28,264
+It tells you whether the project can become bankable, and with what mix of grant, RBF, concessional debt, senior debt and equity.
+
+5
+00:00:29,814 --> 00:00:38,036
+On the Inputs sheet, start with the project, rates and tax, then choose the active scenario from the list.
+
+6
+00:00:38,086 --> 00:00:45,236
+Scenarios model out-turn risk on a system already built: the sizing stays on the base case.
+
+7
+00:00:46,786 --> 00:00:53,079
+Each segment has its own tariff, connection fee, RBF amount and monthly income.
+
+8
+00:00:53,129 --> 00:01:01,064
+The model compares the year one bill with your affordability threshold and flags any segment above it.
+
+9
+00:01:02,614 --> 00:01:08,550
+The load profile gives each segment's share of daily energy, hour by hour.
+
+10
+00:01:08,600 --> 00:01:20,250
+The night-time share sizes the battery, and the peak ratio sizes the diesel generator. Replace the illustrative shapes with metered data when you have it.
+
+11
+00:01:21,800 --> 00:01:26,521
+List the productive appliances expected in the community.
+
+12
+00:01:26,571 --> 00:01:35,721
+Their monthly consumption, divided by the number of productive users, can replace the direct entry on the Inputs sheet.
+
+13
+00:01:37,271 --> 00:01:46,350
+Set the capital grant, the two debt tranches with their rates, tenors and grace periods, and the debt service reserve.
+
+14
+00:01:46,400 --> 00:01:50,693
+Equity covers the rest, including the initial DSRA.
+
+15
+00:01:52,243 --> 00:02:00,393
+The dashboard gives project and equity returns, DSCR and LCOE, six verdicts and affordability by segment.
+
+16
+00:02:00,443 --> 00:02:08,236
+The equity verdict uses NPV at the target rate, because IRR can mislead when cash flows change sign.
+
+17
+00:02:09,786 --> 00:02:19,507
+The Funding Gap sheet is the core of the model. It first sizes the viability gap, then the grant needed given the RBF you plan.
+
+18
+00:02:19,557 --> 00:02:25,850
+Cash flows are linear in RBF, so these results are exact and need no Goal Seek.
+
+19
+00:02:27,400 --> 00:02:35,479
+The model gives the uniform RBF per connection for a zero project NPV, and for the equity target return.
+
+20
+00:02:35,529 --> 00:02:42,536
+In the example, equity reaches its target with 347 dollars per connection instead of 260.
+
+21
+00:02:42,586 --> 00:02:51,379
+It also computes the largest senior loan that keeps DSCR above the minimum every year, and names the binding year.
+
+22
+00:02:52,929 --> 00:03:01,864
+Each variable moves up and down by twenty percent, one at a time, and the tornado ranks them by their effect on NPV.
+
+23
+00:03:01,914 --> 00:03:09,921
+Note the demand result: with a system sized for base demand, extra kWh come from diesel, and NPV falls.
+
+24
+00:03:11,471 --> 00:03:23,836
+The Impact and MRV sheet tracks verified connections, people with access, jobs, energy, CO2 avoided and RBF disbursed, year by year, with cost-effectiveness ratios.
+
+25
+00:03:25,386 --> 00:03:33,679
+The Financing Request sheet writes six paragraphs from your results, with sources and uses and key metrics.
+
+26
+00:03:33,729 --> 00:03:39,236
+Copy them into your concept note, then review and adapt the wording.
+
+27
+00:03:40,786 --> 00:03:52,007
+Sixteen checks run at every recalculation, including identity checks that confirm the RBF calibration. Use results only when the sheet reads ALL OK.
+
+28
+00:03:53,557 --> 00:04:04,707
+The sixteen-page manual explains every method, the worked example and the limits of use. Read the limits before presenting a result to a committee.
+
+29
+00:04:06,257 --> 00:04:13,193
+You receive the workbook in English and French, the PDF manual and the integrity checks.
+
+30
+00:04:13,243 --> 00:04:19,893
+The example values are illustrative: replace them with the data of your own project.

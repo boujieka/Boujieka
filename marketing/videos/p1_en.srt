@@ -1,0 +1,119 @@
+1
+00:00:01,200 --> 00:00:05,279
+How to use the Mini-Grid Feasibility Calculator.
+
+2
+00:00:05,329 --> 00:00:08,079
+By Emmanuel Boujieka Kamga.
+
+3
+00:00:09,629 --> 00:00:17,064
+This calculator assesses a hybrid solar, battery and diesel mini-grid at pre-feasibility stage.
+
+4
+00:00:17,114 --> 00:00:27,050
+It answers three questions: is the project viable on tariff revenue alone, can it carry debt, and how much subsidy closes the gap?
+
+5
+00:00:28,600 --> 00:00:36,393
+Open the Inputs sheet. You only edit the yellow cells with blue text; every other cell is a formula.
+
+6
+00:00:36,443 --> 00:00:43,593
+Start with the project: life, hurdle rate, equity target, minimum DSCR, escalation and tax.
+
+7
+00:00:43,643 --> 00:00:49,436
+Keep the hurdle rate and the escalation on the same basis, both nominal.
+
+8
+00:00:50,986 --> 00:00:55,850
+Four multipliers stress the tariff, demand, CAPEX and OPEX.
+
+9
+00:00:55,900 --> 00:01:04,693
+A value of 1.00 keeps your inputs as entered; 0.85 on demand simulates consumption fifteen percent below forecast.
+
+10
+00:01:06,243 --> 00:01:13,821
+Enter each customer segment: number of customers, monthly consumption, tariff and connection fee.
+
+11
+00:01:13,871 --> 00:01:20,450
+Then set the connection ramp-up, the growth in consumption and the collection rate.
+
+12
+00:01:20,500 --> 00:01:28,079
+Use survey or metering data rather than an appliance list, which usually overstates early demand.
+
+13
+00:01:29,629 --> 00:01:35,636
+The calculator sizes PV, battery and diesel from energy sold in year three.
+
+14
+00:01:35,686 --> 00:01:43,336
+Solar energy used at night passes through the battery, so round-trip losses raise the PV required.
+
+15
+00:01:43,386 --> 00:01:48,464
+If you have a design, type your values in the Override column.
+
+16
+00:01:50,014 --> 00:01:57,093
+Enter unit costs for PV, storage, generator, network and meters, then the operating costs.
+
+17
+00:01:57,143 --> 00:02:06,150
+Battery replacements can be smoothed through a maintenance reserve, which keeps the DSCR stable in replacement years.
+
+18
+00:02:07,700 --> 00:02:16,564
+Describe the financing: upfront grant, RBF per new connection with its verification lag, and the senior loan terms.
+
+19
+00:02:16,614 --> 00:02:23,264
+RBF arrives after commissioning and verification, so the developer has to bridge it.
+
+20
+00:02:24,814 --> 00:02:35,607
+The dashboard shows project IRR and NPV before and after subsidies, the LCOE against levelized collected revenue, the DSCR and equity returns.
+
+21
+00:02:35,657 --> 00:02:43,736
+Compare the LCOE with collected revenue, not with the year one tariff: both are discounted the same way.
+
+22
+00:02:45,286 --> 00:02:52,864
+The viability gap is the upfront subsidy that brings pre-subsidy NPV to zero at your hurdle rate.
+
+23
+00:02:52,914 --> 00:03:00,564
+In the example it reaches 907 dollars per connection, and the planned grant and RBF just close it.
+
+24
+00:03:00,614 --> 00:03:08,764
+Five verdicts summarise bankability. Here the debt covenant is met, but equity returns stay below target.
+
+25
+00:03:10,314 --> 00:03:20,107
+The charts show twenty years of revenue, OPEX and CFADS against debt service, and the split between solar and diesel generation.
+
+26
+00:03:21,657 --> 00:03:30,021
+Before using any result, open the Checks sheet. Every line must read OK, and the dashboard must show ALL OK.
+
+27
+00:03:31,571 --> 00:03:39,579
+The fifteen-page PDF manual details the method, the formulas, the worked example and the limits of use.
+
+28
+00:03:39,629 --> 00:03:45,493
+Example values are illustrative: replace them with your own project data.
+
+29
+00:03:47,043 --> 00:03:53,979
+You receive the workbook in English and French, the PDF manual and the integrity checks.
+
+30
+00:03:54,029 --> 00:04:00,679
+The example values are illustrative: replace them with the data of your own project.
