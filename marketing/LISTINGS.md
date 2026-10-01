@@ -17,7 +17,7 @@ Mini-Grid Financial Model Excel, Solar Battery Diesel Feasibility Calculator, En
 **Tags** (13 tags, max 20 characters each)
 ```
 mini grid model
-solar financial model
+solar finance model
 energy access
 project finance
 excel template
