@@ -65,6 +65,9 @@ Mini-grid developers, energy-access consultants, NGO and programme staff, studen
 IMPORTANT
 This is a screening and pre-feasibility tool. It does not replace engineering design or investment due diligence. Example values are illustrative, not market benchmarks.
 
+ABOUT THE AUTHOR
+Built by Emmanuel Boujieka Kamga, a climate and energy-access finance specialist with more than twenty years across 21 African markets. He has designed results-based and viability-gap instruments for national mini-grid programmes and co-structured more than USD 1 billion of renewable energy finance. MBA, HEC Montréal.
+
 FORMAT
 Instant digital download. Works in Microsoft Excel 2010 or later. LibreOffice also opens it. Google Sheets may display some formatting differently. No physical item will be shipped.
 
@@ -184,6 +187,9 @@ FEATURES
 WHAT IT IS NOT
 A full corporate model: no FX, VAT, working capital or balance sheet, and no debt sculpting. It focuses on subsidy sizing, affordability and impact, and can be used alongside a full project-finance model.
 
+ABOUT THE AUTHOR
+Built by Emmanuel Boujieka Kamga, a climate and energy-access finance specialist with more than twenty years across 21 African markets. He has designed results-based and viability-gap instruments for national mini-grid programmes and co-structured more than USD 1 billion of renewable energy finance. MBA, HEC Montréal.
+
 FORMAT
 .xlsx, no macros, fully unlocked. Excel 2010 or later. Includes a worked example (illustrative values) and a 16-page PDF user manual in English and French. Instant digital download.
 
@@ -251,6 +257,9 @@ Paste each project's CAPEX, viability gap and CO2 from our Developer Edition to 
 
 WHAT IT IS NOT
 Not a replacement for an investment committee, due diligence or legal documentation. No FX and no reflows. The example fund, countries and projects are fictitious.
+
+ABOUT THE AUTHOR
+Built by Emmanuel Boujieka Kamga, a climate and energy-access finance specialist with more than twenty years across 21 African markets. He has designed results-based and viability-gap instruments for national mini-grid programmes and co-structured more than USD 1 billion of renewable energy finance. MBA, HEC Montréal.
 
 FORMAT
 .xlsx, no macros, unlocked, English and French versions included, with a 15-page PDF user manual in each language. Excel 2010 or later. Instant digital download.

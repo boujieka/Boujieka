@@ -61,6 +61,9 @@ Développeurs de mini-réseaux, consultants en accès à l'énergie, équipes d'
 IMPORTANT
 Outil de présélection et de préfaisabilité. Il ne remplace ni une conception d'ingénierie ni une due diligence d'investissement. Les valeurs d'exemple ne sont pas des références de marché.
 
+L'AUTEUR
+Conçu par Emmanuel Boujieka Kamga, spécialiste de la finance climat et de l'accès à l'énergie, plus de vingt ans d'expérience dans 21 pays africains. Il a conçu des instruments de financement basé sur les résultats et de déficit de viabilité pour des programmes nationaux de mini-réseaux, et co-structuré plus d'un milliard de dollars de financements d'énergies renouvelables. MBA, HEC Montréal.
+
 FORMAT
 Téléchargement numérique immédiat. Excel 2010 ou plus récent ; s'ouvre aussi avec LibreOffice. Version anglaise également disponible.
 
@@ -122,6 +125,9 @@ FONCTIONNALITÉS
 
 CE QU'IL N'EST PAS
 Un modèle financier complet d'entreprise : pas de change, de TVA, de BFR ni de bilan, et pas de dette sculptée. Il se concentre sur le dimensionnement des subventions, la capacité de paiement et l'impact.
+
+L'AUTEUR
+Conçu par Emmanuel Boujieka Kamga, spécialiste de la finance climat et de l'accès à l'énergie, plus de vingt ans d'expérience dans 21 pays africains. Il a conçu des instruments de financement basé sur les résultats et de déficit de viabilité pour des programmes nationaux de mini-réseaux, et co-structuré plus d'un milliard de dollars de financements d'énergies renouvelables. MBA, HEC Montréal.
 
 FORMAT
 .xlsx entièrement en français, sans macros, déverrouillé. Excel 2010 ou plus récent. Exemple chiffré illustratif et manuel d'utilisation PDF de 16 pages inclus (français et anglais). Téléchargement immédiat. Version anglaise également disponible.
@@ -186,6 +192,9 @@ Collez le CAPEX, le déficit de viabilité et le CO2 de chaque projet issus de n
 
 CE QU'IL N'EST PAS
 Il ne remplace ni un comité d'investissement, ni une due diligence, ni la documentation juridique. Pas de change ni de reflux. Le fonds, les pays et les projets de l'exemple sont fictifs.
+
+L'AUTEUR
+Conçu par Emmanuel Boujieka Kamga, spécialiste de la finance climat et de l'accès à l'énergie, plus de vingt ans d'expérience dans 21 pays africains. Il a conçu des instruments de financement basé sur les résultats et de déficit de viabilité pour des programmes nationaux de mini-réseaux, et co-structuré plus d'un milliard de dollars de financements d'énergies renouvelables. MBA, HEC Montréal.
 
 FORMAT
 .xlsx sans macros, déverrouillé, versions française et anglaise incluses, avec un manuel d'utilisation PDF de 15 pages dans chaque langue. Excel 2010 ou plus récent. Téléchargement immédiat.
