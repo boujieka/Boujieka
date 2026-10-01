@@ -74,6 +74,12 @@ function Pandoc(doc)
     end
 
     if not seen_heading then
+      -- copyright page dates (author, Oct 2026): "© 2026" and "First edition, October 2026"
+      if t and t:find("First edition", 1, true) then
+        b = pandoc.Para(pandoc.Emph(pandoc.Str("First edition, October 2026")))
+      elseif t and t:find("Copyright", 1, true) then
+        b = b:walk({Str = function(s) if s.text:match("^2027") then return pandoc.Str((s.text:gsub("^2027", "2026"))) end end})
+      end
       table.insert(front, b)
       i = i + 1
       goto continue
