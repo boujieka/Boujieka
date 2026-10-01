@@ -21,3 +21,7 @@ def apply(wb):
         ws.page_setup.fitToHeight = 1
         ws.sheet_properties.pageSetUpPr.fitToPage = True
         ws.print_options.gridLines = False
+    # screenshots: keep the author in the footer, drop the page counter
+    for ws in wb.worksheets:
+        ws.oddFooter.right.text = None
+        ws.evenFooter.right.text = None

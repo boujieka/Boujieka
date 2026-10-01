@@ -5,7 +5,7 @@
   @top-left { content: string(product); font: 7.5pt "Liberation Sans"; color: #6b7280; }
   @top-right { content: string(chapter); font: 7.5pt "Liberation Sans"; color: #6b7280; }
   @bottom-right { content: counter(page); font: 8pt "Liberation Sans"; color: #374151; }
-  @bottom-left { content: "Energy Access Finance Toolkit"; font: 7.5pt "Liberation Sans"; color: #9ca3af; }
+  @bottom-left { content: "Emmanuel Boujieka Kamga  |  Energy Access Finance Toolkit"; font: 7.5pt "Liberation Sans"; color: #6b7280; }
 }
 @page :first { margin: 0; @top-left { content: none; } @top-right { content: none; }
   @bottom-right { content: none; } @bottom-left { content: none; } }
@@ -23,7 +23,8 @@ body { margin: 0; }
 .cover-body { padding: 0 23mm; }
 .cover-title { margin: 58mm 0 0 0; font-size: 25pt; line-height: 1.18; color: #1F3A5F; font-weight: bold; }
 .cover-sub { margin: 6mm 0 0 0; font-size: 13pt; color: #1B7F79; }
-.cover-version { margin: 92mm 0 0 0; font-size: 9.5pt; color: #374151; }
+.cover-author { margin: 10mm 0 0 0; font-size: 12pt; color: #1F3A5F; font-weight: bold; }
+.cover-version { margin: 78mm 0 0 0; font-size: 9.5pt; color: #374151; }
 .cover-licence { margin: 2mm 0 0 0; font-size: 8pt; color: #6b7280; }
 
 /* Table of contents */

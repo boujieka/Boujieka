@@ -144,7 +144,7 @@ FOOTER = {
     "fr": "Capture non retouchée du classeur. Les valeurs d'exemple sont illustratives et ne sont pas des références de marché.",
 }
 FOOTER_MANUAL = {"en": "Actual pages of the manual supplied with the workbook.", "fr": "Pages réelles du manuel fourni avec le classeur."}
-KICKER = "ENERGY ACCESS FINANCE TOOLKIT"
+KICKER = "ENERGY ACCESS FINANCE TOOLKIT  |  EMMANUEL BOUJIEKA KAMGA"
 MANUALS = {
     ("p1", "en"): "product/01-entry-calculator/Manual_MiniGrid_Feasibility_Calculator_EN.pdf",
     ("p1", "fr"): "product/01-entry-calculator/Manuel_Calculateur_Faisabilite_MiniReseau_FR.pdf",
@@ -265,7 +265,7 @@ def compose(headline, subline, footer, content):
     im = Image.new("RGB", (W, H), BG)
     d = ImageDraw.Draw(im)
     d.rectangle((0, 0, W, 330), fill=NAVY)
-    d.text((110, 62), KICKER, font=ImageFont.truetype(F_REG, 30), fill=(201, 214, 227))
+    d.text((110, 62), KICKER, font=fit_font(d, KICKER, F_REG, 30, W - 220), fill=(201, 214, 227))
     f_head = ImageFont.truetype(F_BOLD, 74)
     while d.textlength(headline, font=f_head) > W - 220 and f_head.size > 50:
         f_head = ImageFont.truetype(F_BOLD, f_head.size - 2)
@@ -339,7 +339,7 @@ def gumroad_thumbnail(p, lg, shot):
     im = Image.new("RGB", (S, S), NAVY)
     d = ImageDraw.Draw(im)
     d.rectangle((0, 0, S, 22), fill=g["accent"])
-    d.text((80, 80), KICKER, font=ImageFont.truetype(F_REG, 30), fill=(201, 214, 227))
+    d.text((80, 80), KICKER, font=fit_font(d, KICKER, F_REG, 30, S - 160, 18), fill=(201, 214, 227))
     f_name, lines = fit_lines(d, g["name"][lg], F_BOLD, 84, S - 160, 3)
     y = draw_lines(d, (80, 140), lines, f_name, "white", 10)
     if "edition" in g:
@@ -365,7 +365,7 @@ def gumroad_cover(p, lg, shot):
     panel = 760
     d.rectangle((0, 0, panel, H2), fill=NAVY)
     d.rectangle((0, 0, panel, 14), fill=g["accent"])
-    d.text((70, 70), KICKER, font=ImageFont.truetype(F_REG, 24), fill=(201, 214, 227))
+    d.text((70, 70), KICKER, font=fit_font(d, KICKER, F_REG, 24, panel - 140, 16), fill=(201, 214, 227))
     f_name, lines = fit_lines(d, g["name"][lg], F_BOLD, 60, panel - 140, 3)
     y = draw_lines(d, (70, 120), lines, f_name, "white", 8)
     if "edition" in g:

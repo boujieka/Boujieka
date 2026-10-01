@@ -797,3 +797,5 @@ DICT.update({
 })
 for _k in range(1, 11):
     DICT[f"Developer {_k}"] = f"Développeur {_k}"
+
+DICT["By Emmanuel Boujieka Kamga"] = "Par Emmanuel Boujieka Kamga"

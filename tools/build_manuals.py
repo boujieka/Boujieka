@@ -45,6 +45,7 @@ MANUALS = [
 ]
 
 VERSION = {"fr": "Version 1.0, octobre 2026", "en": "Version 1.0, October 2026"}
+AUTHOR_LINE = {"fr": "Emmanuel Boujieka Kamga", "en": "Emmanuel Boujieka Kamga"}
 TOC_TITLE = {"fr": "Sommaire", "en": "Contents"}
 LICENCE = {
     "fr": "Licence : un utilisateur ou une organisation. Reproduction et revente interdites.",
@@ -134,6 +135,7 @@ def build_html(md_text, lang, title, subtitle):
   <div class="cover-body">
     <h1 class="cover-title">{title_t}</h1>
     <p class="cover-sub">{sub_t}</p>
+    <p class="cover-author">{AUTHOR_LINE[lang]}</p>
     <p class="cover-version">{VERSION[lang]}</p>
     <p class="cover-licence">{LICENCE[lang]}</p>
   </div>

@@ -15,6 +15,7 @@ from openpyxl.worksheet.datavalidation import DataValidation
 
 import i18n
 import print_areas
+import branding
 
 LANG, OUT = i18n.setup(sys.argv)
 T = i18n.T
@@ -791,6 +792,7 @@ wd.sheet_properties.tabColor = TEAL
 wc.sheet_properties.tabColor = "7F7F7F"
 wk.sheet_properties.tabColor = "7F7F7F"
 wb.active = 0
+branding.apply(wb, T)
 print_areas.apply(wb)
 wb.save(OUT)
 print("saved", OUT)
