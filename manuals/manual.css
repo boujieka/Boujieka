@@ -1,0 +1,71 @@
+/* Print stylesheet for the user manuals (WeasyPrint). Sober A4 layout. */
+@page {
+  size: A4;
+  margin: 24mm 21mm 22mm 23mm;
+  @top-left { content: string(product); font: 7.5pt "Liberation Sans"; color: #6b7280; }
+  @top-right { content: string(chapter); font: 7.5pt "Liberation Sans"; color: #6b7280; }
+  @bottom-right { content: counter(page); font: 8pt "Liberation Sans"; color: #374151; }
+  @bottom-left { content: "Energy Access Finance Toolkit"; font: 7.5pt "Liberation Sans"; color: #9ca3af; }
+}
+@page :first { margin: 0; @top-left { content: none; } @top-right { content: none; }
+  @bottom-right { content: none; } @bottom-left { content: none; } }
+@page toc { @top-right { content: none; } }
+
+html { font-family: "Liberation Sans", Arial, sans-serif; font-size: 9.6pt; line-height: 1.5; color: #1f2933;
+  hyphens: auto; }
+body { margin: 0; }
+.running-title { string-set: product content(); display: block; height: 0; overflow: hidden; }
+
+/* Cover (normal flow; the first page has no margins) */
+.cover { page: cover; height: 296mm; break-after: page; }
+.cover-band { height: 72mm; background: #1F3A5F; padding: 30mm 23mm 0 23mm; box-sizing: border-box; }
+.cover-kicker { margin: 0; color: #c9d6e3; font-size: 9pt; letter-spacing: 0.12em; text-transform: uppercase; }
+.cover-body { padding: 0 23mm; }
+.cover-title { margin: 58mm 0 0 0; font-size: 25pt; line-height: 1.18; color: #1F3A5F; font-weight: bold; }
+.cover-sub { margin: 6mm 0 0 0; font-size: 13pt; color: #1B7F79; }
+.cover-version { margin: 92mm 0 0 0; font-size: 9.5pt; color: #374151; }
+.cover-licence { margin: 2mm 0 0 0; font-size: 8pt; color: #6b7280; }
+
+/* Table of contents */
+.toc { page: toc; }
+.toc-title { font-size: 15pt; color: #1F3A5F; margin: 0 0 8mm 0; border: none; }
+.toc ul { list-style: none; padding: 0; margin: 0; }
+.toc li { margin: 0; }
+.toc li a { color: #1f2933; text-decoration: none; }
+.toc li a::after { content: leader(".") target-counter(attr(href), page); color: #6b7280; }
+.toc-h2 { font-weight: bold; margin-top: 3.2mm !important; font-size: 10pt; }
+.toc-h3 { padding-left: 7mm; font-size: 9pt; color: #374151; }
+
+/* Headings */
+h2 { string-set: chapter content(); font-size: 14.5pt; color: #1F3A5F; margin: 0 0 4mm 0; padding-bottom: 2mm;
+  border-bottom: 0.6pt solid #1F3A5F; break-before: page; break-after: avoid; }
+h3 { font-size: 11pt; color: #1F3A5F; margin: 6.5mm 0 2mm 0; break-after: avoid; }
+h4 { font-size: 9.8pt; color: #1B7F79; margin: 4.5mm 0 1.5mm 0; break-after: avoid; }
+p { margin: 0 0 2.6mm 0; text-align: justify; orphans: 3; widows: 3; }
+ul, ol { margin: 0 0 2.8mm 0; padding-left: 6mm; }
+li { margin-bottom: 1.1mm; }
+ul { list-style-type: square; }
+ul li::marker { color: #1B7F79; }
+strong { color: #111827; }
+em { color: #374151; }
+
+/* Tables */
+table { width: 100%; border-collapse: collapse; margin: 2mm 0 4mm 0; font-size: 8.4pt; line-height: 1.38;
+  break-inside: auto; }
+thead { display: table-header-group; }
+tr { break-inside: avoid; }
+th { text-align: left; font-weight: bold; color: #1F3A5F; background: #eef3f8; border-top: 0.8pt solid #1F3A5F;
+  border-bottom: 0.5pt solid #1F3A5F; padding: 1.6mm 2mm; vertical-align: bottom; }
+td { border-bottom: 0.3pt solid #cbd5e1; padding: 1.4mm 2mm; vertical-align: top; text-align: left; }
+tbody tr:last-child td { border-bottom: 0.8pt solid #1F3A5F; }
+
+/* Boxes */
+blockquote { margin: 3mm 0 4mm 0; padding: 2.5mm 4mm; background: #f3f7f6; border-left: 2pt solid #1B7F79;
+  break-inside: avoid; }
+blockquote p { margin: 0 0 1.5mm 0; }
+blockquote p:last-child { margin-bottom: 0; }
+p.formula { font-family: "Liberation Mono", "DejaVu Sans Mono", monospace; font-size: 8.6pt; background: #f8fafc;
+  border: 0.4pt solid #d5dde6; padding: 2mm 3mm; text-align: left; break-inside: avoid; }
+p.small { font-size: 8.4pt; color: #4b5563; }
+code { font-family: "Liberation Mono", monospace; font-size: 8.4pt; }
+a { color: #1F3A5F; text-decoration: none; }

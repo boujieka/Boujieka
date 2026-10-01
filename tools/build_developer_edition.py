@@ -123,6 +123,7 @@ guide = [
     ("", None),
     ("METHOD AND SIMPLIFICATIONS", f_h2),
     ("- Annual time step. Construction in Year 0, operation Years 1-20. No hourly dispatch: solar delivery is capped by the target solar fraction.", f_txt),
+    ("- Night-time solar energy passes through the battery: the round-trip efficiency loss is charged to PV production.", f_txt),
     ("- Sizing uses base inputs. Scenario and sensitivity levers model out-turn risk on the built system (the design does not change).", f_txt),
     ("- PV and battery capacity are fixed after Year 0. If demand keeps growing, diesel covers the difference and fuel cost rises.", f_txt),
     ("- Tax: flat rate with unlimited loss carry-forward. Grants and RBF are treated as non-taxable. Check local tax treatment.", f_txt),
@@ -305,12 +306,15 @@ inp("Distribution & conversion losses", "Losses", 0.12, PCT)
 inp("Target solar fraction (max share of generation from PV)", "SolarFraction", 0.90, PCT, "", "Storage-limited cap. Diesel supplies the rest.")
 inp("PV oversizing factor", "PVOversize", 1.15, MULT)
 inp("Battery usable depth of discharge", "DoD", 0.80, PCT)
+inp("Battery round-trip efficiency", "RTE", 0.90, PCT, "", "Energy out / energy in. Applies to the solar energy stored for night-time use.")
 inp("Diesel generator efficiency", "DieselEff", 3.0, NUM1, "kWh/litre")
 inp("Diesel price, Year 1", "FuelPrice", 1.20, USD2, "per litre")
 calc("Night-time share of daily energy (from Load Profile)", "NightShareUsed", "=NightShare", PCT)
 calc("Peak-to-average load ratio (from Load Profile)", "PeakRatioUsed", "=PeakRatio", MULT)
 for rr_ in (R[0] - 2, R[0] - 1):
     wi.cell(row=rr_, column=3).font = f_link
+calc("Storage loss factor on solar energy", "StorageFactor", "=1+NightShareUsed*(1/RTE-1)", "0.000", "",
+     "PV must produce this much energy per kWh of solar delivered, because night-time solar passes through the battery.")
 R[0] += 1
 table_header(["Component", "Auto-size", "Override", "Used", "Unit"])
 seg_energy = "+".join(f"Seg{i}_N*Seg{i}_kWh" for i in range(1, NSEG + 1))
@@ -327,7 +331,7 @@ wi.cell(row=r, column=5, value="kWh/yr").font = f_note
 define("DesignGen", wi, f"B{r}")
 R[0] += 1
 for lab, nm, f, unit in [
-    ("PV array", "PV_kWp", "=DesignGen*SolarFraction/SpecYield*PVOversize", "kWp"),
+    ("PV array", "PV_kWp", "=DesignGen*SolarFraction*StorageFactor/SpecYield*PVOversize", "kWp"),
     ("Battery storage (nameplate)", "BESS_kWh", "=DesignGen/365*NightShareUsed/DoD", "kWh"),
     ("Diesel generator (covers peak)", "Diesel_kW", "=DesignGen/8760*PeakRatioUsed", "kW"),
 ]:
@@ -392,7 +396,7 @@ inp("Baseline: share of households' energy otherwise from diesel/kerosene", "Bas
 dv_p = DataValidation(type="decimal", operator="between", formula1="0", formula2="1", showErrorMessage=True,
                       error=T("Enter a value between 0% and 100%."))
 wi.add_data_validation(dv_p)
-for nm in ["Ramp1", "Ramp2", "Ramp3", "Collection", "SolarFraction", "DoD", "Losses", "SenPct", "ConPct", "TaxRate",
+for nm in ["Ramp1", "Ramp2", "Ramp3", "Collection", "SolarFraction", "DoD", "RTE", "Losses", "SenPct", "ConPct", "TaxRate",
            "AffordThreshold", "BaselineShare"]:
     dv_p.add(NAMES[nm][1])
 dv_l = DataValidation(type="whole", operator="between", formula1="1", formula2=str(MAX_YEARS), showErrorMessage=True,
@@ -673,7 +677,7 @@ def build_engine(ws, levers, visible=True):
     sec("GENERATION MIX")
     line("gen", "Gross generation required (kWh)", lambda y: f"={ref('kwh', y)}/(1-Losses)", fmt=NUM, total="sum", start=1)
     line("pvavail", "PV energy available (kWh)", lambda y: f"=PV_kWp*SpecYield*(1-Degradation)^({ref('year', y)}-1)*{ref('op', y)}", fmt=NUM, total="sum", start=1)
-    line("solar", "Solar energy delivered (kWh)", lambda y: f"=MIN({ref('pvavail', y)},{ref('gen', y)}*SolarFraction)", fmt=NUM, total="sum", start=1)
+    line("solar", "Solar energy delivered (kWh)", lambda y: f"=MIN({ref('pvavail', y)}/StorageFactor,{ref('gen', y)}*SolarFraction)", fmt=NUM, total="sum", start=1)
     line("diesel", "Diesel energy delivered (kWh)", lambda y: f"={ref('gen', y)}-{ref('solar', y)}", fmt=NUM, total="sum", start=1)
     line("sf", "Actual solar fraction", lambda y: f"=IFERROR({ref('solar', y)}/{ref('gen', y)},0)", fmt=PCT, start=1)
     line("litres", "Diesel consumed (litres)", lambda y: f"={ref('diesel', y)}/DieselEff", fmt=NUM, total="sum", start=1)
@@ -1298,8 +1302,8 @@ paras = [
      '&" customers ("&TEXT(Seg1_N,"#,##0")&" households, "&TEXT(Seg2_N,"#,##0")&" productive users, "&TEXT(Seg3_N,"#,##0")'
      '&" businesses and "&TEXT(Seg4_N,"#,##0")&" public institutions) and giving about "&TEXT(People,"#,##0")&" people access to electricity."'),
     ("TECHNICAL SOLUTION",
-     '="The system combines "&TEXT(PV_kWp,"#,##0")&" kWp of solar PV, "&TEXT(BESS_kWh,"#,##0")&" kWh of battery storage and a "'
-     '&TEXT(Diesel_kW,"#,##0")&" kW backup generator. It delivers "&TEXT(SUM(\'Cash Flow\'!$D$' + str(ROW['kwh']) + ':$W$' + str(ROW['kwh']) + ')/1000,"#,##0")'
+     '="The system combines "&TEXT(PV_kWp,"#,##0")&" kWp of solar PV, "&TEXT(BESS_kWh,"#,##0")&" kWh of battery storage and "'
+     '&TEXT(Diesel_kW,"#,##0")&" kW of backup diesel capacity. It delivers "&TEXT(SUM(\'Cash Flow\'!$D$' + str(ROW['kwh']) + ':$W$' + str(ROW['kwh']) + ')/1000,"#,##0")'
      '&" MWh over its life with an average renewable share of "&TEXT(\'Cash Flow\'!$B$' + str(ROW['solar']) + '/\'Cash Flow\'!$B$' + str(ROW['gen']) + ',"0%")&"."'),
     ("INVESTMENT AND FUNDING GAP",
      '="Total investment is "&Currency&" "&TEXT(TotalCapex,"#,##0")&" ("&Currency&" "&TEXT(CapexPerConn,"#,##0")&" per connection). On tariff revenue alone the project NPV at "'

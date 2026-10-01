@@ -40,7 +40,7 @@ This Excel model answers those three questions in about 10 minutes. It is built 
 WHAT YOU GET
 - Excel workbook (.xlsx), fully unlocked, formula-driven, no macros
 - Pre-filled worked example (illustrative values) so you can see every output immediately
-- Built-in user guide and integrity checks
+- Built-in quick guide, integrity checks and a 15-page PDF user manual (English and French)
 
 WHAT MAKES IT DIFFERENT
 Most solar models stop at "what is my IRR?". This one also calculates the VIABILITY GAP: the upfront subsidy needed for the project to reach your hurdle rate. It then shows how much of that gap your planned grant and results-based financing (RBF per connection) actually cover.
@@ -99,7 +99,7 @@ WHAT THIS MODEL DOES
 INCLUDED
 - .xlsx workbook, unlocked, no macros
 - Worked example of a 970-customer village mini-grid (illustrative values)
-- Built-in guide, colour-coded inputs, integrity checks
+- Built-in guide, colour-coded inputs, integrity checks, PDF user manual (EN and FR)
 
 NOT INCLUDED
 Engineering-grade hourly dispatch (use dedicated design software for that), legal or tax advice.
@@ -116,7 +116,7 @@ Developer Edition (affordability, RBF calibration, sensitivities, MRV, financing
 
 ## Listing images to produce (5–7)
 1. Dashboard screenshot with the verdict table (YES/NO colour codes)
-2. "Viability gap" close-up: $862,669 needed vs $889,705 planned (from the worked example)
+2. "Viability gap" close-up: $879,325 needed vs $889,705 planned (from the worked example)
 3. Inputs sheet showing the yellow input cells
 4. Charts: revenue vs OPEX vs CFADS; generation mix
 5. Feature list graphic: "Not just IRR: viability gap, RBF, DSCR"
@@ -185,7 +185,7 @@ WHAT IT IS NOT
 A full corporate model: no FX, VAT, working capital or balance sheet, and no debt sculpting. It focuses on subsidy sizing, affordability and impact, and can be used alongside a full project-finance model.
 
 FORMAT
-.xlsx, no macros, fully unlocked. Excel 2010 or later. Includes a worked example (illustrative values) and a user guide. Instant digital download.
+.xlsx, no macros, fully unlocked. Excel 2010 or later. Includes a worked example (illustrative values) and a 16-page PDF user manual in English and French. Instant digital download.
 
 LICENCE
 Single user or single organisation. No resale.
@@ -253,7 +253,7 @@ WHAT IT IS NOT
 Not a replacement for an investment committee, due diligence or legal documentation. No FX and no reflows. The example fund, countries and projects are fictitious.
 
 FORMAT
-.xlsx, no macros, unlocked, English and French versions included. Excel 2010 or later. Instant digital download.
+.xlsx, no macros, unlocked, English and French versions included, with a 15-page PDF user manual in each language. Excel 2010 or later. Instant digital download.
 
 LICENCE
 Single user or single organisation. No resale.

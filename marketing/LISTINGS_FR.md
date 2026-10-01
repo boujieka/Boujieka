@@ -39,7 +39,7 @@ Ce modèle Excel répond à ces trois questions en une dizaine de minutes. Il es
 CONTENU
 - Classeur Excel (.xlsx) entièrement en français, déverrouillé, sans macros
 - Exemple chiffré pré-rempli (valeurs illustratives)
-- Guide intégré et contrôles d'intégrité automatiques
+- Guide intégré, contrôles d'intégrité automatiques et manuel d'utilisation PDF de 15 pages (français et anglais)
 
 CE QUI LE DISTINGUE
 La plupart des modèles solaires s'arrêtent au TRI. Celui-ci calcule aussi le DÉFICIT DE VIABILITÉ : la subvention initiale nécessaire pour que le projet atteigne votre taux de rendement minimal. Il montre ensuite quelle part de ce déficit est couverte par la subvention et le RBF par raccordement que vous prévoyez.
@@ -124,7 +124,7 @@ CE QU'IL N'EST PAS
 Un modèle financier complet d'entreprise : pas de change, de TVA, de BFR ni de bilan, et pas de dette sculptée. Il se concentre sur le dimensionnement des subventions, la capacité de paiement et l'impact.
 
 FORMAT
-.xlsx entièrement en français, sans macros, déverrouillé. Excel 2010 ou plus récent. Exemple chiffré illustratif et guide utilisateur inclus. Téléchargement immédiat. Version anglaise également disponible.
+.xlsx entièrement en français, sans macros, déverrouillé. Excel 2010 ou plus récent. Exemple chiffré illustratif et manuel d'utilisation PDF de 16 pages inclus (français et anglais). Téléchargement immédiat. Version anglaise également disponible.
 
 LICENCE
 Un utilisateur ou une organisation. Revente interdite.
@@ -188,7 +188,7 @@ CE QU'IL N'EST PAS
 Il ne remplace ni un comité d'investissement, ni une due diligence, ni la documentation juridique. Pas de change ni de reflux. Le fonds, les pays et les projets de l'exemple sont fictifs.
 
 FORMAT
-.xlsx sans macros, déverrouillé, versions française et anglaise incluses. Excel 2010 ou plus récent. Téléchargement immédiat.
+.xlsx sans macros, déverrouillé, versions française et anglaise incluses, avec un manuel d'utilisation PDF de 15 pages dans chaque langue. Excel 2010 ou plus récent. Téléchargement immédiat.
 
 LICENCE
 Un utilisateur ou une organisation. Revente interdite.

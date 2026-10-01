@@ -503,8 +503,15 @@ DICT = {
     " businesses and ": " commerces et ", " public institutions) and giving about ": " institutions publiques) et donnant accès à l'électricité à environ ",
     " people access to electricity.": " personnes.",
     "The system combines ": "Le système associe ", " kWp of solar PV, ": " kWc de solaire PV, ",
-    " kWh of battery storage and a ": " kWh de stockage par batterie et un groupe de secours de ",
-    " kW backup generator. It delivers ": " kW. Il fournit ",
+    " kWh of battery storage and ": " kWh de stockage par batterie et ",
+    " kW of backup diesel capacity. It delivers ": " kW de capacité diesel de secours. Il fournit ",
+    "Battery round-trip efficiency": "Rendement aller-retour de la batterie",
+    "Energy out / energy in. Applies to the solar energy stored for night-time use.": "Énergie restituée / énergie stockée. S'applique à l'énergie solaire stockée pour la nuit.",
+    "Storage loss factor on solar energy": "Facteur de pertes de stockage sur l'énergie solaire",
+    "PV must produce this much energy per kWh of solar delivered, because night-time solar passes through the battery.":
+        "Énergie que le PV doit produire par kWh solaire livré, l'énergie solaire consommée la nuit transitant par la batterie.",
+    "- Night-time solar energy passes through the battery: the round-trip efficiency loss is charged to PV production.":
+        "- L'énergie solaire consommée la nuit transite par la batterie : la perte liée au rendement aller-retour est imputée à la production PV.",
     " MWh over its life with an average renewable share of ": " MWh sur sa durée de vie, avec une part renouvelable moyenne de ",
     "Total investment is ": "L'investissement total s'élève à ",
     " per connection). On tariff revenue alone the project NPV at ": " par raccordement). Avec les seules recettes tarifaires, la VAN du projet à ",

@@ -50,7 +50,7 @@ Des profils nommés « Mwinda / RDC » ou « Congo Energy Access Fund » dans un
 
 ## 4. Validation avant de construire P2 et P3 (peu coûteux, environ 2 semaines)
 1. Publier P1 sur Gumroad (rapide) puis sur Etsy.
-2. Publier sur LinkedIn une étude de cas tirée de l'exemple du modèle : « Pourquoi ce mini-grid de 970 clients a besoin de 889 $ de subvention par connexion ». Lien vers P1.
+2. Publier sur LinkedIn une étude de cas tirée de l'exemple du modèle : « Pourquoi ce mini-grid de 970 clients a besoin de 907 $ de subvention par raccordement ». Lien vers P1.
 3. Ajouter une liste d'attente « Developer Edition » et « Fund Manager Edition » (formulaire Gumroad gratuit ou à 0 $).
 4. Critères de décision, à fixer par toi : par exemple au moins X ventes P1 et Y inscrits en liste d'attente en 30 jours. Je ne connais pas les seuils réalistes pour cette niche. Je ne les invente pas.
 

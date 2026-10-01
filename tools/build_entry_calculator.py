@@ -100,6 +100,7 @@ lines = [
     ("", None),
     ("KEY SIMPLIFICATIONS (read before relying on results)", f_h2),
     ("- Annual time step; construction in Year 0, operations from Year 1. No intra-year dispatch: solar share is capped by the target solar fraction (storage limit).", f_txt),
+    ("- Night-time solar energy passes through the battery: the round-trip efficiency loss is charged to PV production.", f_txt),
     ("- Tax: flat rate on positive taxable profit, no loss carry-forward. RBF and grants are treated as non-taxable cash inflows. Check local tax treatment.", f_txt),
     ("- Debt: single senior loan, annuity repayment after optional interest-only grace years. No DSRA, no fees, no refinancing.", f_txt),
     ("- PV and battery capacity are fixed after Year 0. If demand keeps growing, diesel fills the gap and fuel costs rise. Plan an expansion or cap growth.", f_txt),
@@ -249,6 +250,9 @@ inp("Target solar fraction (max share of generation from PV)", "SolarFraction", 
 inp("PV oversizing factor", "PVOversize", 1.15, MULT, "", "Margin for weather, curtailment and growth.")
 inp("Share of daily energy consumed at night", "NightShare", 0.45, PCT)
 inp("Battery usable depth of discharge", "DoD", 0.80, PCT)
+inp("Battery round-trip efficiency", "RTE", 0.90, PCT, "", "Energy out / energy in. Applies to the solar energy stored for night-time use.")
+calc("Storage loss factor on solar energy", "StorageFactor", "=1+NightShare*(1/RTE-1)", "0.000", "",
+     "PV must produce this much energy per kWh of solar delivered, because night-time solar passes through the battery.")
 inp("Peak-to-average load ratio", "PeakRatio", 2.5, MULT)
 inp("Diesel generator efficiency", "DieselEff", 3.0, NUM1, "kWh/litre")
 inp("Diesel price at Year 1", "FuelPrice", 1.20, USD2, "per litre")
@@ -273,7 +277,7 @@ wi.cell(row=r, column=5, value="kWh/yr").font = f_note
 define("DesignGen", wi, f"B{r}")
 r += 1
 sizing = [
-    ("PV array", "PV_kWp", "=DesignGen*SolarFraction/SpecYield*PVOversize", "kWp"),
+    ("PV array", "PV_kWp", "=DesignGen*SolarFraction*StorageFactor/SpecYield*PVOversize", "kWp"),
     ("Battery storage (usable basis -> nameplate)", "BESS_kWh", "=DesignGen/365*NightShare/DoD", "kWh"),
     ("Diesel generator (backup, covers peak)", "Diesel_kW", "=DesignGen/8760*PeakRatio", "kW"),
 ]
@@ -341,7 +345,7 @@ calc("Equity amount", "EquityAmt", "=MAX(0,TotalCapex-Grant-DebtAmt)", USD)
 dv = DataValidation(type="decimal", operator="between", formula1="0", formula2="1",
                     showErrorMessage=True, errorTitle=T("Invalid"), error=T("Enter a value between 0% and 100%."))
 wi.add_data_validation(dv)
-for nm in ["Ramp1", "Ramp2", "Ramp3", "Collection", "SolarFraction", "NightShare", "DoD", "Losses", "DebtPct", "TaxRate"]:
+for nm in ["Ramp1", "Ramp2", "Ramp3", "Collection", "SolarFraction", "NightShare", "DoD", "RTE", "Losses", "DebtPct", "TaxRate"]:
     dv.add(names[nm].split("!")[1].replace("$", ""))
 dv2 = DataValidation(type="whole", operator="between", formula1="1", formula2=str(MAX_YEARS),
                      showErrorMessage=True, error=T(f"Project life must be 1-{MAX_YEARS} years."))
@@ -449,7 +453,7 @@ blank()
 sec("GENERATION MIX")
 line("gen", "Gross generation required (kWh)", lambda y: f"={ref('kwh', y)}/(1-Losses)", fmt=NUM, total="sum", start=1)
 line("pvavail", "PV energy available (kWh)", lambda y: f"=PV_kWp*SpecYield*(1-Degradation)^({ref('year', y)}-1)*{ref('op', y)}", fmt=NUM, total="sum", start=1)
-line("solar", "Solar energy delivered (kWh)", lambda y: f"=MIN({ref('pvavail', y)},{ref('gen', y)}*SolarFraction)", fmt=NUM, total="sum", start=1)
+line("solar", "Solar energy delivered (kWh)", lambda y: f"=MIN({ref('pvavail', y)}/StorageFactor,{ref('gen', y)}*SolarFraction)", fmt=NUM, total="sum", start=1)
 line("diesel", "Diesel energy delivered (kWh)", lambda y: f"={ref('gen', y)}-{ref('solar', y)}", fmt=NUM, total="sum", start=1)
 line("sf", "Actual solar fraction", lambda y: f"=IFERROR({ref('solar', y)}/{ref('gen', y)},0)", fmt=PCT, start=1)
 line("litres", "Diesel consumed (litres)", lambda y: f"={ref('diesel', y)}/DieselEff", fmt=NUM, total="sum", start=1)
