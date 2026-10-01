@@ -37,3 +37,19 @@ The manuscript and the built EPUB are not stored in this repository.
 - remaining bracketed author notes removed (Preface, Appendix C, About the Author)
 - copyright page: "© 2026" and "First edition, October 2026"
 - KDP paperback: cream paper, so spine = 265 x 0.0025 = 0.6625 in; cover 12.913 x 9.25 in
+
+## French edition: « Bancable ne suffit pas » (October 2026)
+
+Translated from the final English text (pandoc Markdown, all edits applied) in 17 chunks, following
+`fr/TRANSLATION_BRIEF.md` and the book's own glossary (Appendix G, `fr/glossary.md`); each chunk passed
+`fr/check_chunk.py` (same headings and ids, footnotes, table shapes, URLs, paragraph count).
+`fr/assemble_fr.py` joins the chunks and normalises French spacing. Builds:
+
+    pandoc fr_full.md -f markdown --metadata-file=meta_fr.yaml -t epub3 --css=kindle.css \
+      --epub-cover-image=cover_fr.jpg --toc --toc-depth=2 --split-level=2 --epub-title-page=false -o Bancable_ne_suffit_pas.epub
+    pandoc fr_full.md -f markdown -t html5 --wrap=none --section-divs --lua-filter=print_notes.lua -o body_fr.html
+    BOOK_LANG=fr python build_print.py body_fr.html CharisSIL-6.200 interior_fr.pdf
+    python make_cover_fr.py cover_src.png CharisSIL-6.200 cover_fr.png
+    python build_cover.py cover_fr.png <pages> CharisSIL-6.200 cover_fr.pdf cream fr
+
+The French paperback carries no ISBN: it needs its own (a different edition from the English paperback).

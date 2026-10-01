@@ -1,6 +1,6 @@
 """KDP paperback full-wrap cover (6 x 9 in trim, 0.125 in bleed) for Bankable Is Not Enough.
 
-usage: build_cover.py front.png pages fonts_dir out.pdf [paper=white|cream]
+usage: build_cover.py front.png pages fonts_dir out.pdf [paper=white|cream] [lang=en|fr]
 Spine width = pages x 0.002252 in (white) or 0.0025 in (cream), KDP black-and-white interiors.
 """
 import os
@@ -11,6 +11,37 @@ from weasyprint import HTML
 
 front_src, pages, fonts, out = sys.argv[1], int(sys.argv[2]), sys.argv[3], sys.argv[4]
 paper = sys.argv[5] if len(sys.argv) > 5 else "white"
+lang = sys.argv[6] if len(sys.argv) > 6 else "en"
+TXT = {
+    "en": dict(
+        spine="BANKABLE IS NOT ENOUGH", kicker="THE SUSTAINABLE FINANCIAL CLOSE FRAMEWORK",
+        h1="A power project that lenders will finance has passed only half of its examination.",
+        p1=("A power purchase agreement can satisfy every lender and still become a public liability. Contracts are signed "
+            "quickly, often in response to shortages, through direct negotiation, with fixed payments in hard currency and state "
+            "support behind a financially weak buyer. Each contract is bankable. The sum of them is not always affordable."),
+        p2=("This book turns the state's question into a framework that a government can apply before signature: seven tests, "
+            "forty-five questions, three gates at which to ask them, three institutions that answer for them, and four decisions "
+            "that they can lead to. A power deal should close only when both tests, the lender's and the state's, have been passed "
+            "and the state's answer has been published."),
+        tag="7 TESTS · 45 QUESTIONS · 3 GATES · 1 DECISION",
+        bio=("Emmanuel Boujieka Kamga is an energy investment specialist with more than twenty years of professional experience, "
+             "including seventeen years in the power and energy access sector across 22 African countries.")),
+    "fr": dict(
+        spine="BANCABLE NE SUFFIT PAS", kicker="LE CADRE DU BOUCLAGE FINANCIER SOUTENABLE",
+        h1="Un projet électrique que les prêteurs acceptent de financer n'a réussi que la moitié de son examen.",
+        p1=("Un contrat d'achat d'électricité peut satisfaire tous les prêteurs et devenir malgré tout un passif public. "
+            "Les contrats sont signés rapidement, souvent en réponse à des pénuries, par négociation directe, avec des paiements "
+            "fixes en devises fortes et un soutien de l'État derrière un acheteur financièrement fragile. Chaque contrat est "
+            "bancable. Leur somme n'est pas toujours abordable."),
+        p2=("Ce livre transforme la question de l'État en un cadre qu'un gouvernement peut appliquer avant la signature : "
+            "sept tests, quarante-cinq questions, trois étapes de contrôle auxquelles les poser, trois institutions qui en "
+            "répondent, et quatre décisions auxquelles ils peuvent conduire. Une opération électrique ne devrait être bouclée que "
+            "lorsque les deux tests ont été réussis et que l'État l'a déclaré publiquement."),
+        tag="7 TESTS · 45 QUESTIONS · 3 ÉTAPES DE CONTRÔLE · 1 DÉCISION",
+        bio=("Emmanuel Boujieka Kamga est un spécialiste de l'investissement énergétique qui compte plus de vingt ans "
+             "d'expérience professionnelle, dont dix-sept ans dans le secteur de l'électricité et de l'accès à l'énergie "
+             "dans 22 pays africains.")),
+}[lang]
 BLEED, TW, TH = 0.125, 6.0, 9.0
 spine = pages * (0.002252 if paper == "white" else 0.0025)
 W, H = BLEED + TW + spine + TW + BLEED, BLEED + TH + BLEED
@@ -40,7 +71,7 @@ gold, cream = "#d9b25f", "#f3e6cf"
 spine_x = BLEED + TW
 back_l, back_r = BLEED + 0.55, BLEED + TW - 0.55   # text box inside the back trim with 0.55 in margin
 
-html = f"""<!DOCTYPE html><html><head><meta charset="utf-8"/><style>
+html = f"""<!DOCTYPE html><html lang="{lang}"><head><meta charset="utf-8"/><style>
 @font-face {{ font-family: Charis; src: url({F('CharisSIL-Regular.ttf')}); }}
 @font-face {{ font-family: Charis; src: url({F('CharisSIL-Bold.ttf')}); font-weight: bold; }}
 @font-face {{ font-family: Charis; src: url({F('CharisSIL-Italic.ttf')}); font-style: italic; }}
@@ -59,25 +90,19 @@ html, body {{ margin: 0; padding: 0; }}
 .back h1 {{ font-size: 18.5pt; line-height: 1.22; font-weight: bold; color: #ffffff; margin: 0 0 0.24in 0; }}
 .back p {{ font-size: 10.2pt; line-height: 1.45; margin: 0 0 0.13in 0; text-align: left; }}
 .back .rule {{ width: 1.1in; border-top: 1pt solid {gold}; margin: 0.22in 0 0.2in 0; }}
-.back .tag {{ font-size: 9.5pt; letter-spacing: 1.6pt; color: {gold}; font-weight: bold; margin-bottom: 0.2in; }}
+.back .tag {{ font-size: 8.6pt; letter-spacing: 1.1pt; white-space: nowrap; color: {gold}; font-weight: bold; margin-bottom: 0.2in; }}
 .back .bio {{ font-size: 8.8pt; font-style: italic; line-height: 1.4; width: 3.1in; }}
 </style></head><body>
 <img class="bg" src="file://{os.path.abspath(bg_path)}"/>
-<div class="spine"><div class="rot"><span class="t">BANKABLE IS NOT ENOUGH</span><span class="a">EMMANUEL BOUJIEKA KAMGA</span></div></div>
+<div class="spine"><div class="rot"><span class="t">{TXT["spine"]}</span><span class="a">EMMANUEL BOUJIEKA KAMGA</span></div></div>
 <div class="back">
-  <div class="kicker">THE SUSTAINABLE FINANCIAL CLOSE FRAMEWORK</div>
-  <h1>A power project that lenders will finance has passed only half of its examination.</h1>
-  <p>A power purchase agreement can satisfy every lender and still become a public liability. Contracts are signed
-  quickly, often in response to shortages, through direct negotiation, with fixed payments in hard currency and state
-  support behind a financially weak buyer. Each contract is bankable. The sum of them is not always affordable.</p>
-  <p>This book turns the state's question into a framework that a government can apply before signature: seven tests,
-  forty-five questions, three gates at which to ask them, three institutions that answer for them, and four decisions
-  that they can lead to. A power deal should close only when both tests, the lender's and the state's, have been passed
-  and the state's answer has been published.</p>
+  <div class="kicker">{TXT["kicker"]}</div>
+  <h1>{TXT["h1"]}</h1>
+  <p>{TXT["p1"]}</p>
+  <p>{TXT["p2"]}</p>
   <div class="rule"></div>
-  <div class="tag">7 TESTS · 45 QUESTIONS · 3 GATES · 1 DECISION</div>
-  <p class="bio">Emmanuel Boujieka Kamga is an energy investment specialist with more than twenty years of professional
-  experience, including seventeen years in the power and energy access sector across 22 African countries.</p>
+  <div class="tag">{TXT["tag"]}</div>
+  <p class="bio">{TXT["bio"]}</p>
 </div>
 </body></html>"""
 HTML(string=html, base_url=os.getcwd()).write_pdf(out)

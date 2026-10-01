@@ -10,6 +10,13 @@ import sys
 
 from weasyprint import HTML
 
+# language settings (English defaults; French edition: BOOK_LANG=fr)
+FR = os.environ.get("BOOK_LANG") == "fr"
+RUNNING = "BANCABLE NE SUFFIT PAS" if FR else "BANKABLE IS NOT ENOUGH"
+TOC_TITLE = "Table des matières" if FR else "Contents"
+HTML_LANG = "fr" if FR else "en-GB"
+DOC_TITLE = "Bancable ne suffit pas" if FR else "Bankable Is Not Enough"
+
 body_path, fonts, out = sys.argv[1:4]
 body = open(body_path, encoding="utf-8").read()
 
@@ -50,10 +57,10 @@ css = f"""
 @page :right {{ margin-left: 0.875in; margin-right: 0.6in; }}
 
 @page pg-front {{ @bottom-center {{ content: counter(page, lower-roman); font: 9pt Charis; }} }}
-@page pg-front:left {{ @top-left {{ content: "BANKABLE IS NOT ENOUGH"; font: 7.5pt Charis; letter-spacing: 1.2pt; }} }}
+@page pg-front:left {{ @top-left {{ content: "{RUNNING}"; font: 7.5pt Charis; letter-spacing: 1.2pt; }} }}
 @page pg-front:right {{ @top-right {{ content: string(runhead, first-except); font: italic 8.5pt Charis; }} }}
 @page pg-main {{ @bottom-center {{ content: counter(page); font: 9pt Charis; }} }}
-@page pg-main:left {{ @top-left {{ content: "BANKABLE IS NOT ENOUGH"; font: 7.5pt Charis; letter-spacing: 1.2pt; }} }}
+@page pg-main:left {{ @top-left {{ content: "{RUNNING}"; font: 7.5pt Charis; letter-spacing: 1.2pt; }} }}
 @page pg-main:right {{ @top-right {{ content: string(runhead, first-except); font: italic 8.5pt Charis; }} }}
 @page pg-front:blank {{ @top-left {{ content: none; }} @top-right {{ content: none; }} @bottom-center {{ content: none; }} }}
 @page pg-main:blank {{ @top-left {{ content: none; }} @top-right {{ content: none; }} @bottom-center {{ content: none; }} }}
@@ -128,8 +135,8 @@ split_at = body.index('<section id="part-1"')
 front_html, main_html = body[:split_at], body[split_at:]
 
 def render(fragment):
-    doc = f"""<!DOCTYPE html><html lang="en-GB"><head><meta charset="utf-8"/>
-<title>Bankable Is Not Enough</title><style>{css}</style></head><body>{fragment}</body></html>"""
+    doc = f"""<!DOCTYPE html><html lang="{HTML_LANG}"><head><meta charset="utf-8"/>
+<title>{DOC_TITLE}</title><style>{css}</style></head><body>{fragment}</body></html>"""
     return HTML(string=doc, base_url=os.path.dirname(os.path.abspath(body_path))).render(), doc
 
 def toc_html(page_of):
@@ -144,7 +151,7 @@ def toc_html(page_of):
             items.append(f'<li class="{kind}"><a href="#{ident}" data-p="{page_of[ident]}">{text}</a></li>')
         else:
             items.append(f'<li class="{kind} fm"><a href="#{ident}">{text}</a></li>')
-    return ('<section id="contents" class="level1 pg-plain toc-page"><h1 class="toc-title">Contents</h1><ul class="toc">'
+    return (f'<section id="contents" class="level1 pg-plain toc-page"><h1 class="toc-title">{TOC_TITLE}</h1><ul class="toc">'
             + "".join(items) + "</ul></section>")
 
 main_doc, main_src = render(main_html)
@@ -167,7 +174,7 @@ for part in (front_doc, main_doc):
         w.add_page(p)
     if part is front_doc and len(r.pages) % 2:
         w.add_blank_page(width=6 * 72, height=9 * 72)  # Part I must open on a right-hand page
-w.add_metadata({"/Title": "Bankable Is Not Enough", "/Author": "Emmanuel Boujieka Kamga"})
+w.add_metadata({"/Title": DOC_TITLE, "/Author": "Emmanuel Boujieka Kamga"})
 with open(out, "wb") as f:
     w.write(f)
 print("wrote", out, "front", len(front_doc.pages), "main", len(main_doc.pages))

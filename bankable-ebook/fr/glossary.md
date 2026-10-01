@@ -1,0 +1,72 @@
+# Mandatory English → French terms (from the book's Appendix G)
+
+- **English** → **French**
+- Bankability → Bancabilité
+- Buyer (off-taker) → Acheteur
+- Buyout obligation → Obligation de rachat
+- Capacity charge → Paiement de capacité
+- Cash waterfall → Cascade de paiements
+- Change in law → Changement de législation
+- Commissioning date → Date de mise en service
+- Competitive procurement → Passation concurrentielle
+- Conditions precedent → Conditions suspensives
+- Contingent liability → Passif éventuel
+- Cost recovery → Recouvrement des coûts
+- Credit enhancement → Rehaussement de crédit
+- Curtailment → Écrêtement
+- Debt service → Service de la dette
+- Deemed energy → Énergie réputée livrée
+- Development security → Garantie de développement
+- Direct negotiation → Négociation directe (gré à gré)
+- Emergency power → Électricité d\'urgence
+- Exclusivity → Exclusivité
+- Financial close → Bouclage financier
+- Fiscal risk statement → Déclaration des risques budgétaires
+- Force majeure → Force majeure
+- Guarantee → Garantie
+- Hedging → Couverture (du risque de change)
+- Implicit liability → Passif implicite
+- Indemnity → Accord d\'indemnisation
+- Independent power producer (IPP) → Producteur indépendant d\'électricité (PIE)
+- Indexation → Indexation
+- Initialling → Paraphe
+- Least cost plan → Plan de développement au moindre coût
+- Letter of credit → Lettre de crédit
+- Liquidity → Liquidité
+- Liquidity facility → Facilité de liquidité
+- Memorandum of understanding (MoU) → Protocole d\'accord
+- Pass-through → Répercussion
+- Payment security → Sécurité de paiement
+- Power purchase agreement (PPA) → Contrat d\'achat d\'électricité (CAE)
+- Refinancing gain → Gain de refinancement
+- Reserve margin → Marge de réserve
+- Risk allocation → Répartition des risques
+- Solvency → Solvabilité
+- Sovereign guarantee → Garantie souveraine
+- Sponsor → Promoteur
+- Standard contract → Contrat type
+- Take and pay → Take and pay (paiement de l\'énergie enlevée)
+- Take or pay → Take or pay (paiement de la capacité enlevée ou non)
+- Termination payment → Indemnité de résiliation
+- Unsolicited proposal → Offre spontanée
+- Utility → Société d\'électricité
+- **English** → **French**
+- Sustainable Financial Close → Bouclage financier soutenable
+- Sustainable Financial Close Statement → Déclaration de bouclage financier soutenable
+- Lender\'s test → Test du prêteur
+- State\'s test → Test de l\'État
+- Liability trap → Piège du passif public
+- Reform gap → Déficit de réforme
+- MoU graveyard → Cimetière des protocoles d\'accord
+- Diagonal risk → Risque diagonal
+- The seven tests → Les sept tests
+- Need, grid, buyer, sovereign → Besoin, réseau, acheteur, souverain
+- Sponsor and process; contract; financing and currency → Promoteur et procédure ; contrat ; financement et devise
+- Gate → Étape de contrôle
+- Entry screen; PPA decision; financial close confirmation → Filtre d\'entrée ; décision sur le CAE ; confirmation avant bouclage
+- Key → Clé
+- Planning key; regulatory key; fiscal key → Clé de planification ; clé de régulation ; clé budgétaire
+- Green; amber; red; N/A → Vert ; orange ; rouge ; sans objet
+- Proceed; proceed with conditions; restructure; decline or defer → Poursuivre ; poursuivre sous conditions ; restructurer ; refuser ou différer
+- Stress scenario → Scénario de crise
+- Assessment workbook → Classeur d\'évaluation
