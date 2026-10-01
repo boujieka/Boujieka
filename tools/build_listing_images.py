@@ -1,6 +1,6 @@
 """Build Etsy/Gumroad listing images from real renders of the workbooks.
 
-Usage: python tools/build_listing_images.py [--lang en|fr|all] [--product p1|p2|p3|all]
+Usage: python tools/build_listing_images.py [--lang en|fr|all] [--product p1|p2|p3|all] [--gumroad-only]
 
 Steps per product and language:
 1. rebuild the workbook into a temp folder with print areas set (tools/print_areas.py), one page per sheet;
@@ -286,6 +286,116 @@ def compose(headline, subline, footer, content):
     return im
 
 
+# ---------------------------------------------------------------- Gumroad thumbnail and cover
+GUMROAD = {
+    "p1": {"accent": (27, 127, 121), "view": "dash_kpi",
+           "name": {"en": "Mini-Grid Feasibility Calculator", "fr": "Calculateur de faisabilité de mini-réseau"},
+           "tag": {"en": "IRR, NPV, LCOE, DSCR and the viability gap", "fr": "TRI, VAN, LCOE, DSCR et déficit de viabilité"},
+           "points": {"en": ["The subsidy your project needs, as a viability gap", "Automatic PV, battery and diesel sizing", "15-page PDF manual in English and French"],
+                      "fr": ["La subvention nécessaire, chiffrée en déficit de viabilité", "Dimensionnement automatique PV, batterie et diesel", "Manuel PDF de 15 pages en français et en anglais"]}},
+    "p2": {"accent": (200, 129, 26), "view": "gap",
+           "name": {"en": "Energy Access Financial Model", "fr": "Modèle financier d'accès à l'énergie"},
+           "edition": {"en": "Developer Edition", "fr": "Édition Développeur"},
+           "tag": {"en": "Grant, RBF and debt sized exactly", "fr": "Subvention, RBF et dette calculés exactement"},
+           "points": {"en": ["Viability gap and RBF per connection, solved exactly", "Debt capacity at your minimum DSCR", "Live tornado, impact and MRV, financing note"],
+                      "fr": ["Déficit de viabilité et RBF par raccordement, calcul exact", "Capacité d'endettement au DSCR minimum", "Tornado dynamique, impact et MRV, note de financement"]}},
+    "p3": {"accent": (107, 79, 160), "view": "dash_kpi",
+           "name": {"en": "Energy Access Fund Manager Model", "fr": "Modèle du gestionnaire de fonds d'accès à l'énergie"},
+           "edition": {"en": "RBF & Portfolio Edition", "fr": "Édition RBF & Portefeuille"},
+           "tag": {"en": "Screen, score and allocate RBF and grants", "fr": "Sélectionner, noter et allouer RBF et subventions"},
+           "points": {"en": ["Eligibility screening and weighted scoring", "Allocation within envelope and country limits", "Disbursements, fund cash position, MRV tracker"],
+                      "fr": ["Éligibilité motivée et notation pondérée", "Allocation dans l'enveloppe et les limites par pays", "Décaissements, trésorerie du fonds, suivi MRV"]}},
+}
+BADGE = {"en": "EXCEL  |  ENGLISH + FRENCH  |  PDF MANUAL", "fr": "EXCEL  |  FRANÇAIS + ANGLAIS  |  MANUEL PDF"}
+SHOT_NOTE = {"en": "Unedited screenshot. Example values are illustrative.", "fr": "Capture non retouchée. Valeurs d'exemple illustratives."}
+
+
+def fit_font(draw, text, path, size, width, min_size=28):
+    f = ImageFont.truetype(path, size)
+    while draw.textlength(text, font=f) > width and f.size > min_size:
+        f = ImageFont.truetype(path, f.size - 2)
+    return f
+
+
+def fit_lines(draw, text, path, size, width, max_lines):
+    """Largest font (from size down) whose wrapped text fits in max_lines; never truncates."""
+    f = ImageFont.truetype(path, size)
+    while len(wrap(draw, text, f, width)) > max_lines and f.size > 20:
+        f = ImageFont.truetype(path, f.size - 2)
+    return f, wrap(draw, text, f, width)
+
+
+def draw_lines(draw, xy, lines, font, fill, gap):
+    x, y = xy
+    for line in lines:
+        draw.text((x, y), line, font=font, fill=fill)
+        y += font.size + gap
+    return y
+
+
+def gumroad_thumbnail(p, lg, shot):
+    g = GUMROAD[p]
+    S = 1200
+    im = Image.new("RGB", (S, S), NAVY)
+    d = ImageDraw.Draw(im)
+    d.rectangle((0, 0, S, 22), fill=g["accent"])
+    d.text((80, 80), KICKER, font=ImageFont.truetype(F_REG, 30), fill=(201, 214, 227))
+    f_name, lines = fit_lines(d, g["name"][lg], F_BOLD, 84, S - 160, 3)
+    y = draw_lines(d, (80, 140), lines, f_name, "white", 10)
+    if "edition" in g:
+        f_ed = ImageFont.truetype(F_BOLD, 50)
+        y = draw_lines(d, (80, y + 6), [g["edition"][lg]], f_ed, tuple(min(255, c + 70) for c in g["accent"]), 0)
+    f_tag, lines = fit_lines(d, g["tag"][lg], F_REG, 40, S - 160, 2)
+    y = draw_lines(d, (80, y + 22), lines, f_tag, (170, 222, 216), 8)
+    # screenshot crop (top-left of the real view) as a card at the bottom
+    crop_box = (0, 0, int(shot.width * 0.62), int(shot.height * 0.62))
+    part = shot.crop(crop_box)
+    top = max(y + 50, 640)
+    card(im, part, (80, top, S - 80, S - 130))
+    f_b = fit_font(d, BADGE[lg], F_BOLD, 30, S - 160)
+    d.text((80, S - 92), BADGE[lg], font=f_b, fill="white")
+    return im
+
+
+def gumroad_cover(p, lg, shot):
+    g = GUMROAD[p]
+    W2, H2 = 1920, 1080
+    im = Image.new("RGB", (W2, H2), BG)
+    d = ImageDraw.Draw(im)
+    panel = 760
+    d.rectangle((0, 0, panel, H2), fill=NAVY)
+    d.rectangle((0, 0, panel, 14), fill=g["accent"])
+    d.text((70, 70), KICKER, font=ImageFont.truetype(F_REG, 24), fill=(201, 214, 227))
+    f_name, lines = fit_lines(d, g["name"][lg], F_BOLD, 60, panel - 140, 3)
+    y = draw_lines(d, (70, 120), lines, f_name, "white", 8)
+    if "edition" in g:
+        f_ed = ImageFont.truetype(F_BOLD, 38)
+        y = draw_lines(d, (70, y + 4), [g["edition"][lg]], f_ed, tuple(min(255, c + 70) for c in g["accent"]), 0)
+    f_tag, lines = fit_lines(d, g["tag"][lg], F_REG, 32, panel - 140, 2)
+    y = draw_lines(d, (70, y + 18), lines, f_tag, (170, 222, 216), 6)
+    f_pt = ImageFont.truetype(F_REG, 28)
+    y += 40
+    for pt in g["points"][lg]:
+        d.rectangle((70, y + 11, 82, y + 23), fill=g["accent"])
+        y = draw_lines(d, (104, y), wrap(d, pt, f_pt, panel - 180), f_pt, "white", 6) + 18
+    f_b = fit_font(d, BADGE[lg], F_BOLD, 24, panel - 140)
+    d.text((70, H2 - 80), BADGE[lg], font=f_b, fill="white")
+    card(im, shot, (panel + 60, 90, W2 - 60, H2 - 110))
+    d.text((panel + 60, H2 - 62), SHOT_NOTE[lg], font=ImageFont.truetype(F_REG, 22), fill=(100, 112, 128))
+    return im
+
+
+def build_gumroad(p, lg, shots):
+    outdir = OUT / "gumroad"
+    outdir.mkdir(parents=True, exist_ok=True)
+    shot = shots[GUMROAD[p]["view"]]
+    t = gumroad_thumbnail(p, lg, shot)
+    t.save(outdir / f"{p}_thumbnail_{lg}.png", dpi=(72, 72), optimize=True)
+    c = gumroad_cover(p, lg, shot)
+    c.save(outdir / f"{p}_cover_{lg}.jpg", dpi=(72, 72), quality=92, optimize=True)
+    print("wrote", outdir / f"{p}_thumbnail_{lg}.png", "and cover")
+
+
 def main():
     args = sys.argv[1:]
     lang = args[args.index("--lang") + 1] if "--lang" in args else "all"
@@ -295,6 +405,9 @@ def main():
     for p in prods:
         for lg in langs:
             shots = render_views(p, lg)
+            build_gumroad(p, lg, shots)
+            if "--gumroad-only" in args:
+                continue
             outdir = OUT / f"{p}_{lg}"
             outdir.mkdir(parents=True, exist_ok=True)
             for stem, view, caps in CAPTIONS[p]:

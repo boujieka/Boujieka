@@ -4,6 +4,18 @@ For each product: name, price, description, summary ("You'll get..." line), addi
 Field names follow the Gumroad product editor as generally laid out; check them in your account. Prices are the launch prices suggested in `LISTINGS.md`.
 Example figures quoted below come from the workbooks as delivered and are illustrative.
 
+## Thumbnail and cover images
+
+Folder `marketing/images/gumroad/`, built from unedited renders of the workbooks (`python3 tools/build_listing_images.py --gumroad-only`).
+
+| Product | Thumbnail (square, 1200 x 1200 px) | Cover (horizontal, 1920 x 1080 px, 72 DPI) |
+|---|---|---|
+| Calculator | `p1_thumbnail_en.png` | `p1_cover_en.jpg` |
+| Developer Edition | `p2_thumbnail_en.png` | `p2_cover_en.jpg` |
+| Fund Manager Edition | `p3_thumbnail_en.png` | `p3_cover_en.jpg` |
+
+French variants end in `_fr`. Both formats exceed Gumroad's stated minimums (600 x 600 px square thumbnail; 1280 x 720 px horizontal cover at 72 DPI). Each product has its own accent colour (teal, amber, purple) so the three are easy to tell apart in the Library and on Discover.
+
 ---
 
 # 1. Mini-Grid Financial Feasibility Calculator
