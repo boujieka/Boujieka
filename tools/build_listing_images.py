@@ -306,6 +306,7 @@ GUMROAD = {
            "points": {"en": ["Eligibility screening and weighted scoring", "Allocation within envelope and country limits", "Disbursements, fund cash position, MRV tracker"],
                       "fr": ["Éligibilité motivée et notation pondérée", "Allocation dans l'enveloppe et les limites par pays", "Décaissements, trésorerie du fonds, suivi MRV"]}},
 }
+AUTHOR_NAME = "Emmanuel Boujieka Kamga"
 BADGE = {"en": "EXCEL  |  ENGLISH + FRENCH  |  PDF MANUAL", "fr": "EXCEL  |  FRANÇAIS + ANGLAIS  |  MANUEL PDF"}
 SHOT_NOTE = {"en": "Unedited screenshot. Example values are illustrative.", "fr": "Capture non retouchée. Valeurs d'exemple illustratives."}
 
@@ -339,7 +340,7 @@ def gumroad_thumbnail(p, lg, shot):
     im = Image.new("RGB", (S, S), NAVY)
     d = ImageDraw.Draw(im)
     d.rectangle((0, 0, S, 22), fill=g["accent"])
-    d.text((80, 80), KICKER, font=fit_font(d, KICKER, F_REG, 30, S - 160, 18), fill=(201, 214, 227))
+    d.text((80, 80), "ENERGY ACCESS FINANCE TOOLKIT", font=ImageFont.truetype(F_REG, 30), fill=(201, 214, 227))
     f_name, lines = fit_lines(d, g["name"][lg], F_BOLD, 84, S - 160, 3)
     y = draw_lines(d, (80, 140), lines, f_name, "white", 10)
     if "edition" in g:
@@ -347,10 +348,20 @@ def gumroad_thumbnail(p, lg, shot):
         y = draw_lines(d, (80, y + 6), [g["edition"][lg]], f_ed, tuple(min(255, c + 70) for c in g["accent"]), 0)
     f_tag, lines = fit_lines(d, g["tag"][lg], F_REG, 40, S - 160, 2)
     y = draw_lines(d, (80, y + 22), lines, f_tag, (170, 222, 216), 8)
+    # author, large
+    by = {"en": "by ", "fr": "par "}[lg]
+    f_by = ImageFont.truetype(F_REG, 44)
+    f_au = fit_font(d, AUTHOR_NAME, F_BOLD, 60, S - 160 - d.textlength(by, font=f_by), 36)
+    y += 34
+    d.text((80, y + (f_au.size - f_by.size) * 0.8), by, font=f_by, fill=(201, 214, 227))
+    d.text((80 + d.textlength(by, font=f_by), y), AUTHOR_NAME, font=f_au, fill="white")
+    y += f_au.size + 6
+    d.rectangle((80, y + 8, 80 + 140, y + 14), fill=g["accent"])
+    y += 14
     # screenshot crop (top-left of the real view) as a card at the bottom
-    crop_box = (0, 0, int(shot.width * 0.62), int(shot.height * 0.62))
+    crop_box = (0, 0, int(shot.width * 0.78), int(shot.height * 0.36))
     part = shot.crop(crop_box)
-    top = max(y + 50, 640)
+    top = max(y + 46, 700)
     card(im, part, (80, top, S - 80, S - 130))
     f_b = fit_font(d, BADGE[lg], F_BOLD, 30, S - 160)
     d.text((80, S - 92), BADGE[lg], font=f_b, fill="white")
