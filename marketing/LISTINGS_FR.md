@@ -138,7 +138,7 @@ Un utilisateur ou une organisation. Revente interdite.
 
 ## Gumroad (FR)
 - **P1.** Nom : « Calculateur de faisabilité financière de mini-réseau (FR) ». Résumé : « Viable, finançable, et quelle subvention comble le déficit ? »
-- **P2.** Nom : « Modèle financier d'accès à l'énergie – Édition Développeur (FR) ». Résumé : « De la demande communautaire à une demande de financement bancable. »
+- **P2.** Nom : « Modèle financier d'accès à l'énergie, Édition Développeur (FR) ». Résumé : « De la demande communautaire à une demande de financement bancable. »
 - Option : proposer un pack « EN + FR » au même prix. C'est un argument pour les équipes bilingues, par exemple au Cameroun ou dans les programmes régionaux.
 
 ---

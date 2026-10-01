@@ -1,7 +1,7 @@
 # Marketplace listings: Mini-Grid Financial Feasibility Calculator
 
 Product file: `product/01-entry-calculator/MiniGrid_Feasibility_Calculator_v1.xlsx`
-Suggested launch price: **$24** (test range $19–29). Bundle and upsell prices are set in `docs/STRATEGIE_POSITIONNEMENT.md`.
+Suggested launch price: **$24** (test range $19 to $29). Bundle and upsell prices are set in `docs/STRATEGIE_POSITIONNEMENT.md`.
 
 > Before publishing: check the current Etsy and Gumroad rules on digital downloads, fees and VAT in your seller account. Do not add claims about sales, users or certifications you cannot prove.
 
@@ -117,7 +117,7 @@ Developer Edition (affordability, RBF calibration, sensitivities, MRV, financing
 
 ---
 
-## Listing images to produce (5–7)
+## Listing images to produce (5 to 7)
 1. Dashboard screenshot with the verdict table (YES/NO colour codes)
 2. "Viability gap" close-up: $879,325 needed vs $889,705 planned (from the worked example)
 3. Inputs sheet showing the yellow input cells
@@ -132,7 +132,7 @@ Screenshots must come from the real file. Do not use mock-up numbers that differ
 # Developer Edition: Energy Access Project Financial Model
 
 Product file: `product/02-developer-edition/EnergyAccess_Developer_Model_v1.xlsx`
-Suggested launch price: **$99** (test range $79–129). Offer a discount code to buyers of the entry calculator.
+Suggested launch price: **$99** (test range $79 to $129). Offer a discount code to buyers of the entry calculator.
 
 ## ETSY
 
@@ -208,7 +208,7 @@ Single user or single organisation. No resale.
 # Fund Manager Edition: Energy Access Fund Manager Model (RBF & Portfolio)
 
 Product files: `product/03-fund-manager/EnergyAccess_Fund_Manager_Model_v1.xlsx` (EN) and `..._FR.xlsx` (FR).
-Suggested launch price: **$249** (test range $199–299). Better sold through Gumroad + LinkedIn than Etsy (see strategy doc). Consider offering configuration to a fund's own rules as a paid service.
+Suggested launch price: **$249** (test range $199 to $299). Better sold through Gumroad + LinkedIn than Etsy (see strategy doc). Consider offering configuration to a fund's own rules as a paid service.
 
 ## ETSY
 
