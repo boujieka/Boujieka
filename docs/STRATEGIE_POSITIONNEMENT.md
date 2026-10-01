@@ -9,7 +9,7 @@ Le diagnostic de fond tient. La concurrence générique en *renewable project fi
 ### Faiblesse 1 : les concurrents gratuits hors marketplace n'ont pas été examinés
 - **Vérifié :** CrossBoundary Access a publié gratuitement (open source) un modèle financier de projet mini-grid le 31/10/2023 : https://crossboundary.com/mini-grid-financial-model-open-source/
 - Il s'agit d'un acteur reconnu du secteur mini-grid en Afrique. Un acheteur sérieux (développeur, consultant) le trouvera avant notre listing Etsy.
-- Je n'ai **pas** vérifié le contenu exact de ce modèle (RBF, DSCR, etc.). La page ne le détaille pas. **Action :** le télécharger et produire un tableau comparatif honnête avant de fixer le prix du produit 2.
+- **Mise à jour :** le fichier a été analysé (voir `docs/COMPARATIF_CROSSBOUNDARY.md`). Il ne contient ni RBF par connexion vérifiée, ni viability gap, ni calibrage de subvention, ni segments, ni affordability, ni MRV/CO₂, ni dette concessionnelle, ni tornado. En revanche, il est plus complet que nous sur la dette (sculptage, refinancement), la fiscalité, le change et les états financiers.
 - Il existe d'autres outils, gratuits ou payants, que je n'ai pas vérifiés dans le détail (outils de dimensionnement technique, modèles NREL SAM, etc.).
 
 **Conséquence :** le produit 2 ne peut pas se vendre sur « un modèle financier mini-grid ». Il doit se vendre sur ce qu'un modèle gratuit ne fait pas : la **structuration de la subvention** (viability gap, calibrage du RBF, dossier de financement) et la **pédagogie** (guide, exemple chiffré, version française).
@@ -61,7 +61,7 @@ Des profils nommés « Mwinda / RDC » ou « Congo Energy Access Fund » dans un
 - Indicateurs : CFADS, DSCR, IRR projet avant et après subventions, IRR equity, NPV, LCOE, payback, CO₂.
 - **Viability gap** et verdict de finançabilité. Leviers de scénario. Onglet de contrôles d'intégrité.
 
-**P2 Developer Edition, à construire sur le même moteur.** Ajouts proposés :
+**P2 Developer Edition, construit** (`product/02-developer-edition/`). Ajouts prévus au départ :
 - Courbe de charge mensuelle et productive use détaillé (machines, heures).
 - Affordability : facture en % du revenu ménage.
 - Calibrage du RBF : montant par connexion nécessaire pour atteindre l'IRR cible.
@@ -75,5 +75,5 @@ Des profils nommés « Mwinda / RDC » ou « Congo Energy Access Fund » dans un
 
 ## 6. Incertitudes ouvertes
 - Volume réel de la demande sur Etsy/Gumroad pour ce type de produit : inconnu.
-- Contenu exact du modèle gratuit CrossBoundary : non vérifié.
+- Contenu du modèle CrossBoundary : vérifié par analyse des libellés, pas par un audit formule par formule.
 - Frais et règles actuels d'Etsy et de Gumroad (frais de transaction, TVA sur produits numériques, éligibilité des pays vendeurs) : à vérifier dans tes comptes vendeurs. Je ne les cite pas de mémoire.

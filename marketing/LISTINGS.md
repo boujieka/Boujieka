@@ -123,3 +123,76 @@ Developer Edition (affordability, RBF calibration, sensitivities, MRV, financing
 6. Who it is for: developers, consultants, programmes
 
 Screenshots must come from the real file. Do not use mock-up numbers that differ from the workbook.
+
+---
+
+# Developer Edition: Energy Access Project Financial Model
+
+Product file: `product/02-developer-edition/EnergyAccess_Developer_Model_v1.xlsx`
+Suggested launch price: **$99** (test range $79–129). Offer a discount code to buyers of the entry calculator.
+
+## ETSY
+
+**Title**
+```
+Energy Access Financial Model Excel, Mini-Grid RBF Subsidy Calculator, Viability Gap, Blended Finance, DSCR IRR, Funding Request
+```
+
+**Tags**
+```
+mini grid model
+energy access
+RBF subsidy
+blended finance
+viability gap
+project finance
+solar finance model
+DSCR debt model
+off grid solar
+impact reporting
+excel finance model
+funding proposal
+africa energy
+```
+
+**Description**
+```
+How much grant or results-based financing does your mini-grid really need? This model computes it, exactly.
+
+BUILT FOR
+Mini-grid developers applying to RBF or grant programmes, energy-access consultants, and programme and fund teams who need to size subsidies.
+
+WHAT IT CALCULATES
+- Viability gap: the subsidy needed for the project to reach your hurdle rate
+- Grant needed, given your planned RBF
+- RBF per connection needed for project NPV = 0, and for your target equity IRR (solved in closed form, no Goal Seek)
+- Maximum senior debt the project can carry at your minimum DSCR, and the binding year
+- RBF cash timing and the bridge you need
+
+FEATURES
+- 5 customer segments with their own tariff, connection fee, RBF amount and income (affordability test)
+- Hourly load profile that sizes the battery and the generator
+- Productive-use appliance inventory (mills, welding, cold rooms, pumps)
+- Auto-sizing of PV, battery and diesel, with manual override
+- Blended finance: grant, RBF, concessional debt, senior debt, equity and DSRA
+- Maintenance reserve for battery replacements, and tax losses carried forward
+- Scenarios (Base, Conservative, Optimistic, Custom) and a live tornado sensitivity
+- Impact & MRV: verified connections, people with access, productive users, jobs, MWh, CO2 avoided, grant per connection, per person and per tCO2, private capital leverage
+- Financing Request sheet: auto-written project summary, funding request, sources & uses, ready to paste into a concept note
+- 16 automatic integrity checks
+
+WHAT IT IS NOT
+A full corporate model: no FX, VAT, working capital or balance sheet, and no debt sculpting. It focuses on subsidy sizing, affordability and impact, and can be used alongside a full project-finance model.
+
+FORMAT
+.xlsx, no macros, fully unlocked. Excel 2010 or later. Includes a worked example (illustrative values) and a user guide. Instant digital download.
+
+LICENCE
+Single user or single organisation. No resale.
+```
+
+## GUMROAD
+
+**Name:** Energy Access Project Financial Model (Developer Edition)
+**Summary:** From community demand to a bankable funding request: size the grant, RBF and debt your mini-grid needs.
+**Page body:** reuse the Etsy description. Add a screenshot of "Funding Gap & RBF" and one of the tornado.
