@@ -13,7 +13,13 @@ from openpyxl.utils import get_column_letter
 from openpyxl.workbook.defined_name import DefinedName
 from openpyxl.worksheet.datavalidation import DataValidation
 
-OUT = sys.argv[1] if len(sys.argv) > 1 else "product/01-entry-calculator/MiniGrid_Feasibility_Calculator_v1.xlsx"
+import i18n
+
+LANG, OUT = i18n.setup(sys.argv)
+T = i18n.T
+if OUT is None:
+    OUT = {"en": "product/01-entry-calculator/MiniGrid_Feasibility_Calculator_v1.xlsx",
+           "fr": "product/01-entry-calculator/Calculateur_Faisabilite_MiniReseau_v1_FR.xlsx"}[LANG]
 
 MAX_YEARS = 20  # operating years modelled (columns), year 0 = construction
 FONT = "Arial"
@@ -38,9 +44,9 @@ thin = Side(style="thin", color="BFBFBF")
 box = Border(left=thin, right=thin, top=thin, bottom=thin)
 top_line = Border(top=Side(style="thin", color="000000"))
 
-USD = '$#,##0;($#,##0);"-"'
-USD2 = '$#,##0.00;($#,##0.00);"-"'
-USD3 = '$#,##0.000;($#,##0.000);"-"'
+USD = i18n.money('$#,##0;($#,##0);"-"')
+USD2 = i18n.money('$#,##0.00;($#,##0.00);"-"')
+USD3 = i18n.money('$#,##0.000;($#,##0.000);"-"')
 NUM = '#,##0;(#,##0);"-"'
 NUM1 = '#,##0.0;(#,##0.0);"-"'
 PCT = '0.0%;(0.0%);"-"'
@@ -333,12 +339,12 @@ calc("Equity amount", "EquityAmt", "=MAX(0,TotalCapex-Grant-DebtAmt)", USD)
 
 # data validation: percentages 0..1
 dv = DataValidation(type="decimal", operator="between", formula1="0", formula2="1",
-                    showErrorMessage=True, errorTitle="Invalid", error="Enter a value between 0% and 100%.")
+                    showErrorMessage=True, errorTitle=T("Invalid"), error=T("Enter a value between 0% and 100%."))
 wi.add_data_validation(dv)
 for nm in ["Ramp1", "Ramp2", "Ramp3", "Collection", "SolarFraction", "NightShare", "DoD", "Losses", "DebtPct", "TaxRate"]:
     dv.add(names[nm].split("!")[1].replace("$", ""))
 dv2 = DataValidation(type="whole", operator="between", formula1="1", formula2=str(MAX_YEARS),
-                     showErrorMessage=True, error=f"Project life must be 1-{MAX_YEARS} years.")
+                     showErrorMessage=True, error=T(f"Project life must be 1-{MAX_YEARS} years."))
 wi.add_data_validation(dv2)
 dv2.add(names["Life"].split("!")[1].replace("$", ""))
 wi.freeze_panes = "A4"
@@ -565,7 +571,7 @@ def tot(name):
 # ---------------------------------------------------------------- Dashboard
 wd = wb.create_sheet("Dashboard", 1)
 wd.sheet_view.showGridLines = False
-for col, w in zip("ABCDEFGHIJ", [3, 40, 16, 3, 40, 16, 3, 3, 3, 3]):
+for col, w in zip("ABCDEFGHIJ", [3, 40, 16, 3, 40, 28, 3, 3, 3, 3]):
     wd.column_dimensions[col].width = w
 wd["B1"] = "=\"DASHBOARD - \"&ProjectName"
 wd["B1"].font = f_title
@@ -676,8 +682,8 @@ for label, f in checks_v:
     c.alignment = Alignment(horizontal="center")
     rr_v += 1
 verdict_rng = f"F{vg_row+1}:F{rr_v-1}"
-wd.conditional_formatting.add(verdict_rng, FormulaRule(formula=[f'LEFT(F{vg_row+1},3)="YES"'], fill=PatternFill("solid", fgColor="D4EDDA"), font=Font(name=FONT, bold=True, color="155724")))
-wd.conditional_formatting.add(verdict_rng, FormulaRule(formula=[f'LEFT(F{vg_row+1},2)="NO"'], fill=PatternFill("solid", fgColor="F8D7DA"), font=Font(name=FONT, bold=True, color="721C24")))
+wd.conditional_formatting.add(verdict_rng, FormulaRule(formula=[f'LEFT(F{vg_row+1},LEN("YES"))="YES"'], fill=PatternFill("solid", fgColor="D4EDDA"), font=Font(name=FONT, bold=True, color="155724")))
+wd.conditional_formatting.add(verdict_rng, FormulaRule(formula=[f'OR(LEFT(F{vg_row+1},LEN("NO - "))="NO - ",F{vg_row+1}="NO")'], fill=PatternFill("solid", fgColor="F8D7DA"), font=Font(name=FONT, bold=True, color="721C24")))
 note_row = max(rr, rr_v) + 1
 wd[f"B{note_row}"] = "Viability gap uses the pre-subsidy project cash flow discounted at the hurdle rate. It is the minimum upfront subsidy in present-value terms; RBF paid later must be larger in nominal terms."
 wd[f"B{note_row}"].font = f_note
@@ -703,8 +709,8 @@ wd[f"B{cd}"].font = f_note
 
 ch = BarChart()
 ch.type = "col"
-ch.title = "Revenue vs OPEX vs CFADS"
-ch.y_axis.title = "Currency"
+ch.title = T("Revenue vs OPEX vs CFADS")
+ch.y_axis.title = T("Currency")
 data = Reference(wd, min_col=13, max_col=15, min_row=cd + 1, max_row=cd + 1 + MAX_YEARS)
 cats = Reference(wd, min_col=12, min_row=cd + 2, max_row=cd + 1 + MAX_YEARS)
 ch.add_data(data, titles_from_data=True)
@@ -720,7 +726,7 @@ ch2 = BarChart()
 ch2.type = "col"
 ch2.grouping = "stacked"
 ch2.overlap = 100
-ch2.title = "Generation mix (kWh)"
+ch2.title = T("Generation mix (kWh)")
 ch2.add_data(Reference(wd, min_col=17, max_col=18, min_row=cd + 1, max_row=cd + 1 + MAX_YEARS), titles_from_data=True)
 ch2.set_categories(cats)
 ch2.height = 8
@@ -782,3 +788,4 @@ wk.sheet_properties.tabColor = "7F7F7F"
 wb.active = 0
 wb.save(OUT)
 print("saved", OUT)
+i18n.report()

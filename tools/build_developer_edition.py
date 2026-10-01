@@ -20,7 +20,13 @@ from openpyxl.utils import get_column_letter
 from openpyxl.workbook.defined_name import DefinedName
 from openpyxl.worksheet.datavalidation import DataValidation
 
-OUT = sys.argv[1] if len(sys.argv) > 1 else "product/02-developer-edition/EnergyAccess_Developer_Model_v1.xlsx"
+import i18n
+
+LANG, OUT = i18n.setup(sys.argv)
+T = i18n.T
+if OUT is None:
+    OUT = {"en": "product/02-developer-edition/EnergyAccess_Developer_Model_v1.xlsx",
+           "fr": "product/02-developer-edition/Modele_Financier_Acces_Energie_Developpeur_v1_FR.xlsx"}[LANG]
 
 MAX_YEARS = 20
 FONT = "Arial"
@@ -44,9 +50,9 @@ thin = Side(style="thin", color="BFBFBF")
 box = Border(left=thin, right=thin, top=thin, bottom=thin)
 top_line = Border(top=Side(style="thin", color="000000"))
 
-USD = '$#,##0;($#,##0);"-"'
-USD2 = '$#,##0.00;($#,##0.00);"-"'
-USD3 = '$#,##0.000;($#,##0.000);"-"'
+USD = i18n.money('$#,##0;($#,##0);"-"')
+USD2 = i18n.money('$#,##0.00;($#,##0.00);"-"')
+USD3 = i18n.money('$#,##0.000;($#,##0.000);"-"')
 NUM = '#,##0;(#,##0);"-"'
 NUM1 = '#,##0.0;(#,##0.0);"-"'
 PCT = '0.0%;(0.0%);"-"'
@@ -210,7 +216,7 @@ wi.cell(row=r, column=1, value="Active scenario").font = f_bold
 c = wi.cell(row=r, column=3, value="Base")
 style_in(c, "@")
 define("ScenarioName", wi, f"C{r}")
-dv_s = DataValidation(type="list", formula1='"Base,Conservative,Optimistic,Custom"', allow_blank=False)
+dv_s = DataValidation(type="list", formula1='"' + ",".join(T(x) for x in ["Base", "Conservative", "Optimistic", "Custom"]) + '"', allow_blank=False)
 wi.add_data_validation(dv_s)
 dv_s.add(f"C{r}")
 wi.cell(row=r, column=6, value="Select from the drop-down list.").font = f_note
@@ -384,13 +390,13 @@ inp("Baseline: share of households' energy otherwise from diesel/kerosene", "Bas
 
 # validations
 dv_p = DataValidation(type="decimal", operator="between", formula1="0", formula2="1", showErrorMessage=True,
-                      error="Enter a value between 0% and 100%.")
+                      error=T("Enter a value between 0% and 100%."))
 wi.add_data_validation(dv_p)
 for nm in ["Ramp1", "Ramp2", "Ramp3", "Collection", "SolarFraction", "DoD", "Losses", "SenPct", "ConPct", "TaxRate",
            "AffordThreshold", "BaselineShare"]:
     dv_p.add(NAMES[nm][1])
 dv_l = DataValidation(type="whole", operator="between", formula1="1", formula2=str(MAX_YEARS), showErrorMessage=True,
-                      error=f"Project life must be 1-{MAX_YEARS} years.")
+                      error=T(f"Project life must be 1-{MAX_YEARS} years."))
 wi.add_data_validation(dv_l)
 dv_l.add(NAMES["Life"][1])
 dv_b = DataValidation(type="list", formula1='"0,1"')
@@ -475,8 +481,8 @@ wl.cell(row=tr + 4, column=1, value="Segment totals check").font = f_bold
 style_calc(wl.cell(row=tr + 4, column=4, value=f'=IF(SUMPRODUCT(ABS(B{tr}:{get_column_letter(1+NSEG)}{tr}-1)*(B{tr}:{get_column_letter(1+NSEG)}{tr}>0))<0.001,"OK","CHECK")'), "@", True)
 define("LP_Check", wl, f"D{tr+4}")
 ch = LineChart()
-ch.title = "Weighted daily load shape"
-ch.y_axis.title = "Share of daily energy"
+ch.title = T("Weighted daily load shape")
+ch.y_axis.title = T("Share of daily energy")
 ch.y_axis.number_format = "0%"
 ch.add_data(Reference(wl, min_col=2 + NSEG, min_row=LP_H, max_row=LP_L), titles_from_data=True)
 ch.set_categories(Reference(wl, min_col=1, min_row=LP_F, max_row=LP_L))
@@ -864,7 +870,7 @@ for nm, k in SENS_VARS:
 # ====================================================================== Dashboard
 wd = wb.create_sheet("Dashboard")
 wd.sheet_view.showGridLines = False
-for col, w in zip("ABCDEFGHIJKL", [2, 42, 16, 2, 42, 16, 2, 14, 12, 12, 12, 12]):
+for col, w in zip("ABCDEFGHIJKL", [2, 42, 28, 2, 42, 16, 2, 14, 12, 12, 12, 12]):
     wd.column_dimensions[col].width = w
 wd["B1"] = '="DASHBOARD - "&ProjectName'
 wd["B1"].font = f_title
@@ -945,8 +951,8 @@ for lab, f in verdicts:
     c.alignment = Alignment(horizontal="center")
     r_ += 1
 vrng = f"C{vr+1}:C{r_-1}"
-wd.conditional_formatting.add(vrng, FormulaRule(formula=[f'LEFT(C{vr+1},3)="YES"'], fill=fill_ok, font=Font(name=FONT, bold=True, color="155724")))
-wd.conditional_formatting.add(vrng, FormulaRule(formula=[f'LEFT(C{vr+1},2)="NO"'], fill=fill_bad, font=Font(name=FONT, bold=True, color="721C24")))
+wd.conditional_formatting.add(vrng, FormulaRule(formula=[f'LEFT(C{vr+1},LEN("YES"))="YES"'], fill=fill_ok, font=Font(name=FONT, bold=True, color="155724")))
+wd.conditional_formatting.add(vrng, FormulaRule(formula=[f'OR(LEFT(C{vr+1},LEN("NO - "))="NO - ",C{vr+1}="NO")'], fill=fill_bad, font=Font(name=FONT, bold=True, color="721C24")))
 wd[f"B{r_}"] = "Equity IRR test uses equity NPV at the target rate (robust when cash flows change sign)."
 wd[f"B{r_}"].font = f_note
 
@@ -998,7 +1004,7 @@ for k, (lab, f) in enumerate(src_items):
 chart_row = r_ + 3
 ch1 = BarChart()
 ch1.type = "col"
-ch1.title = "Revenue, OPEX, CFADS, debt service"
+ch1.title = T("Revenue, OPEX, CFADS, debt service")
 ch1.add_data(Reference(wd, min_col=9, max_col=11, min_row=cd_row, max_row=cd_row + MAX_YEARS), titles_from_data=True)
 cats = Reference(wd, min_col=8, min_row=cd_row + 1, max_row=cd_row + MAX_YEARS)
 ch1.set_categories(cats)
@@ -1008,7 +1014,7 @@ ch1 += ln
 ch1.height, ch1.width = 8, 11.5
 wd.add_chart(ch1, f"B{chart_row}")
 pie = PieChart()
-pie.title = "Sources of funds"
+pie.title = T("Sources of funds")
 pie.add_data(Reference(wd, min_col=9, min_row=src_r, max_row=src_r + 3))
 pie.set_categories(Reference(wd, min_col=8, min_row=src_r, max_row=src_r + 3))
 pie.dataLabels = DataLabelList()
@@ -1023,7 +1029,7 @@ ch2 = BarChart()
 ch2.type = "col"
 ch2.grouping = "stacked"
 ch2.overlap = 100
-ch2.title = "Generation mix (kWh)"
+ch2.title = T("Generation mix (kWh)")
 ch2.add_data(Reference(wd, min_col=13, max_col=14, min_row=cd_row, max_row=cd_row + MAX_YEARS), titles_from_data=True)
 ch2.set_categories(cats)
 ch2.height, ch2.width = 8, 11.5
@@ -1160,7 +1166,7 @@ tor = BarChart()
 tor.type = "bar"
 tor.grouping = "clustered"
 tor.overlap = 100
-tor.title = "Change in project NPV after subsidies vs base"
+tor.title = T("Change in project NPV after subsidies vs base")
 tor.add_data(Reference(wsn, min_col=14, max_col=15, min_row=5, max_row=5 + len(SENS)), titles_from_data=True)
 tor.set_categories(Reference(wsn, min_col=13, min_row=6, max_row=5 + len(SENS)))
 tor.height, tor.width = 9, 20
@@ -1427,13 +1433,14 @@ wk.conditional_formatting.add(f"B3:B{last+2}", FormulaRule(formula=['OR(B3="CHEC
 # ====================================================================== order, print, save
 order = ["Start Here", "Inputs", "Load Profile", "Productive Use", "Dashboard", "Funding Gap & RBF", "Sensitivity",
          "Impact & MRV", "Financing Request", "Cash Flow", "Checks"]
+order = [T(n) for n in order]
 visible = [wb[n] for n in order]
 hidden = [ws for ws in wb.worksheets if ws.title not in order]
 wb._sheets = visible + hidden
 tabs = {"Start Here": NAVY, "Inputs": "FFC000", "Load Profile": "FFC000", "Productive Use": "FFC000", "Dashboard": TEAL,
         "Funding Gap & RBF": TEAL, "Sensitivity": TEAL, "Impact & MRV": TEAL, "Financing Request": TEAL}
 for ws in wb.worksheets:
-    ws.sheet_properties.tabColor = tabs.get(ws.title, "7F7F7F")
+    ws.sheet_properties.tabColor = {T(k): v for k, v in tabs.items()}.get(ws.title, "7F7F7F")
     ws.page_setup.orientation = "landscape"
     ws.sheet_properties.pageSetUpPr.fitToPage = True
     ws.page_setup.fitToWidth = 1
@@ -1441,3 +1448,4 @@ for ws in wb.worksheets:
 wb.active = 0
 wb.save(OUT)
 print("saved", OUT)
+i18n.report()

@@ -1,14 +1,21 @@
-"""Check Etsy title/tag lengths in marketing/LISTINGS.md (title <= 140 chars, 13 tags <= 20 chars) for each product listing."""
+"""Check Etsy title/tag limits (title <= 140 chars, max 13 tags of <= 20 chars) in a listings file.
+
+Usage: python tools/check_listing.py [marketing/LISTINGS.md]
+Finds each "**Title**"/"**Titre Etsy**" code block and the "**Tags**"/"**Tags Etsy**" block that follows it.
+"""
 import re
 import sys
 
-text = open("marketing/LISTINGS.md", encoding="utf-8").read()
-blocks = re.findall(r"```\n(.*?)```", text, re.S)
-ok = True
-# Etsy listings: title block followed by tags block, at block index 0 (P1) and 4 (P2)
-for start in (0, 4):
-    title = blocks[start].strip()
-    tags = [t.strip() for t in blocks[start + 1].strip().splitlines() if t.strip()]
+path = sys.argv[1] if len(sys.argv) > 1 else "marketing/LISTINGS.md"
+text = open(path, encoding="utf-8").read()
+pattern = re.compile(r"\*\*(?:Title|Titre Etsy)\*\*[^\n]*\n\s*```\n(.*?)```\s*\*\*(?:Tags|Tags Etsy)\*\*[^\n]*\n\s*```\n(.*?)```", re.S)
+found = pattern.findall(text)
+ok = bool(found)
+if not found:
+    print("ERROR: no title/tags blocks found")
+for title, tag_block in found:
+    title = title.strip()
+    tags = [t.strip() for t in tag_block.strip().splitlines() if t.strip()]
     print(f"Title: {len(title)} chars | Tags: {len(tags)}")
     if len(title) > 140:
         ok = False
