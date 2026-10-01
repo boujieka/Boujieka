@@ -16,6 +16,8 @@ Excel financial models for energy-access projects (mini-grids, RBF, viability ga
 | `tools/i18n.py`, `tools/i18n_fr.py` | Language layer and French dictionary used by both builders |
 | `manuals/src/*.md`, `manuals/manual.css` | Manual sources (FR/EN) and print stylesheet |
 | `tools/build_manuals.py` | Checks the manuals (no dashes, no stock phrases, every quoted label exists in the workbook) and renders the PDFs (`pip install weasyprint markdown`) |
+| `marketing/images/p{1,2,3}_{en,fr}/` | Etsy/Gumroad listing images, 2400 x 1800 px (4:3), from unedited renders of the workbooks |
+| `tools/build_listing_images.py` | Rebuilds the listing images (`--product p1/p2/p3`, `--lang en/fr`) |
 | `tools/check_listing.py` | Checks Etsy title and tag length limits (`python3 tools/check_listing.py marketing/LISTINGS_FR.md`) |
 
 Rebuild from the repository root: `python3 tools/build_entry_calculator.py [--lang fr]` `python3 tools/build_developer_edition.py [--lang fr]` and `python3 tools/build_fund_manager.py [--lang fr]`. Then open each file in Excel (or recalculate with LibreOffice) so cached values are refreshed. French builds print any untranslated string to stderr.

@@ -21,6 +21,7 @@ from openpyxl.workbook.defined_name import DefinedName
 from openpyxl.worksheet.datavalidation import DataValidation
 
 import i18n
+import print_areas
 
 LANG, OUT = i18n.setup(sys.argv)
 T = i18n.T
@@ -1450,6 +1451,7 @@ for ws in wb.worksheets:
     ws.page_setup.fitToWidth = 1
     ws.page_setup.fitToHeight = 0
 wb.active = 0
+print_areas.apply(wb)
 wb.save(OUT)
 print("saved", OUT)
 i18n.report()

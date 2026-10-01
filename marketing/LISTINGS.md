@@ -263,3 +263,12 @@ Single user or single organisation. No resale.
 **Name:** Energy Access Fund Manager Model (RBF & Portfolio Edition)
 **Summary:** From funding to impact: screen, score and allocate RBF and grants across your energy-access pipeline.
 **Tiers (suggestion):** Model EN+FR $249 · Model + configuration to your fund's published rules (service, price on request; offer it only if you can deliver it).
+
+
+---
+
+## Listing images (all products)
+
+Files: `marketing/images/p1_en/`, `p2_en/`, `p3_en/` (French versions in `*_fr/`). Size 2400 x 1800 px, 4:3 ratio, JPEG.
+Upload them in file-name order: `01_hero` is the thumbnail. Each image is an unedited render of the workbook and carries the footer "Example values are illustrative". Check Etsy's current photo guidelines in Shop Manager before upload; I have not verified their latest recommended size.
+Rebuild after any model change: `python3 tools/build_listing_images.py`.

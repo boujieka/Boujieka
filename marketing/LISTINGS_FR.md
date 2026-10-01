@@ -193,3 +193,12 @@ FORMAT
 LICENCE
 Un utilisateur ou une organisation. Revente interdite.
 ```
+
+
+---
+
+## Images des annonces (tous produits)
+
+Fichiers : `marketing/images/p1_fr/`, `p2_fr/`, `p3_fr/` (versions anglaises dans `*_en/`). Format 2400 x 1800 px, ratio 4:3, JPEG.
+Importez-les dans l'ordre des noms : `01_hero` sert de vignette. Chaque image est une capture non retouchée du classeur, avec la mention « valeurs d'exemple illustratives ». Vérifiez les recommandations photo actuelles d'Etsy dans le Gestionnaire de boutique avant import.
+Régénération après toute modification d'un modèle : `python3 tools/build_listing_images.py`.
