@@ -196,3 +196,70 @@ Single user or single organisation. No resale.
 **Name:** Energy Access Project Financial Model (Developer Edition)
 **Summary:** From community demand to a bankable funding request: size the grant, RBF and debt your mini-grid needs.
 **Page body:** reuse the Etsy description. Add a screenshot of "Funding Gap & RBF" and one of the tornado.
+
+---
+
+# Fund Manager Edition: Energy Access Fund Manager Model (RBF & Portfolio)
+
+Product files: `product/03-fund-manager/EnergyAccess_Fund_Manager_Model_v1.xlsx` (EN) and `..._FR.xlsx` (FR).
+Suggested launch price: **$249** (test range $199–299). Better sold through Gumroad + LinkedIn than Etsy (see strategy doc). Consider offering configuration to a fund's own rules as a paid service.
+
+## ETSY
+
+**Title**
+```
+Energy Access Fund Manager Excel Model, RBF Portfolio Allocation, Project Scoring, Mini-Grid Subsidy Fund, Disbursement and MRV Tracker
+```
+
+**Tags**
+```
+fund management
+RBF subsidy
+energy access
+portfolio model
+project scoring
+grant allocation
+mini grid fund
+impact investing
+MRV tracker
+blended finance
+DFI programme
+excel finance model
+africa energy
+```
+
+**Description**
+```
+Allocate results-based financing and grants across an energy-access project pipeline, transparently and with live constraints.
+
+BUILT FOR
+Fund managers, programme teams, DFIs, foundations and consultants who run or design RBF and grant windows for mini-grids and energy access.
+
+WHAT IT DOES
+- Fund set-up: size, management and TA costs, over-commitment, per-project and per-country limits
+- Fund profiles: RBF rate by customer type, CAPEX grant share, caps, RBF tranches (3 generic profiles + Custom)
+- Eligibility screening: 8 switchable criteria with the rejection reason for each project
+- Scoring: cost-effectiveness, leverage, productive use, climate, readiness, track record, risk, additionality (request vs viability gap)
+- Allocation in rank order within the envelope and country limits, partial funding on/off, binding constraint shown
+- Disbursements by year: grants at commissioning, RBF by tranche as connections are verified, delivery haircut by risk rating, fund cash position
+- MRV Tracker: verified connections vs targets, RBF earned and outstanding, On track / Behind / Off track
+- Portfolio dashboard: connections, people, CO2, private capital mobilised, leverage, cost per connection/person/tCO2, concentration, verdicts
+- 12 automatic integrity checks; up to 25 projects; 10-year fund horizon
+
+WORKS WITH THE DEVELOPER EDITION
+Paste each project's CAPEX, viability gap and CO2 from our Developer Edition to test additionality, meaning whether the fund pays more than the project needs.
+
+WHAT IT IS NOT
+Not a replacement for an investment committee, due diligence or legal documentation. No FX and no reflows. The example fund, countries and projects are fictitious.
+
+FORMAT
+.xlsx, no macros, unlocked, English and French versions included. Excel 2010 or later. Instant digital download.
+
+LICENCE
+Single user or single organisation. No resale.
+```
+
+## GUMROAD
+**Name:** Energy Access Fund Manager Model (RBF & Portfolio Edition)
+**Summary:** From funding to impact: screen, score and allocate RBF and grants across your energy-access pipeline.
+**Tiers (suggestion):** Model EN+FR $249 · Model + configuration to your fund's published rules (service, price on request; offer it only if you can deliver it).

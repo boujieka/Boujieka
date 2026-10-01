@@ -71,7 +71,7 @@ Des profils nommés « Mwinda / RDC » ou « Congo Energy Access Fund » dans un
 - Indicateurs MRV : connexions vérifiées, kWh, CO₂, emplois.
 - Onglet « Financing Request » prêt à copier dans une note de demande.
 
-**P3 Fund Manager Edition, après validation.** Pipeline de projets, critères d'éligibilité, scoring, allocation sous contrainte d'enveloppe, engagements et décaissements RBF, levier capital privé, coût par connexion, tableau de bord portefeuille.
+**P3 Fund Manager Edition, construit à la demande de l'utilisateur** (`product/03-fund-manager/`), avant tout signal de demande : la mise en garde de la section 1 (canal Etsy peu adapté) reste valable. Pipeline de projets, critères d'éligibilité, scoring, allocation sous contrainte d'enveloppe, engagements et décaissements RBF, levier capital privé, coût par connexion, tableau de bord portefeuille.
 
 ## 6. Incertitudes ouvertes
 - Volume réel de la demande sur Etsy/Gumroad pour ce type de produit : inconnu.

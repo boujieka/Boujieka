@@ -560,3 +560,233 @@ for _i in range(1, 6):
     DICT[f"Connections - segment {_i}"] = f"Raccordements - segment {_i}"
     DICT[f"Energy sold - segment {_i} (kWh)"] = f"Énergie vendue - segment {_i} (kWh)"
     DICT[f"Billed revenue - segment {_i}"] = f"Recettes facturées - segment {_i}"
+
+# ---------------------------------------------------------------------- P3 Fund Manager Edition
+SHEETS.update({
+    "Fund Parameters": "Paramètres du fonds",
+    "Pipeline": "Pipeline de projets",
+    "Eligibility & Scoring": "Éligibilité & notation",
+    "Allocation": "Allocation",
+    "Disbursements": "Décaissements",
+    "MRV Tracker": "Suivi MRV",
+    "Portfolio Dashboard": "Tableau de bord portefeuille",
+})
+DICT.update(SHEETS)
+DICT.update({
+    "Y": "O", "N": "N",
+    # Start Here
+    "Energy Access Fund Manager Model - RBF & Portfolio Edition": "Modèle du gestionnaire de fonds d'accès à l'énergie - Édition RBF & Portefeuille",
+    "From funding to impact  |  Screen, score and allocate RBF and grant funding across an energy-access project pipeline":
+        "Du financement à l'impact  |  Sélectionner, noter et allouer le RBF et les subventions sur un pipeline de projets d'accès à l'énergie",
+    "Which projects should the fund support, with how much RBF and grant, and what portfolio of connections, impact, leverage and risk does that buy?":
+        "Quels projets le fonds doit-il soutenir, avec quels montants de RBF et de subvention, et quel portefeuille de raccordements, d'impact, d'effet de levier et de risque cela permet-il d'obtenir ?",
+    "1. Fund Parameters    - envelope, costs, fund profile (RBF rates, grant share, caps, tranches), eligibility rules, scoring weights, limits.":
+        "1. Paramètres du fonds - enveloppe, coûts, profil du fonds (taux RBF, part de subvention, plafonds, tranches), règles d'éligibilité, pondérations, limites.",
+    "2. Pipeline           - one row per applicant project. Outputs of the Developer Edition (CAPEX, viability gap, CO2) can be pasted here.":
+        "2. Pipeline de projets - une ligne par projet candidat. Les résultats de l'Édition Développeur (CAPEX, déficit de viabilité, CO2) peuvent y être collés.",
+    "3. Eligibility & Scoring - eligibility tests, maximum support, request, cost-effectiveness, leverage, additionality and weighted score.":
+        "3. Éligibilité & notation - tests d'éligibilité, soutien maximal, demande, coût-efficacité, effet de levier, additionnalité et score pondéré.",
+    "4. Allocation         - projects funded in rank order until the envelope is used, within project and country concentration limits.":
+        "4. Allocation         - projets financés par ordre de rang jusqu'à épuisement de l'enveloppe, dans les limites de concentration par projet et par pays.",
+    "5. Disbursements      - grant at commissioning, RBF by tranche as connections are verified, adjusted for expected delivery by risk rating.":
+        "5. Décaissements      - subvention à la mise en service, RBF par tranches à mesure de la vérification des raccordements, ajusté du taux de réalisation attendu selon le risque.",
+    "6. MRV Tracker        - verified connections to date against targets, RBF earned and outstanding, status per project.":
+        "6. Suivi MRV          - raccordements vérifiés à date par rapport aux cibles, RBF acquis et restant dû, statut par projet.",
+    "7. Portfolio Dashboard - commitments, disbursements, connections, people, CO2, leverage, cost per connection, concentration and risk.":
+        "7. Tableau de bord portefeuille - engagements, décaissements, raccordements, personnes, CO2, effet de levier, coût par raccordement, concentration et risque.",
+    "8. Checks             - integrity checks (all should read OK).": "8. Contrôles          - contrôles d'intégrité (tous doivent afficher OK).",
+    "- Maximum support per project = RBF (connections x rate by customer type) + CAPEX grant, capped at a share of CAPEX, an amount per project and a share of the envelope.":
+        "- Soutien maximal par projet = RBF (raccordements x taux par type de client) + subvention d'investissement, plafonné en part du CAPEX, en montant par projet et en part de l'enveloppe.",
+    "- Eligibility is pass/fail on each active criterion. Only eligible projects are scored, ranked and funded.":
+        "- L'éligibilité est binaire pour chaque critère actif. Seuls les projets éligibles sont notés, classés et financés.",
+    "- Scores (0-100) are relative to the best eligible project for cost-effectiveness, leverage, productive use and CO2; absolute for readiness, track record and risk.":
+        "- Les scores (0-100) sont relatifs au meilleur projet éligible pour le coût-efficacité, l'effet de levier, les usages productifs et le CO2 ; absolus pour la maturité, l'expérience et le risque.",
+    "- Additionality: a request at or below the project's viability gap (+ tolerance) scores 100; above it scores 0; no viability-gap data scores 50.":
+        "- Additionnalité : une demande inférieure ou égale au déficit de viabilité du projet (+ tolérance) obtient 100 ; au-dessus, 0 ; sans donnée de déficit, 50.",
+    "- Allocation is greedy by rank. With partial funding off, a project that does not fit is skipped and the next one is tested.":
+        "- L'allocation suit l'ordre de rang. Si le financement partiel est désactivé, un projet qui ne tient pas est sauté et le suivant est testé.",
+    "- Disbursements: annual time step. Connections are verified over three years from commissioning; RBF is paid in two tranches.":
+        "- Décaissements : pas de temps annuel. Les raccordements sont vérifiés sur trois ans à partir de la mise en service ; le RBF est versé en deux tranches.",
+    "- Expected delivery by risk rating reduces RBF disbursements (connections not delivered are not paid). Grants are assumed paid in full at commissioning.":
+        "- Le taux de réalisation attendu selon le risque réduit les décaissements RBF (les raccordements non réalisés ne sont pas payés). Les subventions sont supposées versées intégralement à la mise en service.",
+    "- Impact and leverage of funded projects are attributed pro rata to the share of their request that the fund covers.":
+        "- L'impact et l'effet de levier des projets financés sont attribués au prorata de la part de leur demande couverte par le fonds.",
+    "- Pre-filled projects, countries and parameters are ILLUSTRATIVE ONLY. They do not describe any real fund, programme or project.":
+        "- Les projets, pays et paramètres pré-remplis sont PUREMENT ILLUSTRATIFS. Ils ne décrivent aucun fonds, programme ou projet réel.",
+    "Portfolio screening and planning tool. It does not replace a fund's investment committee, due diligence, procurement rules or legal documentation.":
+        "Outil de sélection et de planification de portefeuille. Il ne remplace ni le comité d'investissement d'un fonds, ni la due diligence, ni les règles de passation, ni la documentation juridique.",
+    "Not investment, legal or tax advice. Licence: single user / single organisation. No resale or redistribution.":
+        "Ne constitue pas un conseil en investissement, juridique ou fiscal. Licence : un utilisateur / une organisation. Revente et redistribution interdites.",
+    # Fund parameters
+    "FUND PARAMETERS": "PARAMÈTRES DU FONDS",
+    "Edit yellow cells only. All values are illustrative and do not describe any real fund.":
+        "Ne modifiez que les cellules jaunes. Toutes les valeurs sont illustratives et ne décrivent aucun fonds réel.",
+    "1. FUND": "1. FONDS", "Fund name": "Nom du fonds", "Fund manager": "Gestionnaire du fonds",
+    "Example Energy Access Fund": "Fonds d'accès à l'énergie (exemple)", "Example Fund Manager": "Gestionnaire de fonds (exemple)",
+    "First fund year (calendar)": "Première année du fonds (calendaire)", "Total fund size": "Taille totale du fonds",
+    "Fund management & MRV costs": "Coûts de gestion du fonds et MRV", "Share of fund size.": "Part de la taille du fonds.",
+    "Technical assistance window": "Guichet d'assistance technique", "Share of fund size, not allocated to projects.": "Part de la taille du fonds, non allouée aux projets.",
+    "Funds available for project allocation": "Fonds disponibles pour l'allocation aux projets", "Over-commitment ratio": "Taux de surengagement",
+    "Commit above available funds to offset expected under-delivery of connections.":
+        "Engager au-delà des fonds disponibles pour compenser la sous-réalisation attendue des raccordements.",
+    "Allocation envelope (commitment limit)": "Enveloppe d'allocation (plafond d'engagement)",
+    "Allow partial funding of the marginal project? (1 = yes)": "Autoriser le financement partiel du projet marginal ? (1 = oui)",
+    "Maximum share of the envelope per project": "Part maximale de l'enveloppe par projet",
+    "Maximum share of the envelope per country": "Part maximale de l'enveloppe par pays",
+    "Additionality tolerance above the viability gap": "Tolérance d'additionnalité au-delà du déficit de viabilité",
+    "A request up to viability gap x (1 + tolerance) counts as additional.": "Une demande jusqu'à déficit de viabilité x (1 + tolérance) est considérée comme additionnelle.",
+    "2. FUND PROFILE (support rules)": "2. PROFIL DU FONDS (règles de soutien)", "Active profile": "Profil actif", "Rule": "Règle",
+    "Per-connection RBF": "RBF par raccordement", "Capex grant + RBF": "Subvention CAPEX + RBF", "Productive-use focus": "Priorité usages productifs",
+    "Generic profiles. Configure 'Custom' to mirror a specific programme's published rules.":
+        "Profils génériques. Configurez « Personnalisé » pour reproduire les règles publiées d'un programme donné.",
+    "RBF per household connection": "RBF par raccordement de ménage", "RBF per productive-use connection": "RBF par raccordement d'usage productif",
+    "RBF per commercial connection": "RBF par raccordement commercial", "RBF per institution connection": "RBF par raccordement d'institution",
+    "CAPEX grant (share of project CAPEX)": "Subvention d'investissement (part du CAPEX du projet)",
+    "Maximum public support (share of CAPEX, all sources)": "Soutien public maximal (part du CAPEX, toutes sources)",
+    "Maximum support per project": "Soutien maximal par projet", "RBF tranche paid at verification": "Tranche RBF versée à la vérification",
+    "RBF verification lag (years)": "Délai de vérification RBF (années)",
+    "The remaining RBF tranche (1 - tranche at verification) is paid one year later, after a service-continuity check.":
+        "La tranche RBF restante (1 - tranche à la vérification) est versée un an plus tard, après un contrôle de continuité de service.",
+    "Connections verified in commissioning year (share of target)": "Raccordements vérifiés l'année de mise en service (part de la cible)",
+    "Connections verified by end of the following year (cumulative)": "Raccordements vérifiés à la fin de l'année suivante (cumulé)",
+    "The rest is verified in the third year.": "Le reste est vérifié la troisième année.",
+    "3. ELIGIBILITY CRITERIA (1 = apply)": "3. CRITÈRES D'ÉLIGIBILITÉ (1 = appliquer)", "Criterion": "Critère", "Threshold": "Seuil", "Apply?": "Appliquer ?",
+    "Minimum number of connections": "Nombre minimal de raccordements", "Maximum CAPEX per connection": "CAPEX maximal par raccordement",
+    "Minimum renewable share of generation": "Part renouvelable minimale de la production",
+    "Minimum private co-finance (equity + debt) / CAPEX": "Cofinancement privé minimal (fonds propres + dette) / CAPEX",
+    "Minimum readiness stage (1-5)": "Stade de maturité minimal (1-5)", "Maximum average tariff per kWh (affordability)": "Tarif moyen maximal par kWh (capacité de paiement)",
+    "Minimum productive-use share of connections": "Part minimale de raccordements d'usage productif",
+    "Country must be listed as eligible (table below)": "Le pays doit être déclaré éligible (tableau ci-dessous)",
+    "4. ELIGIBLE COUNTRIES": "4. PAYS ÉLIGIBLES", "Country": "Pays", "Eligible? (Y/N)": "Éligible ? (O/N)",
+    "Country A": "Pays A", "Country B": "Pays B", "Country C": "Pays C", "Country D": "Pays D",
+    "5. SCORING WEIGHTS (must total 100%)": "5. PONDÉRATIONS DE NOTATION (total = 100 %)", "Weight": "Pondération",
+    "Cost-effectiveness (fund support per connection, lower is better)": "Coût-efficacité (soutien du fonds par raccordement, plus bas = mieux)",
+    "Leverage (private capital per $ of fund support)": "Effet de levier (capitaux privés par unité de soutien du fonds)",
+    "Productive-use share of connections": "Part de raccordements d'usage productif",
+    "Climate (lifetime CO2 avoided per $ of fund support)": "Climat (CO2 évité sur la durée de vie par unité de soutien)",
+    "Readiness stage": "Stade de maturité", "Developer track record": "Expérience du développeur", "Risk rating (lower risk is better)": "Notation de risque (plus bas = mieux)",
+    "Additionality (request within viability gap)": "Additionnalité (demande dans la limite du déficit de viabilité)", "Total weights": "Total des pondérations",
+    "6. EXPECTED DELIVERY BY RISK RATING": "6. TAUX DE RÉALISATION ATTENDU PAR NOTATION DE RISQUE", "Risk rating": "Notation de risque",
+    "Expected share of target connections delivered": "Part attendue des raccordements cibles réalisés",
+    "1 = lowest risk, 5 = highest. Calibrate on the fund's own delivery history where available.":
+        "1 = risque le plus faible, 5 = le plus élevé. À calibrer sur l'historique de réalisation du fonds si disponible.",
+    "Enter a whole number from 1 to 5.": "Saisissez un nombre entier de 1 à 5.",
+    "Commissioning must be in fund years 1 to 7 so that RBF is paid within the fund life.":
+        "La mise en service doit intervenir entre les années 1 et 7 du fonds pour que le RBF soit versé pendant sa durée de vie.",
+    # Pipeline
+    "PROJECT PIPELINE": "PIPELINE DE PROJETS",
+    "One row per applicant. Projects and figures are illustrative. Paste CAPEX, viability gap and CO2 from the Developer Edition where available.":
+        "Une ligne par candidat. Projets et chiffres illustratifs. Collez le CAPEX, le déficit de viabilité et le CO2 issus de l'Édition Développeur si disponibles.",
+    "Viability gap and amount requested are optional: leave blank if unknown. Technology is descriptive only.":
+        "Le déficit de viabilité et le montant demandé sont optionnels : laissez vide si inconnu. La technologie est purement descriptive.",
+    "Project": "Projet", "Developer": "Développeur", "Technology": "Technologie", "Readiness (1-5)": "Maturité (1-5)",
+    "Track record (1-5)": "Expérience (1-5)", "Risk rating (1-5)": "Risque (1-5)", "Commissioning (fund year)": "Mise en service (année du fonds)",
+    "Household connections": "Raccordements ménages", "Productive-use connections": "Raccordements usages productifs",
+    "Commercial connections": "Raccordements commerciaux", "Institution connections": "Raccordements institutions", "Project CAPEX": "CAPEX du projet",
+    "Developer equity": "Fonds propres du développeur", "Debt secured": "Dette obtenue", "Other grants": "Autres subventions",
+    "Average tariff per kWh": "Tarif moyen par kWh", "Renewable share": "Part renouvelable",
+    "Viability gap (from Developer model)": "Déficit de viabilité (modèle Développeur)", "Amount requested (optional)": "Montant demandé (optionnel)",
+    "Mini-grid": "Mini-réseau", "Hybrid": "Hybride", "Solar home systems": "Kits solaires domestiques", "Productive use": "Usage productif", "Other": "Autre",
+    "Project A - Lake village cluster": "Projet A - Villages du lac", "Project B - River towns": "Projet B - Bourgs du fleuve",
+    "Project C - Northern corridor": "Projet C - Corridor nord", "Project D - Island grids": "Projet D - Réseaux insulaires",
+    "Project E - Highland villages": "Projet E - Villages des hauts plateaux", "Project F - Market towns": "Projet F - Bourgs marchands",
+    "Project G - Remote valley": "Projet G - Vallée isolée", "Project H - Agro-processing hub": "Projet H - Pôle agro-transformation",
+    "Project I - Fishing communities": "Projet I - Communautés de pêcheurs", "Project J - Health and schools first": "Projet J - Santé et écoles d'abord",
+    "Project K - Peri-urban extension": "Projet K - Extension périurbaine", "Project L - Mining belt": "Projet L - Zone minière",
+    "Project M - Small pilot": "Projet M - Petit pilote", "Project N - Lakeside expansion": "Projet N - Extension du littoral lacustre",
+    # Eligibility & scoring
+    "ELIGIBILITY & SCORING": "ÉLIGIBILITÉ & NOTATION",
+    "All cells are formulas. 1 = criterion met. Only eligible projects receive a score, a rank and an allocation.":
+        "Toutes les cellules sont des formules. 1 = critère respecté. Seuls les projets éligibles reçoivent un score, un rang et une allocation.",
+    "ELIGIBILITY TESTS": "TESTS D'ÉLIGIBILITÉ", "Private co-finance / CAPEX": "Cofinancement privé / CAPEX", "Productive-use share": "Part d'usages productifs",
+    "Min. connections": "Min. raccordements", "Max. CAPEX / connection": "Max. CAPEX / raccordement", "Min. renewable share": "Min. part renouvelable",
+    "Min. private co-finance": "Min. cofinancement privé", "Min. readiness": "Min. maturité", "Max. tariff": "Max. tarif",
+    "Min. productive use": "Min. usages productifs", "Eligible country": "Pays éligible", "ELIGIBLE": "ÉLIGIBLE", "Eligibility status": "Statut d'éligibilité",
+    "Eligible": "Éligible", "Too few connections": "Trop peu de raccordements", "CAPEX per connection too high": "CAPEX par raccordement trop élevé",
+    "Renewable share too low": "Part renouvelable trop faible", "Private co-finance too low": "Cofinancement privé trop faible",
+    "Not ready enough": "Maturité insuffisante", "Tariff above cap": "Tarif au-dessus du plafond", "Productive use too low": "Usages productifs insuffisants",
+    "Country not eligible": "Pays non éligible", "RBF at profile rates": "RBF aux taux du profil", "CAPEX grant at profile rate": "Subvention CAPEX au taux du profil",
+    "Maximum support (after caps)": "Soutien maximal (après plafonds)", "Request considered": "Demande retenue", "RBF share of request": "Part RBF de la demande",
+    "Fund support per connection": "Soutien du fonds par raccordement", "Leverage (private / fund)": "Effet de levier (privé / fonds)",
+    "tCO2 per $1,000 of support": "tCO2 par 1 000 de soutien", "Additionality check": "Contrôle d'additionnalité",
+    "Within viability gap": "Dans le déficit de viabilité", "Above viability gap": "Au-dessus du déficit de viabilité", "No viability-gap data": "Pas de donnée de déficit",
+    "Score: cost-effectiveness": "Score : coût-efficacité", "Score: leverage": "Score : effet de levier", "Score: productive use": "Score : usages productifs",
+    "Score: climate": "Score : climat", "Score: readiness": "Score : maturité", "Score: track record": "Score : expérience", "Score: risk": "Score : risque",
+    "Score: additionality": "Score : additionnalité", "WEIGHTED SCORE": "SCORE PONDÉRÉ", "Rank key": "Clé de rang", "RANK": "RANG",
+    "Allocated": "Alloué", "Share of request funded": "Part de la demande financée", "Allocation status": "Statut d'allocation",
+    "Funded": "Financé", "Partially funded": "Partiellement financé", "Not funded": "Non financé",
+    "helper: 1 / support per connection": "aide : 1 / soutien par raccordement", "helper: leverage": "aide : effet de levier",
+    "helper: productive share": "aide : part productive", "helper: CO2 per $": "aide : CO2 par unité",
+    # Allocation
+    "ALLOCATION (in rank order)": "ALLOCATION (par ordre de rang)", "Envelope: ": "Enveloppe : ", "  |  Partial funding: ": "  |  Financement partiel : ",
+    "allowed": "autorisé", "not allowed": "non autorisé", "  |  Max per country: ": "  |  Max par pays : ", " of envelope": " de l'enveloppe",
+    "Each row only looks at the rows above it: the envelope and country limits are applied in rank order, without circular references.":
+        "Chaque ligne ne consulte que les lignes au-dessus : l'enveloppe et les limites par pays s'appliquent par ordre de rang, sans référence circulaire.",
+    "Rank": "Rang", "Score": "Score", "Request": "Demande", "Envelope remaining before": "Enveloppe restante avant",
+    "Country room remaining": "Marge restante du pays", "ALLOCATED": "ALLOUÉ", "Status": "Statut", "Binding constraint": "Contrainte limitante",
+    "Country limit": "Limite pays", "Envelope exhausted": "Enveloppe épuisée", "TOTAL": "TOTAL",
+    # Disbursements
+    "DISBURSEMENTS (expected, by fund year)": "DÉCAISSEMENTS (attendus, par année du fonds)",
+    "Grant: paid at commissioning. RBF: paid as connections are verified (tranche at verification, balance one year later), scaled by expected delivery.":
+        "Subvention : versée à la mise en service. RBF : versé à mesure de la vérification des raccordements (tranche à la vérification, solde un an plus tard), ajusté du taux de réalisation attendu.",
+    "RBF DISBURSEMENTS": "DÉCAISSEMENTS RBF", "GRANT DISBURSEMENTS": "DÉCAISSEMENTS DE SUBVENTIONS", "TOTAL DISBURSEMENTS": "DÉCAISSEMENTS TOTAUX",
+    "Allocated RBF": "RBF alloué", "Allocated grant": "Subvention allouée", "Expected delivery": "Réalisation attendue", "Expected total": "Total attendu",
+    "FUND CASH POSITION": "TRÉSORERIE DU FONDS", "Expected disbursements": "Décaissements attendus", "Cumulative disbursements": "Décaissements cumulés",
+    "Funds available for projects, remaining": "Fonds disponibles pour les projets, restants", "Undisbursed commitments": "Engagements non décaissés",
+    "Expected decommitment (RBF not earned)": "Désengagement attendu (RBF non acquis)", "Lowest remaining balance over fund life": "Solde restant le plus bas sur la durée du fonds",
+    # MRV
+    "MRV TRACKER": "SUIVI MRV",
+    "Enter verified connections and RBF paid to date (yellow). Status compares progress with the expected verification profile.":
+        "Saisissez les raccordements vérifiés et le RBF payé à date (jaune). Le statut compare l'avancement au profil de vérification attendu.",
+    "Reporting fund year": "Année de reporting du fonds", "= calendar year ": "= année civile ", "Target connections": "Raccordements cibles",
+    "Verified connections to date": "Raccordements vérifiés à date", "Achieved": "Réalisé", "Expected by now": "Attendu à date",
+    "RBF earned to date (all tranches)": "RBF acquis à date (toutes tranches)", "RBF paid to date": "RBF payé à date", "Outstanding RBF": "RBF restant dû",
+    "Not started": "Non démarré", "On track": "Dans les temps", "Behind": "En retard", "Off track": "Hors trajectoire",
+    "Outstanding RBF = RBF earned x tranche at verification - RBF paid. The balance tranche falls due after the service-continuity check.":
+        "RBF restant dû = RBF acquis x tranche à la vérification - RBF payé. La tranche de solde est due après le contrôle de continuité de service.",
+    # Dashboard
+    "PORTFOLIO DASHBOARD - ": "TABLEAU DE BORD PORTEFEUILLE - ", "  |  profile: ": "  |  profil : ", "  |  fund size ": "  |  taille du fonds ",
+    "COMMITMENTS": "ENGAGEMENTS", "Fund size": "Taille du fonds", "Available for projects (after management and TA)": "Disponible pour les projets (après gestion et AT)",
+    "Allocation envelope (with over-commitment)": "Enveloppe d'allocation (avec surengagement)", "Requested by eligible projects": "Demandé par les projets éligibles",
+    "Oversubscription (requested / envelope)": "Sursouscription (demandé / enveloppe)", "  of which RBF": "  dont RBF", "  of which CAPEX grants": "  dont subventions CAPEX",
+    "Envelope used": "Enveloppe utilisée", "Expected disbursements (after delivery haircut)": "Décaissements attendus (après décote de réalisation)",
+    "Lowest remaining fund balance": "Solde restant le plus bas du fonds",
+    "Over-commitment covered by expected under-delivery (indicative)": "Surengagement couvert par la sous-réalisation attendue (indicatif)",
+    "PIPELINE": "PIPELINE", "Projects in pipeline": "Projets dans le pipeline", "Eligible projects": "Projets éligibles",
+    "Projects funded (fully or partly)": "Projets financés (totalement ou partiellement)", "Projects fully funded": "Projets entièrement financés",
+    "Eligible projects not funded": "Projets éligibles non financés", "Projects above their viability gap (funded)": "Projets financés au-dessus de leur déficit de viabilité",
+    "Average weighted score of funded projects": "Score pondéré moyen des projets financés",
+    "IMPACT BOUGHT (pro rata to funding share)": "IMPACT FINANCÉ (au prorata de la part financée)", "Connections funded": "Raccordements financés",
+    "  household connections": "  raccordements de ménages", "  productive-use connections": "  raccordements d'usages productifs",
+    "  commercial and institution connections": "  raccordements commerciaux et institutionnels",
+    "People with access (households x household size)": "Personnes desservies (ménages x taille du ménage)",
+    "Verified connections to date (MRV Tracker)": "Raccordements vérifiés à date (Suivi MRV)",
+    "LEVERAGE & COST-EFFECTIVENESS": "EFFET DE LEVIER & COÛT-EFFICACITÉ", "Total project investment mobilised": "Investissement total des projets mobilisé",
+    "Private capital mobilised (equity + debt)": "Capitaux privés mobilisés (fonds propres + dette)",
+    "Leverage: private capital per $ allocated": "Effet de levier : capitaux privés par unité allouée", "Investment per $ allocated": "Investissement par unité allouée",
+    "Fund allocation per connection": "Allocation du fonds par raccordement", "Fund allocation per person with access": "Allocation du fonds par personne desservie",
+    "Fund allocation per tCO2 avoided": "Allocation du fonds par tCO2 évitée", "RISK & CONCENTRATION": "RISQUE & CONCENTRATION",
+    "Allocation-weighted risk rating (1-5)": "Notation de risque pondérée par l'allocation (1-5)", "Expected delivery of RBF connections": "Réalisation attendue des raccordements RBF",
+    "Largest single project (share of allocation)": "Plus gros projet (part de l'allocation)", "Top 3 projects (share of allocation)": "3 premiers projets (part de l'allocation)",
+    "Largest country (share of envelope)": "Premier pays (part de l'enveloppe)", "PORTFOLIO VERDICT": "VERDICT SUR LE PORTEFEUILLE",
+    "Envelope at least 90% committed?": "Enveloppe engagée à 90 % au moins ?", "NO - pipeline too thin": "NON - pipeline trop mince",
+    "Expected disbursements within available funds?": "Décaissements attendus dans la limite des fonds disponibles ?", "NO - reduce over-commitment": "NON - réduire le surengagement",
+    "Country concentration within limit?": "Concentration par pays dans la limite ?", "NO - rebalance": "NON - rééquilibrer",
+    "All funded projects within their viability gap?": "Tous les projets financés dans leur déficit de viabilité ?", "NO - review additionality": "NON - revoir l'additionnalité",
+    "ALLOCATION BY COUNTRY": "ALLOCATION PAR PAYS", "Share of envelope": "Part de l'enveloppe", "Other / unlisted": "Autres / non listés",
+    "Largest country allocation": "Allocation du premier pays", "Disbursement profile (linked)": "Profil de décaissement (lié)", "RBF": "RBF", "Grants": "Subventions",
+    "Cumulative": "Cumulé", "Allocation by project (rank order)": "Allocation par projet (ordre de rang)",
+    "Expected disbursements by year": "Décaissements attendus par année", "Allocation by country": "Allocation par pays",
+    # Checks
+    "Scoring weights total 100%": "Les pondérations totalisent 100 %", "Allocation within envelope": "Allocation dans la limite de l'enveloppe",
+    "No allocation above a project's request": "Aucune allocation supérieure à la demande d'un projet", "No allocation to ineligible projects": "Aucune allocation à un projet non éligible",
+    "Each eligible project ranked exactly once": "Chaque projet éligible classé une seule fois",
+    "Country allocations add up to total allocation": "La somme des allocations par pays égale l'allocation totale", "Country limit respected": "Limite par pays respectée",
+    "Expected disbursements by year = grants + RBF x expected delivery (all paid within the fund life)":
+        "Décaissements attendus par année = subventions + RBF x réalisation attendue (tout versé pendant la durée du fonds)",
+    "Expected disbursements do not exceed allocations": "Les décaissements attendus ne dépassent pas les allocations",
+    "Verification profile valid (0 <= year 1 <= cumulative year 2 <= 100%)": "Profil de vérification valide (0 <= année 1 <= cumul année 2 <= 100 %)",
+    "Management + TA below 100%": "Gestion + AT inférieures à 100 %", "At least one project in pipeline": "Au moins un projet dans le pipeline",
+})
+for _k in range(1, 11):
+    DICT[f"Developer {_k}"] = f"Développeur {_k}"

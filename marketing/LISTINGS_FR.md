@@ -134,3 +134,62 @@ Un utilisateur ou une organisation. Revente interdite.
 - **P1.** Nom : « Calculateur de faisabilité financière de mini-réseau (FR) ». Résumé : « Viable, finançable, et quelle subvention comble le déficit ? »
 - **P2.** Nom : « Modèle financier d'accès à l'énergie – Édition Développeur (FR) ». Résumé : « De la demande communautaire à une demande de financement bancable. »
 - Option : proposer un pack « EN + FR » au même prix. C'est un argument pour les équipes bilingues, par exemple au Cameroun ou dans les programmes régionaux.
+
+---
+
+## P3 : Modèle du gestionnaire de fonds d'accès à l'énergie (Édition RBF & Portefeuille)
+
+Fichier : `product/03-fund-manager/Modele_Gestionnaire_Fonds_Acces_Energie_v1_FR.xlsx`. Prix suggéré : **249 $**. Canal recommandé : Gumroad + LinkedIn plutôt qu'Etsy.
+
+**Titre Etsy**
+```
+Modèle Excel gestionnaire de fonds accès à l'énergie, allocation RBF, notation de projets, fonds mini-réseaux, décaissements et suivi MRV
+```
+
+**Tags Etsy**
+```
+gestion de fonds
+financement RBF
+accès énergie
+portefeuille projets
+notation projets
+subventions
+fonds mini réseaux
+finance à impact
+suivi MRV
+financement mixte
+programme bailleur
+modèle excel
+afrique énergie
+```
+
+**Description**
+```
+Allouez le financement basé sur les résultats (RBF) et les subventions sur un pipeline de projets d'accès à l'énergie, de façon transparente et avec des contraintes dynamiques.
+
+POUR QUI
+Gestionnaires de fonds, équipes de programmes, IFD, fondations et consultants qui gèrent ou conçoivent des guichets RBF ou de subvention pour les mini-réseaux et l'accès à l'énergie.
+
+CE QU'IL FAIT
+- Paramétrage du fonds : taille, coûts de gestion et d'AT, surengagement, limites par projet et par pays
+- Profils de fonds : taux RBF par type de client, part de subvention CAPEX, plafonds, tranches RBF (3 profils génériques + Personnalisé)
+- Éligibilité : 8 critères activables, avec le motif de rejet de chaque projet
+- Notation : coût-efficacité, effet de levier, usages productifs, climat, maturité, expérience, risque, additionnalité (demande vs déficit de viabilité)
+- Allocation par ordre de rang dans la limite de l'enveloppe et des plafonds par pays, financement partiel activable, contrainte limitante affichée
+- Décaissements annuels : subventions à la mise en service, RBF par tranches à la vérification, décote de réalisation selon le risque, trésorerie du fonds
+- Suivi MRV : raccordements vérifiés vs cibles, RBF acquis et restant dû, statut Dans les temps / En retard / Hors trajectoire
+- Tableau de bord : raccordements, personnes, CO2, capitaux privés mobilisés, effet de levier, coût par raccordement/personne/tCO2, concentration, verdicts
+- 12 contrôles d'intégrité automatiques ; jusqu'à 25 projets ; horizon de 10 ans
+
+COMPATIBLE AVEC L'ÉDITION DÉVELOPPEUR
+Collez le CAPEX, le déficit de viabilité et le CO2 de chaque projet issus de notre Édition Développeur pour tester l'additionnalité : le fonds paie-t-il plus que ce dont le projet a besoin ?
+
+CE QU'IL N'EST PAS
+Il ne remplace ni un comité d'investissement, ni une due diligence, ni la documentation juridique. Pas de change ni de reflux. Le fonds, les pays et les projets de l'exemple sont fictifs.
+
+FORMAT
+.xlsx sans macros, déverrouillé, versions française et anglaise incluses. Excel 2010 ou plus récent. Téléchargement immédiat.
+
+LICENCE
+Un utilisateur ou une organisation. Revente interdite.
+```
