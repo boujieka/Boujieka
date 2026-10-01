@@ -62,7 +62,7 @@ Les onglets de projets partagent la même structure : un projet occupe la même 
 | « Part maximale de l'enveloppe par pays » | Plafond de concentration par pays |
 | « Tolérance d'additionnalité au-delà du déficit de viabilité » | Marge admise entre la demande et le déficit de viabilité du projet |
 
-L'enveloppe d'allocation est égale aux fonds disponibles pour les projets multipliés par le taux de surengagement. Le surengagement n'est prudent que si la sous-réalisation attendue le couvre. Le chapitre 7 montre un cas où ce n'est pas le cas.
+L'enveloppe d'allocation est égale aux fonds disponibles pour les projets multipliés par le taux de surengagement. Le surengagement n'est prudent que si la sous-réalisation attendue le couvre. Le chapitre 7 montre comment le vérifier.
 
 ### 4.2 Profil de soutien
 
@@ -165,26 +165,33 @@ L'impact et l'effet de levier d'un projet partiellement financé sont attribués
 
 ## 7. Exemple commenté {#exemple}
 
-L'exemple est entièrement fictif : fonds, pays et projets.
+L'exemple est entièrement fictif : fonds, pays et projets. Il est livré sans surengagement (taux de 1,00).
 
 | Grandeur | Valeur |
 |---|---|
 | Taille du fonds | 3 000 000 USD |
 | Disponible après gestion (7 %) et assistance technique (8 %) | 2 550 000 USD |
-| Enveloppe avec surengagement de 110 % | 2 805 000 USD |
+| Enveloppe, sans surengagement | 2 550 000 USD |
 | Candidats et projets éligibles | 14 candidats, 8 éligibles |
-| Demandes des projets éligibles | 3 247 750 USD, soit une sursouscription de 1,16 |
-| Allocation | 2 805 000 USD, dont 823 388 USD de RBF et 1 981 612 USD de subventions |
-| Raccordements financés | environ 8 010, pour 32 400 personnes desservies |
-| CO2 évité sur la durée de vie | environ 50 750 tCO2 |
-| Capitaux privés mobilisés | 4 392 509 USD, soit 1,57 par unité allouée |
-| Allocation par raccordement | 350 USD |
+| Demandes des projets éligibles | 2 997 500 USD, soit une sursouscription de 1,18 |
+| Allocation | 2 550 000 USD, dont 753 311 USD de RBF et 1 796 689 USD de subventions |
+| Raccordements financés | environ 7 960, pour 32 100 personnes desservies |
+| CO2 évité sur la durée de vie | environ 50 060 tCO2 |
+| Capitaux privés mobilisés | 4 322 786 USD, soit 1,70 par unité allouée |
+| Allocation par raccordement | 320 USD |
+| Décaissements attendus | 2 505 383 USD, pour 2 550 000 USD disponibles |
 
 Six candidats sont rejetés, chacun avec son motif : pays non éligible, part renouvelable insuffisante, maturité insuffisante, CAPEX par raccordement trop élevé, taille insuffisante, usages productifs insuffisants.
 
-Deux projets ne sont que partiellement financés. Le projet N est limité par le plafond pays : le pays B atteint exactement 50 % de l'enveloppe. Le projet I est limité par l'épuisement de l'enveloppe.
+Deux projets ne sont que partiellement financés. Le projet N est limité par le plafond pays : le pays B atteint exactement 50 % de l'enveloppe. Le projet B est limité par l'épuisement de l'enveloppe.
 
-Le verdict sur la trésorerie est négatif, et c'est le point le plus instructif de l'exemple. Avec un surengagement de 110 %, les décaissements attendus (2 756 447 USD) dépassent les fonds disponibles (2 550 000 USD). La raison tient à la structure du soutien : 71 % de l'allocation prend la forme de subventions d'investissement, versées en totalité à la mise en service. Seul le RBF subit la décote de réalisation. La sous-réalisation attendue ne couvre donc qu'un surengagement d'environ 1,02. Deux corrections sont possibles : ramener le surengagement vers 1,02, ou choisir un profil où le RBF pèse davantage.
+Les quatre verdicts du tableau de bord sont positifs. Le désengagement attendu, soit 44 617 USD de RBF qui ne seront pas versés faute de raccordements, laisse une marge de trésorerie du même montant.
+
+### Faut-il surengager ?
+
+Le tableau de bord indique que la sous-réalisation attendue couvre un surengagement d'environ 1,02 seulement. La raison tient à la structure du soutien : environ 70 % de l'allocation prend la forme de subventions d'investissement, versées en totalité à la mise en service, et seul le RBF subit la décote de réalisation.
+
+Pour le vérifier, portez le taux de surengagement à 1,10. L'enveloppe passe à 2 805 000 USD, les décaissements attendus atteignent 2 756 447 USD et dépassent les 2 550 000 USD disponibles. Le verdict sur la trésorerie devient alors négatif. Un surengagement n'est donc défendable qu'avec un profil où le RBF pèse davantage.
 
 ## 8. Contrôles d'intégrité {#controles}
 

@@ -62,7 +62,7 @@ Project sheets share the same layout: a project sits on the same row in the pipe
 | "Maximum share of the envelope per country" | Concentration ceiling per country |
 | "Additionality tolerance above the viability gap" | Margin allowed between the request and the project's viability gap |
 
-The allocation envelope equals the funds available for projects times the over-commitment ratio. Over-commitment is prudent only if expected under-delivery covers it. Chapter 7 shows a case where it does not.
+The allocation envelope equals the funds available for projects times the over-commitment ratio. Over-commitment is prudent only if expected under-delivery covers it. Chapter 7 shows how to check it.
 
 ### 4.2 Support profile
 
@@ -165,26 +165,33 @@ The impact and leverage of a partly funded project are attributed pro rata to th
 
 ## 7. Worked example {#example}
 
-The example is entirely fictitious: fund, countries and projects.
+The example is entirely fictitious: fund, countries and projects. It ships without over-commitment (ratio of 1.00).
 
 | Item | Value |
 |---|---|
 | Fund size | USD 3,000,000 |
 | Available after management (7%) and technical assistance (8%) | USD 2,550,000 |
-| Envelope with 110% over-commitment | USD 2,805,000 |
+| Envelope, no over-commitment | USD 2,550,000 |
 | Applicants and eligible projects | 14 applicants, 8 eligible |
-| Requests from eligible projects | USD 3,247,750, an oversubscription of 1.16 |
-| Allocation | USD 2,805,000, of which USD 823,388 RBF and USD 1,981,612 grants |
-| Connections funded | about 8,010, serving 32,400 people |
-| Lifetime CO2 avoided | about 50,750 tCO2 |
-| Private capital mobilised | USD 4,392,509, or 1.57 per unit allocated |
-| Allocation per connection | USD 350 |
+| Requests from eligible projects | USD 2,997,500, an oversubscription of 1.18 |
+| Allocation | USD 2,550,000, of which USD 753,311 RBF and USD 1,796,689 grants |
+| Connections funded | about 7,960, serving 32,100 people |
+| Lifetime CO2 avoided | about 50,060 tCO2 |
+| Private capital mobilised | USD 4,322,786, or 1.70 per unit allocated |
+| Allocation per connection | USD 320 |
+| Expected disbursements | USD 2,505,383, against USD 2,550,000 available |
 
 Six applicants are rejected, each with its reason: country not eligible, renewable share too low, not ready enough, CAPEX per connection too high, too few connections, productive use too low.
 
-Two projects are only partly funded. Project N is limited by the country ceiling: Country B reaches exactly 50% of the envelope. Project I is limited because the envelope runs out.
+Two projects are only partly funded. Project N is limited by the country ceiling: Country B reaches exactly 50% of the envelope. Project B is limited because the envelope runs out.
 
-The cash verdict is negative, and it is the most useful lesson in the example. With 110% over-commitment, expected disbursements (USD 2,756,447) exceed available funds (USD 2,550,000). The reason lies in the support mix: 71% of the allocation is capital grants, paid in full at commissioning. Only RBF is haircut for delivery risk. Expected under-delivery therefore covers an over-commitment of only about 1.02. There are two fixes: bring the over-commitment ratio down towards 1.02, or choose a profile where RBF carries more weight.
+All four dashboard verdicts are positive. Expected decommitment, USD 44,617 of RBF that will not be paid for lack of connections, leaves a cash margin of the same amount.
+
+### Should the fund over-commit?
+
+The dashboard shows that expected under-delivery covers an over-commitment of only about 1.02. The reason lies in the support mix: about 70% of the allocation is capital grants, paid in full at commissioning, and only RBF is haircut for delivery risk.
+
+To check it, set the over-commitment ratio to 1.10. The envelope rises to USD 2,805,000, and expected disbursements reach USD 2,756,447, above the USD 2,550,000 available. The cash verdict then turns negative. Over-commitment is only defensible with a profile in which RBF carries more weight.
 
 ## 8. Integrity checks {#checks}
 
