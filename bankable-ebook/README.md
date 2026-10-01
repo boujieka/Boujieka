@@ -34,5 +34,6 @@ The manuscript and the built EPUB are not stored in this repository.
 ## Author's edits applied by kindle.lua (October 2026)
 - removed "[Publisher or imprint, and address]" and the whole Declaration of Interests section
 - preface signed "Brazzaville and Yaoundé, October 2026"
+- remaining bracketed author notes removed (Preface, Appendix C, About the Author)
 - copyright page: "© 2026" and "First edition, October 2026"
 - KDP paperback: cream paper, so spine = 265 x 0.0025 = 0.6625 in; cover 12.913 x 9.25 in

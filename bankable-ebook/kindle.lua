@@ -62,6 +62,11 @@ function Pandoc(doc)
       i = i + 1
       goto continue
     end
+    -- remaining author notes: a paragraph that is entirely "[...]" (personalise, acknowledgements, verify, ...)
+    if seen_heading and t and t:match("^%[.*%]$") then
+      i = i + 1
+      goto continue
+    end
     if t and t:find("[ISBN, paperback]", 1, true) then
       -- ebook: drop the placeholder (KDP assigns an ASIN); print: BOOK_ISBN replaces it
       removed_isbn = removed_isbn + 1
