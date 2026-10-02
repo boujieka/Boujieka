@@ -1,4 +1,45 @@
-# AEF SHS PAYGo Model — change log v0.2 → v0.6
+# AEF SHS PAYGo Model — change log
+
+## v0.7 — PAYGo Financial Benchmark Database (started) and branded cover
+
+**Branded cover.**
+- New **Cover** page: the Africa Energy Finance logo (`brand/aef_logo.png`) on a deep-green title panel with gold rules, in the brand colours sampled from the logo (#0B3020 / #B07C0F).
+- Credits "Author & ideation: Emmanuel Boujieka Kamga". The workbook author property is set to the same name.
+- Live status panel: master check (green / red), investment readiness, scenario, credit data mode, currency. Hyperlinks to Contents, Investment summary and Investment readiness. Disclaimer and copyright line.
+- The former cover content (how to use, sheet index, colour code) moved to a new **Contents** sheet.
+- Logo hygiene: the transparent PNG had about 12,000 near-invisible coloured fringe pixels (alpha ≤ 7). They are cleared in the working copy; the original is kept as `brand/aef_logo_original.png`.
+
+**Benchmark database (v0.7).**
+- **Single source of truth:** `benchmarks/db/paygo_financial_db.csv`. Schema in `docs/benchmark-database-schema.md`.
+- **New sheets:**
+  - `Benchmark_DB`: raw records with normalisation to USD m / count / ratio.
+  - `Benchmark_Matrix`: company-year × 37 line items, plus live model rows Y1–Y5.
+  - `Benchmark_KPIs`: 23 derived ratios, including margins, growth, receivables / inventory / payables days, cash conversion cycle, debt / receivables, debt / EBITDA, ECL ratios, per-customer metrics and active ratio.
+  - `Benchmark_Compare`: the model against graded peers (n, min, median, max, position, with an "n<3: anecdotal" warning).
+- **First load:** 37 records on M-KOPA, Sun King, d.light, Bboxx, ZOLA, Engie Energy Access (Fenix) and Watu (an asset-finance comparable, not solar).
+  - 23 usable.
+  - 14 kept but excluded, because they conflict, have no period, are half-year only, are D-grade or differ in definition.
+
+**Conflicts found and NOT resolved (excluded until primary filings are read)**
+
+| Item | Source 1 | Source 2 |
+|---|---|---|
+| M-KOPA FY2024 revenue | USD 416m / KES 53.7bn (TechCabal) | USD 253.5m (Kenyan Wall Street) |
+| M-KOPA FY2023 net loss | USD 24.7m (TechCabal) | USD 20.6m (Kenyan Wall Street) |
+| Bboxx FY2022 revenue | GBP 31.9m (Tracxn) | USD 21.34m (CB Insights) |
+| Watu revenue | FY2025 "revenue" KES 28.3bn (+92.7%) | FY2024 "gross revenue" KES 29.9bn (different definitions) |
+
+**Consequence for v0.6 items:**
+- Source_Register SR01 is now flagged as a conflict.
+- The Calibration net-margin reference (2.2%) is marked provisional, because it would be 3.6% with the other revenue figure.
+
+**Primary filings needed (Companies House was not reachable from the build environment)**
+1. M-KOPA Holdings Ltd (10891868): full accounts FY2023 and FY2024.
+2. BBOXX LTD (07177839): full accounts FY2020–FY2022, and the administrators' statement of affairs and progress reports.
+
+Download the PDFs into `benchmarks/filings/`. The line items will then be extracted into the CSV at grade A.
+
+## v0.2 → v0.6
 
 **Starting point.** The specification ("Change Log — From Initial Model to v0.6 Market Benchmark") describes a v0.3–v0.6 workbook. That workbook is **not in this repository** (no branch contains it), and the cells it cites (`Inputs!C71:C73`) are empty in v0.2. Its v0.3 section matches v0.2 exactly (same covenants, valuation inputs, lags and FX pass-through), so v0.2 was treated as the existing model.
 

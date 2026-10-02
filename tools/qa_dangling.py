@@ -15,7 +15,10 @@ SHEETREF = re.compile(r"(?:'[^']+'|[A-Za-z_][A-Za-z0-9_.]*)!\$?[A-Z]{1,3}\$?\d+(
 FUNC = re.compile(r"[A-Z][A-Z0-9.]*\(")
 hits = Counter()
 examples = {}
+ALLOW = {"Benchmark_DB"}  # blank FX on count / ratio records is intended and tested with =""
 for ws in wb.worksheets:
+    if ws.title in ALLOW:
+        continue
     for row in ws.iter_rows():
         for c in row:
             v = c.value

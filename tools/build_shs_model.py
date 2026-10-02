@@ -25,7 +25,7 @@ from aef_engine import (BLUE, FMT_DATE, FMT_INT, FMT_NUM, FMT_NUM2, FMT_PCT, FMT
 from shs_defaults import GENERAL as G
 from shs_defaults import MAX_AGE, MONTHS, MTF_CAPACITY, PRODUCTS, SCENARIOS
 
-VERSION = "v0.6"
+VERSION = "v0.7"
 YEARS = MONTHS // 12
 NP = len(PRODUCTS)
 PCOLS = [gcl(3 + j) for j in range(NP)]  # C..G on Products / Unit_Economics
@@ -64,7 +64,8 @@ def year_header(ws, row=5, with_y0=False):
 # =====================================================================
 # COVER & SUMMARY (created first for sheet order; filled at the end)
 # =====================================================================
-cov = mb.sheet("Cover", "AFRICA ENERGY FINANCE  |  Business & Financial Models",
+cov = wb.create_sheet("Cover")  # branded cover page, filled at the end
+cts = mb.sheet("Contents", "Contents - how to use this model",
                "Volume 2 - Solar Home Systems  |  PAYGo Company Financial & Investment Model", tab=NAVY)
 inv_ws = mb.sheet("Investment_Summary", "Investment summary",
                   "One-page view for investment committees and lenders. Active scenario, LCY unless stated.", tab="00B050")
@@ -1703,9 +1704,9 @@ header_row(srw, 4, SR_HEAD)
 for n_, w_ in enumerate([9, 16, 34, 12, 10, 18, 7, 12, 26, 28, 50, 26, 50, 30]):
     srw.column_dimensions[gcl(1 + n_)].width = w_
 SR = [
-    ("SR01", "M-KOPA", "Revenue", 416, "USD m", "FY2024", "C", "No", "Confirmed - secondary (snippet)", "TechCabal, 7 Oct 2025, citing UK filings",
+    ("SR01", "M-KOPA", "Revenue", 416, "USD m", "FY2024", "C", "Yes", "CONFLICT - USD 416m (TechCabal) vs USD 253.5m (Kenyan Wall Street)", "TechCabal, 7 Oct 2025, citing UK filings",
      "https://techcabal.com/2025/10/07/m-kopa-turns-first-ever-profit-revenue-surges-66-416/", "Benchmark; calibration reference",
-     "KES 53.7bn. Upgrade to A once the UK filing is retrieved."),
+     "KES 53.7bn. Conflicting secondary figures (see Benchmark_DB DB001/DB002). Resolve with the Companies House filing (10891868)."),
     ("SR02", "M-KOPA", "Revenue growth", 0.66, "%", "FY2024 vs FY2023", "C", "No", "Confirmed - secondary (snippet)", "TechCabal, 7 Oct 2025",
      "https://techcabal.com/2025/10/07/m-kopa-turns-first-ever-profit-revenue-surges-66-416/", "Calibration reference (growth)", ""),
     ("SR03", "M-KOPA", "Net profit", 9.2, "USD m", "FY2024", "C", "No", "Confirmed - secondary (snippet)", "TechCabal, 7 Oct 2025",
@@ -1810,7 +1811,7 @@ mbw.column_dimensions["O"].width = 60
 MB_ROWS = [
     ("M-KOPA", [sr_val("M-KOPA", "Revenue"), sr_val("M-KOPA", "Net profit"), sr_val("M-KOPA", "Revenue growth"),
                 "IFERROR(C{r}/B{r},\"\")", "\"\"", "\"\"", "\"\"", "\"\"", "\"\"", "\"\"", "\"\""], "Yes", "C (secondary)",
-     "Net margin is a maturity reference point, not a target."),
+     "Revenue figure CONFLICTS between sources (USD 416m vs 253.5m) - margin provisional; net margin is a reference point, not a target."),
     ("Sun King", ["\"\"", "\"\"", "\"\"", "\"\"", sr_val("Sun King", "Securitisation 2025"), "\"\"",
                   sr_val("Sun King", "Cumulative solar loans"), sr_val("Sun King", "Cumulative loan customers"), "\"\"", "\"\"", "\"\""],
      "Yes", "B (snippets)", "Customers are cumulative loan customers, not active. MSME bond figure unconfirmed (excluded)."),
@@ -1876,7 +1877,7 @@ cal_rows = [
      "Do not use one company as the benchmark. Run downside / base / upside growth scenarios.",
      "=IF(B{r}=\"\",\"\",IF(B{r}>C{r},\"Model growth above the highest graded reference - justify\",\"Within graded references\"))"),
     ("Net margin", f"={MBM['margin']}", f"=IFERROR({sr_val('M-KOPA', 'Net profit')}/{sr_val('M-KOPA', 'Revenue')},\"\")",
-     "SR01/SR03 (C), derived",
+     "SR01/SR03, derived - PROVISIONAL: FY2024 revenue conflicts (416 vs 253.5 USD m -> 2.2% vs 3.6%)",
      "M-KOPA's ~2.2% FY2024 net margin is a maturity reference point at scale, not a target.",
      "=IFERROR(IF(B{r}>3*C{r},\"Model margin \"&TEXT(B{r}/C{r},\"0.0\")&\"x the scale reference - justify cost and credit assumptions\",\"Within 3x of reference\"),\"\")"),
     ("Debt / receivables", f"=IFERROR({MBM['rf']}/{MBM['gross']},\"\")", "=\"\"", "No graded ratio yet",
@@ -1945,6 +1946,225 @@ for n_, row_ in enumerate(cases):
         cell.font = Font(name=FONT, size=9, bold=c_i == 0)
         cell.alignment = Alignment(wrap_text=True, vertical="top")
     ccw.row_dimensions[r_].height = 72
+
+
+# =====================================================================
+# v0.7 PAYGO FINANCIAL BENCHMARK DATABASE
+# =====================================================================
+import csv as _csv  # noqa: E402
+
+DB_CSV = Path(__file__).resolve().parents[1] / "benchmarks" / "db" / "paygo_financial_db.csv"
+DB_ROWS = list(_csv.DictReader(open(DB_CSV, encoding="utf-8")))
+# taxonomy: code -> (label, type, model formula builder or None)
+# model formulas take the model year y (1..5) as a literal - no text substitution
+fxa = lambda y: f"AVERAGEIFS({TL_FX},{TL_YR},{y})"
+fxe = lambda y: f"INDEX({TL_FX},1,{y * 12})"
+ay = lambda sheet, key, y: f"SUMIFS({mb.range_(sheet, key)},{TL_YR},{y})"
+ey = lambda sheet, key, y: f"INDEX({mb.range_(sheet, key)},1,{y * 12})"
+flow = lambda key, sign="": (lambda y: f"={sign}{ay(S, key, y)}/{fxa(y)}/1000000")
+stock = lambda key: (lambda y: f"={ey(S, key, y)}/{fxe(y)}/1000000")
+TAX_ = [
+    ("REV", "Revenue", "money", flow("rev")), ("REV_FIN", "Financing / interest revenue", "money", flow("rev_fin")),
+    ("COGS", "Cost of sales", "money", flow("cos", "-")), ("GP", "Gross profit", "money", flow("gp")),
+    ("OPEX", "Operating expenses", "money", flow("opex", "-")), ("EBITDA", "EBITDA", "money", flow("ebitda")),
+    ("EBIT", "EBIT / operating income", "money", flow("ebit")), ("DA", "Depreciation & amortisation", "money", flow("da", "-")),
+    ("FIN_COST", "Finance costs", "money",
+     lambda y: f"=-({ay(S, 'int_tl', y)}+{ay(S, 'int_rf', y)}+{ay(S, 'fees', y)})/{fxa(y)}/1000000"),
+    ("ECL", "Impairment / expected credit losses", "money", flow("ecl", "-")), ("TAX", "Income tax", "money", flow("tax", "-")),
+    ("NI", "Net income", "money", flow("ni")),
+    ("CASH", "Cash", "money", stock("cash_end")), ("INV", "Inventory", "money", stock("inv")), ("AP", "Trade payables", "money", stock("ap")),
+    ("TRADE_REC", "Trade receivables", "money", None), ("PAYGO_REC_GROSS", "PAYGo receivables - gross", "money", stock("grossrec")),
+    ("PAYGO_REC_NET", "PAYGo receivables - net", "money", stock("netrec")), ("PPE", "Property, plant & equipment", "money", stock("ppe")),
+    ("DEBT", "Borrowings", "money", lambda y: f"=({ey(S, 'tl', y)}+{ey(S, 'rf', y)})/{fxe(y)}/1000000"),
+    ("LEASE", "Lease liabilities", "money", None), ("EQUITY", "Equity", "money", stock("te")),
+    ("TOTAL_ASSETS", "Total assets", "money", stock("ta")), ("TOTAL_LIAB", "Total liabilities", "money", stock("tliab")),
+    ("CFO", "Operating cash flow", "money", flow("cfo")), ("CAPEX", "Capex", "money", flow("cfi", "-")),
+    ("DEBT_DRAW", "Debt raised", "money", None),
+    ("EQUITY_RAISED", "Equity raised", "money", lambda y: f"=({ay(F, 'eq_init', y)}+{ay(F, 'eq_top', y)})/{fxa(y)}/1000000"),
+    ("SECURITISATION", "Securitisation / receivables financing closed", "money", None),
+    ("CUST_ACTIVE", "Active customers", "count", lambda y: f"=KPIs!{col(y)}{mb.r(K, 'active')}"),
+    ("CUST_CUM", "Cumulative customers (model: cumulative units sold)", "count",
+     lambda y: f"=SUMIFS({mb.range_(O, 'unitsT')},{TL_IDX},\"<=\"&{y * 12})"),
+    ("UNITS", "Units sold", "count", lambda y: f"=KPIs!{col(y)}{mb.r(K, 'units')}"),
+    ("LOANS_CUM", "Cumulative financing disbursed (USD m)", "money",
+     lambda y: f"=SUMIFS({mb.range_(O, 'financedT')},{TL_IDX},\"<=\"&{y * 12})/{fxe(y)}/1000000"),
+    ("REV_GROWTH", "Revenue growth (reported)", "ratio",
+     lambda y: f"=IFERROR(KPIs!{col(y)}{mb.r(K, 'rev')}/KPIs!{col(y - 1)}{mb.r(K, 'rev')}-1,\"\")" if y > 1 else '=""'),
+    ("REPAY_RATE", "Repayment / collection rate", "ratio", lambda y: f"=KPIs!{col(y)}{mb.r(K, 'cr')}"),
+    ("PAR30", "PAR30 / 30+ DPD ratio", "ratio", lambda y: f"=KPIs!{col(y)}{mb.r(K, 'dpd30')}"),
+    ("OWNERSHIP_RATE", "Customer ownership rate", "ratio", None),
+    ("RAGP", "Risk-adjusted gross profit (non-IFRS)", "money", None),
+]
+TYPE_OF = {t[0]: t[2] for t in TAX_}
+
+# ---------- Benchmark_DB ----------
+BD = "Benchmark_DB"
+bdw = mb.sheet(BD, "PAYGo financial benchmark database (v0.7) - raw records",
+               "Loaded from benchmarks/db/paygo_financial_db.csv - edit the CSV, never this sheet. use = 1 enters the matrix; "
+               "conflicting, undated, half-year-only or D-grade records are kept but excluded.", tab="7030A0")
+DB_COLS = ["id", "company", "entity", "fiscal_year", "period_end", "period_months", "statement", "item", "value", "currency", "scale",
+           "fx_to_usd", "fx_note", "use", "publisher", "url", "date_published", "status", "grade", "notes"]
+header_row(bdw, 4, DB_COLS + ["type", "normalised (USD m / count / ratio)"])
+for n_, w_ in enumerate([7, 14, 26, 8, 11, 7, 7, 15, 10, 7, 12, 10, 26, 5, 24, 40, 11, 18, 6, 50, 8, 14]):
+    bdw.column_dimensions[gcl(1 + n_)].width = w_
+for n_, rec in enumerate(DB_ROWS):
+    r_ = 5 + n_
+    for c_i, k_ in enumerate(DB_COLS):
+        v = rec[k_]
+        if k_ in ("fiscal_year", "period_months", "use") and v != "":
+            v = int(v)
+        elif k_ in ("value", "scale", "fx_to_usd") and v != "":
+            v = float(v)
+        cell = bdw.cell(r_, 1 + c_i, v if v != "" else None)
+        cell.font = Font(name=FONT, size=9, color=BLUE if k_ in ("value", "fx_to_usd", "use") else "000000")
+    t_ = TYPE_OF.get(rec["item"], "money")
+    bdw.cell(r_, len(DB_COLS) + 1, t_).font = Font(name=FONT, size=9)
+    nv = (f'=IF(U{r_}="money",IF(L{r_}="","",I{r_}*K{r_}*L{r_}/1000000),IF(U{r_}="count",I{r_}*K{r_},I{r_}))')
+    put_calc(bdw, f"V{r_}", nv, "#,##0.000;(#,##0.000);\"-\"")
+    if rec["use"] != "1":
+        for c_i in range(1, len(DB_COLS) + 3):
+            bdw.cell(r_, c_i).fill = PatternFill("solid", fgColor="FCE4D6")
+DB_LAST = 4 + len(DB_ROWS)
+bdw.freeze_panes = "C5"
+DBR = lambda col_letter: f"Benchmark_DB!${col_letter}$5:${col_letter}${DB_LAST}"
+
+# ---------- Benchmark_Matrix ----------
+BMX = "Benchmark_Matrix"
+bmw = mb.sheet(BMX, "Benchmark matrix - company-year x line item (USD m unless count / ratio)",
+               "Peer rows: SUMIFS over usable full-year records. Model rows: live from the active scenario (flows at average FX, "
+               "balances at year-end FX).", tab="7030A0")
+pairs = sorted({(r["company"], int(r["fiscal_year"])) for r in DB_ROWS
+                if r["fiscal_year"] and r["period_months"] == "12" and r["use"] == "1"})
+header_row(bmw, 5, ["Company", "Year", "Row type", "Worst grade used", "Peer include"] + [t[0] for t in TAX_])
+for n_ in range(len(TAX_)):
+    bmw.column_dimensions[gcl(6 + n_)].width = 11
+bmw.column_dimensions["A"].width = 22
+for c_ in "BCDE":
+    bmw.column_dimensions[c_].width = 10
+for n_, t_ in enumerate(TAX_):
+    bmw.cell(4, 6 + n_, t_[1]).font = Font(name=FONT, size=7, italic=True, color=GREY_TXT)
+    bmw.cell(4, 6 + n_).alignment = Alignment(wrap_text=True, vertical="bottom")
+bmw.row_dimensions[4].height = 48
+MX_COL = {t[0]: gcl(6 + n_) for n_, t in enumerate(TAX_)}
+MX_ROWS = []
+r_ = 6
+for comp, fy in pairs:
+    label(bmw, f"A{r_}", comp); put_calc(bmw, f"B{r_}", fy, FMT_INT); label(bmw, f"C{r_}", "Peer")
+    crit = f"{DBR('B')},$A{r_},{DBR('D')},$B{r_},{DBR('N')},1,{DBR('F')},12"
+    put_calc(bmw, f"D{r_}", "=" + "".join(f"IF(COUNTIFS({crit},{DBR('S')},\"{g}\")>0,\"{g}\"," for g in "EDCBA") + "\"-\"" + ")" * 5, "@")
+    put_calc(bmw, f"E{r_}", f"=IF(OR(D{r_}=\"A\",D{r_}=\"B\",D{r_}=\"C\"),1,0)", FMT_INT)
+    for code, lab_, typ, _m in TAX_:
+        c_ = MX_COL[code]
+        put_calc(bmw, f"{c_}{r_}", f"=IF(COUNTIFS({crit},{DBR('H')},\"{code}\")=0,\"\",SUMIFS({DBR('V')},{crit},{DBR('H')},\"{code}\"))",
+                 FMT_PCT if typ == "ratio" else ("#,##0;(#,##0);\"-\"" if typ == "count" else "#,##0.0;(#,##0.0);\"-\""))
+    MX_ROWS.append(r_)
+    r_ += 1
+MODEL_MX_ROWS = []
+for y in range(1, YEARS + 1):
+    label(bmw, f"A{r_}", "THIS MODEL (active scenario)", bold=True, color=NAVY)
+    put_calc(bmw, f"B{r_}", y, FMT_INT); label(bmw, f"C{r_}", "Model"); label(bmw, f"D{r_}", "Model"); put_calc(bmw, f"E{r_}", 0, FMT_INT)
+    for code, lab_, typ, mf in TAX_:
+        c_ = MX_COL[code]
+        f = mf(y) if mf else '=""'
+        put_calc(bmw, f"{c_}{r_}", f, FMT_PCT if typ == "ratio" else ("#,##0;(#,##0);\"-\"" if typ == "count" else "#,##0.0;(#,##0.0);\"-\""))
+    MODEL_MX_ROWS.append(r_)
+    r_ += 1
+ALL_MX = MX_ROWS + MODEL_MX_ROWS
+bmw.freeze_panes = "F6"
+
+# ---------- Benchmark_KPIs ----------
+BK_ = "Benchmark_KPIs"
+bkw = mb.sheet(BK_, "Benchmark KPIs - derived ratios per company-year and for the model",
+               "Blank = not computable from usable records. Ratios are diagnostics, not performance norms.", tab="7030A0")
+M = lambda code, r: f"Benchmark_Matrix!${MX_COL[code]}${r}"
+KPI_DEF = [
+    ("gm", "Gross margin", FMT_PCT, lambda r: f"=IFERROR(IF({M('GP', r)}=\"\",({M('REV', r)}-{M('COGS', r)})/{M('REV', r)},{M('GP', r)}/{M('REV', r)}),\"\")"),
+    ("ebitda_m", "EBITDA margin", FMT_PCT, lambda r: f"=IFERROR({M('EBITDA', r)}/{M('REV', r)},\"\")"),
+    ("ebit_m", "Operating (EBIT) margin", FMT_PCT, lambda r: f"=IFERROR({M('EBIT', r)}/{M('REV', r)},\"\")"),
+    ("net_m", "Net margin", FMT_PCT, lambda r: f"=IFERROR({M('NI', r)}/{M('REV', r)},\"\")"),
+    ("growth", "Revenue growth", FMT_PCT,
+     lambda r: (f"=IFERROR({M('REV', r)}/SUMIFS(Benchmark_Matrix!${MX_COL['REV']}$6:${MX_COL['REV']}${ALL_MX[-1]},"
+                f"Benchmark_Matrix!$A$6:$A${ALL_MX[-1]},Benchmark_Matrix!$A{r},Benchmark_Matrix!$B$6:$B${ALL_MX[-1]},Benchmark_Matrix!$B{r}-1)-1,"
+                f"IF({M('REV_GROWTH', r)}=\"\",\"\",{M('REV_GROWTH', r)}))")),
+    ("fin_share", "Financing revenue / revenue", FMT_PCT, lambda r: f"=IFERROR({M('REV_FIN', r)}/{M('REV', r)},\"\")"),
+    ("rec_days", "Receivables days", FMT_INT,
+     lambda r: f"=IFERROR(IF({M('PAYGO_REC_NET', r)}=\"\",{M('TRADE_REC', r)},{M('PAYGO_REC_NET', r)})/{M('REV', r)}*365,\"\")"),
+    ("inv_days", "Inventory days", FMT_INT, lambda r: f"=IFERROR({M('INV', r)}/{M('COGS', r)}*365,\"\")"),
+    ("pay_days", "Payables days", FMT_INT, lambda r: f"=IFERROR({M('AP', r)}/{M('COGS', r)}*365,\"\")"),
+    ("ccc", "Cash conversion cycle (days)", FMT_INT, lambda r: "=IFERROR(<rec_days>+<inv_days>-<pay_days>,\"\")"),
+    ("debt_rec", "Debt / net receivables", FMT_X, lambda r: f"=IFERROR({M('DEBT', r)}/{M('PAYGO_REC_NET', r)},\"\")"),
+    ("debt_ebitda", "Debt / EBITDA", FMT_X, lambda r: f"=IFERROR(IF({M('EBITDA', r)}<=0,\"\",{M('DEBT', r)}/{M('EBITDA', r)}),\"\")"),
+    ("liab_assets", "Total liabilities / total assets", FMT_PCT, lambda r: f"=IFERROR({M('TOTAL_LIAB', r)}/{M('TOTAL_ASSETS', r)},\"\")"),
+    ("equity", "Equity (USD m; derived = assets - liabilities when not reported)", "#,##0.0",
+     lambda r: f"=IF({M('EQUITY', r)}<>\"\",{M('EQUITY', r)},IFERROR({M('TOTAL_ASSETS', r)}-{M('TOTAL_LIAB', r)},\"\"))"),
+    ("roe", "Return on equity (NI / equity)", FMT_PCT, lambda r: "=IFERROR(" + M('NI', r) + "/<equity>,\"\")"),
+    ("ecl_rec", "ECL / gross receivables", FMT_PCT, lambda r: f"=IFERROR({M('ECL', r)}/{M('PAYGO_REC_GROSS', r)},\"\")"),
+    ("ecl_rev", "ECL / revenue", FMT_PCT, lambda r: f"=IFERROR({M('ECL', r)}/{M('REV', r)},\"\")"),
+    ("ecl_finrev", "ECL / financing revenue", FMT_PCT, lambda r: f"=IFERROR({M('ECL', r)}/{M('REV_FIN', r)},\"\")"),
+    ("rev_cust", "Revenue per active customer (USD)", FMT_NUM, lambda r: f"=IFERROR({M('REV', r)}*1000000/{M('CUST_ACTIVE', r)},\"\")"),
+    ("rec_cust", "Net receivables per active customer (USD)", FMT_NUM, lambda r: f"=IFERROR({M('PAYGO_REC_NET', r)}*1000000/{M('CUST_ACTIVE', r)},\"\")"),
+    ("active_ratio", "Active / cumulative customers", FMT_PCT, lambda r: f"=IFERROR({M('CUST_ACTIVE', r)}/{M('CUST_CUM', r)},\"\")"),
+    ("repay", "Repayment / collection rate", FMT_PCT, lambda r: f"=IF({M('REPAY_RATE', r)}=\"\",\"\",{M('REPAY_RATE', r)})"),
+    ("own", "Customer ownership rate", FMT_PCT, lambda r: f"=IF({M('OWNERSHIP_RATE', r)}=\"\",\"\",{M('OWNERSHIP_RATE', r)})"),
+]
+KC = {k: gcl(4 + n_) for n_, (k, *_r) in enumerate(KPI_DEF)}
+header_row(bkw, 5, ["Company", "Year", "Peer include"] + [d[1] for d in KPI_DEF])
+bkw.row_dimensions[5].height = 54
+bkw.column_dimensions["A"].width = 26
+for c_ in KC.values():
+    bkw.column_dimensions[c_].width = 12
+KROW = {}
+for n_, mr in enumerate(ALL_MX):
+    r_ = 6 + n_
+    KROW[mr] = r_
+    put_calc(bkw, f"A{r_}", f"=Benchmark_Matrix!A{mr}", "@", link=True)
+    put_calc(bkw, f"B{r_}", f"=Benchmark_Matrix!B{mr}", FMT_INT, link=True)
+    put_calc(bkw, f"C{r_}", f"=Benchmark_Matrix!E{mr}", FMT_INT, link=True)
+    for k_, text, fmt, fn in KPI_DEF:
+        f = fn(mr)
+        for kk, cc in KC.items():
+            f = f.replace(f"<{kk}>", f"{cc}{r_}")
+        put_calc(bkw, f"{KC[k_]}{r_}", f, fmt)
+LAST_K = 6 + len(ALL_MX) - 1
+PEER_R0 = LAST_K + 3
+label(bkw, f"A{PEER_R0 - 1}", "Peer-only values (graded A-C, usable) - feed the peer ranges", bold=True, color=NAVY)
+for n_, mr in enumerate(MX_ROWS):
+    r_ = PEER_R0 + n_
+    src = KROW[mr]
+    put_calc(bkw, f"A{r_}", f"=A{src}", "@"); put_calc(bkw, f"B{r_}", f"=B{src}", FMT_INT)
+    for k_, text, fmt, fn in KPI_DEF:
+        c_ = KC[k_]
+        put_calc(bkw, f"{c_}{r_}", f"=IF(AND($C{src}=1,ISNUMBER({c_}{src})),{c_}{src},\"\")", fmt)
+PEER_LAST = PEER_R0 + max(len(MX_ROWS), 1) - 1
+bkw.freeze_panes = "D6"
+
+# ---------- Benchmark_Compare ----------
+BC = "Benchmark_Compare"
+bcw = mb.sheet(BC, "How does this PAYGo company compare with real companies at scale?",
+               "Model (active scenario) vs graded peer records. Peer ranges use grade A-C usable records only; n shows how thin the evidence is.",
+               tab="7030A0")
+header_row(bcw, 5, ["KPI", "Model Y1", "Model Y2", "Model Y3", "Model Y4", "Model Y5", "Peer n", "Peer min", "Peer median", "Peer max",
+                    "Model Y5 vs peers"])
+bcw.column_dimensions["A"].width = 44
+for c_ in "BCDEFGHIJ":
+    bcw.column_dimensions[c_].width = 12
+bcw.column_dimensions["K"].width = 34
+for n_, (k_, text, fmt, fn) in enumerate(KPI_DEF):
+    r_ = 6 + n_
+    label(bcw, f"A{r_}", text)
+    for y, mr in enumerate(MODEL_MX_ROWS):
+        put_calc(bcw, f"{gcl(2 + y)}{r_}", f"=Benchmark_KPIs!{KC[k_]}{KROW[mr]}", fmt, link=True)
+    rng = f"Benchmark_KPIs!${KC[k_]}${PEER_R0}:${KC[k_]}${PEER_LAST}"
+    put_calc(bcw, f"G{r_}", f"=COUNT({rng})", FMT_INT)
+    put_calc(bcw, f"H{r_}", f"=IF(G{r_}=0,\"\",MIN({rng}))", fmt)
+    put_calc(bcw, f"I{r_}", f"=IF(G{r_}=0,\"\",MEDIAN({rng}))", fmt)
+    put_calc(bcw, f"J{r_}", f"=IF(G{r_}=0,\"\",MAX({rng}))", fmt)
+    put_calc(bcw, f"K{r_}", (f"=IF(G{r_}=0,\"No graded peer data yet\",IF(NOT(ISNUMBER(F{r_})),\"Model value n/a\","
+                             f"IF(F{r_}>J{r_},\"Above peer range\",IF(F{r_}<H{r_},\"Below peer range\",\"Within peer range\")))&IF(G{r_}<3,\" (n<3: anecdotal)\",\"\"))"), "@")
+note(bcw, f"A{8 + len(KPI_DEF)}", "CAC payback is not disclosed by companies; see Unit_Economics for the model. Watu is an asset-finance "
+     "comparable (motorcycles / smartphones), not a solar company. Unresolved conflicts (e.g. M-KOPA FY2024 revenue: USD 416m vs "
+     "USD 253.5m) are excluded until primary filings are read - see Benchmark_DB.")
+BENCH_SUMMARY = {"n_records": len(DB_ROWS), "n_used": sum(r["use"] == "1" for r in DB_ROWS)}
 
 
 # =====================================================================
@@ -2274,8 +2494,8 @@ note(dw, "A8", "Series order: Revenue, EBITDA | Tier 1..5 | Collection, Write-of
 # =====================================================================
 # COVER
 # =====================================================================
-cov.column_dimensions["A"].width = 30
-cov.column_dimensions["B"].width = 100
+cts.column_dimensions["A"].width = 30
+cts.column_dimensions["B"].width = 100
 info = [("Model", "SHS / PAYGo Company Financial & Investment Model - MTF Tiers 1-5"),
         ("Version", f"{VERSION} - development build, generated {date.today().isoformat()}"),
         ("Status", "Draft for expert review. Default inputs are illustrative. NOT investment grade - see Investment_Readiness."),
@@ -2283,12 +2503,12 @@ info = [("Model", "SHS / PAYGo Company Financial & Investment Model - MTF Tiers 
         ("Periodicity", f"Monthly over {MONTHS} months; annual roll-ups on Annual, KPIs and Valuation."),
         ("Master check", None)]
 for k_, (a_, b_) in enumerate(info):
-    label(cov, f"A{4 + k_}", a_, bold=True)
+    label(cts, f"A{4 + k_}", a_, bold=True)
     if b_:
-        label(cov, f"B{4 + k_}", b_)
-put_calc(cov, "B9", f"={MASTER}", "@", bold=True)
-cov["B9"].font = Font(name=FONT, bold=True, color="C00000")
-label(cov, "A11", "How to use", bold=True, color=NAVY, size=11)
+        label(cts, f"B{4 + k_}", b_)
+put_calc(cts, "B9", f"={MASTER}", "@", bold=True)
+cts["B9"].font = Font(name=FONT, bold=True, color="C00000")
+label(cts, "A11", "How to use", bold=True, color=NAVY, size=11)
 steps = ["1. Inputs - scenario, macro, volumes, opex, RBF, financing, covenants, valuation (yellow = review first).",
          "2. Products - five MTF tiers: specification, PAYGo price plan, cost to serve, credit risk, recovery, RBF, advance rate.",
          "3. Scenarios - Base / Downside / Severe levers.",
@@ -2296,16 +2516,19 @@ steps = ["1. Inputs - scenario, macro, volumes, opex, RBF, financing, covenants,
          "5. Audit trail: FS -> Ops -> Cohort_T1..T5 -> Curves. Every number traces back to Inputs or Products.",
          "6. The master check must read OK before any output is used."]
 for k_, s_ in enumerate(steps):
-    label(cov, f"B{12 + k_}", s_)
-label(cov, "A19", "Sheet index", bold=True, color=NAVY, size=11)
-cov.column_dimensions["A"].width = 24
-index = [("Investment_Summary", "One-page investment committee / lender summary"),
+    label(cts, f"B{12 + k_}", s_)
+label(cts, "A19", "Sheet index", bold=True, color=NAVY, size=11)
+cts.column_dimensions["A"].width = 24
+index = [("Cover", "Title page"), ("Investment_Summary", "One-page investment committee / lender summary"),
          ("Investment_Readiness", "23 readiness gates - never an investment-grade claim"),
          ("Credit_Assumptions", "DPD buckets, stages, default definition, recovery, eligibility"),
          ("Consumer_Risk", "Affordability, APR, consumer-protection evidence"),
          ("Credit_Portfolio", "Credit dashboard (selected data mode)"),
          ("Vintage_Dashboard", "Cohort coverage, M12 summary, vintage curve"),
          ("Market_Benchmark", "Scaled PAYGo companies vs this model"),
+         ("Benchmark_Compare", "v0.7: model vs graded peers (min / median / max)"),
+         ("Benchmark_KPIs", "v0.7: derived financial and operational ratios"),
+         ("Benchmark_Matrix", "v0.7: company-year x line item"), ("Benchmark_DB", "v0.7: raw benchmark records (from CSV)"),
          ("Calibration", "Benchmark-based diagnostics"), ("Company_Cases", "Lessons from scaled PAYGo companies"),
          ("Source_Register", "Graded market and sector sources"),
          ("RBF_Engine", "Sales / repayment / ownership-linked / hybrid RBF"),
@@ -2320,32 +2543,116 @@ index = [("Investment_Summary", "One-page investment committee / lender summary"
          ("Curves", "Per-unit repayment curves"), ("Cohort_T1", "Vintage matrices (one sheet per tier)"),
          ("Timeline", "Dates, FX, indices"), ("Glossary", "PAYGo & SHS terms"), ("Checks", "Integrity checks")]
 for k_, (sh, d_) in enumerate(index):
-    cell = cov[f"A{20 + k_}"]
+    cell = cts[f"A{20 + k_}"]
     cell.value = sh
     cell.hyperlink = f"#'{sh}'!A1"
     cell.font = Font(name=FONT, color="0563C1", underline="single")
-    label(cov, f"B{20 + k_}", d_)
+    label(cts, f"B{20 + k_}", d_)
 base = 20 + len(index) + 1
-label(cov, f"A{base}", "Colour code", bold=True, color=NAVY, size=11)
-label(cov, f"A{base + 1}", "1,000", color=BLUE); label(cov, f"B{base + 1}", "Blue = hard-coded input")
-cov[f"A{base + 2}"] = "1,000"; cov[f"A{base + 2}"].font = Font(name=FONT, color=BLUE)
-cov[f"A{base + 2}"].fill = PatternFill("solid", fgColor="FFFF00"); label(cov, f"B{base + 2}", "Yellow fill = key assumption")
-label(cov, f"A{base + 3}", "1,000"); label(cov, f"B{base + 3}", "Black = formula")
-label(cov, f"A{base + 4}", "1,000", color=GREEN); label(cov, f"B{base + 4}", "Green = link from another sheet")
-label(cov, f"A{base + 6}", "Disclaimer", bold=True, color=NAVY, size=11)
-cov[f"B{base + 6}"] = ("Decision-support tool. Not investment, legal, tax or accounting advice. Default inputs are illustrative. "
+label(cts, f"A{base}", "Colour code", bold=True, color=NAVY, size=11)
+label(cts, f"A{base + 1}", "1,000", color=BLUE); label(cts, f"B{base + 1}", "Blue = hard-coded input")
+cts[f"A{base + 2}"] = "1,000"; cts[f"A{base + 2}"].font = Font(name=FONT, color=BLUE)
+cts[f"A{base + 2}"].fill = PatternFill("solid", fgColor="FFFF00"); label(cts, f"B{base + 2}", "Yellow fill = key assumption")
+label(cts, f"A{base + 3}", "1,000"); label(cts, f"B{base + 3}", "Black = formula")
+label(cts, f"A{base + 4}", "1,000", color=GREEN); label(cts, f"B{base + 4}", "Green = link from another sheet")
+label(cts, f"A{base + 6}", "Disclaimer", bold=True, color=NAVY, size=11)
+cts[f"B{base + 6}"] = ("Decision-support tool. Not investment, legal, tax or accounting advice. Default inputs are illustrative. "
                        "Accounting simplifications (revenue recognition, ECL without staging, tax, valuation) are listed in the "
                        "user manual. Users are responsible for their inputs and conclusions.")
-cov[f"B{base + 6}"].alignment = Alignment(wrap_text=True, vertical="top")
-cov[f"B{base + 6}"].font = Font(name=FONT, size=9)
-cov.row_dimensions[base + 6].height = 40
+cts[f"B{base + 6}"].alignment = Alignment(wrap_text=True, vertical="top")
+cts[f"B{base + 6}"].font = Font(name=FONT, size=9)
+cts.row_dimensions[base + 6].height = 40
+
+
+# =====================================================================
+# BRANDED COVER PAGE
+# =====================================================================
+from openpyxl.drawing.image import Image as XLImage  # noqa: E402
+
+BRAND_GREEN, BRAND_GOLD, BRAND_CREAM, BRAND_GREY = "0B3020", "B07C0F", "F7F3E8", "6B6B6B"
+LOGO = Path(__file__).resolve().parents[1] / "brand" / "aef_logo.png"
+AUTHOR = "Emmanuel Boujieka Kamga"
+cov.sheet_view.showGridLines = False
+cov.sheet_view.zoomScale = 90
+cov.sheet_properties.tabColor = BRAND_GREEN
+for c_, w_ in zip("ABCDEFGHIJKLM", [3, 4, 16, 16, 16, 16, 16, 16, 16, 16, 16, 4, 3]):
+    cov.column_dimensions[c_].width = w_
+
+
+def band(r1, r2, color, c1="B", c2="L"):
+    for r_ in range(r1, r2 + 1):
+        for c_ in range(ord(c1), ord(c2) + 1):
+            cov[f"{chr(c_)}{r_}"].fill = PatternFill("solid", fgColor=color)
+
+
+def ctext(cell, text, size=11, color="FFFFFF", bold=False, italic=False, align="left"):
+    cov[cell] = text
+    cov[cell].font = Font(name=FONT, size=size, color=color, bold=bold, italic=italic)
+    cov[cell].alignment = Alignment(horizontal=align, vertical="center")
+
+
+for r_ in range(1, 15):
+    cov.row_dimensions[r_].height = 18
+if LOGO.exists():
+    img = XLImage(str(LOGO))
+    ratio = img.height / img.width
+    img.width = 600
+    img.height = int(600 * ratio)
+    cov.add_image(img, "C3")
+band(15, 15, BRAND_GOLD); cov.row_dimensions[15].height = 5
+band(16, 31, BRAND_GREEN)
+for r_ in range(16, 32):
+    cov.row_dimensions[r_].height = 20
+ctext("C18", "VOLUME 2", 12, BRAND_GOLD, bold=True)
+ctext("C20", "SOLAR HOME SYSTEMS", 30, bold=True); cov.row_dimensions[20].height = 40
+ctext("C22", "PAYGo Company Financial & Investment Model", 18); cov.row_dimensions[22].height = 26
+ctext("C24", "From business model to bankability  |  MTF Tiers 1-5  |  Credit, vintage, RBF and benchmark engines", 11, "E3C77A", italic=True)
+ctext("C27", "AUTHOR & IDEATION", 9, BRAND_GOLD, bold=True)
+ctext("C28", AUTHOR, 16, bold=True); cov.row_dimensions[28].height = 24
+ctext("C30", f"Version {VERSION}  |  Development build  |  {date.today().strftime('%d %B %Y')}", 10, "D9D9D9")
+band(32, 32, BRAND_GOLD); cov.row_dimensions[32].height = 5
+band(33, 41, BRAND_CREAM)
+ctext("C34", "MODEL STATUS", 9, BRAND_GREEN, bold=True)
+status = [("Master check", f"={MASTER}"), ("Investment readiness", f"={READY}"),
+          ("Active scenario", "=Scenarios!$G$12"),
+          ("Credit data", f"=IF({INP['credit_mode']}=1,\"Proxy (model curves)\",\"Actual (company data)\")"),
+          ("Currency", f"={INP['currency']}&\" (local), USD for hardware, RBF and term debt\"")]
+for n_, (lab, f) in enumerate(status):
+    r_ = 35 + n_
+    ctext(f"C{r_}", lab, 10, BRAND_GREY)
+    cov[f"E{r_}"] = f
+    cov[f"E{r_}"].font = Font(name=FONT, size=10, bold=True, color=BRAND_GREEN)
+    cov[f"E{r_}"].alignment = Alignment(horizontal="left", vertical="center")
+for n_, (lab, target) in enumerate([("Start here: Contents  >", "Contents"), ("Investment summary  >", "Investment_Summary"),
+                                     ("Investment readiness  >", "Investment_Readiness")]):
+    cell = cov[f"{'CEH'[n_]}41"]
+    cell.value = lab
+    cell.hyperlink = f"#'{target}'!A1"
+    cell.font = Font(name=FONT, size=10, bold=True, color=BRAND_GOLD, underline="single")
+from openpyxl.formatting.rule import CellIsRule  # noqa: E402
+cov.conditional_formatting.add("E35", CellIsRule(operator="equal", formula=['"OK"'], font=Font(name=FONT, bold=True, color="1E7B34")))
+cov.conditional_formatting.add("E35", CellIsRule(operator="equal", formula=['"ERROR"'], font=Font(name=FONT, bold=True, color="C00000")))
+cov.merge_cells("C43:K45")
+cov["C43"] = ("Decision-support tool. Not investment, legal, tax or accounting advice. Default inputs are illustrative placeholders for a "
+              "fictional company in a fictional market; market data are graded in Source_Register. The model is NOT investment grade "
+              "until company data are loaded and independently validated (see Investment_Readiness).")
+cov["C43"].font = Font(name=FONT, size=8, italic=True, color=BRAND_GREY)
+cov["C43"].alignment = Alignment(wrap_text=True, vertical="top")
+ctext("C47", f"(c) {date.today().year} {AUTHOR}. All rights reserved.  |  Africa Energy Finance - Business & Financial Models",
+      8, BRAND_GREY)
+cov.print_area = "A1:M48"
+cov.page_setup.orientation = "landscape"
+cov.page_setup.fitToWidth = 1
+cov.page_setup.fitToHeight = 1
+cov.sheet_properties.pageSetUpPr.fitToPage = True
 
 # =====================================================================
 # ORDER, PRINT SETUP, SNAPSHOT, SAVE
 # =====================================================================
-order = ["Cover", "Investment_Summary", "Investment_Readiness", "Inputs", "Products", "Scenarios", "Credit_Assumptions",
+order = ["Cover", "Contents", "Investment_Summary", "Investment_Readiness", "Inputs", "Products", "Scenarios", "Credit_Assumptions",
          "Consumer_Risk", "Dashboard", "KPIs", "Credit_Portfolio", "Vintage_Dashboard", "Covenants", "Valuation",
-         "Unit_Economics", "Sensitivity", "Market_Benchmark", "Calibration", "Company_Cases", "Source_Register",
+         "Unit_Economics", "Sensitivity", "Benchmark_Compare", "Benchmark_KPIs", "Market_Benchmark", "Calibration",
+         "Company_Cases", "Source_Register", "Benchmark_Matrix", "Benchmark_DB",
          "Annual", "FS", "Ops", "RBF_Engine", "Credit_Engine", "Vintage_Engine", "Costs", "Financing", "Curves"] + \
         [f"Cohort_T{j + 1}" for j in range(NP)] + ["Credit_Input", "Vintage_Input", "Timeline", "Glossary", "Checks"]
 wb._sheets = [wb[n] for n in order]
@@ -2381,13 +2688,16 @@ else:
 
 for wsx in wb.worksheets:
     set_font_all(wsx)
+    if wsx.title == "Cover":
+        continue
     wsx.page_setup.orientation = "landscape"
     wsx.page_setup.fitToWidth = 1
     wsx.page_setup.fitToHeight = 0
     wsx.sheet_properties.pageSetUpPr.fitToPage = True
 wb.calculation = CalcProperties(fullCalcOnLoad=True)
 wb.properties.title = "AEF Volume 2 - SHS PAYGo Company Financial & Investment Model"
-wb.properties.creator = "Africa Energy Finance"
+wb.properties.creator = "Emmanuel Boujieka Kamga"
+wb.properties.subject = "Africa Energy Finance - Business & Financial Models, Volume 2"
 OUT.parent.mkdir(parents=True, exist_ok=True)
 wb.save(OUT)
 print(OUT)
