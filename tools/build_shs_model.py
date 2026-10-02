@@ -26,11 +26,19 @@ from shs_defaults import GENERAL as G
 from shs_defaults import MAX_AGE, MONTHS, MTF_CAPACITY, PRODUCTS, SCENARIOS
 
 VERSION = "v0.7"
+CASE = None
+if "--case" in sys.argv:  # e.g. --case solarapay : apply a worked-case input set before anything is built
+    import importlib
+    CASE_MOD = importlib.import_module(f"cases.{sys.argv[sys.argv.index('--case') + 1]}")
+    CASE_MOD.apply(G, PRODUCTS)
+    CASE = CASE_MOD.CASE
 YEARS = MONTHS // 12
 NP = len(PRODUCTS)
 PCOLS = [gcl(3 + j) for j in range(NP)]  # C..G on Products / Unit_Economics
 OUT = (Path(__file__).resolve().parents[1] / "volumes/02-solar-home-systems/model"
        / f"AEF_SHS_PAYGo_Model_{VERSION}.xlsx")
+if CASE:
+    OUT = Path(__file__).resolve().parents[1] / CASE["out"]
 ILLUS = "Illustrative placeholder - replace with company data."
 GREY_TXT = "595959"
 
@@ -97,7 +105,7 @@ dv = DataValidation(type="whole", operator="between", formula1="1", formula2="3"
 ws.add_data_validation(dv); dv.add(f"C{r}"); r += 1
 add_input("start", r, "First model month (period end)", "date", None, FMT_DATE, False, "Period-end date of month 1.")
 ws[f"C{r}"] = "=DATE(2027,1,31)"; ws[f"C{r}"].font = Font(name=FONT, color=BLUE); r += 1
-add_input("currency", r, "Local currency label", "text", "LCY", "@", False, "Display only."); r += 2
+add_input("currency", r, "Local currency label", "text", G.get("currency", "LCY"), "@", False, "Display only."); r += 2
 
 mb.section(ws, r, "Macro"); r += 1
 add_input("fx0", r, "Opening FX rate", "LCY per USD", G["fx0"], FMT_NUM2, True); r += 1
@@ -2603,7 +2611,7 @@ band(15, 15, BRAND_GOLD); cov.row_dimensions[15].height = 5
 band(16, 31, BRAND_GREEN)
 for r_ in range(16, 32):
     cov.row_dimensions[r_].height = 20
-ctext("C18", "VOLUME 2", 12, BRAND_GOLD, bold=True)
+ctext("C18", "VOLUME 2" + (f"  |  {CASE['title']}" if CASE else ""), 12, BRAND_GOLD, bold=True)
 ctext("C20", "SOLAR HOME SYSTEMS", 30, bold=True); cov.row_dimensions[20].height = 40
 ctext("C22", "PAYGo Company Financial & Investment Model", 18); cov.row_dimensions[22].height = 26
 ctext("C24", "From business model to bankability  |  MTF Tiers 1-5  |  Credit, vintage, RBF and benchmark engines", 11, "E3C77A", italic=True)
@@ -2681,6 +2689,25 @@ def fill_snapshot():
     snw.add_chart(ch, f"A{end + 3}")
 
 
+if CASE:  # load the case's synthetic portfolio history into the data-input templates
+    hist_credit, hist_vint = CASE_MOD.history(PRODUCTS, G)
+    for j, rows in hist_credit.items():
+        for i, rec in enumerate(rows):
+            r_ = CI_R0(j) + i
+            for k_, v in rec.items():
+                cell = wb[CIN][f"{CI_COL[k_]}{r_}"]
+                cell.value = (date.fromisoformat(v) if k_ == "date" else v)
+    for j, cohorts in hist_vint.items():
+        for ci, rec in cohorts.items():
+            r_ = VI_R0(j) + ci - 1
+            wb[VIN][f"B{r_}"] = 2
+            wb[VIN][f"C{r_}"] = float(rec["units"])
+            for k_idx, vals in rec["cp"].items():
+                for mk, v in vals.items():
+                    wb[VIN][f"{vi_col(mk, k_idx)}{r_}"] = float(v)
+            if rec["own"] is not None:
+                wb[VIN][f"{VI_OWN_COL}{r_}"] = rec["own"]
+            wb[VIN][f"{VI_NOTE_COL}{r_}"] = "SYNTHETIC - teaching data"
 if "--snapshot" in sys.argv:
     fill_snapshot()
 else:
