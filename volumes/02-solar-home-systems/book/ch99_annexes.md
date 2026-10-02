@@ -15,7 +15,7 @@ The definitions below are those used in the companion workbook. They follow the 
 | Recovery rate | Net resale proceeds of repossessed units ÷ defaulted exposure | Cohort | Net of recovery cost (15% of gross proceeds by default) |
 | LGD proxy | 1 less net recoveries ÷ defaulted exposure | Portfolio | Not an IFRS 9 LGD |
 | PD proxy, twelve months | Proxy mode 1 − (1 − h)^12; Actual mode trailing write offs ÷ average gross receivables | Portfolio | Not an IFRS 9 PD |
-| Active ratio | Active (paying or within grace) accounts ÷ accounts sold and not yet unlocked | Portfolio | Read with the unlock rate |
+| Active ratio | Accounts that made a payment in the last 30 days ÷ accounts not yet paid off or written off | Portfolio | Read with the enabled rate (Chapter 7) |
 | Unlock rate | Accounts fully repaid and unlocked ÷ accounts reaching the end of tenor | Cohort | The basis of ownership based results |
 | Ownership at twice the tenor | Share of a cohort that owns its device at twice the original tenor | Cohort | Required for ownership linked RBF in the workbook |
 | CAC | Commission plus marketing and acquisition cost per unit sold | Tier | A fully loaded CAC also carries agent management cost (Chapter 5) |
