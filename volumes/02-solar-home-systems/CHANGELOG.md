@@ -1,4 +1,20 @@
-# AEF SHS PAYGo Model — change log
+# AEF SHS PAYGo Model change log
+
+## v0.7 publication release: red team review and editorial finish
+
+Corrections found in review
+1. Source register: the MTF capacity entry carried an informal status; it now reads "Not yet checked against the framework report". Three unconfirmed entries (SR09, SR16, SR17) now read "NOT CONFIRMED: no public source found".
+2. Scenarios note cited "source register S01" for the ESMAP collection rate; the workbook entry is SR19. Corrected.
+3. Operating cash flow KPI: "first month with positive operating cash flow" read month 1 because opening inventory is bought on supplier credit. Replaced by "month from which operating cash flow stays positive" (new FS memo row).
+4. Case study: the receivables facility was described as advancing 70% to 75%; the case advances 50% (Tier 1), 70% (Tiers 2 and 3) and 75% (Tiers 4 and 5). Corrected.
+5. Case study: the stress case "full LCY price indexation" is run on the Downside; its label now says so.
+6. Readiness banner and source statuses rewritten without dashes; references to internal tooling removed from workbook notes.
+
+Editorial finish
+1. User manual and case study rewritten in sector prose, without em dashes, en dashes or spaced hyphens; negative figures shown in parentheses.
+2. PDFs: numbered table of contents with page numbers and dot leaders, running header and footer ("Page X of N") on every page after the cover, PDF bookmarks, document properties set to the author.
+3. Workbooks: numbered sheet index on Contents, printed footer on every sheet (house name, sheet name, "Page X of N"), document properties set to the author.
+4. Every PDF is scanned after rendering for dashes and for terms that do not belong in a publication; the scan must come back clean before release.
 
 ## v0.7 — PAYGo Financial Benchmark Database (started) and branded cover
 

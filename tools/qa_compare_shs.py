@@ -24,11 +24,16 @@ def get(sheet, cell):
     return vals.get(f"'[{book}]{sheet.upper()}'!{cell}")
 
 
+def _norm(t):
+    return t.replace("\u2014", ", ").replace("\u2013", " to ").replace(" - ", ": ").strip()
+
+
 def row_of(sheet, text, col=1):
     ws = wb[sheet]
+    text = _norm(text)
     for r in range(1, ws.max_row + 1):
         v = ws.cell(r, col).value
-        if isinstance(v, str) and v.strip() == text:
+        if isinstance(v, str) and _norm(v) == text:
             return r
     raise KeyError(f"{sheet}: {text}")
 

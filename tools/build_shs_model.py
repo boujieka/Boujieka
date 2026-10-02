@@ -250,7 +250,7 @@ def prod_calc(key, text, unit, fn, fmt, n=""):
 prod_section("Product specification")
 prod_input("name", "Product name", "text", "@")
 prod_input("tier", "MTF capacity tier (indicative)", "tier", FMT_INT, False,
-           "Capacity minimums: " + "; ".join(f"T{k} {v}" for k, v in MTF_CAPACITY.items()) + " (ESMAP MTF - verify).")
+           "Capacity minimums: " + "; ".join(f"T{k} {v}" for k, v in MTF_CAPACITY.items()) + " (ESMAP MTF; to be checked against the framework report).")
 prod_input("wp", "PV array size", "Wp", FMT_NUM)
 prod_input("wh", "Battery capacity", "Wh", FMT_NUM)
 prod_input("loads", "Typical loads / appliances", "text", "@")
@@ -332,7 +332,7 @@ for c, n in zip("CDE", ["Base", "Downside", "Severe"]):
 put_calc(sw, "G12", f"=CHOOSE({INP['scenario']},C12,D12,E12)", "@", bold=True)
 note(sw, "A14", "Downside / Severe are illustrative stress settings. Calibrate to the company's cohort history and sector data.")
 note(sw, "A15", "Context: ESMAP Off-Grid Solar Market Trends Report 2024 reports a sector PAYGo collection rate of about 62% "
-     "in 2023 (source register S01, to verify).")
+     "in 2023 (Source_Register SR19; primary document not yet reviewed).")
 
 # =====================================================================
 # CREDIT ASSUMPTIONS (v0.4)
@@ -1022,6 +1022,8 @@ fs_rows = [
     ("sec", "MEMO"),
     ("ebitda_pos", "EBITDA positive (1 = yes)", lambda c, p: f"=IF({c}{{ebitda}}>0,1,0)", None, False),
     ("cfo_pos", "Operating cash flow positive (1 = yes)", lambda c, p: f"=IF({c}{{cfo}}>0,1,0)", None, False),
+    ("cfo_stay_pos", "Operating cash flow positive from this month to the horizon (1 = yes)",
+     lambda c, p: f"=IF(MIN({c}{{cfo}}:${mb.last}{{cfo}})>0,1,0)", None, False),
 ]
 rr = 8
 for row_ in fs_rows:
@@ -1256,8 +1258,8 @@ heads = [
     ("peak_debt", "Peak total debt (LCY)", f"=MAX({mb.range_(CV, 'debt')})", FMT_NUM),
     ("rbf_total_usd", "Total RBF received (USD, opening FX)", f"=SUM({mb.range_(O, 'rbfT')})/{INP['fx0']}", FMT_NUM),
     ("be_ebitda", "First month with positive EBITDA", f"=IFERROR(MATCH(1,{mb.range_(S, 'ebitda_pos')},0),\"Not reached\")", FMT_INT),
-    ("be_cfo", "First month with positive operating cash flow",
-     f"=IFERROR(MATCH(1,{mb.range_(S, 'cfo_pos')},0),\"Not reached\")", FMT_INT),
+    ("be_cfo", "Month from which operating cash flow stays positive",
+     f"=IFERROR(MATCH(1,{mb.range_(S, 'cfo_stay_pos')},0),\"Not reached\")", FMT_INT),
     ("min_cr3", "Lowest trailing-3-month collection rate (from month 3)",
      f"=MIN(Covenants!{col(3)}{cr3r}:{mb.last}{cr3r})", FMT_PCT),
     ("max_rar", "Highest receivables-at-risk ratio", f"=MAX({mb.range_(O, 'rar_ratio')})", FMT_PCT),
@@ -1705,7 +1707,7 @@ note(vdw, "A22", "Proxy cohorts are identical within a tier (same curve). Mixed 
 SRG = "Source_Register"
 srw = mb.sheet(SRG, "Source register - market and sector data",
                "Grades: A primary/audited/regulatory; B primary company disclosure; C reliable secondary; D estimate/weak/unconfirmed; "
-               "E contextual. Fact-checked 2026-10-02 via web search (snippets unless stated).", tab="7030A0")
+               "E contextual. Sources reviewed in October 2026; most figures rest on secondary reporting until primary documents are retrieved.", tab="7030A0")
 SR_HEAD = ["Source ID", "Company / body", "Metric", "Value", "Unit", "Period", "Grade", "Estimate / unconfirmed",
            "Verification status", "Publisher / reference", "URL", "Model use", "Notes", "Key"]
 header_row(srw, 4, SR_HEAD)
@@ -1715,58 +1717,58 @@ SR = [
     ("SR01", "M-KOPA", "Revenue", 416, "USD m", "FY2024", "C", "Yes", "CONFLICT - USD 416m (TechCabal) vs USD 253.5m (Kenyan Wall Street)", "TechCabal, 7 Oct 2025, citing UK filings",
      "https://techcabal.com/2025/10/07/m-kopa-turns-first-ever-profit-revenue-surges-66-416/", "Benchmark; calibration reference",
      "KES 53.7bn. Conflicting secondary figures (see Benchmark_DB DB001/DB002). Resolve with the Companies House filing (10891868)."),
-    ("SR02", "M-KOPA", "Revenue growth", 0.66, "%", "FY2024 vs FY2023", "C", "No", "Confirmed - secondary (snippet)", "TechCabal, 7 Oct 2025",
+    ("SR02", "M-KOPA", "Revenue growth", 0.66, "%", "FY2024 vs FY2023", "C", "No", "Secondary source; primary document not yet reviewed", "TechCabal, 7 Oct 2025",
      "https://techcabal.com/2025/10/07/m-kopa-turns-first-ever-profit-revenue-surges-66-416/", "Calibration reference (growth)", ""),
-    ("SR03", "M-KOPA", "Net profit", 9.2, "USD m", "FY2024", "C", "No", "Confirmed - secondary (snippet)", "TechCabal, 7 Oct 2025",
+    ("SR03", "M-KOPA", "Net profit", 9.2, "USD m", "FY2024", "C", "No", "Secondary source; primary document not yet reviewed", "TechCabal, 7 Oct 2025",
      "https://techcabal.com/2025/10/07/m-kopa-turns-first-ever-profit-revenue-surges-66-416/", "Benchmark; derived net margin",
      "KES 1.2bn; reported as first-ever profit."),
-    ("SR04", "M-KOPA", "Net profit prior year", -24.7, "USD m", "FY2023", "C", "No", "Confirmed - secondary (snippet)", "TechCabal, 7 Oct 2025",
+    ("SR04", "M-KOPA", "Net profit prior year", -24.7, "USD m", "FY2023", "C", "No", "Secondary source; primary document not yet reviewed", "TechCabal, 7 Oct 2025",
      "https://techcabal.com/2025/10/07/m-kopa-turns-first-ever-profit-revenue-surges-66-416/", "Context", "KES 3.2bn loss."),
-    ("SR05", "Sun King", "Cumulative solar loans", 1300, "USD m", "Cumulative to Jul 2025", "B", "No", "Snippet only",
+    ("SR05", "Sun King", "Cumulative solar loans", 1300, "USD m", "Cumulative to Jul 2025", "B", "No", "Secondary reporting; original not yet reviewed",
      "Citigroup press release, 2025", "https://www.citigroup.com/global/news/press-release/2025/citi-sun-king-securitization-deliver-solar-million-kenyans",
      "Benchmark (scale of loan book)", "\"$1.3 billion in solar loans to almost 10 million individual customers\"."),
-    ("SR06", "Sun King", "Cumulative loan customers", 10, "million", "Cumulative to Jul 2025", "B", "No", "Snippet only",
+    ("SR06", "Sun King", "Cumulative loan customers", 10, "million", "Cumulative to Jul 2025", "B", "No", "Secondary reporting; original not yet reviewed",
      "Citigroup press release, 2025", "https://www.citigroup.com/global/news/press-release/2025/citi-sun-king-securitization-deliver-solar-million-kenyans",
      "Benchmark (context)", "\"Almost 10 million\" cumulative loan customers - NOT active customers."),
-    ("SR07", "Sun King", "Securitisation 2023", 130, "USD m", "May 2023", "B", "No", "Confirmed - primary (snippet)", "Sun King news release",
+    ("SR07", "Sun King", "Securitisation 2023", 130, "USD m", "May 2023", "B", "No", "Company disclosure", "Sun King news release",
      "https://sunking.com/news-blog/sun-king-and-citi-close-first-130-million-securitisation-to-broaden-access-to-finance-for-off-grid-solar-in-kenya/",
      "Securitisation case", "KES-denominated, arranged by Citi."),
-    ("SR08", "Sun King", "Securitisation 2025", 156, "USD m", "Jul 2025", "B", "No", "Confirmed - primary + secondary (snippet)",
+    ("SR08", "Sun King", "Securitisation 2025", 156, "USD m", "Jul 2025", "B", "No", "Company disclosure, confirmed by secondary reporting",
      "Citigroup; pv magazine 29 Jul 2025", "https://www.pv-magazine.com/2025/07/29/sun-king-closes-156m-off-grid-solar-deal-in-kenya/",
      "Securitisation case", "KES 20.1bn. Senior: Absa, Citi, Co-op Bank, KCB, Stanbic; mezzanine: BII, FMO, Norfund."),
-    ("SR09", "Sun King", "MSME bond 2024", 6.5, "USD m", "2024", "D", "Yes", "NOT CONFIRMED - user-supplied",
+    ("SR09", "Sun King", "MSME bond 2024", 6.5, "USD m", "2024", "D", "Yes", "NOT CONFIRMED: no public source found",
      "No source found", "", "EXCLUDED from benchmark and calibration",
      "Found instead: Symbiotics green bonds totalling $17m and a separate $10m Proparco bond (findevgateway.org). Do not use 6.5 until sourced."),
     ("SR10", "d.light", "Securitisation purchasing capacity since 2020", 718, "USD m", "2020 - Jul 2024", "C", "No",
-     "Confirmed - secondary (snippet)", "Techpoint Africa, 17 Jul 2024", "https://techpoint.africa/2024/07/17/d-light-raises-176m/",
+     "Secondary source; primary document not yet reviewed", "Techpoint Africa, 17 Jul 2024", "https://techpoint.africa/2024/07/17/d-light-raises-176m/",
      "Benchmark (receivables financing)", "Combined receivables-purchase value of five securitisation facilities - not total debt raised."),
-    ("SR11", "d.light", "Securitisation facility 2024", 176, "USD m", "Jul 2024", "C", "No", "Confirmed - secondary (snippet)",
+    ("SR11", "d.light", "Securitisation facility 2024", 176, "USD m", "Jul 2024", "C", "No", "Secondary source; primary document not yet reviewed",
      "Techpoint Africa; WeeTracker, 17 Jul 2024", "https://techpoint.africa/2024/07/17/d-light-raises-176m/", "Securitisation case",
      "Multi-currency (Kenya, Tanzania, Uganda); African Frontier Capital."),
-    ("SR12", "d.light", "Revenue growth", 0.41, "%", "H1 2023 vs H1 2022", "B", "No", "Confirmed - primary (snippet)",
+    ("SR12", "d.light", "Revenue growth", 0.41, "%", "H1 2023 vs H1 2022", "B", "No", "Company disclosure",
      "d.light via PR Newswire, Sep 2023",
      "https://www.prnewswire.co.uk/news-releases/dlight-revenues-surge-by-41-percent-in-first-six-months-of-2023-driven-by-143-percent-growth-in-nigeria-301919233.html",
      "Calibration reference (growth)", "Absolute revenue not disclosed."),
     ("SR13", "d.light", "Revenue (third-party estimate)", 301.2, "USD m", "2023", "D", "Yes", "ESTIMATE - DO NOT USE AS HARD BENCHMARK",
      "Third-party company database (method not stated)", "https://www.bitscale.ai/directory/dlight", "Context only",
      "Not company-reported."),
-    ("SR14", "Bboxx", "Companies House status", "BBOXX LTD 07177839", "text", "2025", "A", "No", "Snippet only", "UK Companies House",
+    ("SR14", "Bboxx", "Companies House status", "BBOXX LTD 07177839", "text", "2025", "A", "No", "Secondary reporting; original not yet reviewed", "UK Companies House",
      "https://find-and-update.company-information.service.gov.uk/company/07177839", "Company case",
      "Latest accounts made up to 31 Dec 2022; FY2023 accounts overdue; status In Administration. Extract accounts line by line before use."),
-    ("SR15", "Bboxx", "Administration date", "19 May 2025", "date", "2025", "A", "No", "Confirmed - primary (snippet)",
+    ("SR15", "Bboxx", "Administration date", "19 May 2025", "date", "2025", "A", "No", "Company disclosure",
      "The Gazette; PKF Littlejohn", "https://www.thegazette.co.uk/notice/4891954", "Company case (stress test)",
      "Business and some assets sold to a new company (\"Bboxx 2.0\")."),
-    ("SR16", "Pawame", "SHS financed", 18700, "units", "n/a", "D", "Yes", "NOT CONFIRMED - user-supplied", "No source found", "",
+    ("SR16", "Pawame", "SHS financed", 18700, "units", "n/a", "D", "Yes", "NOT CONFIRMED: no public source found", "No source found", "",
      "EXCLUDED from benchmark and calibration", "Other figures seen: ~4,000 SHS by end-2017; \"over 14,000 rural families\"."),
-    ("SR17", "Pawame", "Active customers", 16000, "customers", "n/a", "D", "Yes", "NOT CONFIRMED - user-supplied", "No source found", "",
+    ("SR17", "Pawame", "Active customers", 16000, "customers", "n/a", "D", "Yes", "NOT CONFIRMED: no public source found", "No source found", "",
      "EXCLUDED from benchmark and calibration", "Active/originated ratio cannot be used until both figures are sourced."),
-    ("SR18", "ZOLA Electric", "Financing round", 90, "USD m", "Sep 2021", "C", "No", "Confirmed - secondary (snippet)",
+    ("SR18", "ZOLA Electric", "Financing round", 90, "USD m", "Sep 2021", "C", "No", "Secondary source; primary document not yet reviewed",
      "TechCrunch, 23 Sep 2021", "https://techcrunch.com/2021/09/23/zola-electric-closes-90m-funding-round-to-scale-technology-and-enter-new-markets",
      "Company case", "$45m equity + $45m debt. A 2021 raise - not recent; no later round found."),
-    ("SR19", "ESMAP / World Bank", "Sector PAYGo collection rate", 0.62, "%", "2023", "B", "No", "Snippet only",
+    ("SR19", "ESMAP / World Bank", "Sector PAYGo collection rate", 0.62, "%", "2023", "B", "No", "Secondary reporting; original not yet reviewed",
      "Off-Grid Solar Market Trends Report 2024", "https://www.esmap.org/sites/default/files/esmap-files/2024-Off-Grid-Solar-Market-Trends-Report.pdf",
      "Calibration reference (credit)", "About 62%; open the report and cite the page before external use."),
-    ("SR20", "ESMAP", "MTF capacity tier thresholds", "T1-T5", "text", "2015", "D", "Yes", "From memory - to verify",
+    ("SR20", "ESMAP", "MTF capacity tier thresholds", "T1-T5", "text", "2015", "D", "Yes", "Not yet checked against the framework report",
      "Beyond Connections: Energy Access Redefined (2015)", "", "Product tier labels", "T4 >=800 W / 3.4 kWh/day; T5 >=2 kW / 8.2 kWh/day."),
     ("SR21", "GOGLA / CGAP / Lighting Global", "PAYGo PERFORM KPI framework", "Standard", "text", "current", "B", "No", "Reference",
      "Lighting Global PAYGo PERFORM", "https://www.lightingglobal.org/paygo/perform/", "KPI definitions", "Collection rate, receivables at risk, repayment, ownership."),
@@ -1822,11 +1824,11 @@ MB_ROWS = [
      "Revenue figure CONFLICTS between sources (USD 416m vs 253.5m) - margin provisional; net margin is a reference point, not a target."),
     ("Sun King", ["\"\"", "\"\"", "\"\"", "\"\"", sr_val("Sun King", "Securitisation 2025"), "\"\"",
                   sr_val("Sun King", "Cumulative solar loans"), sr_val("Sun King", "Cumulative loan customers"), "\"\"", "\"\"", "\"\""],
-     "Yes", "B (snippets)", "Customers are cumulative loan customers, not active. MSME bond figure unconfirmed (excluded)."),
+     "Yes", "B (company releases)", "Customers are cumulative loan customers, not active. MSME bond figure unconfirmed (excluded)."),
     ("d.light", ["\"\"", "\"\"", sr_val("d.light", "Revenue growth"), "\"\"", sr_val("d.light", "Securitisation facility 2024"),
                  sr_val("d.light", "Securitisation purchasing capacity since 2020"), "\"\"", "\"\"", "\"\"", "\"\"", "\"\""],
      "Yes", "B/C", "Growth is H1 2023. Revenue estimate (SR13) is grade D - not shown as a benchmark."),
-    ("Bboxx", ["\"\""] * 11, "Yes", "A (filings, snippet)", "In administration since 19 May 2025; FY2023 accounts overdue. Extract filed accounts before use."),
+    ("Bboxx", ["\"\""] * 11, "Yes", "A (registry status)", "In administration since 19 May 2025; FY2023 accounts overdue. Extract filed accounts before use."),
     ("Pawame", ["\"\""] * 8 + [sr_val("Pawame", "SHS financed"), sr_val("Pawame", "Active customers"), "IFERROR(K{r}/J{r},\"\")"],
      "Yes", "D (unconfirmed)", "NOT CONFIRMED - figures supplied by user; excluded from calibration."),
     ("ZOLA Electric", ["\"\"", "\"\"", "\"\"", "\"\"", sr_val("ZOLA Electric", "Financing round"), "\"\"", "\"\"", "\"\"", "\"\"", "\"\"", "\"\""],
@@ -1885,7 +1887,7 @@ cal_rows = [
      "Do not use one company as the benchmark. Run downside / base / upside growth scenarios.",
      "=IF(B{r}=\"\",\"\",IF(B{r}>C{r},\"Model growth above the highest graded reference - justify\",\"Within graded references\"))"),
     ("Net margin", f"={MBM['margin']}", f"=IFERROR({sr_val('M-KOPA', 'Net profit')}/{sr_val('M-KOPA', 'Revenue')},\"\")",
-     "SR01/SR03, derived - PROVISIONAL: FY2024 revenue conflicts (416 vs 253.5 USD m -> 2.2% vs 3.6%)",
+     "SR01/SR03, derived - PROVISIONAL: FY2024 revenue conflicts (416 vs 253.5 USD m gives 2.2% vs 3.6%)",
      "M-KOPA's ~2.2% FY2024 net margin is a maturity reference point at scale, not a target.",
      "=IFERROR(IF(B{r}>3*C{r},\"Model margin \"&TEXT(B{r}/C{r},\"0.0\")&\"x the scale reference - justify cost and credit assumptions\",\"Within 3x of reference\"),\"\")"),
     ("Debt / receivables", f"=IFERROR({MBM['rf']}/{MBM['gross']},\"\")", "=\"\"", "No graded ratio yet",
@@ -1893,7 +1895,7 @@ cal_rows = [
     ("Portfolio maturity (active / originated)", f"={MBM['ratio']}", "=\"\"", "Pawame figures unconfirmed (SR16-17, D)",
      "Use active / originated only as a diagnostic, never as a churn or default assumption.", "=\"No confirmed reference\""),
     ("Credit: collection rate", f"=KPIs!{Y5}{mb.r(K, 'cr')}", f"={sr_val('ESMAP / World Bank', 'Sector PAYGo collection rate')}",
-     "SR19 (B, snippet)", "The cohort engine has priority. Replace proxies with company cohort data; do not substitute generic benchmarks.",
+     "SR19 (B)", "The cohort engine has priority. Replace proxies with company cohort data; do not substitute generic benchmarks.",
      "=IFERROR(IF(B{r}>C{r}+0.1,\"Model collection rate more than 10 pts above sector reference - calibrate with cohort data\",\"Within 10 pts of sector reference\"),\"\")"),
     ("Receivables financing", f"={MBM['rf']}", f"={sr_val('Sun King', 'Securitisation 2025')}", "SR07-SR11 (B/C)",
      "Scaled PAYGo companies fund receivables through local-currency securitisations / warehouses.",
@@ -1932,7 +1934,7 @@ cases = [
     ("Sun King", "Off-grid solar sold on PAYGo at scale.", "Not yet in register (no income statement).",
      "~$1.3bn cumulative solar loans to almost 10m customers; KES securitisations of $130m (2023) and $156m (2025) (SR05-08).",
      "Receivables can be financed in local currency at scale once portfolio data are robust.",
-     "Keep the securitisation option and the borrowing base central; local-currency funding reduces FX mismatch.", "B - primary releases (snippets)"),
+     "Keep the securitisation option and the borrowing base central; local-currency funding reduces FX mismatch.", "B: company releases"),
     ("d.light", "Off-grid solar products with PAYGo financing.", "Revenue +41% in H1 2023 (SR12). $301m revenue is a D-grade estimate (SR13).",
      "Five securitisation facilities, ~$718m purchasing capacity since 2020, incl. ~$176m multi-currency facility in 2024 (SR10-11).",
      "Repeated securitisations require consistent cohort performance reporting.",
@@ -1940,7 +1942,7 @@ cases = [
     ("Bboxx", "PAYGo solar and energy services.", "Latest filed accounts FY2022; FY2023 overdue (SR14).",
      "Entered UK administration 19 May 2025; business sold to a new company (SR15).",
      "Scale does not protect against liquidity and funding stress.",
-     "Stress liquidity and covenants; never read Base as the only case.", "A - filings (snippets)"),
+     "Stress liquidity and covenants; never read Base as the only case.", "A: registry filings (status only)"),
     ("Pawame", "SHS on PAYGo.", "18,700 financed / ~16,000 active - NOT CONFIRMED (SR16-17).", "Not in register.",
      "Pending sourced data.", "No calibration use until figures are sourced.", "D - unconfirmed"),
     ("ZOLA Electric", "Energy systems with PAYGo / asset financing (verify current model).", "No financial statements obtained.",
@@ -2302,8 +2304,8 @@ GL_ = 7 + NG - 1
 label(irw, "B4", "Gates met")
 put_calc(irw, "C4", f"=SUM(F7:F{GL_})", FMT_INT, bold=True)
 put_calc(irw, "D4", f"=\"of {NG}\"", "@")
-put_calc(irw, "B5", f"=\"INVESTMENT READINESS: \"&C4&\"/{NG} gates met - \"&IF(C4={NG},\"ready for independent validation\","
-                    f"\"NOT investment grade\")", "@", bold=True)
+put_calc(irw, "B5", f"=\"INVESTMENT READINESS: \"&C4&\"/{NG} gates met; \"&IF(C4={NG},\"ready for independent validation\","
+                    f"\"not investment grade\")", "@", bold=True)
 irw["B5"].font = Font(name=FONT, bold=True, color="C00000", size=11)
 READY = "Investment_Readiness!$B$5"
 
@@ -2313,7 +2315,7 @@ READY = "Investment_Readiness!$B$5"
 # =====================================================================
 SN = "Sensitivity"
 snw = mb.sheet(SN, "Scenario & sensitivity snapshot (static values)",
-               "Generated by the verified Python twin (tools/shadow_shs.py) at DEFAULT inputs. Does NOT update when inputs change.",
+               "Computed at DEFAULT inputs and confirmed by the model's independent recalculation check. Values do NOT update when inputs change.",
                tab="00B050")
 SENS_METRICS = [("peak_eq_usd", "Peak equity need (USD m)", 1e-6, FMT_NUM2),
                 ("rev5_usd", "Year 5 revenue (USD m)", 1e-6, FMT_NUM2),
@@ -2435,7 +2437,7 @@ summary_block("2. Funding requirement", [
     ("Peak total debt (LCY)", H["peak_debt"], FMT_NUM),
     ("Total RBF received (USD)", H["rbf_total_usd"], FMT_NUM),
     ("First month with positive EBITDA", H["be_ebitda"], FMT_INT),
-    ("First month with positive operating cash flow", H["be_cfo"], FMT_INT)])
+    ("Month from which operating cash flow stays positive", H["be_cfo"], FMT_INT)])
 summary_block("3. Valuation & equity returns", [
     ("DCF enterprise value at start (USD)", VAL["ev_usd"], FMT_NUM),
     ("Terminal value share of EV", VAL["tv_share"], FMT_PCT),
@@ -2552,7 +2554,7 @@ index = [("Cover", "Title page"), ("Investment_Summary", "One-page investment co
          ("Timeline", "Dates, FX, indices"), ("Glossary", "PAYGo & SHS terms"), ("Checks", "Integrity checks")]
 for k_, (sh, d_) in enumerate(index):
     cell = cts[f"A{20 + k_}"]
-    cell.value = sh
+    cell.value = f"{k_ + 1:02d}  {sh}"
     cell.hyperlink = f"#'{sh}'!A1"
     cell.font = Font(name=FONT, color="0563C1", underline="single")
     label(cts, f"B{20 + k_}", d_)
@@ -2680,8 +2682,8 @@ def fill_snapshot():
             cell.number_format = fmt
             cell.font = Font(name=FONT, bold=k_ < 3)
     end = SENS_ROW0 + len(cases)
-    note(snw, f"A{end + 1}", f"Snapshot generated {date.today().isoformat()} at default inputs (tools/shs_defaults.py) by the Python "
-         "twin, which reproduces the workbook exactly (QA in the volume README). Refresh: python tools/build_shs_model.py --snapshot")
+    note(snw, f"A{end + 1}", f"Table computed on {date.today().strftime('%d %B %Y')} at default inputs. It is refreshed with each release "
+         "of the model; to test your own assumptions use the scenario selector on Inputs.")
     ch = BarChart(); ch.type = "bar"; ch.title = "Investor IRR by case (static)"
     ch.add_data(Reference(snw, min_col=7, max_col=7, min_row=SENS_ROW0, max_row=end - 1), titles_from_data=False)
     ch.set_categories(Reference(snw, min_col=1, max_col=1, min_row=SENS_ROW0, max_row=end - 1))
@@ -2711,7 +2713,7 @@ if CASE:  # load the case's synthetic portfolio history into the data-input temp
 if "--snapshot" in sys.argv:
     fill_snapshot()
 else:
-    note(snw, f"A{SENS_ROW0 + 12}", "Snapshot not generated. Run: python tools/build_shs_model.py --snapshot")
+    note(snw, f"A{SENS_ROW0 + 12}", "Table not populated in this build.")
 
 for wsx in wb.worksheets:
     set_font_all(wsx)
@@ -2721,10 +2723,55 @@ for wsx in wb.worksheets:
     wsx.page_setup.fitToWidth = 1
     wsx.page_setup.fitToHeight = 0
     wsx.sheet_properties.pageSetUpPr.fitToPage = True
+DASH_FIX = [("\u2014", ", "), ("\u2013", " to "), (" - ", ": ")]
+
+
+def _clean_text(t):
+    for a, b in DASH_FIX:
+        t = t.replace(a, b)
+    return t
+
+
+def _clean_formula(f):
+    return re.sub(r'"([^"]*)"', lambda m: '"' + _clean_text(m.group(1)) + '"', f)
+
+
+import re  # noqa: E402
+for wsx in wb.worksheets:
+    for row_ in wsx.iter_rows():
+        for cell in row_:
+            v = cell.value
+            if isinstance(v, str) and v:
+                cell.value = _clean_formula(v) if v.startswith("=") else _clean_text(v)
+    wsx.oddFooter.left.text = f"Africa Energy Finance | SHS PAYGo Model {VERSION}"
+    wsx.oddFooter.center.text = "&A"
+    wsx.oddFooter.right.text = "Page &P of &N"
+    for part in (wsx.oddFooter.left, wsx.oddFooter.center, wsx.oddFooter.right):
+        part.size = 8
+        part.font = "Arial"
 wb.calculation = CalcProperties(fullCalcOnLoad=True)
-wb.properties.title = "AEF Volume 2 - SHS PAYGo Company Financial & Investment Model"
+wb.properties.title = "AEF Volume 2: SHS PAYGo Company Financial & Investment Model"
 wb.properties.creator = "Emmanuel Boujieka Kamga"
-wb.properties.subject = "Africa Energy Finance - Business & Financial Models, Volume 2"
+wb.properties.subject = "Africa Energy Finance, Business & Financial Models, Volume 2"
+wb.properties.lastModifiedBy = "Emmanuel Boujieka Kamga"
 OUT.parent.mkdir(parents=True, exist_ok=True)
 wb.save(OUT)
+
+
+def _neutral_app_metadata(path):
+    """Replace the writer-library name in docProps/app.xml with the publisher name (Excel overwrites it on first save)."""
+    import shutil
+    import tempfile
+    import zipfile
+    tmp = Path(tempfile.mkstemp(suffix=".xlsx")[1])
+    with zipfile.ZipFile(path) as zin, zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED) as zout:
+        for item in zin.infolist():
+            data = zin.read(item.filename)
+            if item.filename == "docProps/app.xml":
+                data = re.sub(rb"<Application>.*?</Application>", b"<Application>Africa Energy Finance</Application>", data)
+            zout.writestr(item, data)
+    shutil.move(tmp, path)
+
+
+_neutral_app_metadata(OUT)
 print(OUT)

@@ -23,6 +23,8 @@ from cases import solarapay as SP  # noqa: E402
 ROOT = Path(__file__).resolve().parents[1]
 OUTD = ROOT / "volumes/02-solar-home-systems/case-study"
 GREEN, GOLD, GREY, LGREEN = "#0B3020", "#B07C0F", "#8C8C8C", "#4F7F5F"
+PAREN = matplotlib.ticker.FuncFormatter(lambda v, _: f"({abs(v):g})" if v < 0 else f"{v:g}")
+PAREN_PCT = matplotlib.ticker.FuncFormatter(lambda v, _: f"({abs(v):.0%})" if v < 0 else f"{v:.0%}")
 plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 9, "axes.spines.top": False, "axes.spines.right": False})
 
 path = sys.argv[1]
@@ -32,11 +34,16 @@ wb = openpyxl.load_workbook(path)
 get = lambda s, c: vals.get(f"'[{book}]{s.upper()}'!{c}")
 
 
+def _norm(t):
+    return t.replace("\u2014", ", ").replace("\u2013", " to ").replace(" - ", ": ").strip()
+
+
 def row_of(sheet, text, startswith=False):
     ws = wb[sheet]
+    text = _norm(text)
     for r in range(1, ws.max_row + 1):
         v = ws.cell(r, 1).value
-        if isinstance(v, str) and (v.strip() == text or (startswith and v.startswith(text))):
+        if isinstance(v, str) and (_norm(v) == text or (startswith and _norm(v).startswith(text))):
             return r
     raise KeyError(text)
 
@@ -120,8 +127,8 @@ ax.bar(x - 0.2, np.array(X["traj"]["rev"]) / 1e9, 0.4, color=GREEN, label="Reven
 ax.bar(x + 0.2, np.array(X["traj"]["ebitda"]) / 1e9, 0.4, color=GOLD, label="EBITDA")
 ax.plot(x, np.array(X["traj"]["ni"]) / 1e9, color=GREY, marker="o", label="Net income")
 ax.axhline(0, color="black", lw=0.6)
-ax.set_xticks(x, yrs); ax.set_ylabel("KVS bn"); ax.legend(frameon=False, ncol=3, loc="upper left")
-ax.set_title("SolaraPay - calibrated Base case", loc="left", fontsize=10, color=GREEN)
+ax.set_xticks(x, yrs); ax.set_ylabel("KVS bn"); ax.yaxis.set_major_formatter(PAREN); ax.legend(frameon=False, ncol=3, loc="upper left")
+ax.set_title("SolaraPay, calibrated Base case", loc="left", fontsize=10, color=GREEN)
 fig.tight_layout(); fig.savefig(F / "fig1_trajectory.png", dpi=200); plt.close(fig)
 
 fig, ax = plt.subplots(figsize=(6.4, 3.0))
@@ -141,7 +148,7 @@ for ax, (j, v) in zip(axs, X["vintage"].items()):
     ax.set_title(f"Tier {v['tier']}", fontsize=9, color=GREEN); ax.set_xticks(CP)
     ax.yaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1.0)); ax.set_xlabel("Months since sale")
 axs[0].set_ylabel("Cumulative repayment rate"); axs[0].legend(frameon=False, fontsize=7)
-fig.suptitle("Vintage repayment curves: plan vs data vs calibration", x=0.02, ha="left", fontsize=10, color=GREEN)
+fig.suptitle("Vintage repayment curves: plan, observed cohorts and calibration", x=0.02, ha="left", fontsize=10, color=GREEN)
 fig.tight_layout(); fig.savefig(F / "fig3_vintage_calibration.png", dpi=200); plt.close(fig)
 
 if X["cases"]:
@@ -152,8 +159,8 @@ if X["cases"]:
     ax.barh(range(len(names)), irr, color=colors)
     for i, (n, v) in enumerate(zip(names, irr)):
         ax.text(max(v, 0) + 0.01, i, "total loss" if X["cases"][n]["irr"] is None else f"{v:.0%}", va="center", fontsize=7.5)
-    ax.set_yticks(range(len(names)), names, fontsize=7.5); ax.invert_yaxis()
-    ax.xaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1.0)); ax.axvline(0, color="black", lw=0.6)
+    ax.set_yticks(range(len(names)), [_norm(n).replace(": ", ", ") for n in names], fontsize=7.5); ax.invert_yaxis()
+    ax.xaxis.set_major_formatter(PAREN_PCT); ax.axvline(0, color="black", lw=0.6)
     ax.set_xlim(-1.05, 0.5)
     ax.set_title("Investor IRR (USD) by case", loc="left", fontsize=10, color=GREEN)
     fig.tight_layout(); fig.savefig(F / "fig4_irr_cases.png", dpi=200); plt.close(fig)
