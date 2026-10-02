@@ -159,7 +159,7 @@ The fund should therefore treat the entry price as a position on the exit multip
 | Annual DSCR, minimum 1.20x | Below the minimum in Years 1 to 4 |
 | Borrowing base (eligibility up to 30 DPD, advance rates of 50% to 75% by tier) | Facility always within the base |
 
-The projection passes, but only just. On actual data, the latest trailing collection ratio of 66.5% would already breach a 70% covenant.
+The projection passes, but only just. On actual data the position is weaker: the latest monthly collection ratio of 66.5% is already below the 70% covenant level, and the last twelve months of history averaged 69.3%, so a 70% trailing covenant would very likely be in breach from the first test date.
 
 A lender has two sound options. The first is to set the collection covenant at a level the book can meet, for example 65% with a cure period and a collections improvement plan. The second is to defer the facility until the collection trend has turned. In either case the bank should require monthly reporting on PAYGo PERFORM lines: collection rate, receivables at risk and cohort repayment curves.
 
