@@ -38,5 +38,135 @@
    "wer": 0.113,
    "starts": "Next comes pricing disclosure and APR caps. A company that h"
   }
+ },
+ "04": {
+  "title": "Module 4. Product and price plan design",
+  "minutes": 9.87,
+  "words": 1299,
+  "wer": 0.0388,
+  "worst_paragraph": {
+   "wer": 0.214,
+   "starts": "The plan that maximises contract value is rarely the one tha"
+  }
+ },
+ "05": {
+  "title": "Module 5. Distribution and customer acquisition",
+  "minutes": 9.58,
+  "words": 1298,
+  "wer": 0.0436,
+  "worst_paragraph": {
+   "wer": 0.16,
+   "starts": "Take an illustrative territory selling a Tier 2 system, with"
+  }
+ },
+ "06": {
+  "title": "Module 6. Repayment behaviour: cohorts, curves and defaults",
+  "minutes": 9.82,
+  "words": 1300,
+  "wer": 0.0218,
+  "worst_paragraph": {
+   "wer": 0.062,
+   "starts": "Take the default Tier 2 product, an SHS, or solar home syste"
+  }
+ },
+ "07": {
+  "title": "Module 7. Portfolio KPIs and PAYGo PERFORM",
+  "minutes": 10.04,
+  "words": 1299,
+  "wer": 0.0307,
+  "worst_paragraph": {
+   "wer": 0.1,
+   "starts": "The buckets must add up to gross receivables. Platform expor"
+  }
+ },
+ "08": {
+  "title": "Module 8. Revenue recognition and credit losses",
+  "minutes": 10.07,
+  "words": 1298,
+  "wer": 0.0635,
+  "worst_paragraph": {
+   "wer": 0.217,
+   "starts": "IFRS 9 requires a write off when there is no reasonable expe"
+  }
+ },
+ "09": {
+  "title": "Module 9. Unit economics",
+  "minutes": 9.89,
+  "words": 1289,
+  "wer": 0.0295,
+  "worst_paragraph": {
+   "wer": 0.127,
+   "starts": "The Unit_Economics sheet of the AEF SHS PAYGo model, SHS sta"
+  }
+ },
+ "10": {
+  "title": "Module 10. Working capital, inventory and FX",
+  "minutes": 9.56,
+  "words": 1299,
+  "wer": 0.0272,
+  "worst_paragraph": {
+   "wer": 0.138,
+   "starts": "A PAYGo company has few fixed assets. Its main investment is"
+  }
+ },
+ "11": {
+  "title": "Module 11. Funding the book: equity, debt and receivables facilities",
+  "minutes": 9.51,
+  "words": 1299,
+  "wer": 0.0382,
+  "worst_paragraph": {
+   "wer": 0.089,
+   "starts": "The model's default covenants are a trailing three month col"
+  }
+ },
+ "12": {
+  "title": "Module 12. Securitisation and off balance sheet structures",
+  "minutes": 9.84,
+  "words": 1298,
+  "wer": 0.0522,
+  "worst_paragraph": {
+   "wer": 0.109,
+   "starts": "The AEF SHS PAYGo model offers two facility structures on th"
+  }
+ },
+ "13": {
+  "title": "Module 13. RBF, subsidies and affordability",
+  "minutes": 9.59,
+  "words": 1296,
+  "wer": 0.0349,
+  "worst_paragraph": {
+   "wer": 0.281,
+   "starts": "The RBF_Engine sheet of the AEF SHS PAYGo model holds four d"
+  }
+ },
+ "14": {
+  "title": "Module 14. Stress testing",
+  "minutes": 9.71,
+  "words": 1294,
+  "wer": 0.0282,
+  "worst_paragraph": {
+   "wer": 0.096,
+   "starts": "Failures do happen. BBOXX LTD entered administration on 19 M"
+  }
+ },
+ "15": {
+  "title": "Module 15. The investor view: due diligence and the investment memo",
+  "minutes": 10.21,
+  "words": 1298,
+  "wer": 0.0482,
+  "worst_paragraph": {
+   "wer": 0.154,
+   "starts": "A full diligence has eight workstreams, and the overlaps are"
+  }
+ },
+ "16": {
+  "title": "Module 16. Case walk through: SolaraPay",
+  "minutes": 11.47,
+  "words": 1500,
+  "wer": 0.0427,
+  "worst_paragraph": {
+   "wer": 0.152,
+   "starts": "Peer coverage is thin, so benchmarks are anecdotal. SolaraPa"
+  }
  }
 }
