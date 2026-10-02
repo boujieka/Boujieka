@@ -78,7 +78,8 @@ def sheet(wb, name, title, subtitle, code, width_cols=10, landscape=True):
     ws["A3"].font = Font(name=FONT, size=9, italic=True, color="E8E8E8")
     for c in range(1, width_cols + 1):
         ws.cell(4, c).border = GOLD_LINE
-    ws["A4"] = f"Template {code}  |  Version {VER}  |  Author & ideation: {AUTHOR}"
+    kind = "Decision tool" if code.startswith("D") else "Template"
+    ws["A4"] = f"{kind} {code}  |  Version {VER}  |  Author & ideation: {AUTHOR}"
     ws["A4"].font = Font(name=FONT, size=8, color=GREY)
     ws.row_dimensions[2].height = 22
     ws.page_setup.orientation = "landscape" if landscape else "portrait"
@@ -90,7 +91,7 @@ def sheet(wb, name, title, subtitle, code, width_cols=10, landscape=True):
     ws.page_margins.left = ws.page_margins.right = 0.5
     ws.page_margins.top = 0.6
     ws.page_margins.bottom = 0.7
-    ws.oddFooter.left.text = f"{HOUSE} | Volume 2 Template {code}"
+    ws.oddFooter.left.text = f"{HOUSE} | Volume 2 {kind} {code}"
     ws.oddFooter.center.text = "&A"
     ws.oddFooter.right.text = "Page &P of &N"
     for part in (ws.oddFooter.left, ws.oddFooter.center, ws.oddFooter.right):
@@ -170,7 +171,7 @@ def guide_sheet(wb, code, title, purpose, steps, links):
     r += 1
     ws.merge_cells(f"A{r}:F{r + 1}")
     put(ws, f"A{r}", "Decision support material; not investment, legal, tax or accounting advice. Example values are "
-        "illustrative and refer to the fictional SolaraPay case where data are needed. "
+        "illustrative and refer to the book's worked examples or to the fictional SolaraPay case. "
         f"(c) {date.today().year} {AUTHOR}.", "note", wrap=True)
     return ws
 
