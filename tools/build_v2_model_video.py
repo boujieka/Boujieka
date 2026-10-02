@@ -349,8 +349,8 @@ scene(S1, "Inputs", "A1:D14", [("C5:C5", "Scenario"), ("C6:C7", "")],
       "Blue cells are inputs. Set the scenario selector, the first model month and the currency label.",
       "All hard coded assumptions live on a handful of sheets, and the colour code tells you where. Blue font is an input, "
       "the only kind of cell you should change. Black font is a formula. Never overwrite it. On the Inputs sheet, start "
-      "with three settings: the scenario selector, where one is Base, two is Downside and three is Severe; the first model "
-      "month; and the local currency label.")
+      "with three settings. The first is the scenario selector, where one is Base, two is Downside and three is Severe. "
+      "Then come the first model month and the local currency label.")
 
 S2 = "Step 2 of 12  |  Define the business"
 scene(S2, "Products", "A4:G16", [("A6:G11", "Product specification"), ("A13:G16", "Price plan")],
@@ -545,21 +545,27 @@ def build():
     # narration
     durs = []
     for i, s in enumerate(S):
-        d = A.tts(s["text"], WORK / f"s{i:02d}.wav", lead=0.6, tail=0.9)
+        wav, txt = WORK / f"s{i:02d}.wav", WORK / f"s{i:02d}.txt"
+        if wav.exists() and txt.exists() and txt.read_text() == A.speakable(s["text"]):
+            d = A.duration(wav)  # narration unchanged since the last build
+        else:
+            d = A.tts(s["text"], wav, lead=0.6, tail=0.9)
+            txt.write_text(A.speakable(s["text"]))
         durs.append(d)
     print("narration seconds", round(sum(durs)))
-    # clips with a gentle push towards the focus point
+    # clips: a gentle push towards the focus point over the first three seconds, then a still hold that keeps text sharp
     fps = 25
     for i, s in enumerate(S):
         d = durs[i]
         n = int(d * fps)
         fx, fy = focus[i]
         zmax = 1.0 if s["kind"] == "card" else 1.06
-        zexpr = f"1+({zmax}-1)*on/{max(1, n)}"
+        ramp = 3 * fps
+        zexpr = f"1+({zmax}-1)*(3*pow(min(on/{ramp},1),2)-2*pow(min(on/{ramp},1),3))"
         vf = (f"scale={W * 2}:{H * 2}:flags=lanczos,zoompan=z='{zexpr}':x='({fx * 2})-({fx * 2})/zoom':y='({fy * 2})-({fy * 2})/zoom':d={n}:s={W}x{H}:fps={fps},"
               f"fade=t=in:st=0:d=0.4,fade=t=out:st={d - 0.4:.2f}:d=0.4,format=yuv420p")
         A.run(["ffmpeg", "-y", "-loop", "1", "-i", str(WORK / f"s{i:02d}.png"), "-i", str(WORK / f"s{i:02d}.wav"),
-               "-vf", vf, "-t", f"{d:.3f}", "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-tune", "stillimage",
+               "-vf", vf, "-t", f"{d:.3f}", "-c:v", "libx264", "-preset", "slow", "-crf", "23", "-tune", "stillimage", "-x264-params", "keyint=250",
                "-c:a", "aac", "-b:a", "160k", "-ar", "48000", "-af", f"afade=t=in:st=0:d=0.2,afade=t=out:st={d - 0.3:.2f}:d=0.3",
                "-shortest", str(WORK / f"c{i:02d}.mp4")])
     lst = WORK / "list.txt"
@@ -589,7 +595,7 @@ def build():
     out = OUTD / "AEF_V2_Module17_Model_Walkthrough.mp4"
     A.run(["ffmpeg", "-y", "-i", str(WORK / "joined.mp4"), "-i", str(WORK / "subs.srt"), "-i", str(WORK / "meta.txt"),
            "-map", "0:v", "-map", "0:a", "-map", "1:0", "-map_metadata", "2", "-map_chapters", "2",
-           "-c:v", "copy", "-c:a", "aac", "-b:a", "160k", "-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-c:s", "mov_text",
+           "-c:v", "copy", "-c:a", "aac", "-b:a", "160k", "-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-ar", "48000", "-c:s", "mov_text",
            "-metadata:s:s:0", "language=eng", "-metadata:s:a:0", "language=eng", "-fflags", "+bitexact", "-flags:v", "+bitexact",
            "-flags:a", "+bitexact", "-movflags", "+faststart", str(out)])
     shutil.copy(WORK / "subs.srt", OUTD / "AEF_V2_Module17_Model_Walkthrough.srt")

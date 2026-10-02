@@ -24,6 +24,7 @@ LEXICON = [
     (r"\bCAC\b", "C A C"), (r"\bLTV\b", "L T V"), (r"\bRBF\b", "R B F"), (r"\bAPR\b", "A P R"), (r"\bIRR\b", "I R R"),
     (r"\bFX\b", "F X"), (r"\bEBITDA\b", "ebit da"), (r"\bDCF\b", "D C F"), (r"\bKPIs?\b", "K P I"),
     (r"\bT0(\d)\b", r"T \1"), (r"\bD(\d)\b", r"D \1"), (r"\bM(\d{1,2})\b", r"month \1"), (r"\bY(\d)\b", r"year \1"),
+    (r"\b20([1-3]\d)\b(?![,.]\d)", r"twenty \1"),  # years in the British reading: twenty twenty four
     (r"%", " per cent"), (r"\s+", " "),
 ]
 

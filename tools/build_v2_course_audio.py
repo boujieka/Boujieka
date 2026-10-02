@@ -33,10 +33,40 @@ def parse(md):
     return title, scenes
 
 
+ONES = "zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen".split()
+TENS = "_ _ twenty thirty forty fifty sixty seventy eighty ninety".split()
+US_UK = {"analyzed": "analysed", "behavior": "behaviour", "installment": "instalment", "installments": "instalments",
+         "recognizes": "recognises", "recognize": "recognise", "organization": "organisation", "program": "programme",
+         "programs": "programmes", "labor": "labour", "favor": "favour", "center": "centre", "percent": "per cent"}
+
+
+def say(n):
+    """British cardinal in words, used to compare a transcript that writes numbers as digits."""
+    if n < 20:
+        return ONES[n]
+    if n < 100:
+        return TENS[n // 10] + ("" if n % 10 == 0 else " " + ONES[n % 10])
+    if n < 1000:
+        return ONES[n // 100] + " hundred" + ("" if n % 100 == 0 else " and " + say(n % 100))
+    for unit, name in ((10 ** 9, "billion"), (10 ** 6, "million"), (1000, "thousand")):
+        if n >= unit:
+            rest = n % unit
+            return say(n // unit) + " " + name + ("" if rest == 0 else (" and " if rest < 100 else " ") + say(rest))
+
+
+def normalise(t):
+    t = A.speakable(t)
+    t = re.sub(r"(?<=\d)[ ,](?=\d{3}\b)", "", t)  # 52 560 or 52,560
+    t = re.sub(r"\b(20)([1-3]\d)\b", r"twenty \2", t)
+    t = re.sub(r"\b2000 and (\d{2})\b", r"twenty \1", t)
+    t = re.sub(r"(\d+)\.(\d+)", lambda m: m.group(1) + " point " + " ".join(m.group(2)), t)
+    t = re.sub(r"\d+", lambda m: say(int(m.group(0))), t)
+    t = re.sub(r"[^a-z ]+", " ", t.lower())
+    return " ".join(US_UK.get(w, w) for w in t.split()).split()
+
+
 def words(t):
-    t = A.speakable(t).lower()
-    t = re.sub(r"[^a-z0-9 ]+", " ", t)
-    return t.split()
+    return normalise(t)
 
 
 def wer(ref, hyp):
@@ -57,12 +87,14 @@ def build(n):
     parts, text_all = [], []
     for si, (head, paras) in enumerate(scenes):
         for pi, p in enumerate(paras):
-            wav = WORK / f"m{n:02d}_{si:02d}_{pi:02d}.wav"
-            A.tts(p, wav, lead=0.0, tail=0.0)
+            wav, key = WORK / f"m{n:02d}_{si:02d}_{pi:02d}.wav", WORK / f"m{n:02d}_{si:02d}_{pi:02d}.txt"
+            if not (wav.exists() and key.exists() and key.read_text() == A.speakable(p)):
+                A.tts(p, wav, lead=0.0, tail=0.0)
+                key.write_text(A.speakable(p))
             a, _ = sf.read(wav, dtype="float32")
             parts.append(a)
             parts.append(np.zeros(int(0.55 * A.SR), np.float32))
-            text_all.append(p)
+            text_all.append((p, wav))
         parts.append(np.zeros(int(0.6 * A.SR), np.float32))
     audio = np.concatenate([np.zeros(int(0.5 * A.SR), np.float32)] + parts)
     raw = WORK / f"m{n:02d}.wav"
@@ -74,7 +106,7 @@ def build(n):
            "-metadata", f"title={title}", "-metadata", f"artist={A.AUTHOR}",
            "-metadata", "album=Africa Energy Finance, Volume 2: Solar Home Systems, video course",
            "-metadata", f"track={n + 1}", "-metadata", "genre=Speech", "-fflags", "+bitexact", str(out)])
-    return title, A.duration(out), " ".join(text_all), raw
+    return title, A.duration(out), text_all, raw
 
 
 if __name__ == "__main__":
@@ -84,8 +116,17 @@ if __name__ == "__main__":
     sys.path.insert(0, str(A.TTS_DIR))
     import asr  # noqa: E402  (speech recognition used only for quality control)
     for n in mods:
-        title, dur, text, raw = build(n)
-        hyp = asr.transcribe(str(raw))
-        rep[f"{n:02d}"] = dict(title=title, minutes=round(dur / 60, 2), words=len(text.split()), wer=round(wer(text, hyp), 4))
+        title, dur, paras, raw = build(n)
+        # each paragraph is transcribed on its own, so no word is lost at a recogniser window boundary
+        errs = refs = 0
+        worst = (0.0, "")
+        for p, wav in paras:
+            e = wer(p, asr.transcribe(str(wav)))
+            r = len(words(p))
+            errs, refs = errs + e * r, refs + r
+            worst = max(worst, (e, p[:60]))
+        text = " ".join(p for p, _ in paras)
+        rep[f"{n:02d}"] = dict(title=title, minutes=round(dur / 60, 2), words=len(text.split()), wer=round(float(errs / refs), 4),
+                               worst_paragraph=dict(wer=round(float(worst[0]), 3), starts=worst[1]))
         json.dump(rep, open(rep_path, "w"), indent=1)
         print(n, rep[f"{n:02d}"], flush=True)
