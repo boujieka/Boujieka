@@ -148,7 +148,7 @@
    0.14357180905862635
   ]
  },
- "readiness": "INVESTMENT READINESS: 5/23 gates met - NOT investment grade",
+ "readiness": "INVESTMENT READINESS: 5/23 gates met; not investment grade",
  "gates_met": [
   "Model integrity (master check OK)",
   "No covenant breach in the active scenario",
@@ -317,7 +317,7 @@
   "3": []
  },
  "cases": {
-  "Management plan - Base": {
+  "Management plan, Base": {
    "peak_eq_usd": 9000000.000000007,
    "rev5_usd": 51167398.98075942,
    "ebitda_m5": 0.1858048848695415,
@@ -329,7 +329,7 @@
    "min_cr3": 0.7263598422759319,
    "max_rar": 0.13051627118963707
   },
-  "Management plan - Downside": {
+  "Management plan, Downside": {
    "peak_eq_usd": 9000000.000000013,
    "rev5_usd": 39398360.6180505,
    "ebitda_m5": 0.036970585710723564,
@@ -341,7 +341,7 @@
    "min_cr3": 0.663816040283645,
    "max_rar": 0.1621001161876871
   },
-  "Calibrated - Base": {
+  "Calibrated, Base": {
    "peak_eq_usd": 9000000.000000007,
    "rev5_usd": 51167398.98075942,
    "ebitda_m5": 0.16446689399689063,
@@ -353,7 +353,7 @@
    "min_cr3": 0.7003652823165748,
    "max_rar": 0.14357180905862632
   },
-  "Calibrated - Downside": {
+  "Calibrated, Downside": {
    "peak_eq_usd": 9000000.000000015,
    "rev5_usd": 39398360.6180505,
    "ebitda_m5": 0.01346808708017599,
@@ -365,7 +365,7 @@
    "min_cr3": 0.6354199492906423,
    "max_rar": 0.17766651376105427
   },
-  "Calibrated - Severe": {
+  "Calibrated, Severe": {
    "peak_eq_usd": 41887142.88860071,
    "rev5_usd": 25186668.477186847,
    "ebitda_m5": -0.2535859122613741,
@@ -377,7 +377,7 @@
    "min_cr3": 0.5502368098107118,
    "max_rar": 0.2221289638327214
   },
-  "Calibrated - full LCY price indexation": {
+  "Calibrated Downside, full FX price indexation": {
    "peak_eq_usd": 9000000.000000007,
    "rev5_usd": 50222127.7163627,
    "ebitda_m5": 0.1418976404009601,
@@ -389,7 +389,7 @@
    "min_cr3": 0.640253065266273,
    "max_rar": 0.17341700952652322
   },
-  "Calibrated - Tier 4-5 defaults x2 (unproven)": {
+  "Calibrated, Tier 4 and 5 default hazard x2": {
    "peak_eq_usd": 9000000.000000006,
    "rev5_usd": 51167398.98075942,
    "ebitda_m5": 0.10331594769191312,
@@ -401,7 +401,7 @@
    "min_cr3": 0.6323361662454936,
    "max_rar": 0.20899508525694005
   },
-  "Calibrated - securitisation structure": {
+  "Calibrated, securitisation structure": {
    "peak_eq_usd": 9000000.000000007,
    "rev5_usd": 51167398.98075942,
    "ebitda_m5": 0.16446689399689063,
@@ -413,7 +413,7 @@
    "min_cr3": 0.7003652823165748,
    "max_rar": 0.14357180905862632
   },
-  "Calibrated - investor at USD 6m pre-money": {
+  "Calibrated, investor at USD 6m pre money": {
    "peak_eq_usd": 9000000.000000007,
    "rev5_usd": 51167398.98075942,
    "ebitda_m5": 0.16446689399689063,

@@ -105,7 +105,7 @@ Every tier still creates value per unit, but the distribution matters. Tier 2, w
 | 30+ DPD to gross receivables | 8.4% | 11.4% | 12.8% | 13.7% | 14.4% |
 | Debt to book equity (year end) | 0.54x | 0.98x | 2.51x | 1.47x | 0.65x |
 
-EBITDA turns positive in month [[EBITDA_MONTH]], and operating cash flow stays positive from month [[CFO_MONTH]] to the end of the horizon. The USD 9.0m of initial equity is sufficient in Base: the receivables facility finances the growing book and peaks at KVS [[RF_PEAK]]bn in month [[RF_PEAK_MONTH]]. The annual DSCR stays below 1.20x in Years 1 to 4. A cash flow DSCR covenant is ill suited to a PAYGo book in growth; portfolio covenants are the better instrument (Section 7).
+EBITDA turns positive in month 29, and operating cash flow stays positive from month 51 to the end of the horizon. The USD 9.0m of initial equity is sufficient in Base: the receivables facility finances the growing book and peaks at KVS 1.39bn in month 54. The annual DSCR stays below 1.20x in Years 1 to 4. A cash flow DSCR covenant is ill suited to a PAYGo book in growth; portfolio covenants are the better instrument (Section 7).
 
 ![Funding structure](figures/fig5_funding.png)
 
