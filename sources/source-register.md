@@ -22,6 +22,7 @@ Every external figure or document used in a product must be listed here.
 | S11 | SEforALL Universal Energy Facility | https://www.seforall.org/our-work/initiatives-projects/UEF | RBF per verified connection (e.g., $592 / mini-grid connection; $433 Benin) | Snippet | Fact citation |
 | S12 | GOGLA Global Off-Grid Solar Market Report 2025 | https://gogla.org/reports/semi-annual-solar-market-report/2025-global-off-grid-solar-market-report/ | Market size (10.2M kits sold in 2025; SSA PAYGo 2.35M units) | Snippet | To check |
 | S13 | Gumroad pricing & tax help pages | https://gumroad.com/pricing | 10% + $0.50 direct, 30% via Discover; merchant of record for VAT | Snippet | n/a |
+| S15 | ESMAP, *Beyond Connections: Energy Access Redefined* (2015) - Multi-Tier Framework | URL to add once the document is retrieved | MTF capacity thresholds used to label product tiers (T1 ≥3 W/12 Wh; T2 ≥50 W/200 Wh; T3 ≥200 W/1 kWh; T4 ≥800 W/3.4 kWh; T5 ≥2 kW/8.2 kWh per day) | From memory - to verify | To check |
 | S14 | Etsy fees | https://www.etsy.com/legal/fees/ | $0.20 listing, 6.5% transaction, payment processing, offsite ads 12–15% | Snippet | n/a |
 
 ## Rules

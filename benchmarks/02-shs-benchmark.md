@@ -27,10 +27,15 @@
 | 8 | Automatic funding gap and peak equity requirement | ✅ | |
 | 9 | Unit economics: LTV/CAC, cash payback, unit IRR | ✅ | |
 | 10 | Base / Downside / Severe scenarios (default, collection, volume, HW cost, FX) | ✅ | Sensitivity tornado (v0.2) |
-| 11 | RBF per unit sold / verified | ❌ | v0.2 (engine RBF module) |
-| 12 | Repossession and resale of returned units | ❌ | v0.2 |
+| 11 | RBF per unit sold, verification lag | ✅ (v0.2) | |
+| 12 | Repossession and resale of returned units | ✅ (v0.2) | |
 | 13 | Affordability check against household income tiers | ❌ | v0.3 |
 | 14 | Bilingual (FR) | ❌ | After the six English cores |
+| 15 | Product range across MTF capacity Tiers 1–5, incl. solar-inverter systems (Tiers 4–5) | ✅ (v0.2) | |
+| 16 | Borrowing base by tier (advance rates), cash-sweep facility | ✅ (v0.2) | Concentration limits (v0.3) |
+| 17 | Lender covenant tests (collection rate, RaR, leverage, liquidity, DSCR) | ✅ (v0.2) | |
+| 18 | DCF valuation, exit valuation, investor IRR / MOIC (USD) | ✅ (v0.2) | |
+| 19 | Investment summary one-pager and static sensitivity table | ✅ (v0.2) | |
 
 ## 3. Next action
 

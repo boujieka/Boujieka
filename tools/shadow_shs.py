@@ -1,129 +1,231 @@
-"""Independent Python re-implementation of the SHS model logic (QA "shadow model").
+"""Independent Python twin of the SHS PAYGo model (QA + sensitivity engine).
 
-Used to cross-check the Excel formulas: identical inputs must give identical outputs.
+Re-implements the workbook logic in numpy from the same defaults (tools/shs_defaults.py).
+Used to (1) cross-check the Excel formulas and (2) generate the static Sensitivity sheet.
+
 Run: python tools/shadow_shs.py [scenario]
 """
+import copy
 import sys
 
 import numpy as np
+import numpy_financial as npf
 
-from shs_defaults import PRODUCTS  # same default inputs
+from shs_defaults import GENERAL, MAX_AGE, MONTHS, PRODUCTS, SCENARIOS
 
-SCN = int(sys.argv[1]) if len(sys.argv) > 1 else 1
-lev = {
-    "haz": (1.0, 1.5, 2.0), "coll": (1.0, 0.95, 0.88), "vol": (1.0, 0.85, 0.70),
-    "hw": (1.0, 1.05, 1.10), "dep": (0.05, 0.15, 0.30),
-}
-L = {k: v[SCN - 1] for k, v in lev.items()}
-N = 60
-fx0, infl, tax, pg = 130, 0.06, 0.30, 0.05
-vols = [12000, 24000, 36000, 45000, 50000]
-mm, cs, staff, ga, warr, duty = 0.02, 60, 6_500_000, 2_600_000, 0.05, 0.20
-inv_cover, ap_days, capex_m, life, min_cash = 2, 60, 650_000, 36, 65_000_000
-eq0, tl_amt, tl_m, tl_r, tl_g, tl_am = 390_000_000, 2_000_000, 6, 0.10, 12, 36
-rf_lim, rf_adv, rf_r, rf_start = 1_300_000_000, 0.70, 0.16, 7
+N = MONTHS
+YEARS = N // 12
 
-t = np.arange(1, N + 1)
-year = (t - 1) // 12 + 1
-fx = fx0 * (1 + L["dep"]) ** (t / 12)
-fx_prev = np.concatenate([[fx0], fx[:-1]])
-ii = (1 + infl) ** ((t - 1) / 12)
-pi = (1 + pg) ** ((t - 1) / 12)
-tot_units = np.array([vols[y - 1] for y in year]) / 12 * L["vol"]
 
-agg = {k: np.zeros(N) for k in ["units", "iu", "dep", "hwrev", "fin", "due", "coll", "missed", "finc", "ecl",
-                                "active", "rar", "cogs", "comm", "mkt"]}
-for p in PRODUCTS:
-    T = p["tenor"]
-    inst = p["daily"] * 365 / 12
-    contract = p["deposit"] + inst * T
-    markup = contract - p["price"]
-    h = p["hazard"] * L["haz"]
-    c = min(1, p["coll"] * L["coll"])
-    ages = np.arange(0, 61)
-    S = (1 - h) ** ages
-    due_u = np.where((ages >= 1) & (ages <= T), inst, 0)
-    coll_u = due_u * c * S
-    miss_u = due_u - coll_u
-    rar_u = (1 - S) * np.maximum(0, T - ages) * (inst - markup / T)
-    act_u = np.where(ages <= T, S, 0)
-    units = tot_units * p["mix"]
-    iu = units * pi
-    for k in range(N):  # calendar month k (0-based)
-        for cidx in range(k):  # cohorts sold before
-            a = k - cidx
-            agg["coll"][k] += iu[cidx] * coll_u[a]
-            agg["rar"][k] += iu[cidx] * rar_u[a]
-            agg["active"][k] += units[cidx] * act_u[a]
-            if 1 <= a <= T:
-                agg["due"][k] += iu[cidx] * inst
-                agg["finc"][k] += iu[cidx] * markup / T
-    agg["units"] += units
-    agg["iu"] += iu
-    agg["dep"] += iu * p["deposit"]
-    agg["hwrev"] += iu * p["price"]
-    agg["fin"] += iu * (p["price"] - p["deposit"])
-    agg["ecl"] += iu * miss_u.sum()
-    agg["cogs"] += units * p["hw"] * (1 + duty) * fx * L["hw"]
-    agg["comm"] += units * p["comm"] * ii
-    agg["mkt"] += units * p["mkt"] * ii
-agg["missed"] = agg["due"] - agg["coll"]
+def run(scn=1, lever=None, gen=None, products=None):
+    g = dict(GENERAL, **(gen or {}))
+    P = copy.deepcopy(products or PRODUCTS)
+    L = {k: v[scn - 1] for k, v in SCENARIOS.items()}
+    L.update(lever or {})
 
-cogs = agg["cogs"]
-opex = cogs * warr + agg["comm"] + agg["mkt"] + (agg["dep"] + agg["coll"]) * mm + agg["active"] * cs * ii + (staff + ga) * ii
-inv = cogs * inv_cover
-inv_prev = np.concatenate([[0], inv[:-1]])
-purch = cogs + inv - inv_prev
-ap = purch * ap_days / (365 / 12)
-capex = capex_m * ii
-dep_ = np.array([capex[max(0, k - life + 1):k + 1].sum() / life for k in range(N)])
-ppe = np.cumsum(capex - dep_)
+    t = np.arange(1, N + 1)
+    year = (t - 1) // 12 + 1
+    fx = g["fx0"] * (1 + L["dep"]) ** (t / 12)
+    fx_prev = np.concatenate([[g["fx0"]], fx[:-1]])
+    ii = (1 + g["infl"]) ** ((t - 1) / 12)
+    pi = (1 + g["price_g"]) ** ((t - 1) / 12) * (fx / g["fx0"]) ** g["fx_pass"]
+    tot_units = np.array([g["vols"][y - 1] for y in year]) / 12 * L["vol"]
+    ages = np.arange(0, MAX_AGE + 1)
 
-# term loan
-tl_usd = np.zeros(N); draw = np.zeros(N); rep = np.zeros(N); tl_int = np.zeros(N)
-bal = 0.0
-for k in range(N):
-    m = k + 1
-    tl_int[k] = bal * tl_r / 12 * fx[k]
-    d = tl_amt if m == tl_m else 0
-    r = min(bal, tl_amt / tl_am) if (tl_m + tl_g < m <= tl_m + tl_g + tl_am) else 0
-    fxl = bal * (fx[k] - fx_prev[k])
-    draw[k], rep[k] = d, r
-    bal = bal + d - r
-    tl_usd[k] = bal
-fx_loss = np.concatenate([[0], tl_usd[:-1]]) * (fx - fx_prev)
+    keys = ["units", "dep", "hwrev", "fin", "due", "coll", "missed", "finc", "ecl", "recov", "rbf", "active", "rar",
+            "gross", "bb", "cogs", "install", "warr", "comm", "mkt", "unlocks"]
+    agg = {k: np.zeros(N) for k in keys}
+    per = []
+    for p in P:
+        T = p["tenor"]
+        inst = p["daily"] * 365 / 12
+        contract = p["deposit"] + inst * T
+        markup = contract - p["price"]
+        h = p["hazard"] * L["haz"]
+        c = min(1, p["coll"] * L["coll"])
+        S = (1 - h) ** ages.astype(float)
+        inT = (ages >= 1) & (ages <= T)
+        due_u = np.where(inT, inst, 0.0)
+        coll_u = due_u * c * S
+        miss_u = due_u - coll_u
+        rar_u = (1 - S) * np.maximum(0, T - ages) * (inst - markup / T)
+        act_u = np.where(ages <= T, S, 0.0)
+        def_u = np.zeros_like(S)
+        def_u[1:] = np.where(inT[1:], S[:-1] - S[1:], 0.0)
+        rec_u = np.zeros_like(S)
+        for a in ages:
+            b = a - g["repo_lag"]
+            if 1 <= b <= T:
+                rec_u[a] = def_u[b] * p["repo"] * p["recov"] * p["price"]
+        units = tot_units * p["mix"]
+        iu = units * pi
+        d = {k: np.zeros(N) for k in keys}
+        for k in range(N):
+            m = k + 1
+            for ci in range(1, m):
+                a = m - ci
+                d["coll"][k] += iu[ci - 1] * coll_u[a]
+                d["rar"][k] += iu[ci - 1] * rar_u[a]
+                d["recov"][k] += iu[ci - 1] * rec_u[a]
+                d["active"][k] += units[ci - 1] * act_u[a]
+                if 1 <= a <= T:
+                    d["due"][k] += iu[ci - 1] * inst
+                    d["finc"][k] += iu[ci - 1] * markup / T
+            if m - g["rbf_lag"] >= 1:
+                d["rbf"][k] = units[m - g["rbf_lag"] - 1] * p["rbf"] * fx[k] * g["rbf_on"]
+            if m > T:
+                d["unlocks"][k] = units[m - T - 1] * S[T]
+        d["units"] = units
+        d["dep"] = iu * p["deposit"]
+        d["hwrev"] = iu * p["price"]
+        d["fin"] = iu * (p["price"] - p["deposit"])
+        d["missed"] = d["due"] - d["coll"]
+        d["ecl"] = iu * miss_u.sum()
+        d["gross"] = np.cumsum(d["fin"] + d["finc"] - d["coll"] - d["missed"])
+        d["bb"] = np.maximum(0, d["gross"] - d["rar"]) * p["adv"]
+        d["cogs"] = units * p["hw"] * (1 + g["duty"]) * fx * L["hw"]
+        d["install"] = units * p["install"] * ii
+        d["warr"] = d["cogs"] * p["warranty"]
+        d["comm"] = units * p["comm"] * ii
+        d["mkt"] = units * p["mkt"] * ii
+        for k_ in keys:
+            agg[k_] += d[k_]
+        per.append(d)
 
-gross = np.zeros(N); prov = np.zeros(N); cash = np.zeros(N); rf = np.zeros(N); eqtop = np.zeros(N)
-ni = np.zeros(N); re = np.zeros(N)
-g = pv = c_ = rfb = cum = mx = 0.0
-netrec_prev = inv_p = ap_p = 0.0
-for k in range(N):
-    m = k + 1
-    g = g + agg["fin"][k] + agg["finc"][k] - agg["coll"][k] - agg["missed"][k]
-    pv = pv - agg["ecl"][k] + agg["missed"][k]
-    netrec = g + pv
-    elig = max(0, g - agg["rar"][k])
-    rf_new = min(rf_lim, elig * rf_adv) if m >= rf_start else 0
-    rf_int = rfb * rf_r / 12
-    ebitda = agg["hwrev"][k] + agg["finc"][k] - cogs[k] - opex[k] - agg["ecl"][k]
-    pbt = ebitda - dep_[k] - tl_int[k] - rf_int - fx_loss[k]
-    cum += pbt
-    mx_new = max(mx, cum)
-    tx = tax * (max(0, mx_new) - max(0, mx))
-    mx = mx_new
-    n_ = pbt - tx
-    cfo = n_ + dep_[k] + fx_loss[k] - (netrec - netrec_prev) - (inv[k] - inv_p) + (ap[k] - ap_p)
-    pre = c_ + cfo - capex[k] + (draw[k] - rep[k]) * fx[k] + (rf_new - rfb) + (eq0 if m == 1 else 0)
-    top = max(0, min_cash - pre)
-    c_ = pre + top
-    gross[k], prov[k], cash[k], rf[k], eqtop[k], ni[k] = g, pv, c_, rf_new, top, n_
-    rfb, netrec_prev, inv_p, ap_p = rf_new, netrec, inv[k], ap[k]
+    cogs = agg["cogs"]
+    cos = cogs + agg["install"]
+    opex = (agg["warr"] + agg["comm"] + agg["mkt"] + (agg["dep"] + agg["coll"]) * g["mm_fee"]
+            + agg["active"] * g["cs_cost"] * ii + (g["staff"] + g["ga"]) * ii)
+    inv = cogs * g["inv_cover"]
+    inv_prev = np.concatenate([[0], inv[:-1]])
+    ap = (cogs + inv - inv_prev) * g["ap_days"] / (365 / 12)
+    capex = g["capex"] * ii
+    dep_ = np.array([capex[max(0, k - g["dep_life"] + 1):k + 1].sum() / g["dep_life"] for k in range(N)])
+    ppe = np.cumsum(capex - dep_)
 
-rev = agg["hwrev"] + agg["finc"]
-for y in range(1, 6):
-    s = year == y
-    e = y * 12 - 1
-    print(f"Y{y}: rev {rev[s].sum():,.0f}  NI {ni[s].sum():,.0f}  cash {cash[e]:,.0f}  "
-          f"CR {agg['coll'][s].sum() / agg['due'][s].sum():.3f}  active {agg['active'][e]:,.0f}  "
-          f"gross {gross[e]:,.0f}  rf {rf[e]:,.0f}")
-print(f"peak equity: {eq0 + eqtop.sum():,.0f}  (USD {(eq0 + eqtop.sum()) / fx0:,.0f})")
+    # USD term loan
+    tl_usd = np.zeros(N); draw = np.zeros(N); rep = np.zeros(N); tl_int = np.zeros(N)
+    bal = 0.0
+    for k in range(N):
+        m = k + 1
+        tl_int[k] = bal * g["tl_rate"] / 12 * fx[k]
+        dr = g["tl_amt"] if m == g["tl_month"] else 0
+        rp = min(bal, g["tl_amt"] / g["tl_amort"]) if g["tl_month"] + g["tl_grace"] < m <= g["tl_month"] + g["tl_grace"] + g["tl_amort"] else 0
+        draw[k], rep[k] = dr, rp
+        bal += dr - rp
+        tl_usd[k] = bal
+    fx_loss = np.concatenate([[0], tl_usd[:-1]]) * (fx - fx_prev)
+
+    out = {k: np.zeros(N) for k in ["prov", "cash", "cash_pre", "rf", "rf_int", "eqtop", "ni", "ebitda", "cfo", "tax", "te", "netrec"]}
+    pv = c_ = rfb = cum = mx = 0.0
+    netrec_prev = inv_p = ap_p = 0.0
+    sc = re_ = 0.0
+    for k in range(N):
+        m = k + 1
+        pv = pv - agg["ecl"][k] + agg["missed"][k]
+        netrec = agg["gross"][k] + pv
+        rf_int = rfb * g["rf_rate"] / 12
+        ebitda = (agg["hwrev"][k] + agg["finc"][k] - cos[k] + agg["rbf"][k] - opex[k] - agg["ecl"][k] + agg["recov"][k])
+        pbt = ebitda - dep_[k] - tl_int[k] - rf_int - fx_loss[k]
+        cum += pbt
+        mx_new = max(mx, cum)
+        tx = g["tax"] * (max(0, mx_new) - max(0, mx))
+        mx = mx_new
+        ni = pbt - tx
+        cfo = ni + dep_[k] + fx_loss[k] - (netrec - netrec_prev) - (inv[k] - inv_p) + (ap[k] - ap_p)
+        pre_nf = c_ + cfo - capex[k] + (draw[k] - rep[k]) * fx[k] + (g["eq0"] if m == 1 else 0)
+        rf_new = max(0, min(g["rf_limit"], agg["bb"][k], rfb + g["min_cash"] - pre_nf)) if m >= g["rf_start"] else 0
+        pre = pre_nf + (rf_new - rfb)
+        top = max(0, g["min_cash"] - pre)
+        c_ = pre + top
+        sc += (g["eq0"] if m == 1 else 0) + top
+        re_ += ni
+        for key, v in (("prov", pv), ("cash", c_), ("cash_pre", pre), ("rf", rf_new), ("rf_int", rf_int), ("eqtop", top),
+                       ("ni", ni), ("ebitda", ebitda), ("cfo", cfo), ("tax", tx), ("te", sc + re_), ("netrec", netrec)):
+            out[key][k] = v
+        rfb, netrec_prev, inv_p, ap_p = rf_new, netrec, inv[k], ap[k]
+
+    rev = agg["hwrev"] + agg["finc"]
+    tl_lcy = tl_usd * fx
+    debt = tl_lcy + out["rf"]
+    eq_cum = g["eq0"] + np.cumsum(out["eqtop"])
+
+    # covenants (monthly)
+    cr3 = np.array([agg["coll"][max(0, k - 2):k + 1].sum() / agg["due"][max(0, k - 2):k + 1].sum()
+                    if agg["due"][max(0, k - 2):k + 1].sum() else 0 for k in range(N)])
+    rar_ratio = np.divide(agg["rar"], agg["gross"], out=np.zeros(N), where=agg["gross"] != 0)
+    lev = np.where(out["te"] <= 0, 99, debt / np.where(out["te"] == 0, 1, out["te"]))
+    flags = np.maximum.reduce([
+        ((out["rf"] > 0) & (cr3 < g["cov_cr"])).astype(int),
+        ((out["rf"] > 0) & (rar_ratio > g["cov_rar"])).astype(int),
+        ((debt > 0) & (lev > g["cov_lev"])).astype(int),
+        ((debt > 0) & (out["cash_pre"] < g["cov_cash"])).astype(int)])
+
+    # annual
+    ys = [year == y for y in range(1, YEARS + 1)]
+    ye = [y * 12 - 1 for y in range(1, YEARS + 1)]
+    A = lambda arr: np.array([arr[s].sum() for s in ys])
+    E = lambda arr: np.array([arr[e] for e in ye])
+    fx_avg = np.array([fx[s].mean() for s in ys])
+    ds = A(tl_int) + A(rep * fx) + A(out["rf_int"])
+    dscr = np.divide(A(out["cfo"]) + A(tl_int) + A(out["rf_int"]), ds, out=np.zeros(YEARS), where=ds != 0)
+
+    # valuation
+    nwc = E(out["netrec"]) + E(inv) - E(ap)
+    fcff = A(out["ebitda"]) - A(out["tax"]) - A(capex) - np.diff(np.concatenate([[0], nwc]))
+    w, tg = g["wacc"], g["tg"]
+    pvs = fcff / (1 + w) ** (np.arange(1, YEARS + 1) - 0.5)
+    tv_fcff = (A(out["ebitda"])[-1] - A(out["tax"])[-1] - A(capex)[-1]) * (1 + tg) - tg * nwc[-1]
+    tv = tv_fcff / (w - tg) if w > tg else 0
+    ev = pvs.sum() + tv / (1 + w) ** YEARS
+    net_debt5 = debt[-1] - out["cash"][-1]
+    if g["exit_method"] == 1:
+        exit_eq = max(0, g["exit_ebitda_mult"] * A(out["ebitda"])[-1] - net_debt5)
+    else:
+        exit_eq = max(0, g["exit_pb_mult"] * out["te"][-1])
+    stake = g["inv_usd"] / (g["pre_money_usd"] + g["inv_usd"])
+    flows = np.concatenate([[-g["inv_usd"]], -stake * A(out["eqtop"]) / fx_avg])
+    flows[-1] += stake * exit_eq / fx[-1]
+    irr = npf.irr(flows)
+    moic = flows[flows > 0].sum() / -flows[flows < 0].sum()
+
+    return dict(
+        rev=A(rev), ni=A(out["ni"]), ebitda=A(out["ebitda"]), cash=E(out["cash"]), gross=E(agg["gross"]), rf=E(out["rf"]),
+        cr=A(agg["coll"]) / A(agg["due"]), active=E(agg["active"]), dscr=dscr, fcff=fcff,
+        peak_eq=eq_cum.max(), peak_eq_usd=eq_cum.max() / g["fx0"], rev5_usd=A(rev)[-1] / fx_avg[-1],
+        ebitda_m5=A(out["ebitda"])[-1] / A(rev)[-1], cr5=A(agg["coll"])[-1] / A(agg["due"])[-1],
+        ev=ev, ev_usd=ev / g["fx0"], exit_eq=exit_eq, irr=float(irr), moic=float(moic),
+        breach_months=int(flags.sum()), min_cr3=cr3[2:].min(), max_rar=rar_ratio.max(), flows=flows,
+    )
+
+
+def sensitivity_cases():
+    mix_hi = copy.deepcopy(PRODUCTS)
+    for p, m in zip(mix_hi, [0.20, 0.30, 0.20, 0.20, 0.10]):
+        p["mix"] = m
+    cases = [
+        ("Base", dict(scn=1)),
+        ("Downside", dict(scn=2)),
+        ("Severe", dict(scn=3)),
+        ("Base - default hazard x1.5", dict(lever={"haz": 1.5})),
+        ("Base - collection rate x0.95", dict(lever={"coll": 0.95})),
+        ("Base - sales volume -20%", dict(lever={"vol": 0.8})),
+        ("Base - hardware cost +15%", dict(lever={"hw": 1.15})),
+        ("Base - LCY depreciation 20% p.a.", dict(lever={"dep": 0.20})),
+        ("Base - no price increase on new contracts", dict(gen={"price_g": 0.0})),
+        ("Base - RBF programme off", dict(gen={"rbf_on": 0})),
+        ("Base - higher Tier 4-5 mix (20% / 10%)", dict(products=mix_hi)),
+        ("Base - exit at 4.0x EBITDA", dict(gen={"exit_ebitda_mult": 4.0})),
+    ]
+    return [(name, run(**kw)) for name, kw in cases]
+
+
+if __name__ == "__main__":
+    scn = int(sys.argv[1]) if len(sys.argv) > 1 else 1
+    r = run(scn)
+    for y in range(YEARS):
+        print(f"Y{y + 1}: rev {r['rev'][y]:,.0f}  EBITDA {r['ebitda'][y]:,.0f}  NI {r['ni'][y]:,.0f}  cash {r['cash'][y]:,.0f}  "
+              f"CR {r['cr'][y]:.3f}  active {r['active'][y]:,.0f}  rf {r['rf'][y]:,.0f}  DSCR {r['dscr'][y]:.2f}")
+    print(f"peak equity {r['peak_eq']:,.0f} (USD {r['peak_eq_usd']:,.0f}) | EV USD {r['ev_usd']:,.0f} | exit eq {r['exit_eq']:,.0f}"
+          f" | IRR {r['irr']:.3f} MOIC {r['moic']:.2f} | breaches {r['breach_months']} | minCR3 {r['min_cr3']:.3f}"
+          f" maxRaR {r['max_rar']:.3f}")
