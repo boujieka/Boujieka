@@ -30,3 +30,19 @@ Every external figure or document used in a product must be listed here.
 1. A figure may appear in a book, manual or model default only if its source is in this table with status **Verified**.
 2. Third-party documents and models go in `benchmarks/` for analysis. We do not copy, modify or redistribute them.
 3. When quoting a figure, cite the publisher, year, page and URL.
+
+## Company benchmark sources (fact-checked 2026-10-02, mirrored in the workbook's Source_Register sheet)
+
+| ID | Company | Metric | Value | Period | Grade | Status | Source |
+|---|---|---|---|---|---|---|---|
+| SR01–04 | M-KOPA | Revenue / growth / net profit / prior-year loss | $416m / 66% / $9.2m / –$24.7m | FY2024 (FY2023) | C | Confirmed secondary (snippet) | https://techcabal.com/2025/10/07/m-kopa-turns-first-ever-profit-revenue-surges-66-416/ |
+| SR05–06 | Sun King | Cumulative solar loans / cumulative loan customers | $1.3bn / almost 10m | to Jul 2025 | B | Snippet | https://www.citigroup.com/global/news/press-release/2025/citi-sun-king-securitization-deliver-solar-million-kenyans |
+| SR07 | Sun King | Securitisation | $130m | May 2023 | B | Confirmed primary (snippet) | https://sunking.com/news-blog/sun-king-and-citi-close-first-130-million-securitisation-to-broaden-access-to-finance-for-off-grid-solar-in-kenya/ |
+| SR08 | Sun King | Securitisation | $156m (KES 20.1bn) | Jul 2025 | B | Confirmed (snippet) | https://www.pv-magazine.com/2025/07/29/sun-king-closes-156m-off-grid-solar-deal-in-kenya/ |
+| SR09 | Sun King | MSME bond | $6.5m | 2024 | D | **NOT CONFIRMED** (user-supplied) | — |
+| SR10–11 | d.light | Securitisation purchasing capacity / 2024 facility | $718m / $176m | 2020–Jul 2024 | C | Confirmed secondary (snippet) | https://techpoint.africa/2024/07/17/d-light-raises-176m/ |
+| SR12 | d.light | Revenue growth | 41% | H1 2023 | B | Confirmed primary (snippet) | https://www.prnewswire.co.uk/news-releases/dlight-revenues-surge-by-41-percent-in-first-six-months-of-2023-driven-by-143-percent-growth-in-nigeria-301919233.html |
+| SR13 | d.light | Revenue (third-party estimate) | $301.2m | 2023 | D | ESTIMATE — do not use | https://www.bitscale.ai/directory/dlight |
+| SR14–15 | Bboxx | Companies House status / administration | BBOXX LTD 07177839; administration 19 May 2025 | 2025 | A | Snippet | https://find-and-update.company-information.service.gov.uk/company/07177839 ; https://www.thegazette.co.uk/notice/4891954 |
+| SR16–17 | Pawame | SHS financed / active customers | 18,700 / ~16,000 | n/a | D | **NOT CONFIRMED** (user-supplied) | — |
+| SR18 | ZOLA Electric | Financing round | $90m ($45m equity + $45m debt) | Sep 2021 | C | Confirmed secondary (snippet) | https://techcrunch.com/2021/09/23/zola-electric-closes-90m-funding-round-to-scale-technology-and-enter-new-markets |

@@ -22,23 +22,23 @@ MTF_CAPACITY = {
 }
 
 PRODUCTS = [
-    dict(name="Tier 1 - Pico solar kit", tier=1, wp=10, wh=40,
+    dict(income=9000, name="Tier 1 - Pico solar kit", tier=1, wp=10, wh=40,
          loads="1-3 lamps, phone charging, radio", segment="Rural, low income, first-time PAYGo",
          price=6500, deposit=1000, daily=25, tenor=12, hw=25, install=0, comm=500, mkt=300,
          warranty=0.03, mix=0.30, hazard=0.035, coll=0.88, repo=0.00, recov=0.20, rbf=5, adv=0.50),
-    dict(name="Tier 2 - SHS with TV", tier=2, wp=80, wh=300,
+    dict(income=18000, name="Tier 2 - SHS with TV", tier=2, wp=80, wh=300,
          loads="4-6 lamps, radio, phone, 24-32\" DC TV", segment="Rural / peri-urban households",
          price=39000, deposit=4000, daily=77, tenor=24, hw=150, install=500, comm=2000, mkt=1000,
          warranty=0.05, mix=0.35, hazard=0.026, coll=0.88, repo=0.20, recov=0.25, rbf=15, adv=0.70),
-    dict(name="Tier 3 - Large SHS + DC fridge", tier=3, wp=300, wh=1500,
+    dict(income=40000, name="Tier 3 - Large SHS + DC fridge", tier=3, wp=300, wh=1500,
          loads="Lighting, TV, DC fridge, fan", segment="Peri-urban households, kiosks",
          price=117000, deposit=17550, daily=173, tenor=30, hw=450, install=2500, comm=5000, mkt=2500,
          warranty=0.05, mix=0.20, hazard=0.019, coll=0.90, repo=0.40, recov=0.35, rbf=25, adv=0.70),
-    dict(name="Tier 4 - Solar inverter + lithium (~1.2 kWp / 5 kWh)", tier=4, wp=1200, wh=5000,
+    dict(income=120000, name="Tier 4 - Solar inverter + lithium (~1.2 kWp / 5 kWh)", tier=4, wp=1200, wh=5000,
          loads="AC loads: TV, fridge, fans, small tools", segment="Urban households & SMEs with weak grid",
          price=390000, deposit=78000, daily=445, tenor=36, hw=1400, install=15000, comm=12000, mkt=6000,
          warranty=0.06, mix=0.10, hazard=0.013, coll=0.92, repo=0.60, recov=0.45, rbf=0, adv=0.75),
-    dict(name="Tier 5 - Solar inverter + lithium (~3 kWp / 10 kWh)", tier=5, wp=3000, wh=10000,
+    dict(income=300000, name="Tier 5 - Solar inverter + lithium (~3 kWp / 10 kWh)", tier=5, wp=3000, wh=10000,
          loads="Full household AC loads, freezer, productive-use equipment", segment="Upper-income households, SMEs, productive use",
          price=845000, deposit=211250, daily=694, tenor=48, hw=3200, install=30000, comm=20000, mkt=10000,
          warranty=0.06, mix=0.05, hazard=0.010, coll=0.93, repo=0.70, recov=0.50, rbf=0, adv=0.75),
@@ -58,6 +58,26 @@ GENERAL = dict(
     # valuation & transaction
     wacc=0.22, tg=0.05, inv_usd=4_000_000, pre_money_usd=8_000_000,
     exit_method=1, exit_ebitda_mult=6.0, exit_pb_mult=1.5,
+    # v0.4 credit engine (Credit_Assumptions)
+    credit_mode=1,            # 1 = Proxy (model curves), 2 = Actual (Credit_Input)
+    dpd_default=180, dpd_s2=30, dpd_s3=90, bb_max_dpd=30,
+    recov_cost=0.15,          # repossession, refurbishment and resale cost, % of gross resale proceeds
+    cure=0.30,                # share of Stage-2 balances expected to cure (ECL only; proxy engine has no cures)
+    ecl_disc=0.20,            # discount rate for indicative ECL
+    perf_current=0.85,        # proxy: share of paying-account balances that are current (rest 1-30 DPD)
+    rar_shares=[0.25, 0.20, 0.25, 0.30],  # proxy split of receivables at risk: 31-60, 61-90, 91-180, 180+ DPD
+    # v0.4 RBF engine
+    rbf_mode=1,               # 1 sales-based, 2 repayment-linked, 3 ownership-linked, 4 hybrid
+    rbf_rr_target=0.80,       # repayment rate at verification that earns 100% of repayment-linked RBF
+    rbf_w=[0.5, 0.5, 0.0],    # hybrid weights: sales, repayment, ownership
+    own_evidence=0,           # 1 only when validated ownership-at-2x data exist (Vintage_Input)
+    # v0.4 consumer risk
+    afford_max=0.10, afford_reviewed=0,
+    # v0.4 covenants
+    cov_dpd30=0.25, cov_dpd90=0.18,
+    # v0.6 calibration options
+    other_arpu=0, other_margin=0.60,       # digital loans / other services: LCY per active account per month
+    fin_struct=1, sec_rate=0.13, sec_adv_mult=0.95, sec_fee=0.02,  # 1 warehouse, 2 securitisation
 )
 
 SCENARIOS = {  # Base, Downside, Severe

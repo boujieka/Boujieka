@@ -56,7 +56,7 @@ def run(scn=1, lever=None, gen=None, products=None):
         for a in ages:
             b = a - g["repo_lag"]
             if 1 <= b <= T:
-                rec_u[a] = def_u[b] * p["repo"] * p["recov"] * p["price"]
+                rec_u[a] = def_u[b] * p["repo"] * p["recov"] * p["price"] * (1 - g["recov_cost"])
         units = tot_units * p["mix"]
         iu = units * pi
         d = {k: np.zeros(N) for k in keys}
@@ -72,7 +72,7 @@ def run(scn=1, lever=None, gen=None, products=None):
                     d["due"][k] += iu[ci - 1] * inst
                     d["finc"][k] += iu[ci - 1] * markup / T
             if m - g["rbf_lag"] >= 1:
-                d["rbf"][k] = units[m - g["rbf_lag"] - 1] * p["rbf"] * fx[k] * g["rbf_on"]
+                d["rbf"][k] = units[m - g["rbf_lag"] - 1] * p["rbf"] * fx[k] * g["rbf_on"]  # sales-based
             if m > T:
                 d["unlocks"][k] = units[m - T - 1] * S[T]
         d["units"] = units
@@ -82,7 +82,22 @@ def run(scn=1, lever=None, gen=None, products=None):
         d["missed"] = d["due"] - d["coll"]
         d["ecl"] = iu * miss_u.sum()
         d["gross"] = np.cumsum(d["fin"] + d["finc"] - d["coll"] - d["missed"])
-        d["bb"] = np.maximum(0, d["gross"] - d["rar"]) * p["adv"]
+        # RBF engine: 1 sales, 2 repayment-linked, 3 ownership-linked (0 without validated evidence), 4 hybrid
+        lag = g["rbf_lag"]
+        cd, cc = due_u[1:lag + 1].sum(), coll_u[1:lag + 1].sum()
+        factor = min(1, (cc / cd) / g["rbf_rr_target"]) if cd > 0 else 0
+        sales_rbf = d["rbf"].copy()
+        own_rbf = np.zeros(N)  # ownership-linked requires validated actual data (none in the twin)
+        opts = {1: sales_rbf, 2: sales_rbf * factor, 3: own_rbf,
+                4: g["rbf_w"][0] * sales_rbf + g["rbf_w"][1] * sales_rbf * factor + g["rbf_w"][2] * own_rbf}
+        d["rbf"] = opts[g["rbf_mode"]]
+        # credit engine proxy buckets -> eligibility (lower DPD bound <= max DPD)
+        perf = d["gross"] - d["rar"]
+        lowers = [0, 1, 31, 61, 91, 181]
+        shares_perf = [g["perf_current"], 1 - g["perf_current"]]
+        elig = sum(perf * sh for lo, sh in zip(lowers[:2], shares_perf) if lo <= g["bb_max_dpd"]) + \
+            sum(d["rar"] * sh for lo, sh in zip(lowers[2:], g["rar_shares"]) if lo <= g["bb_max_dpd"])
+        d["bb"] = elig * p["adv"]
         d["cogs"] = units * p["hw"] * (1 + g["duty"]) * fx * L["hw"]
         d["install"] = units * p["install"] * ii
         d["warr"] = d["cogs"] * p["warranty"]
@@ -93,7 +108,8 @@ def run(scn=1, lever=None, gen=None, products=None):
         per.append(d)
 
     cogs = agg["cogs"]
-    cos = cogs + agg["install"]
+    other_rev = agg["active"] * g["other_arpu"] * ii
+    cos = cogs + agg["install"] + other_rev * (1 - g["other_margin"])
     opex = (agg["warr"] + agg["comm"] + agg["mkt"] + (agg["dep"] + agg["coll"]) * g["mm_fee"]
             + agg["active"] * g["cs_cost"] * ii + (g["staff"] + g["ga"]) * ii)
     inv = cogs * g["inv_cover"]
@@ -117,16 +133,18 @@ def run(scn=1, lever=None, gen=None, products=None):
     fx_loss = np.concatenate([[0], tl_usd[:-1]]) * (fx - fx_prev)
 
     out = {k: np.zeros(N) for k in ["prov", "cash", "cash_pre", "rf", "rf_int", "eqtop", "ni", "ebitda", "cfo", "tax", "te", "netrec"]}
-    pv = c_ = rfb = cum = mx = 0.0
+    pv = c_ = rfb = cum = mx = prev_flow = 0.0
     netrec_prev = inv_p = ap_p = 0.0
     sc = re_ = 0.0
     for k in range(N):
         m = k + 1
         pv = pv - agg["ecl"][k] + agg["missed"][k]
         netrec = agg["gross"][k] + pv
-        rf_int = rfb * g["rf_rate"] / 12
-        ebitda = (agg["hwrev"][k] + agg["finc"][k] - cos[k] + agg["rbf"][k] - opex[k] - agg["ecl"][k] + agg["recov"][k])
-        pbt = ebitda - dep_[k] - tl_int[k] - rf_int - fx_loss[k]
+        sec = g["fin_struct"] == 2
+        rf_int = rfb * (g["sec_rate"] if sec else g["rf_rate"]) / 12
+        ebitda = (agg["hwrev"][k] + agg["finc"][k] + other_rev[k] - cos[k] + agg["rbf"][k] - opex[k] - agg["ecl"][k] + agg["recov"][k])
+        fee = g["sec_fee"] * max(0, prev_flow) if sec else 0  # paid the month after the drawing
+        pbt = ebitda - dep_[k] - tl_int[k] - rf_int - fee - fx_loss[k]
         cum += pbt
         mx_new = max(mx, cum)
         tx = g["tax"] * (max(0, mx_new) - max(0, mx))
@@ -143,9 +161,10 @@ def run(scn=1, lever=None, gen=None, products=None):
         for key, v in (("prov", pv), ("cash", c_), ("cash_pre", pre), ("rf", rf_new), ("rf_int", rf_int), ("eqtop", top),
                        ("ni", ni), ("ebitda", ebitda), ("cfo", cfo), ("tax", tx), ("te", sc + re_), ("netrec", netrec)):
             out[key][k] = v
+        prev_flow = rf_new - rfb
         rfb, netrec_prev, inv_p, ap_p = rf_new, netrec, inv[k], ap[k]
 
-    rev = agg["hwrev"] + agg["finc"]
+    rev = agg["hwrev"] + agg["finc"] + other_rev
     tl_lcy = tl_usd * fx
     debt = tl_lcy + out["rf"]
     eq_cum = g["eq0"] + np.cumsum(out["eqtop"])
@@ -155,7 +174,14 @@ def run(scn=1, lever=None, gen=None, products=None):
                     if agg["due"][max(0, k - 2):k + 1].sum() else 0 for k in range(N)])
     rar_ratio = np.divide(agg["rar"], agg["gross"], out=np.zeros(N), where=agg["gross"] != 0)
     lev = np.where(out["te"] <= 0, 99, debt / np.where(out["te"] == 0, 1, out["te"]))
+    lowers = [31, 61, 91, 181]
+    dpd30 = sum(agg["rar"] * sh for lo, sh in zip(lowers, g["rar_shares"]) if lo > 30)
+    dpd90 = sum(agg["rar"] * sh for lo, sh in zip(lowers, g["rar_shares"]) if lo > 90)
+    r30 = np.divide(dpd30, agg["gross"], out=np.zeros(N), where=agg["gross"] != 0)
+    r90 = np.divide(dpd90, agg["gross"], out=np.zeros(N), where=agg["gross"] != 0)
     flags = np.maximum.reduce([
+        ((out["rf"] > 0) & (r30 > g["cov_dpd30"])).astype(int),
+        ((out["rf"] > 0) & (r90 > g["cov_dpd90"])).astype(int),
         ((out["rf"] > 0) & (cr3 < g["cov_cr"])).astype(int),
         ((out["rf"] > 0) & (rar_ratio > g["cov_rar"])).astype(int),
         ((debt > 0) & (lev > g["cov_lev"])).astype(int),
@@ -216,6 +242,9 @@ def sensitivity_cases():
         ("Base - RBF programme off", dict(gen={"rbf_on": 0})),
         ("Base - higher Tier 4-5 mix (20% / 10%)", dict(products=mix_hi)),
         ("Base - exit at 4.0x EBITDA", dict(gen={"exit_ebitda_mult": 4.0})),
+        ("Base - repayment-linked RBF (mode 2)", dict(gen={"rbf_mode": 2})),
+        ("Base - securitisation structure", dict(gen={"fin_struct": 2})),
+        ("Base - borrowing base up to 90 DPD", dict(gen={"bb_max_dpd": 90})),
     ]
     return [(name, run(**kw)) for name, kw in cases]
 

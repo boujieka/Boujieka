@@ -12,7 +12,9 @@ import openpyxl
 sys.path.insert(0, str(Path(__file__).parent))
 from shadow_shs import run  # noqa: E402
 
+import json
 path, scn = sys.argv[1], int(sys.argv[2])
+GEN = json.loads(sys.argv[3]) if len(sys.argv) > 3 else {}
 vals = pickle.load(open(path + ".pkl", "rb"))
 book = Path(path).name.upper()
 wb = openpyxl.load_workbook(path)
@@ -36,7 +38,7 @@ def yrs(sheet, text):
     return [get(sheet, f"{c}{r}") for c in "EFGHI"]
 
 
-tw = run(scn)
+tw = run(scn, gen=GEN)
 rows = [
     ("Revenue", yrs("Annual", "Total revenue"), tw["rev"]),
     ("EBITDA", yrs("Annual", "EBITDA"), tw["ebitda"]),

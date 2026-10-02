@@ -24,3 +24,8 @@ for k,v in sol.items():
 pickle.dump(out,open(p+'.pkl','wb'))
 print('cells',len(out),'errors',len(errs))
 for e in errs[:40]: print(e)
+
+# Some engine threads can keep the interpreter alive after completion; exit explicitly.
+import os
+sys.stdout.flush()
+os._exit(0)
