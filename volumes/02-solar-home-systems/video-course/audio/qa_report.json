@@ -1,0 +1,42 @@
+{
+ "00": {
+  "title": "Module 0. Welcome: how the course, the book, the model and the tools fit together",
+  "minutes": 9.58,
+  "words": 1274,
+  "wer": 0.0311,
+  "worst_paragraph": {
+   "wer": 0.333,
+   "starts": "The book has a companion workbook, the AEF SHS PAYGo Financi"
+  }
+ },
+ "01": {
+  "title": "Module 1. The PAYGo business: retailer, utility and lender",
+  "minutes": 9.93,
+  "words": 1300,
+  "wer": 0.0352,
+  "worst_paragraph": {
+   "wer": 0.312,
+   "starts": "This is a stated simplification of the international standar"
+  }
+ },
+ "02": {
+  "title": "Module 2. Market, customers and affordability",
+  "minutes": 9.63,
+  "words": 1297,
+  "wer": 0.0332,
+  "worst_paragraph": {
+   "wer": 0.115,
+   "starts": "Twelve times that monthly rate gives a nominal APR of 39.3 p"
+  }
+ },
+ "03": {
+  "title": "Module 3. The regulatory checklist",
+  "minutes": 10.25,
+  "words": 1299,
+  "wer": 0.0389,
+  "worst_paragraph": {
+   "wer": 0.113,
+   "starts": "Next comes pricing disclosure and APR caps. A company that h"
+  }
+ }
+}
