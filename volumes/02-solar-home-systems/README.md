@@ -15,7 +15,7 @@
 | Decision Tools | `decision-tools/` (generator: `tools/build_shs_tools.py`; guide: `decision-tools/AEF_V2_Decision_Tools_Guide.pdf`) | v1.0: D1 price plan and APR, D2 unit economics, D3 repayment curve and calibration, D4 receivables financing, D5 screening scorecard, D6 investor returns. Formulas evaluated with zero errors and checked against independent computation; test in Microsoft Excel pending |
 | Quick Reference Guide | `quick-reference/AEF_V2_Quick_Reference_Guide.pdf` (source: `quick_reference_guide.md`) | v1.0: 15 pages of reference cards: formulas, KPI definitions, defaults, covenants, diligence, decision map, twelve step workflow, SolaraPay summary, glossary |
 | Book draft | `book/AEF_Volume2_SHS_PAYGo_Book_Draft_v0.1.pdf` (sources: `book/ch*.md`, assembled in `book/volume2_book_draft.md`) | First full draft: 103 pages, 16 chapters and Annexes A to H; external figures flagged in Annex G pending primary document review |
-| Video scripts | — | After the six cores |
+| Video course | `video-course/` (scripts: `video-course/scripts/module_00.md` to `module_17.md`; compiled: `AEF_V2_Video_Course_Scripts.pdf`; narration: `video-course/audio/AEF_V2_Module_00.mp3` to `_16.mp3`; model walkthrough: `AEF_V2_Module17_Model_Walkthrough.mp4` with `.srt`; generators: `tools/build_v2_course_audio.py`, `tools/build_v2_model_video.py`, `tools/build_v2_course_scripts.py`) | v1.0: 18 modules. Modules 0 to 16 narrated (synthetic British English voice, loudness normalised, speech recognition check per paragraph); Module 17 is a 15 minute screen walkthrough of the model in twelve steps with chapters and subtitles. A professional human voice over is recommended for the commercial release |
 
 ## Book outline: 16 decision-led chapters, ~150 pages
 

@@ -230,19 +230,23 @@ def render(book, sheet, rng, highlights, caption, step, select=None):
         hx, hy = xs[max(hc0, c0)], ys[max(hr0, r0)]
         hw, hh = xs[min(hc1, c1) + 1] - hx, ys[min(hr1, r1) + 1] - hy
         boxes.append((hx, hy, hw, hh))
-        if gw - (hx + hw) > 230:
-            pos = "left:calc(100% + 14px);top:50%;transform:translateY(-50%)"
-        elif hx > 230:
-            pos = "right:calc(100% + 14px);top:50%;transform:translateY(-50%)"
-        else:
-            pos = "right:-4px;top:-30px"
-        tag = f'<div class="tag" style="{pos}">{html.escape(label)}</div>' if label else ""
-        hl.append(f'<div class="hl" style="left:{hx - 3}px;top:{hy - 3}px;width:{hw}px;height:{hh}px">{tag}</div>')
+        hl.append((hx, hy, hw, hh, i + 1, label))
     # layout and scale
     top_ui, bottom_ui, rowhdr, colhdr = 74, 34, 46, 24
-    cap_h = 118
+    labels = [(k, lab) for (_, _, _, _, k, lab) in hl if lab]
+    cap_h = 152 if labels else 118
     avail_w, avail_h = W - rowhdr - 8, H - top_ui - bottom_ui - colhdr - cap_h - 8
     z = min(avail_w / gw, avail_h / gh, 1.9)
+    # each box is numbered in the row number gutter beside its first row, and the numbers are explained in the caption
+    # panel, so no marker covers a cell
+    marks, gutter = [], []
+    for hx, hy, hw, hh, k, lab in hl:
+        marks.append(f'<div class="hl" style="left:{hx - 3}px;top:{hy - 3}px;width:{hw}px;height:{hh}px;border-width:{4 / z:.2f}px"></div>')
+        if lab:
+            r_first = next(r for r in range(r0, r1 + 1) if ys[r] >= hy - 0.5)
+            cy = top_ui + colhdr + (ys[r_first] + (ys[r_first + 1] - ys[r_first]) / 2) * z
+            gutter.append(f'<div class="mk" style="left:{(rowhdr - 30) / 2:.0f}px;top:{cy - 15:.0f}px">{k}</div>')
+    legend = "".join(f'<span class="lg"><span class="lk">{k}</span>{html.escape(lab)}</span>' for k, lab in labels)
     colhdrs = "".join(f'<div class="ch" style="left:{xs[c] * z:.1f}px;width:{(xs[c + 1] - xs[c]) * z:.1f}px">{get_column_letter(c)}</div>' for c in range(c0, c1 + 1))
     rowhdrs = "".join(f'<div class="rh" style="top:{ys[r] * z:.1f}px;height:{(ys[r + 1] - ys[r]) * z:.1f}px">{r}</div>' for r in range(r0, r1 + 1))
     sel = select or (highlights[0][0].split(":")[0] if highlights else f"{get_column_letter(c0)}{r0}")
@@ -272,7 +276,10 @@ body{{margin:0;width:{W}px;height:{H}px;overflow:hidden;font-family:'Liberation 
 .c{{position:absolute;box-sizing:border-box;display:flex;align-items:center;padding:0 3px;font-size:13.3px;white-space:nowrap;overflow:hidden;color:#000;z-index:2}}
 .hl{{z-index:3}}
 .hl{{position:absolute;border:4px solid {GOLD};background:rgba(176,124,15,0.10);box-sizing:content-box;border-radius:3px;box-shadow:0 0 0 2000px rgba(0,0,0,0.0)}}
-.tag{{position:absolute;background:{GOLD};color:#fff;font-size:15px;font-weight:700;padding:3px 8px;border-radius:3px;white-space:nowrap}}
+.mk{{position:absolute;z-index:6;width:30px;height:30px;font-size:16px;background:{GOLD};color:#fff;font-weight:700;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(0,0,0,0.35)}}
+.lgs{{margin-top:8px;font-size:17px;color:#F1E4C3}}
+.lg{{margin-right:26px;white-space:nowrap}}
+.lk{{display:inline-flex;width:24px;height:24px;border-radius:50%;background:{GOLD};color:#fff;font-weight:700;font-size:14px;align-items:center;justify-content:center;margin-right:8px;vertical-align:1px}}
 .tabs{{position:absolute;left:0;bottom:0;width:{W}px;height:{bottom_ui}px;background:#f3f3f3;border-top:1px solid #c8c8c8;display:flex;align-items:stretch;padding-left:30px;font-size:14px}}
 .tab{{padding:0 16px;display:flex;align-items:center;color:#444;border-right:1px solid #d0d0d0}}
 .tab.on{{background:#fff;color:{GREEN};font-weight:700;border-bottom:3px solid {GREEN}}}
@@ -283,9 +290,10 @@ body{{margin:0;width:{W}px;height:{H}px;overflow:hidden;font-family:'Liberation 
 <div class="title"><b>AFRICA ENERGY FINANCE</b>{html.escape(fname)}&nbsp;&nbsp;|&nbsp;&nbsp;{html.escape(sheet)}</div>
 <div class="fbar"><div class="nbox">{html.escape(sel)}</div><div class="fx">fx</div><div class="ftext">{html.escape(str(ftxt)[:160])}</div></div>
 <div class="colhdr">{colhdrs}</div><div class="rowhdr">{rowhdrs}</div>
-<div class="gridwrap"><div class="grid">{''.join(cells)}{''.join(hl)}</div></div>
+<div class="gridwrap"><div class="grid">{''.join(cells)}{''.join(marks)}</div></div>
+{''.join(gutter)}
 <div class="tabs">{tabs}</div>
-<div class="cap"><div class="st">{html.escape(step.upper())}</div>{html.escape(caption)}</div>
+<div class="cap"><div class="st">{html.escape(step.upper())}</div>{html.escape(caption)}{f'<div class="lgs">{legend}</div>' if legend else ''}</div>
 </body></html>"""
     # focus point for the camera: centre of the first highlight, in screen pixels
     if boxes:
@@ -559,7 +567,7 @@ def build():
         d = durs[i]
         n = int(d * fps)
         fx, fy = focus[i]
-        zmax = 1.0 if s["kind"] == "card" else 1.06
+        zmax = 1.0  # still frames: every marker and edge column stays in view, and text stays sharp
         ramp = 3 * fps
         zexpr = f"1+({zmax}-1)*(3*pow(min(on/{ramp},1),2)-2*pow(min(on/{ramp},1),3))"
         vf = (f"scale={W * 2}:{H * 2}:flags=lanczos,zoompan=z='{zexpr}':x='({fx * 2})-({fx * 2})/zoom':y='({fy * 2})-({fy * 2})/zoom':d={n}:s={W}x{H}:fps={fps},"
