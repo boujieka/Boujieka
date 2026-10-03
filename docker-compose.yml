@@ -1,0 +1,42 @@
+# Local development stack. Credentials here are for local use only; production
+# secrets must come from a secret manager, never from this file.
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: abi
+      POSTGRES_PASSWORD: abi
+      POSTGRES_DB: abi
+    ports: ["5432:5432"]
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U abi"]
+      interval: 5s
+      retries: 10
+
+  redis:
+    # Not used yet; reserved for the Phase 2/5 task queue and API rate limiting.
+    image: redis:7
+    ports: ["6379:6379"]
+
+  api:
+    build: ./backend
+    environment:
+      ABI_DATABASE_URL: postgresql+psycopg://abi:abi@db:5432/abi
+      ABI_CORS_ORIGINS: '["http://localhost:3000"]'
+    command: >
+      sh -c "alembic upgrade head && python -m app.seed.load --synthetic &&
+             uvicorn app.main:app --host 0.0.0.0 --port 8000"
+    ports: ["8000:8000"]
+    depends_on:
+      db: { condition: service_healthy }
+
+  web:
+    build: ./frontend
+    environment:
+      ABI_API_URL: http://api:8000/api/v1
+    ports: ["3000:3000"]
+    depends_on: [api]
+
+volumes:
+  pgdata:
