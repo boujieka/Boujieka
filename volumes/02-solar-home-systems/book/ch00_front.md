@@ -1,3 +1,27 @@
+# About this book
+
+**Book 2. PAYGo Solar Finance: Business Models, Credit Risk and Financial Structuring for Solar Home Systems.** First edition, version 0.2 (pre-publication).
+
+The book belongs to a professional series published under Africa Energy Finance, Business & Financial Models:
+
+| Book | Title | Subject |
+|---|---|---|
+| Book 1 | Bankable Is Not Enough: Closing Africa's Power Deals Without Opening Public Liabilities | Power project structuring |
+| Book 2 | PAYGo Solar Finance: Business Models, Credit Risk and Financial Structuring for Solar Home Systems | This book |
+| Book 3 | Bankable Hydro: Structuring Hydropower Projects Without Creating Unsustainable Public Liabilities | Hydropower structuring |
+
+Each book is the centre of a set of products that share one method. For Book 2 they are:
+
+| Product | Name | Role |
+|---|---|---|
+| Book | PAYGo Solar Finance (this book) | Explains the method and why it works |
+| Model | MODEL 2: PAYGo Company Financial and Investment Model | Quantifies the method: monthly, five year, integrated three statement model |
+| Manual | MANUAL 2: PAYGo Solar Finance Model User and Methodology Manual | Teaches the reader to operate the model |
+| Case | CASE 2: SolaraPay | Demonstrates the method on a fictional company with a synthetic history |
+| Training | Video course | Walks through the book and the model |
+
+The book is written to stand on its own. A reader who never opens the model loses the worked numbers, not the argument.
+
 # Preface
 
 This book asks one question: can pay as you go solar become profitable and financeable? The record of the sector so far suggests that the answer can be yes, but only for companies that understand what kind of business they are running. A PAYGo solar home system company is a retailer, a utility like service provider and a consumer lender at the same time. The retailer books margin on the day of sale; the service provider keeps the device working and the customer engaged for years; the lender waits for the cash, a few shillings or naira or kwacha a day, from households whose incomes rise and fall with harvests and remittances. Many of the strategic and financial mistakes seen in this sector come from analysing one of those three businesses and forgetting the other two.
@@ -8,7 +32,7 @@ Each chapter supports one decision. Chapter 1 sets out the business model and th
 
 ## How the book works with the model
 
-The book has a companion workbook, the AEF SHS PAYGo Financial and Investment Model (version 0.7), together with a user manual and a worked case study on SolaraPay Ltd, a fictional company in the fictional Republic of Kivara. The chapters refer to the workbook by sheet name, so that each concept can be tested on numbers. A reader who prefers to stay with the text can ignore those references; the argument stands without them. A reader who works through them will finish the book able to build, challenge and defend a PAYGo investment case.
+The book has a companion workbook, MODEL 2, the PAYGo Company Financial and Investment Model (version 0.8, in development at the time of this edition; the projections, valuations and readiness results quoted in the book are identical in the released version 0.7, while the treatment of external references and the integrity checks follow version 0.8), together with a user manual and a worked case study on SolaraPay Ltd, a fictional company in the fictional Republic of Kivara. The chapters refer to the workbook by sheet name, so that each concept can be tested on numbers. A reader who prefers to stay with the text can ignore those references; the argument stands without them. A reader who works through them will finish the book able to build, challenge and defend a PAYGo investment case.
 
 All default inputs in the workbook, and all SolaraPay figures, are illustrative. They were chosen to make the mechanics visible and to resemble the orders of magnitude found in the sector, not to describe any real company. Where the book cites figures about real companies or about the sector, it says where they come from and how far they have been verified. Several published figures conflict with each other; the book reports the conflict rather than choosing the more convenient number.
 
@@ -24,7 +48,7 @@ Every external claim is recorded in a source register with two separate judgemen
 
 ## Status of this edition
 
-This is the first full draft of Volume 2. It will be revised after the workbook completes its test cycle in Microsoft Excel, after the primary documents behind the sector figures in Annex G have been reviewed, and after practitioner review. Figures flagged in Annex G as unverified must not be quoted from this draft without checking the original source.
+This is the first edition of Book 2, issued as version 0.2 for pre-publication review. It replaces the first full draft (version 0.1) of the series volume on solar home systems. Three things must happen before it is released for publication: the primary documents behind the claims marked as pending in Annex G must be read and cited by page; the companion model must complete its test in Microsoft Excel (it has been tested in LibreOffice and with an independent formula engine); and practitioners must review the text. Claims marked as pending or conflicting in Annex G must not be quoted from this edition without checking the original source.
 
 ## Acknowledgements and disclaimer
 

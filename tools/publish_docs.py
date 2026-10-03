@@ -33,6 +33,7 @@ from reportlab.pdfgen import canvas
 ROOT = Path(__file__).resolve().parents[1]
 GREEN, GOLD, CREAM = "#0B3020", "#B07C0F", "#F7F3E8"
 AUTHOR = "Emmanuel Boujieka Kamga"
+EDITION = ""
 HOUSE = "Africa Energy Finance"
 SERIES = "Business & Financial Models"
 BANNED = [("—", "em dash"), ("–", "en dash"), (" - ", "spaced hyphen"), (" -- ", "double hyphen")]
@@ -127,6 +128,7 @@ def build_html(md_path, title, subtitle, kicker, pages=None, markers=False):
     <div class="label">AUTHOR &amp; IDEATION</div>
     <div class="author">{AUTHOR}</div>
     <div class="meta">{HOUSE} &nbsp;|&nbsp; {SERIES.replace('&', '&amp;')} &nbsp;|&nbsp; {date.today().strftime('%B %Y')}</div>
+    {f'<div class="meta">{htmlmod.escape(EDITION)}</div>' if EDITION else ''}
   </div>
   <div class="foot">&copy; {date.today().year} {AUTHOR}. All rights reserved. Decision support material; not investment, legal,
   tax or accounting advice. The default model inputs and the SolaraPay case are fictional and illustrative.</div>
@@ -222,7 +224,10 @@ def main():
     ap.add_argument("src"); ap.add_argument("out")
     ap.add_argument("--title", required=True); ap.add_argument("--subtitle", default="")
     ap.add_argument("--kicker", default="VOLUME 2"); ap.add_argument("--short", default=None)
+    ap.add_argument("--edition", default="")
     a = ap.parse_args()
+    global EDITION
+    EDITION = a.edition
     short = a.short or a.title
     with tempfile.TemporaryDirectory() as td:
         p1, p2 = Path(td) / "pass1.pdf", Path(td) / "pass2.pdf"

@@ -22,7 +22,7 @@ from openpyxl.utils import get_column_letter
 
 ROOT = Path(__file__).resolve().parents[1]
 BOOK = ROOT / "volumes/02-solar-home-systems/book"
-FILES = ["ch00_front.md"] + [f"ch{i:02d}.md" for i in range(1, 17)] + ["ch99_annexes.md"]
+FILES = ["ch00_front.md", "ch00b_intro.md"] + [f"ch{i:02d}.md" for i in range(1, 17)] + ["ch99_annexes.md"]
 
 EXTERNAL = {
     "E1 ESMAP / World Bank, Off-Grid Solar Market Trends Report 2024": r"ESMAP|Market Trends Report|World Bank",
