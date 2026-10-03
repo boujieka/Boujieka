@@ -487,221 +487,237 @@ It is below its minimum of 1.20 times in Years 1 to 4, so the readiness gate on 
 DSCR is a poor test for a growing book, so replace it with portfolio covenants in the facility rather than ignore it.
 
 123
-00:12:54,088 --> 00:12:56,476
-Now load the company's own data.
+00:12:54,088 --> 00:12:57,984
+The DSCR test follows the facility's own definition.
 
 124
-00:12:56,476 --> 00:13:08,789
-Credit Input takes one block per tier and up to sixty months: month end balances and DPD buckets, and monthly flows such as originations, collections and write offs.
+00:12:57,984 --> 00:13:23,231
+The covenant block on Inputs sets the minimum at 1.20 times, and the covenant definition input below sets the basis: zero when the facility has no DSCR test, one for operating cash flow as drafted, and two for a cash basis that excludes the growth in PAYGo receivables, treating new receivables as an investment financed by the facility.
 
 125
-00:13:08,789 --> 00:13:15,282
-The screen shows the SolaraPay case workbook, whose history is synthetic teaching data.
+00:13:23,231 --> 00:13:29,224
+At default it is one, the test as drafted, which the plan fails in Years 1 to 4.
 
 126
-00:13:15,282 --> 00:13:18,640
-The buckets must add up to gross receivables.
+00:13:29,224 --> 00:13:34,019
+Set it to match the signed facility terms, not to pass the test.
 
 127
-00:13:18,640 --> 00:13:21,625
-Then set the credit data mode to Actual.
+00:13:35,519 --> 00:13:37,907
+Now load the company's own data.
 
 128
-00:13:21,625 --> 00:13:27,744
-Reporting switches to the company's history, while projections stay on the curves.
+00:13:37,907 --> 00:13:50,220
+Credit Input takes one block per tier and up to sixty months: month end balances and DPD buckets, and monthly flows such as originations, collections and write offs.
 
 129
-00:13:29,244 --> 00:13:34,089
-Vintage Dashboard sets the observed cohorts against the plan curves.
+00:13:50,220 --> 00:13:56,712
+The screen shows the SolaraPay case workbook, whose history is synthetic teaching data.
 
 130
-00:13:34,089 --> 00:13:39,576
-In the SolaraPay case, every tier with history repays below plan at month 12.
+00:13:56,712 --> 00:14:00,070
+The buckets must add up to gross receivables.
 
 131
-00:13:39,576 --> 00:13:46,630
-When the curves diverge, recalibrate the default hazard and collection rates on the Products sheet.
+00:14:00,070 --> 00:14:03,055
+Then set the credit data mode to Actual.
 
 132
-00:13:46,630 --> 00:13:54,753
-Lenders lend against data, and twelve or more months of clean cohort history is the fastest route to better terms.
+00:14:03,055 --> 00:14:09,175
+Reporting switches to the company's history, while projections stay on the curves.
 
 133
-00:13:56,253 --> 00:13:58,627
-Valuation holds three views.
+00:14:10,675 --> 00:14:15,520
+Vintage Dashboard sets the observed cohorts against the plan curves.
 
 134
-00:13:58,627 --> 00:14:13,462
-The DCF of free cash flow gives an enterprise value of about 15.6 million dollars, with a terminal value larger than the whole value, which is normal for a growing PAYGo book.
+00:14:15,520 --> 00:14:21,007
+In the SolaraPay case, every tier with history repays below plan at month 12.
 
 135
-00:14:13,462 --> 00:14:22,617
-The exit value at six times EBITDA gives an equity value of about 80.6 million dollars at the end of Year 5.
+00:14:21,007 --> 00:14:28,061
+When the curves diverge, recalibrate the default hazard and collection rates on the Products sheet.
 
 136
-00:14:22,617 --> 00:14:31,688
-The investor's stake of one third then returns an IRR of 46.4 per cent and 6.7 times the money, in dollars.
+00:14:28,061 --> 00:14:36,184
+Lenders lend against data, and twelve or more months of clean cohort history is the fastest route to better terms.
 
 137
-00:14:31,688 --> 00:14:37,452
-Present the DCF and the exit value side by side and explain the gap.
+00:14:37,684 --> 00:14:40,058
+Valuation holds three views.
 
 138
-00:14:38,952 --> 00:14:43,621
-Unit Economics answers whether each sale creates value.
+00:14:40,058 --> 00:14:54,892
+The DCF of free cash flow gives an enterprise value of about 15.6 million dollars, with a terminal value larger than the whole value, which is normal for a growing PAYGo book.
 
 139
-00:14:43,621 --> 00:14:57,288
-For Tier 2 at default inputs, the expected loss is about 35.6 per cent of scheduled instalments, LTV to CAC is 4.8 times, and the cash payback is fifteen months.
+00:14:54,892 --> 00:15:04,048
+The exit value at six times EBITDA gives an equity value of about 80.6 million dollars at the end of Year 5.
 
 140
-00:14:57,288 --> 00:15:01,448
-Read the ratio with the payback and the unit IRR.
+00:15:04,048 --> 00:15:13,118
+The investor's stake of one third then returns an IRR of 46.4 per cent and 6.7 times the money, in dollars.
 
 141
-00:15:01,448 --> 00:15:08,579
-A strong ratio on a product with no repayment history is a hypothesis, not a result.
+00:15:13,118 --> 00:15:18,883
+Present the DCF and the exit value side by side and explain the gap.
 
 142
-00:15:10,079 --> 00:15:18,620
-Calibration turns benchmarks into questions, and it compares the model only with references whose source is verified.
+00:15:20,383 --> 00:15:25,052
+Unit Economics answers whether each sale creates value.
 
 143
-00:15:18,620 --> 00:15:23,657
-At this edition, every reference on the sheet is suspended or absent.
+00:15:25,052 --> 00:15:38,719
+For Tier 2 at default inputs, the expected loss is about 35.6 per cent of scheduled instalments, LTV to CAC is 4.8 times, and the cash payback is fifteen months.
 
 144
-00:15:23,657 --> 00:15:33,294
-The M-KOPA group figures conflict between sources, so that comparison is withdrawn until the group's consolidated accounts are read.
+00:15:38,719 --> 00:15:42,879
+Read the ratio with the payback and the unit IRR.
 
 145
-00:15:33,294 --> 00:15:44,828
-The ESMAP sector collection rate is pending its primary document, and it is context for the model's operational collection rate, not a PERFORM repayment rate.
+00:15:42,879 --> 00:15:50,009
+A strong ratio on a product with no repayment history is a hypothesis, not a result.
 
 146
-00:15:44,828 --> 00:15:51,252
-The sheet asks you to justify the cost and credit assumptions on the company's own data.
+00:15:51,509 --> 00:16:00,051
+Calibration turns benchmarks into questions, and it compares the model only with references whose source is verified.
 
 147
-00:15:51,252 --> 00:15:53,953
-It never changes an input on its own.
+00:16:00,051 --> 00:16:05,088
+At this edition, every reference on the sheet is suspended or absent.
 
 148
-00:15:55,453 --> 00:15:57,661
-Finally, Investment Readiness.
+00:16:05,088 --> 00:16:14,724
+The M-KOPA group figures conflict between sources, so that comparison is withdrawn until the group's consolidated accounts are read.
 
 149
-00:15:57,661 --> 00:16:10,021
-Twenty three gates, automatic where the model can test them and manual where they need outside evidence, such as legal review or the auditor's view of the ECL approach.
+00:16:14,724 --> 00:16:26,259
+The ESMAP sector collection rate is pending its primary document, and it is context for the model's operational collection rate, not a PERFORM repayment rate.
 
 150
-00:16:10,021 --> 00:16:17,232
-A manual gate counts only when the sheet records where the evidence is held and who signed it off.
+00:16:26,259 --> 00:16:32,683
+The sheet asks you to justify the cost and credit assumptions on the company's own data.
 
 151
-00:16:17,232 --> 00:16:23,559
-Thirteen gates are critical, and the decision rule uses the evidence and nothing else.
+00:16:32,683 --> 00:16:35,384
+It never changes an input on its own.
 
 152
-00:16:23,559 --> 00:16:33,051
-It reads STOP when a test fails, GO only when all twenty three gates are met, and CONDITIONAL GO when every critical gate is met.
+00:16:36,884 --> 00:16:39,091
+Finally, Investment Readiness.
 
 153
-00:16:33,051 --> 00:16:37,465
-Otherwise it reads STOP, because the evidence is incomplete.
+00:16:39,091 --> 00:16:51,452
+Twenty three gates, automatic where the model can test them and manual where they need outside evidence, such as legal review or the auditor's view of the ECL approach.
 
 154
-00:16:37,465 --> 00:16:43,204
-At default inputs two gates are met and the decision is STOP on a failed test.
+00:16:51,452 --> 00:16:58,663
+A manual gate counts only when the sheet records where the evidence is held and who signed it off.
 
 155
-00:16:43,204 --> 00:16:52,181
-Gate ten now covers the annual DSCR as well as the monthly covenants, and the DSCR sits below its minimum in Years 1 to 4.
+00:16:58,663 --> 00:17:04,990
+Thirteen gates are critical, and the decision rule uses the evidence and nothing else.
 
 156
-00:16:52,181 --> 00:17:02,040
-A STOP on incomplete evidence is not a verdict on the business, but a STOP on a failed test is a finding against the plan as modelled.
+00:17:04,990 --> 00:17:14,481
+It reads STOP when a test fails, GO only when all twenty three gates are met, and CONDITIONAL GO when every critical gate is met.
 
 157
-00:17:02,040 --> 00:17:05,056
-A GO is not an investment recommendation.
+00:17:14,481 --> 00:17:18,896
+Otherwise it reads STOP, because the evidence is incomplete.
 
 158
-00:17:05,056 --> 00:17:13,444
-Every gate not yet met should become a condition precedent, a covenant or an accepted risk in the investment memo.
+00:17:18,896 --> 00:17:24,635
+At default inputs two gates are met and the decision is STOP on a failed test.
 
 159
-00:17:14,944 --> 00:17:28,323
-The Investment Summary brings it together on one page for the active scenario: the operating trajectory, the funding requirement, valuation and returns, the lender view and unit economics by tier.
+00:17:24,635 --> 00:17:33,611
+Gate ten now covers the annual DSCR as well as the monthly covenants, and the DSCR sits below its minimum in Years 1 to 4.
 
 160
-00:17:28,323 --> 00:17:37,469
-Build the memo from this page and the sheets behind it, using Template T01, and check every figure you quote against its source sheet.
+00:17:33,611 --> 00:17:43,470
+A STOP on incomplete evidence is not a verdict on the business, but a STOP on a failed test is a finding against the plan as modelled.
 
 161
-00:17:38,969 --> 00:17:50,714
-Behind the summary sits the Dashboard: a table of thirty nine labelled metrics by year, rounded for reading, each with its unit and its source sheet.
+00:17:43,470 --> 00:17:46,487
+A GO is not an investment recommendation.
 
 162
-00:17:50,714 --> 00:17:56,862
-Single values, such as returns, peaks, timing and readiness, sit under Year 1.
+00:17:46,487 --> 00:17:54,875
+Every gate not yet met should become a condition precedent, a covenant or an accepted risk in the investment memo.
 
 163
-00:17:56,862 --> 00:17:59,226
-Three readings teach the most.
+00:17:56,375 --> 00:18:09,753
+The Investment Summary brings it together on one page for the active scenario: the operating trajectory, the funding requirement, valuation and returns, the lender view and unit economics by tier.
 
 164
-00:17:59,226 --> 00:18:01,354
-First, revenue is not cash.
+00:18:09,753 --> 00:18:18,900
+Build the memo from this page and the sheets behind it, using Template T01, and check every figure you quote against its source sheet.
 
 165
-00:18:01,354 --> 00:18:10,340
-Cash conversion, operating cash flow over EBITDA, reads not applicable in Years 1 and 2, while EBITDA is negative.
+00:18:20,400 --> 00:18:32,144
+Behind the summary sits the Dashboard: a table of thirty nine labelled metrics by year, rounded for reading, each with its unit and its source sheet.
 
 166
-00:18:10,340 --> 00:18:21,848
-It is then minus 1.32 times in Year 3, minus 0.08 times in Year 4 and 0.25 times in Year 5, because the growing receivables book absorbs the cash.
+00:18:32,144 --> 00:18:38,292
+Single values, such as returns, peaks, timing and readiness, sit under Year 1.
 
 167
-00:18:21,848 --> 00:18:29,887
-Second, the operational collection rate falls from 84.5 per cent in Year 1 to 73.3 per cent in Year 5.
+00:18:38,292 --> 00:18:40,657
+Three readings teach the most.
 
 168
-00:18:29,887 --> 00:18:40,528
-It is labelled not a PERFORM KPI, and the PERFORM repayment line below it reads not provided, because only company results can fill it.
+00:18:40,657 --> 00:18:42,785
+First, revenue is not cash.
 
 169
-00:18:40,528 --> 00:18:58,026
-Third, the net FX transaction effect on costs and RBF, before price pass through, is a cost that grows from about twenty five million local currency units in Year 1 to about nine hundred and twenty eight million in Year 5.
+00:18:42,785 --> 00:18:51,771
+Cash conversion, operating cash flow over EBITDA, reads not applicable in Years 1 and 2, while EBITDA is negative.
 
 170
-00:18:58,026 --> 00:19:07,169
-The last lines repeat the readiness result: two of twenty three gates met, and a decision of STOP, on a failed test.
+00:18:51,771 --> 00:19:03,278
+It is then minus 1.32 times in Year 3, minus 0.08 times in Year 4 and 0.25 times in Year 5, because the growing receivables book absorbs the cash.
 
 171
-00:19:08,669 --> 00:19:11,004
-That completes the twelve steps.
+00:19:03,278 --> 00:19:11,318
+Second, the operational collection rate falls from 84.5 per cent in Year 1 to 73.3 per cent in Year 5.
 
 172
-00:19:11,004 --> 00:19:12,828
-Three habits matter most.
+00:19:11,318 --> 00:19:21,959
+It is labelled not a PERFORM KPI, and the PERFORM repayment line below it reads not provided, because only company results can fill it.
 
 173
-00:19:12,828 --> 00:19:16,842
-Never use an output while the master check reads error.
+00:19:21,959 --> 00:19:39,457
+Third, the net FX transaction effect on costs and RBF, before price pass through, is a cost that grows from about twenty five million local currency units in Year 1 to about nine hundred and twenty eight million in Year 5.
 
 174
-00:19:16,842 --> 00:19:21,438
-Load the company's own history before you trust any projection.
+00:19:39,457 --> 00:19:48,600
+The last lines repeat the readiness result: two of twenty three gates met, and a decision of STOP, on a failed test.
 
 175
-00:19:21,438 --> 00:19:24,868
-And read the Downside as carefully as the Base.
+00:19:50,100 --> 00:19:52,435
+That completes the twelve steps.
 
 176
-00:19:24,868 --> 00:19:31,654
-The user manual, the case study, the templates and the decision tools take each step further.
+00:19:52,435 --> 00:19:54,259
+Three habits matter most.
 
 177
-00:19:31,654 --> 00:19:33,332
+00:19:54,259 --> 00:19:58,272
+Never use an output while the master check reads error.
+
+178
+00:19:58,272 --> 00:20:02,869
+Load the company's own history before you trust any projection.
+
+179
+00:20:02,869 --> 00:20:06,299
+And read the Downside as carefully as the Base.
+
+180
+00:20:06,299 --> 00:20:13,084
+The user manual, the case study, the templates and the decision tools take each step further.
+
+181
+00:20:13,084 --> 00:20:14,763
 Thank you for watching.

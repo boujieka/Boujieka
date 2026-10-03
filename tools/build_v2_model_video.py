@@ -29,7 +29,7 @@ OUTD = ROOT / "volumes/02-solar-home-systems/video-course"
 MODEL = ROOT / "volumes/02-solar-home-systems/model/AEF_SHS_PAYGo_Model_v0.8-dev.xlsx"
 CASE = ROOT / "volumes/02-solar-home-systems/case-study/SolaraPay_Case_Model_v0.8-dev.xlsx"
 # evaluated values: full recalculations of the same workbooks saved with their values
-VALS = {"model": (MODEL, SCR / "lo/s7out/fm.xlsx"), "case": (CASE, SCR / "lo/s7out/fc.xlsx")}
+VALS = {"model": (MODEL, SCR / "lo/s8out/fm.xlsx"), "case": (CASE, SCR / "lo/s8out/fc.xlsx")}
 W, H = 1920, 1080
 GREEN, GOLD = "#0B3020", "#B07C0F"
 
@@ -497,6 +497,13 @@ scene(S11, "Covenants", "A4:L26", [("A8:L9", "Collection covenant"), ("A26:L26",
       "only at the pass or fail flag. The annual DSCR sits on the KPIs sheet. It is below its minimum of 1.20 times in "
       "Years 1 to 4, so the readiness gate on covenants is not met. DSCR is a poor test for a growing book, so replace it "
       "with portfolio covenants in the facility rather than ignore it.")
+scene(S11, "Inputs", "A69:E88", [("A73:E73", "Minimum DSCR"), ("A88:E88", "DSCR basis")],
+      "The DSCR test follows the facility's own definition: none, operating cash flow as drafted, or a cash basis excluding receivables growth.",
+      "The DSCR test follows the facility's own definition. The covenant block on Inputs sets the minimum at 1.20 times, "
+      "and the covenant definition input below sets the basis: zero when the facility has no DSCR test, one for operating "
+      "cash flow as drafted, and two for a cash basis that excludes the growth in PAYGo receivables, treating new "
+      "receivables as an investment financed by the facility. At default it is one, the test as drafted, which the plan "
+      "fails in Years 1 to 4. Set it to match the signed facility terms, not to pass the test.")
 scene(S11, "Credit_Input", "A6:L25", [("A7:L7", "One block per tier"), ("D8:I25", "Month end DPD buckets")],
       "Paste the company's own history, then switch the credit data mode to Actual. Shown here: the fictional SolaraPay case.",
       "Now load the company's own data. Credit Input takes one block per tier and up to sixty months: month end balances and "

@@ -50,11 +50,11 @@ Modules 10 to 13 turn to cash and capital. They cover working capital and curren
 Modules 14 and 15 bring the analysis together for the people who carry the risk, through stress testing and the investor's diligence and memo. Module 16 walks through a complete case. A final module then walks you through the workbook itself, sheet by sheet.
 
 ## Scene 5. The companion workbook
-On screen: MODEL 2, PAYGo Company Financial and Investment Model, v0.8 (development build). 47 sheets. About 100,900 formulas. 38 integrity tests. Calculation chain from Inputs to Investment readiness.
+On screen: MODEL 2, PAYGo Company Financial and Investment Model, v0.8 (development build). 47 sheets. About 101,500 formulas. 38 integrity tests. Calculation chain from Inputs to Investment readiness.
 
 The book has a companion workbook, MODEL 2, the PAYGo Company Financial and Investment Model. This course uses version 0.8, a development build.
 
-It is a monthly, five year, integrated three statement model. It has 47 sheets and about 100,900 formulas, with no macros and no circular references. Its Checks sheet runs 38 integrity tests. Its outputs have been checked three ways: against a secondary calculation written separately, which agrees to rounding precision, by an independent formula engine, and by a full recalculation in LibreOffice. A test in Microsoft Excel is still pending.
+It is a monthly, five year, integrated three statement model. It has 47 sheets and about 101,500 formulas, with no macros and no circular references. Its Checks sheet runs 38 integrity tests. Its outputs have been checked three ways: against a secondary calculation written separately, which agrees to rounding precision, by an independent formula engine, and by a full recalculation in LibreOffice. A test in Microsoft Excel is still pending.
 
 The calculation chain runs from Inputs and Products, through Sales, Customers, PAYGo receivables, the Credit engine, the Vintage engine, and Collections and recoveries. It continues to the RBF engine, Working capital, Financing and the Financial statements. It ends with Covenants, Valuation, Investor returns, the Market benchmark, Calibration and Investment readiness.
 

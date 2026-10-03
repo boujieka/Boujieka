@@ -25,8 +25,8 @@ This document holds the full narration of every module, with the screen directio
 | 14 | Stress testing | 9:43 | 1,294 | Narration, AEF_V2_Module_14.mp3 |
 | 15 | The investor view: due diligence and the investment memo | 11:32 | 1,497 | Narration, AEF_V2_Module_15.mp3 |
 | 16 | Case walk through: SolaraPay | 12:36 | 1,669 | Narration, AEF_V2_Module_16.mp3 |
-| 17 | Using MODEL 2, step by step | 19:34 | 2,584 | Video, MP4, 1920 by 1080, subtitles and chapters |
-| | Total | 3 h 15 min | 25,801 | |
+| 17 | Using MODEL 2, step by step | 20:16 | 2,681 | Video, MP4, 1920 by 1080, subtitles and chapters |
+| | Total | 3 h 16 min | 25,898 | |
 
 ## Conventions
 
@@ -90,11 +90,11 @@ Modules 10 to 13 turn to cash and capital. They cover working capital and curren
 Modules 14 and 15 bring the analysis together for the people who carry the risk, through stress testing and the investor's diligence and memo. Module 16 walks through a complete case. A final module then walks you through the workbook itself, sheet by sheet.
 
 ### Scene 5. The companion workbook
-> On screen: *MODEL 2, PAYGo Company Financial and Investment Model, v0.8 (development build). 47 sheets. About 100,900 formulas. 38 integrity tests. Calculation chain from Inputs to Investment readiness.*
+> On screen: *MODEL 2, PAYGo Company Financial and Investment Model, v0.8 (development build). 47 sheets. About 101,500 formulas. 38 integrity tests. Calculation chain from Inputs to Investment readiness.*
 
 The book has a companion workbook, MODEL 2, the PAYGo Company Financial and Investment Model. This course uses version 0.8, a development build.
 
-It is a monthly, five year, integrated three statement model. It has 47 sheets and about 100,900 formulas, with no macros and no circular references. Its Checks sheet runs 38 integrity tests. Its outputs have been checked three ways: against a secondary calculation written separately, which agrees to rounding precision, by an independent formula engine, and by a full recalculation in LibreOffice. A test in Microsoft Excel is still pending.
+It is a monthly, five year, integrated three statement model. It has 47 sheets and about 101,500 formulas, with no macros and no circular references. Its Checks sheet runs 38 integrity tests. Its outputs have been checked three ways: against a secondary calculation written separately, which agrees to rounding precision, by an independent formula engine, and by a full recalculation in LibreOffice. A test in Microsoft Excel is still pending.
 
 The calculation chain runs from Inputs and Products, through Sales, Customers, PAYGo receivables, the Credit engine, the Vintage engine, and Collections and recoveries. It continues to the RBF engine, Working capital, Financing and the Financial statements. It ends with Covenants, Valuation, Investor returns, the Market benchmark, Calibration and Investment readiness.
 
@@ -1549,7 +1549,7 @@ Your exercise uses the case workbook. On a copy, run the calibrated Downside wit
 
 # Module 17. Using MODEL 2, step by step
 
-Running time: 19:34. Book: Chapters 1 to 16. Model: MODEL 2, version 0.8 (development build), file AEF_SHS_PAYGo_Model_v0.8-dev.xlsx. User manual: Steps 1 to 12.
+Running time: 20:16. Book: Chapters 1 to 16. Model: MODEL 2, version 0.8 (development build), file AEF_SHS_PAYGo_Model_v0.8-dev.xlsx. User manual: Steps 1 to 12.
 
 ### Learning objectives
 1. Work through the model in the order an analyst should.
@@ -1666,47 +1666,52 @@ Credit Portfolio consolidates the five tiers month by month: gross receivables b
 
 Covenants tests each threshold every month and flags breaches. In the default Base case the lowest trailing three month collection rate is 72.9 per cent against a minimum of seventy, and no month breaches. Look at the headroom, not only at the pass or fail flag. The annual DSCR sits on the KPIs sheet. It is below its minimum of 1.20 times in Years 1 to 4, so the readiness gate on covenants is not met. DSCR is a poor test for a growing book, so replace it with portfolio covenants in the facility rather than ignore it.
 
-### Scene 23. Lender case: Credit_Input
+### Scene 23. Lender case: Inputs
+> On screen: *The DSCR test follows the facility's own definition: none, operating cash flow as drafted, or a cash basis excluding receivables growth. Sheet Inputs, range A69:E88.*
+
+The DSCR test follows the facility's own definition. The covenant block on Inputs sets the minimum at 1.20 times, and the covenant definition input below sets the basis: zero when the facility has no DSCR test, one for operating cash flow as drafted, and two for a cash basis that excludes the growth in PAYGo receivables, treating new receivables as an investment financed by the facility. At default it is one, the test as drafted, which the plan fails in Years 1 to 4. Set it to match the signed facility terms, not to pass the test.
+
+### Scene 24. Lender case: Credit_Input
 > On screen: *Paste the company's own history, then switch the credit data mode to Actual. Shown here: the fictional SolaraPay case. Sheet Credit_Input, range A6:L25.*
 
 Now load the company's own data. Credit Input takes one block per tier and up to sixty months: month end balances and DPD buckets, and monthly flows such as originations, collections and write offs. The screen shows the SolaraPay case workbook, whose history is synthetic teaching data. The buckets must add up to gross receivables. Then set the credit data mode to Actual. Reporting switches to the company's history, while projections stay on the curves.
 
-### Scene 24. Lender case: Vintage_Dashboard
+### Scene 25. Lender case: Vintage_Dashboard
 > On screen: *Compare observed cohorts with the proxy curves, then recalibrate the hazards and collection rates on Products. Sheet Vintage_Dashboard, range A1:I20.*
 
 Vintage Dashboard sets the observed cohorts against the plan curves. In the SolaraPay case, every tier with history repays below plan at month 12. When the curves diverge, recalibrate the default hazard and collection rates on the Products sheet. Lenders lend against data, and twelve or more months of clean cohort history is the fastest route to better terms.
 
-### Scene 25. Investment memo: Valuation
+### Scene 26. Investment memo: Valuation
 > On screen: *DCF on normalised free cash flow, exit value, and investor returns in US dollars. Sheet Valuation, range A22:D40.*
 
 Valuation holds three views. The DCF of free cash flow gives an enterprise value of about 15.6 million dollars, with a terminal value larger than the whole value, which is normal for a growing PAYGo book. The exit value at six times EBITDA gives an equity value of about 80.6 million dollars at the end of Year 5. The investor's stake of one third then returns an IRR of 46.4 per cent and 6.7 times the money, in dollars. Present the DCF and the exit value side by side and explain the gap.
 
-### Scene 26. Investment memo: Unit_Economics
+### Scene 27. Investment memo: Unit_Economics
 > On screen: *Per tier: expected loss, contribution, LTV to CAC, cash payback and unit IRR. Sheet Unit_Economics, range A4:G24.*
 
 Unit Economics answers whether each sale creates value. For Tier 2 at default inputs, the expected loss is about 35.6 per cent of scheduled instalments, LTV to CAC is 4.8 times, and the cash payback is fifteen months. Read the ratio with the payback and the unit IRR. A strong ratio on a product with no repayment history is a hypothesis, not a result.
 
-### Scene 27. Investment memo: Calibration
+### Scene 28. Investment memo: Calibration
 > On screen: *Diagnostics use verified references only. Suspended or conflicting references are shown, never used as targets. Sheet Calibration, range A5:F12.*
 
 Calibration turns benchmarks into questions, and it compares the model only with references whose source is verified. At this edition, every reference on the sheet is suspended or absent. The M-KOPA group figures conflict between sources, so that comparison is withdrawn until the group's consolidated accounts are read. The ESMAP sector collection rate is pending its primary document, and it is context for the model's operational collection rate, not a PERFORM repayment rate. The sheet asks you to justify the cost and credit assumptions on the company's own data. It never changes an input on its own.
 
-### Scene 28. Investment memo: Investment_Readiness
+### Scene 29. Investment memo: Investment_Readiness
 > On screen: *Twenty three gates, thirteen critical. The decision rule reads evidence only: STOP, CONDITIONAL GO or GO. Sheet Investment_Readiness, range A4:G36.*
 
 Finally, Investment Readiness. Twenty three gates, automatic where the model can test them and manual where they need outside evidence, such as legal review or the auditor's view of the ECL approach. A manual gate counts only when the sheet records where the evidence is held and who signed it off. Thirteen gates are critical, and the decision rule uses the evidence and nothing else. It reads STOP when a test fails, GO only when all twenty three gates are met, and CONDITIONAL GO when every critical gate is met. Otherwise it reads STOP, because the evidence is incomplete. At default inputs two gates are met and the decision is STOP on a failed test. Gate ten now covers the annual DSCR as well as the monthly covenants, and the DSCR sits below its minimum in Years 1 to 4. A STOP on incomplete evidence is not a verdict on the business, but a STOP on a failed test is a finding against the plan as modelled. A GO is not an investment recommendation. Every gate not yet met should become a condition precedent, a covenant or an accepted risk in the investment memo.
 
-### Scene 29. Investment memo: Investment_Summary
+### Scene 30. Investment memo: Investment_Summary
 > On screen: *The one page summary for the investment committee, live for the active scenario. Sheet Investment_Summary, range A4:G35.*
 
 The Investment Summary brings it together on one page for the active scenario: the operating trajectory, the funding requirement, valuation and returns, the lender view and unit economics by tier. Build the memo from this page and the sheets behind it, using Template T01, and check every figure you quote against its source sheet.
 
-### Scene 30. Investment memo: Dashboard
+### Scene 31. Investment memo: Dashboard
 > On screen: *Thirty nine labelled metrics by year, rounded for reading, each with its unit and its source sheet. Sheet Dashboard, range A5:H50.*
 
 Behind the summary sits the Dashboard: a table of thirty nine labelled metrics by year, rounded for reading, each with its unit and its source sheet. Single values, such as returns, peaks, timing and readiness, sit under Year 1. Three readings teach the most. First, revenue is not cash. Cash conversion, operating cash flow over EBITDA, reads not applicable in Years 1 and 2, while EBITDA is negative. It is then minus 1.32 times in Year 3, minus 0.08 times in Year 4 and 0.25 times in Year 5, because the growing receivables book absorbs the cash. Second, the operational collection rate falls from 84.5 per cent in Year 1 to 73.3 per cent in Year 5. It is labelled not a PERFORM KPI, and the PERFORM repayment line below it reads not provided, because only company results can fill it. Third, the net FX transaction effect on costs and RBF, before price pass through, is a cost that grows from about twenty five million local currency units in Year 1 to about nine hundred and twenty eight million in Year 5. The last lines repeat the readiness result: two of twenty three gates met, and a decision of STOP, on a failed test.
 
-### Scene 31. Twelve steps, one discipline
+### Scene 32. Twelve steps, one discipline
 > On screen: *Load the company's data before you trust the projections*
 
 That completes the twelve steps. Three habits matter most. Never use an output while the master check reads error. Load the company's own history before you trust any projection. And read the Downside as carefully as the Base. The user manual, the case study, the templates and the decision tools take each step further. Thank you for watching.
