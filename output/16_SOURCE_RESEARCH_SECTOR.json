@@ -1,0 +1,154 @@
+[
+  {
+    "ref": "E1-14",
+    "proposed_status": "PENDING PRIMARY DOCUMENT",
+    "page": "not seen (primary not opened)",
+    "url": "https://www.esmap.org/sites/default/files/esmap-files/2024-Off-Grid-Solar-Market-Trends-Report.pdf (not reachable from this environment)",
+    "evidence": "Secondary (search snippet): 'Collection rates remain at 62% in 2023, in line with 2021.' Also secondary: 'collection rates remain low at 62% in 2023'. Definition not available. Finding: Primary PDF not reachable. Secondary search snippets (two separate searches) describe the figure as 'Collection rates remain at 62% in 2023, in line with 2021', i.e. a point value for 2023 that equals 2021, not explicitly a 2021 to 2023 average. Definition (deposits, numerator, denominator, weighting, sample) not visible in any snippet. The level 62% is consistent across secondary sources; the period wording is not.",
+    "proposed_book_text": "If the report confirms point values: 'The ESMAP Off-Grid Solar Market Trends Report 2024 is reported to give a PAYGo collection rate of about 62% in 2023, unchanged from 2021 (Annex G, E1; pages and definition to be checked).' Until the PDF is read, the safer wording drops 'average for 2021 to 2023' and says 'about 62% in 2021 and 2023'."
+  },
+  {
+    "ref": "E1-15",
+    "proposed_status": "PENDING PRIMARY DOCUMENT",
+    "page": "not seen (primary not opened)",
+    "url": "https://www.esmap.org/sites/default/files/esmap-files/2024-Off-Grid-Solar-Market-Trends-Report.pdf (not reachable from this environment)",
+    "evidence": "Secondary (search snippet, cgap.org/blog/what-have-we-learned-recent-paygo-grid-solar-analysis, not opened): 'the best quartile of collection rate was at 79% and the worst at 54% in 2022'; 'median of 72% in 2022'. Finding: Not found in any snippet attributed to the MTR 2024. A different dataset (CGAP blog on PAYGo PERFORM data) is reported in snippets as: median 72% in 2022, best quartile 79%, worst quartile 54%. These are not MTR figures and use a different sample; they must not be mixed with the 62% figure. The MTR quartiles remain unconfirmed.",
+    "proposed_book_text": "Keep the quartiles only with the pending caveat; if the PDF cannot be read before publication, remove '75% to 80%' and 'below 50%' and keep only the 62% figure."
+  },
+  {
+    "ref": "E1-16",
+    "proposed_status": "PENDING PRIMARY DOCUMENT",
+    "page": "not seen (primary not opened)",
+    "url": "https://www.esmap.org/sites/default/files/esmap-files/2024-Off-Grid-Solar-Market-Trends-Report.pdf (not reachable from this environment)",
+    "evidence": "Secondary (search snippet): 'more firms in the dataset (50%) had a worsening RAR 30 and write-off ratio over the year, compared to the firms showing an improvement (37%)'. Not attributable to MTR 2024 from the snippet. Finding: No snippet reproduces the 30% to 50% band or the 18% figure. A secondary snippet (source page unclear, likely GOGLA PAYGo PERFORM blog) reports '50% of firms had a worsening RAR30 and write-off ratio over the year', which is a different statement (direction of change, not a band). Book already uses 'companies', not 'customers', which is correct per the client extraction.",
+    "proposed_book_text": "No change beyond the existing caveat. Do not cite the 50% 'worsening' statement as the same metric."
+  },
+  {
+    "ref": "E1-01",
+    "proposed_status": "PENDING PRIMARY DOCUMENT",
+    "page": "not seen (primary not opened)",
+    "url": "https://www.esmap.org/sites/default/files/esmap-files/2024-Off-Grid-Solar-Market-Trends-Report.pdf (not reachable from this environment)",
+    "evidence": "None found. Finding: No snippet checked the figure.",
+    "proposed_book_text": ""
+  },
+  {
+    "ref": "E1-02/03",
+    "proposed_status": "PENDING PRIMARY DOCUMENT",
+    "page": "not seen (primary not opened)",
+    "url": "https://www.esmap.org/sites/default/files/esmap-files/2024-Off-Grid-Solar-Market-Trends-Report.pdf (not reachable from this environment)",
+    "evidence": "None found. Finding: No snippet checked the figures.",
+    "proposed_book_text": ""
+  },
+  {
+    "ref": "E1-04",
+    "proposed_status": "PENDING PRIMARY DOCUMENT",
+    "page": "not seen (primary not opened)",
+    "url": "https://www.esmap.org/sites/default/files/esmap-files/2024-Off-Grid-Solar-Market-Trends-Report.pdf (not reachable from this environment)",
+    "evidence": "Secondary (search snippet): '39% of affiliate OGS products were sold through PAYGo in 2023, up from 24% in 2018.' Also Mercom India headline (secondary). Finding: Secondary snippets consistent with the register.",
+    "proposed_book_text": ""
+  },
+  {
+    "ref": "E1-05/06",
+    "proposed_status": "PENDING PRIMARY DOCUMENT",
+    "page": "not seen (primary not opened)",
+    "url": "https://www.esmap.org/sites/default/files/esmap-files/2024-Off-Grid-Solar-Market-Trends-Report.pdf (not reachable from this environment)",
+    "evidence": "None found. Finding: No snippet checked the figures.",
+    "proposed_book_text": ""
+  },
+  {
+    "ref": "E1-07",
+    "proposed_status": "PENDING PRIMARY DOCUMENT",
+    "page": "not seen (primary not opened)",
+    "url": "https://www.esmap.org/sites/default/files/esmap-files/2024-Off-Grid-Solar-Market-Trends-Report.pdf (not reachable from this environment)",
+    "evidence": "Secondary (search snippet): 'For PAYGo to be considered affordable, repayments should be less than 5% of monthly income.' 'At a stretch' not in snippets. Finding: Secondary snippet confirms the 5% threshold only; the 10% 'at a stretch' band not visible in snippets.",
+    "proposed_book_text": "No change; existing 'is reported to' and 'to be checked against the report' caveat is adequate."
+  },
+  {
+    "ref": "E1-08",
+    "proposed_status": "PENDING PRIMARY DOCUMENT",
+    "page": "not seen (primary not opened)",
+    "url": "https://www.esmap.org/sites/default/files/esmap-files/2024-Off-Grid-Solar-Market-Trends-Report.pdf (not reachable from this environment)",
+    "evidence": "Secondary (search snippet): 'only 22% of the households that currently lack access to electricity can afford the cost of a solar energy kit providing tier 1 level'. Finding: 22% confirmed by secondary snippets (note: snippet says 'households', book says 'people'); 27% not visible.",
+    "proposed_book_text": "Check unit (households or people) against the PDF; if unverified, write 'about 22% of those without access'."
+  },
+  {
+    "ref": "E1-09/10",
+    "proposed_status": "PENDING PRIMARY DOCUMENT",
+    "page": "not seen (primary not opened)",
+    "url": "https://www.esmap.org/sites/default/files/esmap-files/2024-Off-Grid-Solar-Market-Trends-Report.pdf (not reachable from this environment)",
+    "evidence": "None found. Finding: No snippet checked; the incremental or cumulative definition of 46% remains open.",
+    "proposed_book_text": ""
+  },
+  {
+    "ref": "E1-11/12/13",
+    "proposed_status": "PENDING PRIMARY DOCUMENT",
+    "page": "not seen (primary not opened)",
+    "url": "https://www.esmap.org/sites/default/files/esmap-files/2024-Off-Grid-Solar-Market-Trends-Report.pdf (not reachable from this environment)",
+    "evidence": "None found. Finding: No snippet checked.",
+    "proposed_book_text": ""
+  },
+  {
+    "ref": "E1-17",
+    "proposed_status": "PENDING PRIMARY DOCUMENT",
+    "page": "not seen (primary not opened)",
+    "url": "https://www.esmap.org/sites/default/files/esmap-files/2024-Off-Grid-Solar-Market-Trends-Report.pdf (not reachable from this environment)",
+    "evidence": "Secondary (search snippets): 'Investment into the off-grid solar sector reached a high of $1.2 billion during the 2022-23 period, largely driven by debt financing'; GOGLA newsroom title '$425 million invested into the global off-grid solar sector in 2023, a 43% drop versus 2022'. Finding: USD 1.2bn for 2022 to 2023 and USD 425m for 2023 corroborated by secondary sources. GOGLA newsroom headline gives 2023 as a 43% drop versus 2022, which implies about USD 746m for 2022 (425 / 0.57 = 746): internally consistent.",
+    "proposed_book_text": ""
+  },
+  {
+    "ref": "E1-18 to E1-23",
+    "proposed_status": "PENDING PRIMARY DOCUMENT",
+    "page": "not seen (primary not opened)",
+    "url": "https://www.esmap.org/sites/default/files/esmap-files/2024-Off-Grid-Solar-Market-Trends-Report.pdf (not reachable from this environment)",
+    "evidence": "Secondary (search snippet, GOGLA 2025): '$900 million in Results-Based Financing (RBF) has been committed to the off-grid solar sector historically'. Finding: No snippet checked these figures. Note: GOGLA 'After the Dip' (2025) is reported to give USD 900m RBF committed historically, a different source and date from E1-23.",
+    "proposed_book_text": "If Ch 13 cites RBF totals, state source and date; do not mix USD 733m (MTR 2024) and USD 900m (GOGLA 2025)."
+  },
+  {
+    "ref": "E1-24/25",
+    "proposed_status": "PENDING PRIMARY DOCUMENT",
+    "page": "not seen (primary not opened)",
+    "url": "https://www.worldbank.org/en/news/press-release/2024/10/08/off-grid-solar-could-provide-first-time-electricity-access-to-almost-400-million-people-globally-by-2030 (not reachable from this environment)",
+    "evidence": "Secondary (search snippet): 'A 6-fold increase over current investment levels, or $21 billion, is required'; press release title 'Off-grid Solar Could Provide First-time Electricity Access to Almost 400 million People Globally by 2030'. Finding: USD 21bn and 'almost 400 million' corroborated by World Bank and GOGLA press release titles and snippets (8 October 2024). 216 million not checked.",
+    "proposed_book_text": ""
+  },
+  {
+    "ref": "MTR metadata",
+    "proposed_status": "PENDING PRIMARY DOCUMENT",
+    "page": "Cover (not seen)",
+    "url": "https://www.esmap.org/sites/default/files/esmap-files/2024-Off-Grid-Solar-Market-Trends-Report.pdf (not reachable from this environment)",
+    "evidence": "Secondary (search result title and press release URL date). Finding: Search result title of the official PDF reads 'OFF-GRID SOLAR MARKET TRENDS REPORT 2024 OCTOBER 2024'; World Bank launch press release dated 8 October 2024. 7th edition, covering 2022 and 2023.",
+    "proposed_book_text": "Annex G may give the date as 'October 2024 (as reported)'."
+  },
+  {
+    "ref": "E3-01",
+    "proposed_status": "PENDING PRIMARY DOCUMENT",
+    "page": "not seen (primary not opened)",
+    "url": "https://www.seforall.org/sites/default/files/Beyond-Connections-Introducing-Multi-Tier-Framework-for-Tracking-Energy-Access.pdf ; https://www.worldbank.org/content/dam/Worldbank/Topics/Energy%20and%20Extract/Beyond_Connections_Energy_Access_Redefined_Exec_ESMAP_2015.pdf (both not reachable from this environment)",
+    "evidence": "Secondary (search snippet): 'Tier 4 requires minimum 800W and 3.4 kWh daily capacity, and Tier 5 requires minimum 2 kW and 8.2 kWh daily capacity.' Finding: Primary PDFs (worldbank.org executive summary, seforall.org full report, openknowledge.worldbank.org) not reachable. Secondary snippet reproduces the register thresholds (T3 200 W / 1.0 kWh; T4 800 W / 3.4 kWh; T5 2 kW / 8.2 kWh). Held file 2021 PAYGo PERFORM Technical Guide (a30c1991, printed p. 58, section 3.6 Product Sales illustration) maps product Wp bands to MTF tiers (e.g. 21 to 49.999 Wp 'Enables full Tier 2 Electricity Access... when coupled with high-efficiency appliances'), but it is not the MTF primary. Book wording is accurate as far as can be judged and carries no numbers.",
+    "proposed_book_text": "No change required; keep thresholds out of the text until the report is read."
+  },
+  {
+    "ref": "E8-01",
+    "proposed_status": "PENDING PRIMARY DOCUMENT",
+    "page": "not seen (primary not opened)",
+    "url": "https://gogla.org/reports/investment-data-report/after-the-dip-off-grid-solars-defining-moment/ (not reachable from this environment)",
+    "evidence": "Secondary (search snippets): 'Investment into off-grid solar companies fell by 30% in 2024 compared to 2023, down to almost USD 300 million'; GOGLA newsroom title 'Amid funding dip and consolidation, $300M flows to off-grid solar'. Finding: Decline of 30% and the GOGLA source confirmed by several secondary reports (April 2025). GOGLA's own headline uses 'USD 300M' / 'almost USD 300 million'; one snippet says the report uses both USD 300m and USD 299m. Report title: 'After the Dip: Off-Grid Solar's Defining Moment' (GOGLA investment data report, about 22 April 2025). Scale ups raised USD 229m (77%); start up capital fell 70%.",
+    "proposed_book_text": "'GOGLA reports off grid solar investment of about USD 300m in 2024, down about 30% on 2023 (After the Dip, 2025; to be checked against the primary report).' 'About USD 300m' matches GOGLA's headline and stays true if the report's exact figure is USD 299m."
+  },
+  {
+    "ref": "E10-01",
+    "proposed_status": "PENDING PRIMARY DOCUMENT",
+    "page": "not seen (primary not opened)",
+    "url": "https://www.seforall.org/programmes/universal-energy-facility ; https://www.universalenergyfacility.org (both not reachable from this environment)",
+    "evidence": "Secondary (search snippet): 'provides grants to eligible organizations deploying energy solutions and providing verified end-user electricity connections (through mini-grids and stand-alone solar systems)'; 'payments released upon verified proof of delivery'. Finding: Secondary snippets from seforall.org pages are consistent: grants to organisations providing verified end user connections (mini grids and stand alone solar) and clean cooking; payments released on verified proof of delivery. Book wording accurate; no amounts quoted.",
+    "proposed_book_text": "No change required."
+  },
+  {
+    "ref": "X-03",
+    "proposed_status": "NOT USED",
+    "page": "",
+    "url": "",
+    "evidence": "None. Finding: Not researched: no claim, status NOT USED.",
+    "proposed_book_text": ""
+  }
+]
