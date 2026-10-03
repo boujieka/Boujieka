@@ -10,8 +10,12 @@ URL = "https://cb.example/results/"
 T = [Target(url=URL, source_name="CB results", institution="Central Bank", purpose="Results")]
 
 
+FILLER = "<p>" + "Treasury bills and bonds auction results published by the central bank. " * 5 + "</p>"
+
+
 def page(*docs: str, extra: str = "") -> bytes:
     links = "".join(f'<li><a href="{d}">Result {i}</a></li>' for i, d in enumerate(docs))
+    extra = FILLER + extra
     return (
         "<html><head><title> Treasury  Bills | CB </title><script>var t = Date.now();</script>"
         f"</head><body><h1>Results</h1><ul>{links}</ul>{extra}"
@@ -96,6 +100,22 @@ class TestCheck:
         reports, state = check(T, legacy, fake({URL: ok(page("/a.pdf", "/b.pdf"))}), now=NOW)
         assert [d["url"] for d in reports[0].new_documents] == ["https://cb.example/b.pdf"]
         assert "link_ids" in state["pages"][URL]
+
+    def test_interstitial_does_not_reset_known_links(self):
+        """Regression: CBK once served 'You are being redirected...'; the real page then showed
+        every existing PDF as new."""
+        _, s1 = check(T, None, fake({URL: ok(page("/a.pdf", "/b.pdf"))}), now=NOW)
+        shell = b"<html><body>You are being redirected...<script>location.reload()</script></body></html>"
+        reports, s2 = check(T, s1, fake({URL: ok(shell)}), now=NOW)
+        assert reports[0].reachable is False and "Interstitial" in reports[0].error
+        assert s2["pages"][URL] == s1["pages"][URL]
+        reports, _ = check(T, s2, fake({URL: ok(page("/a.pdf", "/b.pdf"))}), now=NOW)
+        assert reports[0].new_documents == []
+
+    def test_interstitial_on_first_run_creates_no_baseline(self):
+        shell = b"<html><body>Just a moment...</body></html>"
+        _, s1 = check(T, None, fake({URL: ok(shell)}), now=NOW)
+        assert URL not in s1["pages"]
 
     def test_empty_body_is_reported_clearly(self):
         reports, _ = check(T, None, fake({URL: FetchResult(200, URL, b"", None)}), now=NOW)

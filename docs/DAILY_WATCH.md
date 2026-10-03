@@ -18,15 +18,25 @@ State between runs lives in the published `https://cartouche-africa.netlify.app/
 so no persistent disk is needed. If it cannot be read, the run records a fresh baseline.
 
 ## Schedule
-A Claude Code Routine fires daily at **04:48 UTC** (05:48 in Douala/Lagos/Abidjan, which is
-UTC+1/UTC+0, and 07:48 in Nairobi). It starts a fresh session, checks out the branch, runs the
-script, deploys with the Netlify connector, verifies the live `veille.json`, and reports.
+A Claude Code Routine ("Veille quotidienne Cartouche") fires daily at **04:48 UTC**: 05:48 in
+Douala and Lagos (UTC+1), 04:48 in Abidjan and Dakar (UTC+0), 07:48 in Nairobi. It starts a
+fresh session, clones the repo, runs `scripts/daily_run.sh`, deploys, verifies the live
+`veille.json` and reports.
+
+**Deployment needs one setting:** add a Netlify personal access token as the environment
+variable `NETLIFY_AUTH_TOKEN` in the cloud environment's settings. The routine then runs
+`scripts/deploy_site.sh` (official Netlify CLI). Without it, the routine still runs the watch
+and reports, but the site keeps the previous version. Tested on 2026-10-03: clone and watch
+work in a scheduled session; the Netlify connector is not available there.
 
 ## Reading the results
 - A **new document** is a lead to review (e.g. a newly posted auction-result PDF), not a
   verified market event. Nothing is extracted from documents yet (Phase 2).
 - **Changed** pages include pages with live content (e.g. BRVM price bulletins change
   intraday), so "changed" is a weaker signal than "new document".
+- **Interstitial pages** (anti-bot or "You are being redirected" shells) count as failures and
+  never replace a page's known state. Otherwise the next real visit would report every old
+  document as new; this happened once with a CBK page during setup.
 - **Known failures** as of 2026-10-03:
   - caa.cm: incomplete TLS certificate chain on the server; verification is not disabled.
   - afdb.org: blocks automated access with HTTP 403.

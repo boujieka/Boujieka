@@ -27,6 +27,13 @@ import httpx
 USER_AGENT = "Mozilla/5.0 (compatible; CartoucheWatch/1.0; +https://cartouche-africa.netlify.app)"
 DOC_PATTERN = re.compile(r"\.(pdf|docx?|xlsx?)($|[?#])", re.IGNORECASE)
 MAX_LINKS_KEPT = 20_000  # per page, in state (as 12-hex ids); far above any page seen so far
+# Anti-bot / redirect interstitials answer HTTP 200 but are not the real page. Treating them as
+# a successful check would wipe the page's known links and make every link "new" next time.
+INTERSTITIAL_MARKERS = (
+    "you are being redirected", "just a moment", "checking your browser", "enable javascript and cookies",
+    "attention required", "verify you are human", "ddos protection",
+)
+MIN_TEXT_CHARS = 200  # visible text below this is treated as an interstitial or empty shell
 MAX_NEW_PER_PAGE = 25  # cap reported new documents per page (a redesign can expose hundreds)
 
 
@@ -115,6 +122,16 @@ class _PageParser(HTMLParser):
             self._link_text.append(data)
 
 
+def is_interstitial(html: str) -> bool:
+    p = _PageParser()
+    try:
+        p.feed(html)
+    except Exception:
+        pass
+    text = " ".join(" ".join(p.text_parts).split()).lower()
+    return len(text) < MIN_TEXT_CHARS or any(m in text[:2000] for m in INTERSTITIAL_MARKERS)
+
+
 def parse_page(html: str, base_url: str) -> tuple[str | None, str, list[dict]]:
     """Return (title, sha256 of visible text, document links [{url, text}])."""
     p = _PageParser()
@@ -170,8 +187,13 @@ def check(
         ok = res.status is not None and 200 <= res.status < 400 and bool(res.body)
         title = sha = None
         docs: list[dict] = []
+        interstitial = False
         if ok:
-            title, sha, docs = parse_page(res.body.decode("utf-8", errors="replace"), res.final_url or t.url)
+            html = res.body.decode("utf-8", errors="replace")
+            interstitial = is_interstitial(html)
+            ok = not interstitial
+        if ok:
+            title, sha, docs = parse_page(html, res.final_url or t.url)
 
         new_docs: list[dict] = []
         changed = False
@@ -185,7 +207,11 @@ def check(
             checked_at=now.isoformat(), reachable=ok, http_status=res.status, final_url=res.final_url,
             title=title, text_sha256=sha, document_count=len(docs), changed=changed,
             new_documents=new_docs,
-            error=res.error or (None if ok else ("Empty response body" if res.status and res.status < 400 else f"HTTP {res.status}")),
+            error=res.error or (None if ok else (
+                "Interstitial or anti-bot page instead of content" if interstitial
+                else "Empty response body" if res.status and res.status < 400
+                else f"HTTP {res.status}"
+            )),
         ))
 
         if ok:
