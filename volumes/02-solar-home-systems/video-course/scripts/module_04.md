@@ -72,7 +72,7 @@ Higher tiers look better per unit. In the workbook they carry lower hazards, lar
 
 The difficulty is that those assumptions are, for most companies, untested. Shifting the mix towards them is the largest credit bet in the plan, made on the least evidence.
 
-SolaraPay is launching Tier 4 at three hundred and ninety thousand shillings and Tier 5 at eight hundred and forty five thousand. Calibrated unit economics give them the best ratios of lifetime value to acquisition cost in the range, 11.0 and 14.9 times. But they have no history. Doubling their hazard cuts the investor IRR in the calibrated case from 29.0 to 14.8 per cent. The multiple falls from 3.6 to 2.0 times, with 38 months in covenant breach. The case caps both tiers as a pilot, released only after twelve months of cohort data within 10 per cent of plan.
+SolaraPay is launching Tier 4 at three hundred and ninety thousand shillings and Tier 5 at eight hundred and forty five thousand. Calibrated unit economics give them the highest ratios of lifetime value to acquisition cost in the range, 11.0 and 14.9 times. But they have no history. Doubling their hazard cuts the investor IRR in the calibrated case from 29.0 to 14.8 per cent. The multiple falls from 3.6 to 2.0 times, with 38 months in covenant breach. The case caps both tiers as a pilot, released only after twelve months of cohort data within 10 per cent of plan.
 
 ## Scene 8. What SolaraPay's Tier 2 shows
 On screen: SolaraPay Tier 2. Expected loss 41.8%. Unit IRR 37%. Payback 17 months. 40% of mix. Burden 13.0%. Calibrated collected share 58.2%.

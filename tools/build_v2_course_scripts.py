@@ -1,4 +1,4 @@
-"""Assemble the Volume 2 video course scripts (Modules 0 to 17) into one publication source and PDF.
+"""Assemble the Book 2 video course scripts (Modules 0 to 17) into one publication source and PDF.
 
 Run: python tools/build_v2_course_scripts.py
 Reads video-course/scripts/module_NN.md and the running times in video-course/audio/qa_report.json and in the
@@ -62,7 +62,7 @@ def main():
 
     front = f"""# About the course
 
-The video course follows the book chapter by chapter. Module 0 explains how the course, the book, the model, the case study, the templates and the decision tools fit together. Modules 1 to 16 follow Chapters 1 to 16, each built around the decision its chapter supports. Module 17 is a screen walk through of the AEF SHS PAYGo model, step by step, in the order of the user manual.
+The video course follows the book chapter by chapter. Module 0 explains how the course, the book, the model, the case study, the templates and the decision tools fit together. Modules 1 to 16 follow Chapters 1 to 16, each built around the decision its chapter supports. Module 17 is a screen walk through of MODEL 2, the PAYGo Company Financial and Investment Model (version 0.8, development build), step by step, in the order of the user manual.
 
 This document holds the full narration of every module, with the screen direction for each scene set apart in italics. The scripts are the reference text for the recordings and for subtitles, and they can be read on their own as a spoken summary of the book.
 
@@ -86,8 +86,8 @@ The recordings of this edition use a British English narrator voice at a measure
     out_md = VC / "AEF_V2_Video_Course_Scripts.md"
     out_md.write_text(front + "\n" + "\n\n".join(bodies) + "\n")
     subprocess.run([sys.executable, str(ROOT / "tools/publish_docs.py"), str(out_md), str(VC / "AEF_V2_Video_Course_Scripts.pdf"),
-                    "--title", "Video Course Scripts", "--subtitle", "Solar Home Systems: PAYGo Business and Financial Models",
-                    "--short", "Video Course Scripts"], check=True)
+                    "--title", "Video Course Scripts", "--subtitle", "Book 2. PAYGo Solar Finance",
+                    "--kicker", "BOOK 2", "--short", "Video Course Scripts"], check=True)
     print(f"{total_min:.1f} minutes, {total_words} words")
 
 

@@ -44,9 +44,9 @@ The evidence often disappoints. The SolaraPay case, a fictional company with syn
 ## Scene 5. How the workbook simplifies
 On screen: Workbook conventions: hardware at cash price, financing income straight line, lifetime loss charged at sale, missed instalments written off as they fall due.
 
-The AEF SHS PAYGo model simplifies these rules for transparency. Hardware revenue is the cash price at sale. Financing income is the PAYGo premium divided by the tenor, straight line. The allowance is set up at origination equal to the cohort's lifetime expected missed instalments, and consumed as they are missed. Missed instalments are written off as they fall due.
+The companion workbook, MODEL 2, simplifies these rules for transparency. Hardware revenue is the cash price at sale. Financing income is the PAYGo premium divided by the tenor, straight line. The allowance is set up at origination equal to the cohort's lifetime expected missed instalments, and consumed as they are missed. Missed instalments are written off as they fall due.
 
-The whole lifetime loss hits the income statement at the sale, which is conservative. Straight line income is lower early than effective interest, also conservative. And the workbook's gross receivables and write offs are not comparable with audited figures, which will differ.
+The whole lifetime loss hits the income statement at the sale, which is conservative. Straight line income is lower early than effective interest, also conservative. And the workbook's gross receivables and write offs are not comparable with audited figures, which will differ. This is an analytical modelling treatment and does not constitute a determination of the applicable accounting treatment under IFRS.
 
 ## Scene 6. One cohort, worked through
 On screen: Tier 2 cohort of 1,000 units. Year 1: revenue 44.00 million, ECL charge 17.10 million. Year 2: revenue 8.00 million, no charge.
@@ -60,11 +60,11 @@ In Year 1 the cohort brings forty four million of revenue, thirty six million of
 Under the effective interest method, at about 3.53 per cent a month, financing income would be about eleven point three million in Year 1 and four point seven million in Year 2. The total is the same, the timing is not.
 
 ## Scene 7. Indicative ECL and the ratio to financing revenue
-On screen: Credit_Portfolio sheet. Indicative ECL 323.6 million on 1,000 million of receivables, coverage 32.4 per cent. SolaraPay ECL to financing revenue 1.28 times against about 0.38 times.
+On screen: Credit_Portfolio sheet. Indicative ECL 323.6 million on 1,000 million of receivables, coverage 32.4 per cent. SolaraPay ECL to financing revenue 1.28 times. Peer reference withdrawn.
 
 The Credit_Portfolio sheet also computes an indicative stage based ECL as a diagnostic. Take a book of one billion local currency units, with eight hundred and twenty million current or up to 30 days late, ninety million in Stage 2 and ninety million in Stage 3. With Tier 2 inputs, a 30 per cent cure rate and an assumed resale share of 40 per cent, the loss factors are 22.85, 59.01 and 92.35 per cent. The indicative ECL is three hundred and twenty three point six million, a coverage of 32.4 per cent. SolaraPay reports 36.5 per cent in its latest month.
 
-The calibrated SolaraPay plan shows an ECL charge of 1.28 times its financing revenue, against a reference of about 0.38 times. That reference is anecdotal and provisional. Part of the gap is mechanical. One Tier 2 cohort on the workbook's conventions has a lifetime ratio of 1.07 times and a first year ratio of 2.14 times, and a growing book sits above the lifetime figure. Part is credit, and part is pricing. The ratio is a good question and a poor verdict. Net credit losses against revenue, 37.5 per cent in Year 1 falling to 27.5 per cent in Year 5, answer it more directly.
+The calibrated SolaraPay plan shows an ECL charge of 1.28 times its financing revenue. Earlier drafts set this against a reference drawn from reported M-KOPA group figures. That comparison has been withdrawn, because the group figures conflict and the group's consolidated accounts have not been read. So the ratio is read on its own terms: financing income that does not cover expected losses means the price of credit does not pay for its risk. Part of it is mechanical. One Tier 2 cohort on the workbook's conventions has a lifetime ratio of 1.07 times and a first year ratio of 2.14 times, and a growing book sits above the lifetime figure. Part is credit, and part is pricing. The ratio is a good question and a poor verdict. Net credit losses against revenue, 37.5 per cent in Year 1 falling to 27.5 per cent in Year 5, answer it more directly.
 
 ## Scene 8. Three views of profit
 On screen: Management view, auditor view, lender view, reconciled side by side.

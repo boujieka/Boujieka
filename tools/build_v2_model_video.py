@@ -1,4 +1,4 @@
-"""Build the Volume 2 model tutorial video: the AEF SHS PAYGo model in twelve steps.
+"""Build the Book 2 model tutorial video: MODEL 2, the PAYGo Company Financial and Investment Model, in twelve steps.
 
 Run: python tools/build_v2_model_video.py
 Visuals are renders of the real workbook (layout, formats, fills and evaluated values) with highlights and captions;
@@ -26,9 +26,10 @@ ROOT = Path(__file__).resolve().parents[1]
 SCR = Path("/tmp/claude-0/-home-user-Boujieka/5b078838-abd3-5f75-bf1a-e73c18413f2f/scratchpad")
 WORK = SCR / "video_m17"
 OUTD = ROOT / "volumes/02-solar-home-systems/video-course"
-MODEL = ROOT / "volumes/02-solar-home-systems/model/AEF_SHS_PAYGo_Model_v0.7.xlsx"
-CASE = ROOT / "volumes/02-solar-home-systems/case-study/SolaraPay_Case_Model_v0.7.xlsx"
-VALS = {"model": (MODEL, SCR / "v07.xlsx.pkl", "V07.XLSX"), "case": (CASE, SCR / "case.xlsx.pkl", "CASE.XLSX")}
+MODEL = ROOT / "volumes/02-solar-home-systems/model/AEF_SHS_PAYGo_Model_v0.8-dev.xlsx"
+CASE = ROOT / "volumes/02-solar-home-systems/case-study/SolaraPay_Case_Model_v0.8-dev.xlsx"
+# evaluated values: full recalculations of the same workbooks saved with their values
+VALS = {"model": (MODEL, SCR / "lo/s4out/fm.xlsx"), "case": (CASE, SCR / "lo/s4out/fc.xlsx")}
 W, H = 1920, 1080
 GREEN, GOLD = "#0B3020", "#B07C0F"
 
@@ -98,15 +99,16 @@ def rgb(c):
 # ------------------------------------------------------------------ renderer
 class Book:
     def __init__(self, key):
-        path, pkl, tag = VALS[key]
-        self.key, self.path, self.tag = key, path, tag
+        path, recalc = VALS[key]
+        self.key, self.path = key, path
         self.wb = openpyxl.load_workbook(path)
-        self.vals = pickle.load(open(pkl, "rb"))
+        self.vals = openpyxl.load_workbook(recalc, data_only=True)
 
     def value(self, ws, cell):
         v = cell.value
         if isinstance(v, str) and v.startswith("="):
-            return self.vals.get(f"'[{self.tag}]{ws.title.upper()}'!{cell.coordinate}", "")
+            x = self.vals[ws.title][cell.coordinate].value
+            return "" if x is None else x
         return v
 
 
@@ -331,9 +333,9 @@ def title(kicker, t, sub, narration, foot=""):
     S.append(dict(kind="card", step="", kicker=kicker, title=t, sub=sub, text=narration, foot=foot))
 
 
-title("VOLUME 2  |  VIDEO COURSE  |  MODULE 17", "Using the AEF SHS PAYGo model", "A step by step guide in twelve steps",
-      "This tutorial walks you through the AEF SHS PAYGo model in twelve steps, in the order an analyst should work. "
-      "Every screen you will see is the real workbook, version 0.7, with its default inputs. Those inputs describe a fictional "
+title("BOOK 2  |  VIDEO COURSE  |  MODULE 17", "Using MODEL 2, step by step", "PAYGo Company Financial and Investment Model, in twelve steps",
+      "This tutorial walks you through MODEL 2, the PAYGo Company Financial and Investment Model, in twelve steps, in the order "
+      "an analyst should work. Every screen you will see is the real workbook, version 0.8, a development build, with its default inputs. Those inputs describe a fictional "
       "company in a fictional market. They are there to make the mechanics visible, not to describe any real business. "
       "Keep the user manual open beside you. It follows the same twelve steps.",
       foot="Author and ideation: Emmanuel Boujieka Kamga")
@@ -342,23 +344,33 @@ S1 = "Step 1 of 12  |  Start here"
 scene(S1, "Cover", "B16:J44", [("E35:H35", "Master check"), ("E36:H36", ""), ("E37:H37", "")],
       "Open the workbook, let it recalculate, and read the status panel before anything else.",
       "Open the workbook in Excel 2016 or later and let it recalculate fully. The cover carries a live status panel. "
-      "First, the master check. It must read OK before you rely on any output. Below it, the readiness banner: three of "
-      "twenty three gates are met at default inputs, and the model never calls a case investment grade. Then the active "
-      "scenario, Base, and the credit data mode, Proxy, which means the credit figures come from the model's curves. "
+      "First, the master check. It must read OK before you rely on any output. Below it, the readiness line: three of "
+      "twenty three gates are met at default inputs, and the decision reads STOP, because the evidence is incomplete. The "
+      "model never rates a company. Then the active case, the illustrative model assumptions in the Base scenario, and the "
+      "credit data mode, Proxy, which means the credit figures come from the model's curves. "
       "Before you change anything, save a copy under a new name and keep the original as your reference.")
-scene(S1, "Checks", "A1:C38", [("A30:C30", "Master check"), ("A33:C38", "Readiness flags")],
-      "Twenty five integrity checks roll up into the master check. Readiness flags sit apart.",
-      "The Checks sheet runs twenty five integrity tests. The balance sheet balances, cash ties out, the DPD buckets "
-      "reconcile to gross receivables, limits are respected and inputs are valid. Each test returns zero when it passes, and "
-      "together they drive the master check. Below them sit five readiness flags, such as affordability assumptions not yet "
+scene(S1, "Start", "A1:D40", [("A4:D7", "Status"), ("A9:D18", "What to input"), ("A29:D34", "Read before quoting")],
+      "One page: what to input, what the model calculates, what the results mean and what an investor should look at.",
+      "Next, the Start sheet. It sets out on one page what to input, what the model calculates, what the results mean, and "
+      "what an investor should look at, in that order. Every input carries a provenance label: model assumption, company "
+      "data, external evidence, calibrated assumption or unverified. Read the third block before you quote any number. "
+      "Revenue is not cash. The operational collection rate is not a PAYGo PERFORM KPI. The credit loss figures are "
+      "analytical proxies. And the readiness decision measures the evidence file, not the business.")
+scene(S1, "Checks", "A1:C54", [("A44:C44", "Master check"), ("A46:C54", "Readiness flags")],
+      "Thirty eight integrity tests roll up into the master check. Readiness flags sit apart.",
+      "The Checks sheet runs thirty eight integrity tests. The balance sheet balances, cash reconciles every month, the DPD "
+      "buckets reconcile to gross receivables, and receivables, the loss allowance, debt and equity roll forward from month "
+      "to month. Limits are respected and inputs are valid. Each test returns zero when it passes, and together they drive "
+      "the master check. Below them sit seven readiness flags, such as affordability assumptions not yet "
       "reviewed. They are kept outside the master check on purpose. They tell you how mature the analysis is, not whether the "
       "arithmetic is right.")
-scene(S1, "Inputs", "A1:D14", [("C5:C5", "Scenario"), ("C6:C7", "")],
-      "Blue cells are inputs. Set the scenario selector, the first model month and the currency label.",
+scene(S1, "Inputs", "A1:E14", [("C5:C5", "Scenario"), ("C6:C7", ""), ("E5:E14", "Provenance")],
+      "Blue cells are inputs, each with a provenance label. Set the scenario selector, the first model month and the currency label.",
       "All hard coded assumptions live on a handful of sheets, and the colour code tells you where. Blue font is an input, "
       "the only kind of cell you should change. Black font is a formula. Never overwrite it. On the Inputs sheet, start "
       "with three settings. The first is the scenario selector, where one is Base, two is Downside and three is Severe. "
-      "Then come the first model month and the local currency label.")
+      "Then come the first model month and the local currency label. The last column gives each input's provenance. At "
+      "default inputs every one reads model assumption, because the defaults describe a fictional market.")
 
 S2 = "Step 2 of 12  |  Define the business"
 scene(S2, "Products", "A4:G16", [("A6:G11", "Product specification"), ("A13:G16", "Price plan")],
@@ -371,7 +383,7 @@ scene(S2, "Consumer_Risk", "A1:G15", [("A8:G8", "Illustrative incomes"), ("A10:G
       "Affordability is a credit risk. Replace the illustrative incomes with surveyed incomes.",
       "Consumer Risk sets each tier's instalment against the household income of its target segment. The incomes shown are "
       "illustrative placeholders and must be replaced with survey or customer data. With the defaults, three tiers sit above "
-      "the ten per cent payment burden threshold: Tier 2 at 13.0 per cent, Tier 3 at 13.2 per cent and Tier 4 at 11.3 per "
+      "the model's ten per cent policy threshold for payment burden: Tier 2 at 13.0 per cent, Tier 3 at 13.2 per cent and Tier 4 at 11.3 per "
       "cent. A high burden predicts higher default, so treat these flags as credit warnings, not only as social ones.")
 
 S3 = "Step 3 of 12  |  Market assumptions"
@@ -393,7 +405,7 @@ scene(S4, "Inputs", "A16:D21", [("C17:C21", "Units by year")],
       "Total units sold for Years 1 to 5 across all tiers.",
       "Enter the total units sold in each of the five years. The defaults run from twelve thousand units in Year 1 to fifty "
       "thousand in Year 5. The model divides each year by twelve, applies the scenario volume multiplier and splits the sales "
-      "by tier. Version 0.7 does not model seasonality, so read monthly results as averages.")
+      "by tier. Version 0.8 does not model seasonality, so read monthly results as averages.")
 scene(S4, "Products", "A4:G23", [("A23:G23", "Sales mix")],
       "The sales mix must total 100 per cent. A check enforces it.",
       "The sales mix sits on Products, and it must total one hundred per cent. A check enforces it. Be careful when you shift "
@@ -458,15 +470,16 @@ scene(S9, "Annual", "A30:I62", [("E46:I46", "Balance check"), ("E55:I55", "Opera
       "requirement are the figures to trust.")
 
 S10 = "Step 10 of 12  |  Scenarios"
-scene(S10, "Sensitivity", "A5:I20", [("A6:I8", "Scenarios"), ("A13:I14", "Currency and pricing")],
-      "Fifteen cases computed at default inputs. Currency and pricing move value more than volume.",
+scene(S10, "Sensitivity", "A5:I24", [("A6:I8", "Scenarios"), ("A13:I14", "Currency and pricing"), ("A23:I24", "Live row")],
+      "Fifteen dated cases computed at default inputs, and a live row for the active case. Currency and pricing move value more than volume.",
       "Switch the selector between Base, Downside and Severe and read the investment summary each time. The Sensitivity "
-      "sheet records fifteen cases at default inputs. The Base investor IRR is 46.4 per cent. In the Downside the IRR is "
+      "sheet holds a static table of fifteen cases, dated and computed at default inputs, and below it a live row that "
+      "follows the active case. The Base investor IRR is 46.4 per cent. In the Downside the IRR is "
       "minus 22.9 per cent, and the Severe case is a total loss. Look at the currency rows. Twenty per cent depreciation a "
       "year takes the Base IRR to minus sixteen per cent, and freezing prices on new contracts cuts it to 7.9 per cent. Remember to "
       "reset the selector to Base before you save.")
 
-S11 = "Step 11 of 12  |  Bankability"
+S11 = "Step 11 of 12  |  Lender case"
 scene(S11, "Credit_Portfolio", "A4:L31", [("A10:L16", "DPD buckets"), ("A20:L20", "Collection ratio"), ("A25:L28", "Borrowing base")],
       "Gross receivables by DPD bucket, the collection ratio, indicative ECL and the borrowing base with its headroom.",
       "Credit Portfolio consolidates the five tiers month by month: gross receivables by DPD bucket, the collection ratio, "
@@ -503,24 +516,31 @@ scene(S12, "Unit_Economics", "A4:G24", [("A11:G11", "Expected loss"), ("A20:G23"
       "Unit Economics answers whether each sale creates value. For Tier 2 at default inputs, the expected loss is about 35.6 "
       "per cent of scheduled instalments, LTV to CAC is 4.8 times, and the cash payback is fifteen months. Read the ratio with "
       "the payback and the unit IRR. A strong ratio on a product with no repayment history is a hypothesis, not a result.")
-scene(S12, "Calibration", "A5:F12", [("A7:F7", "Net margin against the scale reference")],
-      "Benchmarks become diagnostic questions. Thin or conflicting references are flagged, never used as targets.",
-      "Calibration turns graded benchmarks into questions. At default inputs, the Year 5 net margin is about six times the "
-      "M-KOPA reference for financial year 2024, a reference marked provisional because published revenue figures conflict. "
-      "The sheet asks you to justify the cost and credit assumptions. It never changes an input on its own.")
-scene(S12, "Investment_Readiness", "A4:G18", [("B5:G5", "Readiness banner"), ("A7:G11", "Automatic gates")],
-      "Twenty three gates. The model never claims investment grade; at most, ready for independent validation.",
+scene(S12, "Calibration", "A5:F12", [("A6:F7", "References suspended"), ("A10:F10", "Operational collection rate")],
+      "Diagnostics use verified references only. Suspended or conflicting references are shown, never used as targets.",
+      "Calibration turns benchmarks into questions, and it compares the model only with references whose source is "
+      "verified. At this edition, every reference on the sheet is suspended or absent. The M-KOPA group figures conflict "
+      "between sources, so that comparison is withdrawn until the group's consolidated accounts are read. The ESMAP sector "
+      "collection rate is pending its primary document, and it is context for the model's operational collection rate, "
+      "not a PERFORM repayment rate. The sheet asks you to justify the cost and credit assumptions on the company's own "
+      "data. It never changes an input on its own.")
+scene(S12, "Investment_Readiness", "A4:G36", [("B5:G5", "Readiness banner"), ("A31:D36", "Decision rule")],
+      "Twenty three gates, thirteen critical. The decision rule reads evidence only: STOP, CONDITIONAL GO or GO.",
       "Finally, Investment Readiness. Twenty three gates, automatic where the model can test them and manual where they need "
-      "outside evidence, such as legal review or the auditor's view of the ECL approach. The banner reads three of twenty three "
-      "at default inputs, and it never claims investment grade. Every gate not yet met should become a condition precedent, "
-      "a covenant or an accepted risk in the investment memo.")
+      "outside evidence, such as legal review or the auditor's view of the ECL approach. A manual gate counts only when the "
+      "sheet records where the evidence is held and who signed it off. Thirteen gates are critical, and the decision rule "
+      "uses the evidence and nothing else. It reads STOP when a test fails, GO only when all twenty three gates are met, and "
+      "CONDITIONAL GO when every critical gate is met. Otherwise it reads STOP, because the evidence is incomplete. At default "
+      "inputs three gates are met and the decision is STOP, with ten of the thirteen critical gates open. A STOP on "
+      "incomplete evidence is not a verdict on the business, and a GO is not an investment recommendation. Every gate not "
+      "yet met should become a condition precedent, a covenant or an accepted risk in the investment memo.")
 scene(S12, "Investment_Summary", "A4:G35", [("B9:F19", "Trajectory"), ("B22:B27", "Funding"), ("B30:B35", "Returns")],
       "The one page summary for the investment committee, live for the active scenario.",
       "The Investment Summary brings it together on one page for the active scenario: the operating trajectory, the funding "
       "requirement, valuation and returns, the lender view and unit economics by tier. Build the memo from this page and the "
       "sheets behind it, using Template T01, and check every figure you quote against its source sheet.")
 
-title("VOLUME 2  |  VIDEO COURSE", "Twelve steps, one discipline", "Load the company's data before you trust the projections",
+title("BOOK 2  |  VIDEO COURSE", "Twelve steps, one discipline", "Load the company's data before you trust the projections",
       "That completes the twelve steps. Three habits matter most. Never use an output while the master check reads error. "
       "Load the company's own history before you trust any projection. And read the Downside as carefully as the Base. The "
       "user manual, the case study, the templates and the decision tools take each step further. Thank you for watching.",
@@ -594,8 +614,8 @@ def build():
         t += durs[i]
     chapters.append((ch_start, t, last_step))
     (WORK / "subs.srt").write_text("\n".join(srt))
-    meta = [";FFMETADATA1", "title=Using the AEF SHS PAYGo model: a step by step guide", f"artist={A.AUTHOR}",
-            "album=Africa Energy Finance, Volume 2 video course", "comment=Module 17. Decision support material; not investment advice.",
+    meta = [";FFMETADATA1", "title=Using MODEL 2, the PAYGo Company Financial and Investment Model: a step by step guide", f"artist={A.AUTHOR}",
+            "album=Africa Energy Finance, Book 2 video course", "comment=Module 17. Decision support material; not investment advice.",
             f"date={date.today().year}"]
     for a, b, name in chapters:
         meta += ["[CHAPTER]", "TIMEBASE=1/1000", f"START={int(a * 1000)}", f"END={int(b * 1000)}", f"title={name}"]
@@ -608,8 +628,8 @@ def build():
            "-flags:a", "+bitexact", "-movflags", "+faststart", str(out)])
     shutil.copy(WORK / "subs.srt", OUTD / "AEF_V2_Module17_Model_Walkthrough.srt")
     # module 17 script, generated from the same scenes
-    md = ["# Module 17. Using the AEF SHS PAYGo model, step by step", "",
-          f"Duration: about {round(t / 60)} minutes. Book: Chapters 1 to 16. Model: AEF_SHS_PAYGo_Model_v0.7.xlsx. User manual: Steps 1 to 12.", "",
+    md = ["# Module 17. Using MODEL 2, step by step", "",
+          f"Duration: about {round(t / 60)} minutes. Book: Chapters 1 to 16. Model: MODEL 2, version 0.8 (development build), file AEF_SHS_PAYGo_Model_v0.8-dev.xlsx. User manual: Steps 1 to 12.", "",
           "## Learning objectives", "1. Work through the model in the order an analyst should.",
           "2. Know which sheet holds each input and which sheet answers each question.",
           "3. Read the integrity checks, the readiness gates and the investment summary correctly.", ""]

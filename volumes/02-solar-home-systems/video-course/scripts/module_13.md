@@ -28,7 +28,7 @@ Repayment is the first result that carries credit information. Ownership is the 
 ## Scene 3. Four designs in the workbook
 On screen: RBF_Engine sheet. Mode 1 sales based, mode 2 repayment linked, mode 3 ownership linked, mode 4 hybrid.
 
-The RBF_Engine sheet of the AEF SHS PAYGo model holds four designs. RBF is set in dollars and recognised below gross profit when the cash arrives.
+The RBF_Engine sheet of the companion workbook holds four designs. RBF is set in dollars and recognised below gross profit when the cash arrives.
 
 Take an illustration of twenty five dollars per verified Tier 2 unit, at one hundred and thirty local currency units to the dollar. Under mode 1 the company receives twenty five dollars, or three thousand two hundred and fifty local currency units.
 
@@ -48,7 +48,7 @@ Under repayment linked RBF with an 80 per cent target, A still receives twenty f
 ## Scene 5. Repayment, ownership and hybrids
 On screen: Three short panels. Repayment: definitions. Ownership: timing and evidence. Hybrid: weights total 100 per cent.
 
-Repayment linked RBF lines the programme up with the lender. Both now want cohorts that pay. The data already sit on the lockout platform, but the definitions must be tight. They must say whether deposits count, whether written off accounts stay in the denominator, and whether the rate is measured by cohort at a fixed age or on the portfolio at a calendar date. PAYGo PERFORM is the natural reference, subject to alignment with its current published documents.
+Repayment linked RBF lines the programme up with the lender. Both now want cohorts that pay. The data already sit on the lockout platform, but the definitions must be tight. They must say whether deposits count, whether written off accounts stay in the denominator, and whether the rate is measured by cohort at a fixed age or on the portfolio at a calendar date. The PAYGo PERFORM 2026 standard is the natural reference. Its repayment rate excludes deposits and subsidies, keeps written off contracts in, and is computed on contract data. Because subsidies are excluded, RBF can never improve a company's reported repayment rate.
 
 Ownership linked RBF has two weaknesses. The company waits years for the cash, and ownership is hard to prove, because an unlock can follow a settlement or a goodwill gesture. The workbook is strict. Mode 3 pays zero until validated ownership data sit in Vintage_Input and the evidence switch is set to 1.
 

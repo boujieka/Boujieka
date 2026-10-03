@@ -61,7 +61,7 @@ Expected missed instalments over the contract are fifty two thousand five hundre
 
 The workbook charges that amount as a loss allowance at origination. So the day one result is eighteen thousand, less four thousand, less eighteen thousand seven hundred and twenty eight. That is a loss of four thousand seven hundred and twenty eight. Financing income of sixteen thousand five hundred and sixty then brings the lifetime result to eleven thousand eight hundred and thirty two. Accounting and cash reconcile.
 
-This is a stated simplification of the international standards, IFRS 15 and IFRS 9, chosen because it makes each cohort's accounting and cash agree exactly.
+The workbook's treatment is a stated simplification of the international standards, IFRS 15 and IFRS 9, chosen because it makes each cohort's accounting and cash agree exactly. This is an analytical modelling treatment and does not constitute a determination of the applicable accounting treatment under IFRS.
 
 A company that recognises losses only as accounts fall behind reports fourteen thousand of contribution on day one. When sales grow fast, margin on new sales dominates, and losses belong to older, smaller cohorts. Reported profit looks healthy. Cash is still minus twenty two thousand per unit. A company selling three thousand such units a month needs sixty six million local currency units of new funding every month.
 
@@ -74,7 +74,7 @@ Any month's results blend cohorts of different ages. A falling portfolio collect
 
 So the course treats the cohort, or vintage, as the primary object of analysis. A cohort is the contracts originated in the same month, by tier. Its repayment curve, read against plan at the same age, is the most direct evidence that underwriting works. The receivables book is the company's largest asset and the collateral for its debt.
 
-The workbook reports on the basis of PAYGo PERFORM, the industry framework developed by CGAP, GOGLA and Lighting Global with other partners. The sector evidence is sobering. The ESMAP Off-Grid Solar Market Trends Report 2024 is reported to put the sector collection rate at about 62 per cent in 2023. That is secondary reporting, and the primary document has not yet been reviewed.
+PAYGo PERFORM is the industry's reporting standard. Its current version, the technical guide published by GOGLA in June 2026, defines five KPIs, or key performance indicators, on repayment and ownership. They are computed from a company's own contract data, and the workbook accepts them only as the company reports them. The sector evidence is sobering, although it still has to be read in the original. The ESMAP Off-Grid Solar Market Trends Report 2024 is reported to give an average PAYGo collection rate of about 62 per cent for 2021 to 2023. That figure is pending the primary document, and it is a collection rate, not a PERFORM repayment rate.
 
 ## Scene 8. How PAYGo companies fail
 On screen: Three failure modes. Growth outruns funding. Credit drift. Foreign exchange.
@@ -87,7 +87,7 @@ The second is credit drift. In the SolaraPay case, the portfolio collection rate
 
 The third is foreign exchange, or FX, because companies borrow in dollars and collect in local currency. In the default sensitivities, depreciation of 20 per cent a year turns a Base investor internal rate of return, or IRR, of 46.4 per cent into minus 16.0 per cent. Freezing prices on new contracts cuts it to 7.9 per cent.
 
-None of these shows first on the income statement. The sector has seen distress. BBOXX LTD, a UK company, entered administration on 19 May 2025. That is on the public register, and the primary documents have not yet been reviewed. The course does not speculate on the causes.
+None of these shows first on the income statement. The sector has seen distress. BBOXX LTD, a UK company, is recorded as having entered administration on 19 May 2025. The Gazette notice and the register entry have not yet been read, so the date is pending the primary document. The course does not speculate on the causes.
 
 ## Scene 9. Recap and exercise
 On screen: Exercise. T08 canvas. Three businesses. Day one margin against cash. Unit_Economics and D2.

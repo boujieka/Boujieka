@@ -38,14 +38,14 @@ Most rural customers earn from farming, casual labour, trading or remittances. C
 
 This has three consequences. An affordability ratio on average income overstates capacity in the months that matter. A month's collection rate must be compared with the same month in earlier years before it is read as a trend. And cohorts sold in different seasons behave differently. A customer who buys just after harvest pays the deposit easily, then meets the lean season a few months in.
 
-Version 0.7 of the workbook works with monthly averages and does not model seasonality. You must apply it yourself, in the affordability test and in reading monthly figures.
+Version 0.8 of the workbook works with monthly averages and does not model seasonality. You must apply it yourself, in the affordability test and in reading monthly figures.
 
 ## Scene 4. Payment burden
 On screen: Payment burden equals monthly instalment divided by monthly household income. Threshold 10%. Consumer_Risk sheet.
 
 The core measure is the payment burden. It is the monthly instalment divided by monthly household income. The Consumer_Risk sheet computes it for each tier and raises a flag when it exceeds a maximum. The default maximum is 10 per cent.
 
-That threshold is a policy choice, not a law or an empirical boundary between good and bad credit. A company may justify a different line with repayment evidence. What it should not do is set the threshold after the fact to clear the products it wants to sell.
+That threshold is a model policy threshold, not a law, a regulatory standard or an empirical boundary between good and bad credit. A company may justify a different line with repayment evidence. What it should not do is set the threshold after the fact to clear the products it wants to sell.
 
 Take the illustrative Tier 2 plan from Module 1. The instalment is two thousand one hundred and ninety local currency units. Assume average monthly income of eighteen thousand, made of six lean months at twelve thousand and six good months at twenty four thousand.
 
@@ -84,7 +84,7 @@ The Multi Tier Framework from ESMAP, set out in Beyond Connections in 2015, defi
 
 The illustrative incomes in the workbook are placeholders. A readiness flag on the Checks sheet stays raised until you replace them and record their status.
 
-Surveys, agent data and mobile money histories can fill them, each with its own bias. In the end, the company's own repayment data are the best test. A customer who pays for twelve months has shown the instalment was affordable over a full seasonal cycle.
+Surveys, agent data and mobile money histories can fill them, each with its own bias. In the end, the company's own repayment data are the most reliable test. A customer who pays for twelve months has shown the instalment was affordable over a full seasonal cycle.
 
 ## Scene 8. From affordability to default risk
 On screen: SolaraPay Tier 2. Burden 13.0%. Hazard 2.60% to 3.38%. Month 12 repayment 69.4% against 74.5% plan.

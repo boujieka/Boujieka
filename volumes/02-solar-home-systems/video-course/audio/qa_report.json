@@ -1,29 +1,29 @@
 {
  "00": {
   "title": "Module 0. Welcome: how the course, the book, the model and the tools fit together",
-  "minutes": 9.58,
-  "words": 1274,
-  "wer": 0.0311,
+  "minutes": 10.55,
+  "words": 1408,
+  "wer": 0.0234,
   "worst_paragraph": {
-   "wer": 0.333,
-   "starts": "The book has a companion workbook, the AEF SHS PAYGo Financi"
+   "wer": 0.105,
+   "starts": "A PAYGo solar home system company, or SHS company, is three "
   }
  },
  "01": {
   "title": "Module 1. The PAYGo business: retailer, utility and lender",
-  "minutes": 9.93,
-  "words": 1300,
-  "wer": 0.0352,
+  "minutes": 10.51,
+  "words": 1376,
+  "wer": 0.0337,
   "worst_paragraph": {
-   "wer": 0.312,
-   "starts": "This is a stated simplification of the international standar"
+   "wer": 0.156,
+   "starts": "Expected missed instalments over the contract are fifty two "
   }
  },
  "02": {
   "title": "Module 2. Market, customers and affordability",
-  "minutes": 9.63,
-  "words": 1297,
-  "wer": 0.0332,
+  "minutes": 9.69,
+  "words": 1302,
+  "wer": 0.0338,
   "worst_paragraph": {
    "wer": 0.115,
    "starts": "Twelve times that monthly rate gives a nominal APR of 39.3 p"
@@ -31,7 +31,7 @@
  },
  "03": {
   "title": "Module 3. The regulatory checklist",
-  "minutes": 10.25,
+  "minutes": 10.26,
   "words": 1299,
   "wer": 0.0389,
   "worst_paragraph": {
@@ -41,9 +41,9 @@
  },
  "04": {
   "title": "Module 4. Product and price plan design",
-  "minutes": 9.87,
+  "minutes": 9.88,
   "words": 1299,
-  "wer": 0.0388,
+  "wer": 0.0332,
   "worst_paragraph": {
    "wer": 0.214,
    "starts": "The plan that maximises contract value is rarely the one tha"
@@ -61,9 +61,9 @@
  },
  "06": {
   "title": "Module 6. Repayment behaviour: cohorts, curves and defaults",
-  "minutes": 9.82,
+  "minutes": 9.83,
   "words": 1300,
-  "wer": 0.0218,
+  "wer": 0.0225,
   "worst_paragraph": {
    "wer": 0.062,
    "starts": "Take the default Tier 2 product, an SHS, or solar home syste"
@@ -71,19 +71,19 @@
  },
  "07": {
   "title": "Module 7. Portfolio KPIs and PAYGo PERFORM",
-  "minutes": 10.04,
-  "words": 1299,
-  "wer": 0.0307,
+  "minutes": 11.47,
+  "words": 1481,
+  "wer": 0.0391,
   "worst_paragraph": {
-   "wer": 0.1,
-   "starts": "The buckets must add up to gross receivables. Platform expor"
+   "wer": 0.111,
+   "starts": "The pack fits on two pages. It shows the PERFORM 2026 KPIs o"
   }
  },
  "08": {
   "title": "Module 8. Revenue recognition and credit losses",
-  "minutes": 10.07,
-  "words": 1298,
-  "wer": 0.0635,
+  "minutes": 10.52,
+  "words": 1363,
+  "wer": 0.0457,
   "worst_paragraph": {
    "wer": 0.217,
    "starts": "IFRS 9 requires a write off when there is no reasonable expe"
@@ -91,12 +91,12 @@
  },
  "09": {
   "title": "Module 9. Unit economics",
-  "minutes": 9.89,
-  "words": 1289,
-  "wer": 0.0295,
+  "minutes": 9.83,
+  "words": 1283,
+  "wer": 0.0253,
   "worst_paragraph": {
-   "wer": 0.127,
-   "starts": "The Unit_Economics sheet of the AEF SHS PAYGo model, SHS sta"
+   "wer": 0.117,
+   "starts": "Lifetime value to customer acquisition cost, LTV to CAC, is "
   }
  },
  "10": {
@@ -111,32 +111,32 @@
  },
  "11": {
   "title": "Module 11. Funding the book: equity, debt and receivables facilities",
-  "minutes": 9.51,
-  "words": 1299,
-  "wer": 0.0382,
+  "minutes": 9.65,
+  "words": 1319,
+  "wer": 0.0348,
   "worst_paragraph": {
-   "wer": 0.089,
-   "starts": "The model's default covenants are a trailing three month col"
+   "wer": 0.082,
+   "starts": "DSCR is ill suited to a growing book. Lending to new custome"
   }
  },
  "12": {
   "title": "Module 12. Securitisation and off balance sheet structures",
-  "minutes": 9.84,
-  "words": 1298,
-  "wer": 0.0522,
+  "minutes": 9.9,
+  "words": 1305,
+  "wer": 0.052,
   "worst_paragraph": {
-   "wer": 0.109,
-   "starts": "The AEF SHS PAYGo model offers two facility structures on th"
+   "wer": 0.099,
+   "starts": "On accounting, under IFRS 9, the international standard for "
   }
  },
  "13": {
   "title": "Module 13. RBF, subsidies and affordability",
-  "minutes": 9.59,
-  "words": 1296,
-  "wer": 0.0349,
+  "minutes": 9.8,
+  "words": 1320,
+  "wer": 0.03,
   "worst_paragraph": {
-   "wer": 0.281,
-   "starts": "The RBF_Engine sheet of the AEF SHS PAYGo model holds four d"
+   "wer": 0.148,
+   "starts": "The RBF_Engine sheet of the companion workbook holds four de"
   }
  },
  "14": {
@@ -151,22 +151,22 @@
  },
  "15": {
   "title": "Module 15. The investor view: due diligence and the investment memo",
-  "minutes": 10.21,
-  "words": 1298,
-  "wer": 0.0482,
+  "minutes": 11.27,
+  "words": 1450,
+  "wer": 0.0844,
   "worst_paragraph": {
-   "wer": 0.154,
-   "starts": "A full diligence has eight workstreams, and the overlaps are"
+   "wer": 0.456,
+   "starts": "The Investment_Readiness sheet lists 23 gates, some automati"
   }
  },
  "16": {
   "title": "Module 16. Case walk through: SolaraPay",
-  "minutes": 11.47,
-  "words": 1500,
-  "wer": 0.0427,
+  "minutes": 12.03,
+  "words": 1589,
+  "wer": 0.0385,
   "worst_paragraph": {
-   "wer": 0.152,
-   "starts": "Peer coverage is thin, so benchmarks are anecdotal. SolaraPa"
+   "wer": 0.096,
+   "starts": "Tiers 4 and 5 look strongest, with lifetime value to acquisi"
   }
  }
 }

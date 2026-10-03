@@ -64,20 +64,20 @@ Price to book treats the company as a lender, so it is only as reliable as the l
 Dollar investors are judged in dollars. For SolaraPay, four million dollars at eight million pre money buys 33.3 per cent. A third of exit equity of forty two point nine million dollars is fourteen point three million, a multiple of about 3.6 times and an IRR of about 29.0 per cent. Currency deserves its own line in the memo. Over five years, depreciation of 5 per cent a year leaves 78.4 per cent of the value, 12 per cent leaves 56.7 per cent, and 25 per cent leaves 32.8 per cent.
 
 ## Scene 7. Gates, the memo and conditions
-On screen: Investment_Readiness banner: "x/23 gates met; not investment grade". Template T01, twelve sections, recommendation first.
+On screen: Investment_Readiness banner: "3/23 gates met. Decision: STOP (Evidence incomplete)". Template T01, twelve sections, recommendation first.
 
-The Investment_Readiness sheet lists 23 gates, some automatic and some set on external evidence. At default inputs three are met. In the SolaraPay case, five. At best the sheet says a case is ready for independent validation, never investment grade.
+The Investment_Readiness sheet lists 23 gates, some automatic and some set on external evidence. A manual gate counts only when the sheet records where the evidence is held and who signed it off. Thirteen gates are critical, and the sheet applies a fixed rule. STOP when a test fails: the master check, a covenant breach, or a tier with negative contribution. GO only when all 23 gates are met. CONDITIONAL GO when every critical gate is met, with the open gates as conditions. Otherwise STOP, because the evidence is incomplete. A STOP on incomplete evidence is not a verdict on the business, and a GO is not an investment recommendation. At default inputs three gates are met and the rule reads STOP, with 10 of the 13 critical gates open. In the SolaraPay case five are met, and 8 critical gates remain open.
 
 The memo in template T01 follows twelve sections, with the recommendation and its conditions first. Show the DCF and exit values side by side.
 
 Write changes as instruments, not hopes. Conditions precedent fix what must be true before money moves, such as a reconciled tape or an independent review of expected credit loss, or ECL. Covenants fix what must stay true. Prefer portfolio covenants to a debt service coverage test during growth, set them at levels the history supports, and add a cure period. An unmet gate is often a condition to attach.
 
 ## Scene 8. Benchmarks and their limits
-On screen: Benchmark_Compare and Source_Register. Grades A to E. M-KOPA FY2024 revenue: two conflicting figures, a factor of about 1.64.
+On screen: Benchmark_Compare, Calibration and Source_Register. Grades A to D, status recorded separately. M-KOPA comparison withdrawn until the group's consolidated accounts are read.
 
-Benchmarks are a sanity check, not a target. The workbook grades each record from A for an audited filing to E for contextual.
+Benchmarks are a sanity check, not a target. The workbook grades each source from A, for a primary official or audited document, to D, for unverified material, and records separately whether the claim has been verified. Calibration uses a reference only once its source is verified.
 
-M-KOPA shows why. One outlet, citing UK filings, reported FY2024 revenue of about four hundred and sixteen million dollars. Another reported two hundred and fifty three point five million. The figures conflict and stay unresolved until the filings are read. Any revenue based ratio moves by a factor of about 1.64 depending on the source. The ESMAP sector collection rate of about 62 per cent for 2023 is secondary reporting, still to be checked against the original report. The benchmark that matters most is the company's own cohort history.
+M-KOPA shows why that discipline matters. Two outlets reported FY2024 group revenue figures that differ by a factor of about 1.64. The only filing held is that of M-KOPA UK LIMITED, a subsidiary, which says nothing about the group's PAYGo business. So the comparison is withdrawn until the group's consolidated accounts are read, and neither revenue figure is used as a benchmark. The ESMAP Off-Grid Solar Market Trends Report 2024 is reported to give an average PAYGo collection rate of about 62 per cent for 2021 to 2023. It is pending the primary document, and it is a collection rate, not a repayment rate. The benchmark that matters most is the company's own cohort history.
 
 ## Scene 9. Recap and exercise
 On screen: Recap. Credit first. Red flags pause the deal. Value on normalised cash flow and in dollars. Gates become conditions. Exercise: D6 and T01.

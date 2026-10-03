@@ -43,7 +43,7 @@ Triggers change the flow of cash when performance slips. The most important is e
 
 The servicer is the originator, because only it runs the platform and the agents. A backup servicer is appointed at closing. A cold backup holds the contract and would need months. A warm backup receives regular data and could take over in weeks. The test is simple: a backup that cannot keep devices unlocked for paying customers cannot protect collections.
 
-Investors analyse the pool through a loan level data tape. It must cover vintages that have reached full tenor, reconcile monthly to the audited accounts, and use definitions aligned with the current published PAYGo PERFORM documents.
+Investors analyse the pool through a loan level data tape. It must cover vintages that have reached full tenor, reconcile monthly to the audited accounts, and use stable definitions for the operational metrics, with repayment and ownership rates computed under the PAYGo PERFORM 2026 standard.
 
 ## Scene 5. Local currency issuance and the legal questions
 On screen: Reported transactions, with caveats: Sun King, Kenya, 2023 and 2025. d.light, five facilities since 2020. Legal checklist: true sale, assignment, SPV tax, data, licences.
@@ -64,9 +64,9 @@ On accounting, under IFRS 9, the international standard for financial instrument
 ## Scene 7. What the model shows
 On screen: Inputs: structure 1 warehouse line, structure 2 securitisation on balance sheet. Investor IRR: default 46.4 to 46.5 per cent. SolaraPay 29.0 to 29.1 per cent.
 
-The AEF SHS PAYGo model offers two facility structures on the Inputs sheet. Structure 1 is a warehouse line. Structure 2 is a securitisation or term asset backed issue, modelled on balance sheet, with its own rate, a haircut to advance rates and an upfront fee. True sale through an SPV is not modelled in version 0.7.
+The companion workbook offers two facility structures on the Inputs sheet. Structure 1 is a warehouse line. Structure 2 is a securitisation or term asset backed issue, modelled on balance sheet, with its own rate, a haircut to advance rates and an upfront fee. True sale through an SPV is not modelled in version 0.8.
 
-On that basis the option barely moves returns. For the default fictional company, the investor IRR, the internal rate of return, goes from 46.4 to 46.5 per cent. For SolaraPay, it goes from 29.0 to 29.1 per cent, with the multiple unchanged at 3.6 times and no breach months in either case. A structure cannot fix a pool. At best it prices a good one more efficiently, and SolaraPay's effort is better spent on collections and data.
+On that basis the option barely moves returns. For the default fictional company, the investor IRR, the internal rate of return, goes from 46.4 to 46.5 per cent. For SolaraPay, it goes from 29.0 to 29.1 per cent, with the multiple unchanged at 3.6 times and no breach months in either case. A structure cannot fix a pool. At most it prices a good one more efficiently, and SolaraPay's effort is better spent on collections and data.
 
 ## Scene 8. Recap and exercise
 On screen: Readiness: full tenor vintages, reconciled tape, stable definitions, legal opinion, backup servicer, sufficient size, tested triggers, auditor view. Exercise: T06 Loan tape.

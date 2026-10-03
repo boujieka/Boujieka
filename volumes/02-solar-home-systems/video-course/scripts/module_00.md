@@ -4,7 +4,7 @@ Duration: about 8 minutes. Book: Preface, How the book works with the model, Con
 
 ## Learning objectives
 1. State the central question of the course and the three businesses inside a PAYGo company.
-2. Describe how the book, the AEF SHS PAYGo model, the SolaraPay case, the templates and the decision tools fit together.
+2. Describe how the book, MODEL 2 (the PAYGo Company Financial and Investment Model), the SolaraPay case, the templates and the decision tools fit together.
 3. Apply the course conventions and honesty rules when quoting any figure from the course.
 
 ## Scene 1. One question
@@ -14,7 +14,7 @@ This course is built around one question. Can pay as you go solar, which we will
 
 The record of the sector so far suggests that the answer can be yes. But only for companies that understand what kind of business they are running. That understanding is the subject of everything that follows.
 
-The course accompanies the book "Solar Home Systems: PAYGo Business and Financial Models", Volume 2 of the Africa Energy Finance series, by Emmanuel Boujieka Kamga. Each module follows one chapter of the book. Each one supports one decision.
+The course accompanies Book 2 of the Africa Energy Finance collection, "PAYGo Solar Finance: Business Models, Credit Risk and Financial Structuring for Solar Home Systems", by Emmanuel Boujieka Kamga. Each module follows one chapter of the book. Each one supports one decision.
 
 ## Scene 2. Three businesses in one
 On screen: Three columns. Retailer. Utility like service provider. Consumer lender.
@@ -50,11 +50,11 @@ Modules 10 to 13 turn to cash and capital. They cover working capital and curren
 Modules 14 and 15 bring the analysis together for the people who carry the risk, through stress testing and the investor's diligence and memo. Module 16 walks through a complete case. A final module then walks you through the workbook itself, sheet by sheet.
 
 ## Scene 5. The companion workbook
-On screen: The AEF SHS PAYGo model v0.7. 44 sheets. About 99,000 formulas. Calculation chain from Inputs to Investment readiness.
+On screen: MODEL 2, PAYGo Company Financial and Investment Model, v0.8 (development build). 47 sheets. About 100,900 formulas. 38 integrity tests. Calculation chain from Inputs to Investment readiness.
 
-The book has a companion workbook, the AEF SHS PAYGo Financial and Investment Model, version 0.7.
+The book has a companion workbook, MODEL 2, the PAYGo Company Financial and Investment Model. This course uses version 0.8, a development build.
 
-It is a monthly, five year, integrated three statement model. It has 44 sheets and about 99,000 formulas, with no macros and no circular references. Its outputs have been reproduced to rounding precision by an independent shadow calculation.
+It is a monthly, five year, integrated three statement model. It has 47 sheets and about 100,900 formulas, with no macros and no circular references. Its Checks sheet runs 38 integrity tests. Its outputs have been checked three ways: against a secondary calculation written separately, which agrees to rounding precision, by an independent formula engine, and by a full recalculation in LibreOffice. A test in Microsoft Excel is still pending.
 
 The calculation chain runs from Inputs and Products, through Sales, Customers, PAYGo receivables, the Credit engine, the Vintage engine, and Collections and recoveries. It continues to the RBF engine, Working capital, Financing and the Financial statements. It ends with Covenants, Valuation, Investor returns, the Market benchmark, Calibration and Investment readiness.
 
@@ -71,7 +71,7 @@ SolaraPay is asking an impact fund for four million dollars of equity at a pre m
 
 Its management plan looks attractive. Once the model is calibrated to its own history, the case becomes conditional. The way it moves from one to the other is the method this course teaches.
 
-The workbook never claims that a company is investment grade. Its Investment_Readiness sheet runs 23 gates. At best, it reports a company as ready for independent validation. In its default state it passes 3 of the 23. SolaraPay, with its history loaded, passes 5.
+The workbook never rates a company. Its Investment_Readiness sheet runs 23 gates, counts each one only on evidence, and applies a fixed rule. It reads STOP when a test fails or critical evidence is missing, CONDITIONAL GO when every critical gate is met, and GO only when all 23 are met. Even a GO says only that the evidence file is complete. It is not a recommendation. In its default state the workbook passes 3 of the 23 gates and reads STOP, on incomplete evidence. SolaraPay, with its history loaded, passes 5 and reads the same. The analyst in the case still recommends a Conditional Go, and Module 16 explains why the two do not contradict each other.
 
 ## Scene 7. Templates and decision tools
 On screen: Templates T01 to T08. Decision tools D1 to D6. Book, tools, model: three levels of depth.
@@ -83,7 +83,7 @@ The templates pack holds eight working documents, numbered T01 to T08. They are 
 The decision tools are six compact calculators, numbered D1 to D6. Each one answers a single question, such as whether a price plan is affordable, or what an entry price implies in dollars. They sit between the book and the full model. The book explains the reasoning. The tools give a fast answer you can check by hand. The model puts everything together over five years.
 
 ## Scene 8. Conventions and honesty
-On screen: Fictional inputs. Sourced external figures with caveats. Conflicts reported, not resolved. Draft edition.
+On screen: Fictional inputs. Sourced external figures with caveats. Conflicts reported, not resolved. Pre-publication edition.
 
 A few conventions apply throughout.
 
@@ -91,13 +91,13 @@ All default inputs in the workbook, and all SolaraPay figures, are illustrative.
 
 Where the course cites figures about real companies or about the sector, it says where they come from and how far they have been verified. Several published figures conflict with each other. When they do, the course reports the conflict rather than choosing the more convenient number.
 
-This is the first full draft of Volume 2. It will be revised after the workbook completes its test cycle in Excel, after the primary documents behind the sector figures have been reviewed, and after practitioner review. Figures flagged in Annex G of the book as unverified must not be quoted without checking the original source.
+The course follows the first edition of Book 2, issued as version 0.2 for pre-publication review. It will be revised after the workbook completes its test in Microsoft Excel, after the primary documents behind the claims marked as pending have been read and cited by page, and after practitioner review. Claims marked as pending or conflicting in Annex G of the book must not be quoted without checking the original source.
 
 Nothing in the course is investment, legal, tax or accounting advice. Take professional advice in the jurisdiction concerned before acting on any of it.
 
 ## Scene 9. Recap and exercise
-On screen: Exercise. Open the workbook. Checks sheet. Dashboard. Investment_Readiness: 3 of 23.
+On screen: Exercise. Open the workbook. Checks sheet. Dashboard. Investment_Readiness: 3 of 23, STOP.
 
 To recap. The course asks whether PAYGo solar can become profitable and financeable. It treats each company as a retailer, a service provider and a lender at once, and it reads that company through cohorts and the receivables book. The book gives the reasoning, the workbook tests it on numbers, and the templates and decision tools carry it into a real transaction.
 
-Your exercise before Module 1 is practical. Open the AEF SHS PAYGo model in its default state. Go first to the Checks sheet and confirm that it reads OK. Then open the Dashboard and note the peak equity and the investor internal rate of return, or IRR, for the Base case. Finally, open Investment_Readiness, confirm that it shows 3 of 23 gates passed, and write down the names of three gates that fail. You will return to that list at the end of the course.
+Your exercise before Module 1 is practical. Open MODEL 2 in its default state. Go first to the Checks sheet and confirm that it reads OK. Then open the Dashboard and note the peak equity and the investor internal rate of return, or IRR, for the Base case. Finally, open Investment_Readiness, confirm that it shows 3 of 23 gates passed and a decision of STOP, and write down the names of three gates that fail. You will return to that list at the end of the course.

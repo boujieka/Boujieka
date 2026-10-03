@@ -1,9 +1,9 @@
 # Module 7. Portfolio KPIs and PAYGo PERFORM
 
-Duration: about 9 minutes. Book: Chapter 7. Model sheets: Credit_Portfolio, KPIs, Covenants, Vintage_Dashboard, Credit_Input, Vintage_Input, Checks. Templates and tools: T05 Lender KPI report, T06 Loan tape and data request.
+Duration: about 9 minutes. Book: Chapter 7. Model sheets: PERFORM_2026, Credit_Portfolio, KPIs, Covenants, Vintage_Dashboard, Credit_Input, Vintage_Input, Checks. Templates and tools: T05 Lender KPI report, T06 Loan tape and data request.
 
 ## Learning objectives
-1. Define the core portfolio KPIs, including collection rate, receivables at risk, PAR30 and PAR90, write off, repayment and ownership rates, and state what sits in each denominator.
+1. Define the five PAYGo PERFORM 2026 KPIs and the operational and lender metrics (collection rate, receivables at risk, PAR30 and PAR90, write offs), and state what sits in each denominator.
 2. Explain how growth distorts portfolio ratios, and use lagged and vintage measures to correct for it.
 3. Design a monthly lender dashboard that reconciles DPD buckets to gross receivables and reports covenant headroom.
 
@@ -15,27 +15,29 @@ A board, an investor and a lender all take the same decision every month: whethe
 A portfolio can show improving ratios while its customers behave worse.
 
 ## Scene 2. Why a common framework matters
-On screen: PAYGo PERFORM: collection rate, receivables at risk, write offs, repayment rate, ownership rate. Caveat: align with current published documents.
+On screen: PAYGo PERFORM 2026: five KPIs on repayment and ownership, from company contract data. The 2021 guide is historical.
 
 Before common frameworks took hold, PAYGo companies, PAYGo meaning pay as you go, often defined their own metrics. A collection rate might include deposits or not. Default might mean 60, 90 or 180 days without payment.
 
-PAYGo PERFORM is the industry's answer. It is a framework of key performance indicators for PAYGo portfolios, developed by CGAP, GOGLA and Lighting Global, with other partners. It standardises metrics such as the collection rate excluding deposits, receivables at risk and write offs, and later versions add a repayment rate and a customer ownership rate. The definitions here follow its spirit. They must be aligned with the current published PERFORM documents before they go into a lender report or a facility agreement. A covenant drafted on an outdated definition invites a dispute.
+PAYGo PERFORM is the industry's answer. Its first technical guide, published in July 2021 by CGAP, GOGLA and IFC Lighting Global, set out portfolio indicators such as the collection rate, receivables at risk and the write off ratio. That guide is now historical. The current standard is the PAYGo PERFORM KPIs technical guide published by GOGLA in June 2026. It narrows the standard to repayment and ownership, with five key performance indicators, or KPIs. They are the repayment rate paid versus plan, the repayment rate paid versus financed, paid versus plan at 90 days, paid versus plan at twice the contract term, and the ownership rate at twice the contract term.
+
+These KPIs are calculated on contract data, day by day, and they exclude deposits and subsidies. They come only from the company's own data. The workbook is a planning model with monthly cohorts, so it does not compute them. Its PERFORM_2026 sheet holds them as the company reports them, adds up numerators and denominators as the standard requires, and shows the model's approximations beside them, labelled as such. The older ratios remain useful as operational and lender metrics, each with its definition printed beside it, but never in place of a repayment rate.
 
 ## Scene 3. Collection rate and receivables at risk
 On screen: Collection rate example: 74 collected against 100 due gives 74.0 per cent. Adding deposits of 12 gives a misleading 86.0 per cent.
 
-The collection rate is cash collected against scheduled instalments, divided by the instalments that fell due in the period. Deposits are excluded from both sides. Take a month in which instalments due are one hundred million local currency units, collections seventy four million and deposits twelve million. The collection rate is 74.0 per cent. Adding deposits to the top line alone would show 86.0 per cent, a figure that rises whenever the company simply sells more.
+The operational collection rate, which is not a PERFORM KPI, is cash collected against scheduled instalments, divided by the instalments that fell due in the period. Deposits are excluded from both sides. Take a month in which instalments due are one hundred million local currency units, collections seventy four million and deposits twelve million. The collection rate is 74.0 per cent. Adding deposits to the top line alone would show 86.0 per cent, a figure that rises whenever the company simply sells more.
 
 Receivables at risk measures the share of the book sitting on accounts that have stopped paying or are seriously late. The workbook computes it from the unit curve, as the carrying amount of accounts that have left the paying pool, divided by gross receivables. Operational definitions usually apply a lateness threshold, commonly 30 days, to the full outstanding balance of the account. The workbook's default covenant caps receivables at risk at 15 per cent.
 
 PAR30 and PAR90, portfolio at risk over 30 and over 90 days, are the outstanding balance of accounts more than 30 or 90 days past due, divided by gross receivables. The whole balance of a late account counts, not only the arrears.
 
 ## Scene 4. Write offs, repayment and ownership
-On screen: Write off ratio, repayment rate, ownership rate at twice the tenor, active ratio, enabled rate.
+On screen: Write off ratio, cohort repayment ratio, ownership rate at twice the term from company data, active ratio, enabled rate.
 
 The write off ratio is the amount written off divided by average gross receivables, annualised. A company that writes off at 180 days past due shows lower write offs, and higher PAR90, than one that writes off at 90 days with the same customers.
 
-The repayment rate is a cohort measure: cumulative collections over cumulative instalments due, at a given account age. The ownership rate is the share of a cohort's customers who have paid in full and own their device. The workbook measures it at twice the tenor, so a 24 month contract is measured at month 48. Most companies cannot yet evidence it. The workbook refuses to compute it from proxy data.
+The workbook's Vintage_Dashboard reports a cohort repayment ratio: cumulative collections over cumulative instalments due, at a given account age. It follows the logic of the PERFORM repayment rate paid versus plan, but it is not a PERFORM calculation, because it is monthly and does not allocate payments to instalments. The ownership rate is the share of contracts fully paid by twice the contract term, so a 24 month contract is measured at month 48. Most companies cannot yet evidence it. The workbook accepts it only from company data and will not derive it from its own curves.
 
 The active ratio and the enabled rate complete the set. Neither has one accepted definition, so print the definition beside the figure.
 
@@ -53,7 +55,7 @@ On screen: Dashboard blocks: book, performance, risk, losses, vintage, facility,
 
 A lender report should let the reader judge four things without asking for more data: whether the collateral performs, whether newer cohorts are better or worse, the covenant headroom, and whether the numbers reconcile.
 
-The pack fits on two pages. It shows gross receivables by tier, the collection rate for the month and the trailing three months, the days past due buckets, PAR30, PAR90 and lagged PAR30, write offs and recoveries, and the indicative expected credit loss.
+The pack fits on two pages. It shows the PERFORM 2026 KPIs once the company computes them on its contract data, gross receivables by tier, the collection rate for the month and the trailing three months, the days past due buckets, PAR30, PAR90 and lagged PAR30, write offs and recoveries, and the indicative expected credit loss.
 
 The vintage block is the one most often missing, and it gives the earliest warning. It sets repayment by cohort against plan at months three, six and twelve. The covenant block should show headroom, not only pass or fail. The calibrated SolaraPay case, a fictional company, passes its 70 per cent trailing collection covenant with a lowest reading of exactly 70.0 per cent. That is a pass with no headroom.
 
@@ -67,17 +69,17 @@ Take an illustrative month end with one billion local currency units of gross re
 The table also tests the write off policy. A large over 180 bucket means defaulted balances are still on the books. Either policy is acceptable if disclosed, but not if it changes from month to month.
 
 ## Scene 8. Reading the SolaraPay history
-On screen: SolaraPay: collection 77.4 then 69.3 per cent, latest month 66.5 per cent, PAR30 17.0 per cent, ECL coverage 36.5 per cent. Sector reference about 62 per cent, unverified.
+On screen: SolaraPay: collection 77.4 then 69.3 per cent, latest month 66.5 per cent, PAR30 17.0 per cent, ECL coverage 36.5 per cent. Sector collection rate about 62 per cent for 2021 to 2023, reported, pending the primary document.
 
 SolaraPay's 24 months of history are synthetic. The portfolio collection rate was 77.4 per cent in the first year and 69.3 per cent in the second. The latest month read 66.5 per cent, with PAR30 at 17.0 per cent and indicative ECL, or expected credit loss, coverage of 36.5 per cent.
 
-Sector figures offer context only. The ESMAP and World Bank market trends report for 2024 is reported to put the sector collection rate at about 62 per cent in 2023, a figure from secondary reporting that is still to be checked against the original report. Against that, 69.3 per cent might pass. Read with the cohort data, it shows customers repaying below plan in every tier with history, and a book whose ratios will drift as growth slows. The case responds with a collections plan and a 65 per cent trailing collection covenant with a cure period, not a covenant the company would breach in its first quarter.
+Sector figures offer context only. The ESMAP and World Bank market trends report for 2024 is reported to give an average PAYGo collection rate of about 62 per cent for 2021 to 2023. Its page and definition are still to be checked against the report, and it is a collection rate, not a PERFORM repayment rate. Against that, 69.3 per cent might pass. Read with the cohort data, it shows customers repaying below plan in every tier with history, and a book whose ratios will drift as growth slows. The case responds with a collections plan and a 65 per cent trailing collection covenant with a cure period, not a covenant the company would breach in its first quarter.
 
 The case also shows the gap impact funders care about: no ownership evidence yet. Paid off customers should be tracked now, so the evidence exists when cohorts reach the checkpoint.
 
 ## Scene 9. Recap and exercise
 On screen: Template T05 Lender KPI report: input, KPIs, covenants, vintage, dashboard.
 
-Fix every definition, align it with the current PERFORM documents and print it beside the figure. Exclude deposits from the collection rate. Read portfolio ratios beside lagged and vintage measures, because growth flatters them. Reconcile the buckets and report covenant headroom, not just compliance.
+Ask for the PERFORM 2026 KPIs computed on contract data, and refuse a collection rate offered in their place. Print the definition beside every operational and lender metric. Exclude deposits from the collection rate. Read portfolio ratios beside lagged and vintage measures, because growth flatters them. Reconcile the buckets and report covenant headroom, not just compliance.
 
 Your exercise: open template T05 and load the SolaraPay history. Confirm the latest collection rate of 66.5 per cent and PAR30 of 17.0 per cent. Then compare PAR30 with PAR30 lagged by three months, and mark every covenant whose headroom is under a tenth of its threshold as a watch item.

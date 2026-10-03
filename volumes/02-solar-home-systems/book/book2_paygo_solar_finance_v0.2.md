@@ -205,7 +205,7 @@ Because the economics of each sale unfold over the tenor, the company's results 
 
 This is why the book treats the cohort (or vintage) and the receivables book as the primary objects of analysis. A cohort is the group of contracts originated in the same month, by tier; its repayment curve, read against plan at the same age, is the most direct evidence of whether underwriting works. The receivables book is the sum of all open cohorts, valued net of expected losses. It is the company's largest asset, the collateral for its debt and, in most cases, the main use of the equity raised.
 
-PAYGo PERFORM, the industry KPI framework developed by CGAP, GOGLA and Lighting Global with other partners, standardises the metrics a lender should expect: collection rate excluding deposits, receivables at risk, write offs and, in later versions, repayment rate and customer ownership rate (definitions must be aligned with the current published PERFORM documents). The workbook reports on the same basis so that a company's own data can be compared with its plan and with peers.
+PAYGo PERFORM is the industry KPI standard. Its first guide (CGAP, GOGLA and IFC Lighting Global, 2021, now historical) defined portfolio ratios such as the collection rate, receivables at risk and the write off ratio. The current standard (GOGLA, June 2026) narrows it to five KPIs on repayment and ownership, computed by the company on contract level data (Chapter 7). The workbook keeps the older ratios as operational and lender metrics, each with its definition printed, and reports PERFORM 2026 figures only when the company supplies them.
 
 The sector evidence is sobering, although it still has to be read in the original. The ESMAP Off-Grid Solar Market Trends Report 2024 is reported to give an average PAYGo collection rate of about 62% across reporting companies for 2021 to 2023, with the top quartile at 75% to 80% and the bottom quartile below 50%. It is also reported that about half of companies had a write off ratio plus 30 day receivables at risk of between 30% and 50% in 2023, against 18% of companies in 2021 (Annex G, E1; the report's pages and definitions are still to be checked). A collection rate of this kind is not the repayment rate defined by the PAYGo PERFORM standard (Chapter 7), and neither figure describes any single company.
 
@@ -1542,7 +1542,7 @@ A migration of 100 in a book of 2,950, about 3.4%, has removed 79 of headroom, m
 
 Portfolio covenants test the quality of the asset; corporate covenants test the strength of the borrower. A PAYGo facility needs both, but the first set does most of the work. The model's default covenants are a trailing three month collection rate of at least 70%, receivables at risk of no more than 15%, 30+ DPD of no more than 25%, 90+ DPD of no more than 18%, borrowing base headroom of at least zero, debt to book equity of no more than 3.0x, and an annual DSCR of at least 1.20x.
 
-The collection rate covenant is the most direct test of the asset, and its definition matters. PAYGo PERFORM, the industry KPI framework developed by CGAP, GOGLA and Lighting Global with other partners, standardises the collection rate excluding deposits, along with receivables at risk and write offs; facility definitions should be aligned with the current published PERFORM documents rather than with a company's internal dashboard. Receivables at risk and PAR measures capture stock deterioration that a collection rate on a growing book can hide, because new cohorts pay well in their early months. Debt to book equity limits leverage, though book equity in PAYGo depends heavily on the ECL methodology and should be read alongside it.
+The collection rate covenant is the most direct test of the asset, and its definition matters. The 2021 PAYGo PERFORM guide, now historical, defined the collection rate excluding deposits, along with receivables at risk and write offs; the 2026 standard does not include them and forbids presenting a collection rate as the repayment rate (Chapter 7). A facility should therefore print its own definition of every covenant ratio, rather than borrow a company's internal dashboard, and may add the PERFORM 2026 repayment rate as a reporting line once the company computes it on its contract data. Receivables at risk and PAR measures capture stock deterioration that a collection rate on a growing book can hide, because new cohorts pay well in their early months. Debt to book equity limits leverage, though book equity in PAYGo depends heavily on the ECL methodology and should be read alongside it.
 
 ### Why DSCR is ill suited to a growing book
 
@@ -1558,7 +1558,7 @@ A cure period gives the company a defined interval, often one or two monthly tes
 
 Conditions precedent to first drawing usually include executed security over receivables and collection accounts, legal opinions on the enforceability of the security and of the customer contracts, evidence that collections flow into a controlled account, an agreed eligibility file with a reconciliation of receivables by DPD bucket to the management accounts, the credit policy and any approved changes, and confirmation of insurance and licences. For a first facility the lender will also want an independent review of the data that feed the borrowing base. The position on security, assignment of receivables and consumer credit rules differs between jurisdictions and must be confirmed with local counsel.
 
-Ongoing reporting is the lender's early warning system. A monthly borrowing base certificate by tier and DPD bucket, PAYGo PERFORM KPIs, cohort repayment curves, write offs and recoveries, and covenant calculations are the minimum. The model's *Credit_Input* and *Vintage_Input* templates are laid out to capture exactly this history, so that the projection and the reporting draw on the same data.
+Ongoing reporting is the lender's early warning system. A monthly borrowing base certificate by tier and DPD bucket, PAYGo PERFORM 2026 KPIs where the company computes them, cohort repayment curves, write offs and recoveries, and covenant calculations are the minimum. The model's *Credit_Input* and *Vintage_Input* templates are laid out to capture exactly this history, so that the projection and the reporting draw on the same data.
 
 ## 11.8 SolaraPay from the lender's side
 
@@ -1578,7 +1578,7 @@ Larger issuers show where such a facility can eventually lead. Sun King is repor
 4. Test how much DPD migration it takes to eliminate borrowing base headroom, and compare that with the worst monthly migration in the company's history.
 5. For SolaraPay, decide between a 65% trailing collection covenant with a cure period and a collections plan, or deferral of the facility; do not accept a 70% covenant on a book already collecting 66.5%.
 6. Replace or supplement any annual DSCR covenant with portfolio covenants, and if a cash flow test is required, define it on the run off of the existing book.
-7. Confirm that covenant definitions match the current published PAYGo PERFORM documents and that the company can report them monthly from auditable data fields.
+7. Confirm that every covenant ratio has its definition printed in the facility documents, that none presents a collection rate as the PERFORM repayment rate, and that the company can report them monthly from auditable data fields.
 
 ## Working with the model
 
@@ -1647,7 +1647,7 @@ A backup servicer is appointed at closing to step in if the servicer fails. A co
 
 Investors and rating agencies analyse the pool through a loan level data tape. For PAYGo, a usable tape includes for each contract: an identifier, origination date, product tier and device identifier, cash price, deposit, daily rate and tenor; the full payment history at daily or at least monthly frequency; days of lockout and DPD at each month end; status (active, paid off and unlocked, defaulted, written off, repossessed, restructured); write off amounts and recoveries; agent and region; and the customer verification flags that eligibility criteria rely on.
 
-Three properties matter more than the field list. The tape must cover several vintages that have reached full tenor, so that lifetime loss and recovery curves can be observed rather than extrapolated. It must reconcile to the audited accounts, by month, for gross receivables and write offs. And definitions (collection rate excluding deposits, receivables at risk, write offs) must be consistent over time and aligned with the current published PAYGo PERFORM documents. An independent review of the tape against source systems is normal before a first transaction.
+Three properties matter more than the field list. The tape must cover several vintages that have reached full tenor, so that lifetime loss and recovery curves can be observed rather than extrapolated. It must reconcile to the audited accounts, by month, for gross receivables and write offs. And definitions (collection rate excluding deposits, receivables at risk, write offs) must be printed, consistent over time and, for the repayment and ownership rates, follow the PAYGo PERFORM 2026 standard. An independent review of the tape against source systems is normal before a first transaction.
 
 The *Credit_Input* and *Vintage_Input* templates of the workbook capture monthly DPD buckets, write offs, recoveries and cohort repayment, which is a subset of a full tape. A company that cannot fill those templates from its own systems is not ready to produce one.
 
@@ -1687,7 +1687,7 @@ A company should be able to meet the following criteria before it appoints an ar
 
 1. Several vintages in each material product have reached full tenor, with observed lifetime loss and recovery curves that support the advance rates and credit enhancement proposed.
 2. A loan level data tape can be produced from the company's systems, reconciles to audited accounts by month, and has passed an independent review.
-3. KPI definitions are stable over time and aligned with the current PAYGo PERFORM documents.
+3. KPI definitions are printed and stable over time; repayment and ownership rates follow the PAYGo PERFORM 2026 standard.
 4. Local counsel has confirmed that a true sale, assignment of receivables, an SPV and the intended note issue are possible, and has identified the tax and licensing consequences.
 5. A backup servicer has been identified that can take over platform access, device locking and mobile money collections within an agreed period.
 6. The eligible book is large enough that the expected funding saving clearly exceeds the fixed costs of the transaction.
@@ -1729,7 +1729,7 @@ The second is a connection, typically defined as a sale that has been installed 
 
 The third is repayment. The funder pays according to the share of scheduled instalments a cohort has actually paid by a verification date. This is the first result that carries credit information, and it can be measured from the same platform data a lender uses: instalments due, cash collected, days past due.
 
-The fourth is ownership. The funder pays when a customer has completed the contract and the device has unlocked permanently. It is the outcome closest to the public interest. PAYGo PERFORM, the industry KPI framework developed by CGAP, GOGLA and Lighting Global with other partners, includes a customer ownership rate in its later versions (definitions to be aligned with the current published PERFORM documents). Ownership is also the slowest result to observe. On a 24 month contract, a reasonable measurement point is twice the tenor, so the first reading arrives four years after the first sale.
+The fourth is ownership. The funder pays when a customer has completed the contract and the device has unlocked permanently. It is the outcome closest to the public interest. The PAYGo PERFORM 2026 standard defines it as the Ownership Rate at twice the contract term (Chapter 7). Ownership is also the slowest result to observe. On a 24 month contract, a reasonable measurement point is twice the tenor, so the first reading arrives four years after the first sale.
 
 ## 13.3 The four designs in the companion model
 
@@ -1776,7 +1776,7 @@ Under repayment linked RBF with an 80% target, A still receives USD 25,000 (fact
 
 ### Repayment linked RBF pays for credit discipline
 
-Repayment linked RBF brings the programme's interest into line with the lender's. Both now want cohorts that pay. The verification burden is moderate, because the data already exist on the lockout platform, but the definitions must be tight. Is the repayment rate measured on instalments due including or excluding the deposit? Are written off accounts in the denominator? Is the measurement made on a cohort basis at a fixed age, or on the portfolio at a calendar date? A programme that does not specify these lets each company choose the definition that suits it. PAYGo PERFORM is the natural reference here, since it standardises collection rate (excluding deposits), receivables at risk and repayment rate, subject to alignment with the current published documents.
+Repayment linked RBF brings the programme's interest into line with the lender's. Both now want cohorts that pay. The verification burden is moderate, because the data already exist on the lockout platform, but the definitions must be tight. Is the repayment rate measured on instalments due including or excluding the deposit? Are written off accounts in the denominator? Is the measurement made on a cohort basis at a fixed age, or on the portfolio at a calendar date? A programme that does not specify these lets each company choose the definition that suits it. The PAYGo PERFORM 2026 repayment rate is the natural reference: it excludes deposits and subsidies, includes write offs and is cumulative from contract start (Chapter 7). A collection rate is not a substitute.
 
 ### Ownership linked RBF pays for the outcome, late
 
@@ -1836,7 +1836,7 @@ Affordability is often filed under consumer protection, apart from the credit an
 The recommendations below are addressed to programme managers, but investors can use them to judge how durable a company's subsidy income is.
 
 1. Pay for repayment as well as sales. A repayment linked basis costs a well performing company little, as the default model shows, and redirects subsidy away from loose underwriting.
-2. Specify the repayment metric precisely, by reference to PAYGo PERFORM definitions, including the treatment of deposits, write offs and cohort age at verification.
+2. Specify the repayment metric precisely, by reference to the PAYGo PERFORM 2026 definitions (which exclude deposits and subsidies and include write offs), and state the cohort age at verification.
 3. Build ownership evidence from the start, even if ownership payments are a small share of the programme. Require unlock tracking at twice the tenor, with full payment unlocks separated from others.
 4. Use hybrid weights that match the market's binding constraint. Early weighting relieves cash; late weighting protects outcomes.
 5. Tie eligibility to affordability. Require each company to report the payment burden by tier against surveyed incomes, and consider making some portion of the subsidy conditional on keeping the burden within a stated threshold.
@@ -2189,7 +2189,7 @@ A committee that accepts the case only with changes should write them as conditi
 
 Conditions precedent are the right tool for things that must be true before money moves: delivery of a reconciled data tape, an independent review of the ECL approach, a board approved pricing policy, a written collections plan, ownership tracking from launch on new tiers. They cost the company time, not money, and they are the cheapest protection the committee will ever buy.
 
-Covenants are the right tool for things that must stay true. For a receivables lender, portfolio covenants (trailing collection rate, receivables at risk, 30+ and 90+ DPD, borrowing base headroom) are better suited to a growing PAYGo book than a cash flow DSCR, which will often sit below 1.20x for several years by construction. Set a covenant at a level the book can meet on its own history, with a cure period and a step up; a covenant breached at signing is a waiver waiting to be requested. Information covenants (monthly portfolio and cohort reporting on PAYGo PERFORM definitions, aligned with the current published documents) are often worth more than any financial ratio.
+Covenants are the right tool for things that must stay true. For a receivables lender, portfolio covenants (trailing collection rate, receivables at risk, 30+ and 90+ DPD, borrowing base headroom) are better suited to a growing PAYGo book than a cash flow DSCR, which will often sit below 1.20x for several years by construction. Set a covenant at a level the book can meet on its own history, with a cure period and a step up; a covenant breached at signing is a waiver waiting to be requested. Information covenants (monthly portfolio and cohort reporting with every definition printed, and the PAYGo PERFORM 2026 KPIs once the company computes them) are often worth more than any financial ratio.
 
 For equity, the structural levers are tranching tied to cohort performance, a valuation ratchet, caps on exposure to untested tiers, reserved matters on pricing and credit policy, and board representation with a credit committee seat.
 
@@ -2382,7 +2382,7 @@ In the calibrated Base projection, the facility covenants hold, but barely. The 
 
 On actual data the position is worse. The collection rate over the second year of history was 69.3% and the latest monthly collection ratio 66.5%, so a 70% trailing collection covenant would very likely be in breach at the first test date.
 
-The bank has two sound options. It can set the collection covenant at a level the book can meet, for example 65% with a cure period and a collections improvement plan, stepping up as performance recovers. Or it can defer the facility until the collection trend has turned. Either way it should replace the DSCR test, which the projection fails in Years 1 to 4, with portfolio covenants and monthly reporting on PAYGo PERFORM lines, with definitions aligned to the current published documents. Any request to extend eligibility beyond 30 DPD should be refused: it adds little in Base and advances against the receivables most likely to default.
+The bank has two sound options. It can set the collection covenant at a level the book can meet, for example 65% with a cure period and a collections improvement plan, stepping up as performance recovers. Or it can defer the facility until the collection trend has turned. Either way it should replace the DSCR test, which the projection fails in Years 1 to 4, with portfolio covenants and monthly reporting of the operational and lender metrics (collection rate, receivables at risk, write offs), each with its definition printed, and of the PAYGo PERFORM 2026 KPIs once the company computes them on its contract data. Any request to extend eligibility beyond 30 DPD should be refused: it adds little in Base and advances against the receivables most likely to default.
 
 ## 16.10 Benchmarks
 

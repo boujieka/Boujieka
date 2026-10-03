@@ -1,6 +1,6 @@
 # Module 16. Case walk through: SolaraPay
 
-Duration: about 10 minutes. Book: Chapter 16. Model sheets: Credit_Input, Vintage_Input, Credit_Assumptions, Credit_Portfolio, Vintage_Dashboard, Products, Unit_Economics, Consumer_Risk, Dashboard, KPIs, Covenants, Valuation, Benchmark_Compare, Calibration, Investment_Readiness. Templates and tools: case workbook SolaraPay_Case_Model_v0.7, D3 Repayment curve and cohort calibration, D6 Investor returns calculator, T01 Investment committee memorandum, T06 Loan tape specification and data request, T07 Borrowing base certificate and term sheet checklist.
+Duration: about 10 minutes. Book: Chapter 16. Model sheets: Credit_Input, Vintage_Input, Credit_Assumptions, Credit_Portfolio, Vintage_Dashboard, Products, Unit_Economics, Consumer_Risk, Dashboard, KPIs, Covenants, Valuation, Benchmark_Compare, Calibration, Investment_Readiness. Templates and tools: case workbook SolaraPay_Case_Model_v0.8-dev, D3 Repayment curve and cohort calibration, D6 Investor returns calculator, T01 Investment committee memorandum, T06 Loan tape specification and data request, T07 Borrowing base certificate and term sheet checklist.
 
 ## Learning objectives
 1. Apply the method end to end: load history before touching projections, recalibrate, and read unit economics and affordability.
@@ -41,9 +41,9 @@ With calibrated curves, every tier still creates value per unit. The distributio
 
 Tier 2 is the largest product, at 40 per cent of planned units, and the weakest. It loses 41.8 per cent of scheduled instalments, pays back in 17 months, and earns a unit internal rate of return, or IRR, of 37 per cent, the lowest in the range.
 
-Tiers 4 and 5 look best, with lifetime value to acquisition cost, or LTV to CAC, of 11.0 and 14.9 times. Those ratios rest entirely on curves with no history. Tier 1 pays back in nine months, but its contribution is only one thousand and ninety two shillings per unit, and its implied annual rate of 106 per cent will draw attention.
+Tiers 4 and 5 look strongest, with lifetime value to acquisition cost, or LTV to CAC, of 11.0 and 14.9 times. Those ratios rest entirely on curves with no history. Tier 1 pays back in nine months, but its contribution is only one thousand and ninety two shillings per unit, and its implied annual rate of 106 per cent will draw attention.
 
-Affordability adds a second lens. Three tiers sit above the 10 per cent payment burden threshold: Tier 2 at 13.0 per cent of illustrative income, Tier 3 at 13.2 and Tier 4 at 11.3. The incomes are illustrative and need survey data.
+Affordability adds a second lens. Three tiers sit above the model's 10 per cent policy threshold for payment burden: Tier 2 at 13.0 per cent of illustrative income, Tier 3 at 13.2 and Tier 4 at 11.3. The incomes are illustrative and need survey data.
 
 ## Scene 5. The calibrated projections
 On screen: Dashboard. Revenue 1.13 to 8.62 billion shillings. EBITDA margin minus 35.2 to 16.4 per cent. Collection rate 82.3 to 70.3 per cent. Debt to book equity peaks at 2.51 times in Year 3.
@@ -73,17 +73,17 @@ The discounted cash flow, or DCF, gives an enterprise value of six point one mil
 For the bank, the covenants hold in the calibrated Base, but barely. The lowest trailing three month collection rate is 70.0 per cent against a 70 per cent minimum, so there is no headroom. On actual data, with 69.3 per cent over the second year and 66.5 per cent in the latest month, a 70 per cent covenant would very likely be breached at the first test date. The bank can set the covenant at a level the book can meet, such as 65 per cent with a cure period, or defer the facility. The debt service coverage ratio sits below 1.20 times in Years 1 to 4, so portfolio covenants should replace it.
 
 ## Scene 8. Benchmarks and the recommendation
-On screen: Benchmarks, anecdotal. Net margin 10.5 against about 2.2 per cent, provisional. ECL to financing revenue 1.28 against 0.38 times. Conditional Go: seven conditions. Readiness 5 of 23.
+On screen: Benchmarks: no verified reference, M-KOPA comparison withdrawn. ECL to financing revenue 1.28 times. Analyst: Conditional Go, seven conditions. Workbook: 5 of 23 gates, STOP on incomplete evidence.
 
-Peer coverage is thin, so benchmarks are anecdotal. SolaraPay's Year 5 net margin of 10.5 per cent is about 4.8 times the M-KOPA FY2024 reference of about 2.2 per cent, which is provisional because published figures conflict. Expected credit loss runs at 1.28 times financing revenue, against about 0.38 times for the reference. The hardware margin is carrying the losses.
+The analyst finds that no external reference can be used as a test. The net margin and credit loss references rested on M-KOPA group figures that conflict between sources, so that comparison is withdrawn until the group's consolidated accounts are read. The ratios speak for themselves. Expected credit loss runs at 1.28 times financing revenue, so the financing income does not cover the losses it is meant to price. The hardware margin is carrying them. The benchmark that matters is SolaraPay's own cohort history.
 
 The analyst recommends a Conditional Go: invest four million dollars subject to seven conditions. Index new prices fully to the exchange rate. Cap Tiers 4 and 5 at their planned 13 per cent of units, released only after twelve months of cohort data within 10 per cent of plan. Agree a collections plan and a 65 per cent trailing collection covenant with a cure period. Cut recovery assumptions to observed levels. Redesign Tier 2 to 4 price plans so the instalment stays within 10 per cent of surveyed income. Protect the valuation, towards six million pre money or with a ratchet. And require monthly data, ownership tracking, an independent ECL review and a full test of the workbook.
 
-The case meets 5 of 23 readiness gates. It is not investment grade, and the memo says so.
+The workbook's own rule reads STOP for the same file. The case meets 5 of the 23 readiness gates, and 8 of the 13 critical gates still lack evidence. The two do not contradict each other. The workbook measures whether the evidence file is complete; the recommendation is the analyst's judgement of what the investment needs. The committee should see both, and disbursement waits until the critical gates that the conditions address are evidenced. The memo says so.
 
 ## Scene 9. Recap and exercise
 On screen: Recap. History before projections. Calibrated Base sits at plan Downside. Pricing protects equity. Tiers 4 and 5 unproven. Exercise: combined stress, recorded in T01.
 
-Load history first, and treat the management plan as one scenario among several. On SolaraPay's own data the Base sits at the plan's Downside on credit hazard, and the collection covenant has no headroom. Pricing power protects the equity, while the untested Tiers 4 and 5 hold both the best unit economics and the largest unproven risk. The most important number in a PAYGo file is often the one the company cannot yet produce.
+Load history first, and treat the management plan as one scenario among several. On SolaraPay's own data the Base sits at the plan's Downside on credit hazard, and the collection covenant has no headroom. Pricing power protects the equity, while the untested Tiers 4 and 5 hold both the strongest unit economics on paper and the largest unproven risk. The most important number in a PAYGo file is often the one the company cannot yet produce.
 
 Your exercise uses the case workbook. On a copy, run the calibrated Downside with full price indexation and, at the same time, double the default hazard on Tiers 4 and 5. Record the IRR, the multiple and breach months. Then decide whether the seven conditions still support a Conditional Go, and write your answer in section 6 of the T01 memo.

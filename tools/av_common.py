@@ -1,4 +1,4 @@
-"""Shared audio and video helpers for the Volume 2 video course: narration synthesis, pronunciation lexicon, loudness,
+"""Shared audio and video helpers for the Book 2 video course: narration synthesis, pronunciation lexicon, loudness,
 subtitles and metadata. Narration uses the Kokoro neural voice model (Apache 2.0), run locally.
 """
 import re
@@ -24,6 +24,8 @@ LEXICON = [
     (r"\bCAC\b", "C A C"), (r"\bLTV\b", "L T V"), (r"\bRBF\b", "R B F"), (r"\bAPR\b", "A P R"), (r"\bIRR\b", "I R R"),
     (r"\bFX\b", "F X"), (r"\bEBITDA\b", "ebit da"), (r"\bDCF\b", "D C F"), (r"\bKPIs?\b", "K P I"),
     (r"\bT0(\d)\b", r"T \1"), (r"\bD(\d)\b", r"D \1"), (r"\bM(\d{1,2})\b", r"month \1"), (r"\bY(\d)\b", r"year \1"),
+    (r"\bMODEL 2\b", "Model two"), (r"\bPERFORM_2026\b", "PERFORM twenty twenty six"),
+    (r"\bCONDITIONAL GO\b", "conditional go"), (r"\bSTOP\b", "stop"), (r"\bGO\b", "go"),
     (r"\b20([1-3]\d)\b(?![,.]\d)", r"twenty \1"),  # years in the British reading: twenty twenty four
     (r"%", " per cent"), (r"\s+", " "),
 ]

@@ -19,7 +19,7 @@ So unit economics is a cash exercise. The useful unit is the expected lifetime c
 ## Scene 2. The lines of the unit
 On screen: Unit_Economics sheet. Inflows: customer cash, recoveries, RBF. Outflows: hardware, installation, warranty, CAC, servicing.
 
-The Unit_Economics sheet of the AEF SHS PAYGo model, SHS standing for solar home system, sets out the unit for each tier. Inflows are the deposit plus expected instalments collected, net recoveries from repossessed and resold systems, and any RBF, or results based financing, payment attached to the unit. Outflows are hardware landed cost, installation, a warranty provision, CAC, the customer acquisition cost of commission plus marketing, and servicing.
+The Unit_Economics sheet of the companion workbook, MODEL 2, sets out the unit for each tier. Inflows are the deposit plus expected instalments collected, net recoveries from repossessed and resold systems, and any RBF, or results based financing, payment attached to the unit. Outflows are hardware landed cost, installation, a warranty provision, CAC, the customer acquisition cost of commission plus marketing, and servicing.
 
 Two disciplines apply. Every line is per unit sold, not per surviving account, so servicing is scaled to expected active months, which are fewer than the tenor. And expected loss and recoveries must come from the same curve. Take one from a sober source and the other from an optimistic one, and you build a unit that never existed.
 
@@ -59,7 +59,7 @@ Tier 2 is the weakest where it matters: the highest expected loss at 41.8 per ce
 
 Tier 1 has the lowest LTV to CAC, 2.4 times, and a contribution of one thousand and ninety two shillings, yet a 66 per cent IRR and a nine month payback. It returns a small investment quickly but creates little value, so judge it as an upgrade funnel.
 
-Tiers 4 and 5 look best on paper, at 11.0 and 14.9 times. They are the least proven. Their hazards are untested, and their recoveries assume repossession rates of 60 and 70 per cent against an observed loss given default proxy of about 99 per cent. Doubling their hazards cuts the investor IRR from 29.0 to 14.8 per cent. Hence the pilot cap.
+Tiers 4 and 5 look strongest on paper, at 11.0 and 14.9 times. They are the least proven. Their hazards are untested, and their recoveries assume repossession rates of 60 and 70 per cent against an observed loss given default proxy of about 99 per cent. Doubling their hazards cuts the investor IRR from 29.0 to 14.8 per cent. Hence the pilot cap.
 
 ## Scene 7. From the unit to the company
 On screen: Three bridges: overheads, growth, cost of funding. Blended funding cost 18.7 per cent.

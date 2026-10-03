@@ -1,6 +1,6 @@
 # About the course
 
-The video course follows the book chapter by chapter. Module 0 explains how the course, the book, the model, the case study, the templates and the decision tools fit together. Modules 1 to 16 follow Chapters 1 to 16, each built around the decision its chapter supports. Module 17 is a screen walk through of the AEF SHS PAYGo model, step by step, in the order of the user manual.
+The video course follows the book chapter by chapter. Module 0 explains how the course, the book, the model, the case study, the templates and the decision tools fit together. Modules 1 to 16 follow Chapters 1 to 16, each built around the decision its chapter supports. Module 17 is a screen walk through of MODEL 2, the PAYGo Company Financial and Investment Model (version 0.8, development build), step by step, in the order of the user manual.
 
 This document holds the full narration of every module, with the screen direction for each scene set apart in italics. The scripts are the reference text for the recordings and for subtitles, and they can be read on their own as a spoken summary of the book.
 
@@ -8,25 +8,25 @@ This document holds the full narration of every module, with the screen directio
 
 | Module | Title | Running time | Words narrated | Media |
 |---|---|---|---|---|
-| 0 | Welcome: how the course, the book, the model and the tools fit together | 9:35 | 1,274 | Narration, AEF_V2_Module_00.mp3 |
-| 1 | The PAYGo business: retailer, utility and lender | 9:56 | 1,300 | Narration, AEF_V2_Module_01.mp3 |
-| 2 | Market, customers and affordability | 9:38 | 1,297 | Narration, AEF_V2_Module_02.mp3 |
-| 3 | The regulatory checklist | 10:15 | 1,299 | Narration, AEF_V2_Module_03.mp3 |
-| 4 | Product and price plan design | 9:52 | 1,299 | Narration, AEF_V2_Module_04.mp3 |
+| 0 | Welcome: how the course, the book, the model and the tools fit together | 10:33 | 1,408 | Narration, AEF_V2_Module_00.mp3 |
+| 1 | The PAYGo business: retailer, utility and lender | 10:31 | 1,376 | Narration, AEF_V2_Module_01.mp3 |
+| 2 | Market, customers and affordability | 9:41 | 1,302 | Narration, AEF_V2_Module_02.mp3 |
+| 3 | The regulatory checklist | 10:16 | 1,299 | Narration, AEF_V2_Module_03.mp3 |
+| 4 | Product and price plan design | 9:53 | 1,299 | Narration, AEF_V2_Module_04.mp3 |
 | 5 | Distribution and customer acquisition | 9:35 | 1,298 | Narration, AEF_V2_Module_05.mp3 |
-| 6 | Repayment behaviour: cohorts, curves and defaults | 9:49 | 1,300 | Narration, AEF_V2_Module_06.mp3 |
-| 7 | Portfolio KPIs and PAYGo PERFORM | 10:02 | 1,299 | Narration, AEF_V2_Module_07.mp3 |
-| 8 | Revenue recognition and credit losses | 10:04 | 1,298 | Narration, AEF_V2_Module_08.mp3 |
-| 9 | Unit economics | 9:53 | 1,289 | Narration, AEF_V2_Module_09.mp3 |
+| 6 | Repayment behaviour: cohorts, curves and defaults | 9:50 | 1,300 | Narration, AEF_V2_Module_06.mp3 |
+| 7 | Portfolio KPIs and PAYGo PERFORM | 11:28 | 1,481 | Narration, AEF_V2_Module_07.mp3 |
+| 8 | Revenue recognition and credit losses | 10:31 | 1,363 | Narration, AEF_V2_Module_08.mp3 |
+| 9 | Unit economics | 9:50 | 1,283 | Narration, AEF_V2_Module_09.mp3 |
 | 10 | Working capital, inventory and FX | 9:34 | 1,299 | Narration, AEF_V2_Module_10.mp3 |
-| 11 | Funding the book: equity, debt and receivables facilities | 9:31 | 1,299 | Narration, AEF_V2_Module_11.mp3 |
-| 12 | Securitisation and off balance sheet structures | 9:50 | 1,298 | Narration, AEF_V2_Module_12.mp3 |
-| 13 | RBF, subsidies and affordability | 9:35 | 1,296 | Narration, AEF_V2_Module_13.mp3 |
+| 11 | Funding the book: equity, debt and receivables facilities | 9:39 | 1,319 | Narration, AEF_V2_Module_11.mp3 |
+| 12 | Securitisation and off balance sheet structures | 9:54 | 1,305 | Narration, AEF_V2_Module_12.mp3 |
+| 13 | RBF, subsidies and affordability | 9:48 | 1,320 | Narration, AEF_V2_Module_13.mp3 |
 | 14 | Stress testing | 9:43 | 1,294 | Narration, AEF_V2_Module_14.mp3 |
-| 15 | The investor view: due diligence and the investment memo | 10:13 | 1,298 | Narration, AEF_V2_Module_15.mp3 |
-| 16 | Case walk through: SolaraPay | 11:28 | 1,500 | Narration, AEF_V2_Module_16.mp3 |
-| 17 | Using the AEF SHS PAYGo model, step by step | 15:24 | 2,002 | Video, MP4, 1920 by 1080, subtitles and chapters |
-| | Total | 3 h 4 min | 24,239 | |
+| 15 | The investor view: due diligence and the investment memo | 11:16 | 1,450 | Narration, AEF_V2_Module_15.mp3 |
+| 16 | Case walk through: SolaraPay | 12:02 | 1,589 | Narration, AEF_V2_Module_16.mp3 |
+| 17 | Using MODEL 2, step by step | 17:33 | 2,304 | Video, MP4, 1920 by 1080, subtitles and chapters |
+| | Total | 3 h 12 min | 25,289 | |
 
 ## Conventions
 
@@ -40,11 +40,11 @@ The recordings of this edition use a British English narrator voice at a measure
 
 # Module 0. Welcome: how the course, the book, the model and the tools fit together
 
-Running time: 9:35. Book: Preface, How the book works with the model, Conventions, Status of this edition, and Chapter 1 section 1.7. Model sheets: Dashboard, Checks, Investment_Readiness. Templates and tools: T01 to T08, D1 to D6.
+Running time: 10:33. Book: Preface, How the book works with the model, Conventions, Status of this edition, and Chapter 1 section 1.7. Model sheets: Dashboard, Checks, Investment_Readiness. Templates and tools: T01 to T08, D1 to D6.
 
 ### Learning objectives
 1. State the central question of the course and the three businesses inside a PAYGo company.
-2. Describe how the book, the AEF SHS PAYGo model, the SolaraPay case, the templates and the decision tools fit together.
+2. Describe how the book, MODEL 2 (the PAYGo Company Financial and Investment Model), the SolaraPay case, the templates and the decision tools fit together.
 3. Apply the course conventions and honesty rules when quoting any figure from the course.
 
 ### Scene 1. One question
@@ -54,7 +54,7 @@ This course is built around one question. Can pay as you go solar, which we will
 
 The record of the sector so far suggests that the answer can be yes. But only for companies that understand what kind of business they are running. That understanding is the subject of everything that follows.
 
-The course accompanies the book "Solar Home Systems: PAYGo Business and Financial Models", Volume 2 of the Africa Energy Finance series, by Emmanuel Boujieka Kamga. Each module follows one chapter of the book. Each one supports one decision.
+The course accompanies Book 2 of the Africa Energy Finance collection, "PAYGo Solar Finance: Business Models, Credit Risk and Financial Structuring for Solar Home Systems", by Emmanuel Boujieka Kamga. Each module follows one chapter of the book. Each one supports one decision.
 
 ### Scene 2. Three businesses in one
 > On screen: *Three columns. Retailer. Utility like service provider. Consumer lender.*
@@ -90,11 +90,11 @@ Modules 10 to 13 turn to cash and capital. They cover working capital and curren
 Modules 14 and 15 bring the analysis together for the people who carry the risk, through stress testing and the investor's diligence and memo. Module 16 walks through a complete case. A final module then walks you through the workbook itself, sheet by sheet.
 
 ### Scene 5. The companion workbook
-> On screen: *The AEF SHS PAYGo model v0.7. 44 sheets. About 99,000 formulas. Calculation chain from Inputs to Investment readiness.*
+> On screen: *MODEL 2, PAYGo Company Financial and Investment Model, v0.8 (development build). 47 sheets. About 100,900 formulas. 38 integrity tests. Calculation chain from Inputs to Investment readiness.*
 
-The book has a companion workbook, the AEF SHS PAYGo Financial and Investment Model, version 0.7.
+The book has a companion workbook, MODEL 2, the PAYGo Company Financial and Investment Model. This course uses version 0.8, a development build.
 
-It is a monthly, five year, integrated three statement model. It has 44 sheets and about 99,000 formulas, with no macros and no circular references. Its outputs have been reproduced to rounding precision by an independent shadow calculation.
+It is a monthly, five year, integrated three statement model. It has 47 sheets and about 100,900 formulas, with no macros and no circular references. Its Checks sheet runs 38 integrity tests. Its outputs have been checked three ways: against a secondary calculation written separately, which agrees to rounding precision, by an independent formula engine, and by a full recalculation in LibreOffice. A test in Microsoft Excel is still pending.
 
 The calculation chain runs from Inputs and Products, through Sales, Customers, PAYGo receivables, the Credit engine, the Vintage engine, and Collections and recoveries. It continues to the RBF engine, Working capital, Financing and the Financial statements. It ends with Covenants, Valuation, Investor returns, the Market benchmark, Calibration and Investment readiness.
 
@@ -111,7 +111,7 @@ SolaraPay is asking an impact fund for four million dollars of equity at a pre m
 
 Its management plan looks attractive. Once the model is calibrated to its own history, the case becomes conditional. The way it moves from one to the other is the method this course teaches.
 
-The workbook never claims that a company is investment grade. Its Investment_Readiness sheet runs 23 gates. At best, it reports a company as ready for independent validation. In its default state it passes 3 of the 23. SolaraPay, with its history loaded, passes 5.
+The workbook never rates a company. Its Investment_Readiness sheet runs 23 gates, counts each one only on evidence, and applies a fixed rule. It reads STOP when a test fails or critical evidence is missing, CONDITIONAL GO when every critical gate is met, and GO only when all 23 are met. Even a GO says only that the evidence file is complete. It is not a recommendation. In its default state the workbook passes 3 of the 23 gates and reads STOP, on incomplete evidence. SolaraPay, with its history loaded, passes 5 and reads the same. The analyst in the case still recommends a Conditional Go, and Module 16 explains why the two do not contradict each other.
 
 ### Scene 7. Templates and decision tools
 > On screen: *Templates T01 to T08. Decision tools D1 to D6. Book, tools, model: three levels of depth.*
@@ -123,7 +123,7 @@ The templates pack holds eight working documents, numbered T01 to T08. They are 
 The decision tools are six compact calculators, numbered D1 to D6. Each one answers a single question, such as whether a price plan is affordable, or what an entry price implies in dollars. They sit between the book and the full model. The book explains the reasoning. The tools give a fast answer you can check by hand. The model puts everything together over five years.
 
 ### Scene 8. Conventions and honesty
-> On screen: *Fictional inputs. Sourced external figures with caveats. Conflicts reported, not resolved. Draft edition.*
+> On screen: *Fictional inputs. Sourced external figures with caveats. Conflicts reported, not resolved. Pre-publication edition.*
 
 A few conventions apply throughout.
 
@@ -131,20 +131,20 @@ All default inputs in the workbook, and all SolaraPay figures, are illustrative.
 
 Where the course cites figures about real companies or about the sector, it says where they come from and how far they have been verified. Several published figures conflict with each other. When they do, the course reports the conflict rather than choosing the more convenient number.
 
-This is the first full draft of Volume 2. It will be revised after the workbook completes its test cycle in Excel, after the primary documents behind the sector figures have been reviewed, and after practitioner review. Figures flagged in Annex G of the book as unverified must not be quoted without checking the original source.
+The course follows the first edition of Book 2, issued as version 0.2 for pre-publication review. It will be revised after the workbook completes its test in Microsoft Excel, after the primary documents behind the claims marked as pending have been read and cited by page, and after practitioner review. Claims marked as pending or conflicting in Annex G of the book must not be quoted without checking the original source.
 
 Nothing in the course is investment, legal, tax or accounting advice. Take professional advice in the jurisdiction concerned before acting on any of it.
 
 ### Scene 9. Recap and exercise
-> On screen: *Exercise. Open the workbook. Checks sheet. Dashboard. Investment_Readiness: 3 of 23.*
+> On screen: *Exercise. Open the workbook. Checks sheet. Dashboard. Investment_Readiness: 3 of 23, STOP.*
 
 To recap. The course asks whether PAYGo solar can become profitable and financeable. It treats each company as a retailer, a service provider and a lender at once, and it reads that company through cohorts and the receivables book. The book gives the reasoning, the workbook tests it on numbers, and the templates and decision tools carry it into a real transaction.
 
-Your exercise before Module 1 is practical. Open the AEF SHS PAYGo model in its default state. Go first to the Checks sheet and confirm that it reads OK. Then open the Dashboard and note the peak equity and the investor internal rate of return, or IRR, for the Base case. Finally, open Investment_Readiness, confirm that it shows 3 of 23 gates passed, and write down the names of three gates that fail. You will return to that list at the end of the course.
+Your exercise before Module 1 is practical. Open MODEL 2 in its default state. Go first to the Checks sheet and confirm that it reads OK. Then open the Dashboard and note the peak equity and the investor internal rate of return, or IRR, for the Base case. Finally, open Investment_Readiness, confirm that it shows 3 of 23 gates passed and a decision of STOP, and write down the names of three gates that fail. You will return to that list at the end of the course.
 
 # Module 1. The PAYGo business: retailer, utility and lender
 
-Running time: 9:56. Book: Chapter 1. Model sheets: Dashboard, KPIs, Unit_Economics, Credit_Portfolio, Vintage_Dashboard, Checks, Investment_Readiness. Templates and tools: T08 PAYGo business model canvas, D2 Unit economics calculator.
+Running time: 10:31. Book: Chapter 1. Model sheets: Dashboard, KPIs, Unit_Economics, Credit_Portfolio, Vintage_Dashboard, Checks, Investment_Readiness. Templates and tools: T08 PAYGo business model canvas, D2 Unit economics calculator.
 
 ### Learning objectives
 1. Separate a PAYGo company into its retail, service and lending businesses and name the numbers that belong to each.
@@ -205,7 +205,7 @@ Expected missed instalments over the contract are fifty two thousand five hundre
 
 The workbook charges that amount as a loss allowance at origination. So the day one result is eighteen thousand, less four thousand, less eighteen thousand seven hundred and twenty eight. That is a loss of four thousand seven hundred and twenty eight. Financing income of sixteen thousand five hundred and sixty then brings the lifetime result to eleven thousand eight hundred and thirty two. Accounting and cash reconcile.
 
-This is a stated simplification of the international standards, IFRS 15 and IFRS 9, chosen because it makes each cohort's accounting and cash agree exactly.
+The workbook's treatment is a stated simplification of the international standards, IFRS 15 and IFRS 9, chosen because it makes each cohort's accounting and cash agree exactly. This is an analytical modelling treatment and does not constitute a determination of the applicable accounting treatment under IFRS.
 
 A company that recognises losses only as accounts fall behind reports fourteen thousand of contribution on day one. When sales grow fast, margin on new sales dominates, and losses belong to older, smaller cohorts. Reported profit looks healthy. Cash is still minus twenty two thousand per unit. A company selling three thousand such units a month needs sixty six million local currency units of new funding every month.
 
@@ -218,7 +218,7 @@ Any month's results blend cohorts of different ages. A falling portfolio collect
 
 So the course treats the cohort, or vintage, as the primary object of analysis. A cohort is the contracts originated in the same month, by tier. Its repayment curve, read against plan at the same age, is the most direct evidence that underwriting works. The receivables book is the company's largest asset and the collateral for its debt.
 
-The workbook reports on the basis of PAYGo PERFORM, the industry framework developed by CGAP, GOGLA and Lighting Global with other partners. The sector evidence is sobering. The ESMAP Off-Grid Solar Market Trends Report 2024 is reported to put the sector collection rate at about 62 per cent in 2023. That is secondary reporting, and the primary document has not yet been reviewed.
+PAYGo PERFORM is the industry's reporting standard. Its current version, the technical guide published by GOGLA in June 2026, defines five KPIs, or key performance indicators, on repayment and ownership. They are computed from a company's own contract data, and the workbook accepts them only as the company reports them. The sector evidence is sobering, although it still has to be read in the original. The ESMAP Off-Grid Solar Market Trends Report 2024 is reported to give an average PAYGo collection rate of about 62 per cent for 2021 to 2023. That figure is pending the primary document, and it is a collection rate, not a PERFORM repayment rate.
 
 ### Scene 8. How PAYGo companies fail
 > On screen: *Three failure modes. Growth outruns funding. Credit drift. Foreign exchange.*
@@ -231,7 +231,7 @@ The second is credit drift. In the SolaraPay case, the portfolio collection rate
 
 The third is foreign exchange, or FX, because companies borrow in dollars and collect in local currency. In the default sensitivities, depreciation of 20 per cent a year turns a Base investor internal rate of return, or IRR, of 46.4 per cent into minus 16.0 per cent. Freezing prices on new contracts cuts it to 7.9 per cent.
 
-None of these shows first on the income statement. The sector has seen distress. BBOXX LTD, a UK company, entered administration on 19 May 2025. That is on the public register, and the primary documents have not yet been reviewed. The course does not speculate on the causes.
+None of these shows first on the income statement. The sector has seen distress. BBOXX LTD, a UK company, is recorded as having entered administration on 19 May 2025. The Gazette notice and the register entry have not yet been read, so the date is pending the primary document. The course does not speculate on the causes.
 
 ### Scene 9. Recap and exercise
 > On screen: *Exercise. T08 canvas. Three businesses. Day one margin against cash. Unit_Economics and D2.*
@@ -242,7 +242,7 @@ Your exercise uses the T08 PAYGo business model canvas. Fill it for a company yo
 
 # Module 2. Market, customers and affordability
 
-Running time: 9:38. Book: Chapter 2. Model sheets: Consumer_Risk, Products, Scenarios, Checks, Investment_Readiness. Templates and tools: D1 Price plan and APR calculator, T03 Customer credit policy.
+Running time: 9:41. Book: Chapter 2. Model sheets: Consumer_Risk, Products, Scenarios, Checks, Investment_Readiness. Templates and tools: D1 Price plan and APR calculator, T03 Customer credit policy.
 
 ### Learning objectives
 1. Match each product tier to its customer segment and explain how seasonality changes the affordability test.
@@ -280,14 +280,14 @@ Most rural customers earn from farming, casual labour, trading or remittances. C
 
 This has three consequences. An affordability ratio on average income overstates capacity in the months that matter. A month's collection rate must be compared with the same month in earlier years before it is read as a trend. And cohorts sold in different seasons behave differently. A customer who buys just after harvest pays the deposit easily, then meets the lean season a few months in.
 
-Version 0.7 of the workbook works with monthly averages and does not model seasonality. You must apply it yourself, in the affordability test and in reading monthly figures.
+Version 0.8 of the workbook works with monthly averages and does not model seasonality. You must apply it yourself, in the affordability test and in reading monthly figures.
 
 ### Scene 4. Payment burden
 > On screen: *Payment burden equals monthly instalment divided by monthly household income. Threshold 10%. Consumer_Risk sheet.*
 
 The core measure is the payment burden. It is the monthly instalment divided by monthly household income. The Consumer_Risk sheet computes it for each tier and raises a flag when it exceeds a maximum. The default maximum is 10 per cent.
 
-That threshold is a policy choice, not a law or an empirical boundary between good and bad credit. A company may justify a different line with repayment evidence. What it should not do is set the threshold after the fact to clear the products it wants to sell.
+That threshold is a model policy threshold, not a law, a regulatory standard or an empirical boundary between good and bad credit. A company may justify a different line with repayment evidence. What it should not do is set the threshold after the fact to clear the products it wants to sell.
 
 Take the illustrative Tier 2 plan from Module 1. The instalment is two thousand one hundred and ninety local currency units. Assume average monthly income of eighteen thousand, made of six lean months at twelve thousand and six good months at twenty four thousand.
 
@@ -326,7 +326,7 @@ The Multi Tier Framework from ESMAP, set out in Beyond Connections in 2015, defi
 
 The illustrative incomes in the workbook are placeholders. A readiness flag on the Checks sheet stays raised until you replace them and record their status.
 
-Surveys, agent data and mobile money histories can fill them, each with its own bias. In the end, the company's own repayment data are the best test. A customer who pays for twelve months has shown the instalment was affordable over a full seasonal cycle.
+Surveys, agent data and mobile money histories can fill them, each with its own bias. In the end, the company's own repayment data are the most reliable test. A customer who pays for twelve months has shown the instalment was affordable over a full seasonal cycle.
 
 ### Scene 8. From affordability to default risk
 > On screen: *SolaraPay Tier 2. Burden 13.0%. Hazard 2.60% to 3.38%. Month 12 repayment 69.4% against 74.5% plan.*
@@ -344,7 +344,7 @@ Your exercise uses the D1 price plan and APR calculator. Open Plan A, the illust
 
 # Module 3. The regulatory checklist
 
-Running time: 10:15. Book: Chapter 3. Model sheets: Products, Inputs, Scenarios, Credit_Assumptions, Investment_Readiness. Templates and tools: T02 Investor due diligence checklist, D1 Price plan and APR calculator.
+Running time: 10:16. Book: Chapter 3. Model sheets: Products, Inputs, Scenarios, Credit_Assumptions, Investment_Readiness. Templates and tools: T02 Investor due diligence checklist, D1 Price plan and APR calculator.
 
 ### Learning objectives
 1. Name the rule categories that apply to a PAYGo company and the question to ask in each.
@@ -396,7 +396,7 @@ Ask for the collections policy, the lockout procedures and the complaints log.
 ### Scene 5. Data and payments
 > On screen: *Consent. Cross border transfer. Credit bureau. Mobile money fees. Settlement times.*
 
-Data protection asks what consent the company needs to use customer data, including mobile money histories and device usage, and whether data can cross borders. A restriction on using mobile money histories removes one of the best affordability sources. A limit on cross border transfer can affect a group that runs its credit platform from another country.
+Data protection asks what consent the company needs to use customer data, including mobile money histories and device usage, and whether data can cross borders. A restriction on using mobile money histories removes one of the strongest affordability sources. A limit on cross border transfer can affect a group that runs its credit platform from another country.
 
 Credit bureau reporting cuts both ways. It can improve discipline and let good payers build a history that supports upgrades. It also brings compliance cost.
 
@@ -435,7 +435,7 @@ Your exercise has two parts. First, using the legal and regulatory workstream of
 
 # Module 4. Product and price plan design
 
-Running time: 9:52. Book: Chapter 4. Model sheets: Products, Consumer_Risk, Unit_Economics, Sensitivity, Scenarios, Vintage_Dashboard. Templates and tools: D1 Price plan and APR calculator, D2 Unit economics calculator, D3 Repayment curve and cohort calibration.
+Running time: 9:53. Book: Chapter 4. Model sheets: Products, Consumer_Risk, Unit_Economics, Sensitivity, Scenarios, Vintage_Dashboard. Templates and tools: D1 Price plan and APR calculator, D2 Unit economics calculator, D3 Repayment curve and cohort calibration.
 
 ### Learning objectives
 1. Derive the instalment, contract value, premium and amount financed from the four price plan inputs, and explain how the cash price moves revenue and APR.
@@ -507,7 +507,7 @@ Higher tiers look better per unit. In the workbook they carry lower hazards, lar
 
 The difficulty is that those assumptions are, for most companies, untested. Shifting the mix towards them is the largest credit bet in the plan, made on the least evidence.
 
-SolaraPay is launching Tier 4 at three hundred and ninety thousand shillings and Tier 5 at eight hundred and forty five thousand. Calibrated unit economics give them the best ratios of lifetime value to acquisition cost in the range, 11.0 and 14.9 times. But they have no history. Doubling their hazard cuts the investor IRR in the calibrated case from 29.0 to 14.8 per cent. The multiple falls from 3.6 to 2.0 times, with 38 months in covenant breach. The case caps both tiers as a pilot, released only after twelve months of cohort data within 10 per cent of plan.
+SolaraPay is launching Tier 4 at three hundred and ninety thousand shillings and Tier 5 at eight hundred and forty five thousand. Calibrated unit economics give them the highest ratios of lifetime value to acquisition cost in the range, 11.0 and 14.9 times. But they have no history. Doubling their hazard cuts the investor IRR in the calibrated case from 29.0 to 14.8 per cent. The multiple falls from 3.6 to 2.0 times, with 38 months in covenant breach. The case caps both tiers as a pilot, released only after twelve months of cohort data within 10 per cent of plan.
 
 ### Scene 8. What SolaraPay's Tier 2 shows
 > On screen: *SolaraPay Tier 2. Expected loss 41.8%. Unit IRR 37%. Payback 17 months. 40% of mix. Burden 13.0%. Calibrated collected share 58.2%.*
@@ -619,7 +619,7 @@ Your exercise: open template T04 and enter the Tier 2 territory from this module
 
 # Module 6. Repayment behaviour: cohorts, curves and defaults
 
-Running time: 9:49. Book: Chapter 6. Model sheets: Products, Curves, Cohort_T1 to Cohort_T5, Credit_Assumptions, Credit_Input, Vintage_Input, Vintage_Dashboard, Credit_Portfolio, Checks. Templates and tools: D3 Repayment curve and cohort calibration, T06 Loan tape and data request.
+Running time: 9:50. Book: Chapter 6. Model sheets: Products, Curves, Cohort_T1 to Cohort_T5, Credit_Assumptions, Credit_Input, Vintage_Input, Vintage_Dashboard, Credit_Portfolio, Checks. Templates and tools: D3 Repayment curve and cohort calibration, T06 Loan tape and data request.
 
 ### Learning objectives
 1. Compute survival and cumulative repayment from a monthly default hazard and a collection rate, and read a cohort against plan.
@@ -705,14 +705,14 @@ In the workbook, set Credit_Assumptions to Actual mode, load history into Credit
 
 Every portfolio figure is a sum of cohort behaviour, so start from cohorts measured by account age. Survival and cumulative repayment follow from a hazard and a collection rate. Growth flatters portfolio ratios, and cohort curves remove that flattery. Calibrate to observed history before trusting any plan.
 
-Your exercise: open decision tool D3 and enter the SolaraPay Tier 2 observation of 69.4 per cent at month twelve, with the matching points at months three, six and eighteen if your data hold them. Compare the best fit with the case's 3.38 per cent hazard and 87 per cent collection rate. Then use the portfolio effect sheet to reproduce the 64.4, 68.3 and 71.6 per cent figures at zero, 5 and 10 per cent monthly growth.
+Your exercise: open decision tool D3 and enter the SolaraPay Tier 2 observation of 69.4 per cent at month twelve, with the matching points at months three, six and eighteen if your data hold them. Compare your fitted values with the case's 3.38 per cent hazard and 87 per cent collection rate. Then use the portfolio effect sheet to reproduce the 64.4, 68.3 and 71.6 per cent figures at zero, 5 and 10 per cent monthly growth.
 
 # Module 7. Portfolio KPIs and PAYGo PERFORM
 
-Running time: 10:02. Book: Chapter 7. Model sheets: Credit_Portfolio, KPIs, Covenants, Vintage_Dashboard, Credit_Input, Vintage_Input, Checks. Templates and tools: T05 Lender KPI report, T06 Loan tape and data request.
+Running time: 11:28. Book: Chapter 7. Model sheets: PERFORM_2026, Credit_Portfolio, KPIs, Covenants, Vintage_Dashboard, Credit_Input, Vintage_Input, Checks. Templates and tools: T05 Lender KPI report, T06 Loan tape and data request.
 
 ### Learning objectives
-1. Define the core portfolio KPIs, including collection rate, receivables at risk, PAR30 and PAR90, write off, repayment and ownership rates, and state what sits in each denominator.
+1. Define the five PAYGo PERFORM 2026 KPIs and the operational and lender metrics (collection rate, receivables at risk, PAR30 and PAR90, write offs), and state what sits in each denominator.
 2. Explain how growth distorts portfolio ratios, and use lagged and vintage measures to correct for it.
 3. Design a monthly lender dashboard that reconciles DPD buckets to gross receivables and reports covenant headroom.
 
@@ -724,27 +724,29 @@ A board, an investor and a lender all take the same decision every month: whethe
 A portfolio can show improving ratios while its customers behave worse.
 
 ### Scene 2. Why a common framework matters
-> On screen: *PAYGo PERFORM: collection rate, receivables at risk, write offs, repayment rate, ownership rate. Caveat: align with current published documents.*
+> On screen: *PAYGo PERFORM 2026: five KPIs on repayment and ownership, from company contract data. The 2021 guide is historical.*
 
 Before common frameworks took hold, PAYGo companies, PAYGo meaning pay as you go, often defined their own metrics. A collection rate might include deposits or not. Default might mean 60, 90 or 180 days without payment.
 
-PAYGo PERFORM is the industry's answer. It is a framework of key performance indicators for PAYGo portfolios, developed by CGAP, GOGLA and Lighting Global, with other partners. It standardises metrics such as the collection rate excluding deposits, receivables at risk and write offs, and later versions add a repayment rate and a customer ownership rate. The definitions here follow its spirit. They must be aligned with the current published PERFORM documents before they go into a lender report or a facility agreement. A covenant drafted on an outdated definition invites a dispute.
+PAYGo PERFORM is the industry's answer. Its first technical guide, published in July 2021 by CGAP, GOGLA and IFC Lighting Global, set out portfolio indicators such as the collection rate, receivables at risk and the write off ratio. That guide is now historical. The current standard is the PAYGo PERFORM KPIs technical guide published by GOGLA in June 2026. It narrows the standard to repayment and ownership, with five key performance indicators, or KPIs. They are the repayment rate paid versus plan, the repayment rate paid versus financed, paid versus plan at 90 days, paid versus plan at twice the contract term, and the ownership rate at twice the contract term.
+
+These KPIs are calculated on contract data, day by day, and they exclude deposits and subsidies. They come only from the company's own data. The workbook is a planning model with monthly cohorts, so it does not compute them. Its PERFORM_2026 sheet holds them as the company reports them, adds up numerators and denominators as the standard requires, and shows the model's approximations beside them, labelled as such. The older ratios remain useful as operational and lender metrics, each with its definition printed beside it, but never in place of a repayment rate.
 
 ### Scene 3. Collection rate and receivables at risk
 > On screen: *Collection rate example: 74 collected against 100 due gives 74.0 per cent. Adding deposits of 12 gives a misleading 86.0 per cent.*
 
-The collection rate is cash collected against scheduled instalments, divided by the instalments that fell due in the period. Deposits are excluded from both sides. Take a month in which instalments due are one hundred million local currency units, collections seventy four million and deposits twelve million. The collection rate is 74.0 per cent. Adding deposits to the top line alone would show 86.0 per cent, a figure that rises whenever the company simply sells more.
+The operational collection rate, which is not a PERFORM KPI, is cash collected against scheduled instalments, divided by the instalments that fell due in the period. Deposits are excluded from both sides. Take a month in which instalments due are one hundred million local currency units, collections seventy four million and deposits twelve million. The collection rate is 74.0 per cent. Adding deposits to the top line alone would show 86.0 per cent, a figure that rises whenever the company simply sells more.
 
 Receivables at risk measures the share of the book sitting on accounts that have stopped paying or are seriously late. The workbook computes it from the unit curve, as the carrying amount of accounts that have left the paying pool, divided by gross receivables. Operational definitions usually apply a lateness threshold, commonly 30 days, to the full outstanding balance of the account. The workbook's default covenant caps receivables at risk at 15 per cent.
 
 PAR30 and PAR90, portfolio at risk over 30 and over 90 days, are the outstanding balance of accounts more than 30 or 90 days past due, divided by gross receivables. The whole balance of a late account counts, not only the arrears.
 
 ### Scene 4. Write offs, repayment and ownership
-> On screen: *Write off ratio, repayment rate, ownership rate at twice the tenor, active ratio, enabled rate.*
+> On screen: *Write off ratio, cohort repayment ratio, ownership rate at twice the term from company data, active ratio, enabled rate.*
 
 The write off ratio is the amount written off divided by average gross receivables, annualised. A company that writes off at 180 days past due shows lower write offs, and higher PAR90, than one that writes off at 90 days with the same customers.
 
-The repayment rate is a cohort measure: cumulative collections over cumulative instalments due, at a given account age. The ownership rate is the share of a cohort's customers who have paid in full and own their device. The workbook measures it at twice the tenor, so a 24 month contract is measured at month 48. Most companies cannot yet evidence it. The workbook refuses to compute it from proxy data.
+The workbook's Vintage_Dashboard reports a cohort repayment ratio: cumulative collections over cumulative instalments due, at a given account age. It follows the logic of the PERFORM repayment rate paid versus plan, but it is not a PERFORM calculation, because it is monthly and does not allocate payments to instalments. The ownership rate is the share of contracts fully paid by twice the contract term, so a 24 month contract is measured at month 48. Most companies cannot yet evidence it. The workbook accepts it only from company data and will not derive it from its own curves.
 
 The active ratio and the enabled rate complete the set. Neither has one accepted definition, so print the definition beside the figure.
 
@@ -762,7 +764,7 @@ A lagged ratio corrects much of this. Divide today's late balance by gross recei
 
 A lender report should let the reader judge four things without asking for more data: whether the collateral performs, whether newer cohorts are better or worse, the covenant headroom, and whether the numbers reconcile.
 
-The pack fits on two pages. It shows gross receivables by tier, the collection rate for the month and the trailing three months, the days past due buckets, PAR30, PAR90 and lagged PAR30, write offs and recoveries, and the indicative expected credit loss.
+The pack fits on two pages. It shows the PERFORM 2026 KPIs once the company computes them on its contract data, gross receivables by tier, the collection rate for the month and the trailing three months, the days past due buckets, PAR30, PAR90 and lagged PAR30, write offs and recoveries, and the indicative expected credit loss.
 
 The vintage block is the one most often missing, and it gives the earliest warning. It sets repayment by cohort against plan at months three, six and twelve. The covenant block should show headroom, not only pass or fail. The calibrated SolaraPay case, a fictional company, passes its 70 per cent trailing collection covenant with a lowest reading of exactly 70.0 per cent. That is a pass with no headroom.
 
@@ -776,24 +778,24 @@ Take an illustrative month end with one billion local currency units of gross re
 The table also tests the write off policy. A large over 180 bucket means defaulted balances are still on the books. Either policy is acceptable if disclosed, but not if it changes from month to month.
 
 ### Scene 8. Reading the SolaraPay history
-> On screen: *SolaraPay: collection 77.4 then 69.3 per cent, latest month 66.5 per cent, PAR30 17.0 per cent, ECL coverage 36.5 per cent. Sector reference about 62 per cent, unverified.*
+> On screen: *SolaraPay: collection 77.4 then 69.3 per cent, latest month 66.5 per cent, PAR30 17.0 per cent, ECL coverage 36.5 per cent. Sector collection rate about 62 per cent for 2021 to 2023, reported, pending the primary document.*
 
 SolaraPay's 24 months of history are synthetic. The portfolio collection rate was 77.4 per cent in the first year and 69.3 per cent in the second. The latest month read 66.5 per cent, with PAR30 at 17.0 per cent and indicative ECL, or expected credit loss, coverage of 36.5 per cent.
 
-Sector figures offer context only. The ESMAP and World Bank market trends report for 2024 is reported to put the sector collection rate at about 62 per cent in 2023, a figure from secondary reporting that is still to be checked against the original report. Against that, 69.3 per cent might pass. Read with the cohort data, it shows customers repaying below plan in every tier with history, and a book whose ratios will drift as growth slows. The case responds with a collections plan and a 65 per cent trailing collection covenant with a cure period, not a covenant the company would breach in its first quarter.
+Sector figures offer context only. The ESMAP and World Bank market trends report for 2024 is reported to give an average PAYGo collection rate of about 62 per cent for 2021 to 2023. Its page and definition are still to be checked against the report, and it is a collection rate, not a PERFORM repayment rate. Against that, 69.3 per cent might pass. Read with the cohort data, it shows customers repaying below plan in every tier with history, and a book whose ratios will drift as growth slows. The case responds with a collections plan and a 65 per cent trailing collection covenant with a cure period, not a covenant the company would breach in its first quarter.
 
 The case also shows the gap impact funders care about: no ownership evidence yet. Paid off customers should be tracked now, so the evidence exists when cohorts reach the checkpoint.
 
 ### Scene 9. Recap and exercise
 > On screen: *Template T05 Lender KPI report: input, KPIs, covenants, vintage, dashboard.*
 
-Fix every definition, align it with the current PERFORM documents and print it beside the figure. Exclude deposits from the collection rate. Read portfolio ratios beside lagged and vintage measures, because growth flatters them. Reconcile the buckets and report covenant headroom, not just compliance.
+Ask for the PERFORM 2026 KPIs computed on contract data, and refuse a collection rate offered in their place. Print the definition beside every operational and lender metric. Exclude deposits from the collection rate. Read portfolio ratios beside lagged and vintage measures, because growth flatters them. Reconcile the buckets and report covenant headroom, not just compliance.
 
 Your exercise: open template T05 and load the SolaraPay history. Confirm the latest collection rate of 66.5 per cent and PAR30 of 17.0 per cent. Then compare PAR30 with PAR30 lagged by three months, and mark every covenant whose headroom is under a tenth of its threshold as a watch item.
 
 # Module 8. Revenue recognition and credit losses
 
-Running time: 10:04. Book: Chapter 8. Model sheets: Cohort_T1 to Cohort_T5, FS, Annual, Credit_Portfolio, Credit_Assumptions, Products, Benchmark_Compare, Calibration, Investment_Readiness. Templates and tools: T01 Investment memo, T03 Customer credit policy.
+Running time: 10:31. Book: Chapter 8. Model sheets: Cohort_T1 to Cohort_T5, FS, Annual, Credit_Portfolio, Credit_Assumptions, Products, Benchmark_Compare, Calibration, Investment_Readiness. Templates and tools: T01 Investment memo, T03 Customer credit policy.
 
 ### Learning objectives
 1. Split a PAYGo contract into hardware revenue and financing income, and explain the judgements behind the split under IFRS 15.
@@ -837,9 +839,9 @@ The evidence often disappoints. The SolaraPay case, a fictional company with syn
 ### Scene 5. How the workbook simplifies
 > On screen: *Workbook conventions: hardware at cash price, financing income straight line, lifetime loss charged at sale, missed instalments written off as they fall due.*
 
-The AEF SHS PAYGo model simplifies these rules for transparency. Hardware revenue is the cash price at sale. Financing income is the PAYGo premium divided by the tenor, straight line. The allowance is set up at origination equal to the cohort's lifetime expected missed instalments, and consumed as they are missed. Missed instalments are written off as they fall due.
+The companion workbook, MODEL 2, simplifies these rules for transparency. Hardware revenue is the cash price at sale. Financing income is the PAYGo premium divided by the tenor, straight line. The allowance is set up at origination equal to the cohort's lifetime expected missed instalments, and consumed as they are missed. Missed instalments are written off as they fall due.
 
-The whole lifetime loss hits the income statement at the sale, which is conservative. Straight line income is lower early than effective interest, also conservative. And the workbook's gross receivables and write offs are not comparable with audited figures, which will differ.
+The whole lifetime loss hits the income statement at the sale, which is conservative. Straight line income is lower early than effective interest, also conservative. And the workbook's gross receivables and write offs are not comparable with audited figures, which will differ. This is an analytical modelling treatment and does not constitute a determination of the applicable accounting treatment under IFRS.
 
 ### Scene 6. One cohort, worked through
 > On screen: *Tier 2 cohort of 1,000 units. Year 1: revenue 44.00 million, ECL charge 17.10 million. Year 2: revenue 8.00 million, no charge.*
@@ -853,11 +855,11 @@ In Year 1 the cohort brings forty four million of revenue, thirty six million of
 Under the effective interest method, at about 3.53 per cent a month, financing income would be about eleven point three million in Year 1 and four point seven million in Year 2. The total is the same, the timing is not.
 
 ### Scene 7. Indicative ECL and the ratio to financing revenue
-> On screen: *Credit_Portfolio sheet. Indicative ECL 323.6 million on 1,000 million of receivables, coverage 32.4 per cent. SolaraPay ECL to financing revenue 1.28 times against about 0.38 times.*
+> On screen: *Credit_Portfolio sheet. Indicative ECL 323.6 million on 1,000 million of receivables, coverage 32.4 per cent. SolaraPay ECL to financing revenue 1.28 times. Peer reference withdrawn.*
 
 The Credit_Portfolio sheet also computes an indicative stage based ECL as a diagnostic. Take a book of one billion local currency units, with eight hundred and twenty million current or up to 30 days late, ninety million in Stage 2 and ninety million in Stage 3. With Tier 2 inputs, a 30 per cent cure rate and an assumed resale share of 40 per cent, the loss factors are 22.85, 59.01 and 92.35 per cent. The indicative ECL is three hundred and twenty three point six million, a coverage of 32.4 per cent. SolaraPay reports 36.5 per cent in its latest month.
 
-The calibrated SolaraPay plan shows an ECL charge of 1.28 times its financing revenue, against a reference of about 0.38 times. That reference is anecdotal and provisional. Part of the gap is mechanical. One Tier 2 cohort on the workbook's conventions has a lifetime ratio of 1.07 times and a first year ratio of 2.14 times, and a growing book sits above the lifetime figure. Part is credit, and part is pricing. The ratio is a good question and a poor verdict. Net credit losses against revenue, 37.5 per cent in Year 1 falling to 27.5 per cent in Year 5, answer it more directly.
+The calibrated SolaraPay plan shows an ECL charge of 1.28 times its financing revenue. Earlier drafts set this against a reference drawn from reported M-KOPA group figures. That comparison has been withdrawn, because the group figures conflict and the group's consolidated accounts have not been read. So the ratio is read on its own terms: financing income that does not cover expected losses means the price of credit does not pay for its risk. Part of it is mechanical. One Tier 2 cohort on the workbook's conventions has a lifetime ratio of 1.07 times and a first year ratio of 2.14 times, and a growing book sits above the lifetime figure. Part is credit, and part is pricing. The ratio is a good question and a poor verdict. Net credit losses against revenue, 37.5 per cent in Year 1 falling to 27.5 per cent in Year 5, answer it more directly.
 
 ### Scene 8. Three views of profit
 > On screen: *Management view, auditor view, lender view, reconciled side by side.*
@@ -877,7 +879,7 @@ Your exercise: rebuild the Tier 2 cohort table by hand and confirm the year end 
 
 # Module 9. Unit economics
 
-Running time: 9:53. Book: Chapter 9. Model sheets: Unit_Economics, Consumer_Risk, Products, Curves, Vintage_Dashboard, Investment_Summary. Templates and tools: D2 Unit economics calculator, D3 Repayment curve and cohort calibration, T01 Investment memo.
+Running time: 9:50. Book: Chapter 9. Model sheets: Unit_Economics, Consumer_Risk, Products, Curves, Vintage_Dashboard, Investment_Summary. Templates and tools: D2 Unit economics calculator, D3 Repayment curve and cohort calibration, T01 Investment memo.
 
 ### Learning objectives
 1. Build the expected lifetime cash flow of one PAYGo unit from its inflow and outflow lines.
@@ -896,7 +898,7 @@ So unit economics is a cash exercise. The useful unit is the expected lifetime c
 ### Scene 2. The lines of the unit
 > On screen: *Unit_Economics sheet. Inflows: customer cash, recoveries, RBF. Outflows: hardware, installation, warranty, CAC, servicing.*
 
-The Unit_Economics sheet of the AEF SHS PAYGo model, SHS standing for solar home system, sets out the unit for each tier. Inflows are the deposit plus expected instalments collected, net recoveries from repossessed and resold systems, and any RBF, or results based financing, payment attached to the unit. Outflows are hardware landed cost, installation, a warranty provision, CAC, the customer acquisition cost of commission plus marketing, and servicing.
+The Unit_Economics sheet of the companion workbook, MODEL 2, sets out the unit for each tier. Inflows are the deposit plus expected instalments collected, net recoveries from repossessed and resold systems, and any RBF, or results based financing, payment attached to the unit. Outflows are hardware landed cost, installation, a warranty provision, CAC, the customer acquisition cost of commission plus marketing, and servicing.
 
 Two disciplines apply. Every line is per unit sold, not per surviving account, so servicing is scaled to expected active months, which are fewer than the tenor. And expected loss and recoveries must come from the same curve. Take one from a sober source and the other from an optimistic one, and you build a unit that never existed.
 
@@ -936,7 +938,7 @@ Tier 2 is the weakest where it matters: the highest expected loss at 41.8 per ce
 
 Tier 1 has the lowest LTV to CAC, 2.4 times, and a contribution of one thousand and ninety two shillings, yet a 66 per cent IRR and a nine month payback. It returns a small investment quickly but creates little value, so judge it as an upgrade funnel.
 
-Tiers 4 and 5 look best on paper, at 11.0 and 14.9 times. They are the least proven. Their hazards are untested, and their recoveries assume repossession rates of 60 and 70 per cent against an observed loss given default proxy of about 99 per cent. Doubling their hazards cuts the investor IRR from 29.0 to 14.8 per cent. Hence the pilot cap.
+Tiers 4 and 5 look strongest on paper, at 11.0 and 14.9 times. They are the least proven. Their hazards are untested, and their recoveries assume repossession rates of 60 and 70 per cent against an observed loss given default proxy of about 99 per cent. Doubling their hazards cuts the investor IRR from 29.0 to 14.8 per cent. Hence the pilot cap.
 
 ### Scene 7. From the unit to the company
 > On screen: *Three bridges: overheads, growth, cost of funding. Blended funding cost 18.7 per cent.*
@@ -1042,7 +1044,7 @@ Open the D4 receivables financing calculator on its default Tier 2 plan and note
 
 # Module 11. Funding the book: equity, debt and receivables facilities
 
-Running time: 9:31. Book: Chapter 11. Model sheets: Inputs, Products, Credit_Assumptions, Credit_Portfolio, Covenants, KPIs, Credit_Input, Vintage_Input, Sensitivity. Templates and tools: T07 Borrowing base and term sheet, T05 Lender KPI report, D4 Receivables financing calculator.
+Running time: 9:39. Book: Chapter 11. Model sheets: Inputs, Products, Credit_Assumptions, Credit_Portfolio, Covenants, KPIs, Credit_Input, Vintage_Input, Sensitivity. Templates and tools: T07 Borrowing base and term sheet, T05 Lender KPI report, D4 Receivables financing calculator.
 
 ### Learning objectives
 1. Match each layer of the funding stack to the evidence a PAYGo company can show at each stage, and explain the three jobs of equity.
@@ -1063,7 +1065,7 @@ A downturn can push a company back a stage. GOGLA reports off grid solar investm
 
 Equity does three jobs. It funds early losses. It funds the part of the book that lenders will not advance against. And it absorbs first loss on the whole balance sheet, which is what allows lenders to advance at all.
 
-Founders tend to underestimate the third. A lender advancing 70 per cent relies on the other 30 per cent, and on the equity beyond it, to absorb losses first. When credit deteriorates, eligibility shrinks and the advance falls. The AEF SHS PAYGo model meets that shortfall with an automatic equity top up. For SolaraPay, the book's fictional company, peak equity is nine million dollars in the calibrated Base and forty one point nine million in the calibrated Severe case. An investor should know which figure it is underwriting.
+Founders tend to underestimate the third. A lender advancing 70 per cent relies on the other 30 per cent, and on the equity beyond it, to absorb losses first. When credit deteriorates, eligibility shrinks and the advance falls. The companion workbook meets that shortfall with an automatic equity top up. For SolaraPay, the book's fictional company, peak equity is nine million dollars in the calibrated Base and forty one point nine million in the calibrated Severe case. An investor should know which figure it is underwriting.
 
 ### Scene 3. Hard currency term debt
 > On screen: *SolaraPay term loan: three million dollars at 10 per cent. 405 million shillings at 135, 486 million at 162. Loss of 81 million shillings.*
@@ -1098,7 +1100,7 @@ A migration of about 3.4 per cent of the book has removed more than 70 per cent 
 ### Scene 7. Covenants that fit a growing book
 > On screen: *Covenants sheet defaults: collection rate 70 per cent, receivables at risk 15 per cent, 30 plus DPD 25 per cent, 90 plus DPD 18 per cent, headroom zero, debt to equity 3.0 times, DSCR 1.20 times.*
 
-The model's default covenants are a trailing three month collection rate of at least 70 per cent, receivables at risk of no more than 15 per cent, 30 plus DPD of no more than 25 per cent, 90 plus DPD of no more than 18 per cent, non negative headroom, debt to book equity of no more than 3.0 times, and an annual DSCR, the debt service coverage ratio, of at least 1.20 times. Definitions should follow the current published PAYGo PERFORM documents, the framework developed by CGAP, GOGLA and Lighting Global with other partners.
+The model's default covenants are a trailing three month collection rate of at least 70 per cent, receivables at risk of no more than 15 per cent, 30 plus DPD of no more than 25 per cent, 90 plus DPD of no more than 18 per cent, non negative headroom, debt to book equity of no more than 3.0 times, and an annual DSCR, the debt service coverage ratio, of at least 1.20 times. These are operational and lender metrics, not PAYGo PERFORM KPIs, so each definition must be written into the facility agreement. The PERFORM 2026 KPIs, on repayment and ownership, belong in the monthly reporting once the company computes them on its own contract data.
 
 DSCR is ill suited to a growing book. Lending to new customers runs through operating cash flow, so coverage falls when growth accelerates, whatever the book's quality. SolaraPay's calibrated Base sits below 1.20 times in Years 1 to 4 while every portfolio covenant holds. Portfolio covenants with a cash sweep work better. A cure period, often one or two test dates, should be long enough for a collections plan to show results. Equity cures suit leverage covenants, not collection covenants, because new equity does not change how customers pay.
 
@@ -1120,7 +1122,7 @@ Open the T07 borrowing base certificate on its worked example and confirm the ba
 
 # Module 12. Securitisation and off balance sheet structures
 
-Running time: 9:50. Book: Chapter 12. Model sheets: Inputs, Products, Credit_Assumptions, Credit_Portfolio, Sensitivity, Credit_Input, Vintage_Input, Investment_Readiness. Templates and tools: T06 Loan tape and data request, T07 Borrowing base and term sheet, T02 Due diligence checklist.
+Running time: 9:54. Book: Chapter 12. Model sheets: Inputs, Products, Credit_Assumptions, Credit_Portfolio, Sensitivity, Credit_Input, Vintage_Input, Investment_Readiness. Templates and tools: T06 Loan tape and data request, T07 Borrowing base and term sheet, T02 Due diligence checklist.
 
 ### Learning objectives
 1. Explain how a true sale to an SPV, tranching, overcollateralisation, excess spread and triggers protect noteholders, and why the servicer matters so much in PAYGo.
@@ -1163,7 +1165,7 @@ Triggers change the flow of cash when performance slips. The most important is e
 
 The servicer is the originator, because only it runs the platform and the agents. A backup servicer is appointed at closing. A cold backup holds the contract and would need months. A warm backup receives regular data and could take over in weeks. The test is simple: a backup that cannot keep devices unlocked for paying customers cannot protect collections.
 
-Investors analyse the pool through a loan level data tape. It must cover vintages that have reached full tenor, reconcile monthly to the audited accounts, and use definitions aligned with the current published PAYGo PERFORM documents.
+Investors analyse the pool through a loan level data tape. It must cover vintages that have reached full tenor, reconcile monthly to the audited accounts, and use stable definitions for the operational metrics, with repayment and ownership rates computed under the PAYGo PERFORM 2026 standard.
 
 ### Scene 5. Local currency issuance and the legal questions
 > On screen: *Reported transactions, with caveats: Sun King, Kenya, 2023 and 2025. d.light, five facilities since 2020. Legal checklist: true sale, assignment, SPV tax, data, licences.*
@@ -1184,9 +1186,9 @@ On accounting, under IFRS 9, the international standard for financial instrument
 ### Scene 7. What the model shows
 > On screen: *Inputs: structure 1 warehouse line, structure 2 securitisation on balance sheet. Investor IRR: default 46.4 to 46.5 per cent. SolaraPay 29.0 to 29.1 per cent.*
 
-The AEF SHS PAYGo model offers two facility structures on the Inputs sheet. Structure 1 is a warehouse line. Structure 2 is a securitisation or term asset backed issue, modelled on balance sheet, with its own rate, a haircut to advance rates and an upfront fee. True sale through an SPV is not modelled in version 0.7.
+The companion workbook offers two facility structures on the Inputs sheet. Structure 1 is a warehouse line. Structure 2 is a securitisation or term asset backed issue, modelled on balance sheet, with its own rate, a haircut to advance rates and an upfront fee. True sale through an SPV is not modelled in version 0.8.
 
-On that basis the option barely moves returns. For the default fictional company, the investor IRR, the internal rate of return, goes from 46.4 to 46.5 per cent. For SolaraPay, it goes from 29.0 to 29.1 per cent, with the multiple unchanged at 3.6 times and no breach months in either case. A structure cannot fix a pool. At best it prices a good one more efficiently, and SolaraPay's effort is better spent on collections and data.
+On that basis the option barely moves returns. For the default fictional company, the investor IRR, the internal rate of return, goes from 46.4 to 46.5 per cent. For SolaraPay, it goes from 29.0 to 29.1 per cent, with the multiple unchanged at 3.6 times and no breach months in either case. A structure cannot fix a pool. At most it prices a good one more efficiently, and SolaraPay's effort is better spent on collections and data.
 
 ### Scene 8. Recap and exercise
 > On screen: *Readiness: full tenor vintages, reconciled tape, stable definitions, legal opinion, backup servicer, sufficient size, tested triggers, auditor view. Exercise: T06 Loan tape.*
@@ -1197,7 +1199,7 @@ Open the T06 loan tape template and load a sample of your own company's accounts
 
 # Module 13. RBF, subsidies and affordability
 
-Running time: 9:35. Book: Chapter 13. Model sheets: Inputs (RBF block), RBF_Engine, Vintage_Input, Consumer_Risk, Unit_Economics, Sensitivity, Checks. Templates and tools: D1 Price plan and APR calculator, D2 Unit economics calculator.
+Running time: 9:48. Book: Chapter 13. Model sheets: Inputs (RBF block), RBF_Engine, Vintage_Input, Consumer_Risk, Unit_Economics, Sensitivity, Checks. Templates and tools: D1 Price plan and APR calculator, D2 Unit economics calculator.
 
 ### Learning objectives
 1. Distinguish the four results a PAYGo subsidy can pay for and the incentive each one creates.
@@ -1225,7 +1227,7 @@ Repayment is the first result that carries credit information. Ownership is the 
 ### Scene 3. Four designs in the workbook
 > On screen: *RBF_Engine sheet. Mode 1 sales based, mode 2 repayment linked, mode 3 ownership linked, mode 4 hybrid.*
 
-The RBF_Engine sheet of the AEF SHS PAYGo model holds four designs. RBF is set in dollars and recognised below gross profit when the cash arrives.
+The RBF_Engine sheet of the companion workbook holds four designs. RBF is set in dollars and recognised below gross profit when the cash arrives.
 
 Take an illustration of twenty five dollars per verified Tier 2 unit, at one hundred and thirty local currency units to the dollar. Under mode 1 the company receives twenty five dollars, or three thousand two hundred and fifty local currency units.
 
@@ -1245,7 +1247,7 @@ Under repayment linked RBF with an 80 per cent target, A still receives twenty f
 ### Scene 5. Repayment, ownership and hybrids
 > On screen: *Three short panels. Repayment: definitions. Ownership: timing and evidence. Hybrid: weights total 100 per cent.*
 
-Repayment linked RBF lines the programme up with the lender. Both now want cohorts that pay. The data already sit on the lockout platform, but the definitions must be tight. They must say whether deposits count, whether written off accounts stay in the denominator, and whether the rate is measured by cohort at a fixed age or on the portfolio at a calendar date. PAYGo PERFORM is the natural reference, subject to alignment with its current published documents.
+Repayment linked RBF lines the programme up with the lender. Both now want cohorts that pay. The data already sit on the lockout platform, but the definitions must be tight. They must say whether deposits count, whether written off accounts stay in the denominator, and whether the rate is measured by cohort at a fixed age or on the portfolio at a calendar date. The PAYGo PERFORM 2026 standard is the natural reference. Its repayment rate excludes deposits and subsidies, keeps written off contracts in, and is computed on contract data. Because subsidies are excluded, RBF can never improve a company's reported repayment rate.
 
 Ownership linked RBF has two weaknesses. The company waits years for the cash, and ownership is hard to prove, because an unlock can follow a settlement or a goodwill gesture. The workbook is strict. Mode 3 pays zero until validated ownership data sit in Vintage_Input and the evidence switch is set to 1.
 
@@ -1369,7 +1371,7 @@ Your exercise is a reverse stress. On a copy of the workbook, reduce the collect
 
 # Module 15. The investor view: due diligence and the investment memo
 
-Running time: 10:13. Book: Chapter 15. Model sheets: Credit_Input, Vintage_Input, Credit_Portfolio, Vintage_Dashboard, Valuation, Investment_Summary, Investment_Readiness, Covenants, Benchmark_Compare, Calibration, Source_Register. Templates and tools: T01 Investment committee memorandum, T02 Investor due diligence checklist, T06 Loan tape specification and data request, D5 Investment screening scorecard, D6 Investor returns calculator.
+Running time: 11:16. Book: Chapter 15. Model sheets: Credit_Input, Vintage_Input, Credit_Portfolio, Vintage_Dashboard, Valuation, Investment_Summary, Investment_Readiness, Covenants, Benchmark_Compare, Calibration, Source_Register. Templates and tools: T01 Investment committee memorandum, T02 Investor due diligence checklist, T06 Loan tape specification and data request, D5 Investment screening scorecard, D6 Investor returns calculator.
 
 ### Learning objectives
 1. Organise a PAYGo diligence in eight workstreams, starting with credit and the data tape, and recognise the red flags that should pause a deal.
@@ -1433,20 +1435,20 @@ Price to book treats the company as a lender, so it is only as reliable as the l
 Dollar investors are judged in dollars. For SolaraPay, four million dollars at eight million pre money buys 33.3 per cent. A third of exit equity of forty two point nine million dollars is fourteen point three million, a multiple of about 3.6 times and an IRR of about 29.0 per cent. Currency deserves its own line in the memo. Over five years, depreciation of 5 per cent a year leaves 78.4 per cent of the value, 12 per cent leaves 56.7 per cent, and 25 per cent leaves 32.8 per cent.
 
 ### Scene 7. Gates, the memo and conditions
-> On screen: *Investment_Readiness banner: "x/23 gates met; not investment grade". Template T01, twelve sections, recommendation first.*
+> On screen: *Investment_Readiness banner: "3/23 gates met. Decision: STOP (Evidence incomplete)". Template T01, twelve sections, recommendation first.*
 
-The Investment_Readiness sheet lists 23 gates, some automatic and some set on external evidence. At default inputs three are met. In the SolaraPay case, five. At best the sheet says a case is ready for independent validation, never investment grade.
+The Investment_Readiness sheet lists 23 gates, some automatic and some set on external evidence. A manual gate counts only when the sheet records where the evidence is held and who signed it off. Thirteen gates are critical, and the sheet applies a fixed rule. STOP when a test fails: the master check, a covenant breach, or a tier with negative contribution. GO only when all 23 gates are met. CONDITIONAL GO when every critical gate is met, with the open gates as conditions. Otherwise STOP, because the evidence is incomplete. A STOP on incomplete evidence is not a verdict on the business, and a GO is not an investment recommendation. At default inputs three gates are met and the rule reads STOP, with 10 of the 13 critical gates open. In the SolaraPay case five are met, and 8 critical gates remain open.
 
 The memo in template T01 follows twelve sections, with the recommendation and its conditions first. Show the DCF and exit values side by side.
 
 Write changes as instruments, not hopes. Conditions precedent fix what must be true before money moves, such as a reconciled tape or an independent review of expected credit loss, or ECL. Covenants fix what must stay true. Prefer portfolio covenants to a debt service coverage test during growth, set them at levels the history supports, and add a cure period. An unmet gate is often a condition to attach.
 
 ### Scene 8. Benchmarks and their limits
-> On screen: *Benchmark_Compare and Source_Register. Grades A to E. M-KOPA FY2024 revenue: two conflicting figures, a factor of about 1.64.*
+> On screen: *Benchmark_Compare, Calibration and Source_Register. Grades A to D, status recorded separately. M-KOPA comparison withdrawn until the group's consolidated accounts are read.*
 
-Benchmarks are a sanity check, not a target. The workbook grades each record from A for an audited filing to E for contextual.
+Benchmarks are a sanity check, not a target. The workbook grades each source from A, for a primary official or audited document, to D, for unverified material, and records separately whether the claim has been verified. Calibration uses a reference only once its source is verified.
 
-M-KOPA shows why. One outlet, citing UK filings, reported FY2024 revenue of about four hundred and sixteen million dollars. Another reported two hundred and fifty three point five million. The figures conflict and stay unresolved until the filings are read. Any revenue based ratio moves by a factor of about 1.64 depending on the source. The ESMAP sector collection rate of about 62 per cent for 2023 is secondary reporting, still to be checked against the original report. The benchmark that matters most is the company's own cohort history.
+M-KOPA shows why that discipline matters. Two outlets reported FY2024 group revenue figures that differ by a factor of about 1.64. The only filing held is that of M-KOPA UK LIMITED, a subsidiary, which says nothing about the group's PAYGo business. So the comparison is withdrawn until the group's consolidated accounts are read, and neither revenue figure is used as a benchmark. The ESMAP Off-Grid Solar Market Trends Report 2024 is reported to give an average PAYGo collection rate of about 62 per cent for 2021 to 2023. It is pending the primary document, and it is a collection rate, not a repayment rate. The benchmark that matters most is the company's own cohort history.
 
 ### Scene 9. Recap and exercise
 > On screen: *Recap. Credit first. Red flags pause the deal. Value on normalised cash flow and in dollars. Gates become conditions. Exercise: D6 and T01.*
@@ -1457,7 +1459,7 @@ Your exercise uses the D6 Investor returns calculator, which opens on the Solara
 
 # Module 16. Case walk through: SolaraPay
 
-Running time: 11:28. Book: Chapter 16. Model sheets: Credit_Input, Vintage_Input, Credit_Assumptions, Credit_Portfolio, Vintage_Dashboard, Products, Unit_Economics, Consumer_Risk, Dashboard, KPIs, Covenants, Valuation, Benchmark_Compare, Calibration, Investment_Readiness. Templates and tools: case workbook SolaraPay_Case_Model_v0.7, D3 Repayment curve and cohort calibration, D6 Investor returns calculator, T01 Investment committee memorandum, T06 Loan tape specification and data request, T07 Borrowing base certificate and term sheet checklist.
+Running time: 12:02. Book: Chapter 16. Model sheets: Credit_Input, Vintage_Input, Credit_Assumptions, Credit_Portfolio, Vintage_Dashboard, Products, Unit_Economics, Consumer_Risk, Dashboard, KPIs, Covenants, Valuation, Benchmark_Compare, Calibration, Investment_Readiness. Templates and tools: case workbook SolaraPay_Case_Model_v0.8-dev, D3 Repayment curve and cohort calibration, D6 Investor returns calculator, T01 Investment committee memorandum, T06 Loan tape specification and data request, T07 Borrowing base certificate and term sheet checklist.
 
 ### Learning objectives
 1. Apply the method end to end: load history before touching projections, recalibrate, and read unit economics and affordability.
@@ -1498,9 +1500,9 @@ With calibrated curves, every tier still creates value per unit. The distributio
 
 Tier 2 is the largest product, at 40 per cent of planned units, and the weakest. It loses 41.8 per cent of scheduled instalments, pays back in 17 months, and earns a unit internal rate of return, or IRR, of 37 per cent, the lowest in the range.
 
-Tiers 4 and 5 look best, with lifetime value to acquisition cost, or LTV to CAC, of 11.0 and 14.9 times. Those ratios rest entirely on curves with no history. Tier 1 pays back in nine months, but its contribution is only one thousand and ninety two shillings per unit, and its implied annual rate of 106 per cent will draw attention.
+Tiers 4 and 5 look strongest, with lifetime value to acquisition cost, or LTV to CAC, of 11.0 and 14.9 times. Those ratios rest entirely on curves with no history. Tier 1 pays back in nine months, but its contribution is only one thousand and ninety two shillings per unit, and its implied annual rate of 106 per cent will draw attention.
 
-Affordability adds a second lens. Three tiers sit above the 10 per cent payment burden threshold: Tier 2 at 13.0 per cent of illustrative income, Tier 3 at 13.2 and Tier 4 at 11.3. The incomes are illustrative and need survey data.
+Affordability adds a second lens. Three tiers sit above the model's 10 per cent policy threshold for payment burden: Tier 2 at 13.0 per cent of illustrative income, Tier 3 at 13.2 and Tier 4 at 11.3. The incomes are illustrative and need survey data.
 
 ### Scene 5. The calibrated projections
 > On screen: *Dashboard. Revenue 1.13 to 8.62 billion shillings. EBITDA margin minus 35.2 to 16.4 per cent. Collection rate 82.3 to 70.3 per cent. Debt to book equity peaks at 2.51 times in Year 3.*
@@ -1530,171 +1532,176 @@ The discounted cash flow, or DCF, gives an enterprise value of six point one mil
 For the bank, the covenants hold in the calibrated Base, but barely. The lowest trailing three month collection rate is 70.0 per cent against a 70 per cent minimum, so there is no headroom. On actual data, with 69.3 per cent over the second year and 66.5 per cent in the latest month, a 70 per cent covenant would very likely be breached at the first test date. The bank can set the covenant at a level the book can meet, such as 65 per cent with a cure period, or defer the facility. The debt service coverage ratio sits below 1.20 times in Years 1 to 4, so portfolio covenants should replace it.
 
 ### Scene 8. Benchmarks and the recommendation
-> On screen: *Benchmarks, anecdotal. Net margin 10.5 against about 2.2 per cent, provisional. ECL to financing revenue 1.28 against 0.38 times. Conditional Go: seven conditions. Readiness 5 of 23.*
+> On screen: *Benchmarks: no verified reference, M-KOPA comparison withdrawn. ECL to financing revenue 1.28 times. Analyst: Conditional Go, seven conditions. Workbook: 5 of 23 gates, STOP on incomplete evidence.*
 
-Peer coverage is thin, so benchmarks are anecdotal. SolaraPay's Year 5 net margin of 10.5 per cent is about 4.8 times the M-KOPA FY2024 reference of about 2.2 per cent, which is provisional because published figures conflict. Expected credit loss runs at 1.28 times financing revenue, against about 0.38 times for the reference. The hardware margin is carrying the losses.
+The analyst finds that no external reference can be used as a test. The net margin and credit loss references rested on M-KOPA group figures that conflict between sources, so that comparison is withdrawn until the group's consolidated accounts are read. The ratios speak for themselves. Expected credit loss runs at 1.28 times financing revenue, so the financing income does not cover the losses it is meant to price. The hardware margin is carrying them. The benchmark that matters is SolaraPay's own cohort history.
 
 The analyst recommends a Conditional Go: invest four million dollars subject to seven conditions. Index new prices fully to the exchange rate. Cap Tiers 4 and 5 at their planned 13 per cent of units, released only after twelve months of cohort data within 10 per cent of plan. Agree a collections plan and a 65 per cent trailing collection covenant with a cure period. Cut recovery assumptions to observed levels. Redesign Tier 2 to 4 price plans so the instalment stays within 10 per cent of surveyed income. Protect the valuation, towards six million pre money or with a ratchet. And require monthly data, ownership tracking, an independent ECL review and a full test of the workbook.
 
-The case meets 5 of 23 readiness gates. It is not investment grade, and the memo says so.
+The workbook's own rule reads STOP for the same file. The case meets 5 of the 23 readiness gates, and 8 of the 13 critical gates still lack evidence. The two do not contradict each other. The workbook measures whether the evidence file is complete; the recommendation is the analyst's judgement of what the investment needs. The committee should see both, and disbursement waits until the critical gates that the conditions address are evidenced. The memo says so.
 
 ### Scene 9. Recap and exercise
 > On screen: *Recap. History before projections. Calibrated Base sits at plan Downside. Pricing protects equity. Tiers 4 and 5 unproven. Exercise: combined stress, recorded in T01.*
 
-Load history first, and treat the management plan as one scenario among several. On SolaraPay's own data the Base sits at the plan's Downside on credit hazard, and the collection covenant has no headroom. Pricing power protects the equity, while the untested Tiers 4 and 5 hold both the best unit economics and the largest unproven risk. The most important number in a PAYGo file is often the one the company cannot yet produce.
+Load history first, and treat the management plan as one scenario among several. On SolaraPay's own data the Base sits at the plan's Downside on credit hazard, and the collection covenant has no headroom. Pricing power protects the equity, while the untested Tiers 4 and 5 hold both the strongest unit economics on paper and the largest unproven risk. The most important number in a PAYGo file is often the one the company cannot yet produce.
 
 Your exercise uses the case workbook. On a copy, run the calibrated Downside with full price indexation and, at the same time, double the default hazard on Tiers 4 and 5. Record the IRR, the multiple and breach months. Then decide whether the seven conditions still support a Conditional Go, and write your answer in section 6 of the T01 memo.
 
-# Module 17. Using the AEF SHS PAYGo model, step by step
+# Module 17. Using MODEL 2, step by step
 
-Running time: 15:24. Book: Chapters 1 to 16. Model: AEF_SHS_PAYGo_Model_v0.7.xlsx. User manual: Steps 1 to 12.
+Running time: 17:33. Book: Chapters 1 to 16. Model: MODEL 2, version 0.8 (development build), file AEF_SHS_PAYGo_Model_v0.8-dev.xlsx. User manual: Steps 1 to 12.
 
 ### Learning objectives
 1. Work through the model in the order an analyst should.
 2. Know which sheet holds each input and which sheet answers each question.
 3. Read the integrity checks, the readiness gates and the investment summary correctly.
 
-### Scene 1. Using the AEF SHS PAYGo model
-> On screen: *A step by step guide in twelve steps*
+### Scene 1. Using MODEL 2, step by step
+> On screen: *PAYGo Company Financial and Investment Model, in twelve steps*
 
-This tutorial walks you through the AEF SHS PAYGo model in twelve steps, in the order an analyst should work. Every screen you will see is the real workbook, version 0.7, with its default inputs. Those inputs describe a fictional company in a fictional market. They are there to make the mechanics visible, not to describe any real business. Keep the user manual open beside you. It follows the same twelve steps.
+This tutorial walks you through MODEL 2, the PAYGo Company Financial and Investment Model, in twelve steps, in the order an analyst should work. Every screen you will see is the real workbook, version 0.8, a development build, with its default inputs. Those inputs describe a fictional company in a fictional market. They are there to make the mechanics visible, not to describe any real business. Keep the user manual open beside you. It follows the same twelve steps.
 
 ### Scene 2. Start here: Cover
 > On screen: *Open the workbook, let it recalculate, and read the status panel before anything else. Sheet Cover, range B16:J44.*
 
-Open the workbook in Excel 2016 or later and let it recalculate fully. The cover carries a live status panel. First, the master check. It must read OK before you rely on any output. Below it, the readiness banner: three of twenty three gates are met at default inputs, and the model never calls a case investment grade. Then the active scenario, Base, and the credit data mode, Proxy, which means the credit figures come from the model's curves. Before you change anything, save a copy under a new name and keep the original as your reference.
+Open the workbook in Excel 2016 or later and let it recalculate fully. The cover carries a live status panel. First, the master check. It must read OK before you rely on any output. Below it, the readiness line: three of twenty three gates are met at default inputs, and the decision reads STOP, because the evidence is incomplete. The model never rates a company. Then the active case, the illustrative model assumptions in the Base scenario, and the credit data mode, Proxy, which means the credit figures come from the model's curves. Before you change anything, save a copy under a new name and keep the original as your reference.
 
-### Scene 3. Start here: Checks
-> On screen: *Twenty five integrity checks roll up into the master check. Readiness flags sit apart. Sheet Checks, range A1:C38.*
+### Scene 3. Start here: Start
+> On screen: *One page: what to input, what the model calculates, what the results mean and what an investor should look at. Sheet Start, range A1:D40.*
 
-The Checks sheet runs twenty five integrity tests. The balance sheet balances, cash ties out, the DPD buckets reconcile to gross receivables, limits are respected and inputs are valid. Each test returns zero when it passes, and together they drive the master check. Below them sit five readiness flags, such as affordability assumptions not yet reviewed. They are kept outside the master check on purpose. They tell you how mature the analysis is, not whether the arithmetic is right.
+Next, the Start sheet. It sets out on one page what to input, what the model calculates, what the results mean, and what an investor should look at, in that order. Every input carries a provenance label: model assumption, company data, external evidence, calibrated assumption or unverified. Read the third block before you quote any number. Revenue is not cash. The operational collection rate is not a PAYGo PERFORM KPI. The credit loss figures are analytical proxies. And the readiness decision measures the evidence file, not the business.
 
-### Scene 4. Start here: Inputs
-> On screen: *Blue cells are inputs. Set the scenario selector, the first model month and the currency label. Sheet Inputs, range A1:D14.*
+### Scene 4. Start here: Checks
+> On screen: *Thirty eight integrity tests roll up into the master check. Readiness flags sit apart. Sheet Checks, range A1:C54.*
 
-All hard coded assumptions live on a handful of sheets, and the colour code tells you where. Blue font is an input, the only kind of cell you should change. Black font is a formula. Never overwrite it. On the Inputs sheet, start with three settings. The first is the scenario selector, where one is Base, two is Downside and three is Severe. Then come the first model month and the local currency label.
+The Checks sheet runs thirty eight integrity tests. The balance sheet balances, cash reconciles every month, the DPD buckets reconcile to gross receivables, and receivables, the loss allowance, debt and equity roll forward from month to month. Limits are respected and inputs are valid. Each test returns zero when it passes, and together they drive the master check. Below them sit seven readiness flags, such as affordability assumptions not yet reviewed. They are kept outside the master check on purpose. They tell you how mature the analysis is, not whether the arithmetic is right.
 
-### Scene 5. Define the business: Products
+### Scene 5. Start here: Inputs
+> On screen: *Blue cells are inputs, each with a provenance label. Set the scenario selector, the first model month and the currency label. Sheet Inputs, range A1:E14.*
+
+All hard coded assumptions live on a handful of sheets, and the colour code tells you where. Blue font is an input, the only kind of cell you should change. Black font is a formula. Never overwrite it. On the Inputs sheet, start with three settings. The first is the scenario selector, where one is Base, two is Downside and three is Severe. Then come the first model month and the local currency label. The last column gives each input's provenance. At default inputs every one reads model assumption, because the defaults describe a fictional market.
+
+### Scene 6. Define the business: Products
 > On screen: *Five tiers, labelled by the capacity attribute of the Multi Tier Framework. Replace them with your own catalogue. Sheet Products, range A4:G16.*
 
 The Products sheet holds one column per tier. Tier one is a pico solar kit on a twelve month plan. Tier five is a three kilowatt peak inverter system on a forty eight month plan. Replace the names, sizes, loads and segments with your own catalogue. Keep all five columns. If you sell fewer tiers, set the sales mix of the unused tier to zero. The tier label refers to capacity only, so check it against the product's real specification.
 
-### Scene 6. Define the business: Consumer_Risk
+### Scene 7. Define the business: Consumer_Risk
 > On screen: *Affordability is a credit risk. Replace the illustrative incomes with surveyed incomes. Sheet Consumer_Risk, range A1:G15.*
 
-Consumer Risk sets each tier's instalment against the household income of its target segment. The incomes shown are illustrative placeholders and must be replaced with survey or customer data. With the defaults, three tiers sit above the ten per cent payment burden threshold: Tier 2 at 13.0 per cent, Tier 3 at 13.2 per cent and Tier 4 at 11.3 per cent. A high burden predicts higher default, so treat these flags as credit warnings, not only as social ones.
+Consumer Risk sets each tier's instalment against the household income of its target segment. The incomes shown are illustrative placeholders and must be replaced with survey or customer data. With the defaults, three tiers sit above the model's ten per cent policy threshold for payment burden: Tier 2 at 13.0 per cent, Tier 3 at 13.2 per cent and Tier 4 at 11.3 per cent. A high burden predicts higher default, so treat these flags as credit warnings, not only as social ones.
 
-### Scene 7. Market assumptions: Inputs
+### Scene 8. Market assumptions: Inputs
 > On screen: *FX, inflation, tax, the price increase on new contracts and FX pass through. Sheet Inputs, range A9:D14.*
 
 The macro block sets the opening exchange rate, 130 local currency units per dollar, local inflation of six per cent, a tax rate of thirty per cent, an annual price increase of five per cent on new contracts, and a pass through of fifty per cent of currency depreciation into new contract prices. Do not set depreciation to zero because the currency has been stable. A PAYGo company buys hardware and borrows in dollars while it collects in local currency.
 
-### Scene 8. Market assumptions: Scenarios
+### Scene 9. Market assumptions: Scenarios
 > On screen: *Downside and Severe move credit, collections, volume, hardware cost and the currency together. Sheet Scenarios, range A4:E12.*
 
 The Scenarios sheet scales five levers. The Downside raises the default hazard by thirty per cent, trims collections and volume, raises hardware cost and sets depreciation at twelve per cent a year. The Severe case goes further, with a hazard 1.75 times Base and twenty five per cent depreciation. Real stress moves several variables at once, and so do these scenarios.
 
-### Scene 9. Build demand: Inputs
+### Scene 10. Build demand: Inputs
 > On screen: *Total units sold for Years 1 to 5 across all tiers. Sheet Inputs, range A16:D21.*
 
-Enter the total units sold in each of the five years. The defaults run from twelve thousand units in Year 1 to fifty thousand in Year 5. The model divides each year by twelve, applies the scenario volume multiplier and splits the sales by tier. Version 0.7 does not model seasonality, so read monthly results as averages.
+Enter the total units sold in each of the five years. The defaults run from twelve thousand units in Year 1 to fifty thousand in Year 5. The model divides each year by twelve, applies the scenario volume multiplier and splits the sales by tier. Version 0.8 does not model seasonality, so read monthly results as averages.
 
-### Scene 10. Build demand: Products
+### Scene 11. Build demand: Products
 > On screen: *The sales mix must total 100 per cent. A check enforces it. Sheet Products, range A4:G23.*
 
 The sales mix sits on Products, and it must total one hundred per cent. A check enforces it. Be careful when you shift the mix towards Tiers 4 and 5. It raises value sharply, but those tiers usually have the least repayment history behind them.
 
-### Scene 11. Build revenue: Products
+### Scene 12. Build revenue: Products
 > On screen: *Cash price, deposit, daily rate and tenor; the model derives the instalment, the premium and the implied APR. Sheet Products, range A12:G39.*
 
 Each price plan has four inputs: cash price, deposit, daily rate and tenor. Take Tier 2. A cash price of 39,000, a deposit of 4,000 and a daily rate of 77 over 24 months give a monthly instalment of 2,342 and a total contract value of 60,210. The PAYGo premium over the cash price is 21,210, and the implied annual rate is about fifty per cent. That rate is the figure a regulator or a journalist will compute, so know it first. Hardware revenue is booked at the cash price at sale, and the premium is earned as financing income over the tenor.
 
-### Scene 12. Build revenue: Inputs
+### Scene 13. Build revenue: Inputs
 > On screen: *Four RBF designs. Ownership linked RBF pays nothing until validated ownership data exist. Sheet Inputs, range A30:D39.*
 
 Results based financing has four designs: sales based, repayment linked, ownership linked and hybrid. Ownership linked RBF pays zero by design until validated ownership data have been loaded and this evidence switch is set to one. The model will not manufacture that outcome from proxy curves.
 
-### Scene 13. Hardware and capital costs: Products
+### Scene 14. Hardware and capital costs: Products
 > On screen: *Hardware FOB cost in US dollars; landed cost includes freight and duty at the month's exchange rate. Sheet Products, range A17:G46.*
 
 Hardware is entered as the dollar FOB cost per unit. The model adds freight and duty, converts at the exchange rate of the month and applies the scenario hardware cost lever. For Tier 2, a cost of 150 dollars becomes a landed cost of 23,400 at the opening rate. Installation, warranty and the acquisition cost are set per tier. Do not enter a local price already converted at today's rate. That would count depreciation twice.
 
-### Scene 14. Operating costs: Inputs
+### Scene 15. Operating costs: Inputs
 > On screen: *Payment fees, servicing per active account, staff and general and administrative costs. Sheet Inputs, range A23:D28.*
 
 Operating costs follow their drivers. Payment fees are two per cent of cash collected. Customer service and collections cost 150 per active account per month. Staff and general costs are fixed monthly amounts, indexed to inflation. Size the central costs for the volume plan. A book of seventy thousand active accounts needs a collections team, a call centre and a data function.
 
-### Scene 15. Financing: Inputs
+### Scene 16. Financing: Inputs
 > On screen: *Initial equity, a dollar term loan and a local currency receivables facility, with an automatic equity top up. Sheet Inputs, range A48:D57.*
 
 Four sources fund the plan: initial equity, a dollar term loan revalued every month, a local currency receivables facility, and an automatic equity top up whenever cash would fall below the minimum. The facility is drawn only to hold the minimum cash balance, up to the lower of its limit and the borrowing base. The cumulative top up is your funding requirement. It is equity you must raise, not free money.
 
-### Scene 16. Financing: Credit_Assumptions
+### Scene 17. Financing: Credit_Assumptions
 > On screen: *Default at 180 DPD, staging thresholds, borrowing base eligibility, recovery cost and the proxy DPD distribution. Sheet Credit_Assumptions, range A4:E24.*
 
 Credit Assumptions holds the definitions. Default at 180 days past due. Stage 2 from thirty days and Stage 3 from ninety days for the indicative expected credit loss. Borrowing base eligibility up to thirty days past due. A recovery cost of fifteen per cent of resale proceeds. The binding constraint on the facility is usually the borrowing base, not the limit, and it shrinks when credit quality deteriorates.
 
-### Scene 17. Financial statements: Annual
+### Scene 18. Financial statements: Annual
 > On screen: *Read the revenue mix, credit losses charged at origination, and EBITDA year by year. Sheet Annual, range A5:I28.*
 
 The Annual sheet sums the monthly statements by year. Check the revenue mix between hardware, financing income and other revenue. Expected credit losses are charged when each contract is originated, so a growing book carries the full lifetime loss of its newest cohorts. In the default Base case, EBITDA turns positive in month 21.
 
-### Scene 18. Financial statements: Annual
+### Scene 19. Financial statements: Annual
 > On screen: *Profit arrives before cash. The balance check must read zero; the cash flow shows the true funding gap. Sheet Annual, range A30:I62.*
 
 Now the balance sheet and cash flow. The balance check must read zero in every period. Operating cash flow stays negative while the receivables book grows. In the default case it stays positive only from month 51, thirty months after EBITDA. A PAYGo company can report a profit and still run out of cash. The cash flow statement and the funding requirement are the figures to trust.
 
-### Scene 19. Scenarios: Sensitivity
-> On screen: *Fifteen cases computed at default inputs. Currency and pricing move value more than volume. Sheet Sensitivity, range A5:I20.*
+### Scene 20. Scenarios: Sensitivity
+> On screen: *Fifteen dated cases computed at default inputs, and a live row for the active case. Currency and pricing move value more than volume. Sheet Sensitivity, range A5:I24.*
 
-Switch the selector between Base, Downside and Severe and read the investment summary each time. The Sensitivity sheet records fifteen cases at default inputs. The Base investor IRR is 46.4 per cent. In the Downside the IRR is minus 22.9 per cent, and the Severe case is a total loss. Look at the currency rows. Twenty per cent depreciation a year takes the Base IRR to minus sixteen per cent, and freezing prices on new contracts cuts it to 7.9 per cent. Remember to reset the selector to Base before you save.
+Switch the selector between Base, Downside and Severe and read the investment summary each time. The Sensitivity sheet holds a static table of fifteen cases, dated and computed at default inputs, and below it a live row that follows the active case. The Base investor IRR is 46.4 per cent. In the Downside the IRR is minus 22.9 per cent, and the Severe case is a total loss. Look at the currency rows. Twenty per cent depreciation a year takes the Base IRR to minus sixteen per cent, and freezing prices on new contracts cuts it to 7.9 per cent. Remember to reset the selector to Base before you save.
 
-### Scene 20. Bankability: Credit_Portfolio
+### Scene 21. Lender case: Credit_Portfolio
 > On screen: *Gross receivables by DPD bucket, the collection ratio, indicative ECL and the borrowing base with its headroom. Sheet Credit_Portfolio, range A4:L31.*
 
 Credit Portfolio consolidates the five tiers month by month: gross receivables by DPD bucket, the collection ratio, PD and LGD proxies, the indicative stage based ECL, and the borrowing base with its headroom against the facility. The buckets reconcile exactly to gross receivables. This is the view a lender reads first.
 
-### Scene 21. Bankability: Covenants
+### Scene 22. Lender case: Covenants
 > On screen: *Each covenant is tested monthly. Headroom matters as much as compliance. Sheet Covenants, range A4:L26.*
 
 Covenants tests each threshold every month and flags breaches. In the default Base case the lowest trailing three month collection rate is 72.9 per cent against a minimum of seventy, and no month breaches. Look at the headroom, not only at the pass or fail flag. The annual DSCR sits on the KPIs sheet, and it is a poor test for a growing book.
 
-### Scene 22. Bankability: Credit_Input
+### Scene 23. Lender case: Credit_Input
 > On screen: *Paste the company's own history, then switch the credit data mode to Actual. Shown here: the fictional SolaraPay case. Sheet Credit_Input, range A6:L25.*
 
 Now load the company's own data. Credit Input takes one block per tier and up to sixty months: month end balances and DPD buckets, and monthly flows such as originations, collections and write offs. The screen shows the SolaraPay case workbook, whose history is synthetic teaching data. The buckets must add up to gross receivables. Then set the credit data mode to Actual. Reporting switches to the company's history, while projections stay on the curves.
 
-### Scene 23. Bankability: Vintage_Dashboard
+### Scene 24. Lender case: Vintage_Dashboard
 > On screen: *Compare observed cohorts with the proxy curves, then recalibrate the hazards and collection rates on Products. Sheet Vintage_Dashboard, range A1:I20.*
 
 Vintage Dashboard sets the observed cohorts against the plan curves. In the SolaraPay case, every tier with history repays below plan at month 12. When the curves diverge, recalibrate the default hazard and collection rates on the Products sheet. Lenders lend against data, and twelve or more months of clean cohort history is the fastest route to better terms.
 
-### Scene 24. Investment memo: Valuation
+### Scene 25. Investment memo: Valuation
 > On screen: *DCF on normalised free cash flow, exit value, and investor returns in US dollars. Sheet Valuation, range A22:D40.*
 
 Valuation holds three views. The DCF of free cash flow gives an enterprise value of about 15.6 million dollars, with a terminal value larger than the whole value, which is normal for a growing PAYGo book. The exit value at six times EBITDA gives an equity value of about 80.6 million dollars at the end of Year 5. The investor's stake of one third then returns an IRR of 46.4 per cent and 6.7 times the money, in dollars. Present the DCF and the exit value side by side and explain the gap.
 
-### Scene 25. Investment memo: Unit_Economics
+### Scene 26. Investment memo: Unit_Economics
 > On screen: *Per tier: expected loss, contribution, LTV to CAC, cash payback and unit IRR. Sheet Unit_Economics, range A4:G24.*
 
 Unit Economics answers whether each sale creates value. For Tier 2 at default inputs, the expected loss is about 35.6 per cent of scheduled instalments, LTV to CAC is 4.8 times, and the cash payback is fifteen months. Read the ratio with the payback and the unit IRR. A strong ratio on a product with no repayment history is a hypothesis, not a result.
 
-### Scene 26. Investment memo: Calibration
-> On screen: *Benchmarks become diagnostic questions. Thin or conflicting references are flagged, never used as targets. Sheet Calibration, range A5:F12.*
+### Scene 27. Investment memo: Calibration
+> On screen: *Diagnostics use verified references only. Suspended or conflicting references are shown, never used as targets. Sheet Calibration, range A5:F12.*
 
-Calibration turns graded benchmarks into questions. At default inputs, the Year 5 net margin is about six times the M-KOPA reference for financial year 2024, a reference marked provisional because published revenue figures conflict. The sheet asks you to justify the cost and credit assumptions. It never changes an input on its own.
+Calibration turns benchmarks into questions, and it compares the model only with references whose source is verified. At this edition, every reference on the sheet is suspended or absent. The M-KOPA group figures conflict between sources, so that comparison is withdrawn until the group's consolidated accounts are read. The ESMAP sector collection rate is pending its primary document, and it is context for the model's operational collection rate, not a PERFORM repayment rate. The sheet asks you to justify the cost and credit assumptions on the company's own data. It never changes an input on its own.
 
-### Scene 27. Investment memo: Investment_Readiness
-> On screen: *Twenty three gates. The model never claims investment grade; at most, ready for independent validation. Sheet Investment_Readiness, range A4:G18.*
+### Scene 28. Investment memo: Investment_Readiness
+> On screen: *Twenty three gates, thirteen critical. The decision rule reads evidence only: STOP, CONDITIONAL GO or GO. Sheet Investment_Readiness, range A4:G36.*
 
-Finally, Investment Readiness. Twenty three gates, automatic where the model can test them and manual where they need outside evidence, such as legal review or the auditor's view of the ECL approach. The banner reads three of twenty three at default inputs, and it never claims investment grade. Every gate not yet met should become a condition precedent, a covenant or an accepted risk in the investment memo.
+Finally, Investment Readiness. Twenty three gates, automatic where the model can test them and manual where they need outside evidence, such as legal review or the auditor's view of the ECL approach. A manual gate counts only when the sheet records where the evidence is held and who signed it off. Thirteen gates are critical, and the decision rule uses the evidence and nothing else. It reads STOP when a test fails, GO only when all twenty three gates are met, and CONDITIONAL GO when every critical gate is met. Otherwise it reads STOP, because the evidence is incomplete. At default inputs three gates are met and the decision is STOP, with ten of the thirteen critical gates open. A STOP on incomplete evidence is not a verdict on the business, and a GO is not an investment recommendation. Every gate not yet met should become a condition precedent, a covenant or an accepted risk in the investment memo.
 
-### Scene 28. Investment memo: Investment_Summary
+### Scene 29. Investment memo: Investment_Summary
 > On screen: *The one page summary for the investment committee, live for the active scenario. Sheet Investment_Summary, range A4:G35.*
 
 The Investment Summary brings it together on one page for the active scenario: the operating trajectory, the funding requirement, valuation and returns, the lender view and unit economics by tier. Build the memo from this page and the sheets behind it, using Template T01, and check every figure you quote against its source sheet.
 
-### Scene 29. Twelve steps, one discipline
+### Scene 30. Twelve steps, one discipline
 > On screen: *Load the company's data before you trust the projections*
 
 That completes the twelve steps. Three habits matter most. Never use an output while the master check reads error. Load the company's own history before you trust any projection. And read the Downside as carefully as the Base. The user manual, the case study, the templates and the decision tools take each step further. Thank you for watching.

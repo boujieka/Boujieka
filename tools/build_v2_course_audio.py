@@ -1,4 +1,4 @@
-"""Build the narrated audio of the Volume 2 video course (Modules 0 to 16) from the scripts.
+"""Build the narrated audio of the Book 2 video course (Modules 0 to 16) from the scripts.
 
 Run: python tools/build_v2_course_audio.py [module numbers...]
 For each scripts/module_NN.md: narration = every paragraph under a "## Scene" heading except "On screen:" lines.
@@ -104,7 +104,7 @@ def build(n):
     A.run(["ffmpeg", "-y", "-i", str(raw), "-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-ar", "44100", "-ac", "1",
            "-c:a", "libmp3lame", "-b:a", "128k", "-id3v2_version", "3", "-write_xing", "1",
            "-metadata", f"title={title}", "-metadata", f"artist={A.AUTHOR}",
-           "-metadata", "album=Africa Energy Finance, Volume 2: Solar Home Systems, video course",
+           "-metadata", "album=Africa Energy Finance, Book 2: PAYGo Solar Finance, video course",
            "-metadata", f"track={n + 1}", "-metadata", "genre=Speech", "-fflags", "+bitexact", str(out)])
     return title, A.duration(out), text_all, raw
 

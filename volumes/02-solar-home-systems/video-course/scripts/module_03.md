@@ -52,7 +52,7 @@ Ask for the collections policy, the lockout procedures and the complaints log.
 ## Scene 5. Data and payments
 On screen: Consent. Cross border transfer. Credit bureau. Mobile money fees. Settlement times.
 
-Data protection asks what consent the company needs to use customer data, including mobile money histories and device usage, and whether data can cross borders. A restriction on using mobile money histories removes one of the best affordability sources. A limit on cross border transfer can affect a group that runs its credit platform from another country.
+Data protection asks what consent the company needs to use customer data, including mobile money histories and device usage, and whether data can cross borders. A restriction on using mobile money histories removes one of the strongest affordability sources. A limit on cross border transfer can affect a group that runs its credit platform from another country.
 
 Credit bureau reporting cuts both ways. It can improve discipline and let good payers build a history that supports upgrades. It also brings compliance cost.
 
