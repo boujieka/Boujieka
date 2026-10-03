@@ -175,29 +175,29 @@
  },
  {
   "ref": "K15",
-  "claim": "Investment readiness 3 of 23 gates at default inputs",
-  "where": "Ch 10, 15",
+  "claim": "Investment readiness 2 of 23 gates at default inputs; STOP on a failed test (gate 10, annual DSCR)",
+  "where": "Ch 1, 15",
   "cls": "MODEL OUTPUT",
   "wb": "Model v0.8-dev, default inputs",
   "sheet": "Investment_Readiness",
   "cell": "C4",
-  "value": "3",
-  "source": "Gates 1, 10, 13 (automatic)",
+  "value": "2",
+  "source": "Gates 1, 13 (automatic); gate 10 not met: KPIs row 51 flags DSCR below 1.2x in Years 1 to 4, KPIs!C65 = 4",
   "status": "VERIFIED IN WORKBOOK",
-  "note": "Decision rule reads STOP (evidence incomplete: 10 of 13 critical gates open)."
+  "note": "Decision B5: STOP (Failed test: No covenant breach in the active scenario (monthly covenants and annual DSCR)). Critical gates met 2 of 13 (C32). A finding against the plan as modelled, not only missing evidence."
  },
  {
   "ref": "K16",
-  "claim": "SolaraPay: 5 of 23 gates",
-  "where": "Ch 16, case study",
+  "claim": "SolaraPay: 4 of 23 gates; STOP on a failed test (gate 10, annual DSCR)",
+  "where": "Ch 1, 15, 16, case study",
   "cls": "CASE OUTPUT",
   "wb": "SolaraPay case workbook v0.8-dev",
   "sheet": "Investment_Readiness",
   "cell": "C4",
-  "value": "5",
-  "source": "Gates 1, 10, 13, 18, 22 (automatic)",
+  "value": "4",
+  "source": "Gates 1, 13, 18, 22 (automatic); gate 10 not met: KPIs row 51 flags DSCR below 1.2x in Years 1 to 4, KPIs!C65 = 4",
   "status": "VERIFIED IN WORKBOOK",
-  "note": "Decision rule reads STOP (evidence incomplete: 8 of 13 critical gates open)."
+  "note": "Decision B5: STOP (Failed test: No covenant breach in the active scenario (monthly covenants and annual DSCR)). Critical gates met 4 of 13 (C32). Analyst Conditional Go (Ch 16.11) conditional on the DSCR covenant being replaced or reset with the lender and on critical gates evidenced before disbursement."
  },
  {
   "ref": "K17",

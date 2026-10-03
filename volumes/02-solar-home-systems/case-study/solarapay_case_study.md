@@ -4,7 +4,7 @@
 
 **The decision.** SolaraPay Ltd, a PAYGo solar distributor in the Republic of Kivara (currency: the Kivara shilling, KVS; opening rate KVS 135 per USD), is raising USD 4.0 million of equity from an impact fund at a pre money valuation of USD 8.0 million, which gives the fund a 33.3% stake. In parallel it has asked a local bank for a KVS 4.5 billion receivables facility. The fund's investment committee must choose between Go, Conditional Go and Stop.
 
-**Recommendation: Conditional Go.** The business can create value, but the management plan overstates repayment, recoveries and covenant headroom. The investment holds up only if conditions are attached on pricing, Tier 4 and 5 exposure, collections, recovery evidence and valuation (Section 9). The workbook's evidence rule reads STOP because most critical readiness gates are not yet evidenced; the Conditional Go is the analyst's judgement, and disbursement waits until the critical gates the conditions address are evidenced.
+**Recommendation: Conditional Go.** The business can create value, but the management plan overstates repayment, recoveries and covenant headroom. The investment holds up only if conditions are attached on pricing, Tier 4 and 5 exposure, collections, recovery evidence and valuation (Section 9). The workbook's rule reads STOP on a failed test: the calibrated Base fails the lender's annual DSCR test in Years 1 to 4, a finding against the business plan as modelled, and most critical readiness gates are not yet evidenced. The Conditional Go is the analyst's judgement, explicitly conditional on the DSCR covenant being replaced or reset with the lender and on the critical gates the conditions address being evidenced before disbursement.
 
 | Key figure (calibrated Base unless stated) | Value |
 |---|---|
@@ -15,7 +15,7 @@
 | Investor outcome, Downside | Total loss (exit equity of zero) |
 | Lowest trailing three month operational collection rate against a 70% covenant | 70.0%, with no headroom |
 | Observed operational collection rate, last twelve months of history | 69.3%, already below the proposed covenant |
-| Investment readiness (workbook, evidence only) | 5 of 23 gates met; decision rule reads STOP (8 of 13 critical gates not yet evidenced) |
+| Investment readiness (workbook) | 4 of 23 gates met (4 of 13 critical); decision rule reads STOP on a failed test (annual DSCR below 1.20x in Years 1 to 4) |
 
 # 1. Company and market
 
@@ -159,7 +159,7 @@ The fund should therefore treat the entry price as a position on the exit multip
 | Annual DSCR, minimum 1.20x | Below the minimum in Years 1 to 4 |
 | Borrowing base (eligibility up to 30 DPD, advance rates of 50% to 75% by tier) | Facility always within the base |
 
-The projection passes, but only just. On actual data the position is weaker: the latest monthly collection ratio of 66.5% is already below the 70% covenant level, and the last twelve months of history averaged 69.3%, so a 70% trailing covenant would very likely be in breach from the first test date.
+The projection passes the monthly covenants, but only just, and fails the annual DSCR test in Years 1 to 4. On actual data the position is weaker: the latest monthly collection ratio of 66.5% is already below the 70% covenant level, and the last twelve months of history averaged 69.3%, so a 70% trailing covenant would very likely be in breach from the first test date.
 
 A lender has two sound options. The first is to set the collection covenant at a level the book can meet, for example 65% with a cure period and a collections improvement plan. The second is to defer the facility until the collection trend has turned. In either case the bank should replace the DSCR test with portfolio covenants and require monthly reporting of operational and lender metrics: the operational collection rate, receivables at risk, the write off ratio and cohort repayment curves. These are not PAYGo PERFORM 2026 KPIs. The five PERFORM 2026 KPIs (GOGLA Technical Guide, June 2026) can be computed only from company contract data entered on *PERFORM_2026*, which SolaraPay has not yet provided; the bank should ask for that data too. Any request to extend eligibility beyond 30 DPD should be refused.
 
@@ -182,13 +182,13 @@ The ratios still speak for themselves. Expected credit losses at 1.28 times fina
 
 1. **Pricing policy.** Contractual or board approved indexation of new contract prices to the KVS/USD rate, which corresponds to setting pass through to 100% in the model. This is the most effective Downside mitigant identified.
 2. **Tier 4 and 5 pilot cap.** Tiers 4 and 5 are held to their planned 13% of units and released in tranches only after twelve months of cohort data confirm repayment within 10% of plan, with portfolio at risk reported separately for these tiers.
-3. **Collections plan before the facility.** A written collections improvement plan with monthly targets, and a facility covenant set at a level the book can meet (65% trailing collection with a cure period), stepping up as performance improves.
+3. **Collections plan before the facility.** A written collections improvement plan with monthly targets, and a facility covenant set at a level the book can meet (65% trailing collection with a cure period), stepping up as performance improves. The annual DSCR covenant, which the projection fails in Years 1 to 4, is replaced by portfolio covenants or reset with the lender (gate 10).
 4. **Recovery assumptions.** Repossession and resale rates cut to observed levels until a six month repossession programme demonstrates otherwise.
 5. **Affordability redesign.** The Tier 2 to 4 price plans are restructured, through longer tenors or higher deposits, so that the instalment stays within 10% of target segment income, with incomes validated by customer surveys.
 6. **Valuation protection.** A pre money valuation closer to USD 6m, or a ratchet tied to Year 2 cohort performance.
 7. **Data and validation.** Monthly updates of *Credit_Input* and *Vintage_Input*, ownership tracking at twice the tenor from launch, independent review of the ECL approach (gate 19) and of the tax and accounting treatment (gate 15), a full test of the workbook in Excel (gate 17) and management sign off (gate 2).
 
-**Readiness today.** Five of the 23 gates are met: model integrity, no covenant breach in Base, positive lifetime contribution in every tier, a credit engine running on actual data, and data reconciliation. The workbook's own rule reads STOP for the same file, because 8 of its 13 critical gates still lack evidence. The two do not contradict each other: the workbook measures whether the evidence file is complete, while the recommendation is the analyst's judgement of what the investment needs. The committee should see both, and disbursement waits until the critical gates the conditions address are evidenced. The conditions above close the most material gaps.
+**Readiness today.** Four of the 23 gates are met: model integrity, positive lifetime contribution in every tier, a credit engine running on actual data, and data reconciliation. Gate 10, no covenant breach in the active scenario, is not met: the monthly covenants hold in Base, but the annual DSCR is below the 1.20x minimum in Years 1 to 4. The workbook's own rule therefore reads STOP on a failed test, and 9 of its 13 critical gates still lack evidence. That STOP is a finding against the business plan as modelled under the assumed facility terms, not only a gap in the file. The recommendation remains the analyst's judgement of what the investment needs, and it is explicitly conditional: the DSCR covenant must be replaced or reset with the lender (condition 3), and disbursement waits until the critical gates the conditions address are evidenced. The committee should see both. The conditions above close the most material gaps.
 
 **Accounting.** Revenue recognition and ECL in the workbook are simplified. This is an analytical modelling treatment and does not constitute a determination of the applicable accounting treatment under IFRS.
 

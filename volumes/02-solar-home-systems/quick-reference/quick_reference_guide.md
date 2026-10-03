@@ -11,7 +11,7 @@ This guide condenses Book 2, PAYGo Solar Finance, into reference cards for the d
 | Templates | Memo, diligence checklist, credit policy, agent economics, lender report, loan tape, borrowing base, canvas (version 0.9, pre-release) | templates/AEF_V2_T01 to T08 |
 | Decision tools | Price plan and APR, unit economics, calibration, financing, screening, returns (version 0.9, pre-release) | decision-tools/AEF_V2_D1 to D6 |
 
-All example figures refer either to the book's illustrations or to the fictional SolaraPay case, and are flagged as such. Default model inputs describe a fictional market. Projections, valuations and readiness counts of MODEL 2 v0.8 are identical to the released v0.7. Negative figures are shown in parentheses.
+All example figures refer either to the book's illustrations or to the fictional SolaraPay case, and are flagged as such. Default model inputs describe a fictional market. Projections and valuations of MODEL 2 v0.8 are identical to the released v0.7; readiness gate 10 now also tests the annual DSCR. Negative figures are shown in parentheses.
 
 # The PAYGo business on one page
 
@@ -283,16 +283,16 @@ Borrower and structure; amount and tenor; currency and pricing; borrowing base; 
 
 ## Readiness gates
 
-The *Investment_Readiness* sheet holds 23 gates, 13 of them critical. Automatic gates test integrity, covenant compliance, unit contribution, actual credit data, consumer protection evidence, outcome linked RBF support and data reconciliation. Manual gates record management sign off, term sheets, legal review, the Excel test and auditor review of ECL; a manual gate counts only when the sheet records where the evidence is held and who signed it off.
+The *Investment_Readiness* sheet holds 23 gates, 13 of them critical. Automatic gates test integrity, covenant compliance (monthly covenants and annual DSCR), unit contribution, actual credit data, consumer protection evidence, outcome linked RBF support and data reconciliation. Manual gates record management sign off, term sheets, legal review, the Excel test and auditor review of ECL; a manual gate counts only when the sheet records where the evidence is held and who signed it off.
 
 | Decision rule (evidence only) | Outcome |
 |---|---|
-| A test fails: master check, covenant breach in the active scenario, or a tier with negative lifetime contribution | STOP |
+| A test fails: master check, covenant breach in the active scenario (any month in breach, or any year with DSCR below 1.2x), or a tier with negative lifetime contribution | STOP (failed test) |
 | All 23 gates met | GO |
 | All 13 critical gates met | CONDITIONAL GO, with the open gates as conditions |
 | Otherwise | STOP (evidence incomplete) |
 
-Default inputs: 3 of 23 gates, STOP (10 of 13 critical gates open). SolaraPay: 5 of 23 gates, STOP (8 of 13 critical gates open). A STOP on incomplete evidence says the file is not ready for a decision; it is not a verdict on the business. A GO says the evidence is complete; it is not an investment recommendation. The recommendation is the analyst's judgement and is shown beside the workbook's decision, with the reason when they differ.
+Default inputs: 2 of 23 gates (2 of 13 critical), STOP on a failed test. SolaraPay: 4 of 23 gates (4 of 13 critical), STOP on the same failed test. In both, the Base DSCR is below 1.2x in Years 1 to 4, so gate 10 fails: the STOP is a finding against the business plan as modelled, not only missing evidence. A STOP on incomplete evidence says the file is not ready for a decision; it is not a verdict on the business. A GO says the evidence is complete; it is not an investment recommendation. The recommendation is the analyst's judgement and is shown beside the workbook's decision, with the reason when they differ.
 
 # SolaraPay at a glance
 
@@ -306,9 +306,9 @@ Default inputs: 3 of 23 gates, STOP (10 of 13 critical gates open). SolaraPay: 5
 | Calibrated Base | Revenue USD 8.1m to 51.2m; EBITDA margin 16.4% in Year 5; EBITDA positive from month 29 |
 | Returns | IRR 29.0%, multiple 3.6x (management plan 33.1%, 4.2x); Downside total loss |
 | Mitigants | Full FX price indexation lifts the Downside to 23.6%; entry at USD 6m pre money lifts the Base to 33.8% |
-| Lender view | Lowest projected trailing collection rate 70.0% against a 70% covenant; proposed 65% with cure period |
+| Lender view | Lowest projected trailing collection rate 70.0% against a 70% covenant; proposed 65% with cure period; annual DSCR below 1.20x in Years 1 to 4, to be replaced by portfolio covenants |
 | Benchmarks | None verified: the M-KOPA comparison is withdrawn until the group's consolidated accounts are read; the ESMAP sector collection rate is context only |
-| Recommendation | Analyst: Conditional Go with seven conditions. Workbook: 5 of 23 gates, STOP (8 of 13 critical gates open). Disbursement waits until the critical gates the conditions address are evidenced |
+| Recommendation | Analyst: Conditional Go with seven conditions, conditional on the DSCR covenant being replaced or reset with the lender. Workbook: 4 of 23 gates, STOP on a failed test (DSCR below 1.2x in Years 1 to 4; 9 of 13 critical gates open). Disbursement waits until the critical gates the conditions address are evidenced |
 
 # Glossary
 

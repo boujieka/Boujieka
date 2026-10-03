@@ -333,7 +333,7 @@ def main(mpath, cpath):
                                         ec=GREEN if met else "#BBBBBB", lw=0.8))
             ax.text(x_, y, "Met" if met else ("Manual: not started" if typ == "Manual" else "Not met"), ha="center", va="center", fontsize=6.5,
                     color="white" if met else INK)
-    ax.text(0.0, -0.4, f"Gates met: default {gm['C4'].value} of 23; SolaraPay {gc['C4'].value} of 23. Readiness means ready for independent validation, never 'investment grade'.",
+    ax.text(0.0, -0.4, f"Gates met: default {gm['C4'].value} of 23; SolaraPay {gc['C4'].value} of 23. The decision reads evidence and tests only; it is never an investment recommendation.",
             fontsize=7.5, color=MUTED)
     save(fig, "fig14_readiness.png")
 

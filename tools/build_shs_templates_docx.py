@@ -391,9 +391,10 @@ def build_t01(out):
 
     doc.add_paragraph("11. Readiness gates and outstanding diligence", style="Heading 1")
     guide(doc, "Report the workbook's decision as the Investment_Readiness sheet computes it, on evidence only: STOP when a "
-               "test fails (master check, covenant breach, negative contribution); GO when all 23 gates are met; CONDITIONAL GO "
-               "when all 13 critical gates are met; otherwise STOP, evidence incomplete. A manual gate counts only when the sheet "
-               "records where the evidence is held and who signed it off. The decision measures whether the evidence is complete; "
+               "test fails (master check, covenant breach in a month or a year with DSCR below the minimum, negative contribution); "
+               "GO when all 23 gates are met; CONDITIONAL GO when all 13 critical gates are met; otherwise STOP, evidence incomplete. "
+               "A manual gate counts only when the sheet records where the evidence is held and who signed it off. A STOP on a failed "
+               "test is a finding against the plan as modelled; a STOP on incomplete evidence measures the file. "
                "the recommendation in section 1 is the deal team's judgement. Where the two differ, say why, and write the "
                "conditions so that disbursement waits until the critical gates they address are evidenced.")
     table(doc, ["Gates met (of 23)", "Critical gates met (of 13)", "Failed tests", "Workbook decision", "Deal team recommendation"],
@@ -577,7 +578,7 @@ CANVAS_EX = {
     "Revenue streams": "Hardware revenue at cash price; PAYGo financing income; sales based RBF.",
     "Funding stack": "USD 9.0m equity; USD 3.0m term loan; KVS 4.5bn local currency facility (proposed).",
     "Impact and consumer protection": "Payment burden above the model's 10% policy threshold for Tiers 2 to 4; Tier 1 implied APR 106%; no ownership evidence yet.",
-    "Key metrics": "Operational collection rate 69.3% over the last twelve months (not a PERFORM KPI); PAR30 17.0%; calibrated investor IRR 29.0%; readiness 5 of 23 gates, workbook decision STOP (8 of 13 critical gates open).",
+    "Key metrics": "Operational collection rate 69.3% over the last twelve months (not a PERFORM KPI); PAR30 17.0%; calibrated investor IRR 29.0%; readiness 4 of 23 gates, workbook decision STOP on a failed test (annual DSCR below 1.20x in Years 1 to 4; 9 of 13 critical gates open).",
 }
 
 

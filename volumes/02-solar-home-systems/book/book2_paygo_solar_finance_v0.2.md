@@ -37,7 +37,7 @@ Each chapter supports one decision. Chapter 1 sets out the business model and th
 
 ## How the book works with the model
 
-The book has a companion workbook, MODEL 2, the PAYGo Company Financial and Investment Model (version 0.8, in development at the time of this edition; the projections, valuations and readiness results quoted in the book are identical in the released version 0.7, while the treatment of external references and the integrity checks follow version 0.8), together with a user manual and a worked case study on SolaraPay Ltd, a fictional company in the fictional Republic of Kivara. The chapters refer to the workbook by sheet name, so that each concept can be tested on numbers. A reader who prefers to stay with the text can ignore those references; the argument stands without them. A reader who works through them will finish the book able to build, challenge and defend a PAYGo investment case.
+The book has a companion workbook, MODEL 2, the PAYGo Company Financial and Investment Model (version 0.8, in development at the time of this edition; the projections and valuations quoted in the book are identical in the released version 0.7, while the readiness results, the treatment of external references and the integrity checks follow version 0.8), together with a user manual and a worked case study on SolaraPay Ltd, a fictional company in the fictional Republic of Kivara. The chapters refer to the workbook by sheet name, so that each concept can be tested on numbers. A reader who prefers to stay with the text can ignore those references; the argument stands without them. A reader who works through them will finish the book able to build, challenge and defend a PAYGo investment case.
 
 All default inputs in the workbook, and all SolaraPay figures, are illustrative. They were chosen to make the mechanics visible and to resemble the orders of magnitude found in the sector, not to describe any real company. Where the book cites figures about real companies or about the sector, it says where they come from and how far they have been verified. Several published figures conflict with each other; the book reports the conflict rather than choosing the more convenient number.
 
@@ -229,7 +229,7 @@ The companion workbook is MODEL 2, the PAYGo Company Financial and Investment Mo
 
 The SolaraPay case, a fictional company in the fictional Republic of Kivara with a synthetic 24 month history, runs through every chapter. It is asking an impact fund for USD 4.0m of equity at USD 8.0m pre money and a local bank for a KVS 4.5bn receivables facility. Its management plan looks attractive; once the model is calibrated to its own history, the case becomes conditional. The way it moves from one to the other is the method this book teaches.
 
-The workbook never rates a company. Its *Investment_Readiness* sheet runs 23 gates, counts each one only on evidence, and applies a fixed rule: STOP when a test fails or critical evidence is missing, CONDITIONAL GO when every critical gate is met, GO only when all 23 are. A GO says that the evidence file is complete for a committee to decide; it is not a recommendation. In its default state the workbook passes 3 of the 23 gates and reads STOP on incomplete evidence; SolaraPay, with its history loaded, passes 5 and reads the same.
+The workbook never rates a company. Its *Investment_Readiness* sheet runs 23 gates, counts each one only on evidence, and applies a fixed rule: STOP when a test fails or critical evidence is missing, CONDITIONAL GO when every critical gate is met, GO only when all 23 are. A GO says that the evidence file is complete for a committee to decide; it is not a recommendation. In its default state the workbook passes 2 of the 23 gates and reads STOP on a failed test: the Base projection fails the lender's annual DSCR test in Years 1 to 4, so the covenant gate is not met. SolaraPay, with its history loaded, passes 4 and reads STOP for the same reason. That STOP is a finding against the business plan as modelled, not only a gap in the evidence.
 
 ## Points for the investment committee
 
@@ -1934,7 +1934,7 @@ The *Sensitivity* sheet holds single lever cases computed at default inputs. Sel
 | Securitisation structure | 46.5% | 0 |
 | Borrowing base eligibility extended to 90 DPD | 46.4% | 0 |
 
-Breach months count the monthly covenants on the *Covenants* sheet. The annual DSCR test is reported separately on *KPIs*: at default inputs the DSCR is below the 1.2x minimum in Years 1 to 4, which a lender would treat as a breach even though the column reads 0 in Base.
+Breach months count the monthly covenants on the *Covenants* sheet. The annual DSCR test is reported separately on *KPIs*: at default inputs the DSCR is below the 1.2x minimum in Years 1 to 4, which a lender would treat as a breach even though the column reads 0 in Base. The readiness test counts it: gate 10 on *Investment_Readiness* fails on a DSCR year as well as on a breach month (Chapter 15).
 
 Five readings follow.
 
@@ -2154,14 +2154,14 @@ The valuation outputs of the companion model, for the default company or for Sol
 
 ## 15.6 Readiness gates
 
-The *Investment_Readiness* sheet lists 23 gates. Automatic gates are tested by the workbook: model integrity, covenant compliance, positive unit contribution, a credit engine running on actual data, consumer protection evidence, support for outcome linked RBF and data reconciliation. Manual gates rest on external evidence: management sign off, term sheets, legal review, a full test of the workbook in Excel, auditor review of the ECL approach and similar items. A manual gate counts only when it is marked Met and the sheet records where the evidence is held and who signed it off; a gate marked Met without both is shown as not counted.
+The *Investment_Readiness* sheet lists 23 gates. Automatic gates are tested by the workbook: model integrity, covenant compliance (the monthly covenants and the annual DSCR), positive unit contribution, a credit engine running on actual data, consumer protection evidence, support for outcome linked RBF and data reconciliation. Manual gates rest on external evidence: management sign off, term sheets, legal review, a full test of the workbook in Excel, auditor review of the ECL approach and similar items. A manual gate counts only when it is marked Met and the sheet records where the evidence is held and who signed it off; a gate marked Met without both is shown as not counted.
 
-Thirteen gates are marked critical. The sheet then applies a rule that uses these results and nothing else. STOP when a test fails: the master check, a covenant breach in the active scenario, or a tier with negative lifetime contribution. GO only when all 23 gates are met. CONDITIONAL GO when every critical gate is met, with the open gates as conditions. Otherwise STOP, with the reason that the evidence is incomplete. A STOP on incomplete evidence says that the file is not ready for a decision; it is not a verdict on the business. A GO says that the evidence is complete; it is not an investment recommendation, and no memo should present it as one. At default inputs three gates are met and the rule reads STOP, with 10 of the 13 critical gates open. In the SolaraPay case, after loading 24 months of history, five gates are met and 8 critical gates remain open.
+Thirteen gates are marked critical. The sheet then applies a rule that uses these results and nothing else. STOP when a test fails: the master check, a covenant breach in the active scenario (any month in breach of a monthly covenant, or any year with DSCR below the 1.2x minimum), or a tier with negative lifetime contribution. GO only when all 23 gates are met. CONDITIONAL GO when every critical gate is met, with the open gates as conditions. Otherwise STOP, with the reason that the evidence is incomplete. A STOP on incomplete evidence says that the file is not ready for a decision; it is not a verdict on the business. A STOP on a failed test is different: it is a finding against the business plan as modelled. A GO says that the evidence is complete; it is not an investment recommendation, and no memo should present it as one. At default inputs two gates are met and the rule reads STOP on a failed test: the Base projection fails the lender's DSCR test in Years 1 to 4, and 11 of the 13 critical gates are open. In the SolaraPay case, after loading 24 months of history, four gates are met, 9 critical gates remain open, and the rule reads STOP on the same failed test. Section 11.6 explains why a DSCR covenant suits a growing book poorly; while the facility carries one, the projection fails it, and the remedy is to replace or reset the covenant with the lender, not to read past the test.
 
 The gates show on one page which conclusions rest on company data and which on proxy curves, and they translate naturally into conditions precedent: a gate not yet met is often a condition to attach.
 
 
-![Figure 14. The 23 readiness gates at default inputs and for SolaraPay. Automatic gates are computed by the workbook; manual gates stay open until evidence is recorded. Source: Investment_Readiness.](figures/fig14_readiness.png)
+![Figure 14. The 23 readiness gates at default inputs and for SolaraPay. Automatic gates are computed by the workbook; manual gates stay open until evidence is recorded. Gate 10 (no covenant breach in the active scenario) covers the monthly covenants and the annual DSCR; it is not met in either case because the DSCR is below the 1.2x minimum in Years 1 to 4, so both read STOP on a failed test. Source: Investment_Readiness.](figures/fig14_readiness.png)
 
 ## 15.7 The investment memo
 
@@ -2405,17 +2405,17 @@ With no usable external reference, the benchmark that matters is the one the ana
 
 The analyst recommends a Conditional Go: invest USD 4.0m, subject to seven conditions.
 
-The workbook's own rule reads STOP for the same file, because 8 of its 13 critical gates still lack evidence. The two do not contradict each other. The workbook measures whether the evidence file is complete; the recommendation is the analyst's judgement of what the investment needs. The committee should see both, and the conditions below are written so that disbursement waits until the critical gates they address are evidenced.
+The workbook's own rule reads STOP for the same file, on a failed test: the calibrated Base fails the annual DSCR covenant in Years 1 to 4 (Section 16.6), and 9 of its 13 critical gates still lack evidence. The STOP is therefore a finding against the business plan as modelled under the assumed facility terms, not only a gap in the file. The recommendation remains the analyst's judgement of what the investment needs, and it is explicitly conditional: the Conditional Go stands only if the DSCR covenant is replaced or reset with the lender, as Section 16.9 proposes, and if the critical gates are evidenced before disbursement. The committee should see both, and the conditions below are written so that disbursement waits for both.
 
 1. Pricing policy. Contractual or board approved indexation of new contract prices to the KVS/USD rate, equivalent to 100% FX pass through in the model. This is the most effective Downside mitigant identified.
 2. Tier 4 and 5 pilot cap. Tiers 4 and 5 held to their planned 13% of units and released in tranches only after twelve months of cohort data show repayment within 10% of plan, with portfolio at risk reported separately for these tiers.
-3. Collections plan before the facility. A written collections improvement plan with monthly targets, and a facility covenant the book can meet: 65% trailing collection with a cure period, stepping up as performance improves.
+3. Collections plan before the facility. A written collections improvement plan with monthly targets, and a facility covenant the book can meet: 65% trailing collection with a cure period, stepping up as performance improves. The annual DSCR covenant, which the projection fails in Years 1 to 4, is replaced by portfolio covenants or reset with the lender.
 4. Recovery assumptions. Repossession and resale rates cut to observed levels until a six month repossession programme demonstrates otherwise.
 5. Affordability redesign. Tier 2 to 4 price plans restructured, through longer tenors or higher deposits, so that the instalment stays within 10% of target segment income, with incomes validated by customer surveys.
 6. Valuation protection. A pre money valuation closer to USD 6m, or a ratchet tied to Year 2 cohort performance.
 7. Data and validation. Monthly updates of *Credit_Input* and *Vintage_Input*, ownership tracking at twice the tenor from launch, independent review of the ECL approach and accounting, a full test of the workbook in Excel, and management sign off.
 
-The case meets 5 of the 23 readiness gates, and the workbook's evidence rule reads STOP until the open critical gates are evidenced. The memo says so. The conditions close the most material gaps: two address the largest equity risks, two align the lender's protection with the evidence, one addresses affordability, one price, and one creates the data the next review will need.
+The case meets 4 of the 23 readiness gates, and the workbook's rule reads STOP on a failed test, the annual DSCR, with 9 critical gates still to be evidenced. The memo says so. The conditions close the most material gaps: two address the largest equity risks, two align the lender's protection with the evidence, one addresses affordability, one price, and one creates the data the next review will need.
 
 Condition 5 contains a tension the committee should see. Longer tenors lower the instalment but give default hazard more months to act; higher deposits avoid that but screen out the poorest households. Both should be tested on *Unit_Economics* and *Consumer_Risk*.
 
@@ -2444,7 +2444,7 @@ Finally, the analyst would resist the attraction of Tiers 4 and 5. They are wher
 3. Confirm that full FX price indexation is achievable in Kivara commercially and legally (to be confirmed with local counsel) before relying on it.
 4. Agree the Tier 4 and 5 pilot cap and the evidence required to release it, and do not price the investment on those tiers' unit economics.
 5. Coordinate with the bank on the collection covenant level, cure period and reporting.
-6. Record that the case meets 5 of 23 readiness gates and that the evidence rule reads STOP, and map each condition to the gate or risk it addresses.
+6. Record that the case meets 4 of 23 readiness gates and that the rule reads STOP on a failed test (DSCR below 1.2x in Years 1 to 4), make the Conditional Go conditional on the DSCR covenant being replaced or reset with the lender, and map each condition to the gate or risk it addresses.
 
 ## Working with the model
 
