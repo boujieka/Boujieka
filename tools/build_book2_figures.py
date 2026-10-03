@@ -5,8 +5,15 @@ The two workbooks are the companion model and the SolaraPay case model AFTER a f
 headless conversion), so that every charted number is a value computed by the workbook itself. Worked examples that live in the
 text (Chapter 1.4) are recomputed here from the parameters stated in the text.
 Output: volumes/02-solar-home-systems/book/figures/figNN_*.png (300 dpi).
+
+Print mode: python tools/build_book2_figures.py <model_values.xlsx> <case_values.xlsx> --print
+redraws the same 15 figures for a black ink interior: a grey palette, line styles, markers, hatching and direct labels carry
+every distinction that colour carries in the default figures. Output: volumes/02-solar-home-systems/book/figures_print/
+(greyscale PNG, 450 dpi so that a figure stretched to the text width of a 7 x 10 in page stays above 300 ppi). Before drawing,
+the contrast of every text and fill pair used in print mode is checked against WCAG ratios after greyscale conversion.
+Without the flag the output is unchanged.
 """
-import sys
+import argparse
 from pathlib import Path
 
 import matplotlib
@@ -20,15 +27,61 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "volumes/02-solar-home-systems/book/figures"
 GREEN, GOLD, INK, MUTED, GRID, PALE = "#0B3020", "#B07C0F", "#222222", "#666666", "#E3E3E3", "#F7F3E8"
 TIER = ["#1E8A5C", "#B07C0F", "#3E7CB1", "#A3473A", "#7B5EA7"]  # validated categorical order (dataviz validator, light surface)
+BLUE, RED, LIGHT = "#3E7CB1", "#A3473A", "#BBBBBB"
+PRINT = False
+DPI = 300
+# print mode only: line styles and markers per tier, hatches for fills that must differ without colour
+TIER_LS = ["-", "--", "-.", ":", (0, (5, 1.5, 1, 1.5, 1, 1.5))]
+TIER_MK = ["o", "s", "^", "D", "v"]
 plt.rcParams.update({"font.family": "Liberation Sans", "font.size": 9, "axes.edgecolor": "#BBBBBB", "axes.labelcolor": INK,
                      "xtick.color": MUTED, "ytick.color": MUTED, "axes.spines.top": False, "axes.spines.right": False,
                      "axes.titlesize": 10, "axes.titleweight": "bold", "axes.titlecolor": INK, "savefig.dpi": 300})
 
 
+def set_print_mode():
+    """Switch the module palette to greys for a black ink interior and write to figures_print/."""
+    global PRINT, DPI, OUT, GREEN, GOLD, MUTED, GRID, PALE, TIER, BLUE, RED, LIGHT
+    PRINT, DPI = True, 450
+    OUT = ROOT / "volumes/02-solar-home-systems/book/figures_print"
+    GREEN, GOLD, MUTED, GRID, PALE = "#1F1F1F", "#6B6B6B", "#4D4D4D", "#D6D6D6", "#EDEDED"
+    BLUE, RED, LIGHT = "#A6A6A6", "#5C5C5C", "#C9C9C9"
+    TIER = ["#1F1F1F", "#4D4D4D", "#7A7A7A", "#9E9E9E", "#5C5C5C"]
+    check_contrast()
+
+
+def _lum(hexc):
+    """Relative luminance (WCAG 2) of a colour after conversion to grey, as a black ink press would print it."""
+    r, g, b = (int(hexc[k:k + 2], 16) / 255 for k in (1, 3, 5))
+    grey = 0.299 * r + 0.587 * g + 0.114 * b  # same weights as the greyscale conversion of the saved PNG
+    return grey / 12.92 if grey <= 0.04045 else ((grey + 0.055) / 1.055) ** 2.4
+
+
+def contrast(a, b):
+    la, lb = sorted((_lum(a), _lum(b)), reverse=True)
+    return (la + 0.05) / (lb + 0.05)
+
+
+def check_contrast():
+    """Text on fill at least 4.5:1 (WCAG AA); neighbouring fills at least 1.4:1 so that areas separate in grey."""
+    text_pairs = [(INK, "#FFFFFF"), (MUTED, "#FFFFFF"), ("#FFFFFF", GREEN), ("#FFFFFF", GOLD), ("#FFFFFF", RED), (INK, PALE),
+                  (INK, LIGHT), (INK, BLUE), ("#FFFFFF", TIER[0]), ("#FFFFFF", TIER[1]), (INK, GRID)]
+    fill_pairs = [(GREEN, LIGHT), (GREEN, GOLD), (GOLD, LIGHT), (GREEN, BLUE), (BLUE, "#FFFFFF"), (LIGHT, RED), (GREEN, RED),
+                  (PALE, "#FFFFFF")]
+    bad = [f"text {a} on {b}: {contrast(a, b):.2f}" for a, b in text_pairs if contrast(a, b) < 4.5]
+    bad += [f"fills {a} / {b}: {contrast(a, b):.2f}" for a, b in fill_pairs if contrast(a, b) < 1.1]
+    if bad:
+        raise SystemExit("greyscale contrast check failed: " + "; ".join(bad))
+    print("greyscale contrast check passed:", ", ".join(f"{a}/{b} {contrast(a, b):.1f}" for a, b in text_pairs))
+
+
 def save(fig, name):
     OUT.mkdir(parents=True, exist_ok=True)
-    fig.savefig(OUT / name, bbox_inches="tight", facecolor="white")
+    fig.savefig(OUT / name, bbox_inches="tight", facecolor="white", dpi=DPI)
     plt.close(fig)
+    if PRINT:  # store as true greyscale so the press receives no colour data
+        from PIL import Image
+        im = Image.open(OUT / name)
+        im.convert("L").save(OUT / name, dpi=(DPI, DPI), optimize=True)
     print(name)
 
 
@@ -37,13 +90,16 @@ def grid(ax, axis="y"):
     ax.set_axisbelow(True)
 
 
-def box(ax, x, y, w, h, text, fc=PALE, ec=GREEN, color=INK, size=8.5, bold=False):
-    ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0.012,rounding_size=0.015", fc=fc, ec=ec, lw=1.1))
+def box(ax, x, y, w, h, text, fc=None, ec=None, color=INK, size=8.5, bold=False, ls="-", lw=1.1, hatch=None):
+    fc, ec = PALE if fc is None else fc, GREEN if ec is None else ec
+    ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0.012,rounding_size=0.015", fc=fc, ec=ec, lw=lw, ls=ls,
+                                hatch=hatch))
     ax.text(x + w / 2, y + h / 2, text, ha="center", va="center", fontsize=size, color=color, wrap=True,
             fontweight="bold" if bold else "normal")
 
 
-def arrow(ax, x0, y0, x1, y1, color=GREEN):
+def arrow(ax, x0, y0, x1, y1, color=None):
+    color = GREEN if color is None else color
     ax.add_patch(FancyArrowPatch((x0, y0), (x1, y1), arrowstyle="-|>", mutation_scale=10, color=color, lw=1.1))
 
 
@@ -95,7 +151,7 @@ def main(mpath, cpath):
         x = 0.03 + k * 0.33
         box(ax, x, 0.62, 0.28, 0.2, t, fc=GREEN, color="white", bold=True, size=9)
         box(ax, x, 0.33, 0.28, 0.22, d, size=8)
-        box(ax, x, 0.05, 0.28, 0.2, n, fc="white", ec=GOLD, size=8)
+        box(ax, x, 0.05, 0.28, 0.2, n, fc="white", ec=GOLD, size=8, ls="--" if PRINT else "-")
         arrow(ax, x + 0.14, 0.62, x + 0.14, 0.55)
         arrow(ax, x + 0.14, 0.33, x + 0.14, 0.25)
     ax.text(0.03, 0.9, "One PAYGo company, three businesses: what each one does, and where it shows in the numbers", fontsize=8.5, color=MUTED)
@@ -112,9 +168,14 @@ def main(mpath, cpath):
         prof_late.append(prof_late[-1] + 16560 / T - (inst - coll))
     fig, ax = plt.subplots(figsize=(7.0, 3.4))
     grid(ax)
-    for ys, lab, col_, ls in ((cash, "Cumulative cash", GREEN, "-"), (prof_orig, "Cumulative profit, lifetime loss charged at sale (workbook)", GOLD, "-"),
-                              (prof_late, "Cumulative profit, losses charged as instalments are missed", "#3E7CB1", "--")):
-        ax.plot(months, [v / 1000 for v in ys], color=col_, lw=2, ls=ls, label=lab)
+    for ys, lab, col_, ls, mk in ((cash, "Cumulative cash", GREEN, "-", "o"),
+                                  (prof_orig, "Cumulative profit, lifetime loss charged at sale (workbook)", GOLD, "-.", "s"),
+                                  (prof_late, "Cumulative profit, losses charged as instalments are missed", "#3E7CB1", "--", "^")):
+        if PRINT:
+            ax.plot(months, [v / 1000 for v in ys], color=col_ if col_ != "#3E7CB1" else "#8C8C8C", lw=1.8, ls=ls, marker=mk,
+                    markevery=(2, 4), ms=4.5, mfc="white", label=lab)
+        else:
+            ax.plot(months, [v / 1000 for v in ys], color=col_, lw=2, ls="--" if mk == "^" else "-", label=lab)
     ax.legend(frameon=False, fontsize=8, loc="lower right")
     ax.axhline(0, color="#999999", lw=0.8)
     pay = next(m for m in months if cash[m] > 0)
@@ -135,11 +196,13 @@ def main(mpath, cpath):
     thr = cr_ws["C4"].value
     fig, ax = plt.subplots(figsize=(6.4, 3.0))
     grid(ax)
-    bars = ax.bar(tiers, [b * 100 for b in burden], color=[TIER[k] for k in range(5)], width=0.55)
+    bars = ax.bar(tiers, [b * 100 for b in burden], color=LIGHT if PRINT else [TIER[k] for k in range(5)], width=0.55,
+                  edgecolor=GREEN if PRINT else None, linewidth=0.8 if PRINT else 0)
     for b_, v in zip(bars, burden):
         ax.text(b_.get_x() + b_.get_width() / 2, v * 100 + 0.3, f"{v * 100:.1f}%", ha="center", fontsize=8, color=INK)
     ax.axhline(thr * 100, color=INK, lw=1, ls="--")
-    ax.text(4.45, thr * 100 + 0.3, f"Model policy threshold {thr * 100:.0f}%", ha="right", fontsize=8, color=INK)
+    ax.text(4.45, thr * 100 + 0.3, f"Model policy threshold {thr * 100:.0f}%", ha="right", fontsize=8, color=INK,
+            bbox=dict(fc="white", ec="none", pad=1) if PRINT else None)
     ax.set_ylabel("Instalment as % of household income")
     ax.set_title("Payment burden by tier, default model (illustrative incomes)", loc="left")
     save(fig, "fig04_burden.png")
@@ -147,7 +210,7 @@ def main(mpath, cpath):
     # ---- Figure 5: cumulative repayment by account age and tier (Curves, default model)
     cv = M["Curves"]
     ends = []
-    fig, ax = plt.subplots(figsize=(7.0, 3.4))
+    fig, ax = plt.subplots(figsize=(5.9, 3.6) if PRINT else (7.0, 3.4))
     grid(ax)
     for j in range(5):
         c0 = 2 + j * 13
@@ -161,15 +224,20 @@ def main(mpath, cpath):
             if due[a] > 0 or cd > 0:
                 xs.append(a)
                 ys.append(cc / cd * 100 if cd else None)
-        ax.plot(xs, ys, color=TIER[j], lw=2)
+        if PRINT:
+            ax.plot(xs, ys, color=TIER[j], lw=1.7, ls=TIER_LS[j], marker=TIER_MK[j], markevery=(j * 2, 10), ms=4.5, mfc="white")
+        else:
+            ax.plot(xs, ys, color=TIER[j], lw=2)
         ends.append((ys[-1], j))
     ends.sort()
     placed = []
     for y_, j in ends:
         yl = max(y_, placed[-1] + 1.4) if placed else y_
         placed.append(yl)
-        ax.annotate(f"Tier {j + 1}  {y_:.0f}%", (60, y_), xytext=(61, yl), textcoords="data", va="center", fontsize=8, color=INK,
+        ax.annotate(f"Tier {j + 1}  {y_:.0f}%", (60, y_), xytext=(62.4 if PRINT else 61, yl), textcoords="data", va="center", fontsize=8, color=INK,
                     annotation_clip=False)
+        if PRINT:  # line key: the end label carries the tier, the marker beside it repeats the line's marker
+            ax.plot([61.2], [yl], marker=TIER_MK[j], ms=4.5, mfc="white", color=TIER[j], clip_on=False, ls="none")
     ax.set_xlim(1, 60)
     ax.set_xlabel("Account age (months)")
     ax.set_ylabel("Cumulative collections ÷ cumulative instalments due (%)")
@@ -188,7 +256,8 @@ def main(mpath, cpath):
     fig, ax = plt.subplots(figsize=(6.4, 3.0))
     grid(ax)
     xs = range(3)
-    b1 = ax.bar([x - 0.18 for x in xs], [p * 100 for p in plan], width=0.34, color="#BBBBBB", label="Management plan (default curves)")
+    b1 = ax.bar([x - 0.18 for x in xs], [p * 100 for p in plan], width=0.34, color="white" if PRINT else "#BBBBBB",
+                hatch="///" if PRINT else None, edgecolor=GOLD if PRINT else None, label="Management plan (default curves)")
     b2 = ax.bar([x + 0.18 for x in xs], [a * 100 for a in actual], width=0.34, color=GREEN, label="SolaraPay cohorts (synthetic history)")
     for bars_, vals in ((b1, plan), (b2, actual)):
         for b_, v in zip(bars_, vals):
@@ -203,11 +272,12 @@ def main(mpath, cpath):
     # ---- Figure 7: metric map (PERFORM 2026 KPIs and operational metrics)
     fig, ax = canvas(7.4, 3.6)
     box(ax, 0.02, 0.6, 0.46, 0.3, "PAYGo PERFORM KPIs (June 2026)\nRR paid vs plan · RR paid vs financed\nRR at 90 days · RR at 2x term · Ownership rate at 2x",
-        fc=GREEN, color="white", size=8.5)
+        fc=GREEN, color="white", size=7.8 if PRINT else 8.5)
     box(ax, 0.52, 0.6, 0.46, 0.3, "Operational and lender metrics\nCollection rate · PAR30, PAR90 · Receivables at risk\nWrite off ratio · Active ratio · Enabled rate",
-        fc=PALE, size=8.5)
+        fc=PALE, size=7.8 if PRINT else 8.5)
     box(ax, 0.02, 0.12, 0.46, 0.36, "Answers: how well do customers repay,\nand how many come to own the device?\nContract data, daily, payments applied to\ninstalments; subsidies excluded", fc="white", ec=GREEN, size=8)
-    box(ax, 0.52, 0.12, 0.46, 0.36, "Answers: how much cash came in this month,\nhow much of the book is late, is the\ncovenant met? Definition printed beside\neach figure; never a substitute for RR", fc="white", ec=GOLD, size=8)
+    box(ax, 0.52, 0.12, 0.46, 0.36, "Answers: how much cash came in this month,\nhow much of the book is late, is the\ncovenant met? Definition printed beside\neach figure; never a substitute for RR", fc="white", ec=GOLD, size=8,
+        ls="--" if PRINT else "-")
     arrow(ax, 0.25, 0.6, 0.25, 0.48)
     arrow(ax, 0.75, 0.6, 0.75, 0.48, color=GOLD)
     save(fig, "fig07_metric_map.png")
@@ -216,9 +286,9 @@ def main(mpath, cpath):
     kp = M["KPIs"]
     cr_y = row(kp, 19, 5, 5)
     units = row(kp, 14, 5, 5)
-    fig, (a1, a2) = plt.subplots(1, 2, figsize=(7.2, 2.9))
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(6.0, 2.9) if PRINT else (7.2, 2.9))
     years = [f"Y{k}" for k in range(1, 6)]
-    for ax, vals, fmt, title, col_ in ((a1, [u / 1000 for u in units], "{:.0f}k", "Units sold per year", "#BBBBBB"),
+    for ax, vals, fmt, title, col_ in ((a1, [u / 1000 for u in units], "{:.0f}k", "Units sold per year", LIGHT if PRINT else "#BBBBBB"),
                                       (a2, [c * 100 for c in cr_y], "{:.1f}%", "Portfolio collection rate", GREEN)):
         grid(ax)
         bars = ax.bar(years, vals, color=col_, width=0.55)
@@ -233,12 +303,14 @@ def main(mpath, cpath):
     # ---- Figure 9: FX map
     fig, ax = canvas(7.4, 3.4)
     box(ax, 0.02, 0.62, 0.3, 0.28, "Local currency\nPrices, deposits, instalments\nReceivables · Facility\nServicing, staff, overheads", fc=PALE, size=8)
-    box(ax, 0.68, 0.62, 0.3, 0.28, "US dollars\nHardware · RBF per unit\nTerm loan · Investor ticket\nand returns", fc=PALE, ec=GOLD, size=8)
+    box(ax, 0.68, 0.62, 0.3, 0.28, "US dollars\nHardware · RBF per unit\nTerm loan · Investor ticket\nand returns", fc=PALE, ec=GOLD, size=8,
+        ls="--" if PRINT else "-")
     box(ax, 0.35, 0.66, 0.3, 0.2, "Exchange rate path\n(Timeline)", fc=GREEN, color="white", size=8.5)
     arrow(ax, 0.32, 0.76, 0.35, 0.76)
     arrow(ax, 0.68, 0.76, 0.65, 0.76, color=GOLD)
     box(ax, 0.02, 0.08, 0.46, 0.38, "Transaction effects (cash)\nDearer hardware on every new unit\nLarger local repayments and interest on the loan\nMore local currency per USD of RBF", fc="white", ec=GREEN, size=8)
-    box(ax, 0.52, 0.08, 0.46, 0.38, "Translation effects (no cash)\nDollar loan restated each month\n(loss booked in the income statement)\nBook and equity worth less in USD", fc="white", ec=GOLD, size=8)
+    box(ax, 0.52, 0.08, 0.46, 0.38, "Translation effects (no cash)\nDollar loan restated each month\n(loss booked in the income statement)\nBook and equity worth less in USD", fc="white", ec=GOLD, size=8,
+        ls="--" if PRINT else "-")
     arrow(ax, 0.5, 0.66, 0.25, 0.46)
     arrow(ax, 0.5, 0.66, 0.75, 0.46, color=GOLD)
     save(fig, "fig09_fx_map.png")
@@ -251,9 +323,19 @@ def main(mpath, cpath):
     fig, ax = plt.subplots(figsize=(7.0, 3.3))
     grid(ax)
     m_ = list(range(1, 61))
-    ax.stackplot(m_, eq, tl, rf, colors=[GREEN, GOLD, "#3E7CB1"], alpha=0.9, edgecolor="white", linewidth=0.5)
-    for lab, y_, c_ in (("Cumulative equity invested", eq[-1] / 2, "white"), ("USD term loan (in LCY)", None, INK),
-                        ("Receivables facility drawn", eq[-1] + tl[-1] + rf[-1] / 2, "white")):
+    if PRINT:  # dark, light, hatched: three bands that separate without colour; labels on a white key where hatched
+        polys = ax.stackplot(m_, eq, tl, rf, colors=[GREEN, LIGHT, "white"], edgecolor=INK, linewidth=0.5)
+        polys[2].set_hatch("////")
+        polys[2].set_edgecolor(GOLD)
+        ax.text(59, eq[-1] / 2, "Cumulative equity invested", ha="right", va="center", fontsize=8, color="white")
+        ax.text(14, eq[13] + tl[13] / 2, "USD term loan (in LCY)", ha="center", va="center", fontsize=8, color=INK)
+        ax.text(59, eq[-1] + tl[-1] + rf[-1] / 2, "Receivables facility drawn", ha="right", va="center", fontsize=8, color=INK,
+                bbox=dict(fc="white", ec="none", pad=1.5))
+    else:
+        ax.stackplot(m_, eq, tl, rf, colors=[GREEN, GOLD, "#3E7CB1"], alpha=0.9, edgecolor="white", linewidth=0.5)
+    colour_labels = (("Cumulative equity invested", eq[-1] / 2, "white"), ("USD term loan (in LCY)", None, INK),
+                     ("Receivables facility drawn", eq[-1] + tl[-1] + rf[-1] / 2, "white"))
+    for lab, y_, c_ in () if PRINT else colour_labels:
         if y_ is None:
             ax.text(14, eq[13] + tl[13] / 2, lab, ha="center", va="center", fontsize=8, color="white")
         else:
@@ -285,9 +367,12 @@ def main(mpath, cpath):
         if name and isinstance(irr, (int, float)):
             cases.append((name.replace("Base: ", ""), irr))
     cases.sort(key=lambda x: x[1])
-    fig, ax = plt.subplots(figsize=(7.0, 4.0))
+    if PRINT:  # wrap the long case names so the figure keeps its type size when set at the text width of the page
+        import textwrap
+        cases = [("\n".join(textwrap.wrap(n, 30)), v) for n, v in cases]
+    fig, ax = plt.subplots(figsize=(4.6, 5.4) if PRINT else (7.0, 4.0))
     grid(ax, "x")
-    cols_ = [GREEN if n == "Base" else ("#A3473A" if v < 0 else "#BBBBBB") for n, v in cases]
+    cols_ = [GREEN if n == "Base" else ((RED if PRINT else "#A3473A") if v < 0 else (LIGHT if PRINT else "#BBBBBB")) for n, v in cases]
     ax.barh([n for n, _ in cases], [v * 100 for _, v in cases], color=cols_, height=0.6)
     for k, (n, v) in enumerate(cases):
         if v >= 0:
@@ -296,15 +381,21 @@ def main(mpath, cpath):
             ax.text(v * 100 + 1, k, f"({-v * 100:.1f}%)", va="center", ha="left", fontsize=7.5, color="white")
     ax.axvline(0, color="#999999", lw=0.8)
     ax.set_xlabel("Investor IRR in USD (%)")
-    ax.tick_params(axis="y", labelsize=7.5)
-    ax.set_title("Investor IRR by case, default model (Severe has no IRR: no positive flow)", loc="left")
+    ax.tick_params(axis="y", labelsize=8 if PRINT else 7.5)
+    if PRINT:
+        ax.set_title("Investor IRR by case, default model\n(Severe has no IRR: no positive flow)", loc="left")
+    else:
+        ax.set_title("Investor IRR by case, default model (Severe has no IRR: no positive flow)", loc="left")
     save(fig, "fig12_irr_cases.png")
 
     # ---- Figure 13: peak equity by scenario
     pe = [(sn.cell(r, 1).value, sn.cell(r, 2).value) for r in (6, 7, 8)]
     fig, ax = plt.subplots(figsize=(5.6, 2.8))
     grid(ax)
-    bars = ax.bar([p[0] for p in pe], [p[1] for p in pe], color=[GREEN, GOLD, "#A3473A"], width=0.5)
+    bars = ax.bar([p[0] for p in pe], [p[1] for p in pe], color=["white", LIGHT, GREEN] if PRINT else [GREEN, GOLD, "#A3473A"],
+                  width=0.5, edgecolor=GREEN if PRINT else None, hatch=None)
+    if PRINT:
+        bars[0].set_hatch("///")
     for b_, (_, v) in zip(bars, pe):
         ax.text(b_.get_x() + b_.get_width() / 2, v + 0.8, f"USD {v:.1f}m", ha="center", fontsize=8)
     ax.set_ylabel("Peak equity requirement (USD m)")
@@ -313,32 +404,47 @@ def main(mpath, cpath):
 
     # ---- Figure 14: readiness gates, default model and SolaraPay
     gm, gc = M["Investment_Readiness"], C["Investment_Readiness"]
-    fig, ax = plt.subplots(figsize=(7.2, 5.6))
+    fig, ax = plt.subplots(figsize=(6.0, 6.4) if PRINT else (7.2, 5.6))
     ax.axis("off")
     ax.set_xlim(0, 1)
     ax.set_ylim(-0.5, 24.5)
-    ax.text(0.72, 24, "Default model", ha="center", fontsize=8.5, fontweight="bold")
-    ax.text(0.89, 24, "SolaraPay", ha="center", fontsize=8.5, fontweight="bold")
+    if PRINT:
+        ax.set_position([0.01, 0.02, 0.98, 0.96])
+    xa, xb = (0.725, 0.905) if PRINT else (0.72, 0.89)  # print: larger type, so the status columns move right
+    ax.text(xa, 24, "Default model", ha="center", fontsize=8.5, fontweight="bold")
+    ax.text(xb, 24, "SolaraPay", ha="center", fontsize=8.5, fontweight="bold")
     for k in range(23):
         r = 7 + k
         y = 23 - k
         gname = gm.cell(r, 2).value
         gname = gname if len(gname) <= 62 else gname[:60].rsplit(" ", 1)[0] + "..."
-        ax.text(0.0, y, f"{k + 1:>2}  {gname}", va="center", fontsize=7.0, color=INK)
-        for x_, ws in ((0.72, gm), (0.89, gc)):
+        ax.text(0.0, y, f"{k + 1:>2}  {gname}", va="center", fontsize=7.6 if PRINT else 7.0, color=INK)
+        for x_, ws in ((xa, gm), (xb, gc)):
             res = ws.cell(r, 5).value
             typ = ws.cell(r, 3).value
             met = res == "Met"
-            ax.add_patch(FancyBboxPatch((x_ - 0.065, y - 0.36), 0.13, 0.72, boxstyle="round,pad=0.01", fc=GREEN if met else ("white" if typ == "Manual" else "#F2DCDB"),
-                                        ec=GREEN if met else "#BBBBBB", lw=0.8))
-            ax.text(x_, y, "Met" if met else ("Manual: not started" if typ == "Manual" else "Not met"), ha="center", va="center", fontsize=6.5,
-                    color="white" if met else INK)
-    ax.text(0.0, -0.4, f"Gates met: default {gm['C4'].value} of 23; SolaraPay {gc['C4'].value} of 23. The decision reads evidence and tests only; it is never an investment recommendation.",
-            fontsize=7.5, color=MUTED)
+            nm_fc, nm_ec = (LIGHT, GOLD) if PRINT else ("#F2DCDB", "#BBBBBB")
+            hw = 0.065
+            ax.add_patch(FancyBboxPatch((x_ - hw, y - 0.36), 2 * hw, 0.72, boxstyle="round,pad=0.01", fc=GREEN if met else ("white" if typ == "Manual" else nm_fc),
+                                        ec=GREEN if met else (GOLD if PRINT and typ == "Manual" else nm_ec), lw=0.8,
+                                        ls="--" if PRINT and not met and typ == "Manual" else "-"))
+            manual = "Manual" if PRINT else "Manual: not started"  # print: the key line below explains "Manual"
+            ax.text(x_, y, "Met" if met else (manual if typ == "Manual" else "Not met"), ha="center", va="center",
+                    fontsize=7.4 if PRINT else 6.5, color="white" if met else INK)
+    if PRINT:
+        ax.set_ylim(-1.9, 24.5)
+        ax.text(0.0, -0.6, f"Gates met: default {gm['C4'].value} of 23; SolaraPay {gc['C4'].value} of 23. Manual: a manual gate, not started.",
+                fontsize=7.6, color=MUTED)
+        ax.text(0.0, -1.5, "The decision reads evidence and tests only; it is never an investment recommendation.", fontsize=7.6, color=MUTED)
+    else:
+        ax.text(0.0, -0.4, f"Gates met: default {gm['C4'].value} of 23; SolaraPay {gc['C4'].value} of 23. The decision reads evidence and tests only; it is never an investment recommendation.",
+                fontsize=7.5, color=MUTED)
     save(fig, "fig14_readiness.png")
 
     # ---- Figure 15: investment committee decision flow
     fig, ax = canvas(7.4, 3.0)
+    if PRINT:  # room for the outlined Stop box, whose heavy border would otherwise be cut at the right edge
+        ax.set_xlim(0, 1.015)
     flow = ["Data request\nand cohort tape", "Recalibrate the\nmodel to history", "Stress and\nfunding tests", "Readiness gates\nand red flags"]
     for k, t in enumerate(flow):
         x = 0.02 + k * 0.19
@@ -346,13 +452,24 @@ def main(mpath, cpath):
         if k < 3:
             arrow(ax, x + 0.15, 0.7, x + 0.19, 0.7)
     outs = [("Go", GREEN, "white"), ("Conditional go\n(conditions,\ncovenants, caps)", GOLD, "white"), ("Stop", "#A3473A", "white")]
+    if PRINT:  # dark, mid grey and outlined: the outcome reads from the label and the fill, never from hue
+        outs[2] = ("Stop", "white", INK)
     for k, (t, fc, tc) in enumerate(outs):
         y = 0.74 - k * 0.32
-        box(ax, 0.8, y, 0.19, 0.24 if k == 1 else 0.17, t, fc=fc, color=tc, size=7.5, bold=True)
+        box(ax, 0.8, y, 0.19, 0.24 if k == 1 else 0.17, t, fc=fc, color=tc, size=7.5, bold=True,
+            lw=2.2 if PRINT and k == 2 else 1.1)
         arrow(ax, 0.74, 0.7, 0.8, y + 0.09)
     ax.text(0.02, 0.2, "Each outcome is tied to evidence: a condition names the gate or the risk it addresses.", fontsize=8, color=MUTED)
     save(fig, "fig15_ic_flow.png")
 
 
 if __name__ == "__main__":
-    main(sys.argv[1], sys.argv[2])
+    ap = argparse.ArgumentParser(description="Book 2 figures")
+    ap.add_argument("model_values")
+    ap.add_argument("case_values")
+    ap.add_argument("--print", dest="print_mode", action="store_true",
+                    help="greyscale figures for a black ink interior, written to book/figures_print/")
+    a = ap.parse_args()
+    if a.print_mode:
+        set_print_mode()
+    main(a.model_values, a.case_values)

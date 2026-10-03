@@ -180,3 +180,11 @@ Open from the red team report:
 | L5 | LibreOffice rewrites chart series and small constants on save | Documented: distribute the generated file only (MANUAL 2 troubleshooting) | n/a |
 
 Default and case values unchanged in every cell compared (all numeric cells of both workbooks). MANUAL 2 republished (25 pages).
+
+## Publication research and preparation (3 October 2026)
+
+* 16 Source research: sector and company sources searched. Primary hosts were refused by the network policy, so no register status changed. The ESMAP 62% period wording is in conflict between secondary sources; the book is unchanged pending the document.
+* 17 Expert review (preparatory, not a practitioner review): 50 findings, of which the major ones are listed for a correction cycle (allowance against ECL disclosure, PAR30 in proxy mode, draw stop on covenant breach, nominal against effective APR, advance rate sizing, 180 DPD default framing, roll rate period in 6.4).
+* 18 Copyedit (first pass, not a professional copyedit): 139 edits applied to the book.
+* 19 Rights audit (not a legal opinion): copyright page, fixed copyright year, licence notices and a no endorsement statement to add; Annex G items E4 and E9 to reconcile.
+* 20 Print production drafts: 7x10 interior (176 pages), wrap cover, greyscale figures for print, test EPUB. The print and Kindle builds print figure captions. Build tools added: build_book2_print.py, build_book2_cover.py, build_book2_kindle.py.
