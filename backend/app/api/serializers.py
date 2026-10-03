@@ -2,7 +2,7 @@
 
 from app.analytics import calculations as calc
 from app.models import Auction, Country, Security, Source
-from app.models.enums import FieldStatus
+from app.models.enums import CoverageTier, FieldStatus
 from app.schemas import (
     AuctionCalculated,
     AuctionOfficial,
@@ -65,10 +65,15 @@ def provenance(obj, source: Source | None) -> Provenance:
     )
 
 
-def country_out(country: Country, sources: dict[int, Source]) -> CountryOut:
+def country_out(
+    country: Country, sources: dict[int, Source], with_market_data: set[int]
+) -> CountryOut:
     return CountryOut(
         **{f: getattr(country, f) for f in CountryOut.model_fields if hasattr(Country, f)
            and f not in ("field_status", "provenance")},
+        coverage_tier=CoverageTier.MARKET_DATA
+        if country.country_id in with_market_data
+        else CoverageTier.REFERENCE_ONLY,
         field_status=resolve_field_status(country, COUNTRY_OPTIONAL_FIELDS),
         provenance=provenance(country, sources.get(country.source_id)),
     )
@@ -125,3 +130,10 @@ def auction_out(a: Auction, sources: dict[int, Source]) -> AuctionOut:
         field_status=resolve_field_status(a, AUCTION_OFFICIAL_FIELDS),
         provenance=provenance(a, sources.get(a.source_id)),
     )
+
+
+def countries_with_market_data(session) -> set[int]:
+    """Country ids that have at least one security loaded."""
+    from sqlalchemy import select
+
+    return set(session.scalars(select(Security.country_id).distinct()))

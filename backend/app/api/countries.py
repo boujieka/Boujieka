@@ -5,7 +5,7 @@ from fastapi import APIRouter, HTTPException, Query
 from sqlalchemy import func, or_, select
 
 from app.api.deps import AsOfDep, SessionDep, SourcesDep
-from app.api.serializers import country_out
+from app.api.serializers import country_out, countries_with_market_data
 from app.models import Auction, Country, Security, Source
 from app.models.enums import AuctionStatus, MonetaryZone
 from app.schemas import CountryDetail, CountryOut, SourceOut, YieldCurve, YieldCurvePoint
@@ -29,7 +29,8 @@ def _get_country(session, iso3: str) -> Country:
 @router.get("", response_model=list[CountryOut])
 def list_countries(session: SessionDep, sources: SourcesDep) -> list[CountryOut]:
     rows = session.scalars(select(Country).where(Country.is_monitored).order_by(Country.name))
-    return [country_out(c, sources) for c in rows]
+    covered = countries_with_market_data(session)
+    return [country_out(c, sources, covered) for c in rows]
 
 
 @router.get("/{iso3}", response_model=CountryDetail)
@@ -59,7 +60,7 @@ def get_country(iso3: str, session: SessionDep, sources: SourcesDep, as_of: AsOf
         )
     ).all()
     return CountryDetail(
-        **country_out(country, sources).model_dump(),
+        **country_out(country, sources, countries_with_market_data(session)).model_dump(),
         upcoming_auction_count=upcoming or 0,
         completed_auction_count=completed or 0,
         security_count=securities or 0,

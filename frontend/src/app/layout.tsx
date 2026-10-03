@@ -7,7 +7,7 @@ import { api } from "@/lib/api";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "African Bond Intelligence",
+  title: "Cartouche · African Bond Intelligence",
   description: "Africa's Sovereign Debt Opportunity Engine — source-first sovereign debt market intelligence.",
 };
 

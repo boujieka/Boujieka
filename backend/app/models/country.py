@@ -13,6 +13,8 @@ class Country(ProvenanceMixin, TimestampMixin, Base):
 
     country_id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column(String(128))
+    name_fr: Mapped[str | None] = mapped_column(String(128))
+    region: Mapped[str | None] = mapped_column(String(16))  # north | west | central | east | southern
     iso2: Mapped[str] = mapped_column(String(2), unique=True)
     iso3: Mapped[str] = mapped_column(String(3), unique=True)
     currency: Mapped[str] = mapped_column(String(3))  # ISO 4217

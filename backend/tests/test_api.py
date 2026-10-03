@@ -25,9 +25,19 @@ def test_security_headers(client):
 
 
 class TestCountries:
-    def test_lists_six_mvp_countries(self, client):
+    def test_lists_all_54_countries_with_coverage(self, client):
         rows = get(client, "/countries")
-        assert sorted(c["iso3"] for c in rows) == ["CIV", "CMR", "COG", "GAB", "KEN", "SEN"]
+        assert len(rows) == 54
+        with_data = sorted(c["iso3"] for c in rows if c["coverage_tier"] == "market_data")
+        assert with_data == ["CIV", "CMR", "COG", "GAB", "KEN", "SEN"]
+        assert all(c["name_fr"] and c["region"] for c in rows)
+
+    def test_reference_only_country(self, client):
+        c = get(client, "/countries/NGA", as_of=AS_OF)
+        assert c["coverage_tier"] == "reference_only"
+        assert c["currency"] == "NGN" and c["completed_auction_count"] == 0
+        assert c["provenance"]["verification_status"] == "unverified"
+        assert any(s["category"] == "central_bank" for s in c["sources"])
 
     def test_country_reference_is_flagged_unverified(self, client):
         c = get(client, "/countries/CMR", as_of=AS_OF)
@@ -165,7 +175,8 @@ class TestSecurities:
 class TestOverview:
     def test_dashboard_consistent_with_auction_list(self, client):
         summary = get(client, "/dashboard/summary", as_of=AS_OF)
-        assert summary["countries_monitored"] == 6
+        assert summary["countries_monitored"] == 54
+        assert summary["countries_with_market_data"] == 6
         assert summary["synthetic_records_present"] is True
         assert isinstance(summary["new_opportunities"], int)
         upcoming = get(
@@ -192,7 +203,7 @@ class TestOverview:
     def test_data_quality(self, client):
         dq = get(client, "/data-quality", as_of=AS_OF)
         assert dq["synthetic_auctions"] > 0
-        assert dq["unverified_records"] == 6  # the six country reference rows
+        assert dq["unverified_records"] == 54  # the 54 country reference rows
         assert len(dq["sources_pending_configuration"]) == dq["sources_total"] - 1
         assert dq["duplicate_candidates"] == 0
         by_field = {m["field"]: m for m in dq["auction_missing_fields"]}

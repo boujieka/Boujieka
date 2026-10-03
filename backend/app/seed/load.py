@@ -19,6 +19,7 @@ from app.models.enums import (
     VerificationStatus,
 )
 from app.seed import reference, source_candidates, synthetic
+from app.seed.africa import BY_ISO3
 
 SYNTHETIC_SOURCE_NAME = "Synthetic seed generator"
 
@@ -36,6 +37,9 @@ def load_reference(session: Session) -> dict[str, Country]:
                 provenance_notes=reference.UNVERIFIED_NOTE,
             )
             session.add(country)
+        # Identity fields from the 54-country table; safe to refresh on every run.
+        country.name_fr = BY_ISO3[row["iso3"]].name_fr
+        country.region = BY_ISO3[row["iso3"]].region
         countries[row["iso3"]] = country
     session.flush()
 

@@ -91,7 +91,7 @@ class TestSeedLoader:
         countries = load_reference(db)
         assert load_synthetic(db, countries, REFERENCE_DATE) == 0
         assert db.scalar(select(func.count()).select_from(Auction)) == before
-        assert db.scalar(select(func.count()).select_from(Country)) == 6
+        assert db.scalar(select(func.count()).select_from(Country)) == 54
 
     def test_reference_data_is_unverified_not_synthetic(self, db):
         for c in db.scalars(select(Country)):
@@ -213,3 +213,36 @@ class TestSourceCandidates:
         # Re-running the loader keeps exactly one copy of the candidates.
         load_reference(db)
         assert len(source.candidates) == len({c["url"] for c in source.candidates})
+
+
+
+class TestAfricaReference:
+    def test_54_unique_countries(self):
+        from app.seed.africa import AFRICA
+
+        assert len(AFRICA) == 54
+        for attr in ("iso3", "iso2", "tile"):
+            assert len({getattr(c, attr) for c in AFRICA}) == 54, attr
+
+    def test_codes_are_well_formed(self):
+        from app.seed.africa import AFRICA
+
+        for c in AFRICA:
+            assert len(c.iso3) == 3 and c.iso3.isupper()
+            assert len(c.iso2) == 2 and c.iso2.isupper()
+            assert len(c.currency) == 3 and c.currency.isupper()
+            assert c.region in {"north", "west", "central", "east", "southern"}
+
+    def test_cfa_zones_consistent(self):
+        from app.models.enums import MonetaryZone
+        from app.seed.africa import AFRICA
+
+        for c in AFRICA:
+            if c.zone == MonetaryZone.CEMAC:
+                assert c.currency == "XAF" and "BEAC" in c.central_bank
+            elif c.zone == MonetaryZone.WAEMU:
+                assert c.currency == "XOF" and "BCEAO" in c.central_bank
+            else:
+                assert c.currency not in ("XAF", "XOF")
+        zones = [c.zone for c in AFRICA]
+        assert zones.count(MonetaryZone.CEMAC) == 6 and zones.count(MonetaryZone.WAEMU) == 8

@@ -198,6 +198,7 @@ def heat_grid(session: SessionDep, as_of: AsOfDep) -> HeatGrid:
                 cells=sorted(cells.get(c.country_id, {}).values(), key=lambda x: x.tenor_days),
             )
             for c in countries
+            if c.country_id in cells  # countries without recent auction data are not gridded
         ],
         method=(
             f"Latest completed auction per country and tenor bucket within {lookback} days. "

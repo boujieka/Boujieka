@@ -19,6 +19,7 @@ from app.models.enums import (
     AuctionType,
     DataNature,
     InstrumentType,
+    CoverageTier,
     MonetaryZone,
     SourceCategory,
     SourceStatus,
@@ -54,6 +55,10 @@ class Provenance(BaseModel):
 class CountryOut(BaseModel):
     country_id: int
     name: str
+    name_fr: str | None
+    region: str | None
+    # Computed from data actually held: "market_data" if any security is loaded, else "reference_only".
+    coverage_tier: CoverageTier
     iso2: str
     iso3: str
     currency: str
@@ -229,6 +234,7 @@ class AmountByCurrency(BaseModel):
 class DashboardSummary(BaseModel):
     as_of: date
     countries_monitored: int
+    countries_with_market_data: int
     upcoming_auctions_7d: int
     upcoming_auctions_30d: int
     results_last_7d: int

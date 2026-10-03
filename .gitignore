@@ -21,3 +21,6 @@ next-env.d.ts
 .DS_Store
 .idea/
 .vscode/
+
+# Built static site (rebuild with site/build.py)
+site/dist/

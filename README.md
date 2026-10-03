@@ -1,4 +1,4 @@
-# African Bond Intelligence
+# Cartouche · African Bond Intelligence
 
 **Africa's Sovereign Debt Opportunity Engine** — a source-first intelligence platform for African
 sovereign Treasury bills, bonds and Eurobonds.
@@ -14,6 +14,27 @@ See [`docs/IMPLEMENTATION_PLAN.md`](docs/IMPLEMENTATION_PLAN.md) and
 
 ⚠️ **All market data currently in the system is SYNTHETIC** — generated for development, labelled
 as such in the database, the API and the UI, and not real. No official source is being crawled yet.
+
+## Public showcase site
+
+**https://cartouche-africa.netlify.app**: a static snapshot of the platform (all 54 countries,
+heat grid, signals with passports, refinancing walls, source registry). Market data on it is
+synthetic and labelled as such. To rebuild and redeploy:
+
+```bash
+python site/build.py --as-of 2026-10-03   # needs a seeded database; writes site/dist/
+# then deploy site/dist/ to the Netlify project "cartouche-africa"
+```
+
+Brand (logo, colours from ancient Egyptian pigments, type): see [`brand/BRAND.md`](brand/BRAND.md).
+
+## Coverage
+
+All **54 African UN member states** have a reference profile: ISO codes, currency, monetary
+zone (CEMAC, WAEMU, CMA or national), central bank and a registered central-bank source.
+These profiles are unverified. Market data (synthetic until Phase 2) is loaded for 6 countries:
+Cameroon, Republic of the Congo, Gabon, Côte d'Ivoire, Senegal and Kenya. The API reports
+`coverage_tier` per country.
 
 ## Principles
 

@@ -36,6 +36,10 @@ def dashboard_summary(session: SessionDep, as_of: AsOfDep) -> DashboardSummary:
     ).all()
     return DashboardSummary(
         as_of=as_of,
+        countries_with_market_data=session.scalar(
+            select(func.count(func.distinct(Security.country_id)))
+        )
+        or 0,
         countries_monitored=session.scalar(
             select(func.count()).select_from(Country).where(Country.is_monitored)
         )

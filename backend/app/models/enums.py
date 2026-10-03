@@ -36,6 +36,7 @@ class FieldStatus(StrEnum):
 class MonetaryZone(StrEnum):
     CEMAC = "CEMAC"
     WAEMU = "WAEMU"
+    CMA = "CMA"  # Common Monetary Area (South Africa, Namibia, Lesotho, Eswatini)
     NONE = "NONE"  # Country has its own currency / central bank.
 
 
@@ -110,3 +111,10 @@ class ObservationKind(StrEnum):
     AUCTION = "auction"
     SECONDARY_MARKET = "secondary_market"
     INDICATIVE = "indicative"
+
+
+class CoverageTier(StrEnum):
+    """What the platform currently holds for a country."""
+
+    MARKET_DATA = "market_data"  # Auction/security data is loaded (synthetic until Phase 2).
+    REFERENCE_ONLY = "reference_only"  # Identity, currency, zone, central bank; no market data yet.

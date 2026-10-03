@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cartouche · African Bond Intelligence</title>
+<meta name="description" content="Veille des titres publics souverains des 54 pays africains : enchères, signaux tracés jusqu'à leur source, murs de refinancement. Données de démonstration synthétiques.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: a papyrus scroll under a tomb-ceiling hero. The one bold place is the hero
+   (night lapis, gold stars, inscriptional capitals); the working sections stay quiet. */
+:root {
+  color-scheme: light;
+  --paper: #f2ead8;
+  --surface: #fbf7ee;
+  --ink: #1a1712;
+  --muted: #5e5546;
+  --line: #ddd2bb;
+  --lapis: #13306b;
+  --gold-ink: #8a6a1f;
+  --faience-ink: #1f7a73;
+  --carnelian: #a8432a;
+  --chip-on-bg: #13306b;
+  --chip-on-fg: #fbf7ee;
+  --z-cemac-bg: #13306b; --z-cemac-fg: #fbf7ee;
+  --z-waemu-bg: #3fb2a6; --z-waemu-fg: #10241f;
+  --z-cma-bg: #c9a24a;   --z-cma-fg: #1a1712;
+  --z-none-bg: #fbf7ee;  --z-none-fg: #1a1712;
+  --div-pos-2: #8fa8da; --div-pos-1: #c9d5ee; --div-mid: #ece4d2; --div-neg-1: #efcdbf; --div-neg-2: #de9c84;
+  --bar: #13306b; --bar-hi: #c9a24a;
+  /* Fixed hero palette: identical in both themes. */
+  --night: #0e2148; --gold: #c9a24a; --faience: #3fb2a6; --papyrus: #f2ead8;
+  --display: "Marcellus", "Trajan Pro", Georgia, serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --paper: #0a1229; --surface: #111c3a; --ink: #f2ead8; --muted: #b9ae97; --line: #26345e;
+    --lapis: #9db4ee; --gold-ink: #e0bd66; --faience-ink: #5cc9bd; --carnelian: #e8876b;
+    --chip-on-bg: #c9a24a; --chip-on-fg: #0e2148;
+    --z-cemac-bg: #2b4f9a; --z-cemac-fg: #f2ead8;
+    --z-waemu-bg: #237f77; --z-waemu-fg: #f2ead8;
+    --z-cma-bg: #a8842f;   --z-cma-fg: #0e2148;
+    --z-none-bg: #16224a;  --z-none-fg: #f2ead8;
+    --div-pos-2: #2b4f9a; --div-pos-1: #1b2f5c; --div-mid: #1f2742; --div-neg-1: #5a2c22; --div-neg-2: #8a3b27;
+    --bar: #6f92dc; --bar-hi: #e0bd66;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #0a1229; --surface: #111c3a; --ink: #f2ead8; --muted: #b9ae97; --line: #26345e;
+  --lapis: #9db4ee; --gold-ink: #e0bd66; --faience-ink: #5cc9bd; --carnelian: #e8876b;
+  --chip-on-bg: #c9a24a; --chip-on-fg: #0e2148;
+  --z-cemac-bg: #2b4f9a; --z-cemac-fg: #f2ead8;
+  --z-waemu-bg: #237f77; --z-waemu-fg: #f2ead8;
+  --z-cma-bg: #a8842f;   --z-cma-fg: #0e2148;
+  --z-none-bg: #16224a;  --z-none-fg: #f2ead8;
+  --div-pos-2: #2b4f9a; --div-pos-1: #1b2f5c; --div-mid: #1f2742; --div-neg-1: #5a2c22; --div-neg-2: #8a3b27;
+  --bar: #6f92dc; --bar-hi: #e0bd66;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 15px/1.6 var(--body); }
+.wrap { max-width: 1200px; margin: 0 auto; padding-inline: clamp(16px, 4vw, 40px); }
+a { color: var(--lapis); }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.eyebrow { font: 600 11px/1.2 var(--body); letter-spacing: .16em; text-transform: uppercase; color: var(--gold-ink); }
+h2 { font: 400 clamp(26px, 3.4vw, 38px)/1.12 var(--display); letter-spacing: .02em; margin: 8px 0 10px; color: var(--lapis); text-wrap: balance; }
+.lede { max-width: 66ch; color: var(--muted); margin: 0; }
+section { padding-block: clamp(44px, 7vw, 80px); }
+section + section { border-top: 1px solid var(--line); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Synthetic banner */
+.banner { background: #8f321c; color: #fff7ee; font-size: 13px; padding-block: 7px; }
+.banner strong:first-child { letter-spacing: .08em; }
+
+/* Hero: tomb-ceiling night with gold stars */
+.hero { background-color: var(--night); color: var(--papyrus);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cg fill='%23c9a24a' fill-opacity='.3'%3E%3Cpath d='M30 20l2.1 6.4h6.7l-5.4 4 2 6.4-5.4-4-5.4 4 2-6.4-5.4-4h6.7z'/%3E%3Cpath d='M120 52l1.5 4.6h4.8l-3.9 2.8 1.5 4.6-3.9-2.8-3.9 2.8 1.5-4.6-3.9-2.8h4.8z'/%3E%3Cpath d='M70 118l1.8 5.5h5.8l-4.7 3.4 1.8 5.5-4.7-3.4-4.7 3.4 1.8-5.5-4.7-3.4h5.8z'/%3E%3Cpath d='M158 140l1.2 3.7h3.9l-3.1 2.3 1.2 3.7-3.2-2.3-3.1 2.3 1.2-3.7-3.2-2.3h3.9z'/%3E%3C/g%3E%3C/svg%3E"); }
+.mast { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 28px; padding-block: 18px; }
+.brand { display: flex; align-items: center; gap: 12px; color: var(--papyrus); text-decoration: none; }
+.brand svg { width: 30px; height: auto; flex: none; }
+.brand b { font: 400 22px/1 var(--display); letter-spacing: .18em; display: block; }
+.brand small { font: 600 9.5px/1 var(--body); letter-spacing: .24em; color: var(--gold); display: block; margin-top: 5px; }
+.mast nav { display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 14px; }
+.mast nav a { color: #d9cfb8; text-decoration: none; }
+.mast nav a:hover { color: var(--gold); }
+.hero-body { padding-block: clamp(28px, 6vw, 72px) clamp(36px, 6vw, 64px); display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 40px; align-items: end; }
+@media (max-width: 900px) { .hero-body { grid-template-columns: minmax(0, 1fr); } }
+.hero h1 { font: 400 clamp(36px, 6.2vw, 74px)/1.02 var(--display); letter-spacing: .01em; margin: 14px 0 20px; text-wrap: balance; }
+.hero h1 em { font-style: normal; color: var(--gold); }
+.hero p { max-width: 58ch; color: #d9cfb8; font-size: 17px; margin: 0; }
+.hero .eyebrow { color: var(--faience); }
+.cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 2px; font: 600 14px/1 var(--body); text-decoration: none; border: 1px solid var(--gold); cursor: pointer; }
+.btn.gold { background: var(--gold); color: var(--night); }
+.btn.ghost { color: var(--gold); background: transparent; }
+.btn:hover { filter: brightness(1.08); }
+.stele { border: 1px solid rgba(201,162,74,.55); background: rgba(14,33,72,.72); padding: 6px 0; }
+.stele div { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 11px 18px; border-bottom: 1px solid rgba(201,162,74,.22); }
+.stele div:last-child { border-bottom: none; }
+.stele span { font-size: 13px; color: #d9cfb8; }
+.stele b { font: 600 22px/1 var(--mono); color: var(--papyrus); text-align: right; }
+.stele b.small { font-size: 14px; line-height: 1.5; }
+
+/* Usekh collar band */
+.collar { height: 12px; background: repeating-linear-gradient(90deg, #c9a24a 0 18px, #13306b 18px 30px, #3fb2a6 30px 42px, #13306b 42px 54px, #a8432a 54px 60px, #13306b 60px 72px); }
+
+/* Ticker */
+.tape { border-bottom: 1px solid var(--line); background: var(--surface); overflow: hidden; }
+.tape ul { display: flex; gap: 40px; list-style: none; margin: 0; padding: 10px 0; width: max-content; animation: tape 110s linear infinite; }
+.tape li { white-space: nowrap; font-size: 13px; color: var(--muted); }
+.tape li b { font-family: var(--mono); font-weight: 600; color: var(--gold-ink); margin-right: 6px; }
+.tape:hover ul { animation-play-state: paused; }
+@keyframes tape { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .tape ul { animation: none; flex-wrap: wrap; width: auto; padding-inline: 16px; } }
+
+/* Africa tile map */
+.mapwrap { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 28px; margin-top: 28px; align-items: start; }
+@media (max-width: 900px) { .mapwrap { grid-template-columns: minmax(0, 1fr); } }
+.tiles { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 4px; max-width: 560px; }
+.tile { aspect-ratio: 1; border: 1px solid var(--line); border-radius: 3px; font: 600 clamp(8px, 1.4vw, 11px)/1 var(--mono); cursor: pointer; display: grid; place-items: center; position: relative; padding: 0; }
+.tile.z-CEMAC { background: var(--z-cemac-bg); color: var(--z-cemac-fg); border-color: transparent; }
+.tile.z-WAEMU { background: var(--z-waemu-bg); color: var(--z-waemu-fg); border-color: transparent; }
+.tile.z-CMA { background: var(--z-cma-bg); color: var(--z-cma-fg); border-color: transparent; }
+.tile.z-NONE { background: var(--z-none-bg); color: var(--z-none-fg); }
+.tile.data::after { content: ""; position: absolute; top: 3px; right: 3px; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 1.5px var(--surface); }
+.tile.data { box-shadow: inset 0 0 0 2px var(--gold); }
+.tile:hover { transform: translateY(-1px); box-shadow: 0 0 0 2px var(--lapis); }
+.tile[aria-pressed="true"] { outline: 3px solid var(--carnelian); outline-offset: 1px; z-index: 1; }
+.mlegend { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 12px; color: var(--muted); margin-top: 14px; }
+.mlegend i { display: inline-block; width: 14px; height: 14px; border-radius: 2px; vertical-align: -2px; margin-right: 6px; border: 1px solid var(--line); }
+.profile { background: var(--surface); border: 1px solid var(--line); padding: 20px 22px; min-width: 0; }
+.profile h3 { font: 400 26px/1.15 var(--display); color: var(--lapis); margin: 4px 0 14px; }
+.profile dl { display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; margin: 0; font-size: 14px; }
+.profile dt { color: var(--muted); }
+.profile dd { margin: 0; min-width: 0; }
+.tier { display: inline-block; font: 600 11px/1 var(--body); letter-spacing: .06em; text-transform: uppercase; padding: 4px 7px; border-radius: 2px; border: 1px solid currentColor; }
+.tier.market_data { color: var(--faience-ink); }
+.tier.reference_only { color: var(--muted); }
+.regions { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.regions div { background: var(--surface); padding: 10px 12px; flex: 1 1 110px; }
+.regions b { display: block; font: 600 20px/1.1 var(--mono); color: var(--lapis); }
+.regions span { font-size: 12px; color: var(--muted); }
+
+/* Radar */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 18px; }
+.chip { font: 500 14px/1 var(--body); border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: 9px 13px; border-radius: 2px; cursor: pointer; display: inline-flex; gap: 8px; align-items: center; }
+.chip .num { font-size: 12px; color: var(--muted); }
+.chip:hover { border-color: var(--gold); }
+.chip[aria-pressed="true"] { background: var(--chip-on-bg); border-color: var(--chip-on-bg); color: var(--chip-on-fg); }
+.chip[aria-pressed="true"] .num { color: inherit; opacity: .85; }
+.panel { background: var(--surface); border: 1px solid var(--line); min-width: 0; }
+.panel-h { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+.panel-b { padding: 16px; }
+.scroll { position: relative; overflow-x: auto; }
+table.grid { border-collapse: collapse; width: 100%; min-width: 620px; font-size: 13px; }
+.grid th { font: 600 11px/1 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 8px; text-align: center; }
+.grid th:first-child { text-align: left; }
+.grid tbody th { text-transform: none; letter-spacing: 0; font: 500 14px/1.2 var(--body); color: var(--ink); text-align: left; white-space: nowrap; }
+.grid tbody th button { all: unset; cursor: pointer; }
+.grid tbody th button:hover { text-decoration: underline; }
+.grid tbody th button:focus-visible { outline: 2px solid var(--gold); }
+.grid tbody th small { color: var(--muted); font-size: 11px; margin-left: 4px; }
+.grid td { border: 1px solid var(--line); text-align: center; padding: 6px 4px; line-height: 1.25; }
+.grid td b { display: block; font: 600 13px var(--mono); }
+.grid td span { font: 400 11px var(--mono); color: var(--muted); }
+.grid td.empty { color: var(--muted); }
+.grid tr.sel th { color: var(--lapis); font-weight: 700; }
+.grid tr.sel { outline: 2px solid var(--gold); outline-offset: -1px; }
+.grid td.sig { border: none; font: 700 14px var(--mono); text-align: right; padding-right: 10px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 11px; color: var(--muted); margin-top: 10px; align-items: center; }
+.legend i { display: inline-block; width: 16px; height: 11px; border: 1px solid var(--line); vertical-align: -1px; margin-right: 4px; }
+.split { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); gap: 18px; margin-top: 18px; align-items: start; }
+@media (max-width: 860px) { .split { grid-template-columns: minmax(0, 1fr); } }
+.signals { display: grid; gap: 12px; min-width: 0; }
+.sig-head { display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline; justify-content: space-between; }
+.types { display: flex; flex-wrap: wrap; gap: 6px; }
+.types button { font: 500 12px var(--body); border: 1px solid var(--line); background: transparent; color: var(--muted); border-radius: 2px; padding: 4px 8px; cursor: pointer; }
+.types button[aria-pressed="true"] { border-color: var(--gold-ink); color: var(--gold-ink); }
+.card { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--gold); padding: 14px 16px; min-width: 0; }
+.card.warn { border-left-color: var(--carnelian); }
+.card h3 { font: 600 16px/1.3 var(--body); margin: 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+.tag { font: 600 10.5px/1 var(--body); letter-spacing: .06em; text-transform: uppercase; border: 1px solid var(--line); color: var(--muted); padding: 4px 6px; border-radius: 2px; }
+.tag.syn { color: var(--carnelian); border-color: var(--carnelian); }
+.facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px 14px; margin: 12px 0 8px; }
+@media (max-width: 560px) { .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.facts dt { font-size: 11px; color: var(--muted); }
+.facts dd { margin: 2px 0 0; font-size: 14px; }
+.expl { font-size: 13px; color: var(--muted); margin: 0; }
+.intensity { font-size: 12px; color: var(--muted); margin-top: 6px; }
+details.passport { margin-top: 12px; border: 1px solid var(--line); background: var(--paper); }
+details.passport summary { cursor: pointer; padding: 8px 12px; font: 600 12px/1.2 var(--body); letter-spacing: .06em; text-transform: uppercase; color: var(--lapis); }
+.pp { padding: 2px 12px 12px; display: grid; gap: 12px; font-size: 13px; }
+.pp h4 { margin: 0 0 4px; font: 600 11px/1 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.pp ul { margin: 0; padding-left: 18px; }
+.pp code { font: 12px/1.5 var(--mono); word-break: break-word; }
+.nat { font: 600 10px/1 var(--body); padding: 2px 5px; border: 1px solid currentColor; border-radius: 2px; margin-right: 6px; letter-spacing: .04em; }
+.nat.SYNTHETIC { color: var(--carnelian); } .nat.FACT { color: var(--lapis); } .nat.CALC { color: var(--gold-ink); }
+.wall svg { width: 100%; height: auto; display: block; }
+.wall text { fill: var(--muted); font: 10px var(--mono); }
+.wall .gl { stroke: var(--line); }
+.wall rect.b { fill: var(--bar); }
+.wall rect.b.hi { fill: var(--bar-hi); }
+.note { font-size: 12px; color: var(--muted); margin: 10px 0 0; }
+
+/* Method */
+.pipe { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 28px; border: 1px solid var(--line); background: var(--surface); }
+@media (max-width: 760px) { .pipe { grid-template-columns: minmax(0, 1fr); } }
+.step { padding: 20px; border-right: 1px solid var(--line); min-width: 0; }
+.step:last-child { border-right: none; }
+@media (max-width: 760px) { .step { border-right: none; border-bottom: 1px solid var(--line); } .step:last-child { border-bottom: none; } }
+.step .n { font: 400 28px/1 var(--display); color: var(--gold-ink); }
+.step h3 { font: 600 17px/1.25 var(--body); margin: 8px 0 6px; }
+.step p { font-size: 13px; color: var(--muted); margin: 0 0 12px; }
+.state { font: 600 11px/1 var(--body); letter-spacing: .06em; text-transform: uppercase; }
+.state.on { color: var(--faience-ink); } .state.next { color: var(--gold-ink); }
+
+/* Tables */
+table.list { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 640px; }
+.list th { text-align: left; font: 600 11px/1 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 10px 12px; border-bottom: 2px solid var(--gold); }
+.list td { padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.list td a { word-break: break-all; }
+.ev { font: 600 10.5px/1 var(--body); letter-spacing: .05em; text-transform: uppercase; padding: 3px 6px; border: 1px solid currentColor; border-radius: 2px; white-space: nowrap; }
+.ev.http_200 { color: var(--faience-ink); } .ev.http_403 { color: var(--gold-ink); } .ev.search_only { color: var(--carnelian); }
+details.more { margin-top: 16px; }
+details.more summary { cursor: pointer; color: var(--lapis); font-weight: 600; }
+.cb { columns: 3 220px; column-gap: 24px; font-size: 13px; margin-top: 10px; }
+.cb p { margin: 0 0 6px; break-inside: avoid; }
+
+footer { background: var(--night); color: #d9cfb8; padding-block: 36px 52px; font-size: 13px; }
+footer .brand { margin-bottom: 16px; }
+footer p { max-width: 82ch; margin: 0 0 8px; }
+footer strong { color: var(--papyrus); }
+</style>
+</head>
+<body>
+<div class="banner"><div class="wrap"><strong>DONNÉES DE DÉMONSTRATION</strong> · Les chiffres de marché de ce site sont <strong>synthétiques</strong> : ils sont générés pour le développement de la plateforme, ne décrivent aucun marché réel et ne doivent servir à aucune décision.</div></div>
+
+<header class="hero">
+  <div class="wrap mast">
+    <a class="brand" href="#" aria-label="Cartouche, African Bond Intelligence, accueil">
+      <svg viewBox="0 0 64 96" aria-hidden="true"><rect x="8" y="4" width="48" height="78" rx="24" fill="#13306b" stroke="#c9a24a" stroke-width="4"/><rect x="5" y="86" width="54" height="6" rx="2" fill="#c9a24a"/><circle cx="32" cy="23" r="7" fill="#c9a24a"/><path d="M17 72V60l3.5-4 3.5 4v12zM28.5 72V51l3.5-4 3.5 4v21zM40 72V42l3.5-4 3.5 4v30z" fill="#3fb2a6"/></svg>
+      <span><b>CARTOUCHE</b><small>AFRICAN BOND INTELLIGENCE</small></span>
+    </a>
+    <nav aria-label="Sections"><a href="#carte">Carte</a><a href="#radar">Radar</a><a href="#methode">Méthode</a><a href="#sources">Sources</a><a href="#feuille">Feuille de route</a></nav>
+  </div>
+  <div class="wrap hero-body">
+    <div>
+      <span class="eyebrow">Dette souveraine africaine · 54 pays</span>
+      <h1>Chaque opportunité souveraine africaine, <em>avec sa preuve.</em></h1>
+      <p>Les bons et obligations du Trésor africains sont suivis depuis les sources officielles. Un moteur de règles signale ce qui bouge : enchères à venir, demande inhabituelle, mouvements de rendement, murs de refinancement. Chaque signal est livré avec ses faits, son calcul et sa règle.</p>
+      <div class="cta"><a class="btn gold" href="#radar">Explorer le Radar</a><a class="btn ghost" href="#carte">Voir les 54 pays</a></div>
+    </div>
+    <div class="stele" id="stele" aria-label="Chiffres clés"></div>
+  </div>
+  <div class="collar" aria-hidden="true"></div>
+</header>
+
+<div class="tape" aria-label="Fil des signaux actifs"><ul id="tape"></ul></div>
+
+<main>
+  <section id="carte">
+    <div class="wrap">
+      <span class="eyebrow">Couverture panafricaine</span>
+      <h2>54 pays, une seule carte</h2>
+      <p class="lede">Chaque État africain membre de l'ONU a un profil : devise, zone monétaire, banque centrale, source officielle à brancher. Les pays cerclés d'or ont déjà des données de marché (synthétiques pour l'instant). Cliquez une case pour afficher le profil du pays.</p>
+      <div class="mapwrap">
+        <div>
+          <div class="tiles" id="tiles" role="group" aria-label="Carte des 54 pays africains"></div>
+          <div class="mlegend" aria-label="Légende de la carte">
+            <span><i style="background:var(--z-cemac-bg)"></i>CEMAC (XAF)</span>
+            <span><i style="background:var(--z-waemu-bg)"></i>UEMOA (XOF)</span>
+            <span><i style="background:var(--z-cma-bg)"></i>Zone monétaire commune (CMA)</span>
+            <span><i style="background:var(--z-none-bg)"></i>Monnaie nationale</span>
+            <span><i style="box-shadow:inset 0 0 0 2px var(--gold);background:transparent"></i>Données de marché chargées</span>
+          </div>
+        </div>
+        <div>
+          <div class="profile" id="profile" aria-live="polite"></div>
+          <div class="regions" id="regions"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="radar">
+    <div class="wrap">
+      <span class="eyebrow">Opportunity Radar</span>
+      <h2>Choisissez un pays, voyez toutes ses opportunités</h2>
+      <p class="lede">La grille compare la demande de chaque enchère (bid-to-cover) à l'historique de sa propre série. Cette mesure reste comparable d'un marché à l'autre, contrairement aux rendements bruts, dont les conventions diffèrent.</p>
+      <div class="chips" id="chips" role="group" aria-label="Choisir un pays"></div>
+      <div class="panel">
+        <div class="panel-h"><span class="eyebrow">Grille de chaleur · pays avec données de marché</span><span class="eyebrow" id="asof"></span></div>
+        <div class="panel-b">
+          <div class="scroll"><table class="grid" id="grid"></table></div>
+          <div class="legend" aria-label="Légende">
+            <strong class="eyebrow">Demande vs son historique (z)</strong>
+            <span><i style="background:var(--div-neg-2)"></i>▼▼ ≤ −1,5</span>
+            <span><i style="background:var(--div-neg-1)"></i>▼ −1,5 à −0,5</span>
+            <span><i style="background:var(--div-mid)"></i>– dans la norme</span>
+            <span><i style="background:var(--div-pos-1)"></i>▲ 0,5 à 1,5</span>
+            <span><i style="background:var(--div-pos-2)"></i>▲▲ ≥ 1,5</span>
+            <span>· n/d : moins de 6 enchères comparables</span>
+          </div>
+        </div>
+      </div>
+      <div class="split">
+        <div class="signals">
+          <div class="sig-head"><strong id="sigcount"></strong><div class="types" id="types" role="group" aria-label="Filtrer par type de signal"></div></div>
+          <div id="cards" class="signals"></div>
+        </div>
+        <aside class="panel wall" aria-label="Mur de refinancement">
+          <div class="panel-h"><span class="eyebrow" id="wall-title">Mur de refinancement</span><span class="tag syn">Synthétique</span></div>
+          <div class="panel-b" id="wall"></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="methode">
+    <div class="wrap">
+      <span class="eyebrow">Comment un signal est construit</span>
+      <h2>De la publication officielle au passeport du signal</h2>
+      <p class="lede">Aucun chiffre n'est produit par un modèle de langage. Les valeurs publiées restent des faits, les valeurs dérivées sont des calculs, et rien ne mélange les deux. Les étapes 1 et 2 arrivent en phase 2 ; aujourd'hui, le moteur tourne sur des données synthétiques.</p>
+      <div class="pipe">
+        <div class="step"><span class="n">I</span><h3>Sources officielles</h3><p>Banques centrales, BEAC, BCEAO, UMOA-Titres, ministères, bourses. Chaque URL est validée par un opérateur avant toute collecte.</p><span class="state next">Phase 2</span></div>
+        <div class="step"><span class="n">II</span><h3>Extraction vérifiée</h3><p>Avis et résultats en PDF : texte, OCR, champs structurés. Chaque document est dédupliqué par empreinte et passe par une file de vérification humaine.</p><span class="state next">Phase 2</span></div>
+        <div class="step"><span class="n">III</span><h3>Moteur de règles</h3><p>Sept règles déterministes, avec des seuils explicites et des libellés neutres. Le relancer ne crée aucun doublon.</p><span class="state on">Opérationnel</span></div>
+        <div class="step"><span class="n">IV</span><h3>Passeport du signal</h3><p>Faits utilisés, calcul, règle déclenchée, ce qui invaliderait le signal, et limites. Le tout est archivé pour audit.</p><span class="state on">Opérationnel</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sources">
+    <div class="wrap">
+      <span class="eyebrow">Registre des sources</span>
+      <h2>Sources officielles proposées</h2>
+      <p class="lede" id="src-lede"></p>
+      <div class="scroll" style="margin-top:20px"><table class="list" id="srcs"></table></div>
+      <details class="more"><summary id="cb-sum"></summary><div class="cb" id="cb"></div></details>
+    </div>
+  </section>
+
+  <section id="feuille">
+    <div class="wrap">
+      <span class="eyebrow">Feuille de route</span>
+      <h2>Où en est la plateforme</h2>
+      <div class="scroll" style="margin-top:20px">
+        <table class="list">
+          <thead><tr><th>Phase</th><th>Contenu</th><th>État</th></tr></thead>
+          <tbody>
+            <tr><td class="num">1</td><td>Base de données, modèles, traçabilité des sources, API, tableau de bord · référentiel des 54 pays</td><td><span class="state on">Livré</span></td></tr>
+            <tr><td class="num">1b</td><td>Authentification, rôles, limitation de débit, journal d'audit (prérequis à tout déploiement de la plateforme)</td><td><span class="state next">À faire</span></td></tr>
+            <tr><td class="num">2</td><td>Collecte des sources officielles, extraction PDF/OCR, vérification humaine</td><td><span class="state next">Prochaine étape</span></td></tr>
+            <tr><td class="num">3</td><td>Conventions de rendement par marché, courbes, calibration des seuils</td><td><span class="state next">À faire</span></td></tr>
+            <tr><td class="num">4</td><td>Moteur d'opportunités et Radar (rachats, échanges et Eurobonds en attente)</td><td><span class="state on">Livré en partie</span></td></tr>
+            <tr><td class="num">5</td><td>Scan quotidien automatisé, alertes, rapport quotidien <em>Africa Sovereign Debt Daily</em></td><td><span class="state next">À faire</span></td></tr>
+            <tr><td class="num">6</td><td>Guide de souscription pour investisseurs</td><td><span class="state next">À faire</span></td></tr>
+            <tr><td class="num">7</td><td>Moteur de financement souverain (scénarios pour les Trésors)</td><td><span class="state next">À faire</span></td></tr>
+            <tr><td class="num">8</td><td>API publique et recherche globale</td><td><span class="state next">À faire</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Retour en haut">
+      <svg viewBox="0 0 64 96" aria-hidden="true"><rect x="8" y="4" width="48" height="78" rx="24" fill="#13306b" stroke="#c9a24a" stroke-width="4"/><rect x="5" y="86" width="54" height="6" rx="2" fill="#c9a24a"/><circle cx="32" cy="23" r="7" fill="#c9a24a"/><path d="M17 72V60l3.5-4 3.5 4v12zM28.5 72V51l3.5-4 3.5 4v21zM40 72V42l3.5-4 3.5 4v30z" fill="#3fb2a6"/></svg>
+      <span><b>CARTOUCHE</b><small>L'INTELLIGENCE DE LA DETTE SOUVERAINE AFRICAINE</small></span>
+    </a>
+    <p><strong>Information et analyse uniquement.</strong> Ni conseil en investissement, ni recommandation, ni garantie de rendement ou d'accès à un marché. Les signaux sont des observations factuelles fondées sur des règles ; ils ne classent pas les investissements et ne tiennent compte ni de la fiscalité, ni des frais, ni du change, ni du risque propre à chaque investisseur.</p>
+    <p>Les données de marché affichées sont <strong>synthétiques</strong>. Les profils pays (devise, zone, banque centrale) sont des données de référence <strong>non vérifiées</strong> contre les sources officielles. Instantané du <span id="foot-asof"></span>. Les textes d'explication du moteur sont en anglais.</p>
+  </div>
+</footer>
+
+<script type="application/json" id="data">__DATA__</script>
+<script>
+(() => {
+  const D = JSON.parse(document.getElementById("data").textContent);
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+  const AF = Object.fromEntries(D.africa.map((a) => [a.iso3, a]));
+  const NAME = (iso3) => AF[iso3]?.name_fr ?? iso3;
+  const REGION = { north: "Afrique du Nord", west: "Afrique de l'Ouest", central: "Afrique centrale", east: "Afrique de l'Est", southern: "Afrique australe" };
+  const ZONE = { CEMAC: "CEMAC · franc CFA (BEAC)", WAEMU: "UEMOA · franc CFA (BCEAO)", CMA: "Zone monétaire commune (CMA)", NONE: "Monnaie nationale" };
+  const LABEL_FR = {
+    "Upcoming auction": "Enchère à venir", "Newly announced auction": "Enchère nouvellement annoncée",
+    "Significant yield movement (higher)": "Mouvement de rendement significatif (hausse)",
+    "Significant yield movement (lower)": "Mouvement de rendement significatif (baisse)",
+    "High demand relative to recent auctions": "Demande forte par rapport aux enchères récentes",
+    "Low demand relative to recent auctions": "Demande faible par rapport aux enchères récentes",
+    "Higher historical yield (same tenor)": "Rendement historiquement élevé (même maturité)",
+    "Yield curve inversion": "Inversion de la courbe", "Refinancing concentration": "Concentration de refinancement",
+    "Auction cancelled": "Enchère annulée", "Auction postponed": "Enchère reportée",
+  };
+  const TYPE_FR = { upcoming_auction: "Enchères à venir", yield_move: "Mouvements de rendement", high_demand: "Demande forte",
+    low_demand: "Demande faible", high_yield: "Rendement élevé", curve_inversion: "Inversion de courbe",
+    refinancing_concentration: "Refinancement", auction_cancelled: "Annulées", auction_postponed: "Reportées" };
+  const INSTR = { treasury_bill: "Bon du Trésor", treasury_bond: "Obligation du Trésor" };
+  const FLAG_FR = { synthetic_data: "données synthétiques", small_sample: "petit échantillon", partial_debt_coverage: "couverture partielle de la dette",
+    mixed_yield_conventions: "conventions de rendement mixtes", different_auction_dates: "dates d'enchères différentes" };
+  const EV_FR = { http_200: "joignable", http_403: "anti-bot (403)", search_only: "recherche seulement" };
+
+  const nf = (v, d) => Number(v).toLocaleString("fr-FR", { minimumFractionDigits: d, maximumFractionDigits: d });
+  const pct = (v, d = 3) => (v == null ? null : `${nf(v, d)} %`);
+  const amt = (v, cur) => {
+    if (v == null) return null;
+    const n = Number(v), a = Math.abs(n);
+    const [div, u] = a >= 1e12 ? [1e12, " Bn"] : a >= 1e9 ? [1e9, " Md"] : a >= 1e6 ? [1e6, " M"] : [1, ""];
+    return `${nf(n / div, div > 1 ? 1 : 0)}${u} ${cur ?? ""}`.trim();
+  };
+  const date = (s) => s ? new Date(s.slice(0, 10) + "T00:00:00Z").toLocaleDateString("fr-FR", { day: "2-digit", month: "short", year: "numeric", timeZone: "UTC" }) : null;
+  const tenor = (d) => d == null ? "" : d < 365 ? (d % 7 === 0 ? `${d / 7} sem.` : `${d} j`) : `${Math.round(d / 365)} ans`;
+  const factVal = (f) => f.value == null ? "Non disponible" : f.unit === "%" ? pct(f.value) : /^[A-Z]{3}$/.test(f.unit || "") ? amt(f.value, f.unit) : `${f.value}${f.unit ? " " + f.unit : ""}`;
+  const store = { get: (k) => { try { return localStorage.getItem(k); } catch { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch {} } };
+
+  const opps = D.opportunities.items;
+  const rows = D.grid.rows;
+  const marketIso = new Set(rows.map((r) => r.country_iso3));
+  let country = "", type = "", mapSel = store.get("cartouche-map") || "CMR";
+  const saved = store.get("cartouche-country");
+  if (saved && marketIso.has(saved)) country = saved;
+  const hash = location.hash.slice(1).toUpperCase();
+  if (AF[hash]) { mapSel = hash; if (marketIso.has(hash)) country = hash; }
+
+  // Stele (key figures)
+  const s = D.summary;
+  $("stele").innerHTML = [
+    ["Pays couverts", s.countries_monitored],
+    ["dont avec données de marché", s.countries_with_market_data],
+    ["Signaux actifs", s.new_opportunities],
+    ["Enchères dans les 7 jours", `${s.upcoming_auctions_7d}`],
+  ].map(([k, v]) => `<div><span>${k}</span><b class="num">${v}</b></div>`).join("") +
+    `<div><span>Émissions annoncées · 30 j</span><b class="small num">${s.announced_issuance_by_currency.map((r) => amt(r.amount, r.currency)).join("<br>")}</b></div>`;
+  $("asof").textContent = `Instantané du ${date(D.as_of)}`;
+  $("foot-asof").textContent = date(D.as_of);
+
+  // Ticker
+  const tapeItems = opps.map((o) => `<li><b>${o.country_iso3}</b>${esc(LABEL_FR[o.label] ?? o.label)}${o.security ? ` · ${tenor(o.security.tenor_days)}` : ""}${o.yield_pct ? ` · ${pct(o.yield_pct, 2)}` : ""}</li>`).join("");
+  $("tape").innerHTML = tapeItems + tapeItems.replace(/<li>/g, '<li aria-hidden="true">');
+
+  // ---------- Africa tile map
+  function renderTiles() {
+    $("tiles").innerHTML = D.africa.map((a) => `<button type="button" class="tile z-${a.zone}${a.coverage === "market_data" ? " data" : ""}" style="grid-column:${a.tile[0] + 1};grid-row:${a.tile[1] + 1}" data-m="${a.iso3}" aria-pressed="${a.iso3 === mapSel}" title="${esc(a.name_fr)}"><span aria-hidden="true">${a.iso3}</span><span class="sr">${esc(a.name_fr)}${a.coverage === "market_data" ? ", données de marché" : ""}</span></button>`).join("");
+  }
+  function renderProfile() {
+    const a = AF[mapSel];
+    const hasData = a.coverage === "market_data";
+    $("profile").innerHTML = `<span class="eyebrow">${REGION[a.region]}</span><h3>${esc(a.name_fr)}</h3>
+      <dl>
+        <dt>Code</dt><dd class="num">${a.iso3}</dd>
+        <dt>Devise</dt><dd class="num">${a.currency}</dd>
+        <dt>Zone</dt><dd>${ZONE[a.zone]}</dd>
+        <dt>Banque centrale</dt><dd>${esc(a.central_bank)}</dd>
+        <dt>Couverture</dt><dd><span class="tier ${a.coverage}">${hasData ? "Données de marché" : "Profil de référence"}</span></dd>
+        <dt>Signaux actifs</dt><dd class="num">${a.signals}</dd>
+      </dl>
+      <p class="note">${hasData ? "Données de marché synthétiques : enchères, résultats et signaux de démonstration." : "Profil de référence non vérifié. La source officielle est enregistrée ; la collecte des enchères démarrera en phase 2."}</p>
+      ${hasData ? `<p style="margin:14px 0 0"><a class="btn gold" href="#radar" data-go="${a.iso3}">Voir ${esc(a.name_fr)} dans le Radar</a></p>` : ""}`;
+    const counts = {};
+    D.africa.forEach((x) => (counts[x.region] = (counts[x.region] || 0) + 1));
+    $("regions").innerHTML = Object.keys(REGION).map((r) => `<div><b>${counts[r]}</b><span>${REGION[r]}</span></div>`).join("");
+  }
+
+  // ---------- Radar
+  function demand(z) {
+    if (z == null) return ["transparent", "·", "historique insuffisant"];
+    z = Number(z);
+    if (z >= 1.5) return ["var(--div-pos-2)", "▲▲", "nettement au-dessus de son historique"];
+    if (z >= 0.5) return ["var(--div-pos-1)", "▲", "au-dessus de son historique"];
+    if (z > -0.5) return ["var(--div-mid)", "–", "dans la norme"];
+    if (z > -1.5) return ["var(--div-neg-1)", "▼", "en dessous de son historique"];
+    return ["var(--div-neg-2)", "▼▼", "nettement en dessous de son historique"];
+  }
+  const BUCKET_FR = { "3M": "3 mois", "6M": "6 mois", "12M": "12 mois", "2-3Y": "2-3 ans", "5Y": "5 ans", "7Y+": "7 ans +" };
+  function renderGrid() {
+    const b = D.grid.buckets;
+    const head = `<caption class="sr">Dernier rendement d'enchère et demande par pays et maturité</caption><thead><tr><th scope="col">Pays</th>${b.map((x) => `<th scope="col">${BUCKET_FR[x] ?? x}</th>`).join("")}<th scope="col" style="text-align:right">Signaux</th></tr></thead>`;
+    const body = rows.map((r) => {
+      const by = Object.fromEntries(r.cells.map((c) => [c.bucket, c]));
+      const cells = b.map((k) => {
+        const c = by[k];
+        if (!c) return `<td class="empty">—</td>`;
+        const [bg, arrow, word] = demand(c.demand_z);
+        const zt = c.demand_z == null ? "n/d" : `z ${Number(c.demand_z) > 0 ? "+" : ""}${nf(c.demand_z, 1)}`;
+        return `<td style="background:${bg}" title="${esc(`${tenor(c.tenor_days)} · enchère du ${date(c.auction_date)} · bid-to-cover ${c.bid_to_cover ? nf(c.bid_to_cover, 2) + "×" : "n/d"} · ${word}`)}"><b>${pct(c.weighted_average_yield, 2) ?? "—"}</b><span><span aria-hidden="true">${arrow}</span> ${zt}</span></td>`;
+      }).join("");
+      const sel = r.country_iso3 === country;
+      return `<tr class="${sel ? "sel" : ""}"><th scope="row"><button type="button" data-c="${r.country_iso3}" aria-pressed="${sel}">${esc(NAME(r.country_iso3))}</button><small>${r.currency}</small></th>${cells}<td class="sig">${r.active_opportunities}</td></tr>`;
+    }).join("");
+    $("grid").innerHTML = head + `<tbody>${body}</tbody>`;
+  }
+  function renderChips() {
+    const all = [{ iso3: "", name: "Tous les pays", n: opps.length }, ...rows.map((r) => ({ iso3: r.country_iso3, name: NAME(r.country_iso3), n: r.active_opportunities }))];
+    $("chips").innerHTML = all.map((c) => `<button type="button" class="chip" data-c="${c.iso3}" aria-pressed="${c.iso3 === country}">${esc(c.name)} <span class="num">${c.n}</span></button>`).join("");
+  }
+  function passport(o) {
+    const p = o.evidence;
+    const facts = p.facts.map((f) => `<li><span class="nat ${esc(f.data_nature)}">${f.data_nature === "SYNTHETIC" ? "SYNTHÉTIQUE" : f.data_nature === "FACT" ? "FAIT" : esc(f.data_nature)}</span><span lang="en">${esc(f.label)}</span> : <strong class="num">${esc(factVal(f))}</strong>${f.auction_date ? ` · enchère du ${date(f.auction_date)}` : ""}${f.source ? ` · ${esc(f.source)}` : ""}</li>`).join("");
+    const c = p.calculation;
+    const calc = c ? `<div><h4><span class="nat CALC">CALC</span>2 · Calcul</h4><code lang="en">${esc(c.formula)}</code>${c.inputs ? `<br><code>${esc(Object.entries(c.inputs).map(([k, v]) => `${k} = ${v}`).join(" · "))}</code>` : ""}<div style="margin-top:4px">Résultat : <strong class="num">${esc(c.result)}</strong> ${esc(c.unit ?? "")}</div></div>` : "";
+    const cav = p.caveats?.length ? `<div><h4>5 · Limites</h4><ul lang="en">${p.caveats.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>` : "";
+    return `<details class="passport"><summary>Passeport du signal : pourquoi il existe</summary><div class="pp">
+      <div><h4>1 · Faits publiés utilisés</h4><ul>${facts}</ul></div>${calc}
+      <div><h4>3 · Règle déclenchée</h4><span lang="en">${esc(p.rule.description)}</span></div>
+      <div><h4>4 · Ce qui l'invaliderait</h4><span lang="en">${esc(p.invalidated_if)}</span></div>${cav}
+      <div class="note">Règles ${esc(p.rules_version)} · calculé au ${date(p.as_of)}</div></div></details>`;
+  }
+  function card(o) {
+    const sec = o.security, up = o.opportunity_type === "upcoming_auction";
+    const warn = /low_demand|auction_/.test(o.opportunity_type);
+    return `<article class="card${warn ? " warn" : ""}">
+      <div class="tags"><span class="tag">${esc(TYPE_FR[o.opportunity_type] ?? o.opportunity_type)}</span>${o.is_synthetic ? '<span class="tag syn">Synthétique</span>' : ""}</div>
+      <h3>${esc(LABEL_FR[o.label] ?? o.label)}</h3>
+      <dl class="facts">
+        <div><dt>Pays</dt><dd>${esc(NAME(o.country_iso3))}</dd></div>
+        <div><dt>Instrument</dt><dd>${sec ? `${INSTR[sec.instrument_type] ?? sec.instrument_type} ${tenor(sec.tenor_days)}` : "Niveau pays"} <small style="color:var(--muted)">${esc(o.currency ?? "")}</small></dd></div>
+        <div><dt>${up ? "Date d'enchère" : "Date"}</dt><dd class="num">${date(o.auction_date) ?? "—"}</dd></div>
+        <div><dt title="${up ? "Dernier résultat publié pour la même maturité, pas une prévision" : ""}">${up ? "Rdt réf. (enchère préc.)" : "Rendement"}</dt><dd class="num"><strong>${pct(o.yield_pct) ?? "n/d"}</strong></dd></div>
+      </dl>
+      <p class="expl" lang="en">${esc(o.explanation)}</p>
+      <div class="intensity">${o.strength ? `Intensité du signal : <strong class="num">${nf(o.strength, 2)}×</strong> le seuil · ` : ""}${o.risk_flags.map((f) => esc(FLAG_FR[f] ?? f)).join(" · ")}</div>
+      ${passport(o)}</article>`;
+  }
+  function renderSignals() {
+    const inCountry = opps.filter((o) => !country || o.country_iso3 === country);
+    const counts = {};
+    inCountry.forEach((o) => (counts[o.opportunity_type] = (counts[o.opportunity_type] || 0) + 1));
+    if (type && !counts[type]) type = "";
+    const list = inCountry.filter((o) => !type || o.opportunity_type === type);
+    $("sigcount").textContent = `${list.length} signal${list.length > 1 ? "s" : ""}${country ? " · " + NAME(country) : " · tous les pays"}`;
+    $("types").innerHTML = `<button type="button" data-t="" aria-pressed="${!type}">Tous</button>` +
+      Object.entries(counts).sort((a, b) => b[1] - a[1]).map(([t, n]) => `<button type="button" data-t="${t}" aria-pressed="${t === type}">${esc(TYPE_FR[t] ?? t)} <span class="num">${n}</span></button>`).join("");
+    $("cards").innerHTML = list.map(card).join("") || `<p class="note">Aucun signal pour ce filtre.</p>`;
+  }
+  function renderWall() {
+    if (!country) {
+      $("wall-title").textContent = "Mur de refinancement";
+      $("wall").innerHTML = `<p class="note" style="margin:0">Sélectionnez un pays pour voir les montants qui arrivent à échéance chaque mois sur les 12 prochains mois.</p>`;
+      return;
+    }
+    const w = D.walls[country];
+    $("wall-title").textContent = `Mur de refinancement · ${NAME(country)}`;
+    const months = w.months, vals = months.map((m) => Number(m.amount)), max = Math.max(...vals, 1);
+    const flagged = new Set(opps.filter((o) => o.country_iso3 === country && o.opportunity_type === "refinancing_concentration").map((o) => o.evidence.facts[0].label.slice(-7)));
+    const step = Math.pow(10, Math.floor(Math.log10(max))), top = Math.ceil(max / step) * step;
+    const W = 340, H = 190, L = 44, B = 30, T = 8, bw = (W - L - 6) / months.length;
+    const y = (v) => T + (H - T - B) * (1 - v / top);
+    let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Montants arrivant à échéance par mois, ${esc(NAME(country))}">`;
+    [0, 0.5, 1].forEach((f) => { const v = top * f; svg += `<line class="gl" x1="${L}" x2="${W}" y1="${y(v)}" y2="${y(v)}"/><text x="${L - 6}" y="${y(v) + 3}" text-anchor="end">${amt(v, "").trim()}</text>`; });
+    months.forEach((m, i) => {
+      const v = vals[i], x = L + 3 + i * bw, h = Math.max(0, y(0) - y(v)), hi = flagged.has(m.month);
+      svg += `<rect class="b${hi ? " hi" : ""}" x="${x + 1}" y="${y(v)}" width="${bw - 2}" height="${h}" rx="2"><title>${m.month} : ${amt(v, w.currency)} (${m.share_pct ? nf(m.share_pct, 1) + " %" : "—"})${hi ? " · concentration signalée" : ""}</title></rect>`;
+      if (i % 2 === 0) svg += `<text x="${x + bw / 2}" y="${H - 12}" text-anchor="middle">${m.month.slice(5)}/${m.month.slice(2, 4)}</text>`;
+    });
+    $("wall").innerHTML = svg + `<p class="note">Total sur 12 mois : <strong class="num">${amt(w.total, w.currency)}</strong>.${flagged.size ? ` En or : mois signalés en concentration (${[...flagged].join(", ")}).` : ""} Montants alloués des titres adjugés suivis ici ; hors Eurobonds et prêts.</p>`;
+  }
+
+  // ---------- Sources
+  function renderSources() {
+    const withUrl = D.sources.filter((x) => x.candidates.length);
+    const without = D.sources.filter((x) => !x.candidates.length);
+    const all = withUrl.flatMap((x) => x.candidates);
+    const ok = all.filter((c) => c.check === "http_200").length;
+    $("src-lede").textContent = `${D.sources.length} sources officielles enregistrées pour les 54 pays. ${all.length} URL proposées pour ${withUrl.length} institutions, vérifiées le 3 octobre 2026 : ${ok} joignables avec un titre de page qui nomme l'institution, ${all.filter((c) => c.check === "http_403").length} bloquées par un anti-bot, ${all.filter((c) => c.check === "search_only").length} trouvées uniquement par recherche web. Aucune n'est activée tant qu'un opérateur ne l'a pas confirmée.`;
+    $("srcs").innerHTML = `<thead><tr><th>Institution</th><th>URL proposée</th><th>Contenu</th><th>Vérification</th></tr></thead><tbody>` +
+      withUrl.sort((a, b) => a.priority - b.priority || a.name.localeCompare(b.name)).flatMap((x) => x.candidates.map((c, i) =>
+        `<tr>${i === 0 ? `<td rowspan="${x.candidates.length}"><strong>${esc(x.institution)}</strong><br><small style="color:var(--muted)">${esc(x.category.replace(/_/g, " "))}</small></td>` : ""}<td><a href="${esc(c.url)}" target="_blank" rel="noopener noreferrer">${esc(c.url.replace(/^https:\/\//, ""))}</a></td><td lang="en">${esc(c.purpose)}</td><td><span class="ev ${c.check}" title="${esc(c.evidence)}">${EV_FR[c.check]}</span></td></tr>`)).join("") + `</tbody>`;
+    $("cb-sum").textContent = `${without.length} autres sources enregistrées, URL à confirmer`;
+    $("cb").innerHTML = without.sort((a, b) => a.institution.localeCompare(b.institution)).map((x) => `<p>${esc(x.institution)}</p>`).join("");
+  }
+
+  function selectRadar(c) {
+    country = c; store.set("cartouche-country", c);
+    renderChips(); renderGrid(); renderSignals(); renderWall();
+  }
+  function selectMap(iso) {
+    mapSel = iso; store.set("cartouche-map", iso);
+    renderTiles(); renderProfile();
+  }
+  document.addEventListener("click", (e) => {
+    const go = e.target.closest("[data-go]");
+    if (go) { selectRadar(go.dataset.go); return; }
+    const m = e.target.closest("[data-m]");
+    if (m) { selectMap(m.dataset.m); return; }
+    const c = e.target.closest("[data-c]");
+    if (c) { selectRadar(c.dataset.c === country && c.closest("#grid") ? "" : c.dataset.c); return; }
+    const t = e.target.closest("[data-t]");
+    if (t) { type = t.dataset.t; renderSignals(); }
+  });
+
+  renderTiles(); renderProfile(); renderChips(); renderGrid(); renderSignals(); renderWall(); renderSources();
+})();
+</script>
+</body>
+</html>

@@ -1,4 +1,7 @@
-"""Reference data for the MVP countries and the official-source registry.
+"""Reference data for all 54 African countries and the official-source registry.
+
+The six MVP countries carry market-structure notes; the other 48 carry identity data only
+(see app.seed.africa).
 
 STATUS: UNVERIFIED. Compiled from general knowledge, not from a retrieved
 official document. Every row is stored with verification_status=unverified and
@@ -11,6 +14,7 @@ crawlers stay in `pending_configuration` until an operator supplies them.
 """
 
 from app.models.enums import MonetaryZone, SourceCategory
+from app.seed.africa import AFRICA
 
 UNVERIFIED_NOTE = (
     "Reference seed compiled from general knowledge, not from a retrieved official "
@@ -106,6 +110,23 @@ COUNTRIES: list[dict] = [
     },
 ]
 
+MVP_ISO3 = {c["iso3"] for c in COUNTRIES}
+
+# Identity data for the remaining countries; structure notes stay empty ("Not available").
+COUNTRIES += [
+    {
+        "name": c.name,
+        "iso2": c.iso2,
+        "iso3": c.iso3,
+        "currency": c.currency,
+        "monetary_zone": c.zone,
+        "central_bank": c.central_bank,
+        "debt_management_office": None,
+    }
+    for c in AFRICA
+    if c.iso3 not in MVP_ISO3
+]
+
 # (name, institution, category, country iso3 or None for regional)
 SOURCES: list[tuple[str, str, SourceCategory, str | None]] = [
     ("BEAC — government securities market", "BEAC", SourceCategory.CENTRAL_BANK, None),
@@ -145,4 +166,12 @@ SOURCES: list[tuple[str, str, SourceCategory, str | None]] = [
      SourceCategory.STOCK_EXCHANGE, "KEN"),
     ("AfDB — African Financial Markets Initiative", "African Development Bank",
      SourceCategory.REGIONAL_INSTITUTION, None),
+]
+
+# One central-bank source per country with its own central bank. CEMAC and WAEMU members are
+# covered by the regional BEAC / BCEAO sources; Kenya already has a CBK source above.
+SOURCES += [
+    (f"{c.name} — central bank", c.central_bank, SourceCategory.CENTRAL_BANK, c.iso3)
+    for c in AFRICA
+    if c.zone not in (MonetaryZone.CEMAC, MonetaryZone.WAEMU) and c.iso3 != "KEN"
 ]
