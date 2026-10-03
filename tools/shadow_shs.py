@@ -196,7 +196,9 @@ def run(scn=1, lever=None, gen=None, products=None):
     E = lambda arr: np.array([arr[e] for e in ye])
     fx_avg = np.array([fx[s].mean() for s in ys])
     ds = A(tl_int) + A(rep * fx) + A(out["rf_int"])
-    dscr = np.divide(A(out["cfo"]) + A(tl_int) + A(out["rf_int"]), ds, out=np.zeros(YEARS), where=ds != 0)
+    d_netrec = out["netrec"] - np.concatenate([[0.0], out["netrec"][:-1]])
+    cf_basis = A(out["cfo"]) + (A(d_netrec) if g.get("dscr_basis", 1) == 2 else 0.0)  # basis 2: excluding growth in receivables
+    dscr = np.divide(cf_basis + A(tl_int) + A(out["rf_int"]), ds, out=np.zeros(YEARS), where=ds != 0)
 
     # valuation
     nwc = E(out["netrec"]) + E(inv) - E(ap)

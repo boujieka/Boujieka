@@ -130,7 +130,7 @@ r = 4
 mb.section(ws, r, "Scenario & settings"); r += 1
 add_input("scenario", r, "Active scenario (1 = Base, 2 = Downside, 3 = Severe)", "#", G["scenario"], FMT_INT, True,
           "Drives the levers on the Scenarios sheet.")
-dv = DataValidation(type="whole", operator="between", formula1="1", formula2="3")
+dv = DataValidation(type="whole", operator="between", formula1="1", formula2="3", showErrorMessage=True, errorStyle="stop", error="Enter a whole number from 1 to 3.")
 ws.add_data_validation(dv); dv.add(f"C{r}"); r += 1
 add_input("start", r, "First model month (period end)", "date", None, FMT_DATE, False, "Period-end date of month 1.")
 ws[f"C{r}"] = "=DATE(2027,1,31)"; ws[f"C{r}"].font = Font(name=FONT, color=BLUE); r += 1
@@ -165,7 +165,7 @@ add_input("rbf_on", r, "RBF programme active (1 = yes, 0 = no)", "switch", G["rb
 add_input("rbf_lag", r, "Months from sale to RBF disbursement (verification lag)", "months", G["rbf_lag"], FMT_INT); r += 1
 add_input("rbf_mode", r, "RBF design mode (1 sales, 2 repayment-linked, 3 ownership-linked, 4 hybrid)", "#", G["rbf_mode"], FMT_INT, True,
           "See RBF_Engine. Ownership-linked RBF pays nothing until validated ownership-at-2x data exist."); r += 1
-dv_rbf = DataValidation(type="whole", operator="between", formula1="1", formula2="4"); ws.add_data_validation(dv_rbf); dv_rbf.add(f"C{r - 1}")
+dv_rbf = DataValidation(type="whole", operator="between", formula1="1", formula2="4", showErrorMessage=True, errorStyle="stop", error="Enter a whole number from 1 to 4."); ws.add_data_validation(dv_rbf); dv_rbf.add(f"C{r - 1}")
 add_input("rbf_rr_target", r, "Repayment rate at verification for 100% of repayment-linked RBF", "%", G["rbf_rr_target"], FMT_PCT); r += 1
 for k_, nm in enumerate(["sales-based", "repayment-linked", "ownership-linked"]):
     add_input(f"rbf_w{k_ + 1}", r, f"Hybrid weight - {nm}", "%", G["rbf_w"][k_], FMT_PCT, False, "Hybrid weights must sum to 100% (Checks)."); r += 1
@@ -196,7 +196,7 @@ add_input("rf_start", r, "Receivables facility - first available month", "month 
 mb.section(ws, r, "Receivables financing structure"); r += 1
 add_input("fin_struct", r, "Structure (1 = warehouse facility, 2 = securitisation / term ABS)", "#", G["fin_struct"], FMT_INT, True,
           "Both are modelled on balance sheet. Option 2 applies the rate, advance-rate haircut and upfront fee below."); r += 1
-dv_fs = DataValidation(type="whole", operator="between", formula1="1", formula2="2"); ws.add_data_validation(dv_fs); dv_fs.add(f"C{r - 1}")
+dv_fs = DataValidation(type="whole", operator="between", formula1="1", formula2="2", showErrorMessage=True, errorStyle="stop", error="Enter 1 or 2."); ws.add_data_validation(dv_fs); dv_fs.add(f"C{r - 1}")
 add_input("sec_rate", r, "Securitisation - all-in interest rate", "% p.a.", G["sec_rate"], FMT_PCT); r += 1
 add_input("sec_adv_mult", r, "Securitisation - advance-rate multiplier vs warehouse", "x", G["sec_adv_mult"], FMT_NUM2); r += 1
 add_input("sec_fee", r, "Securitisation - upfront structuring fee on new drawings", "%", G["sec_fee"], FMT_PCT, False,
@@ -224,7 +224,12 @@ add_input("inv_usd", r, "Investor ticket (part of initial equity)", "USD", G["in
 add_input("pre_money", r, "Pre-money equity valuation", "USD", G["pre_money_usd"], FMT_NUM, True); r += 1
 add_input("exit_method", r, "Exit valuation method (1 = EV/EBITDA, 2 = Price/Book)", "#", G["exit_method"], FMT_INT); r += 1
 add_input("exit_mult", r, "Exit EV / EBITDA multiple (end of Year 5)", "x", G["exit_ebitda_mult"], FMT_X); r += 1
-add_input("exit_pb", r, "Exit price / book equity multiple (end of Year 5)", "x", G["exit_pb_mult"], FMT_X); r += 1
+add_input("exit_pb", r, "Exit price / book equity multiple (end of Year 5)", "x", G["exit_pb_mult"], FMT_X); r += 2
+mb.section(ws, r, "Covenant definition"); r += 1
+add_input("dscr_basis", r, "DSCR covenant in the facility terms (0 = none, 1 = operating cash flow basis, 2 = cash basis excluding growth in PAYGo receivables)",
+          "#", G.get("dscr_basis", 1), FMT_INT, True,
+          "1 keeps the test as drafted: operating cash flow absorbs the growth of the receivables book, so a growing PAYGo company fails it. "
+          "2 treats the funding of new receivables as investment (financed by the facility). 0 = the facility has no DSCR test. Use the facility's own definition."); r += 1
 
 # =====================================================================
 # PRODUCTS
@@ -357,11 +362,11 @@ for rr, text, unit, key, fmt in levers:
     label(sw, f"B{rr}", unit, size=9, color=GREY_TXT)
     for c, v in zip("CDE", SCENARIOS[key]):
         put_input(sw, f"{c}{rr}", v, fmt)
-    put_calc(sw, f"G{rr}", f"=CHOOSE({INP['scenario']},C{rr},D{rr},E{rr})", fmt, bold=True)
+    put_calc(sw, f"G{rr}", f"=CHOOSE(MAX(1,MIN(3,INT(N({INP['scenario']})))),C{rr},D{rr},E{rr})", fmt, bold=True)
 label(sw, "A12", "Scenario name", bold=True)
 for c, n in zip("CDE", ["Base", "Downside", "Severe"]):
     put_input(sw, f"{c}12", n, "@")
-put_calc(sw, "G12", f"=CHOOSE({INP['scenario']},C12,D12,E12)", "@", bold=True)
+put_calc(sw, "G12", f"=CHOOSE(MAX(1,MIN(3,INT(N({INP['scenario']})))),C12,D12,E12)", "@", bold=True)
 label(sw, "I5", "Provenance", bold=True)
 for rr, text, unit, key, fmt in levers:
     put_prov(sw, f"I{rr}", f"lever_{key}")
@@ -369,7 +374,7 @@ sw.column_dimensions["I"].width = 24
 label(sw, "A13", "Input set loaded on Inputs, Products and Credit_Assumptions", bold=True)
 INPUT_SETS = ["Illustrative (model assumptions)", "Management case", "Calibrated case"]
 put_input(sw, "C13", INPUT_SETS[2] if CASE else INPUT_SETS[0], "@", True)
-dv_is = DataValidation(type="list", formula1='"' + ",".join(INPUT_SETS) + '"', allow_blank=False)
+dv_is = DataValidation(type="list", formula1='"' + ",".join(INPUT_SETS) + '"', allow_blank=False, showErrorMessage=True, errorStyle="stop")
 sw.add_data_validation(dv_is); dv_is.add("C13")
 label(sw, "F13", "Active case")
 put_calc(sw, "G13", "=C13&\", \"&G12", "@", bold=True)
@@ -402,7 +407,7 @@ def ca_input(key, row, text, unit, value, fmt=FMT_NUM, keyflag=False, n=ILLUS):
 mb.section(caw, 4, "Data mode")
 ca_input("credit_mode", 5, "Credit data mode (1 = Proxy, 2 = Actual)", "#", G["credit_mode"], FMT_INT, True,
          "Actual mode reads Credit_Input (company history) for reporting. Projections and the facility always use the proxy engine.")
-dv_cm = DataValidation(type="whole", operator="between", formula1="1", formula2="2"); caw.add_data_validation(dv_cm); dv_cm.add("C5")
+dv_cm = DataValidation(type="whole", operator="between", formula1="1", formula2="2", showErrorMessage=True, errorStyle="stop", error="Enter 1 or 2."); caw.add_data_validation(dv_cm); dv_cm.add("C5")
 mb.section(caw, 7, "Definitions")
 ca_input("dpd_default", 8, "Default definition", "days past due", G["dpd_default"], FMT_INT, True, "Common PAYGo / lender convention; confirm against facility documents.")
 ca_input("dpd_s2", 9, "Stage 2 threshold (significant increase in credit risk)", "DPD", G["dpd_s2"], FMT_INT, False, "Indicative IFRS 9-style staging.")
@@ -662,6 +667,8 @@ def vi_col(metric, k):
 
 VI_OWN_COL = gcl(4 + len(VI_METRICS) * NCP)
 VI_NOTE_COL = gcl(5 + len(VI_METRICS) * NCP)
+VI_CHK_COLL = gcl(6 + len(VI_METRICS) * NCP)  # row check: collections (gaps or falls) and negative units
+VI_CHK_DUE = gcl(7 + len(VI_METRICS) * NCP)   # row check: instalments due (gaps or falls)
 
 
 def vi_range(j, col_letter):
@@ -677,7 +684,7 @@ rbw = mb.sheet(RB, "RBF engine - sales-based, repayment-linked, ownership-linked
 mb.time_header(rbw)
 rbw.column_dimensions["A"].width = 52
 label(rbw, "A8", "Design mode"); put_calc(rbw, "C8",
-    f"=CHOOSE({INP['rbf_mode']},\"Sales-based\",\"Repayment-linked\",\"Ownership-linked\",\"Hybrid\")", "@", bold=True)
+    f"=CHOOSE(MAX(1,MIN(4,INT(N({INP['rbf_mode']})))),\"Sales-based\",\"Repayment-linked\",\"Ownership-linked\",\"Hybrid\")", "@", bold=True)
 RBF_PAR = {}
 rr = 10
 mb.section(rbw, rr, "Tier parameters (per unit, active scenario)"); rr += 1
@@ -721,7 +728,7 @@ for j in range(NP):
         ("hybrid", "Hybrid RBF (weighted)",
          lambda c, p: f"={INP['rbf_w1']}*{c}{rw('sales')}+{INP['rbf_w2']}*{c}{rw('repay')}+{INP['rbf_w3']}*{c}{rw('own')}"),
         ("sel", "Selected RBF (feeds Ops and P&L)",
-         lambda c, p: f"=CHOOSE({INP['rbf_mode']},{c}{rw('sales')},{c}{rw('repay')},{c}{rw('own')},{c}{rw('hybrid')})"),
+         lambda c, p: f"=CHOOSE(MAX(1,MIN(4,INT(N({INP['rbf_mode']})))),{c}{rw('sales')},{c}{rw('repay')},{c}{rw('own')},{c}{rw('hybrid')})"),
         ("var", "Variance vs sales-based", lambda c, p: f"={c}{rw('sel')}-{c}{rw('sales')}"),
     ]
     for key, text, fn in specs:
@@ -1294,10 +1301,11 @@ kpi_rows += [
      lambda c: f"=IFERROR(({ann(S, 'tl', c, 'last')}+{ann(S, 'rf', c, 'last')})/{ann(S, 'te', c, 'last')},0)", FMT_X),
     ("ds", "Debt service (interest + term-loan principal, LCY)",
      lambda c: f"={ann(F, 'tl_int', c)}+{ann(F, 'tl_rep', c)}+{ann(F, 'rf_int', c)}", FMT_NUM),
-    ("dscr", "DSCR ((CFO + interest) / debt service)",
-     lambda c: f"=IFERROR(({ann(S, 'cfo', c)}-{ann(S, 'int_tl', c)}-{ann(S, 'int_rf', c)})/{c}<<ds>>,0)", FMT_X),
-    ("dscr_flag", "Breach: DSCR below minimum (years with debt service)",
-     lambda c: f"=IF(AND({c}<<ds>>>0,{c}<<dscr>><{INP['cov_dscr']}),1,0)", FMT_INT),
+    ("dscr", "DSCR ((cash flow + interest) / debt service; basis per Inputs, covenant definition)",
+     lambda c: (f"=IFERROR(({ann(S, 'cfo', c)}-{ann(S, 'int_tl', c)}-{ann(S, 'int_rf', c)}"
+                f"-IF({INP['dscr_basis']}=2,{ann(S, 'cf_rec', c)},0))/{c}<<ds>>,0)"), FMT_X),
+    ("dscr_flag", "Breach: DSCR below minimum (years with debt service; 0 when the facility has no DSCR test)",
+     lambda c: f"=IF(AND({INP['dscr_basis']}>0,{c}<<ds>>>0,{c}<<dscr>><{INP['cov_dscr']}),1,0)", FMT_INT),
     ("cov_months", "Months with any monthly covenant breach", lambda c: "=" + ann(CV, "any_flag", c), FMT_INT),
     ("fx", "FX rate (year end, LCY / USD)", lambda c: f"=INDEX({TL_FX},1,{c}$6*12)", FMT_NUM2),
 ]
@@ -1527,6 +1535,9 @@ mb.time_header(cpw)
 cpw.column_dimensions["A"].width = 56
 label(cpw, "A8", "Credit data mode")
 put_calc(cpw, "C8", f"=IF({INP['credit_mode']}=1,\"PROXY (model curves)\",\"ACTUAL (Credit_Input)\")", "@", bold=True)
+mb.write_row(cpw, 9, "Period end of the data shown (Actual mode: company observation dates, not model months)", "date",
+             lambda i, c, p: (f"=IF({INP['credit_mode']}=1,Timeline!{c}$5,IF(ISNUMBER(INDEX({ci_range(0, 'date')},{c}$4)),"
+                              f"INDEX({ci_range(0, 'date')},{c}$4),\"\"))"), FMT_DATE)
 sumT = lambda key, c: "+".join(f"Credit_Engine!{c}{mb.r(CE, f's_{key}{j}')}" for j in range(NP))
 cp_rows = [("gross", "Gross receivables", lambda i, c, p: "=" + sumT("gross", c), FMT_NUM)] + \
     [(f"b{k_}", f"{BUCKETS[k_][0]}" + (" DPD" if k_ else ""), (lambda i, c, p, k_=k_: "=" + sumT(f"b{k_}", c)), FMT_NUM) for k_ in range(6)] + [
@@ -1609,7 +1620,7 @@ put_input(crw, "C5", G["afford_reviewed"], FMT_INT, True); INP["afford_reviewed"
 header_row(crw, 7, ["Metric", "Unit"] + [f"Tier {p['tier']}" for p in PRODUCTS])
 CRR = {}
 STATUS_LIST = '"Not provided,Provided,Validated"'
-dv_st = DataValidation(type="list", formula1=STATUS_LIST, allow_blank=False)
+dv_st = DataValidation(type="list", formula1=STATUS_LIST, allow_blank=False, showErrorMessage=True, errorStyle="stop")
 crw.add_data_validation(dv_st)
 cr_rows = [
     ("income", "Household monthly income - ILLUSTRATIVE, TO BE REPLACED", "LCY / month", None, FMT_NUM),
@@ -1647,7 +1658,7 @@ VIN = "Vintage_Input"
 viw = mb.sheet(VIN, "Vintage input - actual cohort observations (5 tiers x 60 cohorts)",
                "Mode per cohort: 1 = Proxy (model curves), 2 = Actual (row data). Cumulative values at checkpoints M3...M60, LCY.", tab="0000FF")
 viw.column_dimensions["A"].width = 10
-dv_vm = DataValidation(type="whole", operator="between", formula1="1", formula2="2")
+dv_vm = DataValidation(type="whole", operator="between", formula1="1", formula2="2", showErrorMessage=True, errorStyle="stop", error="Enter 1 or 2.")
 viw.add_data_validation(dv_vm)
 for j in range(NP):
     r0 = VI_R0(j)
@@ -1656,7 +1667,8 @@ for j in range(NP):
     for m_i, (mk, mt) in enumerate(VI_METRICS):
         viw.cell(r0 - 2, 4 + m_i * NCP, mt).font = Font(name=FONT, bold=True, color=NAVY, size=9)
     header_row(viw, r0 - 1, ["Cohort #", "Mode", "Units originated"] +
-               [f"M{cp_}" for _ in VI_METRICS for cp_ in CHECKPOINTS] + ["Ownership at 2x (%)", "Notes"])
+               [f"M{cp_}" for _ in VI_METRICS for cp_ in CHECKPOINTS] + ["Ownership at 2x (%)", "Notes",
+                                                                          "Check: collections, units (0 = OK)", "Check: instalments due (0 = OK)"])
     for ci in range(1, MONTHS + 1):
         r_ = r0 + ci - 1
         put_calc(viw, f"A{r_}", ci, FMT_INT)
@@ -1667,6 +1679,15 @@ for j in range(NP):
             cell.fill = INPUT_FILL
             cell.font = Font(name=FONT, color=BLUE, size=9)
             cell.number_format = FMT_PCT if gcl(c_idx) == VI_OWN_COL else ("@" if gcl(c_idx) == VI_NOTE_COL else FMT_NUM)
+
+        def mono(metric, r_=r_):
+            # a later checkpoint filled while an earlier one is blank, or a later value below the earlier one
+            return "+".join(f"ISNUMBER({vi_col(metric, n_ + 1)}{r_})*IF(ISNUMBER({vi_col(metric, n_)}{r_}),"
+                            f"--({vi_col(metric, n_ + 1)}{r_}<{vi_col(metric, n_)}{r_}-0.5),1)" for n_ in range(NCP - 1))
+        put_calc(viw, f"{VI_CHK_COLL}{r_}", f"=IFERROR({mono('coll')}+IF(AND(ISNUMBER(C{r_}),C{r_}<0),1,0),1)", FMT_INT)
+        put_calc(viw, f"{VI_CHK_DUE}{r_}", f"=IFERROR({mono('due')},1)", FMT_INT)
+viw.column_dimensions[VI_CHK_COLL].width = 14
+viw.column_dimensions[VI_CHK_DUE].width = 14
 viw.freeze_panes = "D9"
 
 # =====================================================================
@@ -2451,6 +2472,27 @@ def prev_(sheet, key):
 
 
 tenrow = PR["tenor"][0].split("$")[-1]
+CI_CHECK_TEXT = ("Credit_Input data valid: DPD buckets reconcile to gross receivables (Actual mode); no negative balance, unit or flow; "
+                 "one period end per consecutive calendar month, the same in every tier; collections at most twice instalments due")
+
+
+def ci_date_test(j):
+    """Count of date faults in tier j: a date not in the calendar month after the previous one, or a date different from Tier 1's."""
+    c_ = CI_COL["date"]
+    r0_, r1_ = CI_R0(j), CI_R0(j) + MONTHS - 1
+    rng = lambda a, b: f"Credit_Input!${c_}${a}:${c_}${b}"
+    cur, prv = rng(r0_ + 1, r1_), rng(r0_, r1_ - 1)
+    t1 = rng(CI_R0(0), CI_R0(0) + MONTHS - 1)
+    parts = [f"SUMPRODUCT(ISNUMBER({cur})*ISNUMBER({prv})*((YEAR({cur})*12+MONTH({cur}))-(YEAR({prv})*12+MONTH({prv}))<>1))"]
+    if j:
+        parts.append(f"SUMPRODUCT(ISNUMBER({rng(r0_, r1_)})*ISNUMBER({t1})*({rng(r0_, r1_)}<>{t1}))")
+    return "IFERROR(" + "+".join(parts) + ",1)"
+
+
+def in_range(ref, lo=None, hi=None):
+    """1 when an input is not a number within [lo, hi] (either bound optional), else 0."""
+    conds = [f"ISNUMBER({ref})"] + ([f"{ref}>={lo}"] if lo is not None else []) + ([f"{ref}<={hi}"] if hi is not None else [])
+    return f"IFERROR(IF(AND({','.join(conds)}),0,1),1)"
 
 
 def whole_in(ref, lo, hi):
@@ -2476,8 +2518,12 @@ checks = [
     ("Credit data mode valid (whole number 1 to 2)", "=" + whole_in(INP['credit_mode'], 1, 2)),
     ("Proxy DPD buckets reconcile to gross receivables (all tiers, all months)",
      "=IF(" + "+".join(f"SUMPRODUCT(ABS({mb.range_(CE, f'p_recon{j}')}))" for j in range(NP)) + ">0,1,0)"),
-    ("Actual DPD buckets reconcile to gross receivables (Actual mode only)",
-     f"=IF({INP['credit_mode']}=2,IF(" + "+".join(f"SUMPRODUCT(ABS({mb.range_(CE, f's_recon{j}')}))" for j in range(NP)) + ">0,1,0),0)"),
+    (CI_CHECK_TEXT,
+     f"=IF({INP['credit_mode']}=2,IF(" + "+".join(f"SUMPRODUCT(ABS({mb.range_(CE, f's_recon{j}')}))" for j in range(NP)) + ">0,1,0),0)"
+     + "+IF(" + "+".join(f"COUNTIF({ci_range(j, k_)},\"<0\")" for j in range(NP) for k_ in CI_KEYS[2:-1]) + ">0,1,0)"
+     + "+IF(" + "+".join(f"SUMPRODUCT(ISNUMBER({ci_range(j, 'coll')})*ISNUMBER({ci_range(j, 'due')})*({ci_range(j, 'coll')}>2*{ci_range(j, 'due')}+0.5))"
+                        for j in range(NP)) + ">0,1,0)"
+     + "+IF(" + "+".join(ci_date_test(j) for j in range(NP)) + ">0,1,0)"),
     ("Indicative ECL non-negative", "=IF(MIN(" + ",".join(f"MIN({mb.range_(CE, f's_ecl{j}')}),MIN({mb.range_(CE, f'p_ecl{j}')})" for j in range(NP)) + ")<-1,1,0)"),
     ("Facility drawn within borrowing base and limit",
      f"=IF(OR(SUMPRODUCT(--({mb.range_(F, 'rf_bal')}>{mb.range_(F, 'rf_bb')}+1))>0,MAX({mb.range_(F, 'rf_bal')})>{INP['rf_limit']}+1),1,0)"),
@@ -2487,12 +2533,27 @@ checks = [
     ("RBF mode valid (whole number 1 to 4)", "=" + whole_in(INP['rbf_mode'], 1, 4)),
     ("Stage thresholds ordered (Stage 2 < Stage 3 <= default)",
      f"=IF(OR({INP['dpd_s2']}>={INP['dpd_s3']},{INP['dpd_s3']}>{INP['dpd_default']}),1,0)"),
-    ("Structural inputs valid: financing structure and exit method (1 or 2); RBF, ownership evidence and affordability switches (0 or 1); "
-     "opening FX rate above zero; depreciation life and lags whole numbers in range",
+    ("Structural and range inputs valid: selectors and switches; opening FX above zero; depreciation life, lags, loan drawdown, grace and "
+     "amortisation months within the horizon; rates, shares, hazards, collection and advance rates from 0 to 1; amounts and prices not negative",
      "=" + "+".join([whole_in(INP['fin_struct'], 1, 2), whole_in(INP['exit_method'], 1, 2), whole_in(INP['rbf_on'], 0, 1),
                      whole_in(INP['own_evidence'], 0, 1), whole_in(INP['afford_reviewed'], 0, 1),
                      f"IFERROR(IF({INP['fx0']}>0,0,1),1)", whole_in(INP['dep_life'], 1, 600),
-                     whole_in(INP['rbf_lag'], 0, MAX_AGE), whole_in(INP['repo_lag'], 0, MAX_AGE)])),
+                     whole_in(INP['rbf_lag'], 0, MAX_AGE), whole_in(INP['repo_lag'], 0, MAX_AGE), whole_in(INP['dscr_basis'], 0, 2),
+                     # M4: financing terms, rates, shares and prices within meaningful ranges
+                     whole_in(INP['tl_month'], 1, MONTHS), whole_in(INP['tl_grace'], 0, MONTHS), whole_in(INP['tl_amort'], 1, MONTHS),
+                     whole_in(INP['rf_start'], 1, MONTHS), in_range(INP['tax'], 0, 1), in_range(INP['tl_rate'], 0, 1),
+                     in_range(INP['rf_rate'], 0, 1), in_range(INP['sec_rate'], 0, 1), in_range(INP['sec_fee'], 0, 1),
+                     in_range(INP['sec_adv_mult'], 0, 1.5), in_range(INP['mm_fee'], 0, 1), in_range(INP['duty'], 0, 5),
+                     in_range(INP['inv_cover'], 0, 24), in_range(INP['ap_days'], 0, 365), in_range(INP['min_cash'], 0),
+                     in_range(INP['eq0'], 0), in_range(INP['tl_amt'], 0), in_range(INP['rf_limit'], 0),
+                     in_range(INP['inv_usd'], 0), f"IFERROR(IF({INP['pre_money']}>0,0,1),1)", in_range(INP['wacc'], 0, 1),
+                     in_range(INP['exit_mult'], 0), in_range(INP['exit_pb'], 0), in_range(INP['fx_pass'], 0, 1),
+                     in_range(INP['infl'], -0.5, 5), in_range(INP['price_g'], -0.5, 5), in_range(INP['cov_dscr'], 0),
+                     f"IFERROR(IF({INP['afford_max']}>0,0,1),1)", in_range(INP['perf_current'], 0, 1),
+                     in_range(INP['recov_cost'], 0, 1), in_range(INP['cure'], 0, 1)]
+                    + [in_range(INP[f'rar_s{k_ + 1}'], 0, 1) for k_ in range(4)]
+                    + [in_range(PR[k_][j], 0, 1) for j in range(NP) for k_ in ("mix", "hazard", "coll", "repo", "recov", "adv", "warranty")]
+                    + [in_range(PR[k_][j], 0) for j in range(NP) for k_ in ("price", "deposit", "daily", "hw", "install", "comm", "mkt", "rbf")])),
     ("PERFORM horizon = 2 x tenor for every tier", "=" + "+".join(f"IF({PR['perf2x'][j]}<>2*{PR['tenor'][j]},1,0)" for j in range(NP))),
     ("Vintage cohort modes valid (1 or 2)",
      "=" + "+".join(f"(ROWS({vi_range(j, 'B')})-COUNTIF({vi_range(j, 'B')},1)-COUNTIF({vi_range(j, 'B')},2))" for j in range(NP))),
@@ -2520,12 +2581,10 @@ checks = [
      + ">1,1,0)"),
     ("Vintage engine carries cohort units from Vintage_Input (all tiers)",
      "=IF(" + "+".join(f"ABS(SUM({ve_range(j, 'C')})-SUM({vi_range(j, 'C')}))" for j in range(NP)) + ">0.5,1,0)"),
-    ("Vintage_Input: cumulative collections never fall between checkpoints",
-     "=IF(" + "+".join(f"SUMPRODUCT(ISNUMBER({vi_range(j, vi_col('coll', n_ + 1))})*ISNUMBER({vi_range(j, vi_col('coll', n_))})*({vi_range(j, vi_col('coll', n_ + 1))}<{vi_range(j, vi_col('coll', n_))}-0.5))"
-                       for j in range(NP) for n_ in range(NCP - 1)) + ">0,1,0)"),
-    ("Vintage_Input: cumulative instalments due never fall between checkpoints",
-     "=IF(" + "+".join(f"SUMPRODUCT(ISNUMBER({vi_range(j, vi_col('due', n_ + 1))})*ISNUMBER({vi_range(j, vi_col('due', n_))})*({vi_range(j, vi_col('due', n_ + 1))}<{vi_range(j, vi_col('due', n_))}-0.5))"
-                       for j in range(NP) for n_ in range(NCP - 1)) + ">0,1,0)"),
+    ("Vintage_Input: cumulative collections never fall and leave no gap between checkpoints; units not negative",
+     "=IF(" + "+".join(f"SUM({vi_range(j, VI_CHK_COLL)})" for j in range(NP)) + ">0,1,0)"),
+    ("Vintage_Input: cumulative instalments due never fall and leave no gap between checkpoints",
+     "=IF(" + "+".join(f"SUM({vi_range(j, VI_CHK_DUE)})" for j in range(NP)) + ">0,1,0)"),
     ("RBF: statements equal the engine's selected design, RBF non-negative, cumulative disbursements never above cumulative claims "
      "(RBF is never part of customer collections, which come from the cohorts only)",
      f"=IF(ABS(SUM({mb.range_(S, 'rbf')})-SUM({mb.range_(RB, 'selT')}))+ABS(SUM({mb.range_(O, 'rbfT')})-SUM({mb.range_(RB, 'selT')}))>1,1,0)"
@@ -2536,11 +2595,12 @@ checks = [
      f"+ABS(SUM(Valuation!${col(1)}${VR['capex']}:${col(YEARS)}${VR['capex']})+SUM({mb.range_(C_, 'capex')}))"
      f"+ABS(Valuation!${col(YEARS)}${VR['nwc']}-(FS!${mb.last}${mb.r(S, 'netrec')}+FS!${mb.last}${mb.r(S, 'inv')}-FS!${mb.last}${mb.r(S, 'ap')}))>1,1,0)"),
     ("Scenario levers in use equal the selected scenario column (no overwritten lever)",
-     f"=IF(SUMPRODUCT(ABS(Scenarios!$G$6:$G$10-CHOOSE({INP['scenario']},Scenarios!$C$6:$C$10,Scenarios!$D$6:$D$10,Scenarios!$E$6:$E$10)))>0.000001,1,0)"),
-    ("PERFORM_2026 inputs: no negative values, numerators within denominators (RR PvP, at 90 days, at 2x; ownership)",
+     f"=IF(SUMPRODUCT(ABS(Scenarios!$G$6:$G$10-CHOOSE(MAX(1,MIN(3,INT(N({INP['scenario']})))),Scenarios!$C$6:$C$10,Scenarios!$D$6:$D$10,Scenarios!$E$6:$E$10)))>0.000001,1,0)"),
+    ("PERFORM_2026 inputs: no negative values, numerators within denominators (RR PvP, PvFin, at 90 days, at 2x; ownership), contracts at 2x within contracts",
      "=IF(" + "+".join(f"COUNTIF({pf_rng(j, k)},\"<0\")" for j in range(NP) for k in ("n", "pvp_n", "pvp_d", "pvf_n", "pvf_d", "d90_n", "d90_d", "x2_n", "x2_d", "or_n", "or_d"))
      + "+" + "+".join(f"SUMPRODUCT(ISNUMBER({pf_rng(j, a)})*({pf_rng(j, a)}>{pf_rng(j, b)}+0.5))" for j in range(NP)
-                      for a, b in (("pvp_n", "pvp_d"), ("d90_n", "d90_d"), ("x2_n", "x2_d"), ("or_n", "or_d"))) + ">0,1,0)"),
+                      for a, b in (("pvp_n", "pvp_d"), ("pvf_n", "pvf_d"), ("d90_n", "d90_d"), ("x2_n", "x2_d"), ("or_n", "or_d"), ("or_d", "n")))
+     + ">0,1,0)"),
     ("No impossible negative balances (inventory, fixed assets, payables, active accounts, units, debt, cumulative equity)",
      "=IF(MIN(" + ",".join(f"MIN({mb.range_(sh_, k_)})" for sh_, k_ in ((C_, 'inv'), (C_, 'ppe'), (C_, 'ap'), (O, 'activeT'), (O, 'unitsT'),
                                                                         (F, 'tl_bal_usd'), (F, 'rf_bal'), (F, 'eq_cum'))) + ")<-1,1,0)"),
@@ -2588,7 +2648,7 @@ for c_, w_ in zip("ABCDEFGHIJKL", [5, 50, 9, 14, 12, 6, 46, 10, 26, 20, 12, 34])
 header_row(irw, 6, ["#", "Gate", "Type", "Manual status", "Auto result", "Met", "Evidence required", "Critical",
                     "Where the evidence is held", "Signed off by", "Date", "Evidence check"])
 irw.row_dimensions[6].height = 30
-dv_g = DataValidation(type="list", formula1='"Not started,In progress,Met"', allow_blank=False)
+dv_g = DataValidation(type="list", formula1='"Not started,In progress,Met"', allow_blank=False, showErrorMessage=True, errorStyle="stop")
 irw.add_data_validation(dv_g)
 min_contrib = "MIN(" + ",".join(f"Unit_Economics!{PCOLS[j]}{UR['contrib']}" for j in range(NP)) + ")"
 cons_valid = "AND(" + ",".join(f"{CONS['perform'][j]}=\"Validated\",{CONS['cp'][j]}=\"Validated\"" for j in range(NP)) + ")"
@@ -2618,7 +2678,7 @@ GATES = [
      "Automatic: affordability reviewed, no flags, PERFORM and consumer-protection evidence validated, PERFORM_2026 results loaded.", True),
     ("Outcome-linked RBF supported by data", f"={VD_FLAGS['own_validated']}=1", "Automatic: validated ownership-at-2x data.", False),
     ("Data reconciliation (actual DPD buckets = gross receivables)",
-     f"=AND({INP['credit_mode']}=2,{RF['horizon']}=0,Checks!$C${CHK_ROW['Actual DPD buckets reconcile to gross receivables (Actual mode only)']}=0)",
+     f"=AND({INP['credit_mode']}=2,{RF['horizon']}=0,Checks!$C${CHK_ROW[CI_CHECK_TEXT]}=0)",
      "Automatic: Actual mode, data supplied, buckets reconcile.", True),
     ("Lender underwriting pack assembled", None, "Cohort tables, PAYGo PERFORM 2026 KPIs (PERFORM_2026), covenant history, borrowing-base reports.", False),
 ]
@@ -3377,8 +3437,17 @@ for lab_ in PROV_LABELS:
     r_ += 1
 note(stw, f"C{r_ + 1}", "Labels describe where a value comes from. Change the label when you replace a value (for example, from MODEL ASSUMPTION to COMPANY DATA).")
 
+# switches and the remaining selectors accept valid values only (M3)
+for ref_, lo_, hi_ in ((INP['rbf_on'], 0, 1), (INP['own_evidence'], 0, 1), (INP['exit_method'], 1, 2), (INP['afford_reviewed'], 0, 1),
+                       (INP['dscr_basis'], 0, 2)):
+    sh_, cell_ = ref_.split("!")
+    dvx = DataValidation(type="whole", operator="between", formula1=str(lo_), formula2=str(hi_), showErrorMessage=True,
+                         errorStyle="stop", error=f"Enter a whole number from {lo_} to {hi_}.")
+    wb[sh_.strip("'")].add_data_validation(dvx)
+    dvx.add(cell_.replace("$", ""))
+
 # provenance cells accept the five labels only
-dv_prov = DataValidation(type="list", formula1='"' + ",".join(PROV_LABELS) + '"', allow_blank=False)
+dv_prov = DataValidation(type="list", formula1='"' + ",".join(PROV_LABELS) + '"', allow_blank=False, showErrorMessage=True, errorStyle="stop")
 for sh in {sh for sh, _c in PROV_CELLS}:
     dvp = copy.copy(dv_prov)
     wb[sh].add_data_validation(dvp)
