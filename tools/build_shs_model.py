@@ -2603,7 +2603,8 @@ GATES = [
     ("Stress tests run and documented", None, "Downside and Severe results and the Sensitivity table, reviewed and minuted.", True),
     ("FX and pass-through assumptions validated", None, "Pricing history after past depreciation; FX_Exposure reviewed.", False),
     ("Funding plan supported by term sheets", None, "Signed term sheets or commitment letters for equity and debt.", True),
-    ("No covenant breach in the active scenario", f"={H['breach_months']}=0", "Automatic: monthly covenants on the Covenants sheet. The annual DSCR test (KPIs, years below minimum) is not part of this gate.", True),
+    ("No covenant breach in the active scenario (monthly covenants and annual DSCR)", f"=AND({H['breach_months']}=0,{H['dscr_breaches']}=0)",
+     "Automatic: no month in breach on the Covenants sheet and no year with DSCR below the minimum (KPIs).", True),
     ("Downside survivable without unplanned equity", None, "Downside peak equity compared with committed funding, documented.", True),
     ("Valuation assumptions reviewed", None, "Discount rate, terminal growth and exit multiple justified in writing.", False),
     ("Positive lifetime contribution in every tier", f"={min_contrib}>0", "Automatic: Unit_Economics.", True),
@@ -2669,7 +2670,7 @@ for n_, (text, f, fmt) in enumerate(rows_):
     label(irw, f"B{r_}", text, bold=n_ >= 3)
     put_calc(irw, f"C{r_}", f, fmt, bold=True)
 irw[f"C{DR + 4}"].font = Font(name=FONT, bold=True, size=12, color="C00000")
-rule = ["STOP when any failed test exists (master check, covenant breach in the active scenario, negative lifetime contribution in a tier).",
+rule = ["STOP when any failed test exists (master check, a monthly covenant breach or a year with DSCR below the minimum in the active scenario, negative lifetime contribution in a tier).",
         "GO only when all gates are met with evidence. CONDITIONAL GO when every critical gate is met; the open gates become conditions.",
         "Otherwise STOP: evidence incomplete. A STOP on incomplete evidence says the file is not ready for a decision, not that the business fails.",
         "GO is a statement about the completeness of the evidence for an investment committee. It is never an investment recommendation."]
