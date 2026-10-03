@@ -106,3 +106,21 @@ Sheets named in the master context but not present in v0.7: PERFORM_2026, Source
 | N Benchmarking | Benchmark block | Reads outputs; no feedback | None |
 | O Scenarios | Scenarios, Inputs | CHOOSE on the selector | Selector valid |
 | P Stress testing | Sensitivity (static) | Outside the workbook | Recomputed 3 Oct 2026 |
+
+## Addendum: architecture of v0.8 (development build), 3 October 2026
+
+The audit above describes v0.7 as found and is kept unchanged. v0.8 has 47 sheets (44 plus three). It also adds blocks to existing sheets. No sheet was deleted.
+
+| Sheet or block | Class | Purpose | Inputs | Outputs | Risk | Status |
+|---|---|---|---|---|---|---|
+| Start (new) | DOCUMENTATION / OUTPUT | What to input, what is calculated, what it means, what to look at; provenance counts | Links only | Status lines, counts | Low | New in step 4 |
+| PERFORM_2026 (new) | INPUT / OUTPUT | Company-reported PAYGo PERFORM 2026 KPIs, aggregated by summing numerators and denominators; labelled approximations | Section C template (company data) | KPIs by tier and portfolio; flags | Medium (data entry) | New in step 3; Checks row 41 |
+| FX_Exposure (new) | OUTPUT | Currency map; transaction, remeasurement and translation effects by year | Timeline FX effect rows | Annual table | Low (presentation) | New in step 4 |
+| Timeline, rows 13 to 24 | CALCULATION | Monthly FX effects | Costs, Financing, Ops, FS | FX_Exposure | Low | New in step 4 |
+| RBF_Engine, claim cycle | CALCULATION | Eligibility, claims, verification, disbursement, working capital gap | Ops units, Products RBF | Gap in USD and LCY | Low | New in step 4; Checks row 38 |
+| Investment_Readiness, columns G to L and decision block | CONTROL | Evidence per gate; GO / CONDITIONAL GO / STOP rule | Manual evidence fields | Decision and reason | Medium (rule design) | New in step 4 |
+| Provenance columns (Inputs E, Products I, Credit_Assumptions E, Scenarios I) | INPUT | Data provenance labels | Label lists | Counts on Start | Low | New in step 4 |
+| Scenarios rows 13 and 18 to 26 | INPUT / DOCUMENTATION | Input set loaded; scenario architecture | Input set selector | Active case label | Low | New in step 4 |
+| Dashboard | OUTPUT | 39 labelled metrics by year, plus charts | Annual, KPIs, Valuation, FX_Exposure, readiness | Display only | Low | Rebuilt in step 4 |
+| Checks | CONTROL | 38 tests (24 in v0.7); master check on C44; 7 readiness flags | All engines | Master check | Low | Steps 2 to 4 |
+| Credit_Portfolio, rows 34 to 41 | CALCULATION | Company history summary (collection rate by history year) | Credit_Input | History block | Low | New in step 2 |

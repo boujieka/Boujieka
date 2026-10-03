@@ -2626,8 +2626,8 @@ for n_, (text, auto, ev, crit) in enumerate(GATES):
                                  f"not counted\"))"), "@")
     label(irw, f"G{r_}", ev, size=9, italic=True)
     label(irw, f"H{r_}", "Yes" if crit else "No", bold=crit)
-    for c_ in "GL":
-        irw[f"{c_}{r_}"].alignment = Alignment(wrap_text=True, vertical="top")
+    for c_ in "ABCDEFGHIJKL":
+        irw[f"{c_}{r_}"].alignment = Alignment(wrap_text=c_ in "GL", vertical="center", horizontal="center" if c_ in "ACFH" else None)
     irw.row_dimensions[r_].height = 30
 NG = len(GATES)
 GL_ = 7 + NG - 1
@@ -3050,6 +3050,7 @@ for row_ in DASH:
         if f is not None:
             put_calc(dw, f"{gcl(2 + y)}{r_}", f, fmt, link=True)
     label(dw, f"H{r_}", src, size=9, italic=True, color=GREY_TXT)
+    dw[f"H{r_}"].alignment = Alignment(indent=2)
     r_ += 1
 note(dw, f"A{r_ + 1}", "Rounded for reading: money in millions to one decimal, ratios to one decimal place, counts to the unit. Single values "
      "(returns, peaks, timing, readiness) are shown under Year 1.")
