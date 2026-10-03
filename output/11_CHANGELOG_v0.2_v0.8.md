@@ -155,3 +155,16 @@ Open from the red team report:
 |---|---|---|
 | G.1 | Readiness gate 10 | Now "No covenant breach in the active scenario (monthly covenants and annual DSCR)". Both workbooks fail it (DSCR below 1.2x in Years 1 to 4): default 2 of 23, SolaraPay 4 of 23, decision STOP on a failed test. Book, MANUAL 2, CASE 2, quick reference, templates, video (modules 0, 15, 16, 17) and Figure 14 updated; the analyst's Conditional Go is conditional on replacing or resetting the DSCR covenant |
 | G.2 | Independent red team (14) | 426 recalculated runs, 132 invalid input runs, 140 direction assertions, 201,714 cross-engine comparisons; no formula fault. Findings: H1 stale output/02 copy (fixed: refreshed from the current build); M1 gate 10 unreachable while the model carries debt because DSCR includes receivables growth; M2 reports 06, 10 and FINAL_QA_REPORT quoted 3/23 and 5/23 (fixed); M3 to M6 and L1 to L5 open (see 14) |
+
+## Red team findings M1, M3 to M6 and the rerun (3 October 2026)
+
+| # | Item | Change or result |
+|---|---|---|
+| R2.1 | M1 DSCR covenant | New input (Inputs, Covenant definition): 0 none, 1 operating cash flow as drafted (default), 2 cash basis excluding growth in PAYGo receivables. Gate 10 counts DSCR only when the basis is above 0. Default results unchanged (2 of 23, 4 of 23); with basis 0 CONDITIONAL GO and GO are reachable (rerun 15) |
+| R2.2 | M3 validation | All 17 validation rules block invalid entries; rules added on four switches and the DSCR basis; scenario and RBF selectors clamped for calculation (0 error cells instead of 77,069 and 4,782) while the checks read ERROR; an invalid scenario shows "INVALID SCENARIO SELECTOR" as the case name (rerun finding N2) |
+| R2.3 | M4 ranges | Range tests on loan months, rates, shares, hazards, collection and advance rates, prices, amounts and household incomes (rerun finding N3) |
+| R2.4 | Excel formula limit (rerun finding, High) | The widened check row 26 had grown to 9,656 characters, above Excel's 8,192 limit. It now sums a detail block of nine test groups below the readiness flags; longest formula 6,193 characters; the generator refuses to save any formula above 8,000 characters |
+| R2.5 | M5 dates | Credit_Portfolio row 9 shows the period end of the data (company dates in Actual mode); dates must run one per consecutive calendar month and match across tiers |
+| R2.6 | M6 data checks | Vintage_Input row-check columns (gaps, falls, negative units); PERFORM PvFin and contracts at 2x; Credit_Input negatives and a collections ceiling of twice instalments due (a plausibility rule) |
+| R2.7 | Verification | Default and case values unchanged outside Checks; 0 error values in 101,526 formulas; independent rerun (15): 644 runs, 140 invalid inputs all ERROR, 148 direction tests pass, cross-engine agreement except the known residue and four SUMIFS cells |
+| R2.8 | Still open | L1 to L5 (Low); error values still spread for FX 0, tenor 0, depreciation life 0 and a text RBF switch (master check reads ERROR); Excel not run |

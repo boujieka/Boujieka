@@ -366,7 +366,8 @@ for rr, text, unit, key, fmt in levers:
 label(sw, "A12", "Scenario name", bold=True)
 for c, n in zip("CDE", ["Base", "Downside", "Severe"]):
     put_input(sw, f"{c}12", n, "@")
-put_calc(sw, "G12", f"=CHOOSE(MAX(1,MIN(3,INT(N({INP['scenario']})))),C12,D12,E12)", "@", bold=True)
+put_calc(sw, "G12", f"=IF(IFERROR(AND(ISNUMBER({INP['scenario']}),{INP['scenario']}=INT({INP['scenario']}),{INP['scenario']}>=1,{INP['scenario']}<=3),FALSE),"
+                    f"CHOOSE({INP['scenario']},C12,D12,E12),\"INVALID SCENARIO SELECTOR\")", "@", bold=True)
 label(sw, "I5", "Provenance", bold=True)
 for rr, text, unit, key, fmt in levers:
     put_prov(sw, f"I{rr}", f"lever_{key}")
@@ -2500,6 +2501,32 @@ def whole_in(ref, lo, hi):
     return f"IFERROR(IF(AND(ISNUMBER({ref}),{ref}=INT({ref}),{ref}>={lo},{ref}<={hi}),0,1),1)"
 
 
+# detail of check row 26, one group per row so that no formula exceeds Excel's 8,192 character limit
+RANGE_GROUPS = [
+    ("Selectors and switches; DSCR basis", [whole_in(INP['fin_struct'], 1, 2), whole_in(INP['exit_method'], 1, 2), whole_in(INP['rbf_on'], 0, 1),
+                                            whole_in(INP['own_evidence'], 0, 1), whole_in(INP['afford_reviewed'], 0, 1), whole_in(INP['dscr_basis'], 0, 2)]),
+    ("Opening FX above zero; depreciation life and lags", [f"IFERROR(IF({INP['fx0']}>0,0,1),1)", whole_in(INP['dep_life'], 1, 600),
+                                                           whole_in(INP['rbf_lag'], 0, MAX_AGE), whole_in(INP['repo_lag'], 0, MAX_AGE)]),
+    ("Loan drawdown, grace and amortisation months; facility start", [whole_in(INP['tl_month'], 1, MONTHS), whole_in(INP['tl_grace'], 0, MONTHS),
+                                                                      whole_in(INP['tl_amort'], 1, MONTHS), whole_in(INP['rf_start'], 1, MONTHS)]),
+    ("Rates, fees and macro inputs in range", [in_range(INP['tax'], 0, 1), in_range(INP['tl_rate'], 0, 1), in_range(INP['rf_rate'], 0, 1),
+                                               in_range(INP['sec_rate'], 0, 1), in_range(INP['sec_fee'], 0, 1), in_range(INP['sec_adv_mult'], 0, 1.5),
+                                               in_range(INP['mm_fee'], 0, 1), in_range(INP['duty'], 0, 5), in_range(INP['wacc'], 0, 1),
+                                               in_range(INP['fx_pass'], 0, 1), in_range(INP['infl'], -0.5, 5), in_range(INP['price_g'], -0.5, 5)]),
+    ("Amounts, multiples and thresholds not negative", [in_range(INP['inv_cover'], 0, 24), in_range(INP['ap_days'], 0, 365), in_range(INP['min_cash'], 0),
+                                                        in_range(INP['eq0'], 0), in_range(INP['tl_amt'], 0), in_range(INP['rf_limit'], 0),
+                                                        in_range(INP['inv_usd'], 0), f"IFERROR(IF({INP['pre_money']}>0,0,1),1)",
+                                                        in_range(INP['exit_mult'], 0), in_range(INP['exit_pb'], 0), in_range(INP['cov_dscr'], 0),
+                                                        f"IFERROR(IF({INP['afford_max']}>0,0,1),1)"]),
+    ("Credit assumptions: shares and rates from 0 to 1", [in_range(INP['perf_current'], 0, 1), in_range(INP['recov_cost'], 0, 1), in_range(INP['cure'], 0, 1)]
+     + [in_range(INP[f'rar_s{k_ + 1}'], 0, 1) for k_ in range(4)]),
+    ("Products: mix, hazard, collection, repossession, resale, advance and warranty rates from 0 to 1",
+     [in_range(PR[k_][j], 0, 1) for j in range(NP) for k_ in ("mix", "hazard", "coll", "repo", "recov", "adv", "warranty")]),
+    ("Products: prices, deposits, daily rates and costs not negative",
+     [in_range(PR[k_][j], 0) for j in range(NP) for k_ in ("price", "deposit", "daily", "hw", "install", "comm", "mkt", "rbf")]),
+    ("Household incomes above zero (Consumer_Risk)", [f"IFERROR(IF(Consumer_Risk!${TCOLS[j]}${CRR['income']}>0,0,1),1)" for j in range(NP)]),
+]
+
 checks = [
     ("Balance sheet balances (max abs difference, all months)", f"=MAX(MAX({mb.range_(S, 'bs_chk')}),-MIN({mb.range_(S, 'bs_chk')}))"),
     ("Sales mix sums to 100%", f"=IF(ABS(SUM(Products!$C${mixrow}:${PCOLS[-1]}${mixrow})-1)>0.0001,1,0)"),
@@ -2534,26 +2561,8 @@ checks = [
     ("Stage thresholds ordered (Stage 2 < Stage 3 <= default)",
      f"=IF(OR({INP['dpd_s2']}>={INP['dpd_s3']},{INP['dpd_s3']}>{INP['dpd_default']}),1,0)"),
     ("Structural and range inputs valid: selectors and switches; opening FX above zero; depreciation life, lags, loan drawdown, grace and "
-     "amortisation months within the horizon; rates, shares, hazards, collection and advance rates from 0 to 1; amounts and prices not negative",
-     "=" + "+".join([whole_in(INP['fin_struct'], 1, 2), whole_in(INP['exit_method'], 1, 2), whole_in(INP['rbf_on'], 0, 1),
-                     whole_in(INP['own_evidence'], 0, 1), whole_in(INP['afford_reviewed'], 0, 1),
-                     f"IFERROR(IF({INP['fx0']}>0,0,1),1)", whole_in(INP['dep_life'], 1, 600),
-                     whole_in(INP['rbf_lag'], 0, MAX_AGE), whole_in(INP['repo_lag'], 0, MAX_AGE), whole_in(INP['dscr_basis'], 0, 2),
-                     # M4: financing terms, rates, shares and prices within meaningful ranges
-                     whole_in(INP['tl_month'], 1, MONTHS), whole_in(INP['tl_grace'], 0, MONTHS), whole_in(INP['tl_amort'], 1, MONTHS),
-                     whole_in(INP['rf_start'], 1, MONTHS), in_range(INP['tax'], 0, 1), in_range(INP['tl_rate'], 0, 1),
-                     in_range(INP['rf_rate'], 0, 1), in_range(INP['sec_rate'], 0, 1), in_range(INP['sec_fee'], 0, 1),
-                     in_range(INP['sec_adv_mult'], 0, 1.5), in_range(INP['mm_fee'], 0, 1), in_range(INP['duty'], 0, 5),
-                     in_range(INP['inv_cover'], 0, 24), in_range(INP['ap_days'], 0, 365), in_range(INP['min_cash'], 0),
-                     in_range(INP['eq0'], 0), in_range(INP['tl_amt'], 0), in_range(INP['rf_limit'], 0),
-                     in_range(INP['inv_usd'], 0), f"IFERROR(IF({INP['pre_money']}>0,0,1),1)", in_range(INP['wacc'], 0, 1),
-                     in_range(INP['exit_mult'], 0), in_range(INP['exit_pb'], 0), in_range(INP['fx_pass'], 0, 1),
-                     in_range(INP['infl'], -0.5, 5), in_range(INP['price_g'], -0.5, 5), in_range(INP['cov_dscr'], 0),
-                     f"IFERROR(IF({INP['afford_max']}>0,0,1),1)", in_range(INP['perf_current'], 0, 1),
-                     in_range(INP['recov_cost'], 0, 1), in_range(INP['cure'], 0, 1)]
-                    + [in_range(INP[f'rar_s{k_ + 1}'], 0, 1) for k_ in range(4)]
-                    + [in_range(PR[k_][j], 0, 1) for j in range(NP) for k_ in ("mix", "hazard", "coll", "repo", "recov", "adv", "warranty")]
-                    + [in_range(PR[k_][j], 0) for j in range(NP) for k_ in ("price", "deposit", "daily", "hw", "install", "comm", "mkt", "rbf")])),
+     "amortisation months within the horizon; rates, shares, hazards, collection and advance rates from 0 to 1; amounts, prices and incomes "
+     "not negative (detail below the readiness flags)", "=<<RANGE_DETAIL>>"),
     ("PERFORM horizon = 2 x tenor for every tier", "=" + "+".join(f"IF({PR['perf2x'][j]}<>2*{PR['tenor'][j]},1,0)" for j in range(NP))),
     ("Vintage cohort modes valid (1 or 2)",
      "=" + "+".join(f"(ROWS({vi_range(j, 'B')})-COUNTIF({vi_range(j, 'B')},1)-COUNTIF({vi_range(j, 'B')},2))" for j in range(NP))),
@@ -2605,11 +2614,18 @@ checks = [
      "=IF(MIN(" + ",".join(f"MIN({mb.range_(sh_, k_)})" for sh_, k_ in ((C_, 'inv'), (C_, 'ppe'), (C_, 'ap'), (O, 'activeT'), (O, 'unitsT'),
                                                                         (F, 'tl_bal_usd'), (F, 'rf_bal'), (F, 'eq_cum'))) + ")<-1,1,0)"),
 ]
+RD0 = 5 + len(checks) + 1 + 4 + 7 + 3  # first row of the range detail block, below the readiness flags
 for k_, (text, f) in enumerate(checks):
     r_ = 5 + k_
     label(xw, f"A{r_}", text)
     label(xw, f"B{r_}", "flag")
+    f = f.replace("<<RANGE_DETAIL>>", f"IF(SUM(C{RD0}:C{RD0 + len(RANGE_GROUPS) - 1})>0,1,0)")
     put_calc(xw, f"C{r_}", f, FMT_NUM)
+label(xw, f"A{RD0 - 2}", "DETAIL OF CHECK ROW 26: structural and range input tests (count of inputs out of range)", bold=True, color=NAVY)
+header_row(xw, RD0 - 1, ["Test group", "Unit", "Inputs out of range"])
+for n_, (text, items) in enumerate(RANGE_GROUPS):
+    label(xw, f"A{RD0 + n_}", text); label(xw, f"B{RD0 + n_}", "count")
+    put_calc(xw, f"C{RD0 + n_}", "=" + "+".join(items), FMT_INT)
 CHK_ROW = {text: 5 + k_ for k_, (text, _f) in enumerate(checks)}
 MR = 5 + len(checks) + 1
 label(xw, f"A{MR}", "MASTER CHECK", bold=True)
@@ -3567,6 +3583,9 @@ for wsx in wb.worksheets:
     for part in (wsx.oddFooter.left, wsx.oddFooter.center, wsx.oddFooter.right):
         part.size = 8
         part.font = "Arial"
+_too_long = [(wsx.title, c.coordinate, len(c.value)) for wsx in wb.worksheets for row_ in wsx.iter_rows() for c in row_
+             if isinstance(c.value, str) and c.value.startswith("=") and len(c.value) > 8000]
+assert not _too_long, f"formulas above Excel's 8,192 character limit (8,000 kept as margin): {_too_long[:5]}"
 wb.calculation = CalcProperties(fullCalcOnLoad=True)
 wb.properties.title = "AEF Model 2: PAYGo Company Financial & Investment Model"
 wb.properties.creator = "Emmanuel Boujieka Kamga"
