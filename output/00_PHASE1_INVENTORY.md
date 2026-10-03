@@ -4,6 +4,8 @@ Status: Phase 1 complete. No existing project file has been modified. This repor
 
 Inspection date: 3 October 2026.
 
+Update, same day: the master context document confirms that Book 2 belongs to the Africa Energy Finance / Business & Financial Models family (decision 1, publisher name). LibreOffice was installed without its spreadsheet component; the component was added and the workbook tests in `01_PROJECT_AUDIT.md` were run with it. The audit deliverables requested in the master context (section 23) are now in this folder.
+
 ## 1. Project inventory
 
 ### 1.1 Product family as it stands (repository `volumes/02-solar-home-systems/`)
