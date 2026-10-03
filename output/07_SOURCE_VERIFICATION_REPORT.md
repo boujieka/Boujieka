@@ -4,7 +4,7 @@ Status: prepared 3 October 2026; updated the same day after step 1 of the change
 
 Grades: A primary official, regulatory or audited source; B authoritative institutional source; C reputable secondary source; D unverified or informal.
 
-Status values: VERIFIED; VERIFIED — HISTORICAL; PENDING PRIMARY DOCUMENT; UNVERIFIED; CONFLICTING SOURCES; NOT USED.
+Status values: VERIFIED; VERIFIED (HISTORICAL); PENDING PRIMARY DOCUMENT; UNVERIFIED; CONFLICTING SOURCES; NOT USED.
 
 ## 1. Documents received and their standing
 
@@ -39,7 +39,7 @@ Not received and not reachable from this environment (network policy refuses the
 | E2 | Collection rate is not a PERFORM substitute | none | none | Not stated | VERIFIED: "Do not use substitute metrics or proxies such as Collection Rate, days locked / enabled, or self-defined variants on Repayment Rate calculation" (E2 PDF page 10, rule 3A). The only accepted alternative basis is cumulative arrears (rule 3B). | E2 page 10 |
 | E2 | Core RR rules | Ch 7 gives a simpler definition | Vintage_Engine | Not aligned | VERIFIED: RR excludes deposits and prepayments, includes arrears payments and write offs, and is cumulative since contract start after any free use period; instalments normalised to daily equivalents; payments recognised pro rata when applied to due instalments (E2 PDF pages 9 and 10; E2-G PDF page 5) | E2, E2-G |
 | E2 | Ownership Rate @2x | Ch 7 (twice the tenor) | Vintage_Dashboard, RBF_Engine | Aligned on the horizon | VERIFIED on horizon (2x contract term); calculation details E2 PDF pages 16 to 18 still to be compared with the workbook formulas | E2 page 8 |
-| E2a | Collection Rate, Receivables at Risk, Write-Off Ratio as PERFORM portfolio quality KPIs | Ch 7 | KPIs, Covenants | Presented as current | VERIFIED — HISTORICAL: defined in the 2021 guide (E2a portfolio quality section, PDF pages 14 to 33). They are not among the 2026 KPIs. They may be kept as operational or lender metrics with their own definitions printed. | E2a |
+| E2a | Collection Rate, Receivables at Risk, Write-Off Ratio as PERFORM portfolio quality KPIs | Ch 7 | KPIs, Covenants | Presented as current | VERIFIED (HISTORICAL): defined in the 2021 guide (E2a portfolio quality section, PDF pages 14 to 33). They are not among the 2026 KPIs. They may be kept as operational or lender metrics with their own definitions printed. | E2a |
 | E2b | Revenue recognition and ECL practice for PAYGo | Ch 8 | Glossary, FS | Not cited | To be cited for context only (IFRS 15 discussion PDF pages 6 to 21; IFRS 9 PDF pages 37 to 54). Not a basis for any compliance statement. | E2b |
 | E3 | MTF tier thresholds (T4 at least 800 W / 3.4 kWh a day; T5 at least 2 kW / 8.2 kWh a day) | Ch 2.6 | SR20, Products tier labels | Grade D, not checked | UNVERIFIED (PENDING PRIMARY DOCUMENT) | None |
 | E4 | M-KOPA FY2024 revenue USD 416m or USD 253.5m; net profit USD 9.2m; FY2023 loss USD 24.7m or 20.6m | Ch 15 | SR01 to SR04, Calibration | CONFLICT recorded, grade C | CONFLICTING SOURCES. The primary filing provided is M-KOPA UK LIMITED (revenue GBP 1,712,776 from carbon credit sales). It supports neither figure. | E4 PDF pages 3, 10, 18 |
