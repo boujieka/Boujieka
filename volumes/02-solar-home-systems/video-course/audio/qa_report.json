@@ -1,9 +1,9 @@
 {
  "00": {
   "title": "Module 0. Welcome: how the course, the book, the model and the tools fit together",
-  "minutes": 10.55,
-  "words": 1408,
-  "wer": 0.0234,
+  "minutes": 10.72,
+  "words": 1442,
+  "wer": 0.0235,
   "worst_paragraph": {
    "wer": 0.105,
    "starts": "A PAYGo solar home system company, or SHS company, is three "
@@ -151,19 +151,19 @@
  },
  "15": {
   "title": "Module 15. The investor view: due diligence and the investment memo",
-  "minutes": 11.27,
-  "words": 1450,
-  "wer": 0.0844,
+  "minutes": 11.54,
+  "words": 1497,
+  "wer": 0.0534,
   "worst_paragraph": {
-   "wer": 0.456,
-   "starts": "The Investment_Readiness sheet lists 23 gates, some automati"
+   "wer": 0.154,
+   "starts": "A full diligence has eight workstreams, and the overlaps are"
   }
  },
  "16": {
   "title": "Module 16. Case walk through: SolaraPay",
-  "minutes": 12.27,
-  "words": 1617,
-  "wer": 0.0384,
+  "minutes": 12.6,
+  "words": 1669,
+  "wer": 0.0383,
   "worst_paragraph": {
    "wer": 0.096,
    "starts": "Tiers 4 and 5 look strongest, with lifetime value to acquisi"

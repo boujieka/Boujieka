@@ -29,7 +29,7 @@ OUTD = ROOT / "volumes/02-solar-home-systems/video-course"
 MODEL = ROOT / "volumes/02-solar-home-systems/model/AEF_SHS_PAYGo_Model_v0.8-dev.xlsx"
 CASE = ROOT / "volumes/02-solar-home-systems/case-study/SolaraPay_Case_Model_v0.8-dev.xlsx"
 # evaluated values: full recalculations of the same workbooks saved with their values
-VALS = {"model": (MODEL, SCR / "lo/s5out/fm.xlsx"), "case": (CASE, SCR / "lo/s5out/fc.xlsx")}
+VALS = {"model": (MODEL, SCR / "lo/s7out/fm.xlsx"), "case": (CASE, SCR / "lo/s7out/fc.xlsx")}
 W, H = 1920, 1080
 GREEN, GOLD = "#0B3020", "#B07C0F"
 
@@ -349,9 +349,9 @@ S1 = "Step 1 of 12  |  Start here"
 scene(S1, "Cover", "B16:J44", [("E35:H35", "Master check"), ("E36:H36", ""), ("E37:H37", "")],
       "Open the workbook, let it recalculate, and read the status panel before anything else.",
       "Open the workbook in Excel 2016 or later and let it recalculate fully. The cover carries a live status panel. "
-      "First, the master check. It must read OK before you rely on any output. Below it, the readiness line: three of "
-      "twenty three gates are met at default inputs, and the decision reads STOP, because the evidence is incomplete. The "
-      "model never rates a company. Then the active case, the illustrative model assumptions in the Base scenario, and the "
+      "First, the master check. It must read OK before you rely on any output. Below it, the readiness line: two of "
+      "twenty three gates are met at default inputs, and the decision reads STOP, on a failed test. The covenant gate "
+      "fails, as Step 11 shows. The model never rates a company. Then the active case, the illustrative model assumptions in the Base scenario, and the "
       "credit data mode, Proxy, which means the credit figures come from the model's curves. "
       "Before you change anything, save a copy under a new name and keep the original as your reference.")
 scene(S1, "Start", "A1:D40", [("A4:D7", "Status"), ("A9:D18", "What to input"), ("A29:D34", "Read before quoting")],
@@ -494,7 +494,9 @@ scene(S11, "Covenants", "A4:L26", [("A8:L9", "Collection covenant"), ("A26:L26",
       "Each covenant is tested monthly. Headroom matters as much as compliance.",
       "Covenants tests each threshold every month and flags breaches. In the default Base case the lowest trailing three "
       "month collection rate is 72.9 per cent against a minimum of seventy, and no month breaches. Look at the headroom, not "
-      "only at the pass or fail flag. The annual DSCR sits on the KPIs sheet, and it is a poor test for a growing book.")
+      "only at the pass or fail flag. The annual DSCR sits on the KPIs sheet. It is below its minimum of 1.20 times in "
+      "Years 1 to 4, so the readiness gate on covenants is not met. DSCR is a poor test for a growing book, so replace it "
+      "with portfolio covenants in the facility rather than ignore it.")
 scene(S11, "Credit_Input", "A6:L25", [("A7:L7", "One block per tier"), ("D8:I25", "Month end DPD buckets")],
       "Paste the company's own history, then switch the credit data mode to Actual. Shown here: the fictional SolaraPay case.",
       "Now load the company's own data. Credit Input takes one block per tier and up to sixty months: month end balances and "
@@ -529,15 +531,17 @@ scene(S12, "Calibration", "A5:F12", [("A6:F7", "References suspended"), ("A10:F1
       "collection rate is pending its primary document, and it is context for the model's operational collection rate, "
       "not a PERFORM repayment rate. The sheet asks you to justify the cost and credit assumptions on the company's own "
       "data. It never changes an input on its own.")
-scene(S12, "Investment_Readiness", "A4:G36", [("B5:G5", "Readiness banner"), ("A31:D36", "Decision rule")],
+scene(S12, "Investment_Readiness", "A4:G36", [("B5:G5", "Readiness banner"), ("A16:G16", "Gate 10: covenants and DSCR"), ("A31:D36", "Decision rule")],
       "Twenty three gates, thirteen critical. The decision rule reads evidence only: STOP, CONDITIONAL GO or GO.",
       "Finally, Investment Readiness. Twenty three gates, automatic where the model can test them and manual where they need "
       "outside evidence, such as legal review or the auditor's view of the ECL approach. A manual gate counts only when the "
       "sheet records where the evidence is held and who signed it off. Thirteen gates are critical, and the decision rule "
       "uses the evidence and nothing else. It reads STOP when a test fails, GO only when all twenty three gates are met, and "
       "CONDITIONAL GO when every critical gate is met. Otherwise it reads STOP, because the evidence is incomplete. At default "
-      "inputs three gates are met and the decision is STOP, with ten of the thirteen critical gates open. A STOP on "
-      "incomplete evidence is not a verdict on the business, and a GO is not an investment recommendation. Every gate not "
+      "inputs two gates are met and the decision is STOP on a failed test. Gate ten now covers the annual DSCR as well "
+      "as the monthly covenants, and the DSCR sits below its minimum in Years 1 to 4. A STOP on incomplete evidence is "
+      "not a verdict on the business, but a STOP on a failed test is a finding against the plan as modelled. A GO is "
+      "not an investment recommendation. Every gate not "
       "yet met should become a condition precedent, a covenant or an accepted risk in the investment memo.")
 scene(S12, "Investment_Summary", "A4:G35", [("B9:F19", "Trajectory"), ("B22:B27", "Funding"), ("B30:B35", "Returns")],
       "The one page summary for the investment committee, live for the active scenario.",
@@ -556,7 +560,7 @@ scene(S12, "Dashboard", "A5:H50", [("A22:H23", "Collection rate and PERFORM"), (
       "the PERFORM repayment line below it reads not provided, because only company results can fill it. Third, the net FX "
       "transaction effect on costs and RBF, before price pass through, is a cost that grows from about twenty five million "
       "local currency units in Year 1 to about nine hundred and twenty eight million in Year 5. The last lines repeat the "
-      "readiness result: three of twenty three gates met, and a decision of STOP, on incomplete evidence.")
+      "readiness result: two of twenty three gates met, and a decision of STOP, on a failed test.")
 
 title("BOOK 2  |  VIDEO COURSE", "Twelve steps, one discipline", "Load the company's data before you trust the projections",
       "That completes the twelve steps. Three habits matter most. Never use an output while the master check reads error. "

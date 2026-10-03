@@ -1,6 +1,6 @@
 # Module 17. Using MODEL 2, step by step
 
-Duration: about 19 minutes. Book: Chapters 1 to 16. Model: MODEL 2, version 0.8 (development build), file AEF_SHS_PAYGo_Model_v0.8-dev.xlsx. User manual: Steps 1 to 12.
+Duration: about 20 minutes. Book: Chapters 1 to 16. Model: MODEL 2, version 0.8 (development build), file AEF_SHS_PAYGo_Model_v0.8-dev.xlsx. User manual: Steps 1 to 12.
 
 ## Learning objectives
 1. Work through the model in the order an analyst should.
@@ -15,7 +15,7 @@ This tutorial walks you through MODEL 2, the PAYGo Company Financial and Investm
 ## Scene 2. Start here: Cover
 On screen: Open the workbook, let it recalculate, and read the status panel before anything else. Sheet Cover, range B16:J44.
 
-Open the workbook in Excel 2016 or later and let it recalculate fully. The cover carries a live status panel. First, the master check. It must read OK before you rely on any output. Below it, the readiness line: three of twenty three gates are met at default inputs, and the decision reads STOP, because the evidence is incomplete. The model never rates a company. Then the active case, the illustrative model assumptions in the Base scenario, and the credit data mode, Proxy, which means the credit figures come from the model's curves. Before you change anything, save a copy under a new name and keep the original as your reference.
+Open the workbook in Excel 2016 or later and let it recalculate fully. The cover carries a live status panel. First, the master check. It must read OK before you rely on any output. Below it, the readiness line: two of twenty three gates are met at default inputs, and the decision reads STOP, on a failed test. The covenant gate fails, as Step 11 shows. The model never rates a company. Then the active case, the illustrative model assumptions in the Base scenario, and the credit data mode, Proxy, which means the credit figures come from the model's curves. Before you change anything, save a copy under a new name and keep the original as your reference.
 
 ## Scene 3. Start here: Start
 On screen: One page: what to input, what the model calculates, what the results mean and what an investor should look at. Sheet Start, range A1:D40.
@@ -115,7 +115,7 @@ Credit Portfolio consolidates the five tiers month by month: gross receivables b
 ## Scene 22. Lender case: Covenants
 On screen: Each covenant is tested monthly. Headroom matters as much as compliance. Sheet Covenants, range A4:L26.
 
-Covenants tests each threshold every month and flags breaches. In the default Base case the lowest trailing three month collection rate is 72.9 per cent against a minimum of seventy, and no month breaches. Look at the headroom, not only at the pass or fail flag. The annual DSCR sits on the KPIs sheet, and it is a poor test for a growing book.
+Covenants tests each threshold every month and flags breaches. In the default Base case the lowest trailing three month collection rate is 72.9 per cent against a minimum of seventy, and no month breaches. Look at the headroom, not only at the pass or fail flag. The annual DSCR sits on the KPIs sheet. It is below its minimum of 1.20 times in Years 1 to 4, so the readiness gate on covenants is not met. DSCR is a poor test for a growing book, so replace it with portfolio covenants in the facility rather than ignore it.
 
 ## Scene 23. Lender case: Credit_Input
 On screen: Paste the company's own history, then switch the credit data mode to Actual. Shown here: the fictional SolaraPay case. Sheet Credit_Input, range A6:L25.
@@ -145,7 +145,7 @@ Calibration turns benchmarks into questions, and it compares the model only with
 ## Scene 28. Investment memo: Investment_Readiness
 On screen: Twenty three gates, thirteen critical. The decision rule reads evidence only: STOP, CONDITIONAL GO or GO. Sheet Investment_Readiness, range A4:G36.
 
-Finally, Investment Readiness. Twenty three gates, automatic where the model can test them and manual where they need outside evidence, such as legal review or the auditor's view of the ECL approach. A manual gate counts only when the sheet records where the evidence is held and who signed it off. Thirteen gates are critical, and the decision rule uses the evidence and nothing else. It reads STOP when a test fails, GO only when all twenty three gates are met, and CONDITIONAL GO when every critical gate is met. Otherwise it reads STOP, because the evidence is incomplete. At default inputs three gates are met and the decision is STOP, with ten of the thirteen critical gates open. A STOP on incomplete evidence is not a verdict on the business, and a GO is not an investment recommendation. Every gate not yet met should become a condition precedent, a covenant or an accepted risk in the investment memo.
+Finally, Investment Readiness. Twenty three gates, automatic where the model can test them and manual where they need outside evidence, such as legal review or the auditor's view of the ECL approach. A manual gate counts only when the sheet records where the evidence is held and who signed it off. Thirteen gates are critical, and the decision rule uses the evidence and nothing else. It reads STOP when a test fails, GO only when all twenty three gates are met, and CONDITIONAL GO when every critical gate is met. Otherwise it reads STOP, because the evidence is incomplete. At default inputs two gates are met and the decision is STOP on a failed test. Gate ten now covers the annual DSCR as well as the monthly covenants, and the DSCR sits below its minimum in Years 1 to 4. A STOP on incomplete evidence is not a verdict on the business, but a STOP on a failed test is a finding against the plan as modelled. A GO is not an investment recommendation. Every gate not yet met should become a condition precedent, a covenant or an accepted risk in the investment memo.
 
 ## Scene 29. Investment memo: Investment_Summary
 On screen: The one page summary for the investment committee, live for the active scenario. Sheet Investment_Summary, range A4:G35.
@@ -155,7 +155,7 @@ The Investment Summary brings it together on one page for the active scenario: t
 ## Scene 30. Investment memo: Dashboard
 On screen: Thirty nine labelled metrics by year, rounded for reading, each with its unit and its source sheet. Sheet Dashboard, range A5:H50.
 
-Behind the summary sits the Dashboard: a table of thirty nine labelled metrics by year, rounded for reading, each with its unit and its source sheet. Single values, such as returns, peaks, timing and readiness, sit under Year 1. Three readings teach the most. First, revenue is not cash. Cash conversion, operating cash flow over EBITDA, reads not applicable in Years 1 and 2, while EBITDA is negative. It is then minus 1.32 times in Year 3, minus 0.08 times in Year 4 and 0.25 times in Year 5, because the growing receivables book absorbs the cash. Second, the operational collection rate falls from 84.5 per cent in Year 1 to 73.3 per cent in Year 5. It is labelled not a PERFORM KPI, and the PERFORM repayment line below it reads not provided, because only company results can fill it. Third, the net FX transaction effect on costs and RBF, before price pass through, is a cost that grows from about twenty five million local currency units in Year 1 to about nine hundred and twenty eight million in Year 5. The last lines repeat the readiness result: three of twenty three gates met, and a decision of STOP, on incomplete evidence.
+Behind the summary sits the Dashboard: a table of thirty nine labelled metrics by year, rounded for reading, each with its unit and its source sheet. Single values, such as returns, peaks, timing and readiness, sit under Year 1. Three readings teach the most. First, revenue is not cash. Cash conversion, operating cash flow over EBITDA, reads not applicable in Years 1 and 2, while EBITDA is negative. It is then minus 1.32 times in Year 3, minus 0.08 times in Year 4 and 0.25 times in Year 5, because the growing receivables book absorbs the cash. Second, the operational collection rate falls from 84.5 per cent in Year 1 to 73.3 per cent in Year 5. It is labelled not a PERFORM KPI, and the PERFORM repayment line below it reads not provided, because only company results can fill it. Third, the net FX transaction effect on costs and RBF, before price pass through, is a cost that grows from about twenty five million local currency units in Year 1 to about nine hundred and twenty eight million in Year 5. The last lines repeat the readiness result: two of twenty three gates met, and a decision of STOP, on a failed test.
 
 ## Scene 31. Twelve steps, one discipline
 On screen: Load the company's data before you trust the projections

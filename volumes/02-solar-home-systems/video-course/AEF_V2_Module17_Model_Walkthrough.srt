@@ -23,665 +23,685 @@ Keep the user manual open beside you.
 It follows the same twelve steps.
 
 7
-00:00:36,119 --> 00:00:41,168
+00:00:36,119 --> 00:00:41,260
 Open the workbook in Excel 2016 or later and let it recalculate fully.
 
 8
-00:00:41,168 --> 00:00:43,909
+00:00:41,260 --> 00:00:44,051
 The cover carries a live status panel.
 
 9
-00:00:43,909 --> 00:00:45,641
+00:00:44,051 --> 00:00:45,814
 First, the master check.
 
 10
-00:00:45,641 --> 00:00:48,959
+00:00:45,814 --> 00:00:49,193
 It must read OK before you rely on any output.
 
 11
-00:00:48,959 --> 00:00:59,707
-Below it, the readiness line: three of twenty three gates are met at default inputs, and the decision reads STOP, because the evidence is incomplete.
+00:00:49,193 --> 00:00:58,668
+Below it, the readiness line: two of twenty three gates are met at default inputs, and the decision reads STOP, on a failed test.
 
 12
-00:00:59,707 --> 00:01:02,015
-The model never rates a company.
+00:00:58,668 --> 00:01:01,753
+The covenant gate fails, as Step 11 shows.
 
 13
-00:01:02,015 --> 00:01:14,423
-Then the active case, the illustrative model assumptions in the Base scenario, and the credit data mode, Proxy, which means the credit figures come from the model's curves.
+00:01:01,753 --> 00:01:04,103
+The model never rates a company.
 
 14
-00:01:14,423 --> 00:01:21,420
-Before you change anything, save a copy under a new name and keep the original as your reference.
+00:01:04,103 --> 00:01:16,737
+Then the active case, the illustrative model assumptions in the Base scenario, and the credit data mode, Proxy, which means the credit figures come from the model's curves.
 
 15
-00:01:22,920 --> 00:01:24,535
-Next, the Start sheet.
+00:01:16,737 --> 00:01:23,861
+Before you change anything, save a copy under a new name and keep the original as your reference.
 
 16
-00:01:24,535 --> 00:01:34,813
-It sets out on one page what to input, what the model calculates, what the results mean, and what an investor should look at, in that order.
+00:01:25,361 --> 00:01:26,976
+Next, the Start sheet.
 
 17
-00:01:34,813 --> 00:01:44,136
-Every input carries a provenance label: model assumption, company data, external evidence, calibrated assumption or unverified.
+00:01:26,976 --> 00:01:37,254
+It sets out on one page what to input, what the model calculates, what the results mean, and what an investor should look at, in that order.
 
 18
-00:01:44,136 --> 00:01:47,734
-Read the third block before you quote any number.
+00:01:37,254 --> 00:01:46,578
+Every input carries a provenance label: model assumption, company data, external evidence, calibrated assumption or unverified.
 
 19
-00:01:47,734 --> 00:01:49,202
-Revenue is not cash.
+00:01:46,578 --> 00:01:50,175
+Read the third block before you quote any number.
 
 20
-00:01:49,202 --> 00:01:53,533
-The operational collection rate is not a PAYGo PERFORM KPI.
+00:01:50,175 --> 00:01:51,643
+Revenue is not cash.
 
 21
-00:01:53,533 --> 00:01:56,984
-The credit loss figures are analytical proxies.
+00:01:51,643 --> 00:01:55,975
+The operational collection rate is not a PAYGo PERFORM KPI.
 
 22
-00:01:56,984 --> 00:02:02,269
-And the readiness decision measures the evidence file, not the business.
+00:01:55,975 --> 00:01:59,425
+The credit loss figures are analytical proxies.
 
 23
-00:02:03,769 --> 00:02:07,421
-The Checks sheet runs thirty eight integrity tests.
+00:01:59,425 --> 00:02:04,711
+And the readiness decision measures the evidence file, not the business.
 
 24
-00:02:07,421 --> 00:02:21,097
-The balance sheet balances, cash reconciles every month, the DPD buckets reconcile to gross receivables, and receivables, the loss allowance, debt and equity roll forward from month to month.
+00:02:06,211 --> 00:02:09,862
+The Checks sheet runs thirty eight integrity tests.
 
 25
-00:02:21,097 --> 00:02:24,105
-Limits are respected and inputs are valid.
+00:02:09,862 --> 00:02:23,539
+The balance sheet balances, cash reconciles every month, the DPD buckets reconcile to gross receivables, and receivables, the loss allowance, debt and equity roll forward from month to month.
 
 26
-00:02:24,105 --> 00:02:29,833
-Each test returns zero when it passes, and together they drive the master check.
+00:02:23,539 --> 00:02:26,546
+Limits are respected and inputs are valid.
 
 27
-00:02:29,833 --> 00:02:36,205
-Below them sit seven readiness flags, such as affordability assumptions not yet reviewed.
+00:02:26,546 --> 00:02:32,274
+Each test returns zero when it passes, and together they drive the master check.
 
 28
-00:02:36,205 --> 00:02:39,786
-They are kept outside the master check on purpose.
+00:02:32,274 --> 00:02:38,647
+Below them sit seven readiness flags, such as affordability assumptions not yet reviewed.
 
 29
-00:02:39,786 --> 00:02:45,371
-They tell you how mature the analysis is, not whether the arithmetic is right.
+00:02:38,647 --> 00:02:42,227
+They are kept outside the master check on purpose.
 
 30
-00:02:46,871 --> 00:02:53,585
-All hard coded assumptions live on a handful of sheets, and the colour code tells you where.
+00:02:42,227 --> 00:02:47,812
+They tell you how mature the analysis is, not whether the arithmetic is right.
 
 31
-00:02:53,585 --> 00:02:58,182
-Blue font is an input, the only kind of cell you should change.
+00:02:49,312 --> 00:02:56,026
+All hard coded assumptions live on a handful of sheets, and the colour code tells you where.
 
 32
-00:02:58,182 --> 00:02:59,934
-Black font is a formula.
+00:02:56,026 --> 00:03:00,624
+Blue font is an input, the only kind of cell you should change.
 
 33
-00:02:59,934 --> 00:03:01,320
-Never overwrite it.
+00:03:00,624 --> 00:03:02,375
+Black font is a formula.
 
 34
-00:03:01,320 --> 00:03:04,750
-On the Inputs sheet, start with three settings.
+00:03:02,375 --> 00:03:03,762
+Never overwrite it.
 
 35
-00:03:04,750 --> 00:03:11,391
-The first is the scenario selector, where one is Base, two is Downside and three is Severe.
+00:03:03,762 --> 00:03:07,192
+On the Inputs sheet, start with three settings.
 
 36
-00:03:11,391 --> 00:03:15,843
-Then come the first model month and the local currency label.
+00:03:07,192 --> 00:03:13,833
+The first is the scenario selector, where one is Base, two is Downside and three is Severe.
 
 37
-00:03:15,843 --> 00:03:19,200
-The last column gives each input's provenance.
+00:03:13,833 --> 00:03:18,284
+Then come the first model month and the local currency label.
 
 38
-00:03:19,200 --> 00:03:26,571
-At default inputs every one reads model assumption, because the defaults describe a fictional market.
+00:03:18,284 --> 00:03:21,641
+The last column gives each input's provenance.
 
 39
-00:03:28,071 --> 00:03:31,522
-The Products sheet holds one column per tier.
+00:03:21,641 --> 00:03:29,012
+At default inputs every one reads model assumption, because the defaults describe a fictional market.
 
 40
-00:03:31,522 --> 00:03:35,511
-Tier one is a pico solar kit on a twelve month plan.
+00:03:30,512 --> 00:03:33,964
+The Products sheet holds one column per tier.
 
 41
-00:03:35,511 --> 00:03:41,571
-Tier five is a three kilowatt peak inverter system on a forty eight month plan.
+00:03:33,964 --> 00:03:37,952
+Tier one is a pico solar kit on a twelve month plan.
 
 42
-00:03:41,571 --> 00:03:46,863
-Replace the names, sizes, loads and segments with your own catalogue.
+00:03:37,952 --> 00:03:44,012
+Tier five is a three kilowatt peak inverter system on a forty eight month plan.
 
 43
-00:03:46,863 --> 00:03:48,551
-Keep all five columns.
+00:03:44,012 --> 00:03:49,304
+Replace the names, sizes, loads and segments with your own catalogue.
 
 44
-00:03:48,551 --> 00:03:53,920
-If you sell fewer tiers, set the sales mix of the unused tier to zero.
+00:03:49,304 --> 00:03:50,992
+Keep all five columns.
 
 45
-00:03:53,920 --> 00:04:01,053
-The tier label refers to capacity only, so check it against the product's real specification.
+00:03:50,992 --> 00:03:56,361
+If you sell fewer tiers, set the sales mix of the unused tier to zero.
 
 46
-00:04:02,553 --> 00:04:09,682
-Consumer Risk sets each tier's instalment against the household income of its target segment.
+00:03:56,361 --> 00:04:03,495
+The tier label refers to capacity only, so check it against the product's real specification.
 
 47
-00:04:09,682 --> 00:04:17,194
-The incomes shown are illustrative placeholders and must be replaced with survey or customer data.
+00:04:04,995 --> 00:04:12,123
+Consumer Risk sets each tier's instalment against the household income of its target segment.
 
 48
-00:04:17,194 --> 00:04:30,992
-With the defaults, three tiers sit above the model's ten per cent policy threshold for payment burden: Tier 2 at 13.0 per cent, Tier 3 at 13.2 per cent and Tier 4 at 11.3 per cent.
+00:04:12,123 --> 00:04:19,636
+The incomes shown are illustrative placeholders and must be replaced with survey or customer data.
 
 49
-00:04:30,992 --> 00:04:38,964
-A high burden predicts higher default, so treat these flags as credit warnings, not only as social ones.
+00:04:19,636 --> 00:04:33,433
+With the defaults, three tiers sit above the model's ten per cent policy threshold for payment burden: Tier 2 at 13.0 per cent, Tier 3 at 13.2 per cent and Tier 4 at 11.3 per cent.
 
 50
-00:04:40,464 --> 00:05:01,972
-The macro block sets the opening exchange rate, 130 local currency units per dollar, local inflation of six per cent, a tax rate of thirty per cent, an annual price increase of five per cent on new contracts, and a pass through of fifty per cent of currency depreciation into new contract prices.
+00:04:33,433 --> 00:04:41,405
+A high burden predicts higher default, so treat these flags as credit warnings, not only as social ones.
 
 51
-00:05:01,972 --> 00:05:06,985
-Do not set depreciation to zero because the currency has been stable.
+00:04:42,905 --> 00:05:04,413
+The macro block sets the opening exchange rate, 130 local currency units per dollar, local inflation of six per cent, a tax rate of thirty per cent, an annual price increase of five per cent on new contracts, and a pass through of fifty per cent of currency depreciation into new contract prices.
 
 52
-00:05:06,985 --> 00:05:13,452
-A PAYGo company buys hardware and borrows in dollars while it collects in local currency.
+00:05:04,413 --> 00:05:09,427
+Do not set depreciation to zero because the currency has been stable.
 
 53
-00:05:14,952 --> 00:05:17,929
-The Scenarios sheet scales five levers.
+00:05:09,427 --> 00:05:15,893
+A PAYGo company buys hardware and borrows in dollars while it collects in local currency.
 
 54
-00:05:17,929 --> 00:05:29,991
-The Downside raises the default hazard by thirty per cent, trims collections and volume, raises hardware cost and sets depreciation at twelve per cent a year.
+00:05:17,393 --> 00:05:20,371
+The Scenarios sheet scales five levers.
 
 55
-00:05:29,991 --> 00:05:37,473
-The Severe case goes further, with a hazard 1.75 times Base and twenty five per cent depreciation.
+00:05:20,371 --> 00:05:32,433
+The Downside raises the default hazard by thirty per cent, trims collections and volume, raises hardware cost and sets depreciation at twelve per cent a year.
 
 56
-00:05:37,473 --> 00:05:42,893
-Real stress moves several variables at once, and so do these scenarios.
+00:05:32,433 --> 00:05:39,914
+The Severe case goes further, with a hazard 1.75 times Base and twenty five per cent depreciation.
 
 57
-00:05:44,393 --> 00:05:48,666
-Enter the total units sold in each of the five years.
+00:05:39,914 --> 00:05:45,335
+Real stress moves several variables at once, and so do these scenarios.
 
 58
-00:05:48,666 --> 00:05:55,277
-The defaults run from twelve thousand units in Year 1 to fifty thousand in Year 5.
+00:05:46,835 --> 00:05:51,108
+Enter the total units sold in each of the five years.
 
 59
-00:05:55,277 --> 00:06:03,904
-The model divides each year by twelve, applies the scenario volume multiplier and splits the sales by tier.
+00:05:51,108 --> 00:05:57,718
+The defaults run from twelve thousand units in Year 1 to fifty thousand in Year 5.
 
 60
-00:06:03,904 --> 00:06:10,031
-Version 0.8 does not model seasonality, so read monthly results as averages.
+00:05:57,718 --> 00:06:06,345
+The model divides each year by twelve, applies the scenario volume multiplier and splits the sales by tier.
 
 61
-00:06:11,531 --> 00:06:16,764
-The sales mix sits on Products, and it must total one hundred per cent.
+00:06:06,345 --> 00:06:12,472
+Version 0.8 does not model seasonality, so read monthly results as averages.
 
 62
-00:06:16,764 --> 00:06:18,239
-A check enforces it.
+00:06:13,972 --> 00:06:19,206
+The sales mix sits on Products, and it must total one hundred per cent.
 
 63
-00:06:18,239 --> 00:06:22,367
-Be careful when you shift the mix towards Tiers 4 and 5.
+00:06:19,206 --> 00:06:20,680
+A check enforces it.
 
 64
-00:06:22,367 --> 00:06:29,296
-It raises value sharply, but those tiers usually have the least repayment history behind them.
+00:06:20,680 --> 00:06:24,808
+Be careful when you shift the mix towards Tiers 4 and 5.
 
 65
-00:06:30,796 --> 00:06:37,554
-Each price plan has four inputs: cash price, deposit, daily rate and tenor.
+00:06:24,808 --> 00:06:31,737
+It raises value sharply, but those tiers usually have the least repayment history behind them.
 
 66
-00:06:37,554 --> 00:06:38,635
-Take Tier 2.
+00:06:33,237 --> 00:06:39,995
+Each price plan has four inputs: cash price, deposit, daily rate and tenor.
 
 67
-00:06:38,635 --> 00:06:52,422
-A cash price of 39,000, a deposit of 4,000 and a daily rate of 77 over 24 months give a monthly instalment of 2,342 and a total contract value of 60,210.
+00:06:39,995 --> 00:06:41,077
+Take Tier 2.
 
 68
-00:06:52,422 --> 00:07:01,523
-The PAYGo premium over the cash price is 21,210, and the implied annual rate is about fifty per cent.
+00:06:41,077 --> 00:06:54,863
+A cash price of 39,000, a deposit of 4,000 and a daily rate of 77 over 24 months give a monthly instalment of 2,342 and a total contract value of 60,210.
 
 69
-00:07:01,523 --> 00:07:09,002
-That rate is the figure a regulator or a journalist will compute, so know it first.
+00:06:54,863 --> 00:07:03,964
+The PAYGo premium over the cash price is 21,210, and the implied annual rate is about fifty per cent.
 
 70
-00:07:09,002 --> 00:07:19,364
-Hardware revenue is booked at the cash price at sale, and the premium is earned as financing income over the tenor.
+00:07:03,964 --> 00:07:11,443
+That rate is the figure a regulator or a journalist will compute, so know it first.
 
 71
-00:07:20,864 --> 00:07:28,441
-Results based financing has four designs: sales based, repayment linked, ownership linked and hybrid.
+00:07:11,443 --> 00:07:21,805
+Hardware revenue is booked at the cash price at sale, and the premium is earned as financing income over the tenor.
 
 72
-00:07:28,441 --> 00:07:38,043
-Ownership linked RBF pays zero by design until validated ownership data have been loaded and this evidence switch is set to one.
+00:07:23,305 --> 00:07:30,882
+Results based financing has four designs: sales based, repayment linked, ownership linked and hybrid.
 
 73
-00:07:38,043 --> 00:07:42,695
-The model will not manufacture that outcome from proxy curves.
+00:07:30,882 --> 00:07:40,485
+Ownership linked RBF pays zero by design until validated ownership data have been loaded and this evidence switch is set to one.
 
 74
-00:07:44,195 --> 00:07:48,534
-Hardware is entered as the dollar FOB cost per unit.
+00:07:40,485 --> 00:07:45,136
+The model will not manufacture that outcome from proxy curves.
 
 75
-00:07:48,534 --> 00:07:58,630
-The model adds freight and duty, converts at the exchange rate of the month and applies the scenario hardware cost lever.
+00:07:46,636 --> 00:07:50,975
+Hardware is entered as the dollar FOB cost per unit.
 
 76
-00:07:58,630 --> 00:08:05,805
-For Tier 2, a cost of 150 dollars becomes a landed cost of 23,400 at the opening rate.
+00:07:50,975 --> 00:08:01,071
+The model adds freight and duty, converts at the exchange rate of the month and applies the scenario hardware cost lever.
 
 77
-00:08:05,805 --> 00:08:11,229
-Installation, warranty and the acquisition cost are set per tier.
+00:08:01,071 --> 00:08:08,247
+For Tier 2, a cost of 150 dollars becomes a landed cost of 23,400 at the opening rate.
 
 78
-00:08:11,229 --> 00:08:16,319
-Do not enter a local price already converted at today's rate.
+00:08:08,247 --> 00:08:13,670
+Installation, warranty and the acquisition cost are set per tier.
 
 79
-00:08:16,319 --> 00:08:19,323
-That would count depreciation twice.
+00:08:13,670 --> 00:08:18,760
+Do not enter a local price already converted at today's rate.
 
 80
-00:08:20,823 --> 00:08:23,682
-Operating costs follow their drivers.
+00:08:18,760 --> 00:08:21,764
+That would count depreciation twice.
 
 81
-00:08:23,682 --> 00:08:27,391
-Payment fees are two per cent of cash collected.
+00:08:23,264 --> 00:08:26,123
+Operating costs follow their drivers.
 
 82
-00:08:27,391 --> 00:08:32,877
-Customer service and collections cost 150 per active account per month.
+00:08:26,123 --> 00:08:29,832
+Payment fees are two per cent of cash collected.
 
 83
-00:08:32,877 --> 00:08:38,440
-Staff and general costs are fixed monthly amounts, indexed to inflation.
+00:08:29,832 --> 00:08:35,318
+Customer service and collections cost 150 per active account per month.
 
 84
-00:08:38,440 --> 00:08:41,763
-Size the central costs for the volume plan.
+00:08:35,318 --> 00:08:40,881
+Staff and general costs are fixed monthly amounts, indexed to inflation.
 
 85
-00:08:41,763 --> 00:08:49,721
-A book of seventy thousand active accounts needs a collections team, a call centre and a data function.
+00:08:40,881 --> 00:08:44,204
+Size the central costs for the volume plan.
 
 86
-00:08:51,221 --> 00:09:05,226
-Four sources fund the plan: initial equity, a dollar term loan revalued every month, a local currency receivables facility, and an automatic equity top up whenever cash would fall below the minimum.
+00:08:44,204 --> 00:08:52,163
+A book of seventy thousand active accounts needs a collections team, a call centre and a data function.
 
 87
-00:09:05,226 --> 00:09:13,218
-The facility is drawn only to hold the minimum cash balance, up to the lower of its limit and the borrowing base.
+00:08:53,663 --> 00:09:07,667
+Four sources fund the plan: initial equity, a dollar term loan revalued every month, a local currency receivables facility, and an automatic equity top up whenever cash would fall below the minimum.
 
 88
-00:09:13,218 --> 00:09:16,755
-The cumulative top up is your funding requirement.
+00:09:07,667 --> 00:09:15,659
+The facility is drawn only to hold the minimum cash balance, up to the lower of its limit and the borrowing base.
 
 89
-00:09:16,755 --> 00:09:19,867
-It is equity you must raise, not free money.
+00:09:15,659 --> 00:09:19,196
+The cumulative top up is your funding requirement.
 
 90
-00:09:21,367 --> 00:09:24,615
-Credit Assumptions holds the definitions.
+00:09:19,196 --> 00:09:22,308
+It is equity you must raise, not free money.
 
 91
-00:09:24,615 --> 00:09:26,912
-Default at 180 days past due.
+00:09:23,808 --> 00:09:27,056
+Credit Assumptions holds the definitions.
 
 92
-00:09:26,912 --> 00:09:34,358
-Stage 2 from thirty days and Stage 3 from ninety days for the indicative expected credit loss.
+00:09:27,056 --> 00:09:29,353
+Default at 180 days past due.
 
 93
-00:09:34,358 --> 00:09:38,636
-Borrowing base eligibility up to thirty days past due.
+00:09:29,353 --> 00:09:36,800
+Stage 2 from thirty days and Stage 3 from ninety days for the indicative expected credit loss.
 
 94
-00:09:38,636 --> 00:09:42,993
-A recovery cost of fifteen per cent of resale proceeds.
+00:09:36,800 --> 00:09:41,078
+Borrowing base eligibility up to thirty days past due.
 
 95
-00:09:42,993 --> 00:09:53,529
-The binding constraint on the facility is usually the borrowing base, not the limit, and it shrinks when credit quality deteriorates.
+00:09:41,078 --> 00:09:45,435
+A recovery cost of fifteen per cent of resale proceeds.
 
 96
-00:09:55,029 --> 00:09:59,072
-The Annual sheet sums the monthly statements by year.
+00:09:45,435 --> 00:09:55,971
+The binding constraint on the facility is usually the borrowing base, not the limit, and it shrinks when credit quality deteriorates.
 
 97
-00:09:59,072 --> 00:10:04,793
-Check the revenue mix between hardware, financing income and other revenue.
+00:09:57,471 --> 00:10:01,513
+The Annual sheet sums the monthly statements by year.
 
 98
-00:10:04,793 --> 00:10:15,471
-Expected credit losses are charged when each contract is originated, so a growing book carries the full lifetime loss of its newest cohorts.
+00:10:01,513 --> 00:10:07,234
+Check the revenue mix between hardware, financing income and other revenue.
 
 99
-00:10:15,471 --> 00:10:20,048
-In the default Base case, EBITDA turns positive in month 21.
+00:10:07,234 --> 00:10:17,913
+Expected credit losses are charged when each contract is originated, so a growing book carries the full lifetime loss of its newest cohorts.
 
 100
-00:10:21,548 --> 00:10:24,261
-Now the balance sheet and cash flow.
+00:10:17,913 --> 00:10:22,489
+In the default Base case, EBITDA turns positive in month 21.
 
 101
-00:10:24,261 --> 00:10:27,953
-The balance check must read zero in every period.
+00:10:23,989 --> 00:10:26,702
+Now the balance sheet and cash flow.
 
 102
-00:10:27,953 --> 00:10:33,077
-Operating cash flow stays negative while the receivables book grows.
+00:10:26,702 --> 00:10:30,394
+The balance check must read zero in every period.
 
 103
-00:10:33,077 --> 00:10:39,482
-In the default case it stays positive only from month 51, thirty months after EBITDA.
+00:10:30,394 --> 00:10:35,518
+Operating cash flow stays negative while the receivables book grows.
 
 104
-00:10:39,482 --> 00:10:44,154
-A PAYGo company can report a profit and still run out of cash.
+00:10:35,518 --> 00:10:41,923
+In the default case it stays positive only from month 51, thirty months after EBITDA.
 
 105
-00:10:44,154 --> 00:10:49,956
-The cash flow statement and the funding requirement are the figures to trust.
+00:10:41,923 --> 00:10:46,595
+A PAYGo company can report a profit and still run out of cash.
 
 106
-00:10:51,456 --> 00:10:59,287
-Switch the selector between Base, Downside and Severe and read the investment summary each time.
+00:10:46,595 --> 00:10:52,397
+The cash flow statement and the funding requirement are the figures to trust.
 
 107
-00:10:59,287 --> 00:11:11,686
-The Sensitivity sheet holds a static table of fifteen cases, dated and computed at default inputs, and below it a live row that follows the active case.
+00:10:53,897 --> 00:11:01,728
+Switch the selector between Base, Downside and Severe and read the investment summary each time.
 
 108
-00:11:11,686 --> 00:11:14,867
-The Base investor IRR is 46.4 per cent.
+00:11:01,728 --> 00:11:14,127
+The Sensitivity sheet holds a static table of fifteen cases, dated and computed at default inputs, and below it a live row that follows the active case.
 
 109
-00:11:14,867 --> 00:11:21,719
-In the Downside the IRR is minus 22.9 per cent, and the Severe case is a total loss.
+00:11:14,127 --> 00:11:17,308
+The Base investor IRR is 46.4 per cent.
 
 110
-00:11:21,719 --> 00:11:23,840
-Look at the currency rows.
+00:11:17,308 --> 00:11:24,160
+In the Downside the IRR is minus 22.9 per cent, and the Severe case is a total loss.
 
 111
-00:11:23,840 --> 00:11:35,504
-Twenty per cent depreciation a year takes the Base IRR to minus sixteen per cent, and freezing prices on new contracts cuts it to 7.9 per cent.
+00:11:24,160 --> 00:11:26,281
+Look at the currency rows.
 
 112
-00:11:35,504 --> 00:11:39,991
-Remember to reset the selector to Base before you save.
+00:11:26,281 --> 00:11:37,946
+Twenty per cent depreciation a year takes the Base IRR to minus sixteen per cent, and freezing prices on new contracts cuts it to 7.9 per cent.
 
 113
-00:11:41,491 --> 00:11:59,799
-Credit Portfolio consolidates the five tiers month by month: gross receivables by DPD bucket, the collection ratio, PD and LGD proxies, the indicative stage based ECL, and the borrowing base with its headroom against the facility.
+00:11:37,946 --> 00:11:42,432
+Remember to reset the selector to Base before you save.
 
 114
-00:11:59,799 --> 00:12:03,859
-The buckets reconcile exactly to gross receivables.
+00:11:43,932 --> 00:12:02,241
+Credit Portfolio consolidates the five tiers month by month: gross receivables by DPD bucket, the collection ratio, PD and LGD proxies, the indicative stage based ECL, and the borrowing base with its headroom against the facility.
 
 115
-00:12:03,859 --> 00:12:06,884
-This is the view a lender reads first.
+00:12:02,241 --> 00:12:06,300
+The buckets reconcile exactly to gross receivables.
 
 116
-00:12:08,384 --> 00:12:13,104
-Covenants tests each threshold every month and flags breaches.
+00:12:06,300 --> 00:12:09,325
+This is the view a lender reads first.
 
 117
-00:12:13,104 --> 00:12:23,913
-In the default Base case the lowest trailing three month collection rate is 72.9 per cent against a minimum of seventy, and no month breaches.
+00:12:10,825 --> 00:12:15,834
+Covenants tests each threshold every month and flags breaches.
 
 118
-00:12:23,913 --> 00:12:28,176
-Look at the headroom, not only at the pass or fail flag.
+00:12:15,834 --> 00:12:27,304
+In the default Base case the lowest trailing three month collection rate is 72.9 per cent against a minimum of seventy, and no month breaches.
 
 119
-00:12:28,176 --> 00:12:34,341
-The annual DSCR sits on the KPIs sheet, and it is a poor test for a growing book.
+00:12:27,304 --> 00:12:31,828
+Look at the headroom, not only at the pass or fail flag.
 
 120
-00:12:35,841 --> 00:12:38,229
-Now load the company's own data.
+00:12:31,828 --> 00:12:34,978
+The annual DSCR sits on the KPIs sheet.
 
 121
-00:12:38,229 --> 00:12:50,543
-Credit Input takes one block per tier and up to sixty months: month end balances and DPD buckets, and monthly flows such as originations, collections and write offs.
+00:12:34,978 --> 00:12:43,137
+It is below its minimum of 1.20 times in Years 1 to 4, so the readiness gate on covenants is not met.
 
 122
-00:12:50,543 --> 00:12:57,035
-The screen shows the SolaraPay case workbook, whose history is synthetic teaching data.
+00:12:43,137 --> 00:12:52,588
+DSCR is a poor test for a growing book, so replace it with portfolio covenants in the facility rather than ignore it.
 
 123
-00:12:57,035 --> 00:13:00,393
-The buckets must add up to gross receivables.
+00:12:54,088 --> 00:12:56,476
+Now load the company's own data.
 
 124
-00:13:00,393 --> 00:13:03,378
-Then set the credit data mode to Actual.
+00:12:56,476 --> 00:13:08,789
+Credit Input takes one block per tier and up to sixty months: month end balances and DPD buckets, and monthly flows such as originations, collections and write offs.
 
 125
-00:13:03,378 --> 00:13:09,497
-Reporting switches to the company's history, while projections stay on the curves.
+00:13:08,789 --> 00:13:15,282
+The screen shows the SolaraPay case workbook, whose history is synthetic teaching data.
 
 126
-00:13:10,997 --> 00:13:15,843
-Vintage Dashboard sets the observed cohorts against the plan curves.
+00:13:15,282 --> 00:13:18,640
+The buckets must add up to gross receivables.
 
 127
-00:13:15,843 --> 00:13:21,329
-In the SolaraPay case, every tier with history repays below plan at month 12.
+00:13:18,640 --> 00:13:21,625
+Then set the credit data mode to Actual.
 
 128
-00:13:21,329 --> 00:13:28,384
-When the curves diverge, recalibrate the default hazard and collection rates on the Products sheet.
+00:13:21,625 --> 00:13:27,744
+Reporting switches to the company's history, while projections stay on the curves.
 
 129
-00:13:28,384 --> 00:13:36,507
-Lenders lend against data, and twelve or more months of clean cohort history is the fastest route to better terms.
+00:13:29,244 --> 00:13:34,089
+Vintage Dashboard sets the observed cohorts against the plan curves.
 
 130
-00:13:38,007 --> 00:13:40,380
-Valuation holds three views.
+00:13:34,089 --> 00:13:39,576
+In the SolaraPay case, every tier with history repays below plan at month 12.
 
 131
-00:13:40,380 --> 00:13:55,215
-The DCF of free cash flow gives an enterprise value of about 15.6 million dollars, with a terminal value larger than the whole value, which is normal for a growing PAYGo book.
+00:13:39,576 --> 00:13:46,630
+When the curves diverge, recalibrate the default hazard and collection rates on the Products sheet.
 
 132
-00:13:55,215 --> 00:14:04,370
-The exit value at six times EBITDA gives an equity value of about 80.6 million dollars at the end of Year 5.
+00:13:46,630 --> 00:13:54,753
+Lenders lend against data, and twelve or more months of clean cohort history is the fastest route to better terms.
 
 133
-00:14:04,370 --> 00:14:13,441
-The investor's stake of one third then returns an IRR of 46.4 per cent and 6.7 times the money, in dollars.
+00:13:56,253 --> 00:13:58,627
+Valuation holds three views.
 
 134
-00:14:13,441 --> 00:14:19,205
-Present the DCF and the exit value side by side and explain the gap.
+00:13:58,627 --> 00:14:13,462
+The DCF of free cash flow gives an enterprise value of about 15.6 million dollars, with a terminal value larger than the whole value, which is normal for a growing PAYGo book.
 
 135
-00:14:20,705 --> 00:14:25,374
-Unit Economics answers whether each sale creates value.
+00:14:13,462 --> 00:14:22,617
+The exit value at six times EBITDA gives an equity value of about 80.6 million dollars at the end of Year 5.
 
 136
-00:14:25,374 --> 00:14:39,042
-For Tier 2 at default inputs, the expected loss is about 35.6 per cent of scheduled instalments, LTV to CAC is 4.8 times, and the cash payback is fifteen months.
+00:14:22,617 --> 00:14:31,688
+The investor's stake of one third then returns an IRR of 46.4 per cent and 6.7 times the money, in dollars.
 
 137
-00:14:39,042 --> 00:14:43,201
-Read the ratio with the payback and the unit IRR.
+00:14:31,688 --> 00:14:37,452
+Present the DCF and the exit value side by side and explain the gap.
 
 138
-00:14:43,201 --> 00:14:50,332
-A strong ratio on a product with no repayment history is a hypothesis, not a result.
+00:14:38,952 --> 00:14:43,621
+Unit Economics answers whether each sale creates value.
 
 139
-00:14:51,832 --> 00:15:00,373
-Calibration turns benchmarks into questions, and it compares the model only with references whose source is verified.
+00:14:43,621 --> 00:14:57,288
+For Tier 2 at default inputs, the expected loss is about 35.6 per cent of scheduled instalments, LTV to CAC is 4.8 times, and the cash payback is fifteen months.
 
 140
-00:15:00,373 --> 00:15:05,411
-At this edition, every reference on the sheet is suspended or absent.
+00:14:57,288 --> 00:15:01,448
+Read the ratio with the payback and the unit IRR.
 
 141
-00:15:05,411 --> 00:15:15,047
-The M-KOPA group figures conflict between sources, so that comparison is withdrawn until the group's consolidated accounts are read.
+00:15:01,448 --> 00:15:08,579
+A strong ratio on a product with no repayment history is a hypothesis, not a result.
 
 142
-00:15:15,047 --> 00:15:26,581
-The ESMAP sector collection rate is pending its primary document, and it is context for the model's operational collection rate, not a PERFORM repayment rate.
+00:15:10,079 --> 00:15:18,620
+Calibration turns benchmarks into questions, and it compares the model only with references whose source is verified.
 
 143
-00:15:26,581 --> 00:15:33,006
-The sheet asks you to justify the cost and credit assumptions on the company's own data.
+00:15:18,620 --> 00:15:23,657
+At this edition, every reference on the sheet is suspended or absent.
 
 144
-00:15:33,006 --> 00:15:35,707
-It never changes an input on its own.
+00:15:23,657 --> 00:15:33,294
+The M-KOPA group figures conflict between sources, so that comparison is withdrawn until the group's consolidated accounts are read.
 
 145
-00:15:37,207 --> 00:15:39,348
-Finally, Investment Readiness.
+00:15:33,294 --> 00:15:44,828
+The ESMAP sector collection rate is pending its primary document, and it is context for the model's operational collection rate, not a PERFORM repayment rate.
 
 146
-00:15:39,348 --> 00:15:51,338
-Twenty three gates, automatic where the model can test them and manual where they need outside evidence, such as legal review or the auditor's view of the ECL approach.
+00:15:44,828 --> 00:15:51,252
+The sheet asks you to justify the cost and credit assumptions on the company's own data.
 
 147
-00:15:51,338 --> 00:15:58,332
-A manual gate counts only when the sheet records where the evidence is held and who signed it off.
+00:15:51,252 --> 00:15:53,953
+It never changes an input on its own.
 
 148
-00:15:58,332 --> 00:16:04,470
-Thirteen gates are critical, and the decision rule uses the evidence and nothing else.
+00:15:55,453 --> 00:15:57,661
+Finally, Investment Readiness.
 
 149
-00:16:04,470 --> 00:16:13,676
-It reads STOP when a test fails, GO only when all twenty three gates are met, and CONDITIONAL GO when every critical gate is met.
+00:15:57,661 --> 00:16:10,021
+Twenty three gates, automatic where the model can test them and manual where they need outside evidence, such as legal review or the auditor's view of the ECL approach.
 
 150
-00:16:13,676 --> 00:16:17,959
-Otherwise it reads STOP, because the evidence is incomplete.
+00:16:10,021 --> 00:16:17,232
+A manual gate counts only when the sheet records where the evidence is held and who signed it off.
 
 151
-00:16:17,959 --> 00:16:25,738
-At default inputs three gates are met and the decision is STOP, with ten of the thirteen critical gates open.
+00:16:17,232 --> 00:16:23,559
+Thirteen gates are critical, and the decision rule uses the evidence and nothing else.
 
 152
-00:16:25,738 --> 00:16:33,517
-A STOP on incomplete evidence is not a verdict on the business, and a GO is not an investment recommendation.
+00:16:23,559 --> 00:16:33,051
+It reads STOP when a test fails, GO only when all twenty three gates are met, and CONDITIONAL GO when every critical gate is met.
 
 153
-00:16:33,517 --> 00:16:41,653
-Every gate not yet met should become a condition precedent, a covenant or an accepted risk in the investment memo.
+00:16:33,051 --> 00:16:37,465
+Otherwise it reads STOP, because the evidence is incomplete.
 
 154
-00:16:43,153 --> 00:16:56,532
-The Investment Summary brings it together on one page for the active scenario: the operating trajectory, the funding requirement, valuation and returns, the lender view and unit economics by tier.
+00:16:37,465 --> 00:16:43,204
+At default inputs two gates are met and the decision is STOP on a failed test.
 
 155
-00:16:56,532 --> 00:17:05,679
-Build the memo from this page and the sheets behind it, using Template T01, and check every figure you quote against its source sheet.
+00:16:43,204 --> 00:16:52,181
+Gate ten now covers the annual DSCR as well as the monthly covenants, and the DSCR sits below its minimum in Years 1 to 4.
 
 156
-00:17:07,179 --> 00:17:18,913
-Behind the summary sits the Dashboard: a table of thirty nine labelled metrics by year, rounded for reading, each with its unit and its source sheet.
+00:16:52,181 --> 00:17:02,040
+A STOP on incomplete evidence is not a verdict on the business, but a STOP on a failed test is a finding against the plan as modelled.
 
 157
-00:17:18,913 --> 00:17:25,056
-Single values, such as returns, peaks, timing and readiness, sit under Year 1.
+00:17:02,040 --> 00:17:05,056
+A GO is not an investment recommendation.
 
 158
-00:17:25,056 --> 00:17:27,418
-Three readings teach the most.
+00:17:05,056 --> 00:17:13,444
+Every gate not yet met should become a condition precedent, a covenant or an accepted risk in the investment memo.
 
 159
-00:17:27,418 --> 00:17:29,545
-First, revenue is not cash.
+00:17:14,944 --> 00:17:28,323
+The Investment Summary brings it together on one page for the active scenario: the operating trajectory, the funding requirement, valuation and returns, the lender view and unit economics by tier.
 
 160
-00:17:29,545 --> 00:17:38,522
-Cash conversion, operating cash flow over EBITDA, reads not applicable in Years 1 and 2, while EBITDA is negative.
+00:17:28,323 --> 00:17:37,469
+Build the memo from this page and the sheets behind it, using Template T01, and check every figure you quote against its source sheet.
 
 161
-00:17:38,522 --> 00:17:50,020
-It is then minus 1.32 times in Year 3, minus 0.08 times in Year 4 and 0.25 times in Year 5, because the growing receivables book absorbs the cash.
+00:17:38,969 --> 00:17:50,714
+Behind the summary sits the Dashboard: a table of thirty nine labelled metrics by year, rounded for reading, each with its unit and its source sheet.
 
 162
-00:17:50,020 --> 00:17:58,053
-Second, the operational collection rate falls from 84.5 per cent in Year 1 to 73.3 per cent in Year 5.
+00:17:50,714 --> 00:17:56,862
+Single values, such as returns, peaks, timing and readiness, sit under Year 1.
 
 163
-00:17:58,053 --> 00:18:08,685
-It is labelled not a PERFORM KPI, and the PERFORM repayment line below it reads not provided, because only company results can fill it.
+00:17:56,862 --> 00:17:59,226
+Three readings teach the most.
 
 164
-00:18:08,685 --> 00:18:26,168
-Third, the net FX transaction effect on costs and RBF, before price pass through, is a cost that grows from about twenty five million local currency units in Year 1 to about nine hundred and twenty eight million in Year 5.
+00:17:59,226 --> 00:18:01,354
+First, revenue is not cash.
 
 165
-00:18:26,168 --> 00:18:35,933
-The last lines repeat the readiness result: three of twenty three gates met, and a decision of STOP, on incomplete evidence.
+00:18:01,354 --> 00:18:10,340
+Cash conversion, operating cash flow over EBITDA, reads not applicable in Years 1 and 2, while EBITDA is negative.
 
 166
-00:18:37,433 --> 00:18:39,768
-That completes the twelve steps.
+00:18:10,340 --> 00:18:21,848
+It is then minus 1.32 times in Year 3, minus 0.08 times in Year 4 and 0.25 times in Year 5, because the growing receivables book absorbs the cash.
 
 167
-00:18:39,768 --> 00:18:41,592
-Three habits matter most.
+00:18:21,848 --> 00:18:29,887
+Second, the operational collection rate falls from 84.5 per cent in Year 1 to 73.3 per cent in Year 5.
 
 168
-00:18:41,592 --> 00:18:45,606
-Never use an output while the master check reads error.
+00:18:29,887 --> 00:18:40,528
+It is labelled not a PERFORM KPI, and the PERFORM repayment line below it reads not provided, because only company results can fill it.
 
 169
-00:18:45,606 --> 00:18:50,202
-Load the company's own history before you trust any projection.
+00:18:40,528 --> 00:18:58,026
+Third, the net FX transaction effect on costs and RBF, before price pass through, is a cost that grows from about twenty five million local currency units in Year 1 to about nine hundred and twenty eight million in Year 5.
 
 170
-00:18:50,202 --> 00:18:53,632
-And read the Downside as carefully as the Base.
+00:18:58,026 --> 00:19:07,169
+The last lines repeat the readiness result: two of twenty three gates met, and a decision of STOP, on a failed test.
 
 171
-00:18:53,632 --> 00:19:00,418
-The user manual, the case study, the templates and the decision tools take each step further.
+00:19:08,669 --> 00:19:11,004
+That completes the twelve steps.
 
 172
-00:19:00,418 --> 00:19:02,096
+00:19:11,004 --> 00:19:12,828
+Three habits matter most.
+
+173
+00:19:12,828 --> 00:19:16,842
+Never use an output while the master check reads error.
+
+174
+00:19:16,842 --> 00:19:21,438
+Load the company's own history before you trust any projection.
+
+175
+00:19:21,438 --> 00:19:24,868
+And read the Downside as carefully as the Base.
+
+176
+00:19:24,868 --> 00:19:31,654
+The user manual, the case study, the templates and the decision tools take each step further.
+
+177
+00:19:31,654 --> 00:19:33,332
 Thank you for watching.

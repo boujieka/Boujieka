@@ -71,7 +71,7 @@ SolaraPay is asking an impact fund for four million dollars of equity at a pre m
 
 Its management plan looks attractive. Once the model is calibrated to its own history, the case becomes conditional. The way it moves from one to the other is the method this course teaches.
 
-The workbook never rates a company. Its Investment_Readiness sheet runs 23 gates, counts each one only on evidence, and applies a fixed rule. It reads STOP when a test fails or critical evidence is missing, CONDITIONAL GO when every critical gate is met, and GO only when all 23 are met. Even a GO says only that the evidence file is complete. It is not a recommendation. In its default state the workbook passes 3 of the 23 gates and reads STOP, on incomplete evidence. SolaraPay, with its history loaded, passes 5 and reads the same. The analyst in the case still recommends a Conditional Go, and Module 16 explains why the two do not contradict each other.
+The workbook never rates a company. Its Investment_Readiness sheet runs 23 gates, counts each one only on evidence, and applies a fixed rule. It reads STOP when a test fails or critical evidence is missing, CONDITIONAL GO when every critical gate is met, and GO only when all 23 are met. Even a GO says only that the evidence file is complete. It is not a recommendation. In its default state the workbook passes 2 of the 23 gates and reads STOP on a failed test: the annual debt service coverage ratio sits below its minimum in Years 1 to 4, so the covenant gate fails. SolaraPay, with its history loaded, passes 4 and reads STOP for the same reason. The analyst in the case still recommends a Conditional Go, and Module 16 explains why the two do not contradict each other.
 
 ## Scene 7. Templates and decision tools
 On screen: Templates T01 to T08. Decision tools D1 to D6. Book, tools, model: three levels of depth.
@@ -96,8 +96,8 @@ The course follows the first edition of Book 2, issued as version 0.2 for pre-pu
 Nothing in the course is investment, legal, tax or accounting advice. Take professional advice in the jurisdiction concerned before acting on any of it.
 
 ## Scene 9. Recap and exercise
-On screen: Exercise. Open the workbook. Checks sheet. Dashboard. Investment_Readiness: 3 of 23, STOP.
+On screen: Exercise. Open the workbook. Checks sheet. Dashboard. Investment_Readiness: 2 of 23, STOP on a failed test.
 
 To recap. The course asks whether PAYGo solar can become profitable and financeable. It treats each company as a retailer, a service provider and a lender at once, and it reads that company through cohorts and the receivables book. The book gives the reasoning, the workbook tests it on numbers, and the templates and decision tools carry it into a real transaction.
 
-Your exercise before Module 1 is practical. Open MODEL 2 in its default state. Go first to the Checks sheet and confirm that it reads OK. Then open the Dashboard and note the peak equity and the investor internal rate of return, or IRR, for the Base case. Finally, open Investment_Readiness, confirm that it shows 3 of 23 gates passed and a decision of STOP, and write down the names of three gates that fail. You will return to that list at the end of the course.
+Your exercise before Module 1 is practical. Open MODEL 2 in its default state. Go first to the Checks sheet and confirm that it reads OK. Then open the Dashboard and note the peak equity and the investor internal rate of return, or IRR, for the Base case. Finally, open Investment_Readiness, confirm that it shows 2 of 23 gates passed and a decision of STOP on a failed test, and write down the name of the failed test and of two other gates that fail. You will return to that list at the end of the course.

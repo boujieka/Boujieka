@@ -8,7 +8,7 @@ This document holds the full narration of every module, with the screen directio
 
 | Module | Title | Running time | Words narrated | Media |
 |---|---|---|---|---|
-| 0 | Welcome: how the course, the book, the model and the tools fit together | 10:33 | 1,408 | Narration, AEF_V2_Module_00.mp3 |
+| 0 | Welcome: how the course, the book, the model and the tools fit together | 10:43 | 1,442 | Narration, AEF_V2_Module_00.mp3 |
 | 1 | The PAYGo business: retailer, utility and lender | 10:41 | 1,399 | Narration, AEF_V2_Module_01.mp3 |
 | 2 | Market, customers and affordability | 9:41 | 1,302 | Narration, AEF_V2_Module_02.mp3 |
 | 3 | The regulatory checklist | 10:16 | 1,299 | Narration, AEF_V2_Module_03.mp3 |
@@ -23,10 +23,10 @@ This document holds the full narration of every module, with the screen directio
 | 12 | Securitisation and off balance sheet structures | 9:53 | 1,306 | Narration, AEF_V2_Module_12.mp3 |
 | 13 | RBF, subsidies and affordability | 10:01 | 1,347 | Narration, AEF_V2_Module_13.mp3 |
 | 14 | Stress testing | 9:43 | 1,294 | Narration, AEF_V2_Module_14.mp3 |
-| 15 | The investor view: due diligence and the investment memo | 11:16 | 1,450 | Narration, AEF_V2_Module_15.mp3 |
-| 16 | Case walk through: SolaraPay | 12:16 | 1,617 | Narration, AEF_V2_Module_16.mp3 |
-| 17 | Using MODEL 2, step by step | 19:03 | 2,507 | Video, MP4, 1920 by 1080, subtitles and chapters |
-| | Total | 3 h 14 min | 25,591 | |
+| 15 | The investor view: due diligence and the investment memo | 11:32 | 1,497 | Narration, AEF_V2_Module_15.mp3 |
+| 16 | Case walk through: SolaraPay | 12:36 | 1,669 | Narration, AEF_V2_Module_16.mp3 |
+| 17 | Using MODEL 2, step by step | 19:34 | 2,584 | Video, MP4, 1920 by 1080, subtitles and chapters |
+| | Total | 3 h 15 min | 25,801 | |
 
 ## Conventions
 
@@ -40,7 +40,7 @@ The recordings of this edition use a British English narrator voice at a measure
 
 # Module 0. Welcome: how the course, the book, the model and the tools fit together
 
-Running time: 10:33. Book: Preface, How the book works with the model, Conventions, Status of this edition, and Chapter 1 section 1.7. Model sheets: Dashboard, Checks, Investment_Readiness. Templates and tools: T01 to T08, D1 to D6.
+Running time: 10:43. Book: Preface, How the book works with the model, Conventions, Status of this edition, and Chapter 1 section 1.7. Model sheets: Dashboard, Checks, Investment_Readiness. Templates and tools: T01 to T08, D1 to D6.
 
 ### Learning objectives
 1. State the central question of the course and the three businesses inside a PAYGo company.
@@ -111,7 +111,7 @@ SolaraPay is asking an impact fund for four million dollars of equity at a pre m
 
 Its management plan looks attractive. Once the model is calibrated to its own history, the case becomes conditional. The way it moves from one to the other is the method this course teaches.
 
-The workbook never rates a company. Its Investment_Readiness sheet runs 23 gates, counts each one only on evidence, and applies a fixed rule. It reads STOP when a test fails or critical evidence is missing, CONDITIONAL GO when every critical gate is met, and GO only when all 23 are met. Even a GO says only that the evidence file is complete. It is not a recommendation. In its default state the workbook passes 3 of the 23 gates and reads STOP, on incomplete evidence. SolaraPay, with its history loaded, passes 5 and reads the same. The analyst in the case still recommends a Conditional Go, and Module 16 explains why the two do not contradict each other.
+The workbook never rates a company. Its Investment_Readiness sheet runs 23 gates, counts each one only on evidence, and applies a fixed rule. It reads STOP when a test fails or critical evidence is missing, CONDITIONAL GO when every critical gate is met, and GO only when all 23 are met. Even a GO says only that the evidence file is complete. It is not a recommendation. In its default state the workbook passes 2 of the 23 gates and reads STOP on a failed test: the annual debt service coverage ratio sits below its minimum in Years 1 to 4, so the covenant gate fails. SolaraPay, with its history loaded, passes 4 and reads STOP for the same reason. The analyst in the case still recommends a Conditional Go, and Module 16 explains why the two do not contradict each other.
 
 ### Scene 7. Templates and decision tools
 > On screen: *Templates T01 to T08. Decision tools D1 to D6. Book, tools, model: three levels of depth.*
@@ -136,11 +136,11 @@ The course follows the first edition of Book 2, issued as version 0.2 for pre-pu
 Nothing in the course is investment, legal, tax or accounting advice. Take professional advice in the jurisdiction concerned before acting on any of it.
 
 ### Scene 9. Recap and exercise
-> On screen: *Exercise. Open the workbook. Checks sheet. Dashboard. Investment_Readiness: 3 of 23, STOP.*
+> On screen: *Exercise. Open the workbook. Checks sheet. Dashboard. Investment_Readiness: 2 of 23, STOP on a failed test.*
 
 To recap. The course asks whether PAYGo solar can become profitable and financeable. It treats each company as a retailer, a service provider and a lender at once, and it reads that company through cohorts and the receivables book. The book gives the reasoning, the workbook tests it on numbers, and the templates and decision tools carry it into a real transaction.
 
-Your exercise before Module 1 is practical. Open MODEL 2 in its default state. Go first to the Checks sheet and confirm that it reads OK. Then open the Dashboard and note the peak equity and the investor internal rate of return, or IRR, for the Base case. Finally, open Investment_Readiness, confirm that it shows 3 of 23 gates passed and a decision of STOP, and write down the names of three gates that fail. You will return to that list at the end of the course.
+Your exercise before Module 1 is practical. Open MODEL 2 in its default state. Go first to the Checks sheet and confirm that it reads OK. Then open the Dashboard and note the peak equity and the investor internal rate of return, or IRR, for the Base case. Finally, open Investment_Readiness, confirm that it shows 2 of 23 gates passed and a decision of STOP on a failed test, and write down the name of the failed test and of two other gates that fail. You will return to that list at the end of the course.
 
 # Module 1. The PAYGo business: retailer, utility and lender
 
@@ -1371,7 +1371,7 @@ Your exercise is a reverse stress. On a copy of the workbook, reduce the collect
 
 # Module 15. The investor view: due diligence and the investment memo
 
-Running time: 11:16. Book: Chapter 15. Model sheets: Credit_Input, Vintage_Input, Credit_Portfolio, Vintage_Dashboard, Valuation, Investment_Summary, Investment_Readiness, Covenants, Benchmark_Compare, Calibration, Source_Register. Templates and tools: T01 Investment committee memorandum, T02 Investor due diligence checklist, T06 Loan tape specification and data request, D5 Investment screening scorecard, D6 Investor returns calculator.
+Running time: 11:32. Book: Chapter 15. Model sheets: Credit_Input, Vintage_Input, Credit_Portfolio, Vintage_Dashboard, Valuation, Investment_Summary, Investment_Readiness, Covenants, Benchmark_Compare, Calibration, Source_Register. Templates and tools: T01 Investment committee memorandum, T02 Investor due diligence checklist, T06 Loan tape specification and data request, D5 Investment screening scorecard, D6 Investor returns calculator.
 
 ### Learning objectives
 1. Organise a PAYGo diligence in eight workstreams, starting with credit and the data tape, and recognise the red flags that should pause a deal.
@@ -1435,9 +1435,9 @@ Price to book treats the company as a lender, so it is only as reliable as the l
 Dollar investors are judged in dollars. For SolaraPay, four million dollars at eight million pre money buys 33.3 per cent. A third of exit equity of forty two point nine million dollars is fourteen point three million, a multiple of about 3.6 times and an IRR of about 29.0 per cent. Currency deserves its own line in the memo. Over five years, depreciation of 5 per cent a year leaves 78.4 per cent of the value, 12 per cent leaves 56.7 per cent, and 25 per cent leaves 32.8 per cent.
 
 ### Scene 7. Gates, the memo and conditions
-> On screen: *Investment_Readiness banner: "3/23 gates met. Decision: STOP (Evidence incomplete)". Template T01, twelve sections, recommendation first.*
+> On screen: *Investment_Readiness banner: "3/23 gates met. Decision: STOP (Failed test: No covenant breach in the active scenario)". Template T01, twelve sections, recommendation first.*
 
-The Investment_Readiness sheet lists 23 gates, some automatic and some set on external evidence. A manual gate counts only when the sheet records where the evidence is held and who signed it off. Thirteen gates are critical, and the sheet applies a fixed rule. STOP when a test fails: the master check, a covenant breach, or a tier with negative contribution. GO only when all 23 gates are met. CONDITIONAL GO when every critical gate is met, with the open gates as conditions. Otherwise STOP, because the evidence is incomplete. A STOP on incomplete evidence is not a verdict on the business, and a GO is not an investment recommendation. At default inputs three gates are met and the rule reads STOP, with 10 of the 13 critical gates open. In the SolaraPay case five are met, and 8 critical gates remain open.
+The Investment_Readiness sheet lists 23 gates, some automatic and some set on external evidence. A manual gate counts only when the sheet records where the evidence is held and who signed it off. Thirteen gates are critical, and the sheet applies a fixed rule. STOP when a test fails: the master check, a covenant breach in any month or a year with the debt service coverage ratio below its minimum, or a tier with negative contribution. GO only when all 23 gates are met. CONDITIONAL GO when every critical gate is met, with the open gates as conditions. Otherwise STOP, because the evidence is incomplete. A STOP on incomplete evidence is not a verdict on the business, but a STOP on a failed test is a finding against the plan as modelled. A GO is not an investment recommendation. At default inputs two gates are met and the rule reads STOP on a failed test: no month breaches a covenant, but the annual DSCR sits below 1.20 times in Years 1 to 4. In the SolaraPay case four gates are met, and the rule reads STOP for the same reason.
 
 The memo in template T01 follows twelve sections, with the recommendation and its conditions first. Show the DCF and exit values side by side.
 
@@ -1459,7 +1459,7 @@ Your exercise uses the D6 Investor returns calculator, which opens on the Solara
 
 # Module 16. Case walk through: SolaraPay
 
-Running time: 12:16. Book: Chapter 16. Model sheets: Credit_Input, Vintage_Input, Credit_Assumptions, Credit_Portfolio, Vintage_Dashboard, Products, Unit_Economics, Consumer_Risk, Dashboard, KPIs, Covenants, Valuation, Benchmark_Compare, Calibration, Investment_Readiness. Templates and tools: case workbook SolaraPay_Case_Model_v0.8-dev, D3 Repayment curve and cohort calibration, D6 Investor returns calculator, T01 Investment committee memorandum, T06 Loan tape specification and data request, T07 Borrowing base certificate and term sheet checklist.
+Running time: 12:36. Book: Chapter 16. Model sheets: Credit_Input, Vintage_Input, Credit_Assumptions, Credit_Portfolio, Vintage_Dashboard, Products, Unit_Economics, Consumer_Risk, Dashboard, KPIs, Covenants, Valuation, Benchmark_Compare, Calibration, Investment_Readiness. Templates and tools: case workbook SolaraPay_Case_Model_v0.8-dev, D3 Repayment curve and cohort calibration, D6 Investor returns calculator, T01 Investment committee memorandum, T06 Loan tape specification and data request, T07 Borrowing base certificate and term sheet checklist.
 
 ### Learning objectives
 1. Apply the method end to end: load history before touching projections, recalibrate, and read unit economics and affordability.
@@ -1529,16 +1529,16 @@ Tier 4 and 5 credit is the largest unproven risk. Doubling their hazard roughly 
 
 The discounted cash flow, or DCF, gives an enterprise value of six point one million dollars at 22 per cent, below the eight million pre money. A third of exit equity of forty two point nine million dollars gives a multiple of about 3.6 times and an IRR of about 29.0 per cent. The entry price is a position on the exit multiple and on credit quality, and the fund should protect both.
 
-For the bank, the covenants hold in the calibrated Base, but barely. The lowest trailing three month collection rate is 70.0 per cent against a 70 per cent minimum, so there is no headroom. On actual data, with 69.3 per cent over the second year and 66.5 per cent in the latest month, a 70 per cent covenant would very likely be breached at the first test date. The bank can set the covenant at a level the book can meet, such as 65 per cent with a cure period, or defer the facility. The debt service coverage ratio sits below 1.20 times in Years 1 to 4, so portfolio covenants should replace it. Monthly reporting should cover the operational and lender metrics, each with its definition printed, and the PERFORM 2026 KPIs once the company computes them on its contract data.
+For the bank, the monthly covenants hold in the calibrated Base, but barely. The lowest trailing three month collection rate is 70.0 per cent against a 70 per cent minimum, so there is no headroom. On actual data, with 69.3 per cent over the second year and 66.5 per cent in the latest month, a 70 per cent covenant would very likely be breached at the first test date. The bank can set the covenant at a level the book can meet, such as 65 per cent with a cure period, or defer the facility. The debt service coverage ratio sits below its 1.20 times minimum in Years 1 to 4, so that covenant fails as drafted, and portfolio covenants should replace it. Monthly reporting should cover the operational and lender metrics, each with its definition printed, and the PERFORM 2026 KPIs once the company computes them on its contract data.
 
 ### Scene 8. Benchmarks and the recommendation
-> On screen: *Benchmarks: no verified reference, M-KOPA comparison withdrawn. ECL to financing revenue 1.28 times. Analyst: Conditional Go, seven conditions. Workbook: 5 of 23 gates, STOP on incomplete evidence.*
+> On screen: *Benchmarks: no verified reference, M-KOPA comparison withdrawn. ECL to financing revenue 1.28 times. Analyst: Conditional Go, seven conditions. Workbook: 4 of 23 gates, STOP on a failed test (annual DSCR).*
 
 The analyst finds that no external reference can be used as a test. The net margin and credit loss references rested on M-KOPA group figures that conflict between sources, so that comparison is withdrawn until the group's consolidated accounts are read. The ratios speak for themselves. Expected credit loss runs at 1.28 times financing revenue, so the financing income does not cover the losses it is meant to price. The hardware margin is carrying them. The benchmark that matters is SolaraPay's own cohort history.
 
 The analyst recommends a Conditional Go: invest four million dollars subject to seven conditions. Index new prices fully to the exchange rate. Cap Tiers 4 and 5 at their planned 13 per cent of units, released only after twelve months of cohort data within 10 per cent of plan. Agree a collections plan and a 65 per cent trailing collection covenant with a cure period. Cut recovery assumptions to observed levels. Redesign Tier 2 to 4 price plans so the instalment stays within 10 per cent of surveyed income. Protect the valuation, towards six million pre money or with a ratchet. And require monthly data, ownership tracking, an independent ECL review and a full test of the workbook.
 
-The workbook's own rule reads STOP for the same file. The case meets 5 of the 23 readiness gates, and 8 of the 13 critical gates still lack evidence. The two do not contradict each other. The workbook measures whether the evidence file is complete; the recommendation is the analyst's judgement of what the investment needs. The committee should see both, and disbursement waits until the critical gates that the conditions address are evidenced. The memo says so.
+The workbook's own rule reads STOP for the same file. The case meets 4 of the 23 readiness gates, and the covenant gate fails because the annual DSCR sits below its minimum in Years 1 to 4. That STOP is a finding against the plan as modelled, not only missing evidence. The two still do not contradict each other. The workbook applies a fixed rule to the plan and the evidence; the recommendation is the analyst's judgement of what the investment needs. So the Conditional Go is conditional on replacing or resetting the DSCR covenant with the lender, and disbursement waits until the critical gates that the conditions address are evidenced. The committee should see both, and the memo says so.
 
 ### Scene 9. Recap and exercise
 > On screen: *Recap. History before projections. Calibrated Base sits at plan Downside. Pricing protects equity. Tiers 4 and 5 unproven. Exercise: combined stress, recorded in T01.*
@@ -1549,7 +1549,7 @@ Your exercise uses the case workbook. On a copy, run the calibrated Downside wit
 
 # Module 17. Using MODEL 2, step by step
 
-Running time: 19:03. Book: Chapters 1 to 16. Model: MODEL 2, version 0.8 (development build), file AEF_SHS_PAYGo_Model_v0.8-dev.xlsx. User manual: Steps 1 to 12.
+Running time: 19:34. Book: Chapters 1 to 16. Model: MODEL 2, version 0.8 (development build), file AEF_SHS_PAYGo_Model_v0.8-dev.xlsx. User manual: Steps 1 to 12.
 
 ### Learning objectives
 1. Work through the model in the order an analyst should.
@@ -1564,7 +1564,7 @@ This tutorial walks you through MODEL 2, the PAYGo Company Financial and Investm
 ### Scene 2. Start here: Cover
 > On screen: *Open the workbook, let it recalculate, and read the status panel before anything else. Sheet Cover, range B16:J44.*
 
-Open the workbook in Excel 2016 or later and let it recalculate fully. The cover carries a live status panel. First, the master check. It must read OK before you rely on any output. Below it, the readiness line: three of twenty three gates are met at default inputs, and the decision reads STOP, because the evidence is incomplete. The model never rates a company. Then the active case, the illustrative model assumptions in the Base scenario, and the credit data mode, Proxy, which means the credit figures come from the model's curves. Before you change anything, save a copy under a new name and keep the original as your reference.
+Open the workbook in Excel 2016 or later and let it recalculate fully. The cover carries a live status panel. First, the master check. It must read OK before you rely on any output. Below it, the readiness line: two of twenty three gates are met at default inputs, and the decision reads STOP, on a failed test. The covenant gate fails, as Step 11 shows. The model never rates a company. Then the active case, the illustrative model assumptions in the Base scenario, and the credit data mode, Proxy, which means the credit figures come from the model's curves. Before you change anything, save a copy under a new name and keep the original as your reference.
 
 ### Scene 3. Start here: Start
 > On screen: *One page: what to input, what the model calculates, what the results mean and what an investor should look at. Sheet Start, range A1:D40.*
@@ -1664,7 +1664,7 @@ Credit Portfolio consolidates the five tiers month by month: gross receivables b
 ### Scene 22. Lender case: Covenants
 > On screen: *Each covenant is tested monthly. Headroom matters as much as compliance. Sheet Covenants, range A4:L26.*
 
-Covenants tests each threshold every month and flags breaches. In the default Base case the lowest trailing three month collection rate is 72.9 per cent against a minimum of seventy, and no month breaches. Look at the headroom, not only at the pass or fail flag. The annual DSCR sits on the KPIs sheet, and it is a poor test for a growing book.
+Covenants tests each threshold every month and flags breaches. In the default Base case the lowest trailing three month collection rate is 72.9 per cent against a minimum of seventy, and no month breaches. Look at the headroom, not only at the pass or fail flag. The annual DSCR sits on the KPIs sheet. It is below its minimum of 1.20 times in Years 1 to 4, so the readiness gate on covenants is not met. DSCR is a poor test for a growing book, so replace it with portfolio covenants in the facility rather than ignore it.
 
 ### Scene 23. Lender case: Credit_Input
 > On screen: *Paste the company's own history, then switch the credit data mode to Actual. Shown here: the fictional SolaraPay case. Sheet Credit_Input, range A6:L25.*
@@ -1694,7 +1694,7 @@ Calibration turns benchmarks into questions, and it compares the model only with
 ### Scene 28. Investment memo: Investment_Readiness
 > On screen: *Twenty three gates, thirteen critical. The decision rule reads evidence only: STOP, CONDITIONAL GO or GO. Sheet Investment_Readiness, range A4:G36.*
 
-Finally, Investment Readiness. Twenty three gates, automatic where the model can test them and manual where they need outside evidence, such as legal review or the auditor's view of the ECL approach. A manual gate counts only when the sheet records where the evidence is held and who signed it off. Thirteen gates are critical, and the decision rule uses the evidence and nothing else. It reads STOP when a test fails, GO only when all twenty three gates are met, and CONDITIONAL GO when every critical gate is met. Otherwise it reads STOP, because the evidence is incomplete. At default inputs three gates are met and the decision is STOP, with ten of the thirteen critical gates open. A STOP on incomplete evidence is not a verdict on the business, and a GO is not an investment recommendation. Every gate not yet met should become a condition precedent, a covenant or an accepted risk in the investment memo.
+Finally, Investment Readiness. Twenty three gates, automatic where the model can test them and manual where they need outside evidence, such as legal review or the auditor's view of the ECL approach. A manual gate counts only when the sheet records where the evidence is held and who signed it off. Thirteen gates are critical, and the decision rule uses the evidence and nothing else. It reads STOP when a test fails, GO only when all twenty three gates are met, and CONDITIONAL GO when every critical gate is met. Otherwise it reads STOP, because the evidence is incomplete. At default inputs two gates are met and the decision is STOP on a failed test. Gate ten now covers the annual DSCR as well as the monthly covenants, and the DSCR sits below its minimum in Years 1 to 4. A STOP on incomplete evidence is not a verdict on the business, but a STOP on a failed test is a finding against the plan as modelled. A GO is not an investment recommendation. Every gate not yet met should become a condition precedent, a covenant or an accepted risk in the investment memo.
 
 ### Scene 29. Investment memo: Investment_Summary
 > On screen: *The one page summary for the investment committee, live for the active scenario. Sheet Investment_Summary, range A4:G35.*
@@ -1704,7 +1704,7 @@ The Investment Summary brings it together on one page for the active scenario: t
 ### Scene 30. Investment memo: Dashboard
 > On screen: *Thirty nine labelled metrics by year, rounded for reading, each with its unit and its source sheet. Sheet Dashboard, range A5:H50.*
 
-Behind the summary sits the Dashboard: a table of thirty nine labelled metrics by year, rounded for reading, each with its unit and its source sheet. Single values, such as returns, peaks, timing and readiness, sit under Year 1. Three readings teach the most. First, revenue is not cash. Cash conversion, operating cash flow over EBITDA, reads not applicable in Years 1 and 2, while EBITDA is negative. It is then minus 1.32 times in Year 3, minus 0.08 times in Year 4 and 0.25 times in Year 5, because the growing receivables book absorbs the cash. Second, the operational collection rate falls from 84.5 per cent in Year 1 to 73.3 per cent in Year 5. It is labelled not a PERFORM KPI, and the PERFORM repayment line below it reads not provided, because only company results can fill it. Third, the net FX transaction effect on costs and RBF, before price pass through, is a cost that grows from about twenty five million local currency units in Year 1 to about nine hundred and twenty eight million in Year 5. The last lines repeat the readiness result: three of twenty three gates met, and a decision of STOP, on incomplete evidence.
+Behind the summary sits the Dashboard: a table of thirty nine labelled metrics by year, rounded for reading, each with its unit and its source sheet. Single values, such as returns, peaks, timing and readiness, sit under Year 1. Three readings teach the most. First, revenue is not cash. Cash conversion, operating cash flow over EBITDA, reads not applicable in Years 1 and 2, while EBITDA is negative. It is then minus 1.32 times in Year 3, minus 0.08 times in Year 4 and 0.25 times in Year 5, because the growing receivables book absorbs the cash. Second, the operational collection rate falls from 84.5 per cent in Year 1 to 73.3 per cent in Year 5. It is labelled not a PERFORM KPI, and the PERFORM repayment line below it reads not provided, because only company results can fill it. Third, the net FX transaction effect on costs and RBF, before price pass through, is a cost that grows from about twenty five million local currency units in Year 1 to about nine hundred and twenty eight million in Year 5. The last lines repeat the readiness result: two of twenty three gates met, and a decision of STOP, on a failed test.
 
 ### Scene 31. Twelve steps, one discipline
 > On screen: *Load the company's data before you trust the projections*
