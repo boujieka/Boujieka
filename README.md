@@ -26,6 +26,10 @@ et ce n'est **pas** une décision de changement de nom de l'État.
 4. [Feuille de route et cadre constitutionnel](docs/04-feuille-de-route-et-cadre-constitutionnel.md) — les cinq phases.
 5. [Objections, risques et points faibles](docs/05-objections-et-risques.md).
 
+## Rédaction
+
+- Livre I, chapitre 1 — [Avant les royaumes : les premières civilisations de la Terre de l'Arc](livre-1/chapitre-01-civilisations-anciennes.md) (v0.1)
+
 ## Règle de rigueur du projet
 
 Chaque affirmation factuelle porte un statut :
