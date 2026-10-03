@@ -1,6 +1,6 @@
 # About the Decision Tools
 
-The Volume 2 Decision Tools are six compact calculators, each built to answer one question that comes up again and again in PAYGo finance. They sit between the book and the full model. The book explains the reasoning; the AEF SHS PAYGo model integrates everything over five years; the tools give a fast, transparent answer to a single question, in a form that can be shown on a screen in a credit committee and checked by hand.
+The Book 2 Decision Tools are six compact calculators, issued as version 0.9 (pre-release), each built to answer one question that comes up again and again in PAYGo finance. They sit between the book and the full model. Book 2 explains the reasoning; MODEL 2, the PAYGo Company Financial and Investment Model, integrates everything over five years; the tools give a fast, transparent answer to a single question, in a form that can be shown on a screen in a credit committee and checked by hand.
 
 | No. | Tool | Question it answers | Book |
 |---|---|---|---|
@@ -27,7 +27,7 @@ The expected cash flow of one sale, month by month for sixty months: collections
 
 ## D3 Repayment curve and cohort calibration
 
-The curve sheet draws survival and cumulative repayment by account age from a hazard, a collection rate and a tenor. The calibration sheet searches a grid of 151 hazards and 18 collection rates for the pair that best fits observed cumulative repayment at M3, M6, M12 and M18, reports the fit error at each checkpoint, and warns when the best fit sits at the edge of the grid. Loaded with the average observed Tier 2 cohorts of the SolaraPay case, it returns a monthly hazard of 3.45% and a collection rate of 87%, within half a point of each observation; the case itself used 3.38% and 87%, obtained by raising the plan hazard by 30%. The portfolio effect sheet shows how the same customers produce a portfolio collection rate of 64.4%, 68.3% and 71.6% at zero, 5% and 10% monthly growth, the figures of Chapter 6.
+The curve sheet draws survival and cumulative repayment by account age from a hazard, a collection rate and a tenor. The calibration sheet searches a grid of 151 hazards and 18 collection rates for the pair that fits observed cumulative repayment most closely at M3, M6, M12 and M18, reports the fit error at each checkpoint, and warns when the closest fit sits at the edge of the grid. Loaded with the average observed Tier 2 cohorts of the SolaraPay case, it returns a monthly hazard of 3.45% and a collection rate of 87%, within half a point of each observation; the case itself used 3.38% and 87%, obtained by raising the plan hazard by 30%. The portfolio effect sheet shows how the same customers produce a portfolio operational collection rate of 64.4%, 68.3% and 71.6% at zero, 5% and 10% monthly growth, the figures of Chapter 6. The curves are cohort repayment ratios: monthly, without payment allocation, and not PAYGo PERFORM 2026 calculations, which need contract data.
 
 ## D4 Receivables financing calculator
 
@@ -35,7 +35,7 @@ A sixty month funding path for a sales plan. Each month's cohort is followed thr
 
 ## D5 Investment screening scorecard
 
-Twelve criteria rated green, amber or red against editable thresholds, with weights: history, reconciliation, cohort gap to plan, PAR30, collection rate, unit contribution, LTV to CAC, payment burden, hard currency funding, runway, licence position and credit independence. Three are kill criteria. A blank criterion is reported as not assessed, never scored. The verdict reads Decline when a kill criterion fails, Incomplete while criteria are missing, and otherwise Proceed to diligence, Proceed with conditions or Decline according to the weighted score. With the SolaraPay values the case reports, the screen reads "Incomplete: 4 criteria not assessed; provisional score 64%". The thresholds are the author's suggested defaults and should be replaced by the fund's own policy.
+Twelve criteria rated green, amber or red against editable thresholds, with weights: history, reconciliation, cohort gap to plan, PAR30, operational collection rate (not a PERFORM KPI), unit contribution, LTV to CAC, payment burden, hard currency funding, runway, licence position and credit independence. Three are kill criteria. A blank criterion is reported as not assessed, never scored. The verdict reads Decline when a kill criterion fails, Incomplete while criteria are missing, and otherwise Proceed to diligence, Proceed with conditions or Decline according to the weighted score. With the SolaraPay values the case reports, the screen reads "Incomplete: 4 criteria not assessed; provisional score 64%". The thresholds are the author's suggested defaults and should be replaced by the fund's own policy.
 
 ## D6 Investor returns calculator
 
@@ -43,19 +43,19 @@ From the ticket, the pre money valuation, the exit year and the exit case in loc
 
 # Verification
 
-Every formula in the six tools was evaluated outside Excel with no errors, and the key outputs were recomputed independently and compared.
+Every formula in the six tools was recalculated in LibreOffice with no error values, and the key outputs were checked against an independent recalculation. The rebuild for version 0.9 changed labels and wording only; every numeric value is unchanged from the previous build.
 
 | Tool | Check | Result |
 |---|---|---|
 | D1 | Monthly rate, nominal APR, effective rate and lean month burden for all five plans | Identical to independent computation |
 | D2 | Collections, contribution, payback month, unit IRR and unit NPV for the Chapter 1 sale | Identical; payback month 14 |
-| D3 | Best fit hazard and collection rate on the SolaraPay Tier 2 cohorts; portfolio effect | Grid search identical (3.45%, 87%); 64.4%, 68.3%, 71.6% |
+| D3 | Closest fit hazard and collection rate on the SolaraPay Tier 2 cohorts; portfolio effect | Grid search identical (3.45%, 87%); 64.4%, 68.3%, 71.6% |
 | D4 | Peak funding need, peak facility and peak equity from a separate month by month simulation | Identical |
 | D5 | Ratings and verdict on the case values | As described above |
 | D6 | Multiple and IRR for the SolaraPay case | 3.57x and 29.0% |
 
-A full test in Microsoft Excel, including charts and printing, is part of the v1.0 release cycle and has not yet been done.
+A full test in Microsoft Excel, including charts and printing, has not yet been done; it is required before the tools leave pre-release.
 
 ## Limits of the tools
 
-The tools simplify on purpose. They use a constant monthly hazard, monthly averages without seasonality, a single product in D2 and D4, and no tax or interest in D4. The scorecard thresholds are judgement, not sector standards. For an investment decision, the integrated model, the company's own data and professional advice remain necessary. Nothing in these tools is investment, legal, tax or accounting advice.
+The tools simplify on purpose. They use a constant monthly hazard, monthly averages without seasonality, a single product in D2 and D4, and no tax or interest in D4. The scorecard thresholds are judgement, not sector standards, and the 10% payment burden threshold is a model policy threshold, not a standard. For an investment decision, the integrated model, the company's own data and professional advice remain necessary. Nothing in these tools is investment, legal, tax or accounting advice.

@@ -1,4 +1,4 @@
-"""Build the Volume 2 Templates Pack (SHS PAYGo): Excel and Word templates in the house style.
+"""Build the Book 2 Templates Pack (SHS PAYGo): Excel and Word templates in the house style.
 
 Run: python tools/build_shs_templates.py
 Writes volumes/02-solar-home-systems/templates/AEF_V2_T0x_*.xlsx / .docx
@@ -31,7 +31,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "volumes/02-solar-home-systems/templates"
 AUTHOR = "Emmanuel Boujieka Kamga"
 HOUSE = "Africa Energy Finance"
-VER = "1.0"
+VER = "0.9 (pre-release)"
 GREEN, GOLD, CREAM, GREY = "0B3020", "B07C0F", "FFF8E1", "666666"
 FONT = "Arial"
 
@@ -55,6 +55,8 @@ RAT = '0.00"x";(0.00"x");0.00"x"'
 DATE = 'mmm yyyy'
 
 BANNED = ["—", "–", " - ", " -- "]
+# words that must never appear in a published product (house rules)
+BANNED_WORDS = re.compile(r"investment.grade|bankab|definitive|\bbest\b|Volume 2|version 1\.0", re.I)
 
 
 # ------------------------------------------------------------------ Excel helpers
@@ -70,7 +72,7 @@ def sheet(wb, name, title, subtitle, code, width_cols=10, landscape=True):
     for r in (1, 2, 3):
         for c in range(1, width_cols + 1):
             ws.cell(r, c).fill = FILL_BAND
-    ws["A1"] = f"{HOUSE.upper()}  |  VOLUME 2  |  SOLAR HOME SYSTEMS"
+    ws["A1"] = f"{HOUSE.upper()}  |  BOOK 2  |  PAYGO SOLAR FINANCE"
     ws["A1"].font = Font(name=FONT, size=8, bold=True, color="E3C27A")
     ws["A2"] = title
     ws["A2"].font = Font(name=FONT, size=15, bold=True, color="FFFFFF")
@@ -91,7 +93,7 @@ def sheet(wb, name, title, subtitle, code, width_cols=10, landscape=True):
     ws.page_margins.left = ws.page_margins.right = 0.5
     ws.page_margins.top = 0.6
     ws.page_margins.bottom = 0.7
-    ws.oddFooter.left.text = f"{HOUSE} | Volume 2 {kind} {code}"
+    ws.oddFooter.left.text = f"{HOUSE} | Book 2 {kind} {code} | Version {VER}"
     ws.oddFooter.center.text = "&A"
     ws.oddFooter.right.text = "Page &P of &N"
     for part in (ws.oddFooter.left, ws.oddFooter.center, ws.oddFooter.right):
@@ -161,7 +163,7 @@ def guide_sheet(wb, code, title, purpose, steps, links):
     put(ws, f"A{r}", "Formula")
     put(ws, f"B{r}", "Black font: calculated, do not overwrite", "label")
     r += 2
-    section(ws, r, "Links to the Volume 2 model and book", 6)
+    section(ws, r, "Links to Book 2 and MODEL 2", 6)
     r += 1
     for k, v in links:
         put(ws, f"A{r}", k, "label", bold=True)
@@ -184,11 +186,13 @@ def finish_book(wb, path, title, subject):
                     for b in BANNED:
                         if b in c.value:
                             raise SystemExit(f"dash in {ws.title}!{c.coordinate}: {c.value[:60]}")
+                    if BANNED_WORDS.search(c.value):
+                        raise SystemExit(f"banned wording in {ws.title}!{c.coordinate}: {c.value[:60]}")
     wb.properties.creator = AUTHOR
     wb.properties.lastModifiedBy = AUTHOR
     wb.properties.title = title
     wb.properties.subject = subject
-    wb.properties.keywords = "Africa Energy Finance; Volume 2; PAYGo; template"
+    wb.properties.keywords = "Africa Energy Finance; Book 2; PAYGo Solar Finance; template"
     wb.calculation.fullCalcOnLoad = True
     wb.save(path)
     _neutral_app(path, b"<Application>.*?</Application>", b"<Application>Africa Energy Finance</Application>")
@@ -228,7 +232,8 @@ DD = [
         ("Cohort repayment curves against plan", "Data in the Vintage_Input structure", "Recent cohorts below older cohorts at the same age", "High", 6),
         ("DPD definition and measurement", "Written definition; platform report", "Days without credit used instead of schedule shortfall, undisclosed", "High", 6),
         ("DPD buckets reconcile to gross receivables", "Monthly reconciliation", "Unexplained reconciliation differences", "High", 7),
-        ("Collection rate definition", "KPI definitions aligned with PAYGo PERFORM", "Deposits included in the numerator", "High", 7),
+        ("Collection rate definition (operational metric)", "Written definition; deposits excluded from both sides", "Deposits included in the numerator, or the collection rate presented as the PERFORM repayment rate", "High", 7),
+        ("PAYGo PERFORM 2026 KPIs", "RR PvP, RR PvFin, RR PvP at 90 days, RR PvP at 2x term and OR @2x computed on contract data under the GOGLA Technical Guide (June 2026)", "KPIs not computed, rebuilt from monthly data, or averaged across cohorts instead of summing numerators and denominators", "High", 7),
         ("Restructuring and re-ageing", "Restructuring log with dates", "Re-ageing clustered before reporting or covenant dates", "High", 15),
         ("Write off policy and history", "Policy with version dates; write off file", "Policy changed during the history period", "High", 8),
         ("Repossession and resale outcomes", "Repossession log; resale proceeds and costs", "Recovery assumptions above observed proceeds", "Medium", 8),
@@ -357,8 +362,8 @@ def build_t02():
     for rr in range(7, tot + 1):
         sm.conditional_formatting.add(f"H{rr}", FormulaRule(formula=[f'$H{rr}="Issues open"'], fill=PatternFill("solid", fgColor="F4CCCC")))
         sm.conditional_formatting.add(f"H{rr}", FormulaRule(formula=[f'$H{rr}="Complete"'], fill=PatternFill("solid", fgColor="D9EAD3")))
-    finish_book(wb, OUT / "AEF_V2_T02_Due_Diligence_Checklist.xlsx", "AEF Volume 2 Template T02: Investor due diligence checklist",
-                "Africa Energy Finance, Volume 2 Templates Pack")
+    finish_book(wb, OUT / "AEF_V2_T02_Due_Diligence_Checklist.xlsx", "AEF Book 2 Template T02: Investor due diligence checklist",
+                "Africa Energy Finance, Book 2 Templates Pack")
     return last - 6
 
 
@@ -477,7 +482,7 @@ def build_t04():
     ar = sheet(wb, "Agent_Ranking", "Agent cohort quality ranking", "Paste agent level data; thresholds on the right", "T04", 12)
     widths(ar, [12, 14, 10, 12, 14, 14, 14, 12, 12, 22, 4, 34])
     table_header(ar, 6, ["Agent ID", "Region", "Tenure (months)", "Units sold, last 6 months", "Share current at month 3",
-                         "Repayment rate at month 6", "Deposit only accounts", "Deposit only share", "Repayment rank",
+                         "Repayment ratio at month 6", "Deposit only accounts", "Deposit only share", "Repayment rank",
                          "Flag", "", "Thresholds"])
     import random
     rnd = random.Random(20261002)
@@ -496,8 +501,8 @@ def build_t04():
         put(ar, f"I{r}", f'=IF(A{r}="","",COUNTIFS($F$7:$F${6 + n_ag},">"&F{r})+1)', fmt=NUM)
         put(ar, f"J{r}", f'=IF(A{r}="","",IF(OR(F{r}<$L$9,H{r}>$L$12),"Review",IF(F{r}>=$L$15,"Top band","Standard")))')
     end = 6 + n_ag
-    for lab, v, fmt, rr in [("Minimum repayment rate at month 6", 0.70, PCT, 9), ("Maximum deposit only share", 0.10, PCT, 12),
-                            ("Repayment rate for top commission band", 0.80, PCT, 15)]:
+    for lab, v, fmt, rr in [("Minimum repayment ratio at month 6", 0.70, PCT, 9), ("Maximum deposit only share", 0.10, PCT, 12),
+                            ("Repayment ratio for top commission band", 0.80, PCT, 15)]:
         put(ar, f"L{rr - 1}", lab, "label", bold=True)
         put(ar, f"L{rr}", v, "in", fmt)
     put(ar, "L18", "Agents flagged for review", "label", bold=True)
@@ -506,7 +511,7 @@ def build_t04():
     put(ar, "L22", f'=IFERROR(AVERAGEIFS(F7:F{end},I7:I{end},"<="&COUNT(F7:F{end})/2),0)', fmt=PCT)
     put(ar, "L23", "Repayment, bottom half of agents", "label", bold=True)
     put(ar, "L24", f'=IFERROR(AVERAGEIFS(F7:F{end},I7:I{end},">"&COUNT(F7:F{end})/2),0)', fmt=PCT)
-    put(ar, "L26", "Example rows are randomly generated illustrations; replace them with company data.", "note")
+    put(ar, "L26", "Example rows are random illustrations; replace them with company data. Repayment ratio: cumulative collections ÷ instalments due at month 6 (a cohort ratio, not a PERFORM KPI).", "note")
     ar.conditional_formatting.add(f"J7:J{end}", FormulaRule(formula=['$J7="Review"'], fill=PatternFill("solid", fgColor="F4CCCC")))
     ar.conditional_formatting.add(f"J7:J{end}", FormulaRule(formula=['$J7="Top band"'], fill=PatternFill("solid", fgColor="D9EAD3")))
     ar.freeze_panes = "B7"
@@ -537,24 +542,35 @@ def build_t04():
     for i, (lab, v, fmt) in enumerate(crit):
         put(nt, f"A{16 + i}", lab, "label")
         put(nt, f"B{16 + i}", v, "in", fmt)
-    finish_book(wb, OUT / "AEF_V2_T04_Agent_Economics.xlsx", "AEF Volume 2 Template T04: Agent economics and fully loaded CAC",
-                "Africa Energy Finance, Volume 2 Templates Pack")
+    finish_book(wb, OUT / "AEF_V2_T04_Agent_Economics.xlsx", "AEF Book 2 Template T04: Agent economics and fully loaded CAC",
+                "Africa Energy Finance, Book 2 Templates Pack")
 
 
 # ================================================================== T05 Lender KPI report
-KPI_DEFS = [
-    ("Collection rate (month)", "Instalments collected ÷ instalments due in the month, both excluding deposits", "Deposits are collected at sale and would flatter the ratio"),
-    ("Collection rate (trailing 3 months)", "Collections ÷ instalments due over the last three months", "Usual covenant measure"),
+PERFORM_KPIS = [
+    ("RR PvP (repayment rate, paid versus plan)", "Payments applied to due instalments to date ÷ instalments due to date", "Time series"),
+    ("RR PvFin (repayment rate, paid versus financed)", "Payments applied to due instalments to date ÷ total amount financed", "Time series"),
+    ("RR PvP at 90 days", "Payments applied to instalments due by day 90 ÷ instalments due by day 90", "Cohort milestone"),
+    ("RR PvP at 2x term", "Payments applied to due instalments by 2x the term ÷ instalments due over 1x the term", "Cohort outcome"),
+    ("OR @2x (ownership rate at 2x term)", "Contracts fully paid by 2x the term ÷ contracts that have reached at least 2x", "Cohort outcome"),
+]
+PERFORM_RULE = ("Company reported, computed on contract data under the GOGLA PAYGo PERFORM KPIs Technical Guide (June 2026): "
+                "deposits, prepayments, penalties, fees and subsidies excluded; daily normalised; cohort and portfolio results "
+                "built by summing contract numerators and denominators. This report does not compute them from monthly data.")
+KPI_DEFS = [(k + " [PERFORM 2026 KPI]", f, "Company reported (" + ty.lower() + "); see the PERFORM_2026 sheet") for k, f, ty in PERFORM_KPIS] + [
+    ("Operational collection rate (month)", "Instalments collected ÷ instalments due in the month, both excluding deposits",
+     "Operational metric, not a PERFORM KPI; may not stand in for the repayment rate. Deposits are collected at sale and would flatter the ratio"),
+    ("Operational collection rate (trailing 3 months)", "Collections ÷ instalments due over the last three months", "Usual covenant measure; operational, not a PERFORM KPI"),
     ("PAR30", "Gross receivables of accounts more than 30 days past due ÷ gross receivables", "Whole balance of late accounts counts"),
     ("PAR90", "Gross receivables of accounts more than 90 days past due ÷ gross receivables", ""),
     ("PAR30 lagged 3 months", "Balance more than 30 days past due ÷ gross receivables three months earlier", "Corrects for growth in the denominator"),
-    ("Receivables at risk (RaR)", "As reported by the company under its stated definition ÷ gross receivables", "Align the definition with the current PAYGo PERFORM documents"),
-    ("Write off ratio (trailing 12 months, annualised)", "Write offs ÷ average gross receivables over the same months, scaled to a year", "Depends on the write off policy"),
+    ("Receivables at risk (RaR)", "As reported by the company under its stated definition ÷ gross receivables", "Lender metric, not a current PERFORM KPI (defined in the 2021 guide, now historical); print the definition beside the figure"),
+    ("Write off ratio (trailing 12 months, annualised)", "Write offs ÷ average gross receivables over the same months, scaled to a year", "Lender metric (2021 guide definition, historical); depends on the write off policy"),
     ("Recovery rate (trailing 12 months)", "Recoveries net of costs ÷ write offs", ""),
     ("Active ratio", "Accounts with a payment in the last 30 days ÷ accounts not yet paid off or written off", "Optional; leave blank if not reported"),
     ("Eligible receivables", "Current and 1 to 30 DPD balances (eligibility to 30 DPD)", "Change the formula if eligibility differs"),
     ("Borrowing base headroom", "Eligible receivables × advance rate less facility drawn", ""),
-    ("Repayment rate (cohort)", "Cumulative collections ÷ cumulative instalments due at a given age", "Compare cohorts at the same age"),
+    ("Cohort repayment ratio (not a PERFORM KPI)", "Cumulative collections ÷ cumulative instalments due at a given age, monthly", "Follows the logic of RR PvP but is not a PERFORM calculation (monthly, no payment allocation); compare cohorts at the same age"),
 ]
 
 
@@ -574,16 +590,17 @@ def build_t05():
                         orig=sum(x["orig"] for x in rows)))
     wb = new_book()
     guide_sheet(wb, "T05", "Lender KPI report",
-                "A monthly reporting pack for a PAYGo receivables lender or an investor's portfolio review: portfolio KPIs on "
-                "PERFORM style definitions, DPD reconciliation, covenant headroom, cohort repayment against plan and a one page "
-                "dashboard. The example data are the synthetic 24 month history of the fictional SolaraPay case (Tiers 1 to 3).",
+                "A monthly reporting pack for a PAYGo receivables lender or an investor's portfolio review: the five PAYGo PERFORM "
+                "2026 KPIs as reported by the company, operational and lender metrics with their definitions, DPD reconciliation, "
+                "covenant headroom, cohort repayment against plan and a one page dashboard. The example data are the synthetic 24 month history of the fictional SolaraPay case (Tiers 1 to 3).",
                 ["Replace the example data on Monthly_Input with company data, one column per month (up to 24 months).",
                  "Check the reconciliation row on KPIs: the DPD buckets must add up to reported gross receivables every month.",
                  "Set covenant thresholds and the blended advance rate on Covenants; the sheet shows headroom and breach flags by month.",
                  "Enter cumulative collections and instalments due by cohort on Vintage, with the plan curve, to see cohorts against plan.",
-                 "Send the Dashboard page with every monthly report; keep definitions aligned with the current PAYGo PERFORM documents."],
+                 "Enter the company's PERFORM 2026 numerators and denominators on PERFORM_2026; leave them blank if not computed.",
+                 "Send the Dashboard page with every monthly report, with the Definitions sheet; the collection rate is an operational metric and never replaces the repayment rate."],
                 [("Book", "Chapter 6 (cohorts), Chapter 7 (portfolio KPIs and PERFORM), Chapter 11 (covenants); Annex A"),
-                 ("Model", "Credit_Input and Vintage_Input hold the same history; Credit_Portfolio, Covenants, Vintage_Dashboard"),
+                 ("Model", "MODEL 2: Credit_Input and Vintage_Input hold the same history; Credit_Portfolio, Covenants, Vintage_Dashboard, PERFORM_2026"),
                  ("Related templates", "T06 loan tape; T07 borrowing base certificate")])
 
     df = sheet(wb, "Definitions", "KPI definitions", "Definitions used in this report", "T05", 3, landscape=False)
@@ -633,7 +650,7 @@ def build_t05():
 
     cv = sheet(wb, "Covenants", "Covenant tests", "Thresholds are inputs; headroom and flags by month", "T05", lastc)
     widths(cv, [46, 12] + [12] * N)
-    th = [("Minimum trailing 3 month collection rate", 0.70, "min", PCT), ("Maximum RaR", 0.15, "max", PCT),
+    th = [("Minimum trailing 3 month operational collection rate", 0.70, "min", PCT), ("Maximum RaR", 0.15, "max", PCT),
           ("Maximum PAR30", 0.25, "max", PCT), ("Maximum PAR90", 0.18, "max", PCT),
           ("Minimum borrowing base headroom (LCY)", 0, "min", NUM)]
     section(cv, 6, "Thresholds", lastc)
@@ -655,8 +672,8 @@ def build_t05():
         ("Sum of DPD buckets", "LCY", lambda c, i: f"=SUM(Monthly_Input!{c}{IR['Current']}:{c}{IR['Over 180 DPD']})", NUM),
         ("Reconciliation difference", "LCY", lambda c, i: f"={c}8-{mref('Gross receivables (reported)', c)}", NUM),
         ("Reconciliation check", "flag", lambda c, i: f'=IF({mref("Gross receivables (reported)", c)}="","",IF(ABS({c}9)<=1,"OK","ERROR"))', None),
-        ("Collection rate (month)", "%", lambda c, i: f'=IF(N({mref("Instalments due in month (excluding deposits)", c)})=0,"",{mref("Instalments collected in month (excluding deposits)", c)}/{mref("Instalments due in month (excluding deposits)", c)})', PCT),
-        ("Collection rate (trailing 3 months)", "%", lambda c, i: "" if i < 2 else
+        ("Operational collection rate (month)", "%", lambda c, i: f'=IF(N({mref("Instalments due in month (excluding deposits)", c)})=0,"",{mref("Instalments collected in month (excluding deposits)", c)}/{mref("Instalments due in month (excluding deposits)", c)})', PCT),
+        ("Operational collection rate (trailing 3 months)", "%", lambda c, i: "" if i < 2 else
             f'=IF(SUM(Monthly_Input!{MC[i - 2]}{IR["Instalments due in month (excluding deposits)"]}:{c}{IR["Instalments due in month (excluding deposits)"]})=0,"",SUM(Monthly_Input!{MC[i - 2]}{IR["Instalments collected in month (excluding deposits)"]}:{c}{IR["Instalments collected in month (excluding deposits)"]})/SUM(Monthly_Input!{MC[i - 2]}{IR["Instalments due in month (excluding deposits)"]}:{c}{IR["Instalments due in month (excluding deposits)"]}))', PCT),
         ("PAR30", "%", lambda c, i: f'=IF(N({mref("Gross receivables (reported)", c)})=0,"",SUM(Monthly_Input!{c}{IR["31 to 60 DPD"]}:{c}{IR["Over 180 DPD"]})/{mref("Gross receivables (reported)", c)})', PCT),
         ("PAR90", "%", lambda c, i: f'=IF(N({mref("Gross receivables (reported)", c)})=0,"",SUM(Monthly_Input!{c}{IR["91 to 180 DPD"]}:{c}{IR["Over 180 DPD"]})/{mref("Gross receivables (reported)", c)})', PCT),
@@ -675,7 +692,7 @@ def build_t05():
     for n_, (lab, unit, fn, fmt) in enumerate(kp):
         r = 7 + n_
         KR[lab] = r
-        put(k, f"A{r}", lab, "label", bold=lab in ("Collection rate (trailing 3 months)", "PAR30", "Reconciliation check"))
+        put(k, f"A{r}", lab, "label", bold=lab in ("Operational collection rate (trailing 3 months)", "PAR30", "Reconciliation check"))
         put(k, f"B{r}", unit, "label")
         for i, c in enumerate(MC):
             v = fn(c, i)
@@ -686,7 +703,7 @@ def build_t05():
 
     # covenant flags by month (continued on Covenants)
     table_header(cv, 15, ["Test (1 = breach)", ""] + [f"M{i + 1}" for i in range(N)])
-    tests = [("Trailing 3 month collection rate", "Collection rate (trailing 3 months)", 7, "min"),
+    tests = [("Trailing 3 month operational collection rate", "Operational collection rate (trailing 3 months)", 7, "min"),
              ("RaR", "RaR ratio", 8, "max"), ("PAR30", "PAR30", 9, "max"), ("PAR90", "PAR90", 10, "max"),
              ("Borrowing base headroom", "Borrowing base headroom", 11, "min")]
     for t, (lab, kpi, thr, kind) in enumerate(tests):
@@ -730,7 +747,7 @@ def build_t05():
     widths(vt, [16] + [13] * 15 + [4] * 6)
     put(vt, "A6", "Tier shown", "label")
     put(vt, "B6", "Tier 2 (example)", "in")
-    table_header(vt, 8, ["Cohort (month of sale)"] + [f"Collections {c}" for c in CP] + [f"Due {c}" for c in CP] + [f"Repayment {c}" for c in CP])
+    table_header(vt, 8, ["Cohort (month of sale)"] + [f"Collections {c}" for c in CP] + [f"Due {c}" for c in CP] + [f"Repayment ratio {c}" for c in CP])
     tier_idx = 1
     nco = 18
     for ci in range(1, nco + 1):
@@ -757,10 +774,10 @@ def build_t05():
         put(vt, f"{rc}{endr + 3}", plan[kk], "in", PCT)
         put(vt, f"{rc}{endr + 4}", f'=IF({rc}{endr + 2}="","",{rc}{endr + 2}-{rc}{endr + 3})', fmt=PCT, bold=True)
     put(vt, f"A{endr + 6}", "Example: Tier 2 cohorts of the synthetic SolaraPay history (fictional); plan curve from the management plan. "
-        "Ages beyond the history are left blank, never filled with a proxy.", "note")
+        "Ages beyond the history are left blank, never filled with a proxy. The cohort repayment ratio is monthly and is not a PERFORM calculation.", "note")
     vt.freeze_panes = "B9"
     ch = LineChart()
-    ch.title, ch.height, ch.width = "Repayment: average observed against plan", 7, 14
+    ch.title, ch.height, ch.width = "Cohort repayment ratio: average observed against plan", 7, 14
     ch.y_axis.number_format = "0%"
     ch.add_data(Reference(vt, min_col=12, max_col=16, min_row=endr + 2, max_row=endr + 3), from_rows=True, titles_from_data=False)
     ch.set_categories(Reference(vt, min_col=12, max_col=16, min_row=8, max_row=8))
@@ -769,11 +786,57 @@ def build_t05():
     ch.series[1].tx = SeriesLabel(v="Plan")
     vt.add_chart(ch, f"B{endr + 8}")
 
+    # PAYGo PERFORM 2026 KPIs, company reported
+    pf = sheet(wb, "PERFORM_2026", "PAYGo PERFORM 2026 KPIs", "Company reported on contract data; numerators and denominators by tier", "T05", 9)
+    widths(pf, [44, 16, 16, 16, 16, 16, 16, 14, 30])
+    put(pf, "A6", PERFORM_RULE, "note", wrap=True)
+    pf.merge_cells("A6:I7")
+    pf.row_dimensions[6].height = 30
+    put(pf, "A8", "Reporting date", "label", bold=True)
+    put(pf, "B8", None, "in", DATE)
+    tiers = ["Tier 1", "Tier 2", "Tier 3", "Tier 4", "Tier 5"]
+    table_header(pf, 10, ["KPI and line", ""] + tiers + ["Portfolio", "Comment"])
+    PF = {}
+    r = 11
+    for kn, fdef, ty in PERFORM_KPIS:
+        put(pf, f"A{r}", kn, "label", bold=True)
+        put(pf, f"I{r}", ty, "note")
+        nr, dr, rr = r + 1, r + 2, r + 3
+        put(pf, f"A{nr}", "Numerator", "label")
+        put(pf, f"A{dr}", "Denominator", "label")
+        put(pf, f"A{rr}", "Result", "label", bold=True)
+        for j in range(5):
+            c = L(3 + j)
+            put(pf, f"{c}{nr}", None, "in", NUM)
+            put(pf, f"{c}{dr}", None, "in", NUM)
+            put(pf, f"{c}{rr}", f'=IF(N({c}{dr})=0,"not provided",{c}{nr}/{c}{dr})', fmt=PCT, bold=True)
+        put(pf, f"H{nr}", f"=SUM(C{nr}:G{nr})", fmt=NUM)
+        put(pf, f"H{dr}", f"=SUM(C{dr}:G{dr})", fmt=NUM)
+        put(pf, f"H{rr}", f'=IF(N(H{dr})=0,"not provided",H{nr}/H{dr})', fmt=PCT, bold=True)
+        put(pf, f"I{nr}", fdef.split(" ÷ ")[0], "note")
+        put(pf, f"I{dr}", fdef.split(" ÷ ")[1], "note")
+        PF[kn] = rr
+        r += 5
+    put(pf, f"A{r}", "Contracts in the cohorts reported", "label", bold=True)
+    for j in range(5):
+        put(pf, f"{L(3 + j)}{r}", None, "in", NUM)
+    put(pf, f"H{r}", f"=SUM(C{r}:G{r})", fmt=NUM, bold=True)
+    put(pf, f"A{r + 1}", "Check: numerators within denominators (RR PvP, at 90 days, at 2x; ownership)", "label")
+    chk = ",".join(f"SUMPRODUCT((C{PF[k] - 2}:G{PF[k] - 2}>C{PF[k] - 1}:G{PF[k] - 1})*1)" for k in
+                   (PERFORM_KPIS[0][0], PERFORM_KPIS[2][0], PERFORM_KPIS[3][0], PERFORM_KPIS[4][0]))
+    put(pf, f"H{r + 1}", f'=IF(SUM({chk})=0,"OK","ERROR")', bold=True)
+    put(pf, f"A{r + 3}", "Portfolio results add numerators and denominators across tiers, as the standard requires; they are not averages "
+        "of tier ratios. A collection rate, or days locked or enabled, may not be entered here as a substitute. Cohorts below "
+        "100 contracts should be disclosed. Blank inputs show \"not provided\".", "note", wrap=True)
+    pf.merge_cells(f"A{r + 3}:I{r + 4}")
+    pf.row_dimensions[r + 3].height = 30
+    pf.freeze_panes = "C11"
+
     # dashboard
     db = sheet(wb, "Dashboard", "Monthly lender dashboard", "Latest month; charts over the reporting period", "T05", 10)
     widths(db, [40, 14, 14, 14, 14, 4, 14, 14, 14, 14])
     table_header(db, 6, ["KPI", "Latest", "3 months earlier", "12 months earlier", "Trend"])
-    show = ["Collection rate (month)", "Collection rate (trailing 3 months)", "PAR30", "PAR90", "PAR30 lagged 3 months",
+    show = ["Operational collection rate (month)", "Operational collection rate (trailing 3 months)", "PAR30", "PAR90", "PAR30 lagged 3 months",
             "Write off ratio (trailing 12 months, annualised)", "Recovery rate (trailing 12 months)", "Eligible receivables (to 30 DPD)"]
     for i, lab in enumerate(show):
         r = 7 + i
@@ -783,9 +846,18 @@ def build_t05():
         put(db, f"B{r}", f'=IFERROR(INDEX({rngk},MATCH(9.99E+307,{rngk})),"")', fmt=fmt, bold=True)
         put(db, f"C{r}", f'=IFERROR(INDEX({rngk},MATCH(9.99E+307,{rngk})-3),"")', fmt=fmt)
         put(db, f"D{r}", f'=IFERROR(INDEX({rngk},MATCH(9.99E+307,{rngk})-12),"")', fmt=fmt)
-        better_up = lab.startswith(("Collection", "Recovery", "Eligible"))
+        better_up = lab.startswith(("Operational", "Recovery", "Eligible"))
         put(db, f"E{r}", f'=IF(OR(B{r}="",C{r}=""),"",IF(B{r}=C{r},"Stable",IF((B{r}>C{r})={"TRUE" if better_up else "FALSE"},"Improving","Deteriorating")))')
         db.conditional_formatting.add(f"E{r}", FormulaRule(formula=[f'E{r}="Deteriorating"'], fill=PatternFill("solid", fgColor="F4CCCC")))
+    put(db, "G6", "PAYGo PERFORM 2026 KPI (company reported)", "head")
+    db.merge_cells("G6:I6")
+    put(db, "J6", "Portfolio", "head")
+    for i, (kn, _, _) in enumerate(PERFORM_KPIS):
+        put(db, f"G{7 + i}", kn, "label")
+        put(db, f"J{7 + i}", f"=PERFORM_2026!H{PF[kn]}", fmt=PCT, bold=True)
+    put(db, "G12", "Reporting date", "label")
+    put(db, "J12", '=IF(PERFORM_2026!B8="","",PERFORM_2026!B8)', fmt=DATE)
+    put(db, "G13", "Rows 7 to 14 on the left are operational and lender metrics, not PERFORM KPIs.", "note")
     put(db, "A16", "Reconciliation, latest month", "label", bold=True)
     put(db, "B16", f'=IFERROR(INDEX(KPIs!$C${KR["Reconciliation check"]}:${MC[-1]}${KR["Reconciliation check"]},MATCH("zzz",KPIs!$C${KR["Reconciliation check"]}:${MC[-1]}${KR["Reconciliation check"]})),"")', bold=True)
     put(db, "A17", "Months with any covenant breach", "label", bold=True)
@@ -799,11 +871,11 @@ def build_t05():
             ch_.series.append(Series(Reference(k, min_col=3, max_col=lastc, min_row=KR[lab_], max_row=KR[lab_]), title=lab_))
         ch_.set_categories(Reference(k, min_col=3, max_col=lastc, min_row=6, max_row=6))
         db.add_chart(ch_, anchor)
-    line_chart("Collection rate", ["Collection rate (month)", "Collection rate (trailing 3 months)"], "A20")
+    line_chart("Operational collection rate", ["Operational collection rate (month)", "Operational collection rate (trailing 3 months)"], "A20")
     line_chart("PAR30, reported and lagged", ["PAR30", "PAR30 lagged 3 months"], "F20")
     wb.move_sheet("Dashboard", offset=-(len(wb.sheetnames) - 2))
-    finish_book(wb, OUT / "AEF_V2_T05_Lender_KPI_Report.xlsx", "AEF Volume 2 Template T05: Lender KPI report",
-                "Africa Energy Finance, Volume 2 Templates Pack")
+    finish_book(wb, OUT / "AEF_V2_T05_Lender_KPI_Report.xlsx", "AEF Book 2 Template T05: Lender KPI report",
+                "Africa Energy Finance, Book 2 Templates Pack")
     return agg
 
 
@@ -975,8 +1047,8 @@ def build_t06():
         put(dr, f"H{r}", "Not requested", "in")
         dr.row_dimensions[r].height = 30 if len(it) > 60 else 16
     dv_list(dr, ["Not requested", "Requested", "Received", "Reviewed", "Incomplete"], f"H7:H{6 + len(DATA_REQ)}")
-    finish_book(wb, OUT / "AEF_V2_T06_Loan_Tape_and_Data_Request.xlsx", "AEF Volume 2 Template T06: Loan tape specification and data request",
-                "Africa Energy Finance, Volume 2 Templates Pack")
+    finish_book(wb, OUT / "AEF_V2_T06_Loan_Tape_and_Data_Request.xlsx", "AEF Book 2 Template T06: Loan tape specification and data request",
+                "Africa Energy Finance, Book 2 Templates Pack")
 
 
 # ================================================================== T07 Borrowing base certificate and term sheet
@@ -1116,8 +1188,8 @@ def build_t07():
     dv_list(ts, ["Yes", "No"], "F7:F18")
     put(ts, "A20", "Terms agreed", "label", bold=True)
     put(ts, "B20", '=COUNTIF(E7:E18,"Agreed")&" of "&COUNTA(A7:A18)', bold=True)
-    finish_book(wb, OUT / "AEF_V2_T07_Borrowing_Base_and_Term_Sheet.xlsx", "AEF Volume 2 Template T07: Borrowing base certificate and term sheet checklist",
-                "Africa Energy Finance, Volume 2 Templates Pack")
+    finish_book(wb, OUT / "AEF_V2_T07_Borrowing_Base_and_Term_Sheet.xlsx", "AEF Book 2 Template T07: Borrowing base certificate and term sheet checklist",
+                "Africa Energy Finance, Book 2 Templates Pack")
 
 
 if __name__ == "__main__":

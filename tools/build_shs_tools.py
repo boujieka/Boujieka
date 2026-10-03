@@ -1,9 +1,9 @@
-"""Build the Volume 2 Decision Tools (SHS PAYGo): six Excel calculators in the house style.
+"""Build the Book 2 Decision Tools (SHS PAYGo): six Excel calculators in the house style.
 
 Run: python tools/build_shs_tools.py
 Writes volumes/02-solar-home-systems/decision-tools/AEF_V2_D0x_*.xlsx
 
-Default inputs reproduce worked examples of the Volume 2 book or the SolaraPay case, so that each tool can be checked
+Default inputs reproduce worked examples of Book 2 or the SolaraPay case, so that each tool can be checked
 against a published figure. Formulas avoid array functions so that they evaluate identically in any spreadsheet engine.
 """
 import copy
@@ -26,7 +26,7 @@ PCT2 = '0.00%;(0.00%);0.00%'
 RED = PatternFill("solid", fgColor="F4CCCC")
 AMB = PatternFill("solid", fgColor="FCE8B2")
 GRN = PatternFill("solid", fgColor="D9EAD3")
-SUBJ = "Africa Energy Finance, Volume 2 Decision Tools"
+SUBJ = "Africa Energy Finance, Book 2 Decision Tools"
 G = D.GENERAL
 P = D.PRODUCTS
 
@@ -131,7 +131,7 @@ def build_d1():
             put(ws, f"{c}{r}", f.format(c=c), fmt=fmt)
     put(ws, "A41", "A longer tenor lowers the instalment but extends the months over which default hazard acts (Chapter 4). "
         "\"Not reachable\" means no tenor brings the instalment within the threshold at this monthly rate.", "note")
-    finish_book(wb, OUT / "AEF_V2_D1_Price_Plan_and_APR_Calculator.xlsx", "AEF Volume 2 Decision Tool D1: Price plan and APR calculator", SUBJ)
+    finish_book(wb, OUT / "AEF_V2_D1_Price_Plan_and_APR_Calculator.xlsx", "AEF Book 2 Decision Tool D1: Price plan and APR calculator", SUBJ)
 
 
 # ================================================================== D2 Unit economics calculator and tier dashboard
@@ -319,7 +319,7 @@ def build_d2():
     ch.set_categories(Reference(td, min_col=2, max_col=6, min_row=6, max_row=6))
     td.add_chart(ch, "B40")
     wb.move_sheet("Results", offset=-1)
-    finish_book(wb, OUT / "AEF_V2_D2_Unit_Economics_Calculator.xlsx", "AEF Volume 2 Decision Tool D2: Unit economics calculator", SUBJ)
+    finish_book(wb, OUT / "AEF_V2_D2_Unit_Economics_Calculator.xlsx", "AEF Book 2 Decision Tool D2: Unit economics calculator", SUBJ)
 
 
 # ================================================================== D3 Repayment curve and calibration
@@ -327,11 +327,11 @@ def build_d3(observed):
     wb = new_book()
     guide_sheet(wb, "D3", "Repayment curve and cohort calibration",
                 "Draws the expected repayment curve of a cohort from a monthly default hazard and a collection rate, estimates "
-                "the hazard and collection rate that best fit observed cohort repayment, and shows how portfolio growth flatters "
+                "the hazard and collection rate that fit observed cohort repayment most closely, and shows how portfolio growth flatters "
                 "the portfolio collection rate.",
                 ["On Curve, enter a hazard, a collection rate and a tenor to see survival and cumulative repayment by age.",
                  "On Calibration, enter observed cumulative repayment at M3, M6, M12 and M18 (deposits excluded), with weights.",
-                 "Read the best fitting hazard and collection rate, and compare the fitted curve with the observations.",
+                 "Read the closest fitting hazard and collection rate, and compare the fitted curve with the observations.",
                  "Several pairs can fit one checkpoint; use at least three checkpoints and check the fit at each.",
                  "On Portfolio_Effect, see how the same customers produce a higher portfolio collection rate when sales grow."],
                 [("Book", "Chapter 6 (survival model, calibration, denominator effect), Chapter 16 (SolaraPay recalibration)"),
@@ -403,10 +403,10 @@ def build_d3(observed):
         put(cb, f"{rowmin_col}{r}", f"=MIN(B{r}:{L(1 + len(cs))}{r})", fmt='0.000000')
         put(cb, f"{colidx_col}{r}", f"=MATCH({rowmin_col}{r},B{r}:{L(1 + len(cs))}{r},0)", fmt=NUM)
     g0, g1 = grid_top + 1, grid_top + len(hz)
-    put(cb, "D11", "Best fit", "label", bold=True)
+    put(cb, "D11", "Closest fit", "label", bold=True)
     put(cb, "E11", "Hazard", "label")
     put(cb, "F11", f"=INDEX($A${g0}:$A${g1},MATCH(MIN(${rowmin_col}${g0}:${rowmin_col}${g1}),${rowmin_col}${g0}:${rowmin_col}${g1},0))", fmt=PCT2, bold=True)
-    put(cb, "E12", "Collection rate", "label")
+    put(cb, "E12", "Collection rate on paying accounts", "label")
     put(cb, "F12", f"=INDEX($B${grid_top}:${L(1 + len(cs))}${grid_top},INDEX(${colidx_col}${g0}:${colidx_col}${g1},MATCH(MIN(${rowmin_col}${g0}:${rowmin_col}${g1}),${rowmin_col}${g0}:${rowmin_col}${g1},0)))", fmt=PCT, bold=True)
     put(cb, "E13", "Grid limits", "label")
     put(cb, "F13", f'=IF(OR(F11=$A${g0},F11=$A${g1},F12=$B${grid_top},F12=${L(1 + len(cs))}${grid_top}),"At the edge of the grid: widen it","Inside the grid")')
@@ -423,7 +423,7 @@ def build_d3(observed):
     gr = [0.0, 0.02, 0.05, 0.10]
     for j, gv in enumerate(gr):
         put(pe, f"{L(2 + j)}8", gv, "in", PCT)
-    put(pe, "A9", "Portfolio collection rate in a steady growth state", "label", bold=True)
+    put(pe, "A9", "Portfolio operational collection rate (not a PERFORM KPI), steady growth state", "label", bold=True)
     put(pe, "A10", "Difference with the cohort average (points)", "label")
     table_header(pe, 12, ["Age (months)", "Weight at g1", "Weight at g2", "Weight at g3", "Weight at g4", "", "Payment share", "", ""])
     for a in range(1, 61):
@@ -438,7 +438,7 @@ def build_d3(observed):
         put(pe, f"{c}9", f"=SUMPRODUCT({c}13:{c}72,$G$13:$G$72)/SUM({c}13:{c}72)", fmt=PCT, bold=True)
         put(pe, f"{c}10", f"={c}9-$B$9", fmt=PCT)
     put(pe, "H8", "Chapter 6 reports 64.4%, 68.3% and 71.6% for 0%, 5% and 10% monthly growth on the default Tier 2 curve.", "note")
-    finish_book(wb, OUT / "AEF_V2_D3_Repayment_Curve_and_Calibration.xlsx", "AEF Volume 2 Decision Tool D3: Repayment curve and cohort calibration", SUBJ)
+    finish_book(wb, OUT / "AEF_V2_D3_Repayment_Curve_and_Calibration.xlsx", "AEF Book 2 Decision Tool D3: Repayment curve and cohort calibration", SUBJ)
 
 
 # ================================================================== D4 Receivables financing calculator
@@ -451,7 +451,7 @@ def build_d4():
                  "Read the monthly funding path on Funding and the year end summary on Summary.",
                  "Peak equity is the most the plan needs from shareholders to fund the book and central costs, before interest, tax and capex.",
                  "Use Currency to compare a local currency facility with dollar debt plus expected depreciation.",
-                 "For a full plan with overheads, tax and interest, use the AEF SHS PAYGo model."],
+                 "For a full plan with overheads, tax and interest, use MODEL 2, the PAYGo Company Financial and Investment Model."],
                 [("Book", "Chapter 10 (working capital and FX), Chapter 11 (funding the book)"),
                  ("Model", "Financing, FS, Credit_Portfolio, Investment_Summary"),
                  ("Default inputs", "The default Tier 2 product of the model, sold at 10,000, 20,000, 35,000, 50,000 and 50,000 units a year (the volumes of Chapter 10).")])
@@ -576,7 +576,7 @@ def build_d4():
         put(cu, f"D{r}", f'=IF(C{r}>$B$7,"Local currency","Dollar debt")')
     put(cu, "A15", "The comparison covers the expected cost only. Dollar debt also carries the volatility of the exchange rate and "
         "the translation loss on the principal, which local currency debt does not (Chapter 10).", "note")
-    finish_book(wb, OUT / "AEF_V2_D4_Receivables_Financing_Calculator.xlsx", "AEF Volume 2 Decision Tool D4: Receivables financing calculator", SUBJ)
+    finish_book(wb, OUT / "AEF_V2_D4_Receivables_Financing_Calculator.xlsx", "AEF Book 2 Decision Tool D4: Receivables financing calculator", SUBJ)
 
 
 # ================================================================== D5 Investment screening scorecard
@@ -586,7 +586,7 @@ SC = [
     ("DPD buckets reconcile to the ledger", "Yes/No", "yn", None, None, 2, "No", "Yes", "Kill criterion if No"),
     ("Cohort repayment at M12, gap to plan", "points", "num", ("<=", 0.03), ("<=", 0.06), 2, None, 0.051, "SolaraPay Tier 2: 5.1 points"),
     ("PAR30", "%", "num", ("<=", 0.10), ("<=", 0.20), 2, None, 0.17, "SolaraPay latest month: 17.0%"),
-    ("Collection rate, trailing 12 months", "%", "num", (">=", 0.80), (">=", 0.70), 2, None, 0.693, "SolaraPay: 69.3%"),
+    ("Operational collection rate, trailing 12 months (not a PERFORM KPI)", "%", "num", (">=", 0.80), (">=", 0.70), 2, None, 0.693, "SolaraPay latest 12 months: 69.3% (Credit_Portfolio)"),
     ("Positive unit contribution in every tier", "Yes/No", "yn", None, None, 2, "No", "Yes", "Kill criterion if No"),
     ("LTV to CAC, mix weighted", "x", "num", (">=", 3.0), (">=", 2.0), 1, None, 4.8, "SolaraPay calibrated, weighted by planned mix"),
     ("Highest payment burden across tiers", "%", "num", ("<=", 0.10), ("<=", 0.13), 1, None, 0.132, "SolaraPay Tier 3: 13.2%"),
@@ -659,7 +659,7 @@ def build_d5():
     flag_colours(ws, f"C{r + 6}", "Decline", "Incomplete", "Proceed")
     put(ws, f"A{r + 8}", "Thresholds and weights are suggested defaults reflecting the author's judgement, not sector standards. "
         "Set them to the fund's credit policy before use.", "note")
-    finish_book(wb, OUT / "AEF_V2_D5_Investment_Screening_Scorecard.xlsx", "AEF Volume 2 Decision Tool D5: Investment screening scorecard", SUBJ)
+    finish_book(wb, OUT / "AEF_V2_D5_Investment_Screening_Scorecard.xlsx", "AEF Book 2 Decision Tool D5: Investment screening scorecard", SUBJ)
 
 
 # ================================================================== D6 Investor returns calculator
@@ -733,7 +733,7 @@ def build_d6():
     ws.conditional_formatting.add("B38:F42", FormulaRule(formula=['OR(B38="Total loss",B38<0)'], fill=RED))
     ws.conditional_formatting.add("B38:F42", FormulaRule(formula=[f'AND(ISNUMBER(B38),B38>={R["target"]})'], fill=GRN))
     put(ws, "A44", "Exit equity is floored at zero: when net debt exceeds the exit enterprise value, the stake is worth nothing.", "note")
-    finish_book(wb, OUT / "AEF_V2_D6_Investor_Returns_Calculator.xlsx", "AEF Volume 2 Decision Tool D6: Investor returns calculator", SUBJ)
+    finish_book(wb, OUT / "AEF_V2_D6_Investor_Returns_Calculator.xlsx", "AEF Book 2 Decision Tool D6: Investor returns calculator", SUBJ)
 
 
 if __name__ == "__main__":
