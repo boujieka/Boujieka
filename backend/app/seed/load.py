@@ -77,7 +77,41 @@ def load_reference(session: Session) -> dict[str, Country]:
             "candidates_checked_on": source_candidates.CHECKED_ON if candidates else None,
         }
     session.flush()
+    load_subscription_routes(session, countries)
     return countries
+
+
+def load_subscription_routes(session: Session, countries: dict[str, Country]) -> int:
+    """Upsert buyer-access routes (official, quoted) for every country they apply to."""
+    from datetime import date as _date
+
+    from app.models import SubscriptionRoute
+    from app.seed import subscription_routes as sr
+
+    rows: list[tuple[Country, dict]] = []
+    for route in sr.ZONE_ROUTES:
+        rows += [(c, route) for c in countries.values() if c.monetary_zone == route["zone"]]
+    rows += [(countries[r["iso3"]], r) for r in sr.COUNTRY_ROUTES]
+
+    existing = {
+        (r.country_id, r.instrument_type, r.investor_type): r
+        for r in session.scalars(select(SubscriptionRoute))
+    }
+    for country, route in rows:
+        key = (country.country_id, route["instrument_type"], route["investor_type"])
+        row = existing.get(key) or SubscriptionRoute(
+            country_id=country.country_id,
+            instrument_type=route["instrument_type"],
+            investor_type=route["investor_type"],
+        )
+        for field in ("eligibility", "primary_dealer", "account_requirement", "submission_method",
+                      "settlement_method", "instrument_notes", "quotes"):
+            setattr(row, field, route.get(field))
+        row.official_source_url = route["source_url"]
+        row.last_verified = _date.fromisoformat(sr.VERIFIED_ON)
+        session.add(row)
+    session.flush()
+    return len(rows)
 
 
 def load_synthetic(session: Session, countries: dict[str, Country], reference_date: date) -> int:

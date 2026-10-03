@@ -113,4 +113,5 @@ cd frontend && npm test && npm run typecheck && npm run lint && npm run build
 | `GET /api/v1/opportunities` | Opportunity Radar signals with passports; investor-criteria matching |
 | `GET /api/v1/market/heat-grid` | Country × tenor grid: latest yield + demand vs own history |
 | `GET /api/v1/countries/{iso3}/maturity-wall` | Tracked maturities per month, next 12 months |
+| `GET /api/v1/subscription-routes` | How buyers access each market (who, intermediary, account, minimums), with verbatim official quotes; filter: `country`. Covers CEMAC, WAEMU and Kenya (15 countries) |
 | `GET /api/v1/data-quality` | Stale/pending sources, missing fields, duplicates, synthetic counts |

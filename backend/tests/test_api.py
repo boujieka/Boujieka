@@ -288,3 +288,23 @@ class TestOpportunityRadar:
     def test_dashboard_counts_active_signals(self, client):
         summary = get(client, "/dashboard/summary", as_of=AS_OF)
         assert summary["new_opportunities"] == get(client, "/opportunities", limit=500)["total"]
+
+
+class TestBuyers:
+    def test_routes_cover_pilot_zones(self, client):
+        rows = get(client, "/subscription-routes")
+        assert len(rows) == 30
+        assert {r["country_iso3"] for r in rows if r["monetary_zone"] == "CEMAC"} == {"CMR", "CAF", "TCD", "COG", "GNQ", "GAB"}
+        assert len({r["country_iso3"] for r in rows if r["monetary_zone"] == "WAEMU"}) == 8
+        assert {r["instrument_type"] for r in get(client, "/subscription-routes", country="KEN")} == {"treasury_bill", "treasury_bond"}
+
+    def test_every_route_is_sourced_and_quoted(self, client):
+        for r in get(client, "/subscription-routes"):
+            assert r["official_source_url"].startswith("https://")
+            assert r["last_verified"] == "2026-10-03"
+            assert r["quotes"] and all(len(q) > 40 for q in r["quotes"])
+            assert r["fees"] is None and r["taxes"] is None  # not stated by the sources: never invented
+            assert "not advice" in r["disclaimer"]
+
+    def test_unknown_country_returns_empty(self, client):
+        assert get(client, "/subscription-routes", country="NGA") == []

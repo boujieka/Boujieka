@@ -275,3 +275,23 @@ class TestAfricaReference:
                 assert c.currency not in ("XAF", "XOF")
         zones = [c.zone for c in AFRICA]
         assert zones.count(MonetaryZone.CEMAC) == 6 and zones.count(MonetaryZone.WAEMU) == 8
+
+
+class TestSubscriptionRouteSources:
+    def test_sources_are_verified_official_pages(self):
+        """Each route cites a page whose URL is among the checked official candidates or pages read
+        on the verification date."""
+        from app.seed import subscription_routes as sr
+
+        allowed = {sr.BEAC_URL, sr.UMOA_MARKET_URL, sr.UMOA_RETAIL_URL, sr.CBK_BILLS_URL}
+        for r in sr.ZONE_ROUTES + sr.COUNTRY_ROUTES:
+            assert r["source_url"] in allowed
+            assert r["quotes"]
+
+    def test_loader_is_idempotent(self, db):
+        from app.models import SubscriptionRoute
+        from app.seed.load import load_reference
+
+        before = db.scalar(select(func.count()).select_from(SubscriptionRoute))
+        load_reference(db)
+        assert db.scalar(select(func.count()).select_from(SubscriptionRoute)) == before == 30

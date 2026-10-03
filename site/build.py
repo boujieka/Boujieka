@@ -59,8 +59,31 @@ def export(as_of: str) -> dict:
         }
         for a in AFRICA
     ]
+    # One buyer-access card per zone (CEMAC, WAEMU) or country (KEN), with its instruments.
+    routes = get("/subscription-routes")
+    buyers: dict[str, dict] = {}
+    for r in routes:
+        key = r["monetary_zone"] if r["monetary_zone"] in ("CEMAC", "WAEMU") else r["country_iso3"]
+        card = buyers.setdefault(key, {
+            "key": key, "countries": [], "instruments": [], "quotes": [],
+            **{f: r[f] for f in ("investor_type", "eligibility", "primary_dealer", "account_requirement",
+                                 "submission_method", "settlement_method", "fees", "taxes",
+                                 "last_verified", "disclaimer")},
+            "sources": [],
+        })
+        if r["country_iso3"] not in card["countries"]:
+            card["countries"].append(r["country_iso3"])
+        note = (r["instrument_type"], r["instrument_notes"])
+        if note[1] not in [i[1] for i in card["instruments"]]:  # KEN bills and bonds share one note
+            card["instruments"].append(list(note))
+        for q in r["quotes"]:
+            if q not in card["quotes"]:
+                card["quotes"].append(q)
+        if r["official_source_url"] not in card["sources"]:
+            card["sources"].append(r["official_source_url"])
+
     return {"as_of": as_of, "summary": summary, "grid": grid, "opportunities": opps,
-            "walls": walls, "sources": sources, "africa": africa}
+            "walls": walls, "sources": sources, "africa": africa, "buyers": list(buyers.values())}
 
 
 def main() -> None:

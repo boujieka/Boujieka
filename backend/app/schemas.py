@@ -352,3 +352,26 @@ class MaturityWall(BaseModel):
     months: list[WallMonth]
     data_nature: DataNature
     caveat: str
+
+
+class SubscriptionRouteOut(BaseModel):
+    """Procedural access route, backed by verbatim quotes from the official page. Not advice."""
+
+    country_iso3: str
+    country_name: str
+    monetary_zone: MonetaryZone
+    instrument_type: InstrumentType
+    investor_type: str
+    eligibility: str | None
+    primary_dealer: str | None
+    account_requirement: str | None
+    submission_method: str | None
+    settlement_method: str | None
+    fees: str | None  # None = not stated by the source ("Not available")
+    taxes: str | None
+    instrument_notes: str | None
+    official_source_url: str | None
+    last_verified: date | None
+    quotes: list[str]
+    data_nature: DataNature = DataNature.FACT
+    disclaimer: str = "Procedural information from official pages; access is not guaranteed and this is not advice."

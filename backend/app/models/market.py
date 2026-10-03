@@ -92,3 +92,6 @@ class SubscriptionRoute(TimestampMixin, Base):
     official_source_id: Mapped[int | None] = mapped_column(ForeignKey("source.source_id"))
     official_source_url: Mapped[str | None] = mapped_column(String(2048))
     last_verified: Mapped[date | None]
+    instrument_notes: Mapped[str | None] = mapped_column(Text)
+    # Verbatim excerpts from the official page that back every field above.
+    quotes: Mapped[list[str]] = mapped_column(JSON, default=list)

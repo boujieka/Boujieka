@@ -255,6 +255,23 @@ details.more summary { cursor: pointer; color: var(--lapis); font-weight: 600; }
 .feed a { word-break: break-word; }
 .feed small { display: block; color: var(--muted); margin-top: 2px; }
 .ok { color: var(--faience-ink); font-weight: 600; } .ko { color: var(--carnelian); font-weight: 600; } .chg { color: var(--gold-ink); font-weight: 600; }
+.bfind { display: flex; flex-wrap: wrap; gap: 12px; align-items: end; margin-top: 22px; background: var(--surface); border: 1px solid var(--line); padding: 16px; }
+.bfind label { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: var(--muted); }
+.bfind select, .bfind input { font: 500 14px var(--body); padding: 8px 10px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); border-radius: 2px; min-width: 130px; }
+.bfind .chk { flex-direction: row; align-items: center; gap: 6px; font-size: 13px; color: var(--ink); }
+.bfind .chk input { width: auto; min-width: 0; padding: 0; }
+.bres { margin-top: 12px; }
+.bres table { min-width: 620px; }
+.bcards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 18px; }
+.bcard { background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--gold); padding: 18px 20px; min-width: 0; }
+.bcard h3 { font: 400 22px/1.2 var(--display); color: var(--lapis); margin: 4px 0 4px; }
+.bcard .who { font-size: 13px; color: var(--muted); margin: 0 0 12px; }
+.bcard dl { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2px; margin: 0; font-size: 13.5px; }
+.bcard dt { font: 600 11px/1.2 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--gold-ink); margin-top: 10px; }
+.bcard dd { margin: 0; }
+.bcard blockquote { margin: 8px 0; padding: 6px 10px; border-left: 3px solid var(--line); font-size: 12.5px; color: var(--muted); font-style: italic; }
+.bcard .src { font-size: 12px; margin-top: 12px; color: var(--muted); }
+.buyers-note { margin-top: 16px; font-size: 13px; color: var(--muted); max-width: 80ch; }
 footer { background: var(--night); color: #d9cfb8; padding-block: 36px 52px; font-size: 13px; }
 footer .brand { margin-bottom: 16px; }
 footer p { max-width: 82ch; margin: 0 0 8px; }
@@ -270,7 +287,7 @@ footer strong { color: var(--papyrus); }
       <svg viewBox="0 0 64 96" aria-hidden="true"><rect x="8" y="4" width="48" height="78" rx="24" fill="#13306b" stroke="#c9a24a" stroke-width="4"/><rect x="5" y="86" width="54" height="6" rx="2" fill="#c9a24a"/><circle cx="32" cy="23" r="7" fill="#c9a24a"/><path d="M17 72V60l3.5-4 3.5 4v12zM28.5 72V51l3.5-4 3.5 4v21zM40 72V42l3.5-4 3.5 4v30z" fill="#3fb2a6"/></svg>
       <span><b>CARTOUCHE</b><small>AFRICAN BOND INTELLIGENCE</small></span>
     </a>
-    <nav aria-label="Sections"><a href="#carte">Carte</a><a href="#radar">Radar</a><a href="#methode">Méthode</a><a href="#veille">Veille</a><a href="#sources">Sources</a><a href="#feuille">Feuille de route</a></nav>
+    <nav aria-label="Sections"><a href="#carte">Carte</a><a href="#radar">Radar</a><a href="#acheteurs">Acheteurs</a><a href="#methode">Méthode</a><a href="#veille">Veille</a><a href="#sources">Sources</a><a href="#feuille">Feuille de route</a></nav>
   </div>
   <div class="wrap hero-body">
     <div>
@@ -342,6 +359,25 @@ footer strong { color: var(--papyrus); }
           <div class="panel-b" id="wall"></div>
         </aside>
       </div>
+    </div>
+  </section>
+
+  <section id="acheteurs">
+    <div class="wrap">
+      <span class="eyebrow">Espace acheteurs</span>
+      <h2>Acheter des titres publics africains : quoi, qui, comment</h2>
+      <p class="lede">Pour les banques, fonds, assureurs, trésoriers d'entreprise et particuliers qui veulent acheter des bons et obligations du Trésor. Les procédures ci-dessous sont citées mot pour mot des pages officielles. L'accès n'est jamais garanti, et rien ici n'est un conseil en investissement.</p>
+
+      <form class="bfind" id="bfind" aria-label="Vos critères d'achat" onsubmit="return false">
+        <label for="b-cur">Devise<select id="b-cur"></select></label>
+        <label for="b-mat">Maturité<select id="b-mat"><option value="">Toutes</option><option value="0-366">Jusqu'à 1 an</option><option value="367-1826">1 à 5 ans</option><option value="1827-99999">Plus de 5 ans</option></select></label>
+        <label for="b-yld">Rendement minimum (%)<input id="b-yld" type="number" min="0" step="0.5" placeholder="ex. 8"></label>
+        <label class="chk" for="b-up"><input id="b-up" type="checkbox" checked> Enchères à venir seulement</label>
+      </form>
+      <div class="bres" id="bres" aria-live="polite"></div>
+
+      <div class="bcards" id="bcards"></div>
+      <p class="buyers-note" id="bnote"></p>
     </div>
   </section>
 
@@ -622,6 +658,46 @@ footer strong { color: var(--papyrus); }
     $("cb").innerHTML = without.sort((a, b) => a.institution.localeCompare(b.institution)).map((x) => `<p>${esc(x.institution)}</p>`).join("");
   }
 
+  // ---------- Buyers
+  const ZONE_TITLE = { CEMAC: "CEMAC · BEAC", WAEMU: "UEMOA · UMOA-Titres", KEN: "Kenya · Banque centrale du Kenya" };
+  function renderBuyers() {
+    const curs = [...new Set(opps.map((o) => o.currency).filter(Boolean))].sort();
+    $("b-cur").innerHTML = `<option value="">Toutes</option>` + curs.map((c) => `<option>${c}</option>`).join("");
+    const cards = D.buyers || [];
+    $("bcards").innerHTML = cards.map((b) => `<article class="bcard">
+      <span class="eyebrow">${b.countries.length} pays · ${b.countries.map((c) => esc(NAME(c))).join(", ")}</span>
+      <h3>${esc(ZONE_TITLE[b.key] ?? b.key)}</h3>
+      <p class="who">${esc(b.investor_type)}</p>
+      <dl>
+        <dt>Qui peut acheter</dt><dd>${esc(b.eligibility)}</dd>
+        <dt>Par qui passer</dt><dd>${esc(b.primary_dealer)}</dd>
+        <dt>Compte nécessaire</dt><dd>${esc(b.account_requirement)}</dd>
+        <dt>Comment soumettre</dt><dd>${esc(b.submission_method)}</dd>
+        <dt>Titres</dt><dd>${b.instruments.map(([t, n]) => `<div>${esc(n)}</div>`).join("")}</dd>
+        <dt>Frais et fiscalité</dt><dd><em>Non indiqués par la source officielle : à demander à l'intermédiaire.</em></dd>
+      </dl>
+      <details><summary class="src" style="cursor:pointer">Citations officielles (${b.quotes.length})</summary>${b.quotes.map((q) => `<blockquote>« ${esc(q)} »</blockquote>`).join("")}</details>
+      <p class="src">Source : ${b.sources.map((u) => `<a href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(new URL(u).hostname)}</a>`).join(", ")} · vérifié le ${date(b.last_verified)}</p>
+    </article>`).join("");
+    const covered = new Set(cards.flatMap((b) => b.countries));
+    $("bnote").textContent = `Procédures documentées pour ${covered.size} pays sur 54. Pour les ${54 - covered.size} autres, la procédure n'est pas encore documentée : renseignez-vous auprès de la banque centrale ou du Trésor du pays.`;
+    renderBuyerMatches();
+  }
+  function renderBuyerMatches() {
+    const cur = $("b-cur").value, mat = $("b-mat").value, ymin = parseFloat($("b-yld").value), up = $("b-up").checked;
+    const [lo, hi] = mat ? mat.split("-").map(Number) : [0, Infinity];
+    const list = opps.filter((o) => (!up || o.opportunity_type === "upcoming_auction")
+      && (!cur || o.currency === cur)
+      && (!mat || (o.security && o.security.tenor_days >= lo && o.security.tenor_days <= hi))
+      && (isNaN(ymin) || (o.yield_pct != null && Number(o.yield_pct) >= ymin)))
+      .sort((a, b) => (a.auction_date || "9").localeCompare(b.auction_date || "9"));
+    const head = `<p class="note" style="margin:0 0 8px"><strong>${list.length}</strong> titre${list.length > 1 ? "s" : ""} correspond${list.length > 1 ? "ent" : ""} à vos critères${up ? " parmi les enchères à venir" : ""}. Données de marché synthétiques. ${up ? "Le rendement affiché est celui de l'enchère précédente de même maturité, pas une prévision." : ""}</p>`;
+    $("bres").innerHTML = head + (list.length ? `<div class="scroll"><table class="list"><thead><tr><th>Date</th><th>Pays</th><th>Instrument</th><th>Devise</th><th>${up ? "Rdt réf." : "Rendement"}</th><th></th></tr></thead><tbody>` +
+      list.slice(0, 15).map((o) => `<tr><td class="num">${date(o.auction_date) ?? "—"}</td><td>${esc(NAME(o.country_iso3))}</td><td>${o.security ? `${INSTR[o.security.instrument_type] ?? ""} ${tenor(o.security.tenor_days)}` : "—"}</td><td>${esc(o.currency ?? "")}</td><td class="num">${pct(o.yield_pct, 2) ?? "n/d"}</td><td><a href="#radar" data-go="${o.country_iso3}">Radar →</a></td></tr>`).join("") +
+      `</tbody></table></div>${list.length > 15 ? `<p class="note">15 premiers affichés sur ${list.length}.</p>` : ""}` : "");
+  }
+  ["b-cur", "b-mat", "b-yld", "b-up"].forEach((id) => $(id).addEventListener("input", renderBuyerMatches));
+
   function renderVeille() {
     const V = D.veille;
     if (!V) { $("v-lede").textContent = "La veille n'a pas encore tourné."; return; }
@@ -665,7 +741,7 @@ footer strong { color: var(--papyrus); }
     if (t) { type = t.dataset.t; renderSignals(); }
   });
 
-  renderTiles(); renderProfile(); renderChips(); renderGrid(); renderSignals(); renderWall(); renderSources(); renderVeille();
+  renderTiles(); renderProfile(); renderChips(); renderGrid(); renderSignals(); renderWall(); renderSources(); renderVeille(); renderBuyers();
 })();
 </script>
 </body>
