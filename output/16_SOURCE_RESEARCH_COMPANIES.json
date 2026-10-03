@@ -1,0 +1,130 @@
+[
+ {
+  "ref": "E4-03 / E4 entity",
+  "proposed_status": "PENDING PRIMARY DOCUMENT",
+  "page": "Register entry",
+  "url": "https://find-and-update.company-information.service.gov.uk/company/10891868",
+  "evidence": "Search results list a Companies House overview page titled 'M-KOPA HOLDINGS LIMITED overview' at /company/10891868 and a GLEIF/Bloomberg LEI record (9845006F1IA999A88338) under the same name; snippets give incorporation 31 July 2017, registered office 27 Old Gloucester Street, London WC1N 3AX, status active. This matches the ultimate parent named in the M-KOPA UK LIMITED filing (E4-03). The register page itself could not be opened. Quote: Page title in search index: 'M-KOPA HOLDINGS LIMITED overview - Find and update company information - GOV.UK' (secondary (search snippet))",
+  "proposed_book_text": "No change. Entity number 10891868 is corroborated by search indexing but not yet read on the register."
+ },
+ {
+  "ref": "E4-04 / DB001",
+  "proposed_status": "CONFLICTING SOURCES",
+  "page": "PAGE TO VERIFY",
+  "url": "https://techcabal.com/2025/10/07/m-kopa-turns-first-ever-profit-revenue-surges-66-416/",
+  "evidence": "Search snippets of TechCabal (7 Oct 2025) repeat KES 53.7bn (USD 416m), up 66%, 'according to filings in the UK'; M-KOPA quoted in a statement to TechCabal on profitability, not on the revenue figure. No consolidated accounts read. An aggregator snippet gives turnover GBP 185,760,061 for December 2024 for 10891868; this matches neither USD figure at a typical 2024 GBP/USD rate (about 1.28 gives about USD 237m) and is unverified. Quote: 'Revenue jumped 66% to KES 53.7 billion ($416 million)' (secondary (search snippet))",
+  "proposed_book_text": "No change. Current Ch 15 wording (two outlets conflict, unresolved until the filings are read) remains accurate."
+ },
+ {
+  "ref": "E4-05 / DB002",
+  "proposed_status": "CONFLICTING SOURCES",
+  "page": "PAGE TO VERIFY",
+  "url": "https://kenyanwallstreet.com/m-kopa-posts-first-ever-profit-bets-on-e-mobility-for-next-growth-phase/",
+  "evidence": "Search snippets of Kenyan Wall Street, Dabafinance and allAfrica (Oct 2025) give revenue up 66% to USD 253.5m, risk adjusted gross profit USD 173m (up 80%), operating income USD 51m, and name 'M-KOPA Holdings Ltd.'. Conflict with E4-04 unresolved: KES 53.7bn cannot equal USD 253.5m at any 2024 KES/USD rate (about 129 to 160), so the two outlets describe different lines, entities or currencies. Quote: 'Revenue surged 66% to US$253.5 million' (secondary (search snippet))",
+  "proposed_book_text": "No change."
+ },
+ {
+  "ref": "E4-06 / DB003",
+  "proposed_status": "PENDING PRIMARY DOCUMENT",
+  "page": "PAGE TO VERIFY",
+  "url": "https://techcabal.com/2025/10/07/m-kopa-turns-first-ever-profit-revenue-surges-66-416/",
+  "evidence": "Both outlets report 66% growth (snippets). Consistent between secondary sources but no primary document read. Quote: 'Revenue surged 66%' (secondary (search snippet))",
+  "proposed_book_text": "Not used in the book; no change."
+ },
+ {
+  "ref": "E4-07 / DB004",
+  "proposed_status": "PENDING PRIMARY DOCUMENT",
+  "page": "PAGE TO VERIFY",
+  "url": "https://techcabal.com/2025/10/07/m-kopa-turns-first-ever-profit-revenue-surges-66-416/",
+  "evidence": "All secondary outlets agree: KES 1.2bn, USD 9.2m, first annual profit. Consistent across outlets; not read in the accounts. Quote: 'a KES 1.2 billion ($9.2 million) profit in 2024' (secondary (search snippet))",
+  "proposed_book_text": "No change; Ch 15 already attributes it to one outlet."
+ },
+ {
+  "ref": "E4-08 / DB005, DB006",
+  "proposed_status": "CONFLICTING SOURCES",
+  "page": "PAGE TO VERIFY",
+  "url": "https://kenyanwallstreet.com/m-kopa-posts-first-ever-profit-bets-on-e-mobility-for-next-growth-phase/",
+  "evidence": "Snippets confirm the conflict: TechCabal KES 3.2bn (USD 24.7m); Kenyan Wall Street USD 20.6m. Unresolved. Quote: 'swung to a US$9.2 million profit in 2024 from a US$20.6 million loss' (secondary (search snippet))",
+  "proposed_book_text": "No change."
+ },
+ {
+  "ref": "DB007 to DB013",
+  "proposed_status": "PENDING PRIMARY DOCUMENT",
+  "page": "PAGE TO VERIFY",
+  "url": "https://dabafinance.com/en/news/m-kopa-profit-2024-digital-finance-africa",
+  "evidence": "RAGP USD 173m (up 80%) and operating income USD 51m appear in snippets; total assets USD 363m and liabilities USD 281m appear in a snippet attributed to group figures. An aggregator snippet gives total assets GBP 28,443,221 (Dec 2024) for 10891868, plausibly the company-only balance sheet; unverified. Others not seen. Quote: 'risk-adjusted gross profit climbed 80% to US$173 million' (secondary (search snippet))",
+  "proposed_book_text": "Not used in the book; no change. Country field for DB001 to DB013: United Kingdom (registered entity); page unknown."
+ },
+ {
+  "ref": "E5-01, E5-02",
+  "proposed_status": "PENDING PRIMARY DOCUMENT",
+  "page": "Press release",
+  "url": "https://www.citigroup.com/global/news/press-release/2025/citi-sun-king-securitization-deliver-solar-million-kenyans",
+  "evidence": "Snippets of the Citi release and Sun King's own release (titled '$156M Sun King Securitisation to Deliver Solar for Over a Million Kenyans') state USD 1.3bn in solar loans to almost 10 million individual customers across Africa. Matches the Annex G wording ('almost 10 million cumulative loan customers'). Quote: 'extended $1.3 billion in solar loans to almost 10 million individual customers across Africa' (secondary (search snippet))",
+  "proposed_book_text": "No change; book wording accurate. Prefer 'almost 10 million' over 'about 10 million' wherever the latter appears."
+ },
+ {
+  "ref": "E5-03",
+  "proposed_status": "PENDING PRIMARY DOCUMENT",
+  "page": "Press release",
+  "url": "https://sunking.com/news-blog/sun-king-and-citi-close-first-130-million-securitisation-to-broaden-access-to-finance-for-off-grid-solar-in-kenya/",
+  "evidence": "Snippets of the Sun King release and a TDB Group post (6 June 2023): 'first of its kind, bank led and entirely Kenyan Shilling denominated USD 130m sustainable securitisation', arranged by Citi, May 2023. TDB Group was a lender, so its post is a lender release. Quote: 'entirely Kenyan-Shilling-denominated $130 million sustainable securitisation transaction' (secondary (search snippet))",
+  "proposed_book_text": "No change; book wording accurate. Alternative primary to try: https://www.tdbgroup.org/tdb-and-consortium-of-lenders-to-broaden-access-to-finance-for-off-grid-solar-in-kenya-via-usd-130m-transaction-with-sun-king-arranged-by-citi/"
+ },
+ {
+  "ref": "E5-04",
+  "proposed_status": "PENDING PRIMARY DOCUMENT",
+  "page": "Press release",
+  "url": "https://sunking.com/news-blog/156m-sun-king-securitisation-to-deliver-solar-for-over-a-million-kenyans/",
+  "evidence": "Snippets: USD 156m (KES 20.1bn); second and largest Kenyan Shilling securitisation; lenders Absa, Citi, Co operative Bank of Kenya, KCB and Stanbic Bank Kenya; arranged and structured by Citi, Stanbic as placement agent; to finance about 1.4 million products. Trade press dated 28 to 29 July 2025. Quote: 'Sun King's second and largest Kenyan-Shilling-denominated securitization' (secondary (search snippet))",
+  "proposed_book_text": "No change; book wording accurate."
+ },
+ {
+  "ref": "E6-01, E6-02",
+  "proposed_status": "PENDING PRIMARY DOCUMENT",
+  "page": "Press release",
+  "url": "https://nextbillion.net/news/press-release-d-light-closes-new-usd-176-million-securitization-facility-for-affordable-off-grid-solar-in-kenya-tanzania-and-uganda/",
+  "evidence": "Snippets of the d.light press release (as republished by NextBillion, SUN-CONNECT, AfricaBusiness, 17 Jul 2024): new facility to purchase USD 176m of receivables in Kenya, Tanzania and Uganda, financed by African Frontier Capital; total combined purchasing value USD 718m across five facilities since 2020. Book wording ('purchasing capacity, not debt raised') is accurate. Quote: 'total combined purchasing value of USD$718 million across five separate facilities since 2020' (secondary (search snippet))",
+  "proposed_book_text": "No change. Re-point the register URL from Techpoint to the company release once read; financier African Frontier Capital may be named."
+ },
+ {
+  "ref": "E6-03",
+  "proposed_status": "PENDING PRIMARY DOCUMENT",
+  "page": "Press release",
+  "url": "https://www.prnewswire.co.uk/news-releases/dlight-revenues-surge-by-41-percent-in-first-six-months-of-2023-driven-by-143-percent-growth-in-nigeria-301919233.html",
+  "evidence": "Snippets of the PR Newswire release (Sep 2023): revenues grew 41% in the first six months of 2023, driven by 143% growth in Nigeria. Quote: 'd.light grew its revenues by 41 percent during the first six months of 2023' (secondary (search snippet))",
+  "proposed_book_text": "Not used in the book; no change."
+ },
+ {
+  "ref": "E7-01",
+  "proposed_status": "PENDING PRIMARY DOCUMENT",
+  "page": "Notice",
+  "url": "https://www.thegazette.co.uk/notice/4891954",
+  "evidence": "Snippets of the PKF Littlejohn Advisory announcement and the Companies House insolvency page: administration from 19 May 2025, joint administrators Paul David Williams and Stephen Goderski (PKF Littlejohn Advisory). A snippet of the Gazette timeline gives the appointment notice as 4891954, published 22 May 2025; notice 4879301 is the earlier winding up petition (presented 3 April 2025, hearing 21 May 2025). Business and certain assets sold to Bboxx 2.0 after appointment. The 19 May date is therefore the appointment date, not the publication date (22 May) or the petition hearing date (21 May), but the formal notice text was not read. Quote: 'entered administration on 19 May' (PKF announcement, secondary (search snippet))",
+  "proposed_book_text": "No change; current wording ('is recorded as having entered administration on 19 May 2025') is accurate and suitably cautious."
+ },
+ {
+  "ref": "E7-02",
+  "proposed_status": "PENDING PRIMARY DOCUMENT",
+  "page": "Register entry and filing history",
+  "url": "https://find-and-update.company-information.service.gov.uk/company/07177839/filing-history",
+  "evidence": "Snippet of the Companies House overview: in administration, accounts overdue, last accounts made up to 31 December 2022, next due 31 December 2024. Filing history snippet: AM02 statement of affairs 28 Jul 2025; AM07 result of creditors' meeting 29 Jul 2025; AM10 progress report 19 Jan 2026; AM19 extension of administration 1 May 2026. Quote: 'Last accounts made up to 31 December 2022' (secondary (search snippet))",
+  "proposed_book_text": "Optional addition, once read: 'The administration was later extended (May 2026).'"
+ },
+ {
+  "ref": "DB015, DB016",
+  "proposed_status": "CONFLICTING SOURCES",
+  "page": "PAGE TO VERIFY",
+  "url": "https://find-and-update.company-information.service.gov.uk/company/07177839/filing-history",
+  "evidence": "No primary figure found; the FY2022 accounts were not opened. Both values remain aggregator data. Country: United Kingdom (registered entity; operations in Africa). Quote: n/a",
+  "proposed_book_text": "Not used in the book; no change."
+ },
+ {
+  "ref": "E9-01",
+  "proposed_status": "PENDING PRIMARY DOCUMENT",
+  "page": "Web article",
+  "url": "https://orrick.com/News/2021/10/US-90-Million-Funding-for-Zola-to-Scale-Technology-and-Enter-New-Markets",
+  "evidence": "Snippets: TechCrunch 23 Sep 2021 and an Orrick (counsel) news item, Oct 2021, titled 'US$90 Million Funding for Zola to Scale Technology and Enter New Markets'; USD 45m each of debt and equity; equity led by investors including TotalEnergies Ventures; debt from lenders including FMO and SunFunder. No company release located. Quote: 'combination of debt and equity of $45 million each' (secondary (search snippet))",
+  "proposed_book_text": "No change; Ch 11 says 'reported as' with a secondary caveat, which is accurate."
+ }
+]
