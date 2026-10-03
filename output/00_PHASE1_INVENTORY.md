@@ -173,7 +173,7 @@ In `output/` at the repository root:
 
 ## 9. Decisions needed before Phase 2
 
-1. Series numbering: confirm that the three-book series replaces the six-volume plan in the repository README, and whether "Africa Energy Finance" stays as the publisher name.
+1. Series numbering: resolved. Book 2 belongs to the six-book Africa Energy Finance collection in the repository README; the two Bankable titles belong to another series (client instruction, 3 October 2026).
 2. E1 and E7: upload the ESMAP Off-Grid Solar Market Trends Report 2024 and the Gazette notice, or add the hosts to the environment's allowed domains.
 3. M-KOPA: provide the consolidated accounts of M-Kopa Holdings Limited (or its Companies House number), if the group revenue is to be used at all. Otherwise the figure will be marked CONFLICTING SOURCES and removed from calibration.
 4. Manual version: the brief names the manual v0.1, but the existing manual is v0.7. Confirm v0.1 as a new numbering for the renamed manual.

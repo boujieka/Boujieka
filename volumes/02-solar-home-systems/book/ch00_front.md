@@ -2,13 +2,18 @@
 
 **Book 2. PAYGo Solar Finance: Business Models, Credit Risk and Financial Structuring for Solar Home Systems.** First edition, version 0.2 (pre-publication).
 
-The book belongs to a professional series published under Africa Energy Finance, Business & Financial Models:
+The book belongs to the Africa Energy Finance collection, Business & Financial Models: a series of books, financial models, manuals, case studies and investment tools for energy businesses in African markets. Each book is built around one central question:
 
-| Book | Title | Subject |
-|---|---|---|
-| Book 1 | Bankable Is Not Enough: Closing Africa's Power Deals Without Opening Public Liabilities | Power project structuring |
-| Book 2 | PAYGo Solar Finance: Business Models, Credit Risk and Financial Structuring for Solar Home Systems | This book |
-| Book 3 | Bankable Hydro: Structuring Hydropower Projects Without Creating Unsustainable Public Liabilities | Hydropower structuring |
+| Book | Subject | Central question | Status |
+|---|---|---|---|
+| Book 1 | Mini grids | Can this mini grid become a sustainable business? | Planned |
+| Book 2 | Solar home systems (PAYGo): this book | Can PAYGo solar become profitable and financeable? | First edition |
+| Book 3 | Clean cooking | Can clean cooking scale as a commercial business? | Planned |
+| Book 4 | Commercial and industrial solar with battery storage | Should the customer invest, sign a power purchase agreement or use an energy service company? | Planned |
+| Book 5 | Energy access fund | Can a fund mobilise capital and generate sustainable returns? | Planned |
+| Book 6 | Power utilities | Can the utility become financially sustainable? | Planned |
+
+Book numbers follow the editorial plan of the collection; the books are produced in the order of market need, and Book 2 comes first.
 
 Each book is the centre of a set of products that share one method. For Book 2 they are:
 

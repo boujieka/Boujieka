@@ -8,7 +8,7 @@
 
 | # | Volume | Central question | Status |
 |---|--------|------------------|--------|
-| 2 | **Solar Home Systems (PAYGo)** | Can PAYGo solar become profitable and financeable? | **In progress — model v0.1** |
+| 2 | **Solar Home Systems (PAYGo)**: Book 2, *PAYGo Solar Finance* | Can PAYGo solar become profitable and financeable? | **Book first edition v0.2 (pre-publication); model v0.8 in development** |
 | 3 | Clean Cooking | Can clean cooking scale as a commercial business? | Planned |
 | 1 | Mini-Grids | Can this mini-grid become a sustainable business? | Planned |
 | 4 | C&I Solar + BESS | Should the customer invest, sign a PPA or use an ESCO? | Planned |

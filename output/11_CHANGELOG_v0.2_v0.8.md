@@ -88,3 +88,9 @@ Not yet done for the publication release: primary pages for the claims pending i
 * Input tests: three test cohorts gave a portfolio RR PvP of 73.3% (sum of numerators over sum of denominators, not the 67.5% average of the tier ratios), PvFin 47.8% and RR at 90 days 88.9%, as computed by hand; a cohort of 90 contracts raised the small-cohort flag; a tier marked Validated without data raised the conflict flag; a numerator above its denominator and an ownership count above the contracts at 2x set the master check to ERROR.
 * All 15 stress cases: master check OK, outputs equal the static table to 1e-13.
 * Independent formula engine on the v0.8-dev default model with PERFORM_2026: no error values, master check OK; secondary calculation agrees to 2.49e-14 (comparison script updated for the new collection rate label). Book PDF rebuilt (Ch 1.7, 7.2, 7.8, Annex A).
+
+## Series correction (3 October 2026)
+
+| # | Item | OLD | NEW | REASON | SOURCE | IMPACT ON MODEL | IMPACT ON BOOK |
+|---|---|---|---|---|---|---|---|
+| S.1 | Series page | Book 1 "Bankable Is Not Enough" and Book 3 "Bankable Hydro" listed as the series | The Africa Energy Finance collection, Business & Financial Models: Book 1 Mini grids, Book 2 Solar home systems (PAYGo, this book), Book 3 Clean cooking, Book 4 C&I solar with battery storage, Book 5 Energy access fund, Book 6 Power utilities, with the central question of each; the other books shown as planned | Client instruction: the two Bankable titles belong to another series | Repository README (collection table) | None | "About this book"; Book 2 numbering unchanged |
