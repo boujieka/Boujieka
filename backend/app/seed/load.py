@@ -146,6 +146,10 @@ def main() -> None:
         created = 0
         if args.synthetic:
             created = load_synthetic(session, countries, args.reference_date)
+            session.flush()
+            from app.engine.opportunities import run as run_engine
+
+            print("Opportunity Engine:", run_engine(session, args.reference_date))
         session.commit()
     print(f"Reference data loaded for {len(countries)} countries; {created} synthetic auctions added.")
 

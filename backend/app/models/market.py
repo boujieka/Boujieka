@@ -4,7 +4,7 @@ from datetime import date, datetime
 from decimal import Decimal
 
 from sqlalchemy import JSON, DateTime, ForeignKey, String, Text, UniqueConstraint
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.models.base import (
     Base,
@@ -42,9 +42,19 @@ class Opportunity(TimestampMixin, Base):
     __tablename__ = "opportunity"
 
     opportunity_id: Mapped[int] = mapped_column(primary_key=True)
+    country_id: Mapped[int] = mapped_column(ForeignKey("country.country_id"), index=True)
     security_id: Mapped[int | None] = mapped_column(ForeignKey("security.security_id"), index=True)
     auction_id: Mapped[int | None] = mapped_column(ForeignKey("auction.auction_id"), index=True)
-    opportunity_type: Mapped[str] = mapped_column(String(64))
+    opportunity_type: Mapped[str] = mapped_column(String(64), index=True)
+    # Neutral, human-readable label, e.g. "High demand relative to recent auctions".
+    label: Mapped[str] = mapped_column(String(255))
+    # How far past the rule's threshold the signal is (1.0 = exactly at threshold). CALCULATION.
+    strength: Mapped[Decimal | None] = mapped_column(Rate)
+    # The "signal passport": facts used, calculation, rule, and what would invalidate it.
+    evidence: Mapped[dict] = mapped_column(JSON, default=dict)
+    as_of: Mapped[date] = mapped_column(index=True)
+    # False once a later engine run no longer detects the signal.
+    is_active: Mapped[bool] = mapped_column(default=True, index=True)
     detected_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
     auction_date: Mapped[date | None]
     yield_pct: Mapped[Decimal | None] = mapped_column("yield", Rate)
@@ -59,6 +69,8 @@ class Opportunity(TimestampMixin, Base):
     # Deterministic key so re-running detection never duplicates an opportunity.
     dedup_key: Mapped[str] = mapped_column(String(255), unique=True)
     is_synthetic: Mapped[bool] = mapped_column(default=False)
+
+    security: Mapped["Security | None"] = relationship()  # noqa: F821
 
 
 class SubscriptionRoute(TimestampMixin, Base):

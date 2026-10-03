@@ -197,3 +197,44 @@ export function YieldCurveChart({
     </div>
   );
 }
+
+/** Compact amount: 1.2bn, 350m. Units (currency) are given by the chart label. */
+function compactAmount(v: number): string {
+  const abs = Math.abs(v);
+  if (abs >= 1e12) return `${(v / 1e12).toFixed(1)}tn`;
+  if (abs >= 1e9) return `${(v / 1e9).toFixed(1)}bn`;
+  if (abs >= 1e6) return `${(v / 1e6).toFixed(0)}m`;
+  return v.toLocaleString("en-US");
+}
+
+/** Single-series bars over named categories (e.g. maturity months). Values are amounts. */
+export function CategoryBarChart({
+  points,
+  label,
+  height = 220,
+  ariaLabel,
+}: {
+  points: { name: string; value: number }[];
+  label: string;
+  height?: number;
+  ariaLabel: string;
+}) {
+  const format = compactAmount;
+  return (
+    <div role="img" aria-label={ariaLabel} style={{ height }}>
+      <ResponsiveContainer width="100%" height="100%">
+        <BarChart data={points} margin={{ top: 8, right: 8, bottom: 0, left: 0 }} barCategoryGap={2}>
+          <CartesianGrid stroke="var(--grid)" vertical={false} />
+          <XAxis dataKey="name" interval={0} angle={-45} textAnchor="end" height={44} {...axisProps} />
+          <YAxis width={56} tickFormatter={(v: number) => format(v)} {...axisProps} />
+          <Tooltip
+            {...tooltipStyle}
+            formatter={(v) => [format(Number(v)), label]}
+            cursor={{ fill: "var(--surface-2)" }}
+          />
+          <Bar dataKey="value" name={label} fill="var(--series-1)" radius={[4, 4, 0, 0]} maxBarSize={28} isAnimationActive={false} />
+        </BarChart>
+      </ResponsiveContainer>
+    </div>
+  );
+}

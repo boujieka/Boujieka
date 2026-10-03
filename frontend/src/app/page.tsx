@@ -43,9 +43,10 @@ export default async function HomePage() {
           hint="Offered amounts, per currency (never summed across currencies)"
         />
         <Kpi
-          label="New opportunities"
-          value={<span className="text-base text-subtle italic">Not available</span>}
-          hint="Opportunity Engine arrives in Phase 4"
+          label="Active signals"
+          value={summary.new_opportunities}
+          hint="Opportunity Radar — rule-based, not recommendations"
+          href="/radar"
         />
         <Kpi
           label="Alerts"

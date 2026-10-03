@@ -207,7 +207,7 @@ export interface DashboardSummary {
   cancelled_or_postponed: number;
   sources_pending_configuration: number;
   synthetic_records_present: boolean;
-  new_opportunities: number | null;
+  new_opportunities: number;
   alerts: number | null;
 }
 
@@ -232,4 +232,93 @@ export interface DataQualityReport {
   synthetic_securities: number;
   duplicate_candidates: number;
   duplicate_definition: string;
+}
+
+export interface PassportFact {
+  label: string;
+  value: string | null;
+  unit?: string;
+  auction_id?: number;
+  auction_date?: string;
+  field?: string;
+  data_nature: DataNature | string;
+  source?: string | null;
+  source_url?: string | null;
+  security_ids?: number[];
+}
+
+export interface Passport {
+  facts: PassportFact[];
+  calculation: { formula: string; inputs?: Record<string, unknown>; result: string | number; unit?: string } | null;
+  rule: { description: string; threshold?: string | number };
+  invalidated_if: string;
+  caveats: string[];
+  rules_version?: string;
+  as_of?: string;
+}
+
+export interface Opportunity {
+  opportunity_id: number;
+  opportunity_type: string;
+  label: string;
+  country_iso3: string;
+  country_name: string;
+  currency: string | null;
+  security: SecuritySummary | null;
+  auction_id: number | null;
+  auction_date: string | null;
+  yield_pct: Dec | null;
+  maturity: string | null;
+  strength: Dec | null;
+  strength_definition: string;
+  explanation: string | null;
+  evidence: Passport;
+  risk_flags: string[];
+  data_confidence: Dec | null;
+  is_synthetic: boolean;
+  as_of: string;
+  is_active: boolean;
+  matches_criteria: boolean | null;
+  criteria_unmet: string[];
+}
+
+export interface OpportunityPage {
+  items: Opportunity[];
+  total: number;
+  by_type: Record<string, number>;
+  by_country: Record<string, number>;
+  criteria: Record<string, string>;
+  disclaimer: string;
+}
+
+export interface HeatCell {
+  bucket: string;
+  tenor_days: number;
+  instrument_type: InstrumentType;
+  auction_id: number;
+  auction_date: string;
+  weighted_average_yield: Dec | null;
+  bid_to_cover: Dec | null;
+  demand_z: Dec | null;
+  demand_peer_count: number;
+  yield_change_bps: Dec | null;
+  is_synthetic: boolean;
+}
+
+export interface HeatGrid {
+  as_of: string;
+  buckets: string[];
+  rows: { country_iso3: string; country_name: string; currency: string; active_opportunities: number; cells: HeatCell[] }[];
+  method: string;
+  caveat: string;
+}
+
+export interface MaturityWall {
+  country_iso3: string;
+  currency: string;
+  as_of: string;
+  total: Dec;
+  months: { month: string; amount: Dec; securities: number; share_pct: Dec | null }[];
+  data_nature: DataNature;
+  caveat: string;
 }

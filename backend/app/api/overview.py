@@ -8,7 +8,7 @@ from sqlalchemy import func, select
 from app.api.serializers import AUCTION_OFFICIAL_FIELDS
 from app.api.deps import AsOfDep, SessionDep
 from app.config import get_settings
-from app.models import Auction, Country, Security, Source
+from app.models import Auction, Country, Opportunity, Security, Source
 from app.models.enums import AuctionStatus, FieldStatus, SourceStatus, VerificationStatus
 from app.schemas import (
     AmountByCurrency,
@@ -64,7 +64,10 @@ def dashboard_summary(session: SessionDep, as_of: AsOfDep) -> DashboardSummary:
             select(func.count()).select_from(Auction).where(Auction.is_synthetic)
         )
         > 0,
-        new_opportunities=None,
+        new_opportunities=session.scalar(
+            select(func.count()).select_from(Opportunity).where(Opportunity.is_active.is_(True))
+        )
+        or 0,
         alerts=None,
     )
 

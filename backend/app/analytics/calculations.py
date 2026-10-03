@@ -115,3 +115,41 @@ def quantize(value: Decimal | None, places: int = 4) -> Decimal | None:
     if value is None:
         return None
     return value.quantize(Decimal(1).scaleb(-places), rounding=ROUND_HALF_EVEN)
+
+
+def mean(values: list[Decimal]) -> Decimal | None:
+    if not values:
+        return None
+    return sum(values, Decimal(0)) / len(values)
+
+
+def sample_stdev(values: list[Decimal]) -> Decimal | None:
+    """Sample standard deviation (n - 1 denominator). None for fewer than two values."""
+    if len(values) < 2:
+        return None
+    m = mean(values)
+    with localcontext() as ctx:
+        ctx.prec = 34
+        return (sum(((v - m) ** 2 for v in values), Decimal(0)) / (len(values) - 1)).sqrt()
+
+
+def z_score(value: Decimal | None, history: list[Decimal]) -> Decimal | None:
+    """How many sample standard deviations `value` sits from the mean of `history`.
+
+    None when the value is missing, history has < 2 points, or history has no dispersion.
+    """
+    if value is None:
+        return None
+    sd = sample_stdev(history)
+    if sd is None or sd == 0:
+        return None
+    return (value - mean(history)) / sd
+
+
+def percentile_rank(value: Decimal | None, history: list[Decimal]) -> Decimal | None:
+    """Share of `history` strictly below `value`, plus half the ties, in percent (0–100)."""
+    if value is None or not history:
+        return None
+    below = sum(1 for h in history if h < value)
+    ties = sum(1 for h in history if h == value)
+    return (Decimal(below) + Decimal(ties) / 2) / len(history) * HUNDRED

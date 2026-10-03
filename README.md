@@ -8,9 +8,9 @@ sovereign Treasury bills, bonds and Eurobonds.
 
 ## Status
 
-**Phase 1 of 8 complete** (database, core models, provenance, read API, basic dashboard).
+**Phases 1 and 4 complete** (database, provenance, read API, dashboard; Opportunity Engine + Opportunity Radar).
 See [`docs/IMPLEMENTATION_PLAN.md`](docs/IMPLEMENTATION_PLAN.md) and
-[`docs/PHASE_1_REPORT.md`](docs/PHASE_1_REPORT.md).
+[`docs/PHASE_1_REPORT.md`](docs/PHASE_1_REPORT.md), [`docs/PHASE_4_REPORT.md`](docs/PHASE_4_REPORT.md).
 
 ⚠️ **All market data currently in the system is SYNTHETIC** — generated for development, labelled
 as such in the database, the API and the UI, and not real. No official source is being crawled yet.
@@ -52,7 +52,8 @@ cd backend
 pip install -e ".[dev]"
 export ABI_DATABASE_URL=postgresql+psycopg://abi:abi@localhost:5432/abi
 alembic upgrade head
-python -m app.seed.load --synthetic      # idempotent; omit --synthetic for reference data only
+python -m app.seed.load --synthetic      # idempotent; also runs the Opportunity Engine
+python -m app.engine.run --as-of 2026-10-03   # re-run signal detection
 uvicorn app.main:app --port 8000         # API docs at http://localhost:8000/docs
 
 # Frontend
@@ -83,4 +84,7 @@ cd frontend && npm test && npm run typecheck && npm run lint && npm run build
 | `GET /api/v1/countries`, `/countries/{iso3}` | Country reference + sources |
 | `GET /api/v1/countries/{iso3}/yield-curve` | Latest auction yield per tenor (no fitting) |
 | `GET /api/v1/sources` | Source registry, ordered by authority |
+| `GET /api/v1/opportunities` | Opportunity Radar signals with passports; investor-criteria matching |
+| `GET /api/v1/market/heat-grid` | Country × tenor grid: latest yield + demand vs own history |
+| `GET /api/v1/countries/{iso3}/maturity-wall` | Tracked maturities per month, next 12 months |
 | `GET /api/v1/data-quality` | Stale/pending sources, missing fields, duplicates, synthetic counts |

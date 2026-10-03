@@ -1,7 +1,7 @@
 from fastapi import APIRouter, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api import auctions, countries, overview, securities
+from app.api import auctions, countries, opportunities, overview, securities
 from app.config import get_settings
 
 DISCLAIMER = (
@@ -39,7 +39,7 @@ def create_app() -> FastAPI:
     def health() -> dict[str, str]:
         return {"status": "ok", "disclaimer": DISCLAIMER}
 
-    for module in (overview, countries, securities, auctions):
+    for module in (overview, opportunities, countries, securities, auctions):
         api.include_router(module.router)
     app.include_router(api)
     return app

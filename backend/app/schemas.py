@@ -236,7 +236,7 @@ class DashboardSummary(BaseModel):
     cancelled_or_postponed: int
     sources_pending_configuration: int
     synthetic_records_present: bool
-    new_opportunities: int | None  # None until the Opportunity Engine (Phase 4) exists
+    new_opportunities: int  # active Opportunity Engine signals
     alerts: int | None  # None until alerts (Phase 5) exist
 
 
@@ -264,3 +264,85 @@ class DataQualityReport(BaseModel):
 
 
 CountryDetail.model_rebuild()
+
+
+class OpportunityOut(BaseModel):
+    opportunity_id: int
+    opportunity_type: str
+    label: str
+    country_iso3: str
+    country_name: str
+    currency: str | None
+    security: SecuritySummary | None
+    auction_id: int | None
+    auction_date: date | None
+    yield_pct: Decimal | None
+    maturity: date | None
+    strength: Decimal | None
+    strength_definition: str = "How far past the rule's threshold the signal is (1.0 = at threshold)"
+    explanation: str | None
+    evidence: dict
+    risk_flags: list[str]
+    data_confidence: Decimal | None
+    is_synthetic: bool
+    as_of: date
+    is_active: bool
+    # Investor-criteria matching; None when no criteria were supplied.
+    matches_criteria: bool | None = None
+    criteria_unmet: list[str] = []
+
+
+class OpportunityPage(BaseModel):
+    items: list[OpportunityOut]
+    total: int
+    by_type: dict[str, int]
+    by_country: dict[str, int]
+    criteria: dict[str, str]
+    disclaimer: str
+
+
+class HeatCell(BaseModel):
+    bucket: str
+    tenor_days: int
+    instrument_type: InstrumentType
+    auction_id: int
+    auction_date: date
+    weighted_average_yield: Decimal | None
+    bid_to_cover: Decimal | None
+    demand_z: Decimal | None
+    demand_peer_count: int
+    yield_change_bps: Decimal | None
+    is_synthetic: bool
+
+
+class HeatRow(BaseModel):
+    country_iso3: str
+    country_name: str
+    currency: str
+    active_opportunities: int
+    cells: list[HeatCell]
+
+
+class HeatGrid(BaseModel):
+    as_of: date
+    buckets: list[str]
+    rows: list[HeatRow]
+    method: str
+    caveat: str
+
+
+class WallMonth(BaseModel):
+    month: str
+    amount: Decimal
+    securities: int
+    share_pct: Decimal | None
+
+
+class MaturityWall(BaseModel):
+    country_iso3: str
+    currency: str
+    as_of: date
+    total: Decimal
+    months: list[WallMonth]
+    data_nature: DataNature
+    caveat: str

@@ -32,6 +32,14 @@
   --nature-estimate: #8a5a00;
   --nature-ai: #6b6a65;
   --nature-synthetic: #b42323;
+
+  /* Diverging demand scale: blue (above own history) ↔ gray ↔ red (below). Cell fills only;
+     text on them stays in ink colours. */
+  --div-pos-2: #9ec5f4;
+  --div-pos-1: #cde2fb;
+  --div-mid: #f0efec;
+  --div-neg-1: #f8d3d2;
+  --div-neg-2: #f0a8a7;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -62,6 +70,11 @@
     --nature-estimate: #fab219;
     --nature-ai: #c3c2b7;
     --nature-synthetic: #e66767;
+    --div-pos-2: #1c5cab;
+    --div-pos-1: #10345f;
+    --div-mid: #383835;
+    --div-neg-1: #5a2424;
+    --div-neg-2: #8e2f2f;
   }
 }
 
@@ -92,6 +105,11 @@
   --nature-estimate: #fab219;
   --nature-ai: #c3c2b7;
   --nature-synthetic: #e66767;
+  --div-pos-2: #1c5cab;
+  --div-pos-1: #10345f;
+  --div-mid: #383835;
+  --div-neg-1: #5a2424;
+  --div-neg-2: #8e2f2f;
 }
 
 @theme inline {

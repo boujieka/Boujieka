@@ -167,7 +167,7 @@ class TestOverview:
         summary = get(client, "/dashboard/summary", as_of=AS_OF)
         assert summary["countries_monitored"] == 6
         assert summary["synthetic_records_present"] is True
-        assert summary["new_opportunities"] is None  # not built yet: must not be faked
+        assert isinstance(summary["new_opportunities"], int)
         upcoming = get(
             client, "/auctions", status="announced", date_from=AS_OF, date_to="2026-10-10", limit=500
         )
@@ -222,3 +222,56 @@ def test_sources_expose_unconfirmed_candidates(client):
     cbk = rows["Central Bank of Kenya — auction results"]
     assert cbk["base_url"] is None
     assert any(c["url"].startswith("https://www.centralbank.go.ke/") for c in cbk["candidates"])
+
+
+class TestOpportunityRadar:
+    @pytest.fixture(scope="class", autouse=True)
+    def engine_run(self, seeded):
+        from sqlalchemy.orm import Session
+
+        from app.engine.opportunities import run
+
+        with Session(seeded) as s:
+            run(s, __import__("datetime").date(2026, 10, 3))
+            s.commit()
+
+    def test_list_and_country_filter(self, client):
+        page = get(client, "/opportunities", country="KEN")
+        assert page["total"] > 0
+        assert set(page["by_country"]) == {"KEN"}
+        assert "not recommendations" in page["disclaimer"]
+
+    def test_criteria_matching(self, client):
+        page = get(client, "/opportunities", min_yield="9", currency="KES")
+        assert page["criteria"] == {"min_yield": "9", "currency": "KES"}
+        for o in page["items"]:
+            meets = (o["yield_pct"] is not None and Decimal(o["yield_pct"]) >= 9 and o["currency"] == "KES")
+            assert o["matches_criteria"] is meets
+            assert bool(o["criteria_unmet"]) is (not meets)
+        only = get(client, "/opportunities", min_yield="9", currency="KES", matching_only=True)
+        assert only["total"] == sum(o["matches_criteria"] for o in page["items"])
+
+    def test_no_criteria_means_no_matching_flag(self, client):
+        assert all(o["matches_criteria"] is None for o in get(client, "/opportunities")["items"])
+
+    def test_heat_grid(self, client):
+        grid = get(client, "/market/heat-grid", as_of=AS_OF)
+        names = [r["country_name"] for r in grid["rows"]]
+        assert len(names) == 6 and names == sorted(names)
+        for row in grid["rows"]:
+            buckets = [c["bucket"] for c in row["cells"]]
+            assert len(buckets) == len(set(buckets))
+            for c in row["cells"]:
+                if c["demand_z"] is not None:
+                    assert c["demand_peer_count"] >= 6
+
+    def test_maturity_wall_shares_sum_to_100(self, client):
+        wall = get(client, "/countries/CMR/maturity-wall", as_of=AS_OF)
+        assert len(wall["months"]) == 12
+        assert wall["data_nature"] == "SYNTHETIC"
+        total = sum(Decimal(m["share_pct"]) for m in wall["months"])
+        assert abs(total - 100) <= Decimal("0.1")
+
+    def test_dashboard_counts_active_signals(self, client):
+        summary = get(client, "/dashboard/summary", as_of=AS_OF)
+        assert summary["new_opportunities"] == get(client, "/opportunities", limit=500)["total"]

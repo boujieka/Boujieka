@@ -7,6 +7,9 @@ import type {
   Country,
   DashboardSummary,
   DataQualityReport,
+  HeatGrid,
+  MaturityWall,
+  OpportunityPage,
   Page,
   SecurityDetail,
   SourceOut,
@@ -54,4 +57,7 @@ export const api = {
   security: (id: number) => get<SecurityDetail>(`/securities/${id}`),
   sources: () => get<SourceOut[]>("/sources"),
   dataQuality: () => get<DataQualityReport>("/data-quality"),
+  opportunities: (params: Params) => get<OpportunityPage>("/opportunities", params),
+  heatGrid: () => get<HeatGrid>("/market/heat-grid"),
+  maturityWall: (iso3: string) => get<MaturityWall>(`/countries/${iso3}/maturity-wall`),
 };
