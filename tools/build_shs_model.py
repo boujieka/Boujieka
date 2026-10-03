@@ -2213,7 +2213,7 @@ TYPE_OF = {t[0]: t[2] for t in TAX_}
 
 # ---------- Benchmark_DB ----------
 BD = "Benchmark_DB"
-bdw = mb.sheet(BD, "PAYGo financial benchmark database (v0.7) - raw records",
+bdw = mb.sheet(BD, "PAYGo financial benchmark database: raw records",
                "Loaded from benchmarks/db/paygo_financial_db.csv - edit the CSV, never this sheet. use = 1 enters the matrix; "
                "conflicting, undated, half-year-only or D-grade records are kept but excluded.", tab="7030A0")
 DB_COLS = ["id", "company", "entity", "fiscal_year", "period_end", "period_months", "statement", "item", "value", "currency", "scale",
@@ -3378,7 +3378,7 @@ for j in range(NP):
     TAGS[f"Cohort_T{j + 1}"] = "FORECAST"
 for sh, tag in TAGS.items():
     wb[sh]["A2"] = f"[{tag}]  " + (wb[sh]["A2"].value or "")
-for sh in ("Credit_Engine", "Credit_Portfolio", "Credit_Assumptions", "FS", "Annual"):
+for sh in ("Credit_Engine", "Credit_Portfolio", "FS", "Annual"):  # Credit_Assumptions carries it in its own subtitle
     wb[sh]["A2"] = wb[sh]["A2"].value + "  This is an analytical modelling treatment and does not constitute a determination of the applicable accounting treatment under IFRS."
 
 
