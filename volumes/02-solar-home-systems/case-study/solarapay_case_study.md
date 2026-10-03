@@ -1,10 +1,10 @@
 # Case summary
 
-> **Teaching case.** SolaraPay Ltd and the Republic of Kivara are fictional. Every figure, including the 24 month portfolio history, is synthetic teaching data generated under a fixed random seed so that the case can be reproduced exactly. All numbers quoted here come from the case workbook `SolaraPay_Case_Model_v0.7.xlsx`, whose outputs have been reproduced to rounding precision by an independent shadow calculation of the full model.
+> **Teaching case.** SolaraPay Ltd and the Republic of Kivara are fictional. Every figure, including the 24 month portfolio history, is synthetic teaching data built under a fixed random seed so that the case can be reproduced exactly. All numbers quoted here come from the case workbook `SolaraPay_Case_Model_v0.8-dev.xlsx`, a version of MODEL 2 (version 0.8, development build) loaded with that history. The projections are unchanged from version 0.7, whose outputs were reproduced to rounding precision by an independent recalculation of the full model. Book 2, Chapter 16 walks through the same case.
 
 **The decision.** SolaraPay Ltd, a PAYGo solar distributor in the Republic of Kivara (currency: the Kivara shilling, KVS; opening rate KVS 135 per USD), is raising USD 4.0 million of equity from an impact fund at a pre money valuation of USD 8.0 million, which gives the fund a 33.3% stake. In parallel it has asked a local bank for a KVS 4.5 billion receivables facility. The fund's investment committee must choose between Go, Conditional Go and Stop.
 
-**Recommendation: Conditional Go.** The business can create value, but the management plan overstates repayment, recoveries and covenant headroom. The investment holds up only if conditions are attached on pricing, Tier 4 and 5 exposure, collections, recovery evidence and valuation (Section 9).
+**Recommendation: Conditional Go.** The business can create value, but the management plan overstates repayment, recoveries and covenant headroom. The investment holds up only if conditions are attached on pricing, Tier 4 and 5 exposure, collections, recovery evidence and valuation (Section 9). The workbook's evidence rule reads STOP because most critical readiness gates are not yet evidenced; the Conditional Go is the analyst's judgement, and disbursement waits until the critical gates the conditions address are evidenced.
 
 | Key figure (calibrated Base unless stated) | Value |
 |---|---|
@@ -13,9 +13,9 @@
 | Peak equity required | USD 9.0m; no top up needed in Base |
 | Investor IRR and multiple (USD) | 29.0% and 3.6x (management plan 33.1% and 4.2x) |
 | Investor outcome, Downside | Total loss (exit equity of zero) |
-| Lowest trailing three month collection rate against a 70% covenant | 70.0%, with no headroom |
-| Observed collection rate, last twelve months of history | 69.3%, already below the proposed covenant |
-| Investment readiness | 5 of 23 gates met; not investment grade |
+| Lowest trailing three month operational collection rate against a 70% covenant | 70.0%, with no headroom |
+| Observed operational collection rate, last twelve months of history | 69.3%, already below the proposed covenant |
+| Investment readiness (workbook, evidence only) | 5 of 23 gates met; decision rule reads STOP (8 of 13 critical gates not yet evidenced) |
 
 # 1. Company and market
 
@@ -88,7 +88,7 @@ Calibrated Base, from *Unit_Economics*:
 
 Every tier still creates value per unit, but the distribution matters. Tier 2, which carries 40% of planned volume, is the weakest product per unit: it loses 41.8% of scheduled instalments and takes 17 months to pay back. Tiers 4 and 5 look the most attractive, with LTV to CAC of 11x to 15x, yet their credit assumptions have no history behind them.
 
-**Affordability.** On *Consumer_Risk*, the instalment exceeds the 10% payment burden threshold for three tiers: Tier 2 at 13.0% of illustrative household income, Tier 3 at 13.2% and Tier 4 at 11.3%. A high burden is a leading indicator of the defaults already visible in Tier 2. Tier 1's implied APR of 106% will draw regulatory and reputational attention.
+**Affordability.** On *Consumer_Risk*, the instalment exceeds the model's 10% payment burden threshold (a model policy threshold, not a standard) for three tiers: Tier 2 at 13.0% of illustrative household income, Tier 3 at 13.2% and Tier 4 at 11.3%. A high burden is a leading indicator of the defaults already visible in Tier 2. Tier 1's implied APR of 106% will draw regulatory and reputational attention.
 
 # 4. Calibrated projections
 
@@ -101,7 +101,7 @@ Every tier still creates value per unit, but the distribution matters. Tier 2, w
 | EBITDA margin | (35.2%) | (9.4%) | 2.9% | 10.9% | 16.4% |
 | Net income (KVS bn) | (0.43) | (0.31) | (0.01) | 0.49 | 0.91 |
 | Net credit losses to revenue | 37.5% | 33.9% | 31.3% | 29.2% | 27.5% |
-| Collection rate | 82.3% | 76.8% | 73.3% | 71.5% | 70.3% |
+| Operational collection rate | 82.3% | 76.8% | 73.3% | 71.5% | 70.3% |
 | 30+ DPD to gross receivables | 8.4% | 11.4% | 12.8% | 13.7% | 14.4% |
 | Debt to book equity (year end) | 0.54x | 0.98x | 2.51x | 1.47x | 0.65x |
 
@@ -113,7 +113,7 @@ EBITDA turns positive in month 29, and operating cash flow stays positive from m
 
 ![Investor IRR by case](figures/fig4_irr_cases.png)
 
-| Case | Peak equity (USD m) | Y5 EBITDA margin | Y5 collection rate | Investor IRR | Multiple | Months in covenant breach |
+| Case | Peak equity (USD m) | Y5 EBITDA margin | Y5 operational collection rate | Investor IRR | Multiple | Months in covenant breach |
 |---|---|---|---|---|---|---|
 | Management plan, Base | 9.0 | 18.6% | 73.0% | 33.1% | 4.2x | 0 |
 | Management plan, Downside | 9.0 | 3.7% | 66.8% | Total loss | 0.0x | 39 |
@@ -161,18 +161,20 @@ The fund should therefore treat the entry price as a position on the exit multip
 
 The projection passes, but only just. On actual data the position is weaker: the latest monthly collection ratio of 66.5% is already below the 70% covenant level, and the last twelve months of history averaged 69.3%, so a 70% trailing covenant would very likely be in breach from the first test date.
 
-A lender has two sound options. The first is to set the collection covenant at a level the book can meet, for example 65% with a cure period and a collections improvement plan. The second is to defer the facility until the collection trend has turned. In either case the bank should require monthly reporting on PAYGo PERFORM lines: collection rate, receivables at risk and cohort repayment curves.
+A lender has two sound options. The first is to set the collection covenant at a level the book can meet, for example 65% with a cure period and a collections improvement plan. The second is to defer the facility until the collection trend has turned. In either case the bank should replace the DSCR test with portfolio covenants and require monthly reporting of operational and lender metrics: the operational collection rate, receivables at risk, the write off ratio and cohort repayment curves. These are not PAYGo PERFORM 2026 KPIs. The five PERFORM 2026 KPIs (GOGLA Technical Guide, June 2026) can be computed only from company contract data entered on *PERFORM_2026*, which SolaraPay has not yet provided; the bank should ask for that data too. Any request to extend eligibility beyond 30 DPD should be refused.
 
 # 8. Benchmarks and calibration
 
-*Benchmark_Compare* and *Calibration* set the calibrated Base against graded records of real companies. Peer coverage is thin, with one or two companies per ratio, so the comparisons below are anecdotal checks rather than sector norms.
+*Benchmark_Compare* and *Calibration* set the calibrated Base against the workbook's external references, and none can be used as a test. The scale references for net margin, credit losses and return on equity rested on M-KOPA group figures that conflict between sources, and the only primary filing held concerns M-KOPA UK LIMITED, a subsidiary, rather than the group. The M-KOPA comparison used in earlier drafts of this case is therefore withdrawn until the group's consolidated accounts are read. The sector collection rate is reported in secondary sources, but the primary report has not yet been read. *Calibration* shows every reference as suspended.
 
-| Ratio, Year 5 | SolaraPay | Reference | Reading |
-|---|---|---|---|
-| Net margin | 10.5% | M-KOPA FY2024, about 2.2% (provisional: published revenue figures conflict) | 4.8 times the scale reference; the cost and credit assumptions need justification |
-| Expected credit losses to financing revenue | 1.28x | M-KOPA FY2024, about 0.38x | Credit losses are heavy relative to financing income |
-| Return on equity | 49.8% | M-KOPA FY2024, about 11% (equity derived as total assets less liabilities) | Optimistic against a scaled peer |
-| Collection rate | 70.3% | ESMAP sector figure of about 62% for 2023 (secondary reporting; the primary report has not yet been reviewed) | Within ten points of the sector figure after calibration |
+| Ratio, Year 5 | SolaraPay | Reference |
+|---|---|---|
+| Net margin | 10.5% | None verified (comparison withdrawn) |
+| Expected credit losses to financing revenue | 1.28x | None verified |
+| Return on equity | 49.8% | None verified |
+| Operational collection rate (not a PERFORM KPI) | 70.3% | ESMAP Off-Grid Solar Market Trends Report 2024, reported to give an average PAYGo collection rate of about 62% for 2021 to 2023 (context only; primary document pending) |
+
+The ratios still speak for themselves. Expected credit losses at 1.28 times financing revenue mean that financing income does not cover the losses it is meant to price; the hardware margin is carrying them. A net margin of 10.5% and a return on equity of 49.8% in Year 5 sit uneasily with a history of falling collections, and the cost and credit assumptions need to be justified on the company's data rather than against a peer. The sector figure is a collection rate, not a PERFORM repayment rate, and it is not yet verified. The benchmark that matters is SolaraPay's own cohort history, set against the plan in *Vintage_Dashboard*.
 
 # 9. Recommendation and conditions
 
@@ -184,9 +186,11 @@ A lender has two sound options. The first is to set the collection covenant at a
 4. **Recovery assumptions.** Repossession and resale rates cut to observed levels until a six month repossession programme demonstrates otherwise.
 5. **Affordability redesign.** The Tier 2 to 4 price plans are restructured, through longer tenors or higher deposits, so that the instalment stays within 10% of target segment income, with incomes validated by customer surveys.
 6. **Valuation protection.** A pre money valuation closer to USD 6m, or a ratchet tied to Year 2 cohort performance.
-7. **Data and validation.** Monthly updates of *Credit_Input* and *Vintage_Input*, ownership tracking at twice the tenor from launch, independent review of the ECL approach and accounting (gate 19), a full test of the workbook in Excel (gate 17) and management sign off (gate 2).
+7. **Data and validation.** Monthly updates of *Credit_Input* and *Vintage_Input*, ownership tracking at twice the tenor from launch, independent review of the ECL approach (gate 19) and of the tax and accounting treatment (gate 15), a full test of the workbook in Excel (gate 17) and management sign off (gate 2).
 
-**Readiness today.** Five of the 23 gates are met: model integrity, covenant compliance in Base, positive unit contribution, a credit engine running on actual data, and data reconciliation. The case is not investment grade; the conditions above close the most material gaps.
+**Readiness today.** Five of the 23 gates are met: model integrity, no covenant breach in Base, positive lifetime contribution in every tier, a credit engine running on actual data, and data reconciliation. The workbook's own rule reads STOP for the same file, because 8 of its 13 critical gates still lack evidence. The two do not contradict each other: the workbook measures whether the evidence file is complete, while the recommendation is the analyst's judgement of what the investment needs. The committee should see both, and disbursement waits until the critical gates the conditions address are evidenced. The conditions above close the most material gaps.
+
+**Accounting.** Revenue recognition and ECL in the workbook are simplified. This is an analytical modelling treatment and does not constitute a determination of the applicable accounting treatment under IFRS.
 
 # 10. Questions for discussion
 
@@ -201,7 +205,7 @@ A lender has two sound options. The first is to set the collection covenant at a
 
 | File | Content |
 |---|---|
-| `SolaraPay_Case_Model_v0.7.xlsx` | Case workbook on the calibrated inputs, with the synthetic history loaded in *Credit_Input* and *Vintage_Input* |
+| `SolaraPay_Case_Model_v0.8-dev.xlsx` | Case workbook on the calibrated inputs, with the synthetic history loaded in *Credit_Input* and *Vintage_Input* |
 | `case_exhibits.json` | The figures quoted in this case, extracted from the evaluated workbook, together with the management plan comparison |
 | `figures/` | The five charts reproduced in this document |
 
