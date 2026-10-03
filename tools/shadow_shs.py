@@ -112,11 +112,14 @@ def run(scn=1, lever=None, gen=None, products=None):
     cos = cogs + agg["install"] + other_rev * (1 - g["other_margin"])
     opex = (agg["warr"] + agg["comm"] + agg["mkt"] + (agg["dep"] + agg["coll"]) * g["mm_fee"]
             + agg["active"] * g["cs_cost"] * ii + (g["staff"] + g["ga"]) * ii)
-    inv = np.zeros(N)
-    for k in range(N):  # target cover, but stock is only run down by consumption (no negative purchases)
-        inv[k] = max(cogs[k] * g["inv_cover"], (inv[k - 1] if k else 0.0) - cogs[k])
+    inv = np.zeros(N); inv_wd = np.zeros(N)
+    for k in range(N):  # target cover; run down by consumption; written off in a month with no hardware sales
+        prev = inv[k - 1] if k else 0.0
+        inv_wd[k] = prev if cogs[k] <= 0 else 0.0
+        inv[k] = max(cogs[k] * g["inv_cover"], prev - cogs[k] - inv_wd[k])
     inv_prev = np.concatenate([[0], inv[:-1]])
-    ap = (cogs + inv - inv_prev) * g["ap_days"] / (365 / 12)
+    ap = (cogs + inv - inv_prev + inv_wd) * g["ap_days"] / (365 / 12)
+    cos = cos + inv_wd
     capex = g["capex"] * ii
     dep_ = np.array([capex[max(0, k - g["dep_life"] + 1):k + 1].sum() / g["dep_life"] for k in range(N)])
     ppe = np.cumsum(capex - dep_)

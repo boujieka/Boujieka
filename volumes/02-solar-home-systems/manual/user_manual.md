@@ -356,7 +356,7 @@ The last input on *Inputs*, under *Covenant definition*, records whether the fac
 
 **Common mistakes.** Treating the full facility limit as available, when the binding constraint is usually the borrowing base, which shrinks as credit quality deteriorates. Forgetting that the term loan is in USD, so depreciation raises both principal and interest in local currency. Reading the automatic top up as free money: it is equity the company must raise, and it dilutes existing shareholders.
 
-**Reading the result.** The *Investment_Summary* reports the peak equity requirement in USD. At default inputs it is USD 10.0m in Base and about USD 46.6m in Severe. The Dashboard also shows the runway (months before the first equity top up; "No top-up in horizon" in Base). A plan that works only if the whole facility is available is, in substance, a bet on credit quality.
+**Reading the result.** The *Investment_Summary* reports the peak equity requirement in USD. It includes the initial injection, so it equals the initial equity whenever no top-up is needed. At default inputs it is USD 10.0m in Base and about USD 46.6m in Severe. *KPIs* shows the two figures that isolate the funding gap: the additional equity required beyond the initial injection (zero in Base) and the lowest cash before equity top-up (negative when a gap opens). The Dashboard also shows the runway (months before the first equity top up; "No top-up in horizon" in Base). A plan that works only if the whole facility is available is, in substance, a bet on credit quality.
 
 ## Step 9. Review the financial statements
 
@@ -555,6 +555,10 @@ The benchmark records are maintained in a controlled database outside the workbo
 | "Balance sheet balances" shows a difference | A formula has been overwritten | Restore from the clean copy and change blue cells only |
 | "Credit_Input data valid" reads 1 | Buckets do not equal gross receivables (Actual mode); a negative balance, unit or flow; a missing, repeated or misaligned period end; collections above twice instalments due | Correct the export: buckets are month end stocks, one period end per calendar month, the same months in every tier |
 | "Structural and range inputs valid" reads 1 | A selector or switch outside its list, a rate or share outside 0 to 1, a negative amount or price, or a month outside the horizon (drawdown, grace, amortisation, lags) | Correct the input; Excel normally blocks these entries with an error alert, so the value was probably pasted |
+| "Structural and range inputs valid" reads 1: which input? | Row 26 sums nine test groups | Read the detail block below the readiness flags on *Checks*: each group counts the inputs out of range |
+| A manual gate marked Met is not counted | The status must read exactly "Met", and both "Where the evidence is held" and "Signed off by" must contain text (a blank or a single space does not count) | Record the evidence location and the signatory |
+| Inventory falls to zero and cost of sales jumps in one month | No hardware is sold that month, so the remaining stock is written off (*Costs*, inventory write-down row) | Intended: stock without sales is not carried as an asset |
+| The workbook looks different after saving it in another spreadsheet program | Some programs rewrite chart series and small constants when they save an Excel file | Work from the distributed file; keep a clean copy and compare before sharing a re-saved version |
 | Excel refuses an entry with an error alert | The value breaks the input's validation rule | Enter a value within the rule shown in the alert |
 | Outputs show values but the checks read ERROR after a scenario or RBF mode change | An invalid selector was pasted; it is clamped for calculation | Set the selector to a listed value |
 | "Proxy shares of receivables at risk sum to 100%" reads 1 | Shares on Credit_Assumptions changed | Bring the four shares back to 100% |

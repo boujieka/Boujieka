@@ -168,3 +168,15 @@ Open from the red team report:
 | R2.6 | M6 data checks | Vintage_Input row-check columns (gaps, falls, negative units); PERFORM PvFin and contracts at 2x; Credit_Input negatives and a collections ceiling of twice instalments due (a plausibility rule) |
 | R2.7 | Verification | Default and case values unchanged outside Checks; 0 error values in 101,526 formulas; independent rerun (15): 644 runs, 140 invalid inputs all ERROR, 148 direction tests pass, cross-engine agreement except the known residue and four SUMIFS cells |
 | R2.8 | Still open | L1 to L5 (Low); error values still spread for FX 0, tenor 0, depreciation life 0 and a text RBF switch (master check reads ERROR); Excel not run |
+
+## Red team findings L1 to L5 (3 October 2026)
+
+| # | Finding | Change | Verification |
+|---|---|---|---|
+| L1 | "Peak equity need" mostly equals the initial equity | KPIs gains "Additional equity required beyond the initial injection (USD)" and "Lowest cash before equity top-up (LCY; negative = funding gap)", appended after the DSCR row so no existing row moves; the Investment_Summary label says the peak includes the initial injection | Base: additional equity 0, lowest cash at the minimum; Severe: USD 36.6m additional, lowest cash (274.5m) |
+| L2 | Evidence fields accepted a single space; lower-case "met" counted; gate 18 met with one observation | A manual gate counts only when the status is exactly "Met" and both evidence fields contain text; gate 18 needs at least 12 months of Credit_Input history in one tier | All manual gates set to Met with a single space: not counted |
+| L3 | Inventory stranded when sales stop | Stock left in a month with no hardware sales is written off through cost of sales (new Costs row at the end of the sheet); same rule in the independent recalculation | Sales stopping from Year 3: inventory 0 at the end, master check OK |
+| L4 | Engines disagreed on SUMIFS with a not-blank criterion (PERFORM_2026) | Replaced by SUMPRODUCT on explicit tests | Case workbook: the independent engine and LibreOffice now agree on every formula cell (101,589; only the known residue of LCY 0.0000008, below tolerance) |
+| L5 | LibreOffice rewrites chart series and small constants on save | Documented: distribute the generated file only (MANUAL 2 troubleshooting) | n/a |
+
+Default and case values unchanged in every cell compared (all numeric cells of both workbooks). MANUAL 2 republished (25 pages).

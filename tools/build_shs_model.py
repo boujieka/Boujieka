@@ -972,7 +972,7 @@ cost_rows = [
     ("cogs", "Landed hardware cost (COGS)", lambda c, p: f"={oc('cogsT', c)}", "sum", True),
     ("install", "Installation & logistics (cost of sales)", lambda c, p: f"={oc('installT', c)}", "sum", True),
     ("other_cos", "Cost of other revenue", lambda c, p: f"={mb.ref(O, 'other_cos', c, this_sheet=C_)}", "sum", True),
-    ("cos", "Total cost of sales", lambda c, p: f"={c}{{cogs}}+{c}{{install}}+{c}{{other_cos}}", "sum", False),
+    ("cos", "Total cost of sales (incl. inventory write-down)", lambda c, p: f"={c}{{cogs}}+{c}{{install}}+{c}{{other_cos}}+{c}{{inv_wd}}", "sum", False),
     (None,),
     ("warranty", "Warranty & after-sales", lambda c, p: f"={oc('warrantyT', c)}", "sum", True),
     ("comm", "Agent / installer commissions", lambda c, p: f"={oc('commT', c)}", "sum", True),
@@ -983,9 +983,9 @@ cost_rows = [
     ("ga", "G&A, rent, IT", lambda c, p: f"={INP['ga']}*Timeline!{c}$9", "sum", False),
     ("opex", "Total operating expenses", lambda c, p: f"=SUM({c}{{warranty}}:{c}{{ga}})", "sum", False),
     (None,),
-    ("inv", "Inventory (closing; target cover, run down by consumption when sales fall)",
-     lambda c, p: f"=MAX({c}{{cogs}}*{INP['inv_cover']},{p}{{inv}}-{c}{{cogs}})", "last", False),
-    ("purch", "Hardware purchases", lambda c, p: f"={c}{{cogs}}+{c}{{inv}}-{p}{{inv}}", "sum", False),
+    ("inv", "Inventory (closing; target cover, run down by consumption when sales fall, written off when sales stop)",
+     lambda c, p: f"=MAX({c}{{cogs}}*{INP['inv_cover']},{p}{{inv}}-{c}{{cogs}}-{c}{{inv_wd}})", "last", False),
+    ("purch", "Hardware purchases", lambda c, p: f"={c}{{cogs}}+{c}{{inv}}-{p}{{inv}}+{c}{{inv_wd}}", "sum", False),
     ("ap", "Supplier payables (closing)", lambda c, p: f"={c}{{purch}}*{INP['ap_days']}/(365/12)", "last", False),
     (None,),
     ("capex", "Fixed capex", lambda c, p: f"={INP['capex']}*Timeline!{c}$9", "sum", False),
@@ -993,6 +993,9 @@ cost_rows = [
      lambda c, p: (f"=SUMIFS(${col(1)}{{capex}}:{c}{{capex}},${col(1)}$4:{c}$4,\">\"&({c}$4-{INP['dep_life']}))"
                    f"/{INP['dep_life']}"), "sum", False),
     ("ppe", "Net fixed assets (closing)", lambda c, p: f"={p}{{ppe}}+{c}{{capex}}-{c}{{dep}}", "last", False),
+    (None,),
+    ("inv_wd", "Inventory write-down (stock left in a month with no hardware sales)",
+     lambda c, p: f"=IF({c}{{cogs}}<=0,{p}{{inv}},0)", "sum", False),
 ]
 rr = 8
 for row_ in cost_rows:
@@ -1346,6 +1349,9 @@ heads = [
     ("breach_months", "Total months with a monthly covenant breach (annual DSCR not included: next row)", f"=SUM({mb.range_(CV, 'any_flag')})", FMT_INT),
     ("dscr_breaches", "Years with DSCR below minimum",
      f"=SUM({col(1)}{KROWS['dscr_flag']}:{col(YEARS)}{KROWS['dscr_flag']})", FMT_INT),
+    ("add_eq_usd", "Additional equity required beyond the initial injection (USD, opening FX)",
+     f"=MAX(0,MAX({mb.range_(F, 'eq_cum')})-{INP['eq0']})/{INP['fx0']}", FMT_NUM),
+    ("min_cash_pre", "Lowest cash before equity top-up (LCY; negative = funding gap)", f"=MIN({mb.range_(S, 'cash_pre')})", FMT_NUM),
 ]
 HEAD = {}
 for key, *_ in heads:
@@ -1916,19 +1922,19 @@ def rr2x_formula(j):
     mode = vi_range(j, "B")
     return (f'=IF(COUNTIF({mode},2)=0,"not available: proxy data only",'
             f'IF(ISNA({k2}),"2x term beyond the input checkpoints",'
-            f'IFERROR(SUMIFS({coll2},{mode},2)/SUMIFS({due1},{mode},2,{coll2},"<>"),"no cohort has reached 2x term")))')
+            f'IFERROR(SUMPRODUCT(--({mode}=2),{coll2})/SUMPRODUCT(--({mode}=2),--ISNUMBER({coll2}),{due1}),"no cohort has reached 2x term")))')
 
 
 for n_, (text, basis, fn) in enumerate([
         ("Cohort repayment ratio at about 90 days", "M3 checkpoint, Actual cohorts",
          lambda j: (f"=IF(COUNTIF({vi_range(j, 'B')},2)=0,\"not available: proxy data only\","
-                    f"IFERROR(SUMIFS({vi_range(j, vi_col('coll', 0))},{vi_range(j, 'B')},2,{vi_range(j, vi_col('due', 0))},\"<>\")/"
-                    f"SUMIFS({vi_range(j, vi_col('due', 0))},{vi_range(j, 'B')},2,{vi_range(j, vi_col('coll', 0))},\"<>\"),\"no data at M3\"))")),
+                    f"IFERROR(SUMPRODUCT(({vi_range(j, 'B')}=2)*({vi_range(j, vi_col('due', 0))}<>\"\")*({vi_range(j, vi_col('coll', 0))}<>\"\"),{vi_range(j, vi_col('coll', 0))})/"
+                    f"SUMPRODUCT(({vi_range(j, 'B')}=2)*({vi_range(j, vi_col('due', 0))}<>\"\")*({vi_range(j, vi_col('coll', 0))}<>\"\"),{vi_range(j, vi_col('due', 0))}),\"no data at M3\"))")),
         ("Cohort repayment ratio at 2x term", "Collections at the 2x checkpoint over instalments due over 1x term, Actual cohorts",
          lambda j: rr2x_formula(j)),
         ("Ownership at 2x reported in Vintage_Input", "Unit weighted, cohorts with ownership data",
          lambda j: (f"=IF(COUNT({vi_range(j, VI_OWN_COL)})=0,\"not reported\","
-                    f"SUMPRODUCT({vi_range(j, VI_OWN_COL)},{vi_range(j, 'C')})/SUMIFS({vi_range(j, 'C')},{vi_range(j, VI_OWN_COL)},\"<>\"))"))]):
+                    f"SUMPRODUCT({vi_range(j, VI_OWN_COL)},{vi_range(j, 'C')})/SUMPRODUCT(--ISNUMBER({vi_range(j, VI_OWN_COL)}),{vi_range(j, 'C')}))"))]):
     r_ = 21 + n_
     label(pfw, f"A{r_}", text, bold=True)
     label(pfw, f"B{r_}", basis, size=8, color=GREY_TXT)
@@ -2688,7 +2694,9 @@ GATES = [
     ("Tax and accounting treatment reviewed", None, "Written review by an accountant of revenue recognition, ECL and tax (the model treatment is not an IFRS determination).", True),
     ("Legal and regulatory review (consumer credit, data, mobile money)", None, "Legal opinion or regulatory checklist signed by counsel.", True),
     ("Workbook tested in Microsoft Excel", None, "Test log: opens, recalculates, master check OK, no circular references.", True),
-    ("Credit engine running on actual company data", f"=AND({INP['credit_mode']}=2,{RF['horizon']}=0)", "Automatic: Actual mode with Credit_Input data.", True),
+    ("Credit engine running on actual company data",
+     f"=AND({INP['credit_mode']}=2,{RF['horizon']}=0,MAX(" + ",".join(f"COUNT({ci_range(j, 'gross')})" for j in range(NP)) + ")>=12)",
+     "Automatic: Actual mode with at least 12 months of Credit_Input history in one tier.", True),
     ("IFRS 9 / ECL validated by auditor or independent reviewer", None, "Auditor's or reviewer's report; indicative ECL and PD proxies are not IFRS 9 measures.", False),
     ("Consumer protection evidenced", f"=AND({INP['afford_reviewed']}=1,{RF['afford_flags']}=0,{cons_valid},{RF['perform_conflict']}=0)",
      "Automatic: affordability reviewed, no flags, PERFORM and consumer-protection evidence validated, PERFORM_2026 results loaded.", True),
@@ -2713,7 +2721,7 @@ for n_, (text, auto, ev, crit) in enumerate(GATES):
         dv_g.add(f"D{r_}")
         for c_ in "IJK":
             put_input(irw, f"{c_}{r_}", None, FMT_DATE if c_ == "K" else "@")
-        put_calc(irw, f"F{r_}", f"=IF(AND(D{r_}=\"Met\",I{r_}<>\"\",J{r_}<>\"\"),1,0)", FMT_INT, bold=True)
+        put_calc(irw, f"F{r_}", f"=IF(AND(EXACT(D{r_},\"Met\"),LEN(TRIM(I{r_}))>1,LEN(TRIM(J{r_}))>1),1,0)", FMT_INT, bold=True)
         put_calc(irw, f"L{r_}", (f"=IF(D{r_}<>\"Met\",\"\",IF(F{r_}=1,\"Evidenced\",\"Marked Met without evidence location or sign-off: "
                                  f"not counted\"))"), "@")
     label(irw, f"G{r_}", ev, size=9, italic=True)
@@ -3010,7 +3018,7 @@ def summary_block(title, items):
 
 
 summary_block("2. Funding requirement", [
-    ("Peak equity requirement (USD, opening FX)", H["peak_eq_usd"], FMT_NUM),
+    ("Peak equity requirement (USD, opening FX; includes the initial injection: see KPIs for the additional need)", H["peak_eq_usd"], FMT_NUM),
     ("Peak equity requirement (LCY)", H["peak_eq"], FMT_NUM),
     ("Peak total debt (LCY)", H["peak_debt"], FMT_NUM),
     ("Total RBF received (USD)", H["rbf_total_usd"], FMT_NUM),
