@@ -1904,7 +1904,7 @@ Two features are missing from the levers and must be tested separately. The firs
 
 At default inputs, for the fictional company in the workbook with an investor putting in USD 4.0m, the three scenarios give the following.
 
-| Case | Peak equity USD m | Y5 EBITDA margin | Investor IRR | MOIC | Covenant breach months |
+| Case | Peak equity USD m | Y5 EBITDA margin | Investor IRR | MOIC | Monthly covenant breach months |
 |---|---|---|---|---|---|
 | Base | 10.0 | 21.6% | 46.4% | 6.7x | 0 |
 | Downside | 10.0 | 7.3% | (22.9%) | 0.3x | 44 |
@@ -1918,7 +1918,7 @@ The Severe case adds a funding crisis. Peak equity rises from USD 10.0m to USD 4
 
 The *Sensitivity* sheet holds single lever cases computed at default inputs. Selected results, each moving one assumption from Base:
 
-| Case | Investor IRR | Covenant breach months |
+| Case | Investor IRR | Monthly covenant breach months |
 |---|---|---|
 | Base | 46.4% | 0 |
 | Default hazard ×1.5 | 36.1% | 40 |
@@ -1928,11 +1928,13 @@ The *Sensitivity* sheet holds single lever cases computed at default inputs. Sel
 | LCY depreciation 20% a year | (16.0%) | 41 |
 | No price increase on new contracts | 7.9% | 35 |
 | RBF off | 44.7% | 0 |
-| Higher Tier 4 and 5 mix (20% and 10%) | 66.6% | 0 |
+| Higher Tier 4 and 5 mix (Tiers 1 to 5: 20%, 30%, 20%, 20%, 10%) | 66.6% | 0 |
 | Exit at 4.0x EBITDA instead of the base multiple | 33.9% | 0 |
 | Repayment linked RBF | 46.4% | 0 |
 | Securitisation structure | 46.5% | 0 |
 | Borrowing base eligibility extended to 90 DPD | 46.4% | 0 |
+
+Breach months count the monthly covenants on the *Covenants* sheet. The annual DSCR test is reported separately on *KPIs*: at default inputs the DSCR is below the 1.2x minimum in Years 1 to 4, which a lender would treat as a breach even though the column reads 0 in Base.
 
 Five readings follow.
 

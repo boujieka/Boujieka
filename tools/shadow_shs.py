@@ -112,7 +112,9 @@ def run(scn=1, lever=None, gen=None, products=None):
     cos = cogs + agg["install"] + other_rev * (1 - g["other_margin"])
     opex = (agg["warr"] + agg["comm"] + agg["mkt"] + (agg["dep"] + agg["coll"]) * g["mm_fee"]
             + agg["active"] * g["cs_cost"] * ii + (g["staff"] + g["ga"]) * ii)
-    inv = cogs * g["inv_cover"]
+    inv = np.zeros(N)
+    for k in range(N):  # target cover, but stock is only run down by consumption (no negative purchases)
+        inv[k] = max(cogs[k] * g["inv_cover"], (inv[k - 1] if k else 0.0) - cogs[k])
     inv_prev = np.concatenate([[0], inv[:-1]])
     ap = (cogs + inv - inv_prev) * g["ap_days"] / (365 / 12)
     capex = g["capex"] * ii
@@ -240,11 +242,11 @@ def sensitivity_cases():
         ("Base - LCY depreciation 20% p.a.", dict(lever={"dep": 0.20})),
         ("Base - no price increase on new contracts", dict(gen={"price_g": 0.0})),
         ("Base - RBF programme off", dict(gen={"rbf_on": 0})),
-        ("Base - higher Tier 4-5 mix (20% / 10%)", dict(products=mix_hi)),
+        ("Base - mix T1 20%, T2 30%, T3 20%, T4 20%, T5 10%", dict(products=mix_hi)),
         ("Base - exit at 4.0x EBITDA", dict(gen={"exit_ebitda_mult": 4.0})),
         ("Base - repayment-linked RBF (mode 2)", dict(gen={"rbf_mode": 2})),
         ("Base - securitisation structure", dict(gen={"fin_struct": 2})),
-        ("Base - borrowing base up to 90 DPD", dict(gen={"bb_max_dpd": 90})),
+        ("Base - borrowing base up to 90 DPD (base does not bind at default)", dict(gen={"bb_max_dpd": 90})),
     ]
     return [(name, run(**kw)) for name, kw in cases]
 

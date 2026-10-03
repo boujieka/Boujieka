@@ -131,3 +131,20 @@ Not yet done for the publication release: primary pages for the claims pending i
 | P.5 | Book (Ch 1.6, 11, 12, 13, 15, 16.9) | Remaining "aligned with the current published PERFORM documents" wording replaced: the 2021 ratios are historical operational and lender metrics with printed definitions; repayment and ownership follow PERFORM 2026; a collection rate is not a substitute | Book rebuilt, 117 pages, text scan clean |
 
 Still open: test of all workbooks and templates in Microsoft Excel and Word; primary documents for E1, E3, E7 and the M-KOPA group accounts; practitioner review.
+
+## Red team QA findings F01 to F06 (3 October 2026)
+
+Source: external red team battery of 845 runs in LibreOffice Calc and a second formula engine (report received from the author). Excel was not run in that battery either.
+
+| # | Finding | OLD | NEW | IMPACT ON MODEL | IMPACT ON BOOK |
+|---|---|---|---|---|---|
+| R.1 | F01 (high): supplier payables negative when sales fall by more than a third year on year | Inventory = COGS x cover, so falling sales gave negative purchases and payables | Costs!E22 onwards: =MAX(COGS x cover, previous inventory less COGS): stock is run down by consumption, purchases never negative. Same rule in the independent recalculation | Default and case values identical in every numeric cell (102,415 compared); sales decline cases now run with the master check OK and payables at or above zero | None |
+| R.2 | F02, F04: invalid selector or zero input gave error values in the master check and on the Cover | Master = IF(SUM(checks)=0,...) returned an error value | Master returns "ERROR" whenever any check is an error value; automatic readiness gates read "Not met" instead of an error | Scenario 0, 4, text, blank; tenor 0; FX 0; depreciation life 0: master and Cover read ERROR, decision STOP (failed test) | None |
+| R.3 | F03, F05: wrong inputs accepted without warning | Selectors tested only for range; switches and exit method not tested | Selector checks require whole numbers in range (scenario 1.5 now fails); the structural input check (Checks row 26) covers financing structure, exit method (1 or 2), RBF, ownership evidence and affordability switches (0 or 1), opening FX above zero, depreciation life and lags. Check count unchanged (38) | RBF switch 2, exit method 0 or 3: master ERROR | None |
+| R.4 | F06 (medium): "covenant breach months" excludes the annual DSCR | Labels read as all covenants | Labels state "monthly covenant breach" and point to the annual DSCR line; gate 10 evidence text says DSCR is not part of the gate | Text only. Base DSCR is below 1.2x in Years 1 to 4 (KPIs) | Ch 14 tables relabelled, with a note on DSCR |
+| R.5 | Minor: chart series without names; two Sensitivity labels | Series1, Series2; "higher Tier 4-5 mix (20% / 10%)"; "borrowing base up to 90 DPD" | Named series on all six charts; labels "mix T1 20%, T2 30%, T3 20%, T4 20%, T5 10%" and "borrowing base up to 90 DPD (base does not bind at default)" | Labels only | Ch 14 table row and Figure 12 labels |
+
+Open from the red team report:
+* F07: the file stores no calculated values, so previews and non-Excel readers see empty cells. This is a decision: either ship a recalculated copy or let Excel calculate on opening.
+* Gate 10 and DSCR: the annual DSCR is still outside the gate. Including it would turn gate 10 to "Not met" and the decision to STOP (failed test) in both workbooks. This is a decision.
+* Excel run of the red team macro: requires Excel.

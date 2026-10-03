@@ -975,7 +975,8 @@ cost_rows = [
     ("ga", "G&A, rent, IT", lambda c, p: f"={INP['ga']}*Timeline!{c}$9", "sum", False),
     ("opex", "Total operating expenses", lambda c, p: f"=SUM({c}{{warranty}}:{c}{{ga}})", "sum", False),
     (None,),
-    ("inv", "Inventory (closing)", lambda c, p: f"={c}{{cogs}}*{INP['inv_cover']}", "last", False),
+    ("inv", "Inventory (closing; target cover, run down by consumption when sales fall)",
+     lambda c, p: f"=MAX({c}{{cogs}}*{INP['inv_cover']},{p}{{inv}}-{c}{{cogs}})", "last", False),
     ("purch", "Hardware purchases", lambda c, p: f"={c}{{cogs}}+{c}{{inv}}-{p}{{inv}}", "sum", False),
     ("ap", "Supplier payables (closing)", lambda c, p: f"={c}{{purch}}*{INP['ap_days']}/(365/12)", "last", False),
     (None,),
@@ -1333,7 +1334,7 @@ heads = [
     ("min_cr3", "Lowest trailing-3-month collection rate (from month 3)",
      f"=MIN(Covenants!{col(3)}{cr3r}:{mb.last}{cr3r})", FMT_PCT),
     ("max_rar", "Highest receivables-at-risk ratio", f"=MAX({mb.range_(O, 'rar_ratio')})", FMT_PCT),
-    ("breach_months", "Total months with a covenant breach", f"=SUM({mb.range_(CV, 'any_flag')})", FMT_INT),
+    ("breach_months", "Total months with a monthly covenant breach (annual DSCR not included: next row)", f"=SUM({mb.range_(CV, 'any_flag')})", FMT_INT),
     ("dscr_breaches", "Years with DSCR below minimum",
      f"=SUM({col(1)}{KROWS['dscr_flag']}:{col(YEARS)}{KROWS['dscr_flag']})", FMT_INT),
 ]
@@ -1793,8 +1794,10 @@ for n_r, (key, text) in enumerate([("rr", "Cohort repayment ratio"), ("d30", "30
         f = "=" + "+".join(f"{PR['mix'][j]}*IFERROR(AVERAGE({ve_range(j, VE_COL[(key, n_)])}),0)" for j in range(NP))
         put_calc(vdw, f"{gcl(2 + n_)}{r_}", f, FMT_PCT)
 lc_v = LineChart(); lc_v.title = "Portfolio vintage curve"
-for r_ in (18, 19, 20):
+from openpyxl.chart.series import SeriesLabel  # noqa: E402
+for r_, nm_ in zip((18, 19, 20), ("Cohort repayment ratio", "30+ DPD / due", "90+ DPD / due")):
     lc_v.add_data(Reference(vdw, min_col=2, max_col=1 + NCP, min_row=r_), from_rows=True, titles_from_data=False)
+    lc_v.series[-1].tx = SeriesLabel(v=nm_)
 lc_v.set_categories(Reference(vdw, min_col=2, max_col=1 + NCP, min_row=17))
 lc_v.y_axis.number_format = "0%"; lc_v.height, lc_v.width = 8, 16
 vdw.add_chart(lc_v, "A24")
@@ -2448,6 +2451,13 @@ def prev_(sheet, key):
 
 
 tenrow = PR["tenor"][0].split("$")[-1]
+
+
+def whole_in(ref, lo, hi):
+    """1 when an input is not a whole number within [lo, hi] (text, blank, decimal or out of range), else 0."""
+    return f"IFERROR(IF(AND(ISNUMBER({ref}),{ref}=INT({ref}),{ref}>={lo},{ref}<={hi}),0,1),1)"
+
+
 checks = [
     ("Balance sheet balances (max abs difference, all months)", f"=MAX(MAX({mb.range_(S, 'bs_chk')}),-MIN({mb.range_(S, 'bs_chk')}))"),
     ("Sales mix sums to 100%", f"=IF(ABS(SUM(Products!$C${mixrow}:${PCOLS[-1]}${mixrow})-1)>0.0001,1,0)"),
@@ -2458,12 +2468,12 @@ checks = [
     ("Cash flow reconciles to balance-sheet cash every month (opening cash + net cash flow = closing cash)",
      f"=IF(SUMPRODUCT(ABS({mb.range_(S, 'cash_end')}-{prev_(S, 'cash_end')}-{mb.range_(S, 'cfo')}-{mb.range_(S, 'cfi')}-{mb.range_(S, 'cf_tl')}"
      f"-{mb.range_(S, 'cf_rf')}-{mb.range_(S, 'cf_eq0')}-{mb.range_(S, 'eq_top')}))+SUMPRODUCT(ABS({mb.range_(S, 'cash')}-{mb.range_(S, 'cash_end')}))>1,1,0)"),
-    ("Tenors within curve horizon (<= 60 months)", f"=IF(MAX(Products!$C${tenrow}:${PCOLS[-1]}${tenrow})>{MAX_AGE},1,0)"),
+    ("Tenors are whole numbers from 1 to 60 months (curve horizon)", "=" + "+".join(whole_in(PR['tenor'][j], 1, MAX_AGE) for j in range(NP))),
     ("Down payment not above cash price", "=" + "+".join(f"IF({PR['deposit'][j]}>{PR['price'][j]},1,0)" for j in range(NP))),
-    ("Scenario selector valid (1-3)", f"=IF(OR({INP['scenario']}<1,{INP['scenario']}>3),1,0)"),
+    ("Scenario selector valid (whole number 1 to 3)", "=" + whole_in(INP['scenario'], 1, 3)),
     ("Investor ticket within initial equity", f"=IF({INP['inv_usd']}*{INP['fx0']}>{INP['eq0']}+1,1,0)"),
     ("Terminal growth below discount rate", f"=IF({INP['tg']}>={INP['wacc']},1,0)"),
-    ("Credit data mode valid (1-2)", f"=IF(OR({INP['credit_mode']}<1,{INP['credit_mode']}>2),1,0)"),
+    ("Credit data mode valid (whole number 1 to 2)", "=" + whole_in(INP['credit_mode'], 1, 2)),
     ("Proxy DPD buckets reconcile to gross receivables (all tiers, all months)",
      "=IF(" + "+".join(f"SUMPRODUCT(ABS({mb.range_(CE, f'p_recon{j}')}))" for j in range(NP)) + ">0,1,0)"),
     ("Actual DPD buckets reconcile to gross receivables (Actual mode only)",
@@ -2474,10 +2484,15 @@ checks = [
     ("Proxy shares of receivables at risk sum to 100%",
      f"=IF(ABS({INP['rar_s1']}+{INP['rar_s2']}+{INP['rar_s3']}+{INP['rar_s4']}-1)>0.0001,1,0)"),
     ("Hybrid RBF weights sum to 100%", f"=IF(ABS({INP['rbf_w1']}+{INP['rbf_w2']}+{INP['rbf_w3']}-1)>0.0001,1,0)"),
-    ("RBF mode valid (1-4)", f"=IF(OR({INP['rbf_mode']}<1,{INP['rbf_mode']}>4),1,0)"),
+    ("RBF mode valid (whole number 1 to 4)", "=" + whole_in(INP['rbf_mode'], 1, 4)),
     ("Stage thresholds ordered (Stage 2 < Stage 3 <= default)",
      f"=IF(OR({INP['dpd_s2']}>={INP['dpd_s3']},{INP['dpd_s3']}>{INP['dpd_default']}),1,0)"),
-    ("Financing structure valid (1-2)", f"=IF(OR({INP['fin_struct']}<1,{INP['fin_struct']}>2),1,0)"),
+    ("Structural inputs valid: financing structure and exit method (1 or 2); RBF, ownership evidence and affordability switches (0 or 1); "
+     "opening FX rate above zero; depreciation life and lags whole numbers in range",
+     "=" + "+".join([whole_in(INP['fin_struct'], 1, 2), whole_in(INP['exit_method'], 1, 2), whole_in(INP['rbf_on'], 0, 1),
+                     whole_in(INP['own_evidence'], 0, 1), whole_in(INP['afford_reviewed'], 0, 1),
+                     f"IFERROR(IF({INP['fx0']}>0,0,1),1)", whole_in(INP['dep_life'], 1, 600),
+                     whole_in(INP['rbf_lag'], 0, MAX_AGE), whole_in(INP['repo_lag'], 0, MAX_AGE)])),
     ("PERFORM horizon = 2 x tenor for every tier", "=" + "+".join(f"IF({PR['perf2x'][j]}<>2*{PR['tenor'][j]},1,0)" for j in range(NP))),
     ("Vintage cohort modes valid (1 or 2)",
      "=" + "+".join(f"(ROWS({vi_range(j, 'B')})-COUNTIF({vi_range(j, 'B')},1)-COUNTIF({vi_range(j, 'B')},2))" for j in range(NP))),
@@ -2538,7 +2553,7 @@ for k_, (text, f) in enumerate(checks):
 CHK_ROW = {text: 5 + k_ for k_, (text, _f) in enumerate(checks)}
 MR = 5 + len(checks) + 1
 label(xw, f"A{MR}", "MASTER CHECK", bold=True)
-put_calc(xw, f"C{MR}", f"=IF(SUM(C5:C{MR - 2})=0,\"OK\",\"ERROR\")", "@", bold=True)
+put_calc(xw, f"C{MR}", f"=IF(SUMPRODUCT(--ISERROR(C5:C{MR - 2}))>0,\"ERROR\",IF(SUM(C5:C{MR - 2})=0,\"OK\",\"ERROR\"))", "@", bold=True)
 MASTER = f"Checks!$C${MR}"
 label(xw, f"A{MR + 2}", "READINESS FLAGS (informational - not part of the master check)", bold=True, color=NAVY)
 header_row(xw, MR + 3, ["Flag", "Unit", "Value (1 = attention)"])
@@ -2588,7 +2603,7 @@ GATES = [
     ("Stress tests run and documented", None, "Downside and Severe results and the Sensitivity table, reviewed and minuted.", True),
     ("FX and pass-through assumptions validated", None, "Pricing history after past depreciation; FX_Exposure reviewed.", False),
     ("Funding plan supported by term sheets", None, "Signed term sheets or commitment letters for equity and debt.", True),
-    ("No covenant breach in the active scenario", f"={H['breach_months']}=0", "Automatic: Covenants sheet.", True),
+    ("No covenant breach in the active scenario", f"={H['breach_months']}=0", "Automatic: monthly covenants on the Covenants sheet. The annual DSCR test (KPIs, years below minimum) is not part of this gate.", True),
     ("Downside survivable without unplanned equity", None, "Downside peak equity compared with committed funding, documented.", True),
     ("Valuation assumptions reviewed", None, "Discount rate, terminal growth and exit multiple justified in writing.", False),
     ("Positive lifetime contribution in every tier", f"={min_contrib}>0", "Automatic: Unit_Economics.", True),
@@ -2613,7 +2628,7 @@ for n_, (text, auto, ev, crit) in enumerate(GATES):
     label(irw, f"B{r_}", text)
     label(irw, f"C{r_}", "Auto" if auto else "Manual")
     if auto:
-        put_calc(irw, f"E{r_}", f"=IF({auto[1:]},\"Met\",\"Not met\")", "@")
+        put_calc(irw, f"E{r_}", f"=IFERROR(IF({auto[1:]},\"Met\",\"Not met\"),\"Not met\")", "@")
         put_calc(irw, f"F{r_}", f"=IF(E{r_}=\"Met\",1,0)", FMT_INT, bold=True)
         put_calc(irw, f"L{r_}", "=\"Computed in the model\"", "@")
     else:
@@ -2783,7 +2798,7 @@ SENS_METRICS = [("peak_eq_usd", "Peak equity need (USD m)", 1e-6, FMT_NUM2),
                 ("ev_usd", "DCF EV (USD m)", 1e-6, FMT_NUM2),
                 ("irr", "Investor IRR (USD)", 1, FMT_PCT),
                 ("moic", "Investor MOIC", 1, FMT_X),
-                ("breach_months", "Covenant-breach months", 1, FMT_INT)]
+                ("breach_months", "Monthly covenant-breach months (excl. annual DSCR)", 1, FMT_INT)]
 snw.column_dimensions["A"].width = 48
 header_row(snw, 5, ["Case"] + [m[1] for m in SENS_METRICS])
 for k_ in range(len(SENS_METRICS)):
@@ -2938,7 +2953,7 @@ summary_block("4. Lender view", [
     ("Highest 90+ DPD ratio (projection)", f"Covenants!$C${mb.r(CV, 'dpd90')}", FMT_PCT),
     ("RBF design mode", "RBF_Engine!$C$8", "@"),
     ("Receivables financing structure", f"IF({INP['fin_struct']}=1,\"Warehouse facility\",\"Securitisation\")", "@"),
-    ("Months with any covenant breach", H["breach_months"], FMT_INT),
+    ("Months with any monthly covenant breach (DSCR is tested annually: next line)", H["breach_months"], FMT_INT),
     ("Years with DSCR below minimum", H["dscr_breaches"], FMT_INT),
     ("Peak facility utilisation", f"Financing!$C${mb.r(F, 'rf_util')}", FMT_PCT)])
 mb.section(iw, r_, "5. Unit economics by tier"); r_ += 1
@@ -3057,20 +3072,23 @@ note(dw, f"A{r_ + 1}", "Rounded for reading: money in millions to one decimal, r
 DASH_END = r_ + 1
 
 
-def chart_rows(ch, ws_, keys, sheet_key):
-    for key in keys:
+def chart_rows(ch, ws_, keys, sheet_key, names=None):
+    from openpyxl.chart.series import SeriesLabel
+    for n_, key in enumerate(keys):
         ch.add_data(Reference(ws_, min_col=5, max_col=4 + YEARS, min_row=mb.r(sheet_key, key)), from_rows=True,
                     titles_from_data=False)
+        if names:
+            ch.series[-1].tx = SeriesLabel(v=names[n_])
     ch.set_categories(Reference(ws_, min_col=5, max_col=4 + YEARS, min_row=5))
     ch.height, ch.width = 8, 15
 
 
-c1 = BarChart(); c1.title = "Revenue & EBITDA (LCY)"; chart_rows(c1, aw, ["rev", "ebitda"], A); dw.add_chart(c1, "J5")
+c1 = BarChart(); c1.title = "Revenue & EBITDA (LCY)"; chart_rows(c1, aw, ["rev", "ebitda"], A, ["Revenue", "EBITDA"]); dw.add_chart(c1, "J5")
 c2 = BarChart(); c2.grouping = "stacked"; c2.overlap = 100
-c2.title = "Units sold by tier"; chart_rows(c2, kpw, [f"units{j}" for j in range(NP)], K); dw.add_chart(c2, "S5")
-c3 = LineChart(); c3.title = "Collection rate & write-off rate"; chart_rows(c3, kpw, ["cr", "wo"], K)
+c2.title = "Units sold by tier"; chart_rows(c2, kpw, [f"units{j}" for j in range(NP)], K, [f"Tier {p['tier']}" for p in PRODUCTS]); dw.add_chart(c2, "S5")
+c3 = LineChart(); c3.title = "Collection rate & write-off rate"; chart_rows(c3, kpw, ["cr", "wo"], K, ["Operational collection rate", "Write-off rate"])
 c3.y_axis.number_format = "0%"; dw.add_chart(c3, "J22")
-c4 = LineChart(); c4.title = "Cumulative equity vs total debt (LCY)"; chart_rows(c4, kpw, ["eq_cum", "debt"], K)
+c4 = LineChart(); c4.title = "Cumulative equity vs total debt (LCY)"; chart_rows(c4, kpw, ["eq_cum", "debt"], K, ["Cumulative equity", "Total debt"])
 dw.add_chart(c4, "S22")
 note(dw, f"A{DASH_END + 1}", "Charts, series order: Revenue, EBITDA | Tier 1..5 | Collection, Write-off | Equity, Debt.")
 
@@ -3415,6 +3433,7 @@ def fill_snapshot():
          "workbook for every case (largest relative difference below one in a billion). To test your own assumptions, read the LIVE row.")
     ch = BarChart(); ch.type = "bar"; ch.title = "Investor IRR by case (static)"
     ch.add_data(Reference(snw, min_col=7, max_col=7, min_row=SENS_ROW0, max_row=end - 1), titles_from_data=False)
+    ch.series[-1].tx = SeriesLabel(v="Investor IRR (USD)")
     ch.set_categories(Reference(snw, min_col=1, max_col=1, min_row=SENS_ROW0, max_row=end - 1))
     ch.height, ch.width = 9, 18
     snw.add_chart(ch, f"A{LIVE_ROW + 3}")
