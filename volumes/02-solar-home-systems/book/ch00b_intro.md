@@ -15,7 +15,7 @@ A PAYGo company can be read in a fixed order, and the order matters more than an
 | Cash | When does the cash arrive? | Operating cash flow, working capital | 1, 9, 10 |
 | FX | Which costs and liabilities sit in another currency? | Translation and transaction effects | 10 |
 | Funding | Who funds the gap, at what cost, against what security? | Equity, debt, receivables facilities | 11, 12 |
-| RBF | Does subsidy money arrive, when, and against what evidence? | Results based payments and their timing | 13 |
+| Results based financing (RBF) | Does subsidy money arrive, when, and against what evidence? | Results based payments and their timing | 13 |
 | Stress testing | What breaks first, and when? | Peak equity, covenant breaches, distance to failure | 14 |
 | Valuation | What is the business worth, on whose assumptions? | Enterprise value, investor returns | 9, 15 |
 | Investment committee | Go, conditional go or stop, on what evidence? | Decision and conditions | 15, 16 |

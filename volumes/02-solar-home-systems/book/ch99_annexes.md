@@ -12,13 +12,13 @@ The dictionary has two parts. Part 1 lists the five PAYGo PERFORM KPIs as define
 | RR PvP at twice the term | Payments applied by 2x the term ÷ instalments due over 1x the term | Standard outcome cut off |
 | Ownership rate at twice the term | Contracts fully paid by 2x ÷ contracts that have reached at least 2x | Includes written off contracts; excludes contracts not yet at 2x, even if paid |
 
-Results for cohorts and portfolios are built from contract level numerators and denominators. A collection rate, or days locked or enabled, may not be used as a substitute for the repayment rate. In the companion model, company-reported results are loaded on the *PERFORM_2026* sheet.
+Results for cohorts and portfolios are built from contract level numerators and denominators. A collection rate, or days locked or enabled, may not be used as a substitute for the Repayment Rate. In the companion model, company reported results are loaded on the *PERFORM_2026* sheet.
 
 **Part 2. Operational, lender and model metrics**
 
 | KPI | Definition used in the workbook | Level | Comment |
 |---|---|---|---|
-| Collection rate (operational) | Instalments collected ÷ instalments due in the period, excluding deposits | Portfolio and cohort | Cash conversion in a period; defined in the 2021 PERFORM guide; not a substitute for the repayment rate |
+| Collection rate (operational) | Instalments collected ÷ instalments due in the period, excluding deposits | Portfolio and cohort | Cash conversion in a period; defined in the 2021 PERFORM guide; not a substitute for the Repayment Rate |
 | Trailing three month collection rate | Collections ÷ instalments due over the last three months | Portfolio | The usual covenant measure; smooths one off months |
 | Cohort repayment ratio (model) | Cumulative collections ÷ cumulative instalments due, at a given account age, monthly | Cohort | Follows the logic of RR PvP but is not a PERFORM calculation (monthly, no payment allocation) |
 | Receivables at risk (RaR) | Carrying amount of accounts that have stopped paying ÷ gross receivables | Portfolio | 2021 guide: balances more than a stated number of consecutive days unpaid; the model's Proxy mode uses a curve based carrying amount; Actual mode uses the company's figure |
@@ -138,23 +138,29 @@ This annex summarises the source register for this edition (the full register, w
 | Term | Meaning |
 |---|---|
 | Advance rate | Share of eligible receivables a lender will fund |
+| APR | Annual percentage rate |
 | Borrowing base | Maximum facility drawing allowed by eligible receivables and advance rates |
+| CAC | Customer acquisition cost |
 | Cohort (vintage) | All accounts originated in the same month, for one product tier |
-| Collection rate | Collections ÷ instalments due in a period, excluding deposits; an operational metric, not a PERFORM KPI |
+| Collection rate (operational) | Collections ÷ instalments due in a period, excluding deposits; an operational metric, not a PERFORM KPI |
 | Cure | Return of a delinquent account to current status |
 | Daily rate | Price of one day of service, paid in advance through mobile money |
 | Deposit | Upfront payment that activates the device and screens customers |
 | DPD | Days past due |
+| DSCR | Debt service coverage ratio |
 | ECL | Expected credit loss |
 | Excess spread | Interest and fee income on securitised assets above the cost of the notes and expenses |
 | First loss | Tranche or equity that absorbs losses before any other investor |
+| FX | Foreign exchange |
+| LCY | Local currency of the generic model (KVS in the SolaraPay case) |
 | Lockout | Remote disabling of a device when payments stop |
 | LGD | Loss given default |
+| MTF | Multi-Tier Framework (ESMAP) |
 | Ownership rate @2x | PAYGo PERFORM 2026 KPI: contracts fully paid by twice the contract term ÷ contracts that have reached it |
 | PAR30 | Portfolio at risk, more than 30 days past due |
 | PD | Probability of default |
 | RaR | Receivables at risk |
-| Repayment rate (RR) | PAYGo PERFORM 2026 KPI family: payments applied to due instalments ÷ instalments due (PvP) or ÷ amount financed (PvFin), on contract data |
+| Repayment Rate (RR) | PAYGo PERFORM 2026 KPI family: payments applied to due instalments ÷ instalments due (PvP) or ÷ amount financed (PvFin), on contract data |
 | RBF | Results based financing |
 | SICR | Significant increase in credit risk (IFRS 9) |
 | SPV | Special purpose vehicle |

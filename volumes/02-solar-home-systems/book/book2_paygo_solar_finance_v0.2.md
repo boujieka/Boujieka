@@ -31,13 +31,13 @@ The book is written to stand on its own. A reader who never opens the model lose
 
 This book asks one question: can pay as you go solar become profitable and financeable? The record of the sector so far suggests that the answer can be yes, but only for companies that understand what kind of business they are running. A PAYGo solar home system company is a retailer, a utility like service provider and a consumer lender at the same time. The retailer books margin on the day of sale; the service provider keeps the device working and the customer engaged for years; the lender waits for the cash, a few shillings or naira or kwacha a day, from households whose incomes rise and fall with harvests and remittances. Many of the strategic and financial mistakes seen in this sector come from analysing one of those three businesses and forgetting the other two.
 
-The book is written for the people who have to make decisions about such companies: founders and finance directors building a plan, credit officers at banks and development finance institutions sizing a facility, investment managers at impact funds preparing an investment committee memo, and the programme managers who design results based financing. It is also meant for graduate students who want to understand how distributed energy access is financed, beyond the headline numbers.
+The book is written for the people who have to make decisions about such companies: founders and finance directors building a plan, credit officers at banks and development finance institutions sizing a facility, investment managers at impact funds preparing an investment committee memo, and the programme managers who design results based financing (RBF). It is also meant for graduate students who want to understand how distributed energy access is financed, beyond the headline numbers.
 
 Each chapter supports one decision. Chapter 1 sets out the business model and the reasons why cohorts and the receivables book, rather than the sales line, are the unit of analysis. Chapters 2 to 5 cover the commercial foundations: customers and affordability, regulation, product and price plan design, and distribution. Chapters 6 to 9 deal with credit and profitability: repayment behaviour, portfolio KPIs, revenue recognition and credit losses, and unit economics. Chapters 10 to 13 turn to cash and capital: working capital and currency, the funding stack, securitisation and subsidies. Chapters 14 and 15 bring the analysis together for the people who carry the risk, through stress testing and the investor's diligence and memo. Chapter 16 walks through a complete case.
 
 ## How the book works with the model
 
-The book has a companion workbook, MODEL 2, the PAYGo Company Financial and Investment Model (version 0.8, in development at the time of this edition; the projections and valuations quoted in the book are identical in the released version 0.7, while the readiness results, the treatment of external references and the integrity checks follow version 0.8), together with a user manual and a worked case study on SolaraPay Ltd, a fictional company in the fictional Republic of Kivara. The chapters refer to the workbook by sheet name, so that each concept can be tested on numbers. A reader who prefers to stay with the text can ignore those references; the argument stands without them. A reader who works through them will finish the book able to build, challenge and defend a PAYGo investment case.
+The book has a companion workbook, MODEL 2, the PAYGo Company Financial and Investment Model, together with a user manual and a worked case study on SolaraPay Ltd, a fictional company in the fictional Republic of Kivara. The workbook is at version 0.8, in development at the time of this edition; the projections and valuations quoted in the book are identical in the released version 0.7, while the readiness results, the treatment of external references and the integrity checks follow version 0.8. The chapters refer to the workbook by sheet name, so that each concept can be tested on numbers. A reader who prefers to stay with the text can ignore those references; the argument stands without them. A reader who works through them will finish the book able to build, challenge and defend a PAYGo investment case.
 
 All default inputs in the workbook, and all SolaraPay figures, are illustrative. They were chosen to make the mechanics visible and to resemble the orders of magnitude found in the sector, not to describe any real company. Where the book cites figures about real companies or about the sector, it says where they come from and how far they have been verified. Several published figures conflict with each other; the book reports the conflict rather than choosing the more convenient number.
 
@@ -49,7 +49,7 @@ Currency amounts are in US dollars (USD) or in the local currency of the example
 
 The book draws on six kinds of material and labels each one. A primary source is an official, regulatory or audited document, such as statutory accounts filed with a companies registry or a notice in an official gazette. Institutional evidence comes from bodies such as ESMAP and the World Bank, GOGLA and the PAYGo PERFORM initiative; a company's own announcements are placed in the same class, as primary but unaudited statements. Secondary reporting is news and trade press about those documents. A model assumption is an input of the companion workbook, chosen to make the mechanics visible; the default inputs describe a fictional market. A calibrated assumption is an input revised against a company's observed data, as in the SolaraPay case. An illustrative case output is a figure produced by the workbook for SolaraPay; it is never a benchmark for real companies.
 
-Every external claim is recorded in a source register with two separate judgements. The grade describes the source: A for primary official, regulatory or audited documents; B for institutional sources and company disclosures; C for reputable secondary reporting; D for unverified or informal material. The status describes what has actually been checked: verified, verified but historical (the document has been superseded), pending the primary document, unverified, conflicting sources, or not used. A claim can cite a grade A source and still be pending, because the grade describes the document and the status describes whether its page has been read. Only verified claims feed a calculation or a diagnostic in the workbook; the others appear in the text with their caveat. Pages are cited from the document held, and where a page has not been seen the register says so rather than guessing. Annex G summarises the register for this edition.
+Every external claim is recorded in a source register with two separate judgements. The grade describes the source: A for primary official, regulatory or audited documents; B for institutional sources and company disclosures; C for reputable secondary reporting; D for unverified or informal material. The status describes what has actually been checked: verified, verified but historical (the document has been superseded), pending the primary document, unverified, conflicting sources or not used. A claim can cite a grade A source and still be pending, because the grade describes the document and the status describes whether its page has been read. Only verified claims feed a calculation or a diagnostic in the workbook; the others appear in the text with their caveat. Pages are cited from the document held, and where a page has not been seen the register says so rather than guessing. Annex G summarises the register for this edition.
 
 ## Status of this edition
 
@@ -76,7 +76,7 @@ A PAYGo company can be read in a fixed order, and the order matters more than an
 | Cash | When does the cash arrive? | Operating cash flow, working capital | 1, 9, 10 |
 | FX | Which costs and liabilities sit in another currency? | Translation and transaction effects | 10 |
 | Funding | Who funds the gap, at what cost, against what security? | Equity, debt, receivables facilities | 11, 12 |
-| RBF | Does subsidy money arrive, when, and against what evidence? | Results based payments and their timing | 13 |
+| Results based financing (RBF) | Does subsidy money arrive, when, and against what evidence? | Results based payments and their timing | 13 |
 | Stress testing | What breaks first, and when? | Peak equity, covenant breaches, distance to failure | 14 |
 | Valuation | What is the business worth, on whose assumptions? | Enterprise value, investor returns | 9, 15 |
 | Investment committee | Go, conditional go or stop, on what evidence? | Decision and conditions | 15, 16 |
@@ -104,7 +104,7 @@ This chapter supports one decision, which comes before any other in the book: wh
 
 ## 1.1 Three businesses in one legal entity
 
-A PAYGo solar home system (SHS) company sells a physical product, a panel, a battery, a controller and a set of appliances, to a household that usually cannot pay the cash price up front. The customer pays a deposit, takes the system home and then pays a daily rate, in practice through mobile money, for a fixed tenor. A software lock in the device switches it off when the customer runs out of paid days and switches it back on when a payment arrives. At the end of the tenor the device unlocks permanently and the customer owns it.
+A PAYGo solar home system (SHS) company sells a physical product (a panel, a battery, a controller and a set of appliances) to a household that usually cannot pay the cash price up front. The customer pays a deposit, takes the system home and then pays a daily rate, in practice through mobile money, for a fixed tenor. A software lock in the device switches it off when the customer runs out of paid days and switches it back on when a payment arrives. At the end of the tenor the device unlocks permanently and the customer owns it.
 
 Seen from the outside this is one business. Inside, it is three.
 
@@ -129,7 +129,6 @@ Many of the analytical errors seen in this sector come from reading the company 
 | Working capital | Inventory and supplier credit | Small | The receivables book, by far the largest item |
 | Funding | Trade finance and supplier credit | Operating cash | Equity, receivables facilities, securitisation |
 
-
 ## 1.2 How value and cash are created
 
 Value in a PAYGo company is created when a customer who would otherwise have bought kerosene, batteries and phone charging pays, over time, more than the full cost of acquiring, financing and serving that customer. Cash is created later, and only if the customer keeps paying.
@@ -142,9 +141,9 @@ The workbook follows a simplified IFRS 15 logic for revenue. Hardware revenue eq
 
 The lockout is the feature that made PAYGo possible, and its financial meaning is often misread. It does not secure the receivable in the way a charge over an asset secures a loan. A locked device has limited resale value in the hands of the customer, so the lockout gives the customer a reason to keep paying. It turns a credit decision that is made once at origination into a repayment decision that the customer makes every few days.
 
-Three consequences follow. First, the lockout makes collection behaviour observable at very high frequency. A company knows within days which accounts have stopped paying. Second, the deterrent weakens as the customer approaches the end of the tenor and as the device ages; a battery that has lost capacity is worth less to keep running, and so the incentive to pay falls just as the remaining balance becomes small relative to the effort of paying it. Third, the lockout does not create recovery value. When a customer stops paying for good, the company recovers money only if it can find the device, retrieve it, refurbish it and resell it at a price that exceeds the cost of doing so. The observed loss given default can be close to total. In the SolaraPay case that runs through this book, the observed LGD proxy is about 99%.
+Three consequences follow. First, the lockout makes collection behaviour observable at very high frequency. A company knows within days which accounts have stopped paying. Second, the deterrent weakens as the customer approaches the end of the tenor and as the device ages; a battery that has lost capacity is worth less to keep running, and so the incentive to pay falls just as the remaining balance becomes small relative to the effort of paying it. Third, the lockout does not create recovery value. When a customer stops paying for good, the company recovers money only if it can find the device, retrieve it, refurbish it and resell it at a price that exceeds the cost of doing so. The observed loss given default can be close to total. In the SolaraPay case that runs through this book, the observed loss given default (LGD) proxy is about 99%.
 
-The unlock at the end of the tenor matters for a different reason. It is the moment the receivable is extinguished and the customer becomes an owner. Ownership matters to impact investors and results based financing programmes, and it is the base for repeat sales. Yet many companies cannot report, with evidence, how many customers have reached ownership. The workbook will not manufacture that number from proxy data.
+The unlock at the end of the tenor matters for a different reason. It is the moment the receivable is extinguished and the customer becomes an owner. Ownership matters to impact investors and results based financing (RBF) programmes, and it is the base for repeat sales. Yet many companies cannot report, with evidence, how many customers have reached ownership. The workbook will not manufacture that number from proxy data.
 
 ## 1.4 The gap between booked margin and cash
 
@@ -196,7 +195,6 @@ A company that does not provision at origination, and recognises losses only as 
 
 That is the gap. Everything that matters in the business sits in it.
 
-
 ![Figure 3. The worked example of this section: cumulative cash per unit against cumulative profit under two loss treatments. Cash turns positive in month 14; all three reach LCY 11,832 at the end of the tenor. Parameters as stated in the text.](figures/fig03_unit_cash.png)
 
 ## 1.5 Why cohorts and the receivables book are the unit of analysis
@@ -207,7 +205,7 @@ This is why the book treats the cohort (or vintage) and the receivables book as 
 
 PAYGo PERFORM is the industry KPI standard. Its first guide (CGAP, GOGLA and IFC Lighting Global, 2021, now historical) defined portfolio ratios such as the collection rate, receivables at risk and the write off ratio. The current standard (GOGLA, June 2026) narrows it to five KPIs on repayment and ownership, computed by the company on contract level data (Chapter 7). The workbook keeps the older ratios as operational and lender metrics, each with its definition printed, and reports PERFORM 2026 figures only when the company supplies them.
 
-The sector evidence is sobering, although it still has to be read in the original. The ESMAP Off-Grid Solar Market Trends Report 2024 is reported to give an average PAYGo collection rate of about 62% across reporting companies for 2021 to 2023, with the top quartile at 75% to 80% and the bottom quartile below 50%. It is also reported that about half of companies had a write off ratio plus 30 day receivables at risk of between 30% and 50% in 2023, against 18% of companies in 2021 (Annex G, E1; the report's pages and definitions are still to be checked). A collection rate of this kind is not the repayment rate defined by the PAYGo PERFORM standard (Chapter 7), and neither figure describes any single company.
+The sector evidence is sobering, although it still has to be read in the original. The ESMAP Off-Grid Solar Market Trends Report 2024 is reported to give an average PAYGo collection rate of about 62% across reporting companies for 2021 to 2023, with the top quartile at 75% to 80% and the bottom quartile below 50%. It is also reported that about half of companies had a write off ratio plus 30 day receivables at risk of between 30% and 50% in 2023, against 18% of companies in 2021 (Annex G, E1; the report's pages and definitions are still to be checked). A collection rate of this kind is not the Repayment Rate defined by the PAYGo PERFORM standard (Chapter 7), and neither figure describes any single company.
 
 ## 1.6 How PAYGo companies fail
 
@@ -229,7 +227,7 @@ The companion workbook is MODEL 2, the PAYGo Company Financial and Investment Mo
 
 The SolaraPay case, a fictional company in the fictional Republic of Kivara with a synthetic 24 month history, runs through every chapter. It is asking an impact fund for USD 4.0m of equity at USD 8.0m pre money and a local bank for a KVS 4.5bn receivables facility. Its management plan looks attractive; once the model is calibrated to its own history, the case becomes conditional. The way it moves from one to the other is the method this book teaches.
 
-The workbook never rates a company. Its *Investment_Readiness* sheet runs 23 gates, counts each one only on evidence, and applies a fixed rule: STOP when a test fails or critical evidence is missing, CONDITIONAL GO when every critical gate is met, GO only when all 23 are. A GO says that the evidence file is complete for a committee to decide; it is not a recommendation. In its default state the workbook passes 2 of the 23 gates and reads STOP on a failed test: the Base projection fails the lender's annual DSCR test in Years 1 to 4, so the covenant gate is not met. SolaraPay, with its history loaded, passes 4 and reads STOP for the same reason. That STOP is a finding against the business plan as modelled, not only a gap in the evidence.
+The workbook never rates a company. Its *Investment_Readiness* sheet runs 23 gates, counts each one only on evidence, and applies a fixed rule: STOP when a test fails or critical evidence is missing, CONDITIONAL GO when every critical gate is met, GO only when all 23 are. A GO says that the evidence file is complete for a committee to decide; it is not a recommendation. In its default state the workbook passes 2 of the 23 gates and reads STOP on a failed test: the Base projection fails the lender's annual debt service coverage ratio (DSCR) test in Years 1 to 4, so the covenant gate is not met. SolaraPay, with its history loaded, passes 4 and reads STOP for the same reason. That STOP is a finding against the business plan as modelled, not only a gap in the evidence.
 
 ## Points for the investment committee
 
@@ -242,17 +240,17 @@ The workbook never rates a company. Its *Investment_Readiness* sheet runs 23 gat
 
 ## Working with the model
 
-Open the *Start* sheet first: it sets out what to input, what the model calculates, what the results mean and what an investor should read, and it counts the inputs by provenance label (model assumption, company data, external evidence, calibrated assumption, unverified). Then use the *Dashboard* and *KPIs* sheets to see the company as management presents it, then go to *Unit_Economics* to see the per unit margin and payback by tier. *Credit_Portfolio* and *Vintage_Dashboard* show the receivables book and the cohort curves. The *Checks* sheet should read OK before any output is relied on; it confirms internal consistency, not the realism of the assumptions. *Investment_Readiness* shows which of the 23 gates the company passes, where the evidence for each is held and who signed it off, and the decision that follows from the evidence alone.
+Open the *Start* sheet first: it sets out what to input, what the model calculates, what the results mean and what an investor should read, and it counts the inputs by provenance label (model assumption, company data, external evidence, calibrated assumption, unverified). Then use the *Dashboard* and *KPIs* sheets to see the company as management presents it, and go to *Unit_Economics* to see the per unit margin and payback by tier. *Credit_Portfolio* and *Vintage_Dashboard* show the receivables book and the cohort curves. The *Checks* sheet should read OK before any output is relied on; it confirms internal consistency, not the realism of the assumptions. *Investment_Readiness* shows which of the 23 gates the company passes, where the evidence for each is held and who signed it off, and the decision that follows from the evidence alone.
 
 # Chapter 2. Market, customers and affordability
 
-This chapter supports the decision of who can pay, and how much. Every PAYGo price plan is a bet that a particular household can meet a particular instalment, every month, for a particular tenor, out of an income that is small and irregular. Sizing the market by counting households without grid access answers a different question. The investor needs to know how many of those households can carry the instalment without defaulting, and the lender needs to know how the answer changes in a bad harvest. The chapter sets out the customer segments by product tier, the effect of income seasonality, the payment burden ratio and the threshold used in the workbook, the deposit as a screening device, the implied APR, the Multi Tier Framework and the data that can be used to test affordability.
+This chapter supports the decision of who can pay, and how much. Every PAYGo price plan is a bet that a particular household can meet a particular instalment, every month, for a particular tenor, out of an income that is small and irregular. Sizing the market by counting households without grid access answers a different question. The investor needs to know how many of those households can carry the instalment without defaulting, and the lender needs to know how the answer changes in a bad harvest. The chapter sets out the customer segments by product tier, the effect of income seasonality, the payment burden ratio and the threshold used in the workbook, the deposit as a screening device, the implied annual percentage rate (APR), the Multi-Tier Framework (MTF) and the data that can be used to test affordability.
 
 *Place in the analytical chain: Customer and affordability.*
 
 ## 2.1 Segments by tier
 
-The workbook carries five product tiers, labelled by the capacity attribute of ESMAP's Multi Tier Framework. Each tier implies a different customer.
+The workbook carries five product tiers, labelled by the capacity attribute of ESMAP's Multi-Tier Framework. Each tier implies a different customer.
 
 | Tier | Default product | Default tenor | Typical segment |
 |---|---|---|---|
@@ -284,7 +282,7 @@ The workbook computes it on the *Consumer_Risk* sheet for each tier, together wi
 
 The 10% threshold is a policy choice. It is not a law, a regulatory standard or an empirical boundary between good and bad credit. It is a convenient, conservative line that a lender or a programme can write into a credit policy and test. A company may justify a different threshold, for example by segment or by income type, provided it can show repayment evidence that supports it. What it should not do is leave the threshold unexamined or set it after the fact to clear the products it wants to sell.
 
-Sector studies use thresholds of the same order, but as conventions of their own method. The ESMAP Off-Grid Solar Market Trends Report 2024 is reported to treat a monthly payment of up to 5% of household income as affordable and up to 10% as affordable "at a stretch", and on that basis to find that a Tier 1 PAYGo product is affordable for about 22% of people without access worldwide and affordable at a stretch for a further 27%, with far lower shares for a Tier 2 product (Annex G, E1; to be checked against the report). The workbook's default of 10% therefore corresponds to the upper end of "at a stretch". Neither figure is a law of household finance.
+Sector studies use thresholds of the same order, but as conventions of their own method. The ESMAP Off-Grid Solar Market Trends Report 2024 is reported to treat a monthly payment of up to 5% of household income as affordable and up to 10% as affordable "at a stretch". On that basis it is reported to find that a Tier 1 PAYGo product is affordable for about 22% of people without access worldwide and affordable at a stretch for a further 27%, with far lower shares for a Tier 2 product (Annex G, E1; to be checked against the report). The workbook's default of 10% therefore corresponds to the upper end of "at a stretch". Neither figure is a law of household finance.
 
 Whether a given instalment is affordable depends on more than a single ratio:
 
@@ -316,7 +314,6 @@ On average income the plan fails the 10% test. In good months it passes; in lean
 
 The SolaraPay case shows the same issue in its own plan. On the illustrative incomes in its *Consumer_Risk* sheet, the payment burden is 13.0% for Tier 2, 13.2% for Tier 3 and 11.3% for Tier 4, all above the model's 10% policy threshold. One of the seven conditions of the recommendation in that case is an affordability redesign to keep the instalment within 10% of income.
 
-
 ![Figure 4. Payment burden by tier in the companion model at default inputs, against the model policy threshold of 10%. Household incomes are illustrative placeholders. Source: Consumer_Risk.](figures/fig04_burden.png)
 
 ## 2.4 The deposit as a screening device
@@ -329,7 +326,7 @@ In the worked example above the deposit is 22.2% of average monthly income, 16.7
 
 ## 2.5 Implied APR
 
-PAYGo contracts are rarely described to customers as loans. The customer sees a deposit, a daily rate and a number of days. The implied annual percentage rate is the figure that a regulator, a consumer advocate or a journalist will compute from those terms, and management should know it before anyone else does.
+PAYGo contracts are rarely described to customers as loans. The customer sees a deposit, a daily rate and a number of days. The implied APR is the figure that a regulator, a consumer advocate or a journalist will compute from those terms, and management should know it before anyone else does.
 
 The implied APR is derived from the internal rate of return of the contract from the lender's point of view. The amount financed is the cash price less the deposit. The monthly rate r solves:
 
@@ -352,9 +349,9 @@ For the plan above, the amount financed is LCY 36,000, the instalment is LCY 2,1
 
 The flat rate, the premium divided by the amount financed and the number of years, is the figure a company may be tempted to quote. Against the effective rate it understates the cost by about half, because the balance declines as the customer pays. The SolaraPay plan reports implied APRs of 106% for Tier 1, 50% for Tier 2, 39% for Tier 3, 32% for Tier 4 and 25% for Tier 5. The pattern, with the highest rate on the smallest product and the shortest tenor, follows from the economics of PAYGo pricing: the fixed costs of acquisition and servicing are spread over a small amount financed. It is also the pattern most exposed to an APR cap or to public criticism, which Chapter 3 takes up.
 
-## 2.6 The Multi Tier Framework
+## 2.6 The Multi-Tier Framework
 
-ESMAP's Multi Tier Framework, set out in Beyond Connections (2015), defines Tiers 0 to 5 of household electricity access across a set of attributes: capacity, duration, reliability, quality, affordability, legality, and health and safety. In the framework, a household's overall tier is generally set by the lowest tier it reaches across the attributes.
+ESMAP's Multi-Tier Framework, set out in Beyond Connections (2015), defines Tiers 0 to 5 of household electricity access across a set of attributes: capacity, duration, reliability, quality, affordability, legality, and health and safety. In the framework, a household's overall tier is generally set by the lowest tier it reaches across the attributes.
 
 The workbook uses the framework's tier labels for its five products, but only on the capacity attribute. A full MTF assessment would also ask how many hours a day the supply is available, whether it is reliable, whether its quality damages appliances, whether it is affordable, whether the connection is legal, and whether it is safe. A product labelled Tier 2 on capacity may deliver a lower tier in practice if the battery is undersized for the household's evening use, or if the instalment is unaffordable. Affordability is an attribute of the framework, which links the access measure directly to the payment burden discussed above. Two common errors are labelling a product one tier above what its capacity supports, and treating the capacity label as a full access assessment in impact reporting.
 
@@ -397,7 +394,7 @@ This chapter supports the decision of what could stop the company operating, or 
 
 ## 3.1 How to use the checklist
 
-Regulatory diligence on a PAYGo company is often done late and narrowly, confirming incorporation and the enforceability of facility documents while the commercial risks go unexamined. The better approach treats each rule category as a potential driver of the financial model. A licence requirement is a cost and a timing risk. An APR cap is a constraint on the price plan. A ban on remote lockout is a change to the default hazard. An exchange control is a constraint on distributions and debt service.
+Regulatory diligence on a PAYGo company is often done late and narrowly, confirming incorporation and the enforceability of facility documents while the commercial risks go unexamined. The better approach treats each rule category as a potential driver of the financial model. A licence requirement is a cost and a timing risk. An annual percentage rate (APR) cap is a constraint on the price plan. A ban on remote lockout is a change to the default hazard. An exchange control is a constraint on distributions and debt service.
 
 The financial question in each case is the same: if the rule applies, or changes, which line of the model moves, and by how much? Where the answer is material, the committee should see the scenario run, not only the legal memo.
 
@@ -407,7 +404,7 @@ Three general points apply throughout. First, the relevant law is usually that o
 
 The question to ask is whether the PAYGo contract is characterised as credit under local law, and if so whether the company, or the entity that holds the receivables, needs a lending, credit or hire purchase licence to originate, hold or collect it.
 
-The financial consequence is direct. If a licence is required and the company does not hold one, its contracts may be unenforceable, its collections may be challenged and its lenders may find that their security over the receivables is impaired. Obtaining a licence may impose capital requirements, reporting obligations and restrictions on the activities of the licensed entity, all of which add cost. In a group structure the question also arises for the entity that buys or holds receivables, such as a financing subsidiary or an SPV.
+The financial consequence is direct. If a licence is required and the company does not hold one, its contracts may be unenforceable, its collections may be challenged and its lenders may find that their security over the receivables is impaired. Obtaining a licence may impose capital requirements, reporting obligations and restrictions on the activities of the licensed entity, all of which add cost. In a group structure the question also arises for the entity that buys or holds receivables, such as a financing subsidiary or a special purpose vehicle (SPV).
 
 The evidence an investor expects is a legal opinion on the characterisation of the contract, copies of any licences held with their conditions and expiry dates, correspondence with the regulator where the position is under review, and confirmation that the contract template has been reviewed against the applicable consumer credit rules.
 
@@ -417,7 +414,7 @@ The question is whether the company must disclose the cost of credit in a prescr
 
 Disclosure rules matter because they change how the product is sold. A customer who is told the effective annual rate may react differently from one who is told the daily rate. They also matter because a company that has not computed its own APR will learn it from someone else. Chapter 2 showed that an illustrative Tier 2 plan with a flat rate of 23.0% a year has an effective annual rate of 47.3%, and that the SolaraPay plan has implied APRs from 25% on Tier 5 to 106% on Tier 1.
 
-An APR cap, where it exists or is introduced, constrains the PAYGo premium. The effect falls hardest on small, short tenor products, where acquisition and servicing costs are spread over a small amount financed. A cap that the Tier 1 product breaches would force the company to raise the cash price, which moves margin from financing income to hardware revenue but does not change what the customer pays, or to accept a lower return on the product, or to withdraw it. Each option should be modelled. Where the cap applies to the total cost of credit including fees, the definition matters as much as the level.
+An APR cap, where it exists or is introduced, constrains the PAYGo premium. The effect falls hardest on small, short tenor products, where acquisition and servicing costs are spread over a small amount financed. A cap that the Tier 1 product breaches would force the company to raise the cash price (which moves margin from financing income to hardware revenue but does not change what the customer pays), to accept a lower return on the product or to withdraw it. Each option should be modelled. Where the cap applies to the total cost of credit including fees, the definition matters as much as the level.
 
 The evidence expected is a schedule of the implied APR for every live price plan, computed on the basis the law requires, a sample of customer facing disclosures, and counsel's view on whether any cap applies and how it is measured.
 
@@ -425,9 +422,9 @@ The evidence expected is a schedule of the implied APR for every live price plan
 
 The question is whether there are rules on how the company may collect, including whether it may lock a device remotely, how much notice it must give, whether it may repossess, and what conduct is prohibited in contacting customers.
 
-The lockout is the company's main collection tool. A rule that restricts remote disablement, requires a grace period before lockout, or limits repossession changes the default hazard and the recovery assumptions directly. A requirement for, say, a longer notice period before lockout will, other things equal, raise the share of customers who fall behind. A prohibition on repossession removes the recovery line altogether, although in many portfolios that line is already small: the SolaraPay case shows an observed LGD proxy of about 99%.
+The lockout is the company's main collection tool. A rule that restricts remote disablement, requires a grace period before lockout, or limits repossession changes the default hazard and the recovery assumptions directly. A requirement for, say, a longer notice period before lockout will, other things equal, raise the share of customers who fall behind. A prohibition on repossession removes the recovery line altogether, although in many portfolios that line is already small: the SolaraPay case shows an observed loss given default (LGD) proxy of about 99%.
 
-Conduct rules also carry reputational and licence risk. Aggressive collection by agents paid on recoveries, or repossession without due process, can lead to complaints, sanctions or loss of a licence, and to exclusion from results based financing programmes or DFI funding with consumer protection requirements.
+Conduct rules also carry reputational and licence risk. Aggressive collection by agents paid on recoveries, or repossession without due process, can lead to complaints, sanctions or loss of a licence, and to exclusion from results based financing (RBF) programmes or development finance institution (DFI) funding with consumer protection requirements.
 
 The evidence expected is the company's collections policy, its lockout and repossession procedures, its agent incentive structure for collections, its complaints log and resolution data, and counsel's confirmation that the procedures meet the applicable conduct rules.
 
@@ -453,7 +450,7 @@ The evidence expected is the agreements with each mobile money operator, includi
 
 Tax affects the PAYGo company in several places, and the questions differ by tax.
 
-For VAT and import duty, the question is whether solar equipment benefits from an exemption or reduced rate, which components qualify, and how stable that treatment is. Many PAYGo cost structures are built on a favourable treatment of solar products. A change in the treatment raises the landed cost of every new unit; it can also create disputes over whether a bundle that includes a television or fridge qualifies in full. The workbook carries freight, duty and clearing as a percentage of FOB cost, so the effect of a change can be run directly. The VAT treatment of the PAYGo premium, and whether it is treated as a supply of goods or as financing, also needs to be confirmed.
+For VAT and import duty, the question is whether solar equipment benefits from an exemption or reduced rate, which components qualify, and how stable that treatment is. Many PAYGo cost structures are built on a favourable treatment of solar products. A change in the treatment raises the landed cost of every new unit; it can also create disputes over whether a bundle that includes a television or fridge qualifies in full. The workbook carries freight, duty and clearing as a percentage of free on board (FOB) cost, so the effect of a change can be run directly. The VAT treatment of the PAYGo premium, and whether it is treated as a supply of goods or as financing, also needs to be confirmed.
 
 For withholding tax, the question is what rate applies to interest, fees and dividends paid to foreign lenders and shareholders, and whether a treaty reduces it. Withholding on interest raises the cost of offshore debt where the lender requires a gross up; withholding on dividends reduces what an equity investor receives.
 
@@ -526,7 +523,7 @@ The evidence expected is a true sale and non consolidation opinion from local co
 
 ## Working with the model
 
-Most regulatory risks are tested by changing inputs rather than through a dedicated sheet. *Products* holds the price plan, from which the APR is derived, and the warranty provision. *Inputs* holds freight, duty and clearing, mobile money fees, tax rate, FX and the financing terms. *Products* and *Scenarios* carry the hazard, collection and repossession assumptions through which collection conduct rules feed the model, and *Credit_Assumptions* holds the recovery cost and the DPD definitions. Each legal opinion relied on should be listed in the data room index, and *Investment_Readiness* should not be advanced on any gate that depends on a legal position not yet confirmed.
+Most regulatory risks are tested by changing inputs rather than through a dedicated sheet. *Products* holds the price plan, from which the APR is derived, and the warranty provision. *Inputs* holds freight, duty and clearing, mobile money fees, tax rate, FX and the financing terms. *Products* and *Scenarios* carry the hazard, collection and repossession assumptions through which collection conduct rules feed the model, and *Credit_Assumptions* holds the recovery cost and the days past due (DPD) definitions. Each legal opinion relied on should be listed in the data room index, and *Investment_Readiness* should not be advanced on any gate that depends on a legal position not yet confirmed.
 
 # Chapter 4. Product and price plan design
 
@@ -545,7 +542,7 @@ The workbook takes four inputs for each tier on the *Products* sheet: cash price
 | Total contract value | Deposit + scheduled instalments |
 | PAYGo premium | Total contract value less cash price |
 | Amount financed | Cash price less deposit |
-| Implied APR | From the annuity equation in Chapter 2 |
+| Implied annual percentage rate (APR) | From the annuity equation in Chapter 2 |
 
 The cash price matters beyond what a cash buyer pays. Under the workbook's revenue logic, hardware revenue equals the cash price and is recognised at sale, while the premium is recognised as financing income straight line over the tenor. Setting a high cash price and a low premium therefore brings revenue forward without changing what the customer pays. It also lowers the implied APR. A company facing an APR cap, or public scrutiny of its rates, has an incentive to move value from the premium into the cash price, and an investor should check whether the cash price is one at which the company actually sells for cash.
 
@@ -606,7 +603,7 @@ The workbook keeps the hazard constant across tenors. In practice, the analyst m
 
 ## 4.4 Upgrades, add ons and repeat customers
 
-A customer who completes a plan has shown, over a full seasonal cycle or more, that they can pay. That customer is the lowest risk prospect the company will ever have, and selling them a second product, an upgrade to a larger system or an appliance on a short plan, is the cheapest acquisition available. Upgrades also give the company a reason to stay in contact with owners, which supports ownership reporting.
+A customer who completes a plan has shown, over a full seasonal cycle or more, that they can pay. That customer is the lowest risk prospect the company will ever have, and selling them a second product (an upgrade to a larger system or an appliance on a short plan) is the cheapest acquisition available. Upgrades also give the company a reason to stay in contact with owners, which supports ownership reporting.
 
 The economics need care. An upgrade that rolls the remaining balance of an existing contract into a new, larger contract can extend tenor and conceal arrears. A lender should ask for upgrade cohorts to be reported separately, and for any balance carried into a new contract to be disclosed.
 
@@ -626,7 +623,7 @@ Higher tiers look more attractive per unit. They carry lower default hazards in 
 
 The difficulty is that those assumptions are, for most companies, untested. Tier 4 and 5 customers are different people, buying a different product for a different reason, often in urban markets where the company has less experience. A company that shifts its mix towards them on the strength of assumed hazards is making the largest credit bet in its plan on the least evidence. The amounts financed are large, so a modest error in the hazard moves the portfolio. Recovery depends on repossessing and reselling high value equipment, which is harder to do well than the repossession rate assumption suggests.
 
-The SolaraPay case quantifies the risk. Its plan introduces Tier 4 (cash price KVS 390,000, 36 months) and Tier 5 (KVS 845,000, 48 months) as new products. Calibrated unit economics give them the best ratios in the range: LTV/CAC of 11.0x and 14.9x, and unit IRRs of 67% and 54%. But they have no history, and doubling their hazard cuts the investor IRR in the calibrated case from 29.0% to 14.8%, and the MOIC from 3.6x to 2.0x, with 38 months in breach of covenants. The recommendation in the case caps Tiers 4 and 5 as a pilot, to be released only after 12 months of cohort data within 10% of plan.
+The SolaraPay case quantifies the risk. Its plan introduces Tier 4 (cash price KVS 390,000, 36 months) and Tier 5 (KVS 845,000, 48 months) as new products. Calibrated unit economics give them the best ratios in the range: lifetime value to customer acquisition cost (LTV/CAC) of 11.0x and 14.9x, and unit IRRs of 67% and 54%. But they have no history, and doubling their hazard cuts the investor IRR in the calibrated case from 29.0% to 14.8%, and the multiple on invested capital (MOIC) from 3.6x to 2.0x, with 38 months in breach of covenants. The recommendation in the case caps Tiers 4 and 5 as a pilot, to be released only after 12 months of cohort data within 10% of plan.
 
 ## 4.7 What the SolaraPay case shows
 
@@ -644,7 +641,7 @@ Tier 2 is the weakest product per unit on the measures that matter most to a len
 
 The affordability evidence points the same way. Tier 2's payment burden is 13.0% of illustrative income, above the model's 10% policy threshold, as are Tier 3 at 13.2% and Tier 4 at 11.3%. Tier 2's cumulative repayment at month 12 was 69.4% against a plan of 74.5%, and calibration raised its monthly hazard from 2.60% to 3.38% and cut its collection rate from 88% to 87%. Applying the mechanics of section 4.3 to the calibrated Tier 2 parameters, the expected collected share over 24 months falls from 64.4% to 58.2% (0.87 × 16.0613 ÷ 24).
 
-The design response for Tier 2 is redesign rather than withdrawal: change the plan so that the instalment falls within the affordability threshold for the customers actually being sold to, which may mean a smaller product, a lower premium, a higher deposit for some segments, or a different target customer, and then to test the redesign on new cohorts before scaling it. The case's conditions also require FX indexation of new prices, because a plan that cannot pass currency depreciation through to new customers loses its margin over time; in the workbook's default sensitivities, freezing prices on new contracts cuts the Base investor IRR from 46.4% to 7.9%.
+The design response for Tier 2 is redesign rather than withdrawal: change the plan so that the instalment falls within the affordability threshold for the customers actually being sold to. That may mean a smaller product, a lower premium, a higher deposit for some segments or a different target customer, and the redesign should then be tested on new cohorts before it is scaled. The case's conditions also require foreign exchange (FX) indexation of new prices, because a plan that cannot pass currency depreciation through to new customers loses its margin over time; in the workbook's default sensitivities, freezing prices on new contracts cuts the Base investor IRR from 46.4% to 7.9%.
 
 ## Points for the investment committee
 
@@ -682,7 +679,7 @@ The channel choice is not neutral for credit. An agent paid only on a signed con
 
 The simplest plan pays a flat commission when the deposit is received and the system is activated. It is easy to explain and cheap to administer, and it is the plan most likely to fill the book with accounts that never make a second payment.
 
-The alternatives split the commission. A typical structure pays part on activation and part later, conditional on the account being current at a checkpoint such as month three, or on a minimum share of instalments having been paid. Some companies add a portfolio bonus based on the agent's whole book, for example a share of collections on accounts the agent originated, or a bonus withheld if the agent's 30+ DPD ratio exceeds a threshold. The most direct form is the clawback: commission already paid is recovered from future earnings if the account defaults within a defined window.
+The alternatives split the commission. A typical structure pays part on activation and part later, conditional on the account being current at a checkpoint such as month three, or on a minimum share of instalments having been paid. Some companies add a portfolio bonus based on the agent's whole book, for example a share of collections on accounts the agent originated, or a bonus withheld if the agent's 30+ days past due (DPD) ratio exceeds a threshold. The most direct form is the clawback: commission already paid is recovered from future earnings if the account defaults within a defined window.
 
 Each design has costs. Deferred and clawback commissions reduce agent cash income in the first months, which raises attrition among new recruits who cannot wait to be paid. They also require a reliable link between each account and its originating agent in the servicing platform, and a payroll process that can net clawbacks against new commissions without disputes. Where agents can simply leave and join a competitor, a clawback that exceeds the agent's pending earnings is uncollectable and acts only as a deterrent on paper.
 
@@ -690,7 +687,7 @@ A practical test for an investment committee is to ask what share of total commi
 
 ## 5.3 Fully loaded CAC
 
-The workbook defines customer acquisition cost on *Unit_Economics* as agent and installer commission plus marketing and acquisition, both entered per unit sold, by tier, on *Products*. That is the right structure for a unit model. It is also the place where most management plans understate the true cost, because the field organisation that makes those sales possible usually sits in fixed overheads.
+The workbook defines customer acquisition cost (CAC) on *Unit_Economics* as agent and installer commission plus marketing and acquisition, both entered per unit sold, by tier, on *Products*. That is the right structure for a unit model. It is also the place where most management plans understate the true cost, because the field organisation that makes those sales possible usually sits in fixed overheads.
 
 A fully loaded CAC adds the costs that exist only because the company is acquiring customers: field supervisors and area managers; agent recruitment and training, which is recurring because agent attrition is high; transport, fuel and motorcycle costs for the sales force; demonstration kits and marketing materials; the verification team that calls new customers to confirm the sale; and losses on fraudulent or fictitious accounts. Installation and last mile logistics are better left in cost of sales, as the workbook does, because they scale with units delivered rather than with the effort to find buyers.
 
@@ -769,7 +766,7 @@ Enter commission and marketing per unit by tier on *Products* and field overhead
 
 # Chapter 6. Repayment behaviour: cohorts, curves and defaults
 
-This chapter supports the decision on which every other number in the plan depends: how the company's customers will actually pay. Revenue, receivables, the borrowing base, covenant headroom and valuation all flow from a small set of repayment assumptions. When those assumptions are wrong, the error is rarely visible in the first year, because new sales hide it. The tools in this chapter (cohorts, survival curves, DPD buckets and roll rates) are how a credit officer finds the error before the lender's covenant test does.
+This chapter supports the decision on which every other number in the plan depends: how the company's customers will actually pay. Revenue, receivables, the borrowing base, covenant headroom and valuation all flow from a small set of repayment assumptions. When those assumptions are wrong, the error is rarely visible in the first year, because new sales hide it. The tools in this chapter (cohorts, survival curves, days past due (DPD) buckets and roll rates) are how a credit officer finds the error before the lender's covenant test does.
 
 *Place in the analytical chain: Cohort and credit: how customers actually repay.*
 
@@ -809,7 +806,6 @@ Cumulative repayment at age m is 0.88 × (S(1) + ... + S(m)) ÷ m. At month 12 t
 
 Two features make the curve valuable in practice. It can be compared across cohorts at the same age regardless of when they were sold, so deterioration shows up as a later cohort sitting below an earlier one at month 6 or month 12. And it can be compared with plan from the first month, long before a cohort completes its tenor. A cohort that sits five points below plan at month 12 will not recover that gap by month 24 unless something has changed in collections; the constant hazard model says the gap will widen.
 
-
 ![Figure 5. Cumulative collections divided by cumulative instalments due, by account age and tier, default inputs (Base). Each curve flattens at the end of its tenor. Source: Curves.](figures/fig05_repayment_curves.png)
 
 ## 6.4 DPD buckets, roll rates and cures
@@ -820,9 +816,9 @@ In PAYGo, DPD needs a definition before it can be compared. Some platforms measu
 
 Roll rates measure the share of accounts in one bucket that move to the next bucket a month later. An illustration, with assumed rates: of 10,000 current accounts this month, 10% (1,000) are in the 1 to 30 bucket next month; 40% of those (400) roll to 31 to 60; 60% of those (240) roll to 61 to 90; and 75% of those (180) roll to 91 to 180. The product of the roll rates, 0.10 × 0.40 × 0.60 × 0.75 = 1.8%, is the share of a current pool that reaches 91 days past due three months later on this path. The complement of each roll rate is the share that stays in the bucket or cures.
 
-A cure is an account that returns to current from a delinquent bucket. PAYGo has more cures than most consumer lending, because the lockout gives customers a direct and immediate reason to pay: the lights go off. A household that skipped two weeks during a lean month can clear its arrears in one payment after harvest. Roll rates fall steeply as accounts age past 60 or 90 DPD, however. An account that has been dark for three months has usually found an alternative, moved, sold the device, or decided the debt is not worth paying.
+A cure is an account that returns to current from a delinquent bucket. PAYGo has more cures than most consumer lending, because the lockout gives customers a direct and immediate reason to pay: the lights go off. A household that skipped two weeks during a lean month can clear its arrears in one payment after harvest. Roll rates fall steeply as accounts age past 60 or 90 DPD, however. An account that has been dark for three months has usually found an alternative, moved, sold the device or decided the debt is not worth paying.
 
-The workbook's proxy engine assumes that an account which stops paying never resumes. Cures therefore appear only in the indicative stage based ECL, through a cure rate input of 30% applied to Stage 2 balances. That is a conservative simplification for the cash forecast and should be read as such. Where a company has real cure data, it belongs in the comparison between observed and proxy curves.
+The workbook's proxy engine assumes that an account which stops paying never resumes. Cures therefore appear only in the indicative stage based expected credit loss (ECL), through a cure rate input of 30% applied to Stage 2 balances. That is a conservative simplification for the cash forecast and should be read as such. Where a company has real cure data, it belongs in the comparison between observed and proxy curves.
 
 ## 6.5 Lockout dynamics and the default definition
 
@@ -849,7 +845,6 @@ The SolaraPay case shows the method. The company supplied 24 months of synthetic
 Recalibration raised the hazards and trimmed the collection rates on paying accounts. Tier 1 moved from a hazard of 3.50% to 4.55% and a collection rate of 88% to 86%; Tier 2 from 2.60% to 3.38% and 88% to 87%; Tier 3 from 1.90% to 2.47% and 90% to 89%. Each new hazard is 1.3 times the old one. The fit can be checked with the same formula. For Tier 2, 0.87 × (sum of 0.9662^a for a from 1 to 12) ÷ 12 gives 70.1%, against 69.4% observed; for Tier 1 the recalibrated month 12 figure is 64.4% against 64.6% observed; for Tier 3, 75.9% against 76.3%. Each calibrated curve sits within one percentage point of the observed point. The consequence over the full tenor is larger than the month 12 gap suggests: at the recalibrated Tier 2 hazard, the share of accounts still paying at month 24 falls to 0.9662^24 = 43.8%, against 53.1% on the default curve.
 
 Three cautions apply. A single checkpoint can be matched by many combinations of hazard and collection rate; the M6 and M18 points, and the DPD curves, should be used to choose between them. Tiers 4 and 5 had no history and kept their proxy values, which is a statement of ignorance, not of comfort; the SolaraPay recommendation therefore caps their volumes until twelve months of cohort data sit within 10% of plan. And synthetic or short histories describe one set of conditions; a drought year or a currency shock will move the curves again.
-
 
 ![Figure 6. SolaraPay: cohort repayment at month 12 for the three tiers with history, against the management plan built on the default curves. The history is synthetic. Sources: case Vintage_Dashboard; default Curves.](figures/fig06_solarapay_vs_plan.png)
 
@@ -892,36 +887,36 @@ The 2026 standard defines five KPIs.
 
 | KPI | What it measures | Formula | Type |
 |---|---|---|---|
-| Repayment rate, paid versus plan (RR PvP) | Share of the instalments due to date that have been paid | Payments applied to due instalments to date ÷ instalments due to date | Time series |
-| Repayment rate, paid versus financed (RR PvFin) | Share of the total amount financed that is both due and paid | Payments applied to due instalments to date ÷ total amount financed | Time series |
+| Repayment Rate, paid versus plan (RR PvP) | Share of the instalments due to date that have been paid | Payments applied to due instalments to date ÷ instalments due to date | Time series |
+| Repayment Rate, paid versus financed (RR PvFin) | Share of the total amount financed that is both due and paid | Payments applied to due instalments to date ÷ total amount financed | Time series |
 | RR PvP at 90 days | Share of the instalments due in the first 90 days that have been paid by day 90 | Payments applied to instalments due by day 90 ÷ instalments due by day 90 | Cohort milestone |
 | RR PvP at twice the contract term | Share of the full contract's instalments that have been paid by twice the contract term | Payments applied to due instalments by 2x the term ÷ instalments due over 1x the term | Cohort outcome |
 | Ownership rate at twice the contract term (OR @2x) | Share of contracts fully paid by twice the contract term | Contracts fully paid by 2x ÷ contracts that have reached at least 2x | Cohort outcome |
 
 The calculation rules matter as much as the formulas, and they are where most company figures depart from the standard (Technical Guide, June 2026, pages 8 to 10):
 
-1. Repayment rates exclude deposits, prepayments for future periods, penalties, fees and subsidies. They include arrears payments and contracts that have been written off.
+1. Repayment Rates exclude deposits, prepayments for future periods, penalties, fees and subsidies. They include arrears payments and contracts that have been written off.
 2. They are cumulative from the contract start date, after any free use period, and measured against the original contract terms; rescheduling, grace periods and "free token days" granted later are ignored.
 3. Instalments are normalised to daily equivalents and payments are recognised, day by day, when they are applied to instalments due, not when the cash is received.
 4. Cohort and portfolio results are built by adding up the numerators and denominators of the individual contracts, not by averaging ratios.
 5. Twice the contract term is the standard cut off for outcomes; results at one and one and a half times the term may be shown as early milestones.
-6. Substitute metrics, such as a collection rate or days locked or enabled, must not be used in place of the repayment rate. The only accepted alternative basis is to derive the result from cumulative arrears.
+6. Substitute metrics, such as a collection rate or days locked or enabled, must not be used in place of the Repayment Rate. The only accepted alternative basis is to derive the result from cumulative arrears.
 
-Two consequences follow for anyone reading a company's figures. First, a repayment rate is a contract level calculation: it needs contract data, payment allocation rules and a daily calendar, and it cannot be rebuilt from a monthly management account. Second, subsidies are excluded from the numerator, so results based financing paid to the company never improves its repayment rate (Chapter 13).
+Two consequences follow for anyone reading a company's figures. First, a Repayment Rate is a contract level calculation: it needs contract data, payment allocation rules and a daily calendar, and it cannot be rebuilt from a monthly management account. Second, subsidies are excluded from the numerator, so results based financing (RBF) paid to the company never improves its Repayment Rate (Chapter 13).
 
-The companion model is a planning model with monthly cohorts, not a contract level platform. Its *Vintage_Dashboard* reports a cohort repayment ratio, cumulative collections divided by cumulative instalments due at account ages from three to sixty months, which follows the logic of RR PvP but is not a PERFORM calculation: it is monthly, not daily, and it does not allocate payments to instalments. The ownership rate at twice the tenor is accepted only from company data; the model will not derive it from its own curves. A company reporting PERFORM figures should compute them on its own contract data, following the guide, and load the numerators and denominators by monthly cohort on the *PERFORM_2026* sheet, which aggregates them by adding numerators and denominators, as the standard requires, and shows beside them the model's approximations, labelled as such.
+The companion model is a planning model with monthly cohorts, not a contract level platform. Its *Vintage_Dashboard* reports a cohort repayment ratio, cumulative collections divided by cumulative instalments due at account ages from three to sixty months, which follows the logic of RR PvP but is not a PERFORM calculation: it is monthly, not daily, and it does not allocate payments to instalments. The ownership rate at twice the tenor is accepted only from company data; the model will not derive it from its own curves. A company reporting PERFORM figures should compute them on its own contract data, following the guide, and load the numerators and denominators by monthly cohort on the *PERFORM_2026* sheet. That sheet aggregates them by adding numerators and denominators, as the standard requires, and shows beside them the model's approximations, labelled as such.
 
 ## 7.3 Operational and lender metrics
 
 Lenders and management teams use further ratios every month. None of them is a PERFORM KPI under the 2026 standard, so each must be reported with its definition.
 
-The collection rate for a period is the cash collected against scheduled instalments divided by the instalments that fell due in that period. Deposits are excluded from both sides. The reason is mechanical: every customer pays the deposit, so including it lifts the ratio in proportion to sales volume and tells the reader nothing about repayment. In a month where instalments due are LCY 100m, instalments collected LCY 74m and deposits LCY 12m, the collection rate is 74.0% (74 ÷ 100). Including deposits on the numerator alone would show 86.0% (86 ÷ 100), a figure that would rise further if the company simply sold more. The collection rate is a measure of cash conversion in a period. It is the usual covenant measure, and the 2021 PERFORM guide defined it (pages 18 and 19), but under the 2026 standard it may not stand in for the repayment rate.
+The operational collection rate for a period is the cash collected against scheduled instalments divided by the instalments that fell due in that period. Deposits are excluded from both sides. The reason is mechanical: every customer pays the deposit, so including it lifts the ratio in proportion to sales volume and tells the reader nothing about repayment. In a month where instalments due are LCY 100m, instalments collected LCY 74m and deposits LCY 12m, the collection rate is 74.0% (74 ÷ 100). Including deposits on the numerator alone would show 86.0% (86 ÷ 100), a figure that would rise further if the company simply sold more. The collection rate is a measure of cash conversion in a period. It is the usual covenant measure, and the 2021 PERFORM guide defined it (pages 18 and 19), but under the 2026 standard it may not stand in for the Repayment Rate.
 
 Receivables at risk (RaR) measures the share of the receivables book that sits on accounts that have stopped paying or are seriously late. The 2021 guide defined it as the gross outstanding receivables of contracts more than a stated number of consecutive days unpaid, divided by gross outstanding receivables, with ageing such as RAR30 and RAR90 (pages 21 to 23). The companion model uses a curve based proxy instead: (1 − S(a)) × (T − a) × (instalment − premium ÷ T), the carrying amount of accounts that have left the paying pool, divided by gross receivables. The covenant default in the workbook is RaR of no more than 15%.
 
 Portfolio at risk, PAR30 and PAR90, is the outstanding balance of accounts more than 30 (or 90) days past due, divided by gross receivables. It is the banker's version of RaR and the measure most local lenders already use for their microfinance and SME books. The whole balance of a late account counts, not only the arrears.
 
-The write off ratio is the amount written off in a period divided by average gross receivables over the same period, annualised where the period is shorter than a year (2021 guide, pages 27 and 28). Its value depends heavily on the write off policy. A company that writes off at 180 DPD will show lower write offs, and higher PAR90, than one that writes off at 90 DPD with the same customers. The workbook's simplified accounting writes off missed instalments as they fall due (Chapter 8), so its write off line is not comparable with a company that writes off whole balances on default.
+The write off ratio is the amount written off in a period divided by average gross receivables over the same period, annualised where the period is shorter than a year (2021 guide, pages 27 and 28). Its value depends heavily on the write off policy. A company that writes off at 180 days past due (DPD) will show lower write offs, and higher PAR90, than one that writes off at 90 DPD with the same customers. The workbook's simplified accounting writes off missed instalments as they fall due (Chapter 8), so its write off line is not comparable with a company that writes off whole balances on default.
 
 Two operational ratios complete the set. The active ratio is the number of accounts that made a payment in the last 30 days divided by the number of accounts not yet paid off or written off. The enabled rate is the share of active accounts whose device had credit and was working at the end of the period (some companies instead report average enabled days per account). Operations teams often call this the unlock rate; this book reserves "unlock" for the permanent release of the device at the end of the plan, as in Annex A. Neither has a single accepted definition, so the definition used must be printed beside the figure.
 
@@ -937,12 +932,11 @@ A lagged ratio corrects much of this. Dividing today's 30+ DPD balance by gross 
 
 The workbook's Base case shows the opposite movement as growth slows. The collection rate falls from 84.5% in Year 1 to 73.3% in Year 5 with no change in assumptions; in the calibrated SolaraPay plan, 30+ DPD rises from 8.4% to 14.4% over the same period. A lender who sets covenants on the Year 1 ratios of a fast growing borrower is setting them on the most flattering numbers the business will ever produce.
 
-
 ![Figure 8. Units sold and the portfolio collection rate by year, default inputs (Base). The customers and their curves do not change; the ratio falls because the book seasons as growth slows. Source: KPIs.](figures/fig08_growth_ratio.png)
 
 ## 7.5 Reading external benchmarks
 
-Sector wide figures are useful only as context. The ESMAP and World Bank Off-Grid Solar Market Trends Report 2024 is reported to give an average PAYGo collection rate of about 62% for 2021 to 2023, with a top quartile of 75% to 80% and a bottom quartile below 50% (Annex G, E1; pages and definition to be checked). It is a collection rate, not a PERFORM repayment rate, and its numerator, denominator and treatment of deposits must be confirmed before it is set beside any company's ratio. Even if confirmed, such a figure blends companies with different products, definitions, growth rates and write off policies. It cannot tell a credit committee whether a particular company's 70% is good or bad. It can tell the committee that a plan assuming collection rates well above 80% for five years needs strong evidence. The calibrated SolaraPay plan ends Year 5 at 70.3% against that reported average; the comparison is a sense check and nothing more, and the workbook does not use the sector figure in its diagnostics until the report has been read.
+Sector wide figures are useful only as context. The ESMAP and World Bank Off-Grid Solar Market Trends Report 2024 is reported to give an average PAYGo collection rate of about 62% for 2021 to 2023, with a top quartile of 75% to 80% and a bottom quartile below 50% (Annex G, E1; pages and definition to be checked). It is a collection rate, not a PERFORM Repayment Rate, and its numerator, denominator and treatment of deposits must be confirmed before it is set beside any company's ratio. Even if confirmed, such a figure blends companies with different products, definitions, growth rates and write off policies. It cannot tell a credit committee whether a particular company's 70% is good or bad. It can tell the committee that a plan assuming collection rates well above 80% for five years needs strong evidence. The calibrated SolaraPay plan ends Year 5 at 70.3% against that reported average; the comparison is a sense check and nothing more, and the workbook does not use the sector figure in its diagnostics until the report has been read.
 
 ## 7.6 A monthly dashboard for lender reporting
 
@@ -952,12 +946,12 @@ A lender report should allow the reader to answer four questions without asking 
 |---|---|---|---|
 | Book | Gross receivables by tier | Month end, before allowance | Credit_Portfolio |
 | Book | Active accounts, originations, paid off, written off | Counts for the month | KPIs |
-| Performance | Collection rate, month and trailing 3 months | Excluding deposits | Credit_Portfolio, Covenants |
+| Performance | Operational collection rate, month and trailing 3 months | Excluding deposits | Credit_Portfolio, Covenants |
 | Performance | Active ratio and enabled rate | Definitions printed | Company data |
 | Risk | DPD buckets: current, 1 to 30, 31 to 60, 61 to 90, 91 to 180, over 180 | Balances, reconciled to gross receivables | Credit_Portfolio |
 | Risk | PAR30, PAR90, RaR; PAR30 lagged 3 months | Lagged figure for internal use | Credit_Portfolio |
 | Losses | Write offs, recoveries, net loss rate | Annualised on average receivables | Credit_Portfolio |
-| Losses | Indicative ECL and coverage | Stage based diagnostic | Credit_Portfolio |
+| Losses | Indicative expected credit loss (ECL) and coverage | Stage based diagnostic | Credit_Portfolio |
 | Vintage | Cohort repayment ratio at M3, M6, M12 against plan; PERFORM RR PvP and RR @90 days from contract data | Excluding deposits; PERFORM rules for the PERFORM figures | Vintage_Dashboard; company platform |
 | Vintage | 30+ and 90+ exposure at M6 and M12 by cohort | Including amounts written off | Vintage_Dashboard |
 | Facility | Eligible receivables, borrowing base, drawn, headroom | Eligibility to 30 DPD by default | Credit_Portfolio |
@@ -1007,7 +1001,7 @@ The case also shows the gap that matters most for impact funders: no ownership e
 
 ## Working with the model
 
-*PERFORM_2026* holds the company-reported PERFORM KPIs and the labelled approximations from *Vintage_Input*; a check stops any numerator exceeding its denominator. *Credit_Portfolio* holds the consolidated DPD distribution, the collection ratio, PD and LGD proxies, indicative ECL, the borrowing base and the 30+ and 90+ ratios. *KPIs* and *Covenants* carry the monthly tests and headroom; *Vintage_Dashboard* sets cohort data against the proxy curves. Load company history through *Credit_Input* and *Vintage_Input* in Actual mode, and confirm the reconciliation on *Checks* before any report is issued.
+*PERFORM_2026* holds the company reported PERFORM KPIs and the labelled approximations from *Vintage_Input*; a check stops any numerator exceeding its denominator. *Credit_Portfolio* holds the consolidated DPD distribution, the collection ratio, probability of default (PD) and loss given default (LGD) proxies, indicative ECL, the borrowing base and the 30+ and 90+ ratios. *KPIs* and *Covenants* carry the monthly tests and headroom; *Vintage_Dashboard* sets cohort data against the proxy curves. Load company history through *Credit_Input* and *Vintage_Input* in Actual mode, and confirm the reconciliation on *Checks* before any report is issued.
 
 # Chapter 8. Revenue recognition and credit losses
 
@@ -1029,7 +1023,7 @@ Several judgements sit inside this. The first is whether control passes at insta
 
 PAYGo receivables are financial assets measured at amortised cost, and the loss allowance on them follows the IFRS 9 expected credit loss (ECL) model. The general approach has three stages. Stage 1 covers assets whose credit risk has not increased significantly since origination; the allowance is the 12 month ECL. Stage 2 covers assets with a significant increase in credit risk (SICR); the allowance becomes the lifetime ECL. Stage 3 covers credit impaired assets, also at lifetime ECL, with interest income computed on the net carrying amount.
 
-The standard contains two rebuttable presumptions that matter for PAYGo. Credit risk is presumed to have increased significantly when contractual payments are more than 30 days past due, and default is presumed not to occur later than 90 days past due. Both can be rebutted with reasonable and supportable information. A PAYGo company may argue that its customers routinely lock for short periods and cure, so 30 DPD is not a reliable signal of SICR; or that its default definition should sit beyond 90 days because cure rates between 90 and 180 DPD are material. Such arguments need data, and auditors tend to accept them only with cohort evidence of cures.
+The standard contains two rebuttable presumptions that matter for PAYGo. Credit risk is presumed to have increased significantly when contractual payments are more than 30 days past due, and default is presumed not to occur later than 90 days past due. Both can be rebutted with reasonable and supportable information. A PAYGo company may argue that its customers routinely lock for short periods and cure, so 30 days past due (DPD) is not a reliable signal of SICR; or that its default definition should sit beyond 90 days because cure rates between 90 and 180 DPD are material. Such arguments need data, and auditors tend to accept them only with cohort evidence of cures.
 
 There is a second debate. IFRS 9 allows, and for trade receivables without a significant financing component requires, a simplified approach under which the allowance is always lifetime ECL, with no staging. Entities may also elect the simplified approach for trade receivables that do contain a significant financing component and for lease receivables. Some PAYGo companies apply it, on the view that their receivables arise from IFRS 15 sales; others apply the general approach, on the view that the contracts are consumer loans in substance. Practice varies across the sector, and auditors' positions differ. The choice matters most for young accounts: under the simplified approach a current account carries a lifetime allowance from day one, while under the general approach it carries a 12 month allowance until it reaches Stage 2. For a 24 month product the difference is not small.
 
@@ -1041,7 +1035,7 @@ IFRS 9 requires a write off when the company has no reasonable expectation of re
 
 Repossession is where PAYGo differs from unsecured consumer lending. A device recovered from a defaulted customer can be refurbished and resold, or used for parts. On repossession, the receivable is derecognised and the recovered device is recognised as inventory at an amount that should not exceed its net realisable value, meaning the expected resale price less refurbishment and selling costs. The difference between the receivable written off and the value of the device reduces the loss.
 
-The workbook models net recovery as defaults at age (a − lag), times the repossession rate, times the gross resale share, times the cash price, times (1 − recovery cost), with recovery cost at 15% of gross resale proceeds. Repossession rates rise with tier, from 0% for Tier 1 to 70% for Tier 5, because large systems are worth collecting and small ones are not. The evidence often disappoints. The SolaraPay history shows an observed LGD proxy of about 99%, meaning recoveries offset almost nothing of the defaulted balance, and the case recommendation requires recovery assumptions to be cut to observed levels. A plan that relies on resale values for Tiers 4 and 5 before the company has repossessed and resold a meaningful number of those systems is relying on a hope.
+The workbook models net recovery as defaults at age (a − lag), times the repossession rate, times the gross resale share, times the cash price, times (1 − recovery cost), with recovery cost at 15% of gross resale proceeds. Repossession rates rise with tier, from 0% for Tier 1 to 70% for Tier 5, because large systems are worth collecting and small ones are not. The evidence often disappoints. The SolaraPay history shows an observed loss given default (LGD) proxy of about 99%, meaning recoveries offset almost nothing of the defaulted balance, and the case recommendation requires recovery assumptions to be cut to observed levels. A plan that relies on resale values for Tiers 4 and 5 before the company has repossessed and resold a meaningful number of those systems is relying on a hope.
 
 ## 8.4 How the workbook simplifies
 
@@ -1056,9 +1050,8 @@ Three consequences follow. Because the whole lifetime loss is charged when the s
 | Loss allowance | Lifetime expected missed instalments, charged at origination, no staging | General or simplified approach; staging, SICR and default definitions; forward looking information |
 | Write offs | Missed instalments written off as they fall due | Write off policy (days past due or end of collections); recoveries after write off |
 | Repossessed units | Net recovery credited when received | Recognition of recovered devices as inventory at net realisable value |
-| RBF | Other income when received (cash basis) | Grant accounting, conditions and timing of recognition |
+| Results based financing (RBF) | Other income when received (cash basis) | Grant accounting, conditions and timing of recognition |
 | Tax | Single rate on cumulative profit, losses carried forward without limit | Local tax law, deductibility of allowances, withholding taxes |
-
 
 Beside the booked allowance, *Credit_Portfolio* computes an indicative stage based ECL as a diagnostic. Buckets beyond 30 DPD are Stage 2 and beyond 90 DPD Stage 3. The loss factor is PD12 × LGD × discount factor for Stage 1, (1 − cure rate) × LGD × discount factor for Stage 2, and LGD for Stage 3, with a cure rate of 30% and a discount factor of 1 ÷ 1.20^0.5 = 0.9129 at the default ECL discount rate of 20%. In Proxy mode PD12 is 1 − (1 − h)^12 and LGD is 1 − repossession rate × resale share × (1 − recovery cost) × cash price ÷ amount financed.
 
@@ -1099,7 +1092,7 @@ The SolaraPay history reports indicative ECL coverage of 36.5% in its latest mon
 
 The calibrated SolaraPay plan shows an ECL charge equal to 1.28 times its financing revenue. Earlier drafts set this against a reference of about 0.38x drawn from reported M-KOPA group figures; that reference has been withdrawn because the group figures conflict and have not been read in the consolidated accounts (Annex G, E4). Without a verified peer, the ratio is read on its own terms: financing income that does not cover expected losses means the price of credit does not pay for its risk, and the plan relies on the hardware margin instead.
 
-Part of it is mechanical. The worked example shows that a single Tier 2 cohort, on the default curve, has a lifetime ratio of ECL to financing income of 1.07x (17.10 ÷ 16.00), and a first year ratio of 2.14x (17.10 ÷ 8.00). Any growing book on the workbook's conventions will show a ratio above the lifetime figure, because each year's charge carries the full lifetime loss of new cohorts while their financing income is spread over the tenor. A company reporting under the effective interest method and a staged allowance will show a lower ratio for the same customers. Part of it is credit: the SolaraPay hazards for Tiers 1 to 3 were recalibrated upwards by 30% after cohorts underperformed, and the calibrated expected loss rates run from 26.6% to 41.8% by tier. And part of it is pricing: the premium charged over the cash price determines the denominator, so a company with a lower APR will show a higher ratio for the same losses.
+Part of it is mechanical. The worked example shows that a single Tier 2 cohort, on the default curve, has a lifetime ratio of ECL to financing income of 1.07x (17.10 ÷ 16.00), and a first year ratio of 2.14x (17.10 ÷ 8.00). Any growing book on the workbook's conventions will show a ratio above the lifetime figure, because each year's charge carries the full lifetime loss of new cohorts while their financing income is spread over the tenor. A company reporting under the effective interest method and a staged allowance will show a lower ratio for the same customers. Part of it is credit: the SolaraPay hazards for Tiers 1 to 3 were recalibrated upwards by 30% after cohorts underperformed, and the calibrated expected loss rates run from 26.6% to 41.8% by tier. And part of it is pricing: the premium charged over the cash price determines the denominator, so a company with a lower annual percentage rate (APR) will show a higher ratio for the same losses.
 
 The reading for a credit committee is that the ratio is a good question and a poor verdict. It asks whether pricing covers expected losses with something left for funding and operating costs. Net credit losses in the calibrated plan run at 37.5% of revenue in Year 1 falling to 27.5% in Year 5, which is the more direct answer to that question.
 
@@ -1109,9 +1102,9 @@ Management's numbers, the auditor's numbers and the lender's numbers answer diff
 
 Management tends to prefer judgements that smooth the income statement: a general approach with a 12 month allowance on current accounts, a default definition beyond 90 DPD supported by cure data, optimistic recovery values and the effective interest method. Each can be defended. Together they move credit cost later and income earlier.
 
-The auditor tests whether those judgements are supportable. Expect challenge on the rebuttal of the 30 and 90 DPD presumptions, on the source of PD and LGD estimates, on forward looking adjustments, on the value of repossessed stock and on whether the simplified or general approach has been applied consistently. An auditor with little PAYGo experience may push towards bank style definitions; one with more may accept sector practice if the data support it.
+The auditor tests whether those judgements are supportable. Expect challenge on the rebuttal of the 30 and 90 DPD presumptions, on the source of probability of default (PD) and LGD estimates, on forward looking adjustments, on the value of repossessed stock and on whether the simplified or general approach has been applied consistently. An auditor with little PAYGo experience may push towards bank style definitions; one with more may accept sector practice if the data support it.
 
-The lender does not rely on either. Its borrowing base counts eligible receivables, typically those up to 30 DPD, at an advance rate; it ignores the allowance and looks at cash. Its covenants test collection rates, PAR and receivables at risk, not ECL. A company that improves its reported profit by changing ECL assumptions has not changed its borrowing base or its covenant headroom by a single unit of currency.
+The lender does not rely on either. Its borrowing base counts eligible receivables, typically those up to 30 DPD, at an advance rate; it ignores the allowance and looks at cash. Its covenants test collection rates, portfolio at risk (PAR) and receivables at risk, not ECL. A company that improves its reported profit by changing ECL assumptions has not changed its borrowing base or its covenant headroom by a single unit of currency.
 
 The practical answer is to present all three views side by side and reconcile them: the workbook's analytical planning view, the audited or expected audited view, and the lender's cash and collateral view.
 
@@ -1122,7 +1115,7 @@ The practical answer is to present all three views side by side and reconcile th
 3. Review any rebuttal of the 30 and 90 DPD presumptions against cohort evidence of cures.
 4. Check the write off policy, the treatment of repossessed devices and recovery values against observed resale proceeds, and cut recovery assumptions where history does not support them.
 5. Read ECL against financing revenue together with net credit losses against revenue, and adjust for growth before comparing with peers.
-6. Reconcile the planning, audited and lender views of profit and collateral before the IC memo is finalised.
+6. Reconcile the planning, audited and lender views of profit and collateral before the investment committee memo is finalised.
 
 ## Working with the model
 
@@ -1144,9 +1137,9 @@ Unit economics is therefore a cash exercise. The useful unit is the expected lif
 
 The *Unit_Economics* sheet of the companion model sets out, for each tier, nine lines that together describe the unit. They fall naturally into inflows and outflows.
 
-On the inflow side, lifetime customer cash is the deposit plus the expected value of instalments collected over the tenor. The expected loss rate is the share of contractual instalments that the curve says will not be collected, because the account has stopped paying or pays only in part. Recoveries are the net cash from repossessed systems that are refurbished and resold, after recovery costs. RBF is any results based payment the programme attaches to the unit, which may be paid on the sale, on repayment performance or on ownership depending on the programme design (Chapter 13).
+On the inflow side, lifetime customer cash is the deposit plus the expected value of instalments collected over the tenor. The expected loss rate is the share of contractual instalments that the curve says will not be collected, because the account has stopped paying or pays only in part. Recoveries are the net cash from repossessed systems that are refurbished and resold, after recovery costs. Results based financing (RBF) is any results based payment the programme attaches to the unit, which may be paid on the sale, on repayment performance or on ownership depending on the programme design (Chapter 13).
 
-On the outflow side, the hardware landed cost is the FOB cost translated at the exchange rate of the month, plus freight, duty and clearing. Installation and last mile logistics are local currency costs and are material for Tiers 4 and 5. Warranty is a provision set as a share of landed cost. Customer acquisition cost (CAC) is agent commission plus marketing per unit sold. Servicing covers customer care, collections effort and payment fees over the life of the account.
+On the outflow side, the hardware landed cost is the free on board (FOB) cost translated at the exchange rate of the month, plus freight, duty and clearing. Installation and last mile logistics are local currency costs and are material for Tiers 4 and 5. Warranty is a provision set as a share of landed cost. Customer acquisition cost (CAC) is agent commission plus marketing per unit sold. Servicing covers customer care, collections effort and payment fees over the life of the account.
 
 Two points of discipline apply. First, every line must be expressed per unit sold, not per surviving account; servicing cost per active account must be multiplied by the expected number of active months, which is lower than the tenor because the survival curve falls. Second, the expected loss and recovery lines must come from the same curve. A team that takes its loss rate from one source and its recovery rate from a more optimistic one will produce a unit that never existed.
 
@@ -1209,7 +1202,7 @@ At a 25% hurdle the unit is worth about LCY 3,280 at origination, a little over 
 
 ## 9.4 LTV/CAC and its pitfalls
 
-The ratio of lifetime value to customer acquisition cost is the most quoted unit metric in pitch decks and the least reliable one in credit papers. The definition used here takes lifetime value as the unit's cash margin before acquisition cost, that is contribution plus CAC: 8,800 + 3,500 = 12,300. Divided by CAC of 3,500, the ratio is 3.5x. Definitions vary across companies and across the sector's reporting, so the first question in any diligence is which numerator and which denominator have been used; a ratio that sets gross hardware margin against marketing alone can easily be double the figure above.
+The ratio of lifetime value to customer acquisition cost (LTV/CAC) is the most quoted unit metric in pitch decks and the least reliable one in credit papers. The definition used here takes lifetime value as the unit's cash margin before acquisition cost, that is contribution plus CAC: 8,800 + 3,500 = 12,300. Divided by CAC of 3,500, the ratio is 3.5x. Definitions vary across companies and across the sector's reporting, so the first question in any diligence is which numerator and which denominator have been used; a ratio that sets gross hardware margin against marketing alone can easily be double the figure above.
 
 The ratio has three structural weaknesses, and an investment committee should test each one.
 
@@ -1251,7 +1244,7 @@ Tier 1 looks odd at first sight: the lowest LTV/CAC at 2.4x and the smallest con
 
 Tier 3 is the steadiest of the established tiers: an expected loss of 38.2%, LTV/CAC of 5.5x and a unit IRR of 47%, though its payment burden of 13.2% carries the same warning as Tier 2.
 
-Tiers 4 and 5 are the most attractive on paper and the least proven. LTV/CAC ratios of 11.0x and 14.9x and unit IRRs of 67% and 54% would make them the obvious place to direct growth. But their expected losses of 27.1% and 26.6% rest on default hazards of 1.3% and 1.0% a month that no SolaraPay cohort has tested, and their recovery assumptions depend on repossession rates of 60% and 70% when the observed LGD proxy on the existing book is about 99%. The stress case in which Tier 4 and 5 hazards are doubled cuts the investor IRR from 29.0% to 14.8% and the multiple from 3.6x to 2.0x. That is why the SolaraPay recommendation caps these tiers as a pilot until twelve months of cohort data sit within 10% of plan.
+Tiers 4 and 5 are the most attractive on paper and the least proven. LTV/CAC ratios of 11.0x and 14.9x and unit IRRs of 67% and 54% would make them the obvious place to direct growth. But their expected losses of 27.1% and 26.6% rest on default hazards of 1.3% and 1.0% a month that no SolaraPay cohort has tested, and their recovery assumptions depend on repossession rates of 60% and 70% when the observed loss given default (LGD) proxy on the existing book is about 99%. The stress case in which Tier 4 and 5 hazards are doubled cuts the investor IRR from 29.0% to 14.8% and the multiple from 3.6x to 2.0x. That is why the SolaraPay recommendation caps these tiers as a pilot until twelve months of cohort data sit within 10% of plan.
 
 Payback periods of 17 to 22 months on the larger tiers also matter for the facility. Each of these units consumes borrowing base for most of its life, and a mix shift towards them raises the funding requirement before it raises cash generation.
 
@@ -1295,7 +1288,7 @@ The income statement does not show this. Hardware revenue is booked at the cash 
 
 ### An illustrative receivables build
 
-The following example is illustrative. A company sells a single product with a cash price of LCY 27,000, a deposit of LCY 3,000 and a 24 month tenor, so each unit adds LCY 24,000 of principal to the book. For simplicity, principal is repaid in equal monthly amounts, sales are spread evenly through each year, and losses and financing income are ignored. Under these assumptions a unit sold during a year has an average age of six months at the year end, so 18 ÷ 24 = 75% of its principal is still outstanding. A unit sold in the previous year has an average age of 18 months and 25% outstanding. Units sold two or more years earlier have fully amortised.
+The following example is illustrative and uses a fictional local currency (LCY). A company sells a single product with a cash price of LCY 27,000, a deposit of LCY 3,000 and a 24 month tenor, so each unit adds LCY 24,000 of principal to the book. For simplicity, principal is repaid in equal monthly amounts, sales are spread evenly through each year, and losses and financing income are ignored. Under these assumptions a unit sold during a year has an average age of six months at the year end, so 18 ÷ 24 = 75% of its principal is still outstanding. A unit sold in the previous year has an average age of 18 months and 25% outstanding. Units sold two or more years earlier have fully amortised.
 
 Year end receivables are therefore 75% of the current year's amount financed plus 25% of the previous year's.
 
@@ -1333,7 +1326,7 @@ The cost of new hardware rises in local currency. In the illustration, a landed 
 
 The value of the existing book falls in hard currency. A receivables book of LCY 1,110m is worth 1,110 ÷ 130 = USD 8.5m at 130 and 1,110 ÷ 156 = USD 7.1m at 156. The contracts already signed cannot be repriced; the company bears the full movement on them.
 
-The cost of hard currency debt rises. A USD 3.0m term loan is LCY 390m at 130 and LCY 468m at 156, a translation loss of LCY 78m that runs through the income statement. At 10% interest, the annual charge rises from LCY 39m to LCY 46.8m. The model tracks the term loan in USD and books the unrealised FX loss each month as the opening USD balance times the change in the rate.
+The cost of hard currency debt rises. A USD 3.0m term loan is LCY 390m at 130 and LCY 468m at 156, a translation loss of LCY 78m that runs through the income statement. At 10% interest, the annual charge rises from LCY 39m to LCY 46.8m. The model tracks the term loan in USD and books the unrealised foreign exchange (FX) loss each month as the opening USD balance times the change in the rate.
 
 A currency stress is therefore not a single percentage applied to the result. It works through specific lines, in specific ways, and the analyst should map them before reading any sensitivity. The map for the companion model is as follows.
 
@@ -1343,7 +1336,7 @@ A currency stress is therefore not a single percentage applied to the result. It
 | PAYGo receivables | Local | Not converted | Translation of the book's USD value (not booked) |
 | Hardware cost | USD | At the rate of the month of sale, plus duty | Transaction effect on every new unit |
 | Installation, servicing, staff and overheads | Local, indexed to inflation | Not converted | Indirect, through inflation |
-| RBF payments | USD per unit | At the rate of the month of receipt | Transaction effect, favourable when the currency weakens |
+| Results based financing (RBF) payments | USD per unit | At the rate of the month of receipt | Transaction effect, favourable when the currency weakens |
 | USD term loan | USD | Balance translated at the month end rate; interest at the month's rate | Translation loss or gain booked in the income statement each month; transaction effect on interest and repayments |
 | Receivables facility or securitisation | Local | Not converted | None: matched to the receivables |
 | Initial equity | Local (investor ticket set in USD) | Investor flows converted at the year's average rate, exit at the year end rate | Investor returns measured in USD fall as the currency weakens |
@@ -1427,7 +1420,7 @@ Two cautions apply to that result. Indexation rescues the equity value but not c
 
 ## Working with the model
 
-The macro block on *Inputs* holds the opening FX rate, inflation, the annual price increase on new contracts and the FX pass through share; depreciation by scenario sits on *Scenarios*. Inventory cover, supplier credit and freight and duty are on *Inputs*, and hardware FOB costs by tier on *Products*. The working capital lines flow to the cash flow statement on *FS* (monthly) and *Annual*. Eligible receivables, the borrowing base and headroom against the facility are on *Credit_Portfolio*, and the peak equity requirement is reported on *Investment_Summary*. *FX_Exposure* maps each item to its currency, states that no hedge is modelled, and separates by year the transaction effects on cash (USD hardware, USD debt service, USD RBF), the remeasurement of USD debt and the translation of LCY results into USD; a memo row shows the hardware revenue added by price pass through, booked at sale and collected over the tenor. The default one at a time tests are on *Sensitivity*; to test full indexation, set pass through to 100% on a copy of the workbook and compare the Downside results.
+The macro block on *Inputs* holds the opening FX rate, inflation, the annual price increase on new contracts and the FX pass through share; depreciation by scenario sits on *Scenarios*. Inventory cover, supplier credit and freight and duty are on *Inputs*, and hardware FOB costs by tier on *Products*. The working capital lines flow to the cash flow statement on *FS* (monthly) and *Annual*. Eligible receivables, the borrowing base and headroom against the facility are on *Credit_Portfolio*, and the peak equity requirement is reported on *Investment_Summary*. *FX_Exposure* maps each item to its currency, states that no hedge is modelled, and separates by year the transaction effects on cash (USD hardware, USD debt service, USD RBF), the remeasurement of USD debt and the translation of LCY results into USD. A memo row shows the hardware revenue added by price pass through, booked at sale and collected over the tenor. The default one at a time tests are on *Sensitivity*; to test full indexation, set pass through to 100% on a copy of the workbook and compare the Downside results.
 
 # Chapter 11. Funding the book: equity, debt and receivables facilities
 
@@ -1437,11 +1430,11 @@ This chapter supports the decision of how growth should be financed: how much eq
 
 ## 11.1 The funding stack by stage
 
-The right mix changes as the company accumulates evidence. Lenders lend against data: cohort curves, DPD history that reconciles to the accounts, and recoveries. A company with six months of history can raise equity and little else; a company with several years of clean vintages can sell receivables to an SPV.
+The right mix changes as the company accumulates evidence. Lenders lend against data: cohort curves, days past due (DPD) history that reconciles to the accounts, and recoveries. A company with six months of history can raise equity and little else; a company with several years of clean vintages can sell receivables to a special purpose vehicle (SPV).
 
 | Stage | Typical evidence available | Main sources of funds | What each source relies on |
 |---|---|---|---|
-| Launch and pilot | A few cohorts, no full tenor yet | Equity, grants, RBF, supplier credit | Management, product and market thesis |
+| Launch and pilot | A few cohorts, no full tenor yet | Equity, grants, results based financing (RBF), supplier credit | Management, product and market thesis |
 | Early growth | 12 to 24 months of vintages, early DPD data | Equity, hard currency term debt from impact lenders, small local facilities | Equity cushion and early repayment curves |
 | Scale | Full tenor cohorts, audited accounts, stable KPIs | Local currency receivables facilities, warehouse lines | Borrowing base and portfolio covenants |
 | Mature | Several years of vintages, servicing record, data tape | Securitisation, local capital markets | Asset performance, structure and servicer |
@@ -1465,7 +1458,6 @@ Each instrument in the stack has its own cost, tenor, security and currency, and
 | Convertible or quasi equity | Coupon or discount on conversion | Converts or repays at maturity | Usually unsecured, subordinated | Usually hard currency | The holder, behind senior debt | Defers cash cost; may dilute | Not modelled |
 
 The amounts in the model column are illustrative defaults for a fictional company, not market terms.
-
 
 ![Figure 10. Closing balances of cumulative equity, the USD term loan translated into local currency, and the receivables facility, month by month, default inputs (Base). Source: Financing.](figures/fig10_funding_stack.png)
 
@@ -1540,9 +1532,9 @@ A migration of 100 in a book of 2,950, about 3.4%, has removed 79 of headroom, m
 
 ## 11.6 Covenants
 
-Portfolio covenants test the quality of the asset; corporate covenants test the strength of the borrower. A PAYGo facility needs both, but the first set does most of the work. The model's default covenants are a trailing three month collection rate of at least 70%, receivables at risk of no more than 15%, 30+ DPD of no more than 25%, 90+ DPD of no more than 18%, borrowing base headroom of at least zero, debt to book equity of no more than 3.0x, and an annual DSCR of at least 1.20x.
+Portfolio covenants test the quality of the asset; corporate covenants test the strength of the borrower. A PAYGo facility needs both, but the first set does most of the work. The model's default covenants are a trailing three month collection rate of at least 70%, receivables at risk of no more than 15%, 30+ DPD of no more than 25%, 90+ DPD of no more than 18%, borrowing base headroom of at least zero, debt to book equity of no more than 3.0x, and an annual debt service coverage ratio (DSCR) of at least 1.20x.
 
-The collection rate covenant is the most direct test of the asset, and its definition matters. The 2021 PAYGo PERFORM guide, now historical, defined the collection rate excluding deposits, along with receivables at risk and write offs; the 2026 standard does not include them and forbids presenting a collection rate as the repayment rate (Chapter 7). A facility should therefore print its own definition of every covenant ratio, rather than borrow a company's internal dashboard, and may add the PERFORM 2026 repayment rate as a reporting line once the company computes it on its contract data. Receivables at risk and PAR measures capture stock deterioration that a collection rate on a growing book can hide, because new cohorts pay well in their early months. Debt to book equity limits leverage, though book equity in PAYGo depends heavily on the ECL methodology and should be read alongside it.
+The collection rate covenant is the most direct test of the asset, and its definition matters. The 2021 PAYGo PERFORM guide, now historical, defined the collection rate excluding deposits, along with receivables at risk and write offs. The 2026 standard does not include them and forbids presenting a collection rate as the Repayment Rate (Chapter 7). A facility should therefore print its own definition of every covenant ratio, rather than borrow a company's internal dashboard, and may add the PERFORM 2026 Repayment Rate as a reporting line once the company computes it on its contract data. Receivables at risk and portfolio at risk (PAR) measures capture stock deterioration that a collection rate on a growing book can hide, because new cohorts pay well in their early months. Debt to book equity limits leverage, though book equity in PAYGo depends heavily on the expected credit loss (ECL) methodology and should be read alongside it.
 
 ### Why DSCR is ill suited to a growing book
 
@@ -1578,11 +1570,11 @@ Larger issuers show where such a facility can eventually lead. Sun King is repor
 4. Test how much DPD migration it takes to eliminate borrowing base headroom, and compare that with the worst monthly migration in the company's history.
 5. For SolaraPay, decide between a 65% trailing collection covenant with a cure period and a collections plan, or deferral of the facility; do not accept a 70% covenant on a book already collecting 66.5%.
 6. Replace or supplement any annual DSCR covenant with portfolio covenants, and if a cash flow test is required, define it on the run off of the existing book.
-7. Confirm that every covenant ratio has its definition printed in the facility documents, that none presents a collection rate as the PERFORM repayment rate, and that the company can report them monthly from auditable data fields.
+7. Confirm that every covenant ratio has its definition printed in the facility documents, that none presents a collection rate as the PERFORM Repayment Rate, and that the company can report them monthly from auditable data fields.
 
 ## Working with the model
 
-Financing terms (term loan amount, rate, grace and amortisation; facility structure, limit and rate; minimum cash) and covenant thresholds are on *Inputs*. Advance rates by tier are on *Products*, and eligibility and the default and staging definitions on *Credit_Assumptions*. *Credit_Portfolio* shows receivables by DPD bucket, eligible receivables, the borrowing base and headroom. *Covenants* tests each portfolio covenant monthly and counts breach months; the annual DSCR sits on *KPIs*. The *Covenant definition* input at the end of *Inputs* sets whether the facility has a DSCR test and on what basis (0 = none, 1 = operating cash flow, 2 = cash basis excluding growth in PAYGo receivables): use the facility's own definition, and note that basis 0 models a facility without a DSCR test, as Section 16.9 recommends for a growing book. Company history goes into *Credit_Input* and *Vintage_Input* in Actual mode, which drives reporting while projections continue on the calibrated curves. *Sensitivity* records the default case in which eligibility is extended to 90 DPD; at default inputs it leaves the investor IRR unchanged at 46.4%. A lender would still resist the change, because receivables beyond 30 DPD are where most of the eventual losses sit.
+Financing terms (term loan amount, rate, grace and amortisation; facility structure, limit and rate; minimum cash) and covenant thresholds are on *Inputs*. Advance rates by tier are on *Products*, and eligibility and the default and staging definitions on *Credit_Assumptions*. *Credit_Portfolio* shows receivables by DPD bucket, eligible receivables, the borrowing base and headroom. *Covenants* tests each portfolio covenant monthly and counts breach months; the annual DSCR sits on *KPIs*. The *Covenant definition* input at the end of *Inputs* sets whether the facility has a DSCR test and on what basis (0 = none, 1 = operating cash flow, 2 = cash basis excluding growth in PAYGo receivables). Use the facility's own definition, and note that basis 0 models a facility without a DSCR test, as section 16.9 recommends for a growing book. Company history goes into *Credit_Input* and *Vintage_Input* in Actual mode, which drives reporting while projections continue on the calibrated curves. *Sensitivity* records the default case in which eligibility is extended to 90 DPD; at default inputs it leaves the investor IRR unchanged at 46.4%. A lender would still resist the change, because receivables beyond 30 DPD are where most of the eventual losses sit.
 
 # Chapter 12. Securitisation and off balance sheet structures
 
@@ -1633,7 +1625,7 @@ The figure is thin relative to PAYGo loss volatility. If credit losses rise from
 
 ## 12.3 Triggers
 
-Triggers change the flow of cash when performance deteriorates. The most important is early amortisation: once a trigger is hit, the SPV stops buying new receivables (if the structure revolves), stops releasing excess spread to the originator, and applies all collections to repay the senior notes in sequence. Common trigger metrics in consumer receivables structures include the collection rate over a trailing period, the share of the pool beyond a DPD threshold such as PAR30, cumulative defaults against a schedule by vintage, excess spread averaged over three months falling below zero, and servicer events such as insolvency, a breach of the servicing agreement or a failure to report.
+Triggers change the flow of cash when performance deteriorates. The most important is early amortisation: once a trigger is hit, the SPV stops buying new receivables (if the structure revolves), stops releasing excess spread to the originator, and applies all collections to repay the senior notes in sequence. Common trigger metrics in consumer receivables structures include the collection rate over a trailing period, the share of the pool beyond a days past due (DPD) threshold such as PAR30, cumulative defaults against a schedule by vintage, excess spread averaged over three months falling below zero, and servicer events such as insolvency, a breach of the servicing agreement or a failure to report.
 
 The levels must be set from the company's own history. A collection rate trigger set at a level the book has already breached, as SolaraPay's history shows for a 70% collection covenant on the bank facility (Chapter 11), would amortise the deal on day one. A trigger set too loosely protects nobody. Triggers should be tested against the Downside and Severe paths before they are agreed: if the Downside trips early amortisation in Year 2, the originator must be able to fund new sales without the structure.
 
@@ -1655,7 +1647,7 @@ The *Credit_Input* and *Vintage_Input* templates of the workbook capture monthly
 
 The main attraction of securitisation in PAYGo is local currency funding at scale. The receivables are in local currency, so notes issued in the same currency remove the translation risk that Chapters 10 and 11 describe. Local institutional investors such as pension funds, insurers and banks hold long term local currency liabilities and may welcome a rated or well structured asset backed note, if the rules that govern their investments allow it.
 
-The reported transactions give a sense of scale, with the caution that the figures come from company and secondary reporting. Sun King is reported to have completed local currency securitisations in Kenya of about USD 130m in May 2023 and about USD 156m (KES 20.1bn) in July 2025, the latter arranged with Citi, with an SPV purchasing PAYGo receivables; it reports cumulative solar loans of about USD 1.3bn to almost 10 million cumulative loan customers to July 2025. d.light is reported to have five securitisation facilities with about USD 718m of purchasing capacity since 2020, including a USD 176m multi currency facility in 2024 covering Kenya, Tanzania and Uganda; the 718m is purchasing capacity, not debt raised. These are among the largest PAYGo originators, with long histories. Their transactions show that the structure can work in the sector; they say nothing about the terms available to a company a fraction of their size.
+The reported transactions give a sense of scale, with the caution that the figures come from company and secondary reporting. Sun King is reported to have completed local currency securitisations in Kenya of about USD 130m in May 2023 and about USD 156m (KES 20.1bn) in July 2025, the latter arranged with Citi, with an SPV purchasing PAYGo receivables. It reports cumulative solar loans of about USD 1.3bn to almost 10 million cumulative loan customers to July 2025. d.light is reported to have five securitisation facilities with about USD 718m of purchasing capacity since 2020, including a USD 176m multi currency facility in 2024 covering Kenya, Tanzania and Uganda. The 718m is purchasing capacity, not debt raised. These are among the largest PAYGo originators, with long histories. Their transactions show that the structure can work in the sector; they say nothing about the terms available to a company a fraction of their size.
 
 ### Legal enabling framework
 
@@ -1742,9 +1734,9 @@ The *RBF_Engine* sheet of the companion model implements four programme designs.
 | 3 Ownership linked | Paid at twice the tenor on the share of customers who own their device | Validated ownership data in *Vintage_Input*, with the evidence switch set to 1 |
 | 4 Hybrid | Weighted combination of modes 1 to 3 | Weights totalling 100% |
 
-RBF is denominated in USD and translated into local currency along the FX path on *Timeline*. It sits below gross profit and is recognised when the cash is received, not when the sale is made. Recognition on receipt keeps RBF out of the product margin. Translation at the month's rate means that depreciation raises the local currency value of each USD of RBF, a small natural hedge for a company that buys hardware in USD, and no more than that.
+RBF is denominated in USD and translated into local currency along the foreign exchange (FX) path on *Timeline*. It sits below gross profit and is recognised when the cash is received, not when the sale is made. Recognition on receipt keeps RBF out of the product margin. Translation at the month's rate means that depreciation raises the local currency value of each USD of RBF, a small natural hedge for a company that buys hardware in USD, and no more than that.
 
-Subsidy money and customer money must never be mixed. In the model, collections come only from the cohort curves; RBF is a separate line of other income, and a check on the *Checks* sheet confirms that the RBF in the statements equals the amount produced by the selected design. The PAYGo PERFORM standard draws the same line from the other side: subsidies are excluded from the repayment rate, so RBF cannot improve a company's reported repayment (Chapter 7). An investor who sees RBF receipts inside "collections" in a management pack should ask for the two to be separated before reading any credit ratio.
+Subsidy money and customer money must never be mixed. In the model, collections come only from the cohort curves; RBF is a separate line of other income, and a check on the *Checks* sheet confirms that the RBF in the statements equals the amount produced by the selected design. The PAYGo PERFORM standard draws the same line from the other side: subsidies are excluded from the Repayment Rate, so RBF cannot improve a company's reported repayment (Chapter 7). An investor who sees RBF receipts inside "collections" in a management pack should ask for the two to be separated before reading any credit ratio.
 
 Timing matters as much as amount. The company pays for the hardware, the installation and the agent when it makes the sale; the programme pays only after the result has been claimed, verified and approved, and the disbursement itself can take months. Until then the company finances the subsidy as working capital.
 
@@ -1768,7 +1760,7 @@ Under mode 4 with weights of 50%, 30% and 20% on modes 1, 2 and 3, the nominal p
 
 ### Sales based RBF rewards volume, and can reward bad credit
 
-A sales based payment is a subsidy to customer acquisition. It lowers effective CAC and shortens payback, which is exactly what a programme designed to accelerate access wants. The trouble is that the cheapest way to increase verified sales is to relax underwriting. Approve more marginal customers, lower the deposit, extend the tenor, and sales rise. The programme pays for every one of them.
+A sales based payment is a subsidy to customer acquisition. It lowers effective customer acquisition cost (CAC) and shortens payback, which is exactly what a programme designed to accelerate access wants. The trouble is that the cheapest way to increase verified sales is to relax underwriting. Approve more marginal customers, lower the deposit, extend the tenor, and sales rise. The programme pays for every one of them.
 
 A simple comparison makes the point. Two companies operate in the same programme at USD 25 per unit (illustration). Company A underwrites tightly, sells 1,000 units and its cohort repays 80% of scheduled instalments by the verification date. Company B underwrites loosely, sells 1,300 units, and its cohort repays 60%. Under sales based RBF, A receives USD 25,000 and B receives USD 32,500. The programme pays 30% more to the company whose customers are in arrears more often, and whose lockouts and repossessions will, in time, produce more households that paid for a device they no longer use.
 
@@ -1776,7 +1768,7 @@ Under repayment linked RBF with an 80% target, A still receives USD 25,000 (fact
 
 ### Repayment linked RBF pays for credit discipline
 
-Repayment linked RBF brings the programme's interest into line with the lender's. Both now want cohorts that pay. The verification burden is moderate, because the data already exist on the lockout platform, but the definitions must be tight. Is the repayment rate measured on instalments due including or excluding the deposit? Are written off accounts in the denominator? Is the measurement made on a cohort basis at a fixed age, or on the portfolio at a calendar date? A programme that does not specify these lets each company choose the definition that suits it. The PAYGo PERFORM 2026 repayment rate is the natural reference: it excludes deposits and subsidies, includes write offs and is cumulative from contract start (Chapter 7). A collection rate is not a substitute.
+Repayment linked RBF brings the programme's interest into line with the lender's. Both now want cohorts that pay. The verification burden is moderate, because the data already exist on the lockout platform, but the definitions must be tight. Is the repayment rate measured on instalments due including or excluding the deposit? Are written off accounts in the denominator? Is the measurement made on a cohort basis at a fixed age, or on the portfolio at a calendar date? A programme that does not specify these lets each company choose the definition that suits it. The PAYGo PERFORM 2026 Repayment Rate is the natural reference: it excludes deposits and subsidies, includes write offs and is cumulative from contract start (Chapter 7). A collection rate is not a substitute.
 
 ### Ownership linked RBF pays for the outcome, late
 
@@ -1829,7 +1821,7 @@ The third option looks expensive per unit, but an affordable contract is more li
 
 ### Affordability is a credit variable
 
-Affordability is often filed under consumer protection, apart from the credit analysis. Other things equal, a tier priced at 13% of income will show higher arrears than one priced at 9%, so payment burden is a leading indicator of credit loss, available at origination, long before PAR30 moves. It is also a figure a regulator or a journalist will compute, alongside the implied APR.
+Affordability is often filed under consumer protection, apart from the credit analysis. Other things equal, a tier priced at 13% of income will show higher arrears than one priced at 9%, so payment burden is a leading indicator of credit loss, available at origination, long before portfolio at risk (PAR30) moves. It is also a figure a regulator or a journalist will compute, alongside the implied annual percentage rate (APR).
 
 ## 13.8 Programme design recommendations
 
@@ -1866,7 +1858,7 @@ The decision this chapter supports is blunt: what can kill the company? A base c
 
 ## 14.1 How PAYGo companies fail
 
-A PAYGo company usually runs out of cash while its income statement still looks acceptable. Hardware revenue is booked at the date of sale; the cash for it arrives over 12 to 48 months. The book is funded partly by borrowing against eligible receivables, so when credit weakens three things happen at once: collections fall, the borrowing base shrinks because more of the book ages beyond the eligibility cut off, and covenants on collection rate, receivables at risk and DPD move towards their limits. The lender's protection is triggered at the moment the company most needs the facility.
+A PAYGo company usually runs out of cash while its income statement still looks acceptable. Hardware revenue is booked at the date of sale; the cash for it arrives over 12 to 48 months. The book is funded partly by borrowing against eligible receivables, so when credit weakens three things happen at once: collections fall, the borrowing base shrinks because more of the book ages beyond the eligibility cut off, and covenants on collection rate, receivables at risk and days past due (DPD) move towards their limits. The lender's protection is triggered at the moment the company most needs the facility.
 
 That chain is why stress testing a PAYGo company is mostly an exercise in credit and liquidity, with currency as the main amplifier. Volume, which often dominates founders' worries, is usually the least dangerous of the major variables.
 
@@ -1879,8 +1871,8 @@ The commonest mistake in stress design is to move one variable and call the resu
 The five channels to cover are the following.
 
 1. Credit: the monthly default hazard and the collection rate on paying accounts, which together determine the repayment curve of each cohort.
-2. FX: depreciation of the local currency against the USD, which affects hardware cost, USD debt service, USD RBF receipts and the USD value of exit equity.
-3. Volume: units sold, which drive revenue, CAC and the growth of the book.
+2. Foreign exchange (FX): depreciation of the local currency against the USD, which affects hardware cost, USD debt service, USD results based financing (RBF) receipts and the USD value of exit equity.
+3. Volume: units sold, which drive revenue, customer acquisition cost (CAC) and the growth of the book.
 4. Hardware cost: the USD price of equipment, independent of the exchange rate.
 5. Funding: the availability of the receivables facility and the terms on which new equity can be raised.
 
@@ -1904,7 +1896,7 @@ Two features are missing from the levers and must be tested separately. The firs
 
 At default inputs, for the fictional company in the workbook with an investor putting in USD 4.0m, the three scenarios give the following.
 
-| Case | Peak equity USD m | Y5 EBITDA margin | Investor IRR | MOIC | Monthly covenant breach months |
+| Case | Peak equity (USD m) | Y5 EBITDA margin | Investor IRR | MOIC | Monthly covenant breach months |
 |---|---|---|---|---|---|
 | Base | 10.0 | 21.6% | 46.4% | 6.7x | 0 |
 | Downside | 10.0 | 7.3% | (22.9%) | 0.3x | 44 |
@@ -1934,7 +1926,7 @@ The *Sensitivity* sheet holds single lever cases computed at default inputs. Sel
 | Securitisation structure | 46.5% | 0 |
 | Borrowing base eligibility extended to 90 DPD | 46.4% | 0 |
 
-Breach months count the monthly covenants on the *Covenants* sheet. The annual DSCR test is reported separately on *KPIs*: at default inputs the DSCR is below the 1.2x minimum in Years 1 to 4, which a lender would treat as a breach even though the column reads 0 in Base. The readiness test counts it: gate 10 on *Investment_Readiness* fails on a DSCR year as well as on a breach month (Chapter 15).
+Breach months count the monthly covenants on the *Covenants* sheet. The annual debt service coverage ratio (DSCR) test is reported separately on *KPIs*: at default inputs the DSCR is below the 1.2x minimum in Years 1 to 4, which a lender would treat as a breach even though the column reads 0 in Base. The readiness test counts it: gate 10 on *Investment_Readiness* fails on a DSCR year as well as on a breach month (Chapter 15).
 
 Five readings follow.
 
@@ -1947,7 +1939,6 @@ Volume is the least dangerous major lever. A 20% fall in volume reduces the IRR 
 Structural choices barely move returns. Securitisation adds 0.1 points; extending borrowing base eligibility to 90 DPD changes nothing in Base, which indicates that in Base the borrowing base is not the binding constraint on the facility. It is no argument for the extension: its effect would appear in the stress cases, where receivables between 31 and 90 DPD are exactly those a lender least wants to advance against.
 
 The higher Tier 4 and 5 mix case, at 66.6%, is the most dangerous number in the table because it is the most attractive. It assumes that larger systems repay at the default credit parameters, which a young company rarely has the cohort history to support. It belongs in the upside only once that evidence exists.
-
 
 ![Figure 12. Investor IRR in USD for the Base case and each sensitivity, default inputs. All cases were recomputed in the workbook. The Severe case has no IRR because the investor receives no positive flow. Source: Sensitivity.](figures/fig12_irr_cases.png)
 
@@ -1971,7 +1962,7 @@ At exit, equity value equals the enterprise value less net debt. With an exit mu
 
 An illustration, with figures chosen for the arithmetic. A company exits at 6.0x EBITDA, with Year 5 EBITDA of LCY 1.0bn and net debt of LCY 4.0bn. Enterprise value is LCY 6.0bn and equity is LCY 2.0bn. Equity is wiped out when EBITDA falls to 4.0 ÷ 6.0 = LCY 0.667bn, a fall of a third. If the same stress also raises net debt to LCY 4.5bn, because weaker collections are financed by more borrowing, the threshold EBITDA rises to 4.5 ÷ 6.0 = LCY 0.75bn, a fall of only a quarter.
 
-Gearing at exit therefore sets the sensitivity of the equity to EBITDA, and a Downside usually worsens both at once. In the default Downside, the Year 5 EBITDA margin falls from 21.6% to 7.3%, about two thirds lower on a smaller revenue base, and the MOIC falls from 6.7x to 0.3x. The reverse stress on equity is a question about the exit balance sheet as much as about operating performance.
+Gearing at exit therefore sets the sensitivity of the equity to EBITDA, and a Downside usually worsens both at once. In the default Downside, the Year 5 EBITDA margin falls from 21.6% to 7.3%, about two thirds lower on a smaller revenue base, and the multiple on invested capital (MOIC) falls from 6.7x to 0.3x. The reverse stress on equity is a question about the exit balance sheet as much as about operating performance.
 
 ### Reverse stress in practice
 
@@ -1979,13 +1970,13 @@ A useful discipline is to report, for each main covenant and for equity value at
 
 ## 14.5 Funding drought
 
-The scenario levers keep the receivables facility in place. A funding drought tests what happens when it is not: the lender declines to renew, a warehouse facility hits a trigger and stops advancing, or a planned securitisation does not close. Capital for the sector moves: GOGLA is reported to put off-grid solar investment at about USD 299m in 2024, down about 30% (secondary reporting; to be checked against the primary document). Whatever the exact figure, a company cannot assume that its next facility will be available on time.
+The scenario levers keep the receivables facility in place. A funding drought tests what happens when it is not: the lender declines to renew, a warehouse facility hits a trigger and stops advancing, or a planned securitisation does not close. Capital for the sector moves: GOGLA is reported to put off grid solar investment at about USD 299m in 2024, down about 30% (secondary reporting; to be checked against the primary document). Whatever the exact figure, a company cannot assume that its next facility will be available on time.
 
 To run a funding drought in the workbook, set the facility start month beyond the horizon or its limit to zero on *Inputs*, on a copy of the file. The receivables book is then funded entirely by equity, and the automatic equity top up shows the size of the gap. The peak equity figure becomes the measure of the drought's cost.
 
 The order of magnitude is easy to estimate. Suppose eligible receivables reach LCY 4.0bn at an average advance rate of 70%. The facility provides LCY 2.8bn. Without it that LCY 2.8bn must come from equity or from slower growth; at LCY 130 per USD it is about USD 21.5m. A company that cannot raise that sum must cut sales until the book shrinks to what its equity can carry, which turns a growth company into a run off. In the Severe case similar mechanics arrive through credit: as the borrowing base contracts the facility must be repaid, and peak equity rises from USD 10.0m to USD 46.6m.
 
-Three mitigants deserve testing. A committed facility with a longer availability period reduces renewal risk. Diversifying funding across a local bank, a DFI and a securitisation programme reduces dependence on any one lender's credit appetite. And a growth plan that can be throttled, with sales capacity that can be cut within a quarter, limits the damage when funding stops.
+Three mitigants deserve testing. A committed facility with a longer availability period reduces renewal risk. Diversifying funding across a local bank, a development finance institution (DFI) and a securitisation programme reduces dependence on any one lender's credit appetite. And a growth plan that can be throttled, with sales capacity that can be cut within a quarter, limits the damage when funding stops.
 
 ## 14.6 Reading total loss against IRR
 
@@ -2001,7 +1992,7 @@ Failures do happen in this sector. BBOXX LTD (UK company 07177839) is recorded a
 
 The SolaraPay case, worked in full in Chapter 16, applies the same scenarios to a fictional company whose credit assumptions have been recalibrated on 24 months of synthetic history.
 
-| Case | Peak equity USD m | Y5 EBITDA margin | Y5 collection rate | Investor IRR | MOIC | Breach months |
+| Case | Peak equity (USD m) | Y5 EBITDA margin | Y5 collection rate | Investor IRR | MOIC | Breach months |
 |---|---|---|---|---|---|---|
 | Management plan, Base | 9.0 | 18.6% | 73.0% | 33.1% | 4.2x | 0 |
 | Management plan, Downside | 9.0 | 3.7% | 66.8% | total loss | 0.0x | 39 |
@@ -2034,7 +2025,7 @@ Structure and entry price matter less than credit, though they are not negligibl
 
 ## Working with the model
 
-Switch scenarios with the selector on *Inputs* and read *Investment_Summary* and *Dashboard* for each. *Scenarios* holds the levers. *Sensitivity* records single lever cases at default inputs, dated and recomputed in the workbook before release, and does not recalculate when inputs change; its live row shows the active case with the current inputs, so run company specific sensitivities on a copy, changing one input at a time and restoring it before the next test. *Covenants* reports monthly breach flags by covenant; *Credit_Portfolio* shows the borrowing base and headroom; *Valuation* shows exit equity and net debt for the reverse stress on equity. For a funding drought, set the facility start month beyond the horizon or its limit to zero on a copy, and read the equity top up.
+Switch scenarios with the selector on *Inputs* and read *Investment_Summary* and *Dashboard* for each. *Scenarios* holds the levers. *Sensitivity* records single lever cases at default inputs, dated and recomputed in the workbook before release, and does not recalculate when inputs change. Its live row shows the active case with the current inputs, so run company specific sensitivities on a copy, changing one input at a time and restoring it before the next test. *Covenants* reports monthly breach flags by covenant; *Credit_Portfolio* shows the borrowing base and headroom; *Valuation* shows exit equity and net debt for the reverse stress on equity. For a funding drought, set the facility start month beyond the horizon or its limit to zero on a copy, and read the equity top up.
 
 # Chapter 15. The investor view: due diligence and the investment memo
 
@@ -2058,7 +2049,7 @@ The commercial workstream tests the market, the product range and the sales plan
 
 ### Credit and the data tape
 
-This is the core workstream, and it should start first. The team obtains an account level loan tape and the monthly portfolio and cohort data, rebuilds the collection rate, PAR30, receivables at risk and cohort repayment curves independently, and reconciles them to the general ledger. The objective is to replace assumed credit behaviour with behaviour the company's history supports. In the SolaraPay case (Chapter 16), recalibration on 24 months of history raised the Tier 1 to 3 default hazards by 30% and lowered the investor IRR from 33.1% to 29.0%.
+This is the core workstream, and it should start first. The team obtains an account level loan tape and the monthly portfolio and cohort data, rebuilds the collection rate, portfolio at risk (PAR30), receivables at risk and cohort repayment curves independently, and reconciles them to the general ledger. The objective is to replace assumed credit behaviour with behaviour the company's history supports. In the SolaraPay case (Chapter 16), recalibration on 24 months of history raised the Tier 1 to 3 default hazards by 30% and lowered the investor IRR from 33.1% to 29.0%.
 
 ### Operations and agents
 
@@ -2070,15 +2061,15 @@ The lockout platform is the company's collateral; if it can be bypassed, the dev
 
 ### Finance and accounting
 
-This workstream reconciles management accounts to audited accounts, tests revenue recognition (hardware at sale, financing income over the tenor, the treatment of a significant financing component), and reviews the loss allowance. Under IFRS 9 the team should check the staging approach (Stage 2 on a significant increase in credit risk, with the 30 DPD rebuttable presumption; Stage 3 on default, with the 90 DPD presumption), the write off policy, and whether the allowance moves with the DPD profile. An allowance that stays flat while PAR30 rises is a finding in its own right.
+This workstream reconciles management accounts to audited accounts, tests revenue recognition (hardware at sale, financing income over the tenor, the treatment of a significant financing component), and reviews the loss allowance. Under IFRS 9 the team should check the staging approach (Stage 2 on a significant increase in credit risk, with the 30 days past due (DPD) rebuttable presumption; Stage 3 on default, with the 90 DPD presumption), the write off policy, and whether the allowance moves with the DPD profile. An allowance that stays flat while PAR30 rises is a finding in its own right.
 
 ### Legal and regulatory
 
-The legal workstream maps the rules that apply to consumer credit, mobile money collections, data protection, repossession, debt collection practices, pricing disclosure and the import and taxation of solar equipment, and checks the company's licences against them. The categories recur across markets; the rules do not, and the position must be confirmed with local counsel. For a lender, the workstream also covers security over the receivables, the enforceability of assignment, and, for a securitisation, whether a true sale to an SPV would be respected in the company's insolvency.
+The legal workstream maps the rules that apply to consumer credit, mobile money collections, data protection, repossession, debt collection practices, pricing disclosure and the import and taxation of solar equipment, and checks the company's licences against them. The categories recur across markets; the rules do not, and the position must be confirmed with local counsel. For a lender, the workstream also covers security over the receivables, the enforceability of assignment, and, for a securitisation, whether a true sale to a special purpose vehicle (SPV) would be respected in the company's insolvency.
 
 ### ESG and consumer protection
 
-The questions here are the ones a regulator, a DFI's ESG team or a journalist will ask: payment burden relative to income, the implied APR and how it is disclosed, the conduct of collections and lockouts, complaint handling, the treatment of customers in hardship, and the end of life collection of batteries and electronics. Affordability belongs here and in credit at the same time.
+The questions here are the ones a regulator, a DFI's ESG team or a journalist will ask: payment burden relative to income, the implied annual percentage rate (APR) and how it is disclosed, the conduct of collections and lockouts, complaint handling, the treatment of customers in hardship, and the end of life collection of batteries and electronics. Affordability belongs here and in credit at the same time.
 
 ### Management
 
@@ -2090,7 +2081,7 @@ Issue the data request at the start, not after the commercial work. The minimum 
 
 1. Account level loan tape: account identifier, tier, origination date, cash price, deposit, daily rate, tenor, cumulative paid, days past due, status (active, paid off, defaulted, repossessed, written off, restructured), agent and region.
 2. Monthly portfolio data by tier for at least 24 months: gross receivables, DPD buckets, default exposure, originations, instalments due, collections, write offs, repossessions, resale proceeds and costs, cures and unlocks. This is the structure of *Credit_Input*.
-3. Cohort observations by tier at fixed ages: cumulative collections, instalments due, 30+, 90+ and 180+ exposure, recoveries, active accounts, and ownership at twice the tenor where available. This is the structure of *Vintage_Input*.
+3. Cohort observations by tier at fixed ages: cumulative collections, instalments due, 30+, 90+ and 180+ exposure, recoveries, active accounts and ownership at twice the tenor where available. This is the structure of *Vintage_Input*.
 4. Reconciliation of the DPD buckets and gross receivables to the general ledger at each month end.
 5. Credit, write off, restructuring and repossession policies, with the dates each version applied.
 6. Price plan history by tier, including deposits, daily rates, tenors and promotional terms.
@@ -2098,9 +2089,9 @@ Issue the data request at the start, not after the commercial work. The minimum 
 8. Unlock logs, separated between full payment unlocks and other unlocks.
 9. Audited accounts, monthly management accounts and the current budget.
 10. All financing agreements, compliance certificates and any waiver or amendment correspondence.
-11. RBF and grant agreements, with verification reports and any clawback provisions.
+11. Results based financing (RBF) and grant agreements, with verification reports and any clawback provisions.
 12. Customer complaint logs and any regulatory correspondence.
-13. Hardware supply contracts, warranty terms and FX exposure by currency.
+13. Hardware supply contracts, warranty terms and foreign exchange (FX) exposure by currency.
 
 ## 15.4 Red flags
 
@@ -2122,7 +2113,7 @@ The last deserves more weight than its position suggests: a company that cannot 
 
 ### DCF on normalised cash flow
 
-A DCF of unlevered free cash flow produces a low number in a growing PAYGo company for a sound reason. Free cash flow is EBITDA less tax, capex and the increase in net working capital, which here is mainly the receivables book. While the book grows, free cash flow is negative and the value sits in the terminal year.
+A discounted cash flow (DCF) valuation of unlevered free cash flow produces a low number in a growing PAYGo company for a sound reason. Free cash flow is EBITDA less tax, capex and the increase in net working capital, which here is mainly the receivables book. While the book grows, free cash flow is negative and the value sits in the terminal year.
 
 A terminal value built on raw Year 5 free cash flow would capitalise a year of heavy investment in the book. The companion model instead reinvests only what the book needs to grow at the long run rate:
 
@@ -2144,7 +2135,7 @@ A price to book multiple treats the company as a lender, which is closer to how 
 
 An investor holding USD capital is judged on USD returns. In the workbook the investor buys a stake equal to the ticket divided by the sum of the pre money valuation and the ticket, funds its share of any equity top up, and receives its share of exit equity translated at the exit rate.
 
-For SolaraPay, the fund invests USD 4.0m at USD 8.0m pre money: 4.0 ÷ (8.0 + 4.0) = 33.3%. Exit equity at the end of Year 5 in the calibrated Base is USD 42.9m. The fund's share is 42.9 × 1/3 = USD 14.3m, a MOIC of 14.3 ÷ 4.0 = about 3.6x. With no top up and a single exit after five years, the IRR is 3.575 raised to the power one fifth, less one, which is about 29.0%, the figure the workbook reports.
+For SolaraPay, the fund invests USD 4.0m at USD 8.0m pre money: 4.0 ÷ (8.0 + 4.0) = 33.3%. Exit equity at the end of Year 5 in the calibrated Base is USD 42.9m. The fund's share is 42.9 × 1/3 = USD 14.3m, a multiple on invested capital (MOIC) of 14.3 ÷ 4.0 = about 3.6x. With no top up and a single exit after five years, the IRR is 3.575 raised to the power one fifth, less one, which is about 29.0%, the figure the workbook reports.
 
 The currency effect deserves its own line in every memo. A given local currency equity value is worth less in USD the faster the currency depreciates. Over five years, depreciation of 5% a year leaves a USD investor with 1 ÷ 1.05^5 = about 78.4% of the value at a constant rate; 12% a year leaves about 56.7%; 25% a year leaves about 32.8%. Those are the Base, Downside and Severe paths in the model, applied to the same local currency outcome.
 
@@ -2154,12 +2145,11 @@ The valuation outputs of the companion model, for the default company or for Sol
 
 ## 15.6 Readiness gates
 
-The *Investment_Readiness* sheet lists 23 gates. Automatic gates are tested by the workbook: model integrity, covenant compliance (the monthly covenants and the annual DSCR), positive unit contribution, a credit engine running on actual data, consumer protection evidence, support for outcome linked RBF and data reconciliation. Manual gates rest on external evidence: management sign off, term sheets, legal review, a full test of the workbook in Excel, auditor review of the ECL approach and similar items. A manual gate counts only when it is marked Met and the sheet records where the evidence is held and who signed it off; a gate marked Met without both is shown as not counted.
+The *Investment_Readiness* sheet lists 23 gates. Automatic gates are tested by the workbook: model integrity, covenant compliance (the monthly covenants and the annual debt service coverage ratio, DSCR), positive unit contribution, a credit engine running on actual data, consumer protection evidence, support for outcome linked RBF and data reconciliation. Manual gates rest on external evidence: management sign off, term sheets, legal review, a full test of the workbook in Excel, auditor review of the expected credit loss (ECL) approach and similar items. A manual gate counts only when it is marked Met and the sheet records where the evidence is held and who signed it off; a gate marked Met without both is shown as not counted.
 
 Thirteen gates are marked critical. The sheet then applies a rule that uses these results and nothing else. STOP when a test fails: the master check, a covenant breach in the active scenario (any month in breach of a monthly covenant, or any year with DSCR below the 1.2x minimum), or a tier with negative lifetime contribution. GO only when all 23 gates are met. CONDITIONAL GO when every critical gate is met, with the open gates as conditions. Otherwise STOP, with the reason that the evidence is incomplete. A STOP on incomplete evidence says that the file is not ready for a decision; it is not a verdict on the business. A STOP on a failed test is different: it is a finding against the business plan as modelled. A GO says that the evidence is complete; it is not an investment recommendation, and no memo should present it as one. At default inputs two gates are met and the rule reads STOP on a failed test: the Base projection fails the lender's DSCR test in Years 1 to 4, and 11 of the 13 critical gates are open. In the SolaraPay case, after loading 24 months of history, four gates are met, 9 critical gates remain open, and the rule reads STOP on the same failed test. Section 11.6 explains why a DSCR covenant suits a growing book poorly; while the facility carries one, the projection fails it, and the remedy is to replace or reset the covenant with the lender, not to read past the test.
 
 The gates show on one page which conclusions rest on company data and which on proxy curves, and they translate naturally into conditions precedent: a gate not yet met is often a condition to attach.
-
 
 ![Figure 14. The 23 readiness gates at default inputs and for SolaraPay. Automatic gates are computed by the workbook; manual gates stay open until evidence is recorded. Gate 10 (no covenant breach in the active scenario) covers the monthly covenants and the annual DSCR; it is not met in either case because the DSCR is below the 1.2x minimum in Years 1 to 4, so both read STOP on a failed test. Source: Investment_Readiness.](figures/fig14_readiness.png)
 
@@ -2181,7 +2171,6 @@ The memo should follow an order that lets a committee member test each claim aga
 12. Risks and mitigants.
 
 Putting the recommendation and conditions first means every later section is read as evidence for or against them. Present the DCF and the exit based value side by side, with the gap explained.
-
 
 ![Figure 15. From evidence to decision: each outcome of the committee is tied to the evidence and conditions behind it.](figures/fig15_ic_flow.png)
 
@@ -2205,8 +2194,8 @@ Sector aggregates carry the same caution. The ESMAP Off-Grid Solar Market Trends
 
 ## Points for the investment committee
 
-1. Confirm that the credit workstream rebuilt collection rate, PAR30 and cohort curves from the loan tape and reconciled them to the ledger before any projection was reviewed.
-2. Check every red flag in Section 15.4 and require an explanation in the memo for each one found.
+1. Confirm that the credit workstream rebuilt the collection rate, PAR30 and cohort curves from the loan tape and reconciled them to the ledger before any projection was reviewed.
+2. Check every red flag in section 15.4 and require an explanation in the memo for each one found.
 3. Read the DCF and the exit based value together, and decide explicitly what exit multiple and what credit performance the entry price assumes.
 4. Translate every unmet readiness gate into a condition precedent, a covenant or an accepted risk, and record which.
 5. Set lender covenants at levels the company's own history supports, with cure periods, and prefer portfolio covenants to a DSCR test during growth.
@@ -2227,7 +2216,7 @@ This chapter supports the decision the book has been building towards: applying 
 
 SolaraPay sells solar products on PAYGo terms in Kivara, whose currency is the Kivara shilling (KVS), at an opening rate of KVS 135 per USD. It has traded for two years and is raising money on two fronts at once.
 
-From the analyst's fund it asks for USD 4.0m of equity at a pre money valuation of USD 8.0m. The fund's stake would be 4.0 ÷ (8.0 + 4.0) = 33.3%, at a post money valuation of USD 12.0m. From a local bank it asks for a KVS 4.5bn receivables facility at 16%, about USD 33.3m at the opening rate. The bank would advance 50% of eligible Tier 1 receivables, 70% for Tiers 2 and 3 and 75% for Tiers 4 and 5, with eligibility up to 30 DPD.
+From the analyst's fund it asks for USD 4.0m of equity at a pre money valuation of USD 8.0m. The fund's stake would be 4.0 ÷ (8.0 + 4.0) = 33.3%, at a post money valuation of USD 12.0m. From a local bank it asks for a KVS 4.5bn receivables facility at 16%, about USD 33.3m at the opening rate. The bank would advance 50% of eligible Tier 1 receivables, 70% for Tiers 2 and 3 and 75% for Tiers 4 and 5, with eligibility up to 30 days past due (DPD).
 
 The rest of the capital structure is already defined. Initial equity, including the fund's ticket, totals USD 9.0m, or KVS 1,215m at the opening rate (9.0 × 135). A USD 3.0m term loan carries 10% interest, a twelve month grace period and 36 months of amortisation.
 
@@ -2257,7 +2246,7 @@ Actual mode changes what *Credit_Portfolio* and *Vintage_Dashboard* report (comp
 
 The history tells a consistent story, and it is not the story in the plan.
 
-Collections are weakening as the book seasons. The portfolio collection rate fell from 77.4% in the first year of history to 69.3% in the second. In the latest month, *Credit_Portfolio* reports a collection ratio of 66.5%, 17.0% of receivables more than 30 days past due, and indicative ECL coverage of 36.5%. Some decline is expected as older cohorts accumulate defaulted accounts, and only the cohort data can say how much of the eight point fall is seasoning. What the portfolio figures do say is that 69.3% over a full year is already below the 70% covenant the bank has proposed.
+Collections are weakening as the book seasons. The portfolio collection rate fell from 77.4% in the first year of history to 69.3% in the second. In the latest month, *Credit_Portfolio* reports a collection ratio of 66.5%, 17.0% of receivables more than 30 days past due, and indicative expected credit loss (ECL) coverage of 36.5%. Some decline is expected as older cohorts accumulate defaulted accounts, and only the cohort data can say how much of the eight point fall is seasoning. What the portfolio figures do say is that 69.3% over a full year is already below the 70% covenant the bank has proposed.
 
 Cohorts repay below plan at every age. At month 12, observed cumulative repayment compares with plan as follows.
 
@@ -2269,9 +2258,9 @@ Cohorts repay below plan at every age. At month 12, observed cumulative repaymen
 
 The shortfall is largest on the smallest product and smallest on the largest. That pattern should not be read as evidence for Tiers 4 and 5, whose customers and price points are different.
 
-Recoveries are close to nil. The observed LGD proxy is about 99%: almost nothing comes back from defaulted accounts. The plan assumes repossession rates of 20% for Tier 2 and 40% for Tier 3, rising to 60% and 70% for the new tiers. Either repossession is not happening at scale or repossessed units are not being resold; until the operations workstream finds out which, the plan's recovery assumptions have no support.
+Recoveries are close to nil. The observed loss given default (LGD) proxy is about 99%: almost nothing comes back from defaulted accounts. The plan assumes repossession rates of 20% for Tier 2 and 40% for Tier 3, rising to 60% and 70% for the new tiers. Either repossession is not happening at scale or repossessed units are not being resold; until the operations workstream finds out which, the plan's recovery assumptions have no support.
 
-There is no ownership evidence. No cohort is old enough to be measured at twice its tenor, so the company cannot yet show what share of customers end up owning their device. An ownership linked RBF design would pay nothing, and the workbook correctly pays zero under that mode.
+There is no ownership evidence. No cohort is old enough to be measured at twice its tenor, so the company cannot yet show what share of customers end up owning their device. An ownership linked results based financing (RBF) design would pay nothing, and the workbook correctly pays zero under that mode.
 
 ## 16.4 Recalibration
 
@@ -2310,7 +2299,7 @@ Every tier still creates value per unit. The distribution is the issue.
 
 Tier 2 is the largest product, at 40% of planned units, and the weakest per unit. It loses 41.8% of scheduled instalments, takes 17 months to pay back and earns a unit IRR of 37%, the lowest in the range. A plan that grows by selling more Tier 2 is growing its weakest product fastest.
 
-Tiers 4 and 5 look the most attractive, with LTV to CAC of 11.0x and 14.9x, but those ratios rest entirely on default curves with no history. Tier 1 pays back fastest, but KVS 1,092 of contribution per unit leaves little margin for error, and its 106% implied APR will draw regulatory and reputational attention.
+Tiers 4 and 5 look the most attractive, with LTV to CAC of 11.0x and 14.9x, but those ratios rest entirely on default curves with no history. Tier 1 pays back fastest, but KVS 1,092 of contribution per unit leaves little margin for error, and its 106% implied annual percentage rate (APR) will draw regulatory and reputational attention.
 
 Affordability adds a second lens. *Consumer_Risk* shows the monthly instalment above the 10% payment burden threshold for three tiers: Tier 2 at 13.0% of illustrative household income, Tier 3 at 13.2% and Tier 4 at 11.3%. To bring each to 10%, the instalment would have to fall by 23.1% for Tier 2 (1 less 10 ÷ 13.0), 24.2% for Tier 3 and 11.5% for Tier 4. Tier 2 combines the highest expected loss with a burden well above threshold. The incomes are illustrative, so the analyst records affordability as a finding to confirm with survey data.
 
@@ -2325,7 +2314,7 @@ The calibrated Base gives the following five year path.
 | EBITDA margin | (35.2%) | (9.4%) | 2.9% | 10.9% | 16.4% |
 | Net income (KVS bn) | (0.43) | (0.31) | (0.01) | 0.49 | 0.91 |
 | Net credit losses to revenue | 37.5% | 33.9% | 31.3% | 29.2% | 27.5% |
-| Collection rate | 82.3% | 76.8% | 73.3% | 71.5% | 70.3% |
+| Operational collection rate | 82.3% | 76.8% | 73.3% | 71.5% | 70.3% |
 | 30+ DPD | 8.4% | 11.4% | 12.8% | 13.7% | 14.4% |
 | Debt to book equity (year end) | 0.54x | 0.98x | 2.51x | 1.47x | 0.65x |
 
@@ -2333,7 +2322,7 @@ Revenue grows from USD 8.1m to USD 51.2m. In local currency the growth is about 
 
 Net losses over Years 1 to 3 total KVS 0.75bn (0.43 + 0.31 + 0.01), recovered by profits of KVS 1.40bn in Years 4 and 5. Net credit losses still consume more than a quarter of revenue in Year 5. The collection rate declines in every year and ends at 70.3%, a fraction above the proposed 70% covenant. Leverage peaks at 2.51x debt to book equity in Year 3, within the 3.0x limit by 0.49x.
 
-Peak equity in Base is USD 9.0m, equal to the initial equity, so no top up is needed. The annual DSCR stays below 1.20x in Years 1 to 4. That is a feature of a growing book, where cash is reinvested in receivables, and a reason why a DSCR covenant is the wrong instrument for the bank.
+Peak equity in Base is USD 9.0m, equal to the initial equity, so no top up is needed. The annual debt service coverage ratio (DSCR) stays below 1.20x in Years 1 to 4. That is a feature of a growing book, where cash is reinvested in receivables, and a reason why a DSCR covenant is the wrong instrument for the bank.
 
 Against the management plan, calibration lowers the Year 5 EBITDA margin from 18.6% to 16.4%, the Year 5 collection rate from 73.0% to 70.3%, and the investor IRR from 33.1% to 29.0%, about four points. The plan survives its own data, but loses most of its headroom.
 
@@ -2341,7 +2330,7 @@ Against the management plan, calibration lowers the Year 5 EBITDA margin from 18
 
 The analyst runs the scenarios on both sets of assumptions, then targeted cases.
 
-| Case | Peak equity USD m | Y5 EBITDA margin | Y5 collection | IRR | MOIC | Breach months |
+| Case | Peak equity (USD m) | Y5 EBITDA margin | Y5 collection rate | Investor IRR | MOIC | Breach months |
 |---|---|---|---|---|---|---|
 | Management Base | 9.0 | 18.6% | 73.0% | 33.1% | 4.2x | 0 |
 | Management Downside | 9.0 | 3.7% | 66.8% | total loss | 0.0x | 39 |
@@ -2374,9 +2363,9 @@ Structure and entry price matter less than credit. Securitisation adds 0.1 point
 | Investor stake | 33.3% |
 | Investor IRR and MOIC (USD) | 29.0% and 3.6x |
 
-The returns follow directly. A third of USD 42.9m is USD 14.3m; divided by the USD 4.0m ticket, that is a MOIC of about 3.6x. Over five years with no top up, the IRR is 3.575 raised to the power one fifth, less one, or about 29.0%. At USD 6m pre money, 40% of USD 42.9m is about USD 17.2m, a MOIC of about 4.3x.
+The returns follow directly. A third of USD 42.9m is USD 14.3m; divided by the USD 4.0m ticket, that is a multiple on invested capital (MOIC) of about 3.6x. Over five years with no top up, the IRR is 3.575 raised to the power one fifth, less one, or about 29.0%. At USD 6m pre money, 40% of USD 42.9m is about USD 17.2m, a MOIC of about 4.3x.
 
-The DCF value of USD 6.1m sits below the USD 8.0m pre money valuation, and the terminal value exceeds the whole enterprise value. Both are normal for a PAYGo company in growth, where each credit sale is an investment in working capital. The analyst does not conclude that the price is too high, only that the entry price is a position on the exit multiple and on credit quality, and the fund should negotiate protection for both, through a lower pre money valuation, a ratchet or staged tranches tied to cohort performance.
+The discounted cash flow (DCF) value of USD 6.1m sits below the USD 8.0m pre money valuation, and the terminal value exceeds the whole enterprise value. Both are normal for a PAYGo company in growth, where each credit sale is an investment in working capital. The analyst does not conclude that the price is too high, only that the entry price is a position on the exit multiple and on credit quality, and the fund should negotiate protection for both, through a lower pre money valuation, a ratchet or staged tranches tied to cohort performance.
 
 ## 16.9 The lender view
 
@@ -2384,7 +2373,7 @@ In the calibrated Base projection, the facility covenants hold, but barely. The 
 
 On actual data the position is worse. The collection rate over the second year of history was 69.3% and the latest monthly collection ratio 66.5%, so a 70% trailing collection covenant would very likely be in breach at the first test date.
 
-The bank has two sound options. It can set the collection covenant at a level the book can meet, for example 65% with a cure period and a collections improvement plan, stepping up as performance recovers. Or it can defer the facility until the collection trend has turned. Either way it should replace the DSCR test, which the projection fails in Years 1 to 4, with portfolio covenants and monthly reporting of the operational and lender metrics (collection rate, receivables at risk, write offs), each with its definition printed, and of the PAYGo PERFORM 2026 KPIs once the company computes them on its contract data. Any request to extend eligibility beyond 30 DPD should be refused: it adds little in Base and advances against the receivables most likely to default.
+The bank has two sound options. It can set the collection covenant at a level the book can meet, for example 65% with a cure period and a collections improvement plan, stepping up as performance recovers. Or it can defer the facility until the collection trend has turned. Either way it should replace the DSCR test, which the projection fails in Years 1 to 4, with portfolio covenants. It should also require monthly reporting of the operational and lender metrics (operational collection rate, receivables at risk, write offs), each with its definition printed, and of the PAYGo PERFORM 2026 KPIs once the company computes them on its contract data. Any request to extend eligibility beyond 30 DPD should be refused: it adds little in Base and advances against the receivables most likely to default.
 
 ## 16.10 Benchmarks
 
@@ -2395,9 +2384,9 @@ The analyst sets the calibrated Base against the workbook's references and finds
 | Net margin | 10.5% | None verified (M-KOPA group figures conflict; reference suspended) |
 | Expected credit losses to financing revenue | 1.28x | None verified |
 | Return on equity | 49.8% | None verified |
-| Operational collection rate | 70.3% | ESMAP MTR 2024, reported average of about 62% for 2021 to 2023 (context only; pending the report) |
+| Operational collection rate | 70.3% | ESMAP Off-Grid Solar Market Trends Report 2024, reported average of about 62% for 2021 to 2023 (context only; pending the report) |
 
-The ratios still speak for themselves. Expected credit losses at 1.28 times financing revenue mean that the financing income does not cover the losses it is meant to price; the hardware margin is carrying them. A net margin of 10.5% and a return on equity of 49.8% in Year 5 are high for a company whose own history shows collections falling, and they call for the cost and credit assumptions to be justified on the company's data rather than against a peer. The collection rate sits about eight points above the reported sector average, which is plausible but not reassuring: the sector figure is a collection rate, not a PERFORM repayment rate, and it is not yet verified.
+The ratios still speak for themselves. Expected credit losses at 1.28 times financing revenue mean that the financing income does not cover the losses it is meant to price; the hardware margin is carrying them. A net margin of 10.5% and a return on equity of 49.8% in Year 5 are high for a company whose own history shows collections falling, and they call for the cost and credit assumptions to be justified on the company's data rather than against a peer. The collection rate sits about eight points above the reported sector average, which is plausible but not reassuring: the sector figure is a collection rate, not a PERFORM Repayment Rate, and it is not yet verified.
 
 With no usable external reference, the benchmark that matters is the one the analyst already has: SolaraPay's own cohort history, set against the plan in *Vintage_Dashboard*. The memo says so, and it records that the M-KOPA comparison used in earlier drafts has been withdrawn until the group's consolidated accounts are read.
 
@@ -2405,9 +2394,9 @@ With no usable external reference, the benchmark that matters is the one the ana
 
 The analyst recommends a Conditional Go: invest USD 4.0m, subject to seven conditions.
 
-The workbook's own rule reads STOP for the same file, on a failed test: the calibrated Base fails the annual DSCR covenant in Years 1 to 4 (Section 16.6), and 9 of its 13 critical gates still lack evidence. The STOP is therefore a finding against the business plan as modelled under the assumed facility terms, not only a gap in the file. The recommendation remains the analyst's judgement of what the investment needs, and it is explicitly conditional: the Conditional Go stands only if the DSCR covenant is replaced or reset with the lender, as Section 16.9 proposes, and if the critical gates are evidenced before disbursement. The committee should see both, and the conditions below are written so that disbursement waits for both.
+The workbook's own rule reads STOP for the same file, on a failed test: the calibrated Base fails the annual DSCR covenant in Years 1 to 4 (section 16.6), and 9 of its 13 critical gates still lack evidence. The STOP is therefore a finding against the business plan as modelled under the assumed facility terms, not only a gap in the file. The recommendation remains the analyst's judgement of what the investment needs, and it is explicitly conditional: the Conditional Go stands only if the DSCR covenant is replaced or reset with the lender, as section 16.9 proposes, and if the critical gates are evidenced before disbursement. The committee should see both, and the conditions below are written so that disbursement waits for both.
 
-1. Pricing policy. Contractual or board approved indexation of new contract prices to the KVS/USD rate, equivalent to 100% FX pass through in the model. This is the most effective Downside mitigant identified.
+1. Pricing policy. Contractual or board approved indexation of new contract prices to the KVS/USD rate, equivalent to 100% foreign exchange (FX) pass through in the model. This is the most effective Downside mitigant identified.
 2. Tier 4 and 5 pilot cap. Tiers 4 and 5 held to their planned 13% of units and released in tranches only after twelve months of cohort data show repayment within 10% of plan, with portfolio at risk reported separately for these tiers.
 3. Collections plan before the facility. A written collections improvement plan with monthly targets, and a facility covenant the book can meet: 65% trailing collection with a cure period, stepping up as performance improves. The annual DSCR covenant, which the projection fails in Years 1 to 4, is replaced by portfolio covenants or reset with the lender.
 4. Recovery assumptions. Repossession and resale rates cut to observed levels until a six month repossession programme demonstrates otherwise.
@@ -2448,7 +2437,7 @@ Finally, the analyst would resist the attraction of Tiers 4 and 5. They are wher
 
 ## Working with the model
 
-Load history into *Credit_Input* and *Vintage_Input*, set the credit data mode to Actual on *Credit_Assumptions*, and compare *Vintage_Dashboard* with the plan curves before touching the projections. Recalibrate default hazard and collection rates on *Products*. Read *Unit_Economics* and *Consumer_Risk*, then *Dashboard*, *KPIs* and *Covenants*. Run scenarios from *Inputs*, and single lever tests on a copy. *Valuation* gives the DCF, exit value and USD returns; *Benchmark_Compare* and *Calibration* give the external checks; *Investment_Readiness* gives the gate count, the evidence held for each gate and the workbook's decision for the memo. Set the *Covenant definition* input on *Inputs* to the facility's own DSCR definition; basis 0 models a facility without a DSCR test, as Section 16.9 recommends, and is the setting to use once the bank has replaced the test with portfolio covenants.
+Load history into *Credit_Input* and *Vintage_Input*, set the credit data mode to Actual on *Credit_Assumptions*, and compare *Vintage_Dashboard* with the plan curves before touching the projections. Recalibrate default hazard and collection rates on *Products*. Read *Unit_Economics* and *Consumer_Risk*, then *Dashboard*, *KPIs* and *Covenants*. Run scenarios from *Inputs*, and single lever tests on a copy. *Valuation* gives the DCF, exit value and USD returns; *Benchmark_Compare* and *Calibration* give the external checks; *Investment_Readiness* gives the gate count, the evidence held for each gate and the workbook's decision for the memo. Set the *Covenant definition* input on *Inputs* to the facility's own DSCR definition; basis 0 models a facility without a DSCR test, as section 16.9 recommends, and is the setting to use once the bank has replaced the test with portfolio covenants.
 
 # Annex A. PAYGo KPI dictionary
 
@@ -2464,13 +2453,13 @@ The dictionary has two parts. Part 1 lists the five PAYGo PERFORM KPIs as define
 | RR PvP at twice the term | Payments applied by 2x the term ÷ instalments due over 1x the term | Standard outcome cut off |
 | Ownership rate at twice the term | Contracts fully paid by 2x ÷ contracts that have reached at least 2x | Includes written off contracts; excludes contracts not yet at 2x, even if paid |
 
-Results for cohorts and portfolios are built from contract level numerators and denominators. A collection rate, or days locked or enabled, may not be used as a substitute for the repayment rate. In the companion model, company-reported results are loaded on the *PERFORM_2026* sheet.
+Results for cohorts and portfolios are built from contract level numerators and denominators. A collection rate, or days locked or enabled, may not be used as a substitute for the Repayment Rate. In the companion model, company reported results are loaded on the *PERFORM_2026* sheet.
 
 **Part 2. Operational, lender and model metrics**
 
 | KPI | Definition used in the workbook | Level | Comment |
 |---|---|---|---|
-| Collection rate (operational) | Instalments collected ÷ instalments due in the period, excluding deposits | Portfolio and cohort | Cash conversion in a period; defined in the 2021 PERFORM guide; not a substitute for the repayment rate |
+| Collection rate (operational) | Instalments collected ÷ instalments due in the period, excluding deposits | Portfolio and cohort | Cash conversion in a period; defined in the 2021 PERFORM guide; not a substitute for the Repayment Rate |
 | Trailing three month collection rate | Collections ÷ instalments due over the last three months | Portfolio | The usual covenant measure; smooths one off months |
 | Cohort repayment ratio (model) | Cumulative collections ÷ cumulative instalments due, at a given account age, monthly | Cohort | Follows the logic of RR PvP but is not a PERFORM calculation (monthly, no payment allocation) |
 | Receivables at risk (RaR) | Carrying amount of accounts that have stopped paying ÷ gross receivables | Portfolio | 2021 guide: balances more than a stated number of consecutive days unpaid; the model's Proxy mode uses a curve based carrying amount; Actual mode uses the company's figure |
@@ -2590,23 +2579,29 @@ This annex summarises the source register for this edition (the full register, w
 | Term | Meaning |
 |---|---|
 | Advance rate | Share of eligible receivables a lender will fund |
+| APR | Annual percentage rate |
 | Borrowing base | Maximum facility drawing allowed by eligible receivables and advance rates |
+| CAC | Customer acquisition cost |
 | Cohort (vintage) | All accounts originated in the same month, for one product tier |
-| Collection rate | Collections ÷ instalments due in a period, excluding deposits; an operational metric, not a PERFORM KPI |
+| Collection rate (operational) | Collections ÷ instalments due in a period, excluding deposits; an operational metric, not a PERFORM KPI |
 | Cure | Return of a delinquent account to current status |
 | Daily rate | Price of one day of service, paid in advance through mobile money |
 | Deposit | Upfront payment that activates the device and screens customers |
 | DPD | Days past due |
+| DSCR | Debt service coverage ratio |
 | ECL | Expected credit loss |
 | Excess spread | Interest and fee income on securitised assets above the cost of the notes and expenses |
 | First loss | Tranche or equity that absorbs losses before any other investor |
+| FX | Foreign exchange |
+| LCY | Local currency of the generic model (KVS in the SolaraPay case) |
 | Lockout | Remote disabling of a device when payments stop |
 | LGD | Loss given default |
+| MTF | Multi-Tier Framework (ESMAP) |
 | Ownership rate @2x | PAYGo PERFORM 2026 KPI: contracts fully paid by twice the contract term ÷ contracts that have reached it |
 | PAR30 | Portfolio at risk, more than 30 days past due |
 | PD | Probability of default |
 | RaR | Receivables at risk |
-| Repayment rate (RR) | PAYGo PERFORM 2026 KPI family: payments applied to due instalments ÷ instalments due (PvP) or ÷ amount financed (PvFin), on contract data |
+| Repayment Rate (RR) | PAYGo PERFORM 2026 KPI family: payments applied to due instalments ÷ instalments due (PvP) or ÷ amount financed (PvFin), on contract data |
 | RBF | Results based financing |
 | SICR | Significant increase in credit risk (IFRS 9) |
 | SPV | Special purpose vehicle |
