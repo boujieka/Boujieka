@@ -1,0 +1,1259 @@
+{
+ "REF": {
+  "case": "'01_CONTROL_PANEL'!$C$5",
+  "gen_case": "'01_CONTROL_PANEL'!$C$6",
+  "lender_case": "'01_CONTROL_PANEL'!$C$7",
+  "structure": "'01_CONTROL_PANEL'!$C$9",
+  "structure_name": "'01_CONTROL_PANEL'!$C$10",
+  "debt_mode": "'01_CONTROL_PANEL'!$C$11",
+  "backstop": "'01_CONTROL_PANEL'!$C$12",
+  "st_drought": "'01_CONTROL_PANEL'!$C$14",
+  "st_capex": "'01_CONTROL_PANEL'!$C$15",
+  "st_delay": "'01_CONTROL_PANEL'!$C$16",
+  "st_demand": "'01_CONTROL_PANEL'!$C$17",
+  "st_offtaker": "'01_CONTROL_PANEL'!$C$18",
+  "st_fx": "'01_CONTROL_PANEL'!$C$19",
+  "st_rate": "'01_CONTROL_PANEL'!$C$20",
+  "st_trans": "'01_CONTROL_PANEL'!$C$21",
+  "st_climate": "'01_CONTROL_PANEL'!$C$22",
+  "fx_capex": "'01_CONTROL_PANEL'!$C$24",
+  "fx_gen": "'01_CONTROL_PANEL'!$C$25",
+  "fx_tariff": "'01_CONTROL_PANEL'!$C$26",
+  "fx_opex": "'01_CONTROL_PANEL'!$C$27",
+  "fx_rate": "'01_CONTROL_PANEL'!$C$28",
+  "proj_name": "'02_PROJECT_INPUTS'!$C$5",
+  "country": "'02_PROJECT_INPUTS'!$C$6",
+  "river": "'02_PROJECT_INPUTS'!$C$7",
+  "scheme": "'02_PROJECT_INPUTS'!$C$8",
+  "start_year": "'02_PROJECT_INPUTS'!$C$10",
+  "base_year": "'02_PROJECT_INPUTS'!$C$11",
+  "cons_years": "'02_PROJECT_INPUTS'!$C$12",
+  "ops_years": "'02_PROJECT_INPUTS'!$C$13",
+  "inst_mw": "'02_PROJECT_INPUTS'!$C$15",
+  "units": "'02_PROJECT_INPUTS'!$C$16",
+  "us_cpi": "'02_PROJECT_INPUTS'!$C$18",
+  "lc_cpi": "'02_PROJECT_INPUTS'!$C$19",
+  "fx0": "'02_PROJECT_INPUTS'!$C$20",
+  "fx_dep": "'02_PROJECT_INPUTS'!$C$21",
+  "capex_esc": "'02_PROJECT_INPUTS'!$C$22",
+  "disc_rate": "'02_PROJECT_INPUTS'!$C$23",
+  "gov_disc": "'02_PROJECT_INPUTS'!$C$24",
+  "case_flow": "CHOOSE('01_CONTROL_PANEL'!$C$5,'27_SCENARIOS'!$C$5,'27_SCENARIOS'!$D$5,'27_SCENARIOS'!$E$5)",
+  "case_capex": "CHOOSE('01_CONTROL_PANEL'!$C$5,'27_SCENARIOS'!$C$6,'27_SCENARIOS'!$D$6,'27_SCENARIOS'!$E$6)",
+  "case_demg": "CHOOSE('01_CONTROL_PANEL'!$C$5,'27_SCENARIOS'!$C$7,'27_SCENARIOS'!$D$7,'27_SCENARIOS'!$E$7)",
+  "case_opex": "CHOOSE('01_CONTROL_PANEL'!$C$5,'27_SCENARIOS'!$C$8,'27_SCENARIOS'!$D$8,'27_SCENARIOS'!$E$8)",
+  "p_drought": "'27_SCENARIOS'!$C$11",
+  "p_drought_start": "'27_SCENARIOS'!$C$12",
+  "p_drought_len": "'27_SCENARIOS'!$C$13",
+  "p_overrun": "'27_SCENARIOS'!$C$14",
+  "p_delay": "'27_SCENARIOS'!$C$15",
+  "p_lowdem": "'27_SCENARIOS'!$C$16",
+  "p_coll_drop": "'27_SCENARIOS'!$C$17",
+  "p_sub_cut": "'27_SCENARIOS'!$C$18",
+  "p_freeze": "'27_SCENARIOS'!$C$19",
+  "p_fx_shock": "'27_SCENARIOS'!$C$20",
+  "p_rate_add": "'27_SCENARIOS'!$C$21",
+  "p_trans_delay": "'27_SCENARIOS'!$C$22",
+  "p_climate": "'27_SCENARIOS'!$C$23",
+  "eff_flow": "'27_SCENARIOS'!$C$26",
+  "eff_capex": "'27_SCENARIOS'!$C$27",
+  "eff_delay": "'27_SCENARIOS'!$C$28",
+  "eff_demg": "'27_SCENARIOS'!$C$29",
+  "eff_dem": "'27_SCENARIOS'!$C$30",
+  "eff_coll_adj": "'27_SCENARIOS'!$C$31",
+  "eff_sub": "'27_SCENARIOS'!$C$32",
+  "eff_freeze": "'27_SCENARIOS'!$C$33",
+  "eff_fxdep": "'27_SCENARIOS'!$C$34",
+  "eff_fxshock": "'27_SCENARIOS'!$C$35",
+  "eff_rate_add": "'27_SCENARIOS'!$C$36",
+  "eff_tdelay": "'27_SCENARIOS'!$C$37",
+  "eff_climate": "'27_SCENARIOS'!$C$38",
+  "eff_opex": "'27_SCENARIOS'!$C$39",
+  "eff_tariff": "'27_SCENARIOS'!$C$40",
+  "q_design": "'03_HYDROLOGY'!$C$5",
+  "head": "'03_HYDROLOGY'!$C$6",
+  "eta_t": "'03_HYDROLOGY'!$C$7",
+  "eta_g": "'03_HYDROLOGY'!$C$8",
+  "eflow": "'03_HYDROLOGY'!$C$9",
+  "avail": "'03_HYDROLOGY'!$C$10",
+  "ramp": "'03_HYDROLOGY'!$C$11",
+  "rho": "'03_HYDROLOGY'!$C$12",
+  "grav": "'03_HYDROLOGY'!$C$13",
+  "cv": "'03_HYDROLOGY'!$C$15",
+  "z75": "'03_HYDROLOGY'!$C$16",
+  "z90": "'03_HYDROLOGY'!$C$17",
+  "rec_years": "'03_HYDROLOGY'!$C$18",
+  "hyd_study": "'03_HYDROLOGY'!$C$19",
+  "p50": "'03_HYDROLOGY'!$C$33",
+  "p75": "'03_HYDROLOGY'!$C$34",
+  "p90": "'03_HYDROLOGY'!$C$35",
+  "cf": "'03_HYDROLOGY'!$C$36",
+  "avail_mw": "'03_HYDROLOGY'!$C$37",
+  "avg_mw": "'03_HYDROLOGY'!$C$38",
+  "firm_mw": "'03_HYDROLOGY'!$C$39",
+  "p90_p50": "'03_HYDROLOGY'!$C$40",
+  "check_power": "'03_HYDROLOGY'!$C$41",
+  "cons_eff": "'06_CONSTRUCTION'!$C$7",
+  "cod_year": "'06_CONSTRUCTION'!$C$8",
+  "capex_real": "'06_CONSTRUCTION'!$C$9",
+  "cx_civil": "'05_PLANT_CAPEX'!$C$5",
+  "cx_hm": "'05_PLANT_CAPEX'!$C$6",
+  "cx_em": "'05_PLANT_CAPEX'!$C$7",
+  "cx_es": "'05_PLANT_CAPEX'!$C$8",
+  "cx_eng": "'05_PLANT_CAPEX'!$C$9",
+  "cx_dev": "'05_PLANT_CAPEX'!$C$10",
+  "cx_sub": "'05_PLANT_CAPEX'!$C$11",
+  "cont": "'05_PLANT_CAPEX'!$C$12",
+  "capex_base": "'05_PLANT_CAPEX'!$C$13",
+  "capex_kw": "'05_PLANT_CAPEX'!$C$14",
+  "delay_cost": "'05_PLANT_CAPEX'!$C$15",
+  "fs_level": "'05_PLANT_CAPEX'!$C$16",
+  "bm_kw": "'05_PLANT_CAPEX'!$C$18",
+  "capex_vs_bm": "'05_PLANT_CAPEX'!$C$19",
+  "tx_point": "'08_TRANSMISSION'!$C$7",
+  "tx_km": "'08_TRANSMISSION'!$C$8",
+  "tx_kv": "'08_TRANSMISSION'!$C$9",
+  "tx_mw": "'08_TRANSMISSION'!$C$10",
+  "tx_cost_km": "'08_TRANSMISSION'!$C$11",
+  "tx_sub": "'08_TRANSMISSION'!$C$12",
+  "tx_reinf": "'08_TRANSMISSION'!$C$13",
+  "tx_build": "'08_TRANSMISSION'!$C$14",
+  "tx_loss": "'08_TRANSMISSION'!$C$15",
+  "tx_om": "'08_TRANSMISSION'!$C$16",
+  "tx_party": "'08_TRANSMISSION'!$C$17",
+  "tx_lag": "'08_TRANSMISSION'!$C$18",
+  "tx_interim": "'08_TRANSMISSION'!$C$19",
+  "tx_wheel": "'08_TRANSMISSION'!$C$20",
+  "tx_fin": "'08_TRANSMISSION'!$C$21",
+  "tx_capex_real": "'08_TRANSMISSION'!$C$23",
+  "tx_cod": "'08_TRANSMISSION'!$C$24",
+  "tx_gap_yrs": "'08_TRANSMISSION'!$C$25",
+  "tx_gap_mw": "'08_TRANSMISSION'!$C$26",
+  "tx_cost_kw": "'08_TRANSMISSION'!$C$27",
+  "exp_pot": "'10_DEMAND'!$C$15",
+  "exp_con": "'10_DEMAND'!$C$16",
+  "sup0": "'10_DEMAND'!$C$17",
+  "sup_g": "'10_DEMAND'!$C$18",
+  "thermal_disp": "'10_DEMAND'!$C$19",
+  "dem_ratio5": "'10_DEMAND'!$C$37",
+  "peak0": "'09_GRID'!$C$7",
+  "minload": "'09_GRID'!$C$8",
+  "mustrun": "'09_GRID'!$C$9",
+  "ic_mw": "'09_GRID'!$C$10",
+  "exist_cap": "'09_GRID'!$C$11",
+  "evac_cod": "'09_GRID'!$C$20",
+  "share_cod": "'09_GRID'!$C$21",
+  "p_sel": "'04_GENERATION'!$C$6",
+  "p_len": "'04_GENERATION'!$C$7",
+  "om_fix": "'07_OPEX'!$C$7",
+  "om_var": "'07_OPEX'!$C$8",
+  "ins": "'07_OPEX'!$C$9",
+  "mmr": "'07_OPEX'!$C$10",
+  "om_other": "'07_OPEX'!$C$11",
+  "royalty": "'07_OPEX'!$C$12",
+  "off_name": "'11_OFFTAKER'!$C$4",
+  "off_rating": "'11_OFFTAKER'!$C$5",
+  "u_share": "'11_OFFTAKER'!$C$6",
+  "m_share": "'11_OFFTAKER'!$C$7",
+  "lc_months": "'11_OFFTAKER'!$C$8",
+  "arrears_days": "'11_OFFTAKER'!$C$9",
+  "lc_amount": "'11_OFFTAKER'!$C$10",
+  "ut_cust": "'12_UTILITY'!$C$7",
+  "ut_custg": "'12_UTILITY'!$C$8",
+  "ut_tar0": "'12_UTILITY'!$C$9",
+  "ut_pt": "'12_UTILITY'!$C$10",
+  "ut_tl": "'12_UTILITY'!$C$11",
+  "ut_cl": "'12_UTILITY'!$C$12",
+  "ut_coll": "'12_UTILITY'!$C$13",
+  "ut_supc": "'12_UTILITY'!$C$14",
+  "ut_supusd": "'12_UTILITY'!$C$15",
+  "ut_opex": "'12_UTILITY'!$C$16",
+  "ut_sub": "'12_UTILITY'!$C$17",
+  "ut_ds": "'12_UTILITY'!$C$18",
+  "ut_rec0": "'12_UTILITY'!$C$19",
+  "ut_wo": "'12_UTILITY'!$C$20",
+  "ut_cov": "'12_UTILITY'!$C$21",
+  "ut_ratio10": "'12_UTILITY'!$C$42",
+  "reg_crit": "'13_REGULATION'!$C$22",
+  "reg_gap": "'13_REGULATION'!$C$23",
+  "reg_part": "'13_REGULATION'!$C$24",
+  "reg_ready": "'13_REGULATION'!$C$25",
+  "es_level": "'13_REGULATION'!$C$29",
+  "rap_level": "'13_REGULATION'!$C$30",
+  "tb_level": "'13_REGULATION'!$C$31",
+  "cap_chg": "'14_PPA'!$C$5",
+  "en_chg": "'14_PPA'!$C$6",
+  "cap_idx": "'14_PPA'!$C$7",
+  "en_idx": "'14_PPA'!$C$8",
+  "lc_share": "'14_PPA'!$C$9",
+  "deemed": "'14_PPA'!$C$11",
+  "top": "'14_PPA'!$C$12",
+  "avail_ratio": "'14_PPA'!$C$13",
+  "term_prem": "'14_PPA'!$C$14",
+  "rev_fixed": "'16_REVENUE'!$C$26",
+  "rev_vol": "'16_REVENUE'!$C$27",
+  "rev_offexp": "'16_REVENUE'!$C$28",
+  "rev_govreq": "'16_REVENUE'!$C$29",
+  "str_name": "'17A_STRUCTURES'!$C$5",
+  "str_goveq": "'17A_STRUCTURES'!$C$6",
+  "str_grant": "'17A_STRUCTURES'!$C$7",
+  "str_conc": "'17A_STRUCTURES'!$C$8",
+  "str_maxdebt": "'17A_STRUCTURES'!$C$9",
+  "str_privmax": "'17A_STRUCTURES'!$C$10",
+  "str_resid": "'17A_STRUCTURES'!$C$11",
+  "str_guar": "'17A_STRUCTURES'!$C$12",
+  "str_onbud": "'17A_STRUCTURES'!$C$13",
+  "str_ppag": "'17A_STRUCTURES'!$C$14",
+  "str_term": "'17A_STRUCTURES'!$C$15",
+  "str_fxg": "'17A_STRUCTURES'!$C$16",
+  "str_rc": "'17A_STRUCTURES'!$C$17",
+  "str_gc": "'17A_STRUCTURES'!$C$18",
+  "str_nc": "'17A_STRUCTURES'!$C$19",
+  "str_rm": "'17A_STRUCTURES'!$C$20",
+  "str_nm": "'17A_STRUCTURES'!$C$21",
+  "str_dscr": "'17A_STRUCTURES'!$C$22",
+  "str_hurdle": "'17A_STRUCTURES'!$C$23",
+  "lockup": "'17A_STRUCTURES'!$C$25",
+  "upfront_fee": "'17A_STRUCTURES'!$C$26",
+  "dsra_m": "'17A_STRUCTURES'!$C$27",
+  "cmp_tariff_sel": "INDEX('17A_STRUCTURES'!$E$38:$I$38,'01_CONTROL_PANEL'!$C$9)",
+  "u_capex": "'17_PROJECT_FINANCE'!$C$5",
+  "u_tx": "'17_PROJECT_FINANCE'!$C$6",
+  "fund_base": "'17_PROJECT_FINANCE'!$C$7",
+  "u_idc": "'17_PROJECT_FINANCE'!$C$8",
+  "u_fee": "'17_PROJECT_FINANCE'!$C$9",
+  "u_dsra": "'17_PROJECT_FINANCE'!$C$10",
+  "uses": "'17_PROJECT_FINANCE'!$C$11",
+  "s_grant": "'17_PROJECT_FINANCE'!$C$13",
+  "s_goveq": "'17_PROJECT_FINANCE'!$C$14",
+  "debt_c": "'17_PROJECT_FINANCE'!$C$15",
+  "debt_m": "'17_PROJECT_FINANCE'!$C$16",
+  "eq_total_res": "'17_PROJECT_FINANCE'!$C$17",
+  "s_goveq_res": "'17_PROJECT_FINANCE'!$C$18",
+  "s_priv": "'17_PROJECT_FINANCE'!$C$19",
+  "sources": "'17_PROJECT_FINANCE'!$C$20",
+  "comm_cap": "'17_PROJECT_FINANCE'!$C$22",
+  "debt_cap": "'17_PROJECT_FINANCE'!$C$23",
+  "gearing": "'17_PROJECT_FINANCE'!$C$24",
+  "priv_avail": "'17_PROJECT_FINANCE'!$C$25",
+  "fin_gap": "'17_PROJECT_FINANCE'!$C$26",
+  "gov_resid_flag": "'17_PROJECT_FINANCE'!$C$27",
+  "fin_gap_pct": "'17_PROJECT_FINANCE'!$C$28",
+  "kpi_pirr": "'17_PROJECT_FINANCE'!$C$30",
+  "kpi_npv": "'17_PROJECT_FINANCE'!$C$31",
+  "kpi_eirr": "'17_PROJECT_FINANCE'!$C$32",
+  "kpi_girr": "'17_PROJECT_FINANCE'!$C$33",
+  "lcoe": "'17_PROJECT_FINANCE'!$C$34",
+  "lcoe_sys": "'17_PROJECT_FINANCE'!$C$35",
+  "kpi_min_dscr": "'17_PROJECT_FINANCE'!$C$36",
+  "kpi_avg_dscr": "'17_PROJECT_FINANCE'!$C$37",
+  "kpi_llcr": "'17_PROJECT_FINANCE'!$C$38",
+  "kpi_plcr": "'17_PROJECT_FINANCE'!$C$39",
+  "kpi_short": "'17_PROJECT_FINANCE'!$C$40",
+  "opex_y2": "'17_PROJECT_FINANCE'!$C$41",
+  "afford_tariff": "'17_PROJECT_FINANCE'!$C$42",
+  "lock_m": "'18_DEBT'!$C$6",
+  "rm_eff": "'18_DEBT'!$C$7",
+  "tax_rate_ref": "'18_DEBT'!$C$8",
+  "tax_rate": "'21_TAX'!$C$6",
+  "tax_hol": "'21_TAX'!$C$7",
+  "dep_yrs": "'21_TAX'!$C$8",
+  "dep_base": "'21_TAX'!$C$9",
+  "eq_total": "'19_EQUITY'!$C$6",
+  "gov_eq_share": "'19_EQUITY'!$C$7",
+  "eq_mult": "'19_EQUITY'!$C$11",
+  "ppag_months": "'23_GUARANTEES'!$C$6",
+  "mrg": "'23_GUARANTEES'!$C$7",
+  "pr_debt": "'24_CONTINGENT_LIABILITIES'!$C$6",
+  "pr_ppa": "'24_CONTINGENT_LIABILITIES'!$C$7",
+  "pr_term": "'24_CONTINGENT_LIABILITIES'!$C$8",
+  "lgd": "'24_CONTINGENT_LIABILITIES'!$C$9",
+  "cl_peak": "'24_CONTINGENT_LIABILITIES'!$C$20",
+  "cl_pv_el": "'24_CONTINGENT_LIABILITIES'!$C$21",
+  "cl_pv_calls": "'24_CONTINGENT_LIABILITIES'!$C$22",
+  "fis_npv": "'25_FISCAL_IMPACT'!$C$17",
+  "fis_npv_el": "'25_FISCAL_IMPACT'!$C$18",
+  "fis_peak": "'25_FISCAL_IMPACT'!$C$19",
+  "fis_peak_rev": "'25_FISCAL_IMPACT'!$C$20",
+  "fis_trough": "'25_FISCAL_IMPACT'!$C$21",
+  "fis_tax_forgone": "'25_FISCAL_IMPACT'!$C$22",
+  "gdp0": "'26_DEBT_SUSTAINABILITY'!$C$7",
+  "gdp_g": "'26_DEBT_SUSTAINABILITY'!$C$8",
+  "rev_gdp": "'26_DEBT_SUSTAINABILITY'!$C$9",
+  "debt_gdp": "'26_DEBT_SUSTAINABILITY'!$C$10",
+  "ext_share": "'26_DEBT_SUSTAINABILITY'!$C$11",
+  "ds_rev": "'26_DEBT_SUSTAINABILITY'!$C$12",
+  "fis_bal": "'26_DEBT_SUSTAINABILITY'!$C$13",
+  "dsa_rating": "'26_DEBT_SUSTAINABILITY'!$C$14",
+  "th_debt": "'26_DEBT_SUSTAINABILITY'!$C$16",
+  "th_incr": "'26_DEBT_SUSTAINABILITY'!$C$17",
+  "th_cl": "'26_DEBT_SUSTAINABILITY'!$C$18",
+  "th_cash": "'26_DEBT_SUSTAINABILITY'!$C$19",
+  "sc_debt": "'26_DEBT_SUSTAINABILITY'!$C$28",
+  "sc_cl": "'26_DEBT_SUSTAINABILITY'!$C$29",
+  "sc_cash": "'26_DEBT_SUSTAINABILITY'!$C$30",
+  "sc_post": "'26_DEBT_SUSTAINABILITY'!$C$31",
+  "sc_flags": "'26_DEBT_SUSTAINABILITY'!$C$32",
+  "sc_result": "'26_DEBT_SUSTAINABILITY'!$C$33",
+  "G1_score": "'30_BANKABILITY'!$G$5",
+  "G1_status": "'30_BANKABILITY'!$H$5",
+  "G1_action": "'30_BANKABILITY'!$I$5",
+  "G2_score": "'30_BANKABILITY'!$G$9",
+  "G2_status": "'30_BANKABILITY'!$H$9",
+  "G2_action": "'30_BANKABILITY'!$I$9",
+  "G3_score": "'30_BANKABILITY'!$G$12",
+  "G3_status": "'30_BANKABILITY'!$H$12",
+  "G3_action": "'30_BANKABILITY'!$I$12",
+  "G4_score": "'30_BANKABILITY'!$G$16",
+  "G4_status": "'30_BANKABILITY'!$H$16",
+  "G4_action": "'30_BANKABILITY'!$I$16",
+  "G5_score": "'30_BANKABILITY'!$G$20",
+  "G5_status": "'30_BANKABILITY'!$H$20",
+  "G5_action": "'30_BANKABILITY'!$I$20",
+  "G6_score": "'30_BANKABILITY'!$G$24",
+  "G6_status": "'30_BANKABILITY'!$H$24",
+  "G6_action": "'30_BANKABILITY'!$I$24",
+  "G7_score": "'30_BANKABILITY'!$G$28",
+  "G7_status": "'30_BANKABILITY'!$H$28",
+  "G7_action": "'30_BANKABILITY'!$I$28",
+  "G8_score": "'30_BANKABILITY'!$G$32",
+  "G8_status": "'30_BANKABILITY'!$H$32",
+  "G8_action": "'30_BANKABILITY'!$I$32",
+  "G9_score": "'30_BANKABILITY'!$G$36",
+  "G9_status": "'30_BANKABILITY'!$H$36",
+  "G9_action": "'30_BANKABILITY'!$I$36",
+  "gate_keys": "'30_BANKABILITY'!$C$43:$C$51",
+  "gate_names": "'30_BANKABILITY'!$A$43:$A$51",
+  "gate_status": "'30_BANKABILITY'!$D$43:$D$51",
+  "gate_actions": "'30_BANKABILITY'!$E$43:$E$51",
+  "bk_min": "'30_BANKABILITY'!$C$53",
+  "bk_ncrit": "'30_BANKABILITY'!$C$54",
+  "bk_ndev": "'30_BANKABILITY'!$C$55",
+  "bk_overall": "'30_BANKABILITY'!$C$56",
+  "lc_crf": "'28_SENSITIVITY'!$C$5",
+  "lc_cap": "'28_SENSITIVITY'!$C$6",
+  "lc_base": "'28_SENSITIVITY'!$C$7",
+  "chk_all": "'33_CHECKS'!$C$16",
+  "c_close_row": "19",
+  "m_close_row": "27",
+  "strchk": "24"
+ },
+ "TSROW": {
+  "year": [
+   "06_CONSTRUCTION",
+   4
+  ],
+  "opyr": [
+   "06_CONSTRUCTION",
+   5
+  ],
+  "t": [
+   "06_CONSTRUCTION",
+   12
+  ],
+  "consflag": [
+   "06_CONSTRUCTION",
+   13
+  ],
+  "opflag": [
+   "06_CONSTRUCTION",
+   14
+  ],
+  "lastcons": [
+   "06_CONSTRUCTION",
+   15
+  ],
+  "uscpi": [
+   "06_CONSTRUCTION",
+   17
+  ],
+  "lccpi": [
+   "06_CONSTRUCTION",
+   18
+  ],
+  "fx": [
+   "06_CONSTRUCTION",
+   19
+  ],
+  "fxidx": [
+   "06_CONSTRUCTION",
+   20
+  ],
+  "escidx": [
+   "06_CONSTRUCTION",
+   21
+  ],
+  "share": [
+   "06_CONSTRUCTION",
+   23
+  ],
+  "capex_nom": [
+   "06_CONSTRUCTION",
+   24
+  ],
+  "tx_ready": [
+   "08_TRANSMISSION",
+   29
+  ],
+  "tx_spend": [
+   "08_TRANSMISSION",
+   30
+  ],
+  "tx_spend_pub": [
+   "08_TRANSMISSION",
+   31
+  ],
+  "tx_spend_prj": [
+   "08_TRANSMISSION",
+   32
+  ],
+  "tx_omc": [
+   "08_TRANSMISSION",
+   33
+  ],
+  "tx_lossg": [
+   "08_TRANSMISSION",
+   34
+  ],
+  "tx_wheelc": [
+   "08_TRANSMISSION",
+   35
+  ],
+  "d_res": [
+   "10_DEMAND",
+   21
+  ],
+  "d_com": [
+   "10_DEMAND",
+   22
+  ],
+  "d_ind": [
+   "10_DEMAND",
+   23
+  ],
+  "d_min": [
+   "10_DEMAND",
+   24
+  ],
+  "d_pu": [
+   "10_DEMAND",
+   25
+  ],
+  "d_pub": [
+   "10_DEMAND",
+   26
+  ],
+  "d_dom": [
+   "10_DEMAND",
+   27
+  ],
+  "d_pot": [
+   "10_DEMAND",
+   28
+  ],
+  "d_comm": [
+   "10_DEMAND",
+   29
+  ],
+  "d_req": [
+   "10_DEMAND",
+   30
+  ],
+  "d_sup": [
+   "10_DEMAND",
+   31
+  ],
+  "d_gap": [
+   "10_DEMAND",
+   32
+  ],
+  "d_absorb": [
+   "10_DEMAND",
+   33
+  ],
+  "d_contract": [
+   "10_DEMAND",
+   34
+  ],
+  "d_bank": [
+   "10_DEMAND",
+   35
+  ],
+  "d_bank_ratio": [
+   "10_DEMAND",
+   36
+  ],
+  "d_bank5": [
+   "10_DEMAND",
+   37
+  ],
+  "peak": [
+   "09_GRID",
+   13
+  ],
+  "absorb_mw": [
+   "09_GRID",
+   14
+  ],
+  "line_mw": [
+   "09_GRID",
+   15
+  ],
+  "evac_mw": [
+   "09_GRID",
+   16
+  ],
+  "evac_ratio": [
+   "09_GRID",
+   17
+  ],
+  "share_peak": [
+   "09_GRID",
+   18
+  ],
+  "res_margin": [
+   "09_GRID",
+   19
+  ],
+  "evac_cod_row": [
+   "09_GRID",
+   20
+  ],
+  "share_cod_row": [
+   "09_GRID",
+   21
+  ],
+  "d_dom0": [
+   "10_DEMAND",
+   99
+  ],
+  "inst_row": [
+   "04_GENERATION",
+   9
+  ],
+  "availcap": [
+   "04_GENERATION",
+   10
+  ],
+  "drought": [
+   "04_GENERATION",
+   12
+  ],
+  "climate": [
+   "04_GENERATION",
+   13
+  ],
+  "rampf": [
+   "04_GENERATION",
+   14
+  ],
+  "gen_p50": [
+   "04_GENERATION",
+   16
+  ],
+  "gen": [
+   "04_GENERATION",
+   17
+  ],
+  "evacuable": [
+   "04_GENERATION",
+   18
+  ],
+  "curt_tx": [
+   "04_GENERATION",
+   19
+  ],
+  "delivered": [
+   "04_GENERATION",
+   20
+  ],
+  "curt_dem": [
+   "04_GENERATION",
+   21
+  ],
+  "contracted": [
+   "04_GENERATION",
+   22
+  ],
+  "gen_len": [
+   "04_GENERATION",
+   23
+  ],
+  "cf_row": [
+   "04_GENERATION",
+   24
+  ],
+  "o_fix": [
+   "07_OPEX",
+   14
+  ],
+  "o_var": [
+   "07_OPEX",
+   15
+  ],
+  "o_ins": [
+   "07_OPEX",
+   16
+  ],
+  "o_mmr": [
+   "07_OPEX",
+   17
+  ],
+  "o_oth": [
+   "07_OPEX",
+   18
+  ],
+  "o_txprj": [
+   "07_OPEX",
+   19
+  ],
+  "opex": [
+   "07_OPEX",
+   20
+  ],
+  "o_roy": [
+   "07_OPEX",
+   21
+  ],
+  "o_roy_len": [
+   "07_OPEX",
+   22
+  ],
+  "u_sales": [
+   "12_UTILITY",
+   23
+  ],
+  "u_purch": [
+   "12_UTILITY",
+   24
+  ],
+  "u_proj": [
+   "12_UTILITY",
+   25
+  ],
+  "u_other": [
+   "12_UTILITY",
+   26
+  ],
+  "u_tar": [
+   "12_UTILITY",
+   28
+  ],
+  "u_tar_usd": [
+   "12_UTILITY",
+   29
+  ],
+  "u_bill": [
+   "12_UTILITY",
+   30
+  ],
+  "u_collr": [
+   "12_UTILITY",
+   31
+  ],
+  "u_coll": [
+   "12_UTILITY",
+   32
+  ],
+  "u_subs": [
+   "12_UTILITY",
+   33
+  ],
+  "u_opex": [
+   "12_UTILITY",
+   34
+  ],
+  "u_supcost": [
+   "12_UTILITY",
+   35
+  ],
+  "u_exds": [
+   "12_UTILITY",
+   36
+  ],
+  "u_cash_pre": [
+   "12_UTILITY",
+   37
+  ],
+  "u_maxppa": [
+   "12_UTILITY",
+   38
+  ],
+  "u_ppa": [
+   "12_UTILITY",
+   39
+  ],
+  "u_gap": [
+   "12_UTILITY",
+   40
+  ],
+  "u_ratio": [
+   "12_UTILITY",
+   41
+  ],
+  "u_ratio10": [
+   "12_UTILITY",
+   42
+  ],
+  "u_prefdef": [
+   "12_UTILITY",
+   43
+  ],
+  "u_ebitda": [
+   "12_UTILITY",
+   45
+  ],
+  "u_ebitda_s": [
+   "12_UTILITY",
+   46
+  ],
+  "u_margin": [
+   "12_UTILITY",
+   47
+  ],
+  "u_paid": [
+   "12_UTILITY",
+   48
+  ],
+  "u_cash_post": [
+   "12_UTILITY",
+   49
+  ],
+  "u_dscr": [
+   "12_UTILITY",
+   50
+  ],
+  "u_rec": [
+   "12_UTILITY",
+   51
+  ],
+  "u_recd": [
+   "12_UTILITY",
+   52
+  ],
+  "u_arrears": [
+   "12_UTILITY",
+   53
+  ],
+  "u_ppa_share": [
+   "12_UTILITY",
+   54
+  ],
+  "u_cos": [
+   "12_UTILITY",
+   55
+  ],
+  "fxfac": [
+   "15_TARIFF",
+   6
+  ],
+  "capc": [
+   "15_TARIFF",
+   7
+  ],
+  "enc": [
+   "15_TARIFF",
+   8
+  ],
+  "blend": [
+   "15_TARIFF",
+   9
+  ],
+  "lcoe_row": [
+   "15_TARIFF",
+   10
+  ],
+  "retail_usd": [
+   "15_TARIFF",
+   11
+  ],
+  "coll_mwh": [
+   "15_TARIFF",
+   12
+  ],
+  "afford": [
+   "15_TARIFF",
+   13
+  ],
+  "deemed": [
+   "16_REVENUE",
+   7
+  ],
+  "topshort": [
+   "16_REVENUE",
+   8
+  ],
+  "epaid": [
+   "16_REVENUE",
+   9
+  ],
+  "rev_cap": [
+   "16_REVENUE",
+   11
+  ],
+  "rev_en": [
+   "16_REVENUE",
+   12
+  ],
+  "rev_deem": [
+   "16_REVENUE",
+   13
+  ],
+  "rev_bill": [
+   "16_REVENUE",
+   14
+  ],
+  "rev_util": [
+   "16_REVENUE",
+   15
+  ],
+  "rev_util_y2": [
+   "16_REVENUE",
+   16
+  ],
+  "rev_min": [
+   "16_REVENUE",
+   17
+  ],
+  "cov_backstop": [
+   "16_REVENUE",
+   19
+  ],
+  "cov_guar": [
+   "16_REVENUE",
+   20
+  ],
+  "unpaid": [
+   "16_REVENUE",
+   21
+  ],
+  "rev_cash": [
+   "16_REVENUE",
+   22
+  ],
+  "rev_len": [
+   "16_REVENUE",
+   24
+  ],
+  "cfads_len": [
+   "18_DEBT",
+   10
+  ],
+  "inloan": [
+   "18_DEBT",
+   11
+  ],
+  "dfm": [
+   "18_DEBT",
+   12
+  ],
+  "sculpt": [
+   "18_DEBT",
+   13
+  ],
+  "c_open": [
+   "18_DEBT",
+   15
+  ],
+  "c_draw": [
+   "18_DEBT",
+   16
+  ],
+  "c_int": [
+   "18_DEBT",
+   17
+  ],
+  "c_prin": [
+   "18_DEBT",
+   18
+  ],
+  "c_close": [
+   "18_DEBT",
+   19
+  ],
+  "c_ds": [
+   "18_DEBT",
+   20
+  ],
+  "m_open": [
+   "18_DEBT",
+   22
+  ],
+  "m_draw": [
+   "18_DEBT",
+   23
+  ],
+  "m_int": [
+   "18_DEBT",
+   24
+  ],
+  "m_target": [
+   "18_DEBT",
+   25
+  ],
+  "m_prin": [
+   "18_DEBT",
+   26
+  ],
+  "m_close": [
+   "18_DEBT",
+   27
+  ],
+  "m_ds": [
+   "18_DEBT",
+   28
+  ],
+  "ds": [
+   "18_DEBT",
+   30
+  ],
+  "idc": [
+   "18_DEBT",
+   31
+  ],
+  "debt_bal": [
+   "18_DEBT",
+   32
+  ],
+  "dsra_bal": [
+   "18_DEBT",
+   33
+  ],
+  "dsra_init": [
+   "18_DEBT",
+   34
+  ],
+  "dsra_rel": [
+   "18_DEBT",
+   35
+  ],
+  "dep": [
+   "21_TAX",
+   10
+  ],
+  "dep_len": [
+   "21_TAX",
+   11
+  ],
+  "ebitda_t": [
+   "21_TAX",
+   12
+  ],
+  "int_t": [
+   "21_TAX",
+   13
+  ],
+  "taxable": [
+   "21_TAX",
+   14
+  ],
+  "loss_bf": [
+   "21_TAX",
+   15
+  ],
+  "loss_use": [
+   "21_TAX",
+   16
+  ],
+  "loss_cf": [
+   "21_TAX",
+   17
+  ],
+  "tax": [
+   "21_TAX",
+   18
+  ],
+  "tax_forgone": [
+   "21_TAX",
+   19
+  ],
+  "tax_unlev": [
+   "21_TAX",
+   20
+  ],
+  "use_t": [
+   "20_CASH_FLOW",
+   7
+  ],
+  "grant_t": [
+   "20_CASH_FLOW",
+   8
+  ],
+  "debt_t": [
+   "20_CASH_FLOW",
+   9
+  ],
+  "eq_t": [
+   "20_CASH_FLOW",
+   10
+  ],
+  "eq_gov_in": [
+   "20_CASH_FLOW",
+   11
+  ],
+  "eq_priv_in": [
+   "20_CASH_FLOW",
+   12
+  ],
+  "cf_rev": [
+   "20_CASH_FLOW",
+   14
+  ],
+  "cf_opex": [
+   "20_CASH_FLOW",
+   15
+  ],
+  "cf_roy": [
+   "20_CASH_FLOW",
+   16
+  ],
+  "ebitda": [
+   "20_CASH_FLOW",
+   17
+  ],
+  "cf_tax": [
+   "20_CASH_FLOW",
+   18
+  ],
+  "cfads": [
+   "20_CASH_FLOW",
+   19
+  ],
+  "cf_ds": [
+   "20_CASH_FLOW",
+   20
+  ],
+  "dscr": [
+   "20_CASH_FLOW",
+   21
+  ],
+  "cf_dsra": [
+   "20_CASH_FLOW",
+   22
+  ],
+  "cash_avail": [
+   "20_CASH_FLOW",
+   23
+  ],
+  "cash_bf": [
+   "20_CASH_FLOW",
+   24
+  ],
+  "shortfall": [
+   "20_CASH_FLOW",
+   25
+  ],
+  "lock_ok": [
+   "20_CASH_FLOW",
+   26
+  ],
+  "dist": [
+   "20_CASH_FLOW",
+   27
+  ],
+  "cash_cf": [
+   "20_CASH_FLOW",
+   28
+  ],
+  "sf_guar": [
+   "20_CASH_FLOW",
+   30
+  ],
+  "sf_eq": [
+   "20_CASH_FLOW",
+   31
+  ],
+  "eq_gov_cf": [
+   "20_CASH_FLOW",
+   32
+  ],
+  "eq_priv_cf": [
+   "20_CASH_FLOW",
+   33
+  ],
+  "eq_priv_cum": [
+   "20_CASH_FLOW",
+   34
+  ],
+  "ucf": [
+   "20_CASH_FLOW",
+   36
+  ],
+  "lc_cost": [
+   "20_CASH_FLOW",
+   37
+  ],
+  "delivered_paid": [
+   "20_CASH_FLOW",
+   38
+  ],
+  "lc_cost_sys": [
+   "20_CASH_FLOW",
+   39
+  ],
+  "lc_e_sys": [
+   "20_CASH_FLOW",
+   40
+  ],
+  "e_in": [
+   "19_EQUITY",
+   13
+  ],
+  "e_out": [
+   "19_EQUITY",
+   14
+  ],
+  "e_cf": [
+   "19_EQUITY",
+   15
+  ],
+  "e_g_out": [
+   "19_EQUITY",
+   16
+  ],
+  "e_unrec": [
+   "19_EQUITY",
+   17
+  ],
+  "g_eq": [
+   "22_GOVERNMENT_SUPPORT",
+   6
+  ],
+  "g_grant": [
+   "22_GOVERNMENT_SUPPORT",
+   7
+  ],
+  "g_tx": [
+   "22_GOVERNMENT_SUPPORT",
+   8
+  ],
+  "g_txom": [
+   "22_GOVERNMENT_SUPPORT",
+   9
+  ],
+  "g_util": [
+   "22_GOVERNMENT_SUPPORT",
+   10
+  ],
+  "g_direct": [
+   "22_GOVERNMENT_SUPPORT",
+   11
+  ],
+  "x_debt": [
+   "23_GUARANTEES",
+   8
+  ],
+  "x_ppa": [
+   "23_GUARANTEES",
+   9
+  ],
+  "x_term": [
+   "23_GUARANTEES",
+   10
+  ],
+  "x_fx": [
+   "23_GUARANTEES",
+   11
+  ],
+  "x_mrg": [
+   "23_GUARANTEES",
+   12
+  ],
+  "x_onbud": [
+   "23_GUARANTEES",
+   13
+  ],
+  "cl_max": [
+   "24_CONTINGENT_LIABILITIES",
+   11
+  ],
+  "call_ppa": [
+   "24_CONTINGENT_LIABILITIES",
+   13
+  ],
+  "call_debt": [
+   "24_CONTINGENT_LIABILITIES",
+   14
+  ],
+  "call_mrg": [
+   "24_CONTINGENT_LIABILITIES",
+   15
+  ],
+  "call_tot": [
+   "24_CONTINGENT_LIABILITIES",
+   16
+  ],
+  "el": [
+   "24_CONTINGENT_LIABILITIES",
+   18
+  ],
+  "gdf": [
+   "24_CONTINGENT_LIABILITIES",
+   19
+  ],
+  "f_direct": [
+   "25_FISCAL_IMPACT",
+   7
+  ],
+  "f_calls": [
+   "25_FISCAL_IMPACT",
+   8
+  ],
+  "f_tax": [
+   "25_FISCAL_IMPACT",
+   10
+  ],
+  "f_roy": [
+   "25_FISCAL_IMPACT",
+   11
+  ],
+  "f_div": [
+   "25_FISCAL_IMPACT",
+   12
+  ],
+  "f_net": [
+   "25_FISCAL_IMPACT",
+   13
+  ],
+  "f_cum": [
+   "25_FISCAL_IMPACT",
+   14
+  ],
+  "f_need": [
+   "25_FISCAL_IMPACT",
+   15
+  ],
+  "f_need_rev": [
+   "25_FISCAL_IMPACT",
+   16
+  ],
+  "gdp": [
+   "26_DEBT_SUSTAINABILITY",
+   21
+  ],
+  "gov_rev": [
+   "26_DEBT_SUSTAINABILITY",
+   22
+  ],
+  "s_onbud": [
+   "26_DEBT_SUSTAINABILITY",
+   23
+  ],
+  "s_cl": [
+   "26_DEBT_SUSTAINABILITY",
+   24
+  ],
+  "s_cash": [
+   "26_DEBT_SUSTAINABILITY",
+   25
+  ],
+  "s_cumout": [
+   "26_DEBT_SUSTAINABILITY",
+   26
+  ]
+ },
+ "SCEN_SNAP_ROW": 43,
+ "CMP_SNAP": 53,
+ "SENS_SNAP_ROW": 16,
+ "CASE_ROW0": 4
+}
