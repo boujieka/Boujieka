@@ -36,6 +36,8 @@ X["blend_y2"] = None
 ws15 = wb["15_TARIFF"]
 r_bl = MAP["TSROW"]["blend"][1]
 X["blend_y2"] = ws15.cell(r_bl, 5 + k2).value
+for i in range(2, 6):
+    X[f"req{i}"] = X["blend_y2"] * (1 + SNAP[f"s{i}"]["req_tariff_flex"])
 
 STATUS_ABBR = {"READY": "R", "CONDITIONAL": "C", "DEVELOPMENT GAP": "D", "CRITICAL GAP": "X"}
 
@@ -157,7 +159,7 @@ text = re.sub(r"\[(@[^\]]+)\]", cite, text)
 refs = "\n".join(f"REF|{refnum[i]}|{bib(i).replace('|', '/')}" for i in order)
 text = text.replace("%%REFERENCES", "Numbered in order of first citation. Entries marked 'snippet' or 'search-result only' were seen only in search results and should be verified before reliance.\n\n" + refs)
 
-# ---------------- lint: AI-style tells ----------------
+# ---------------- style lint ----------------
 problems = []
 for bad in ["—", "–", "delve", "tapestry", "testament", "pivotal", "underscore", "showcase", "vibrant", "intricate", "landscape of",
             "in today's", "it is important to note", "plays a crucial", "crucial role", "seamless", "Additionally,", "Furthermore,", "Moreover,"]:

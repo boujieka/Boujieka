@@ -118,18 +118,18 @@ ax.axhline(0, color=INK, lw=0.8)
 ax.set_ylabel("USD million"); ax.legend(loc="upper right", fontsize=7)
 save(fig, "fig13_1_fiscal.png")
 
-# ---- 17.1 fiscal NPV by scenario ----
-keys = [("base_locked", "Base (debt locked)"), ("high", "High case"), ("low", "Low case"), ("drought", "Drought"), ("climate", "Climate trend"),
-        ("overrun", "CAPEX overrun 27%"), ("delay", "Two-year delay"), ("lowdem", "Low demand"), ("rate", "Interest +300 bp"),
-        ("trans", "Transmission 2 yrs late"), ("fx", "FX step 50%"), ("offtaker", "Offtaker stress"), ("combined", "Combined")]
-vals = [S[k]["fis_npv"] for k, _ in keys]
-fig, ax = plt.subplots(figsize=(W, 3.0))
-y = list(range(len(keys)))[::-1]
-ax.barh(y, vals, color=[BLUE if v >= 0 else ORANGE for v in vals], height=0.6)
-for yy, v in zip(y, vals):
-    ax.text(v + (25 if v >= 0 else -25), yy, f"{v:,.0f}", va="center", ha="left" if v >= 0 else "right", fontsize=6.5, color=INK2)
+# ---- 17.1 fiscal NPV by scenario (central vs consolidated) ----
+keys = [("base_locked", "Base"), ("high", "High case"), ("low", "Low case"), ("drought", "Drought"), ("climate", "Climate trend"),
+        ("overrun", "CAPEX overrun 27%"), ("overrun96", "CAPEX overrun 96%"), ("delay", "Two-year delay"), ("lowdem", "Low demand"),
+        ("rate", "Interest +300 bp"), ("trans", "Transmission 2 yrs late"), ("fx", "FX step 50%"), ("offtaker", "Offtaker stress"),
+        ("offtaker_nobs", "Offtaker, no backstop"), ("combined", "Combined")]
+c1 = [S[k]["fis_npv"] for k, _ in keys]; c2 = [S[k]["fis_npv_cons"] for k, _ in keys]
+fig, ax = plt.subplots(figsize=(W, 3.6))
+n = len(keys); y = list(range(n))[::-1]; h = 0.38
+ax.barh([v + h / 2 for v in y], c1, height=h, color=BLUE, label="Central government", edgecolor="white", linewidth=0.8)
+ax.barh([v - h / 2 for v in y], c2, height=h, color=ORANGE, label="Consolidated (incl. state utility)", edgecolor="white", linewidth=0.8)
 ax.set_yticks(y); ax.set_yticklabels([l for _, l in keys]); ax.axvline(0, color=INK, lw=0.8)
-ax.set_xlabel("Fiscal NPV to government, USD million (8%)"); ax.grid(axis="y", visible=False)
-ax.set_xlim(min(vals) * 1.25, max(max(vals) * 2.2, 200))
+ax.set_xlabel("Fiscal NPV, USD million (8%)"); ax.grid(axis="y", visible=False)
+ax.legend(loc="lower left", fontsize=7)
 save(fig, "fig17_1_fiscal_npv.png")
 print("figures written")

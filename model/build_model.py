@@ -265,6 +265,7 @@ inp(ws, r, "structure", "Financing / PPP structure (1-5, see 17A_STRUCTURES)", 3
 calc(ws, r, "structure_name", "Selected structure", "={str_name}", "", None); r += 1
 inp(ws, r, "debt_mode", "Debt sizing mode (1=sculpted in-model, 2=locked amounts)", 1, "1-2", "Use 2 to stress a FIXED debt package (paste base-case amounts in 18_DEBT)", "int", True); r += 1
 inp(ws, r, "backstop", "Government budget backstop of utility PPA shortfall (1=yes, 0=no)", 1, "0/1", "1: shortfall becomes a fiscal cost. 0: shortfall becomes a guarantee call or IPP arrears", "int", True); r += 1
+inp(ws, r, "bs_share", "Share of the shortfall the budget backstop covers", 1.0, "%", "Remainder goes to the PPA guarantee, then to arrears", "pct"); r += 1
 section(ws, r, "C. STRESS TOGGLES (1 = ON). Parameters in 27_SCENARIOS"); r += 1
 for nm, lab in [("st_drought", "Drought case"), ("st_capex", "CAPEX overrun"), ("st_delay", "Construction delay"),
                 ("st_demand", "Low demand"), ("st_offtaker", "Offtaker stress"), ("st_fx", "FX depreciation"),
@@ -283,6 +284,7 @@ calc(ws, r, None, "Private equity IRR", "={kpi_eirr}", "%", "pct", out=True); r 
 calc(ws, r, None, "Minimum DSCR (actual case)", "={kpi_min_dscr}", "x", "x", out=True); r += 1
 calc(ws, r, None, "Financing gap", "={fin_gap}", "USDm", "m", out=True); r += 1
 calc(ws, r, None, "Fiscal NPV to government (negative = net cost)", "={fis_npv}", "USDm", "m", out=True); r += 1
+calc(ws, r, None, "Consolidated fiscal NPV incl. state utility", "={fis_npv_cons}", "USDm", "m", out=True); r += 1
 calc(ws, r, None, "Overall bankability verdict", "={bk_overall}", "", None, out=True); r += 1
 calc(ws, r, None, "Model integrity checks", "={chk_all}", "", None, out=True); r += 1
 for nm in ["case", "gen_case", "lender_case"]:
@@ -291,7 +293,7 @@ dv = DataValidation(type="whole", operator="between", formula1="1", formula2="3"
 dv.add("C5:C7")
 dv5 = DataValidation(type="whole", operator="between", formula1="1", formula2="5"); ws.add_data_validation(dv5); dv5.add("C9")
 dvb = DataValidation(type="whole", operator="between", formula1="0", formula2="1"); ws.add_data_validation(dvb)
-dvb.add("C12"); dvb.add("C14:C22")
+dvb.add("C12"); dvb.add("C15:C23")
 dv2 = DataValidation(type="whole", operator="between", formula1="1", formula2="2"); ws.add_data_validation(dv2); dv2.add("C11")
 
 # ===================================================================================
@@ -349,7 +351,7 @@ for nm, lab, u, b, lo, hi, nt in CASE_ROWS:
     r += 1
 r += 1
 section(ws, r, "STRESS PARAMETERS (applied only when the toggle is ON)"); r += 1
-inp(ws, r, "p_drought", "Drought: flow factor during drought window", 0.70, "x", "Assumption; calibrate to worst historical multi-year sequence", "n2"); r += 1
+inp(ws, r, "p_drought", "Drought: flow factor during drought window", 0.55, "x", "Kariba 2024 allocation cut ~47% (news) [CL-04]; calibrate to the basin's worst sequence", "n2"); r += 1
 inp(ws, r, "p_drought_start", "Drought: first operating year affected", 4, "op yr", "", "int"); r += 1
 inp(ws, r, "p_drought_len", "Drought: duration", 3, "years", "Multi-year droughts occurred at Kariba (see case library)", "int"); r += 1
 inp(ws, r, "p_overrun", "CAPEX overrun", 0.27, "%", "Ansar et al. 2014: median real overrun +27%, mean +96% [HY-08]", "pct"); r += 1
@@ -480,6 +482,7 @@ ts(ws, r, "fxidx", "FX index (2026 = 1)", "x", "=[fx]/{fx0}", "n3"); r += 1
 ts(ws, r, "escidx", "CAPEX escalation index", "x", "=(1+{capex_esc})^([year]-{base_year})", "n3"); r += 1
 section(ws, r, "PLANT CAPEX PHASING (sine S-curve over effective construction period)", ts=True); r += 1
 ts(ws, r, "share", "CAPEX share (sums to 100%)", "%", "=IF([consflag]=1,SIN(PI()*(#T#-0.5)/{cons_eff})*SIN(PI()/(2*{cons_eff})),0)", "pct", total="sum"); r += 1
+ts(ws, r, "cumsh", "Cumulative CAPEX share", "%", "=[cumsh@p]+[share]", "pct"); r += 1
 ts(ws, r, "capex_nom", "Plant CAPEX, nominal", "USDm", "={capex_real}*[share]*[escidx]", "m", total="sum", bold=True); r += 1
 note(ws, r + 1, "S-curve weight_t = sin(pi(t-0.5)/N)·sin(pi/2N) — closed form that sums exactly to 1 for any N. Replace with EPC payment schedule when available.")
 
@@ -535,13 +538,14 @@ inp(ws, r, "tx_wheel", "Wheeling / use-of-system charge borne by project", 0.0, 
 inp(ws, r, "tx_fin", "Transmission financing secured (1=yes, 0=no)", 0, "0/1", "Gate 4 test", "int", True); r += 1
 section(ws, r, "B. CALCULATIONS", ts=True); r += 1
 calc(ws, r, "tx_capex_real", "Transmission CAPEX (real 2026, incl. case & overrun)", "=({tx_km}*{tx_cost_km}+{tx_sub}+{tx_reinf})*{eff_capex}", "USDm", "m", out=True); r += 1
-calc(ws, r, "tx_cod", "Transmission COD (year)", "={cod_year}+{tx_lag}+{eff_tdelay}", "year", "yr", out=True); r += 1
+calc(ws, r, "tx_cod_plan", "Planned transmission COD (year)", "={start_year}+{cons_years}+{tx_lag}", "year", "yr"); r += 1
+calc(ws, r, "tx_cod", "Actual transmission COD (year)", "={tx_cod_plan}+{eff_tdelay}", "year", "yr", out=True); r += 1
 calc(ws, r, "tx_gap_yrs", "Transmission readiness gap — timing", "={tx_cod}-{cod_year}", "years", "int", out=True); r += 1
 calc(ws, r, "tx_gap_mw", "Transmission readiness gap — capacity at plant COD", "=MAX(0,{inst_mw}-{evac_cod})", "MW", "m0", out=True); r += 1
 calc(ws, r, "tx_cost_kw", "Connection cost per kW of plant", "={tx_capex_real}/{inst_mw}*1000", "USD/kW", "m0"); r += 1
 r += 1
 ts(ws, r, "tx_ready", "Transmission line in service flag", "flag", "=IF([year]>={tx_cod},1,0)", "flag"); r += 1
-ts(ws, r, "tx_spend", "Transmission CAPEX, nominal", "USDm", "=IF(AND([year]>={tx_cod}-{tx_build},[year]<{tx_cod}),{tx_capex_real}/{tx_build}*[escidx],0)", "m", total="sum"); r += 1
+ts(ws, r, "tx_spend", "Transmission CAPEX, nominal", "USDm", "=IF(AND([year]>={tx_cod_plan}-{tx_build},[year]<{tx_cod}),{tx_capex_real}*(1+{delay_cost}*{eff_tdelay})/({tx_build}+{eff_tdelay})*[escidx],0)", "m", total="sum"); r += 1
 ts(ws, r, "tx_spend_pub", "  of which public (Government/utility)", "USDm", "=IF({tx_party}=1,[tx_spend],0)", "m", total="sum"); r += 1
 ts(ws, r, "tx_spend_prj", "  of which project company", "USDm", "=IF({tx_party}=2,[tx_spend],0)", "m", total="sum"); r += 1
 ts(ws, r, "tx_omc", "Transmission O&M (once in service)", "USDm", "=[tx_ready]*[opflag]*{tx_capex_real}*{tx_om}*[uscpi]", "m", total="sum"); r += 1
@@ -576,13 +580,13 @@ note(ws, r, "Fictional values. Commercial share = share of segment demand from c
 inp(ws, r, "exp_pot", "Export potential via regional power pool", 600, "GWh/yr", "Potential only", "gwh"); r += 1
 inp(ws, r, "exp_con", "Contracted (signed) export sales", 0, "GWh/yr", "", "gwh"); r += 1
 inp(ws, r, "sup0", "Existing firm domestic supply (2026)", 8600, "GWh/yr", "Incl. committed plants; fictional", "gwh", True); r += 1
-inp(ws, r, "sup_g", "Growth of other committed supply", 0.015, "% p.a.", "", "pct"); r += 1
+inp(ws, r, "sup_g", "Growth of other supply available to the utility (committed + planned)", 0.045, "% p.a.", "Caps utility sales: demand above available supply is unserved", "pct"); r += 1
 inp(ws, r, "thermal_disp", "Displaceable existing thermal generation", 500, "GWh/yr", "Diesel/HFO that new hydro can displace", "gwh"); r += 1
 section(ws, r, "B. DEMAND PROJECTION (GWh)", ts=True); r += 1
 for k, lab, *_ in segs:
     rr = seg_rows[k]
     ts(ws, r, f"d_{k}", lab, "GWh",
-       f"=$B${rr}*(1+CHOOSE({{case}},$C${rr},$E${rr},$F${rr})+{{eff_demg}})^([year]-{{base_year}})*{{eff_dem}}", "gwh"); r += 1
+       f"=$B${rr}*(1+CHOOSE({{case}},$C${rr},$E${rr},$F${rr})+{{eff_demg}})^([year]-{{base_year}})*IF([year]>={{cod_year}},{{eff_dem}},1)", "gwh"); r += 1
 ts(ws, r, "d_dom", "Total domestic demand (potential, at customer meter)", "GWh", "=" + "+".join(f"[d_{k}]" for k, *_ in segs), "gwh", bold=True); r += 1
 ts(ws, r, "d_pot", "POTENTIAL demand incl. export potential", "GWh", "=[d_dom]+{exp_pot}", "gwh"); r += 1
 ts(ws, r, "d_comm", "COMMERCIAL demand (ability-to-pay weighted)", "GWh",
@@ -594,7 +598,7 @@ ts(ws, r, "d_absorb", "Absorbable project energy (gap + thermal displacement + e
 ts(ws, r, "d_contract", "CONTRACTED demand (PPA contracted energy, P50)", "GWh", "=[opflag]*{p50}", "gwh"); r += 1
 ts(ws, r, "d_bank", "BANKABLE demand = MIN(contracted, absorbable x commercial ratio)", "GWh", "=[opflag]*MIN([d_contract],[d_absorb]*[d_comm]/([d_dom]+{exp_con}))", "gwh", bold=True); r += 1
 ts(ws, r, "d_bank_ratio", "Bankable / contracted", "x", "=IF([d_contract]>0,[d_bank]/[d_contract],\"\")", "x"); r += 1
-ts(ws, r, "d_bank5", "  Ratio in first 5 operating years", "x", "=IF(AND([opyr]>=1,[opyr]<=5),[d_bank_ratio],\"\")", "x", total="min"); r += 1
+ts(ws, r, "d_bank5", "  Ratio in first 5 operating years", "x", "=IF(AND([opyr]>=1,[opyr]<=5),[d_bank_ratio],\"\")", "x", total="=IF(COUNT([RNG:d_bank5])=0,99,MIN([RNG:d_bank5]))"); r += 1
 REF["dem_ratio5"] = f"{q('10_DEMAND')}!$C${r-1}"
 
 # ===================================================================================
@@ -626,7 +630,7 @@ note(ws, r + 1, "Proportional curtailment simplification: delivered = generation
 ws10 = WS["10_DEMAND"]
 TSROW["d_dom0"] = ("10_DEMAND", 99)
 ws10["A99"] = "Base-year (2026) domestic demand"; ws10["A99"].font = F_BASE
-put(ws10, "C99", "=" + "+".join(f"$B${seg_rows[k]}*{{eff_dem}}" for k, *_ in segs), "gwh")
+put(ws10, "C99", "=" + "+".join(f"$B${seg_rows[k]}" for k, *_ in segs), "gwh")
 
 # ===================================================================================
 # 04 GENERATION
@@ -676,7 +680,7 @@ ts(ws, r, "o_mmr", "Major maintenance reserve", "USDm", "=[opflag]*{capex_real}*
 ts(ws, r, "o_oth", "G&A / E&S / community", "USDm", "=[opflag]*{om_other}*{eff_opex}*[uscpi]", "m", total="sum"); r += 1
 ts(ws, r, "o_txprj", "Transmission O&M & wheeling (if project-owned)", "USDm", "=IF({tx_party}=2,[tx_omc],0)+[tx_wheelc]", "m", total="sum"); r += 1
 ts(ws, r, "opex", "Total OPEX", "USDm", "=[o_fix]+[o_var]+[o_ins]+[o_mmr]+[o_oth]+[o_txprj]", "m", total="sum", bold=True); r += 1
-ts(ws, r, "o_roy", "Water royalty (to government)", "USDm", "=([delivered]+[deemed])*{royalty}*[uscpi]/1000", "m", total="sum"); r += 1
+ts(ws, r, "o_roy", "Water royalty (to government)", "USDm", "=[delivered]*{royalty}*[uscpi]/1000", "m", total="sum"); r += 1
 ts(ws, r, "o_roy_len", "Water royalty — lender case", "USDm", "=[gen_len]*{royalty}*[uscpi]/1000", "m", total="sum"); r += 1
 
 # ===================================================================================
@@ -710,17 +714,20 @@ inp(ws, r, "ut_cl", "Commercial (non-technical) losses", 0.08, "% of sent-out", 
 inp(ws, r, "ut_coll", "Collection rate", 0.88, "% of billing", "", "pct", True); r += 1
 inp(ws, r, "ut_supc", "Cost of other supply (own generation + other IPPs)", 55, "USD/MWh 2026", "", "n2"); r += 1
 inp(ws, r, "ut_supusd", "USD-linked share of other supply cost", 0.5, "%", "", "pct"); r += 1
-inp(ws, r, "ut_opex", "Utility OPEX (T&D, retail, overheads)", 190, "USDm 2026", "Local-currency; scales with sales volume", "m"); r += 1
+inp(ws, r, "ut_opex", "Utility OPEX (T&D, retail, overheads)", 190, "USDm 2026", "Local-currency; 50% fixed, 50% scales with sales volume", "m"); r += 1
 inp(ws, r, "ut_sub", "Government operating transfers / subsidies", 80, "USDm 2026", "Local-currency", "m"); r += 1
 inp(ws, r, "ut_ds", "Existing utility debt service", 85, "USDm/yr", "USD-denominated, flat", "m"); r += 1
 inp(ws, r, "ut_rec0", "Opening receivables", 180, "USDm", "", "m"); r += 1
 inp(ws, r, "ut_wo", "Annual write-off of aged receivables", 0.30, "% of stock", "", "pct"); r += 1
 inp(ws, r, "ut_cov", "Required cash coverage of new PPA payments", 1.20, "x", "Prudential buffer — assumption", "x", True); r += 1
 section(ws, r, "B. ENERGY BALANCE (GWh)", ts=True); r += 1
-ts(ws, r, "u_sales", "Electricity sales (domestic demand served)", "GWh", "=[d_dom]", "gwh"); r += 1
-ts(ws, r, "u_purch", "Energy purchased / sent-out (grossed up for losses)", "GWh", "=[u_sales]/(1-{ut_tl}-{ut_cl})", "gwh"); r += 1
-ts(ws, r, "u_proj", "  from Lumora Falls (utility share, net of transmission losses)", "GWh", "=MIN([delivered]*{u_share}*(1-{tx_loss}),[u_purch])", "gwh"); r += 1
-ts(ws, r, "u_other", "  from other supply", "GWh", "=[u_purch]-[u_proj]", "gwh"); r += 1
+ts(ws, r, "u_dem", "Utility demand (domestic, excl. mining load served directly by the project)", "GWh", "=MAX(0,[d_dom]-[delivered]*{m_share})", "gwh"); r += 1
+ts(ws, r, "u_req", "Sent-out energy required to meet utility demand", "GWh", "=[u_dem]/(1-{ut_tl}-{ut_cl})", "gwh"); r += 1
+ts(ws, r, "u_proj", "  from Lumora Falls (utility share, net of transmission losses)", "GWh", "=MIN([delivered]*{u_share}*(1-{tx_loss}),[u_req])", "gwh"); r += 1
+ts(ws, r, "u_other", "  from other supply (capped at available supply)", "GWh", "=MIN([u_req]-[u_proj],[d_sup])", "gwh"); r += 1
+ts(ws, r, "u_purch", "Energy purchased / sent-out", "GWh", "=[u_proj]+[u_other]", "gwh"); r += 1
+ts(ws, r, "u_sales", "Electricity sales (demand served)", "GWh", "=[u_purch]*(1-{ut_tl}-{ut_cl})", "gwh"); r += 1
+ts(ws, r, "u_unserved", "Unserved demand (load shedding)", "GWh", "=[u_dem]-[u_sales]", "gwh", total="sum"); r += 1
 section(ws, r, "C. INCOME & CASH (USDm equivalent)", ts=True); r += 1
 ts(ws, r, "u_tar", "Average retail tariff", "NVL/kWh", "=IF(#T#=1,{ut_tar0},[u_tar@p])*(1+{lc_cpi}*IF(AND([opyr]>=1,[opyr]<={eff_freeze}),0,{ut_pt}))", "n2"); r += 1
 ts(ws, r, "u_tar_usd", "Average retail tariff (USD/MWh)", "USD/MWh", "=[u_tar]/[fx]*1000", "n2"); r += 1
@@ -728,15 +735,15 @@ ts(ws, r, "u_bill", "Billed revenue", "USDm", "=[u_sales]*[u_tar]/[fx]", "m"); r
 ts(ws, r, "u_collr", "Collection rate", "%", "=MAX(0,MIN(1,{ut_coll}+IF([year]>={cod_year},{eff_coll_adj},0)))", "pct"); r += 1
 ts(ws, r, "u_coll", "Cash collected", "USDm", "=[u_bill]*[u_collr]", "m"); r += 1
 ts(ws, r, "u_subs", "Government transfers", "USDm", "={ut_sub}*IF([year]>={cod_year},{eff_sub},1)*[lccpi]/[fxidx]", "m"); r += 1
-ts(ws, r, "u_opex", "Utility OPEX", "USDm", "=-{ut_opex}*[lccpi]/[fxidx]*[u_sales]/[C:d_dom0]", "m"); r += 1
+ts(ws, r, "u_opex", "Utility OPEX", "USDm", "=-{ut_opex}*[lccpi]/[fxidx]*(0.5+0.5*[u_sales]/[C:d_dom0])", "m"); r += 1
 ts(ws, r, "u_supcost", "Cost of other supply", "USDm", "=-[u_other]*{ut_supc}*({ut_supusd}*[uscpi]+(1-{ut_supusd})*[lccpi]/[fxidx])/1000", "m"); r += 1
 ts(ws, r, "u_exds", "Existing debt service", "USDm", "=-{ut_ds}", "m"); r += 1
-ts(ws, r, "u_cash_pre", "Cash available before new PPA", "USDm", "=[u_coll]+[u_subs]+[u_opex]+[u_supcost]+[u_exds]", "m", bold=True); r += 1
+ts(ws, r, "u_cash_pre", "Cash available after displaced supply, before paying the new PPA", "USDm", "=[u_coll]+[u_subs]+[u_opex]+[u_supcost]+[u_exds]", "m", bold=True); r += 1
 ts(ws, r, "u_maxppa", "MAXIMUM SUSTAINABLE PPA PAYMENT", "USDm", "=MAX(0,[u_cash_pre])/{ut_cov}", "m", bold=True); r += 1
 ts(ws, r, "u_ppa", "PPA payment billed by project (utility share)", "USDm", "=[rev_util]", "m"); r += 1
 ts(ws, r, "u_gap", "OFFTAKER PAYMENT CAPACITY GAP", "USDm", "=[opflag]*MAX(0,[u_ppa]-[u_maxppa])", "m", total="sum", bold=True); r += 1
-ts(ws, r, "u_ratio", "Payment capacity / PPA payment", "x", "=IF([u_ppa]>0,[u_maxppa]/[u_ppa],\"\")", "x"); r += 1
-ts(ws, r, "u_ratio10", "  Ratio in first 10 operating years", "x", "=IF(AND([opyr]>=1,[opyr]<=10),[u_ratio],\"\")", "x", total="min"); r += 1
+ts(ws, r, "u_ratio", "Payment capacity / PPA payment", "x", "=IF([u_ppa]>0,[u_maxppa]/[u_ppa],99)", "x"); r += 1
+ts(ws, r, "u_ratio10", "  Ratio in first 10 operating years", "x", "=IF(AND([opyr]>=1,[opyr]<=10),[u_ratio],\"\")", "x", total="=IF(COUNT([RNG:u_ratio10])=0,99,MIN([RNG:u_ratio10]))"); r += 1
 REF["ut_ratio10"] = f"{q('12_UTILITY')}!$C${r-1}"
 ts(ws, r, "u_prefdef", "Pre-existing utility cash deficit (before any new PPA)", "USDm", "=MAX(0,-[u_cash_pre])", "m", total="sum"); r += 1
 section(ws, r, "D. PERFORMANCE METRICS", ts=True); r += 1
@@ -749,6 +756,10 @@ ts(ws, r, "u_dscr", "Utility DSCR on existing debt", "x", "=([u_cash_pre]-[u_exd
 ts(ws, r, "u_rec", "Receivables (closing)", "USDm", "=IF(#T#=1,{ut_rec0},[u_rec@p])*(1-{ut_wo})+[u_bill]-[u_coll]", "m"); r += 1
 ts(ws, r, "u_recd", "Receivable days", "days", "=IF([u_bill]>0,[u_rec]/[u_bill]*365,0)", "int"); r += 1
 ts(ws, r, "u_arrears", "Cumulative unpaid PPA arrears to project", "USDm", "=[u_arrears@p]+[unpaid]", "m"); r += 1
+ts(ws, r, "u_other_np", "No-project case: purchases from other supply", "GWh", "=MIN([u_req]+[delivered]*{m_share}/(1-{ut_tl}-{ut_cl})*[opflag],[d_sup])", "gwh"); r += 1
+ts(ws, r, "u_sales_np", "No-project case: sales", "GWh", "=[u_other_np]*(1-{ut_tl}-{ut_cl})", "gwh"); r += 1
+ts(ws, r, "u_cash_np", "No-project case: utility cash flow", "USDm", "=[u_sales_np]*[u_tar]/[fx]*[u_collr]+[u_subs]-{ut_opex}*[lccpi]/[fxidx]*(0.5+0.5*[u_sales_np]/[C:d_dom0])-[u_other_np]*{ut_supc}*({ut_supusd}*[uscpi]+(1-{ut_supusd})*[lccpi]/[fxidx])/1000+[u_exds]", "m"); r += 1
+ts(ws, r, "f_soe", "Incremental utility (SOE) cash from the project, net of new arrears", "USDm", "=[u_cash_post]-[u_cash_np]-[unpaid]", "m", total="sum", bold=True); r += 1
 ts(ws, r, "u_ppa_share", "PPA payment as % of utility billed revenue", "%", "=IF([u_bill]>0,[u_ppa]/[u_bill],0)", "pct"); r += 1
 ts(ws, r, "u_cos", "Collected revenue per MWh sent-out", "USD/MWh", "=([u_coll])/[u_purch]*1000", "n2"); r += 1
 
@@ -861,8 +872,11 @@ ts(ws, r, "rev_util", "  billed to utility", "USDm", "=[rev_bill]*{u_share}", "m
 ts(ws, r, "rev_util_y2", "  billed to utility — first full year (op yr 2)", "USDm", "=IF([opyr]=2,[rev_util],0)", "m", total="sum"); r += 1
 ts(ws, r, "rev_min", "  billed to mining offtaker", "USDm", "=[rev_bill]-[rev_util]", "m", total="sum"); r += 1
 section(ws, r, "C. PAYMENT OF UTILITY SHORTFALL", ts=True); r += 1
-ts(ws, r, "cov_backstop", "Covered by government budget backstop", "USDm", "=IF({backstop}=1,[u_gap],0)", "m", total="sum"); r += 1
-ts(ws, r, "cov_guar", "Covered by sovereign PPA payment guarantee call", "USDm", "=IF({backstop}=1,0,{str_ppag}*[u_gap])", "m", total="sum"); r += 1
+ts(ws, r, "cov_backstop", "Covered by government budget backstop", "USDm", "=IF({backstop}=1,[u_gap]*{bs_share},0)", "m", total="sum"); r += 1
+ts(ws, r, "ppag_lim", "PPA guarantee limit (months of utility billing)", "USDm", "={str_ppag}*{ppag_months}/12*[rev_util]", "m"); r += 1
+ts(ws, r, "ppag_reimb", "Utility reimbursement of earlier guarantee calls", "USDm", "=[opflag]*MIN([ppag_out@p],MAX(0,[u_maxppa]-[u_ppa]))", "m", total="sum"); r += 1
+ts(ws, r, "cov_guar", "Covered by sovereign PPA payment guarantee call (within available limit)", "USDm", "=MIN([u_gap]-[cov_backstop],MAX(0,[ppag_lim]-[ppag_out@p]+[ppag_reimb]))", "m", total="sum"); r += 1
+ts(ws, r, "ppag_out", "Guarantee calls outstanding (not yet reimbursed)", "USDm", "=[ppag_out@p]+[cov_guar]-[ppag_reimb]", "m"); r += 1
 ts(ws, r, "unpaid", "UNPAID (arrears to project)", "USDm", "=[u_gap]-[cov_backstop]-[cov_guar]", "m", total="sum", bold=True); r += 1
 ts(ws, r, "rev_cash", "Cash revenue received by project", "USDm", "=[rev_bill]-[unpaid]", "m", total="sum", bold=True); r += 1
 section(ws, r, "D. LENDER CASE REVENUE (for debt sizing)", ts=True); r += 1
@@ -949,12 +963,12 @@ srow = {nm: 5 + i for i, (nm, *_rest) in enumerate(STR)}
 cmp_row("comm", "Commercial debt share (assumed at gearing cap)", "%", lambda c: f"=MAX(0,{c}{srow['str_maxdebt']}-{c}{srow['str_conc']})", "pct")
 cmp_row("priv", "Private equity share", "%", lambda c: f"=IF({c}{srow['str_resid']}=2,0,MAX(0,1-{c}{srow['str_goveq']}-{c}{srow['str_grant']}-{c}{srow['str_maxdebt']}))", "pct")
 cmp_row("govx", "Government residual equity share", "%", lambda c: f"=IF({c}{srow['str_resid']}=2,MAX(0,1-{c}{srow['str_grant']}-{c}{srow['str_maxdebt']}-{c}{srow['str_goveq']}),0)", "pct")
-cmp_row("wacc", "Blended cost of capital (nominal)", "%",
-        lambda c: f"=({c}{srow['str_goveq']}+{c}{cmp_rows['govx']})*{{gov_disc}}+{c}{srow['str_conc']}*{c}{srow['str_rc']}+{c}{cmp_rows['comm']}*{c}{srow['str_rm']}+{c}{cmp_rows['priv']}*{c}{srow['str_hurdle']}", "pct2")
+cmp_row("wacc", "Blended pre-tax cost of capital (private equity grossed up for tax)", "%",
+        lambda c: f"=({c}{srow['str_goveq']}+{c}{cmp_rows['govx']})*{{gov_disc}}+{c}{srow['str_conc']}*{c}{srow['str_rc']}+{c}{cmp_rows['comm']}*{c}{srow['str_rm']}+{c}{cmp_rows['priv']}*{c}{srow['str_hurdle']}/(1-{{tax_rate}})", "pct2")
 cmp_row("wacc_ex", "Cost of capital on non-grant funding", "%", lambda c: f"=IFERROR({c}{cmp_rows['wacc']}/(1-{c}{srow['str_grant']}),0)", "pct2")
 cmp_row("crf", "Capital recovery factor", "x", lambda c: f"={c}{cmp_rows['wacc_ex']}/(1-(1+{c}{cmp_rows['wacc_ex']})^-{{ops_years}})", "n3")
-cmp_row("tariff", "Required levelised tariff (nominal-flat)", "USD/MWh", lambda c: f"=({{fund_base}}*(1-{c}{srow['str_grant']})*{c}{cmp_rows['crf']}+{{opex_y2}})/{{p50}}*1000", "n2")
-cmp_row("afford", "Affordable tariff (utility max sustainable payment / energy, first 10 yrs avg)", "USD/MWh", lambda c: "={afford_tariff}", "n2")
+cmp_row("tariff", "Required levelised tariff (screening; capital incl. IDC and fees)", "USD/MWh", lambda c: f"=({{fund_base}}*(1+{c}{srow['str_maxdebt']}*({{idc_km}}+{{upfront_fee}}))*(1-{c}{srow['str_grant']})*{c}{cmp_rows['crf']}+{{opex_y2}})/{{p50}}*1000", "n2")
+cmp_row("afford", "Utility payment headroom per MWh (max sustainable payment / energy, first 10 yrs avg)", "USD/MWh", lambda c: "={afford_tariff}", "n2")
 cmp_row("subsidy", "Implied annual subsidy to close affordability gap", "USDm/yr", lambda c: f"=MAX(0,{c}{cmp_rows['tariff']}-{c}{cmp_rows['afford']})*{{p50}}/1000", "m")
 cmp_row("pubcap", "Upfront public capital (gov equity + grants)", "USDm", lambda c: f"=({c}{srow['str_goveq']}+{c}{srow['str_grant']}+{c}{cmp_rows['govx']})*{{fund_base}}", "m")
 cmp_row("privcap", "Private equity", "USDm", lambda c: f"={c}{cmp_rows['priv']}*{{fund_base}}", "m")
@@ -965,7 +979,7 @@ cmp_row("onbud", "Direct public debt", "USDm", lambda c: f"={c}{srow['str_onbud'
 cmp_row("guar", "Guaranteed debt (contingent)", "USDm", lambda c: f"=(1-{c}{srow['str_onbud']})*{c}{srow['str_guar']}*{c}{cmp_rows['debt']}", "m")
 cmp_row("ppag", "PPA guarantee exposure (12 months of payments)", "USDm", lambda c: f"={c}{srow['str_ppag']}*{c}{cmp_rows['tariff']}*{{p50}}/1000", "m")
 cmp_row("term", "Termination exposure at COD (debt + private equity x (1+premium))", "USDm", lambda c: f"={c}{srow['str_term']}*({c}{cmp_rows['debt']}+{c}{cmp_rows['privcap']}*(1+{{term_prem}}))", "m")
-cmp_row("pubexp", "Gross public exposure at COD (public capital + direct debt + max(guaranteed debt + PPA guarantee, termination))", "USDm",
+cmp_row("pubexp", "Gross public exposure at COD. Near the funding base by construction: every dollar is public or termination-protected", "USDm",
         lambda c: f"={c}{cmp_rows['pubcap']}+{c}{cmp_rows['onbud']}+MAX({c}{cmp_rows['guar']}+{c}{cmp_rows['ppag']},{c}{cmp_rows['term']})", "m")
 cmp_row("pubexp_pct", "Gross public exposure / GDP", "%", lambda c: f"={c}{cmp_rows['pubexp']}/({{gdp0}}*1000)", "pct")
 CMP_SNAP = r + 2
@@ -986,10 +1000,10 @@ calc(ws, r, "u_fee", "Upfront financing fees", "={upfront_fee}*({debt_c}+{debt_m
 calc(ws, r, "u_dsra", "Initial DSRA funding", "=[C:dsra_init]", "USDm", "m"); r += 1
 calc(ws, r, "uses", "TOTAL USES", "={fund_base}+{u_idc}+{u_fee}+{u_dsra}", "USDm", "m", out=True); r += 1
 section(ws, r, "B. SOURCES"); r += 1
-calc(ws, r, "s_grant", "Grants / VGF / public capital contribution", "={str_grant}*{fund_base}", "USDm", "m"); r += 1
-calc(ws, r, "s_goveq", "Government equity (structural)", "={str_goveq}*{fund_base}", "USDm", "m"); r += 1
-calc(ws, r, "debt_c", "Concessional senior debt", "=MIN({str_conc},{str_maxdebt})*{fund_base}", "USDm", "m"); r += 1
-calc(ws, r, "debt_m", "Commercial senior debt", "=IF({debt_mode}=1,MIN({comm_cap},MAX(0,{str_maxdebt}*{fund_base}-{debt_c})),{lock_m})", "USDm", "m"); r += 1
+calc(ws, r, "s_grant", "Grants / VGF / public capital contribution", "=IF({debt_mode}=1,{str_grant}*{fund_base},{lock_grant})", "USDm", "m"); r += 1
+calc(ws, r, "s_goveq", "Government equity (structural)", "=IF({debt_mode}=1,{str_goveq}*{fund_base},{lock_goveq})", "USDm", "m"); r += 1
+calc(ws, r, "debt_c", "Concessional senior debt", "=IF({debt_mode}=1,MIN({str_conc},{str_maxdebt})*{fund_base},{lock_c})", "USDm", "m"); r += 1
+calc(ws, r, "debt_m", "Commercial senior debt (gearing cap applied to CAPEX + debt-funded IDC and fees)", "=IF({debt_mode}=1,MIN({comm_cap},MAX(0,({str_maxdebt}*({fund_base}+{debt_c}*({idc_kc}+{upfront_fee}))-{debt_c})/(1-{str_maxdebt}*({idc_km}+{upfront_fee})))),MIN({lock_m},MAX(0,({str_maxdebt}*({fund_base}+{debt_c}*({idc_kc}+{upfront_fee}))-{debt_c})/(1-{str_maxdebt}*({idc_km}+{upfront_fee})))))", "USDm", "m"); r += 1
 calc(ws, r, "eq_total_res", "Residual equity required", "={uses}-{s_grant}-{s_goveq}-{debt_c}-{debt_m}", "USDm", "m"); r += 1
 calc(ws, r, "s_goveq_res", "  of which government (if residual provider)", "=IF({str_resid}=2,{eq_total_res},0)", "USDm", "m"); r += 1
 calc(ws, r, "s_priv", "  of which private sponsors", "=IF({str_resid}=1,{eq_total_res},0)", "USDm", "m"); r += 1
@@ -997,7 +1011,7 @@ calc(ws, r, "sources", "TOTAL SOURCES", "={s_grant}+{s_goveq}+{debt_c}+{debt_m}+
 section(ws, r, "C. DEBT CAPACITY & FINANCING GAP"); r += 1
 calc(ws, r, "comm_cap", "Commercial debt capacity (DSCR-sculpted, lender case)", "=SUMPRODUCT([RNG:sculpt],[RNG:dfm])", "USDm", "m", out=True); r += 1
 calc(ws, r, "debt_cap", "Total senior debt capacity", "={debt_c}+{comm_cap}", "USDm", "m", out=True); r += 1
-calc(ws, r, "gearing", "Senior debt / funding base", "=({debt_c}+{debt_m})/{fund_base}", "%", "pct", out=True); r += 1
+calc(ws, r, "gearing", "Senior debt / total uses", "=({debt_c}+{debt_m})/{uses}", "%", "pct", out=True); r += 1
 calc(ws, r, "priv_avail", "Private equity available", "={str_privmax}*{fund_base}", "USDm", "m"); r += 1
 calc(ws, r, "fin_gap", "FINANCING GAP (private equity required beyond availability)", "=IF({str_resid}=1,MAX(0,{s_priv}-{priv_avail}),0)", "USDm", "m", out=True); r += 1
 calc(ws, r, "gov_resid_flag", "Government residual funding (public structure)", "={s_goveq_res}", "USDm", "m"); r += 1
@@ -1005,17 +1019,17 @@ calc(ws, r, "fin_gap_pct", "Financing gap / total uses", "={fin_gap}/{uses}", "%
 section(ws, r, "D. KEY RESULTS"); r += 1
 calc(ws, r, "kpi_pirr", "Project IRR (post-tax, unlevered, nominal)", "=IFERROR(IRR([RNG:ucf],0.08),\"n/a\")", "%", "pct", out=True); r += 1
 calc(ws, r, "kpi_npv", "Project NPV @ discount rate", "=NPV({disc_rate},[RNG:ucf])", "USDm", "m", out=True); r += 1
-calc(ws, r, "kpi_eirr", "Private equity IRR (nominal)", "=IF({s_priv}>0,IFERROR(IRR([RNG:eq_priv_cf],0.1),\"n/a\"),\"n/a\")", "%", "pct", out=True); r += 1
+calc(ws, r, "kpi_eirr", "Private equity IRR (nominal)", "=IF({s_priv}>0,IFERROR(IRR([RNG:eq_priv_cf],0.1),IFERROR(IRR([RNG:eq_priv_cf],-0.1),IFERROR(IRR([RNG:eq_priv_cf],-0.5),-1))),\"n/a\")", "%", "pct", out=True); r += 1
 calc(ws, r, "kpi_girr", "Government equity IRR (nominal)", "=IF({s_goveq}+{s_goveq_res}>0,IFERROR(IRR([RNG:eq_gov_cf],0.05),\"n/a\"),\"n/a\")", "%", "pct", out=True); r += 1
 calc(ws, r, "lcoe", "LCOE — plant (nominal levelised)", "=NPV({disc_rate},[RNG:lc_cost])/NPV({disc_rate},[RNG:delivered_paid])*1000", "USD/MWh", "n2", out=True); r += 1
 calc(ws, r, "lcoe_sys", "LCOE — delivered system cost incl. public transmission & losses", "=NPV({disc_rate},[RNG:lc_cost_sys])/NPV({disc_rate},[RNG:lc_e_sys])*1000", "USD/MWh", "n2", out=True); r += 1
-calc(ws, r, "kpi_min_dscr", "Minimum DSCR (actual case)", "=MIN([RNG:dscr])", "x", "x", out=True); r += 1
+calc(ws, r, "kpi_min_dscr", "Minimum DSCR (actual case)", "=IF(COUNT([RNG:dscr])=0,99,MIN([RNG:dscr]))", "x", "x", out=True); r += 1
 calc(ws, r, "kpi_avg_dscr", "Average DSCR (actual case)", "=AVERAGE([RNG:dscr])", "x", "x", out=True); r += 1
-calc(ws, r, "kpi_llcr", "LLCR at COD", "=IFERROR(SUMPRODUCT([RNG:cfads],[RNG:dfm],[RNG:inloan])/({debt_c}+{debt_m}),0)", "x", "x", out=True); r += 1
+calc(ws, r, "kpi_llcr", "LLCR at COD (all tranches, weighted rate, longest tranche life)", "=IFERROR(SUMPRODUCT([RNG:cfads],[RNG:dfw],[RNG:inloan_all])/({debt_c}+{debt_m}),0)", "x", "x", out=True); r += 1
 calc(ws, r, "kpi_plcr", "PLCR at COD", "=IFERROR(SUMPRODUCT([RNG:cfads],[RNG:dfm])/({debt_c}+{debt_m}),0)", "x", "x", out=True); r += 1
 calc(ws, r, "kpi_short", "Cumulative debt-service shortfall", "=[C:shortfall]", "USDm", "m", out=True); r += 1
 calc(ws, r, "opex_y2", "OPEX in operating year 2", "=SUMPRODUCT(([RNG:opyr]=2)*[RNG:opex])", "USDm", "m"); r += 1
-calc(ws, r, "afford_tariff", "Affordable PPA tariff (avg max sustainable payment / energy, op yrs 1-10)", "=IFERROR(SUMPRODUCT(([RNG:opyr]>=1)*([RNG:opyr]<=10)*[RNG:u_maxppa])/{u_share}/SUMPRODUCT(([RNG:opyr]>=1)*([RNG:opyr]<=10)*[RNG:epaid])*1000,0)", "USD/MWh", "n2", out=True); r += 1
+calc(ws, r, "afford_tariff", "Utility payment headroom per MWh (avg max sustainable payment / energy paid, op yrs 1-10)", "=IFERROR(SUMPRODUCT(([RNG:opyr]>=1)*([RNG:opyr]<=10)*[RNG:u_maxppa])/{u_share}/SUMPRODUCT(([RNG:opyr]>=1)*([RNG:opyr]<=10)*[RNG:epaid])*1000,0)", "USD/MWh", "n2", out=True); r += 1
 
 # ===================================================================================
 # 18 DEBT
@@ -1023,14 +1037,28 @@ calc(ws, r, "afford_tariff", "Affordable PPA tariff (avg max sustainable payment
 ws = WS["18_DEBT"]
 title(ws, "18 DEBT — Concessional & commercial tranches, DSCR sculpting, DSRA", "Non-circular: IDC and DSRA are equity-funded; sizing uses an unlevered-tax lender case", ts=True)
 r = 6
-inp(ws, r, "lock_m", "Locked commercial debt amount (debt_mode = 2)", 400, "USDm", "Paste base-case value of debt_m to stress a fixed package", "m", True); r += 1
-calc(ws, r, "rm_eff", "Effective commercial rate", "={str_rm}+{eff_rate_add}", "%", "pct2"); r += 1
+inp(ws, r, "lock_m", "Locked commercial debt (debt_mode = 2)", 400, "USDm", "Base-case debt_m (written by tools/run_snapshots.py)", "m", True); r += 1
+inp(ws, r, "lock_c", "Locked concessional debt (debt_mode = 2)", 330, "USDm", "Base-case debt_c", "m", True); r += 1
+inp(ws, r, "lock_grant", "Locked grant / VGF (debt_mode = 2)", 55, "USDm", "Base-case s_grant", "m", True); r += 1
+inp(ws, r, "lock_goveq", "Locked government equity (debt_mode = 2)", 110, "USDm", "Base-case s_goveq", "m", True); r += 1
+inp(ws, r, "hedge", "Share of commercial debt fixed or swapped", 0.75, "%", "Rate stress applies only to the unhedged share", "pct", True); r += 1
+calc(ws, r, "rm_eff", "Effective commercial rate", "={str_rm}+{eff_rate_add}*(1-{hedge})", "%", "pct2"); r += 1
+ws.cell(r, 1, "Locked commercial principal schedule by OPERATING year (debt_mode = 2; column E = op year 1, F = op year 2, ...)").font = F_BASE
+TSROW["lock_ds"] = (ws.title, r)
+for c in TCOLS:
+    cc = ws[f"{c}{r}"]; cc.value = 0; cc.font = F_INPUT; cc.fill = FILL_INPUT; cc.number_format = FMT["m"]
+r += 1
 calc(ws, r, "tax_rate_ref", "Tax rate used in lender-case CFADS", "={tax_rate}", "%", "pct"); r += 1
+calc(ws, r, "idc_kc", "IDC per USD of concessional debt (non-circular factor)", "={str_rc}*SUMPRODUCT([RNG:consflag],[RNG:cumsh]-0.5*[RNG:share])", "x", "n3"); r += 1
+calc(ws, r, "idc_km", "IDC per USD of commercial debt (non-circular factor)", "={rm_eff}*SUMPRODUCT([RNG:consflag],[RNG:cumsh]-0.5*[RNG:share])", "x", "n3"); r += 1
 section(ws, r, "A. LENDER-CASE CFADS & SCULPTING", ts=True); r += 1
 ts(ws, r, "cfads_len", "Lender-case CFADS (unlevered tax)", "USDm",
    "=[rev_len]-[opex]-[o_roy_len]-IF([opyr]>{tax_hol},{tax_rate}*MAX(0,[rev_len]-[opex]-[o_roy_len]-[dep_len]),0)", "m", total="sum"); r += 1
 ts(ws, r, "inloan", "Commercial loan life flag", "flag", "=IF(AND([opyr]>=1,[opyr]<={str_nm}),1,0)", "flag"); r += 1
 ts(ws, r, "dfm", "Discount factor at commercial rate (to COD)", "x", "=IF([opyr]>=1,1/(1+{rm_eff})^[opyr],0)", "n3"); r += 1
+calc(ws, r, "rw", "Weighted senior debt rate", "=IFERROR(({debt_c}*{str_rc}+{debt_m}*{rm_eff})/({debt_c}+{debt_m}),{rm_eff})", "%", "pct2"); r += 1
+ts(ws, r, "inloan_all", "Any senior tranche outstanding (loan life)", "flag", "=IF(AND([opyr]>=1,[opyr]<=MAX({str_nm},IF({debt_c}>0,{str_gc}+{str_nc},0))),1,0)", "flag"); r += 1
+ts(ws, r, "dfw", "Discount factor at weighted rate", "x", "=IF([opyr]>=1,1/(1+{rw})^[opyr],0)", "n3"); r += 1
 ts(ws, r, "sculpt", "Sculpted commercial DS capacity", "USDm", "=[inloan]*MAX(0,[cfads_len]/{str_dscr}-[c_ds])", "m", total="sum"); r += 1
 section(ws, r, "B. CONCESSIONAL TRANCHE", ts=True); r += 1
 ts(ws, r, "c_open", "Opening balance", "USDm", "=[c_close@p]", "m"); r += 1
@@ -1044,7 +1072,7 @@ ts(ws, r, "m_open", "Opening balance", "USDm", "=[m_close@p]", "m"); r += 1
 ts(ws, r, "m_draw", "Drawdown", "USDm", "={debt_m}*[share]", "m", total="sum"); r += 1
 ts(ws, r, "m_int", "Interest", "USDm", "={rm_eff}*([m_open]+0.5*[m_draw]*[consflag])", "m", total="sum"); r += 1
 ts(ws, r, "m_target", "Target debt service (sculpted or annuity)", "USDm",
-   "=IF([inloan]=1,IF({debt_mode}=1,IF({comm_cap}>0,[sculpt]*{debt_m}/{comm_cap},0),{debt_m}*{rm_eff}/(1-(1+{rm_eff})^-{str_nm})),0)", "m"); r += 1
+   "=IF([inloan]=1,IF({debt_mode}=1,IF({comm_cap}>0,[sculpt]*{debt_m}/{comm_cap},0),IF({lock_m}>0,INDEX([RNG:lock_ds],1,[opyr])*{debt_m}/{lock_m},0)+[m_int]),0)", "m"); r += 1
 ts(ws, r, "m_prin", "Principal repayment", "USDm", "=IF([inloan]=1,MAX(0,MIN([m_open],IF([opyr]={str_nm},[m_open],[m_target]-[m_int]))),0)", "m", total="sum"); r += 1
 ts(ws, r, "m_close", "Closing balance", "USDm", "=[m_open]+[m_draw]-[m_prin]", "m"); r += 1
 ts(ws, r, "m_ds", "Debt service (operations)", "USDm", "=[opflag]*([m_int]+[m_prin])", "m", total="sum"); r += 1
@@ -1052,9 +1080,8 @@ section(ws, r, "D. TOTALS & DSRA", ts=True); r += 1
 ts(ws, r, "ds", "Total senior debt service", "USDm", "=[c_ds]+[m_ds]", "m", total="sum", bold=True); r += 1
 ts(ws, r, "idc", "Interest during construction", "USDm", "=[consflag]*([c_int]+[m_int])", "m", total="sum"); r += 1
 ts(ws, r, "debt_bal", "Total senior debt outstanding", "USDm", "=[c_close]+[m_close]", "m"); r += 1
-ts(ws, r, "dsra_bal", "DSRA balance (target)", "USDm", "=IF(OR([opflag]=1,[lastcons]=1),{dsra_m}/12*[ds@n],0)", "m"); r += 1
-ts(ws, r, "dsra_init", "Initial DSRA funding (end of construction)", "USDm", "=[lastcons]*[dsra_bal]", "m", total="sum"); r += 1
-ts(ws, r, "dsra_rel", "DSRA release / (top-up)", "USDm", "=[opflag]*([dsra_bal@p]-[dsra_bal])", "m", total="sum"); r += 1
+ts(ws, r, "dsra_tgt", "DSRA target balance", "USDm", "=IF(OR([opflag]=1,[lastcons]=1),{dsra_m}/12*[ds@n],0)", "m"); r += 1
+ts(ws, r, "dsra_init", "Initial DSRA funding (end of construction)", "USDm", "=[lastcons]*[dsra_tgt]", "m", total="sum"); r += 1
 
 # ===================================================================================
 # 21 TAX
@@ -1072,7 +1099,7 @@ ts(ws, r, "ebitda_t", "EBITDA", "USDm", "=[ebitda]", "m"); r += 1
 ts(ws, r, "int_t", "Interest expense (operations)", "USDm", "=[opflag]*([c_int]+[m_int])", "m"); r += 1
 ts(ws, r, "taxable", "Taxable income before losses", "USDm", "=[ebitda_t]-[dep]-[int_t]", "m"); r += 1
 ts(ws, r, "loss_bf", "Losses brought forward", "USDm", "=[loss_cf@p]", "m"); r += 1
-ts(ws, r, "loss_use", "Losses used", "USDm", "=IF([taxable]>0,MIN([taxable],[loss_bf]),0)", "m"); r += 1
+ts(ws, r, "loss_use", "Losses used", "USDm", "=IF(AND([taxable]>0,[opyr]>{tax_hol}),MIN([taxable],[loss_bf]),0)", "m"); r += 1
 ts(ws, r, "loss_cf", "Losses carried forward", "USDm", "=[loss_bf]-[loss_use]+MAX(0,-[taxable])", "m"); r += 1
 ts(ws, r, "tax", "Corporate tax paid", "USDm", "=IF([opyr]>{tax_hol},{tax_rate}*MAX(0,[taxable]-[loss_use]),0)", "m", total="sum", bold=True); r += 1
 ts(ws, r, "tax_forgone", "Tax forgone due to holiday", "USDm", "=IF(AND([opyr]>=1,[opyr]<={tax_hol}),{tax_rate}*MAX(0,[taxable]-[loss_use]),0)", "m", total="sum"); r += 1
@@ -1098,19 +1125,27 @@ ts(ws, r, "cf_opex", "OPEX", "USDm", "=-[opex]", "m", total="sum"); r += 1
 ts(ws, r, "cf_roy", "Water royalty", "USDm", "=-[o_roy]", "m", total="sum"); r += 1
 ts(ws, r, "ebitda", "EBITDA", "USDm", "=[cf_rev]+[cf_opex]+[cf_roy]", "m", total="sum", bold=True); r += 1
 ts(ws, r, "cf_tax", "Tax", "USDm", "=-[tax]", "m", total="sum"); r += 1
-ts(ws, r, "cfads", "CFADS", "USDm", "=[opflag]*([ebitda]+[cf_tax])", "m", total="sum", bold=True); r += 1
+ts(ws, r, "cfads", "CFADS (after any project-funded transmission spend in operations)", "USDm", "=[opflag]*([ebitda]+[cf_tax]-[tx_spend_prj])", "m", total="sum", bold=True); r += 1
 ts(ws, r, "cf_ds", "Senior debt service", "USDm", "=-[ds]", "m", total="sum"); r += 1
 ts(ws, r, "dscr", "DSCR", "x", "=IF([ds]>0.001,[cfads]/[ds],\"\")", "x"); r += 1
-ts(ws, r, "cf_dsra", "DSRA release / (top-up)", "USDm", "=[dsra_rel]", "m", total="sum"); r += 1
+ts(ws, r, "avail0", "Cash after debt service before reserve movements (incl. trapped cash)", "USDm", "=[cfads]+[cf_ds]+[cash_bf]", "m"); r += 1
+ts(ws, r, "dsra_draw", "DSRA drawn to meet debt service", "USDm", "=[opflag]*MIN([dsra_act@p],MAX(0,-[avail0]))", "m", total="sum"); r += 1
+ts(ws, r, "dsra_relx", "DSRA release of excess over target", "USDm", "=[opflag]*MAX(0,[dsra_act@p]-[dsra_draw]-[dsra_tgt])", "m", total="sum"); r += 1
+ts(ws, r, "dsra_top", "DSRA top-up from available cash", "USDm", "=[opflag]*MIN(MAX(0,[dsra_tgt]-[dsra_act@p]+[dsra_draw]),MAX(0,[avail0]))", "m", total="sum"); r += 1
+ts(ws, r, "dsra_act", "DSRA actual balance", "USDm", "=[dsra_act@p]+[dsra_init]-[dsra_draw]-[dsra_relx]+[dsra_top]", "m"); r += 1
+ts(ws, r, "cf_dsra", "DSRA draw + release - top-up", "USDm", "=[dsra_draw]+[dsra_relx]-[dsra_top]", "m", total="sum"); r += 1
 ts(ws, r, "cash_avail", "Cash after debt service", "USDm", "=[cfads]+[cf_ds]+[cf_dsra]", "m", total="sum"); r += 1
 ts(ws, r, "cash_bf", "Cash brought forward (trapped)", "USDm", "=[cash_cf@p]", "m"); r += 1
 ts(ws, r, "shortfall", "Debt-service shortfall funded by guarantor/sponsor", "USDm", "=MAX(0,-([cash_avail]+[cash_bf]))", "m", total="sum"); r += 1
 ts(ws, r, "lock_ok", "Distribution test passed (1=yes)", "flag", "=IF([opflag]=1,IF([ds]>0.001,IF([dscr]>={lockup},1,0),1),0)", "flag"); r += 1
-ts(ws, r, "dist", "Distributions to equity", "USDm", "=IF([lock_ok]=1,MAX(0,[cash_avail]+[cash_bf]+[shortfall]),0)+IF([opyr]={ops_years},MAX(0,[cash_avail]+[cash_bf]+[shortfall])*(1-[lock_ok]),0)", "m", total="sum"); r += 1
-ts(ws, r, "cash_cf", "Cash carried forward", "USDm", "=[cash_avail]+[cash_bf]+[shortfall]-[dist]", "m"); r += 1
+ts(ws, r, "pool", "Cash available after shortfall funding", "USDm", "=[cash_avail]+[cash_bf]+[shortfall]", "m"); r += 1
+ts(ws, r, "grepay", "Repayment of sovereign guarantee claims (ahead of distributions)", "USDm", "=IF(OR([lock_ok]=1,[opyr]={ops_years}),MIN([gclaim@p],MAX(0,[pool])),0)", "m", total="sum"); r += 1
+ts(ws, r, "dist", "Distributions to equity", "USDm", "=IF(OR([lock_ok]=1,[opyr]={ops_years}),MAX(0,[pool]-[grepay]),0)", "m", total="sum"); r += 1
+ts(ws, r, "cash_cf", "Cash carried forward", "USDm", "=[pool]-[grepay]-[dist]", "m"); r += 1
 section(ws, r, "C. EQUITY CASH FLOWS", ts=True); r += 1
 ts(ws, r, "sf_guar", "Shortfall paid by sovereign guarantee", "USDm", "=[shortfall]*{str_guar}", "m", total="sum"); r += 1
 ts(ws, r, "sf_eq", "Shortfall paid by equity (sponsor support)", "USDm", "=[shortfall]-[sf_guar]", "m", total="sum"); r += 1
+ts(ws, r, "gclaim", "Sovereign guarantee claim outstanding", "USDm", "=[gclaim@p]+[sf_guar]-[grepay]", "m"); r += 1
 ts(ws, r, "eq_gov_cf", "Government equity cash flow", "USDm", "=-[eq_gov_in]+([dist]-[sf_eq])*{gov_eq_share}", "m", total="sum"); r += 1
 ts(ws, r, "eq_priv_cf", "Private equity cash flow", "USDm", "=-[eq_priv_in]+([dist]-[sf_eq])*(1-{gov_eq_share})", "m", total="sum", bold=True); r += 1
 ts(ws, r, "eq_priv_cum", "Private equity cumulative (unrecovered if negative)", "USDm", "=[eq_priv_cum@p]+[eq_priv_cf]", "m"); r += 1
@@ -1138,6 +1173,7 @@ ts(ws, r, "e_in", "Private equity contributed", "USDm", "=[eq_priv_in]", "m", to
 ts(ws, r, "e_out", "Distributions to private equity", "USDm", "=[dist]*(1-{gov_eq_share})", "m", total="sum"); r += 1
 ts(ws, r, "e_cf", "Net private equity cash flow", "USDm", "=[eq_priv_cf]", "m", total="sum"); r += 1
 ts(ws, r, "e_g_out", "Dividends to government", "USDm", "=[dist]*{gov_eq_share}", "m", total="sum"); r += 1
+ts(ws, r, "e_pvfwd", "Value of remaining private distributions at target IRR (backward recursion)", "USDm", "=([e_out@n]+[e_pvfwd@n])/(1+{str_hurdle})", "m"); r += 1
 ts(ws, r, "e_unrec", "Unrecovered private equity (for termination amount)", "USDm", "=MAX(0,-[eq_priv_cum])", "m"); r += 1
 
 # ===================================================================================
@@ -1164,7 +1200,7 @@ inp(ws, r, "ppag_months", "PPA guarantee cap", 12, "months of utility billing", 
 inp(ws, r, "mrg", "Minimum revenue guarantee level (0 = none)", 0.0, "% of P50 billed revenue", "", "pct"); r += 1
 ts(ws, r, "x_debt", "Debt guarantee / counter-indemnity exposure", "USDm", "=(1-{str_onbud})*{str_guar}*[debt_bal]", "m", total="max"); r += 1
 ts(ws, r, "x_ppa", "PPA payment guarantee exposure", "USDm", "={str_ppag}*{ppag_months}/12*[rev_util]", "m", total="max"); r += 1
-ts(ws, r, "x_term", "Termination payment exposure", "USDm", "={str_term}*([opflag]+[consflag]>0)*([debt_bal]+[e_unrec]*(1+{term_prem}))", "m", total="max"); r += 1
+ts(ws, r, "x_term", "Termination payment exposure", "USDm", "={str_term}*([opflag]+[consflag]>0)*([debt_bal]+MAX([e_unrec]*(1+{term_prem}),[e_pvfwd]))", "m", total="max"); r += 1
 ts(ws, r, "x_fx", "FX convertibility guarantee (annual remittances covered)", "USDm", "={str_fxg}*([ds]+[e_out])", "m", total="max"); r += 1
 ts(ws, r, "x_mrg", "Minimum revenue guarantee — deterministic call", "USDm", "=[opflag]*MAX(0,{mrg}*[rev_cap]/MAX(0.0001,[rampf])-[rev_cash])", "m", total="sum"); r += 1
 ts(ws, r, "x_onbud", "Project debt recorded as direct public debt", "USDm", "={str_onbud}*[debt_bal]", "m", total="max"); r += 1
@@ -1181,14 +1217,14 @@ inp(ws, r, "pr_ppa", "Annual probability: PPA guarantee called", 0.08, "% p.a.",
 inp(ws, r, "pr_term", "Annual probability: termination for government default / PFM", 0.005, "% p.a.", "User judgement", "pct", True); r += 1
 inp(ws, r, "lgd", "Loss given call (net of recoveries)", 0.6, "%", "User judgement", "pct"); r += 1
 section(ws, r, "A. EXPOSURE", ts=True); r += 1
-ts(ws, r, "cl_max", "Maximum simultaneous exposure = MAX(termination, debt guarantee + PPA guarantee) + FX", "USDm", "=MAX([x_term],[x_debt]+[x_ppa])+[x_fx]", "m", total="max", bold=True); r += 1
+ts(ws, r, "cl_max", "Maximum simultaneous exposure = MAX(termination, debt guarantee + PPA guarantee + FX cover)", "USDm", "=MAX([x_term],[x_debt]+[x_ppa]+[x_fx])", "m", total="max", bold=True); r += 1
 section(ws, r, "B. DETERMINISTIC CALLS IN ACTIVE SCENARIO", ts=True); r += 1
 ts(ws, r, "call_ppa", "PPA guarantee calls", "USDm", "=[cov_guar]", "m", total="sum"); r += 1
 ts(ws, r, "call_debt", "Debt guarantee calls (DS shortfall x guaranteed share)", "USDm", "=[sf_guar]", "m", total="sum"); r += 1
 ts(ws, r, "call_mrg", "Minimum revenue guarantee calls", "USDm", "=[x_mrg]", "m", total="sum"); r += 1
 ts(ws, r, "call_tot", "Total deterministic calls", "USDm", "=[call_ppa]+[call_debt]+[call_mrg]", "m", total="sum", bold=True); r += 1
 section(ws, r, "C. EXPECTED LOSS (only as good as the probabilities entered)", ts=True); r += 1
-ts(ws, r, "el", "Expected annual loss", "USDm", "=({pr_debt}*[x_debt]+{pr_ppa}*[x_ppa]+{pr_term}*MAX(0,[x_term]-[x_debt]))*{lgd}", "m", total="sum"); r += 1
+ts(ws, r, "el", "Expected annual loss", "USDm", "=({pr_debt}*[x_debt]+{pr_ppa}*MAX(0,[x_ppa]-[cov_guar])+{pr_term}*MAX(0,[x_term]-[x_debt]))*{lgd}", "m", total="sum"); r += 1
 ts(ws, r, "gdf", "Government discount factor", "x", "=1/(1+{gov_disc})^#T#", "n3"); r += 1
 calc(ws, r, "cl_peak", "Peak maximum contingent exposure", "=[C:cl_max]", "USDm", "m", out=True); r += 1
 calc(ws, r, "cl_pv_el", "PV of expected loss (screening)", "=SUMPRODUCT([RNG:el],[RNG:gdf])", "USDm", "m", out=True); r += 1
@@ -1207,11 +1243,15 @@ section(ws, r, "B. INFLOWS", ts=True); r += 1
 ts(ws, r, "f_tax", "Corporate tax", "USDm", "=[tax]", "m", total="sum"); r += 1
 ts(ws, r, "f_roy", "Water royalty", "USDm", "=[o_roy]", "m", total="sum"); r += 1
 ts(ws, r, "f_div", "Dividends on government equity", "USDm", "=[e_g_out]-[sf_eq]*{gov_eq_share}", "m", total="sum"); r += 1
-ts(ws, r, "f_net", "NET FISCAL CASH FLOW", "USDm", "=[f_direct]+[f_calls]+[f_tax]+[f_roy]+[f_div]", "m", total="sum", bold=True); r += 1
+ts(ws, r, "f_grep", "Recoveries of guarantee calls (project and utility)", "USDm", "=[grepay]+[ppag_reimb]", "m", total="sum"); r += 1
+ts(ws, r, "f_net", "NET FISCAL CASH FLOW (central government)", "USDm", "=[f_direct]+[f_calls]+[f_tax]+[f_roy]+[f_div]+[f_grep]", "m", total="sum", bold=True); r += 1
+ts(ws, r, "f_soe_row", "Incremental cash of the state-owned utility (incl. new arrears as a cost)", "USDm", "=[f_soe]", "m", total="sum"); r += 1
+ts(ws, r, "f_net_cons", "NET CONSOLIDATED PUBLIC-SECTOR CASH FLOW", "USDm", "=[f_net]+[f_soe_row]", "m", total="sum", bold=True); r += 1
 ts(ws, r, "f_cum", "Cumulative net fiscal cash flow", "USDm", "=[f_cum@p]+[f_net]", "m"); r += 1
 ts(ws, r, "f_need", "Annual government cash requirement (outflows)", "USDm", "=-([f_direct]+[f_calls])", "m", total="max"); r += 1
 ts(ws, r, "f_need_rev", "Annual cash requirement / government revenue", "%", "=[f_need]/[gov_rev]", "pct2", total="max"); r += 1
 calc(ws, r, "fis_npv", "FISCAL NPV @ government discount rate", "=SUMPRODUCT([RNG:f_net],[RNG:gdf])", "USDm", "m", out=True); r += 1
+calc(ws, r, "fis_npv_cons", "CONSOLIDATED FISCAL NPV (government + state utility)", "=SUMPRODUCT([RNG:f_net_cons],[RNG:gdf])", "USDm", "m", out=True); r += 1
 calc(ws, r, "fis_npv_el", "Fiscal NPV less PV of expected loss on remaining contingent exposure", "={fis_npv}-{cl_pv_el}", "USDm", "m", out=True); r += 1
 calc(ws, r, "fis_peak", "Peak annual government cash requirement", "=[C:f_need]", "USDm", "m", out=True); r += 1
 calc(ws, r, "fis_peak_rev", "Peak annual requirement / government revenue", "=[C:f_need_rev]", "%", "pct2", out=True); r += 1
@@ -1245,8 +1285,10 @@ ts(ws, r, "s_onbud", "On-budget project debt / GDP", "%", "=[x_onbud]/[gdp]", "p
 ts(ws, r, "s_cl", "Maximum contingent exposure / GDP", "%", "=[cl_max]/[gdp]", "pct2", total="max"); r += 1
 ts(ws, r, "s_cash", "Government cash requirement / revenue", "%", "=[f_need]/[gov_rev]", "pct2", total="max"); r += 1
 ts(ws, r, "s_cumout", "Cumulative fiscal outlay / GDP", "%", "=MAX(0,-[f_cum])/[gdp]", "pct2", total="max"); r += 1
+ts(ws, r, "s_arr", "Utility arrears to the IPP / GDP", "%", "=[u_arrears]/[gdp]", "pct2", total="max"); r += 1
+ts(ws, r, "s_inc", "On-budget increment in the same year (direct debt + cumulative outlay + SOE arrears) / GDP", "%", "=[s_onbud]+[s_cumout]+[s_arr]", "pct2", total="max"); r += 1
 section(ws, r, "D. SCREENING RESULT", ts=True); r += 1
-calc(ws, r, "sc_debt", "Peak on-budget increment / GDP", "=[C:s_onbud]+[C:s_cumout]", "% GDP", "pct2", out=True); r += 1
+calc(ws, r, "sc_debt", "Peak on-budget increment / GDP", "=[C:s_inc]", "% GDP", "pct2", out=True); r += 1
 calc(ws, r, "sc_cl", "Peak contingent exposure / GDP", "=[C:s_cl]", "% GDP", "pct2", out=True); r += 1
 calc(ws, r, "sc_cash", "Peak cash requirement / revenue", "=[C:s_cash]", "% rev", "pct2", out=True); r += 1
 calc(ws, r, "sc_post", "Public debt / GDP incl. peak project increment", "={debt_gdp}+{sc_debt}", "% GDP", "pct", out=True); r += 1
@@ -1287,16 +1329,18 @@ GATES = [
         ("Utility collection rate", "H", "{ut_coll}+{eff_coll_adj}", 0.95, 0.90, 0.80, "pct", "12_UTILITY"),
         ("Payment security (months of billing)", "H", "{lc_months}", 6, 3, 1, "int", "11_OFFTAKER")]),
     ("G6", "GATE 6 — REGULATION / PPA", [
-        ("Regulatory items at CRITICAL GAP", "L", "{reg_crit}", 0, 0, 1, "int", "13_REGULATION"),
+        ("Regulatory items at CRITICAL GAP", "L", "{reg_crit}", 0, 0, 0, "int", "13_REGULATION"),
         ("Regulatory items at GAP", "L", "{reg_gap}", 1, 3, 5, "int", "13_REGULATION"),
         ("Fixed (capacity) share of revenue", "H", "{rev_fixed}", 0.6, 0.4, 0.2, "pct", "16_REVENUE")]),
     ("G7", "GATE 7 — FINANCING", [
         ("Minimum DSCR, actual case", "H", "{kpi_min_dscr}", "={str_dscr}", "={lockup}", 1.0, "n2", "20_CASH_FLOW"),
         ("Financing gap / total uses", "L", "{fin_gap_pct}", 0, 0.05, 0.15, "pct", "17_PROJECT_FINANCE"),
-        ("Private equity IRR vs target (n/a = met)", "H", "IF(ISNUMBER({kpi_eirr}),{kpi_eirr},{str_hurdle})", "={str_hurdle}", "={str_hurdle}-0.02", "={str_hurdle}-0.05", "pct", "19_EQUITY")]),
+        ("Private equity IRR vs target (n/a = met)", "H", "IF(ISNUMBER({kpi_eirr}),{kpi_eirr},IF({s_priv}>0,-1,{str_hurdle}))", "={str_hurdle}", "={str_hurdle}-0.02", "={str_hurdle}-0.05", "pct", "19_EQUITY")]),
     ("G8", "GATE 8 — PUBLIC FINANCE", [
         ("Peak annual government cash requirement / revenue", "L", "{sc_cash}", 0.005, 0.01, 0.02, "pct", "26_DEBT_SUSTAINABILITY"),
         ("Peak contingent exposure / GDP", "L", "{sc_cl}", 0.01, 0.02, 0.04, "pct", "24/26"),
+        ("Peak on-budget increment / GDP (direct debt, outlays, SOE arrears)", "L", "{sc_debt}", 0.005, 0.01, 0.02, "pct", "26_DEBT_SUSTAINABILITY"),
+        ("Consolidated fiscal NPV (incl. state utility) / GDP", "H", "{fis_npv_cons}/({gdp0}*1000)", 0, -0.005, -0.02, "pct", "25_FISCAL_IMPACT"),
         ("Country DSA risk rating (1-4)", "L", "{dsa_rating}", 1, 2, 3, "int", "26_DEBT_SUSTAINABILITY")]),
     ("G9", "GATE 9 — E&S / SUSTAINABILITY", [
         ("ESIA & lender-standard compliance (1-3)", "H", "{es_level}", 3, 2, 1, "int", "13_REGULATION"),
@@ -1563,7 +1607,8 @@ kpi_block("D", "E", 17, "UTILITY", [
 kpi_block("A", "B", 25, "PUBLIC FINANCE", [
     ("Government upfront contribution (USDm)", "=[C:g_eq]+[C:g_grant]+[C:g_tx]", "m"),
     ("Peak contingent exposure (USDm)", "={cl_peak}", "m"), ("PV expected loss (USDm, user probs)", "={cl_pv_el}", "m"),
-    ("Fiscal NPV (USDm)", "={fis_npv}", "m"), ("Peak annual cash need / revenue", "={fis_peak_rev}", "pct2"),
+    ("Fiscal NPV, central government (USDm)", "={fis_npv}", "m"), ("Consolidated fiscal NPV incl. utility (USDm)", "={fis_npv_cons}", "m"),
+    ("Peak annual cash need / revenue", "={fis_peak_rev}", "pct2"),
     ("Peak contingent exposure / GDP", "={sc_cl}", "pct2"), ("Screening result", "={sc_result}", None)])
 c = ws["D25"]; c.value = "BANKABILITY GATES"; c.font = F_HDR; c.fill = FILL_HDR; ws["E25"].fill = FILL_HDR
 rr = 26
@@ -1608,6 +1653,9 @@ CHECKS = [
     ("Timeline fits model horizon", f"=IF({{cons_eff}}+{{ops_years}}<={N},\"OK\",\"ERROR\")"),
     ("Energy chain: delivered ≤ generation", "=IF([C:delivered]<=[C:gen]+0.001,\"OK\",\"ERROR\")"),
     ("Unpaid amounts non-negative", "=IF(MIN([RNG:unpaid])>=-0.001,\"OK\",\"ERROR\")"),
+    ("Commercial debt: no forced balloon in final year", "=IF(SUMPRODUCT(([RNG:opyr]={str_nm})*([RNG:m_prin]-([RNG:m_target]-[RNG:m_int])))<0.5,\"OK\",\"WARNING\")"),
+    ("DSRA balance never negative", "=IF(MIN([RNG:dsra_act])>=-0.001,\"OK\",\"ERROR\")"),
+    ("Project-funded transmission fully funded (construction + CFADS)", "=IF(ABS([C:tx_spend_prj]-{u_tx}-SUMPRODUCT([RNG:tx_spend_prj],[RNG:opflag]))<0.01,\"OK\",\"ERROR\")"),
     ("Structure check", "=IF(LEFT(" + "'17A_STRUCTURES'!$C${strchk}" + ",2)=\"OK\",\"OK\",\"WARNING\")"),
 ]
 r = 4

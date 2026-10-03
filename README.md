@@ -26,8 +26,9 @@
 ```bash
 pip install openpyxl                 # LibreOffice with Calc must be installed for recalculation
 python model/build_model.py          # writes model/Bankable_Hydro_Model.xlsx (formulas only)
-python <xlsx-skill>/scripts/recalc.py model/Bankable_Hydro_Model.xlsx 200   # or open and save in Excel
-python tools/run_snapshots.py        # refreshes snapshot tables (sheets 27, 17A, 28)
+python <path>/recalc.py model/Bankable_Hydro_Model.xlsx 200   # LibreOffice recalculation, or open and save in Excel
+RECALC=<path>/recalc.py python tools/run_snapshots.py   # refreshes snapshot tables (sheets 27, 17A, 28)
+python tools/book/build_book.py      # builds book/Bankable_Hydro_Book.docx and .pdf
 ```
 
 ## Honesty notes

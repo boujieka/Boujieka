@@ -18,7 +18,7 @@ from openpyxl.styles import Font, PatternFill
 MODEL = sys.argv[1] if len(sys.argv) > 1 else "model/Bankable_Hydro_Model.xlsx"
 MAP = json.load(open("model/model_map.json"))
 REF = MAP["REF"]
-RECALC = os.environ.get("RECALC", "/root/.claude/skills/synced/595554f7-3334-4cb8-90b6-40da4dcb6b84_e238fe12-8a4b-4490-8c46-5bf1323948af/xlsx/scripts/recalc.py")
+RECALC = os.environ.get("RECALC", "recalc.py")  # path to a LibreOffice recalculation script
 
 
 def addr(name):
@@ -31,13 +31,14 @@ KPIS = [("kpi_pirr", "Project IRR", "0.0%"), ("kpi_eirr", "Equity IRR", "0.0%"),
         ("ut_ratio10", "Utility pay capacity (min yr1-10)", '0.00"x"'), ("rev_govreq", "Utility PPA gap USDm (life)", "#,##0"),
         ("kpi_short", "DS shortfall USDm", "#,##0"), ("fis_npv", "Fiscal NPV USDm", "#,##0;(#,##0)"),
         ("cl_peak", "Peak contingent USDm", "#,##0"), ("fis_peak_rev", "Peak cash need % rev", "0.00%"),
+        ("fis_npv_cons", "Consolidated fiscal NPV USDm", "#,##0;(#,##0)"),
         ("bk_overall", "Bankability verdict", "@"), ("sc_result", "Fiscal screen", "@")]
 
 
-EXTRA = [(k, "", "") for k in ["debt_m", "debt_c", "uses", "fund_base", "lcoe_sys", "kpi_avg_dscr", "kpi_npv", "cod_year", "sc_flags",
+EXTRA = [(k, "", "") for k in ["s_grant", "s_goveq", "gearing", "u_idc", "debt_m", "debt_c", "uses", "fund_base", "lcoe_sys", "kpi_avg_dscr", "kpi_npv", "cod_year", "sc_flags",
          "fis_peak", "cl_pv_el", "sc_cl", "sc_cash", "tx_gap_yrs", "evac_cod", "dem_ratio5", "rev_fixed", "kpi_plcr", "kpi_girr"]
         + [f"G{i}_status" for i in range(1, 10)] + [f"G{i}_score" for i in range(1, 10)]]
-TS_SAVE = ["year", "opyr", "gen", "delivered", "gen_p50", "u_ppa", "u_maxppa", "u_gap", "f_net", "f_cum", "cl_max", "cfads", "ds",
+TS_SAVE = ["m_prin", "m_target", "f_net_cons", "f_soe", "u_unserved", "year", "opyr", "gen", "delivered", "gen_p50", "u_ppa", "u_maxppa", "u_gap", "f_net", "f_cum", "cl_max", "cfads", "ds",
            "dscr", "x_debt", "x_ppa", "x_term", "rev_bill", "rev_cash", "g_direct", "call_tot", "debt_bal"]
 
 
@@ -47,6 +48,11 @@ def run(settings):
     shutil.copy(MODEL, f)
     wb = load_workbook(f)
     for k, v in settings.items():
+        if k == "lock_ds":
+            s, r = MAP["TSROW"]["lock_ds"]
+            for j, x in enumerate(v):
+                wb[s].cell(r, 5 + j).value = x
+            continue
         s, c = addr(k)
         wb[s][c].value = v
     wb.save(f)
@@ -72,11 +78,15 @@ BASE = dict(OFF, case=1, gen_case=1, structure=3, debt_mode=1, backstop=1, fx_ca
 
 print("Base (debt sized in-model)...")
 base = run(BASE)
-LOCK = dict(BASE, debt_mode=2, lock_m=round(base["debt_m"], 3))
+lock_ds = [0.0] * 40
+for j, k in enumerate(base["ts"]["opyr"]):
+    if k and k >= 1:
+        lock_ds[k - 1] = base["ts"]["m_prin"][j] or 0.0
+LOCK = dict(BASE, debt_mode=2, lock_m=base["debt_m"], lock_c=base["debt_c"], lock_grant=base["s_grant"], lock_goveq=base["s_goveq"], lock_ds=lock_ds)
 
 SCEN = [("Base — debt sized in-model", BASE), ("Base — debt locked", LOCK),
         ("Low case", dict(LOCK, case=2)), ("High case", dict(LOCK, case=3)),
-        ("Drought", dict(LOCK, st_drought=1)), ("CAPEX overrun", dict(LOCK, st_capex=1)),
+        ("Drought", dict(LOCK, st_drought=1)), ("CAPEX overrun", dict(LOCK, st_capex=1)), ("CAPEX overrun, reference-class mean (+96%)", dict(LOCK, st_capex=1, p_overrun=0.96)),
         ("Construction delay", dict(LOCK, st_delay=1)), ("Low demand", dict(LOCK, st_demand=1)),
         ("Offtaker stress", dict(LOCK, st_offtaker=1)), ("Offtaker stress, no budget backstop (PPA guarantee called)", dict(LOCK, st_offtaker=1, backstop=0)),
         ("FX step devaluation at COD", dict(LOCK, st_fx=1)), ("High interest rate", dict(LOCK, st_rate=1)),
@@ -89,12 +99,30 @@ SENS = [("CAPEX -20%", dict(LOCK, fx_capex=-0.2)), ("CAPEX +20%", dict(LOCK, fx_
         ("OPEX +20%", dict(LOCK, fx_opex=0.2)), ("Commercial rate +200bp", dict(LOCK, fx_rate=0.02)),
         ("P90 generation in cash flows", dict(LOCK, gen_case=3))]
 
+def req_tariff(i):
+    hurdle = [0.10, 0.16, 0.15, 0.15, 0.14][i - 1]
+    lo, hi = -0.4, 0.8
+    for _ in range(9):
+        mid = (lo + hi) / 2
+        v = run(dict(BASE, structure=i, fx_tariff=mid))["kpi_eirr"]
+        v = v if isinstance(v, (int, float)) else -1
+        if v < hurdle:
+            lo = mid
+        else:
+            hi = mid
+    return (lo + hi) / 2
+
+
 results = {}
 for grp in (SCEN, STRS, SENS):
     for lab, st in grp:
         print("running", lab)
         results[lab] = base if st is BASE else run(st)
 
+REQ = {}
+for i in range(2, 6):
+    print("required tariff, structure", i)
+    REQ[f"s{i}"] = req_tariff(i)
 wb = load_workbook(MODEL)
 stamp = datetime.date.today().isoformat()
 HF = Font(name="Arial", size=10, bold=True, color="FFFFFF"); HB = PatternFill("solid", fgColor="2F5597")
@@ -118,7 +146,7 @@ table(wb["28_SENSITIVITY"], MAP["SENS_SNAP_ROW"], "SENSITIVITIES", ["Base — de
 wb.save(MODEL)
 subprocess.run([sys.executable, RECALC, MODEL, "300"], check=True)
 SLUG = {"Base — debt sized in-model": "base_sized", "Base — debt locked": "base_locked", "Low case": "low", "High case": "high",
-        "Drought": "drought", "CAPEX overrun": "overrun", "Construction delay": "delay", "Low demand": "lowdem",
+        "Drought": "drought", "CAPEX overrun": "overrun", "CAPEX overrun, reference-class mean (+96%)": "overrun96", "Construction delay": "delay", "Low demand": "lowdem",
         "Offtaker stress": "offtaker", "Offtaker stress, no budget backstop (PPA guarantee called)": "offtaker_nobs",
         "FX step devaluation at COD": "fx", "High interest rate": "rate", "Transmission delay": "trans", "Climate trend": "climate",
         "Combined: overrun + delay + offtaker + FX": "combined", "Structure 1": "s1", "Structure 2": "s2", "Structure 3": "s3",
@@ -126,5 +154,7 @@ SLUG = {"Base — debt sized in-model": "base_sized", "Base — debt locked": "b
         "Generation +10%": "gen_p10", "Tariff -10%": "tar_m10", "Tariff +10%": "tar_p10", "OPEX +20%": "opex_p20",
         "Commercial rate +200bp": "rate_p200", "P90 generation in cash flows": "p90cf"}
 out = {SLUG.get(k, k): dict(v, label=k) for k, v in results.items()}
+for k, v in REQ.items():
+    out[k]["req_tariff_flex"] = v
 json.dump(out, open("model/snapshot_results.json", "w"), indent=1, default=str)
 print("done")

@@ -154,29 +154,31 @@ The reference project, *Lumora Falls* in the *Republic of Navaria*, is **fiction
 - Cash revenue = billed − unpaid.
 
 **Utility (`12`)**
+- Utility demand excludes the mining load the project serves directly. Other supply is capped at the energy available (`d_sup`); demand above the cap is unserved.
 - Cash available before PPA = collections + transfers − OPEX − other supply − existing debt service.
+- No-project counterfactual (`u_cash_np`) and incremental utility cash `f_soe` = cash after PPA − no-project cash − new arrears.
 - Max sustainable PPA = MAX(0, cash) / coverage.
 - Gap = MAX(0, PPA bill − max sustainable).
 
 **Shortfall routing (`16C`)**
-- Backstop = gap, if backstop = 1.
-- Otherwise guarantee call = gap × PPA-guarantee flag.
-- Unpaid = remainder.
+- Backstop = gap × backstop share, if backstop = 1.
+- Guarantee call = MIN(remaining gap, guarantee limit − calls outstanding + reimbursements). The limit is `ppag_months` of utility billing; the utility reimburses calls from spare payment capacity.
+- Unpaid = remainder (arrears to the project, which reduce cash revenue).
 
 **Debt (`18`)**
 - Sculpted DS_t = MAX(0, CFADS_lender,t / DSCR_target − concessional DS_t).
 - Capacity = Σ DS_t / (1 + r)^opyr.
-- Commercial debt = MIN(capacity, gearing cap − concessional).
-- In locked mode, DS is an annuity.
+- Commercial debt = MIN(capacity, gearing-limited amount), where the gearing limit applies to CAPEX plus debt-funded IDC and fees through a closed-form IDC factor (no circularity).
+- In locked mode (`debt_mode` = 2), every tranche amount, the grant, government equity and the commercial principal schedule are held at base-case values (written by the snapshot runner). Interest floats only on the unhedged share (`hedge`).
 
 **DSRA**
-- Balance = DSRA months / 12 × next-year debt service.
-- The initial balance is equity-funded at the end of construction.
+- Target = DSRA months / 12 × next-year debt service. The initial balance is equity-funded at the end of construction.
+- The reserve is drawn first when cash falls short, releases only the excess over target, and is topped up only from available cash.
 
 **Waterfall (`20`)**
 - CFADS = EBITDA − tax.
 - Shortfall = MAX(0, −(CFADS − DS + DSRA release + trapped cash)).
-- The shortfall is funded first by the sovereign guarantee (guaranteed share), then by sponsors.
+- The shortfall is funded by the sovereign guarantee (guaranteed share) and by sponsors. The sovereign's claim is repaid from later cash ahead of distributions.
 - Distributions are paid only if DSCR ≥ lock-up.
 
 **LCOE (`17`)**
@@ -184,12 +186,13 @@ The reference project, *Lumora Falls* in the *Republic of Navaria*, is **fiction
 - System LCOE adds public transmission CAPEX and O&M, and uses energy net of transmission losses.
 
 **Contingent liabilities (`24`)**
-- Maximum simultaneous exposure = MAX(termination, debt guarantee + PPA guarantee) + FX cover.
+- Maximum simultaneous exposure = MAX(termination, debt guarantee + PPA guarantee + FX cover).
+- Termination = debt + MAX(unrecovered equity × (1 + premium), PV of remaining private distributions at target IRR).
 - Expected loss = Σ probability × exposure × LGD.
 
 **Fiscal (`25`)**
-- Net fiscal cash flow = −direct support − calls + tax + royalty + government dividends.
-- Fiscal NPV is discounted at the government discount rate.
+- Net fiscal cash flow (central government) = −direct support − calls + tax + royalty + government dividends + recoveries of calls.
+- Consolidated fiscal NPV adds the state utility's incremental cash (`f_soe`). Use it as the headline public-sector measure.
 
 **Screening (`26`)** uses four tests:
 1. On-budget increment to debt/GDP.
@@ -212,11 +215,12 @@ The result combines these with the DSA rating to give LOW, MODERATE or HIGH.
 
 | Toggle | Default stress | Source / note |
 |---|---|---|
-| Drought | Flows × 0.70 for 3 op-years from year 4 | Calibrate to the worst historical sequence. Kariba 2024 context in the source DB |
+| Drought | Flows × 0.55 for 3 op-years from year 4 | Calibrate to the worst historical sequence. Kariba 2024 context in the source DB |
 | CAPEX overrun | +27% | Ansar et al. 2014 median [SD HY-08]. The mean was +96% |
 | Construction delay | +2 years, plus 4% cost per year | Ansar et al. mean schedule overrun 2.3 years [SD HY-08] |
 | Low demand | Demand × 0.80 | – |
 | Offtaker stress | Collections −8 pp, transfers −30%, retail tariff frozen for 5 years from COD | Fictional |
+| (snapshot only) CAPEX overrun at reference-class mean | +96% | Ansar et al. 2014 mean [SD HY-08] |
 | FX | One-off 50% step devaluation at COD | Fictional |
 | High interest rate | +300 bp on commercial debt | Concessional debt is fixed-rate |
 | Transmission delay | Line 2 years late | – |
@@ -228,19 +232,19 @@ The result combines these with the DSA rating to give LOW, MODERATE or HIGH.
 
 ```bash
 python model/build_model.py                                    # rebuild the workbook from code (optional)
-python <xlsx-skill>/scripts/recalc.py model/Bankable_Hydro_Model.xlsx 200   # or open/save in Excel
-python tools/run_snapshots.py                                  # re-runs 29 full-engine cases
+python <path>/recalc.py model/Bankable_Hydro_Model.xlsx 200   # LibreOffice recalculation; or open and save in Excel
+RECALC=<path>/recalc.py python tools/run_snapshots.py         # 31 full-engine cases + tariff solves
 ```
 
 The runner copies the model, sets the control inputs, recalculates in LibreOffice, reads the KPIs and writes dated static tables into `27`, `17A` and `28`.
 
-It runs stress cases with the commercial debt **locked** at the base-case amount (annuity profile), as a lender would. The base-locked row is included for comparison.
+It runs stress cases with the financing package **locked** at base-case terms (tranche amounts, grant, government equity and the commercial principal schedule), as a lender would. It also solves, for structures 2 to 5, the tariff that gives the target equity IRR.
 
 If you edit inputs directly in the workbook rather than in `build_model.py`, run only `run_snapshots.py`.
 
 ## 9. Integrity checks (`33_CHECKS`)
 
-The 11 checks are:
+The 14 checks are:
 
 1. Sources = uses.
 2. Annual construction funding balances.
@@ -252,7 +256,10 @@ The 11 checks are:
 8. Horizon sufficient.
 9. Delivered ≤ generated.
 10. Unpaid ≥ 0.
-11. Structure funding coherent.
+11. No forced balloon on commercial debt.
+12. DSRA never negative.
+13. Project-funded transmission fully funded.
+14. Structure funding coherent.
 
 **Never use outputs unless `ALL OK` is shown.**
 
@@ -272,8 +279,9 @@ The 11 checks are:
 
 - **Annual periodicity.** No intra-year dispatch. Curtailment is proportional to evacuation shortfall.
 - **P-values.** Normal approximation from CV.
-- **IDC, fees and DSRA.** Equity-funded, to avoid circularity. In practice IDC is often debt-funded, so equity is overstated slightly and debt understated.
-- **Lender-case tax.** Ignores interest deductibility (conservative).
+- **Drawdown.** Debt is drawn pro rata with CAPEX rather than after equity, which slightly flatters the equity IRR. The initial DSRA is equity-funded.
+- **Lender-case tax.** Ignores interest deductibility (conservative). The lender case applies a one-year P90 to every year.
+- **FX step.** Permanent in real terms; no pass-through to local prices; receivables are not revalued.
 - **Utility model.** Single, simplified cash model with no balance sheet. Opex scales with sales volume. Other-supply cost is half USD-linked.
 - **Guarantee calls.** Deterministic within a scenario. Expected values are only as good as the probabilities entered.
 - **Termination exposure.** Uses a simplified formula (debt + unrecovered equity × (1 + premium)).
