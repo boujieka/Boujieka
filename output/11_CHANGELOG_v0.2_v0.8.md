@@ -148,3 +148,10 @@ Open from the red team report:
 * F07: the file stores no calculated values, so previews and non-Excel readers see empty cells. This is a decision: either ship a recalculated copy or let Excel calculate on opening.
 * Gate 10 and DSCR: the annual DSCR is still outside the gate. Including it would turn gate 10 to "Not met" and the decision to STOP (failed test) in both workbooks. This is a decision.
 * Excel run of the red team macro: requires Excel.
+
+## Gate 10 with DSCR and second red team (3 October 2026)
+
+| # | Item | Change or result |
+|---|---|---|
+| G.1 | Readiness gate 10 | Now "No covenant breach in the active scenario (monthly covenants and annual DSCR)". Both workbooks fail it (DSCR below 1.2x in Years 1 to 4): default 2 of 23, SolaraPay 4 of 23, decision STOP on a failed test. Book, MANUAL 2, CASE 2, quick reference, templates, video (modules 0, 15, 16, 17) and Figure 14 updated; the analyst's Conditional Go is conditional on replacing or resetting the DSCR covenant |
+| G.2 | Independent red team (14) | 426 recalculated runs, 132 invalid input runs, 140 direction assertions, 201,714 cross-engine comparisons; no formula fault. Findings: H1 stale output/02 copy (fixed: refreshed from the current build); M1 gate 10 unreachable while the model carries debt because DSCR includes receivables growth; M2 reports 06, 10 and FINAL_QA_REPORT quoted 3/23 and 5/23 (fixed); M3 to M6 and L1 to L5 open (see 14) |

@@ -37,7 +37,7 @@ Owner:
 | 9, 10 | No functionality deleted; no redesign before dependencies understood | Done | 05 architecture (v0.7 audit and v0.8 addendum); no sheet deleted |
 | 11 | No claim of validation without automated checks | Done | 06 validation report; Excel test stated as pending everywhere |
 | 12 | No IFRS compliance claim | Done | Accounting statement in book Ch 8, model, manual, case, templates |
-| 13, 14 | No optimisation of returns; honest results | Done | Readiness 3 of 23 and 5 of 23 kept; decision STOP shown beside the analyst's Conditional Go |
+| 13, 14 | No optimisation of returns; honest results | Done | Readiness 2 of 23 and 4 of 23 after gate 10 took in the DSCR (an unattractive result kept); decision STOP shown beside the analyst's Conditional Go |
 | 15 | Conflicts shown and investigated | Done | 08 M-KOPA reconciliation; register status CONFLICTING SOURCES |
 
 ## 2. Book 2 (01_BOOK_PAYGO_SOLAR_FINANCE_v0.2.pdf, 117 pages)

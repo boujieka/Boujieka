@@ -33,7 +33,7 @@ The file keeps the suffix "-dev". It will take the release name `02_PAYGO_SOLAR_
 | M2 engine against LibreOffice | Agreement on every formula cell except one value. The equity top-up total (FS!C64 and Financing!C10) shows LCY 0.0000011 in the engine and 0 in LibreOffice: a floating point residue of MAX(0, minimum cash less cash) | Not run on the case (same formulas; see section 6) |
 | M3 secondary calculation | Worst relative difference 2.49e-14 across revenue, EBITDA, net income, cash, receivables, facility, collection rate, DSCR, FCFF, peak equity, EV, exit equity, IRR, MOIC and covenant months | Not run in the v0.8 cycle; the case's 15 cases are reproduced by M6 |
 | M6 static Sensitivity against the workbook | 15 cases, worst relative difference 1.1e-13, master check OK in every case | 15 cases, worst relative difference 1.2e-12, master check OK in every case |
-| Readiness gates | 3 of 23; decision STOP (evidence incomplete, 10 of 13 critical gates open) | 5 of 23; decision STOP (evidence incomplete, 8 of 13 critical gates open) |
+| Readiness gates (gate 10 includes the annual DSCR since 3 October) | 2 of 23; decision STOP on a failed test (gate 10: DSCR below 1.2x in Years 1 to 4) | 4 of 23; decision STOP on a failed test (gate 10, same reason) |
 | Headline outputs | Investor IRR 46.4%, MOIC 6.72x, DCF EV USD 15.6m, peak equity USD 10.0m | Investor IRR 29.0%, MOIC 3.57x, DCF EV USD 6.1m, peak equity USD 9.0m |
 
 The runway flag added in step 4 was given a threshold of LCY 1 so that the residue in M2 cannot make one engine report an equity top-up that the other does not.
@@ -75,7 +75,7 @@ The runway flag added in step 4 was given a threshold of LCY 1 so that the resid
 * **Step 4 (on the case):**
   * RBF claims understated for 12 months set the master check to ERROR through row 38, and the decision to STOP (failed test);
   * a manual gate marked Met without evidence was not counted, and was counted once the location and sign off were entered;
-  * all critical gates evidenced gave CONDITIONAL GO;
+  * all critical gates evidenced gave CONDITIONAL GO (tested before gate 10 included the DSCR; at default covenants gate 10 now fails, so CONDITIONAL GO and GO need a different DSCR covenant: see 14, finding M1);
   * all 23 gates gave GO;
   * a failed master check gave STOP.
 

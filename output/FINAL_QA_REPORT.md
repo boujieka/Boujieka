@@ -29,7 +29,7 @@ The purpose assessed is a pre-publication edition (Book v0.2, Model v0.8). The l
 * No "investment grade". "Bankable" appears only once, as a quoted word.
 * The series page lists the six-book collection, and Book 2 numbering is unchanged.
 * Collection rate is distinguished from the PAYGo PERFORM 2026 Repayment Rate in every chapter. The last older wording (Ch 1, 11 to 13, 15, 16.9) was corrected in this cycle.
-* Readiness passages match the workbook: 3 of 23 and 5 of 23, with the evidence rule (STOP) shown beside the analyst's Conditional Go.
+* Readiness passages match the workbook: 2 of 23 and 4 of 23, STOP on the failed DSCR test (gate 10), shown beside the analyst's Conditional Go, which is conditional on resetting the DSCR covenant.
 * The 30 key claims are verified against the v0.8 workbooks (09). The 8 figures not found in any workbook are text arithmetic, checked in place.
 
 **Open**
@@ -45,7 +45,7 @@ The purpose assessed is a pre-publication edition (Book v0.2, Model v0.8). The l
 * 38 tests. Planted faults: 12 in step 2 and 4 in step 3, plus 6 decision-path tests in step 4. Every planted fault was detected and every decision path gave the expected result.
 * Secondary calculation agrees to 2.49e-14.
 * 15 sensitivity cases are reproduced inside the workbook: default to 1.1e-13, case to 1.2e-12.
-* Readiness decision logic tested on all four paths (failed test, incomplete evidence, CONDITIONAL GO, GO).
+* Readiness decision logic tested on all four paths (failed test, incomplete evidence, CONDITIONAL GO, GO), again by the independent red team (14).
 
 **Open**
 * Microsoft Excel test (readiness gate 17).
