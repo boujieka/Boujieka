@@ -1,6 +1,6 @@
 # Source verification report (audit stage)
 
-Status: prepared 3 October 2026. This is the verification position before any change to the book or the model. Page numbers are PDF page numbers of the files provided unless stated otherwise. Where a page could not be verified, the entry says PAGE TO VERIFY.
+Status: prepared 3 October 2026; updated the same day after step 1 of the change plan (client extraction of the ESMAP MTR 2024 received; register rebuilt as `04_SOURCE_REGISTER_v1.0.xlsx`, which now prevails over the tables below for individual statuses). Page numbers are PDF page numbers of the files provided unless stated otherwise. Where a page could not be verified, the entry says PAGE TO VERIFY.
 
 Grades: A primary official, regulatory or audited source; B authoritative institutional source; C reputable secondary source; D unverified or informal.
 
@@ -33,8 +33,8 @@ Not received and not reachable from this environment (network policy refuses the
 
 | Ref | Claim | Book | Model | Current status in v0.1 / v0.7 | Verified position now | Evidence |
 |---|---|---|---|---|---|---|
-| E1 | Sector PAYGo collection rate about 62% in 2023 | Ch 1, 7, 15 | SR19, Calibration | Secondary reporting, grade B in register | UNVERIFIED (PENDING PRIMARY DOCUMENT). Definition, population and page unknown. Must not be used as a model assumption; it is a sector reference only. | None in the project |
-| E1 | About half of PAYGo customers written off or more than 30 days late | Ch 1, 7, 15 | none | Secondary | UNVERIFIED (PENDING PRIMARY DOCUMENT) | None |
+| E1 | Sector PAYGo collection rate about 62% in 2023 | Ch 1, 7, 15 | SR19, Calibration | Secondary reporting, grade B in register | PENDING PRIMARY DOCUMENT. The client's extraction (3 Oct 2026) gives 62% as the average for 2021 to 2023, with quartiles of 75% to 80% and below 50%: the book's 'in 2023' is revised. Definition and page still unknown. Never a model assumption; in v0.8 Calibration the reference is suspended until verified. | Client extraction; report not held |
+| E1 | About half of PAYGo customers written off or more than 30 days late | Ch 1, 7, 15 | none | Secondary | CONFLICTING SOURCES. The client's extraction reports that about half of companies had a write-off ratio plus RAR30 between 30% and 50% in 2023 (18% in 2021): a statement about companies, not customers. The book's wording is withdrawn. | Client extraction |
 | E2 | PERFORM KPI set | Ch 7, Annex A | Glossary, KPIs, Vintage_Dashboard, SR21 | Framework attributed to CGAP, GOGLA and Lighting Global; collection rate, receivables at risk and write offs presented as its standard metrics | VERIFIED against E2: the 2026 standard defines five KPIs: RR Paid vs Plan (PvP), RR Paid vs Financed (PvFin), RR PvP @90 Days, RR PvP @2x, and Ownership Rate @2x (E2 PDF page 8, summary guide). | E2 pages 8 to 18 |
 | E2 | Collection rate is not a PERFORM substitute | none | none | Not stated | VERIFIED: "Do not use substitute metrics or proxies such as Collection Rate, days locked / enabled, or self-defined variants on Repayment Rate calculation" (E2 PDF page 10, rule 3A). The only accepted alternative basis is cumulative arrears (rule 3B). | E2 page 10 |
 | E2 | Core RR rules | Ch 7 gives a simpler definition | Vintage_Engine | Not aligned | VERIFIED: RR excludes deposits and prepayments, includes arrears payments and write offs, and is cumulative since contract start after any free use period; instalments normalised to daily equivalents; payments recognised pro rata when applied to due instalments (E2 PDF pages 9 and 10; E2-G PDF page 5) | E2, E2-G |
@@ -54,8 +54,8 @@ Not received and not reachable from this environment (network policy refuses the
 ## 3. Findings on the register itself
 
 1. The model register uses a five-grade scale (A to E). The brief requires A to D. Grade E ("contextual") will map to D or to NOT USED.
-2. SR14 and SR15 (BBOXX) are graded A while their status says the original has not been reviewed. A grade must describe the evidence actually read.
-3. SR19 (ESMAP) is graded B while marked "secondary reporting; original not yet reviewed". The publisher is B-grade, but the claim has not been verified: the claim status must be UNVERIFIED regardless of the publisher's grade.
+2. SR14 and SR15 (BBOXX) are graded A while their status text says the original has not been reviewed. The new register resolves this by separating the two judgements: the grade describes the source cited (the Gazette and the companies register are A), and the status (PENDING PRIMARY DOCUMENT) records that this project has not read them. Only the status governs use in the model.
+3. SR19 (ESMAP) is graded B while marked "secondary reporting; original not yet reviewed". Under the same separation it keeps grade B and carries the status PENDING PRIMARY DOCUMENT.
 4. SR21 (PERFORM) points to the 2021 framework page and lists collection rate and receivables at risk as framework KPIs. It must be split into E2 (2026, current) and E2a (2021, historical).
 5. The register has no page, section or evidence-type fields. These will be added in 04_SOURCE_REGISTER_v1.0.xlsx.
 

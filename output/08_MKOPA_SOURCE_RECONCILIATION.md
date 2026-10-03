@@ -1,6 +1,6 @@
 # M-KOPA FY2024: source reconciliation
 
-Status: prepared 3 October 2026 from the documents available in the project. No book or model figure has yet been changed.
+Status: prepared 3 October 2026 from the documents available in the project. Conclusions 3 and 4 were applied the same day in step 1 of the change plan (model v0.8-dev and book chapters 8, 15 and 16, Annex G).
 
 ## 1. What the book and the model currently say
 
@@ -40,7 +40,7 @@ Minor internal difference in the filing: administrative expenses are GBP (482,62
 | TechCabal, 7 Oct 2025 (secondary) | "M-KOPA" (entity not identified in the register) | FY2024 | Revenue | 416m | USD | PAGE TO VERIFY (web article) | Not stated | n/a | Article said to cite UK filings; which entity and which line is not known | CONFLICTING SOURCES; not used as a benchmark |
 | Kenyan Wall Street (secondary) | "M-KOPA" (entity not identified) | FY2024 | Revenue | 253.5m | USD | PAGE TO VERIFY | Not stated | (162.5m), a factor of 1.64 | Possibly a different entity, line or currency translation; cannot be resolved without the filing used | CONFLICTING SOURCES; not used |
 | Companies House filing (primary, provided) | M-KOPA UK LIMITED, 10229661 | FY2024 | Revenue (carbon credit sales) | 1,712,776 | GBP | Filing page 8 and note 2.1 (PDF pages 10, 18) | IFRS 15 revenue of a UK research and development subsidiary | Not comparable | Different entity, different activity, different currency. This filing is not the source of either secondary figure. | VERIFIED for this entity only. NOT USED as a PAYGo benchmark. |
-| M-Kopa Holdings Limited consolidated accounts | Ultimate parent | FY2024 | Revenue | not obtained | not known | PAGE TO VERIFY | not known | not known | The group figure, if any, would come from this filing | PENDING PRIMARY DOCUMENT |
+| M-Kopa Holdings Limited consolidated accounts | Ultimate parent | FY2024 | Revenue | not obtained | not known | PAGE TO VERIFY | not known | not known | The group figure, if any, would come from this filing. The project's benchmark files (benchmarks/db, DB001 to DB014) attribute the secondary figures to 'M-KOPA Holdings Ltd, Companies House 10891868'; that number and attribution have not been checked against the register. | PENDING PRIMARY DOCUMENT |
 
 ## 4. Conclusions
 

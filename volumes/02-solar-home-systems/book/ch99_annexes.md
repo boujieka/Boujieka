@@ -102,20 +102,22 @@ Each section should state the evidence it rests on (company data, model output o
 
 # Annex G. Sources and verification status
 
-The rule applied in the AEF series is that a figure about a real company or about the sector may appear in a final edition only once the primary document has been opened and checked. In this draft, every external figure below rests on secondary reporting; each is quoted in the text with that caveat and must be checked against the original before publication.
+This annex summarises the source register for this edition (the full register, with publisher, date, document, page, section, location and evidence for every claim, is kept with the workbook as the source register file and as the *Source_Register* sheet). The grade describes the source: A primary official, regulatory or audited; B institutional or company disclosure; C reputable secondary reporting; D unverified or informal. The status describes what has been checked for this edition. Only verified claims feed the workbook's diagnostics; every other claim appears in the text with its caveat. Pages are those of the document held; "page to verify" means the page has not been seen.
 
-| Ref. | Figure as used in the text | Source as reported | Status |
-|---|---|---|---|
-| E1 | Sector PAYGo collection rate about 62% in 2023; about half of PAYGo customers written off or more than 30 days late | ESMAP and World Bank, Off-Grid Solar Market Trends Report 2024 | Secondary reporting; primary report not yet reviewed |
-| E2 | PAYGo PERFORM KPI framework and definitions | CGAP, GOGLA, Lighting Global | Definitions to be aligned with the current published documents |
-| E3 | Multi-Tier Framework for household electricity access, Tiers 0 to 5 | ESMAP, Beyond Connections (2015) | Numeric thresholds not quoted; to be checked |
-| E4 | M-KOPA FY2024 revenue about USD 416m, net profit about USD 9.2m; FY2023 loss about USD 24.7m. Conflicting report: FY2024 revenue USD 253.5m, FY2023 loss USD 20.6m | TechCabal (October 2025) citing UK filings; a second outlet for the conflicting figures | Conflict unresolved until the filings are read |
-| E5 | Sun King cumulative solar loans about USD 1.3bn to almost 10 million cumulative loan customers; Kenyan securitisations of about USD 130m (2023) and about USD 156m (2025) | Company and bank announcements, secondary reporting | Secondary reporting |
-| E6 | d.light securitisation purchasing capacity about USD 718m since 2020, including a USD 176m facility in 2024 | Secondary reporting | Purchasing capacity, not debt raised |
-| E7 | BBOXX LTD (07177839) in administration from 19 May 2025; latest filed accounts FY2022 | UK public register and gazette, as reported | Primary documents not yet reviewed |
-| E8 | Off-grid solar investment about USD 299m in 2024, down about 30% | GOGLA investment data report | Secondary; to check |
-| E9 | ZOLA Electric USD 90m round (USD 45m equity, USD 45m debt), September 2021 | Secondary reporting | Secondary reporting |
-| E10 | Universal Energy Facility pays per verified connection | SEforALL | Amounts not quoted |
+| Ref. | Claim as used in the text | Source | Grade | Status |
+|---|---|---|---|---|
+| E1 | Average PAYGo collection rate about 62% for 2021 to 2023 (top quartile 75% to 80%, bottom quartile below 50%); share of companies with write off ratio plus RAR30 of 30% to 50% about half in 2023 against 18% in 2021 | ESMAP and World Bank, Off-Grid Solar Market Trends Report 2024 (prepared with GOGLA and Dalberg, as reported) | B | Pending the primary document: figures from a client extraction of the report, pages and definitions to verify. An earlier wording, "about half of PAYGo customers written off or more than 30 days late", has been withdrawn because the extraction concerns companies, not customers. |
+| E2 | The five PAYGo PERFORM KPIs (repayment rate on four bases and ownership rate at twice the contract term); collection rate not to be used as a substitute for the repayment rate | GOGLA, PAYGo PERFORM KPIs Technical Guide, June 2026, pages 8 to 10 and 16 to 18 | B | Verified |
+| E2a | Collection rate, receivables at risk and write off ratio as portfolio quality KPIs | CGAP, GOGLA and IFC Lighting Global, PAYGo PERFORM Technical Guide, July 2021, pages 18 to 28 | B | Verified, historical: superseded by E2 |
+| E3 | Multi-Tier Framework for household electricity access, Tiers 0 to 5 | ESMAP, Beyond Connections (2015) | B | Pending the primary document; numeric thresholds not quoted |
+| E4 | M-KOPA FY2024 group revenue reported as about USD 416m and as USD 253.5m; net profit about USD 9.2m | TechCabal (October 2025) and a second outlet | C | Conflicting sources; not used in the workbook |
+| E4 | M-KOPA UK LIMITED (10229661), year to 31 December 2024: revenue GBP 1,712,776 from sales of carbon credits; a research and development subsidiary with no employees | Audited accounts filed at Companies House, filing pages 8 and 16 | A | Verified; not a PAYGo benchmark (different entity and activity) |
+| E5 | Sun King cumulative solar loans about USD 1.3bn to almost 10 million cumulative loan customers; Kenyan securitisations of about USD 130m (2023) and USD 156m (2025) | Company and bank announcements | B | Pending the primary documents |
+| E6 | d.light securitisation purchasing capacity about USD 718m since 2020, including a USD 176m facility in 2024 | Secondary reporting | C | Pending; purchasing capacity, not debt raised |
+| E7 | BBOXX LTD (07177839) recorded in administration from 19 May 2025; latest filed accounts made up to 2022 | The Gazette; Companies House register | A | Pending the primary documents: the date must be the date of appointment in the formal notice |
+| E8 | Off-grid solar investment about USD 299m in 2024, down about 30% | GOGLA investment data | B | Pending the primary document |
+| E9 | ZOLA Electric USD 90m round (USD 45m equity, USD 45m debt), September 2021 | Secondary reporting | C | Pending; not used |
+| E10 | Universal Energy Facility pays per verified connection | SEforALL | B | Pending; amounts not quoted |
 
 # Annex H. Glossary
 
