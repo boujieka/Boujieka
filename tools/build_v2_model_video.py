@@ -75,7 +75,10 @@ def fmt(v, nf):
     pct = "%" in sec
     m = re.search(r"0\.(0+)", sec)
     dec = len(m.group(1)) if m else 0
-    thou = "," in sec
+    core = re.sub(r'"[^"]*"', "", sec)
+    scale = len(re.search(r"[0#](,*)\W*$", core).group(1)) if re.search(r"[0#](,*)\W*$", core) else 0
+    x = x / 1000 ** scale  # trailing commas after the last digit placeholder scale by a thousand each
+    thou = "," in core.rstrip(",)") if scale else "," in sec
     suffix = "x" if '"x"' in sec else ""
     val = abs(x) * (100 if pct else 1) if (neg or "(" in sec) else x * (100 if pct else 1)
     s = f"{val:,.{dec}f}" if thou else f"{val:.{dec}f}"
@@ -212,7 +215,8 @@ def render(book, sheet, rng, highlights, caption, step, select=None):
                 ts.append("justify-content:center")
             if wrap:
                 va = cell.alignment.vertical if cell.alignment is not None else None
-                ts.append("white-space:normal;line-height:1.15;align-items:" + ("center" if va == "center" else "flex-start"))
+                # Excel's default vertical alignment is bottom
+                ts.append("white-space:normal;line-height:1.15;align-items:" + {"center": "center", "top": "flex-start"}.get(va, "flex-end"))
             cells.append(f'<div class="c" style="{";".join(ts)}">{html.escape(txt)}</div>')
     # images anchored in the range (logo on the cover)
     for img in getattr(ws, "_images", []):
@@ -540,6 +544,19 @@ scene(S12, "Investment_Summary", "A4:G35", [("B9:F19", "Trajectory"), ("B22:B27"
       "The Investment Summary brings it together on one page for the active scenario: the operating trajectory, the funding "
       "requirement, valuation and returns, the lender view and unit economics by tier. Build the memo from this page and the "
       "sheets behind it, using Template T01, and check every figure you quote against its source sheet.")
+scene(S12, "Dashboard", "A5:H50", [("A22:H23", "Collection rate and PERFORM"), ("A29:H29", "Cash conversion"),
+                                     ("A47:H48", "FX: USD debt share and FX effect"), ("A49:H50", "Readiness")],
+      "Thirty nine labelled metrics by year, rounded for reading, each with its unit and its source sheet.",
+      "Behind the summary sits the Dashboard: a table of thirty nine labelled metrics by year, rounded for reading, each "
+      "with its unit and its source sheet. Single values, such as returns, peaks, timing and readiness, sit under Year 1. "
+      "Three readings teach the most. First, revenue is not cash. Cash conversion, operating cash flow over EBITDA, reads "
+      "not applicable in Years 1 and 2, while EBITDA is negative. It is then minus 1.32 times in Year 3, minus 0.08 times "
+      "in Year 4 and 0.25 times in Year 5, because the growing receivables book absorbs the cash. Second, the operational "
+      "collection rate falls from 84.5 per cent in Year 1 to 73.3 per cent in Year 5. It is labelled not a PERFORM KPI, and "
+      "the PERFORM repayment line below it reads not provided, because only company results can fill it. Third, the net FX "
+      "transaction effect on costs and RBF, before price pass through, is a cost that grows from about twenty five million "
+      "local currency units in Year 1 to about nine hundred and twenty eight million in Year 5. The last lines repeat the "
+      "readiness result: three of twenty three gates met, and a decision of STOP, on incomplete evidence.")
 
 title("BOOK 2  |  VIDEO COURSE", "Twelve steps, one discipline", "Load the company's data before you trust the projections",
       "That completes the twelve steps. Three habits matter most. Never use an output while the master check reads error. "

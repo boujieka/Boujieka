@@ -25,8 +25,8 @@ This document holds the full narration of every module, with the screen directio
 | 14 | Stress testing | 9:43 | 1,294 | Narration, AEF_V2_Module_14.mp3 |
 | 15 | The investor view: due diligence and the investment memo | 11:16 | 1,450 | Narration, AEF_V2_Module_15.mp3 |
 | 16 | Case walk through: SolaraPay | 12:16 | 1,617 | Narration, AEF_V2_Module_16.mp3 |
-| 17 | Using MODEL 2, step by step | 17:33 | 2,304 | Video, MP4, 1920 by 1080, subtitles and chapters |
-| | Total | 3 h 12 min | 25,388 | |
+| 17 | Using MODEL 2, step by step | 19:03 | 2,507 | Video, MP4, 1920 by 1080, subtitles and chapters |
+| | Total | 3 h 14 min | 25,591 | |
 
 ## Conventions
 
@@ -1549,7 +1549,7 @@ Your exercise uses the case workbook. On a copy, run the calibrated Downside wit
 
 # Module 17. Using MODEL 2, step by step
 
-Running time: 17:33. Book: Chapters 1 to 16. Model: MODEL 2, version 0.8 (development build), file AEF_SHS_PAYGo_Model_v0.8-dev.xlsx. User manual: Steps 1 to 12.
+Running time: 19:03. Book: Chapters 1 to 16. Model: MODEL 2, version 0.8 (development build), file AEF_SHS_PAYGo_Model_v0.8-dev.xlsx. User manual: Steps 1 to 12.
 
 ### Learning objectives
 1. Work through the model in the order an analyst should.
@@ -1701,7 +1701,12 @@ Finally, Investment Readiness. Twenty three gates, automatic where the model can
 
 The Investment Summary brings it together on one page for the active scenario: the operating trajectory, the funding requirement, valuation and returns, the lender view and unit economics by tier. Build the memo from this page and the sheets behind it, using Template T01, and check every figure you quote against its source sheet.
 
-### Scene 30. Twelve steps, one discipline
+### Scene 30. Investment memo: Dashboard
+> On screen: *Thirty nine labelled metrics by year, rounded for reading, each with its unit and its source sheet. Sheet Dashboard, range A5:H50.*
+
+Behind the summary sits the Dashboard: a table of thirty nine labelled metrics by year, rounded for reading, each with its unit and its source sheet. Single values, such as returns, peaks, timing and readiness, sit under Year 1. Three readings teach the most. First, revenue is not cash. Cash conversion, operating cash flow over EBITDA, reads not applicable in Years 1 and 2, while EBITDA is negative. It is then minus 1.32 times in Year 3, minus 0.08 times in Year 4 and 0.25 times in Year 5, because the growing receivables book absorbs the cash. Second, the operational collection rate falls from 84.5 per cent in Year 1 to 73.3 per cent in Year 5. It is labelled not a PERFORM KPI, and the PERFORM repayment line below it reads not provided, because only company results can fill it. Third, the net FX transaction effect on costs and RBF, before price pass through, is a cost that grows from about twenty five million local currency units in Year 1 to about nine hundred and twenty eight million in Year 5. The last lines repeat the readiness result: three of twenty three gates met, and a decision of STOP, on incomplete evidence.
+
+### Scene 31. Twelve steps, one discipline
 > On screen: *Load the company's data before you trust the projections*
 
 That completes the twelve steps. Three habits matter most. Never use an output while the master check reads error. Load the company's own history before you trust any projection. And read the Downside as carefully as the Base. The user manual, the case study, the templates and the decision tools take each step further. Thank you for watching.

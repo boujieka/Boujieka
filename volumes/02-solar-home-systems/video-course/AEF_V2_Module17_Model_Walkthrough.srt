@@ -619,29 +619,69 @@ The Investment Summary brings it together on one page for the active scenario: t
 Build the memo from this page and the sheets behind it, using Template T01, and check every figure you quote against its source sheet.
 
 156
-00:17:07,179 --> 00:17:09,514
-That completes the twelve steps.
+00:17:07,179 --> 00:17:18,913
+Behind the summary sits the Dashboard: a table of thirty nine labelled metrics by year, rounded for reading, each with its unit and its source sheet.
 
 157
-00:17:09,514 --> 00:17:11,338
-Three habits matter most.
+00:17:18,913 --> 00:17:25,056
+Single values, such as returns, peaks, timing and readiness, sit under Year 1.
 
 158
-00:17:11,338 --> 00:17:15,351
-Never use an output while the master check reads error.
+00:17:25,056 --> 00:17:27,418
+Three readings teach the most.
 
 159
-00:17:15,351 --> 00:17:19,948
-Load the company's own history before you trust any projection.
+00:17:27,418 --> 00:17:29,545
+First, revenue is not cash.
 
 160
-00:17:19,948 --> 00:17:23,377
-And read the Downside as carefully as the Base.
+00:17:29,545 --> 00:17:38,522
+Cash conversion, operating cash flow over EBITDA, reads not applicable in Years 1 and 2, while EBITDA is negative.
 
 161
-00:17:23,377 --> 00:17:30,163
-The user manual, the case study, the templates and the decision tools take each step further.
+00:17:38,522 --> 00:17:50,020
+It is then minus 1.32 times in Year 3, minus 0.08 times in Year 4 and 0.25 times in Year 5, because the growing receivables book absorbs the cash.
 
 162
-00:17:30,163 --> 00:17:31,841
+00:17:50,020 --> 00:17:58,053
+Second, the operational collection rate falls from 84.5 per cent in Year 1 to 73.3 per cent in Year 5.
+
+163
+00:17:58,053 --> 00:18:08,685
+It is labelled not a PERFORM KPI, and the PERFORM repayment line below it reads not provided, because only company results can fill it.
+
+164
+00:18:08,685 --> 00:18:26,168
+Third, the net FX transaction effect on costs and RBF, before price pass through, is a cost that grows from about twenty five million local currency units in Year 1 to about nine hundred and twenty eight million in Year 5.
+
+165
+00:18:26,168 --> 00:18:35,933
+The last lines repeat the readiness result: three of twenty three gates met, and a decision of STOP, on incomplete evidence.
+
+166
+00:18:37,433 --> 00:18:39,768
+That completes the twelve steps.
+
+167
+00:18:39,768 --> 00:18:41,592
+Three habits matter most.
+
+168
+00:18:41,592 --> 00:18:45,606
+Never use an output while the master check reads error.
+
+169
+00:18:45,606 --> 00:18:50,202
+Load the company's own history before you trust any projection.
+
+170
+00:18:50,202 --> 00:18:53,632
+And read the Downside as carefully as the Base.
+
+171
+00:18:53,632 --> 00:19:00,418
+The user manual, the case study, the templates and the decision tools take each step further.
+
+172
+00:19:00,418 --> 00:19:02,096
 Thank you for watching.
