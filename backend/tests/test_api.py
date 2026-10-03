@@ -28,14 +28,13 @@ class TestCountries:
     def test_lists_all_54_countries_with_coverage(self, client):
         rows = get(client, "/countries")
         assert len(rows) == 54
-        with_data = sorted(c["iso3"] for c in rows if c["coverage_tier"] == "market_data")
-        assert with_data == ["CIV", "CMR", "COG", "GAB", "KEN", "SEN"]
+        assert all(c["coverage_tier"] == "market_data" for c in rows)
         assert all(c["name_fr"] and c["region"] for c in rows)
 
-    def test_reference_only_country(self, client):
+    def test_extended_country_profile(self, client):
         c = get(client, "/countries/NGA", as_of=AS_OF)
-        assert c["coverage_tier"] == "reference_only"
-        assert c["currency"] == "NGN" and c["completed_auction_count"] == 0
+        assert c["coverage_tier"] == "market_data"
+        assert c["currency"] == "NGN" and c["completed_auction_count"] > 0
         assert c["provenance"]["verification_status"] == "unverified"
         assert any(s["category"] == "central_bank" for s in c["sources"])
 
@@ -176,7 +175,7 @@ class TestOverview:
     def test_dashboard_consistent_with_auction_list(self, client):
         summary = get(client, "/dashboard/summary", as_of=AS_OF)
         assert summary["countries_monitored"] == 54
-        assert summary["countries_with_market_data"] == 6
+        assert summary["countries_with_market_data"] == 54
         assert summary["synthetic_records_present"] is True
         assert isinstance(summary["new_opportunities"], int)
         upcoming = get(
@@ -187,13 +186,16 @@ class TestOverview:
             client, "/auctions", status="completed", date_from="2026-09-27", date_to=AS_OF, limit=500
         )
         assert summary["results_last_7d"] == recent["total"]
-        assert summary["cancelled_or_postponed"] == 2
+        disrupted = get(client, "/auctions", status=["cancelled", "postponed"], date_from=AS_OF, limit=500)
+        assert summary["cancelled_or_postponed"] == disrupted["total"]
 
     def test_issuance_by_currency_not_summed_across_currencies(self, client):
         summary = get(client, "/dashboard/summary", as_of=AS_OF)
         currencies = [r["currency"] for r in summary["announced_issuance_by_currency"]]
         assert len(currencies) == len(set(currencies))
-        assert set(currencies) <= {"XAF", "XOF", "KES"}
+        from app.seed.africa import AFRICA
+
+        assert set(currencies) <= {c.currency for c in AFRICA}
 
     def test_sources(self, client):
         rows = get(client, "/sources")
@@ -253,13 +255,13 @@ class TestOpportunityRadar:
         assert "not recommendations" in page["disclaimer"]
 
     def test_criteria_matching(self, client):
-        page = get(client, "/opportunities", min_yield="9", currency="KES")
+        page = get(client, "/opportunities", min_yield="9", currency="KES", limit=500)
         assert page["criteria"] == {"min_yield": "9", "currency": "KES"}
         for o in page["items"]:
             meets = (o["yield_pct"] is not None and Decimal(o["yield_pct"]) >= 9 and o["currency"] == "KES")
             assert o["matches_criteria"] is meets
             assert bool(o["criteria_unmet"]) is (not meets)
-        only = get(client, "/opportunities", min_yield="9", currency="KES", matching_only=True)
+        only = get(client, "/opportunities", min_yield="9", currency="KES", matching_only=True, limit=500)
         assert only["total"] == sum(o["matches_criteria"] for o in page["items"])
 
     def test_no_criteria_means_no_matching_flag(self, client):
@@ -268,7 +270,7 @@ class TestOpportunityRadar:
     def test_heat_grid(self, client):
         grid = get(client, "/market/heat-grid", as_of=AS_OF)
         names = [r["country_name"] for r in grid["rows"]]
-        assert len(names) == 6 and names == sorted(names)
+        assert len(names) == 54 and names == sorted(names)
         for row in grid["rows"]:
             buckets = [c["bucket"] for c in row["cells"]]
             assert len(buckets) == len(set(buckets))

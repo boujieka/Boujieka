@@ -46,8 +46,9 @@ class TestSyntheticGenerator:
         for _, _, a in all_auctions(generated):
             if a["auction_date"] > REFERENCE_DATE:
                 assert a["status"] != AuctionStatus.COMPLETED
-                assert "weighted_average_yield" not in a
-                assert a["field_status"]["weighted_average_yield"] == "pending"
+                assert a["weighted_average_yield"] is None
+                if a["status"] == AuctionStatus.ANNOUNCED:
+                    assert a["field_status"]["weighted_average_yield"] == "pending"
 
     def test_completed_results_are_internally_consistent(self, generated):
         completed = [a for _, _, a in all_auctions(generated) if a["status"] == AuctionStatus.COMPLETED]
@@ -79,6 +80,34 @@ class TestSyntheticGenerator:
                 types = [a["auction_type"] for a in b["auctions"]]
                 assert types[0] == AuctionType.PRIMARY_AUCTION
                 assert all(t == AuctionType.REOPENING for t in types[1:])
+
+    def test_covers_all_54_countries(self, generated):
+        assert len(generated) == 54
+        assert all(series for series in generated.values())
+
+    def test_rolling_forward_keeps_the_past(self, generated):
+        """A later as-of date must not rewrite history, only add auctions and results."""
+        from datetime import timedelta
+
+        later = synthetic.generate(REFERENCE_DATE + timedelta(days=7))
+        key = lambda s, a: (s["local_code"], a["auction_date"])  # noqa: E731
+        before = {key(s, a): a for v in generated.values() for s in v for a in s["auctions"]}
+        after = {key(s, a): a for v in later.values() for s in v for a in s["auctions"]}
+        assert set(before) <= set(after)
+        transitions = 0
+        for k, a in before.items():
+            if a["status"] == AuctionStatus.COMPLETED:
+                assert after[k]["weighted_average_yield"] == a["weighted_average_yield"]
+            elif a["status"] == AuctionStatus.ANNOUNCED and after[k]["status"] == AuctionStatus.COMPLETED:
+                transitions += 1
+        assert transitions > 0
+
+    def test_non_mvp_anchors_are_hash_derived(self):
+        from app.models.enums import MonetaryZone
+
+        a1, _, _ = synthetic.country_profile("NGA", MonetaryZone.NONE)
+        a2, _, _ = synthetic.country_profile("NGA", MonetaryZone.NONE)
+        assert a1 == a2 and 4.0 <= a1 <= 14.0
 
     def test_cancelled_and_postponed_examples(self, generated):
         statuses = {a["status"] for _, _, a in all_auctions(generated)}

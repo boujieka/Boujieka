@@ -94,15 +94,23 @@ def load_synthetic(session: Session, countries: dict[str, Country], reference_da
         session.add(source)
         session.flush()
 
-    created = 0
+    # Preload existing synthetic rows so the upsert below costs no per-row queries.
+    securities = {
+        s.local_code: s for s in session.scalars(select(Security).where(Security.is_synthetic))
+    }
+    existing = {
+        (a.security_id, a.auction_date, a.auction_type): a
+        for a in session.scalars(select(Auction).where(Auction.is_synthetic))
+    }
+    issuers = {i.country_id: i for i in session.scalars(select(Issuer))}
+
+    created = updated = 0
     for iso3, series in synthetic.generate(reference_date).items():
         country = countries[iso3]
-        issuer = session.scalar(select(Issuer).where(Issuer.country_id == country.country_id))
+        issuer = issuers[country.country_id]
         for sec in series:
             auctions = sec.pop("auctions")
-            security = session.scalar(
-                select(Security).where(Security.local_code == sec["local_code"])
-            )
+            security = securities.get(sec["local_code"])
             if security is None:
                 security = Security(
                     **sec,
@@ -115,15 +123,10 @@ def load_synthetic(session: Session, countries: dict[str, Country], reference_da
                 )
                 session.add(security)
                 session.flush()
+                securities[security.local_code] = security
             for a in auctions:
-                exists = session.scalar(
-                    select(Auction.auction_id).where(
-                        Auction.security_id == security.security_id,
-                        Auction.auction_date == a["auction_date"],
-                        Auction.auction_type == a["auction_type"],
-                    )
-                )
-                if exists is None:
+                row = existing.get((security.security_id, a["auction_date"], a["auction_type"]))
+                if row is None:
                     session.add(
                         Auction(
                             **a,
@@ -133,8 +136,26 @@ def load_synthetic(session: Session, countries: dict[str, Country], reference_da
                         )
                     )
                     created += 1
+                elif row.status != a["status"]:
+                    # Rolling generator: an announced auction gets its synthetic result once held.
+                    for key, value in a.items():
+                        setattr(row, key, value)
+                    updated += 1
     session.flush()
     return created
+
+
+def reset_synthetic(session: Session) -> int:
+    """Delete all synthetic market data and derived signals (used when the generator changes)."""
+    from sqlalchemy import delete
+
+    from app.models import Opportunity
+
+    session.execute(delete(Opportunity).where(Opportunity.is_synthetic))
+    n = session.execute(delete(Auction).where(Auction.is_synthetic)).rowcount
+    session.execute(delete(Security).where(Security.is_synthetic))
+    session.flush()
+    return n
 
 
 def main() -> None:
@@ -143,11 +164,16 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--synthetic", action="store_true", help="also load synthetic data")
     parser.add_argument("--reference-date", type=date.fromisoformat, default=date.today())
+    parser.add_argument(
+        "--reset-synthetic", action="store_true", help="delete synthetic data before loading"
+    )
     args = parser.parse_args()
 
     with SessionLocal() as session:
         countries = load_reference(session)
         created = 0
+        if args.reset_synthetic:
+            print(f"Removed {reset_synthetic(session)} synthetic auctions.")
         if args.synthetic:
             created = load_synthetic(session, countries, args.reference_date)
             session.flush()

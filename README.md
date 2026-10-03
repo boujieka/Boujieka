@@ -32,9 +32,14 @@ Brand (logo, colours from ancient Egyptian pigments, type): see [`brand/BRAND.md
 
 All **54 African UN member states** have a reference profile: ISO codes, currency, monetary
 zone (CEMAC, WAEMU, CMA or national), central bank and a registered central-bank source.
-These profiles are unverified. Market data (synthetic until Phase 2) is loaded for 6 countries:
-Cameroon, Republic of the Congo, Gabon, Côte d'Ivoire, Senegal and Kenya. The API reports
-`coverage_tier` per country.
+These profiles are unverified. **Synthetic** market data covers all 54 countries (hand-set
+anchor yields for the 6 pilot countries; hash-derived, deliberately unrelated to real markets
+for the other 48). Whether each country runs regular domestic auctions has not been verified.
+
+## Daily update (every 24 h)
+A scheduled job rolls the data forward, re-runs the Opportunity Engine, **watches the official
+source pages for real** (reachability, changes, newly published documents), and redeploys the
+site. See [`docs/DAILY_WATCH.md`](docs/DAILY_WATCH.md).
 
 ## Principles
 

@@ -6,19 +6,30 @@ every security name starts with "[SYNTHETIC]". Yield levels, amounts and
 dates are random draws around arbitrary anchors chosen only so the UI has
 realistic-looking shapes to render. They say nothing about any real market.
 
-Generation is deterministic for a given (seed, reference_date).
+Generation is rolling and deterministic: every auction is drawn from its own seed
+(country, line, date), and history starts at a fixed EPOCH. Re-running on a later date
+reproduces the same past auctions and only adds new ones; an auction announced earlier
+gets its (synthetic) result once its date has passed.
+
+All 54 countries are generated. The six MVP countries keep hand-set anchor yields; the other
+48 get anchors drawn from a hash of their ISO code, deliberately unrelated to any real market.
+Whether a given country actually runs regular domestic auctions has NOT been verified.
 """
 
+import hashlib
+import math
 import random
 from dataclasses import dataclass
 from datetime import date, datetime, timedelta, timezone
 from decimal import Decimal
 
 from app.analytics.calculations import price_from_simple_yield, quantize
+from app.seed.africa import AFRICA
 from app.models.enums import (
     AuctionStatus,
     AuctionType,
     CouponFrequency,
+    MonetaryZone,
     DataNature,
     FieldStatus,
     InstrumentType,
@@ -74,8 +85,16 @@ KENYA_LINES = [
     Line("FXD 10Y", InstrumentType.TREASURY_BOND, 10 * 365, 56, (20_000, 30_000), 2.6, 13.0),
 ]
 
-# Arbitrary anchor yields (percent). NOT estimates of real market levels.
-COUNTRY_PROFILE: dict[str, tuple[float, list[Line]]] = {
+GENERIC_LINES = [
+    Line("T-Bill 91D", InstrumentType.TREASURY_BILL, 91, 14, (5_000, 25_000), 0.0),
+    Line("T-Bill 182D", InstrumentType.TREASURY_BILL, 182, 14, (5_000, 30_000), 0.4),
+    Line("T-Bill 364D", InstrumentType.TREASURY_BILL, 364, 28, (10_000, 40_000), 0.9),
+    Line("T-Bond 3Y", InstrumentType.TREASURY_BOND, 3 * 365, 56, (10_000, 60_000), 1.6, 9.0),
+    Line("T-Bond 5Y", InstrumentType.TREASURY_BOND, 5 * 365, 84, (10_000, 80_000), 2.3, 10.0),
+]
+
+# Hand-set anchors for the six MVP countries (arbitrary; NOT estimates of real levels).
+MVP_PROFILE: dict[str, tuple[float, list[Line]]] = {
     "CMR": (6.0, CEMAC_LINES),
     "COG": (7.5, CEMAC_LINES),
     "GAB": (6.8, CEMAC_LINES),
@@ -84,151 +103,162 @@ COUNTRY_PROFILE: dict[str, tuple[float, list[Line]]] = {
     "KEN": (9.5, KENYA_LINES),
 }
 
-HISTORY_DAYS = 270
-FORWARD_DAYS = 21
+EPOCH = date(2026, 1, 1)  # first synthetic auction date; history grows from here
+FORWARD_DAYS = 21  # how far ahead announced auctions are generated
+DISRUPTION_RATE = 0.015  # share of auctions marked cancelled or postponed
+
+
+def _h(*parts: object) -> int:
+    """Stable integer hash (Python's hash() is salted per process)."""
+    return int.from_bytes(hashlib.sha256(":".join(map(str, parts)).encode()).digest()[:8], "big")
+
+
+def _rng(*parts: object) -> random.Random:
+    return random.Random(_h(*parts))
+
+
+def country_profile(iso3: str, zone: MonetaryZone) -> tuple[float, list[Line], float]:
+    """(anchor yield %, instrument lines, amount scale). Hash-derived outside the MVP six."""
+    if iso3 in MVP_PROFILE:
+        anchor, lines = MVP_PROFILE[iso3]
+        return anchor, lines, 1.0
+    anchor = 4.0 + (_h("anchor", iso3) % 10_000) / 1_000  # 4.0 – 14.0 %
+    lines = {MonetaryZone.CEMAC: CEMAC_LINES, MonetaryZone.WAEMU: WAEMU_LINES}.get(zone, GENERIC_LINES)
+    scale = (0.1, 1.0, 10.0)[_h("scale", iso3) % 3]
+    return anchor, lines, scale
+
+
+def _level(iso3: str, anchor: float, day: date) -> float:
+    """Smooth, deterministic country yield level for a date (no dependence on as-of)."""
+    t = (day - EPOCH).days
+    p1 = (_h("p1", iso3) % 628) / 100
+    p2 = (_h("p2", iso3) % 628) / 100
+    return anchor + 0.5 * math.sin(2 * math.pi * t / 240 + p1) + 0.2 * math.sin(2 * math.pi * t / 57 + p2)
 
 
 def _d(x: float, places: int = 4) -> Decimal:
     return quantize(Decimal(str(x)), places)  # type: ignore[return-value]
 
 
-def generate(reference_date: date, seed: int = 20261003) -> dict[str, list[dict]]:
-    """Return plain dicts keyed by country iso3 → list of {security, auctions}.
+PENDING_FIELDS = (
+    "amount_submitted",
+    "amount_allocated",
+    "cutoff_yield",
+    "weighted_average_yield",
+    "average_price",
+    "number_of_bidders",
+)
 
-    Kept free of ORM objects so it can be unit-tested in isolation.
+
+def _auction(iso3: str, line: Line, day: date, security: dict, auction_type: AuctionType,
+             anchor: float, scale: float, as_of: date, extracted: datetime) -> dict:
+    r = _rng("auction", iso3, line.label, day.isoformat())
+    settlement = day + timedelta(days=2 if iso3 == "KEN" else 3)
+    remaining_days = (security["maturity_date"] - settlement).days
+    offered = (Decimal(r.randint(*line.offered)) * Decimal(1_000_000) * _d(scale, 2)).quantize(Decimal(1))
+    a: dict = {
+        "auction_date": day,
+        "announcement_date": day - timedelta(days=7),
+        "settlement_date": settlement,
+        "auction_type": auction_type,
+        "amount_offered": offered,
+        "yield_convention": SYNTHETIC_CONVENTION,
+        "source_url": None,
+        "publication_date": day - timedelta(days=7),
+        "extracted_at": extracted,
+        "field_status": {},
+        # Results default to empty; filled below for completed auctions.
+        "amount_submitted": None, "amount_allocated": None, "weighted_average_yield": None,
+        "cutoff_yield": None, "minimum_bid": None, "maximum_bid": None, "average_price": None,
+        "number_of_bidders": None, "number_of_successful_bidders": None,
+    }
+    disruption = r.random()
+    if disruption < DISRUPTION_RATE:
+        a["status"] = AuctionStatus.CANCELLED if disruption < DISRUPTION_RATE / 2 else AuctionStatus.POSTPONED
+        return a
+    if day > as_of:
+        a["status"] = AuctionStatus.ANNOUNCED
+        a["field_status"] = {f: FieldStatus.PENDING.value for f in PENDING_FIELDS}
+        return a
+
+    cover = max(0.3, r.lognormvariate(0.45, 0.45))
+    submitted = (offered * _d(cover, 3)).quantize(Decimal(1))
+    allocated = min(submitted, offered * _d(r.uniform(0.85, 1.1), 3)).quantize(Decimal(1))
+    # Thin demand pushes yields up; strong demand pulls them down.
+    way = _level(iso3, anchor, day) + line.term_premium - 0.25 * (cover - 1.5) + r.gauss(0, 0.05)
+    cutoff = way + abs(r.gauss(0.08, 0.04))
+    bidders = r.randint(6, 28)
+    a.update(
+        status=AuctionStatus.COMPLETED,
+        amount_submitted=submitted,
+        amount_allocated=allocated,
+        weighted_average_yield=_d(way),
+        cutoff_yield=_d(cutoff),
+        minimum_bid=_d(way - abs(r.gauss(0.4, 0.15))),
+        maximum_bid=_d(cutoff + abs(r.gauss(0.6, 0.2))),
+        number_of_bidders=bidders,
+        number_of_successful_bidders=r.randint(3, bidders),
+        publication_date=day + timedelta(days=1),
+    )
+    if line.instrument_type == InstrumentType.TREASURY_BILL:
+        a["average_price"] = quantize(
+            price_from_simple_yield(a["weighted_average_yield"], remaining_days, SYNTHETIC_BASIS), 6
+        )
+    else:
+        a["field_status"]["average_price"] = FieldStatus.NOT_AVAILABLE.value
+    # Exercise the "Not disclosed" path on a share of results.
+    if r.random() < 0.2:
+        a["number_of_bidders"] = None
+        a["number_of_successful_bidders"] = None
+        a["field_status"]["number_of_bidders"] = FieldStatus.NOT_DISCLOSED.value
+        a["field_status"]["number_of_successful_bidders"] = FieldStatus.NOT_DISCLOSED.value
+    return a
+
+
+def generate(as_of: date, seed: int = 20261003, countries: list[str] | None = None) -> dict[str, list[dict]]:
+    """Plain dicts keyed by country iso3 → list of {security fields..., auctions: [...]}.
+
+    Auctions run from EPOCH to as_of + FORWARD_DAYS. Kept free of ORM objects for testing.
     """
-    rng = random.Random(f"{seed}:{reference_date.isoformat()}")
     out: dict[str, list[dict]] = {}
-    start = reference_date - timedelta(days=HISTORY_DAYS)
-    end = reference_date + timedelta(days=FORWARD_DAYS)
-    extracted = datetime.combine(reference_date, datetime.min.time(), tzinfo=timezone.utc)
+    end = as_of + timedelta(days=FORWARD_DAYS)
+    extracted = datetime.combine(as_of, datetime.min.time(), tzinfo=timezone.utc)
+    wanted = set(countries) if countries else None
 
-    for iso3, (anchor, lines) in COUNTRY_PROFILE.items():
+    for c in AFRICA:
+        if wanted is not None and c.iso3 not in wanted:
+            continue
+        anchor, lines, scale = country_profile(c.iso3, c.zone)
         series: list[dict] = []
-        level = anchor  # slow random walk shared by all tenors of a country
         for line in lines:
-            offset = rng.randint(0, line.cadence_days - 1)
-            day = start + timedelta(days=offset)
-            bond_security: dict | None = None
+            offset = _rng(seed, "offset", c.iso3, line.label).randint(0, line.cadence_days - 1)
+            day = EPOCH + timedelta(days=offset)
+            bond: dict | None = None
+            is_bill = line.instrument_type == InstrumentType.TREASURY_BILL
             while day <= end:
-                level += rng.gauss(0, 0.04)
-                is_bill = line.instrument_type == InstrumentType.TREASURY_BILL
-                settlement = day + timedelta(days=2 if iso3 == "KEN" else 3)
-                if is_bill or bond_security is None:
+                settlement = day + timedelta(days=2 if c.iso3 == "KEN" else 3)
+                if is_bill or bond is None or bond["maturity_date"] <= settlement:
                     security = {
-                        "security_name": f"{SYNTHETIC_PREFIX} {iso3} {line.label} "
-                        f"{settlement.isoformat()}",
-                        "local_code": f"SYN-{iso3}-{line.label.replace(' ', '')}-"
-                        f"{settlement.strftime('%Y%m%d')}",
+                        "security_name": f"{SYNTHETIC_PREFIX} {c.iso3} {line.label} {settlement.isoformat()}",
+                        "local_code": f"SYN-{c.iso3}-{line.label.replace(' ', '')}-{settlement.strftime('%Y%m%d')}",
                         "instrument_type": line.instrument_type,
                         "tenor_days": line.tenor_days,
                         "issue_date": settlement,
                         "maturity_date": settlement + timedelta(days=line.tenor_days),
                         "coupon_rate": _d(line.coupon) if line.coupon else None,
-                        "coupon_frequency": CouponFrequency.ANNUAL
-                        if line.coupon
-                        else CouponFrequency.ZERO,
+                        "coupon_frequency": CouponFrequency.ANNUAL if line.coupon else CouponFrequency.ZERO,
                         "auctions": [],
                     }
                     series.append(security)
                     if not is_bill:
-                        bond_security = security
+                        bond = security
                     auction_type = AuctionType.PRIMARY_AUCTION
                 else:
-                    security = bond_security
+                    security = bond
                     auction_type = AuctionType.REOPENING
-
-                remaining_days = (security["maturity_date"] - settlement).days
-                if remaining_days <= 0:
-                    day += timedelta(days=line.cadence_days)
-                    continue
-
-                offered = Decimal(rng.randint(*line.offered)) * Decimal(1_000_000)
-                auction: dict = {
-                    "auction_date": day,
-                    "announcement_date": day - timedelta(days=7),
-                    "settlement_date": settlement,
-                    "auction_type": auction_type,
-                    "amount_offered": offered,
-                    "yield_convention": SYNTHETIC_CONVENTION,
-                    "source_url": None,
-                    "publication_date": day - timedelta(days=7),
-                    "extracted_at": extracted,
-                    "field_status": {},
-                }
-
-                if day > reference_date:
-                    auction["status"] = AuctionStatus.ANNOUNCED
-                    auction["field_status"] = {
-                        f: FieldStatus.PENDING.value
-                        for f in (
-                            "amount_submitted",
-                            "amount_allocated",
-                            "cutoff_yield",
-                            "weighted_average_yield",
-                            "average_price",
-                            "number_of_bidders",
-                        )
-                    }
-                else:
-                    cover = max(0.3, rng.lognormvariate(0.45, 0.45))
-                    submitted = (offered * _d(cover, 3)).quantize(Decimal(1))
-                    allocated = min(submitted, offered * _d(rng.uniform(0.85, 1.1), 3)).quantize(
-                        Decimal(1)
-                    )
-                    # Thin demand pushes yields up; strong demand pulls them down.
-                    way = level + line.term_premium - 0.25 * (cover - 1.5) + rng.gauss(0, 0.05)
-                    cutoff = way + abs(rng.gauss(0.08, 0.04))
-                    auction.update(
-                        status=AuctionStatus.COMPLETED,
-                        amount_submitted=submitted,
-                        amount_allocated=allocated,
-                        weighted_average_yield=_d(way),
-                        cutoff_yield=_d(cutoff),
-                        minimum_bid=_d(way - abs(rng.gauss(0.4, 0.15))),
-                        maximum_bid=_d(cutoff + abs(rng.gauss(0.6, 0.2))),
-                        number_of_bidders=rng.randint(6, 28),
-                        publication_date=day + timedelta(days=1),
-                    )
-                    auction["number_of_successful_bidders"] = rng.randint(
-                        3, auction["number_of_bidders"]
-                    )
-                    if is_bill:
-                        auction["average_price"] = quantize(
-                            price_from_simple_yield(
-                                auction["weighted_average_yield"], remaining_days, SYNTHETIC_BASIS
-                            ),
-                            6,
-                        )
-                    else:
-                        auction["average_price"] = None
-                        auction["field_status"]["average_price"] = FieldStatus.NOT_AVAILABLE.value
-                    # Exercise the "Not disclosed" path on a share of results.
-                    if rng.random() < 0.2:
-                        auction["number_of_bidders"] = None
-                        auction["number_of_successful_bidders"] = None
-                        auction["field_status"]["number_of_bidders"] = (
-                            FieldStatus.NOT_DISCLOSED.value
-                        )
-                        auction["field_status"]["number_of_successful_bidders"] = (
-                            FieldStatus.NOT_DISCLOSED.value
-                        )
-                security["auctions"].append(auction)
+                security["auctions"].append(
+                    _auction(c.iso3, line, day, security, auction_type, anchor, scale, as_of, extracted)
+                )
                 day += timedelta(days=line.cadence_days)
-        out[iso3] = series
-
-    _add_status_examples(out, reference_date)
+        out[c.iso3] = series
     return out
-
-
-def _add_status_examples(out: dict[str, list[dict]], reference_date: date) -> None:
-    """Mark one upcoming auction cancelled and one postponed so those states are visible."""
-    for iso3, status in (("COG", AuctionStatus.CANCELLED), ("GAB", AuctionStatus.POSTPONED)):
-        upcoming = [
-            a
-            for s in out[iso3]
-            for a in s["auctions"]
-            if a["auction_date"] > reference_date and a["status"] == AuctionStatus.ANNOUNCED
-        ]
-        if upcoming:
-            upcoming[0]["status"] = status

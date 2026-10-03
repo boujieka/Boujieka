@@ -3,7 +3,8 @@
     python site/build.py --as-of 2026-10-03
 
 Requires a seeded database (ABI_DATABASE_URL). Writes site/dist/: index.html (data embedded),
-favicon.svg and netlify.toml. The site is a snapshot; rebuild and redeploy to refresh it.
+favicon.svg, netlify.toml and, when --veille is given, veille.json. Normally run by
+app.watch.daily, which refreshes the data and the source watch first.
 """
 
 import argparse
@@ -20,6 +21,8 @@ from app.main import app  # noqa: E402
 from app.seed.africa import AFRICA  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent
+# Countries whose official sources are proposed and watched daily (app/seed/source_candidates.py).
+PILOTS = {"CMR", "COG", "GAB", "CIV", "SEN", "KEN"}
 DIST = ROOT / "dist"
 
 
@@ -52,6 +55,7 @@ def export(as_of: str) -> dict:
             "iso3": a.iso3, "name_fr": a.name_fr, "currency": a.currency, "zone": a.zone.value,
             "central_bank": a.central_bank, "region": a.region, "tile": list(a.tile),
             "coverage": countries[a.iso3]["coverage_tier"], "signals": signals.get(a.iso3, 0),
+            "pilot": a.iso3 in PILOTS,
         }
         for a in AFRICA
     ]
@@ -62,14 +66,22 @@ def export(as_of: str) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--as-of", required=True)
+    parser.add_argument("--veille", type=Path, help="veille.json from app.watch.daily (optional)")
     args = parser.parse_args()
 
-    data = json.dumps(export(args.as_of), ensure_ascii=False, separators=(",", ":"))
+    payload = export(args.as_of)
+    if args.veille and args.veille.exists():
+        veille = json.loads(args.veille.read_text())
+        # Embed the report only; the comparison state stays in the downloadable veille.json.
+        payload["veille"] = {k: v for k, v in veille.items() if k != "state"}
+    data = json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
     html = (ROOT / "template.html").read_text().replace("__DATA__", data.replace("</", "<\\/"))
     DIST.mkdir(exist_ok=True)
     (DIST / "index.html").write_text(html)
     shutil.copy(ROOT.parent / "brand" / "favicon.svg", DIST / "favicon.svg")
     shutil.copy(ROOT / "netlify.toml", DIST / "netlify.toml")
+    if args.veille and args.veille.exists() and args.veille.resolve() != (DIST / "veille.json").resolve():
+        shutil.copy(args.veille, DIST / "veille.json")
     print(f"Built {DIST / 'index.html'} ({len(html) // 1024} KB)")
 
 
