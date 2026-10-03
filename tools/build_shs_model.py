@@ -637,7 +637,7 @@ mb.section(rbw, rr, "Tier parameters (per unit, active scenario)"); rr += 1
 header_row(rbw, rr, ["Parameter", "Unit"] + [f"Tier {p['tier']}" for p in PRODUCTS], start_col=1); rr += 1
 TCOLS = [gcl(3 + j) for j in range(NP)]
 for key, text, unit, fn, fmt in [
-    ("rr_lag", "Repayment rate at verification age (curve)", "%",
+    ("rr_lag", "Cohort repayment ratio at verification age (curve; not PERFORM RR)", "%",
      lambda j: (f"=IFERROR(SUMIFS({crange(j, 'coll')},Curves!$A${AGE0}:$A${LAST_AGE},\"<=\"&{INP['rbf_lag']})/"
                 f"SUMIFS({crange(j, 'due')},Curves!$A${AGE0}:$A${LAST_AGE},\"<=\"&{INP['rbf_lag']}),0)"), FMT_PCT),
     ("factor", "Repayment-linked payout factor (RR / target, max 100%)", "%",
@@ -872,9 +872,9 @@ for key, text, unit, tot in OPS_FIELDS:
                  FMT_NUM, bold=True, total=tot)
 mb.write_row(ow, mb.r(O, "unlocks_cum"), "Cumulative unlocked accounts (customer ownership)", "accounts",
              lambda i, c, p: f"={p}{mb.r(O, 'unlocks_cum')}+{c}{mb.r(O, 'unlocksT')}", FMT_NUM, total="last")
-mb.write_row(ow, mb.r(O, "coll_rate"), "Collection rate (collected / due, excl. down payments)", "%",
+mb.write_row(ow, mb.r(O, "coll_rate"), "Operational collection rate (collected / due, excl. down payments; not a PERFORM KPI)", "%",
              lambda i, c, p: f"=IF({c}{mb.r(O, 'dueT')}=0,0,{c}{mb.r(O, 'collT')}/{c}{mb.r(O, 'dueT')})", FMT_PCT,
-             comment="PAYGo PERFORM-style: follow-on payments collected / scheduled, excluding deposits.")
+             comment="Cash conversion in the month. Not the PAYGo PERFORM 2026 Repayment Rate, which is computed on contract data (see PERFORM_2026).")
 mb.write_row(ow, mb.r(O, "wo_rate"), "Write-off rate (missed / due)", "%",
              lambda i, c, p: f"=IF({c}{mb.r(O, 'dueT')}=0,0,{c}{mb.r(O, 'missedT')}/{c}{mb.r(O, 'dueT')})", FMT_PCT)
 mb.write_row(ow, mb.r(O, "other_rev"), "Other revenue: digital loans & services (net take rate)", "LCY",
@@ -1172,7 +1172,7 @@ for row_ in fs_rows:
 # KPIs
 # =====================================================================
 K = "KPIs"
-kpw = mb.sheet(K, "Key performance indicators", "PAYGo portfolio KPIs (PERFORM-style where noted), financial and lender KPIs.")
+kpw = mb.sheet(K, "Key performance indicators", "Portfolio, financial and lender KPIs. PAYGo PERFORM 2026 KPIs are on PERFORM_2026.")
 year_header(kpw)
 kpw.column_dimensions["A"].width = 62
 kpi_rows = [("sec", "Sales & customers")]
@@ -1185,7 +1185,7 @@ kpi_rows += [
     ("active", "Active PAYGo accounts (year end)", lambda c: "=" + ann(O, "activeT", c, "last"), FMT_NUM),
     ("unlocked", "Cumulative unlocked accounts (customer ownership)", lambda c: "=" + ann(O, "unlocks_cum", c, "last"), FMT_NUM),
     ("sec", "Portfolio quality"),
-    ("cr", "Collection rate (collected / due, excl. down payments)",
+    ("cr", "Operational collection rate (collected / due, excl. down payments; not a PERFORM KPI)",
      lambda c: f"=IFERROR({ann(O, 'collT', c)}/{ann(O, 'dueT', c)},0)", FMT_PCT),
     ("wo", "Write-off rate (missed / due)", lambda c: f"=IFERROR({ann(O, 'missedT', c)}/{ann(O, 'dueT', c)},0)", FMT_PCT),
     ("rar", "Receivables at risk / gross receivables (year end)",
@@ -1276,7 +1276,7 @@ for key, text, f, fmt in heads:
     label(kpw, f"A{r_}", text, bold=True)
     put_calc(kpw, f"C{r_}", f.replace("<<peak_eq>>", str(HEAD["peak_eq"])), fmt, bold=True)
 H = {k: f"KPIs!$C${v}" for k, v in HEAD.items()}
-note(kpw, f"A{rr + 1}", "Receivables at risk approximates PAYGo PERFORM 'Receivables at Risk'. Covenant definitions are "
+note(kpw, f"A{rr + 1}", "Receivables at risk follows the logic of the 2021 PAYGo PERFORM guide (historical) with a curve-based proxy. Covenant definitions are "
      "illustrative; use those in the actual facility agreement.")
 
 def robust_irr(rng, guesses, annualise=False):
@@ -1606,7 +1606,7 @@ vew = mb.sheet(VE, "Vintage engine - cohort -> repayment -> DPD -> default -> re
                "Proxy cohorts use the model curves (identical within a tier). Actual cohorts use Vintage_Input. Ownership is 0 in Proxy mode. "
                "DPD exposure = cumulative arrears of accounts at or beyond the threshold (incl. written off) + their outstanding balance.")
 vew.column_dimensions["A"].width = 44
-VK = [("rr", "Repayment rate"), ("d30", "30+ DPD exposure / due"), ("d90", "90+ DPD exposure / due"), ("d180", "180+ default exposure / due"),
+VK = [("rr", "Cohort repayment ratio (not PERFORM)"), ("d30", "30+ DPD exposure / due"), ("d90", "90+ DPD exposure / due"), ("d180", "180+ default exposure / due"),
       ("recdef", "Recovery / default"), ("active", "Active account share"), ("contrib", "Cumulative contribution per unit (LCY)")]
 AGE_RNG = f"Curves!$A${AGE0}:$A${LAST_AGE}"
 PROXY_CELL = {}
@@ -1702,7 +1702,7 @@ put_calc(vdw, "C5", f"=IF(C4=0,\"PROXY\",IF(C4={NP * MONTHS},\"ACTUAL\",\"MIXED\
 label(vdw, "A6", "Cohorts with ownership-at-2x data")
 put_calc(vdw, "C6", "=" + "+".join(f"COUNT({vi_range(j, VI_OWN_COL)})" for j in range(NP)), FMT_INT, bold=True)
 label(vdw, "A7", "Ownership evidence switch (Inputs)"); put_calc(vdw, "C7", f"={INP['own_evidence']}", FMT_INT, link=True)
-header_row(vdw, 9, ["Tier summary at M12", "Actual cohorts", "Repayment rate", "30+ DPD / due", "90+ DPD / due",
+header_row(vdw, 9, ["Tier summary at M12", "Actual cohorts", "Cohort repayment ratio", "30+ DPD / due", "90+ DPD / due",
                     "180+ default / due", "Recovery / default", "Active share", "CAC payback (m)"])
 vdw.row_dimensions[9].height = 30
 m12 = CHECKPOINTS.index(12)
@@ -1716,7 +1716,7 @@ for j in range(NP):
         put_calc(vdw, f"{gcl(3 + n_)}{r_}", f"=IFERROR(AVERAGE({ve_range(j, VE_COL[(key, m12)])}),\"\")", FMT_PCT)
     put_calc(vdw, f"I{r_}", f"=Unit_Economics!{PCOLS[j]}{UR['payback']}", FMT_INT, link=True)
 header_row(vdw, 17, ["Portfolio vintage curve (mix-weighted tier averages)"] + [f"M{cp_}" for cp_ in CHECKPOINTS])
-for n_r, (key, text) in enumerate([("rr", "Repayment rate"), ("d30", "30+ DPD / due"), ("d90", "90+ DPD / due")]):
+for n_r, (key, text) in enumerate([("rr", "Cohort repayment ratio"), ("d30", "30+ DPD / due"), ("d90", "90+ DPD / due")]):
     r_ = 18 + n_r
     label(vdw, f"A{r_}", text)
     for n_ in range(NCP):
@@ -1739,6 +1739,133 @@ for n_, (key, text, f) in enumerate([
     label(vdw, f"K{r_}", text); put_calc(vdw, f"Q{r_}", f, FMT_INT, bold=True)
     VD_FLAGS[key] = f"Vintage_Dashboard!$Q${r_}"
 note(vdw, "A22", "Proxy cohorts are identical within a tier (same curve). Mixed portfolios average Proxy and Actual cohorts - read with care.")
+
+# =====================================================================
+# PAYGo PERFORM 2026 (v0.8): company-reported KPIs, aggregated by the standard's rule, plus labelled approximations
+# =====================================================================
+PF = "PERFORM_2026"
+pfw = mb.sheet(PF, "PAYGo PERFORM KPIs (GOGLA Technical Guide, June 2026)",
+               "Company-reported results computed on contract-level data under the 2026 standard, aggregated by summing numerators "
+               "and denominators. The model does not compute PERFORM KPIs; section B shows labelled approximations only.", tab="00B050")
+pfw.column_dimensions["A"].width = 58
+pfw.column_dimensions["B"].width = 16
+for c_ in "CDEFGHIJKLMNO":
+    pfw.column_dimensions[c_].width = 14
+PF_COLS = ["Cohort #", "Origination month", "Contracts", "RR PvP: payments applied to due instalments", "RR PvP: instalments due to date",
+           "RR PvFin: payments applied to due instalments", "RR PvFin: total amount financed", "RR @90 days: payments applied",
+           "RR @90 days: instalments due by day 90", "RR @2x: payments applied by 2x term", "RR @2x: instalments due over 1x term",
+           "OR @2x: contracts fully paid by 2x", "OR @2x: contracts that reached 2x", "Data as of", "Notes"]
+PF_KEY = {k: gcl(1 + n) for n, k in enumerate(["coh", "orig", "n", "pvp_n", "pvp_d", "pvf_n", "pvf_d", "d90_n", "d90_d", "x2_n", "x2_d",
+                                                 "or_n", "or_d", "asof", "notes"])}
+PF_R0 = {}
+r0_ = 40
+for j in range(NP):
+    PF_R0[j] = r0_ + 3 + j * (MONTHS + 5)
+
+
+def pf_rng(j, key):
+    c_ = PF_KEY[key]
+    return f"{q(PF)}!${c_}${PF_R0[j]}:${c_}${PF_R0[j] + MONTHS - 1}"
+
+
+# section A: reported KPIs
+mb.section(pfw, 5, "A. Company-reported PAYGo PERFORM KPIs (from section C; blank = not provided)")
+header_row(pfw, 6, ["KPI", "Type"] + [f"Tier {p['tier']}" for p in PRODUCTS] + ["Portfolio", "Status"], start_col=1)
+PF_KPI = [("pvp", "RR, paid vs plan (PvP), to date", "Time series"), ("pvf", "RR, paid vs financed (PvFin), to date", "Time series"),
+          ("d90", "RR PvP at 90 days", "Cohort milestone"), ("x2", "RR PvP at 2x contract term", "Cohort outcome"),
+          ("or", "Ownership rate at 2x contract term (OR @2x)", "Cohort outcome")]
+PF_OUT = {}
+for n_, (k_, text, typ) in enumerate(PF_KPI):
+    r_ = 7 + n_
+    label(pfw, f"A{r_}", text, bold=True)
+    label(pfw, f"B{r_}", typ, size=9, color=GREY_TXT)
+    for j in range(NP):
+        put_calc(pfw, f"{TCOLS[j]}{r_}", f"=IF(SUM({pf_rng(j, k_ + '_d')})=0,\"not provided\",SUM({pf_rng(j, k_ + '_n')})/SUM({pf_rng(j, k_ + '_d')}))", FMT_PCT)
+    num = "+".join(f"SUM({pf_rng(j, k_ + '_n')})" for j in range(NP))
+    den = "+".join(f"SUM({pf_rng(j, k_ + '_d')})" for j in range(NP))
+    put_calc(pfw, f"H{r_}", f"=IF(({den})=0,\"not provided\",({num})/({den}))", FMT_PCT, bold=True)
+    put_calc(pfw, f"I{r_}", f"=IF(ISNUMBER(H{r_}),\"Company reported\",\"Not provided\")", "@")
+    PF_OUT[k_] = f"{q(PF)}!$H${r_}"
+for n_, (text, fn) in enumerate([
+        ("Cohorts reported (RR PvP)", lambda j: f"=COUNT({pf_rng(j, 'pvp_d')})"),
+        ("Contracts reported", lambda j: f"=SUM({pf_rng(j, 'n')})"),
+        ("Cohorts with fewer than 100 contracts (the guide recommends at least 100 per monthly cohort)",
+         lambda j: f"=COUNTIFS({pf_rng(j, 'n')},\">0\",{pf_rng(j, 'n')},\"<100\")")]):
+    r_ = 13 + n_
+    label(pfw, f"A{r_}", text)
+    for j in range(NP):
+        put_calc(pfw, f"{TCOLS[j]}{r_}", fn(j), FMT_INT)
+    put_calc(pfw, f"H{r_}", f"=SUM(C{r_}:G{r_})", FMT_INT, bold=True)
+PF_SMALL = f"{q(PF)}!$H$15"
+PF_COUNT = [f"{q(PF)}!${TCOLS[j]}$13" for j in range(NP)]
+
+# section B: approximations from Vintage_Input
+mb.section(pfw, 18, "B. Approximations from Vintage_Input monthly checkpoints: NOT PAYGo PERFORM KPIs (monthly, no payment allocation)")
+label(pfw, "A19", "Vintage_Input checkpoints (account age, months)")
+for k_, m_ in enumerate(CHECKPOINTS):
+    put_calc(pfw, f"{gcl(3 + k_)}19", m_, FMT_INT)
+CPROW = f"{q(PF)}!$C$19:${gcl(2 + NCP)}$19"
+header_row(pfw, 20, ["Approximation", "Basis"] + [f"Tier {p['tier']}" for p in PRODUCTS], start_col=1)
+
+
+def vi_choose(metric, k_expr, j):
+    return "CHOOSE(" + k_expr + "," + ",".join(vi_range(j, vi_col(metric, n_)) for n_ in range(NCP)) + ")"
+
+
+def rr2x_formula(j):
+    T_ = PR["tenor"][j]
+    k2 = f"MATCH(2*{T_},{CPROW},0)"
+    k1 = f'COUNTIF({CPROW},"<"&{T_})+1'
+    coll2 = vi_choose("coll", k2, j)
+    due1 = vi_choose("due", k1, j)
+    mode = vi_range(j, "B")
+    return (f'=IF(COUNTIF({mode},2)=0,"not available: proxy data only",'
+            f'IF(ISNA({k2}),"2x term beyond the input checkpoints",'
+            f'IFERROR(SUMIFS({coll2},{mode},2)/SUMIFS({due1},{mode},2,{coll2},"<>"),"no cohort has reached 2x term")))')
+
+
+for n_, (text, basis, fn) in enumerate([
+        ("Cohort repayment ratio at about 90 days", "M3 checkpoint, Actual cohorts",
+         lambda j: (f"=IF(COUNTIF({vi_range(j, 'B')},2)=0,\"not available: proxy data only\","
+                    f"IFERROR(SUMIFS({vi_range(j, vi_col('coll', 0))},{vi_range(j, 'B')},2,{vi_range(j, vi_col('due', 0))},\"<>\")/"
+                    f"SUMIFS({vi_range(j, vi_col('due', 0))},{vi_range(j, 'B')},2,{vi_range(j, vi_col('coll', 0))},\"<>\"),\"no data at M3\"))")),
+        ("Cohort repayment ratio at 2x term", "Collections at the 2x checkpoint over instalments due over 1x term, Actual cohorts",
+         lambda j: rr2x_formula(j)),
+        ("Ownership at 2x reported in Vintage_Input", "Unit weighted, cohorts with ownership data",
+         lambda j: (f"=IF(COUNT({vi_range(j, VI_OWN_COL)})=0,\"not reported\","
+                    f"SUMPRODUCT({vi_range(j, VI_OWN_COL)},{vi_range(j, 'C')})/SUMIFS({vi_range(j, 'C')},{vi_range(j, VI_OWN_COL)},\"<>\"))"))]):
+    r_ = 21 + n_
+    label(pfw, f"A{r_}", text, bold=True)
+    label(pfw, f"B{r_}", basis, size=8, color=GREY_TXT)
+    pfw[f"B{r_}"].alignment = Alignment(wrap_text=True, vertical="top")
+    pfw.row_dimensions[r_].height = 30
+    for j in range(NP):
+        put_calc(pfw, f"{TCOLS[j]}{r_}", fn(j), FMT_PCT)
+note(pfw, "A25", "Under the 2026 standard a collection rate, days locked or enabled, or self-defined variants may not substitute for the "
+     "Repayment Rate (Technical Guide, page 10, rule 3A). The operational collection rate on KPIs and Covenants is a cash conversion "
+     "metric only.")
+note(pfw, "A26", "Rules for section C (Technical Guide, pages 8 to 10): exclude deposits, prepayments, penalties, fees and subsidies; include "
+     "arrears payments and written-off contracts; cumulative from contract start after any free-use period; original contract terms; "
+     "daily-normalised instalments; payments recognised when applied to due instalments.")
+
+# section C: input template
+mb.section(pfw, 38, "C. Company-reported results by monthly cohort (COMPANY DATA: inputs, blank by default)")
+for j in range(NP):
+    pfw.cell(PF_R0[j] - 2, 1, PRODUCTS[j]["name"]).font = Font(name=FONT, bold=True, color=NAVY)
+    header_row(pfw, PF_R0[j] - 1, PF_COLS, start_col=1)
+    pfw.row_dimensions[PF_R0[j] - 1].height = 54
+    for ci in range(1, MONTHS + 1):
+        r_ = PF_R0[j] + ci - 1
+        put_calc(pfw, f"A{r_}", ci, FMT_INT)
+        for k_ in ("n", "pvp_n", "pvp_d", "pvf_n", "pvf_d", "d90_n", "d90_d", "x2_n", "x2_d", "or_n", "or_d"):
+            c_ = pfw[f"{PF_KEY[k_]}{r_}"]
+            c_.font = Font(name=FONT, size=9, color=BLUE)
+            c_.number_format = FMT_NUM
+        for k_ in ("orig", "asof"):
+            pfw[f"{PF_KEY[k_]}{r_}"].number_format = FMT_DATE
+            pfw[f"{PF_KEY[k_]}{r_}"].font = Font(name=FONT, size=9, color=BLUE)
+pfw.freeze_panes = "C7"
+
 
 # =====================================================================
 # SOURCE REGISTER (v0.8: built from tools/source_register_data.py, shared with output/04_SOURCE_REGISTER)
@@ -2005,7 +2132,7 @@ TAX_ = [
      lambda y: f"=SUMIFS({mb.range_(O, 'financedT')},{TL_IDX},\"<=\"&{y * 12})/{fxe(y)}/1000000"),
     ("REV_GROWTH", "Revenue growth (reported)", "ratio",
      lambda y: f"=IFERROR(KPIs!{col(y)}{mb.r(K, 'rev')}/KPIs!{col(y - 1)}{mb.r(K, 'rev')}-1,\"\")" if y > 1 else '=""'),
-    ("REPAY_RATE", "Repayment / collection rate", "ratio", lambda y: f"=KPIs!{col(y)}{mb.r(K, 'cr')}"),
+    ("COLL_RATE", "Operational collection rate (not PERFORM RR)", "ratio", lambda y: f"=KPIs!{col(y)}{mb.r(K, 'cr')}"),
     ("PAR30", "PAR30 / 30+ DPD ratio", "ratio", lambda y: f"=KPIs!{col(y)}{mb.r(K, 'dpd30')}"),
     ("OWNERSHIP_RATE", "Customer ownership rate", "ratio", None),
     ("RAGP", "Risk-adjusted gross profit (non-IFRS)", "money", None),
@@ -2119,7 +2246,7 @@ KPI_DEF = [
     ("rev_cust", "Revenue per active customer (USD)", FMT_NUM, lambda r: f"=IFERROR({M('REV', r)}*1000000/{M('CUST_ACTIVE', r)},\"\")"),
     ("rec_cust", "Net receivables per active customer (USD)", FMT_NUM, lambda r: f"=IFERROR({M('PAYGO_REC_NET', r)}*1000000/{M('CUST_ACTIVE', r)},\"\")"),
     ("active_ratio", "Active / cumulative customers", FMT_PCT, lambda r: f"=IFERROR({M('CUST_ACTIVE', r)}/{M('CUST_CUM', r)},\"\")"),
-    ("repay", "Repayment / collection rate", FMT_PCT, lambda r: f"=IF({M('REPAY_RATE', r)}=\"\",\"\",{M('REPAY_RATE', r)})"),
+    ("repay", "Operational collection rate (not PERFORM RR)", FMT_PCT, lambda r: f"=IF({M('COLL_RATE', r)}=\"\",\"\",{M('COLL_RATE', r)})"),
     ("own", "Customer ownership rate", FMT_PCT, lambda r: f"=IF({M('OWNERSHIP_RATE', r)}=\"\",\"\",{M('OWNERSHIP_RATE', r)})"),
 ]
 KC = {k: gcl(4 + n_) for n_, (k, *_r) in enumerate(KPI_DEF)}
@@ -2274,6 +2401,10 @@ checks = [
      f"+ABS(Valuation!${col(YEARS)}${VR['nwc']}-(FS!${mb.last}${mb.r(S, 'netrec')}+FS!${mb.last}${mb.r(S, 'inv')}-FS!${mb.last}${mb.r(S, 'ap')}))>1,1,0)"),
     ("Scenario levers in use equal the selected scenario column (no overwritten lever)",
      f"=IF(SUMPRODUCT(ABS(Scenarios!$G$6:$G$10-CHOOSE({INP['scenario']},Scenarios!$C$6:$C$10,Scenarios!$D$6:$D$10,Scenarios!$E$6:$E$10)))>0.000001,1,0)"),
+    ("PERFORM_2026 inputs: no negative values, numerators within denominators (RR PvP, at 90 days, at 2x; ownership)",
+     "=IF(" + "+".join(f"COUNTIF({pf_rng(j, k)},\"<0\")" for j in range(NP) for k in ("n", "pvp_n", "pvp_d", "pvf_n", "pvf_d", "d90_n", "d90_d", "x2_n", "x2_d", "or_n", "or_d"))
+     + "+" + "+".join(f"SUMPRODUCT(ISNUMBER({pf_rng(j, a)})*({pf_rng(j, a)}>{pf_rng(j, b)}+0.5))" for j in range(NP)
+                      for a, b in (("pvp_n", "pvp_d"), ("d90_n", "d90_d"), ("x2_n", "x2_d"), ("or_n", "or_d"))) + ">0,1,0)"),
     ("No impossible negative balances (inventory, fixed assets, payables, active accounts, units, debt, cumulative equity)",
      "=IF(MIN(" + ",".join(f"MIN({mb.range_(sh_, k_)})" for sh_, k_ in ((C_, 'inv'), (C_, 'ppe'), (C_, 'ap'), (O, 'activeT'), (O, 'unitsT'),
                                                                         (F, 'tl_bal_usd'), (F, 'rf_bal'), (F, 'eq_cum'))) + ")<-1,1,0)"),
@@ -2298,6 +2429,9 @@ for n_, (key, text, f) in enumerate([
      f"=IF(AND({INP['credit_mode']}=2," + "+".join(f"COUNT({ci_range(j, 'gross')})" for j in range(NP)) + "=0),1,0)"),
     ("own_conflict", "Ownership evidence switch set without ownership data", f"={VD_FLAGS['own_conflict']}"),
     ("proxy_only", "Credit and vintage analysis rely on proxy data only", f"=IF(AND({INP['credit_mode']}=1,Vintage_Dashboard!$C$4=0),1,0)"),
+    ("perform_conflict", "PERFORM evidence marked Validated on Consumer_Risk without PERFORM_2026 results (tiers)",
+     "=" + "+".join(f"IF(AND({CONS['perform'][j]}=\"Validated\",{PF_COUNT[j]}=0),1,0)" for j in range(NP))),
+    ("perform_small", "PERFORM_2026 cohorts with fewer than 100 contracts", f"={PF_SMALL}"),
 ]):
     r_ = MR + 4 + n_
     label(xw, f"A{r_}", text); label(xw, f"B{r_}", "flag")
@@ -2338,12 +2472,12 @@ GATES = [
     ("Workbook tested in Microsoft Excel", None, "Recalculation, charts, no circular references."),
     ("Credit engine running on actual company data", f"=AND({INP['credit_mode']}=2,{RF['horizon']}=0)", "Automatic: Actual mode with data supplied."),
     ("IFRS 9 / ECL validated by auditor or independent reviewer", None, "Indicative ECL and PD proxies are not IFRS 9 measures."),
-    ("Consumer protection evidenced", f"=AND({INP['afford_reviewed']}=1,{RF['afford_flags']}=0,{cons_valid})",
-     "Automatic: affordability reviewed, no flags, PERFORM and consumer-protection evidence validated."),
+    ("Consumer protection evidenced", f"=AND({INP['afford_reviewed']}=1,{RF['afford_flags']}=0,{cons_valid},{RF['perform_conflict']}=0)",
+     "Automatic: affordability reviewed, no flags, PERFORM and consumer-protection evidence validated, PERFORM_2026 results loaded."),
     ("Outcome-linked RBF supported by data", f"={VD_FLAGS['own_validated']}=1", "Automatic: validated ownership-at-2x data."),
     ("Data reconciliation (actual DPD buckets = gross receivables)",
      f"=AND({INP['credit_mode']}=2,{RF['horizon']}=0,Checks!$C${CHK_ROW['Actual DPD buckets reconcile to gross receivables (Actual mode only)']}=0)", "Automatic: Actual mode, data supplied, buckets reconcile."),
-    ("Lender underwriting pack assembled", None, "Cohort tables, PERFORM KPIs, covenant history, borrowing-base reports."),
+    ("Lender underwriting pack assembled", None, "Cohort tables, PAYGo PERFORM 2026 KPIs (PERFORM_2026), covenant history, borrowing-base reports."),
 ]
 for n_, (text, auto, ev) in enumerate(GATES):
     r_ = 7 + n_
@@ -2408,9 +2542,15 @@ terms = [
      "The model counts accounts still paying at the end of tenor."),
     ("Cohort (vintage)", "All units sold in the same month. Cohort analysis follows each vintage's repayment over time."),
     ("Survival curve", "Share of a cohort's accounts that are still paying at each age; driven by the monthly default hazard."),
-    ("Collection rate", "Instalments collected / instalments due in the period, excluding down payments (PAYGo PERFORM-style)."),
+    ("Operational collection rate", "Instalments collected / instalments due in the period, excluding down payments. A cash conversion metric; "
+     "not a PAYGo PERFORM KPI and never a substitute for the Repayment Rate."),
+    ("Repayment Rate (PAYGo PERFORM 2026)", "Payments applied to due instalments / instalments due (PvP) or / total amount financed (PvFin), "
+     "cumulative from contract start, on contract-level daily data; also at 90 days and at 2x contract term. Company-reported on PERFORM_2026."),
+    ("Cohort repayment ratio (model)", "Cumulative collections / cumulative instalments due at a monthly checkpoint. Follows the logic of "
+     "RR PvP but is not a PERFORM calculation."),
     ("Write-off rate", "Missed instalments written off / instalments due. The model writes off missed instalments as they fall due."),
-    ("Receivables at risk (RaR)", "Carrying amount of receivables of accounts that have stopped paying. Approximates PAYGo PERFORM RaR."),
+    ("Receivables at risk (RaR)", "Carrying amount of receivables of accounts that have stopped paying (curve-based proxy). The 2021 PAYGo "
+     "PERFORM guide (historical) defines RAR by consecutive days unpaid."),
     ("Expected credit loss (ECL)", "Lifetime expected loss recognised at origination from the scenario repayment curve "
      "(simplified IFRS 9 - no staging)."),
     ("Recoveries", "Net resale value of repossessed units, recognised as a reduction of credit losses."),
@@ -2431,12 +2571,14 @@ terms = [
     ("12-month PD proxy", "Proxy probability of default from the repayment curve (Proxy) or observed loss rate (Actual). NOT an audited IFRS 9 PD."),
     ("LGD proxy", "Loss given default proxy: 1 - net recoveries / exposure."),
     ("Proxy vs Actual data", "Proxy = model projection from curves. Actual = company data in Credit_Input / Vintage_Input. Never mixed silently."),
-    ("Ownership at 2x (PERFORM)", "Share of customers who own their device by twice the contract tenor. Not modelled from proxies; requires validated data."),
+    ("Ownership Rate @2x (PAYGo PERFORM 2026)", "Contracts fully paid by twice the contract term / contracts that have reached 2x. "
+     "Not modelled from proxies; company-reported on PERFORM_2026 or Vintage_Input."),
     ("RBF modes", "Sales-based (per unit sold), repayment-linked (scaled by repayment rate at verification), ownership-linked "
      "(paid on validated ownership at 2x tenor), hybrid (weighted)."),
     ("Warehouse vs securitisation", "Warehouse: revolving facility against eligible receivables. Securitisation: receivables financed through "
      "a term structure (here modelled on balance sheet with its own rate, advance haircut and fee)."),
-    ("Evidence grades", "A primary/audited/regulatory; B primary company disclosure; C reliable secondary; D estimate/weak/unconfirmed; E contextual."),
+    ("Evidence grades and status", "Grade of the source: A primary official or audited; B institutional or company disclosure; C reputable "
+     "secondary; D unverified. Status: what has been verified (Source_Register). Only VERIFIED claims feed Calibration."),
     ("Investment readiness", "Progress against 23 gates. The model never declares itself investment grade."),
     ("LTV / CAC", "Lifetime contribution before acquisition cost divided by customer acquisition cost."),
     ("Unit IRR", "Annualised IRR of one unit's cash flows: down payment, collections, recoveries and RBF less hardware, installation, "
@@ -2471,7 +2613,7 @@ for key, text, fmt in [("units", "Units sold", FMT_NUM), ("active", "Active PAYG
                        ("asp_usd", "Average cash price per unit (USD)", FMT_NUM),
                        ("rev_usd", "Revenue (USD, average FX)", FMT_NUM), ("gm", "Gross margin", FMT_PCT),
                        ("ebitda_m", "EBITDA margin", FMT_PCT), ("ni", "Net income (LCY)", FMT_NUM),
-                       ("cr", "Collection rate", FMT_PCT), ("rar", "Receivables at risk / gross receivables", FMT_PCT),
+                       ("cr", "Operational collection rate", FMT_PCT), ("rar", "Receivables at risk / gross receivables", FMT_PCT),
                        ("debt", "Total debt (LCY, year end)", FMT_NUM), ("dscr", "DSCR", FMT_X)]:
     label(iw, f"A{r_}", text)
     for y in range(1, YEARS + 1):
@@ -2594,6 +2736,7 @@ index = [("Cover", "Title page"), ("Investment_Summary", "One-page investment co
          ("Consumer_Risk", "Affordability, APR, consumer-protection evidence"),
          ("Credit_Portfolio", "Credit dashboard (selected data mode)"),
          ("Vintage_Dashboard", "Cohort coverage, M12 summary, vintage curve"),
+         ("PERFORM_2026", "PAYGo PERFORM 2026 KPIs: company-reported results and labelled approximations"),
          ("Market_Benchmark", "Scaled PAYGo companies vs this model"),
          ("Benchmark_Compare", "v0.7: model vs graded peers (min / median / max)"),
          ("Benchmark_KPIs", "v0.7: derived financial and operational ratios"),
@@ -2719,7 +2862,7 @@ cov.sheet_properties.pageSetUpPr.fitToPage = True
 # ORDER, PRINT SETUP, SNAPSHOT, SAVE
 # =====================================================================
 order = ["Cover", "Contents", "Investment_Summary", "Investment_Readiness", "Inputs", "Products", "Scenarios", "Credit_Assumptions",
-         "Consumer_Risk", "Dashboard", "KPIs", "Credit_Portfolio", "Vintage_Dashboard", "Covenants", "Valuation",
+         "Consumer_Risk", "Dashboard", "KPIs", "Credit_Portfolio", "Vintage_Dashboard", "PERFORM_2026", "Covenants", "Valuation",
          "Unit_Economics", "Sensitivity", "Benchmark_Compare", "Benchmark_KPIs", "Market_Benchmark", "Calibration",
          "Company_Cases", "Source_Register", "Benchmark_Matrix", "Benchmark_DB",
          "Annual", "FS", "Ops", "RBF_Engine", "Credit_Engine", "Vintage_Engine", "Costs", "Financing", "Curves"] + \

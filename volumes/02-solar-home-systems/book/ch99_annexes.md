@@ -12,7 +12,7 @@ The dictionary has two parts. Part 1 lists the five PAYGo PERFORM KPIs as define
 | RR PvP at twice the term | Payments applied by 2x the term ÷ instalments due over 1x the term | Standard outcome cut off |
 | Ownership rate at twice the term | Contracts fully paid by 2x ÷ contracts that have reached at least 2x | Includes written off contracts; excludes contracts not yet at 2x, even if paid |
 
-Results for cohorts and portfolios are built from contract level numerators and denominators. A collection rate, or days locked or enabled, may not be used as a substitute for the repayment rate.
+Results for cohorts and portfolios are built from contract level numerators and denominators. A collection rate, or days locked or enabled, may not be used as a substitute for the repayment rate. In the companion model, company-reported results are loaded on the *PERFORM_2026* sheet.
 
 **Part 2. Operational, lender and model metrics**
 

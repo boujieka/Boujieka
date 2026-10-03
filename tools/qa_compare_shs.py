@@ -51,7 +51,7 @@ rows = [
     ("Closing cash", yrs("Annual", "Closing cash"), tw["cash"]),
     ("Gross receivables", yrs("Annual", "PAYGo receivables - gross"), tw["gross"]),
     ("Facility", yrs("Annual", "Receivables facility"), tw["rf"]),
-    ("Collection rate", yrs("KPIs", "Collection rate (collected / due, excl. down payments)"), tw["cr"]),
+    ("Collection rate", yrs("KPIs", "Operational collection rate (collected / due, excl. down payments; not a PERFORM KPI)"), tw["cr"]),
     ("DSCR", yrs("KPIs", "DSCR ((CFO + interest) / debt service)"), tw["dscr"]),
     ("FCFF", yrs("Valuation", "Unlevered free cash flow (FCFF)"), tw["fcff"]),
 ]

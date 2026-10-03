@@ -42,7 +42,7 @@ To add data, edit the CSV and rebuild. Never type benchmark numbers into the wor
 | BS | `CASH` · `INV` inventory · `AP` trade payables · `TRADE_REC` trade receivables · `PAYGO_REC_GROSS` / `PAYGO_REC_NET` PAYGo receivables · `CONTRACT_ASSETS` · `PPE` · `DEBT` borrowings · `LEASE` lease liabilities · `EQUITY` |
 | CF | `CFO` operating cash flow · `CF_INV` inventory investment · `CF_REC` receivables investment · `CAPEX` · `DEBT_DRAW` · `DEBT_REPAY` · `EQUITY_RAISED` |
 | OP | `CUST_ACTIVE` · `CUST_CUM` cumulative customers · `UNITS` units sold · `LOANS_CUM` cumulative financing disbursed (USD m) |
-| KPI | `REV_GROWTH` · `REPAY_RATE` · `OWNERSHIP_RATE` · `PAR30` · `COLL_RATE` (reported ratios, stored as fractions) |
+| KPI | `REV_GROWTH` · `REPAY_RATE` (PAYGo PERFORM 2026 repayment rate; record the basis PvP or PvFin and the horizon in notes) · `OWNERSHIP_RATE` (OR @2x) · `PAR30` · `COLL_RATE` (operational collection rate, not comparable with REPAY_RATE) (reported ratios, stored as fractions) |
 
 ## Derived KPIs (Benchmark_KPIs)
 
