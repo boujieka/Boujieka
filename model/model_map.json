@@ -1252,6 +1252,27 @@
    26
   ]
  },
+ "CMP_ROWS": {
+  "comm": 32,
+  "priv": 33,
+  "govx": 34,
+  "wacc": 35,
+  "wacc_ex": 36,
+  "crf": 37,
+  "tariff": 38,
+  "afford": 39,
+  "subsidy": 40,
+  "pubcap": 41,
+  "privcap": 42,
+  "debt": 43,
+  "ds1": 44,
+  "onbud": 45,
+  "guar": 46,
+  "ppag": 47,
+  "term": 48,
+  "pubexp": 49,
+  "pubexp_pct": 50
+ },
  "SCEN_SNAP_ROW": 43,
  "CMP_SNAP": 53,
  "SENS_SNAP_ROW": 16,

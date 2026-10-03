@@ -34,6 +34,13 @@ KPIS = [("kpi_pirr", "Project IRR", "0.0%"), ("kpi_eirr", "Equity IRR", "0.0%"),
         ("bk_overall", "Bankability verdict", "@"), ("sc_result", "Fiscal screen", "@")]
 
 
+EXTRA = [(k, "", "") for k in ["debt_m", "debt_c", "uses", "fund_base", "lcoe_sys", "kpi_avg_dscr", "kpi_npv", "cod_year", "sc_flags",
+         "fis_peak", "cl_pv_el", "sc_cl", "sc_cash", "tx_gap_yrs", "evac_cod", "dem_ratio5", "rev_fixed", "kpi_plcr", "kpi_girr"]
+        + [f"G{i}_status" for i in range(1, 10)] + [f"G{i}_score" for i in range(1, 10)]]
+TS_SAVE = ["year", "opyr", "gen", "delivered", "gen_p50", "u_ppa", "u_maxppa", "u_gap", "f_net", "f_cum", "cl_max", "cfads", "ds",
+           "dscr", "x_debt", "x_ppa", "x_term", "rev_bill", "rev_cash", "g_direct", "call_tot", "debt_bal"]
+
+
 def run(settings):
     tmpd = tempfile.mkdtemp()
     f = os.path.join(tmpd, "m.xlsx")
@@ -49,9 +56,13 @@ def run(settings):
         raise RuntimeError(f"recalc failed for {settings}: {res}")
     wv = load_workbook(f, data_only=True)
     vals = {}
-    for k, *_ in KPIS + [("debt_m", "", "")]:
+    for k, *_ in KPIS + EXTRA:
         s, c = addr(k)
         vals[k] = wv[s][c].value
+    vals["ts"] = {}
+    for nm in TS_SAVE:
+        s, r = MAP["TSROW"][nm]
+        vals["ts"][nm] = [wv[s].cell(r, 5 + j).value for j in range(40)]
     shutil.rmtree(tmpd)
     return vals
 
@@ -106,5 +117,14 @@ table(wb["17A_STRUCTURES"], MAP["CMP_SNAP"], "STRUCTURES (base case, debt sized 
 table(wb["28_SENSITIVITY"], MAP["SENS_SNAP_ROW"], "SENSITIVITIES", ["Base — debt locked"] + [l for l, _ in SENS])
 wb.save(MODEL)
 subprocess.run([sys.executable, RECALC, MODEL, "300"], check=True)
-json.dump(results, open("model/snapshot_results.json", "w"), indent=1, default=str)
+SLUG = {"Base — debt sized in-model": "base_sized", "Base — debt locked": "base_locked", "Low case": "low", "High case": "high",
+        "Drought": "drought", "CAPEX overrun": "overrun", "Construction delay": "delay", "Low demand": "lowdem",
+        "Offtaker stress": "offtaker", "Offtaker stress, no budget backstop (PPA guarantee called)": "offtaker_nobs",
+        "FX step devaluation at COD": "fx", "High interest rate": "rate", "Transmission delay": "trans", "Climate trend": "climate",
+        "Combined: overrun + delay + offtaker + FX": "combined", "Structure 1": "s1", "Structure 2": "s2", "Structure 3": "s3",
+        "Structure 4": "s4", "Structure 5": "s5", "CAPEX -20%": "capex_m20", "CAPEX +20%": "capex_p20", "Generation -10%": "gen_m10",
+        "Generation +10%": "gen_p10", "Tariff -10%": "tar_m10", "Tariff +10%": "tar_p10", "OPEX +20%": "opex_p20",
+        "Commercial rate +200bp": "rate_p200", "P90 generation in cash flows": "p90cf"}
+out = {SLUG.get(k, k): dict(v, label=k) for k, v in results.items()}
+json.dump(out, open("model/snapshot_results.json", "w"), indent=1, default=str)
 print("done")

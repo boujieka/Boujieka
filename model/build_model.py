@@ -70,6 +70,9 @@ FMT = {
 
 wb = Workbook()
 wb.remove(wb.active)
+wb.properties.creator = "Bankable Hydro"
+wb.properties.lastModifiedBy = "Bankable Hydro"
+wb.properties.title = "Bankable Hydro Integrated Bankability Model"
 SHEETS = [
     "00_README", "01_CONTROL_PANEL", "02_PROJECT_INPUTS", "03_HYDROLOGY", "04_GENERATION",
     "05_PLANT_CAPEX", "06_CONSTRUCTION", "07_OPEX", "08_TRANSMISSION", "09_GRID", "10_DEMAND",
@@ -1682,6 +1685,6 @@ for s in SHEETS:
     WS[s].sheet_properties.tabColor = {"0": "1F3864", "1": "2F5597", "2": "548235", "3": "C00000"}.get(s[0], "7F7F7F")
 wb.save(OUT)
 import json
-json.dump({"REF": REF, "TSROW": TSROW, "SCEN_SNAP_ROW": SCEN_SNAP_ROW, "CMP_SNAP": CMP_SNAP, "SENS_SNAP_ROW": SENS_SNAP_ROW, "CASE_ROW0": CASE_ROW0},
+json.dump({"REF": REF, "TSROW": TSROW, "CMP_ROWS": cmp_rows, "SCEN_SNAP_ROW": SCEN_SNAP_ROW, "CMP_SNAP": CMP_SNAP, "SENS_SNAP_ROW": SENS_SNAP_ROW, "CASE_ROW0": CASE_ROW0},
           open("model/model_map.json", "w"), indent=1)
 print("saved", OUT, "formulas:", len(PENDING))
