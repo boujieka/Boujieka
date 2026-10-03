@@ -54,7 +54,7 @@ Not planned without your decision: adding the sheets named in the master context
 1. Source register and reconciliations (M5, M6, B7): uses only documents in hand; flags the rest.
 2. Model controls and fixes (M1, M2, M14), then rerun LibreOffice and engine comparisons.
 3. PERFORM 2026 block (M3) and Chapter 7 (B4).
-4. Front end and readiness (M4, M7, M8, M9, M10, M11, M12, M13, M15, M16).
+4. Front end and readiness (M4, M7, M8, M9, M10, M11, M12, M13, M15, M16). Done 3 October 2026 (changelog step 4).
 5. Book revision (B1 to B11) with figures, then the cross-reference rebuilt on final page numbers.
 6. Reports 04, 06, 10, 11 and FINAL_QA_REPORT.
 

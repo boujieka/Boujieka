@@ -30,6 +30,13 @@ GENERAL_OVERRIDES = dict(
     credit_mode=2,  # Credit_Input holds SolaraPay's 24-month history
 )
 MIX = {1: 0.25, 2: 0.40, 3: 0.22, 4: 0.09, 5: 0.04}
+# Provenance labels shown in the workbook (brief section 13): the management plan is company data; Tier 1-3 credit
+# assumptions are re-estimated from the (synthetic) history; everything else stays a model assumption.
+PROVENANCE = {k: "COMPANY DATA" for k in ("vol1", "vol2", "vol3", "vol4", "vol5", "staff", "ga", "eq0", "min_cash", "tl_amt",
+                                          "rf_limit", "inv_usd", "pre_money", "mix")}
+PROVENANCE.update({"hazard": "CALIBRATED ASSUMPTION", "coll": "CALIBRATED ASSUMPTION"})
+PROVENANCE_NOTES = {k: "Case: Tiers 1 to 3 re-estimated from SolaraPay's 24-month history (synthetic); Tiers 4 and 5 remain model assumptions."
+                    for k in ("hazard", "coll")}
 
 
 def apply(G, PRODUCTS, calibrated=True):

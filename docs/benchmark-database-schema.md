@@ -27,6 +27,8 @@ To add data, edit the CSV and rebuild. Never type benchmark numbers into the wor
 | `status` | `PRIMARY filing` · `company release` · `secondary` · `snippet` · `NOT CONFIRMED` · `ESTIMATE` |
 | `grade` | A audited/regulatory · B company disclosure · C reliable secondary · D estimate/weak/unconfirmed · E contextual |
 | `notes` | Definitions, caveats |
+| `country` | Country or market of the reporting entity; `TO VERIFY` until read in the primary document |
+| `page` | Page of the primary document supporting the value; `PAGE TO VERIFY` until checked |
 
 **Rules**
 1. Only grades A–C enter the graded peer ranges (min / median / max). D and E are displayed, flagged and excluded.

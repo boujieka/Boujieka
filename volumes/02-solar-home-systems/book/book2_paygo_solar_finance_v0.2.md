@@ -225,11 +225,11 @@ None of these three failures is visible first on the income statement. All of th
 
 The book has 16 chapters and is built around a single question: can PAYGo solar become profitable and financeable? Chapters 2 to 5 cover the commercial foundations: customers and affordability, regulation, product and price plan design, and distribution. Chapters 6 to 9 deal with credit and profitability: repayment behaviour, portfolio KPIs, revenue recognition and credit losses, and unit economics. Chapters 10 to 13 turn to cash and capital: working capital and currency, the funding stack, securitisation and subsidies. Chapters 14 and 15 cover stress testing and the investor's diligence and memo, and Chapter 16 walks through a complete case.
 
-The companion workbook is MODEL 2, the PAYGo Company Financial and Investment Model: a monthly, five year, integrated three statement model with 45 sheets and about 99,000 formulas, no macros and no circular references. Its integrity is tested on the *Checks* sheet by 38 tests, from the balance sheet and the monthly cash reconciliation to the roll forward of receivables, debt and equity. Its outputs have been checked three ways: against a secondary calculation written separately by the model's developer, which agrees to rounding precision; by an independent formula engine; and by a full recalculation in LibreOffice, which agrees on every formula cell. A test in Microsoft Excel is pending. None of these tests says anything about the realism of the assumptions, which is the subject of the rest of the book. The calculation chain runs from Inputs and Products, through Sales, Customers, PAYGo receivables, the Credit engine, the Vintage engine and Collections and recoveries, to the RBF engine, Working capital, Financing, the Financial statements, Covenants, Valuation, Investor returns, the Market benchmark, Calibration and Investment readiness. It carries five product tiers, from a pico solar kit on a 12 month plan to a large solar inverter with lithium storage on a 48 month plan.
+The companion workbook is MODEL 2, the PAYGo Company Financial and Investment Model: a monthly, five year, integrated three statement model with 47 sheets and about 100,900 formulas, no macros and no circular references. Its integrity is tested on the *Checks* sheet by 38 tests, from the balance sheet and the monthly cash reconciliation to the roll forward of receivables, debt and equity. Its outputs have been checked three ways: against a secondary calculation written separately by the model's developer, which agrees to rounding precision; by an independent formula engine; and by a full recalculation in LibreOffice, which agrees on every formula cell. A test in Microsoft Excel is pending. None of these tests says anything about the realism of the assumptions, which is the subject of the rest of the book. The calculation chain runs from Inputs and Products, through Sales, Customers, PAYGo receivables, the Credit engine, the Vintage engine and Collections and recoveries, to the RBF engine, Working capital, Financing, the Financial statements, Covenants, Valuation, Investor returns, the Market benchmark, Calibration and Investment readiness. It carries five product tiers, from a pico solar kit on a 12 month plan to a large solar inverter with lithium storage on a 48 month plan.
 
 The SolaraPay case, a fictional company in the fictional Republic of Kivara with a synthetic 24 month history, runs through every chapter. It is asking an impact fund for USD 4.0m of equity at USD 8.0m pre money and a local bank for a KVS 4.5bn receivables facility. Its management plan looks attractive; once the model is calibrated to its own history, the case becomes conditional. The way it moves from one to the other is the method this book teaches.
 
-The workbook never claims that a company is investment grade. Its *Investment_Readiness* sheet runs 23 gates and, at best, reports a company as ready for independent validation. In its default state it passes 3 of the 23; SolaraPay, with its history loaded, passes 5.
+The workbook never rates a company. Its *Investment_Readiness* sheet runs 23 gates, counts each one only on evidence, and applies a fixed rule: STOP when a test fails or critical evidence is missing, CONDITIONAL GO when every critical gate is met, GO only when all 23 are. A GO says that the evidence file is complete for a committee to decide; it is not a recommendation. In its default state the workbook passes 3 of the 23 gates and reads STOP on incomplete evidence; SolaraPay, with its history loaded, passes 5 and reads the same.
 
 ## Points for the investment committee
 
@@ -242,7 +242,7 @@ The workbook never claims that a company is investment grade. Its *Investment_Re
 
 ## Working with the model
 
-Start with the *Dashboard* and *KPIs* sheets to see the company as management presents it, then go to *Unit_Economics* to see the per unit margin and payback by tier. *Credit_Portfolio* and *Vintage_Dashboard* show the receivables book and the cohort curves. The *Checks* sheet should read OK before any output is relied on; it confirms internal consistency, not the realism of the assumptions. *Investment_Readiness* shows which of the 23 gates the company passes and which evidence is missing.
+Open the *Start* sheet first: it sets out what to input, what the model calculates, what the results mean and what an investor should read, and it counts the inputs by provenance label (model assumption, company data, external evidence, calibrated assumption, unverified). Then use the *Dashboard* and *KPIs* sheets to see the company as management presents it, then go to *Unit_Economics* to see the per unit margin and payback by tier. *Credit_Portfolio* and *Vintage_Dashboard* show the receivables book and the cohort curves. The *Checks* sheet should read OK before any output is relied on; it confirms internal consistency, not the realism of the assumptions. *Investment_Readiness* shows which of the 23 gates the company passes, where the evidence for each is held and who signed it off, and the decision that follows from the evidence alone.
 
 # Chapter 2. Market, customers and affordability
 
@@ -1126,7 +1126,7 @@ The practical answer is to present all three views side by side and reconcile th
 
 ## Working with the model
 
-Revenue recognition and the booked allowance run through the cohort sheets and the financial statements on *FS* and *Annual*. The indicative stage based ECL, PD and LGD proxies and coverage sit on *Credit_Portfolio*, with staging thresholds, cure rate and discount rate on *Credit_Assumptions*. Repossession rates and resale shares by tier are set on *Products*; the recovery cost and the repossession lag are linked on *Credit_Assumptions*. *Benchmark_Compare* and *Calibration* hold the ECL to financing revenue reference, and *Investment_Readiness* carries the manual gate for auditor review of the ECL approach.
+The workbook states on its *Contents*, *Glossary* and credit sheets that its treatment is an analytical modelling treatment and does not constitute a determination of the applicable accounting treatment under IFRS. Revenue recognition and the booked allowance run through the cohort sheets and the financial statements on *FS* and *Annual*. The indicative stage based ECL, PD and LGD proxies and coverage sit on *Credit_Portfolio*, with staging thresholds, cure rate and discount rate on *Credit_Assumptions*. Repossession rates and resale shares by tier are set on *Products*; the recovery cost and the repossession lag are linked on *Credit_Assumptions*. *Benchmark_Compare* and *Calibration* hold the ECL to financing revenue reference, and *Investment_Readiness* carries the manual gate for auditor review of the ECL approach.
 
 # Chapter 9. Unit economics
 
@@ -1427,7 +1427,7 @@ Two cautions apply to that result. Indexation rescues the equity value but not c
 
 ## Working with the model
 
-The macro block on *Inputs* holds the opening FX rate, inflation, the annual price increase on new contracts and the FX pass through share; depreciation by scenario sits on *Scenarios*. Inventory cover, supplier credit and freight and duty are on *Inputs*, and hardware FOB costs by tier on *Products*. The working capital lines flow to the cash flow statement on *FS* (monthly) and *Annual*. Eligible receivables, the borrowing base and headroom against the facility are on *Credit_Portfolio*, and the peak equity requirement is reported on *Investment_Summary*. The default one at a time tests are on *Sensitivity*; to test full indexation, set pass through to 100% on a copy of the workbook and compare the Downside results.
+The macro block on *Inputs* holds the opening FX rate, inflation, the annual price increase on new contracts and the FX pass through share; depreciation by scenario sits on *Scenarios*. Inventory cover, supplier credit and freight and duty are on *Inputs*, and hardware FOB costs by tier on *Products*. The working capital lines flow to the cash flow statement on *FS* (monthly) and *Annual*. Eligible receivables, the borrowing base and headroom against the facility are on *Credit_Portfolio*, and the peak equity requirement is reported on *Investment_Summary*. *FX_Exposure* maps each item to its currency, states that no hedge is modelled, and separates by year the transaction effects on cash (USD hardware, USD debt service, USD RBF), the remeasurement of USD debt and the translation of LCY results into USD; a memo row shows the hardware revenue added by price pass through, booked at sale and collected over the tenor. The default one at a time tests are on *Sensitivity*; to test full indexation, set pass through to 100% on a copy of the workbook and compare the Downside results.
 
 # Chapter 11. Funding the book: equity, debt and receivables facilities
 
@@ -1856,7 +1856,7 @@ For the investor, the conclusion is narrower. Model the company without RBF as w
 
 ## Working with the model
 
-Use the RBF block of *Inputs* to select the programme design and set its parameters, including the hybrid weights. *RBF_Engine* shows the monthly payments by design and tier. *Vintage_Input* holds ownership observations and the evidence switch. *Consumer_Risk* reports payment burden and implied APR by tier. *Unit_Economics* shows the RBF contribution per unit alongside CAC and payback, and *Sensitivity* records the default cases for RBF off and repayment linked RBF. The *Checks* sheet flags hybrid weights that do not total 100%, and the readiness flags below the checks catch an ownership switch set without data.
+Use the RBF block of *Inputs* to select the programme design and set its parameters, including the hybrid weights. *RBF_Engine* shows the monthly payments by design and tier, and a claim cycle block that follows eligible units, claims submitted at sale, claims reaching verification and amounts disbursed, with the cumulative gap between claims and cash that the company must finance. A check confirms that disbursements never exceed claims and that RBF never enters customer collections. *Vintage_Input* holds ownership observations and the evidence switch. *Consumer_Risk* reports payment burden and implied APR by tier. *Unit_Economics* shows the RBF contribution per unit alongside CAC and payback, and *Sensitivity* records the default cases for RBF off and repayment linked RBF. The *Checks* sheet flags hybrid weights that do not total 100%, and the readiness flags below the checks catch an ownership switch set without data.
 
 # Chapter 14. Stress testing
 
@@ -2032,7 +2032,7 @@ Structure and entry price matter less than credit, though they are not negligibl
 
 ## Working with the model
 
-Switch scenarios with the selector on *Inputs* and read *Investment_Summary* and *Dashboard* for each. *Scenarios* holds the levers. *Sensitivity* records single lever cases at default inputs and does not recalculate when inputs change, so run company specific sensitivities on a copy, changing one input at a time and restoring it before the next test. *Covenants* reports monthly breach flags by covenant; *Credit_Portfolio* shows the borrowing base and headroom; *Valuation* shows exit equity and net debt for the reverse stress on equity. For a funding drought, set the facility start month beyond the horizon or its limit to zero on a copy, and read the equity top up.
+Switch scenarios with the selector on *Inputs* and read *Investment_Summary* and *Dashboard* for each. *Scenarios* holds the levers. *Sensitivity* records single lever cases at default inputs, dated and recomputed in the workbook before release, and does not recalculate when inputs change; its live row shows the active case with the current inputs, so run company specific sensitivities on a copy, changing one input at a time and restoring it before the next test. *Covenants* reports monthly breach flags by covenant; *Credit_Portfolio* shows the borrowing base and headroom; *Valuation* shows exit equity and net debt for the reverse stress on equity. For a funding drought, set the facility start month beyond the horizon or its limit to zero on a copy, and read the equity top up.
 
 # Chapter 15. The investor view: due diligence and the investment memo
 
@@ -2152,9 +2152,9 @@ The valuation outputs of the companion model, for the default company or for Sol
 
 ## 15.6 Readiness gates
 
-The *Investment_Readiness* sheet lists 23 gates. Automatic gates are tested by the workbook: model integrity, covenant compliance, positive unit contribution, a credit engine running on actual data, consumer protection evidence, support for outcome linked RBF and data reconciliation. Manual gates rest on external evidence and carry a status that someone must set: management sign off, term sheets, legal review, a full test of the workbook in Excel, auditor review of the ECL approach and similar items.
+The *Investment_Readiness* sheet lists 23 gates. Automatic gates are tested by the workbook: model integrity, covenant compliance, positive unit contribution, a credit engine running on actual data, consumer protection evidence, support for outcome linked RBF and data reconciliation. Manual gates rest on external evidence: management sign off, term sheets, legal review, a full test of the workbook in Excel, auditor review of the ECL approach and similar items. A manual gate counts only when it is marked Met and the sheet records where the evidence is held and who signed it off; a gate marked Met without both is shown as not counted.
 
-The banner reads "INVESTMENT READINESS: x/23 gates met; not investment grade" until every gate is met. Even then the sheet claims only that the case is ready for independent validation. It never claims the case is investment grade, and nor should any memo built on it. At default inputs, three gates are met. In the SolaraPay case, after loading 24 months of history, five are met.
+Thirteen gates are marked critical. The sheet then applies a rule that uses these results and nothing else. STOP when a test fails: the master check, a covenant breach in the active scenario, or a tier with negative lifetime contribution. GO only when all 23 gates are met. CONDITIONAL GO when every critical gate is met, with the open gates as conditions. Otherwise STOP, with the reason that the evidence is incomplete. A STOP on incomplete evidence says that the file is not ready for a decision; it is not a verdict on the business. A GO says that the evidence is complete; it is not an investment recommendation, and no memo should present it as one. At default inputs three gates are met and the rule reads STOP, with 10 of the 13 critical gates open. In the SolaraPay case, after loading 24 months of history, five gates are met and 8 critical gates remain open.
 
 The gates show on one page which conclusions rest on company data and which on proxy curves, and they translate naturally into conditions precedent: a gate not yet met is often a condition to attach.
 
@@ -2209,11 +2209,11 @@ Sector aggregates carry the same caution. The ESMAP Off-Grid Solar Market Trends
 4. Translate every unmet readiness gate into a condition precedent, a covenant or an accepted risk, and record which.
 5. Set lender covenants at levels the company's own history supports, with cure periods, and prefer portfolio covenants to a DSCR test during growth.
 6. Treat any benchmark marked as conflicting or unconfirmed as a sense check only, never as evidence, and treat ranges built on one or two peers as anecdotal.
-7. Never describe the case as investment grade; at best it is ready for independent validation.
+7. Never present the workbook's decision as a rating or a recommendation. A GO means only that the evidence file is complete.
 
 ## Working with the model
 
-*Valuation* holds the DCF, the exit valuation and the investor returns in USD. *Investment_Summary* presents the one page view for the memo. *Unit_Economics* supports section 3 of the memo, *Credit_Portfolio* and *Vintage_Dashboard* support section 4, and *Covenants* section 7. *Benchmark_Compare*, *Calibration* and *Source_Register* support section 9, and the status of each external figure should be read in *Source_Register* before it is quoted. *Investment_Readiness* gives the gate count for section 11. Load the company's data into *Credit_Input* and *Vintage_Input* before any of these outputs are used.
+*Valuation* holds the DCF, the exit valuation and the investor returns in USD. *Investment_Summary* presents the one page view for the memo. *Unit_Economics* supports section 3 of the memo, *Credit_Portfolio* and *Vintage_Dashboard* support section 4, and *Covenants* section 7. *Benchmark_Compare*, *Calibration* and *Source_Register* support section 9, and the status of each external figure should be read in *Source_Register* before it is quoted. *Investment_Readiness* gives the gate count, the missing evidence and the evidence based decision for section 11. Load the company's data into *Credit_Input* and *Vintage_Input* before any of these outputs are used.
 
 # Chapter 16. Case walk through: SolaraPay
 
@@ -2403,6 +2403,8 @@ With no usable external reference, the benchmark that matters is the one the ana
 
 The analyst recommends a Conditional Go: invest USD 4.0m, subject to seven conditions.
 
+The workbook's own rule reads STOP for the same file, because 8 of its 13 critical gates still lack evidence. The two do not contradict each other. The workbook measures whether the evidence file is complete; the recommendation is the analyst's judgement of what the investment needs. The committee should see both, and the conditions below are written so that disbursement waits until the critical gates they address are evidenced.
+
 1. Pricing policy. Contractual or board approved indexation of new contract prices to the KVS/USD rate, equivalent to 100% FX pass through in the model. This is the most effective Downside mitigant identified.
 2. Tier 4 and 5 pilot cap. Tiers 4 and 5 held to their planned 13% of units and released in tranches only after twelve months of cohort data show repayment within 10% of plan, with portfolio at risk reported separately for these tiers.
 3. Collections plan before the facility. A written collections improvement plan with monthly targets, and a facility covenant the book can meet: 65% trailing collection with a cure period, stepping up as performance improves.
@@ -2411,7 +2413,7 @@ The analyst recommends a Conditional Go: invest USD 4.0m, subject to seven condi
 6. Valuation protection. A pre money valuation closer to USD 6m, or a ratchet tied to Year 2 cohort performance.
 7. Data and validation. Monthly updates of *Credit_Input* and *Vintage_Input*, ownership tracking at twice the tenor from launch, independent review of the ECL approach and accounting, a full test of the workbook in Excel, and management sign off.
 
-The case meets 5 of the 23 readiness gates. It is not investment grade, and the memo says so. The conditions close the most material gaps: two address the largest equity risks, two align the lender's protection with the evidence, one addresses affordability, one price, and one creates the data the next review will need.
+The case meets 5 of the 23 readiness gates, and the workbook's evidence rule reads STOP until the open critical gates are evidenced. The memo says so. The conditions close the most material gaps: two address the largest equity risks, two align the lender's protection with the evidence, one addresses affordability, one price, and one creates the data the next review will need.
 
 Condition 5 contains a tension the committee should see. Longer tenors lower the instalment but give default hazard more months to act; higher deposits avoid that but screen out the poorest households. Both should be tested on *Unit_Economics* and *Consumer_Risk*.
 
@@ -2440,11 +2442,11 @@ Finally, the analyst would resist the attraction of Tiers 4 and 5. They are wher
 3. Confirm that full FX price indexation is achievable in Kivara commercially and legally (to be confirmed with local counsel) before relying on it.
 4. Agree the Tier 4 and 5 pilot cap and the evidence required to release it, and do not price the investment on those tiers' unit economics.
 5. Coordinate with the bank on the collection covenant level, cure period and reporting.
-6. Record that the case meets 5 of 23 readiness gates and is not investment grade, and map each condition to the gate or risk it addresses.
+6. Record that the case meets 5 of 23 readiness gates and that the evidence rule reads STOP, and map each condition to the gate or risk it addresses.
 
 ## Working with the model
 
-Load history into *Credit_Input* and *Vintage_Input*, set the credit data mode to Actual on *Credit_Assumptions*, and compare *Vintage_Dashboard* with the plan curves before touching the projections. Recalibrate default hazard and collection rates on *Products*. Read *Unit_Economics* and *Consumer_Risk*, then *Dashboard*, *KPIs* and *Covenants*. Run scenarios from *Inputs*, and single lever tests on a copy. *Valuation* gives the DCF, exit value and USD returns; *Benchmark_Compare* and *Calibration* give the external checks; *Investment_Readiness* gives the gate count for the memo.
+Load history into *Credit_Input* and *Vintage_Input*, set the credit data mode to Actual on *Credit_Assumptions*, and compare *Vintage_Dashboard* with the plan curves before touching the projections. Recalibrate default hazard and collection rates on *Products*. Read *Unit_Economics* and *Consumer_Risk*, then *Dashboard*, *KPIs* and *Covenants*. Run scenarios from *Inputs*, and single lever tests on a copy. *Valuation* gives the DCF, exit value and USD returns; *Benchmark_Compare* and *Calibration* give the external checks; *Investment_Readiness* gives the gate count, the evidence held for each gate and the evidence based decision for the memo.
 
 # Annex A. PAYGo KPI dictionary
 

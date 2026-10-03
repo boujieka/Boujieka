@@ -1,4 +1,4 @@
-"""Build Volume 2 - SHS / PAYGo Company Financial & Investment Model.
+"""Build MODEL 2 (Book 2) - PAYGo Company Financial & Investment Model for solar home systems.
 
 Run:  python tools/build_shs_model.py [--snapshot]
 Out:  volumes/02-solar-home-systems/model/AEF_SHS_PAYGo_Model_<VERSION>.xlsx
@@ -10,6 +10,8 @@ All default inputs live in tools/shs_defaults.py and are ILLUSTRATIVE placeholde
 for a fictional company in a fictional market ("LCY" = local currency).
 """
 
+import copy
+import re
 import sys
 from datetime import date
 from pathlib import Path
@@ -41,6 +43,28 @@ if CASE:
     OUT = Path(__file__).resolve().parents[1] / CASE["out"].replace("v0.7", VERSION)
 ILLUS = "Illustrative placeholder - replace with company data."
 GREY_TXT = "595959"
+# M4: provenance of every input (brief section 13). Default inputs are model assumptions for a fictional company;
+# a worked case may relabel inputs through CASE_MOD.PROVENANCE ({input key: label}).
+PROV_LABELS = ["MODEL ASSUMPTION", "COMPANY DATA", "EXTERNAL EVIDENCE", "CALIBRATED ASSUMPTION", "UNVERIFIED"]
+PROV_FILL = {"MODEL ASSUMPTION": "DDEBF7", "COMPANY DATA": "E2EFDA", "EXTERNAL EVIDENCE": "FFF2CC",
+             "CALIBRATED ASSUMPTION": "EDE2F6", "UNVERIFIED": "FCE4D6"}
+PROV_DEFAULT = {"tier": "UNVERIFIED"}  # MTF thresholds: ESMAP framework report not yet read (Source_Register E3)
+PROV_OVERRIDE = dict(getattr(CASE_MOD, "PROVENANCE", {})) if CASE else {}
+PROV_NOTES = dict(getattr(CASE_MOD, "PROVENANCE_NOTES", {})) if CASE else {}
+PROV_CELLS = []  # (sheet, cell) of every provenance label, summarised on Start
+
+
+def prov_of(key):
+    return PROV_OVERRIDE.get(key, PROV_DEFAULT.get(key, "MODEL ASSUMPTION"))
+
+
+def put_prov(ws_, cell, key):
+    v = prov_of(key)
+    ws_[cell] = v
+    ws_[cell].font = Font(name=FONT, size=8, bold=True, color="404040")
+    ws_[cell].fill = PatternFill("solid", fgColor=PROV_FILL[v])
+    ws_[cell].alignment = Alignment(horizontal="center", vertical="center")
+    PROV_CELLS.append((ws_.title, cell))
 
 mb = ModelBook(MONTHS)
 wb = mb.wb
@@ -74,7 +98,9 @@ def year_header(ws, row=5, with_y0=False):
 # =====================================================================
 cov = wb.create_sheet("Cover")  # branded cover page, filled at the end
 cts = mb.sheet("Contents", "Contents - how to use this model",
-               "Volume 2 - Solar Home Systems  |  PAYGo Company Financial & Investment Model", tab=NAVY)
+               "MODEL 2  |  PAYGo Company Financial & Investment Model  |  Book 2, PAYGo Solar Finance", tab=NAVY)
+stw = mb.sheet("Start", "Start here", "What to input, what the model calculates, what the results mean and what an investor should look at.",
+               tab="00B050")
 inv_ws = mb.sheet("Investment_Summary", "Investment summary",
                   "One-page view for investment committees and lenders. Active scenario, LCY unless stated.", tab="00B050")
 
@@ -86,6 +112,8 @@ ws = mb.sheet("Inputs", "Inputs", "Blue = input. Yellow = key assumption to revi
 ws.column_dimensions["A"].width = 58
 ws.column_dimensions["C"].width = 18
 ws.column_dimensions["D"].width = 70
+ws.column_dimensions["E"].width = 24
+header_row(ws, 3, ["Input", "Unit", "Value", "Note", "Provenance"])
 
 
 def add_input(key, row, text, unit, value, fmt=FMT_NUM, keyflag=False, n=ILLUS):
@@ -94,6 +122,7 @@ def add_input(key, row, text, unit, value, fmt=FMT_NUM, keyflag=False, n=ILLUS):
     put_input(ws, f"C{row}", value, fmt, keyflag)
     if n:
         note(ws, f"D{row}", n)
+    put_prov(ws, f"E{row}", key)
     INP[key] = absref(ws, f"C{row}")
 
 
@@ -209,7 +238,9 @@ for c in PCOLS:
     pw.column_dimensions[c].width = 24
 NOTE_COL = gcl(3 + NP)
 pw.column_dimensions[NOTE_COL].width = 60
-header_row(pw, 4, ["Parameter", "Unit"] + [f"Tier {p['tier']}" for p in PRODUCTS] + ["Notes"])
+PROV_COL = gcl(4 + NP)
+pw.column_dimensions[PROV_COL].width = 24
+header_row(pw, 4, ["Parameter", "Unit"] + [f"Tier {p['tier']}" for p in PRODUCTS] + ["Notes", "Provenance"])
 PR = {}
 PROW = [5]
 
@@ -229,7 +260,8 @@ def prod_input(key, text, unit, fmt, keyflag=False, n=""):
         if fmt == "@":
             pw[f"{PCOLS[j]}{r_}"].alignment = Alignment(wrap_text=True, vertical="top")
         PR[key].append(f"Products!${PCOLS[j]}${r_}")
-    note(pw, f"{NOTE_COL}{r_}", n or ILLUS)
+    note(pw, f"{NOTE_COL}{r_}", ((n or ILLUS) + " " + PROV_NOTES[key]) if key in PROV_NOTES else (n or ILLUS))
+    put_prov(pw, f"{PROV_COL}{r_}", key)
     if fmt == "@":
         pw.row_dimensions[r_].height = 30
     PROW[0] += 1
@@ -330,6 +362,18 @@ label(sw, "A12", "Scenario name", bold=True)
 for c, n in zip("CDE", ["Base", "Downside", "Severe"]):
     put_input(sw, f"{c}12", n, "@")
 put_calc(sw, "G12", f"=CHOOSE({INP['scenario']},C12,D12,E12)", "@", bold=True)
+label(sw, "I5", "Provenance", bold=True)
+for rr, text, unit, key, fmt in levers:
+    put_prov(sw, f"I{rr}", f"lever_{key}")
+sw.column_dimensions["I"].width = 24
+label(sw, "A13", "Input set loaded on Inputs, Products and Credit_Assumptions", bold=True)
+INPUT_SETS = ["Illustrative (model assumptions)", "Management case", "Calibrated case"]
+put_input(sw, "C13", INPUT_SETS[2] if CASE else INPUT_SETS[0], "@", True)
+dv_is = DataValidation(type="list", formula1='"' + ",".join(INPUT_SETS) + '"', allow_blank=False)
+sw.add_data_validation(dv_is); dv_is.add("C13")
+label(sw, "F13", "Active case")
+put_calc(sw, "G13", "=C13&\", \"&G12", "@", bold=True)
+INP["input_set"] = "Scenarios!$C$13"
 note(sw, "A14", "Downside / Severe are illustrative stress settings. Calibrate to the company's cohort history and sector data.")
 note(sw, "A15", "Context: the ESMAP Off-Grid Solar Market Trends Report 2024 is reported to give an average PAYGo collection rate of about 62% "
      "for 2021-2023 (Source_Register E1-14, PENDING PRIMARY DOCUMENT). A collection rate, not the PERFORM Repayment Rate.")
@@ -339,7 +383,7 @@ note(sw, "A15", "Context: the ESMAP Off-Grid Solar Market Trends Report 2024 is 
 # =====================================================================
 CA = "Credit_Assumptions"
 caw = mb.sheet(CA, "Credit assumptions - DPD buckets, stages, recovery, eligibility",
-               "Drives Credit_Engine. Proxy = projection from the model's repayment curves; Actual = company data in Credit_Input.",
+               "Drives Credit_Engine. Proxy = projection from the model's repayment curves; Actual = company data in Credit_Input. This is an analytical modelling treatment and does not constitute a determination of the applicable accounting treatment under IFRS.",
                tab="0000FF")
 caw.column_dimensions["A"].width = 58
 caw.column_dimensions["C"].width = 16
@@ -351,6 +395,7 @@ def ca_input(key, row, text, unit, value, fmt=FMT_NUM, keyflag=False, n=ILLUS):
     label(caw, f"B{row}", unit, size=9, color=GREY_TXT)
     put_input(caw, f"C{row}", value, fmt, keyflag)
     note(caw, f"D{row}", n)
+    put_prov(caw, f"E{row}", key)
     INP[key] = absref(caw, f"C{row}")
 
 
@@ -377,8 +422,9 @@ for k_, nm in enumerate(["31-60", "61-90", "91-180", "180+"]):
              "Shares of receivables at risk must sum to 100% (Checks).")
 mb.section(caw, 26, "Bucket table (derived - do not edit)")
 header_row(caw, 27, ["DPD bucket", "Lower DPD", "Upper DPD", "Stage", "BB eligible", "In default", "30+ DPD", "90+ DPD", "Proxy share"])
-for c_ in "EFGHI":
+for c_ in "FGHI":
     caw.column_dimensions[c_].width = 12
+caw.column_dimensions["E"].width = 24
 BUCKETS = [("Current", 0, 0), ("1-30", 1, 30), ("31-60", 31, 60), ("61-90", 61, 90), ("91-180", 91, 180), ("180+", 181, 9999)]
 BK = []
 for k_, (nm, lo, hi) in enumerate(BUCKETS):
@@ -397,6 +443,7 @@ note(caw, "A35", "Current and 1-30 shares apply to balances of paying accounts; 
      "paying). The 30+/90+ flags use fixed market definitions; stage, eligibility and default follow the thresholds above.")
 note(caw, "A36", "The 12-month PD shown by Credit_Engine is a proxy derived from the repayment curve or from observed loss rates. "
      "It is NOT an audited IFRS 9 PD.")
+note(caw, "A37", "This is an analytical modelling treatment and does not constitute a determination of the applicable accounting treatment under IFRS.")
 
 # =====================================================================
 # TIMELINE
@@ -683,6 +730,28 @@ for key, text in (("selT", "Selected RBF - total"), ("salesT", "Sales-based RBF 
     base_k = key[:-1]
     mb.write_row(rbw, mb.r(RB, key), text, "LCY",
                  lambda i, c, p, b=base_k: "=" + "+".join(f"{c}{mb.r(RB, f'{b}{j}')}" for j in range(NP)), FMT_NUM, total="sum", bold=True)
+# M11: claim cycle, from eligibility to cash (USD unless stated). RBF never enters customer collections (Checks).
+rr_c = mb.r(RB, "varT") + 2
+mb.section(rbw, rr_c, "CLAIM CYCLE - eligibility, claim, verification, disbursement and the working capital gap"); rr_c += 1
+for key in ("eligT", "claimT", "verifT", "dispT", "gapT", "gapL"):
+    mb.register(RB, key, rr_c); rr_c += 1
+u_all = lambda c: "+".join(f"{mb.ref(O, f'units{j}', c, this_sheet=RB)}*IF({PR['rbf'][j]}>0,1,0)" for j in range(NP))
+mb.write_row(rbw, mb.r(RB, "eligT"), "1. Eligible units sold (tiers with RBF per unit above zero; programme active)", "units",
+             lambda i, c, p: f"=({u_all(c)})*{INP['rbf_on']}", FMT_NUM, total="sum")
+mb.write_row(rbw, mb.r(RB, "claimT"), "2. Claims submitted at sale (USD)", "USD",
+             lambda i, c, p: "=(" + "+".join(f"{mb.ref(O, f'units{j}', c, this_sheet=RB)}*{PR['rbf'][j]}" for j in range(NP)) + f")*{INP['rbf_on']}",
+             FMT_NUM, total="sum")
+mb.write_row(rbw, mb.r(RB, "verifT"), "3. Claims reaching verification after the lag (USD, before any outcome adjustment)", "USD",
+             lambda i, c, p: f"={c}{mb.r(RB, 'salesT')}/Timeline!{c}$8", FMT_NUM, total="sum")
+mb.write_row(rbw, mb.r(RB, "dispT"), "4. Disbursed under the selected design (USD; equals RBF income in FS at the month's FX)", "USD",
+             lambda i, c, p: f"={c}{mb.r(RB, 'selT')}/Timeline!{c}$8", FMT_NUM, total="sum", bold=True)
+mb.write_row(rbw, mb.r(RB, "gapT"), "5. Claimed but not yet received, cumulative (USD): RBF working capital gap", "USD",
+             lambda i, c, p: f"={p}{mb.r(RB, 'gapT')}+{c}{mb.r(RB, 'claimT')}-{c}{mb.r(RB, 'dispT')}", FMT_NUM, total="last", bold=True)
+mb.write_row(rbw, mb.r(RB, "gapL"), "   RBF working capital gap at the month's FX (LCY)", "LCY",
+             lambda i, c, p: f"={c}{mb.r(RB, 'gapT')}*Timeline!{c}$8", FMT_NUM, total="last")
+note(rbw, f"A{rr_c + 1}", "The gap is subsidy claimed but not yet in the bank. Under the repayment-linked and hybrid designs it includes amounts reduced at "
+     "verification, which are never received; under the ownership-linked design it includes amounts deferred to twice the tenor. "
+     "The company finances the gap until disbursement. RBF is cash from the programme, never a customer payment.")
 
 # =====================================================================
 # CREDIT INPUT (v0.4) - company data template
@@ -1024,6 +1093,7 @@ fs_rows = [
     ("cfo_pos", "Operating cash flow positive (1 = yes)", lambda c, p: f"=IF({c}{{cfo}}>0,1,0)", None, False),
     ("cfo_stay_pos", "Operating cash flow positive from this month to the horizon (1 = yes)",
      lambda c, p: f"=IF(MIN({c}{{cfo}}:${mb.last}{{cfo}})>0,1,0)", None, False),
+    ("eqtop_pos", "Equity top-up needed this month (1 = yes; above LCY 1, ignoring rounding residue)", lambda c, p: f"=IF({c}{{eq_top}}>1,1,0)", None, False),
 ]
 rr = 8
 for row_ in fs_rows:
@@ -1994,6 +2064,8 @@ label(mbw, f"O{MODEL_ROW}", "Column G = peak borrowing base; column H = gross PA
       size=9, italic=True)
 note(mbw, f"A{MODEL_ROW + 2}", "Do not read single-company figures as targets. Only VERIFIED sources feed the Calibration sheet; "
      "everything else here is context.")
+note(mbw, f"A{MODEL_ROW + 3}", "Comparability warning: periods, entities, currencies and definitions differ between companies and from the "
+     "model's Year 5 (see the period and status in Source_Register and the comparability flags on Benchmark_DB).")
 MBM = {k: f"Market_Benchmark!${c_}${MODEL_ROW}" for k, c_ in
        zip(["rev", "ni", "growth", "margin", "rf", "bbpeak", "gross", "units_m", "units", "active", "ratio"], "BCDEFGHIJKL")}
 
@@ -2167,6 +2239,34 @@ for n_, rec in enumerate(DB_ROWS):
         for c_i in range(1, len(DB_COLS) + 3):
             bdw.cell(r_, c_i).fill = PatternFill("solid", fgColor="FCE4D6")
 DB_LAST = 4 + len(DB_ROWS)
+# M16: country, page, the model's definition of the item and a comparability flag (columns W to Z, after the computed columns)
+ITEM_DEF = {
+    "REV": "Total revenue for the period (company's own recognition policy)",
+    "NI": "Net income after tax", "EBITDA": "Earnings before interest, tax, depreciation and amortisation (company definition)",
+    "REV_GROWTH": "Revenue growth on the prior period as reported",
+    "COLL_RATE": "Operational collection rate as defined by the company: not the PAYGo PERFORM Repayment Rate",
+    "REPAY_RATE": "PAYGo PERFORM 2026 Repayment Rate (PvP or PvFin; horizon in notes)",
+    "PAR30": "Share of receivables 30+ days past due (company definition of arrears and of the balance)",
+    "OWNERSHIP_RATE": "Ownership Rate at 2x contract term (PAYGo PERFORM 2026)",
+    "CUST_ACTIVE": "Active customers as defined by the company (often not the same as accounts still paying)",
+    "CUST_CUM": "Cumulative customers since inception", "UNITS": "Units sold in the period",
+    "LOANS_CUM": "Cumulative financing disbursed", "SECURITISATION": "Size of the securitisation or facility closed (capacity, not drawn debt)",
+}
+for c_, h_, w_ in (("W", "country", 14), ("X", "page", 16), ("Y", "definition (what the figure measures)", 46), ("Z", "comparable with the model?", 46)):
+    bdw[f"{c_}4"] = h_
+    bdw[f"{c_}4"].font = Font(name=FONT, bold=True, color="FFFFFF")
+    bdw[f"{c_}4"].fill = PatternFill("solid", fgColor=NAVY)
+    bdw.column_dimensions[c_].width = w_
+for n_, rec in enumerate(DB_ROWS):
+    r_ = 5 + n_
+    bdw[f"W{r_}"] = rec.get("country") or "TO VERIFY"
+    bdw[f"X{r_}"] = rec.get("page") or "PAGE TO VERIFY"
+    bdw[f"Y{r_}"] = ITEM_DEF.get(rec["item"], dict((t[0], t[1]) for t in TAX_).get(rec["item"], rec["item"]))
+    put_calc(bdw, f"Z{r_}", (f'=IF(N{r_}<>1,"No: excluded ("&R{r_}&")",IF(F{r_}<>12,"No: not a full year",'
+                             f'IF(R{r_}<>"VERIFIED","With care: status "&R{r_}&"; definition and period to check",'
+                             f'"With care: check definition and fiscal year against model years")))'), "@")
+    for c_ in "WXYZ":
+        bdw[f"{c_}{r_}"].font = Font(name=FONT, size=9)
 bdw.freeze_panes = "C5"
 DBR = lambda col_letter: f"Benchmark_DB!${col_letter}$5:${col_letter}${DB_LAST}"
 
@@ -2291,6 +2391,25 @@ bcw.column_dimensions["A"].width = 44
 for c_ in "BCDEFGHIJ":
     bcw.column_dimensions[c_].width = 12
 bcw.column_dimensions["K"].width = 34
+bcw["L5"] = "Comparability warning"
+bcw["L5"].font = Font(name=FONT, bold=True, color="FFFFFF"); bcw["L5"].fill = PatternFill("solid", fgColor=NAVY)
+bcw.column_dimensions["L"].width = 70
+CMP_WARN = {
+    "gm": "Cost of sales lines differ (installation, warranty, financing costs).",
+    "ebitda_m": "Companies define EBITDA differently; RBF and credit losses may sit above or below it.",
+    "net_m": "Group accounts include non-PAYGo activities and other currencies.",
+    "growth": "Fiscal years differ from model years; currency of growth matters.",
+    "fin_share": "Revenue recognition policies split hardware and financing income differently.",
+    "rec_days": "Gross or net receivables; securitised books may be off balance sheet.",
+    "ecl_rec": "ECL policies, staging and write-off timing differ between companies.",
+    "ecl_rev": "ECL policies, staging and write-off timing differ between companies.",
+    "ecl_finrev": "ECL policies, staging and write-off timing differ between companies.",
+    "rev_cust": "Active customer definitions differ (paying accounts, any product, any period).",
+    "rec_cust": "Active customer definitions differ.",
+    "active_ratio": "Cumulative customers and active customers are defined differently by each company.",
+    "repay": "A company collection rate is not the model's operational collection rate unless deposits, period and denominator match; neither is the PERFORM Repayment Rate.",
+    "own": "Ownership rate is comparable only on the PAYGo PERFORM 2026 definition (at 2x term).",
+}
 for n_, (k_, text, fmt, fn) in enumerate(KPI_DEF):
     r_ = 6 + n_
     label(bcw, f"A{r_}", text)
@@ -2301,6 +2420,7 @@ for n_, (k_, text, fmt, fn) in enumerate(KPI_DEF):
     put_calc(bcw, f"H{r_}", f"=IF(G{r_}=0,\"\",MIN({rng}))", fmt)
     put_calc(bcw, f"I{r_}", f"=IF(G{r_}=0,\"\",MEDIAN({rng}))", fmt)
     put_calc(bcw, f"J{r_}", f"=IF(G{r_}=0,\"\",MAX({rng}))", fmt)
+    label(bcw, f"L{r_}", CMP_WARN.get(k_, "Check definitions, periods and currency before comparing."), size=9, italic=True)
     put_calc(bcw, f"K{r_}", (f"=IF(G{r_}=0,\"No graded peer data yet\",IF(NOT(ISNUMBER(F{r_})),\"Model value n/a\","
                              f"IF(F{r_}>J{r_},\"Above peer range\",IF(F{r_}<H{r_},\"Below peer range\",\"Within peer range\")))&IF(G{r_}<3,\" (n<3: anecdotal)\",\"\"))"), "@")
 note(bcw, f"A{8 + len(KPI_DEF)}", "CAC payback is not disclosed by companies; see Unit_Economics for the model. Watu is an asset-finance "
@@ -2391,9 +2511,10 @@ checks = [
     ("Vintage_Input: cumulative instalments due never fall between checkpoints",
      "=IF(" + "+".join(f"SUMPRODUCT(ISNUMBER({vi_range(j, vi_col('due', n_ + 1))})*ISNUMBER({vi_range(j, vi_col('due', n_))})*({vi_range(j, vi_col('due', n_ + 1))}<{vi_range(j, vi_col('due', n_))}-0.5))"
                        for j in range(NP) for n_ in range(NCP - 1)) + ">0,1,0)"),
-    ("RBF: statements equal the engine's selected design, RBF non-negative (RBF is never part of customer collections, which come from the cohorts only)",
+    ("RBF: statements equal the engine's selected design, RBF non-negative, cumulative disbursements never above cumulative claims "
+     "(RBF is never part of customer collections, which come from the cohorts only)",
      f"=IF(ABS(SUM({mb.range_(S, 'rbf')})-SUM({mb.range_(RB, 'selT')}))+ABS(SUM({mb.range_(O, 'rbfT')})-SUM({mb.range_(RB, 'selT')}))>1,1,0)"
-     f"+IF(MIN({mb.range_(RB, 'selT')})<-1,1,0)"),
+     f"+IF(MIN({mb.range_(RB, 'selT')})<-1,1,0)+IF(MIN({mb.range_(RB, 'gapT')})<-0.01,1,0)"),
     ("Valuation reconciles to the statements (EBITDA, tax, capex, Year 5 working capital)",
      f"=IF(ABS(SUM(Valuation!${col(1)}${VR['ebitda']}:${col(YEARS)}${VR['ebitda']})-SUM({mb.range_(S, 'ebitda')}))"
      f"+ABS(SUM(Valuation!${col(1)}${VR['tax']}:${col(YEARS)}${VR['tax']})-SUM({mb.range_(S, 'tax')}))"
@@ -2439,47 +2560,54 @@ for n_, (key, text, f) in enumerate([
     RF[key] = f"Checks!$C${r_}"
 
 # =====================================================================
-# INVESTMENT READINESS (v0.4 gates) - never claims "investment grade"
+# INVESTMENT READINESS (v0.4 gates; v0.8 evidence columns and decision rule)
 # =====================================================================
 IR = "Investment_Readiness"
-irw = mb.sheet(IR, "Investment readiness gates",
-               "Readiness tracking only. The model is NOT investment grade until company data are loaded and independently validated.",
+irw = mb.sheet(IR, "Investment readiness gates and evidence-based decision",
+               "Each gate counts only on evidence: automatic gates are computed by the model; a manual gate counts only when marked Met with "
+               "the place the evidence is held and the person who signed it off. The decision rule below uses these results only. It is not "
+               "an investment recommendation, a credit rating or an opinion on the company.",
                tab="C00000")
-for c_, w_ in zip("ABCDEFG", [5, 52, 9, 16, 16, 9, 60]):
+for c_, w_ in zip("ABCDEFGHIJKL", [5, 50, 9, 14, 12, 6, 46, 10, 26, 20, 12, 34]):
     irw.column_dimensions[c_].width = w_
-header_row(irw, 6, ["#", "Gate", "Type", "Manual status", "Auto result", "Met", "Evidence / notes"])
+header_row(irw, 6, ["#", "Gate", "Type", "Manual status", "Auto result", "Met", "Evidence required", "Critical",
+                    "Where the evidence is held", "Signed off by", "Date", "Evidence check"])
+irw.row_dimensions[6].height = 30
 dv_g = DataValidation(type="list", formula1='"Not started,In progress,Met"', allow_blank=False)
 irw.add_data_validation(dv_g)
 min_contrib = "MIN(" + ",".join(f"Unit_Economics!{PCOLS[j]}{UR['contrib']}" for j in range(NP)) + ")"
 cons_valid = "AND(" + ",".join(f"{CONS['perform'][j]}=\"Validated\",{CONS['cp'][j]}=\"Validated\"" for j in range(NP)) + ")"
+# (gate, automatic test or None, evidence required, critical for the decision)
 GATES = [
-    ("Model integrity (master check OK)", f"={MASTER}=\"OK\"", "Automatic."),
-    ("Inputs reviewed and signed off by management", None, ""),
-    ("Product specifications and MTF tier labels verified", None, "Check against datasheets and the ESMAP MTF report (Source_Register E3-01, pending)."),
-    ("Pricing, deposits and APR disclosures reviewed", None, "See Consumer_Risk and Products APR."),
-    ("Sales plan supported by pipeline / channel evidence", None, ""),
-    ("Cost base benchmarked", None, ""),
-    ("Stress tests run and documented", None, "Sensitivity sheet and Downside / Severe scenarios."),
-    ("FX and pass-through assumptions validated", None, ""),
-    ("Funding plan supported by term sheets", None, ""),
-    ("No covenant breach in the active scenario", f"={H['breach_months']}=0", "Automatic (Covenants)."),
-    ("Downside survivable without unplanned equity", None, "Compare peak equity in Downside vs funding commitments."),
-    ("Valuation assumptions reviewed", None, ""),
-    ("Positive lifetime contribution in every tier", f"={min_contrib}>0", "Automatic (Unit_Economics)."),
-    ("Market data sourced and graded (Source_Register)", None, "Only VERIFIED sources feed Calibration (Source_Register status column)."),
-    ("Tax and accounting treatment reviewed", None, "Revenue recognition, ECL, tax simplifications."),
-    ("Legal and regulatory review (consumer credit, data, mobile money)", None, ""),
-    ("Workbook tested in Microsoft Excel", None, "Recalculation, charts, no circular references."),
-    ("Credit engine running on actual company data", f"=AND({INP['credit_mode']}=2,{RF['horizon']}=0)", "Automatic: Actual mode with data supplied."),
-    ("IFRS 9 / ECL validated by auditor or independent reviewer", None, "Indicative ECL and PD proxies are not IFRS 9 measures."),
+    ("Model integrity (master check OK)", f"={MASTER}=\"OK\"", "Automatic: Checks sheet, master check.", True),
+    ("Inputs reviewed and signed off by management", None, "Signed input sheet or board paper approving the plan inputs.", True),
+    ("Product specifications and MTF tier labels verified", None, "Datasheets; ESMAP MTF report (Source_Register E3-01, pending).", False),
+    ("Pricing, deposits and APR disclosures reviewed", None, "Price list, customer contract and APR disclosure (Consumer_Risk, Products).", False),
+    ("Sales plan supported by pipeline / channel evidence", None, "Agent network data, sales history, channel contracts.", False),
+    ("Cost base benchmarked", None, "Management accounts and peer cost data with sources.", False),
+    ("Stress tests run and documented", None, "Downside and Severe results and the Sensitivity table, reviewed and minuted.", True),
+    ("FX and pass-through assumptions validated", None, "Pricing history after past depreciation; FX_Exposure reviewed.", False),
+    ("Funding plan supported by term sheets", None, "Signed term sheets or commitment letters for equity and debt.", True),
+    ("No covenant breach in the active scenario", f"={H['breach_months']}=0", "Automatic: Covenants sheet.", True),
+    ("Downside survivable without unplanned equity", None, "Downside peak equity compared with committed funding, documented.", True),
+    ("Valuation assumptions reviewed", None, "Discount rate, terminal growth and exit multiple justified in writing.", False),
+    ("Positive lifetime contribution in every tier", f"={min_contrib}>0", "Automatic: Unit_Economics.", True),
+    ("Market data sourced and graded (Source_Register)", None, "Every market figure used has a VERIFIED status (Source_Register).", False),
+    ("Tax and accounting treatment reviewed", None, "Written review by an accountant of revenue recognition, ECL and tax (the model treatment is not an IFRS determination).", True),
+    ("Legal and regulatory review (consumer credit, data, mobile money)", None, "Legal opinion or regulatory checklist signed by counsel.", True),
+    ("Workbook tested in Microsoft Excel", None, "Test log: opens, recalculates, master check OK, no circular references.", True),
+    ("Credit engine running on actual company data", f"=AND({INP['credit_mode']}=2,{RF['horizon']}=0)", "Automatic: Actual mode with Credit_Input data.", True),
+    ("IFRS 9 / ECL validated by auditor or independent reviewer", None, "Auditor's or reviewer's report; indicative ECL and PD proxies are not IFRS 9 measures.", False),
     ("Consumer protection evidenced", f"=AND({INP['afford_reviewed']}=1,{RF['afford_flags']}=0,{cons_valid},{RF['perform_conflict']}=0)",
-     "Automatic: affordability reviewed, no flags, PERFORM and consumer-protection evidence validated, PERFORM_2026 results loaded."),
-    ("Outcome-linked RBF supported by data", f"={VD_FLAGS['own_validated']}=1", "Automatic: validated ownership-at-2x data."),
+     "Automatic: affordability reviewed, no flags, PERFORM and consumer-protection evidence validated, PERFORM_2026 results loaded.", True),
+    ("Outcome-linked RBF supported by data", f"={VD_FLAGS['own_validated']}=1", "Automatic: validated ownership-at-2x data.", False),
     ("Data reconciliation (actual DPD buckets = gross receivables)",
-     f"=AND({INP['credit_mode']}=2,{RF['horizon']}=0,Checks!$C${CHK_ROW['Actual DPD buckets reconcile to gross receivables (Actual mode only)']}=0)", "Automatic: Actual mode, data supplied, buckets reconcile."),
-    ("Lender underwriting pack assembled", None, "Cohort tables, PAYGo PERFORM 2026 KPIs (PERFORM_2026), covenant history, borrowing-base reports."),
+     f"=AND({INP['credit_mode']}=2,{RF['horizon']}=0,Checks!$C${CHK_ROW['Actual DPD buckets reconcile to gross receivables (Actual mode only)']}=0)",
+     "Automatic: Actual mode, data supplied, buckets reconcile.", True),
+    ("Lender underwriting pack assembled", None, "Cohort tables, PAYGo PERFORM 2026 KPIs (PERFORM_2026), covenant history, borrowing-base reports.", False),
 ]
-for n_, (text, auto, ev) in enumerate(GATES):
+HARD_FAIL = [0, 9, 12]  # automatic gates whose failure is a finding against the business or the model, not missing evidence
+for n_, (text, auto, ev, crit) in enumerate(GATES):
     r_ = 7 + n_
     put_calc(irw, f"A{r_}", n_ + 1, FMT_INT)
     label(irw, f"B{r_}", text)
@@ -2487,28 +2615,166 @@ for n_, (text, auto, ev) in enumerate(GATES):
     if auto:
         put_calc(irw, f"E{r_}", f"=IF({auto[1:]},\"Met\",\"Not met\")", "@")
         put_calc(irw, f"F{r_}", f"=IF(E{r_}=\"Met\",1,0)", FMT_INT, bold=True)
+        put_calc(irw, f"L{r_}", "=\"Computed in the model\"", "@")
     else:
         put_input(irw, f"D{r_}", "Not started", "@")
         dv_g.add(f"D{r_}")
-        put_calc(irw, f"F{r_}", f"=IF(D{r_}=\"Met\",1,0)", FMT_INT, bold=True)
+        for c_ in "IJK":
+            put_input(irw, f"{c_}{r_}", None, FMT_DATE if c_ == "K" else "@")
+        put_calc(irw, f"F{r_}", f"=IF(AND(D{r_}=\"Met\",I{r_}<>\"\",J{r_}<>\"\"),1,0)", FMT_INT, bold=True)
+        put_calc(irw, f"L{r_}", (f"=IF(D{r_}<>\"Met\",\"\",IF(F{r_}=1,\"Evidenced\",\"Marked Met without evidence location or sign-off: "
+                                 f"not counted\"))"), "@")
     label(irw, f"G{r_}", ev, size=9, italic=True)
+    label(irw, f"H{r_}", "Yes" if crit else "No", bold=crit)
+    for c_ in "GL":
+        irw[f"{c_}{r_}"].alignment = Alignment(wrap_text=True, vertical="top")
+    irw.row_dimensions[r_].height = 30
 NG = len(GATES)
 GL_ = 7 + NG - 1
+NCRIT = sum(1 for g in GATES if g[3])
 label(irw, "B4", "Gates met")
 put_calc(irw, "C4", f"=SUM(F7:F{GL_})", FMT_INT, bold=True)
 put_calc(irw, "D4", f"=\"of {NG}\"", "@")
-put_calc(irw, "B5", f"=\"INVESTMENT READINESS: \"&C4&\"/{NG} gates met; \"&IF(C4={NG},\"ready for independent validation\","
-                    f"\"not investment grade\")", "@", bold=True)
+# evidence-based decision (M8)
+DR = GL_ + 2
+mb.section(irw, DR, "DECISION RULE (evidence only; no judgement enters these cells)")
+hard = "+".join(f"IF(F{7 + k}=0,1,0)" for k in HARD_FAIL)
+hard_txt = "&".join(f"IF(F{7 + k}=0,\"{GATES[k][0]}; \",\"\")" for k in HARD_FAIL)
+rows_ = [
+    ("Critical gates met", f"=SUMPRODUCT((H7:H{GL_}=\"Yes\")*(F7:F{GL_}=1))", FMT_INT),
+    ("Critical gates", f"={NCRIT}", FMT_INT),
+    ("Failed tests (automatic gates that measure the business or the model)", f"={hard}", FMT_INT),
+    ("Decision", (f"=IF(C{DR + 3}>0,\"STOP\",IF(C4={NG},\"GO\",IF(C{DR + 1}=C{DR + 2},\"CONDITIONAL GO\",\"STOP\")))"), "@"),
+    ("Reason", (f"=IF(C{DR + 3}>0,\"Failed test: \"&LEFT({hard_txt},LEN({hard_txt})-2),IF(C4={NG},\"All {NG} gates met with evidence\","
+                f"IF(C{DR + 1}=C{DR + 2},\"All critical gates met; open gates to set as conditions: \"&({NG}-C4),"
+                f"\"Evidence incomplete: \"&(C{DR + 2}-C{DR + 1})&\" of \"&C{DR + 2}&\" critical gates not met\")))"), "@"),
+]
+for n_, (text, f, fmt) in enumerate(rows_):
+    r_ = DR + 1 + n_
+    label(irw, f"B{r_}", text, bold=n_ >= 3)
+    put_calc(irw, f"C{r_}", f, fmt, bold=True)
+irw[f"C{DR + 4}"].font = Font(name=FONT, bold=True, size=12, color="C00000")
+rule = ["STOP when any failed test exists (master check, covenant breach in the active scenario, negative lifetime contribution in a tier).",
+        "GO only when all gates are met with evidence. CONDITIONAL GO when every critical gate is met; the open gates become conditions.",
+        "Otherwise STOP: evidence incomplete. A STOP on incomplete evidence says the file is not ready for a decision, not that the business fails.",
+        "GO is a statement about the completeness of the evidence for an investment committee. It is never an investment recommendation."]
+for n_, t_ in enumerate(rule):
+    note(irw, f"B{DR + 7 + n_}", t_)
+DECISION = f"Investment_Readiness!$C${DR + 4}"
+DECISION_WHY = f"Investment_Readiness!$C${DR + 5}"
+put_calc(irw, "B5", f"=\"INVESTMENT READINESS: \"&C4&\"/{NG} gates met. Decision: \"&{DECISION}&\" (\"&{DECISION_WHY}&\")\"", "@", bold=True)
 irw["B5"].font = Font(name=FONT, bold=True, color="C00000", size=11)
 READY = "Investment_Readiness!$B$5"
+
+
+
+# =====================================================================
+# FX EXPOSURE (v0.8, M10): currency map, transaction and translation effects (presentation of existing calculations)
+# =====================================================================
+FXR0 = 13
+mb.section(tw, FXR0, "FX EFFECTS (monthly, LCY unless stated; actual FX path compared with the opening rate; feeds FX_Exposure)")
+FXK = ["fx_hw", "fx_tlint", "fx_tlrep", "fx_rbf", "fx_net", "fx_reval", "fx_rev_open", "fx_rev_act", "fx_rev_tr", "fx_ebitda_tr", "fx_pass_rev"]
+for n_, k_ in enumerate(FXK):
+    mb.register(T, k_, FXR0 + 1 + n_)
+fx_open = lambda c: f"{INP['fx0']}/Timeline!{c}$8"
+tref = lambda sh, k, c: mb.ref(sh, k, c, this_sheet=T)
+FX_SPECS = [
+    ("fx_hw", "Transaction: extra cost of USD-linked hardware (COGS and warranty)", "LCY",
+     lambda c: f"=({tref(C_, 'cogs', c)}+{tref(C_, 'warranty', c)})*(1-{fx_open(c)})"),
+    ("fx_tlint", "Transaction: extra interest on the USD term loan", "LCY", lambda c: f"={tref(F, 'tl_int', c)}*(1-{fx_open(c)})"),
+    ("fx_tlrep", "Transaction: extra LCY to repay USD principal", "LCY",
+     lambda c: f"={tref(F, 'tl_rep', c)}-{tref(F, 'tl_rep_usd', c)}*{INP['fx0']}"),
+    ("fx_rbf", "Transaction: extra LCY received on USD-denominated RBF", "LCY", lambda c: f"={tref(O, 'rbfT', c)}*(1-{fx_open(c)})"),
+    ("fx_net", "Net transaction effect on costs and RBF, before price pass-through (negative = cost)", "LCY",
+     lambda c: f"=-{c}{FXR0 + 1}-{c}{FXR0 + 2}-{c}{FXR0 + 3}+{c}{FXR0 + 4}"),
+    ("fx_reval", "Remeasurement: unrealised FX loss on USD debt (FS; non-cash)", "LCY", lambda c: f"={tref(F, 'fx_loss', c)}"),
+    ("fx_rev_open", "Translation: revenue in USD at the opening rate", "USD", lambda c: f"={tref(S, 'rev', c)}/{INP['fx0']}"),
+    ("fx_rev_act", "Translation: revenue in USD at the month's rate", "USD", lambda c: f"={tref(S, 'rev', c)}/Timeline!{c}$8"),
+    ("fx_rev_tr", "Translation effect on revenue in USD (negative = lower in USD)", "USD", lambda c: f"={c}{FXR0 + 8}-{c}{FXR0 + 7}"),
+    ("fx_ebitda_tr", "Translation effect on EBITDA in USD", "USD",
+     lambda c: f"={tref(S, 'ebitda', c)}/Timeline!{c}$8-{tref(S, 'ebitda', c)}/{INP['fx0']}"),
+    ("fx_pass_rev", "Memo: hardware revenue added by price pass-through on new contracts (booked at sale, collected over the tenor)", "LCY",
+     lambda c: f"={tref(S, 'rev_hw', c)}*(1-({INP['fx0']}/Timeline!{c}$8)^{INP['fx_pass']})"),
+]
+for k_, text, unit, fn in FX_SPECS:
+    mb.write_row(tw, mb.r(T, k_), text, unit, lambda i, c, p, fn=fn: fn(c), FMT_NUM, total="sum", bold=k_ == "fx_net")
+
+FXS = "FX_Exposure"
+fxw = mb.sheet(FXS, "FX exposure: currencies, hedging, transaction and translation effects",
+               "Presentation of the model's existing FX calculations. Transaction effects change cash in LCY; translation changes how LCY results "
+               "look in USD; remeasurement of USD debt is a non-cash accounting entry.", tab="00B050")
+for c_, w_ in zip("ABCDEFGH", [54, 14, 22, 22, 14, 14, 14, 14]):
+    fxw.column_dimensions[c_].width = w_
+mb.section(fxw, 4, "A. Currency map (where each item sits and how the model treats it)")
+header_row(fxw, 5, ["Item", "Currency", "Treatment in the model", "", "Year 5 (LCY m)"])
+fxw.merge_cells("C5:D5")
+yref = lambda sh, k: f"={sh}!{col(YEARS)}{mb.r(sh, k)}/1000000"
+CMAP = [
+    ("Revenue: hardware and PAYGo financing", "LCY", "Contract prices in LCY. New contracts are indexed by the pass-through input (Inputs).",
+     yref("Annual", "rev")),
+    ("Customer collections (mobile money)", "LCY", "Collected in LCY from the cohort engine.", f"=SUMIFS({mb.range_(O, 'collT')},{TL_YR},{YEARS})/1000000"),
+    ("PAYGo receivables", "LCY", "Gross receivables in LCY; no USD indexation of existing contracts.", yref("Annual", "grossrec")),
+    ("Hardware (FOB) and freight, duty", "USD", "Converted at the month's FX rate when units are sold; inventory follows COGS.",
+     f"=SUMIFS({mb.range_(C_, 'cogs')},{TL_YR},{YEARS})/1000000"),
+    ("Installation, commissions, opex", "LCY", "Indexed to local inflation.", f"=SUMIFS({mb.range_(C_, 'opex')},{TL_YR},{YEARS})/1000000"),
+    ("RBF", "USD", "Set per unit in USD; received in LCY at the FX rate of the payment month.", yref("Annual", "rbf")),
+    ("USD term loan", "USD", "Remeasured monthly at the closing rate; unrealised FX loss in the income statement.", yref("Annual", "tl")),
+    ("Receivables facility or securitisation", "LCY", "Drawn and repaid in LCY against the borrowing base.", yref("Annual", "rf")),
+    ("Equity", "LCY (investor view in USD)", "Booked in LCY; the investor's IRR and MOIC are measured in USD on Valuation.", yref("Annual", "te")),
+    ("Hedging", "None", "No forward, swap or option is modelled. The depreciation path is a scenario lever (Scenarios).", '=""'),
+]
+for n_, (item, ccy, treat, f) in enumerate(CMAP):
+    r_ = 6 + n_
+    label(fxw, f"A{r_}", item, bold=True)
+    label(fxw, f"B{r_}", ccy)
+    label(fxw, f"C{r_}", treat, size=9)
+    fxw.merge_cells(f"C{r_}:D{r_}")
+    fxw[f"C{r_}"].alignment = Alignment(wrap_text=True, vertical="top")
+    fxw.row_dimensions[r_].height = 30
+    put_calc(fxw, f"E{r_}", f, "#,##0.0;(#,##0.0);\"-\"", link=True)
+r_ = 6 + len(CMAP) + 1
+mb.section(fxw, r_, "B. Exposure and effects by year (active scenario)"); r_ += 1
+header_row(fxw, r_, ["Measure", "Unit"] + [f"Year {y}" for y in range(1, YEARS + 1)] + ["Total"], start_col=1); r_ += 1
+FXY0 = r_
+yc = lambda y: gcl(2 + y)  # C..G
+FXROWS = [
+    ("LCY depreciation against USD (scenario lever)", "% p.a.", lambda y: "=Scenarios!$G$10", FMT_PCT, None),
+    ("FX rate at year end", "LCY / USD", lambda y: f"=INDEX({TL_FX},1,{y * 12})", FMT_NUM2, None),
+    ("Pass-through of depreciation into new-contract prices", "%", lambda y: f"={INP['fx_pass']}", FMT_PCT, None),
+    ("Share of debt in USD at year end", "%",
+     lambda y: f"=IFERROR(Annual!{col(y)}{mb.r(A, 'tl')}/(Annual!{col(y)}{mb.r(A, 'tl')}+Annual!{col(y)}{mb.r(A, 'rf')}),0)", FMT_PCT, None),
+]
+for k_, text, unit in [(k, t, u) for k, t, u, _f in FX_SPECS]:
+    FXROWS.append((text, unit + " m", lambda y, k_=k_: f"=SUMIFS({mb.range_(T, k_)},{TL_YR},{y})/1000000", "#,##0.0;(#,##0.0);\"-\"", "sum"))
+FXR = {}
+for n_, (text, unit, fn, fmt, tot) in enumerate(FXROWS):
+    rr_ = FXY0 + n_
+    label(fxw, f"A{rr_}", text, bold="Net transaction" in text)
+    label(fxw, f"B{rr_}", unit, size=9, color=GREY_TXT)
+    for y in range(1, YEARS + 1):
+        put_calc(fxw, f"{yc(y)}{rr_}", fn(y), fmt, link=True)
+    if tot:
+        put_calc(fxw, f"H{rr_}", f"=SUM(C{rr_}:G{rr_})", fmt, bold=True)
+    FXR[text] = rr_
+FX_NET_TOT = f"FX_Exposure!$H${FXR['Net transaction effect on costs and RBF, before price pass-through (negative = cost)']}"
+FX_USD_DEBT5 = f"FX_Exposure!$G${FXR['Share of debt in USD at year end']}"
+rr_ = FXY0 + len(FXROWS) + 1
+for t_ in ["Transaction effects compare each LCY amount with what it would have been at the opening rate. They are already inside the "
+           "statements; this table isolates them. The USD principal effect is the realised counterpart of the remeasurement loss.",
+           "The pass-through memo row is the offset on the revenue side: new contracts are priced up by the pass-through share of "
+           "depreciation. It is booked at sale and collected over the tenor; the effect on financing income of older contracts is not isolated.",
+           "Translation does not move LCY cash. It changes how LCY revenue and EBITDA look to a USD investor and drives the USD IRR.",
+           "Monthly detail: Timeline, section FX EFFECTS. Stress the path on Scenarios (LCY depreciation) and read the change here and on Valuation."]:
+    note(fxw, f"A{rr_}", t_); rr_ += 1
 
 
 # =====================================================================
 # SENSITIVITY (static snapshot)
 # =====================================================================
 SN = "Sensitivity"
-snw = mb.sheet(SN, "Scenario & sensitivity snapshot (static values)",
-               "Computed at DEFAULT inputs and confirmed by the model's independent recalculation check. Values do NOT update when inputs change.",
+snw = mb.sheet(SN, "Scenario & sensitivity table (static, dated) and the live active case",
+               "Static rows: computed at DEFAULT inputs and recomputed inside this workbook for every case before release (date below). "
+               "They do NOT update when inputs change; the LIVE row does.",
                tab="00B050")
 SENS_METRICS = [("peak_eq_usd", "Peak equity need (USD m)", 1e-6, FMT_NUM2),
                 ("rev5_usd", "Year 5 revenue (USD m)", 1e-6, FMT_NUM2),
@@ -2524,6 +2790,16 @@ for k_ in range(len(SENS_METRICS)):
     snw.column_dimensions[gcl(2 + k_)].width = 16
 snw.row_dimensions[5].height = 32
 SENS_ROW0 = 6
+LIVE_ROW = SENS_ROW0 + 18
+label(snw, f"A{LIVE_ROW - 1}", "LIVE: active case with the current inputs (updates with every change)", bold=True, color=NAVY)
+put_calc(snw, f"A{LIVE_ROW}", "=Scenarios!$G$13", "@", bold=True, link=True)
+LIVE_F = {"peak_eq_usd": H["peak_eq_usd"], "rev5_usd": f"KPIs!${col(YEARS)}${mb.r(K, 'rev_usd')}",
+          "ebitda_m5": f"KPIs!${col(YEARS)}${mb.r(K, 'ebitda_m')}", "cr5": f"KPIs!${col(YEARS)}${mb.r(K, 'cr')}",
+          "ev_usd": VAL["ev_usd"], "irr": VAL["irr"], "moic": VAL["moic"], "breach_months": H["breach_months"]}
+for m, (key, text, scale, fmt) in enumerate(SENS_METRICS):
+    ref_ = LIVE_F[key]
+    f = f"=IF(ISNUMBER({ref_}),{ref_}*{scale},{ref_})" if scale != 1 else f"={ref_}"
+    put_calc(snw, f"{gcl(2 + m)}{LIVE_ROW}", f, fmt, bold=True, link=True)
 
 # =====================================================================
 # GLOSSARY
@@ -2552,7 +2828,7 @@ terms = [
     ("Receivables at risk (RaR)", "Carrying amount of receivables of accounts that have stopped paying (curve-based proxy). The 2021 PAYGo "
      "PERFORM guide (historical) defines RAR by consecutive days unpaid."),
     ("Expected credit loss (ECL)", "Lifetime expected loss recognised at origination from the scenario repayment curve "
-     "(simplified IFRS 9 - no staging)."),
+     "(simplified, no staging). This is an analytical modelling treatment and does not constitute a determination of the applicable accounting treatment under IFRS."),
     ("Recoveries", "Net resale value of repossessed units, recognised as a reduction of credit losses."),
     ("RBF (results-based financing)", "Subsidy paid per verified unit sold, after a verification lag. Recognised as other income when "
      "received (cash basis)."),
@@ -2579,7 +2855,16 @@ terms = [
      "a term structure (here modelled on balance sheet with its own rate, advance haircut and fee)."),
     ("Evidence grades and status", "Grade of the source: A primary official or audited; B institutional or company disclosure; C reputable "
      "secondary; D unverified. Status: what has been verified (Source_Register). Only VERIFIED claims feed Calibration."),
-    ("Investment readiness", "Progress against 23 gates. The model never declares itself investment grade."),
+    ("Investment readiness", "Progress against 23 evidence-based gates and a GO / CONDITIONAL GO / STOP rule driven only by those results. "
+     "GO means the evidence file is complete for a decision; it is never an investment recommendation or a rating."),
+    ("Provenance labels", "MODEL ASSUMPTION (set by the modeller), COMPANY DATA (supplied by the company), EXTERNAL EVIDENCE (from a "
+     "VERIFIED source), CALIBRATED ASSUMPTION (re-estimated from company data or verified evidence), UNVERIFIED (source not yet read)."),
+    ("Actual, assumption, forecast", "ACTUAL: company history on the input templates, never changed by scenario levers. ASSUMPTION: inputs. "
+     "FORECAST: everything computed from the inputs under the active scenario."),
+    ("Accounting treatment", "This is an analytical modelling treatment and does not constitute a determination of the applicable accounting treatment under IFRS. Revenue recognition, ECL, staging and tax are simplified (Chapter 8 of the book)."),
+    ("RBF claim cycle", "Eligibility, claim, verification, disbursement. The working capital gap is subsidy claimed but not yet received (RBF_Engine)."),
+    ("Transaction vs translation (FX)", "Transaction effects change LCY cash (USD hardware, USD debt service, USD RBF). Translation changes "
+     "how LCY results look in USD. Remeasurement of USD debt is a non-cash entry (FX_Exposure)."),
     ("LTV / CAC", "Lifetime contribution before acquisition cost divided by customer acquisition cost."),
     ("Unit IRR", "Annualised IRR of one unit's cash flows: down payment, collections, recoveries and RBF less hardware, installation, "
      "warranty, acquisition and servicing costs."),
@@ -2599,7 +2884,7 @@ iw = inv_ws
 iw.column_dimensions["A"].width = 52
 for c in "BCDEFG":
     iw.column_dimensions[c].width = 17
-label(iw, "A4", "Active scenario"); put_calc(iw, "B4", "=Scenarios!$G$12", "@", bold=True, link=True)
+label(iw, "A4", "Active case"); put_calc(iw, "B4", "=Scenarios!$G$13", "@", bold=True, link=True)
 label(iw, "A5", "Master check"); put_calc(iw, "B5", f"={MASTER}", "@", bold=True, link=True)
 label(iw, "D4", "Model version"); label(iw, "E4", VERSION, bold=True)
 label(iw, "D5", "Currency"); put_calc(iw, "E5", f"={INP['currency']}", "@", link=True)
@@ -2678,11 +2963,97 @@ note(iw, f"A{r_ + 1}", "All default inputs are illustrative. Not investment advi
 # DASHBOARD
 # =====================================================================
 D = "Dashboard"
-dw = mb.sheet(D, "Dashboard", "Charts read from Annual and KPIs (active scenario).", tab="00B050")
-label(dw, "A4", "Active scenario"); put_calc(dw, "B4", "=Scenarios!$G$12", "@", bold=True, link=True)
-label(dw, "A5", "Master check"); put_calc(dw, "B5", f"={MASTER}", "@", bold=True, link=True)
-dw.column_dimensions["A"].width = 30
-dw.column_dimensions["B"].width = 16
+dw = mb.sheet(D, "Dashboard: key metrics", "Active case. Each metric is labelled with its unit and source and rounded for reading; full precision "
+              "stays on the source sheets.", tab="00B050")
+label(dw, "A3", "Active case"); put_calc(dw, "B3", "=Scenarios!$G$13", "@", bold=True, link=True)
+label(dw, "D3", "Master check"); put_calc(dw, "E3", f"={MASTER}", "@", bold=True, link=True)
+dw.column_dimensions["A"].width = 58
+dw.column_dimensions["B"].width = 12
+for c_ in "CDEFG":
+    dw.column_dimensions[c_].width = 12
+dw.column_dimensions["H"].width = 48
+header_row(dw, 5, ["Metric", "Unit", "Year 1", "Year 2", "Year 3", "Year 4", "Year 5", "Source / how to read"])
+F_M = '#,##0.0,,;(#,##0.0,,);"-"'
+F_P = '0.0%;(0.0%);"-"'
+F_C = '#,##0;(#,##0);"-"'
+kp = lambda k: (lambda y: f"=KPIs!{col(y)}{mb.r(K, k)}")
+an = lambda k: (lambda y: f"=Annual!{col(y)}{mb.r(A, k)}")
+one = lambda f: (lambda y: f if y == 1 else None)
+fxe_row = lambda text: (lambda y: f"=FX_Exposure!{gcl(2 + y)}{FXR[text]}")
+DASH = [
+    ("Scale and customers", None),
+    ("New customers (contracts originated in the year)", "#", kp("units"), F_C, "KPIs. One unit sold = one contract."),
+    ("Customers: cumulative contracts originated", "#", lambda y: f"=SUMIFS({mb.range_(O, 'unitsT')},{TL_IDX},\"<=\"&{y * 12})", F_C, "Ops."),
+    ("Active customers (accounts still paying, year end)", "#", kp("active"), F_C, "KPIs."),
+    ("ARPU: revenue per average active account per month", "LCY",
+     lambda y: (f"=IFERROR(KPIs!{col(y)}{mb.r(K, 'rev')}/((" + (f"KPIs!{col(y - 1)}{mb.r(K, 'active')}" if y > 1 else "0")
+                + f"+KPIs!{col(y)}{mb.r(K, 'active')})/2)/12,\"n/a\")"), F_C,
+     "Includes hardware revenue recognised at sale, so it is high in growth years."),
+    ("Profitability", None),
+    ("Revenue", "LCY m", kp("rev"), F_M, "KPIs. Revenue is not cash: see cash conversion."),
+    ("Revenue", "USD m", kp("rev_usd"), F_M, "At average FX (FX_Exposure for translation)."),
+    ("Gross margin", "%", kp("gm"), F_P, "KPIs."),
+    ("EBITDA", "LCY m", kp("ebitda"), F_M, "KPIs. After expected credit losses and RBF income."),
+    ("EBITDA margin", "%", kp("ebitda_m"), F_P, "KPIs."),
+    ("Net income", "LCY m", kp("ni"), F_M, "KPIs."),
+    ("Cash and portfolio", None),
+    ("Cash balance (year end)", "LCY m", kp("cash"), F_M, "Held at the minimum by equity top-ups when needed."),
+    ("PAYGo receivables, gross (year end)", "LCY m", an("grossrec"), F_M, "Annual."),
+    ("PAYGo receivables, net of allowance (year end)", "LCY m", an("netrec"), F_M, "Annual."),
+    ("Operational collection rate (not a PERFORM KPI)", "%", kp("cr"), F_P, "Collected / due, excluding deposits. Never the PERFORM Repayment Rate."),
+    ("PAYGo PERFORM RR PvP, company-reported (portfolio, latest)", "%", one(f"={PF_OUT['pvp']}"), F_P,
+     "PERFORM_2026. Blank in the model's own forecast; only company results count."),
+    ("Receivables at risk / gross receivables (year end)", "%", kp("rar"), F_P, "Proxy; 2021 PERFORM logic (historical)."),
+    ("30+ DPD / gross receivables (year end)", "%", kp("dpd30"), F_P, "Projection (Credit_Engine)."),
+    ("90+ DPD / gross receivables (year end)", "%", kp("dpd90"), F_P, "Projection (Credit_Engine)."),
+    ("Write-off rate (missed / due)", "%", kp("wo"), F_P, "KPIs."),
+    ("Write-offs", "LCY m", lambda y: f"=SUMIFS({mb.range_(O, 'missedT')},{TL_YR},{y})", F_M, "Ops: missed instalments written off."),
+    ("Cash conversion: operating cash flow / EBITDA", "x",
+     lambda y: f"=IF(Annual!{col(y)}{mb.r(A, 'ebitda')}<=0,\"n/a\",Annual!{col(y)}{mb.r(A, 'cfo')}/Annual!{col(y)}{mb.r(A, 'ebitda')})",
+     '0.00"x";(0.00"x")', "Below 1x while receivables grow; n/a when EBITDA is not positive."),
+    ("Funding", None),
+    ("Total debt (year end)", "LCY m", kp("debt"), F_M, "Term loan and receivables facility."),
+    ("Book equity (year end)", "LCY m", an("te"), F_M, "Annual."),
+    ("Cumulative equity invested", "LCY m", kp("eq_cum"), F_M, "Initial equity plus top-ups."),
+    ("Funding requirement: equity top-ups in the year", "LCY m", kp("eq_top"), F_M, "Automatic top-up to hold minimum cash."),
+    ("Peak equity requirement", "USD m", one(f"={H['peak_eq_usd']}"), F_M, "At opening FX (KPIs)."),
+    ("RBF received", "LCY m", an("rbf"), F_M, "RBF_Engine, selected design; claim cycle and working capital gap there."),
+    ("RBF dependency (RBF income / revenue)", "%", kp("rbf_share"), F_P, "KPIs."),
+    ("Returns and timing", None),
+    ("Investor IRR (USD)", "%", one(f"={VAL['irr']}"), F_P, "Valuation. Text when no IRR exists."),
+    ("Investor MOIC (USD)", "x", one(f"={VAL['moic']}"), '0.00"x"', "Valuation."),
+    ("NPV: DCF enterprise value at the discount rate", "USD m", one(f"={VAL['ev_usd']}"), F_M, "Valuation. Check the terminal value share."),
+    ("Break-even: first month with positive EBITDA", "month #", one(f"={H['be_ebitda']}"), F_C, "KPIs."),
+    ("Month from which operating cash flow stays positive", "month #", one(f"={H['be_cfo']}"), F_C, "KPIs."),
+    ("Runway: months before the first equity top-up", "months",
+     one(f"=IFERROR(MATCH(1,{mb.range_(S, 'eqtop_pos')},0)-1,\"No top-up in horizon\")"), F_C,
+     "On initial equity and the debt modelled; 0 = top-up in month 1."),
+    ("FX and readiness", None),
+    ("LCY depreciation against USD (active scenario)", "% p.a.", one("=Scenarios!$G$10"), F_P, "Scenarios."),
+    ("Share of debt in USD (year end)", "%", fxe_row("Share of debt in USD at year end"), F_P, "FX_Exposure."),
+    ("Net FX transaction effect on costs and RBF (before price pass-through)", "LCY m",
+     lambda y: f"=FX_Exposure!{gcl(2 + y)}{FXR['Net transaction effect on costs and RBF, before price pass-through (negative = cost)']}*1000000", F_M,
+     "FX_Exposure. Negative = cost."),
+    ("Investment readiness: gates met", "of 23", one("=Investment_Readiness!$C$4"), F_C, "Investment_Readiness."),
+    ("Investment readiness: decision (evidence only)", "", one(f"={DECISION}"), "@", "GO / CONDITIONAL GO / STOP; never a recommendation."),
+]
+r_ = 6
+for row_ in DASH:
+    if row_[1] is None:
+        mb.section(dw, r_, row_[0]); r_ += 1
+        continue
+    text, unit, fn, fmt, src = row_
+    label(dw, f"A{r_}", text)
+    label(dw, f"B{r_}", unit, size=9, color=GREY_TXT)
+    for y in range(1, YEARS + 1):
+        f = fn(y)
+        if f is not None:
+            put_calc(dw, f"{gcl(2 + y)}{r_}", f, fmt, link=True)
+    label(dw, f"H{r_}", src, size=9, italic=True, color=GREY_TXT)
+    r_ += 1
+note(dw, f"A{r_ + 1}", "Rounded for reading: money in millions to one decimal, ratios to one decimal place, counts to the unit. Single values "
+     "(returns, peaks, timing, readiness) are shown under Year 1.")
+DASH_END = r_ + 1
 
 
 def chart_rows(ch, ws_, keys, sheet_key):
@@ -2693,87 +3064,108 @@ def chart_rows(ch, ws_, keys, sheet_key):
     ch.height, ch.width = 8, 15
 
 
-c1 = BarChart(); c1.title = "Revenue & EBITDA (LCY)"; chart_rows(c1, aw, ["rev", "ebitda"], A); dw.add_chart(c1, "D4")
+c1 = BarChart(); c1.title = "Revenue & EBITDA (LCY)"; chart_rows(c1, aw, ["rev", "ebitda"], A); dw.add_chart(c1, "J5")
 c2 = BarChart(); c2.grouping = "stacked"; c2.overlap = 100
-c2.title = "Units sold by tier"; chart_rows(c2, kpw, [f"units{j}" for j in range(NP)], K); dw.add_chart(c2, "M4")
+c2.title = "Units sold by tier"; chart_rows(c2, kpw, [f"units{j}" for j in range(NP)], K); dw.add_chart(c2, "S5")
 c3 = LineChart(); c3.title = "Collection rate & write-off rate"; chart_rows(c3, kpw, ["cr", "wo"], K)
-c3.y_axis.number_format = "0%"; dw.add_chart(c3, "D21")
+c3.y_axis.number_format = "0%"; dw.add_chart(c3, "J22")
 c4 = LineChart(); c4.title = "Cumulative equity vs total debt (LCY)"; chart_rows(c4, kpw, ["eq_cum", "debt"], K)
-dw.add_chart(c4, "M21")
-note(dw, "A8", "Series order: Revenue, EBITDA | Tier 1..5 | Collection, Write-off | Equity, Debt.")
+dw.add_chart(c4, "S22")
+note(dw, f"A{DASH_END + 1}", "Charts, series order: Revenue, EBITDA | Tier 1..5 | Collection, Write-off | Equity, Debt.")
 
 # =====================================================================
 # COVER
 # =====================================================================
 cts.column_dimensions["A"].width = 30
 cts.column_dimensions["B"].width = 100
-info = [("Model", "SHS / PAYGo Company Financial & Investment Model - MTF Tiers 1-5"),
+info = [("Model", "MODEL 2: PAYGo Company Financial & Investment Model (solar home systems, MTF Tiers 1-5), companion to Book 2, PAYGo Solar Finance"),
         ("Version", f"{VERSION} - development build, generated {date.today().isoformat()}"),
-        ("Status", "Draft for expert review. Default inputs are illustrative. NOT investment grade - see Investment_Readiness."),
-        ("Currency", "Model currency = LCY. Hardware, RBF and term debt in USD, converted at the Timeline FX path."),
+        ("Status", "Draft for expert review. Default inputs are illustrative. Readiness and decision: see Investment_Readiness."),
+        ("Accounting", "This is an analytical modelling treatment and does not constitute a determination of the applicable accounting "
+                       "treatment under IFRS."),
+        ("Currency", "Model currency = LCY. Hardware, RBF and term debt in USD, converted at the Timeline FX path (FX_Exposure)."),
         ("Periodicity", f"Monthly over {MONTHS} months; annual roll-ups on Annual, KPIs and Valuation."),
         ("Master check", None)]
 for k_, (a_, b_) in enumerate(info):
     label(cts, f"A{4 + k_}", a_, bold=True)
     if b_:
         label(cts, f"B{4 + k_}", b_)
-put_calc(cts, "B9", f"={MASTER}", "@", bold=True)
-cts["B9"].font = Font(name=FONT, bold=True, color="C00000")
-label(cts, "A11", "How to use", bold=True, color=NAVY, size=11)
-steps = ["1. Inputs - scenario, macro, volumes, opex, RBF, financing, covenants, valuation (yellow = review first).",
-         "2. Products - five MTF tiers: specification, PAYGo price plan, cost to serve, credit risk, recovery, RBF, advance rate.",
-         "3. Scenarios - Base / Downside / Severe levers.",
-         "4. Read Investment_Summary, then Dashboard, KPIs, Valuation, Covenants and Unit_Economics.",
-         "5. Audit trail: FS -> Ops -> Cohort_T1..T5 -> Curves. Every number traces back to Inputs or Products.",
+        cts[f"B{4 + k_}"].alignment = Alignment(wrap_text=True, vertical="top")
+MC_ROW = 4 + len(info) - 1
+put_calc(cts, f"B{MC_ROW}", f"={MASTER}", "@", bold=True)
+cts[f"B{MC_ROW}"].font = Font(name=FONT, bold=True, color="C00000")
+r_c = MC_ROW + 2
+label(cts, f"A{r_c}", "How to use", bold=True, color=NAVY, size=11)
+steps = ["1. Start: what to input, what the model calculates, what it means and what an investor should look at.",
+         "2. Inputs, Products, Credit_Assumptions, Scenarios (blue cells; yellow = review first; provenance label on every input).",
+         "3. Company history (ACTUAL): Credit_Input, Vintage_Input and PERFORM_2026 section C. Scenario levers never change history.",
+         "4. Read Investment_Summary, Dashboard and Investment_Readiness, then KPIs, Valuation, Covenants, FX_Exposure and Unit_Economics.",
+         "5. Audit trail: FS > Ops > Cohort_T1..T5 > Curves. Every number traces back to an input.",
          "6. The master check must read OK before any output is used."]
 for k_, s_ in enumerate(steps):
-    label(cts, f"B{12 + k_}", s_)
-label(cts, "A19", "Sheet index", bold=True, color=NAVY, size=11)
-cts.column_dimensions["A"].width = 24
-index = [("Cover", "Title page"), ("Investment_Summary", "One-page investment committee / lender summary"),
-         ("Investment_Readiness", "23 readiness gates - never an investment-grade claim"),
-         ("Credit_Assumptions", "DPD buckets, stages, default definition, recovery, eligibility"),
-         ("Consumer_Risk", "Affordability, APR, consumer-protection evidence"),
-         ("Credit_Portfolio", "Credit dashboard (selected data mode)"),
-         ("Vintage_Dashboard", "Cohort coverage, M12 summary, vintage curve"),
-         ("PERFORM_2026", "PAYGo PERFORM 2026 KPIs: company-reported results and labelled approximations"),
-         ("Market_Benchmark", "Scaled PAYGo companies vs this model"),
-         ("Benchmark_Compare", "v0.7: model vs graded peers (min / median / max)"),
-         ("Benchmark_KPIs", "v0.7: derived financial and operational ratios"),
-         ("Benchmark_Matrix", "v0.7: company-year x line item"), ("Benchmark_DB", "v0.7: raw benchmark records (from CSV)"),
-         ("Calibration", "Benchmark-based diagnostics"), ("Company_Cases", "Lessons from scaled PAYGo companies"),
-         ("Source_Register", "Graded market and sector sources"),
-         ("RBF_Engine", "Sales / repayment / ownership-linked / hybrid RBF"),
-         ("Credit_Engine", "Proxy and selected credit metrics by tier"), ("Vintage_Engine", "Cohort KPIs by checkpoint"),
-         ("Credit_Input", "Company portfolio data template"), ("Vintage_Input", "Company cohort data template"),
-         ("Inputs", "Global inputs"), ("Products", "Tiers 1-5: specification, price plans, risk"),
-         ("Scenarios", "Stress levers"), ("Dashboard", "Charts"), ("KPIs", "Portfolio, financial and lender KPIs"),
-         ("Valuation", "DCF and investor IRR / MOIC"), ("Covenants", "Monthly covenant tests"),
-         ("Unit_Economics", "Per-unit economics by tier"), ("Sensitivity", "Static scenario & sensitivity snapshot"),
-         ("Annual", "Annual statements"), ("FS", "Monthly statements"), ("Ops", "Portfolio engine"),
-         ("Costs", "Costs, working capital, capex"), ("Financing", "Equity, term loan, receivables facility"),
-         ("Curves", "Per-unit repayment curves"), ("Cohort_T1", "Vintage matrices (one sheet per tier)"),
-         ("Timeline", "Dates, FX, indices"), ("Glossary", "PAYGo & SHS terms"), ("Checks", "Integrity checks")]
-for k_, (sh, d_) in enumerate(index):
-    cell = cts[f"A{20 + k_}"]
-    cell.value = f"{k_ + 1:02d}  {sh}"
-    cell.hyperlink = f"#'{sh}'!A1"
-    cell.font = Font(name=FONT, color="0563C1", underline="single")
-    label(cts, f"B{20 + k_}", d_)
-base = 20 + len(index) + 1
-label(cts, f"A{base}", "Colour code", bold=True, color=NAVY, size=11)
-label(cts, f"A{base + 1}", "1,000", color=BLUE); label(cts, f"B{base + 1}", "Blue = hard-coded input")
-cts[f"A{base + 2}"] = "1,000"; cts[f"A{base + 2}"].font = Font(name=FONT, color=BLUE)
-cts[f"A{base + 2}"].fill = PatternFill("solid", fgColor="FFFF00"); label(cts, f"B{base + 2}", "Yellow fill = key assumption")
-label(cts, f"A{base + 3}", "1,000"); label(cts, f"B{base + 3}", "Black = formula")
-label(cts, f"A{base + 4}", "1,000", color=GREEN); label(cts, f"B{base + 4}", "Green = link from another sheet")
-label(cts, f"A{base + 6}", "Disclaimer", bold=True, color=NAVY, size=11)
-cts[f"B{base + 6}"] = ("Decision-support tool. Not investment, legal, tax or accounting advice. Default inputs are illustrative. "
-                       "Accounting simplifications (revenue recognition, ECL without staging, tax, valuation) are listed in the "
-                       "user manual. Users are responsible for their inputs and conclusions.")
-cts[f"B{base + 6}"].alignment = Alignment(wrap_text=True, vertical="top")
-cts[f"B{base + 6}"].font = Font(name=FONT, size=9)
-cts.row_dimensions[base + 6].height = 40
+    label(cts, f"B{r_c + 1 + k_}", s_)
+IDX_ROW = r_c + 1 + len(steps) + 1  # sheet index written after the tab order is fixed (write_index)
+SHEET_DESC = {
+    "Cover": "Title page and model status", "Start": "Start here: inputs, calculations, meaning, what to look at",
+    "Contents": "This page: all sheets in tab order",
+    "Investment_Summary": "One-page investment committee and lender summary",
+    "Investment_Readiness": "23 evidence-based gates and the GO / CONDITIONAL GO / STOP rule",
+    "Inputs": "Global inputs with provenance labels", "Products": "Tiers 1-5: specification, price plans, risk, with provenance",
+    "Scenarios": "Stress levers, input set loaded and the scenario architecture",
+    "Credit_Assumptions": "DPD buckets, stages, default definition, recovery, eligibility",
+    "Consumer_Risk": "Affordability, APR, consumer-protection evidence",
+    "Dashboard": "Key metrics by year, labelled and rounded, with charts", "KPIs": "Portfolio, financial and lender KPIs",
+    "Credit_Portfolio": "Credit dashboard (selected data mode)", "Vintage_Dashboard": "Cohort coverage, M12 summary, vintage curve",
+    "PERFORM_2026": "PAYGo PERFORM 2026 KPIs: company-reported results and labelled approximations",
+    "Covenants": "Monthly covenant tests", "Valuation": "DCF and investor IRR / MOIC",
+    "FX_Exposure": "Currency map, hedging, transaction and translation effects",
+    "Unit_Economics": "Per-unit economics by tier", "Sensitivity": "Static scenario and sensitivity table, plus the live active case",
+    "Benchmark_Compare": "Model against graded peers, with comparability warnings",
+    "Benchmark_KPIs": "Derived financial and operational ratios", "Market_Benchmark": "Scaled PAYGo companies against this model (context)",
+    "Calibration": "Diagnostics against VERIFIED references only", "Company_Cases": "Lessons from scaled PAYGo companies",
+    "Source_Register": "Graded sources with verification status", "Benchmark_Matrix": "Company-year by line item",
+    "Benchmark_DB": "Raw benchmark records with period, definition, page and status",
+    "Annual": "Annual statements", "FS": "Monthly statements", "Ops": "Portfolio engine",
+    "RBF_Engine": "RBF designs and the claim cycle (eligibility to disbursement, working capital gap)",
+    "Credit_Engine": "Proxy and selected credit metrics by tier", "Vintage_Engine": "Cohort KPIs by checkpoint",
+    "Costs": "Costs, working capital, capex", "Financing": "Equity, term loan, receivables facility",
+    "Curves": "Per-unit repayment curves", "Credit_Input": "Company portfolio data template (ACTUAL)",
+    "Vintage_Input": "Company cohort data template (ACTUAL)", "Timeline": "Dates, FX path, indices and monthly FX effects",
+    "Glossary": "Terms as implemented in the model", "Checks": "Integrity checks and readiness flags",
+}
+for j in range(NP):
+    SHEET_DESC[f"Cohort_T{j + 1}"] = f"Vintage matrices, Tier {PRODUCTS[j]['tier']}"
+
+
+def write_index(order_):
+    label(cts, f"A{IDX_ROW}", "Sheet index (tab order)", bold=True, color=NAVY, size=11)
+    for k_, sh in enumerate(order_):
+        r_ = IDX_ROW + 1 + k_
+        cell = cts[f"A{r_}"]
+        cell.value = f"{k_ + 1:02d}  {sh}"
+        cell.hyperlink = f"#'{sh}'!A1"
+        cell.font = Font(name=FONT, color="0563C1", underline="single")
+        label(cts, f"B{r_}", SHEET_DESC[sh])
+    base = IDX_ROW + len(order_) + 2
+    label(cts, f"A{base}", "Colour code", bold=True, color=NAVY, size=11)
+    label(cts, f"A{base + 1}", "1,000", color=BLUE); label(cts, f"B{base + 1}", "Blue = hard-coded input")
+    cts[f"A{base + 2}"] = "1,000"; cts[f"A{base + 2}"].font = Font(name=FONT, color=BLUE)
+    cts[f"A{base + 2}"].fill = PatternFill("solid", fgColor="FFFF00"); label(cts, f"B{base + 2}", "Yellow fill = key assumption")
+    label(cts, f"A{base + 3}", "1,000"); label(cts, f"B{base + 3}", "Black = formula")
+    label(cts, f"A{base + 4}", "1,000", color=GREEN); label(cts, f"B{base + 4}", "Green = link from another sheet")
+    for n_, lab_ in enumerate(PROV_LABELS):
+        r_ = base + 5 + n_
+        cts[f"A{r_}"] = lab_
+        cts[f"A{r_}"].font = Font(name=FONT, size=8, bold=True, color="404040")
+        cts[f"A{r_}"].fill = PatternFill("solid", fgColor=PROV_FILL[lab_])
+        label(cts, f"B{r_}", "Provenance label (see Start and Glossary)")
+    label(cts, f"A{base + 11}", "Disclaimer", bold=True, color=NAVY, size=11)
+    cts[f"B{base + 11}"] = ("Decision-support tool. Not investment, legal, tax or accounting advice. Default inputs are illustrative. "
+                            "This is an analytical modelling treatment and does not constitute a determination of the applicable accounting "
+                            "treatment under IFRS. Users are responsible for their inputs and conclusions.")
+    cts[f"B{base + 11}"].alignment = Alignment(wrap_text=True, vertical="top")
+    cts[f"B{base + 11}"].font = Font(name=FONT, size=9)
+    cts.row_dimensions[base + 11].height = 40
 
 
 # =====================================================================
@@ -2815,10 +3207,10 @@ band(15, 15, BRAND_GOLD); cov.row_dimensions[15].height = 5
 band(16, 31, BRAND_GREEN)
 for r_ in range(16, 32):
     cov.row_dimensions[r_].height = 20
-ctext("C18", "VOLUME 2" + (f"  |  {CASE['title']}" if CASE else ""), 12, BRAND_GOLD, bold=True)
+ctext("C18", "MODEL 2  |  BOOK 2, PAYGo SOLAR FINANCE" + (f"  |  {CASE['title']}" if CASE else ""), 12, BRAND_GOLD, bold=True)
 ctext("C20", "SOLAR HOME SYSTEMS", 30, bold=True); cov.row_dimensions[20].height = 40
 ctext("C22", "PAYGo Company Financial & Investment Model", 18); cov.row_dimensions[22].height = 26
-ctext("C24", "From business model to bankability  |  MTF Tiers 1-5  |  Credit, vintage, RBF and benchmark engines", 11, "E3C77A", italic=True)
+ctext("C24", "From business model to investment decision  |  MTF Tiers 1-5  |  Credit, vintage, PERFORM, RBF, FX and benchmark engines", 11, "E3C77A", italic=True)
 ctext("C27", "AUTHOR & IDEATION", 9, BRAND_GOLD, bold=True)
 ctext("C28", AUTHOR, 16, bold=True); cov.row_dimensions[28].height = 24
 ctext("C30", f"Version {VERSION}  |  Development build  |  {date.today().strftime('%d %B %Y')}", 10, "D9D9D9")
@@ -2826,7 +3218,7 @@ band(32, 32, BRAND_GOLD); cov.row_dimensions[32].height = 5
 band(33, 41, BRAND_CREAM)
 ctext("C34", "MODEL STATUS", 9, BRAND_GREEN, bold=True)
 status = [("Master check", f"={MASTER}"), ("Investment readiness", f"={READY}"),
-          ("Active scenario", "=Scenarios!$G$12"),
+          ("Active case", "=Scenarios!$G$13"),
           ("Credit data", f"=IF({INP['credit_mode']}=1,\"Proxy (model curves)\",\"Actual (company data)\")"),
           ("Currency", f"={INP['currency']}&\" (local), USD for hardware, RBF and term debt\"")]
 for n_, (lab, f) in enumerate(status):
@@ -2846,8 +3238,8 @@ cov.conditional_formatting.add("E35", CellIsRule(operator="equal", formula=['"OK
 cov.conditional_formatting.add("E35", CellIsRule(operator="equal", formula=['"ERROR"'], font=Font(name=FONT, bold=True, color="C00000")))
 cov.merge_cells("C43:K45")
 cov["C43"] = ("Decision-support tool. Not investment, legal, tax or accounting advice. Default inputs are illustrative placeholders for a "
-              "fictional company in a fictional market; market data are graded in Source_Register. The model is NOT investment grade "
-              "until company data are loaded and independently validated (see Investment_Readiness).")
+              "fictional company in a fictional market; market data are graded in Source_Register. This is an analytical modelling treatment and does not constitute a determination of the applicable accounting treatment under IFRS. "
+              "Readiness is decided on evidence only (see Investment_Readiness).")
 cov["C43"].font = Font(name=FONT, size=8, italic=True, color=BRAND_GREY)
 cov["C43"].alignment = Alignment(wrap_text=True, vertical="top")
 ctext("C47", f"(c) {date.today().year} {AUTHOR}. All rights reserved.  |  Africa Energy Finance - Business & Financial Models",
@@ -2858,16 +3250,150 @@ cov.page_setup.fitToWidth = 1
 cov.page_setup.fitToHeight = 1
 cov.sheet_properties.pageSetUpPr.fitToPage = True
 
+
+# =====================================================================
+# SCENARIO ARCHITECTURE (v0.8, M12): actual, assumption and forecast kept apart
+# =====================================================================
+hist_n = ("+".join(f"COUNT({ci_range(j, 'gross')})" for j in range(NP)) + "+" + "+".join(f"COUNT({vi_range(j, 'C')})" for j in range(NP))
+          + "+" + "+".join(PF_COUNT))
+mb.section(sw, 18, "Scenario architecture: ACTUAL is never changed by levers; ASSUMPTION is the input set; FORECAST is computed")
+header_row(sw, 19, ["Layer", "Type", "Where it lives", "", "", "", "Status in this workbook"])
+ARCH = [
+    ("Actual (history)", "ACTUAL", "Credit_Input, Vintage_Input, PERFORM_2026 section C; read on Credit_Portfolio and Vintage_Dashboard",
+     f"=IF(({hist_n})>0,\"Loaded (\"&({hist_n})&\" records; levers do not apply)\",\"Not loaded\")"),
+    ("Management case", "ASSUMPTION", "Inputs, Products, Credit_Assumptions as submitted by management",
+     f"=IF({INP['input_set']}=\"Management case\",\"Loaded on the input sheets\",\"Not loaded\")"),
+    ("Calibrated case", "ASSUMPTION (calibrated)", "Same input sheets after re-estimation against actual data and VERIFIED sources (Calibration)",
+     f"=IF({INP['input_set']}=\"Calibrated case\",\"Loaded on the input sheets\",\"Not loaded\")"),
+    ("Base", "FORECAST", "Loaded input set with Base levers (column C)", f"=IF({INP['scenario']}=1,\"Active\",\"\")"),
+    ("Downside", "FORECAST", "Loaded input set with Downside levers (column D)", f"=IF({INP['scenario']}=2,\"Active\",\"\")"),
+    ("Severe stress", "FORECAST", "Loaded input set with Severe levers (column E)", f"=IF({INP['scenario']}=3,\"Active\",\"\")"),
+]
+for n_, (lay, typ, where, st) in enumerate(ARCH):
+    r_ = 20 + n_
+    label(sw, f"A{r_}", lay, bold=True); label(sw, f"B{r_}", typ, size=9)
+    label(sw, f"C{r_}", where, size=9)
+    put_calc(sw, f"G{r_}", st, "@", bold=True)
+note(sw, "A27", "One input set is loaded at a time. The other set is kept outside the workbook (for the worked case: the case file and the "
+     "book's comparison table). History is entered on the input templates only and is never overwritten by forecast levers.")
+
+# =====================================================================
+# START (v0.8, M7)
+# =====================================================================
+stw.column_dimensions["A"].width = 6
+stw.column_dimensions["B"].width = 30
+stw.column_dimensions["C"].width = 92
+stw.column_dimensions["D"].width = 24
+for n_, (lab, f) in enumerate([("Master check", f"={MASTER}"), ("Active case", "=Scenarios!$G$13"),
+                               ("Credit data", f"=IF({INP['credit_mode']}=1,\"PROXY (model curves)\",\"ACTUAL (company data)\")"),
+                               ("Readiness decision", f"={DECISION}&\": \"&{DECISION_WHY}")]):
+    label(stw, f"B{4 + n_}", lab, bold=True)
+    put_calc(stw, f"C{4 + n_}", f, "@", bold=True, link=True)
+
+
+def start_block(r0, title, rows_):
+    mb.section(stw, r0, title)
+    for n_, (sheet_, text) in enumerate(rows_):
+        r_ = r0 + 1 + n_
+        put_calc(stw, f"A{r_}", n_ + 1, FMT_INT)
+        if sheet_:
+            cell = stw[f"B{r_}"]
+            cell.value = sheet_.split(",")[0]
+            cell.hyperlink = f"#'{sheet_.split(',')[0]}'!A1"
+            cell.font = Font(name=FONT, color="0563C1", underline="single")
+            if "," in sheet_:
+                cell.value = sheet_
+        label(stw, f"C{r_}", text)
+        stw[f"C{r_}"].alignment = Alignment(wrap_text=True, vertical="top")
+    return r0 + len(rows_) + 2
+
+
+r_ = start_block(9, "1. WHAT TO INPUT (blue cells; every input carries a provenance label)", [
+    ("Inputs", "Scenario selector, macro and FX, volumes, operating costs, RBF design, working capital, financing, covenants, valuation."),
+    ("Products", "Five tiers: specification, price plan (cash price, deposit, daily rate, tenor), costs, credit risk, recovery, RBF, advance rate."),
+    ("Credit_Assumptions", "Default definition, staging thresholds, borrowing-base eligibility, recovery cost, proxy DPD distribution."),
+    ("Scenarios", "Base, Downside and Severe levers, and which input set is loaded (management or calibrated)."),
+    ("Consumer_Risk", "Affordability review switch and the status of consumer-protection and PERFORM evidence."),
+    ("Credit_Input", "ACTUAL: monthly portfolio history by tier (DPD buckets, write-offs, unlocks). Set the credit data mode to 2."),
+    ("Vintage_Input", "ACTUAL: cohort checkpoints (collections and instalments due) and validated ownership at 2x if available."),
+    ("PERFORM_2026", "ACTUAL: PAYGo PERFORM 2026 results computed by the company on contract-level data (section C)."),
+    ("Investment_Readiness", "Manual gates: status, where the evidence is held, who signed it off and when."),
+])
+r_ = start_block(r_, "2. WHAT THE MODEL CALCULATES", [
+    ("Curves", "Per-unit repayment, default and recovery by account age for each tier."),
+    ("Ops", "Cohorts by month of sale (Cohort_T1..T5): collections, write-offs, receivables, active accounts, RBF."),
+    ("FS", "Monthly income statement, balance sheet and cash flow; Annual rolls them up. The balance sheet balances every month (Checks)."),
+    ("Financing", "Receivables facility drawn within the borrowing base, USD term loan, automatic equity top-up to hold minimum cash."),
+    ("Credit_Engine", "DPD buckets, default, PD and LGD proxies, indicative ECL, borrowing-base eligibility."),
+    ("RBF_Engine", "RBF under the selected design, and the claim cycle from eligibility to disbursement."),
+    ("Valuation", "DCF and the investor's USD IRR and MOIC; Covenants tests the facility terms monthly; FX_Exposure isolates FX effects."),
+])
+r_ = start_block(r_, "3. WHAT THE RESULTS MEAN (read before quoting any number)", [
+    (None, "Revenue is not cash. A PAYGo sale books revenue at once and collects over the tenor: read cash conversion and the funding requirement."),
+    (None, "The operational collection rate is a cash measure. It is not the PAYGo PERFORM Repayment Rate, which only company data can produce."),
+    (None, "ECL, PD and staging are analytical proxies. " + "This is an analytical modelling treatment and does not constitute a determination of the applicable accounting treatment under IFRS."),
+    (None, "Every input is labelled: MODEL ASSUMPTION, COMPANY DATA, EXTERNAL EVIDENCE, CALIBRATED ASSUMPTION or UNVERIFIED (counts below)."),
+    (None, "The readiness decision measures the evidence file. GO is never an investment recommendation; STOP on incomplete evidence is not a verdict on the business."),
+])
+r_ = start_block(r_, "4. WHAT AN INVESTOR SHOULD LOOK AT, IN THIS ORDER", [
+    ("Investment_Summary", "Trajectory, funding requirement, returns, lender view and unit economics on one page."),
+    ("Dashboard", "Key metrics by year, labelled and rounded."),
+    ("Investment_Readiness", "Gates met, missing evidence and the decision with its reason."),
+    ("Sensitivity", "Downside and Severe, and the single levers that move peak equity and IRR the most."),
+    ("Vintage_Dashboard", "Cohort behaviour by tier; then PERFORM_2026 for company-reported KPIs."),
+    ("Covenants", "Months with a breach and the tightest covenant."),
+    ("FX_Exposure", "Which items sit in USD, the hedge position and the transaction effect on cash."),
+    ("Unit_Economics", "Lifetime contribution, LTV / CAC and payback by tier."),
+    ("Checks", "Master check OK and the readiness flags."),
+])
+mb.section(stw, r_, "5. PROVENANCE OF INPUTS (count of labelled inputs)"); r_ += 1
+prov_ranges = sorted({(sh, re.sub(r"\d", "", c_)) for sh, c_ in PROV_CELLS})
+for lab_ in PROV_LABELS:
+    cnt = "+".join(f"COUNTIF({q(sh)}!${cl}$1:${cl}$200,\"{lab_}\")" for sh, cl in prov_ranges)
+    stw[f"B{r_}"] = lab_
+    stw[f"B{r_}"].font = Font(name=FONT, size=8, bold=True, color="404040")
+    stw[f"B{r_}"].fill = PatternFill("solid", fgColor=PROV_FILL[lab_])
+    put_calc(stw, f"D{r_}", "=" + cnt, FMT_INT, bold=True)
+    r_ += 1
+note(stw, f"C{r_ + 1}", "Labels describe where a value comes from. Change the label when you replace a value (for example, from MODEL ASSUMPTION to COMPANY DATA).")
+
+# provenance cells accept the five labels only
+dv_prov = DataValidation(type="list", formula1='"' + ",".join(PROV_LABELS) + '"', allow_blank=False)
+for sh in {sh for sh, _c in PROV_CELLS}:
+    dvp = copy.copy(dv_prov)
+    wb[sh].add_data_validation(dvp)
+    for sh2, c_ in PROV_CELLS:
+        if sh2 == sh:
+            dvp.add(c_)
+
+# data-type tags (ACTUAL / ASSUMPTION / FORECAST) and the accounting statement on the credit sheets
+TAGS = {"Inputs": "ASSUMPTION", "Products": "ASSUMPTION", "Scenarios": "ASSUMPTION", "Credit_Assumptions": "ASSUMPTION",
+        "Consumer_Risk": "ASSUMPTION", "Credit_Input": "ACTUAL", "Vintage_Input": "ACTUAL", "PERFORM_2026": "ACTUAL (section C) and FORECAST approximations",
+        "FS": "FORECAST", "Annual": "FORECAST", "KPIs": "FORECAST", "Ops": "FORECAST", "Costs": "FORECAST", "Financing": "FORECAST",
+        "Valuation": "FORECAST", "Covenants": "FORECAST", "Unit_Economics": "FORECAST", "Curves": "FORECAST", "RBF_Engine": "FORECAST",
+        "Credit_Engine": "FORECAST (Proxy) or ACTUAL (selected block in Actual mode)", "Credit_Portfolio": "FORECAST or ACTUAL (selected data mode)",
+        "Vintage_Engine": "ACTUAL cohorts and FORECAST proxy", "Vintage_Dashboard": "ACTUAL cohorts and FORECAST proxy",
+        "FX_Exposure": "FORECAST", "Dashboard": "FORECAST", "Timeline": "FORECAST"}
+for j in range(NP):
+    TAGS[f"Cohort_T{j + 1}"] = "FORECAST"
+for sh, tag in TAGS.items():
+    wb[sh]["A2"] = f"[{tag}]  " + (wb[sh]["A2"].value or "")
+for sh in ("Credit_Engine", "Credit_Portfolio", "Credit_Assumptions", "FS", "Annual"):
+    wb[sh]["A2"] = wb[sh]["A2"].value + "  This is an analytical modelling treatment and does not constitute a determination of the applicable accounting treatment under IFRS."
+
+
 # =====================================================================
 # ORDER, PRINT SETUP, SNAPSHOT, SAVE
 # =====================================================================
-order = ["Cover", "Contents", "Investment_Summary", "Investment_Readiness", "Inputs", "Products", "Scenarios", "Credit_Assumptions",
+order = ["Cover", "Start", "Contents", "Investment_Summary", "Investment_Readiness", "Inputs", "Products", "Scenarios", "Credit_Assumptions",
          "Consumer_Risk", "Dashboard", "KPIs", "Credit_Portfolio", "Vintage_Dashboard", "PERFORM_2026", "Covenants", "Valuation",
-         "Unit_Economics", "Sensitivity", "Benchmark_Compare", "Benchmark_KPIs", "Market_Benchmark", "Calibration",
+         "FX_Exposure", "Unit_Economics", "Sensitivity", "Benchmark_Compare", "Benchmark_KPIs", "Market_Benchmark", "Calibration",
          "Company_Cases", "Source_Register", "Benchmark_Matrix", "Benchmark_DB",
          "Annual", "FS", "Ops", "RBF_Engine", "Credit_Engine", "Vintage_Engine", "Costs", "Financing", "Curves"] + \
         [f"Cohort_T{j + 1}" for j in range(NP)] + ["Credit_Input", "Vintage_Input", "Timeline", "Glossary", "Checks"]
+assert sorted(order) == sorted(wb.sheetnames), set(order) ^ set(wb.sheetnames)
 wb._sheets = [wb[n] for n in order]
+write_index(order)
 
 
 def fill_snapshot():
@@ -2884,13 +3410,13 @@ def fill_snapshot():
             cell.number_format = fmt
             cell.font = Font(name=FONT, bold=k_ < 3)
     end = SENS_ROW0 + len(cases)
-    note(snw, f"A{end + 1}", f"Table computed on {date.today().strftime('%d %B %Y')} at default inputs. It is refreshed with each release "
-         "of the model; to test your own assumptions use the scenario selector on Inputs.")
+    note(snw, f"A{end + 1}", f"Static table computed on {date.today().strftime('%d %B %Y')} at default inputs and recomputed inside this "
+         "workbook for every case (largest relative difference below one in a billion). To test your own assumptions, read the LIVE row.")
     ch = BarChart(); ch.type = "bar"; ch.title = "Investor IRR by case (static)"
     ch.add_data(Reference(snw, min_col=7, max_col=7, min_row=SENS_ROW0, max_row=end - 1), titles_from_data=False)
     ch.set_categories(Reference(snw, min_col=1, max_col=1, min_row=SENS_ROW0, max_row=end - 1))
     ch.height, ch.width = 9, 18
-    snw.add_chart(ch, f"A{end + 3}")
+    snw.add_chart(ch, f"A{LIVE_ROW + 3}")
 
 
 if CASE:  # load the case's synthetic portfolio history into the data-input templates
@@ -2945,16 +3471,16 @@ for wsx in wb.worksheets:
             v = cell.value
             if isinstance(v, str) and v:
                 cell.value = _clean_formula(v) if v.startswith("=") else _clean_text(v)
-    wsx.oddFooter.left.text = f"Africa Energy Finance | SHS PAYGo Model {VERSION}"
+    wsx.oddFooter.left.text = f"Africa Energy Finance | MODEL 2 PAYGo {VERSION}"
     wsx.oddFooter.center.text = "&A"
     wsx.oddFooter.right.text = "Page &P of &N"
     for part in (wsx.oddFooter.left, wsx.oddFooter.center, wsx.oddFooter.right):
         part.size = 8
         part.font = "Arial"
 wb.calculation = CalcProperties(fullCalcOnLoad=True)
-wb.properties.title = "AEF Volume 2: SHS PAYGo Company Financial & Investment Model"
+wb.properties.title = "AEF Model 2: PAYGo Company Financial & Investment Model"
 wb.properties.creator = "Emmanuel Boujieka Kamga"
-wb.properties.subject = "Africa Energy Finance, Business & Financial Models, Volume 2"
+wb.properties.subject = "Africa Energy Finance, Business & Financial Models, Book 2 (PAYGo Solar Finance)"
 wb.properties.lastModifiedBy = "Emmanuel Boujieka Kamga"
 OUT.parent.mkdir(parents=True, exist_ok=True)
 wb.save(OUT)

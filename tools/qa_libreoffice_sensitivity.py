@@ -4,7 +4,7 @@ Run: python tools/qa_libreoffice_sensitivity.py <work_dir> make ; convert <work_
 python tools/qa_libreoffice_sensitivity.py <work_dir> read"""
 import openpyxl, subprocess, sys, glob, os
 S = sys.argv[1]
-SRC = '/home/user/Boujieka/volumes/02-solar-home-systems/model/AEF_SHS_PAYGo_Model_v0.7.xlsx'
+SRC = '/home/user/Boujieka/volumes/02-solar-home-systems/model/AEF_SHS_PAYGo_Model_v0.8-dev.xlsx'
 CASES = [
  ("Base", {}), ("Downside", {"Inputs!C5": 2}), ("Severe", {"Inputs!C5": 3}),
  ("Base: default hazard x1.5", {"Scenarios!C6": 1.5}),
@@ -31,7 +31,7 @@ else:
     import json
     OUT = [("Peak equity need (USD m)", "KPIs!C57", 1e-6), ("Year 5 revenue (USD m)", "KPIs!I35", 1e-6), ("Year 5 EBITDA margin", "KPIs!I38", 1),
            ("Year 5 collection rate", "KPIs!I19", 1), ("DCF EV (USD m)", "Valuation!C28", 1e-6), ("Investor IRR (USD)", "Valuation!C39", 1),
-           ("Investor MOIC", "Valuation!C40", 1), ("Covenant-breach months", "KPIs!C64", 1), ("Master check", "Checks!C30", None)]
+           ("Investor MOIC", "Valuation!C40", 1), ("Covenant-breach months", "KPIs!C64", 1), ("Master check", "Checks!C44", None)]
     ref = openpyxl.load_workbook(SRC, data_only=False)['Sensitivity']
     res = []
     for i, (name, ch) in enumerate(CASES):
