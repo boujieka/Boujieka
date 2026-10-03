@@ -18,7 +18,7 @@ from app.models.enums import (
     SourceStatus,
     VerificationStatus,
 )
-from app.seed import reference, synthetic
+from app.seed import reference, source_candidates, synthetic
 
 SYNTHETIC_SOURCE_NAME = "Synthetic seed generator"
 
@@ -52,18 +52,26 @@ def load_reference(session: Session) -> dict[str, Country]:
             )
 
     for name, institution, category, iso3 in reference.SOURCES:
-        if session.scalar(select(Source).where(Source.name == name)) is None:
-            session.add(
-                Source(
-                    name=name,
-                    institution=institution,
-                    category=category,
-                    country_id=countries[iso3].country_id if iso3 else None,
-                    base_url=None,
-                    status=SourceStatus.PENDING_CONFIGURATION,
-                    notes="Official URL not yet confirmed by an operator; crawler inactive.",
-                )
+        source = session.scalar(select(Source).where(Source.name == name))
+        if source is None:
+            source = Source(
+                name=name,
+                institution=institution,
+                category=category,
+                country_id=countries[iso3].country_id if iso3 else None,
+                base_url=None,
+                status=SourceStatus.PENDING_CONFIGURATION,
+                notes="Official URL not yet confirmed by an operator; crawler inactive.",
+                crawl_config={},
             )
+            session.add(source)
+        # Proposals only: base_url is set by an operator, never by the seed.
+        candidates = source_candidates.CANDIDATES.get(name, [])
+        source.crawl_config = {
+            **(source.crawl_config or {}),
+            "candidates": candidates,
+            "candidates_checked_on": source_candidates.CHECKED_ON if candidates else None,
+        }
     session.flush()
     return countries
 

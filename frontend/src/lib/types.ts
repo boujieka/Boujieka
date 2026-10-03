@@ -34,6 +34,13 @@ export interface Provenance {
   notes: string | null;
 }
 
+export interface SourceCandidate {
+  url: string;
+  purpose: string;
+  check: "http_200" | "http_403" | "search_only";
+  evidence: string;
+}
+
 export interface SourceOut {
   source_id: number;
   name: string;
@@ -48,6 +55,7 @@ export interface SourceOut {
   last_error: string | null;
   notes: string | null;
   is_synthetic: boolean;
+  candidates: SourceCandidate[];
 }
 
 export interface Country {

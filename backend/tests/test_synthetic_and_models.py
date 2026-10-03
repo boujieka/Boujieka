@@ -187,3 +187,29 @@ class TestConstraints:
         assert sec.data_nature == DataNature.FACT
         assert sec.verification_status == VerificationStatus.UNVERIFIED
         assert sec.is_synthetic is False
+
+
+class TestSourceCandidates:
+    def test_candidates_reference_registered_sources(self):
+        from app.seed.reference import SOURCES
+        from app.seed.source_candidates import CANDIDATES
+
+        names = {name for name, *_ in SOURCES}
+        assert set(CANDIDATES) <= names
+
+    def test_candidates_are_https_and_carry_evidence(self):
+        from app.seed.source_candidates import CANDIDATES
+
+        for entries in CANDIDATES.values():
+            for c in entries:
+                assert c["url"].startswith("https://")
+                assert c["check"] in {"http_200", "http_403", "search_only"}
+                assert c["evidence"] and c["purpose"]
+
+    def test_candidates_loaded_but_never_promoted(self, db):
+        source = db.scalar(select(Source).where(Source.name.like("BEAC%")))
+        assert source.candidates and source.base_url is None
+        assert source.status == SourceStatus.PENDING_CONFIGURATION
+        # Re-running the loader keeps exactly one copy of the candidates.
+        load_reference(db)
+        assert len(source.candidates) == len({c["url"] for c in source.candidates})

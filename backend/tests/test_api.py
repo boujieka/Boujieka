@@ -215,3 +215,10 @@ def test_no_ranking_language(client, path):
 def test_country_sources_ordered_by_priority(client):
     priorities = [s["priority"] for s in get(client, "/countries/KEN", as_of=AS_OF)["sources"]]
     assert priorities == sorted(priorities)
+
+
+def test_sources_expose_unconfirmed_candidates(client):
+    rows = {s["name"]: s for s in get(client, "/sources")}
+    cbk = rows["Central Bank of Kenya — auction results"]
+    assert cbk["base_url"] is None
+    assert any(c["url"].startswith("https://www.centralbank.go.ke/") for c in cbk["candidates"])

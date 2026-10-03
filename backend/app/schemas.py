@@ -195,6 +195,15 @@ class YieldCurve(BaseModel):
     points: list[YieldCurvePoint]
 
 
+class SourceCandidate(BaseModel):
+    """A proposed URL. Unconfirmed: never used for crawling until an operator sets base_url."""
+
+    url: str
+    purpose: str
+    check: str  # http_200 | http_403 | search_only
+    evidence: str
+
+
 class SourceOut(ORM):
     source_id: int
     name: str
@@ -209,6 +218,7 @@ class SourceOut(ORM):
     last_error: str | None
     notes: str | None
     is_synthetic: bool
+    candidates: list[SourceCandidate]
 
 
 class AmountByCurrency(BaseModel):

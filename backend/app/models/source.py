@@ -35,6 +35,11 @@ class Source(TimestampMixin, Base):
     documents: Mapped[list["SourceDocument"]] = relationship(back_populates="source")
 
     @property
+    def candidates(self) -> list[dict[str, str]]:
+        """Proposed URLs awaiting operator confirmation (see app.seed.source_candidates)."""
+        return (self.crawl_config or {}).get("candidates", [])
+
+    @property
     def priority(self) -> int:
         """1 = most authoritative (central bank) … higher = less authoritative."""
         return SOURCE_PRIORITY[self.category]
