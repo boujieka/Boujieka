@@ -23,7 +23,7 @@ Under results based financing, or RBF, the funder pays a fixed amount per verifi
 
 There are four candidates, each further from the sale. A sale is easy to verify, but says nothing about whether the customer will pay. A connection requires the system to be installed and working. SEforALL's Universal Energy Facility is described as paying per verified connection, though that is secondary reporting and its own documents must be read.
 
-Repayment is the first result that carries credit information. Ownership is the closest to the public interest, and the slowest to observe. On a 24 month contract, measured at twice the tenor, the first reading arrives four years after the first sale.
+Repayment is the first result that carries credit information. Ownership is the closest to the public interest, and the slowest to observe. The PAYGo PERFORM 2026 standard defines it as the Ownership Rate at twice the contract term. On a 24 month contract, measured at twice the tenor, the first reading arrives four years after the first sale.
 
 ## Scene 3. Four designs in the workbook
 On screen: RBF_Engine sheet. Mode 1 sales based, mode 2 repayment linked, mode 3 ownership linked, mode 4 hybrid.
@@ -48,7 +48,7 @@ Under repayment linked RBF with an 80 per cent target, A still receives twenty f
 ## Scene 5. Repayment, ownership and hybrids
 On screen: Three short panels. Repayment: definitions. Ownership: timing and evidence. Hybrid: weights total 100 per cent.
 
-Repayment linked RBF lines the programme up with the lender. Both now want cohorts that pay. The data already sit on the lockout platform, but the definitions must be tight. They must say whether deposits count, whether written off accounts stay in the denominator, and whether the rate is measured by cohort at a fixed age or on the portfolio at a calendar date. The PAYGo PERFORM 2026 standard is the natural reference. Its repayment rate excludes deposits and subsidies, keeps written off contracts in, and is computed on contract data. Because subsidies are excluded, RBF can never improve a company's reported repayment rate.
+Repayment linked RBF lines the programme up with the lender. Both now want cohorts that pay. The data already sit on the lockout platform, but the definitions must be tight. They must say whether deposits count, whether written off accounts stay in the denominator, and whether the rate is measured by cohort at a fixed age or on the portfolio at a calendar date. The PAYGo PERFORM 2026 standard is the natural reference. Its repayment rate excludes deposits and subsidies, keeps written off contracts in, and is cumulative from contract start, computed on contract data. A collection rate is not a substitute. Because subsidies are excluded, RBF can never improve a company's reported repayment rate.
 
 Ownership linked RBF has two weaknesses. The company waits years for the cash, and ownership is hard to prove, because an unlock can follow a settlement or a goodwill gesture. The workbook is strict. Mode 3 pays zero until validated ownership data sit in Vintage_Input and the evidence switch is set to 1.
 

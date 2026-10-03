@@ -9,7 +9,7 @@ This document holds the full narration of every module, with the screen directio
 | Module | Title | Running time | Words narrated | Media |
 |---|---|---|---|---|
 | 0 | Welcome: how the course, the book, the model and the tools fit together | 10:33 | 1,408 | Narration, AEF_V2_Module_00.mp3 |
-| 1 | The PAYGo business: retailer, utility and lender | 10:31 | 1,376 | Narration, AEF_V2_Module_01.mp3 |
+| 1 | The PAYGo business: retailer, utility and lender | 10:41 | 1,399 | Narration, AEF_V2_Module_01.mp3 |
 | 2 | Market, customers and affordability | 9:41 | 1,302 | Narration, AEF_V2_Module_02.mp3 |
 | 3 | The regulatory checklist | 10:16 | 1,299 | Narration, AEF_V2_Module_03.mp3 |
 | 4 | Product and price plan design | 9:53 | 1,299 | Narration, AEF_V2_Module_04.mp3 |
@@ -19,14 +19,14 @@ This document holds the full narration of every module, with the screen directio
 | 8 | Revenue recognition and credit losses | 10:31 | 1,363 | Narration, AEF_V2_Module_08.mp3 |
 | 9 | Unit economics | 9:50 | 1,283 | Narration, AEF_V2_Module_09.mp3 |
 | 10 | Working capital, inventory and FX | 9:34 | 1,299 | Narration, AEF_V2_Module_10.mp3 |
-| 11 | Funding the book: equity, debt and receivables facilities | 9:39 | 1,319 | Narration, AEF_V2_Module_11.mp3 |
-| 12 | Securitisation and off balance sheet structures | 9:54 | 1,305 | Narration, AEF_V2_Module_12.mp3 |
-| 13 | RBF, subsidies and affordability | 9:48 | 1,320 | Narration, AEF_V2_Module_13.mp3 |
+| 11 | Funding the book: equity, debt and receivables facilities | 9:49 | 1,339 | Narration, AEF_V2_Module_11.mp3 |
+| 12 | Securitisation and off balance sheet structures | 9:53 | 1,306 | Narration, AEF_V2_Module_12.mp3 |
+| 13 | RBF, subsidies and affordability | 10:01 | 1,347 | Narration, AEF_V2_Module_13.mp3 |
 | 14 | Stress testing | 9:43 | 1,294 | Narration, AEF_V2_Module_14.mp3 |
 | 15 | The investor view: due diligence and the investment memo | 11:16 | 1,450 | Narration, AEF_V2_Module_15.mp3 |
-| 16 | Case walk through: SolaraPay | 12:02 | 1,589 | Narration, AEF_V2_Module_16.mp3 |
+| 16 | Case walk through: SolaraPay | 12:16 | 1,617 | Narration, AEF_V2_Module_16.mp3 |
 | 17 | Using MODEL 2, step by step | 17:33 | 2,304 | Video, MP4, 1920 by 1080, subtitles and chapters |
-| | Total | 3 h 12 min | 25,289 | |
+| | Total | 3 h 12 min | 25,388 | |
 
 ## Conventions
 
@@ -144,7 +144,7 @@ Your exercise before Module 1 is practical. Open MODEL 2 in its default state. G
 
 # Module 1. The PAYGo business: retailer, utility and lender
 
-Running time: 10:31. Book: Chapter 1. Model sheets: Dashboard, KPIs, Unit_Economics, Credit_Portfolio, Vintage_Dashboard, Checks, Investment_Readiness. Templates and tools: T08 PAYGo business model canvas, D2 Unit economics calculator.
+Running time: 10:41. Book: Chapter 1. Model sheets: Dashboard, KPIs, Unit_Economics, Credit_Portfolio, Vintage_Dashboard, Checks, Investment_Readiness. Templates and tools: T08 PAYGo business model canvas, D2 Unit economics calculator.
 
 ### Learning objectives
 1. Separate a PAYGo company into its retail, service and lending businesses and name the numbers that belong to each.
@@ -218,7 +218,7 @@ Any month's results blend cohorts of different ages. A falling portfolio collect
 
 So the course treats the cohort, or vintage, as the primary object of analysis. A cohort is the contracts originated in the same month, by tier. Its repayment curve, read against plan at the same age, is the most direct evidence that underwriting works. The receivables book is the company's largest asset and the collateral for its debt.
 
-PAYGo PERFORM is the industry's reporting standard. Its current version, the technical guide published by GOGLA in June 2026, defines five KPIs, or key performance indicators, on repayment and ownership. They are computed from a company's own contract data, and the workbook accepts them only as the company reports them. The sector evidence is sobering, although it still has to be read in the original. The ESMAP Off-Grid Solar Market Trends Report 2024 is reported to give an average PAYGo collection rate of about 62 per cent for 2021 to 2023. That figure is pending the primary document, and it is a collection rate, not a PERFORM repayment rate.
+PAYGo PERFORM is the industry's reporting standard. Its current version, the technical guide published by GOGLA in June 2026, defines five KPIs, or key performance indicators, on repayment and ownership. They are computed by the company on its own contract data. The workbook keeps the older ratios, such as the collection rate, as operational and lender metrics, each with its definition printed, and reports PERFORM 2026 figures only when the company supplies them. The sector evidence is sobering, although it still has to be read in the original. The ESMAP Off-Grid Solar Market Trends Report 2024 is reported to give an average PAYGo collection rate of about 62 per cent for 2021 to 2023. That figure is pending the primary document, and it is a collection rate, not a PERFORM repayment rate.
 
 ### Scene 8. How PAYGo companies fail
 > On screen: *Three failure modes. Growth outruns funding. Credit drift. Foreign exchange.*
@@ -1044,7 +1044,7 @@ Open the D4 receivables financing calculator on its default Tier 2 plan and note
 
 # Module 11. Funding the book: equity, debt and receivables facilities
 
-Running time: 9:39. Book: Chapter 11. Model sheets: Inputs, Products, Credit_Assumptions, Credit_Portfolio, Covenants, KPIs, Credit_Input, Vintage_Input, Sensitivity. Templates and tools: T07 Borrowing base and term sheet, T05 Lender KPI report, D4 Receivables financing calculator.
+Running time: 9:49. Book: Chapter 11. Model sheets: Inputs, Products, Credit_Assumptions, Credit_Portfolio, Covenants, KPIs, Credit_Input, Vintage_Input, Sensitivity. Templates and tools: T07 Borrowing base and term sheet, T05 Lender KPI report, D4 Receivables financing calculator.
 
 ### Learning objectives
 1. Match each layer of the funding stack to the evidence a PAYGo company can show at each stage, and explain the three jobs of equity.
@@ -1100,7 +1100,7 @@ A migration of about 3.4 per cent of the book has removed more than 70 per cent 
 ### Scene 7. Covenants that fit a growing book
 > On screen: *Covenants sheet defaults: collection rate 70 per cent, receivables at risk 15 per cent, 30 plus DPD 25 per cent, 90 plus DPD 18 per cent, headroom zero, debt to equity 3.0 times, DSCR 1.20 times.*
 
-The model's default covenants are a trailing three month collection rate of at least 70 per cent, receivables at risk of no more than 15 per cent, 30 plus DPD of no more than 25 per cent, 90 plus DPD of no more than 18 per cent, non negative headroom, debt to book equity of no more than 3.0 times, and an annual DSCR, the debt service coverage ratio, of at least 1.20 times. These are operational and lender metrics, not PAYGo PERFORM KPIs, so each definition must be written into the facility agreement. The PERFORM 2026 KPIs, on repayment and ownership, belong in the monthly reporting once the company computes them on its own contract data.
+The model's default covenants are a trailing three month collection rate of at least 70 per cent, receivables at risk of no more than 15 per cent, 30 plus DPD of no more than 25 per cent, 90 plus DPD of no more than 18 per cent, non negative headroom, debt to book equity of no more than 3.0 times, and an annual DSCR, the debt service coverage ratio, of at least 1.20 times. These are operational and lender metrics, not PAYGo PERFORM KPIs. The 2026 standard forbids presenting a collection rate as the repayment rate, so the facility documents should print the definition of every covenant ratio, rather than borrow the company's internal dashboard. The PERFORM 2026 repayment rate can be added as a reporting line once the company computes it on its own contract data.
 
 DSCR is ill suited to a growing book. Lending to new customers runs through operating cash flow, so coverage falls when growth accelerates, whatever the book's quality. SolaraPay's calibrated Base sits below 1.20 times in Years 1 to 4 while every portfolio covenant holds. Portfolio covenants with a cash sweep work better. A cure period, often one or two test dates, should be long enough for a collections plan to show results. Equity cures suit leverage covenants, not collection covenants, because new equity does not change how customers pay.
 
@@ -1122,7 +1122,7 @@ Open the T07 borrowing base certificate on its worked example and confirm the ba
 
 # Module 12. Securitisation and off balance sheet structures
 
-Running time: 9:54. Book: Chapter 12. Model sheets: Inputs, Products, Credit_Assumptions, Credit_Portfolio, Sensitivity, Credit_Input, Vintage_Input, Investment_Readiness. Templates and tools: T06 Loan tape and data request, T07 Borrowing base and term sheet, T02 Due diligence checklist.
+Running time: 9:53. Book: Chapter 12. Model sheets: Inputs, Products, Credit_Assumptions, Credit_Portfolio, Sensitivity, Credit_Input, Vintage_Input, Investment_Readiness. Templates and tools: T06 Loan tape and data request, T07 Borrowing base and term sheet, T02 Due diligence checklist.
 
 ### Learning objectives
 1. Explain how a true sale to an SPV, tranching, overcollateralisation, excess spread and triggers protect noteholders, and why the servicer matters so much in PAYGo.
@@ -1165,7 +1165,7 @@ Triggers change the flow of cash when performance slips. The most important is e
 
 The servicer is the originator, because only it runs the platform and the agents. A backup servicer is appointed at closing. A cold backup holds the contract and would need months. A warm backup receives regular data and could take over in weeks. The test is simple: a backup that cannot keep devices unlocked for paying customers cannot protect collections.
 
-Investors analyse the pool through a loan level data tape. It must cover vintages that have reached full tenor, reconcile monthly to the audited accounts, and use stable definitions for the operational metrics, with repayment and ownership rates computed under the PAYGo PERFORM 2026 standard.
+Investors analyse the pool through a loan level data tape. It must cover vintages that have reached full tenor, reconcile monthly to the audited accounts, and print every definition and keep it stable over time, with repayment and ownership rates following the PAYGo PERFORM 2026 standard.
 
 ### Scene 5. Local currency issuance and the legal questions
 > On screen: *Reported transactions, with caveats: Sun King, Kenya, 2023 and 2025. d.light, five facilities since 2020. Legal checklist: true sale, assignment, SPV tax, data, licences.*
@@ -1199,7 +1199,7 @@ Open the T06 loan tape template and load a sample of your own company's accounts
 
 # Module 13. RBF, subsidies and affordability
 
-Running time: 9:48. Book: Chapter 13. Model sheets: Inputs (RBF block), RBF_Engine, Vintage_Input, Consumer_Risk, Unit_Economics, Sensitivity, Checks. Templates and tools: D1 Price plan and APR calculator, D2 Unit economics calculator.
+Running time: 10:01. Book: Chapter 13. Model sheets: Inputs (RBF block), RBF_Engine, Vintage_Input, Consumer_Risk, Unit_Economics, Sensitivity, Checks. Templates and tools: D1 Price plan and APR calculator, D2 Unit economics calculator.
 
 ### Learning objectives
 1. Distinguish the four results a PAYGo subsidy can pay for and the incentive each one creates.
@@ -1222,7 +1222,7 @@ Under results based financing, or RBF, the funder pays a fixed amount per verifi
 
 There are four candidates, each further from the sale. A sale is easy to verify, but says nothing about whether the customer will pay. A connection requires the system to be installed and working. SEforALL's Universal Energy Facility is described as paying per verified connection, though that is secondary reporting and its own documents must be read.
 
-Repayment is the first result that carries credit information. Ownership is the closest to the public interest, and the slowest to observe. On a 24 month contract, measured at twice the tenor, the first reading arrives four years after the first sale.
+Repayment is the first result that carries credit information. Ownership is the closest to the public interest, and the slowest to observe. The PAYGo PERFORM 2026 standard defines it as the Ownership Rate at twice the contract term. On a 24 month contract, measured at twice the tenor, the first reading arrives four years after the first sale.
 
 ### Scene 3. Four designs in the workbook
 > On screen: *RBF_Engine sheet. Mode 1 sales based, mode 2 repayment linked, mode 3 ownership linked, mode 4 hybrid.*
@@ -1247,7 +1247,7 @@ Under repayment linked RBF with an 80 per cent target, A still receives twenty f
 ### Scene 5. Repayment, ownership and hybrids
 > On screen: *Three short panels. Repayment: definitions. Ownership: timing and evidence. Hybrid: weights total 100 per cent.*
 
-Repayment linked RBF lines the programme up with the lender. Both now want cohorts that pay. The data already sit on the lockout platform, but the definitions must be tight. They must say whether deposits count, whether written off accounts stay in the denominator, and whether the rate is measured by cohort at a fixed age or on the portfolio at a calendar date. The PAYGo PERFORM 2026 standard is the natural reference. Its repayment rate excludes deposits and subsidies, keeps written off contracts in, and is computed on contract data. Because subsidies are excluded, RBF can never improve a company's reported repayment rate.
+Repayment linked RBF lines the programme up with the lender. Both now want cohorts that pay. The data already sit on the lockout platform, but the definitions must be tight. They must say whether deposits count, whether written off accounts stay in the denominator, and whether the rate is measured by cohort at a fixed age or on the portfolio at a calendar date. The PAYGo PERFORM 2026 standard is the natural reference. Its repayment rate excludes deposits and subsidies, keeps written off contracts in, and is cumulative from contract start, computed on contract data. A collection rate is not a substitute. Because subsidies are excluded, RBF can never improve a company's reported repayment rate.
 
 Ownership linked RBF has two weaknesses. The company waits years for the cash, and ownership is hard to prove, because an unlock can follow a settlement or a goodwill gesture. The workbook is strict. Mode 3 pays zero until validated ownership data sit in Vintage_Input and the evidence switch is set to 1.
 
@@ -1459,7 +1459,7 @@ Your exercise uses the D6 Investor returns calculator, which opens on the Solara
 
 # Module 16. Case walk through: SolaraPay
 
-Running time: 12:02. Book: Chapter 16. Model sheets: Credit_Input, Vintage_Input, Credit_Assumptions, Credit_Portfolio, Vintage_Dashboard, Products, Unit_Economics, Consumer_Risk, Dashboard, KPIs, Covenants, Valuation, Benchmark_Compare, Calibration, Investment_Readiness. Templates and tools: case workbook SolaraPay_Case_Model_v0.8-dev, D3 Repayment curve and cohort calibration, D6 Investor returns calculator, T01 Investment committee memorandum, T06 Loan tape specification and data request, T07 Borrowing base certificate and term sheet checklist.
+Running time: 12:16. Book: Chapter 16. Model sheets: Credit_Input, Vintage_Input, Credit_Assumptions, Credit_Portfolio, Vintage_Dashboard, Products, Unit_Economics, Consumer_Risk, Dashboard, KPIs, Covenants, Valuation, Benchmark_Compare, Calibration, Investment_Readiness. Templates and tools: case workbook SolaraPay_Case_Model_v0.8-dev, D3 Repayment curve and cohort calibration, D6 Investor returns calculator, T01 Investment committee memorandum, T06 Loan tape specification and data request, T07 Borrowing base certificate and term sheet checklist.
 
 ### Learning objectives
 1. Apply the method end to end: load history before touching projections, recalibrate, and read unit economics and affordability.
@@ -1529,7 +1529,7 @@ Tier 4 and 5 credit is the largest unproven risk. Doubling their hazard roughly 
 
 The discounted cash flow, or DCF, gives an enterprise value of six point one million dollars at 22 per cent, below the eight million pre money. A third of exit equity of forty two point nine million dollars gives a multiple of about 3.6 times and an IRR of about 29.0 per cent. The entry price is a position on the exit multiple and on credit quality, and the fund should protect both.
 
-For the bank, the covenants hold in the calibrated Base, but barely. The lowest trailing three month collection rate is 70.0 per cent against a 70 per cent minimum, so there is no headroom. On actual data, with 69.3 per cent over the second year and 66.5 per cent in the latest month, a 70 per cent covenant would very likely be breached at the first test date. The bank can set the covenant at a level the book can meet, such as 65 per cent with a cure period, or defer the facility. The debt service coverage ratio sits below 1.20 times in Years 1 to 4, so portfolio covenants should replace it.
+For the bank, the covenants hold in the calibrated Base, but barely. The lowest trailing three month collection rate is 70.0 per cent against a 70 per cent minimum, so there is no headroom. On actual data, with 69.3 per cent over the second year and 66.5 per cent in the latest month, a 70 per cent covenant would very likely be breached at the first test date. The bank can set the covenant at a level the book can meet, such as 65 per cent with a cure period, or defer the facility. The debt service coverage ratio sits below 1.20 times in Years 1 to 4, so portfolio covenants should replace it. Monthly reporting should cover the operational and lender metrics, each with its definition printed, and the PERFORM 2026 KPIs once the company computes them on its contract data.
 
 ### Scene 8. Benchmarks and the recommendation
 > On screen: *Benchmarks: no verified reference, M-KOPA comparison withdrawn. ECL to financing revenue 1.28 times. Analyst: Conditional Go, seven conditions. Workbook: 5 of 23 gates, STOP on incomplete evidence.*

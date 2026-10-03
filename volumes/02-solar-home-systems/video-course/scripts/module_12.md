@@ -43,7 +43,7 @@ Triggers change the flow of cash when performance slips. The most important is e
 
 The servicer is the originator, because only it runs the platform and the agents. A backup servicer is appointed at closing. A cold backup holds the contract and would need months. A warm backup receives regular data and could take over in weeks. The test is simple: a backup that cannot keep devices unlocked for paying customers cannot protect collections.
 
-Investors analyse the pool through a loan level data tape. It must cover vintages that have reached full tenor, reconcile monthly to the audited accounts, and use stable definitions for the operational metrics, with repayment and ownership rates computed under the PAYGo PERFORM 2026 standard.
+Investors analyse the pool through a loan level data tape. It must cover vintages that have reached full tenor, reconcile monthly to the audited accounts, and print every definition and keep it stable over time, with repayment and ownership rates following the PAYGo PERFORM 2026 standard.
 
 ## Scene 5. Local currency issuance and the legal questions
 On screen: Reported transactions, with caveats: Sun King, Kenya, 2023 and 2025. d.light, five facilities since 2020. Legal checklist: true sale, assignment, SPV tax, data, licences.

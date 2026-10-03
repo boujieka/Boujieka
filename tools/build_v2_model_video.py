@@ -29,7 +29,7 @@ OUTD = ROOT / "volumes/02-solar-home-systems/video-course"
 MODEL = ROOT / "volumes/02-solar-home-systems/model/AEF_SHS_PAYGo_Model_v0.8-dev.xlsx"
 CASE = ROOT / "volumes/02-solar-home-systems/case-study/SolaraPay_Case_Model_v0.8-dev.xlsx"
 # evaluated values: full recalculations of the same workbooks saved with their values
-VALS = {"model": (MODEL, SCR / "lo/s4out/fm.xlsx"), "case": (CASE, SCR / "lo/s4out/fc.xlsx")}
+VALS = {"model": (MODEL, SCR / "lo/s5out/fm.xlsx"), "case": (CASE, SCR / "lo/s5out/fc.xlsx")}
 W, H = 1920, 1080
 GREEN, GOLD = "#0B3020", "#B07C0F"
 
@@ -211,7 +211,8 @@ def render(book, sheet, rng, highlights, caption, step, select=None):
             elif al in ("center", "centerContinuous"):
                 ts.append("justify-content:center")
             if wrap:
-                ts.append("white-space:normal;align-items:flex-start;line-height:1.15")
+                va = cell.alignment.vertical if cell.alignment is not None else None
+                ts.append("white-space:normal;line-height:1.15;align-items:" + ("center" if va == "center" else "flex-start"))
             cells.append(f'<div class="c" style="{";".join(ts)}">{html.escape(txt)}</div>')
     # images anchored in the range (logo on the cover)
     for img in getattr(ws, "_images", []):
@@ -549,9 +550,10 @@ title("BOOK 2  |  VIDEO COURSE", "Twelve steps, one discipline", "Load the compa
 
 # ------------------------------------------------------------------ build
 def build():
-    if WORK.exists():
-        shutil.rmtree(WORK)
-    WORK.mkdir(parents=True)
+    WORK.mkdir(parents=True, exist_ok=True)
+    for f in WORK.iterdir():  # keep narration (wav and its text key) so unchanged scenes are not re-voiced
+        if f.is_file() and f.suffix not in (".wav", ".txt"):
+            f.unlink()
     OUTD.mkdir(parents=True, exist_ok=True)
     books = {k: Book(k) for k in ("model", "case")}
     focus = []
