@@ -171,7 +171,7 @@ The *Scenarios* sheet separates six layers: Actual (history, typed ACTUAL), Mana
 | 90+ DPD | At most 18% | |
 | Borrowing base headroom | At least zero | Tested monthly |
 | Debt to book equity | At most 3.0x | Book equity depends on ECL methodology |
-| Annual DSCR | At least 1.20x | Ill suited to a growing book; prefer portfolio covenants |
+| Annual DSCR | At least 1.20x | Ill suited to a growing book; prefer portfolio covenants. Basis on Inputs, Covenant definition: 0 none, 1 operating cash flow (default), 2 cash basis excluding growth in receivables |
 
 ## Rules for setting them
 

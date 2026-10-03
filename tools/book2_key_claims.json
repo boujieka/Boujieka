@@ -263,13 +263,13 @@
  },
  {
   "ref": "K22",
-  "claim": "Workbook has 47 sheets and about 100,900 formulas",
+  "claim": "Workbook has 47 sheets and about 101,500 formulas",
   "where": "Ch 1.7",
   "cls": "MODEL FACT",
   "wb": "Model v0.8-dev, default inputs",
   "sheet": "all",
   "cell": "n/a",
-  "value": "47 sheets; 100,857 formulas",
+  "value": "47 sheets; 101,517 formulas",
   "source": "Count of the v0.8-dev file (LibreOffice recalculation)",
   "status": "VERIFIED"
  },

@@ -26,7 +26,7 @@ The credit loss, staging and revenue treatments are analytical. This is an analy
 | Item | Value |
 |---|---|
 | Model version | v0.8 (development build); the file name stays `v0.8-dev` until the Excel test is complete |
-| Size | 47 sheets, about 100,900 formulas, no macros, no external links |
+| Size | 47 sheets, about 101,500 formulas, no macros, no external links |
 | Integrity | Master check OK on 38 tests; no circular references. Outputs agree with a secondary calculation of the full model to rounding precision, with an independent formula engine, and with a full recalculation in LibreOffice. The test in Microsoft Excel is pending |
 | Projections | Identical to v0.7: at default inputs, Base investor IRR 46.4% and MOIC 6.72x |
 | Readiness at default inputs | 2 of 23 gates met (2 of 13 critical). Decision: STOP (failed test: gate 10, covenant breach, because the annual DSCR is below 1.2x in Years 1 to 4) |
@@ -99,6 +99,10 @@ Every page of the workbook carries a printed footer with the sheet name and page
 
 **Provenance columns.** Every input carries a provenance label: column E on *Inputs*, the Provenance column (column I) on *Products*, column E on *Credit_Assumptions* and column I on the *Scenarios* levers.
 
+**Covenant definition** (end of *Inputs*). One input states whether the facility terms contain a DSCR covenant and on what basis: 0 = none, 1 = operating cash flow basis (default, the test as usually drafted), 2 = cash basis excluding growth in PAYGo receivables. The DSCR row on *KPIs* follows the basis; the DSCR breach flag and readiness gate 10 count the DSCR only when the basis is above 0 (Step 11b).
+
+**Period end of the data shown** (*Credit_Portfolio* row 9). The month end date of each column: the company's observation dates in Actual mode, not model months.
+
 **Company history block on Credit_Portfolio** (rows 34 to 41). Months of history loaded in *Credit_Input* and the operational collection rate for history months 1 to 12, 13 to 24, 25 to 36 and the latest 12 months, independent of the selected data mode; "n/a" when the history is shorter.
 
 ## Conventions
@@ -114,6 +118,7 @@ Every page of the workbook carries a printed footer with the sheet name and page
 | Type tag | The subtitle of each input, output and engine sheet opens with its type in brackets: [ASSUMPTION], [FORECAST] or [ACTUAL], or a combination where a sheet mixes them. |
 | Monthly sheets | Column A label, B unit, C total or closing value, D opening balance, E onwards months 1 to 60. |
 | Currency | The model currency is the local currency, labelled on *Inputs*. Hardware, RBF and the term loan are denominated in USD and translated along the FX path on *Timeline*; *FX_Exposure* isolates the effects. |
+| Input validation | Every input with a rule blocks an invalid entry with an error alert: selectors and switches (scenario, input set, credit data mode, RBF mode and switch, ownership evidence switch, exit method, affordability reviewed, DSCR basis) accept only their listed values, rates and shares 0 to 1, amounts zero or above. If an invalid scenario or RBF mode is pasted past the rule, the selector is clamped for calculation so that no error values spread through the outputs, but the checks still read ERROR. |
 | Signs | Revenue and assets positive; costs negative on the statements; percentages stored as fractions. |
 
 ### Provenance labels
@@ -134,48 +139,48 @@ ACTUAL is company history on the input templates (*Credit_Input*, *Vintage_Input
 
 ## Integrity controls
 
-The *Checks* sheet runs 38 integrity tests. Each returns 0 when it passes, and they roll up into a master check (*Checks* cell C44) displayed on the Cover, Start, Contents, the Dashboard and the Investment summary.
+The *Checks* sheet runs 38 integrity tests. Each returns 0 when it passes, and they roll up into a master check (*Checks* cell C44) displayed on the Cover, Start, Contents, the Dashboard and the Investment summary. Test 22 (row 26) confirms that structural and range inputs are valid: selectors and switches; an opening FX rate above zero; depreciation life, lags, and the loan drawdown, grace and amortisation months within the horizon; rates, shares, hazards, collection and advance rates from 0 to 1; amounts and prices not negative. Test 15 (row 19) confirms that the *Credit_Input* data are usable, and tests 32 and 33 (rows 36 and 37) read row check columns on *Vintage_Input* that flag gaps between checkpoints, falls and negative units.
 
-| # | Test |
-|---|---|
-| 1 | Balance sheet balances (maximum absolute difference, all months) |
-| 2 | Sales mix sums to 100% |
-| 3 | Closing cash never below minimum cash |
-| 4 | Gross receivables never negative |
-| 5 | Loss allowance never positive (contra asset) |
-| 6 | Facility within limit |
-| 7 | Cash flow reconciles to balance sheet cash every month (opening cash plus net cash flow equals closing cash) |
-| 8 | Tenors within curve horizon (at most 60 months) |
-| 9 | Down payment not above cash price |
-| 10 | Scenario selector valid (1 to 3) |
-| 11 | Investor ticket within initial equity |
-| 12 | Terminal growth below discount rate |
-| 13 | Credit data mode valid (1 or 2) |
-| 14 | Proxy DPD buckets reconcile to gross receivables (all tiers, all months) |
-| 15 | Actual DPD buckets reconcile to gross receivables (Actual mode only) |
-| 16 | Indicative ECL not negative |
-| 17 | Facility drawn within borrowing base and limit |
-| 18 | Proxy shares of receivables at risk sum to 100% |
-| 19 | Hybrid RBF weights sum to 100% |
-| 20 | RBF mode valid (1 to 4) |
-| 21 | Stage thresholds ordered (Stage 2 below Stage 3, Stage 3 at most the default definition) |
-| 22 | Financing structure valid (1 or 2) |
-| 23 | PERFORM horizon equals 2 x tenor for every tier |
-| 24 | Vintage cohort modes valid (1 or 2) |
-| 25 | Receivables roll forward every month (opening plus originations and financing income, less collections and write offs, equals closing; Ops equals FS) |
-| 26 | Loss allowance roll forward (opening, less ECL charged, plus amounts written off, equals closing) |
-| 27 | USD term loan roll forward in USD and in local currency (translation at month end FX; FS equals Financing) |
-| 28 | Receivables facility roll forward (opening plus net drawdown equals closing; FS equals Financing) |
-| 29 | Equity roll forward (opening plus net income plus equity injected equals closing; no dividends) |
-| 30 | Cohort totals equal portfolio totals (cohort sizes equal units sold; tier rows sum to totals for collections, instalments due, receivables) |
-| 31 | Vintage engine carries cohort units from Vintage_Input (all tiers) |
-| 32 | Vintage_Input: cumulative collections never fall between checkpoints |
-| 33 | Vintage_Input: cumulative instalments due never fall between checkpoints |
-| 34 | RBF: statements equal the engine's selected design, RBF not negative, cumulative disbursements never above cumulative claims (RBF is never part of customer collections, which come from the cohorts only) |
-| 35 | Valuation reconciles to the statements (EBITDA, tax, capex, Year 5 working capital) |
-| 36 | Scenario levers in use equal the selected scenario column (no overwritten lever) |
-| 37 | PERFORM_2026 inputs: no negative values, numerators within denominators (RR PvP, at 90 days, at 2x; ownership) |
-| 38 | No impossible negative balances (inventory, fixed assets, payables, active accounts, units, debt, cumulative equity) |
+| # | Row | Test |
+|---|---|---|
+| 1 | 5 | Balance sheet balances (maximum absolute difference, all months) |
+| 2 | 6 | Sales mix sums to 100% |
+| 3 | 7 | Closing cash never below minimum cash |
+| 4 | 8 | Gross receivables never negative |
+| 5 | 9 | Loss allowance never positive (contra asset) |
+| 6 | 10 | Facility within limit |
+| 7 | 11 | Cash flow reconciles to balance sheet cash every month (opening cash plus net cash flow equals closing cash) |
+| 8 | 12 | Tenors are whole numbers from 1 to 60 months (curve horizon) |
+| 9 | 13 | Down payment not above cash price |
+| 10 | 14 | Scenario selector valid (whole number 1 to 3) |
+| 11 | 15 | Investor ticket within initial equity |
+| 12 | 16 | Terminal growth below discount rate |
+| 13 | 17 | Credit data mode valid (whole number 1 to 2) |
+| 14 | 18 | Proxy DPD buckets reconcile to gross receivables (all tiers, all months) |
+| 15 | 19 | Credit_Input data valid: DPD buckets reconcile to gross receivables (Actual mode); no negative balance, unit or flow; one period end per consecutive calendar month, the same in every tier; collections at most twice instalments due |
+| 16 | 20 | Indicative ECL not negative |
+| 17 | 21 | Facility drawn within borrowing base and limit |
+| 18 | 22 | Proxy shares of receivables at risk sum to 100% |
+| 19 | 23 | Hybrid RBF weights sum to 100% |
+| 20 | 24 | RBF mode valid (whole number 1 to 4) |
+| 21 | 25 | Stage thresholds ordered (Stage 2 below Stage 3, Stage 3 at most the default definition) |
+| 22 | 26 | Structural and range inputs valid: selectors and switches; opening FX above zero; depreciation life, lags, loan drawdown, grace and amortisation months within the horizon; rates, shares, hazards, collection and advance rates from 0 to 1; amounts and prices not negative |
+| 23 | 27 | PERFORM horizon equals 2 x tenor for every tier |
+| 24 | 28 | Vintage cohort modes valid (1 or 2) |
+| 25 | 29 | Receivables roll forward every month (opening plus originations and financing income, less collections and write offs, equals closing; Ops equals FS) |
+| 26 | 30 | Loss allowance roll forward (opening, less ECL charged, plus amounts written off, equals closing) |
+| 27 | 31 | USD term loan roll forward in USD and in local currency (translation at month end FX; FS equals Financing) |
+| 28 | 32 | Receivables facility roll forward (opening plus net drawdown equals closing; FS equals Financing) |
+| 29 | 33 | Equity roll forward (opening plus net income plus equity injected equals closing; no dividends) |
+| 30 | 34 | Cohort totals equal portfolio totals (cohort sizes equals units sold; tier rows sum to totals for collections, instalments due, receivables) |
+| 31 | 35 | Vintage engine carries cohort units from Vintage_Input (all tiers) |
+| 32 | 36 | Vintage_Input: cumulative collections never fall and leave no gap between checkpoints; units not negative |
+| 33 | 37 | Vintage_Input: cumulative instalments due never fall and leave no gap between checkpoints |
+| 34 | 38 | RBF: statements equal the engine's selected design, RBF not negative, cumulative disbursements never above cumulative claims (RBF is never part of customer collections, which come from the cohorts only) |
+| 35 | 39 | Valuation reconciles to the statements (EBITDA, tax, capex, Year 5 working capital) |
+| 36 | 40 | Scenario levers in use equal the selected scenario column (no overwritten lever) |
+| 37 | 41 | PERFORM_2026 inputs: no negative values, numerators within denominators (RR PvP, PvFin, at 90 days, at 2x; ownership), contracts at 2x within contracts |
+| 38 | 42 | No impossible negative balances (inventory, fixed assets, payables, active accounts, units, debt, cumulative equity) |
 
 > **Rule.** Do not use any output while the master check reads ERROR. Open *Checks*, find the line showing 1 or a non zero difference, and correct the input that causes it (see *Troubleshooting* in Part C).
 
@@ -337,6 +342,8 @@ The model draws on four sources of funds:
 
 The facility is drawn only to hold cash at the minimum balance (a cash sweep), up to the lower of the facility limit and the borrowing base. The borrowing base is the sum, over tiers, of the advance rate times eligible receivables, and eligibility follows the maximum DPD rule on *Credit_Assumptions* (by default, receivables up to 30 days past due). When the borrowing base contracts, the facility is repaid.
 
+The last input on *Inputs*, under *Covenant definition*, records whether the facility terms contain a DSCR covenant and how it is defined (0 = none, 1 = operating cash flow basis, 2 = cash basis excluding growth in PAYGo receivables; default 1, the test as usually drafted). Use the facility's own definition from the term sheet. The other covenant thresholds sit above it in the covenants block.
+
 | Credit assumption | Default |
 |---|---|
 | Default definition | 180 days past due |
@@ -405,14 +412,14 @@ At default inputs the three scenarios give the following results:
 
 **11a. The credit portfolio.** *Credit_Portfolio* consolidates all tiers. It shows gross receivables by DPD bucket and default exposure, the operational collection rate (not a PERFORM KPI), weighted twelve month PD and LGD proxies, the indicative stage based ECL and its coverage, eligible receivables and the borrowing base with headroom against the facility, the 30+ and 90+ DPD ratios and a composite credit risk flag. A block below (rows 34 to 41) summarises the company history loaded in *Credit_Input*, whatever the selected mode.
 
-**11b. Covenants.** *Covenants* tests each month against the following default limits: trailing three month operational collection rate of at least 70%; receivables at risk of no more than 15%; 30+ DPD of no more than 25% and 90+ DPD of no more than 18%; positive borrowing base headroom; debt to book equity of no more than 3.0x; and liquidity before new equity. The annual DSCR test (minimum 1.20x) sits on *KPIs* (row 51 flags each year below the minimum; the summary below counts the years) and also counts in readiness gate 10. A composite credit flag and an "any covenant" flag feed the breach counts. Receivables at risk follows the logic of the 2021 PERFORM guide, which is historical; under the 2026 standard it is an operational and lender metric, not a PERFORM KPI.
+**11b. Covenants.** *Covenants* tests each month against the following default limits: trailing three month operational collection rate of at least 70%; receivables at risk of no more than 15%; 30+ DPD of no more than 25% and 90+ DPD of no more than 18%; positive borrowing base headroom; debt to book equity of no more than 3.0x; and liquidity before new equity. The annual DSCR test (minimum 1.20x) sits on *KPIs*: row 50 computes the DSCR on the basis chosen under *Covenant definition* on *Inputs*, row 51 flags each year below the minimum, and row 65 counts the years. The flag, and readiness gate 10, count the DSCR only when the basis is above 0. With the default basis 1, the operating cash flow absorbs the growth of the receivables book and the DSCR at default inputs is below 1.20x in Years 1 to 4 (row 50: (27.62), (4.98), (1.24), 0.27, 2.25). In test runs by the model owner on the default inputs, basis 2 gave (12.75), (0.62), 1.25, 2.32 and 4.64, still below the minimum in Years 1 and 2, so gate 10 still fails; basis 0 gave 3 of 23 gates and STOP on incomplete evidence (10 of 13 critical gates open). For SolaraPay the same test runs gave (18.85), (2.10), 0.49, 1.96 and 3.81 on basis 2 (three years below the minimum) and 5 of 23 gates, STOP on incomplete evidence, on basis 0. Set the basis to the facility's own definition; basis 0 models a facility without a DSCR test. A composite credit flag and an "any covenant" flag feed the breach counts. Receivables at risk follows the logic of the 2021 PERFORM guide, which is historical; under the 2026 standard it is an operational and lender metric, not a PERFORM KPI.
 
 **11c. Loading the company's own data.** This is the single most useful thing a user can do with the model.
 
 1. Export the portfolio from the servicing platform or ERP, month by month and tier by tier, and paste it into *Credit_Input* (one block per tier, up to 60 months). Stocks are entered at month end: balances, DPD buckets, default exposure. Flows are entered for the month: originations, repossessions, resale proceeds and costs, cures, write offs, collections, instalments due, unlocks.
-2. The DPD buckets must add up to gross receivables. A check enforces this in Actual mode.
+2. The DPD buckets must add up to gross receivables. Test 15 (*Checks* row 19) enforces this in Actual mode and also rejects negative balances, units or flows, period ends that are not one per consecutive calendar month and the same in every tier, and collections above twice the instalments due. *Credit_Portfolio* row 9 then shows the company's observation dates as the period end of each column.
 3. Set *Credit data mode* on *Credit_Assumptions* to 2 (Actual). *Credit_Portfolio* and the selected block of *Credit_Engine* then report company history, while projections and the facility continue to run on the curves. History is never blended into the forecast without the user knowing.
-4. Enter cohort observations in *Vintage_Input*: one row per monthly cohort, mode 2 for actual cohorts, and cumulative collections, instalments due, 30+, 90+ and 180+ exposure, recoveries and active accounts at M3, M6, M12, M18, M24, M36, M48 and M60, with ownership at twice the tenor where available. Cumulative collections and instalments due must never fall between checkpoints (tests 32 and 33).
+4. Enter cohort observations in *Vintage_Input*: one row per monthly cohort, mode 2 for actual cohorts, and cumulative collections, instalments due, 30+, 90+ and 180+ exposure, recoveries and active accounts at M3, M6, M12, M18, M24, M36, M48 and M60, with ownership at twice the tenor where available. Cumulative collections and instalments due must never fall and must leave no gap between checkpoints, and units may not be negative (tests 32 and 33, which read the row check columns on *Vintage_Input*).
 5. Compare *Vintage_Dashboard* (company data) with the proxy curves. Where cohort repayment ratios and DPD curves diverge, recalibrate the default hazard and collection rates on *Products*, mark the recalibrated rows CALIBRATED ASSUMPTION, and set the input set selector on *Scenarios* to Calibrated case. The SolaraPay case study (CASE 2) works through this calibration in full.
 
 **11d. PAYGo PERFORM 2026 results (section C of PERFORM_2026).** PAYGo PERFORM KPIs come only from the company's contract level data, computed by the company under the GOGLA Technical Guide of June 2026. The model does not compute them, and the operational collection rate, the cohort repayment ratio or any other collection metric may not be substituted for the Repayment Rate. Section C has one block per tier with 60 rows, one per monthly cohort, and the following columns:
@@ -444,7 +451,7 @@ Enter numerators and denominators, not ratios. The rules printed on the sheet (T
 
 **12c. External evidence.** *Source_Register* records each claim with a grade for the source (A primary official or audited, B institutional or company disclosure, C reputable secondary, D unverified) and, separately, a status for what has been checked: VERIFIED, VERIFIED (HISTORICAL), PENDING PRIMARY DOCUMENT, UNVERIFIED, CONFLICTING SOURCES or NOT USED. *Calibration* compares the active scenario only with references whose source is VERIFIED; any other reference is suspended and the diagnostic reads "Reference suspended: source not VERIFIED". In this build every sourced calibration reference is suspended. For example, the ESMAP Off-Grid Solar Market Trends Report 2024 is reported to give an average PAYGo collection rate of about 62% for 2021 to 2023, but that figure is PENDING PRIMARY DOCUMENT and is a collection rate, not a Repayment Rate. The M-KOPA group revenue figures are CONFLICTING SOURCES and the filing held is that of M-KOPA UK LIMITED, a subsidiary, so no M-KOPA ratio is used as a benchmark until the group's consolidated accounts are read. *Benchmark_Compare* places the model's ratios against graded peer records and carries a comparability warning per KPI; *Benchmark_DB* shows the definition of each item and whether it is comparable with the model. Ranges built on fewer than three peers are flagged as anecdotal.
 
-**12d. Readiness.** *Investment_Readiness* lists 23 gates, 13 of them critical. Automatic gates cover integrity, covenant compliance (no month in breach of a monthly covenant and no year with DSCR below the 1.2x minimum), positive contribution, actual credit data, consumer protection evidence (including PERFORM_2026 results), support for outcome linked RBF and data reconciliation. Manual gates cover management sign off, term sheets, legal review, the Excel test, the review of the accounting treatment and similar items. A manual gate counts only when its status is Met and the sheet records where the evidence is held and who signed it off; a gate marked Met without both is not counted.
+**12d. Readiness.** *Investment_Readiness* lists 23 gates, 13 of them critical. Automatic gates cover integrity, covenant compliance (no month in breach of a monthly covenant and, when the facility has a DSCR test, no year with DSCR below the 1.2x minimum), positive contribution, actual credit data, consumer protection evidence (including PERFORM_2026 results), support for outcome linked RBF and data reconciliation. Manual gates cover management sign off, term sheets, legal review, the Excel test, the review of the accounting treatment and similar items. A manual gate counts only when its status is Met and the sheet records where the evidence is held and who signed it off; a gate marked Met without both is not counted.
 
 The decision rule uses these results only:
 
@@ -534,7 +541,7 @@ The investor IRR tries starting guesses of 10%, (20%) and 50%. It returns "n/a: 
 
 ## Covenants and readiness
 
-Every covenant threshold is an input. A flag reads 1 when the covenant is breached and is tested only while the relevant debt is outstanding. Readiness gates are automatic where the model can test them and manual, with a drop down status (Not started, In progress, Met) and evidence columns, where they rest on external evidence. The decision rule is set out in Step 12d.
+Every covenant threshold is an input. A flag reads 1 when the covenant is breached and is tested only while the relevant debt is outstanding. The DSCR is tested only when *Covenant definition* on *Inputs* is above 0, on the basis selected there. Readiness gates are automatic where the model can test them and manual, with a drop down status (Not started, In progress, Met) and evidence columns, where they rest on external evidence. The decision rule is set out in Step 12d.
 
 ## Benchmark database
 
@@ -546,12 +553,15 @@ The benchmark records are maintained in a controlled database outside the workbo
 |---|---|---|
 | Master check ERROR on "Sales mix sums to 100%" | Mix changed on one tier only | Bring the five tiers back to a total of 100% |
 | "Balance sheet balances" shows a difference | A formula has been overwritten | Restore from the clean copy and change blue cells only |
-| "Actual DPD buckets reconcile" reads 1 | Credit_Input buckets do not equal gross receivables | Correct the export; buckets are month end stocks |
+| "Credit_Input data valid" reads 1 | Buckets do not equal gross receivables (Actual mode); a negative balance, unit or flow; a missing, repeated or misaligned period end; collections above twice instalments due | Correct the export: buckets are month end stocks, one period end per calendar month, the same months in every tier |
+| "Structural and range inputs valid" reads 1 | A selector or switch outside its list, a rate or share outside 0 to 1, a negative amount or price, or a month outside the horizon (drawdown, grace, amortisation, lags) | Correct the input; Excel normally blocks these entries with an error alert, so the value was probably pasted |
+| Excel refuses an entry with an error alert | The value breaks the input's validation rule | Enter a value within the rule shown in the alert |
+| Outputs show values but the checks read ERROR after a scenario or RBF mode change | An invalid selector was pasted; it is clamped for calculation | Set the selector to a listed value |
 | "Proxy shares of receivables at risk sum to 100%" reads 1 | Shares on Credit_Assumptions changed | Bring the four shares back to 100% |
 | "Hybrid RBF weights" reads 1 | Weights do not total 100% | Correct the weights on Inputs |
 | RBF check reads 1 | Cumulative disbursements above cumulative claims, or RBF overwritten in the statements | Review the RBF inputs on Inputs and Products; restore overwritten formulas |
-| PERFORM_2026 check reads 1 | A negative entry, or a numerator above its denominator, in section C | Correct the company's entries; enter numerators and denominators, not ratios |
-| Vintage_Input check reads 1 | Cumulative collections or instalments due fall between checkpoints | Correct the cohort data; values are cumulative |
+| PERFORM_2026 check reads 1 | A negative entry, a numerator above its denominator (including PvFin), or contracts at 2x above contracts, in section C | Correct the company's entries; enter numerators and denominators, not ratios |
+| Vintage_Input check reads 1 | Cumulative collections or instalments due fall, or leave a gap, between checkpoints, or units are negative | Read the row check columns on Vintage_Input; correct the cohort data (values are cumulative) |
 | Scenario lever check reads 1 | A value in the ACTIVE column of Scenarios has been overwritten | Restore the formula from the clean copy |
 | Facility stays at zero | Start month beyond the horizon, or a zero borrowing base (advance rates at 0%, or maximum DPD below 1) | Review Inputs and Products |
 | Investor IRR shows "n/a: no sign change" | No positive investor cash flow (exit equity of zero) | Expected in severe cases; read the multiple and the peak equity instead |
@@ -579,4 +589,4 @@ The benchmark records are maintained in a controlled database outside the workbo
 | v0.2 | Tiers 1 to 5, recoveries, RBF, cash sweep facility, covenants, valuation, investment summary |
 | v0.6 | Credit, vintage, RBF, consumer risk and benchmark layers; readiness gates |
 | v0.7 | Branded cover; PAYGo financial benchmark database; SolaraPay worked case; numbered contents and page footers |
-| v0.8 (development build) | MODEL 2 branding, companion to Book 2; 47 sheets in an indexed tab order. Source register rebuilt with grade (A to D) separate from status; only VERIFIED references feed Calibration. Robust IRR (Downside (22.9%) now computed; Severe "n/a: no sign change"). Checks raised from 24 to 38 (monthly cash, roll forwards of receivables, allowance, term loan, facility and equity, cohort, vintage, RBF, valuation, scenario lever and PERFORM_2026 tests). Company history block on Credit_Portfolio. New PERFORM_2026 sheet; collection rate relabelled "operational collection rate (not a PERFORM KPI)". New Start sheet, provenance label on every input, Dashboard table of 39 metrics, FX_Exposure sheet, RBF claim cycle, scenario architecture with input set selector, dated Sensitivity table with LIVE row. Investment_Readiness evidence columns and evidence based decision rule. Accounting statement on Cover, Contents, Start, Glossary and the credit sheets. Benchmark country, page, definition and comparability fields. Projections and valuation unchanged from v0.7. Readiness gate 10 now also tests the annual DSCR, so the decision at default inputs and for SolaraPay is STOP on a failed test (2 and 4 of 23 gates met) |
+| v0.8 (development build) | MODEL 2 branding, companion to Book 2; 47 sheets in an indexed tab order. Source register rebuilt with grade (A to D) separate from status; only VERIFIED references feed Calibration. Robust IRR (Downside (22.9%) now computed; Severe "n/a: no sign change"). Checks raised from 24 to 38 (monthly cash, roll forwards of receivables, allowance, term loan, facility and equity, cohort, vintage, RBF, valuation, scenario lever and PERFORM_2026 tests). Company history block on Credit_Portfolio. New PERFORM_2026 sheet; collection rate relabelled "operational collection rate (not a PERFORM KPI)". New Start sheet, provenance label on every input, Dashboard table of 39 metrics, FX_Exposure sheet, RBF claim cycle, scenario architecture with input set selector, dated Sensitivity table with LIVE row. Investment_Readiness evidence columns and evidence based decision rule. Accounting statement on Cover, Contents, Start, Glossary and the credit sheets. Benchmark country, page, definition and comparability fields. Projections and valuation unchanged from v0.7. Readiness gate 10 now also tests the annual DSCR, so the decision at default inputs and for SolaraPay is STOP on a failed test (2 and 4 of 23 gates met). Covenant definition input for the DSCR basis (0 none, 1 operating cash flow, 2 cash basis excluding receivables growth). Validation with error alerts on every input rule; invalid scenario or RBF modes clamped for calculation while the checks read ERROR. Wider structural and range test, Credit_Input data test, gap and unit tests on Vintage_Input, PvFin in the PERFORM_2026 test. Period end of the data on Credit_Portfolio row 9. About 101,500 formulas |
