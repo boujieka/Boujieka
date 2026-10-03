@@ -9,6 +9,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 os.chdir(ROOT)
 SRC = ["book/src/01_front.md", "book/src/02_part1_3.md", "book/src/03_part4_5.md", "book/src/04_part6_7.md"]
 text = "\n\n".join(open(p, encoding="utf8").read() for p in SRC)
+text = text.replace("%%REDTEAM", open("book/src/05_redteam.md", encoding="utf8").read())
 
 # ---------------- numbers ----------------
 MAP = json.load(open("model/model_map.json"))
@@ -51,10 +52,10 @@ def fmt(v, f):
         if f == "s":
             return v.split(" additional")[0].capitalize()
         return v
-    if f == "pct0": return f"{v*100:.0f}%"
-    if f == "pct1": return f"{v*100:.1f}%"
-    if f == "x1": return f"{v:.1f}x"
-    if f == "x2": return f"{v:.2f}x"
+    if f == "pct0": return f"{v*100:.0f}%".replace("-", "\u2212")
+    if f == "pct1": return f"{v*100:.1f}%".replace("-", "\u2212")
+    if f == "x1": return f"{v:.1f}x".replace("-", "\u2212")
+    if f == "x2": return f"{v:.2f}x".replace("-", "\u2212")
     if f == "n0":
         s = f"{abs(v):,.0f}"
         return ("\u2212" if v < -0.5 else "") + s
@@ -81,9 +82,6 @@ def sub(m):
 text = re.sub(r"\{\{([\w.]+)\|(\w+)\}\}", sub, text)
 assert "{{" not in text, re.findall(r"\{\{[^}]*\}\}", text)[:5]
 
-# ---------------- red-team chapter ----------------
-rt = "book/src/05_redteam.md"
-text = text.replace("%%REDTEAM", open(rt, encoding="utf8").read() if os.path.exists(rt) else "(pending)")
 
 # ---------------- annex tables ----------------
 ws31 = wb["31_CASE_STUDY"]

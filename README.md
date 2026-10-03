@@ -10,10 +10,10 @@
 
 | Component | Path | Status |
 |---|---|---|
-| A. Professional book (first-draft manuscript) | `book/BANKABLE_HYDRO_Manuscript.md` | 17 chapters + annexes |
-| B. Integrated financial and bankability model | `model/Bankable_Hydro_Model.xlsx` | 35 sheets, ~9,800 live formulas, 0 errors, checks ALL OK |
+| A. Professional book | `book/Bankable_Hydro_Book.docx`, `book/Bankable_Hydro_Book.pdf` (source: `book/src/`) | 19 chapters + annexes, 68 pages, 55 references, red-team chapter |
+| B. Integrated financial and bankability model | `model/Bankable_Hydro_Model.xlsx` | 35 sheets, ~10,800 live formulas, 0 errors, checks ALL OK |
 | Model source code (single source of truth) | `model/build_model.py` | Python / openpyxl |
-| Scenario / structure / sensitivity runner | `tools/run_snapshots.py` | 29 full-engine runs via LibreOffice |
+| Scenario / structure / sensitivity runner | `tools/run_snapshots.py` | 31 full-engine runs + tariff solves via LibreOffice |
 | C. User manual | `manual/USER_MANUAL.md` | v1.0 |
 | D. Video course (scripts) | `course/VIDEO_COURSE.md` | 8 modules, 32 lessons, capstone |
 | E. Case study library | `case_library/README.md`, `research/case_studies/` | 21 African + 7 international cases |

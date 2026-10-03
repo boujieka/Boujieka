@@ -60,9 +60,11 @@ function makeTable(rows, caption, note) {
   });
   const sum = lens.reduce((a, b) => a + b, 0);
   let widths = lens.map((l, i) => Math.max(Math.round(TEXT_W * l / sum), Math.min(1300, 140 * (header[i].replace(/\*/g, "").split(" ").reduce((a, w) => Math.max(a, w.length), 0) + 1))));
+  let tot = widths.reduce((a, b) => a + b, 0);
+  if (tot > TEXT_W) widths = widths.map(w => Math.floor(w * TEXT_W / tot));
   const diff = TEXT_W - widths.reduce((a, b) => a + b, 0);
   widths[widths.indexOf(Math.max(...widths))] += diff;
-  const fs = n >= 6 ? 15 : n >= 5 ? 16 : 17;
+  const fs = n >= 8 ? 13 : n >= 6 ? 15 : n >= 5 ? 16 : 17;
   const border = { style: BorderStyle.SINGLE, size: 4, color: "BFBFBF" };
   const noB = { style: BorderStyle.NONE, size: 0, color: "FFFFFF" };
   const mk = (txt, i, isHead, rIdx) => new TableCell({

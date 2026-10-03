@@ -130,6 +130,6 @@ ax.barh([v + h / 2 for v in y], c1, height=h, color=BLUE, label="Central governm
 ax.barh([v - h / 2 for v in y], c2, height=h, color=ORANGE, label="Consolidated (incl. state utility)", edgecolor="white", linewidth=0.8)
 ax.set_yticks(y); ax.set_yticklabels([l for _, l in keys]); ax.axvline(0, color=INK, lw=0.8)
 ax.set_xlabel("Fiscal NPV, USD million (8%)"); ax.grid(axis="y", visible=False)
-ax.legend(loc="lower left", fontsize=7)
+ax.legend(loc="upper center", ncol=2, fontsize=7, bbox_to_anchor=(0.45, -0.13))
 save(fig, "fig17_1_fiscal_npv.png")
 print("figures written")
