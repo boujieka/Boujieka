@@ -1279,6 +1279,18 @@ H = {k: f"KPIs!$C${v}" for k, v in HEAD.items()}
 note(kpw, f"A{rr + 1}", "Receivables at risk approximates PAYGo PERFORM 'Receivables at Risk'. Covenant definitions are "
      "illustrative; use those in the actual facility agreement.")
 
+def robust_irr(rng, guesses, annualise=False):
+    """IRR that tries several starting guesses (spreadsheet IRR solvers can fail to converge from one guess, e.g. for
+    strongly negative returns) and says why when no IRR exists."""
+    def wrap(g):
+        f = f"IRR({rng},{g})"
+        return f"(1+{f})^12-1" if annualise else f
+    chain = "\"n/a: no convergence\""
+    for g in reversed(guesses):
+        chain = f"IFERROR({wrap(g)},{chain})"
+    return f"IF(OR(COUNTIF({rng},\">0\")=0,COUNTIF({rng},\"<0\")=0),\"n/a: no sign change\",{chain})"
+
+
 # =====================================================================
 # VALUATION & RETURNS
 # =====================================================================
@@ -1356,7 +1368,7 @@ vsum = [
     ("exit_eq_usd", "Exit equity value, 100% (USD)", "=C<<exit_eq>>/C<<fx5>>", FMT_NUM),
     ("gap2", None, None, None),
     ("stake", "Investor stake (ticket / post-money)", f"=IFERROR({INP['inv_usd']}/({INP['pre_money']}+{INP['inv_usd']}),0)", FMT_PCT),
-    ("irr", "Investor IRR (USD)", f"=IFERROR(IRR(D{VR['inv_flow']}:{L5}{VR['inv_flow']},0.1),\"n/a\")", FMT_PCT),
+    ("irr", "Investor IRR (USD)", "=" + robust_irr(f"D{VR['inv_flow']}:{L5}{VR['inv_flow']}", (0.1, -0.2, 0.5)), FMT_PCT),
     ("moic", "Investor MOIC (USD)",
      f"=IFERROR(SUMIF(D{VR['inv_flow']}:{L5}{VR['inv_flow']},\">0\")/-SUMIF(D{VR['inv_flow']}:{L5}{VR['inv_flow']},\"<0\"),0)", FMT_X),
 ]
@@ -1416,7 +1428,7 @@ ue = [
     ("ltv_cac", "LTV / CAC (contribution before CAC / CAC)", "x", lambda j: "=IFERROR((<c><contrib>+<c><cac>)/<c><cac>,0)", FMT_X),
     ("payback", "Cash payback (months after sale)", "months",
      lambda j: f"=IF(COUNTIF({crange(j, 'cum')},\"<0\")>{MAX_AGE},\"Not paid back\",COUNTIF({crange(j, 'cum')},\"<0\"))", FMT_INT),
-    ("irr", "Unit IRR (annualised, unlevered)", "%", lambda j: f"=IFERROR((1+IRR({crange(j, 'ncf')},0.02))^12-1,\"n/a\")", FMT_PCT),
+    ("irr", "Unit IRR (annualised, unlevered)", "%", lambda j: "=" + robust_irr(crange(j, 'ncf'), (0.02, -0.02, 0.1), annualise=True), FMT_PCT),
     ("npv", "Unit NPV at the DCF discount rate", "LCY",
      lambda j: (f"=NPV((1+{INP['wacc']})^(1/12)-1,{crange(j, 'ncf')})*(1+{INP['wacc']})^(1/12)"), FMT_NUM),
 ]
@@ -1481,6 +1493,33 @@ def subst(f, m):
 for key, text, fn, fmt in cp_rows:
     mb.write_row(cpw, mb.r(CP, key), text, "", lambda i, c, p, fn=fn: subst(fn(i, c, p), cpmap), fmt,
                  total="max" if key == "flag" else "last", bold=key in ("gross", "ecl", "flag"))
+
+# company history summary (Credit_Input, all tiers): read whatever the selected mode, so that history figures quoted
+# in reports are workbook cells. Month 1 of a history normally has no instalment due.
+HR0 = rr + 2
+mb.section(cpw, HR0, "COMPANY HISTORY LOADED IN Credit_Input (COMPANY DATA, all tiers; independent of the selected mode)")
+CI_DUE = lambda j, a, b: f"Credit_Input!${CI_COL['due']}${CI_R0(j) + a - 1}:${CI_COL['due']}${CI_R0(j) + b - 1}"
+CI_COLL = lambda j, a, b: f"Credit_Input!${CI_COL['coll']}${CI_R0(j) + a - 1}:${CI_COL['coll']}${CI_R0(j) + b - 1}"
+hist_n = "MAX(" + ",".join(f"COUNT({ci_range(j, 'due')})" for j in range(NP)) + ")"
+label(cpw, f"A{HR0 + 1}", "Months of history with data (longest tier)")
+put_calc(cpw, f"C{HR0 + 1}", f"={hist_n}", FMT_INT, bold=True)
+HIST_CELLS = {}
+for k_, (a_, b_, text) in enumerate([(1, 12, "Operational collection rate, history months 1 to 12"),
+                                      (13, 24, "Operational collection rate, history months 13 to 24"),
+                                      (25, 36, "Operational collection rate, history months 25 to 36")]):
+    r_ = HR0 + 2 + k_
+    num = "+".join(f"SUM({CI_COLL(j, a_, b_)})" for j in range(NP))
+    den = "+".join(f"SUM({CI_DUE(j, a_, b_)})" for j in range(NP))
+    label(cpw, f"A{r_}", text)
+    put_calc(cpw, f"C{r_}", f"=IF(C{HR0 + 1}<{b_},\"n/a: fewer than {b_} months\",IFERROR(({num})/({den}),\"n/a\"))", FMT_PCT, bold=True)
+    HIST_CELLS[(a_, b_)] = f"Credit_Portfolio!$C${r_}"
+r_ = HR0 + 5
+last12_num = "+".join(f"SUMPRODUCT({ci_range(j, 'coll')}*((ROW({ci_range(j, 'coll')})-{CI_R0(j)}+1)>C{HR0 + 1}-12)*((ROW({ci_range(j, 'coll')})-{CI_R0(j)}+1)<=C{HR0 + 1}))" for j in range(NP))
+last12_den = "+".join(f"SUMPRODUCT({ci_range(j, 'due')}*((ROW({ci_range(j, 'due')})-{CI_R0(j)}+1)>C{HR0 + 1}-12)*((ROW({ci_range(j, 'due')})-{CI_R0(j)}+1)<=C{HR0 + 1}))" for j in range(NP))
+label(cpw, f"A{r_}", "Operational collection rate, latest 12 months of history")
+put_calc(cpw, f"C{r_}", f"=IF(C{HR0 + 1}<12,\"n/a: fewer than 12 months\",IFERROR(({last12_num})/({last12_den}),\"n/a\"))", FMT_PCT, bold=True)
+note(cpw, f"A{HR0 + 7}", "Collected instalments divided by instalments due, deposits excluded, summed over tiers. An operational ratio, not the "
+     "PAYGo PERFORM 2026 Repayment Rate. Blank Credit_Input gives n/a.")
 
 # =====================================================================
 # CONSUMER RISK (v0.4)
@@ -2152,6 +2191,15 @@ xw = mb.sheet(X, "Integrity checks", "Each check returns 0 when OK. The master c
 xw.column_dimensions["A"].width = 64
 header_row(xw, 4, ["Check", "Unit", "Result (0 = OK)"])
 mixrow = PR["mix"][0].split("$")[-1]
+
+
+def prev_(sheet, key):
+    """The same row shifted one month back (column D holds the opening value, zero)."""
+    r_ = mb.r(sheet, key)
+    return f"{q(sheet)}!$D${r_}:${col(MONTHS - 1)}${r_}"
+
+
+
 tenrow = PR["tenor"][0].split("$")[-1]
 checks = [
     ("Balance sheet balances (max abs difference, all months)", f"=MAX(MAX({mb.range_(S, 'bs_chk')}),-MIN({mb.range_(S, 'bs_chk')}))"),
@@ -2160,7 +2208,9 @@ checks = [
     ("Gross receivables never negative", f"=IF(MIN({mb.range_(S, 'grossrec')})<-1,1,0)"),
     ("Loss allowance never positive (contra-asset)", f"=IF(MAX({mb.range_(S, 'prov')})>1,1,0)"),
     ("Facility within limit", f"=IF(MAX({mb.range_(F, 'rf_bal')})>{INP['rf_limit']}+1,1,0)"),
-    ("Cash flow ties to balance-sheet cash", f"=IF(ABS(FS!{mb.last}{mb.r(S, 'cash')}-FS!{mb.last}{mb.r(S, 'cash_end')})>1,1,0)"),
+    ("Cash flow reconciles to balance-sheet cash every month (opening cash + net cash flow = closing cash)",
+     f"=IF(SUMPRODUCT(ABS({mb.range_(S, 'cash_end')}-{prev_(S, 'cash_end')}-{mb.range_(S, 'cfo')}-{mb.range_(S, 'cfi')}-{mb.range_(S, 'cf_tl')}"
+     f"-{mb.range_(S, 'cf_rf')}-{mb.range_(S, 'cf_eq0')}-{mb.range_(S, 'eq_top')}))+SUMPRODUCT(ABS({mb.range_(S, 'cash')}-{mb.range_(S, 'cash_end')}))>1,1,0)"),
     ("Tenors within curve horizon (<= 60 months)", f"=IF(MAX(Products!$C${tenrow}:${PCOLS[-1]}${tenrow})>{MAX_AGE},1,0)"),
     ("Down payment not above cash price", "=" + "+".join(f"IF({PR['deposit'][j]}>{PR['price'][j]},1,0)" for j in range(NP))),
     ("Scenario selector valid (1-3)", f"=IF(OR({INP['scenario']}<1,{INP['scenario']}>3),1,0)"),
@@ -2184,6 +2234,49 @@ checks = [
     ("PERFORM horizon = 2 x tenor for every tier", "=" + "+".join(f"IF({PR['perf2x'][j]}<>2*{PR['tenor'][j]},1,0)" for j in range(NP))),
     ("Vintage cohort modes valid (1 or 2)",
      "=" + "+".join(f"(ROWS({vi_range(j, 'B')})-COUNTIF({vi_range(j, 'B')},1)-COUNTIF({vi_range(j, 'B')},2))" for j in range(NP))),
+    # v0.8 reconciliations
+    ("Receivables roll forward every month (opening plus originations and financing income, less collections and write-offs, equals closing; Ops = FS)",
+     f"=IF(SUMPRODUCT(ABS({mb.range_(O, 'grossrecT')}-{prev_(O, 'grossrecT')}-{mb.range_(O, 'financedT')}-{mb.range_(O, 'fin_incT')}"
+     f"+{mb.range_(O, 'collT')}+{mb.range_(O, 'missedT')}))+SUMPRODUCT(ABS({mb.range_(S, 'grossrec')}-{mb.range_(O, 'grossrecT')}))>1,1,0)"),
+    ("Loss allowance roll forward (opening, less ECL charged, plus amounts written off, equals closing)",
+     f"=IF(SUMPRODUCT(ABS({mb.range_(S, 'prov')}-{prev_(S, 'prov')}+{mb.range_(O, 'eclT')}-{mb.range_(O, 'missedT')}))>1,1,0)"),
+    ("USD term loan roll forward in USD and in LCY (translation at month-end FX; FS = Financing)",
+     f"=IF(SUMPRODUCT(ABS({mb.range_(F, 'tl_bal_usd')}-{prev_(F, 'tl_bal_usd')}-{mb.range_(F, 'tl_draw_usd')}+{mb.range_(F, 'tl_rep_usd')}))"
+     f"+SUMPRODUCT(ABS({mb.range_(F, 'tl_bal')}-{prev_(F, 'tl_bal')}-{mb.range_(F, 'tl_draw')}+{mb.range_(F, 'tl_rep')}-{mb.range_(F, 'fx_loss')}))"
+     f"+SUMPRODUCT(ABS({mb.range_(S, 'tl')}-{mb.range_(F, 'tl_bal')}))>1,1,0)"),
+    ("Receivables facility roll forward (opening + net drawdown = closing; FS = Financing)",
+     f"=IF(SUMPRODUCT(ABS({mb.range_(F, 'rf_bal')}-{prev_(F, 'rf_bal')}-{mb.range_(F, 'rf_flow')}))+SUMPRODUCT(ABS({mb.range_(S, 'rf')}-{mb.range_(F, 'rf_bal')}))"
+     f"+SUMPRODUCT(ABS({mb.range_(S, 'cf_rf')}-{mb.range_(F, 'rf_flow')}))>1,1,0)"),
+    ("Equity roll forward (opening + net income + equity injected = closing; no dividends)",
+     f"=IF(SUMPRODUCT(ABS({mb.range_(S, 'te')}-{prev_(S, 'te')}-{mb.range_(S, 'ni')}-{mb.range_(S, 'cf_eq0')}-{mb.range_(S, 'eq_top')}))"
+     f"+SUMPRODUCT(ABS({mb.range_(F, 'eq_cum')}-{prev_(F, 'eq_cum')}-{mb.range_(F, 'eq_init')}-{mb.range_(F, 'eq_top')}))>1,1,0)"),
+    ("Cohort totals equal portfolio totals (cohort sizes = units sold; tier rows sum to totals for collections, instalments due, receivables)",
+     "=IF(" + "+".join(f"ABS(SUM(Cohort_T{j + 1}!$C${mb.r(f'Cohort_T{j + 1}', 'coll_tot') + 1}:$C${mb.r(f'Cohort_T{j + 1}', 'coll_tot') + MONTHS})-SUM({mb.range_(O, f'iunits{j}')}))"
+                       f"+ABS(SUM(Cohort_T{j + 1}!$C${mb.r(f'Cohort_T{j + 1}', 'active_tot') + 1}:$C${mb.r(f'Cohort_T{j + 1}', 'active_tot') + MONTHS})-SUM({mb.range_(O, f'units{j}')}))"
+                       for j in range(NP))
+     + "+" + "+".join(f"SUMPRODUCT(ABS({mb.range_(O, k + 'T')}-(" + "+".join(mb.range_(O, f'{k}{j}') for j in range(NP)) + ")))" for k in ("coll", "due", "grossrec"))
+     + ">1,1,0)"),
+    ("Vintage engine carries cohort units from Vintage_Input (all tiers)",
+     "=IF(" + "+".join(f"ABS(SUM({ve_range(j, 'C')})-SUM({vi_range(j, 'C')}))" for j in range(NP)) + ">0.5,1,0)"),
+    ("Vintage_Input: cumulative collections never fall between checkpoints",
+     "=IF(" + "+".join(f"SUMPRODUCT(ISNUMBER({vi_range(j, vi_col('coll', n_ + 1))})*ISNUMBER({vi_range(j, vi_col('coll', n_))})*({vi_range(j, vi_col('coll', n_ + 1))}<{vi_range(j, vi_col('coll', n_))}-0.5))"
+                       for j in range(NP) for n_ in range(NCP - 1)) + ">0,1,0)"),
+    ("Vintage_Input: cumulative instalments due never fall between checkpoints",
+     "=IF(" + "+".join(f"SUMPRODUCT(ISNUMBER({vi_range(j, vi_col('due', n_ + 1))})*ISNUMBER({vi_range(j, vi_col('due', n_))})*({vi_range(j, vi_col('due', n_ + 1))}<{vi_range(j, vi_col('due', n_))}-0.5))"
+                       for j in range(NP) for n_ in range(NCP - 1)) + ">0,1,0)"),
+    ("RBF: statements equal the engine's selected design, RBF non-negative (RBF is never part of customer collections, which come from the cohorts only)",
+     f"=IF(ABS(SUM({mb.range_(S, 'rbf')})-SUM({mb.range_(RB, 'selT')}))+ABS(SUM({mb.range_(O, 'rbfT')})-SUM({mb.range_(RB, 'selT')}))>1,1,0)"
+     f"+IF(MIN({mb.range_(RB, 'selT')})<-1,1,0)"),
+    ("Valuation reconciles to the statements (EBITDA, tax, capex, Year 5 working capital)",
+     f"=IF(ABS(SUM(Valuation!${col(1)}${VR['ebitda']}:${col(YEARS)}${VR['ebitda']})-SUM({mb.range_(S, 'ebitda')}))"
+     f"+ABS(SUM(Valuation!${col(1)}${VR['tax']}:${col(YEARS)}${VR['tax']})-SUM({mb.range_(S, 'tax')}))"
+     f"+ABS(SUM(Valuation!${col(1)}${VR['capex']}:${col(YEARS)}${VR['capex']})+SUM({mb.range_(C_, 'capex')}))"
+     f"+ABS(Valuation!${col(YEARS)}${VR['nwc']}-(FS!${mb.last}${mb.r(S, 'netrec')}+FS!${mb.last}${mb.r(S, 'inv')}-FS!${mb.last}${mb.r(S, 'ap')}))>1,1,0)"),
+    ("Scenario levers in use equal the selected scenario column (no overwritten lever)",
+     f"=IF(SUMPRODUCT(ABS(Scenarios!$G$6:$G$10-CHOOSE({INP['scenario']},Scenarios!$C$6:$C$10,Scenarios!$D$6:$D$10,Scenarios!$E$6:$E$10)))>0.000001,1,0)"),
+    ("No impossible negative balances (inventory, fixed assets, payables, active accounts, units, debt, cumulative equity)",
+     "=IF(MIN(" + ",".join(f"MIN({mb.range_(sh_, k_)})" for sh_, k_ in ((C_, 'inv'), (C_, 'ppe'), (C_, 'ap'), (O, 'activeT'), (O, 'unitsT'),
+                                                                        (F, 'tl_bal_usd'), (F, 'rf_bal'), (F, 'eq_cum'))) + ")<-1,1,0)"),
 ]
 for k_, (text, f) in enumerate(checks):
     r_ = 5 + k_

@@ -95,12 +95,18 @@ def history(PRODUCTS, G):
             n = orig[ci - 1]
             age_max = HIST_MONTHS - ci
             cp = {}
+            prev = None
             for k, m in enumerate([3, 6, 12, 18, 24, 36, 48, 60]):
                 if m > age_max:
                     continue
                 ages = range(1, min(m, T) + 1)
                 due_c = n * inst * len(ages)
                 coll_c = sum(n * inst * c * S(a) for a in ages) * rng.normal(1, 0.02)
+                if prev is not None and prev[0] >= T:
+                    # v0.8: past the tenor no instalment falls due and this synthetic behaviour has no late payments, so the
+                    # cumulative collections stay where they were (the draw above is kept so that the random stream is unchanged)
+                    coll_c = prev[1]
+                prev = (m, coll_c)
                 arrears = lambda kk: sum(n * inst * (1 - S(min(a, max(0, min(m, T) - kk + 1)))) for a in ages)
                 rar_m = n * (1 - S(m)) * max(0, T - m) * (inst - markup / T)
                 cp[k] = dict(coll=coll_c, due=due_c, dpd30=arrears(2) + rar_m * 0.75, dpd90=arrears(4) + rar_m * 0.55,
