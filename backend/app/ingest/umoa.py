@@ -272,7 +272,8 @@ def extract_document(session: Session, doc: SourceDocument, content: bytes) -> l
         return []
     if parsed.publication_date:
         doc.publication_date = parsed.publication_date
-    rows = [_upsert_extraction(session, doc, parsed, t) for t in parsed.tranches]
+    keys = {t.tranche_key for t in parsed.tranches}
+    rows = [_upsert_extraction(session, doc, parsed, t, keys) for t in parsed.tranches]
     doc.extraction_status = (
         "complete" if all(t.parse_status == "complete" for t in parsed.tranches) else "partial"
     )
@@ -280,15 +281,26 @@ def extract_document(session: Session, doc: SourceDocument, content: bytes) -> l
     return [r for r in rows if r is not None]
 
 
-def _upsert_extraction(session: Session, doc: SourceDocument, parsed: ParsedDocument, t) -> AuctionExtraction | None:
-    row = session.scalar(
-        select(AuctionExtraction).where(
+def _upsert_extraction(session: Session, doc: SourceDocument, parsed: ParsedDocument, t,
+                       keys: set[str] | frozenset[str] = frozenset()) -> AuctionExtraction | None:
+    def find(key: str) -> AuctionExtraction | None:
+        return session.scalar(select(AuctionExtraction).where(
             AuctionExtraction.source_document_id == doc.document_id,
-            AuctionExtraction.tranche_key == t.tranche_key,
-        )
-    )
+            AuctionExtraction.tranche_key == key))
+
+    row = find(t.tranche_key)
     if row is not None and row.verification_status != VerificationStatus.UNVERIFIED:
         return None  # a human already decided on this row; keep it as reviewed
+    if row is None and t.value("isin"):
+        # The same security staged earlier under the other operation kind (a parser upgrade
+        # reclassified the section, e.g. issue -> buyback): update that unreviewed row instead
+        # of leaving a stale duplicate, unless the parser still produces that key.
+        isin = t.value("isin")
+        other = isin if t.tranche_key.endswith("/buyback") else f"{isin}/buyback"
+        old = find(other) if other not in keys else None
+        if old is not None and old.verification_status == VerificationStatus.UNVERIFIED:
+            row = old
+            row.tranche_key = t.tranche_key
     if row is None:
         row = AuctionExtraction(source_document_id=doc.document_id, tranche_key=t.tranche_key)
         session.add(row)
@@ -306,8 +318,9 @@ def _upsert_extraction(session: Session, doc: SourceDocument, parsed: ParsedDocu
     row.operation = {"layout": parsed.layout, "operation_kind": t.kind,
                      "tranche_count": t.operation_tranches,
                      **{k: f.as_dict() for k, f in op.items()}}
-    row.warnings = list(parsed.warnings) + list(t.errors)
-    row.checks = list(parsed.checks)
+    row.warnings = list(parsed.warnings) + list(t.errors) + list(getattr(t, "notes", []))
+    # Only the checks that involve this tranche (its own, and its operation's sum checks).
+    row.checks = list(getattr(t, "checks", parsed.checks))
     row.source_id = doc.source_id
     row.source_url = doc.url
     row.publication_date = doc.publication_date

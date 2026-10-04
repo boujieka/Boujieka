@@ -1,0 +1,73 @@
+                                                                                                                            COMPTE RENDU D'ADJUDICATION DE BONS ET D'OBLIGATIONS ASSIMILABLES DU TRÉSOR
+
+                                                                                                                                                                                                                                                                                                            Emetteur :                 ETAT DE CÔTE D'IVOIRE
+Nature des titres                  : Bons et d'Obligations Assimilables du Trésor
+Montant global mis en adjudication :                       150 000 millions de FCFA, dont ONC :                                                37 500
+Date d'adjudication                :                   04/03/2025
+Date de valeur                     :            05/03/2025
+Code ISIN                          : CI0000008959                                            CI0000008967                                                CI0000008918                                       CI0000008926                                   CI0000008934                                     CI0000008942
+Dénomination de l'émission         : CI0000008959-BAT-06-2025                                CI0000008967-BAT-09-2025                                    CI0000008918-BAT-02-2026                           CI0000008926-OAT-02-2028                       CI0000008934-OAT-02-2030                         CI0000008942-OAT-02-2032
+Adjudication n°                    : ADJ-CI0000008959-BAT3M-2025                             ADJ-CI0000008967-BAT6M-2025                                 ADJ-CI0000008918-BAT1A-2-2025                      ADJ-CI0000008926-OAT3A-3-2025                  ADJ-CI0000008934-OAT5A-3-2025                    ADJ-CI0000008942-OAT7A-3-2025
+Durée                              : 91 jours                                                182 jours                                                   357 jours                                          3 ans                                          5 ans                                            7 ans
+Date d'échéance                    : 03/06/2025                                              02/09/2025                                                  24/02/2026                                         26/02/2028                                     26/02/2030                                       26/02/2032
+Valeur nominale unitaire           : 1 000 000                                               1000000                                                     1000000                                            10000                                          10000                                            10000
+Taux d'intérêt fixe annoncé                                                                                                                                                                                 5,70%                                          5,90%                                            6,00%
+Taux coupon couru                                                                                                                                                                                           0,1093151%                                     0,1131507%                                       0,1150685%
+
+
+Montant global des soumissions     :                187 147,00       millions de FCFA, dont ONC :                                                -
+Soumissions retenues               :                150 000,00       millions de FCFA, dont ONC :                                                -
+Soumissions rejetées               :                   37 147,00 millions de FCFA, dont ONC :                                                        0
+Taux de couverture du montant
+mis en adjudication par les        :                               Taux de couverture du montant mis en adjudication
+soumissions                                                124,76% par les soumissions retenues :                                             100,00%
+Taux d'absorption                  :                        80,15%
+
+
+                                                             BAT - 91 jours                                       BAT - 182 jours                                            BAT - 357 jours                                   OAT - 3 ans                                      OAT - 5 ans                                       OAT - 7 ans
+
+Nombre de participants                 10                                                    4                                                           5                                                  0                                              0                                                4
+Nombre de soumissions                  12                                                    7                                                           5                                                  0                                              0                                                8
+Montant global des soumissions         124 360 millions de F CFA, dont ONC :0                23 002 millions de F CFA, dont ONC :0                       19 005 millions de F CFA, dont ONC :0              0 millions de F CFA, dont ONC :0               0 millions de F CFA, dont ONC :0                 20 780 millions de F CFA, dont ONC :0
+Soumissions retenues                   87 213 millions de F CFA, dont ONC :0                 23 002 millions de F CFA, dont ONC :0                       19 005 millions de F CFA, dont ONC :0              0 millions de F CFA, dont ONC :0               0 millions de F CFA, dont ONC :0                 20 780 millions de F CFA, dont ONC :0
+Soumissions rejetées                   37 147 millions de F CFA, dont ONC :0                 0 millions de F CFA, dont ONC :0                            0 millions de F CFA, dont ONC :0                   0 millions de F CFA, dont ONC :0               0 millions de F CFA, dont ONC :0                 0 millions de F CFA, dont ONC :0
+Taux d'absorption                      70,13%                                                100,00%                                                     100,00%                                                                                                                                            100,00%
+Taux/Prix marginal                     6,4500%                                               6,7000%                                                     6,7800%                                            -                                              -                                                92,0000%
+Taux/Prix moyen pondéré                6,3755%                                               6,5837%                                                     6,7500%                                            -                                              -                                                93,0120%
+Rendement moyen pondéré                6,48%                                                 6,81%                                                       7,23%                                              -                                              -                                                7,31%
+
+
+
+
+     LIEU DE SOUMISSION                                                                                        MONTANT PROPOSE                                                                                                                                               MONTANT RETENU
+                                            BAT - 91 jours               BAT - 182 jours            BAT - 357 jours                OAT - 3 ans                   OAT - 5 ans               OAT - 7 ans           BAT - 91 jours          BAT - 182 jours       BAT - 357 jours                OAT - 3 ans           OAT - 5 ans                 OAT - 7 ans
+                                                 10 010                         0                          0                          0,000                          0,000                       0,000                   4                       0                      0                        0,000                   0,000                     0,000
+BENIN
+                                                  2 000                       3 000                        0                          0,000                          0,000                       0,000                2 000                    3 000                    0                        0,000                   0,000                     0,000
+BURKINA FASO
+                                                 112 000                      5 002                      14 005                       0,000                          0,000                     20 680,000            85 074                    5 002                14 005                       0,000                   0,000                   20 680,000
+COTE D'IVOIRE
+                                                   0                            0                          0                          0,000                          0,000                       0,000                   0                       0                      0                        0,000                   0,000                     0,000
+GUINEE-BISSAU
+                                                   0                            0                          0                          0,000                          0,000                       0,000                   0                       0                      0                        0,000                   0,000                     0,000
+MALI
+                                                   0                            0                          0                          0,000                          0,000                       0,000                   0                       0                      0                        0,000                   0,000                     0,000
+NIGER
+                                                  350                           0                        5 000                        0,000                          0,000                      100,000               135                        0                   5 000                       0,000                   0,000                    100,000
+SENEGAL
+                                                   0                          15 000                       0                          0,000                          0,000                       0,000                   0                     15 000                   0                        0,000                   0,000                     0,000
+TOGO
+                                                   0                            0                          0                          0,000                          0,000                       0,000                   0                       0                      0                        0,000                   0,000                     0,000
+AUTRES
+                                                                                                                      187 147,00                                                                                                                                                 150 000,00
+TOTAL
+
+
+
+
+Dakar le 04 mars 2025
+
+
+                                                                                                                                                                                                                                                                                                                                       Le Directeur Général des
+Le Directeur de UMOA-Titres                                                                                                                                                                                                                                                                                                            Financements
+

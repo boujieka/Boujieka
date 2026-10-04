@@ -19,7 +19,7 @@ from app.ingest import umoa
 from app.ingest.pdf import extract_text, pdftotext_available
 from app.ingest.queue import ReviewError, approve, list_queue, reject
 from app.ingest.review import main as review_main
-from app.ingest.umoa_extract import parse_compte_rendu, parse_french_date, parse_number
+from app.ingest.umoa_extract import _absorption, parse_compte_rendu, parse_french_date, parse_number
 from app.models import (
     Auction,
     AuctionExtraction,
@@ -284,6 +284,273 @@ class TestSingleTrancheBurkina2020:
         assert (t.value("marginal_rate"), t.value("weighted_average_rate")) == ("5.1900", "4.9648")
         assert t.parse_status == "complete"
 
+# --------------------------------------------------------------------------- layout variants
+# Fixes from the review of the rows the independent checker held. Each class reads one real
+# report (see SOURCES.txt); values were read by hand from the PDF.
+
+ML_RA_2026 = "Compte-Rendu-ML-RA-OAT-26-jours-02.09.2026.txt"
+CI_2024_05 = "Compte-Rendu-CI-ES-28.05.2024.txt"
+GW_2024_03 = "Compte-Rendu-GW-ES-12.03.2024.txt"
+CI_RS_2024 = "Compte-Rendu-CI-RS-17.09.2024.txt"
+TG_EC_2024 = "Compte-Rendu-TG-EC15.03.2024.txt"
+CI_2024_02 = "Compte-Rendu-CI-ES-29.02.2024.txt"
+CI_2025_03 = "Compte-Rendu-CI-ES-04.03.2025.txt"
+CI_EC_2026_02 = "Compte-Rendu-CI-EC-05.02.2026.txt"
+CI_EC_2025_07 = "Compte-rendu-CI-EC-11.07.2025-1.txt"
+ML_2025_04 = "Compte-Rendu-ML-ES-30.04.2025-1.txt"
+CI_EC_2024_12 = "Compte-Rendu-CI-EC-17.12.2024.txt"
+
+
+class TestSingleLayoutUnitsAndDateLabelMali2026:
+    """Compte-Rendu-ML-RA-OAT-26-jours-02.09.2026.pdf, p1 (A, K2): single-security report with
+    no heading; "Montant global des soumissions :   9 050,000        millions de FCFA" (unit in
+    its own cell); "Adjudication N° : RA-ML0000002583-39-2026   du : 02/09/2026"."""
+
+    def test_unit_is_part_of_the_raw_amount(self):
+        (t,) = parse(ML_RA_2026).tranches
+        sub = t.fields["amount_submitted"]
+        assert (sub.value, sub.raw) == ("9050000000", "9 050,000 millions de FCFA")
+        assert t.fields["amount_allocated"].raw == "9 050,000 millions de FCFA"
+        assert t.fields["amount_rejected"].raw == "0,000 millions de FCFA"
+        assert (t.value("amount_offered"), t.fields["amount_offered"].raw) == (
+            "9050000000", "9 050 millions de FCFA")  # "9 050              millions de FCFA, dont en ONC : 0"
+
+    def test_auction_date_located_by_its_printed_label(self):
+        (t,) = parse(ML_RA_2026).tranches
+        f = t.fields["auction_date"]
+        assert (f.value, f.raw, f.locator) == ("2026-09-02", "02/09/2026", "p1:L4 'du :'")
+        assert "du :" in (FIX / ML_RA_2026).read_text(encoding="utf-8").splitlines()[3]
+
+    def test_tenor_raw_is_the_cell(self):
+        (t,) = parse(ML_RA_2026).tranches
+        assert (t.value("tenor"), t.fields["tenor"].raw, t.value("tenor_days")) == ("26 jours", "26 jours", "26")
+
+    def test_ra_auction_number_means_buyback(self):
+        (t,) = parse(ML_RA_2026).tranches
+        assert t.value("auction_number") == "RA-ML0000002583-39-2026"
+        assert t.kind == "buyback" and t.tranche_key == "ML0000002583/buyback"
+        assert t.parse_status == "complete"
+
+
+class TestDashlessHeader2024:
+    """Compte-Rendu-CI-ES-28.05.2024.pdf, p1 (B): results header "BAT 182 jours   BAT 364 jours
+    OAT 3 ans" (no dash); header cells "182   jours   364   jours   3   ans" and
+    "1 000 000   FCFA   1 000 000   FCFA   10 000   FCFA"; OAT coupon "5,70%" on a line with no
+    label (L14)."""
+
+    @pytest.fixture(scope="class")
+    def doc(self):
+        return parse(CI_2024_05)
+
+    def test_results_table_is_read(self, doc):
+        assert [t.value("isin") for t in doc.tranches] == ["CI0000007589", "CI0000007555", "CI0000007563"]
+        bat6m, bat1y, oat3y = doc.tranches
+        assert (bat6m.value("number_of_participants"), bat6m.value("number_of_bids")) == ("6", "10")
+        assert (bat6m.value("amount_submitted"), bat6m.value("amount_allocated"),
+                bat6m.value("amount_rejected")) == ("27406000000", "23406000000", "4000000000")
+        assert (bat6m.value("absorption_rate"), bat6m.value("marginal_rate"),
+                bat6m.value("weighted_average_rate"), bat6m.value("weighted_average_yield")) == (
+            "85.40", "6.7800", "6.6613", "6.89")
+        assert bat1y.value("amount_submitted") == "8121000000"
+        assert (oat3y.value("amount_submitted"), oat3y.value("marginal_price"),
+                oat3y.value("weighted_average_price"), oat3y.value("weighted_average_yield")) == (
+            "19156380000", "95.0000", "95.0897", "7.62")
+        assert all(c["ok"] for c in doc.checks)
+
+    def test_unit_cells_are_merged_into_their_number(self, doc):
+        bat6m, bat1y, oat3y = doc.tranches
+        assert [(t.value("tenor"), t.fields["tenor"].raw) for t in doc.tranches] == [
+            ("182 jours", "182 jours"), ("364 jours", "364 jours"), ("3 ans", "3 ans")]
+        assert [t.value("face_value") for t in doc.tranches] == ["1000000", "1000000", "10000"]
+        assert oat3y.fields["face_value"].raw == "10 000"  # unit "FCFA" recorded as XOF
+        assert oat3y.fields["face_value"].locator.endswith("col 3/3")
+        assert bat6m.parse_status == bat1y.parse_status == "complete"
+
+    def test_unlabelled_coupon_is_not_read_and_not_called_undisclosed(self, doc):
+        oat3y = doc.tranches[2]
+        assert oat3y.value("coupon_rate") is None
+        assert oat3y.field_status["coupon_rate"] == "not_available"
+        assert oat3y.parse_status == "partial"
+        assert any("without a label" in e for e in oat3y.errors)
+
+    def test_misspelt_header_jous(self):
+        """Compte-Rendu-GW-ES-12.03.2024.pdf, p1: "BAT 107 jous   BAT 336 jours"."""
+        doc = parse(GW_2024_03)
+        a, b = doc.tranches
+        assert (a.value("tenor"), b.value("tenor")) == ("107 jours", "336 jours")
+        assert (a.value("amount_submitted"), a.value("amount_allocated"), a.value("absorption_rate"),
+                a.value("weighted_average_yield")) == ("2500000000", "2000000000", "80.00", "8.98")
+        assert (b.value("amount_submitted"), b.value("weighted_average_yield")) == ("4000000000", "9.65")
+        assert a.parse_status == b.parse_status == "complete"
+
+
+class TestIsinHeadedBuyback2024:
+    """Compte-Rendu-CI-RS-17.09.2024.pdf, p1 (C): buyback of 7 BAT; results table headed by the
+    ISIN codes "CI0000006813   CI0000006920 …"."""
+
+    def test_columns_mapped_by_isin(self):
+        doc = parse(CI_RS_2024)
+        assert len(doc.tranches) == 7 and all(t.kind == "buyback" for t in doc.tranches)
+        first, second, last = doc.tranches[0], doc.tranches[1], doc.tranches[-1]
+        assert (first.value("isin"), first.value("amount_submitted"), first.value("marginal_rate"),
+                first.value("weighted_average_rate"), first.value("weighted_average_yield")) == (
+            "CI0000006813", "16074000000", "2.0000", "2.7389", "2.74")
+        assert (second.value("isin"), second.value("amount_allocated"), second.value("weighted_average_yield")) == (
+            "CI0000006920", "1000000000", "3.51")
+        assert (last.value("isin"), last.value("amount_submitted"), last.value("weighted_average_yield")) == (
+            "CI0000007985", "2000000000", "3.02")
+        assert all(t.parse_status == "complete" for t in doc.tranches)
+        assert all(c["ok"] for c in doc.checks)  # 16 074 + 1 000 + … = 41 074 published
+
+    def test_absorption_ratio_and_range(self):
+        # Column 1 prints a bare "1" (Excel ratio, 16 074 of 16 074 retained) → 100 %.
+        first = parse(CI_RS_2024).tranches[0]
+        assert (first.value("absorption_rate"), first.fields["absorption_rate"].raw) == ("100", "1")
+        # The same cell as rendered in the diagnosis ("1 100,00%") must never become 1100 %.
+        assert _absorption("1 100,00%", "p1:L32", 0.9) == (None, "not_available")
+        assert _absorption("100,00%", "p1:L32", 0.9)[0].value == "100.00"
+
+
+class TestFractionalTenor2024:
+    """Compte-Rendu-TG-EC15.03.2024.pdf, p1 (D): reopened OAT "Durée : … 2,85 ans …", results
+    header "OAT - 2,85 ans"."""
+
+    def test_decimal_tenor(self):
+        doc = parse(TG_EC_2024)
+        oat = by_isin(doc, "TG0000002617")
+        assert (oat.value("tenor"), oat.fields["tenor"].raw) == ("2.85 ans", "2,85 ans")
+        assert oat.value("tenor_days") == "1040"  # round(2.85 × 365) = round(1040.25)
+        assert "converted to days" in oat.fields["tenor_days"].note
+        assert "fractional" in oat.fields["tenor_days"].note
+        # The results column "OAT - 2,85 ans" is found and matched.
+        assert (oat.value("amount_submitted"), oat.value("marginal_price"), oat.value("weighted_average_yield")) == (
+            "12562410000", "94.4503", "8.40")
+        assert oat.parse_status == "complete" and not oat.errors
+        assert by_isin(doc, "TG0000002724").fields["tenor_days"].note is None  # "364 jours"
+
+
+class TestStaggeredBuybackHeader2024:
+    """Compte-Rendu-CI-ES-29.02.2024.pdf, p2 (E): "Dénomination de l'émission :
+    CI0000006417-BAT-05-2024" then, on the next line, "CI0000004453-OAT-06-2024
+    CI0000007068-BAT-04-2024 …"; same for durée, échéance, valeur nominale, adjudication n°."""
+
+    def test_second_line_cells_by_column(self):
+        doc = parse(CI_2024_02)
+        rb = [t for t in doc.tranches if t.kind == "buyback"]
+        assert [t.value("security_name") for t in rb[:3]] == [
+            "CI0000006417-BAT-05-2024", "CI0000004453-OAT-06-2024", "CI0000007068-BAT-04-2024"]
+        oat = rb[1]
+        assert (oat.value("isin"), oat.value("instrument"), oat.value("tenor"), oat.value("maturity_date"),
+                oat.value("face_value"), oat.value("auction_number")) == (
+            "CI0000004453", "OAT", "108 jours", "2024-06-16", "10000", "RA-CI0000004453-OAT3A-2-2024")
+        assert (oat.value("marginal_price"), oat.value("weighted_average_price")) == ("100.7068", "100.6238")
+        # Located on the continuation line, under the label's name.
+        assert oat.fields["maturity_date"].locator == "p2:L19 'date d'echeance' col 2/8"
+        assert rb[0].fields["maturity_date"].locator == "p2:L18 'date d'echeance' col 1/8"
+        assert all(t.parse_status == "complete" for t in rb)
+
+    def test_issue_section_fractional_tenor(self):
+        oat = by_isin(parse(CI_2024_02), "CI0000005922")
+        assert (oat.value("tenor"), oat.value("tenor_days")) == ("1.94 ans", "708")
+        assert oat.value("marginal_price") == "96.8275" and oat.parse_status == "complete"
+
+
+class TestZeroBidTrancheBlankAbsorption2025:
+    """Compte-Rendu-CI-ES-04.03.2025.pdf, p1 (F): OAT 3 ans and OAT 5 ans received no bids
+    ("0 millions de F CFA"), and "Taux d'absorption   70,13%   100,00%   100,00%" leaves their
+    cells blank."""
+
+    def test_blank_absorption_is_not_disclosed_with_note(self):
+        doc = parse(CI_2025_03)
+        for isin in ("CI0000008926", "CI0000008934"):
+            t = by_isin(doc, isin)
+            assert (t.value("amount_submitted"), t.value("amount_allocated")) == ("0", "0")
+            assert t.value("absorption_rate") is None
+            assert t.field_status["absorption_rate"] == "not_disclosed"
+            assert any("no bids" in n for n in t.notes)
+            assert t.parse_status == "complete" and not t.errors
+        assert by_isin(doc, "CI0000008942").value("absorption_rate") == "100.00"
+
+    def test_blank_cell_with_bids_is_still_an_error(self):
+        text = (FIX / CI_2025_03).read_text(encoding="utf-8").replace(
+            "Taux d'absorption                      70,13%", "Taux d'absorption                            ")
+        t = by_isin(parse_compte_rendu(text), "CI0000008959")  # 124 360 submitted
+        assert t.field_status["absorption_rate"] == "not_available" and t.parse_status == "partial"
+
+
+class TestBuybackOverSeveralPages2026:
+    """Compte-Rendu-CI-EC-05.02.2026.pdf (H): issue of 3 OAT (p1), then one buyback of 12
+    securities printed on pages 2–4, each repeating "Montant global mis en adjudication:
+    114 033,00"; only page 2 prints "Montant global des soumissions : 114 033,00"."""
+
+    @pytest.fixture(scope="class")
+    def doc(self):
+        return parse(CI_EC_2026_02)
+
+    def test_pages_form_one_operation(self, doc):
+        rb = [t for t in doc.tranches if t.kind == "buyback"]
+        assert len(rb) == 12 and all(t.operation_tranches == 12 for t in rb)
+        total = sum(int(t.value("amount_submitted")) for t in rb)
+        assert total == 114_033_000_000
+        sums = [c for c in rb[-1].checks if c["check"].startswith("sum_")]
+        assert sums and all(c["ok"] for c in sums)
+        assert all(t.parse_status == "complete" for t in doc.tranches)
+
+    def test_checks_are_scoped_to_their_tranches(self, doc):
+        issue = doc.tranches[0]
+        assert issue.kind == "issue"
+        assert all("/buyback" not in c["check"] for c in issue.checks)
+        own = [c["check"] for c in issue.checks if ":" in c["check"]]
+        assert own and all(c.startswith("CI0000006201:") for c in own)
+
+    def test_failed_check_holds_only_its_tranche(self):
+        # Rejected amount of the first buyback security changed by hand: only that row fails.
+        text = (FIX / CI_EC_2026_02).read_text(encoding="utf-8")
+        line = next(ln for ln in text.splitlines() if ln.startswith("Soumissions rejetées") and "0,00 millions" in ln)
+        text = text.replace(line, line.replace("0,00 millions", "9,00 millions", 1), 1)
+        doc = parse_compte_rendu(text)
+        bad = [t.tranche_key for t in doc.tranches if any(not c["ok"] for c in t.checks)]
+        assert len(bad) == 1
+
+
+class TestSpacedDecimalComma2025:
+    """J: "20 208, 7 millions de F CFA" (Compte-rendu-CI-EC-11.07.2025-1.pdf, p1 L31) and
+    "6 622 ,4millions de F CFA" (Compte-Rendu-ML-ES-30.04.2025-1.pdf, p1 L32); the next row
+    prints them normally ("20 208,7 millions", "6 622,4 millions")."""
+
+    def test_amounts(self):
+        oat = by_isin(parse(CI_EC_2025_07), "CI0000009346")
+        sub = oat.fields["amount_submitted"]
+        assert (sub.value, sub.raw) == ("20208700000", "20 208, 7 millions de F CFA")
+        assert "space around the decimal comma" in sub.note
+        assert oat.value("amount_allocated") == "20208700000"
+        assert all(c["ok"] for c in oat.checks)
+        ml = by_isin(parse(ML_2025_04), "ML0000003615")
+        assert (ml.value("amount_submitted"), ml.fields["amount_submitted"].raw) == (
+            "6622400000", "6 622 ,4millions de F CFA")
+        assert ml.value("amount_allocated") == "6622400000"
+
+    def test_neighbouring_cells_unchanged(self):
+        ml = parse(ML_2025_04)
+        assert by_isin(ml, "ML0000003607").value("amount_submitted") == "4173500000"  # "4 173,5"
+        assert by_isin(ml, "ML0000003599").value("amount_submitted") == "35045000000"
+
+
+class TestMisspeltBuybackHeading2024:
+    """Compte-Rendu-CI-EC-17.12.2024.pdf (K2): "COMPTE RENDU DE RACAHT DE BONS DU TRESOR",
+    "Adjudication N° : RA-CI0000008355-BAT1M-2024  du : 17/12/2024", settlement 18/12/2024
+    after maturity 17/12/2024 as printed."""
+
+    def test_classified_as_buyback_and_checks_scoped(self):
+        doc = parse(CI_EC_2024_12)
+        issue, rb = doc.tranches
+        assert (issue.tranche_key, rb.tranche_key) == ("CI0000008074", "CI0000008355/buyback")
+        assert any("RA-" in w for w in doc.warnings)
+        # The printed dates of the buyback fail its own check, and only its own.
+        assert not all(c["ok"] for c in rb.checks)
+        assert all(c["ok"] for c in issue.checks) and issue.parse_status == "complete"
+        assert issue.fields["auction_date"].locator == "p1:L6 'du :'"
+
 
 @needs_pdftotext
 class TestPdfMali2016:
@@ -443,6 +710,27 @@ class TestPipeline:
         parsed = parse_compte_rendu((FIX / SN_2026).read_text(encoding="utf-8"))
         assert umoa._upsert_extraction(db, doc, parsed, parsed.tranches[0]) is None
         assert rows[0].verification_status == VerificationStatus.REJECTED
+
+    def test_reclassified_section_updates_its_unreviewed_row(self, db, store):
+        """A row staged by the earlier parser as an issue ("ML0000002583") is re-keyed in place
+        when the section is now read as a buyback (RA- auction number): no stale duplicate."""
+        (row,) = _stage_text(db, "Compte-Rendu-ML-RA-OAT-26-jours-02.09.2026.txt")
+        row.tranche_key = "ML0000002583"  # as staged before the fix
+        db.flush()
+        parsed = parse_compte_rendu((FIX / "Compte-Rendu-ML-RA-OAT-26-jours-02.09.2026.txt").read_text(encoding="utf-8"))
+        again = umoa._upsert_extraction(db, row.document, parsed, parsed.tranches[0],
+                                        {t.tranche_key for t in parsed.tranches})
+        assert again.extraction_id == row.extraction_id and again.tranche_key == "ML0000002583/buyback"
+        assert db.scalar(select(func.count()).select_from(AuctionExtraction).where(
+            AuctionExtraction.source_document_id == row.source_document_id)) == 1
+
+    def test_rows_carry_only_their_own_checks_and_notes(self, db, store):
+        rows = _stage_text(db, "Compte-Rendu-CI-ES-04.03.2025.txt")
+        zero = next(r for r in rows if r.isin == "CI0000008926")
+        assert {c["check"] for c in zero.checks} >= {"sum_amount_submitted", "CI0000008926: submitted = allocated + rejected"}
+        assert all(c["check"].startswith(("sum_", "CI0000008926:")) for c in zero.checks)
+        assert any("no bids" in w for w in zero.warnings)
+        assert zero.parse_status == "complete"
 
     def test_staging_rows_must_not_be_labelled_synthetic(self, db, store):
         rows = _stage_text(db, BF_2020)

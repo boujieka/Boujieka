@@ -1,0 +1,59 @@
+Nature des titres                      : OBLIGATIONS ASSIMILABLES DU TRESOR
+Code ISIN                              : ML0000002583                              Emetteur : ETAT DU MALI
+Dénomination de l'émission             : ML0000002583-OAT-09-2026
+Adjudication N°                        : RA-ML0000002583-39-2026                         du : 02/09/2026
+Date de valeur                         : 03/09/2026                       Date d'échéance : 29/09/2026
+Durée                                  : 26 jours
+Valeur nominale unitaire               : 10 000             FCFA
+Montant global mis en adjudication     : 9 050              millions de FCFA, dont en ONC : 0
+Taux d'intérêt fixe annoncé            : 6,00%
+Taux coupon couru                      : 5,57260%
+
+Nombre de participants                 :   2                Nombre de soumissions           : 2
+
+Montant global des soumissions         :   9 050,000        millions de FCFA, dont en ONC   : 0,000
+
+Soumissions retenues                   :   9 050,000        millions de FCFA, dont en ONC   : 0,000
+
+Soumissions rejetées                   :   0,000            millions de FCFA, dont en ONC   : 0,000
+
+                                                            Taux de couverture du montant
+Taux de couverture du montant mis en   :   100,00%          mis en adjudication par les     : 100,00%
+adjudication par les soumissions
+                                                            soumissions retenues
+
+Taux d'absorption                      :   100,00%          Rendement moyen pondéré         : 2,50%
+
+Prix marginal                          :   100,2411%        Prix moyen pondéré              : 100,2411%
+
+
+
+
+RESULTAT GLOBAL (EN MILLIONS DE FRANCS CFA)
+
+LIEU DE SOUMISSION                                                 MONTANT PROPOSE                    MONTANT RETENU
+BENIN                                                                   0,000                                0,000
+BURKINA FASO                                                           2 000,000                           2 000,000
+COTE D'IVOIRE                                                           0,000                                0,000
+GUINEE-BISSAU                                                           0,000                                0,000
+MALI                                                                   7 050,000                           7 050,000
+NIGER                                                                   0,000                                0,000
+SENEGAL                                                                 0,000                                0,000
+TOGO                                                                    0,000                                0,000
+AUTRES                                                                  0,000                                0,000
+TOTAL                                                                  9 050,000                           9 050,000
+
+
+Dakar le 02.sept.26
+
+
+
+                                                                                             Le Directeur Général du Trésor et
+Le Directeur de UMOA-Titres                                                                  de la Comptabilité Publique
+
+  Adresse : Boulevard Mamadou DIA
+  BP : 4709 RP Dakar -Sénégal
+  Tél. : (221) 33 849 28 28
+  E-mail : umoatitres@umoatitres.org
+  Site web : www.umoatitres.org
+
