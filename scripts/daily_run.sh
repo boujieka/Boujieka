@@ -20,6 +20,11 @@ psql_admin "select 1 from pg_roles where rolname='abi'" | grep -q 1 \
 psql_admin "select 1 from pg_database where datname='abi'" | grep -q 1 \
   || su postgres -c "createdb -O abi abi"
 
+# The UMOA-Titres extractor and checker need pdftotext (poppler).
+if ! command -v pdftotext >/dev/null; then
+  (apt-get install -y -qq poppler-utils >/dev/null 2>&1 || (apt-get update -qq >/dev/null && apt-get install -y -qq poppler-utils >/dev/null)) \
+    || echo "WARNING: pdftotext unavailable; new results will be held, not approved"
+fi
 python3 -m pip install -q -e "backend[dev]" 2>/dev/null || python3 -m pip install -q -e "backend[dev]" --break-system-packages
 cd backend
 alembic upgrade head
