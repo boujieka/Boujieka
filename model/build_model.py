@@ -81,6 +81,7 @@ SHEETS = [
     "22_GOVERNMENT_SUPPORT", "23_GUARANTEES", "24_CONTINGENT_LIABILITIES", "25_FISCAL_IMPACT",
     "26_DEBT_SUSTAINABILITY", "27_SCENARIOS", "28_SENSITIVITY", "29_RISK_ALLOCATION",
     "30_BANKABILITY", "30A_CLOSE_READINESS", "31_CASE_STUDY", "32_DASHBOARD", "33_CHECKS",
+    "34_FRAMEWORK_MAP", "35_BOOK_CHECK",
 ]
 WS = {s: wb.create_sheet(s) for s in SHEETS}
 
@@ -1310,7 +1311,7 @@ calc(ws, r, "sc_result", "PROJECT-LEVEL FISCAL EXPOSURE SCREENING RESULT",
 # 30 BANKABILITY
 # ===================================================================================
 ws = WS["30_BANKABILITY"]
-title(ws, "30 BANKABILITY — Hydropower Bankability Framework™ (9 gates, weakest-link, auditable thresholds)",
+title(ws, "30 BANKABILITY — 9-GATE BANKABILITY SCREEN, development stage (weakest-link, auditable thresholds). The 23-gate financial close readiness test is on 30A.",
       "Score: 3 READY, 2 CONDITIONAL, 1 DEVELOPMENT GAP, 0 CRITICAL GAP. Gate status = weakest test. Thresholds are illustrative and editable.")
 heads = ["Gate / test", "Direction", "Metric", "READY if", "COND. if", "DEV. GAP if", "Score", "Status", "Source / logic"]
 for j, h in enumerate(heads):
@@ -1773,7 +1774,7 @@ GATES_FC = [
     ("Payment security of at least 6 months in place", "Offtaker", "Y", None, "{lc_months}>=6"),
     ("Offtaker payment capacity at least 1.2x the PPA bill (worst of first 10 years)", "Offtaker", "Y", None, "{ut_ratio10}>=1.2"),
     ("Financing plan fully committed (no financing gap)", "Finance", "Y", None, "{fin_gap}<=0.5"),
-    ("Minimum DSCR at or above the sizing target in the base case", "Finance", "Y", None, "AND({debt_m}+{debt_c}>0,{kpi_min_dscr}>={str_dscr})"),
+    ("Minimum DSCR at or above the sizing target in the selected case", "Finance", "Y", None, "AND({debt_m}+{debt_c}>0,{kpi_min_dscr}>={str_dscr})"),
     ("Equity commitments signed and equity IRR at or above target", "Finance", "Y", None, "IF(ISNUMBER({kpi_eirr}),{kpi_eirr}>={str_hurdle},{s_priv}<=0)"),
     ("Political risk cover or guarantees signed", "Risk", "N", "NO EVIDENCE", None),
     ("Government support approved by the finance ministry; fiscal screen not HIGH", "Public finance", "Y", None, "LEFT({sc_result},4)<>\"HIGH\""),
@@ -1819,6 +1820,7 @@ calc(ws, r, "fc_decision", "FINANCIAL CLOSE DECISION",
 note(ws, r + 1, "A GO says the evidence file is complete for lenders and sponsors to decide. It is not an investment recommendation.")
 r += 3
 section(ws, r, "HYDRO READINESS FRAMEWORK: eight questions, 23 gates, one close decision"); r += 1
+FW_ROW0 = r + 1  # first question row of the summary (used by the dashboard)
 for j, h in enumerate(["Question", "Must be accepted by", "Gates", "Met", "Critical not met or no evidence"]):
     c = ws.cell(r, 2 + j, h); c.font = F_HDR; c.fill = FILL_HDR
 r += 1
@@ -1840,7 +1842,7 @@ ws.column_dimensions["A"].width = 44; ws.column_dimensions["B"].width = 18; ws.c
 ws.column_dimensions["D"].width = 44; ws.column_dimensions["E"].width = 18; ws.column_dimensions["F"].width = 4
 ws.column_dimensions["G"].width = 40; ws.column_dimensions["H"].width = 22
 put(ws, "A3", '="Project: "&{proj_name}&"  |  Structure: "&{str_name}&"  |  Case: "&CHOOSE({case},"Base","Low","High")&"  |  Active stresses: "&SUM({st_drought},{st_capex},{st_delay},{st_demand},{st_offtaker},{st_fx},{st_rate},{st_trans},{st_climate})', font=F_BOLD)
-put(ws, "A4", '="VERDICT: "&{bk_overall}&"   |   FISCAL SCREEN: "&{sc_result}', font=Font(name=ARIAL, size=11, bold=True, color="C00000"))
+put(ws, "A4", '="9-GATE SCREEN (development stage): "&{bk_overall}&"   |   23-GATE CLOSE READINESS (transaction stage): "&{fc_decision}&"   |   FISCAL SCREEN: "&{sc_result}', font=Font(name=ARIAL, size=11, bold=True, color="C00000"))
 def kpi_block(col_lab, col_val, r0, head, items):
     c = ws[f"{col_lab}{r0}"]; c.value = head; c.font = F_HDR; c.fill = FILL_HDR
     ws[f"{col_val}{r0}"].fill = FILL_HDR
@@ -1885,7 +1887,15 @@ kpi_block("A", "B", 25, "PUBLIC FINANCE", [
     ("Fiscal NPV, central government (USDm)", "={fis_npv}", "m"), ("Consolidated fiscal NPV incl. utility (USDm)", "={fis_npv_cons}", "m"),
     ("Peak annual cash need / revenue", "={fis_peak_rev}", "pct2"),
     ("Peak contingent exposure / GDP", "={sc_cl}", "pct2"), ("Screening result", "={sc_result}", None)])
-c = ws["D25"]; c.value = "BANKABILITY GATES"; c.font = F_HDR; c.fill = FILL_HDR; ws["E25"].fill = FILL_HDR
+c = ws["D25"]; c.value = "9-GATE BANKABILITY SCREEN (development stage)"; c.font = F_HDR; c.fill = FILL_HDR; ws["E25"].fill = FILL_HDR
+c = ws["G17"]; c.value = "23-GATE FINANCIAL CLOSE READINESS (transaction stage)"; c.font = F_HDR; c.fill = FILL_HDR; ws["H17"].fill = FILL_HDR
+for qi in range(8):
+    rq = FW_ROW0 + qi
+    ws[f"G{18 + qi}"] = FQ[qi]; ws[f"G{18 + qi}"].font = F_BASE
+    put(ws, f"H{18 + qi}", f"='30A_CLOSE_READINESS'!E{rq}&\" of \"&'30A_CLOSE_READINESS'!D{rq}&\" met; \"&'30A_CLOSE_READINESS'!F{rq}&\" critical open\"")
+    ws[f"H{18 + qi}"].border = BOX
+ws["G26"] = "Decision"; ws["G26"].font = F_BOLD
+put(ws, "H26", "={fc_decision}"); ws["H26"].border = BOX
 rr = 26
 for gid in gid_list:
     gr, gname = GATE_ROWS[gid]
@@ -1950,10 +1960,115 @@ ws.conditional_formatting.add(f"C{chk_first}:C{chk_last+2}", CellIsRule(operator
 ws.conditional_formatting.add(f"C{chk_first}:C{chk_last+2}", CellIsRule(operator="equal", formula=['"ERROR"'], fill=PatternFill("solid", fgColor="FF7C80")))
 
 # ===================================================================================
+# 34 FRAMEWORK MAP — Book 7 Hydro Readiness Framework <-> model
+# ===================================================================================
+ws = WS["34_FRAMEWORK_MAP"]
+title(ws, "34 FRAMEWORK MAP — Book 7 (Hydro Readiness Framework) to MODEL 7",
+      "Each of the 23 financial close gates, its framework question, who must accept it, where the model tests it, and the book chapters. Status is live from 30A.")
+Q_CH = ["2, 3, 9, Annexes N to P", "5, 7, 8, Annex R", "3, 4", "6, 14", "12, 13", "9, 10, Annexes O and Q", "15", "17, 18"]
+AREA_SHEET = {"Resource": "03_HYDROLOGY", "Design": "05_PLANT_CAPEX", "E&S": "02_PROJECT_INPUTS", "Permits": "13_REGULATION",
+              "Revenue": "14_PPA", "Grid": "08_TRANSMISSION", "Construction": "05A_CONTRACTING", "Operations": "07_OPEX",
+              "Offtaker": "11_OFFTAKER", "Finance": "17_PROJECT_FINANCE", "Risk": "23_GUARANTEES", "Public finance": "26_DEBT_SUSTAINABILITY"}
+for col, w in zip("ABCDEFGHIJ", [5, 50, 30, 22, 9, 26, 46, 12, 14, 26]):
+    ws.column_dimensions[col].width = w
+for j, h in enumerate(["#", "Gate", "Framework question", "Must be accepted by", "Critical", "Model sheet(s)", "Metric or evidence", "Type", "Status (live)", "Book chapters"]):
+    c = ws.cell(4, 1 + j, h); c.font = F_HDR; c.fill = FILL_HDR
+for k, (lab, area, crit, ev, test) in enumerate(GATES_FC):
+    rr = 5 + k
+    qi = GATE_Q[k]
+    if test:
+        names = re.findall(r"\{(\w+)\}", test)
+        sheets = []
+        for nm in names:
+            s_ = re.match(r"'([^']+)'!", REF.get(nm, "")) if nm in REF else None
+            if s_ and s_.group(1) not in sheets:
+                sheets.append(s_.group(1))
+        sheet_txt, metric, typ = ", ".join(sheets) or AREA_SHEET.get(area, ""), test.replace("{", "").replace("}", ""), "Automatic"
+    else:
+        sheet_txt, metric, typ = AREA_SHEET.get(area, ""), "Evidence file: document, signatory and date", "Evidence"
+    vals = [k + 1, lab, FQ[qi], FQ_WHO[qi], "Yes" if crit == "Y" else "No", sheet_txt, metric, typ]
+    for j, v in enumerate(vals):
+        c = ws.cell(rr, 1 + j, v); c.font = F_BASE; c.alignment = Alignment(wrap_text=True, vertical="top")
+    put(ws, f"I{rr}", f"='30A_CLOSE_READINESS'!F{G0 + k}")
+    ws.cell(rr, 10, Q_CH[qi]).font = F_BASE
+rr = 5 + len(GATES_FC) + 2
+section(ws, rr, "THE 9-GATE SCREEN (30_BANKABILITY) AND THE FRAMEWORK QUESTIONS"); rr += 1
+SCREEN_Q = {"G1": 0, "G2": 2, "G3": 0, "G4": 2, "G5": 6, "G6": 1, "G7": 4, "G8": 6, "G9": 1}
+for j, h in enumerate(["Screen gate", "", "Main framework question", "Status (live)"]):
+    c = ws.cell(rr, 1 + j, h); c.font = F_HDR; c.fill = FILL_HDR
+rr += 1
+for gid in gid_list:
+    ws.cell(rr, 1, gid).font = F_BASE; ws.cell(rr, 2, GATE_ROWS[gid][1]).font = F_BASE
+    ws.cell(rr, 3, FQ[SCREEN_Q[gid]]).font = F_BASE
+    put(ws, f"D{rr}", f"={{{gid}_status}}")
+    rr += 1
+note(ws, rr + 1, "Use the 9-gate screen during development to decide whether to keep spending; use the 23 gates at the transaction stage to decide whether the evidence file supports financial close.")
+
+# ===================================================================================
+# 35 BOOK CHECK — base case figures printed in Book 7
+# ===================================================================================
+ws = WS["35_BOOK_CHECK"]
+title(ws, "35 BOOK CHECK — MODEL 7 against the Kasiri figures printed in Book 7",
+      "Valid only with the default inputs (base case, IPP structure, debt sized in the model). PASS means the live value rounds to the printed figure.")
+for col, w in zip("ABCDEF", [52, 16, 16, 12, 10, 40]):
+    ws.column_dimensions[col].width = w
+for j, h in enumerate(["Figure", "Printed in Book 7", "Model (live)", "Tolerance", "Result", "Where in the book"]):
+    c = ws.cell(4, 1 + j, h); c.font = F_HDR; c.fill = FILL_HDR
+BOOK_CHECKS = [
+    ("Installed capacity (MW)", "inst_mw", 60, 0.5, "n2", "Chapter 18, Table 18.1"),
+    ("P50 generation (GWh)", "p50", 292, 0.5, "n2", "Chapters 2, 18"),
+    ("Capacity factor", "cf", 0.556, 0.0005, "pct", "Chapters 3, 18; Table P.2"),
+    ("P90 one-year (GWh)", "p90", 236, 0.5, "n2", "Chapters 2, 18; Annex N"),
+    ("P90 ten-year (GWh)", "p90_10", 268, 0.5, "n2", "Chapters 2, 18; Annex N"),
+    ("Plant cost, real 2026 (USDm)", "capex_real", 157, 0.5, "n2", "Chapter 18, Table 18.1"),
+    ("Unit plant cost (USD/kW)", "capex_kw", 2614, 0.5, "n2", "Chapters 3, 18"),
+    ("Total uses (USDm)", "uses", 215, 0.5, "n2", "Chapters 1, 12, 18"),
+    ("Senior debt (USDm)", "debt_m", 145, 0.5, "n2", "Chapters 12, 18"),
+    ("Gearing on total uses", "gearing", 0.68, 0.005, "pct", "Chapters 12, 18"),
+    ("LCOE (USD/MWh)", "lcoe", 106, 0.5, "n2", "Chapter 18"),
+    ("Private equity IRR", "kpi_eirr", 0.138, 0.0005, "pct", "Chapters 12, 18"),
+    ("Minimum DSCR, P50", "kpi_min_dscr", 1.53, 0.005, "n2", "Chapters 12, 18"),
+    ("LLCR at COD", "kpi_llcr", 1.59, 0.005, "n2", "Chapters 12, 18"),
+    ("Financing gap (USDm)", "fin_gap", 4.1, 0.05, "n2", "Chapters 12, 18"),
+    ("Developer IRR, success path", "dev_irr", 0.160, 0.0005, "pct", "Chapters 1, 14, 18"),
+    ("Risk-weighted developer NPV (USDm)", "dev_enpv", -0.95, 0.005, "n2", "Chapters 1, 14, 18"),
+    ("Probability of close from reconnaissance", "dev_pfc", 0.15, 0.005, "pct", "Chapters 1, 5, 14"),
+    ("Value of the position at permitting (USDm)", "sv4", 1.28, 0.005, "n2", "Chapters 6, 14, 18"),
+    ("Fiscal NPV, central government (USDm)", "fis_npv", 35, 0.5, "n2", "Chapters 15, 18"),
+    ("Consolidated fiscal NPV (USDm)", "fis_npv_cons", -28, 0.5, "n2", "Chapters 15, 18"),
+    ("Peak contingent exposure (USDm)", "cl_peak", 225, 0.5, "n2", "Chapters 15, 18"),
+    ("Buyer payment capacity, worst early year (x)", "ut_ratio10", 6.0, 0.05, "n2", "Chapters 15, 18"),
+    ("Gates met (of 23)", "fc_met", 6, 0, "int", "Chapters 17, 18"),
+]
+rr = 5
+for lab, nm, bv, tol, f, where in BOOK_CHECKS:
+    ws.cell(rr, 1, lab).font = F_BASE
+    c = ws.cell(rr, 2, bv); c.font = F_INPUT; c.number_format = FMT.get(f, "General")
+    put(ws, f"C{rr}", f"={{{nm}}}", f)
+    ws.cell(rr, 4, tol).font = F_BASE
+    put(ws, f"E{rr}", f'=IF(ABS(C{rr}-B{rr})<=D{rr}+1E-9,"PASS","CHECK")')
+    ws.cell(rr, 6, where).font = F_BASE
+    rr += 1
+for lab, nm, txt, where in [("Financial close decision", "fc_decision", "STOP: a critical gate is not met", "Chapters 17, 18"),
+                            ("Fiscal screen", "sc_result", "LOW additional fiscal pressure", "Chapters 15, 18")]:
+    ws.cell(rr, 1, lab).font = F_BASE; ws.cell(rr, 2, txt).font = F_INPUT
+    put(ws, f"C{rr}", f"={{{nm}}}")
+    put(ws, f"E{rr}", f'=IF(C{rr}=B{rr},"PASS","CHECK")')
+    ws.cell(rr, 6, where).font = F_BASE
+    rr += 1
+BC1 = rr - 1
+rr += 1
+ws.cell(rr, 1, "BOOK CONSISTENCY").font = F_BOLD
+put(ws, f"E{rr}", f'=IF(COUNTIF(E5:E{BC1},"CHECK")=0,"ALL PASS",COUNTIF(E5:E{BC1},"CHECK")&" TO CHECK")', font=F_BOLD)
+ws.conditional_formatting.add(f"E5:E{rr}", CellIsRule(operator="equal", formula=['"PASS"'], fill=PatternFill("solid", fgColor="C6EFCE")))
+ws.conditional_formatting.add(f"E5:E{rr}", CellIsRule(operator="equal", formula=['"CHECK"'], fill=PatternFill("solid", fgColor="FFEB9C")))
+note(ws, rr + 2, "A CHECK after changing inputs is expected: the printed figures belong to the default Kasiri case. With default inputs, every line should read PASS.")
+
+# ===================================================================================
 # 00 README
 # ===================================================================================
 ws = WS["00_README"]
-title(ws, "MODEL 7 — Hydropower Development and Finance Model (v1.1)",
+title(ws, "MODEL 7 — Hydropower Development and Finance Model (v1.0 release candidate 1)",
       "Can this project deliver bankable power WITHOUT creating unsustainable public liabilities?")
 ws.column_dimensions["A"].width = 30; ws.column_dimensions["B"].width = 110
 lines = [
@@ -1968,11 +2083,13 @@ lines = [
     ("Circularity", "None (checked with tools/model/check_cycles.py). IDC and fees are debt-funded within the gearing limit through closed-form factors; the DSRA is equity-funded; commercial debt is sculpted on a lender-case CFADS with unlevered tax. Documented simplifications."),
     ("Scenarios", "Three exclusive cases (Base/Low/High) + nine combinable stress toggles + five sensitivity flexes. Full-engine snapshots: python tools/run_snapshots.py."),
     ("Structures", "Five structures on 17A_STRUCTURES evaluated by the full engine (select on control panel) and by a live closed-form comparison."),
-    ("Bankability", "Nine-gate weakest-link framework with explicit thresholds (30_BANKABILITY). No hidden weights."),
+    ("Two levels of gates", "Development screening: 9 bankability gates (30_BANKABILITY), weakest-link with explicit thresholds, used while deciding whether to keep developing. Financial close readiness: 23 evidence gates (30A_CLOSE_READINESS) grouped under the eight questions of the Hydro Readiness Framework of Book 7, giving STOP / NOT READY / CONDITIONAL GO / GO. 34_FRAMEWORK_MAP links the two and the book."),
+    ("Book consistency", "35_BOOK_CHECK compares the live model with the Kasiri figures printed in Book 7; with default inputs it should read ALL PASS."),
+    ("Versions", "Book 7, Model 7, Manual 7 and Case 7: v1.0 release candidate 1. Version 1.0 is fixed after the Microsoft Excel test and the open items in docs/BOOK7_V04_QA_SUMMARY.md."),
     ("Fiscal screening", "26 is a PROJECT-LEVEL FISCAL EXPOSURE SCREENING. It does not replace IMF/World Bank debt sustainability analysis."),
     ("Limitations", "Simplified utility model; normal-approximation P-values; proportional curtailment; annual periodicity; deterministic guarantee calls; user-judgement probabilities. Not investment, legal or tax advice."),
     ("Sources", "See research/source_database.md and research/case_studies/. Benchmark placeholders are labelled; replace with verified values before use."),
-    ("Sheet map", "00 README | 01 Control | 02-07 Project | 08-10 Power system | 11-12 Offtaker/utility | 13-16 Regulation, PPA, tariff, revenue | 17-21 Finance | 22-26 Public finance | 27-28 Scenarios/sensitivity | 29-30 Risk & bankability | 31 Case study | 32 Dashboard | 33 Checks"),
+    ("Sheet map", "00 README | 01 Control, 01A Development | 02-07 Project, 05A Contracting | 08-10 Power system | 11-12 Offtaker/utility | 13-16 Regulation, PPA, tariff, revenue | 17-21 Finance, 17A Structures | 22-26 Public finance | 27-28 Scenarios/sensitivity | 29 Risk allocation | 30 9-gate screen, 30A 23-gate close readiness | 31 Case study | 32 Dashboard | 33 Checks | 34 Framework map | 35 Book check"),
 ]
 r = 4
 for k, v in lines:

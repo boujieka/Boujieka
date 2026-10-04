@@ -97,7 +97,7 @@ p = doc.add_paragraph(); add_runs(p, SUB, 14, INK)
 p = doc.add_paragraph(); p.paragraph_format.space_before = Pt(40); add_runs(p, "AUTHOR & IDEATION", 8.5, GOLD, True)
 p = doc.add_paragraph(); add_runs(p, AUTHOR, 14, GREEN, True)
 p = doc.add_paragraph(); add_runs(p, f"Africa Energy Finance  |  Business & Financial Models  |  {date.today():%B %Y}", 9.5, MUTED)
-p = doc.add_paragraph(); add_runs(p, "First edition, version 0.4 (pre-publication review draft)", 9.5, MUTED)
+p = doc.add_paragraph(); add_runs(p, "First edition, version 1.0 release candidate 1 (pre-publication review)", 9.5, MUTED)
 p = doc.add_paragraph(); p.paragraph_format.space_before = Pt(80)
 add_runs(p, f"© {date.today().year} {AUTHOR}. All rights reserved. Decision support material; not investment, legal, tax or accounting advice. "
             "The default model inputs and the Kasiri River Hydro case are fictional and illustrative.", 8, MUTED)
