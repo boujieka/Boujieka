@@ -93,6 +93,8 @@ for name, (folder, title, sub, block) in docs.items():
                     "--title", title, "--subtitle", f"{sub}. {SUB_BASE}", "--kicker", "BOOK 7 COMPANION", "--edition", VERSION],
                    check=True, capture_output=True)
 
+# 01 the full book (A4 PDF) next to the stand-alone framework
+shutil.copy("book7/build/Hydropower_Development_and_Finance.pdf", f"{OUT}/01_Hydro_Readiness_Framework/BOOK7_Hydropower_Development_and_Finance_full_book.pdf")
 # 02 model and its tests
 shutil.copy("model/Bankable_Hydro_Model.xlsx", f"{OUT}/02_Bankable_Hydro_Model/MODEL7_Bankable_Hydro_Model_v1.0RC1.xlsx")
 for f in ("MODEL7_TEST_REPORT.md", "MODEL7_GATE_AND_FORMULA_AUDIT.md"):
@@ -119,7 +121,7 @@ for f in ("research/source_database.csv", "research/source_database.md", "resear
     shutil.copy(f, f"{OUT}/07_Sources_and_References/{os.path.basename(f)}")
 open(f"{OUT}/README.txt", "w", encoding="utf8").write(
     "AFRICA ENERGY FINANCE\nBOOK 7, HYDROPOWER DEVELOPMENT AND FINANCE: companion materials\n" + VERSION + "\n\n"
-    "01_Hydro_Readiness_Framework   The eight questions, the 23 gates and the decision ladder (PDF, Word)\n"
+    "01_Hydro_Readiness_Framework   The full book (PDF) and the framework as a stand-alone reference (PDF, Word)\n"
     "02_Bankable_Hydro_Model        MODEL 7 workbook (opens on its cover sheet) and its test reports\n"
     "03_Model_User_Manual           MANUAL 7 (PDF, Word) and the audio guide to the model with its script\n"
     "04_Kasiri_River_Case           The Kasiri case of Chapter 18 (PDF, Word) and its key figures (CSV)\n"

@@ -102,7 +102,7 @@ https://drive.google.com/drive/folders/1cLpEF8qvR_OMg0JKVFHKvLxtROvZAmfr
 
 The folder holds seven sub-folders:
 
-- **01_Hydro_Readiness_Framework**: the eight questions, the 23 gates and the decision ladder, as a stand-alone reference.
+- **01_Hydro_Readiness_Framework**: the full book in PDF, and the eight questions, the 23 gates and the decision ladder as a stand-alone reference.
 - **02_Bankable_Hydro_Model**: MODEL 7, the workbook behind every number in this book, with its test reports.
 - **03_Model_User_Manual**: MANUAL 7, the user and methodology manual, and an audio guide to the model.
 - **04_Kasiri_River_Case**: the worked case of Chapter 18 and its key figures.
