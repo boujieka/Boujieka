@@ -1,6 +1,6 @@
 # About this book
 
-Book 7. Hydropower Development and Finance. From River to Financial Close: A Developer, Lender and Government Framework for Hydropower Projects in Africa. First edition, version 0.4 (pre-publication).
+Book 7. Hydropower Development and Finance. From River to Financial Close: A Developer, Lender and Government Framework for Hydropower Projects in Africa. First edition, version 1.0 release candidate 1 (pre-publication).
 
 The book belongs to the Africa Energy Finance collection, Business & Financial Models: a series of books, financial models, manuals, case studies and decision tools for energy businesses in African markets. Each book is built around one central question.
 
@@ -12,16 +12,16 @@ The book belongs to the Africa Energy Finance collection, Business & Financial M
 | Book 4 | Commercial and industrial solar with storage | Should the customer invest, sign a PPA or use an energy service company? | Planned |
 | Book 5 | Energy access fund | Can a fund mobilise capital and generate sustainable returns? | Planned |
 | Book 6 | Power utilities | Can the utility become financially sustainable? | Planned |
-| Book 7 | Hydropower: this book | Can this hydropower project be developed to financial close and financed on terms the developer, the lenders and the state can each accept? | First edition, v0.4 |
+| Book 7 | Hydropower: this book | Can this hydropower project be developed to financial close and financed on terms the developer, the lenders and the state can each accept? | First edition, v1.0 RC1 |
 
 Each book is the centre of a set of products that share one method. For Book 7 they are:
 
 | Product | Name | Role |
 |---|---|---|
 | Book | Hydropower Development and Finance (this book) | Explains the method and why it works |
-| Model | MODEL 7: Hydropower Development and Finance Model | Quantifies the method: annual, 40-period, integrated project, utility and public-finance model with a development module and 23 financial close gates |
-| Manual | MANUAL 7: User and Methodology Manual | Teaches the reader to operate the model |
-| Case | CASE 7: Kasiri River Hydro | Demonstrates the method on a fictional 60 MW run-of-river project |
+| Model | MODEL 7: Hydropower Development and Finance Model, v1.0 RC1 | Quantifies the method: annual, 40-period, integrated project, utility and public-finance model with a development module, a 9-gate development screen, the 23 financial close gates, a framework map and a book consistency check |
+| Manual | MANUAL 7: User and Methodology Manual, v1.0 RC1 | Teaches the reader to operate the model |
+| Case | CASE 7: Kasiri River Hydro, v1.0 RC1 | Demonstrates the method on a fictional 60 MW run-of-river project |
 | Training | Video course | Walks through the book and the model |
 
 The book is written to stand on its own. A reader who never opens the model loses the worked numbers, not the argument.
@@ -124,7 +124,7 @@ Every external claim carries a source identifier in square brackets, such as [HY
 
 ## Status of this edition
 
-This is the first edition of Book 7, issued as version 0.4 for pre-publication review. It replaces, for developers and lenders, the author's earlier policy paper on structuring hydro without unsustainable public liabilities, whose material is condensed in Chapter 15. Three things must happen before release: the sources marked as summaries in Annex L must be read in full; the companion model must complete its test in Microsoft Excel (it has been recalculated in LibreOffice, reproduced cell by cell by a second calculation engine, adversarially reviewed twice and corrected; Annex K gives the results); and practitioners must review the text.
+This is the first edition of Book 7, issued as version 1.0 release candidate 1 for pre-publication review. It replaces, for developers and lenders, the author's earlier policy paper on structuring hydro without unsustainable public liabilities, whose material is condensed in Chapter 15. Three things must happen before release: the sources marked as summaries in Annex L must be read in full; the companion model must complete its test in Microsoft Excel (it has been recalculated in LibreOffice, reproduced cell by cell by a second calculation engine, adversarially reviewed twice and corrected; Annex K gives the results); and practitioners must review the text.
 
 ## Acknowledgements and disclaimer
 
@@ -249,7 +249,7 @@ Kasiri is the opposite case. Its tariff is paid only for energy delivered, as un
 
 The book has 18 chapters, built around the central question. Chapters 2 to 4 cover the resource and the commercial route. Chapters 5 to 8 cover development: the stage gates, the budget, the consents and the contracts. Chapters 9 to 11 cover construction and operation. Chapters 12 to 15 cover financing, from the lender case to the public side. Chapters 16 and 17 cover stress testing and financial close, and Chapter 18 walks through the Kasiri case from site to close.
 
-The companion workbook, MODEL 7, is an annual, 40-period model with 38 sheets and about 11,000 formulas, no macros and no circular references. It links hydrology, transmission, demand, the utility's cash flow, the PPA, project finance, five financing structures, government support, contingent liabilities and a fiscal screen. A development module covers the years before close, a contracting module compares construction contract structures, and a readiness sheet applies 23 financial close gates. Its 14 integrity checks confirm internal consistency, not the realism of the assumptions. The model was reviewed adversarially before this edition; the review found and fixed defects that the model's own checks had missed, and Annex K records what was changed.
+The companion workbook, MODEL 7, is an annual, 40-period model with 40 sheets and about 11,300 formulas, no macros and no circular references. It links hydrology, transmission, demand, the utility's cash flow, the PPA, project finance, five financing structures, government support, contingent liabilities and a fiscal screen. A development module covers the years before close, a contracting module compares construction contract structures, and a readiness sheet applies 23 financial close gates. Its 14 integrity checks confirm internal consistency, not the realism of the assumptions. The model was reviewed adversarially before this edition; the review found and fixed defects that the model's own checks had missed, and Annex K records what was changed. Two sheets connect it to this book: *34_FRAMEWORK_MAP* links each of the 23 gates to its framework question, the party that must accept it, the sheet that tests it and the chapters that discuss it; *35_BOOK_CHECK* compares the live model with every Kasiri figure printed here and reads ALL PASS with the default inputs.
 
 The workbook never rates a project. Its readiness sheet counts each gate only on evidence and applies a fixed rule: STOP when a critical gate is not met or its evidence is missing, CONDITIONAL GO when every critical gate is met, GO only when all gates are met. In its default state, Kasiri meets 6 of the 23 gates and reads "STOP: a critical gate is not met". That is a finding about the state of the project's evidence, not a judgement on the project.
 
@@ -1353,7 +1353,7 @@ The model turns those conditions into 23 gates, each marked critical or not, eac
 | 15 | Payment security of at least 6 months in place | Q7 | Yes | NOT MET (model test) |
 | 16 | Offtaker payment capacity at least 1.2x the PPA bill (worst of first 10 years) | Q7 | Yes | MET (model test) |
 | 17 | Financing plan fully committed (no financing gap) | Q5 | Yes | NOT MET (model test) |
-| 18 | Minimum DSCR at or above the sizing target in the base case | Q5 | Yes | MET (model test) |
+| 18 | Minimum DSCR at or above the sizing target in the selected case | Q5 | Yes | MET (model test) |
 | 19 | Equity commitments signed and equity IRR at or above target | Q4 | Yes | NOT MET (model test) |
 | 20 | Political risk cover or guarantees signed | Q5 | No | NO EVIDENCE |
 | 21 | Government support approved by the finance ministry; fiscal screen not HIGH | Q7 | Yes | MET (model test) |
@@ -1407,7 +1407,7 @@ The decision to close is recorded in two memos: the sponsor's investment committ
 
 ## Working with the model
 
-*30A_CLOSE_READINESS* holds the 23 gates, their evidence status, the automatic tests and the decision. *30_BANKABILITY* holds the nine-gate screening framework used earlier in development. *17_PROJECT_FINANCE* holds sources and uses.
+*30A_CLOSE_READINESS* holds the 23 gates, their evidence status, the automatic tests, the decision and the summary by framework question. *34_FRAMEWORK_MAP* shows, for each gate, the question, the party that must accept it, the sheet that tests it and the chapters of this book. The dashboard shows the two levels side by side: the 9-gate bankability screen for the development stage and the 23-gate readiness test for the transaction stage. *30_BANKABILITY* holds the nine-gate screening framework used earlier in development. *17_PROJECT_FINANCE* holds sources and uses.
 
 # Chapter 18. The Kasiri case from site to close
 
