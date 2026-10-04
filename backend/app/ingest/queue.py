@@ -29,6 +29,13 @@ from decimal import Decimal
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
+from app.ingest.tenor import (
+    ORIGINAL_ISSUE,
+    TenorEvidence,
+    apply_decision,
+    original_tenor,
+    security_evidence,
+)
 from app.models import Auction, AuctionExtraction, Country, ExtractionReviewEvent, Issuer, Security
 from app.models.enums import (
     AuctionStatus,
@@ -156,6 +163,7 @@ def _security(session: Session, ext: AuctionExtraction, country: Country, review
         if conflicts:
             raise ReviewError(f"ISIN {isin} already exists with different {', '.join(conflicts)}; "
                               "reject this extraction or correct the existing security first")
+        _refresh_tenor(session, existing, ext)
         return existing
 
     issuer = session.scalar(
@@ -163,10 +171,10 @@ def _security(session: Session, ext: AuctionExtraction, country: Country, review
     )
     if issuer is None:
         raise ReviewError(f"no sovereign issuer for {country.iso3}: run `python -m app.seed.load` first")
-    tenor_days = _value(ext, "tenor_days")
-    notes = []
-    if tenor_days and (ext.fields.get("tenor_days") or {}).get("note"):
-        notes.append(f"tenor_days: {ext.fields['tenor_days']['note']}.")
+    # The printed Durée of a reopening or buyback is the remaining maturity: tenor_days is the
+    # original tenor, decided from all verified operations of this ISIN (app.ingest.tenor).
+    decision = original_tenor(*_tenor_inputs(session, isin, ext))
+    notes = [f"tenor_days: {decision.note}."]
     security = Security(
         issuer_id=issuer.issuer_id,
         country_id=country.country_id,
@@ -177,7 +185,7 @@ def _security(session: Session, ext: AuctionExtraction, country: Country, review
         face_value=_dec(ext, "face_value"),
         coupon_rate=_dec(ext, "coupon_rate") if instrument == InstrumentType.TREASURY_BOND else None,
         maturity_date=maturity_date,
-        tenor_days=int(tenor_days) if tenor_days else None,
+        tenor_days=decision.days,
         # A result report does not state these; the notice (Avis d'appel d'offres) does.
         field_status={f: ND for f in ("issue_date", "coupon_frequency", "amortization", "indexation",
                                       "green_social_sustainability_flag", "listing_status",
@@ -186,9 +194,34 @@ def _security(session: Session, ext: AuctionExtraction, country: Country, review
     )
     if instrument == InstrumentType.TREASURY_BILL:
         security.field_status["coupon_rate"] = ND  # discount instrument
+    if decision.days is None:
+        security.field_status["tenor_days"] = FieldStatus.NOT_AVAILABLE.value
     session.add(security)
     session.flush()
     return security
+
+
+def _tenor_inputs(session: Session, isin: str, ext: AuctionExtraction):
+    """Evidence for the original tenor: verified staging rows of the ISIN plus the row being approved."""
+    rows = list(session.scalars(select(AuctionExtraction).where(
+        AuctionExtraction.isin == isin, AuctionExtraction.verification_status == VerificationStatus.VERIFIED)))
+    rows = [r for r in rows if r.extraction_id != ext.extraction_id] + [ext]
+    return [TenorEvidence.from_extraction(r) for r in rows], []
+
+
+def _refresh_tenor(session: Session, security: Security, ext: AuctionExtraction) -> None:
+    """Re-decide an existing security's original tenor now that `ext` is being approved.
+
+    With every promoted auction's staging row at hand the full rule applies (an earlier original
+    issue replaces a value taken from a reopening). In a database rebuilt from the versioned export
+    (no staging rows for older auctions) the evidence is partial: only an original issue may
+    replace a value, and the dates of the known auctions still count when deciding which
+    operation came first."""
+    evidence, known, complete = security_evidence(session, security, extra=ext)
+    decision = original_tenor(evidence, known)
+    partial_ok = decision.rule == ORIGINAL_ISSUE or (security.tenor_days is None and decision.days is not None)
+    if complete or partial_ok:
+        apply_decision(security, decision, datetime.now(timezone.utc).date(), verb="updated")
 
 
 def approve(session: Session, extraction_id: int, reviewer: str, note: str | None = None) -> Auction:
