@@ -1,6 +1,6 @@
 # About this book
 
-Book 7. Hydropower Development and Finance. From River to Financial Close: A Developer, Lender and Government Framework for Hydropower Projects in Africa. First edition, version 1.0 release candidate 1 (pre-publication).
+Book 7. Hydropower Development and Finance. From River to Financial Close: A Developer, Lender and Government Framework for Hydropower Projects in Africa. First edition, version 1.0 release candidate 1 (pre-publication). Paperback ISBN-13: 979-8178961780. Independently published.
 
 The book belongs to the Africa Energy Finance collection, Business & Financial Models: a series of books, financial models, manuals, case studies and decision tools for energy businesses in African markets. Each book is built around one central question.
 

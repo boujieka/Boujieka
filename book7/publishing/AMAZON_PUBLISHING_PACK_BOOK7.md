@@ -23,7 +23,7 @@ The IFC guide explains how a hydro project is developed; this book explains how 
 1. Workbook opened and recalculated in Microsoft Excel without repair.
 2. Hydro Finance Handbook: full text read, or removed from Table P.1.
 3. Trademark check for "Hydro Readiness Framework".
-4. ISBN decided and the copyright page updated (the interior still carries a placeholder line; KDP rejects placeholder text).
+4. ISBN assigned: 979-8178961780 (KDP ISBN, imprint "Independently published"); printed on the copyright page and in the front matter. Done.
 5. Practitioner and engineer review of the text and Annexes N to R.
 6. Proof copy ordered, read and approved.
 
@@ -49,6 +49,8 @@ Interior: 162 pages including 14 blank versos, so that every chapter opens on a 
 | Edition | First edition |
 | Author | Emmanuel Boujieka Kamga |
 | Language | English |
+| ISBN (paperback) | 979-8178961780 |
+| Imprint | Independently published |
 | Publication date | After proof approval |
 
 The subtitle must match the cover word for word. The framework line ("The Hydro Readiness Framework™: 8 Questions · 23 Gates · 1 Financial Close Decision") is a cover line, not part of the subtitle field; adding it to the subtitle would make the metadata differ from the title page.
@@ -148,7 +150,7 @@ MODEL 7 and MANUAL 7 are not sold on Amazon. The book's back matter should carry
 ## 10. KDP upload checklist
 1. Release gates in section 2 closed.
 2. Interior PDF `book7/build/Hydropower_Development_and_Finance_7x10.pdf` rebuilt after the last text change; build checks clean (fonts embedded, images at least 300 ppi, every word inside the margins, chapters on right-hand pages).
-3. Copyright page: ISBN line replaced.
+3. Copyright page: ISBN 979-8178961780 and imprint "Independently published" (done); check them against the KDP setup page.
 4. Cover rebuilt from the final page count and checked against the KDP template.
 5. Metadata entered as in section 4, matching the cover word for word.
 6. Seven keywords and three categories entered; categories confirmed in the picker.
@@ -161,7 +163,7 @@ MODEL 7 and MANUAL 7 are not sold on Amazon. The book's back matter should carry
 
 | # | Decision | Options |
 |---|---|---|
-| D1 | ISBN | KDP free ISBN ("Independently published"), or own ISBN with imprint "Africa Energy Finance" |
+| D1 | ISBN | Decided: KDP ISBN 979-8178961780, imprint "Independently published" (paperback only; the Kindle edition uses an ASIN, and a hardcover needs its own ISBN) |
 | D2 | List prices | USD 34.99 or 29.99 paperback; USD 12.99 Kindle |
 | D3 | Kindle layout | Reflowable with simplified tables, or fixed layout |
 | D4 | Hardcover | At launch or later |

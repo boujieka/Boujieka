@@ -74,7 +74,8 @@ SUBTITLE = "From River to Financial Close: A Developer, Lender and Government Fr
 TAGLINE = "The Hydro Readiness Framework\u2122: 8 Questions \u00b7 23 Gates \u00b7 1 Financial Close Decision"
 PARTIES = "Developer \u00b7 Lender \u00b7 Government"
 EDITION = "First edition, version 1.0 release candidate 1 (pre-publication; print proof)"
-ISBN_LINE = "ISBN: to be assigned (decision D4: KDP ISBN or own ISBN)"  # must be replaced before upload: KDP rejects placeholder text
+ISBN_LINE = "ISBN-13: 979-8178961780 (paperback)"
+IMPRINT = "Independently published"  # KDP-assigned ISBN; the imprint must read exactly as registered with KDP text
 
 CSS = f"""
 @page {{ size: {TRIM_W}in {TRIM_H}in; margin: {TOP}in {SIDE}in {BOTTOM}in {SIDE}in; }}
@@ -186,7 +187,7 @@ def build_html(md_text, pages=None, markers=False):
   <p>Decision support material; not investment, legal, tax or accounting advice. The default model inputs and the Kasiri
   River Hydro case are fictional and illustrative. Hydro Readiness Framework is used as a trademark of the author; registration
   status to be confirmed before publication.</p>
-  <p>{htmlmod.escape(ISBN_LINE)}</p>
+  <p>{htmlmod.escape(ISBN_LINE)}<br>{htmlmod.escape(IMPRINT)}</p>
   <p>{pd.HOUSE}: {pd.SERIES.replace('&', '&amp;')}, Book 7</p>
 </div></div>
 <div class="toc"><h2>Contents</h2>{''.join(rows)}</div>
