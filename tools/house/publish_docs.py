@@ -30,10 +30,12 @@ from reportlab.lib.colors import HexColor
 from reportlab.lib.units import mm
 from reportlab.pdfgen import canvas
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 GREEN, GOLD, CREAM = "#0B3020", "#B07C0F", "#F7F3E8"
 AUTHOR = "Emmanuel Boujieka Kamga"
 EDITION = ""
+CASE = "SolaraPay case"
+KEYWORDS = "PAYGo; solar home systems"
 HOUSE = "Africa Energy Finance"
 SERIES = "Business & Financial Models"
 BANNED = [("—", "em dash"), ("–", "en dash"), (" - ", "spaced hyphen"), (" -- ", "double hyphen")]
@@ -57,6 +59,7 @@ code {{ background: #f2f2f2; padding: 0 3px; font-size: 9pt; }}
 pre {{ background: #f6f6f6; padding: 8px; font-size: 8.5pt; overflow-x: hidden; white-space: pre-wrap; }}
 blockquote {{ background: {CREAM}; border-left: 4px solid {GOLD}; margin: 10px 0; padding: 6px 12px; page-break-inside: avoid; }}
 img {{ max-width: 100%; display: block; margin: 8px auto; page-break-inside: avoid; }}
+p.cap {{ page-break-after: avoid; break-after: avoid; margin-bottom: 2px; }}
 .mk {{ font-size: 1pt; color: white; }}
 .toc {{ page-break-after: always; }}
 .toc h2 {{ border: none; padding: 0; font-size: 18pt; margin-bottom: 10px; }}
@@ -131,7 +134,7 @@ def build_html(md_path, title, subtitle, kicker, pages=None, markers=False):
     {f'<div class="meta">{htmlmod.escape(EDITION)}</div>' if EDITION else ''}
   </div>
   <div class="foot">&copy; {date.today().year} {AUTHOR}. All rights reserved. Decision support material; not investment, legal,
-  tax or accounting advice. The default model inputs and the SolaraPay case are fictional and illustrative.</div>
+  tax or accounting advice. The default model inputs and the {CASE} are fictional and illustrative.</div>
 </div>
 <div class="toc"><h2>Contents</h2>{''.join(rows)}</div>
 """
@@ -197,7 +200,7 @@ def stamp(pdf_in, pdf_out, short, kicker, title, subtitle, heads, pages):
         else:
             writer.add_outline_item(name, pg - 1, parent=parent)
     writer.add_metadata({"/Title": title, "/Subject": subtitle, "/Author": AUTHOR,
-                         "/Keywords": f"{HOUSE}; {SERIES}; PAYGo; solar home systems",
+                         "/Keywords": f"{HOUSE}; {SERIES}; {KEYWORDS}",
                          "/Creator": HOUSE, "/Producer": HOUSE})
     writer.page_mode = "/UseOutlines"
     writer.compress_identical_objects(remove_identicals=True, remove_orphans=True)
@@ -225,9 +228,10 @@ def main():
     ap.add_argument("--title", required=True); ap.add_argument("--subtitle", default="")
     ap.add_argument("--kicker", default="VOLUME 2"); ap.add_argument("--short", default=None)
     ap.add_argument("--edition", default="")
+    ap.add_argument("--case", default="SolaraPay case"); ap.add_argument("--keywords", default="PAYGo; solar home systems")
     a = ap.parse_args()
-    global EDITION
-    EDITION = a.edition
+    global EDITION, CASE, KEYWORDS
+    EDITION, CASE, KEYWORDS = a.edition, a.case, a.keywords
     short = a.short or a.title
     with tempfile.TemporaryDirectory() as td:
         p1, p2 = Path(td) / "pass1.pdf", Path(td) / "pass2.pdf"
