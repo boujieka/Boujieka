@@ -14,10 +14,19 @@ from docx.shared import Mm, Pt, RGBColor
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 os.chdir(ROOT)
-SRC, OUT = "book7/build/book7_resolved.md", "book7/build/Hydropower_Development_and_Finance.docx"
+import argparse
+_ap = argparse.ArgumentParser()
+_ap.add_argument("--src", default="book7/build/book7_resolved.md")
+_ap.add_argument("--out", default="book7/build/Hydropower_Development_and_Finance.docx")
+_ap.add_argument("--title", default="Hydropower Development and Finance")
+_ap.add_argument("--subtitle", default="From River to Financial Close: A Developer, Lender and Government Framework for Hydropower Projects in Africa")
+_ap.add_argument("--kicker", default="BOOK 7")
+_ap.add_argument("--edition", default="First edition, version 1.0 release candidate 1 (pre-publication review)")
+_A = _ap.parse_args()
+SRC, OUT = _A.src, _A.out
 GREEN, GOLD, INK, MUTED = RGBColor(0x0B, 0x30, 0x20), RGBColor(0xB0, 0x7C, 0x0F), RGBColor(0x1D, 0x1D, 0x1D), RGBColor(0x66, 0x66, 0x66)
 FONT = "Arial"
-TITLE, SUB = "Hydropower Development and Finance", "From River to Financial Close: A Developer, Lender and Government Framework for Hydropower Projects in Africa"
+TITLE, SUB = _A.title, _A.subtitle
 AUTHOR = "Emmanuel Boujieka Kamga"
 
 doc = Document()
@@ -55,19 +64,21 @@ def border_bottom(p, color="B07C0F", sz=12):
     b.append(e); pPr.append(b)
 
 
-TOK = re.compile(r"(\*\*[^*]+\*\*|\*[^*]+\*|<sub>[^<]+</sub>|<sup>[^<]+</sup>)")
+TOK = re.compile(r"(\*\*[^*]+\*\*|\*[^*]+\*|<sub>[^<]+</sub>|<sup>[^<]+</sup>|`[^`]+`)")
 
 
 def add_runs(p, text, size=None, color=None, bold=None, italic=None):
     for part in TOK.split(text):
         if not part:
             continue
-        b, i, sub, sup = bold, italic, False, False
-        if part.startswith("**"): part, b = part[2:-2], True
+        b, i, sub, sup, mono = bold, italic, False, False, False
+        if part.startswith("`") and part.endswith("`") and len(part) > 2: part, mono = part[1:-1], True
+        elif part.startswith("**"): part, b = part[2:-2], True
         elif part.startswith("<sub>"): part, sub = part[5:-6], True
         elif part.startswith("<sup>"): part, sup = part[5:-6], True
         elif part.startswith("*") and part.endswith("*") and len(part) > 2: part, i = part[1:-1], True
         r = p.add_run(part); r.bold = b; r.italic = i
+        if mono: r.font.name = "Courier New"
         r.font.subscript = sub or None; r.font.superscript = sup or None
         if size: r.font.size = Pt(size)
         if color: r.font.color.rgb = color
@@ -84,20 +95,20 @@ def page_number_footer(section):
             it = OxmlElement("w:instrText"); it.set(qn("xml:space"), "preserve"); it.text = txt; r2._r.append(it)
     r2.font.size = Pt(8); r2.font.color.rgb = MUTED
     h = section.header.paragraphs[0]
-    hr = h.add_run("AFRICA ENERGY FINANCE   |   BOOK 7"); hr.font.size = Pt(7.5); hr.bold = True; hr.font.color.rgb = GREEN
+    hr = h.add_run(f"AFRICA ENERGY FINANCE   |   {_A.kicker}"); hr.font.size = Pt(7.5); hr.bold = True; hr.font.color.rgb = GREEN
     border_bottom(h, sz=6)
 
 
 # ---- cover ----
 if os.path.exists("brand/aef_logo.png"):
     doc.add_picture("brand/aef_logo.png", width=Mm(110))
-p = doc.add_paragraph(); p.paragraph_format.space_before = Pt(60); add_runs(p, "BOOK 7", 11, GOLD, True)
+p = doc.add_paragraph(); p.paragraph_format.space_before = Pt(60); add_runs(p, _A.kicker, 11, GOLD, True)
 p = doc.add_paragraph(); add_runs(p, TITLE, 28, GREEN, True); border_bottom(p, sz=18)
 p = doc.add_paragraph(); add_runs(p, SUB, 14, INK)
 p = doc.add_paragraph(); p.paragraph_format.space_before = Pt(40); add_runs(p, "AUTHOR & IDEATION", 8.5, GOLD, True)
 p = doc.add_paragraph(); add_runs(p, AUTHOR, 14, GREEN, True)
 p = doc.add_paragraph(); add_runs(p, f"Africa Energy Finance  |  Business & Financial Models  |  {date.today():%B %Y}", 9.5, MUTED)
-p = doc.add_paragraph(); add_runs(p, "First edition, version 1.0 release candidate 1 (pre-publication review)", 9.5, MUTED)
+p = doc.add_paragraph(); add_runs(p, _A.edition, 9.5, MUTED)
 p = doc.add_paragraph(); p.paragraph_format.space_before = Pt(80)
 add_runs(p, f"© {date.today().year} {AUTHOR}. All rights reserved. Decision support material; not investment, legal, tax or accounting advice. "
             "The default model inputs and the Kasiri River Hydro case are fictional and illustrative.", 8, MUTED)
@@ -121,8 +132,16 @@ lines = open(SRC, encoding="utf8").read().split("\n")
 i, first_h1 = 0, True
 while i < len(lines):
     L = lines[i]
-    if not L.strip() or L.strip() == "{: .cap}":
+    if not L.strip() or L.strip() in ("{: .cap}", "---", "***"):
         i += 1; continue
+    if L.strip().startswith("```"):
+        i += 1
+        while i < len(lines) and not lines[i].strip().startswith("```"):
+            p = doc.add_paragraph(); p.paragraph_format.left_indent = Mm(5); p.paragraph_format.space_after = Pt(0)
+            r = p.add_run(lines[i] or " "); r.font.name = "Courier New"; r.font.size = Pt(8.5)
+            i += 1
+        i += 1; doc.add_paragraph().paragraph_format.space_after = Pt(2)
+        continue
     if L.startswith("# "):
         doc.add_paragraph().add_run().add_break(WD_BREAK.PAGE)
         h = doc.add_heading(L[2:].strip(), level=1); border_bottom(h)
