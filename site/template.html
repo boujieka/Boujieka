@@ -775,7 +775,7 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
       <p class="lede" data-i="of.lede"></p>
       <div class="offers">
         <div class="offer"><h3 data-i="of.report.t"></h3><p data-i="of.report.p"></p><p class="offer-st" data-i="of.report.s"></p><a href="#rapports" data-i="of.report.a"></a></div>
-        <div class="offer"><h3 data-i="of.data.t"></h3><p id="of-data-p"></p><p class="offer-st" data-i="of.data.s"></p><a href="donnees/fr.html" lang="fr">Français</a> · <a href="donnees/en.html" lang="en">English</a> · <a href="donnees/echantillon.csv" download data-i="of.data.a"></a></div>
+        <div class="offer"><h3 data-i="of.data.t"></h3><p id="of-data-p"></p><p class="offer-st" data-i="of.data.s"></p><a href="donnees/fr.html" lang="fr">Français</a> · <a href="donnees/en.html" lang="en">English</a> · <a href="donnees/echantillon.csv" download data-i="of.data.a"></a> · <a href="donnees/auctions.csv" download data-i="of.data.full"></a></div>
         <div class="offer"><h3 data-i="of.brief.t"></h3><p data-i="of.brief.p"></p><p class="offer-st" data-i="of.brief.s"></p><a href="#brief" data-i="of.brief.a"></a></div>
       </div>
       <h3 class="br-h" data-i="wl.title"></h3>
@@ -796,9 +796,6 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
           <label class="chk"><input type="checkbox" name="interet_api" value="oui"><span data-i="wl.int.api"></span></label>
           <label class="chk"><input type="checkbox" name="interet_cemac" value="oui"><span data-i="wl.int.cemac"></span></label>
         </fieldset>
-        <label><span data-i="wl.price.report"></span><select name="prix_rapport_trimestriel"><option value="" data-i="wl.choose"></option><option value="free_only" data-i="wl.pr.free_only"></option><option value="lt25" data-i="wl.pr.lt25"></option><option value="25_49" data-i="wl.pr.25_49"></option><option value="50_99" data-i="wl.pr.50_99"></option><option value="100_199" data-i="wl.pr.100_199"></option><option value="200plus" data-i="wl.pr.200plus"></option><option value="unsure" data-i="wl.pr.unsure"></option></select></label>
-        <label><span data-i="wl.price.data"></span><select name="prix_licence_annuelle"><option value="" data-i="wl.choose"></option><option value="lt500" data-i="wl.pd.lt500"></option><option value="500_1999" data-i="wl.pd.500_1999"></option><option value="2000_4999" data-i="wl.pd.2000_4999"></option><option value="5000_19999" data-i="wl.pd.5000_19999"></option><option value="20000plus" data-i="wl.pd.20000plus"></option><option value="unsure" data-i="wl.pd.unsure"></option></select></label>
-        <label><span data-i="wl.price.brief"></span><select name="prix_brief_mensuel"><option value="" data-i="wl.choose"></option><option value="free_only" data-i="wl.pb.free_only"></option><option value="lt10" data-i="wl.pb.lt10"></option><option value="10_29" data-i="wl.pb.10_29"></option><option value="30plus" data-i="wl.pb.30plus"></option><option value="unsure" data-i="wl.pb.unsure"></option></select></label>
         <label class="wide"><span data-i="wl.message"></span><textarea name="message" rows="3" maxlength="2000"></textarea></label>
         <label class="wide chk"><input type="checkbox" name="consentement" value="oui" required><span data-i="wl.consent"></span></label>
         <label class="wide chk"><input type="checkbox" name="desinscription" value="oui"><span data-i="wl.unsub"></span></label>
@@ -1518,7 +1515,7 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
     if (!R.length) { $("rp-list").innerHTML = `<tr><td>${esc(t("rp.none"))}</td></tr>`; $("rp-buy").innerHTML = ""; return; }
     const flag = (c) => `<img src="rapports/emblems/${c.toLowerCase()}-flag.svg" alt="${esc(NAME(c))}" title="${esc(NAME(c))}">`;
     const links = (r) => ["fr", "en"].filter((l) => r.preview[l]).map((l) =>
-      `<a href="${esc(r.preview[l])}" lang="${l}">${esc(t("rp.read." + l))}</a>${r.preview_pdf[l] ? ` · <a href="${esc(r.preview_pdf[l])}" lang="${l}">${esc(t("rp.pdf"))}</a>` : ""}`).join("<br>");
+      `<a href="${esc(r.preview[l])}" lang="${l}">${esc(t("rp.read." + l))}</a>${r.preview_pdf[l] ? ` · <a href="${esc(r.preview_pdf[l])}" lang="${l}">${esc(t("rp.pdf"))}</a>` : ""}${(r.complete_pdf || {})[l] ? ` · <a href="${esc(r.complete_pdf[l])}" lang="${l}" download>${esc(t("rp.complete"))}</a>` : ""}`).join("<br>");
     $("rp-list").innerHTML = `<thead><tr><th>${esc(t("rp.th.q"))}</th><th>${esc(t("rp.th.flags"))}</th><th class="num">${esc(t("rp.th.n"))}</th><th class="num">${esc(t("rp.th.alloc"))}</th><th>${esc(t("rp.th.read"))}</th></tr></thead><tbody>` +
       R.map((r) => `<tr><td><b>${esc(t("rp.q", { q: r.quarter, y: r.year }))}</b><br><small class="note" style="margin:0">${esc(date(r.start))} – ${esc(date(r.end))}</small></td>` +
         `<td class="rp-flags">${r.countries.map((c) => (r.flags || []).includes(c) ? flag(c) : `<abbr title="${esc(NAME(c))}">${esc(c)}</abbr> `).join("")}</td><td class="num">${nf(r.auctions, 0)}</td><td class="num">${esc(amt(r.allotted, "XOF"))}</td><td>${links(r)}</td></tr>`).join("") + "</tbody>";

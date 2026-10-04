@@ -120,4 +120,5 @@ def test_dataset_files_keep_every_verified_row_and_the_sample_stays_small(tmp_pa
     assert len(full) == out["auctions"] == len(report.load_rows())
     assert len(sample) == dataset.SAMPLE and set(sample[0]) == set(full[0])
     assert all(r["source_url"].startswith("https://www.umoatitres.org/") and len(r["document_sha256"]) == 64 for r in full)
-    assert not (tmp_path / "dist" / "donnees" / "auctions.csv").exists()  # full file never in the deployed tree
+    published = list(csv.DictReader(open(tmp_path / "dist" / "donnees" / "auctions.csv", encoding="utf-8-sig")))
+    assert published == full  # free publication: the deployed full file equals the private copy

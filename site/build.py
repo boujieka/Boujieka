@@ -255,6 +255,11 @@ def main() -> None:
     # Quarterly reports: public previews into dist/rapports, complete editions into site/reports (never deployed).
     import report
     purchase = os.environ.get("CARTOUCHE_REPORT_PURCHASE_URL") or None
+    auth_scope = json.loads((ROOT.parent / "backend" / "app" / "ingest" / "data" / "authorisations.json").read_text())
+    if purchase and not auth_scope.get("commercial_use"):
+        # The source institutions authorised free publication only: no purchase button.
+        print("CARTOUCHE_REPORT_PURCHASE_URL ignored: authorisations cover free publication only")
+        purchase = None
     payload["reports"] = report.build(date.fromisoformat(args.as_of), DIST, pdf=args.pdf, purchase_url=purchase)
     payload["reports_purchase_url"] = purchase
     # Daily auction brief (section "Brief" + e-mail-ready pages) and the data offer (dictionary, sample).

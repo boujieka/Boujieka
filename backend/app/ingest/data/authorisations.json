@@ -1,0 +1,14 @@
+{
+ "description": "Reuse authorisations for official sources, as declared by the owner. Claude has not seen the documents themselves; the owner keeps them. Scope decides what the platform may do with each source's data.",
+ "declared_on": "2026-10-04",
+ "declared_by": "Proprietaire (Boujieka)",
+ "scope": "free_publication_only",
+ "scope_text": "Publication gratuite seulement : publication sur la plateforme, sans revente des donnees ni de produits payants qui les reproduisent (rapport payant, licence de donnees).",
+ "institutions": [
+  {"name": "UMOA-Titres", "terms_url": "https://www.umoatitres.org/mentions-legales/", "conditions": ["informations reproduites avec exactitude", "UMOA-Titres mentionne comme source", "toute modification (ex. correction de donnees) mentionnee explicitement"]},
+  {"name": "BEAC", "terms_url": "https://www.beac.int/mentions-legales/", "conditions": ["source citee"]},
+  {"name": "BVMAC", "terms_url": "https://www.bvm-ac.org/mentions-legales-de-la-bvmac/", "conditions": ["source citee"]}
+ ],
+ "other_institutions": "Declarees par le proprietaire sans etre nommees : a preciser avant toute extraction.",
+ "commercial_use": false
+}

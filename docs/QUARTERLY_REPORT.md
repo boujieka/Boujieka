@@ -14,7 +14,7 @@ python site/build.py  --as-of 2026-10-04 --pdf        # with the site (the daily
 | Edition | Where | Content | Deployed |
 |---|---|---|---|
 | Preview (free) | `site/dist/rapports/<AAAA-Tn>/apercu-{fr,en}.html` (+ `.pdf`) | Cover with flags, regional summary (key figures, 8-quarter charts, yields by residual maturity), country table, description of the full edition, method, legal notice, emblem credits | Yes. Linked from the site's « Rapports » section |
-| Complete (for sale) | `site/reports/<AAAA-Tn>/cartouche-<AAAA-Tn>-complet-{fr,en}.html` (+ `.pdf`) | Everything above, plus one page per country (flag and coat of arms, key figures vs previous quarter and previous year, 8-quarter charts, yields by maturity, 5 largest operations linked to the official PDF), plus the list of source documents | No. `site/reports/` is git-ignored and outside `site/dist/` |
+| Complete (free, with an account) | `site/reports/<AAAA-Tn>/cartouche-<AAAA-Tn>-complet-{fr,en}.html` (+ `.pdf`); with `--pdf` the PDF is also published in `site/dist/rapports/<AAAA-Tn>/` | Everything above, plus one page per country (flag and coat of arms, key figures vs previous quarter and previous year, 8-quarter charts, yields by maturity, 5 largest operations linked to the official PDF), plus the list of source documents | PDF only, behind the free account (`site/edge/gate.js`); the HTML stays in the git-ignored `site/reports/` |
 
 ## Definitions
 
@@ -43,12 +43,12 @@ Licences as stated by Commons on the fetch date:
 
 **Before selling the complete edition, get legal advice.** State emblems are protected in many countries, for example by national laws on state symbols and by Article 6ter of the Paris Convention for trademarks. A paid publication must not suggest it is official. Each report carries the notice "Publication indépendante… n'émane d'aucun État, ni de la BCEAO, ni d'UMOA-Titres". To publish without the coats of arms, remove the `arms` entries from `brand/emblems/emblems.json`. The pages then render with flags only.
 
-## Selling the complete edition
+## Authorisation scope: free publication only
 
-The site is static, so it cannot protect a paid file itself. The complete edition is never deployed. Possible channels (none is configured):
+The owner holds written authorisations from UMOA-Titres, BEAC, BVMAC and other institutions. These authorisations cover **free publication only**, not resale (`backend/app/ingest/data/authorisations.json`). As a result:
 
-1. **Payment link** (e.g. Stripe Payment Links, Gumroad, Lemon Squeezy). Upload the PDF to the platform, which delivers it after payment. Then set `CARTOUCHE_REPORT_PURCHASE_URL` in the build environment. The site and every preview then show a « Obtenir l'édition complète » button pointing to it. Without that variable, no button is shown.
-2. **Subscription** (quarterly or annual) on the same platforms, with the four quarterly PDFs per year.
-3. **Institutional licence:** a PDF plus the CSV data, sold directly by invoice.
+- the complete edition is published free of charge;
+- no purchase button is shown, and `site/build.py` ignores `CARTOUCHE_REPORT_PURCHASE_URL` while `commercial_use` is false;
+- selling the report would need a new, explicit commercial authorisation from each source institution.
 
-Any of these needs an account opened by the owner (identity, bank details, VAT/tax status). It must not be configured from this repository.
+The legal points about the coats of arms above still apply to a free publication.

@@ -4,8 +4,9 @@
 
 Public (deployed, site/dist/donnees/):  data dictionary + coverage page (dictionnaire.html) and a
                                         sample of the full schema (echantillon.csv, 25 rows).
-Private (site/reports/data/, never deployed): the complete files with full provenance
-(auctions.csv, securities.csv, documents.csv, LISEZMOI.txt).
+Full files (auctions.csv, securities.csv, documents.csv): published in site/dist/donnees/ behind
+the free account (free publication is what the source institutions authorised; no resale), with a
+copy and LISEZMOI.txt in site/reports/data/.
 
 Rows are copied as verified (FACT); nothing is computed or filled in. A missing value stays empty,
 with its status (not_disclosed / not_available) in the *_status column.
@@ -44,9 +45,9 @@ DICT = {
         "f_securities": "securities.csv — une ligne par titre ({n} lignes)",
         "f_documents": "documents.csv — les documents officiels sources ({n})",
         "update": "Mise à jour : quotidienne (collecte et vérification automatiques), données au {d}.",
-        "free": "Gratuit sur la plateforme : consultation et export CSV du tableau de la section Marché. L'offre payante porte sur le fichier consolidé avec toute la provenance, les mises à jour et le droit de réutilisation dans vos propres produits.",
+        "free": "Gratuit : l'échantillon est libre ; les fichiers complets se téléchargent avec un compte gratuit. Publication autorisée par les institutions sources pour un usage gratuit : la revente des données n'est pas autorisée. Citez UMOA-Titres comme source.",
         "legal": "Les données proviennent des publications d'UMOA-Titres. Cartouche n'est affiliée ni à UMOA-Titres ni à la BCEAO. Information uniquement, ni conseil ni recommandation.",
-        "back": "Retour à la plateforme", "waitlist": "Rejoindre la liste d'attente",
+        "back": "Retour à la plateforme", "waitlist": "Être informé des mises à jour",
     },
     "en": {
         "title": "Verified WAEMU auction data",
@@ -58,9 +59,9 @@ DICT = {
         "f_securities": "securities.csv — one row per security ({n} rows)",
         "f_documents": "documents.csv — the official source documents ({n})",
         "update": "Updated daily (automatic collection and verification); data as of {d}.",
-        "free": "Free on the platform: browsing and CSV export of the Market section table. The paid offer is the consolidated file with full provenance, updates and the right to reuse it in your own products.",
+        "free": "Free: the sample is open; the full files download with a free account. Publication is authorised by the source institutions for free use: reselling the data is not authorised. Cite UMOA-Titres as the source.",
         "legal": "The data come from UMOA-Titres' publications. Cartouche is affiliated with neither UMOA-Titres nor the BCEAO. Information only, neither advice nor recommendation.",
-        "back": "Back to the platform", "waitlist": "Join the waiting list",
+        "back": "Back to the platform", "waitlist": "Get updates",
     },
 }
 FIELDS = {  # field: (fr, en)
@@ -130,7 +131,7 @@ th{{text-align:left;font-size:12px;color:#5e5546;border-bottom:2px solid #c9a24a
 code{{font-size:13px}}a{{color:#13306b}}.btn{{display:inline-block;background:#13306b;color:#fbf7ee;text-decoration:none;padding:9px 16px;border-radius:2px;margin:6px 8px 0 0}}.note{{color:#5e5546;font-size:13px}}.scroll{{overflow-x:auto}}</style></head>
 <body><main><div class="brand">Cartouche · African Bond Intelligence</div>
 <h1>{escape(t["title"])}</h1><p>{escape(t["lede"])}</p>
-<p><a class="btn" href="../#offres">{escape(t["waitlist"])}</a><a class="btn" href="echantillon.csv" download>{escape(t["sample"].format(n=SAMPLE))}</a> · <a href="{other}.html" lang="{other}">{"English" if other == "en" else "Français"}</a></p>
+<p><a class="btn" href="../#offres">{escape(t["waitlist"])}</a><a class="btn" href="echantillon.csv" download>{escape(t["sample"].format(n=SAMPLE))}</a><a class="btn" href="auctions.csv" download>auctions.csv</a> · <a href="{other}.html" lang="{other}">{"English" if other == "en" else "Français"}</a></p>
 <p class="note">{escape(t["free"])}</p>
 <h2>{escape(t["coverage"])}</h2><div class="scroll"><table><tr><th>{escape(t["country"])}</th><th class="r">{escape(t["n"])}</th><th>{escape(t["first"])}</th><th>{escape(t["last"])}</th></tr>{cov}</table></div>
 <p class="note">{escape(t["update"].format(d=report.fmt_date(as_of, lang)))}</p>
@@ -154,6 +155,11 @@ def write(as_of: date, dist: Path, private: Path = report.PRIVATE / "data") -> d
     (pub / "echantillon.csv").write_text(_csv(sample, AUCTION_COLS))
     for lang, t in DICT.items():
         (pub / f"{lang}.html").write_text(page(t, lang, tb, as_of))
+    # Free publication (authorisation scope): the full files are published too, behind the free
+    # account (site/edge/gate.js covers /donnees/*.csv); a copy stays in the private folder.
+    for name, rows, cols in (("auctions.csv", tb["auctions"], AUCTION_COLS), ("securities.csv", tb["securities"], SECURITY_COLS),
+                             ("documents.csv", tb["documents"], DOC_COLS)):
+        (pub / name).write_text(_csv(rows, cols))
     private.mkdir(parents=True, exist_ok=True)
     (private / "auctions.csv").write_text(_csv(tb["auctions"], AUCTION_COLS))
     (private / "securities.csv").write_text(_csv(tb["securities"], SECURITY_COLS))

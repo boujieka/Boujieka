@@ -10,10 +10,12 @@ quarters that ended on or before --as-of.
 Two editions per quarter and language:
   * preview  (public)  -> site/dist/rapports/<slug>/   cover, regional summary, country table,
                           method, credits. Linked from the site's "Rapports" section.
-  * complete (private) -> site/reports/<slug>/          adds one page per country (flag and coat
-                          of arms, key figures, 8-quarter history, yields by residual maturity,
-                          largest operations) and the list of source documents. Never written to
-                          site/dist, so it is never deployed; it is the edition meant for sale.
+  * complete           -> site/reports/<slug>/ (HTML + PDF); with --pdf the PDF is also published
+                          in site/dist/rapports/<slug>/ behind the free account. It adds one page
+                          per country (flag and coat of arms, key figures, 8-quarter history,
+                          yields by residual maturity, largest operations) and the list of
+                          source documents. Free publication only: the source institutions
+                          authorised publication, not resale (backend/app/ingest/data/authorisations.json).
 With --pdf, both editions are also printed to PDF with headless Chromium.
 
 Flags and coats of arms come from brand/emblems/ (fetched by site/emblems.py, with licences).
@@ -618,7 +620,7 @@ def to_pdf(html_path: Path, pdf_path: Path) -> bool:
 
 
 def build(as_of: date, dist: Path, pdf: bool = False, purchase_url: str | None = None,
-          private: Path = PRIVATE, langs=("fr", "en")) -> list[dict]:
+          private: Path = PRIVATE, langs=("fr", "en"), publish_complete: bool = True) -> list[dict]:
     """Write every complete quarter's editions. Returns the index embedded in the site."""
     rows = load_rows()
     em = emblems()
@@ -636,7 +638,7 @@ def build(as_of: date, dist: Path, pdf: bool = False, purchase_url: str | None =
         entry = {"slug": s, "year": q[0], "quarter": q[1], "start": bounds(q)[0].isoformat(), "end": bounds(q)[1].isoformat(),
                  "auctions": cur["n"], "allotted": str(cur["alloc"]), "countries": sorted({r["country"] for r in rows if quarter(r["date"]) == q and r["type"] not in NON_ISSUANCE}),
                  "flags": sorted(c for c, e in em.items() if "flag" in e),
-                 "preview": {}, "preview_pdf": {}}
+                 "preview": {}, "preview_pdf": {}, "complete_pdf": {}}
         (out_root / s).mkdir()
         (private / s).mkdir(parents=True, exist_ok=True)
         for lang in langs:
@@ -649,7 +651,12 @@ def build(as_of: date, dist: Path, pdf: bool = False, purchase_url: str | None =
                 pp = out_root / s / f"cartouche-{s}-apercu-{lang}.pdf"
                 if to_pdf(prev_html, pp):
                     entry["preview_pdf"][lang] = f"rapports/{s}/{pp.name}"
-                to_pdf(full_html, full_html.with_suffix(".pdf"))
+                if to_pdf(full_html, full_html.with_suffix(".pdf")) and publish_complete:
+                    # Free publication (authorisation scope): the complete PDF is published too, behind
+                    # the free account (site/edge/gate.js covers /rapports/*.pdf).
+                    cp = out_root / s / full_html.with_suffix(".pdf").name
+                    shutil.copy(full_html.with_suffix(".pdf"), cp)
+                    entry["complete_pdf"][lang] = f"rapports/{s}/{cp.name}"
         index.append(entry)
     return index[::-1]  # newest first
 
