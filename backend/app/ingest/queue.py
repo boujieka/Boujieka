@@ -17,6 +17,8 @@ staged fields onto core columns without inventing anything:
   reported_bid_to_cover   single-security operation: "Taux de couverture … par les soumissions"
                           / 100. Multi-security: NULL, `not_disclosed` (global ratio only).
   number_of_bidders       "Nombre de participants"
+  auction_reference       "Adjudication n°" as printed (part of the natural key: a same-day
+                          second auction of the same security has its own number)
 
 When nothing was allotted, the published 0,00 % rates are not market yields: the yield and
 price columns stay NULL (`not_disclosed`) and a note says why.
@@ -224,6 +226,31 @@ def _refresh_tenor(session: Session, security: Security, ext: AuctionExtraction)
         apply_decision(security, decision, datetime.now(timezone.utc).date(), verb="updated")
 
 
+def _refuse_duplicate(session: Session, ext: AuctionExtraction, security: Security,
+                      auction_type: AuctionType, reference: str | None) -> None:
+    """Refuse only a true duplicate. Two auctions of one security on one day are distinct when
+    the source prints a different adjudication number for each (UMOA-Titres does hold such
+    same-day second auctions). Refused:
+      * the same adjudication number already promoted for this security on this date (whatever
+        the type: one number is one auction, e.g. the same report published twice);
+      * an auction of the same security, date and type without a reference (nothing proves the
+        two are different), or — when this row has no reference — any auction of that triple.
+    """
+    same_day = list(session.scalars(select(Auction).where(Auction.security_id == security.security_id,
+                                                          Auction.auction_date == ext.auction_date)))
+    if reference is not None:
+        if any(a.auction_reference == reference for a in same_day):
+            raise ReviewError(f"an auction for {ext.isin} on {ext.auction_date} with adjudication number "
+                              f"{reference} already exists; reject this duplicate extraction")
+        blocking = [a for a in same_day if a.auction_type == auction_type and a.auction_reference is None]
+    else:
+        blocking = [a for a in same_day if a.auction_type == auction_type]
+    if blocking:
+        raise ReviewError(f"an auction for {ext.isin} on {ext.auction_date} ({auction_type.value}) "
+                          "already exists and the adjudication numbers do not show the two are distinct; "
+                          "reject this duplicate extraction")
+
+
 def approve(session: Session, extraction_id: int, reviewer: str, note: str | None = None) -> Auction:
     if not reviewer or not reviewer.strip():
         raise ReviewError("a reviewer name is required")
@@ -243,11 +270,8 @@ def approve(session: Session, extraction_id: int, reviewer: str, note: str | Non
     number = _value(ext, "auction_number") or ""
     buyback = (ext.operation or {}).get("operation_kind") == "buyback" or number.upper().startswith("RA-")
     auction_type = AuctionType.BUYBACK if buyback else AuctionType.PRIMARY_AUCTION
-    if session.scalar(select(Auction).where(Auction.security_id == security.security_id,
-                                            Auction.auction_date == ext.auction_date,
-                                            Auction.auction_type == auction_type)) is not None:
-        raise ReviewError(f"an auction for {ext.isin} on {ext.auction_date} ({auction_type.value}) "
-                          "already exists; reject this duplicate extraction")
+    reference = number.strip() or None
+    _refuse_duplicate(session, ext, security, auction_type, reference)
 
     single = (ext.operation or {}).get("tranche_count") == 1
     is_bond = ext.instrument == "OAT"
@@ -309,6 +333,7 @@ def approve(session: Session, extraction_id: int, reviewer: str, note: str | Non
         auction_date=ext.auction_date,
         settlement_date=date.fromisoformat(v) if (v := _value(ext, "settlement_date")) else None,
         auction_type=auction_type,
+        auction_reference=reference,
         status=AuctionStatus.COMPLETED,
         amount_offered=_dec(ext, "amount_offered") if single else None,
         amount_submitted=_dec(ext, "amount_submitted"),

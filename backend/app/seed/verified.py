@@ -46,7 +46,7 @@ def export(session: Session, path: Path = DATA_FILE) -> dict:
         .order_by(Security.isin)))
     auctions = list(session.scalars(select(Auction).join(Security).where(
         Auction.is_synthetic.is_(False), Auction.verification_status == VerificationStatus.VERIFIED)
-        .order_by(Security.isin, Auction.auction_date)))
+        .order_by(Security.isin, Auction.auction_date, Auction.auction_type, Auction.auction_reference)))
     doc_ids = {o.source_document_id for o in [*securities, *auctions] if o.source_document_id}
     docs = list(session.scalars(select(SourceDocument).where(SourceDocument.document_id.in_(doc_ids))
                                 .order_by(SourceDocument.url))) if doc_ids else []
@@ -95,7 +95,8 @@ def _coerce(model, data: dict) -> dict:
 
 
 def load(session: Session, path: Path = DATA_FILE) -> dict:
-    """Idempotent: existing rows (same document hash / ISIN / auction natural key) are kept."""
+    """Idempotent: existing rows (same document hash / ISIN / auction natural key incl. the
+    adjudication number) are kept."""
     if not path.exists():
         return {"documents": 0, "securities": 0, "auctions": 0}
     data = json.loads(path.read_text())
@@ -126,13 +127,20 @@ def load(session: Session, path: Path = DATA_FILE) -> dict:
         secs[obj.isin] = obj
         added["securities"] += 1
 
-    existing = {(a.security_id, a.auction_date, a.auction_type) for a in session.scalars(
-        select(Auction).where(Auction.is_synthetic.is_(False)))}
+    # Natural key (security, date, type, adjudication number). A row without a number matches
+    # any auction of its (security, date, type), and an existing row without a number matches
+    # any incoming one: when the numbers cannot tell two auctions apart, nothing is added.
+    existing: dict[tuple, set] = {}
+    for a in session.scalars(select(Auction).where(Auction.is_synthetic.is_(False))):
+        existing.setdefault((a.security_id, a.auction_date, a.auction_type), set()).add(a.auction_reference)
     for a in data["auctions"]:
-        vals = _coerce(Auction, a)
+        vals = _coerce(Auction, a)  # files exported before auction_reference existed load as NULL
         sec = secs[a["isin"]]
-        if (sec.security_id, vals["auction_date"], vals["auction_type"]) in existing:
+        triple = (sec.security_id, vals["auction_date"], vals["auction_type"])
+        refs, ref = existing.get(triple, set()), vals.get("auction_reference")
+        if refs and (ref is None or ref in refs or None in refs):
             continue
+        existing.setdefault(triple, set()).add(ref)
         session.add(Auction(**vals, security_id=sec.security_id, source_id=sources.get(a["source"]),
                             source_document_id=docs.get(a["document_sha256"])))
         added["auctions"] += 1

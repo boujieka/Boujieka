@@ -6,6 +6,7 @@ Every expected value below was read by hand from the official document named in 
 
 import contextlib
 import hashlib
+import json
 from datetime import date
 from decimal import Decimal as D
 from pathlib import Path
@@ -944,6 +945,8 @@ class TestVerifiedExport:
                                                     "cutoff_yield", "weighted_average_yield", "provenance_notes",
                                                     "verification_status", "confidence_score")}
         sec = before.security
+        bat.promoted_auction_id = None  # foreign key (enforced on PostgreSQL)
+        db.flush()
         db.delete(before)
         db.flush()
         db.delete(sec)
@@ -1054,12 +1057,14 @@ class TestOriginalTenorRule:
         assert original_tenor([]).rule == NOT_AVAILABLE
 
 
-def _stage(db, number, auction, settle, maturity, tenor, *, isin, country, instrument="BAT", buyback=False):
+def _stage(db, number, auction, settle, maturity, tenor, *, isin, country, instrument="BAT", buyback=False,
+           doc_key=None):
     """Stage one report line (values as printed) as an UNVERIFIED extraction."""
     source = umoa.get_source(db)
-    doc = SourceDocument(source_id=source.source_id, url=f"https://www.umoatitres.org/test/{number}",
-                         title=f"report {number}", document_type="auction_result",
-                         content_sha256=hashlib.sha256(number.encode()).hexdigest())
+    key = doc_key or number
+    doc = SourceDocument(source_id=source.source_id, url=f"https://www.umoatitres.org/test/{key}",
+                         title=f"report {key}", document_type="auction_result",
+                         content_sha256=hashlib.sha256(key.encode()).hexdigest())
     db.add(doc)
     db.flush()
 
@@ -1166,3 +1171,145 @@ class TestOwnerCorrections:
         assert "SHA-256" in ev.check({**good, "sha256": "zzz"}, "6.25")
         assert "not printed" in ev.check(good, "6.40")
         assert "umoatitres" in ev.check({**good, "url": "https://example.com/x.pdf"}, "6.25")
+
+
+# --------------------------------------------------------------------------- same-day second auctions
+#
+# UMOA-Titres held two distinct auctions of SN0000003971 on 03/07/2025, each with its own report
+# and adjudication number: "ADJ-SN0000003971-BAT1A-2025" (Compte-Rendu-SN-ES-03.07.2025.pdf,
+# 42 290 / 17 360 millions) and "ADJ-SN0000003971-BAT1A-1-2025"
+# (Compte-Rendu-SN-BAT-364-jours-03.07.2025.pdf, 14 000 / 14 000 millions).
+
+SN_FIRST = ("ADJ-SN0000003971-BAT1A-2025", "2025-07-03", "2025-07-04", "2026-07-02", "364 jours")
+SN_SECOND = ("ADJ-SN0000003971-BAT1A-1-2025", "2025-07-03", "2025-07-04", "2026-07-02", "364 jours")
+
+
+def _amounts(ext, submitted, allocated):
+    fields = dict(ext.fields)
+    for name, v in (("amount_submitted", submitted), ("amount_allocated", allocated)):
+        fields[name] = {**fields[name], "value": v, "raw": v}
+    ext.fields = fields
+    return ext
+
+
+def _verified_auction(sec, ref):
+    return Auction(security_id=sec.security_id, auction_date=date(2025, 7, 3),
+                   auction_type=AuctionType.PRIMARY_AUCTION, status=AuctionStatus.COMPLETED,
+                   auction_reference=ref, is_synthetic=False, data_nature=DataNature.FACT,
+                   verification_status=VerificationStatus.VERIFIED)
+
+
+class TestSameDayAuctions:
+    def test_natural_key_semantics(self, db):
+        first = approve(db, _stage(db, *SN_FIRST, isin="SN0000003971", country="SEN").extraction_id, "analyst-a")
+        sec = first.security
+        # Another adjudication number, same security/date/type: a distinct auction.
+        db.add(_verified_auction(sec, "ADJ-SN0000003971-BAT1A-1-2025"))
+        db.flush()
+        # The same number twice: refused by the database.
+        with pytest.raises(IntegrityError):
+            with db.begin_nested():
+                db.add(_verified_auction(sec, "ADJ-SN0000003971-BAT1A-2025"))
+                db.flush()
+        # Rows without a number keep the old key: one per (security, date, type).
+        db.add(_verified_auction(sec, None))
+        db.flush()
+        with pytest.raises(IntegrityError):
+            with db.begin_nested():
+                db.add(_verified_auction(sec, None))
+                db.flush()
+
+    def test_synthetic_rows_keep_the_old_key(self, db):
+        existing = db.scalars(select(Auction).where(Auction.is_synthetic.is_(True))).first()
+        assert existing is not None and existing.auction_reference is None
+        dup = Auction(security_id=existing.security_id, auction_date=existing.auction_date,
+                      auction_type=existing.auction_type, status=existing.status, is_synthetic=True,
+                      data_nature=DataNature.SYNTHETIC, verification_status=VerificationStatus.SYNTHETIC)
+        with pytest.raises(IntegrityError):
+            with db.begin_nested():
+                db.add(dup)
+                db.flush()
+
+    def test_approve_second_auction_with_its_own_number(self, db):
+        a = approve(db, _amounts(_stage(db, *SN_FIRST, isin="SN0000003971", country="SEN"),
+                                 "42290000000", "17360000000").extraction_id, "analyst-a")
+        b = approve(db, _amounts(_stage(db, *SN_SECOND, isin="SN0000003971", country="SEN"),
+                                 "14000000000", "14000000000").extraction_id, "analyst-a")
+        assert a.security_id == b.security_id and a.auction_date == b.auction_date
+        assert a.auction_type == b.auction_type == AuctionType.PRIMARY_AUCTION
+        assert (a.auction_reference, a.amount_allocated) == ("ADJ-SN0000003971-BAT1A-2025", D("17360000000"))
+        assert (b.auction_reference, b.amount_allocated) == ("ADJ-SN0000003971-BAT1A-1-2025", D("14000000000"))
+
+    def test_same_number_is_a_true_duplicate(self, db):
+        approve(db, _stage(db, *SN_FIRST, isin="SN0000003971", country="SEN").extraction_id, "analyst-a")
+        # The same report published again under another URL (e.g. "PV-…" next to "Compte-Rendu-…").
+        again = _stage(db, *SN_FIRST, isin="SN0000003971", country="SEN", doc_key="republished")
+        with pytest.raises(ReviewError, match="adjudication number ADJ-SN0000003971-BAT1A-2025 already exists"):
+            approve(db, again.extraction_id, "analyst-a")
+        assert again.verification_status == VerificationStatus.UNVERIFIED
+
+    def test_same_number_refused_whatever_the_type(self, db):
+        approve(db, _stage(db, *SN_FIRST, isin="SN0000003971", country="SEN").extraction_id, "analyst-a")
+        as_buyback = _stage(db, *SN_FIRST, isin="SN0000003971", country="SEN", buyback=True, doc_key="rb")
+        with pytest.raises(ReviewError, match="already exists"):
+            approve(db, as_buyback.extraction_id, "analyst-a")
+
+    def test_unnumbered_rows_cannot_be_told_apart(self, db):
+        first = approve(db, _stage(db, *SN_FIRST, isin="SN0000003971", country="SEN").extraction_id, "analyst-a")
+        # A staged row without a printed number: nothing proves it is another auction.
+        bare = _stage(db, *SN_SECOND, isin="SN0000003971", country="SEN")
+        bare.fields = {k: v for k, v in bare.fields.items() if k != "auction_number"}
+        with pytest.raises(ReviewError, match="do not show the two are distinct"):
+            approve(db, bare.extraction_id, "analyst-a")
+        # An existing auction without a number blocks a numbered one of the same triple.
+        first.auction_reference = None
+        db.flush()
+        with pytest.raises(ReviewError, match="do not show the two are distinct"):
+            approve(db, _stage(db, *SN_SECOND, isin="SN0000003971", country="SEN", doc_key="numbered").extraction_id,
+                    "analyst-a")
+
+    def test_verified_export_load_round_trip_keeps_the_reference(self, db, tmp_path):
+        from app.seed import verified
+
+        approve(db, _amounts(_stage(db, *SN_FIRST, isin="SN0000003971", country="SEN"),
+                             "42290000000", "17360000000").extraction_id, "analyst-a")
+        approve(db, _amounts(_stage(db, *SN_SECOND, isin="SN0000003971", country="SEN"),
+                             "14000000000", "14000000000").extraction_id, "analyst-a")
+        path = tmp_path / "verified.json"
+        verified.export(db, path)
+        exported = [a for a in json.loads(path.read_text())["auctions"] if a["isin"] == "SN0000003971"]
+        assert sorted(a["auction_reference"] for a in exported) == [
+            "ADJ-SN0000003971-BAT1A-1-2025", "ADJ-SN0000003971-BAT1A-2025"]
+
+        def snapshot():
+            return sorted((a.auction_reference, a.amount_submitted, a.amount_allocated, a.provenance_notes)
+                          for a in db.scalars(select(Auction).join(Security).where(Security.isin == "SN0000003971")))
+
+        before = snapshot()
+        sec = db.scalar(select(Security).where(Security.isin == "SN0000003971"))
+        for ext in db.scalars(select(AuctionExtraction).where(AuctionExtraction.isin == "SN0000003971")):
+            ext.promoted_auction_id = None
+        db.flush()
+        for a in db.scalars(select(Auction).where(Auction.security_id == sec.security_id)):
+            db.delete(a)
+        db.flush()
+        db.delete(sec)
+        db.flush()
+
+        assert verified.load(db, path)["auctions"] >= 2
+        assert snapshot() == before
+        assert verified.load(db, path)["auctions"] == 0  # idempotent
+
+    def test_load_of_a_file_without_references(self, db, tmp_path):
+        """A file exported before the column existed loads with NULL references, and does not add
+        a second copy of an auction already present with its number."""
+        from app.seed import verified
+
+        approve(db, _stage(db, *SN_FIRST, isin="SN0000003971", country="SEN").extraction_id, "analyst-a")
+        path = tmp_path / "verified.json"
+        verified.export(db, path)
+        data = json.loads(path.read_text())
+        for a in data["auctions"]:
+            a.pop("auction_reference", None)
+        path.write_text(json.dumps(data))
+        assert verified.load(db, path)["auctions"] == 0
