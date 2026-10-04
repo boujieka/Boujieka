@@ -1373,12 +1373,15 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
     if (!B) { $("br-lede").textContent = t("br.none"); return; }
     const res = B.results.filter((r) => !C || r.country === C), mat = B.maturing.filter((m) => !C || m.country === C);
     $("br-lede").textContent = t("br.lede", { a: date(B.from), b: date(B.as_of), last: date(B.last_result) }) + (C ? " " + t("v.filtered", { c: NAME(C) }) : "");
-    const cur = B.totals.current, prev = B.totals.previous;
-    $("br-stats").innerHTML = C ? "" : [[t("br.s.n"), nf(cur.n, 0)], [t("br.s.alloc"), amt(cur.allotted, "XOF")], [t("br.s.prev"), `${nf(prev.n, 0)} · ${amt(prev.allotted, "XOF")}`]]
-      .map(([k, v]) => `<div><b>${esc(v)}</b><span>${esc(k)}</span></div>`).join("");
+    // Totals per currency: XOF (WAEMU) and XAF (CEMAC) are never added together.
+    const cur = B.totals.current, prev = B.totals.previous, z = { n: 0, allotted: "0" };
+    $("br-stats").innerHTML = C ? "" : [...new Set([...Object.keys(cur), ...Object.keys(prev)])].sort().flatMap((c) => {
+      const a = cur[c] || z, p = prev[c] || z;
+      return [[`${t("br.s.n")} · ${c}`, nf(a.n, 0)], [t("br.s.alloc"), amt(a.allotted, c)], [t("br.s.prev"), `${nf(p.n, 0)} · ${amt(p.allotted, c)}`]];
+    }).map(([k, v]) => `<div><b>${esc(v)}</b><span>${esc(k)}</span></div>`).join("");
     $("br-list").innerHTML = res.length ? `<thead><tr><th>${esc(t("br.th.date"))}</th><th>${esc(t("br.th.country"))}</th><th>${esc(t("br.th.sec"))}</th><th class="num">${esc(t("br.th.alloc"))}</th><th class="num">${esc(t("br.th.sub"))}</th><th class="num">${esc(t("br.th.yld"))}</th></tr></thead><tbody>` +
       res.map((r) => `<tr><td class="num">${esc(date(r.date))}</td><td>${esc(NAME(r.country))}</td><td>${ext(r.url, r.name)} <small class="note" style="margin:0">${esc(t(r.type === "primary_auction" ? "br.issue" : "br.buyback"))}</small></td>` +
-        `<td class="num">${esc(amt(r.allotted, "XOF") ?? t("nd"))}</td><td class="num">${esc(amt(r.submitted, "XOF") ?? t("nd"))}</td><td class="num">${esc(pct(r.yield, 2) ?? t("nd"))}</td></tr>`).join("") + "</tbody>"
+        `<td class="num">${esc(amt(r.allotted, r.currency || "XOF") ?? t("nd"))}</td><td class="num">${esc(amt(r.submitted, r.currency || "XOF") ?? t("nd"))}</td><td class="num">${esc(pct(r.yield, 2) ?? t("nd"))}</td></tr>`).join("") + "</tbody>"
       : `<tr><td>${esc(t("br.empty"))}</td></tr>`;
     $("br-mat").innerHTML = mat.length ? mat.map((m) => `<li><span class="num">${esc(date(m.maturity))}</span> · ${esc(NAME(m.country))} · ${esc(m.name)}</li>`).join("") : `<li>${esc(t("br.empty"))}</li>`;
   }

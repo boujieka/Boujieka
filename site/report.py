@@ -141,7 +141,12 @@ def _dec(v):
     return None if v is None else Decimal(v)
 
 
-def load_rows(path: Path = DATA) -> list[dict]:
+ZONES = {a.iso3: a.zone.value for a in AFRICA}
+REPORT_ZONE = "WAEMU"  # the quarterly report covers the WAEMU States (one currency, XOF)
+
+
+def load_rows(path: Path = DATA, zone: str | None = None) -> list[dict]:
+    """Verified real auctions; `zone` (e.g. "WAEMU") keeps only that monetary zone's countries."""
     data = json.loads(path.read_text())
     secs = {s["isin"]: s for s in data["securities"]}
     rows = []
@@ -149,6 +154,8 @@ def load_rows(path: Path = DATA) -> list[dict]:
         if a["is_synthetic"] or a["verification_status"] != "verified":
             continue
         s = secs[a["isin"]]
+        if zone and ZONES.get(s["country"]) != zone:
+            continue
         d = date.fromisoformat(a["auction_date"])
         mat = date.fromisoformat(s["maturity_date"]) if s["maturity_date"] else None
         rows.append({
@@ -156,7 +163,7 @@ def load_rows(path: Path = DATA) -> list[dict]:
             "name": s["security_name"], "instr": s["instrument_type"], "maturity": mat,
             "residual_years": (mat - d).days / 365.25 if mat else None,
             "alloc": _dec(a["amount_allocated"]), "sub": _dec(a["amount_submitted"]),
-            "yld": _dec(a["weighted_average_yield"]), "url": a["source_url"],
+            "yld": _dec(a["weighted_average_yield"]), "url": a["source_url"], "currency": s["currency"],
         })
     return rows
 
@@ -622,7 +629,7 @@ def to_pdf(html_path: Path, pdf_path: Path) -> bool:
 def build(as_of: date, dist: Path, pdf: bool = False, purchase_url: str | None = None,
           private: Path = PRIVATE, langs=("fr", "en"), publish_complete: bool = True) -> list[dict]:
     """Write every complete quarter's editions. Returns the index embedded in the site."""
-    rows = load_rows()
+    rows = load_rows(zone=REPORT_ZONE)
     em = emblems()
     out_root = dist / "rapports"
     if out_root.exists():

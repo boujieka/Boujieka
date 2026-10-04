@@ -104,8 +104,10 @@ def test_brief_window_and_totals_match_the_verified_data():
     assert lo == date(2026, 9, 28)
     assert len(b["results"]) == sum(1 for r in rows if lo <= r["date"] <= date(2026, 10, 4))
     issue = [r for r in rows if lo <= r["date"] <= date(2026, 10, 4) and r["type"] not in report.NON_ISSUANCE]
-    assert b["totals"]["current"]["n"] == len(issue)
-    assert Decimal(b["totals"]["current"]["allotted"]) == sum((r["alloc"] or 0 for r in issue), Decimal(0))
+    cur = b["totals"]["current"]  # per currency: XOF and XAF are never added together
+    assert sum(v["n"] for v in cur.values()) == len(issue)
+    for c, v in cur.items():
+        assert Decimal(v["allotted"]) == sum((r["alloc"] or 0 for r in issue if r["currency"] == c), Decimal(0))
     assert all(date(2026, 10, 4) < date.fromisoformat(m["maturity"]) <= date(2026, 10, 18) for m in b["maturing"])
     html = brief.email_html(b, "fr")
     assert "<script" not in html and "conseil" in html

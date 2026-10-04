@@ -30,8 +30,14 @@ def build(as_of: date) -> dict:
     prev_start = start - timedelta(days=WINDOW)
 
     def total(lo, hi):
-        rs = [r for r in rows if lo <= r["date"] <= hi and r["type"] not in report.NON_ISSUANCE]
-        return {"n": len(rs), "allotted": str(sum((r["alloc"] or 0 for r in rs), Decimal(0)))}
+        """Issuance totals per currency: XOF (WAEMU) and XAF (CEMAC) are never added together."""
+        out = {}
+        for r in rows:
+            if lo <= r["date"] <= hi and r["type"] not in report.NON_ISSUANCE:
+                t = out.setdefault(r["currency"], {"n": 0, "allotted": Decimal(0)})
+                t["n"] += 1
+                t["allotted"] += r["alloc"] or 0
+        return {c: {"n": v["n"], "allotted": str(v["allotted"])} for c, v in sorted(out.items())}
 
     recent = sorted((r for r in rows if start <= r["date"] <= as_of),
                     key=lambda r: (r["date"], r["country"], r["name"]), reverse=True)
@@ -47,7 +53,7 @@ def build(as_of: date) -> dict:
         "as_of": as_of.isoformat(), "from": start.isoformat(), "window_days": WINDOW, "maturity_days": MATURITY_DAYS,
         "last_result": last.isoformat() if last else None,
         "results": [{"date": r["date"].isoformat(), "country": r["country"], "name": r["name"], "type": r["type"],
-                     "instrument": r["instr"], "allotted": None if r["alloc"] is None else str(r["alloc"]),
+                     "instrument": r["instr"], "currency": r["currency"], "allotted": None if r["alloc"] is None else str(r["alloc"]),
                      "submitted": None if r["sub"] is None else str(r["sub"]),
                      "yield": None if r["yld"] is None else str(r["yld"]), "url": r["url"]} for r in recent],
         "totals": {"current": total(start, as_of), "previous": total(prev_start, start - timedelta(days=1))},
@@ -56,19 +62,19 @@ def build(as_of: date) -> dict:
 
 
 T = {
-    "fr": {"title": "Brief des adjudications", "sub": "Titres publics de l'UMOA · données vérifiées",
+    "fr": {"title": "Brief des adjudications", "sub": "Titres publics UEMOA et CEMAC · données vérifiées",
            "period": "Résultats du {a} au {b}", "results": "Résultats publiés", "none": "Aucun résultat sur la période.",
            "totals": "Émissions sur 7 jours : {n} adjudications, {v} (7 jours précédents : {pn}, {pv}).",
            "maturing": "Échéances des {d} prochains jours (titres présents dans nos données)", "nomat": "Aucune.",
            "issue": "Émission", "buyback": "Rachat", "alloc": "Retenu", "sub": "Soumis", "yld": "Rendement",
-           "country": "Pays", "security": "Titre", "date": "Date", "legal": "Faits publiés par UMOA-Titres, vérifiés par Cartouche. Information uniquement, ni conseil ni recommandation.",
+           "country": "Pays", "security": "Titre", "date": "Date", "legal": "Faits publiés par UMOA-Titres (UEMOA) et la BEAC (CEMAC), vérifiés par Cartouche ; publication autorisée. Information uniquement, ni conseil ni recommandation.",
            "site": "Voir la plateforme"},
-    "en": {"title": "Auction brief", "sub": "WAEMU government securities · verified data",
+    "en": {"title": "Auction brief", "sub": "WAEMU and CEMAC government securities · verified data",
            "period": "Results from {a} to {b}", "results": "Published results", "none": "No result over the period.",
            "totals": "Issuance over 7 days: {n} auctions, {v} (previous 7 days: {pn}, {pv}).",
            "maturing": "Maturities in the next {d} days (securities in our data)", "nomat": "None.",
            "issue": "Issue", "buyback": "Buyback", "alloc": "Allotted", "sub": "Bid", "yld": "Yield",
-           "country": "Country", "security": "Security", "date": "Date", "legal": "Facts published by UMOA-Titres, verified by Cartouche. Information only, neither advice nor recommendation.",
+           "country": "Country", "security": "Security", "date": "Date", "legal": "Facts published by UMOA-Titres (WAEMU) and the BEAC (CEMAC), verified by Cartouche; publication authorised. Information only, neither advice nor recommendation.",
            "site": "Open the platform"},
 }
 
@@ -77,14 +83,22 @@ def email_html(b: dict, lang: str, site_url: str = "https://cartouche-africa.net
     """Self-contained page with inline styles, usable as the body of an e-mail."""
     t = T[lang]
     d = lambda s: report.fmt_date(date.fromisoformat(s), lang)  # noqa: E731
-    bn = lambda v: report.fmt_bn(None if v is None else Decimal(v), lang)  # noqa: E731
+    def bn(v, cur="XOF"):
+        if v is None:
+            return report.T[lang]["nd"]
+        x = report.fmt_num(Decimal(v) / report.BILLION, lang)
+        return f"{x} Md {cur}" if lang == "fr" else f"{cur} {x} bn"
     cur, prev = b["totals"]["current"], b["totals"]["previous"]
+    empty = {"n": 0, "allotted": "0"}
+    totals = " ".join(t["totals"].format(n=cur.get(c, empty)["n"], v=bn(cur.get(c, empty)["allotted"], c),
+                                         pn=prev.get(c, empty)["n"], pv=bn(prev.get(c, empty)["allotted"], c))
+                      for c in sorted(set(cur) | set(prev)))
     td = 'style="padding:6px 8px;border-bottom:1px solid #ddd2bb;font-size:13px"'
     tdr = 'style="padding:6px 8px;border-bottom:1px solid #ddd2bb;font-size:13px;text-align:right;font-family:Menlo,monospace"'
     rows = "".join(
         f'<tr><td {td}>{escape(d(r["date"]))}</td><td {td}>{escape(report.NAMES[r["country"]][lang])}</td>'
         f'<td {td}><a href="{escape(r["url"])}" style="color:#13306b">{escape(r["name"])}</a> · {escape(t["buyback"] if r["type"] in report.NON_ISSUANCE else t["issue"])}</td>'
-        f'<td {tdr}>{escape(bn(r["allotted"]))}</td><td {tdr}>{escape(report.fmt_pct(None if r["yield"] is None else Decimal(r["yield"]), lang))}</td></tr>'
+        f'<td {tdr}>{escape(bn(r["allotted"], r.get("currency", "XOF")))}</td><td {tdr}>{escape(report.fmt_pct(None if r["yield"] is None else Decimal(r["yield"]), lang))}</td></tr>'
         for r in b["results"])
     mats = "".join(f'<li>{escape(d(m["maturity"]))} · {escape(report.NAMES[m["country"]][lang])} · {escape(m["name"])}</li>'
                    for m in b["maturing"]) or f"<li>{escape(t['nomat'])}</li>"
@@ -98,7 +112,7 @@ def email_html(b: dict, lang: str, site_url: str = "https://cartouche-africa.net
 <div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#8a6a1f">Cartouche · African Bond Intelligence</div>
 <h1 style="font-family:Georgia,serif;font-weight:400;color:#13306b;font-size:26px;margin:6px 0 2px">{escape(t["title"])} · {escape(d(b["as_of"]))}</h1>
 <div style="color:#5e5546;font-size:13px">{escape(t["sub"])} · {escape(t["period"].format(a=d(b["from"]), b=d(b["as_of"])))}</div>
-<p style="border-left:3px solid #c9a24a;padding-left:10px;font-size:14px">{escape(t["totals"].format(n=cur["n"], v=bn(cur["allotted"]), pn=prev["n"], pv=bn(prev["allotted"])))}</p>
+<p style="border-left:3px solid #c9a24a;padding-left:10px;font-size:14px">{escape(totals)}</p>
 <h2 style="font-family:Georgia,serif;font-weight:400;color:#13306b;font-size:18px">{escape(t["results"])}</h2>
 {table}
 <h2 style="font-family:Georgia,serif;font-weight:400;color:#13306b;font-size:18px">{escape(t["maturing"].format(d=b["maturity_days"]))}</h2>
