@@ -1,0 +1,94 @@
+# Nomenclature des objets spatiaux (domaine OBJET)
+# Codes stables ; libellés FR/EN. Sensibilité par défaut entre crochets si ≠ S0.
+# Liste initiale à valider avec les ministères propriétaires de chaque couche.
+
+POP:            {fr: Population & habitat, en: Population & housing}
+POP.BATIMENT:   {fr: Bâtiment, en: Building}
+POP.LOCALITE:   {fr: Localité (point de peuplement), en: Settlement}
+
+CHEF:                     {fr: Chefferies & patrimoine, en: Chiefdoms & heritage}
+CHEF.CHEFFERIE:           {fr: Siège de chefferie, en: Chiefdom seat}
+CHEF.PALAIS:              {fr: Palais / chefferie (bâti), en: Palace}
+CHEF.SITE_HISTORIQUE:     {fr: Site historique, en: Historic site}
+CHEF.LIEU_CULTUREL:       {fr: Lieu culturel, en: Cultural place}
+CHEF.FORET_SACREE:        {fr: Forêt sacrée, en: Sacred forest, sensibilite: S3_PROTEGE_CULTUREL}
+CHEF.SITE_RITUEL:         {fr: Site rituel, en: Ritual site, sensibilite: S3_PROTEGE_CULTUREL}
+
+ECO:                      {fr: Activités économiques, en: Economic activities}
+ECO.USINE:                {fr: Usine / unité de transformation, en: Factory / processing unit}
+ECO.ZONE_INDUSTRIELLE:    {fr: Zone industrielle / zone économique spéciale, en: Industrial / special economic zone}
+ECO.ENTREPOT:             {fr: Entrepôt / plateforme logistique, en: Warehouse / logistics hub}
+ECO.HYDROCARBURES:        {fr: Installation pétrolière ou gazière, en: Oil & gas facility, sensibilite: S1_RESTREINT}
+ECO.MINE:                 {fr: Mine, en: Mine}
+ECO.CARRIERE:             {fr: Carrière, en: Quarry}
+ECO.PLANTATION:           {fr: Plantation / agro-industrie, en: Plantation / agro-industry}
+ECO.EXPLOITATION_AGRICOLE: {fr: Exploitation agricole, en: Farm}
+ECO.ELEVAGE:              {fr: Élevage, en: Livestock farm}
+ECO.PISCICULTURE:         {fr: Pisciculture, en: Fish farm}
+ECO.PERIMETRE_IRRIGUE:    {fr: Périmètre irrigué, en: Irrigation scheme}
+ECO.MARCHE:               {fr: Marché, en: Market}
+ECO.COMMERCE:             {fr: Commerce, en: Shop}
+ECO.SERVICE_FINANCIER:    {fr: Agence bancaire / microfinance / point mobile money, en: Financial service point}
+
+RES:                      {fr: Ressources naturelles, en: Natural resources}
+RES.GISEMENT:             {fr: Indice / gisement minier ou pétrolier, en: Mineral / oil deposit, sensibilite: S1_RESTREINT}
+RES.FORET:                {fr: Massif forestier, en: Forest}
+RES.COURS_EAU:            {fr: Cours d'eau, en: River}
+RES.PLAN_EAU:             {fr: Plan d'eau, en: Water body}
+RES.ZONE_HUMIDE:          {fr: Zone humide / tourbière, en: Wetland / peatland}
+RES.SITE_HYDRO:           {fr: Site à potentiel hydroélectrique, en: Hydropower potential site}
+RES.ZONE_HALIEUTIQUE:     {fr: Zone halieutique, en: Fishing ground}
+
+SOC:                      {fr: Infrastructures sociales, en: Social infrastructure}
+SOC.EDU.MATERNELLE:       {fr: École maternelle, en: Nursery school}
+SOC.EDU.PRIMAIRE:         {fr: École primaire, en: Primary school}
+SOC.EDU.SECONDAIRE_1:     {fr: Collège / CES, en: Lower secondary}
+SOC.EDU.SECONDAIRE_2:     {fr: Lycée, en: Upper secondary}
+SOC.EDU.TECHNIQUE:        {fr: Enseignement technique / formation professionnelle, en: Technical / vocational}
+SOC.EDU.SUPERIEUR:        {fr: Université / institut supérieur, en: Higher education}
+SOC.SANTE.HOPITAL:        {fr: Hôpital, en: Hospital}
+SOC.SANTE.CENTRE:         {fr: Centre de santé, en: Health centre}
+SOC.SANTE.CLINIQUE:       {fr: Clinique, en: Clinic}
+SOC.SANTE.PHARMACIE:      {fr: Pharmacie, en: Pharmacy}
+SOC.SANTE.LABORATOIRE:    {fr: Laboratoire, en: Laboratory}
+SOC.ADMIN.MAIRIE:         {fr: Mairie, en: Town hall}
+SOC.ADMIN.SOUS_PREFECTURE: {fr: Sous-préfecture / préfecture, en: Sub-divisional / divisional office}
+SOC.ADMIN.ETAT_CIVIL:     {fr: Centre d'état civil, en: Civil registration centre}
+SOC.CULTE:                {fr: Lieu de culte, en: Place of worship}
+SOC.SPORT:                {fr: Équipement sportif, en: Sports facility}
+SOC.CIMETIERE:            {fr: Cimetière, en: Cemetery}
+
+INF:                      {fr: Infrastructures physiques, en: Physical infrastructure}
+INF.ROUTE:                {fr: Route (tronçon), en: Road segment}
+INF.PISTE:                {fr: Piste rurale (tronçon), en: Rural track segment}
+INF.PONT:                 {fr: Pont / ouvrage d'art, en: Bridge}
+INF.BAC:                  {fr: Bac, en: Ferry crossing}
+INF.PORT:                 {fr: Port, en: Port}
+INF.AEROPORT:             {fr: Aéroport / aérodrome, en: Airport / airfield}
+INF.GARE:                 {fr: Gare, en: Railway station}
+INF.VOIE_FERREE:          {fr: Voie ferrée (tronçon), en: Railway segment}
+INF.ENERGIE.CENTRALE:     {fr: Centrale électrique, en: Power plant}
+INF.ENERGIE.POSTE:        {fr: Poste électrique, en: Substation, sensibilite: S1_RESTREINT}
+INF.ENERGIE.LIGNE:        {fr: Ligne électrique (HT/THT/MT/BT), en: Power line}
+INF.ENERGIE.MINI_RESEAU:  {fr: Mini-réseau, en: Mini-grid}
+INF.ENERGIE.SOLAIRE:      {fr: Installation solaire, en: Solar installation}
+INF.EAU.BARRAGE:          {fr: Barrage, en: Dam}
+INF.EAU.FORAGE:           {fr: Forage / puits équipé, en: Borehole}
+INF.EAU.STATION:          {fr: Station de traitement, en: Treatment plant}
+INF.EAU.RESERVOIR:        {fr: Réservoir / château d'eau, en: Reservoir}
+INF.EAU.RESEAU:           {fr: Réseau d'eau (tronçon), en: Water network segment}
+INF.TELECOM.ANTENNE:      {fr: Site d'antenne, en: Cell site}
+INF.TELECOM.FIBRE:        {fr: Fibre optique (tronçon), en: Fibre segment}
+INF.TELECOM.DATACENTER:   {fr: Centre de données, en: Data centre, sensibilite: S1_RESTREINT}
+
+FON:                      {fr: Unités foncières, en: Land units}
+FON.PARCELLE:             {fr: Parcelle / unité foncière, en: Land parcel}
+FON.CONCESSION:           {fr: Périmètre de concession / permis, en: Concession / permit area}
+FON.AIRE_PROTEGEE:        {fr: Aire protégée, en: Protected area}
+
+RISQ:                     {fr: Risques & environnement, en: Hazards & environment}
+RISQ.INONDATION:          {fr: Zone inondable, en: Flood-prone area}
+RISQ.GLISSEMENT:          {fr: Zone de glissement de terrain, en: Landslide area}
+RISQ.EROSION:             {fr: Érosion (côtière, ravinement), en: Erosion}
+RISQ.SITE_POLLUE:         {fr: Site pollué, en: Contaminated site}
+RISQ.CONFLIT_FONCIER:     {fr: Conflit foncier signalé, en: Reported land dispute, sensibilite: S1_RESTREINT}
