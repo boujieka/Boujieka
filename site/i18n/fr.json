@@ -527,7 +527,7 @@
     [
       "1b",
       "Authentification, rôles, limitation de débit, journal d'audit (prérequis à tout déploiement de la plateforme)",
-      "todo"
+      "done"
     ],
     [
       "2",
@@ -551,7 +551,7 @@
     ],
     [
       "6",
-      "Espace investisseurs : procédures d'accès officielles (15 pays), intermédiaires agréés, simulateur",
+      "Espace investisseurs : procédures d'accès officielles (21 pays), intermédiaires agréés, simulateur",
       "partial"
     ],
     [

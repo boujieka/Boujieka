@@ -527,7 +527,7 @@
     [
       "1b",
       "Authentication, roles, rate limiting, audit log (prerequisite to any platform deployment)",
-      "todo"
+      "done"
     ],
     [
       "2",
@@ -551,7 +551,7 @@
     ],
     [
       "6",
-      "Investor area: official access procedures (15 countries), accredited intermediaries, simulator",
+      "Investor area: official access procedures (21 countries), accredited intermediaries, simulator",
       "partial"
     ],
     [

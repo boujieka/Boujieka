@@ -527,7 +527,7 @@
     [
       "1b",
       "Autenticação, perfis, limitação de pedidos, registo de auditoria (pré-requisito de qualquer implementação da plataforma)",
-      "todo"
+      "done"
     ],
     [
       "2",
@@ -551,7 +551,7 @@
     ],
     [
       "6",
-      "Área de investidores: procedimentos de acesso oficiais (15 países), intermediários acreditados, simulador",
+      "Área de investidores: procedimentos de acesso oficiais (21 países), intermediários acreditados, simulador",
       "partial"
     ],
     [

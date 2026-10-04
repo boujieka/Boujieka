@@ -527,7 +527,7 @@
     [
       "1b",
       "Autenticación, roles, limitación de peticiones, registro de auditoría (requisito previo a cualquier despliegue de la plataforma)",
-      "todo"
+      "done"
     ],
     [
       "2",
@@ -551,7 +551,7 @@
     ],
     [
       "6",
-      "Área de inversores: procedimientos de acceso oficiales (15 países), intermediarios acreditados, simulador",
+      "Área de inversores: procedimientos de acceso oficiales (21 países), intermediarios acreditados, simulador",
       "partial"
     ],
     [
