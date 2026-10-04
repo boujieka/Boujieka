@@ -14,18 +14,23 @@ headers — see [`docs/SECURITY.md`](docs/SECURITY.md).
 See [`docs/IMPLEMENTATION_PLAN.md`](docs/IMPLEMENTATION_PLAN.md) and
 [`docs/PHASE_1_REPORT.md`](docs/PHASE_1_REPORT.md), [`docs/PHASE_4_REPORT.md`](docs/PHASE_4_REPORT.md).
 
-⚠️ **All market data currently in the system is SYNTHETIC** — generated for development, labelled
-as such in the database, the API and the UI, and not real.
-
-**Phase 2 started:** UMOA-Titres (WAEMU) official auction result reports can now be fetched,
-extracted and queued for human review; nothing is served as a fact until a reviewer approves it.
-See [`docs/PHASE_2_INGESTION.md`](docs/PHASE_2_INGESTION.md).
+**Market data is real and limited to WAEMU.** 1,783 auction results (11 Jan 2024 – 1 Oct 2026,
+8 WAEMU countries) were extracted from official UMOA-Titres result reports and approved on
+2026-10-04 at the owner's instruction (option A) by **automated checks, not a line-by-line human
+review**: strict independent re-check of every row (`app.ingest.autocheck`: re-download + SHA-256,
+independent text extraction, column placement, unit re-derivation, consistency checks), plus an
+independent AI audit of a stratified sample of 216 rows (3,315 fields, 0 mismatches). 414
+extractions stay in the review queue (partial parses, header-unit layouts, duplicates, ISIN
+conflicts, one self-contradictory document). The verified rows are versioned in
+`backend/app/seed/data/verified_market_data.json` (`python -m app.seed.verified export|load`).
+No synthetic data is loaded any more; the generator remains for development (`--synthetic`).
+Other countries have no market data yet. See [`docs/PHASE_2_INGESTION.md`](docs/PHASE_2_INGESTION.md).
 
 ## Public showcase site
 
 **https://cartouche-africa.netlify.app**: a static snapshot of the platform (all 54 countries,
-heat grid, signals with passports, refinancing walls, source registry). Market data on it is
-synthetic and labelled as such. To rebuild and redeploy:
+heat grid, signals with passports, refinancing walls, source registry). Market data on it is the
+verified UMOA-Titres data described above. To rebuild and redeploy:
 
 ```bash
 python site/build.py --as-of 2026-10-03   # needs a seeded database; writes site/dist/
@@ -43,9 +48,8 @@ Brand (logo, colours from ancient Egyptian pigments, type): see [`brand/BRAND.md
 
 All **54 African UN member states** have a reference profile: ISO codes, currency, monetary
 zone (CEMAC, WAEMU, CMA or national), central bank and a registered central-bank source.
-These profiles are unverified. **Synthetic** market data covers all 54 countries (hand-set
-anchor yields for the 6 pilot countries; hash-derived, deliberately unrelated to real markets
-for the other 48). Whether each country runs regular domestic auctions has not been verified.
+These profiles are unverified. **Market data** covers the 8 WAEMU countries only (official
+UMOA-Titres results, see above); the 46 other countries have none yet.
 
 ## Daily update (every 24 h)
 A scheduled job rolls the data forward, re-runs the Opportunity Engine, **watches the official
@@ -90,7 +94,7 @@ cd backend
 pip install -e ".[dev]"
 export ABI_DATABASE_URL=postgresql+psycopg://abi:abi@localhost:5432/abi
 alembic upgrade head
-python -m app.seed.load --synthetic      # idempotent; also runs the Opportunity Engine
+python -m app.seed.load                  # reference + verified real data (add --synthetic for dev data)
 python -m app.engine.run --as-of 2026-10-03   # re-run signal detection
 python -m app.security.keys create --name me --role admin   # prints the key ONCE
 uvicorn app.main:app --port 8000 --no-server-header   # API docs at http://localhost:8000/docs

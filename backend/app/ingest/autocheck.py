@@ -176,7 +176,8 @@ def check_row(ext: AuctionExtraction, pages: list[list[str]],
     return problems
 
 
-def run(session: Session, do_approve: bool, reviewer: str | None, note: str | None) -> dict:
+def run(session: Session, do_approve: bool, reviewer: str | None, note: str | None,
+        exclude: frozenset[int] = frozenset()) -> dict:
     rows = list(session.scalars(select(AuctionExtraction).where(
         AuctionExtraction.verification_status == VerificationStatus.UNVERIFIED).order_by(AuctionExtraction.extraction_id)))
     docs: dict[int, tuple[list[list[str]] | None, str | None]] = {}
@@ -185,6 +186,10 @@ def run(session: Session, do_approve: bool, reviewer: str | None, note: str | No
     with httpx.Client(timeout=60, follow_redirects=True, headers={"User-Agent": "Mozilla/5.0 (compatible; CartoucheAutocheck/1.0)"}) as client:
         for ext in rows:
             report["checked"] += 1
+            if ext.extraction_id in exclude:  # held on purpose (e.g. document contradicts itself)
+                report["held"].append({"id": ext.extraction_id, "isin": ext.isin, "date": str(ext.auction_date),
+                                       "problems": ["excluded by the reviewer for human decision"]})
+                continue
             doc: SourceDocument | None = ext.document
             if doc is None:
                 report["held"].append({"id": ext.extraction_id, "problems": ["no source document"]})
@@ -232,11 +237,12 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--reviewer", help="name recorded on approvals (required with --approve)")
     p.add_argument("--note", help="note recorded on each approval")
     p.add_argument("--report", type=Path, help="write the full report as JSON")
+    p.add_argument("--exclude", type=int, nargs="*", default=[], help="extraction ids to hold regardless")
     args = p.parse_args(argv)
     if args.approve and not (args.reviewer and args.reviewer.strip()):
         p.error("--approve requires --reviewer")
     with Session(engine) as session:
-        report = run(session, args.approve, args.reviewer, args.note)
+        report = run(session, args.approve, args.reviewer, args.note, frozenset(args.exclude))
     if args.report:
         args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2))
     print(f"checked {report['checked']} · passed {report['passed']} · approved {report['approved']} · "

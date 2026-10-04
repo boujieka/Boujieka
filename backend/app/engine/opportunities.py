@@ -27,7 +27,7 @@ from sqlalchemy.orm import Session, joinedload
 
 from app.analytics import calculations as calc
 from app.models import Auction, Opportunity, Security, Source
-from app.models.enums import AuctionStatus, VerificationStatus
+from app.models.enums import AuctionStatus, AuctionType, VerificationStatus
 
 # Every threshold the engine uses, in one place. Changing one changes which signals fire,
 # never the underlying data.
@@ -91,6 +91,10 @@ class MarketData:
     sources: dict[int, Source]
 
 
+# Operations that retire or exchange debt; their rates and amounts must not enter issuance series.
+NON_ISSUANCE = frozenset({AuctionType.BUYBACK, AuctionType.SWITCH})
+
+
 def load_market(session: Session, as_of: date) -> MarketData:
     # Only reviewed facts (VERIFIED) and labelled SYNTHETIC rows feed the engine; anything
     # unverified, conflicting or rejected is excluded even if it reaches the auction table.
@@ -103,6 +107,8 @@ def load_market(session: Session, as_of: date) -> MarketData:
     upcoming: list[Auction] = []
     for a in auctions:
         s = a.security
+        if a.auction_type in NON_ISSUANCE:  # buybacks/switches are not issuance: own series, not mixed in
+            continue
         if a.status == AuctionStatus.COMPLETED and a.auction_date <= as_of and s.tenor_days:
             completed[(s.country_id, s.instrument_type.value, s.tenor_days)].append(a)
         elif a.status != AuctionStatus.COMPLETED and a.auction_date >= as_of:

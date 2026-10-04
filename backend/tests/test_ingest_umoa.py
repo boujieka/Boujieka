@@ -665,3 +665,11 @@ class TestVerifiedExport:
         assert {k: getattr(after, k) for k in snapshot} == snapshot
         assert after.is_synthetic is False and after.source_document_id is not None
         assert verified.load(db, path) == {"documents": 0, "securities": 0, "auctions": 0}  # idempotent
+
+    def test_buybacks_stay_out_of_issuance_series(self, db, store):
+        rows = _stage_text(db, CI_EC_2026)
+        rb = next(r for r in rows if r.tranche_key == "CI0000004776/buyback")
+        a = approve(db, rb.extraction_id, "analyst-a")
+        db.flush()
+        m = load_market(db, a.auction_date)
+        assert all(x.auction_id != a.auction_id for series in m.completed.values() for x in series)

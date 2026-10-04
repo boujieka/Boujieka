@@ -7,7 +7,7 @@ from sqlalchemy import func, or_, select
 from app.api.deps import AsOfDep, SessionDep, SourcesDep
 from app.api.serializers import country_out, countries_with_market_data
 from app.models import Auction, Country, Security, Source
-from app.models.enums import AuctionStatus, MonetaryZone
+from app.models.enums import AuctionStatus, AuctionType, MonetaryZone
 from app.schemas import CountryDetail, CountryOut, SourceOut, YieldCurve, YieldCurvePoint
 
 router = APIRouter(prefix="/countries", tags=["countries"])
@@ -89,6 +89,7 @@ def yield_curve(
         .where(
             Security.country_id == country.country_id,
             Auction.status == AuctionStatus.COMPLETED,
+            Auction.auction_type.not_in([AuctionType.BUYBACK, AuctionType.SWITCH]),  # issuance yields only
             Auction.weighted_average_yield.is_not(None),
             Security.tenor_days.is_not(None),
             Auction.auction_date <= as_of,
