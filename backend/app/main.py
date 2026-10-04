@@ -1,7 +1,7 @@
 from fastapi import APIRouter, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api import admin, auctions, buyers, countries, opportunities, overview, securities
+from app.api import admin, auctions, buyers, countries, ingest, opportunities, overview, securities
 from app.config import Settings, get_settings
 from app.security.auth import API_KEY_HEADER
 from app.security.middleware import REQUEST_ID_HEADER, install_security
@@ -38,6 +38,8 @@ def create_app(settings: Settings | None = None) -> FastAPI:
 
     for module in (overview, opportunities, buyers, countries, securities, auctions, admin):
         api.include_router(module.router)
+    # Review queue: analyst/admin only (see app/api/ingest.py).
+    api.include_router(ingest.router)
     app.include_router(api)
     return app
 

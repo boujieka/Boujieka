@@ -27,3 +27,6 @@ site/dist/
 
 # Temporary git worktrees used by Claude Code agents
 .claude/worktrees/
+# Fetched official documents (Phase 2 ingestion document store)
+backend/var/
+var/

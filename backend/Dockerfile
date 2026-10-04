@@ -1,5 +1,8 @@
 FROM python:3.11-slim
 WORKDIR /app
+# poppler-utils provides `pdftotext -layout`, used to read official result reports (Phase 2).
+RUN apt-get update && apt-get install -y --no-install-recommends poppler-utils \
+    && rm -rf /var/lib/apt/lists/*
 COPY pyproject.toml ./
 COPY app ./app
 RUN pip install --no-cache-dir .

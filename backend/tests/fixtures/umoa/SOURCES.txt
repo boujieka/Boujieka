@@ -1,0 +1,54 @@
+Real official documents from UMOA-Titres (https://www.umoatitres.org), retrieved 2026-10-04.
+"Compte rendu" = compte rendu d'adjudication (official auction result report, 1-page PDF).
+.txt files are `pdftotext -layout -enc UTF-8` output of the PDF (kept instead of the PDF to keep
+fixtures small); the 2016 report is kept as the original PDF to exercise the PDF path.
+
+Compte-Rendu-NE-ES-01.10.2026.txt
+  https://www.umoatitres.org/wp-content/uploads/2026/10/Compte-Rendu-NE-ES-01.10.2026.pdf
+  sha256 of PDF 154d345f7cb5e8bc42d054a4e724941b3eeccac61ccb5184d299a2463ceeda1b
+  Niger, simultaneous issue of 4 OAT + 1 BAT (multi-tranche layout)
+
+Compte-Rendu-SN-ES-06.08.2026.txt
+  https://www.umoatitres.org/wp-content/uploads/2026/08/Compte-Rendu-SN-ES-06.08.2026.pdf
+  sha256 of PDF 411056b585794c5a8f4688b54a470ca5e11feecb63607eb7fccad98998f745b5
+  Senegal, 2 BAT (multi-tranche layout)
+
+Compte-Rendu-CI-ES-15.09.2026.txt
+  https://www.umoatitres.org/wp-content/uploads/2026/07/Compte-Rendu-CI-ES-15.09.2026.pdf
+  sha256 of PDF a6ef5ddb0362ef9e88172ab5aee0b15b7ce08aff6ea645da9ad2cdc475926166
+  Côte d'Ivoire, 1 BAT + 3 OAT; the BAT had no allotment (rates printed as 0,00 %)
+
+Compte-Rendu-BJ-ES-22.01.2026.txt
+  https://www.umoatitres.org/wp-content/uploads/2026/01/Compte-Rendu-BJ-ES-22.01.2026.pdf
+  sha256 of PDF e67063693c8b79a2ea11598573110392668a4b25ef92cf79ebfe644fcad04f4b
+  Benin, 1 BAT + 3 OAT; 2026 template: header values on the line below their label,
+  amount cells separated by a single space, accrued coupon printed as a ratio without "%"
+
+Compte-Rendu-CI-EC-29.04.2026.txt
+  https://www.umoatitres.org/wp-content/uploads/2026/04/Compte-Rendu-CI-EC-29.04.2026-.pdf
+  sha256 of PDF f3a76dceed6245a04dabb665a1e555c56cf619fa7561198adcd2085f5a631c1c
+  Côte d'Ivoire, exchange operation: one issue report (single OAT) followed by two buyback
+  reports (3 OAT, 4 BAT) in the same PDF
+
+Compte-Rendu-GW-ES-13.01.2026.txt
+  https://www.umoatitres.org/wp-content/uploads/2026/01/Compte-Rendu-GW-ES-13.01.2026.pdf
+  sha256 of PDF 8d041b79a63eacdca36688dbf789ea497e753a1485f390cc6bf74ece6100fa67
+  Guinea-Bissau, 2 BAT + 1 OAT; amount cells printed with no space ("dont ONC :05 484,13")
+
+Compte-Rendu-BF-BAT-182-jours-17.06.2020.txt
+  https://www.umoatitres.org/wp-content/uploads/2020/05/Compte-Rendu-BF-BAT-182-jours-17.06.2020.pdf
+  sha256 of PDF 70f70ed7a3cb164839a9b6b73db85657b44f08d6f06fa20c8ae0999504bd8062
+  Burkina Faso, single BAT 182 days (single-tranche layout)
+
+CR-ML-60-mois-08.09.2016.pdf   (original PDF, 32 KB)
+  https://www.umoatitres.org/wp-content/uploads/2020/05/CR-ML-60-mois-08.09.2016.pdf
+  sha256 a2fccb896b063312f7c76ebb723be1e428e0359c98a7ee4855e945866c2ee934
+  Mali, single OAT 5 years; prices printed in FCFA per 10 000 nominal; no weighted yield
+
+emissions_listing_excerpt.html
+  Verbatim start of the "Émissions réalisées" table of https://www.umoatitres.org/fr/emissions/
+  (header + first 8 rows), closing tags added.
+
+operation_page_NE_01-10-2026_documents.html
+  Verbatim "Téléchargez les documents" block of
+  https://www.umoatitres.org/fr/emission/emission-simultanee-dobligations-du-tresor-du-niger-du-01-10-2026/

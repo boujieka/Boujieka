@@ -24,6 +24,10 @@ class Settings(BaseSettings):
     # Records below this confidence are surfaced on the data-quality page.
     low_confidence_threshold: float = 0.7
     environment: str = "development"
+    # Where fetched official documents are kept (bytes + extracted text), named by SHA-256.
+    document_store_dir: str = "var/documents"
+    # Name recorded on review decisions when --reviewer is not given.
+    reviewer: str | None = None
 
     @field_validator("cors_origins")
     @classmethod

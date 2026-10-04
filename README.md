@@ -15,7 +15,11 @@ See [`docs/IMPLEMENTATION_PLAN.md`](docs/IMPLEMENTATION_PLAN.md) and
 [`docs/PHASE_1_REPORT.md`](docs/PHASE_1_REPORT.md), [`docs/PHASE_4_REPORT.md`](docs/PHASE_4_REPORT.md).
 
 ⚠️ **All market data currently in the system is SYNTHETIC** — generated for development, labelled
-as such in the database, the API and the UI, and not real. No official source is being crawled yet.
+as such in the database, the API and the UI, and not real.
+
+**Phase 2 started:** UMOA-Titres (WAEMU) official auction result reports can now be fetched,
+extracted and queued for human review; nothing is served as a fact until a reviewer approves it.
+See [`docs/PHASE_2_INGESTION.md`](docs/PHASE_2_INGESTION.md).
 
 ## Public showcase site
 
@@ -69,6 +73,7 @@ backend/    FastAPI · SQLAlchemy 2 · Alembic · PostgreSQL
                     MarketObservation, Opportunity, SubscriptionRoute
   app/analytics/    Decimal-only financial calculations (CALCULATION)
   app/api/          Read-only REST API under /api/v1
+  app/ingest/       Phase 2: fetch official documents, extract, review queue (CLI)
   app/seed/         Unverified reference data + labelled synthetic generator
   tests/            pytest (runs on SQLite, or Postgres via ABI_TEST_DATABASE_URL)
 frontend/   Next.js 15 · TypeScript · Tailwind v4 · shadcn-style components · Recharts
@@ -132,3 +137,4 @@ every refusal are written to the audit log. Details, key management and limits:
 | `GET /api/v1/subscription-routes` | How buyers access each market (who, intermediary, account, minimums), with verbatim official quotes; filter: `country`. Covers CEMAC, WAEMU and Kenya (15 countries) |
 | `GET /api/v1/data-quality` | **analyst/admin.** Stale/pending sources, missing fields, duplicates, synthetic counts |
 | `GET /api/v1/admin/audit-log?limit=` | **admin.** Latest audit rows (key id, role, method, path, status, truncated IP, request id) |
+| `GET /api/v1/ingest/queue` | **analyst/admin.** Staged UMOA-Titres extractions awaiting human review (UNVERIFIED by default; filters `status`, `country`, `limit`, `offset`) |
