@@ -108,7 +108,7 @@ The folder holds seven sub-folders:
 
 - **01_Hydro_Readiness_Framework**: the full book in PDF, and the eight questions, the 23 gates and the decision ladder as a stand-alone reference.
 - **02_Bankable_Hydro_Model**: MODEL 7, the workbook behind every number in this book, with its test reports.
-- **03_Model_User_Manual**: MANUAL 7, the user and methodology manual, and an audio guide to the model.
+- **03_Model_User_Manual**: MANUAL 7, the user and methodology manual, a narrated video guide to the model with English subtitles, and an audio guide.
 - **04_Kasiri_River_Case**: the worked case of Chapter 18 and its key figures.
 - **05_Transaction_Tools**: editable versions of the checklists and templates of Annexes A to I.
 - **06_Technical_Due_Diligence**: Annexes N to R as a stand-alone reference, in PDF and Word.
@@ -118,7 +118,7 @@ To use the materials:
 
 1. Open the folder in a web browser. The files can be viewed and downloaded, not edited in place.
 2. Download the workbook and open it in Microsoft Excel or a compatible spreadsheet program. It contains no macros.
-3. Start on the cover sheet of the workbook, then follow the quick start in the manual or the audio guide.
+3. Start on the cover sheet of the workbook, then follow the video guide or the quick start in the manual.
 4. Work on your own copy. Replace the illustrative Kasiri inputs with project data only in that copy, and keep a record of each assumption and its source.
 5. Check that the version on the workbook cover matches the version of this book. Updated materials may be added to the same folder under a new version number.
 

@@ -99,11 +99,13 @@ shutil.copy("book7/build/Hydropower_Development_and_Finance.pdf", f"{OUT}/01_Hyd
 shutil.copy("model/Bankable_Hydro_Model.xlsx", f"{OUT}/02_Bankable_Hydro_Model/MODEL7_Bankable_Hydro_Model_v1.0RC1.xlsx")
 for f in ("MODEL7_TEST_REPORT.md", "MODEL7_GATE_AND_FORMULA_AUDIT.md"):
     shutil.copy(f"docs/{f}", f"{OUT}/02_Bankable_Hydro_Model/{f}")
-# 03 manual and audio guide
+# 03 manual, audio guide and video guide
 for f in ("MANUAL7_User_and_Methodology.pdf", "MANUAL7_User_and_Methodology.docx"):
     shutil.copy(f"manual/build/{f}", f"{OUT}/03_Model_User_Manual/{f}")
 shutil.copy("course/audio/model7_walkthrough/MODEL7_Audio_Guide.mp3", f"{OUT}/03_Model_User_Manual/MODEL7_Audio_Guide.mp3")
 shutil.copy("course/audio/model7_walkthrough/script.md", f"{OUT}/03_Model_User_Manual/MODEL7_Audio_Guide_script.md")
+for f in ("MODEL7_Video_Guide.mp4", "MODEL7_Video_Guide.en.srt"):
+    shutil.copy(f"course/video/{f}", f"{OUT}/03_Model_User_Manual/{f}")
 # 04 Kasiri key figures from the workbook's book check
 wb = load_workbook("model/Bankable_Hydro_Model.xlsx", data_only=True)
 ws = wb["35_BOOK_CHECK"]
@@ -123,12 +125,12 @@ open(f"{OUT}/README.txt", "w", encoding="utf8").write(
     "AFRICA ENERGY FINANCE\nBOOK 7, HYDROPOWER DEVELOPMENT AND FINANCE: companion materials\n" + VERSION + "\n\n"
     "01_Hydro_Readiness_Framework   The full book (PDF) and the framework as a stand-alone reference (PDF, Word)\n"
     "02_Bankable_Hydro_Model        MODEL 7 workbook (opens on its cover sheet) and its test reports\n"
-    "03_Model_User_Manual           MANUAL 7 (PDF, Word) and the audio guide to the model with its script\n"
+    "03_Model_User_Manual           MANUAL 7 (PDF, Word), the video guide (MP4, English subtitles) and the audio guide with its script\n"
     "04_Kasiri_River_Case           The Kasiri case of Chapter 18 (PDF, Word) and its key figures (CSV)\n"
     "05_Transaction_Tools           Checklists and templates of Annexes A to I (PDF; editable Word)\n"
     "06_Technical_Due_Diligence     Annexes N to R (PDF, Word)\n"
     "07_Sources_and_References      Source list with verification status, research files, case-data and source audits\n\n"
-    "Start with the workbook cover sheet, then the manual's quick start or the audio guide.\n"
+    "Start with the workbook cover sheet, then the video guide or the manual's quick start.\n"
     "Download the workbook before use and work on your own copy. All default inputs are illustrative.\n"
     "Decision-support material; not investment, legal, tax or accounting advice.\n")
 zip_base = OUT

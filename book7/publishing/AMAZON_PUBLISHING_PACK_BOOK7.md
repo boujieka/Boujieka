@@ -36,7 +36,7 @@ The IFC guide explains how a hydro project is developed; this book explains how 
 | Hardcover | Reference edition | USD 49.99 | After paperback demand |
 | MODEL 7 and MANUAL 7 | Professional product | Off Amazon | Not sold through Amazon |
 
-Interior: 162 pages including 14 blank versos, so that every chapter opens on a right-hand page. Figures are greyscale at 450 ppi or more.
+Interior: 162 pages including 13 blank versos, so that every chapter opens on a right-hand page. Figures are greyscale at 450 ppi or more.
 
 ## 4. Metadata
 
