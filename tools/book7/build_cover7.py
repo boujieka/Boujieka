@@ -30,6 +30,26 @@ WHITE_PAPER = 0.002252     # in per page, black ink on white paper (KDP)
 SAFE = 0.5                 # text kept 0.5 in inside every trim edge (KDP asks at least 0.125 in; 0.5 in is margin for drift)
 SPINE_GAP = 0.0625         # KDP: at least 0.0625 in between spine text and the spine edges
 BARCODE_W, BARCODE_H, BARCODE_GAP = 2.0, 1.2, 0.25
+ISBN = "9798178961780"          # KDP-assigned paperback ISBN (imprint: Independently published)
+ISBN_DISPLAY = "ISBN 979-8178961780"
+
+
+def draw_barcode(c, x_in, y_in):
+    """EAN-13 of the ISBN, vector, on a white panel filling the KDP barcode area (2 x 1.2 in)."""
+    from reportlab.graphics.barcode import createBarcodeDrawing
+    from reportlab.graphics import renderPDF
+    from reportlab.graphics import shapes
+    shapes.STATE_DEFAULTS["fontName"] = "Sans"   # the renderer's default font would otherwise be an unembedded Times-Roman
+    I = 72
+    c.setFillColor(white)
+    c.rect(x_in * I, y_in * I, BARCODE_W * I, BARCODE_H * I, stroke=0, fill=1)
+    d = createBarcodeDrawing("EAN13", value=ISBN[:12], barWidth=0.0135 * I, barHeight=0.62 * I, humanReadable=True,
+                             fontName="Sans", fontSize=8)
+    bx = x_in * I + (BARCODE_W * I - d.width) / 2
+    renderPDF.draw(d, c, bx, y_in * I + 0.16 * I)
+    c.setFillColor(HexColor("#000000"))
+    c.setFont("Sans", 8.5)
+    c.drawCentredString((x_in + BARCODE_W / 2) * I, (y_in + BARCODE_H - 0.2) * I, ISBN_DISPLAY)
 
 FD = Path("/usr/share/fonts/truetype/liberation")
 for name, f in (("Sans", "LiberationSans-Regular"), ("SansBold", "LiberationSans-Bold"), ("SansItalic", "LiberationSans-Italic")):
@@ -218,6 +238,7 @@ def main():
     ap.add_argument("--out", default=str(ROOT / "book7/publishing/BOOK7_COVER_7x10_draft.pdf"))
     ap.add_argument("--thumb", default=str(ROOT / "book7/publishing/BOOK7_COVER_thumb160.png"))
     ap.add_argument("--preview", default=None, help="optional PNG of the whole wrap, 1400 px wide, for review")
+    ap.add_argument("--no-barcode", action="store_true", help="leave the barcode area empty so that KDP prints its own")
     a = ap.parse_args()
     pages = len(PdfReader(a.interior).pages)
     spine = pages * WHITE_PAPER
@@ -228,6 +249,8 @@ def main():
     c.setAuthor(AUTHOR)
     x0_front = BLEED + TRIM_W + spine
     W, H, text_bottom, bc, spine_box = draw(c, spine, x0_front)
+    if not a.no_barcode:
+        draw_barcode(c, bc[0], bc[1])
     c.showPage()
     c.save()
     print(f"{a.out}: {pages} pages, spine {spine:.4f} in, full cover {W:.4f} x {H:.4f} in "

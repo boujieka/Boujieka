@@ -123,6 +123,7 @@ Endorsements are added only when received in writing with permission to print.
 
 ### 6.1 Cover files
 * `book7/publishing/BOOK7_COVER_7x10_draft.pdf`: full wrap, vector, fonts embedded; spine 0.3648 in (162 pages x 0.002252 in, black ink on white paper); full size 14.6148 x 10.25 in including 0.125 in bleed; text kept 0.5 in inside the trim; barcode area (2 x 1.2 in, bottom right of the back) left clear.
+* Barcode: `BOOK7_COVER_7x10_draft.pdf` prints its own vector EAN-13 of ISBN 979-8178961780 (with the line "ISBN 979-8178961780") on a white panel in the barcode area; it decodes to 9798178961780 at 300 and 600 dpi. When uploading this file, answer yes to KDP's question on whether the cover already includes a barcode. `BOOK7_COVER_7x10_no_barcode.pdf` leaves the area empty, for KDP to print its own; use one or the other, never both.
 * `book7/publishing/BOOK7_COVER_thumb160.png`: the front at 160 px wide, the size of a search result thumbnail. The title, the subtitle line and the author remain readable.
 * Built by `tools/book7/build_cover7.py`, which reads the page count from the interior PDF. Rebuild after any change in page count, then check against the template from the KDP cover calculator.
 
