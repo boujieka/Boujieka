@@ -1,3 +1,5 @@
+> Superseded: this manual describes an earlier model; use MANUAL7_User_and_Methodology.md for MODEL 7.
+
 # BANKABLE HYDRO: Integrated Bankability Model
 ## User Manual, v1.0
 

@@ -155,7 +155,7 @@ BF = Font(name="Arial", size=10)
 
 
 def table(ws, r0, title, rows):
-    ws.cell(r0, 1, f"{title} — FULL-ENGINE SNAPSHOT (static values, generated {stamp} by tools/run_snapshots.py; stresses run with commercial debt LOCKED at base amount, annuity profile)").font = Font(name="Arial", size=10, bold=True, color="1F3864")
+    ws.cell(r0, 1, f"{title} — FULL-ENGINE SNAPSHOT (static values, generated {stamp} by tools/run_snapshots.py; stresses run with the financing package LOCKED at base-case amounts and the base-case sculpted principal schedule)").font = Font(name="Arial", size=10, bold=True, color="1F3864")
     hdr = ["Run"] + [k[1] for k in KPIS]
     for j, h in enumerate(hdr):
         c = ws.cell(r0 + 1, 1 + j, h); c.font = HF; c.fill = HB

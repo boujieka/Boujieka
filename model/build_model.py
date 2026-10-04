@@ -1047,7 +1047,7 @@ calc(ws, r, "afford_tariff", "Utility payment headroom per MWh (avg max sustaina
 ws = WS["18_DEBT"]
 title(ws, "18 DEBT — Concessional & commercial tranches, DSCR sculpting, DSRA", "Non-circular: IDC and fees are debt-funded through closed-form factors; the DSRA is equity-funded; sizing uses an unlevered-tax lender case", ts=True)
 r = 6
-inp(ws, r, "lock_m", "Locked commercial debt (debt_mode = 2)", 90.0, "USDm", "Base-case debt_m (written by tools/run_snapshots.py)", "m", True); r += 1
+inp(ws, r, "lock_m", "Locked commercial debt (debt_mode = 2)", 90.0, "USDm", "Base-case debt_m (tools/run_snapshots.py sets this on scenario copies; enter base-case values here only if you switch debt_mode to 2)", "m", True); r += 1
 inp(ws, r, "lock_c", "Locked concessional debt (debt_mode = 2)", 0.0, "USDm", "Base-case debt_c", "m", True); r += 1
 inp(ws, r, "lock_grant", "Locked grant / VGF (debt_mode = 2)", 0.0, "USDm", "Base-case s_grant", "m", True); r += 1
 inp(ws, r, "lock_goveq", "Locked government equity (debt_mode = 2)", 0.0, "USDm", "Base-case s_goveq", "m", True); r += 1
@@ -1711,7 +1711,7 @@ for i, c in enumerate(ALLC):
 DEVCF_ROW = r
 r += 1
 REF["devcf_rng"] = f"{q(ws.title)}!${ALLC[0]}${DEVCF_ROW}:${ALLC[-1]}${DEVCF_ROW}"
-calc(ws, r, "dev_irr", "DEVELOPER IRR on the success path (development spend to final distribution)", "=IF(ISNUMBER(IRR({devcf_rng},0.15)),IF(ABS(IRR({devcf_rng},0.15))<1,IRR({devcf_rng},0.15),-1),IF(ISNUMBER(IRR({devcf_rng},0.05)),IF(ABS(IRR({devcf_rng},0.05))<1,IRR({devcf_rng},0.05),-1),IF(ISNUMBER(IRR({devcf_rng},-0.05)),IF(ABS(IRR({devcf_rng},-0.05))<1,IRR({devcf_rng},-0.05),-1),-1)))", "%", "pct", out=True); r += 1
+calc(ws, r, "dev_irr", "DEVELOPER IRR on the success path (development spend to final distribution)", "=IF(ISNUMBER(IRR({devcf_rng},0.15)),IF(ABS(IRR({devcf_rng},0.15))<1,IRR({devcf_rng},0.15),IF(ISNUMBER(IRR({devcf_rng},0.05)),IF(ABS(IRR({devcf_rng},0.05))<1,IRR({devcf_rng},0.05),IF(ISNUMBER(IRR({devcf_rng},-0.05)),IF(ABS(IRR({devcf_rng},-0.05))<1,IRR({devcf_rng},-0.05),-1),-1)),IF(ISNUMBER(IRR({devcf_rng},-0.05)),IF(ABS(IRR({devcf_rng},-0.05))<1,IRR({devcf_rng},-0.05),-1),-1))),IF(ISNUMBER(IRR({devcf_rng},0.05)),IF(ABS(IRR({devcf_rng},0.05))<1,IRR({devcf_rng},0.05),IF(ISNUMBER(IRR({devcf_rng},-0.05)),IF(ABS(IRR({devcf_rng},-0.05))<1,IRR({devcf_rng},-0.05),-1),-1)),IF(ISNUMBER(IRR({devcf_rng},-0.05)),IF(ABS(IRR({devcf_rng},-0.05))<1,IRR({devcf_rng},-0.05),-1),-1)))", "%", "pct", out=True); r += 1
 calc(ws, r, "dev_mult", "Developer cash multiple (inflows / outflows)", "=IFERROR(SUMIF({devcf_rng},\">0\")/-SUMIF({devcf_rng},\"<0\"),0)", "x", "x", out=True); r += 1
 calc(ws, r, "dev_peak", "Developer's peak cumulative cash at risk", "=-MIN(0,MIN(" + ",".join(f"SUM(${ALLC[0]}${DEVCF_ROW}:{c}${DEVCF_ROW})" for c in ALLC[:ND + 8]) + "))", "USDm", "n2", out=True); r += 1
 note(ws, r + 1, "Reading: the risk-weighted NPV answers whether a developer should start; the success-path IRR and multiple answer what the developer earns if it closes; the step-ups show where value is created between close and COD. Promotes and carried interest are not modelled.")
@@ -2046,7 +2046,7 @@ for lab, nm, bv, tol, f, where in BOOK_CHECKS:
     c = ws.cell(rr, 2, bv); c.font = F_INPUT; c.number_format = FMT.get(f, "General")
     put(ws, f"C{rr}", f"={{{nm}}}", f)
     ws.cell(rr, 4, tol).font = F_BASE
-    put(ws, f"E{rr}", f'=IF(ABS(C{rr}-B{rr})<=D{rr}+1E-9,"PASS","CHECK")')
+    put(ws, f"E{rr}", f'=IF(ISNUMBER(C{rr}),IF(ABS(C{rr}-B{rr})<=D{rr}+1E-9,"PASS","CHECK"),"CHECK")')
     ws.cell(rr, 6, where).font = F_BASE
     rr += 1
 for lab, nm, txt, where in [("Financial close decision", "fc_decision", "STOP: a critical gate is not met", "Chapters 17, 18"),
