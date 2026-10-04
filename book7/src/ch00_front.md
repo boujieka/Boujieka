@@ -19,7 +19,7 @@ Each book is the centre of a set of products that share one method. For Book 7 t
 | Product | Name | Role |
 |---|---|---|
 | Book | Hydropower Development and Finance (this book) | Explains the method and why it works |
-| Model | MODEL 7: Hydropower Development and Finance Model | Quantifies the method: annual, 40 period, integrated project, utility and public-finance model with a development module and 23 financial close gates |
+| Model | MODEL 7: Hydropower Development and Finance Model | Quantifies the method: annual, 40-period, integrated project, utility and public-finance model with a development module and 23 financial close gates |
 | Manual | MANUAL 7: User and Methodology Manual | Teaches the reader to operate the model |
 | Case | CASE 7: Kasiri River Hydro | Demonstrates the method on a fictional 60 MW run-of-river project |
 | Training | Video course | Walks through the book and the model |
@@ -42,7 +42,7 @@ This book asks one question: can a given hydropower project be developed to fina
 
 The book is written for the people who make those decisions. Developers and their finance directors building a development plan and a financing case. Credit officers and investment officers at development finance institutions and commercial banks sizing debt. Fund managers deciding whether to buy into a project before or after close. Transaction advisers who have to reconcile all of them. And staff in finance ministries and PPP units, who get one full chapter written for them, because a support package the ministry will not sign does not close.
 
-Each chapter supports one decision. Chapter 1 sets out the business model and the reason why a hydro project has to be read as three investments, not one. Chapters 2 to 4 cover the resource and the commercial route: the river, the configuration and the path to a power purchase agreement. Chapters 5 to 8 deal with development: the stage gates, the development budget, the consents and the contract set. Chapters 9 to 11 turn to construction and operation. Chapters 12 to 15 are about financing: sizing the debt, assembling the lender group, the developer's returns and the public side. Chapters 16 and 17 bring the analysis together for the people who carry the risk, through stress testing and the financial close gates. Chapter 18 walks through the complete case.
+Each chapter supports one decision. Chapter 1 sets out the business model and why a hydro project has to be read as three investments, not one. Chapters 2 to 4 cover the resource and the commercial route: the river, the configuration and the path to a power purchase agreement. Chapters 5 to 8 deal with development: the stage gates, the development budget, the consents and the contract set. Chapters 9 to 11 turn to construction and operation. Chapters 12 to 15 are about financing: sizing the debt, assembling the lender group, the developer's returns and the public side. Chapters 16 and 17 bring the analysis together for the people who carry the risk, through stress testing and the financial close gates. Chapter 18 walks through the complete case.
 
 ## Four ideas that run through the book
 
@@ -64,21 +64,21 @@ Book 7 is not the first work to connect hydropower with finance, and it does not
 
 The most complete public guide is the IFC's *Hydroelectric Power: A Guide for Developers and Investors*, published in 2015 [LIT:S1]. It covers the whole development cycle, from site selection to operation. By its own account, its technical sections "are more detailed and can be used as reference, while the permitting/licensing and financing sections are intended more as a high-level review" [LIT:S1]. Book 7 starts where that guide stops. The IFC guide explains how a hydro project is developed; this book explains how to decide whether it should continue, how it should be financed, who should bear each risk and whether it is ready to close.
 
-The closest predecessor in purpose is the *Hydro Finance Handbook* of 2008, written as a companion to a hydro finance tutorial and covering the financial aspects of hydro development and the steps towards financial close [LIT:S2]. We could see only a search summary of it, and its publisher and authors are not confirmed here. Book 7 goes further in three directions: it values the development stage itself, before any financing; it tests the project from the positions of the developer, the lenders and the state at once; and it treats financial close as the outcome of 23 evidence gates rather than as a sequence of steps.
+The closest predecessor in purpose appears to be the *Hydro Finance Handbook* of 2008, described as a companion to a hydro finance tutorial at HydroVision 2008 and as covering the financial aspects of hydro development and the steps towards financial close [LIT:S2]. We could see only a search summary of it, and its publisher and authors are not confirmed here, so the comparison rests on that description. On that basis, Book 7 differs in three ways: it values the development stage itself, before any financing; it tests the project from the positions of the developer, the lenders and the state at once; and it treats financial close as the outcome of 23 evidence gates rather than as a sequence of steps.
 
-The University of Cambridge Institute for Sustainability Leadership published in 2019 an introduction to the concepts and terminology of financing sustainable hydropower in emerging markets [LIT:S3]. Its purpose is to help a reader who knows either hydropower or finance understand the other. This book assumes that understanding and uses it to reach a decision.
+The University of Cambridge Institute for Sustainability Leadership published in 2019 an introduction to the concepts and terminology of financing sustainable hydropower in emerging markets [LIT:S3]. It introduces the terms and concepts of finance for large hydropower in emerging markets, for readers new to finance, to hydropower or to both. This book assumes that grounding and uses it to reach a decision.
 
-General project finance works treat debt sizing, cash flow available for debt service and lender requirements in far more depth than this book does, among them Gatti's textbook [LIT:S5] and, for the power sector, Nongena's practical guide to senior debt for electricity projects, published by Springer in 2026 [LIT:S4]. They are not specific to hydrology, to African utilities or to the state's balance sheet. Readers who need the full mechanics of project finance should read them alongside this book.
+General project finance works treat debt sizing, cash flow available for debt service and lender requirements in far more depth than this book does, among them Gatti's textbook [LIT:S5] and, for the power sector, Nongena's practical guide to senior debt for electricity projects, listed by Springer for 2026 [LIT:S4]. They are not specific to hydrology, to African utilities or to the state's balance sheet. Readers who need the full mechanics of project finance should read them alongside this book.
 
 Table: Table P.1. What this book adds to existing works
 | Work | Its strength | What it leaves to others | What this book adds |
 |---|---|---|---|
 | IFC guide (2015) [LIT:S1] | Full development cycle; detailed technical reference | Financing and permitting as a high-level review | The decisions to continue, finance and close, with the developer's, lenders' and state's tests side by side |
-| Hydro Finance Handbook (2008) [LIT:S2] | Financial aspects and the steps to financial close | Development-stage valuation; the state's balance sheet | Risk-weighted development value; 23 evidence gates; a working model |
-| CISL working paper (2019) [LIT:S3] | Concepts and terminology for readers new to one of the two fields | A method for deciding | A decision sequence with numbers at every step |
+| Hydro Finance Handbook (2008) [LIT:S2] | Financial aspects and the steps to financial close, as described in a search summary | Not confirmed: the full text was not seen | Risk-weighted development value; the state's test alongside the lenders'; 23 evidence gates; a working model |
+| CISL working paper (2019) [LIT:S3] | Concepts and terminology for readers new to finance, hydropower or both | A method for deciding | A decision sequence with numbers at every step |
 | Project finance texts [LIT:S4; LIT:S5] | Depth in cash flow, debt sizing and security | Hydrology, African utilities, sovereign exposure | Hydro-specific lender cases, buyer payment capacity, contingent liabilities |
 | This book | An investment committee framework for hydro in Africa, from river to financial close | Detailed engineering design, covered by the IFC guide and engineering texts | |
-Note: The table compares purpose and coverage as stated by each work; it is not a ranking.
+Note: The table compares purpose and coverage as stated by each work, or for the 2008 handbook as described in a search summary; it is not a ranking.
 
 The book also has a companion in the author's own work. The author's *Bankable Is Not Enough* argues, across African independent power projects, that bankability alone can produce poor power deals. Book 7 applies that argument inside one sector, where the capital is heavy, the revenue depends on a river and the state is almost always a party, and turns it into a method for deciding whether a project should be developed, financed and closed.
 
@@ -88,7 +88,7 @@ The book has a companion workbook, MODEL 7, together with a user manual and a wo
 
 All default inputs in the workbook, and all Kasiri figures, are illustrative. They were chosen to make the mechanics visible and to sit inside the ranges found in public sources, not to describe any real project. Where the book cites figures about real projects or about the sector, it says where they come from and how far they have been verified. Where public sources conflict, the book reports the conflict rather than choosing the more convenient number. Where no public figure exists, as for development premiums or stage-by-stage attrition in African hydro, the book says so and treats the value as a model assumption.
 
-A second fictional project, Lumora Falls, a 400 MW scheme structured as a public-private partnership, appears as a contrast in Chapters 1, 15 and 16. It comes from the author's earlier policy paper on hydro and public liabilities, which is now a companion paper to this book.
+A second fictional project, Lumora Falls, a 400 MW scheme structured as a public-private partnership, appears as a contrast in Chapters 1, 2, 4 and 15. It comes from the author's earlier policy paper on hydro and public liabilities, which is now a companion paper to this book.
 
 ## Conventions
 
@@ -103,9 +103,9 @@ Several numbers in this book are easily misread as findings about African hydro.
 Table: Table P.2. Status of the key numbers used in the book
 | Number | Value | Status | What it is not |
 |---|---|---|---|
-| Kasiri capacity factor | {{m.cf|pct1}} | Illustrative case output | A benchmark for African hydro; IRENA's figures are cited separately in Chapter 3 |
+| Kasiri capacity factor | {{m.cf|pct1}} | Illustrative case output | A benchmark for African hydro; IRENA's figures are cited separately in Chapters 2 and 3 |
 | Probability of reaching close from reconnaissance | {{m.dev_pfc|pct0}} | Model assumption, informed by Chapter 5 | A measured attrition rate; none is published for African hydro |
-| Overrun at the reference-class median and mean | 27% and 96% | Public evidence [HY-08] | A forecast for any one project |
+| Real cost overrun of large dams, reference-class median and mean | 27% and 96% | Public evidence [HY-08] | A forecast for any one project |
 | Development premium | 3% of plant cost | Model assumption | A market rate; no public data were found [DE:BENCH] |
 | Developer IRR on the success path | {{m.dev_irr|pct1}} | Illustrative case output | An expected return |
 | Developer's risk-weighted NPV | USD {{m.dev_enpv|n2}} million | Illustrative case output | A valuation of any real position |
