@@ -218,9 +218,28 @@ Table: Table K.1. Adversarial review findings and their status
 
 %%CHECKS7
 
+### Independent model test
+
+Before this version the workbook was tested a second time, by a reviewer working on copies and with no access to the generator's intentions. Microsoft Excel was not available for the test, so it relied on a second calculation engine and on a strict reading of the Excel formula grammar.
+
+Table: Table K.3. Independent test of MODEL 7: results
+| Test | Result |
+|---|---|
+| Recalculation with a second, independent engine | All 11,166 formula cells agree with LibreOffice within a relative difference of one in a million |
+| Accounting identities computed outside the workbook (sources and uses, debt roll-forward, cash waterfall, energy, IRR and NPV) | 44 of 44 pass on the base case; stressed copies pass except where the developer IRR fault below applied |
+| Behavioural tests (tariff, cost, flow, debt terms, hurdle, development odds) | Every result moved in the expected direction; with all development probabilities at one, the risk-weighted developer value equals the success-path value |
+| Integrity checks forced to fail | Each check fired when its condition was broken |
+| Published scenarios re-run | Eleven of eleven reproduce the stored results exactly |
+| Numbers in this book checked against the workbook | 48 of 48 match |
+| Structure (circular references, array and volatile functions, external links, length and nesting limits) | None found |
+
+The test found five faults, all corrected in this version. The most serious was in packaging, not in calculation: the recalculation step saved the workbook without the quotation marks Excel requires around sheet names that begin with a digit, in 10,818 formulas and four charts. A strict Excel grammar parser refused the file. The quotation marks are now restored automatically after every recalculation. The developer IRR returned a placeholder of minus 100 percent in six stress runs where a valid rate exists, because an error trap caught the first attempt before the fallback could run; it now tries three starting values in turn. Two input selectors accepted a value the model cannot use, and no validation showed an error message; both are corrected. With no debt, the minimum cover ratio showed a placeholder of 99 that let the readiness gate on cover read as met; the gate now requires debt to exist, and the average cover ratio no longer returns an error.
+
+Four minor points remain open and are listed here so that users are not surprised. The model does not degrade gracefully at zero river flow, where division errors appear. The design flow is not linked to installed capacity or cost, so raising it changes nothing and lowering it reduces energy without reducing cost. The label of the readiness gate on cover says "in the base case" but the gate reads the selected case. With a zero tariff and locked debt, sponsors fund the shortfall indefinitely and no default is triggered. The full test report is kept with the model files.
+
 ### What changed in this edition
 
-This edition added the development module, the construction contracting module and the readiness sheet, an energy-only tariff option, a ten-year P90 lender case with an explicit multi-year drought test, and the Kasiri case. It also corrected the risk-weighted developer value so that it is discounted to the start of development, and replaced a developer IRR that could return a spurious root.
+This edition added the development module, the construction contracting module and the readiness sheet, an energy-only tariff option, a ten-year P90 lender case with an explicit multi-year drought test, and the Kasiri case. It also corrected the risk-weighted developer value so that it is discounted to the start of development, and replaced a developer IRR that could return a spurious root with one that tries three starting values and reports minus 100 percent only when no rate exists.
 
 ### What the model does not do
 
@@ -232,7 +251,7 @@ This edition added the development module, the construction contracting module a
 - The utility model has no balance sheet.
 - Stresses are deterministic. There is no Monte Carlo over hydrology and currency and no joint distribution of drought, currency and utility distress.
 - Stage probabilities, the development premium and the developer's discount rate are user judgements; no public data were found to calibrate them for African hydro.
-- The model has been recalculated in LibreOffice. A test in Microsoft Excel is outstanding.
+- The model has been recalculated in LibreOffice and reproduced by a second engine. A test in Microsoft Excel itself is outstanding.
 
 ## Annex L. Sources and verification status
 

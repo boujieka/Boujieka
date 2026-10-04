@@ -124,7 +124,7 @@ Every external claim carries a source identifier in square brackets, such as [HY
 
 ## Status of this edition
 
-This is the first edition of Book 7, issued as version 0.3 for pre-publication review. It replaces, for developers and lenders, the author's earlier policy paper on structuring hydro without unsustainable public liabilities, whose material is condensed in Chapter 15. Three things must happen before release: the sources marked as summaries in Annex L must be read in full; the companion model must complete its test in Microsoft Excel (it has been tested in LibreOffice, adversarially reviewed and corrected); and practitioners must review the text.
+This is the first edition of Book 7, issued as version 0.3 for pre-publication review. It replaces, for developers and lenders, the author's earlier policy paper on structuring hydro without unsustainable public liabilities, whose material is condensed in Chapter 15. Three things must happen before release: the sources marked as summaries in Annex L must be read in full; the companion model must complete its test in Microsoft Excel (it has been recalculated in LibreOffice, reproduced cell by cell by a second calculation engine, adversarially reviewed twice and corrected; Annex K gives the results); and practitioners must review the text.
 
 ## Acknowledgements and disclaimer
 
@@ -1715,20 +1715,20 @@ A short note for the ministry of finance, to accompany any request for support.
 
 | Project | Country | Structure | MW | USD/kW | Timeline | Credit support |
 |---|---|---|---|---|---|---|
-| Nachtigal | Cameroon | IPP/PPP, IFC-led DFI debt | 420 | 3,293 | FC Nov 2018; plan 5 yrs; full COD slipped to Dec 2024 / 2025 | IBRD payment guarantee EUR 86m + loan guarantee EUR 171m; MIGA; 75:25 debt:equity |
+| Nachtigal | Cameroon | IPP/PPP, IFC-led DFI debt | 420 | 3,293 | FC Nov 2018; 57-month build planned, COD 2023; 7th unit coupled 27 Feb 2025 | IBRD payment guarantee EUR 86m + loan guarantee EUR 171m (sovereign indemnity); MIGA up to EUR 224.8m; 76:24 debt:equity (PAD) |
 | Bujagali | Uganda | IPP + IDA PRG | 250 | 3,448 | c.2007-2012 | IDA PRG US$115m with sovereign indemnity; MIGA US$115m; liquidity facility |
 | Bui | Ghana | Public (BPA), China Exim, cocoa escrow | 400 | 1,975 | COD Dec 2013 | China Exim tranches secured on cocoa export escrow |
 | Kafue Gorge Lower | Zambia | State-owned, sovereign-guaranteed Chinese debt | 750 | 2,667 | Nov 2015 → full COD Mar 2023 | Sovereign guarantee; ZESCO arrears entered sovereign DSA |
 | Isimba | Uganda | Public, 85% China Exim / 15% GoU | 183 | 3,102 | Apr 2015 → Mar 2019 | Sovereign borrower |
 | Karuma | Uganda | Public, 85% China Exim / 15% GoU | 600 | 2,833 | Contract 2013 (5 yrs) → COD Jun 2024 | Sovereign borrower |
-| Julius Nyerere (Rufiji) | Tanzania | 100% state budget | 2,115 | 1,348 | Construction 2019 → 2025/26 (42-month EPC) | None (budget-funded) |
+| Julius Nyerere (Rufiji) | Tanzania | 100% state budget | 2,115 | 1,348 | Construction 2019 → 2025/26 (42-month EPC) | None (budget-funded; 99.5% domestic revenue) |
 | Rusumo Falls | Rwanda/Tanzania/Burundi | Regional public, IDA-financed | 80 | 5,861 | Approval 2013 → COD Feb 2025 | IDA grants/credits; transmission parallel-financed AfDB/EU |
 | Mpatamanga | Malawi | PPP, storage + peaking | 358 | 4,563 | Pre-construction; 5-yr build in 35-yr PPA | IDA PRG US$100m; MIGA US$180m; IDA grant US$350m to govt |
 | Ruzizi III | DRC/Rwanda/Burundi | Regional PPP (stalled) | 206 | 3,689 | Target 2030 before conflict pause | IFIs ~60% expected; EIB lead arranger |
-| GERD | Ethiopia | State, domestically financed | 5,150 | 971 | 2011 → inauguration Sep 2025 | Domestic bonds/budget; no MDB finance |
+| GERD | Ethiopia | State, domestically financed | 5,150 | 971 | 2011 → inauguration Sep 2025 | 91% domestic (bonds, payroll, public); China Exim ~US$1bn for E&M; no MDB finance |
 | Gibe III | Ethiopia | State, ICBC-financed EPC | 1,870 | n/a | Inaugurated Dec 2016 | ICBC loan after MDBs withdrew |
-| Nam Theun 2 (intl.) | Lao PDR | Export IPP, MDB-guaranteed | 1,070 | 1,355 | FC Jun 2005 → COD Apr 2010 (search summary) | IDA & ADB PRGs, MIGA (~US$186m debt covered); EGAT take-or-pay PPA |
-| Upper Trishuli-1 (intl.) | Nepal | DFI-led domestic IPP | 216 | 2,997 | Completion slipped 2024 → Dec 2026 (search summary) | DFI debt ~70% |
+| Nam Theun 2 (intl.) | Lao PDR | Export IPP, MDB-guaranteed | 1,070 | 1,355 | FC Jun 2005 → commissioned Apr 2010 | IDA & ADB PRGs, MIGA (~US$186m debt covered); EGAT take-or-pay PPA |
+| Upper Trishuli-1 (intl.) | Nepal | DFI-led domestic IPP | 216 | 2,997 | Completion slipped 2024 → Dec 2026 (scheduled) | DFI debt ~70% |
 | Reventazón (intl.) | Costa Rica | Utility trust & lease, project bond | 306 | 4,583 | FC Jan 2014 → inaugurated Sep 2016 (search summary) | Trust owns plant, leased to ICE; IDB A-loan, IFC, IG-rated bond, local-currency bank debt |
 
 *Note: Sources for each row are in the research case files. Costs reported in euros are not converted (n/a). PUBLIC DATA NOT FOUND means the research found no public figure.*
@@ -1810,9 +1810,31 @@ The full review, with formula-level evidence for each finding, is kept with the 
 | Structure check | OK |
 | ALL CHECKS | ALL OK |
 
+### Independent model test
+
+Before this version the workbook was tested a second time, by a reviewer working on copies and with no access to the generator's intentions. Microsoft Excel was not available for the test, so it relied on a second calculation engine and on a strict reading of the Excel formula grammar.
+
+
+**Table K.3. Independent test of MODEL 7: results**
+{: .cap}
+
+| Test | Result |
+|---|---|
+| Recalculation with a second, independent engine | All 11,166 formula cells agree with LibreOffice within a relative difference of one in a million |
+| Accounting identities computed outside the workbook (sources and uses, debt roll-forward, cash waterfall, energy, IRR and NPV) | 44 of 44 pass on the base case; stressed copies pass except where the developer IRR fault below applied |
+| Behavioural tests (tariff, cost, flow, debt terms, hurdle, development odds) | Every result moved in the expected direction; with all development probabilities at one, the risk-weighted developer value equals the success-path value |
+| Integrity checks forced to fail | Each check fired when its condition was broken |
+| Published scenarios re-run | Eleven of eleven reproduce the stored results exactly |
+| Numbers in this book checked against the workbook | 48 of 48 match |
+| Structure (circular references, array and volatile functions, external links, length and nesting limits) | None found |
+
+The test found five faults, all corrected in this version. The most serious was in packaging, not in calculation: the recalculation step saved the workbook without the quotation marks Excel requires around sheet names that begin with a digit, in 10,818 formulas and four charts. A strict Excel grammar parser refused the file. The quotation marks are now restored automatically after every recalculation. The developer IRR returned a placeholder of minus 100 percent in six stress runs where a valid rate exists, because an error trap caught the first attempt before the fallback could run; it now tries three starting values in turn. Two input selectors accepted a value the model cannot use, and no validation showed an error message; both are corrected. With no debt, the minimum cover ratio showed a placeholder of 99 that let the readiness gate on cover read as met; the gate now requires debt to exist, and the average cover ratio no longer returns an error.
+
+Four minor points remain open and are listed here so that users are not surprised. The model does not degrade gracefully at zero river flow, where division errors appear. The design flow is not linked to installed capacity or cost, so raising it changes nothing and lowering it reduces energy without reducing cost. The label of the readiness gate on cover says "in the base case" but the gate reads the selected case. With a zero tariff and locked debt, sponsors fund the shortfall indefinitely and no default is triggered. The full test report is kept with the model files.
+
 ### What changed in this edition
 
-This edition added the development module, the construction contracting module and the readiness sheet, an energy-only tariff option, a ten-year P90 lender case with an explicit multi-year drought test, and the Kasiri case. It also corrected the risk-weighted developer value so that it is discounted to the start of development, and replaced a developer IRR that could return a spurious root.
+This edition added the development module, the construction contracting module and the readiness sheet, an energy-only tariff option, a ten-year P90 lender case with an explicit multi-year drought test, and the Kasiri case. It also corrected the risk-weighted developer value so that it is discounted to the start of development, and replaced a developer IRR that could return a spurious root with one that tries three starting values and reports minus 100 percent only when no rate exists.
 
 ### What the model does not do
 
@@ -1824,7 +1846,7 @@ This edition added the development module, the construction contracting module a
 - The utility model has no balance sheet.
 - Stresses are deterministic. There is no Monte Carlo over hydrology and currency and no joint distribution of drought, currency and utility distress.
 - Stage probabilities, the development premium and the developer's discount rate are user judgements; no public data were found to calibrate them for African hydro.
-- The model has been recalculated in LibreOffice. A test in Microsoft Excel is outstanding.
+- The model has been recalculated in LibreOffice and reproduced by a second engine. A test in Microsoft Excel itself is outstanding.
 
 ## Annex L. Sources and verification status
 

@@ -291,8 +291,10 @@ calc(ws, r, None, "Overall bankability verdict", "={bk_overall}", "", None, out=
 calc(ws, r, None, "Model integrity checks", "={chk_all}", "", None, out=True); r += 1
 for nm in ["case", "gen_case", "lender_case"]:
     pass
-dv = DataValidation(type="whole", operator="between", formula1="1", formula2="4"); ws.add_data_validation(dv)
-dv.add("C5:C7")
+dv = DataValidation(type="whole", operator="between", formula1="1", formula2="3"); ws.add_data_validation(dv)
+dv.add("C5:C6")
+dv4 = DataValidation(type="whole", operator="between", formula1="1", formula2="4"); ws.add_data_validation(dv4)
+dv4.add("C7")
 dv5 = DataValidation(type="whole", operator="between", formula1="1", formula2="5"); ws.add_data_validation(dv5); dv5.add("C9")
 dvb = DataValidation(type="whole", operator="between", formula1="0", formula2="1"); ws.add_data_validation(dvb)
 dvb.add("C12"); dvb.add("C15:C23")
@@ -1030,8 +1032,8 @@ calc(ws, r, "kpi_eirr", "Private equity IRR (nominal)", "=IF({s_priv}>0,IFERROR(
 calc(ws, r, "kpi_girr", "Government equity IRR (nominal)", "=IF({s_goveq}+{s_goveq_res}>0,IFERROR(IRR([RNG:eq_gov_cf],0.05),\"n/a\"),\"n/a\")", "%", "pct", out=True); r += 1
 calc(ws, r, "lcoe", "LCOE — plant (nominal levelised)", "=NPV({disc_rate},[RNG:lc_cost])/NPV({disc_rate},[RNG:delivered_paid])*1000", "USD/MWh", "n2", out=True); r += 1
 calc(ws, r, "lcoe_sys", "LCOE — delivered system cost incl. public transmission & losses", "=NPV({disc_rate},[RNG:lc_cost_sys])/NPV({disc_rate},[RNG:lc_e_sys])*1000", "USD/MWh", "n2", out=True); r += 1
-calc(ws, r, "kpi_min_dscr", "Minimum DSCR (actual case)", "=IF(COUNT([RNG:dscr])=0,99,MIN([RNG:dscr]))", "x", "x", out=True); r += 1
-calc(ws, r, "kpi_avg_dscr", "Average DSCR (actual case)", "=AVERAGE([RNG:dscr])", "x", "x", out=True); r += 1
+calc(ws, r, "kpi_min_dscr", "Minimum DSCR (actual case; 99 = no debt service)", "=IF(COUNT([RNG:dscr])=0,99,MIN([RNG:dscr]))", "x", "x", out=True); r += 1
+calc(ws, r, "kpi_avg_dscr", "Average DSCR (actual case; 99 = no debt service)", "=IF(COUNT([RNG:dscr])=0,99,AVERAGE([RNG:dscr]))", "x", "x", out=True); r += 1
 calc(ws, r, "kpi_llcr", "LLCR at COD (all tranches, weighted rate, longest tranche life)", "=IFERROR(SUMPRODUCT([RNG:cfads],[RNG:dfw],[RNG:inloan_all])/({debt_c}+{debt_m}),0)", "x", "x", out=True); r += 1
 calc(ws, r, "kpi_plcr", "PLCR at COD", "=IFERROR(SUMPRODUCT([RNG:cfads],[RNG:dfm])/({debt_c}+{debt_m}),0)", "x", "x", out=True); r += 1
 calc(ws, r, "kpi_short", "Cumulative debt-service shortfall", "=[C:shortfall]", "USDm", "m", out=True); r += 1
@@ -1708,7 +1710,7 @@ for i, c in enumerate(ALLC):
 DEVCF_ROW = r
 r += 1
 REF["devcf_rng"] = f"{q(ws.title)}!${ALLC[0]}${DEVCF_ROW}:${ALLC[-1]}${DEVCF_ROW}"
-calc(ws, r, "dev_irr", "DEVELOPER IRR on the success path (development spend to final distribution)", "=IFERROR(IF(ABS(IRR({devcf_rng},0.15))<1,IRR({devcf_rng},0.15),IF(ABS(IRR({devcf_rng},-0.05))<1,IRR({devcf_rng},-0.05),-1)),-1)", "%", "pct", out=True); r += 1
+calc(ws, r, "dev_irr", "DEVELOPER IRR on the success path (development spend to final distribution)", "=IF(ISNUMBER(IRR({devcf_rng},0.15)),IF(ABS(IRR({devcf_rng},0.15))<1,IRR({devcf_rng},0.15),-1),IF(ISNUMBER(IRR({devcf_rng},0.05)),IF(ABS(IRR({devcf_rng},0.05))<1,IRR({devcf_rng},0.05),-1),IF(ISNUMBER(IRR({devcf_rng},-0.05)),IF(ABS(IRR({devcf_rng},-0.05))<1,IRR({devcf_rng},-0.05),-1),-1)))", "%", "pct", out=True); r += 1
 calc(ws, r, "dev_mult", "Developer cash multiple (inflows / outflows)", "=IFERROR(SUMIF({devcf_rng},\">0\")/-SUMIF({devcf_rng},\"<0\"),0)", "x", "x", out=True); r += 1
 calc(ws, r, "dev_peak", "Developer's peak cumulative cash at risk", "=-MIN(0,MIN(" + ",".join(f"SUM(${ALLC[0]}${DEVCF_ROW}:{c}${DEVCF_ROW})" for c in ALLC[:ND + 8]) + "))", "USDm", "n2", out=True); r += 1
 note(ws, r + 1, "Reading: the risk-weighted NPV answers whether a developer should start; the success-path IRR and multiple answer what the developer earns if it closes; the step-ups show where value is created between close and COD. Promotes and carried interest are not modelled.")
@@ -1771,7 +1773,7 @@ GATES_FC = [
     ("Payment security of at least 6 months in place", "Offtaker", "Y", None, "{lc_months}>=6"),
     ("Offtaker payment capacity at least 1.2x the PPA bill (worst of first 10 years)", "Offtaker", "Y", None, "{ut_ratio10}>=1.2"),
     ("Financing plan fully committed (no financing gap)", "Finance", "Y", None, "{fin_gap}<=0.5"),
-    ("Minimum DSCR at or above the sizing target in the base case", "Finance", "Y", None, "{kpi_min_dscr}>={str_dscr}"),
+    ("Minimum DSCR at or above the sizing target in the base case", "Finance", "Y", None, "AND({debt_m}+{debt_c}>0,{kpi_min_dscr}>={str_dscr})"),
     ("Equity commitments signed and equity IRR at or above target", "Finance", "Y", None, "IF(ISNUMBER({kpi_eirr}),{kpi_eirr}>={str_hurdle},{s_priv}<=0)"),
     ("Political risk cover or guarantees signed", "Risk", "N", "NO EVIDENCE", None),
     ("Government support approved by the finance ministry; fiscal screen not HIGH", "Public finance", "Y", None, "LEFT({sc_result},4)<>\"HIGH\""),
@@ -2005,6 +2007,10 @@ add_line(dash, "T3", "Debt service vs CFADS (USDm)", [("cfads", "CFADS"), ("ds",
 finalize()
 for s in SHEETS:
     WS[s].sheet_properties.tabColor = {"0": "1F3864", "1": "2F5597", "2": "548235", "3": "C00000"}.get(s[0], "7F7F7F")
+for _ws in wb.worksheets:  # every validation stops an invalid entry with a message
+    for _dv in _ws.data_validations.dataValidation:
+        _dv.showErrorMessage = True; _dv.errorStyle = "stop"
+        _dv.errorTitle = "Invalid input"; _dv.error = "Enter one of the allowed values shown in the label."
 wb.save(OUT)
 import json
 json.dump({"REF": REF, "TSROW": TSROW, "CMP_ROWS": cmp_rows, "SCEN_SNAP_ROW": SCEN_SNAP_ROW, "CMP_SNAP": CMP_SNAP, "SENS_SNAP_ROW": SENS_SNAP_ROW, "CASE_ROW0": CASE_ROW0},

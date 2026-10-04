@@ -27,7 +27,7 @@ def fix_xml(xml):
         new = fix_formula(m.group(2))
         n += new != m.group(2)
         return m.group(1) + new + m.group(3)
-    xml = re.sub(r"(<(?:f|formula|formula1|formula2|definedName)\b[^>]*>)([^<]*)(</(?:f|formula|formula1|formula2|definedName)>)", rep, xml)
+    xml = re.sub(r"(<(?:\w+:)?(?:f|formula|formula1|formula2|definedName)\b[^>]*>)([^<]*)(</(?:\w+:)?(?:f|formula|formula1|formula2|definedName)>)", rep, xml)
     return xml, n
 
 

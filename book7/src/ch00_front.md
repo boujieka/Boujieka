@@ -117,7 +117,7 @@ Every external claim carries a source identifier in square brackets, such as [HY
 
 ## Status of this edition
 
-This is the first edition of Book 7, issued as version 0.3 for pre-publication review. It replaces, for developers and lenders, the author's earlier policy paper on structuring hydro without unsustainable public liabilities, whose material is condensed in Chapter 15. Three things must happen before release: the sources marked as summaries in Annex L must be read in full; the companion model must complete its test in Microsoft Excel (it has been tested in LibreOffice, adversarially reviewed and corrected); and practitioners must review the text.
+This is the first edition of Book 7, issued as version 0.3 for pre-publication review. It replaces, for developers and lenders, the author's earlier policy paper on structuring hydro without unsustainable public liabilities, whose material is condensed in Chapter 15. Three things must happen before release: the sources marked as summaries in Annex L must be read in full; the companion model must complete its test in Microsoft Excel (it has been recalculated in LibreOffice, reproduced cell by cell by a second calculation engine, adversarially reviewed twice and corrected; Annex K gives the results); and practitioners must review the text.
 
 ## Acknowledgements and disclaimer
 
