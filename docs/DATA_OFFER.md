@@ -42,7 +42,7 @@ Spam is filtered with a honeypot field (`bot-field`). The JavaScript posts the f
 
 - **Where submissions go:** Netlify → project `cartouche-africa` → Forms. They can be exported as CSV from there.
 - **Removal requests:** the person sends the form again with "Me retirer de la liste" ticked. Delete all of that address's submissions.
-- **Privacy notice:** the text under the form says that the data are stored by Netlify in the United States and are used only for this purpose.
+- **Privacy notice:** the text under the form says that the data are stored by Netlify in the United States, together with the IP address and user agent that Netlify records with each submission, and that they are used only for this purpose.
 - **Plan limits:** check them in Netlify. The number of free submissions per month depends on the plan.
 
 ## Before selling

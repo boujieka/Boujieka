@@ -966,5 +966,5 @@
   "wl.sending": "Envoi…",
   "wl.ok": "Merci, c'est enregistré.",
   "wl.err": "L'envoi a échoué. Réessayez plus tard.",
-  "wl.privacy": "Vos réponses sont stockées par l'hébergeur du site (Netlify, aux États-Unis). Elles servent uniquement à mesurer l'intérêt pour ces offres et à vous prévenir de leur lancement. Elles ne sont ni revendues ni partagées. Pour être retiré de la liste, renvoyez le formulaire avec la même adresse en cochant « Me retirer de la liste »."
+  "wl.privacy": "Vos réponses, ainsi que l'adresse IP et le type de navigateur que Netlify enregistre automatiquement, sont stockées par l'hébergeur du site (Netlify, aux États-Unis). Elles servent uniquement à mesurer l'intérêt pour ces offres et à vous prévenir de leur lancement. Elles ne sont ni revendues ni partagées. Pour être retiré de la liste, renvoyez le formulaire avec la même adresse en cochant « Me retirer de la liste »."
 }

@@ -1058,5 +1058,5 @@
   "wl.sending": "Enviando…",
   "wl.ok": "Gracias, queda registrado.",
   "wl.err": "El envío falló. Inténtelo más tarde.",
-  "wl.privacy": "Sus respuestas las almacena el alojamiento del sitio (Netlify, en Estados Unidos). Solo sirven para medir el interés por estas ofertas y avisarle de su lanzamiento. No se venden ni se comparten. Para salir de la lista, envíe de nuevo el formulario con la misma dirección marcando «Quitarme de la lista»."
+  "wl.privacy": "Sus respuestas, junto con la dirección IP y el tipo de navegador que Netlify registra automáticamente, las almacena el alojamiento del sitio (Netlify, en Estados Unidos). Solo sirven para medir el interés por estas ofertas y avisarle de su lanzamiento. No se venden ni se comparten. Para salir de la lista, envíe de nuevo el formulario con la misma dirección marcando «Quitarme de la lista»."
 }

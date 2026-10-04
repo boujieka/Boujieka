@@ -1058,5 +1058,5 @@
   "wl.sending": "A enviar…",
   "wl.ok": "Obrigado, ficou registado.",
   "wl.err": "O envio falhou. Tente mais tarde.",
-  "wl.privacy": "As suas respostas são guardadas pelo alojamento do site (Netlify, nos Estados Unidos). Servem apenas para medir o interesse nestas ofertas e para o avisar do seu lançamento. Não são vendidas nem partilhadas. Para ser retirado, envie de novo o formulário com o mesmo endereço e assinale «Retirar-me da lista»."
+  "wl.privacy": "As suas respostas, bem como o endereço IP e o tipo de navegador que a Netlify regista automaticamente, são guardadas pelo alojamento do site (Netlify, nos Estados Unidos). Servem apenas para medir o interesse nestas ofertas e para o avisar do seu lançamento. Não são vendidas nem partilhadas. Para ser retirado, envie de novo o formulário com o mesmo endereço e assinale «Retirar-me da lista»."
 }

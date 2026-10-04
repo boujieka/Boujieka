@@ -1058,5 +1058,5 @@
   "wl.sending": "Sending…",
   "wl.ok": "Thank you, it is recorded.",
   "wl.err": "Sending failed. Please try again later.",
-  "wl.privacy": "Your answers are stored by the site's host (Netlify, in the United States). They are used only to measure interest in these offers and to tell you when they launch. They are neither sold nor shared. To be removed, send the form again with the same address and tick \"Remove me from the list\"."
+  "wl.privacy": "Your answers, together with the IP address and browser type that Netlify records automatically, are stored by the site's host (Netlify, in the United States). They are used only to measure interest in these offers and to tell you when they launch. They are neither sold nor shared. To be removed, send the form again with the same address and tick \"Remove me from the list\"."
 }
