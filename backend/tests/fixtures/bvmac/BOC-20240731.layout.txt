@@ -1,0 +1,241 @@
+                                                                    BULLETIN OFFICIEL DE LA COTE N° 2063 DU 31/07/2024
+
+
+
+
+BOURSE DES VALEURS MOBILIERES DE L’AFRIQUE CENTRALE
+            BULLETIN OFFICIEL DE LA COTE
+                           BULLETIN NUMERO 2063
+
+
+
+
+             BVMAC ALL SHARE INDEX
+               BVMAC-AS                                    959,40
+               Variation jour                               0,00%
+               Variation mensuelle                         -3,38%
+
+
+                                Evolution de l'indice
+                 1002
+                  982
+                  962
+                  942
+                  922
+
+
+
+
+                                           TotalBVMAC-AS
+
+
+
+
+                                                                                                                    1
+                                                                                                                                                                               BULLETIN OFFICIEL DE LA COTE N° 2063 DU 31/07/2024
+
+
+SYNTHESE DU MARCHE
+INSTRUMENTS                      Volume transigé                    Valeur transigée                    Nombre de transactions                        Nombre d'émetteurs
+ACTIONS                                     11                             511 500                                           1                                     6
+OBLIGATIONS                                 30                             303 596                                           1                                     6
+TOTAL                                       41                             815 096                                           2                                   12
+
+
+
+
+PHYSIONOMIE DU MARCHE
+MARCHE DES ACTIONS
+                                                                  Cours précédent                       Séance de cotation                                               Cours du jour                                 Cours de     Cours depuis janvier
+                                                 Nom court                                                                                                                                                                                                   Variation
+                                                                                                                                                                                                                     référence de
+ Désignation de l'émetteur     Code ISIN   Mnemo     de                                                                         Nbr                                                                                                                         de l'année
+                                                                                       Volume Volume Volume                                                                                                            la séance
+                                                 l'émetteur      Cours       Date                             Valeur transigée de Statut     Ouver.      Clôt.         Seuil Haut        Seuil Bas   Variation %                    Haut          Bas      précédente
+                                                                                      demandé offert transigé                                                                                                           suivante
+                                                                                                                               trans
+SOCIETE DES EAUX MINERALES
+                             CM0000010009 SEMC    SEMC            47 000 30/07/2024         0      32        0                   0   0 NC     47 000      47 000          51 700            42 300           0,00%        47 000 47 000           45 950         0,00
+DU CAMEROUN
+SOCIETE AFRICAINE FORESTIERE
+                             CM0000010017 SAF     SAFACAM         26 500 30/07/2024        86      0         0                   0   0 NC     26 500      26 500          29 150            23 850           0,00%        26 500 27 100           26 000         5,58
+ET AGRICOLE DU CAMEROUN
+SOCIETE CAMEROUNAISE DE
+                             CM0000010025 SOCAP   SOCAPALM        46 500 30/07/2024        11      24      11         511 500        1 PEq    46 500      46 500 51 150,00 41 850,00                         0,00%        46 500 50 100           46 500        -7,00
+PALMERAIE
+LA REGIONALE EPARGNE CREDIT
+                             CM0000010041 REG     LA REGIONALE    42 500 30/07/2024         5      0         0                   0   0 NC     42 500      42 500          46 750            38 250           0,00%        42 500 42 500           42 500         0,00
+BANCO NACIONAL DE GUINEA     GQ0000010050 BANGE BANGE
+ECUATORIAL
+                                                                 207 300 30/07/2024         0      0         0                   0   0 NC    207 300     207 300         228 030          186 570            0,00%      207 300 207 300         207 110          0,19
+SOCIETE COMMERCIALE          GA0000010066 SCGRE SCG-Re
+GABONAISE DE REASSURANCE
+                                                                  21 500 30/07/2024        39      0         0                   0   0 NC     21 500      21 500          23 650            19 350           0,00%        21 500 21 500           21 000         2,38
+
+                                                                                           Total           11         511 500        1
+
+
+
+
+                                                                                                                                                                                                                                                                         2
+                                                                                                                                                                                       BULLETIN OFFICIEL DE LA COTE N° 2063 DU 31/07/2024
+
+
+MARCHE DES OBLIGATIONS
+OBLIGATIONS DES ETATS
+
+                                                                                           Cours précédent                                                        Séance de cotation                                                  Cours du jour                   Cours de
+                                                                                                                                         Coupon
+                                                                                                                         Nominal (j+3)                                                                                                                               référence
+  Désignation de                                                                                                                        couru (j+3)
+                           Désignation du titre           Code ISIN   Mnemo                                                  au                                                                                                                                     de la séance
+   l'émetteur                                                                                     Cours      Cours en                       au      Volume Volume Volume      Valeur                     Nbr de                         Seuil    Seuil
+                                                                                    Date                                 05/08/2024                                                                             Statut Ouver. Clôt.                       Variation suivante en
+                                                                                                  en %         FCFA                    05/08/2024 demandé offert transigé transigée                       trans                         Haut      Bas                   FCFA
+
+ETAT DU GABON          EOG 6,25% NET 2019-2024         GA0000020206 EGA05 30/07/2024 100,00                  2 500,00 2 500,000           130,64           0        0            0               0           0 NC     100,00 100,00 106,00 94,00             0,00% 2 500,00
+ETAT DU CONGO          EOCG 6,25% NET 2021-2026 CG0000020238 ECG02 30/07/2024 100,00                         6 666,67 6 666,667           155,25          0         0            0               0           0 NC     100,00 100,00 106,00 94,00             0,00% 6 666,67
+ETAT DU GABON          EOG 6% NET 2021-2026            GA0000020248 EGA06 30/07/2024               99,50     4 975,00 5 000,000            50,96          0         0            0               0           0 NC      99,50 99,50 105,47 93,53              0,00% 4 975,00
+ETAT DU CAMEROUN ECMR 6,25% NET 2022-2029 CM0000020305 ECMR6 30/07/2024                            99,00     9 900,00 10 000,000          119,86         30       250            30       303 596            1 PEq     99,00 100,00 104,94 93,06             1,01% 10 000,00
+ETAT DU GABON          EOG 6,25% NET 2022-2028         GA0000020313 EGA07 30/07/2024               96,00     9 600,00 10 000,000          474,73          0         0            0               0           0 NC      96,00 96,00 101,76 90,24              0,00% 9 600,00
+ETAT DU TCHAD          EOTD 6,5% NET 2022-2027         TD0000020331 ETD01 30/07/2024 100,00                  7 500,00 7 500,000           291,70          0         0            0               0           0 NC     100,00 100,00 106,00 94,00             0,00% 7 500,00
+ETAT DU CAMEROUN ECMR7 5,8% NET 2023-2026 CM0000020354 ECMR7 30/07/2024 100,00 10 000,00 10 000,000                                        68,33          0         0            0               0           0 NC     100,00 100,00 106,00 94,00             0,00% 10 000,00
+ETAT DU CAMEROUN ECMR 6.00% NET 2023-2027 CM0000020362 ECMR8 30/07/2024 100,00 10 000,00 10 000,000                                        70,68          0 198 392              0               0           0 NC     100,00 100,00 106,00 94,00             0,00% 10 000,00
+ETAT DU CAMEROUN ECMR 6,75% NET 2023-2029 CM0000020370 ECMR9 30/07/2024 100,00 10 000,00 10 000,000                                        79,52           0        0            0               0           0 NC     100,00 100,00 106,00 94,00             0,00% 10 000,00
+ETAT DU CAMEROUN ECMR 7.25% NET 2023-2031 CM0000020388 ECM10 30/07/2024 100,00 10 000,00 10 000,000                                        85,41         300        0            0               0           0 NC     100,00 100,00 106,00 94,00             0,00% 10 000,00
+                                                                                                                                                          Total              30          303 596             1
+
+
+OBLIGATIONS REGIONALES
+                                                                                                                                                                                                                                                                       Cours de
+                                                                                Cours précédent                                                                   Séance de cotation                                                  Cours du jour
+Désignation                                                                                                   Nominal (j+3)   Coupon                                                                                                                                 référence de
+    de             Désignation du titre           Code ISIN   Mnemo                                               au        couru (j+3) au                                                                                                                             la séance
+l'émetteur                                                                           Cours en     Cours en    05/08/2024 05/08/2024 Volume           Volume       Volume                                  Nbr                           Seuil   Seuil                 suivante en
+                                                                         Date                                                                                                     Valeur transigée             Statut Ouver    Clôt                      Variation
+                                                                                        %           FCFA                                   demandé    offert      transigé                               trans                          Haut     Bas                      FCFA
+
+BDEAC         BDEAC 5,45% NET 2020 - 2027 CG0000020220 EBD01          30/07/2024 100,00               8000              8000     259,69         0    795000                  0                       0       0 NC     100,00 100,00 106,00       94,00     0,00%        8 000,00
+BDEAC         BDEAC 5,6% NET 2021-2028      CG0000020261 EBD02        30/07/2024 100,00             10000           10000        368,74         0    500000                  0                       0       0 NC     100,00 100,00 106,00       94,00     0,00%       10 000,00
+BDEAC         BDEAC 6% NET 2022-2029        CG0000020329 EBD03        30/07/2024       99,95          9995          10000        359,02         0    500000                  0                       0       0 NC      99,95   99,95 105,95      93,95     0,00%        9 995,00
+                                                                                                                                                 Total                       0                       0       0
+
+
+
+
+                                                                                                                                                                                                                                                                                3
+                                                                                                                                                                             BULLETIN OFFICIEL DE LA COTE N° 2063 DU 31/07/2024
+
+
+OBLIGATIONS PRIVEES
+
+                                                                                                                                                                                                                                                           Cours de
+                                                                                                Cours précédent                                                    Séance de cotation                                      Cours du jour
+                                                                                                                              Nominal    Coupon                                                                                                           référence
+Désignation de l'émetteur        Désignation du titre            Code ISIN     Mnemo                                          (j+3) au couru (j+3) au                                                                                                    de la séance
+                                                                                                          Cours    Cours en 05/08/2024 05/08/2024 Volume Volume Volume Valeur            Nbr                                 Seuil    Seuil              suivante en
+                                                                                            Date                                                                                              Statut Ouver.        Clôt.                       Variation     FCFA
+                                                                                                          en %       FCFA                             demandé offert transigé transigée trans                                Haut      Bas
+
+ALIOS FINANCE               ALIOS02 5.40% BRUT 2021-2025       CM0000020255 AFC02        30/07/2024 100,00          3571,43     3571,429           45,97          0    0        0          0    0 NC      100,00 100,00 106,00         94,00      0,00%      3571,43
+ALIOS FINANCE               ALIOS03 6,5% BRUT 2023-2028        CM0000020412 AFC03        30/07/2024 100,00           10000     10000,000       303,69             0    0        0          0    0 NC      100,00 100,00 106,00         94,00      0,00%    10000,00
+ALIOS FINANCE               ALIOS04 6,00% BRUT 2023-2026       CM0000020404 AFC04        30/07/2024 100,00           10000     10000,000       280,33             0    0        0          0    0 NC      100,00 100,00 106,00         94,00      0,00%    10000,00
+                                                                                                                                                              Total             0          0    0
+
+
+
+
+CAPITALISATION BOURSIERE ET ENCOURS DES TITRES DE DETTES
+
+
+MARCHE DES ACTIONS : 6 EMETTEURS INSCRITS A LA COTE
+                                                                                               Volume des titres                    Dernier dividende payé                                                                    Capitalisation boursière
+ Désignation de                                         Nom court de         Cours de                                                                                    Liquidité des    Bénéfice net
+                        Code ISIN          Mnemo                                                                                                                                                         PER
+  l'émetteur                                             l'émetteur           clôture     Flottant coté       Global          Montant      Année           Date       titres ( sur 3 mois) par action              Flottante cotée                 Globale
+
+SEMC              CM0000010009           SEMC           SEMC                 47 000,00         38 367             192 473      720,00       2015       08/06/2016                   0,00             -         -    1 803 249 000                 9 046 231 000
+SAFACAM           CM0000010017           SAF            SAFACAM              26 500,00       248 400         1 242 000 1 776,44             2021       29/07/2022                   0,00             -         -    6 582 600 000               32 913 000 000
+SOCAPALM          CM0000010025           SOCAP          SOCAPALM             46 500,00       787 080         4 575 789 2 002,50             2022       11/07/2023                   0,00             -         -   36 599 220 000              212 774 188 500
+LA REGIONALE      CM0000010041           REG            LA REGIONALE         42 500,00         72 089        1 012 536         894,00       2022       03/11/2023                   0,00             -         -    3 063 782 500               43 032 780 000
+BANGE             GQ0000010050           BANGE          BANGE           207 300,00             50 000             558 960 8 397,40          2022       29/07/2023                   0,00             -         -   10 365 000 000              115 872 408 000
+SCG-Re            GA0000010066           SCGRE          SCG-Re               21 500,00       250 000         1 500 000         724,00       2022       17/10/2023                   0,00             -         -    5 375 000 000               32 250 000 000
+                                                                                                                                                                                                         Total 63 788 851 500 445 888 607 500
+
+
+
+
+                                                                                                                                                                                                                                                                   4
+                                                                                                                                                            BULLETIN OFFICIEL DE LA COTE N° 2063 DU 31/07/2024
+
+
+MARCHE DES OBLIGATIONS : 16 LIGNES OBLIGATAIRES
+OBLIGATIONS ETATS
+                                                                                                                                                                                     Échéance
+                                                                                                                                                                                    Date                             Taux de
+  Désignation de                                                               Taux    Date 1ère                   Nombre de              Cours                                             Encours calculé à Rend
+                          Désignation du titre        Code ISIN   Mnemo                             Montant levé                Nominal         Mat Amortiss Périod Date de la théorique de                         rotation
+   l'émetteur                                                                 facial    cotation                   titres cotés           en %                      précédente                  ce jour        net
+                                                                                                                                                                                l'échéance                         (Liquidité)
+                                                                                                                                                                     échéance
+                                                                                                                                                                                  suivante
+ETAT DU GABON        EOG 6,25% NET 2019-2024       GA0000020206 EGA05         6,25     21/02/2020 126 341 350 000 12 634 135 2 500        100,00   5   CONSTANT        AN     04/10/2023    04/10/2024     31 585 337 500   6,3   0
+ETAT DU CONGO        EOCG 6,25% NET 2021-2026 CG0000020238 ECG02              6,25     30/07/2021 113 230 000 000 11 323 000 6 666,67 100,00       5   CONSTANT        AN     22/03/2024    22/03/2025     75 486 704 410   6,3   0
+ETAT DU GABON        EOG 6% NET 2021-2026          GA0000020248 EGA06           6      30/07/2021 188 827 750 000 18 882 775 5 000        99,50    5   CONSTANT        AN     04/06/2024    04/06/2025     93 941 805 625   6,0   0
+ETAT DU CAMEROUN ECMR 6,25% NET 2022-2029 CM0000020305 ECMR6                  6,25     28/09/2022 235 000 000 000 23 500 000 10 000       100,00   7   CONSTANT        AN     27/05/2024    27/05/2025 235 000 000 000      6,2   0
+ETAT DU GABON        EOG 6,25% NET 2022-2028       GA0000020313 EGA07         6,25     26/01/2023 175 000 000 000 17 500 000 10 000       96,00    6   CONSTANT        AN     01/11/2023    01/11/2024 168 000 000 000      6,2   0
+ETAT DU TCHAD        EOTD 6,5% NET 2022-2027       TD0000020331 ETD01          6,5     24/03/2023 100 000 000 000 10 000 000 7 500        100,00   5   CONSTANT        AN     30/12/2023    30/12/2024     75 000 000 000 6,50    0
+ETAT DU CAMEROUN ECMR7 5,8% NET 2023-2026 CM0000020354 ECMR7                   5,8     23/11/2023 78 676 830 000   7 867 683    10 000    100,00   3    IN FINE        AN     23/06/2024    23/06/2025     78 676 830 000 5,80    0
+ETAT DU CAMEROUN ECMR 6.00% NET 2023-2027 CM0000020362 ECMR8                    6      23/11/2023 61 514 680 000   6 151 468    10 000    100,00   4   CONSTANT        AN     23/06/2024    23/06/2025     61 514 680 000 6,00    0
+ETAT DU CAMEROUN ECMR 6,75% NET 2023-2029 CM0000020370 ECMR9                  6,75     23/11/2023 25 052 520 000   2 505 252    10 000    100,00   6   CONSTANT        AN     23/06/2024    23/06/2025     25 052 520 000 6,75    0
+ETAT DU CAMEROUN ECMR 7.25% NET 2023-2031 CM0000020388 ECM10                  7,25     23/11/2023 11 032 250 000   1 103 225    10 000    100,00   8   CONSTANT        AN     23/06/2024    23/06/2025     11 032 250 000 7,25    0
+                                                                                                                                                                                           Total          855 290 127 535
+
+
+
+OBLIGATIONS REGIONALES
+                                                                                                                                                                                  Échéance
+Désignation                                                                                                                                                                   Date                                Taux de
+                                                                      Taux      Date 1ère                      Nombre de            Cours                                             Encours calculé à ce Rend
+    de             Désignation du titre          Code ISIN   Mnemo                             Montant levé                 Nominal       Mat Amortiss Périod Date de la théorique de                            rotation
+                                                                     facial      cotation                      titres cotés         en %                      précédente                     jour           net
+l'émetteur                                                                                                                                                                l'échéance                            (Liquidité)
+                                                                                                                                                               échéance
+                                                                                                                                                                            suivante
+  BDEAC       BDEAC 5,45% NET 2020 - 2027 CG0000020220 EBD01 5,45              03/02/2021     106 791 920 000 10 679 192        8 000 100,00   7   CONSTANT       AN        31/12/2023 31/12/2024         85 433 536 000 5,45     0
+
+  BDEAC       BDEAC 5,6% NET 2021-2028       CG0000020261 EBD02       5,6      11/03/2022     114 873 410 000 11 487 341       10 000 100,00   7   CONSTANT       AN        08/12/2023 08/12/2024        114 873 410 000    5,6   0
+
+  BDEAC       BDEAC 6% NET 2022-2029         CG0000020329 EBD03        6       15/02/2023     110 856 330 000 11 085 633       10 000 99,95    7   CONSTANT       AN        30/12/2023 30/12/2024        110 800 901 835     6    0
+
+                                                                                                                                                                                           Total :       311 107 847 835
+
+
+
+
+                                                                                                                                                                                                                                      5
+                                                                                                                                                    BULLETIN OFFICIEL DE LA COTE N° 2063 DU 31/07/2024
+
+
+OBLIGATIONS PRIVEES
+                                                                                                                                                                      Échéance
+                                                                                                            Nombre                                                          Date                                Taux de
+Désignation de                                                           Taux    Date 1ère                                        Cours                                             Encours calculé à ce Rend
+                      Désignation du titre       Code ISIN    Mnemo                          Montant levé   de titres   Nominal         Mat Amortiss Périod Date de la théorique de                            rotation
+ l'émetteur                                                             facial    cotation                                        en %                      précédente                     jour          brut
+                                                                                                             cotés                                                      l'échéance                            (Liquidité)
+                                                                                                                                                             échéance
+                                                                                                                                                                          suivante
+
+ALIOS FINANCE ALIOS02 5.40% BRUT 2021-2025 CM0000020255 AFC02              5,4   08/12/2021 8 542 500 000   854 250 3571,429 100,00        4   CONSTANT TRIM 10/05/2024 10/08/2024         3 050 894 078 5,40     0,00
+
+ALIOS FINANCE ALIOS03 6,5% BRUT 2023-2028    CM0000020412 AFC03            6,5   05/02/2024 3 473 030 000   347 303     10000     100,00   5   CONSTANT SEM   16/02/2024 16/08/2024        3 473 030 000 6,50     0,00
+
+ALIOS FINANCE ALIOS04 6,00% BRUT 2023-2026 CM0000020404 AFC04                6   05/02/2024 4 607 850 000   460 785     10000     100,00   3   CONSTANT SEM   16/02/2024 16/08/2024        4 607 850 000 6,00     0,00
+
+                                                                                                                                                                             Total:     11 131 774 078
+
+
+
+
+                                                                                                                                                                     Total des encours 1 177 529 749 448

@@ -956,7 +956,8 @@ class TestVerifiedExport:
         after = db.scalar(select(Auction).join(Security).where(Security.isin == "NE0000002797"))
         assert {k: getattr(after, k) for k in snapshot} == snapshot
         assert after.is_synthetic is False and after.source_document_id is not None
-        assert verified.load(db, path) == {"documents": 0, "securities": 0, "auctions": 0}  # idempotent
+        assert verified.load(db, path) == {"documents": 0, "securities": 0, "auctions": 0,
+                                           "market_observations": 0}  # idempotent
 
     def test_buybacks_stay_out_of_issuance_series(self, db, store):
         rows = _stage_text(db, CI_EC_2026)

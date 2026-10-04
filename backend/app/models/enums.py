@@ -98,6 +98,8 @@ class IssuerType(StrEnum):
     SUB_SOVEREIGN = "sub_sovereign"
     SUPRANATIONAL = "supranational"
     STATE_OWNED_ENTERPRISE = "state_owned_enterprise"
+    # Private-sector issuer (e.g. a bond listed under "OBLIGATIONS PRIVEES" on the BVMAC).
+    CORPORATE = "corporate"
 
 
 class CouponFrequency(StrEnum):
