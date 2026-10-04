@@ -1,6 +1,7 @@
 from app.models.auction import Auction
 from app.models.auth import ApiKey, AuditLog
 from app.models.base import Base
+from app.models.bvmac import BvmacQuote
 from app.models.country import Country, Issuer
 from app.models.ingest import AuctionExtraction, ExtractionReviewEvent
 from app.models.market import MarketObservation, Opportunity, SubscriptionRoute
@@ -13,6 +14,7 @@ __all__ = [
     "AuditLog",
     "AuctionExtraction",
     "Base",
+    "BvmacQuote",
     "Country",
     "ExtractionReviewEvent",
     "Issuer",
