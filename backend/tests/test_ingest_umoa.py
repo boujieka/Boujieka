@@ -1145,3 +1145,24 @@ class TestApproveKeepsOriginalTenor:
                 a.weighted_average_yield, a.auction_date) == snapshot
         again = fix_tenors.run(db, apply=True, today=date(2026, 10, 5))
         assert all(c["isin"] != "TG0000003193" for c in again["changes"])
+
+
+class TestOwnerCorrections:
+    def test_fragments_and_printed_forms(self):
+        from app.ingest.corrections import _fragments, _printed_forms
+
+        assert _fragments("Montant global des soumissions (en FCFA) 2 500 000 000 3 000 000 000") == [
+            "Montant global des soumissions", "2 500 000 000 3 000 000 000"]
+        assert "2 509 480 000" in _printed_forms("2509480000")
+        assert "6,25" in _printed_forms("6.25") and "17/06/2025" in _printed_forms("2025-06-17")
+
+    def test_evidence_fails_closed(self, monkeypatch):
+        from app.ingest import corrections
+
+        ev = corrections.Evidence()
+        ev.cache["https://www.umoatitres.org/x.pdf"] = ("abc", corrections._norm("Taux d'intérêt Multiples 6,25%"))
+        good = {"url": "https://www.umoatitres.org/x.pdf", "sha256": "abc", "line": "Taux d'intérêt Multiples 6,25%"}
+        assert ev.check(good, "6.25") is None
+        assert "SHA-256" in ev.check({**good, "sha256": "zzz"}, "6.25")
+        assert "not printed" in ev.check(good, "6.40")
+        assert "umoatitres" in ev.check({**good, "url": "https://example.com/x.pdf"}, "6.25")
