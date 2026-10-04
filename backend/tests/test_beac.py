@@ -24,7 +24,6 @@ from app.ingest.beac_extract import (
     parse_pass,
     parse_percent,
     rows_from_passes,
-    stage_rows,
 )
 from app.ingest.beac_ocr import SIGNATURE, DocumentOcr, PageOcr, PassConfig, PassResult, Word
 from app.models import Auction, AuctionExtraction, Security, SourceDocument
@@ -254,6 +253,26 @@ def test_strict_check_arithmetic_and_coverage():
     ext = as_extraction(rows[0])
     _tamper(ext, "maturity_date", "2031-09-16")  # 2-year OTA maturing 5 years later
     assert any(r.startswith("(e) OTA 2 years") for r in check(ext).reasons)
+
+
+def test_implausible_unit_and_non_auction_operations_are_held():
+    rows = staged("caf_ota_2026-09-14.txt")
+    ext = as_extraction(rows[0])
+    # Chad, 24 Jan 2024: "16 678 630" printed under "(en millions de FCFA)" -- the printed unit
+    # cannot be right; the coverage ratio still matches, so only the magnitude check holds it.
+    for k, v in (("amount_offered", "30000000000000"), ("amount_submitted", "16678630000000"),
+                 ("amount_allocated", "16678630000000")):
+        _tamper(ext, k, v)
+    _tamper(ext, "coverage_pct", "55.59", raw="55,59%")
+    assert any("implausible" in r for r in check(ext).reasons)
+
+    ext = as_extraction(rows[0])
+    ext.operation = {**ext.operation, "operation_words": {"A": ["syndication"], "B": []}}
+    assert any("not a plain auction" in r for r in check(ext).reasons)
+
+
+def test_yield_convention_fits_the_column():
+    assert len(beac_check.YIELD_CONVENTION_BTA) <= 64 and len(beac_check.YIELD_CONVENTION_OTA) <= 64
 
 
 def test_low_confidence_holds():

@@ -7,6 +7,13 @@ the same normalised value; otherwise `value` is NULL and field_status says why. 
 corrected, completed or inferred: a value is either read identically twice from the printed page
 or left empty.
 
+Layout: words are grouped into printed lines by geometry; a label is any line matching one of
+the label patterns below; values are the numeric runs at the right end of lines, in the value
+column (right of 55 % of the page width). Each value run goes to the label line vertically nearest
+to it (assign_values), never to two labels; a run equidistant from two labels, two runs for one
+label, or non-numeric text where the value should be ("6)" read for a "0") leave the field
+unreadable.
+
 Result notice ("Communiqué des résultats des adjudications"), per security block:
 
   label (fr / en)                                          field
@@ -46,7 +53,7 @@ import unicodedata
 from collections.abc import Callable
 from dataclasses import dataclass, field
 from datetime import date, datetime, timezone
-from decimal import Decimal, InvalidOperation
+from decimal import Decimal
 from pathlib import Path
 
 from sqlalchemy import select
@@ -285,9 +292,9 @@ CODE_RE = re.compile(
     # The code may be printed (or read) with a space after the country letters ("TD 1200001147")
     # and glued to punctuation ("_GA2K00000017", "GA2J00000127.OTA"): the code is the 12
     # characters without that space; the ISIN check digit (beac_check) guards the reading.
-    r"(?<![a-z0-9])([a-z]{2} ?[0-9a-z]{10})(?![a-z0-9])\s*[-–—:.]?\s*(bta|ota)\s*[-–—]?\s*(\d{1,2})\s*"
+    r"(?<![a-z0-9])([a-z]{2} ?[0-9][0-9a-z]{9})(?![a-z0-9])\s*[-–—:.]?\s*(bta|ota)\s*[-–—]?\s*(\d{1,2})\s*"
     r"(ans|an|years|year|semaines|sem|weeks|s)?\b\s*[-–—]?\s*(?:(\d{1,2}[,.]\d{1,4})\s*%)?\s*[-–—,]?\s*(.*)$")
-ISIN_RE = re.compile(r"(?<![A-Za-z0-9])([A-Z]{2} ?[0-9A-Z]{10})(?![A-Za-z0-9])")
+ISIN_RE = re.compile(r"(?<![A-Za-z0-9])([A-Z]{2} ?[0-9][0-9A-Z]{9})(?![A-Za-z0-9])")
 
 
 def parse_code_line(text: str) -> dict:
@@ -339,6 +346,7 @@ class PassParse:
     text: str
     has_millions: bool
     countries_in_text: list[str]
+    operation_words: list[str] = field(default_factory=list)
 
 
 def _countries(text: str) -> list[str]:
@@ -475,6 +483,8 @@ def parse_pass(ocr_pages: list[PageOcr], pass_name: str) -> PassParse:
         widths[p.page] = p.width
     text = "\n".join(ln.text for ln in lines)
     blocks: list[Block] = []
+    first_code = next((i for i, ln in enumerate(lines) if parse_code_line(ln.text)), len(lines))
+    intro = "\n".join(ln.text for ln in lines[:first_code])
     slots = assign_values(lines, widths)
     current: Block | None = None
     for i, ln in enumerate(lines):
@@ -510,7 +520,16 @@ def parse_pass(ocr_pages: list[PageOcr], pass_name: str) -> PassParse:
             if name in ("minimum_bid", "maximum_bid", "limit", "weighted_average") else r.note
         current.readings[name] = r
     return PassParse(pass_name, _auction_date(lines), consolidate(blocks), text,
-                     "million" in fold(text), _countries(text))
+                     "million" in fold(text), _countries(text), _operation_words(intro))
+
+
+OPERATION_WORDS = re.compile(r"syndi?y?cation|syndication|rachat|buyback|recompra|echange|switch")
+
+
+def _operation_words(text: str) -> list[str]:
+    """Words saying the operation is not a plain auction (syndication, buyback, exchange), in the
+    title and opening sentence (the text before the first issue code)."""
+    return sorted({m[0] for m in OPERATION_WORDS.finditer(fold(text))})
 
 
 def _same_security(first: "Block", blk: "Block") -> bool:
@@ -668,6 +687,7 @@ def rows_from_passes(pa: PassParse, pb: PassParse) -> list[StagedRow]:
         op = {"layout": "beac_communique_resultats", "securities_in_notice": len(pairs), "block_index": n,
               "has_millions_label": {"A": pa.has_millions, "B": pb.has_millions},
               "countries_in_text": {"A": pa.countries_in_text, "B": pb.countries_in_text},
+              "operation_words": {"A": pa.operation_words, "B": pb.operation_words},
               "code_line": {"A": ba.code_text if ba else None, "B": bb.code_text if bb else None}}
         rows.append(StagedRow(key, fields, op, list(warnings)))
     return rows
@@ -690,30 +710,71 @@ class AnnouncementBlock:
     dates: dict[str, Reading]
 
 
+INTRO_RE = re.compile(r"procedera,?\s+(le\s+)?|will (proceed|issue),? on\s+|procedera el\s+")
+
+
+def _date_reading(ln: Line, text_after: str, label: str) -> Reading:
+    d, raw = parse_date(text_after)
+    return Reading(raw, d.isoformat() if d else None, None if d else ("unreadable" if raw else "missing_value"),
+                   ln.page, ln.index, label, list(ln.box), min(w.conf for w in ln.words))
+
+
 def parse_announcement_pass(ocr_pages: list[PageOcr]) -> list[AnnouncementBlock]:
+    """Code blocks of an announcement, each with its dates. Dates printed after a run of several
+    codes (a multi-line issue) apply to every code of the run; a code printed twice (French and
+    English copies) is one block whose dates must agree. When no "date limite de souscription"
+    line is found, the auction date is the one of the opening sentence ("Le Trésor … procèdera le
+    lundi 25 août 2025 à l'émission …"), if printed before the first code."""
     lines: list[Line] = []
     for p in ocr_pages:
         lines += build_lines(p)
     blocks: list[AnnouncementBlock] = []
-    cur: AnnouncementBlock | None = None
+    group: list[AnnouncementBlock] = []
+    group_closed = False
+    intro: Reading | None = None
     for ln in lines:
         t = fold(ln.text)
+        if not blocks and intro is None and (m := INTRO_RE.search(t)):
+            r = _date_reading(ln, t[m.end():], "intro sentence")
+            if r.value:
+                intro = r
         for name, rx in ANN_LABELS:
             if not rx.search(t):
                 continue
             if name == "code":
                 code = parse_code_line(ln.text)
                 m = ISIN_RE.search(ln.text)
-                cur = AnnouncementBlock(code.get("isin") or (m[1].replace(" ", "") if m else None), {})
-                blocks.append(cur)
-            elif cur is not None and name not in cur.dates:
-                after = t[rx.search(t).end():]
-                d, raw = parse_date(after)
-                cur.dates[name] = Reading(raw, d.isoformat() if d else None,
-                                          None if d else ("unreadable" if raw else "missing_value"),
-                                          ln.page, ln.index, ln.text, list(ln.box), min(w.conf for w in ln.words))
+                blk = AnnouncementBlock(code.get("isin") or (m[1].replace(" ", "") if m else None), {})
+                blocks.append(blk)
+                if group_closed:
+                    group, group_closed = [], False
+                group.append(blk)
+            elif group:
+                r = _date_reading(ln, t[rx.search(t).end():], ln.text)
+                for blk in group:
+                    blk.dates.setdefault(name, r)
+                group_closed = True
             break
-    return blocks
+    if intro is not None:
+        for blk in blocks:
+            if blk.dates.get("auction_date") is None or blk.dates["auction_date"].value is None:
+                blk.dates["auction_date"] = intro
+    merged: dict[str | None, AnnouncementBlock] = {}
+    out: list[AnnouncementBlock] = []
+    for blk in blocks:
+        first = merged.get(blk.isin) if blk.isin else None
+        if first is None:
+            out.append(blk)
+            if blk.isin:
+                merged[blk.isin] = blk
+            continue
+        for name, r in blk.dates.items():
+            mine = first.dates.get(name)
+            if mine is None or (mine.value is None and r.value is not None and mine.status != "repeat_disagreement"):
+                first.dates[name] = r
+            elif r.value is not None and mine.value is not None and r.value != mine.value:
+                first.dates[name] = Reading(mine.raw, None, "repeat_disagreement", mine.page, mine.line, mine.label)
+    return out
 
 
 def parse_announcement(ocr: DocumentOcr) -> list[dict]:
@@ -917,10 +978,3 @@ def extract_stored(session: Session, kinds: set[str], workers: int = 4,
         log(f"{doc.title[:100]}: {doc.extraction_status}, {len(staged)} row(s)")
     session.flush()
     return stats
-
-
-def decimal_or_none(v) -> Decimal | None:
-    try:
-        return Decimal(v) if v is not None else None
-    except (InvalidOperation, TypeError):
-        return None

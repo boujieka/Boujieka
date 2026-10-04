@@ -9,28 +9,40 @@ otherwise it stays UNVERIFIED in the queue and the reasons are reported (and rec
     resolution, page segmentation and binarisation): the staged value is set only on agreement and
     each pass's own reading is re-compared here. Any field whose label was printed but which is
     unreadable, ambiguous ("3.400") or read differently by the two passes or in two copies of a
-    bilingual notice holds the row. Every word of every stored value must also have an OCR
-    confidence >= MIN_WORD_CONFIDENCE in both passes.
-(b) issue code. Form CCxxxxxxxxxD (2 letters + 10 alphanumerics); prefix one of the six CEMAC
-    country codes (CM CF TD CG GQ GA); BEAC codes are genuine ISINs, so the ISIN check digit
-    (Luhn over the letters-to-digits expansion) must be valid — every code sampled during
-    development was Luhn-valid, so a failure means a misread (or a misprint) and holds the row;
-    the printed notice must name the same country (letterhead / text) in both passes.
-(c) arithmetic. allotted <= submitted. When something was allotted: min <= weighted average <=
-    max and min <= limit <= max; with the direction of the quotation: for rates (BTA, "Taux")
-    weighted average <= limit (the limit is the highest accepted rate), for prices (OTA, "Prix")
-    limit <= weighted average (the limit is the lowest accepted price). Plausibility: rates in
-    (0, 30] %, prices in [50, 150] per 100.
+    bilingual notice holds the row. The digits of every stored value must also have an OCR word
+    confidence >= MIN_WORD_CONFIDENCE in both passes. Optional fields (number of SVT in the network
+    and bidding, the printed "taux de rendement", the RCA "retained bids" ratio) left unreadable by
+    a pass are stored NULL ("not_available"); two different readings still hold the row. Required
+    fields: code, instrument, tenor, maturity, auction date, the three amounts, the coverage ratio,
+    and, when something was allotted, the minimum and maximum bids, the limit and the weighted
+    average — except the limit and the average when NEITHER pass finds their label (Chad prints
+    only the minimum and maximum bids): then NULL, "not_disclosed".
+(b) issue code. 2 letters + 10 alphanumerics (3rd character a digit); prefix one of the six CEMAC
+    country codes (CM CF TD CG GQ GA); BEAC codes are genuine ISINs (224 of the 226 distinct codes
+    read identically by both passes are Luhn-valid), so the ISIN check digit must be valid; the
+    printed notice must name the same country (letterhead, text or place of signature) in both
+    passes.
+(c) arithmetic. allotted <= submitted. Each amount <= MAX_AMOUNT_XAF (1 000 billion FCFA; a larger
+    figure means the printed unit is wrong, as on a Chad notice printing "16 678 630" under "(en
+    millions de FCFA)"). When something was allotted: min <= weighted average <= max and min <=
+    limit <= max; with the direction of the quotation: for rates (BTA, "Taux") weighted average <=
+    limit (the limit is the highest accepted rate), for prices (OTA, "Prix") limit <= weighted
+    average (the limit is the lowest accepted price). For rates min <= max is required; for prices
+    Congo and Chad print the bounds named after the implied rate ("prix minimum" 95,00 > "prix
+    maximum" 90,00): the interval is ordered for the checks, the values stay under their printed
+    labels. Plausibility: rates in (0, 30] %, prices in [50, 150] per 100.
 (d) coverage. The printed "taux de couverture" equals submitted / offered x 100 within the
     printing precision: |printed - computed| <= one unit of the last printed decimal (this allows
     for rounding or truncation by the issuer). Independent cross-check of two amounts. Notices
     whose ratio is defined otherwise (e.g. submitted / allotted) fail and are held. When the
     notice also prints the coverage "par les soumissions retenues" (RCA), it must equal
     allotted / submitted x 100 the same way (a cross-check of the allotted amount).
-(e) code line. Instrument consistent with the code (3rd character 1 = BTA, 2 = OTA); BTA: no
-    coupon, tenor in weeks among 13/26/52 and the maturity n weeks (+-7 days) after the auction;
-    OTA: coupon printed in (0, 15] %, tenor in years and the maturity after the auction and no later
-    than auction + n years + 31 days (reopenings have a shorter remaining life).
+(e) code line and operation. Instrument consistent with the code (3rd character 1 = BTA,
+    2 = OTA); BTA: no coupon, tenor in weeks among 13/26/52 and the maturity n weeks (+-7 days)
+    after the auction; OTA: coupon printed in (0, 15] %, tenor in years and the maturity after the
+    auction and no later than auction + n years + 31 days (reopenings have a shorter remaining
+    life). The title and opening sentence must not describe a syndication, a buyback or an
+    exchange (approve() would record it as a primary auction).
 (f) settlement date. Taken only from an announcement notice ("Communiqué d'annonce") of the same
     ISIN and the same auction date, read identically by both passes, between the auction date and
     10 days after it, and unique; otherwise NULL with field_status "not_available" (never a reason
@@ -65,7 +77,10 @@ from app.models.enums import FieldStatus, VerificationStatus
 REVIEWER = ("Controle strict OCR BEAC (double OCR + coherence) - autorisation de publication "
             "gratuite BEAC")
 MIN_WORD_CONFIDENCE = 50.0
-YIELD_CONVENTION_BTA = "BEAC: taux moyen pondéré (BTA, intérêts précomptés), as published"
+# 1 000 billion FCFA (1 000 000 "millions"): ten times the largest amount read in any BEAC notice
+# 2019-2026 (72 384 millions). Above it the printed unit cannot be right.
+MAX_AMOUNT_XAF = Decimal(10) ** 12
+YIELD_CONVENTION_BTA = "BEAC: taux moyen pondéré (BTA, précompté), as published"  # <= 64 chars
 YIELD_CONVENTION_OTA = "BEAC: prix moyen pondéré (OTA, % du nominal), as published"
 
 # Fields whose value, when present, is stored (promoted or kept as a fact in the staging row).
@@ -229,6 +244,11 @@ def check(ext: AuctionExtraction) -> Verdict:
                      f"(A={named.get('A')}, B={named.get('B')})")
 
     # (c) arithmetic
+    for name, x in (("offered", offered), ("submitted", submitted), ("allotted", allotted)):
+        if x is not None and x > MAX_AMOUNT_XAF:
+            # e.g. a Chad notice printing "16 678 630" under "(en millions de FCFA)": the printed
+            # unit cannot be right (16 678 billion FCFA); the row is held, nothing is rescaled.
+            r.append(f"(c) amount {name} {x} FCFA implausible for one auction (printed unit doubtful)")
     if allotted is not None and submitted is not None and allotted > submitted:
         r.append(f"(c) allotted {allotted} > submitted {submitted}")
     lo, hi, lim, avg = (_dec(_val(ext, k)) for k in ("minimum_bid", "maximum_bid", "limit", "weighted_average"))
@@ -313,6 +333,12 @@ def check(ext: AuctionExtraction) -> Verdict:
                     r.append(f"(e) OTA {n} years: maturity {m} not within (auction {ad}, auction + {n} years + 31 days]")
             if coupon is None or not (Decimal(0) < coupon <= Decimal(15)):
                 r.append(f"(e) OTA coupon {coupon} missing or outside (0, 15] %")
+    words = (ext.operation or {}).get("operation_words") or {}
+    found = sorted(set(words.get("A") or []) | set(words.get("B") or []))
+    if found:
+        # approve() records every promoted row as an auction (primary_auction): a syndicated
+        # issue, a buyback or an exchange must not be promoted under that type.
+        r.append(f"(e) operation described as {', '.join(found)}: not a plain auction")
     if ext.country_iso3 is None:
         r.append("(b) no CEMAC country from the code")
     return v
@@ -433,9 +459,9 @@ def _group(reason: str) -> str:
     head = reason.split(" (")[0] if reason.startswith("(a)") else reason[:3]
     if reason.startswith("(a)"):
         return head.split(": ")[0] + ": " + head.split(": ", 1)[1].split(" in pass")[0] if ": " in head else head
-    tails = {"(b)": ("check digit", "prefix", "not named", "no CEMAC"), "(c)": ("allotted", "weighted average", "limit",
+    tails = {"(b)": ("check digit", "prefix", "not named", "no CEMAC"), "(c)": ("implausible", "allotted", "weighted average", "limit",
              "price:", "rate:", "outside", "quotation", "minimum"), "(e)": ("instrument digit", "tenor", "weeks but", "years:",
-             "coupon", "with a coupon")}
+             "coupon", "with a coupon", "operation described")}
     for t in tails.get(head, ()):
         if t in reason:
             return f"{head} {t}"

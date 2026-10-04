@@ -130,6 +130,10 @@ COUNTRIES += [
 # (name, institution, category, country iso3 or None for regional)
 SOURCES: list[tuple[str, str, SourceCategory, str | None]] = [
     ("BEAC — government securities market", "BEAC", SourceCategory.CENTRAL_BANK, None),
+    # The auction notices ingested by app.ingest.beac (verified rows in the versioned export
+    # refer to this name, so a fresh database must have it before app.seed.verified load).
+    ("BEAC — marché des titres publics", "Banque des États de l'Afrique Centrale (BEAC)",
+     SourceCategory.CENTRAL_BANK, None),
     ("BCEAO — publications", "BCEAO", SourceCategory.CENTRAL_BANK, None),
     ("Central Bank of Kenya — auction results", "Central Bank of Kenya",
      SourceCategory.CENTRAL_BANK, "KEN"),

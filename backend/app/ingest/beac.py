@@ -39,7 +39,6 @@ from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import date, datetime, timezone
 from html.parser import HTMLParser
-from pathlib import Path
 
 import httpx
 from sqlalchemy import select
@@ -261,6 +260,14 @@ def get_or_create_source(session: Session) -> Source:
         )
         session.add(source)
         session.flush()
+    elif source.base_url is None:
+        # Registered by app.seed.load (so that verified rows can be re-loaded into a fresh
+        # database) but not yet configured: this module is the crawler for that URL.
+        source.base_url = LISTING_URL
+        source.status = SourceStatus.ACTIVE
+        source.crawl_config = {**(source.crawl_config or {}), "listing_url": LISTING_URL, "table_id": TABLE_ID,
+                               "user_agent": USER_AGENT, "pause_seconds": REQUEST_PAUSE_SECONDS}
+        source.notes = source.notes or ATTRIBUTION
     return source
 
 
