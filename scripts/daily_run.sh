@@ -6,6 +6,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 AS_OF="${AS_OF:-$(date -u +%F)}"
+INGEST="${INGEST:-1}"  # 1: collect UMOA-Titres results and strictly auto-approve (owner's instruction, 2026-10-04)
 PREVIOUS="${PREVIOUS:-https://cartouche-africa.netlify.app/veille.json}"
 export ABI_DATABASE_URL="${ABI_DATABASE_URL:-postgresql+psycopg://abi:abi@localhost:5432/abi}"
 
@@ -22,5 +23,7 @@ psql_admin "select 1 from pg_database where datname='abi'" | grep -q 1 \
 python3 -m pip install -q -e "backend[dev]" 2>/dev/null || python3 -m pip install -q -e "backend[dev]" --break-system-packages
 cd backend
 alembic upgrade head
-python3 -m app.watch.daily --as-of "$AS_OF" --previous "$PREVIOUS" --out ../site/dist
+INGEST_FLAG=""
+[ "$INGEST" = "1" ] && INGEST_FLAG="--ingest"
+python3 -m app.watch.daily --as-of "$AS_OF" --previous "$PREVIOUS" --out ../site/dist $INGEST_FLAG
 echo "OK: site/dist built for $AS_OF"

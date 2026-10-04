@@ -156,3 +156,23 @@ class TestVeille:
         urls = [t.url for t in targets]
         assert len(urls) == len(set(urls)) == 31
         assert all(u.startswith("https://") for u in urls)
+
+
+class TestDailyIngest:
+    def test_ingest_approves_strictly_and_exports(self, db, monkeypatch, tmp_path):
+        """Wiring only: collect from a lookback date, approve with the automated reviewer, export."""
+        from app.ingest import autocheck, umoa
+        from app.seed import verified
+        from app.watch import daily
+
+        calls = {}
+        monkeypatch.setattr(umoa, "run", lambda session, since=None, **kw: calls.setdefault("since", since) and {
+            "documents_new": 0, "extractions": 0, "fetch_errors": 0})
+        monkeypatch.setattr(autocheck, "run", lambda session, approve, reviewer, note, *a: calls.update(
+            approve=approve, reviewer=reviewer) or {"approved": 0, "held": [], "approve_errors": []})
+        monkeypatch.setattr(verified, "DATA_FILE", tmp_path / "v.json")
+        monkeypatch.setattr(verified.export, "__defaults__", (tmp_path / "v.json",))
+        out = daily.ingest_and_approve(db, date(2026, 10, 4))
+        assert calls["approve"] is True and "automatiques stricts" in calls["reviewer"]
+        assert out["since"] == "2026-08-20"  # no real auction in the test DB: as_of minus the lookback
+        assert (tmp_path / "v.json").exists()

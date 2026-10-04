@@ -48,3 +48,22 @@ work in a scheduled session; the Netlify connector is not available there.
 ./scripts/daily_run.sh                       # today, compared with the live veille.json
 AS_OF=2026-10-04 PREVIOUS=none ./scripts/daily_run.sh   # specific date, fresh baseline
 ```
+
+## Daily collection and strict automatic approval (since 2026-10-04)
+
+At the owner's instruction (2026-10-04), `scripts/daily_run.sh` runs `app.watch.daily --ingest`
+by default (`INGEST=0` disables it):
+
+1. Load reference data and the verified dataset (`backend/app/seed/data/verified_market_data.json`).
+2. Collect UMOA-Titres result reports published since (last verified auction date − 45 days).
+3. Run the strict checker (`app.ingest.autocheck`) and approve only rows that pass every rule:
+   re-download + SHA-256, independent `pdftotext`, column placement against sibling securities,
+   unit re-derivation, whole-number tenor, no number fragments, every consistency check passed,
+   ISIN prefix = country, plausible rates. Approval goes through `app.ingest.queue.approve`
+   (duplicates and ISIN conflicts are refused there). Reviewer recorded on every row:
+   "Claude - routine quotidienne, controles automatiques stricts (instruction du proprietaire, 2026-10-04)".
+   This is **not a human review**; it is stated on the site banner and in each row's provenance.
+4. Export the verified dataset; the routine commits and pushes it when it changed.
+   If a push fails, nothing is lost: the next run re-collects the same window and re-applies
+   the same deterministic checks.
+5. Rows that fail stay unverified and are not published.

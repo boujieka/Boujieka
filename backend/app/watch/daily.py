@@ -98,12 +98,43 @@ def build_veille(as_of: date, previous: dict | None, reports, state: dict, now: 
     }
 
 
+AUTO_REVIEWER = "Claude - routine quotidienne, controles automatiques stricts (instruction du proprietaire, 2026-10-04)"
+AUTO_NOTE = ("Daily run: strict autocheck (re-download + SHA-256, independent pdftotext, column placement, unit "
+             "re-derivation, whole-number tenor, no number fragments, consistency checks). Not a human review.")
+LOOKBACK_DAYS = 45  # re-scan the recent past: late publications and corrected reports
+
+
+def ingest_and_approve(session, as_of: date) -> dict:
+    """Collect recent UMOA-Titres result reports, approve rows that pass every strict check, and
+    export the verified dataset. Rows that fail stay UNVERIFIED in this run's queue (not exported)."""
+    from datetime import timedelta
+
+    from sqlalchemy import func
+
+    from app.ingest import autocheck, umoa
+    from app.models import Auction
+
+    last = session.scalar(select(func.max(Auction.auction_date)).where(Auction.is_synthetic.is_(False)))
+    since = (last or as_of) - timedelta(days=LOOKBACK_DAYS)
+    stats = umoa.run(session, since=since)
+    session.commit()
+    report = autocheck.run(session, True, AUTO_REVIEWER, AUTO_NOTE)
+    exported = verified.export(session)
+    return {"since": since.isoformat(), "documents_new": stats.get("documents_new"),
+            "extractions": stats.get("extractions"), "fetch_errors": stats.get("fetch_errors"),
+            "approved": report["approved"], "held": len(report["held"]),
+            "approval_errors": len(report["approve_errors"]), "exported": exported}
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--as-of", type=date.fromisoformat, default=date.today())
     parser.add_argument("--previous", help="URL or path of the previous veille.json")
     parser.add_argument("--out", type=Path, default=REPO / "site" / "dist")
     parser.add_argument("--skip-watch", action="store_true", help="skip network checks (offline runs)")
+    parser.add_argument("--ingest", action="store_true",
+                        help="collect new UMOA-Titres results, approve those passing the strict checker, "
+                             "and export the verified dataset (owner's instruction of 2026-10-04)")
     parser.add_argument("--synthetic", action="store_true",
                         help="development only: also roll the labelled synthetic generator forward")
     args = parser.parse_args()
@@ -112,6 +143,9 @@ def main() -> None:
     with SessionLocal() as session:
         countries = load_reference(session)
         real = verified.load(session)  # verified real data versioned in the repo (app/seed/data)
+        if args.ingest:
+            session.commit()
+            print("Ingestion:", ingest_and_approve(session, args.as_of))
         # Until a verified dataset is committed, keep the labelled synthetic data so the site is not empty.
         use_synthetic = args.synthetic or not verified.DATA_FILE.exists()
         added = load_synthetic(session, countries, args.as_of) if use_synthetic else 0

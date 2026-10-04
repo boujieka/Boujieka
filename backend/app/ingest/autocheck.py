@@ -44,7 +44,7 @@ from app.models.enums import VerificationStatus
 ISIN_COUNTRY = {"BJ": "BEN", "BF": "BFA", "CI": "CIV", "GW": "GNB", "ML": "MLI", "NE": "NER", "SN": "SEN", "TG": "TGO"}
 LOCATOR_RE = re.compile(r"p(\d+):L(\d+) '(.*)'(?: col (\d+)/(\d+))?$")  # labels may contain apostrophes
 # Fields whose stored value is not the raw text itself, with the rule to re-derive it.
-DERIVED = {"instrument", "tenor_days"}
+DERIVED = {"instrument", "tenor_days"}  # tenor_days is re-checked through "tenor"
 YIELD_FIELDS = ("weighted_average_yield", "marginal_rate", "weighted_average_rate")
 
 
@@ -135,6 +135,21 @@ def placement_ok(pages: list[list[str]], locator: str, raw: str, siblings: list[
     return False, f"'{raw}' not found next to label '{label}'"
 
 
+def is_fragment(pages: list[list[str]], raw: str) -> bool:
+    """True if every printed occurrence of `raw` is glued to a preceding number fragment, as in
+    "20 208, 7 millions" read as "7 millions" (decimal comma split) or "6 622 ,4millions"."""
+    text = norm(" ".join(sum(pages, [])))
+    want = norm(raw)
+    hits = [m.start() for m in re.finditer(re.escape(want), text)]
+    if not hits:
+        return False
+    def glued(i: int) -> bool:
+        before = text[max(0, i - 6):i]
+        return bool(re.search(r"\d ?, ?$", before)) or (
+            bool(re.search(r"(?<![:\d])\d{1,3} $", before)) and not re.search(r":\d+ $", before))
+    return all(glued(i) for i in hits)
+
+
 def check_row(ext: AuctionExtraction, pages: list[list[str]],
               siblings: dict[str, list[tuple[int, str]]] | None = None) -> list[str]:
     problems: list[str] = []
@@ -151,7 +166,16 @@ def check_row(ext: AuctionExtraction, pages: list[list[str]],
         if not ok:
             problems.append(f"{name}: {why}")
             continue
-        if name in ("isin", "security_name", "auction_number", "tenor"):
+        if name in ("isin", "security_name", "auction_number"):
+            continue
+        if name == "tenor":
+            # Fractional tenors ("2,85 ans") have been mis-read as "85 ans": hold anything not a whole number.
+            if not re.fullmatch(r"\d+ (jours|ans|an|semaines|mois)", norm(raw)) or not re.fullmatch(
+                    r"\d+ (jours|ans|an|semaines|mois)", norm(str(f["value"]))):
+                problems.append(f"tenor: '{raw}' is not a whole number of days, weeks, months or years")
+            continue
+        if name.startswith("amount_") and "millions" in raw.lower() and is_fragment(pages, raw):
+            problems.append(f"{name}: '{raw}' is only the tail of a longer printed number")
             continue
         d = derive(raw, f)
         if d is not None and f.get("unit") == "percent" and "%" not in raw and not same(d, f["value"]):
