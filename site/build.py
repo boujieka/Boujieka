@@ -21,7 +21,7 @@ from app.main import app  # noqa: E402
 from app.seed.africa import AFRICA  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent
-LANGS = ("fr", "en", "pt", "es")
+LANGS = ("fr", "en", "pt", "es", "ar")
 # Regional institutions: which member countries a source without a country speaks for.
 REGIONAL = {"BCEAO": "WAEMU", "UMOA-Titres": "WAEMU", "BRVM": "WAEMU", "BEAC": "CEMAC", "BVMAC": "CEMAC"}
 # Countries whose official sources are proposed and watched daily (app/seed/source_candidates.py).
