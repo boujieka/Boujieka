@@ -31,6 +31,9 @@ PERF21 = dict(source="PAYGo PERFORM Technical Guide: Financial, Operational, and
 MKUK = dict(source="M-KOPA UK LIMITED, Annual Report and Accounts, year ended 31 December 2024", publisher="Companies House (company 10229661)",
             date="Approved 20 Jun 2025; filed 25 Sep 2025", document="245b3bf6-companies_house_document.pdf (34 pages, scanned)", url="Project file (uploaded 3 Oct 2026)",
             evidence="Audited statutory accounts (auditor KLSA LLP), read page by page", grade="A", status=VERIFIED)
+BC = dict(source="Beyond Connections: Energy Access Redefined (Technical Report 008/15, conceptualization report)", publisher="ESMAP / World Bank",
+          date="July 2015", document="BEYOND CONNECTIONS  Energy Access Redefined.pdf (244 pages; author's Google Drive, SHA-256 9d23881a...c1d26b)",
+          url="Project file (retrieved from the author's Drive, 4 Oct 2026)", evidence="Read in the document", grade="B", status=VERIFIED)
 TC = "https://techcabal.com/2025/10/07/m-kopa-turns-first-ever-profit-revenue-surges-66-416/"
 KWS = "https://kenyanwallstreet.com/m-kopa-posts-first-ever-profit-bets-on-e-mobility-for-next-growth-phase/"
 
@@ -142,10 +145,14 @@ REGISTER = [
       page=PTV, url="Project file", evidence="Institutional guidance, held", grade="B", status=NOT_USED, book="Planned: Ch 13", model="Planned: RBF_Engine review (change M11)",
       legacy="SR22", notes="Replaces the SR22 list item for this document. The other GOGLA publications listed in SR22 are not held."),
     # ---------------------------------------------------------------- E3: MTF
-    r("E3-01", "Multi-Tier Framework capacity thresholds (T4 at least 800 W / 3.4 kWh a day; T5 at least 2 kW / 8.2 kWh a day)", "T1-T5", "text", "2015",
-      source="Beyond Connections: Energy Access Redefined", publisher="ESMAP / World Bank", date="2015", document="Not held", page=PTV, url="",
-      evidence="Thresholds recorded from earlier research; framework report not read", grade="B", status=PENDING, book="Ch 2.6", model="Products tier labels",
-      legacy="SR20"),
+    r("E3-01", "Multi-Tier Framework household electricity supply, capacity: Tier 1 min 3 W or 12 Wh a day; Tier 2 min 50 W or 200 Wh; Tier 3 min 200 W or 1.0 kWh; Tier 4 min 800 W or 3.4 kWh; Tier 5 min 2 kW or 8.2 kWh",
+      "T1-T5", "text", "2015", BC, page="20 (report page 6)", section="Table ES.1, Multi-tier Matrix for Measuring Access to Household Electricity Supply",
+      book="Ch 2.6", model="Products tier labels (capacity attribute only)", legacy="SR20"),
+    r("E3-02", "Household electricity attributes are capacity, duration (daily and evening supply), reliability, quality, affordability, legality, and health and safety; the lowest tier among all attributes determines the household's overall tier",
+      "rule", "text", "2015", BC, page="19 (report page 5)", section="Executive Summary", book="Ch 2.6", model="None"),
+    r("E3-03", "Duration thresholds: Tier 1 min 4 hours a day and 1 evening hour; Tier 2 min 4 hours and 2 evening hours; affordability attribute met when a standard package of 365 kWh a year costs less than 5% of household income",
+      "thresholds", "text", "2015", BC, page="20 (report page 6)", section="Table ES.1", book="Ch 2.6", model="None",
+      notes="The MTF affordability test prices a standard consumption package, not a PAYGo instalment; it is a different measure from the payment burden in Ch 2.3."),
     # ---------------------------------------------------------------- E4: M-KOPA
     r("E4-01", "M-KOPA UK LIMITED revenue (sales of carbon credits)", 1712776, "GBP", "FY2024 (FY2023: 718,100)", MKUK, page="10 (filing page 8); 18 (filing page 16, note 2.1)",
       section="Statement of profit or loss; note 2.1 Sale of carbon credits", book="Planned: Ch 15 (as an illustration of entity checking)",

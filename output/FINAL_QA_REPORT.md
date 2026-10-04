@@ -14,7 +14,7 @@ The purpose assessed is a pre-publication edition (Book v0.2, Model v0.8). The l
 |---|---|---|
 | BOOK QA | PASS WITH WARNING | Text, numbers and labels consistent; primary documents, practitioner review and copyedit still open |
 | MODEL QA | PASS WITH WARNING | 38 tests OK, faults detected, static tables reproduced; not yet opened in Microsoft Excel |
-| SOURCE QA | PASS WITH WARNING | Every claim carries a grade and a status, and none is overstated; 44 of 69 claims await the primary document |
+| SOURCE QA | PASS WITH WARNING | Every claim carries a grade and a status, and none is overstated; 43 of 71 claims await the primary document |
 | ACCOUNTING QA | PASS WITH WARNING | No compliance claim anywhere; the treatment has not been reviewed by an accountant |
 | FORMULA QA | PASS WITH WARNING | 0 error values in 100,857 formulas in two engines; Excel behaviour unverified |
 | LINK QA | PASS WITH WARNING | Internal hyperlinks valid, no external links; web addresses in the source register not checked (network blocked) |
@@ -55,13 +55,13 @@ The purpose assessed is a pre-publication edition (Book v0.2, Model v0.8). The l
 ## SOURCE QA: PASS WITH WARNING
 
 **Verified**
-* Register of 69 claims: grades A 5, B 51, C 8, D 5. Statuses:
+* Register of 71 claims: grades A 5, B 53, C 8, D 5. Statuses:
 
   | Status | Claims |
   |---|---|
-  | VERIFIED | 8 |
+  | VERIFIED | 11 |
   | VERIFIED (HISTORICAL) | 5 |
-  | PENDING PRIMARY DOCUMENT | 44 |
+  | PENDING PRIMARY DOCUMENT | 43 |
   | CONFLICTING SOURCES | 4 |
   | NOT USED | 8 |
 
@@ -70,7 +70,7 @@ The purpose assessed is a pre-publication edition (Book v0.2, Model v0.8). The l
 * No page number is invented.
 
 **Open**
-* The 44 pending claims: documents to upload, or a decision to keep them as context only.
+* The 43 pending claims: documents to upload, or a decision to keep them as context only.
 
 ## ACCOUNTING QA: PASS WITH WARNING
 

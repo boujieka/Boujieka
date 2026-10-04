@@ -287,7 +287,7 @@ def prod_calc(key, text, unit, fn, fmt, n=""):
 prod_section("Product specification")
 prod_input("name", "Product name", "text", "@")
 prod_input("tier", "MTF capacity tier (indicative)", "tier", FMT_INT, False,
-           "Capacity minimums: " + "; ".join(f"T{k} {v}" for k, v in MTF_CAPACITY.items()) + " (ESMAP MTF; to be checked against the framework report).")
+           "Capacity minimums: " + "; ".join(f"T{k} {v}" for k, v in MTF_CAPACITY.items()) + " (ESMAP, Beyond Connections, 2015, Table ES.1: power in W or daily supply in Wh; capacity attribute only).")
 prod_input("wp", "PV array size", "Wp", FMT_NUM)
 prod_input("wh", "Battery capacity", "Wh", FMT_NUM)
 prod_input("loads", "Typical loads / appliances", "text", "@")

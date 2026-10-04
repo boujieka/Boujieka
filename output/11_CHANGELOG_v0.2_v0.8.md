@@ -195,3 +195,4 @@ Default and case values unchanged in every cell compared (all numeric cells of b
 * Register: 64 to 69 claims (E1-26 to E1-30, E1-30 CONFLICTING SOURCES); E1-08, E1-10, E1-14, E1-16, E1-24 and E1-25 corrected.
 * Book: Ch 1.6, 2.3, 5.6, 7.4, 11.3, 13.1, 13.7 and Annex G updated with reported figures; 119 pages, text scan clean. Print draft 178 pages, cover rebuilt for the new spine, EPUB 0 errors.
 * Model: Source_Register rebuilt and lookup ranges extended; no calculation change, results unchanged.
+* Second pass, same day: Beyond Connections (2015) retrieved from the author's Drive and read; E3-01 to E3-03 VERIFIED with pages (register 71 claims, 11 VERIFIED). The workbook's MTF capacity note is corrected from "and" to "or" (Table ES.1), and Ch 2.6 is made precise on the lowest tier rule, the thresholds and the framework's affordability test. Workbooks rebuilt: 0 errors, master check OK.

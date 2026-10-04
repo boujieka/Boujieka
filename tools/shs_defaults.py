@@ -14,11 +14,11 @@ reliability, quality, affordability, legality and health & safety.
 # Source: ESMAP, "Beyond Connections: Energy Access Redefined" (2015). Recalled from
 # memory - status "to verify" in sources/source-register.md (S15).
 MTF_CAPACITY = {
-    1: "≥3 W and ≥12 Wh/day",
-    2: "≥50 W and ≥200 Wh/day",
-    3: "≥200 W and ≥1.0 kWh/day",
-    4: "≥800 W and ≥3.4 kWh/day",
-    5: "≥2 kW and ≥8.2 kWh/day",
+    1: "≥3 W or ≥12 Wh/day",
+    2: "≥50 W or ≥200 Wh/day",
+    3: "≥200 W or ≥1.0 kWh/day",
+    4: "≥800 W or ≥3.4 kWh/day",
+    5: "≥2 kW or ≥8.2 kWh/day",
 }
 
 PRODUCTS = [

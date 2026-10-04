@@ -72,3 +72,14 @@ The pack recommends a customer segmentation (commercially viable, marginal, affo
 ## 6. What would close E1
 
 Upload the PDF, or allow esmap.org in the environment's network policy. Each figure can then be checked on its page, and E1 claims moved to VERIFIED with page numbers.
+
+## 7. Primary document search, 4 October 2026 (second pass)
+
+* **Network:** esmap.org, openknowledge.worldbank.org, documents1.worldbank.org, gogla.org, Companies House and The Gazette were each tried again, both directly and through the web fetch tool. All were refused by the environment's egress policy.
+* **Author's Google Drive:** searched for the missing documents. *Beyond Connections: Energy Access Redefined* (ESMAP, Technical Report 008/15, July 2015, 244 pages) was found and read. E3-01 to E3-03 are now VERIFIED:
+  * PDF page 19 (report page 5): the seven attributes and the lowest tier rule;
+  * PDF page 20 (report page 6), Table ES.1: the capacity and duration thresholds and the affordability test.
+* **Correction found by reading the document:** the workbook described the capacity minimums as "3 W and 12 Wh/day". Table ES.1 gives "power capacity ratings (in W or daily Wh)", so the workbook now reads "or". Ch 2.6 now also states that the framework's affordability test (365 kWh a year below 5% of income) is a different measure from the PAYGo payment burden.
+* **Not found in the Drive:** MTR 2024, GOGLA "After the Dip", M-KOPA Holdings group accounts and Gazette notice 4891954. The Drive holds the 2018 Market Trends Report, which is too old for the pending claims.
+* **Register:** 71 claims: 11 VERIFIED, 5 VERIFIED (HISTORICAL), 43 PENDING PRIMARY DOCUMENT, 4 CONFLICTING SOURCES, 8 NOT USED.
+* **Model:** 0 errors, master check OK, readiness unchanged.
