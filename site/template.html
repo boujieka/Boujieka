@@ -9,7 +9,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
 <style>
 /* Layout: a papyrus scroll under a tomb-ceiling hero. The one bold place is the hero
    (night lapis, gold stars, inscriptional capitals); the working sections stay quiet. */
@@ -34,9 +34,9 @@
   --bar: #13306b; --bar-hi: #c9a24a;
   /* Fixed hero palette: identical in both themes. */
   --night: #0e2148; --gold: #c9a24a; --faience: #3fb2a6; --papyrus: #f2ead8;
-  --display: "Marcellus", "Trajan Pro", Georgia, serif;
-  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --display: "Marcellus", "IBM Plex Sans Arabic", "Trajan Pro", Georgia, serif;
+  --body: "IBM Plex Sans", "IBM Plex Sans Arabic", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", "IBM Plex Sans Arabic", ui-monospace, "SF Mono", Menlo, monospace;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -110,7 +110,7 @@ section + section { border-top: 1px solid var(--line); }
 .stele div { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 11px 18px; border-bottom: 1px solid rgba(201,162,74,.22); }
 .stele div:last-child { border-bottom: none; }
 .stele span { font-size: 13px; color: #d9cfb8; }
-.stele b { font: 600 22px/1 var(--mono); color: var(--papyrus); text-align: right; }
+.stele b { font: 600 22px/1 var(--mono); color: var(--papyrus); text-align: end; }
 .stele b.small { font-size: 14px; line-height: 1.5; }
 
 /* Usekh collar band */
@@ -120,7 +120,7 @@ section + section { border-top: 1px solid var(--line); }
 .tape { border-bottom: 1px solid var(--line); background: var(--surface); overflow: hidden; }
 .tape ul { display: flex; gap: 40px; list-style: none; margin: 0; padding: 10px 0; width: max-content; animation: tape 110s linear infinite; }
 .tape li { white-space: nowrap; font-size: 13px; color: var(--muted); }
-.tape li b { font-family: var(--mono); font-weight: 600; color: var(--gold-ink); margin-right: 6px; }
+.tape li b { font-family: var(--mono); font-weight: 600; color: var(--gold-ink); margin-inline-end: 6px; }
 .tape:hover ul { animation-play-state: paused; }
 @keyframes tape { to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .tape ul { animation: none; flex-wrap: wrap; width: auto; padding-inline: 16px; } }
@@ -139,7 +139,7 @@ section + section { border-top: 1px solid var(--line); }
 .tile:hover { transform: translateY(-1px); box-shadow: 0 0 0 2px var(--lapis); }
 .tile[aria-pressed="true"] { outline: 3px solid var(--carnelian); outline-offset: 1px; z-index: 1; }
 .mlegend { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 12px; color: var(--muted); margin-top: 14px; }
-.mlegend i { display: inline-block; width: 14px; height: 14px; border-radius: 2px; vertical-align: -2px; margin-right: 6px; border: 1px solid var(--line); }
+.mlegend i { display: inline-block; width: 14px; height: 14px; border-radius: 2px; vertical-align: -2px; margin-inline-end: 6px; border: 1px solid var(--line); }
 .profile { background: var(--surface); border: 1px solid var(--line); padding: 20px 22px; min-width: 0; }
 .profile h3 { font: 400 26px/1.15 var(--display); color: var(--lapis); margin: 4px 0 14px; }
 .profile dl { display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; margin: 0; font-size: 14px; }
@@ -166,21 +166,21 @@ section + section { border-top: 1px solid var(--line); }
 .scroll { position: relative; overflow-x: auto; }
 table.grid { border-collapse: collapse; width: 100%; min-width: 620px; font-size: 13px; }
 .grid th { font: 600 11px/1 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 8px; text-align: center; }
-.grid th:first-child { text-align: left; }
-.grid tbody th { text-transform: none; letter-spacing: 0; font: 500 14px/1.2 var(--body); color: var(--ink); text-align: left; white-space: nowrap; }
+.grid th:first-child { text-align: start; }
+.grid tbody th { text-transform: none; letter-spacing: 0; font: 500 14px/1.2 var(--body); color: var(--ink); text-align: start; white-space: nowrap; }
 .grid tbody th button { all: unset; cursor: pointer; }
 .grid tbody th button:hover { text-decoration: underline; }
 .grid tbody th button:focus-visible { outline: 2px solid var(--gold); }
-.grid tbody th small { color: var(--muted); font-size: 11px; margin-left: 4px; }
+.grid tbody th small { color: var(--muted); font-size: 11px; margin-inline-start: 4px; }
 .grid td { border: 1px solid var(--line); text-align: center; padding: 6px 4px; line-height: 1.25; }
 .grid td b { display: block; font: 600 13px var(--mono); }
 .grid td span { font: 400 11px var(--mono); color: var(--muted); }
 .grid td.empty { color: var(--muted); }
 .grid tr.sel th { color: var(--lapis); font-weight: 700; }
 .grid tr.sel { outline: 2px solid var(--gold); outline-offset: -1px; }
-.grid td.sig { border: none; font: 700 14px var(--mono); text-align: right; padding-right: 10px; }
+.grid td.sig { border: none; font: 700 14px var(--mono); text-align: end; padding-inline-end: 10px; }
 .legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 11px; color: var(--muted); margin-top: 10px; align-items: center; }
-.legend i { display: inline-block; width: 16px; height: 11px; border: 1px solid var(--line); vertical-align: -1px; margin-right: 4px; }
+.legend i { display: inline-block; width: 16px; height: 11px; border: 1px solid var(--line); vertical-align: -1px; margin-inline-end: 4px; }
 .split { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); gap: 18px; margin-top: 18px; align-items: start; }
 @media (max-width: 860px) { .split { grid-template-columns: minmax(0, 1fr); } }
 .signals { display: grid; gap: 12px; min-width: 0; }
@@ -188,8 +188,8 @@ table.grid { border-collapse: collapse; width: 100%; min-width: 620px; font-size
 .types { display: flex; flex-wrap: wrap; gap: 6px; }
 .types button { font: 500 12px var(--body); border: 1px solid var(--line); background: transparent; color: var(--muted); border-radius: 2px; padding: 4px 8px; cursor: pointer; }
 .types button[aria-pressed="true"] { border-color: var(--gold-ink); color: var(--gold-ink); }
-.card { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--gold); padding: 14px 16px; min-width: 0; }
-.card.warn { border-left-color: var(--carnelian); }
+.card { background: var(--surface); border: 1px solid var(--line); border-inline-start: 3px solid var(--gold); padding: 14px 16px; min-width: 0; }
+.card.warn { border-inline-start-color: var(--carnelian); }
 .card h3 { font: 600 16px/1.3 var(--body); margin: 0; }
 .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
 .tag { font: 600 10.5px/1 var(--body); letter-spacing: .06em; text-transform: uppercase; border: 1px solid var(--line); color: var(--muted); padding: 4px 6px; border-radius: 2px; }
@@ -204,11 +204,11 @@ details.passport { margin-top: 12px; border: 1px solid var(--line); background: 
 details.passport summary { cursor: pointer; padding: 8px 12px; font: 600 12px/1.2 var(--body); letter-spacing: .06em; text-transform: uppercase; color: var(--lapis); }
 .pp { padding: 2px 12px 12px; display: grid; gap: 12px; font-size: 13px; }
 .pp h4 { margin: 0 0 4px; font: 600 11px/1 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
-.pp ul { margin: 0; padding-left: 18px; }
+.pp ul { margin: 0; padding-inline-start: 18px; }
 .pp code { font: 12px/1.5 var(--mono); word-break: break-word; }
-.nat { font: 600 10px/1 var(--body); padding: 2px 5px; border: 1px solid currentColor; border-radius: 2px; margin-right: 6px; letter-spacing: .04em; }
+.nat { font: 600 10px/1 var(--body); padding: 2px 5px; border: 1px solid currentColor; border-radius: 2px; margin-inline-end: 6px; letter-spacing: .04em; }
 .nat.SYNTHETIC { color: var(--carnelian); } .nat.FACT { color: var(--lapis); } .nat.CALC { color: var(--gold-ink); }
-.wall svg { width: 100%; height: auto; display: block; }
+.wall svg { width: 100%; height: auto; display: block; direction: ltr; }  /* axis anchors stay as drawn in RTL */
 .wall text { fill: var(--muted); font: 10px var(--mono); }
 .wall .gl { stroke: var(--line); }
 .wall rect.b { fill: var(--bar); }
@@ -218,9 +218,9 @@ details.passport summary { cursor: pointer; padding: 8px 12px; font: 600 12px/1.
 /* Method */
 .pipe { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 28px; border: 1px solid var(--line); background: var(--surface); }
 @media (max-width: 760px) { .pipe { grid-template-columns: minmax(0, 1fr); } }
-.step { padding: 20px; border-right: 1px solid var(--line); min-width: 0; }
-.step:last-child { border-right: none; }
-@media (max-width: 760px) { .step { border-right: none; border-bottom: 1px solid var(--line); } .step:last-child { border-bottom: none; } }
+.step { padding: 20px; border-inline-end: 1px solid var(--line); min-width: 0; }
+.step:last-child { border-inline-end: none; }
+@media (max-width: 760px) { .step { border-inline-end: none; border-bottom: 1px solid var(--line); } .step:last-child { border-bottom: none; } }
 .step .n { font: 400 28px/1 var(--display); color: var(--gold-ink); }
 .step h3 { font: 600 17px/1.25 var(--body); margin: 8px 0 6px; }
 .step p { font-size: 13px; color: var(--muted); margin: 0 0 12px; }
@@ -229,7 +229,7 @@ details.passport summary { cursor: pointer; padding: 8px 12px; font: 600 12px/1.
 
 /* Tables */
 table.list { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 640px; }
-.list th { text-align: left; font: 600 11px/1 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 10px 12px; border-bottom: 2px solid var(--gold); }
+.list th { text-align: start; font: 600 11px/1 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 10px 12px; border-bottom: 2px solid var(--gold); }
 .list td { padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
 .list td a { overflow-wrap: anywhere; }
 .ev { font: 600 10.5px/1 var(--body); letter-spacing: .05em; text-transform: uppercase; padding: 3px 6px; border: 1px solid currentColor; border-radius: 2px; white-space: nowrap; }
@@ -269,7 +269,7 @@ details.more summary { cursor: pointer; color: var(--lapis); font-weight: 600; }
 .bcard dl { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2px; margin: 0; font-size: 13.5px; }
 .bcard dt { font: 600 11px/1.2 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--gold-ink); margin-top: 10px; }
 .bcard dd { margin: 0; }
-.bcard blockquote { margin: 8px 0; padding: 6px 10px; border-left: 3px solid var(--line); font-size: 12.5px; color: var(--muted); font-style: italic; }
+.bcard blockquote, blockquote.q { margin: 8px 0; padding: 6px 10px; border-inline-start: 3px solid var(--line); font-size: 12.5px; color: var(--muted); font-style: italic; }
 .bcard .src { font-size: 12px; margin-top: 12px; color: var(--muted); }
 .buyers-note { margin-top: 16px; font-size: 13px; color: var(--muted); max-width: 80ch; }
 footer { background: var(--night); color: #d9cfb8; padding-block: 36px 52px; font-size: 13px; }
@@ -279,7 +279,7 @@ footer strong { color: var(--papyrus); }
 /* Language tabs */
 .langs { display: inline-flex; border: 1px solid rgba(201,162,74,.55); border-radius: 2px; overflow: hidden; }
 .langs button { all: unset; cursor: pointer; font: 600 12px/1 var(--body); letter-spacing: .08em; padding: 8px 10px; color: #d9cfb8; }
-.langs button + button { border-left: 1px solid rgba(201,162,74,.35); }
+.langs button + button { border-inline-start: 1px solid rgba(201,162,74,.35); }
 .langs button[aria-pressed="true"] { background: var(--gold); color: var(--night); }
 .langs button:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
 .mast-r { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; }
@@ -298,7 +298,7 @@ footer strong { color: var(--papyrus); }
   .cbar select { min-width: 0; flex: 1; font-size: 14px; padding: 7px 8px; }
   .cbar button, .cbar-ctx { display: none; }
 }
-.filtered { display: inline-block; font: 600 10.5px/1 var(--body); letter-spacing: .06em; text-transform: uppercase; color: var(--carnelian); border: 1px solid currentColor; padding: 4px 6px; border-radius: 2px; margin-left: 8px; vertical-align: middle; }
+.filtered { display: inline-block; font: 600 10.5px/1 var(--body); letter-spacing: .06em; text-transform: uppercase; color: var(--carnelian); border: 1px solid currentColor; padding: 4px 6px; border-radius: 2px; margin-inline-start: 8px; vertical-align: middle; }
 section { scroll-margin-top: 64px; }
 
 /* Shared form look */
@@ -316,10 +316,10 @@ section { scroll-margin-top: 64px; }
 .guide { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 18px; margin-top: 14px; }
 @media (max-width: 860px) { .guide { grid-template-columns: minmax(0, 1fr); } }
 .steps { counter-reset: st; list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
-.steps li { counter-increment: st; background: var(--surface); border: 1px solid var(--line); padding: 10px 12px 10px 48px; position: relative; font-size: 14px; }
-.steps li::before { content: counter(st, upper-roman); position: absolute; left: 12px; top: 9px; font: 400 18px/1 var(--display); color: var(--gold-ink); width: 28px; text-align: center; }
+.steps li { counter-increment: st; background: var(--surface); border: 1px solid var(--line); padding-block: 10px; padding-inline: 48px 12px; position: relative; font-size: 14px; }
+.steps li::before { content: counter(st, upper-roman); position: absolute; inset-inline-start: 12px; top: 9px; font: 400 18px/1 var(--display); color: var(--gold-ink); width: 28px; text-align: center; }
 .asklist { background: var(--surface); border: 1px solid var(--line); padding: 14px 16px; font-size: 14px; }
-.asklist ul { margin: 6px 0 0; padding-left: 18px; }
+.asklist ul { margin: 6px 0 0; padding-inline-start: 18px; }
 
 /* Simulator */
 .simwrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; margin-top: 22px; align-items: start; }
@@ -331,23 +331,23 @@ section { scroll-margin-top: 64px; }
 .kpis b { display: block; font: 600 18px/1.25 var(--mono); color: var(--ink); overflow-wrap: anywhere; }
 .kpis div.hl b { color: var(--faience-ink); }
 .kpis div.neg b { color: var(--carnelian); }
-.assume { font-size: 12.5px; color: var(--muted); margin: 8px 0 0; padding-left: 18px; }
+.assume { font-size: 12.5px; color: var(--muted); margin: 8px 0 0; padding-inline-start: 18px; }
 .formula { font: 12px/1.6 var(--mono); background: var(--paper); border: 1px solid var(--line); padding: 8px 10px; margin-top: 10px; overflow-x: auto; white-space: pre; }
-.warnbox { border-left: 3px solid var(--carnelian); background: var(--paper); padding: 8px 10px; font-size: 13px; margin-top: 10px; }
+.warnbox { border-inline-start: 3px solid var(--carnelian); background: var(--paper); padding: 8px 10px; font-size: 13px; margin-top: 10px; }
 
 /* Strategy */
 .levers { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 18px; }
-.lever { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--faience-ink); padding: 14px 16px; min-width: 0; }
+.lever { background: var(--surface); border: 1px solid var(--line); border-inline-start: 3px solid var(--faience-ink); padding: 14px 16px; min-width: 0; }
 .lever h4, .coop h4 { margin: 0 0 6px; font: 600 15px/1.3 var(--body); }
 .lever p, .coop p { margin: 0; font-size: 13.5px; color: var(--muted); }
-.limits { margin: 16px 0 0; padding: 14px 16px 14px 34px; background: var(--paper); border: 1px solid var(--carnelian); font-size: 13.5px; }
+.limits { margin: 16px 0 0; padding-block: 14px; padding-inline: 34px 16px; background: var(--paper); border: 1px solid var(--carnelian); font-size: 13.5px; }
 .limits li + li { margin-top: 6px; }
 .coops { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-top: 14px; }
 .coop { background: var(--surface); border: 1px dashed var(--faience-ink); padding: 14px 16px; min-width: 0; }
 .pf { margin-top: 14px; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 18px; align-items: start; }
 @media (max-width: 900px) { .pf { grid-template-columns: minmax(0, 1fr); } }
 .pf table { width: 100%; border-collapse: collapse; font-size: 13px; }
-.pf th { text-align: left; font: 600 11px/1 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 6px; border-bottom: 2px solid var(--gold); }
+.pf th { text-align: start; font: 600 11px/1 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 6px; border-bottom: 2px solid var(--gold); }
 .pf td { padding: 6px; border-bottom: 1px solid var(--line); }
 .pf select, .pf input { font: 500 13px var(--body); padding: 6px 8px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); border-radius: 2px; width: 100%; min-width: 0; }
 .pf input[type=number] { width: 80px; }
@@ -365,6 +365,24 @@ section { scroll-margin-top: 64px; }
 .gloss dt { font: 600 14px/1.3 var(--mono); color: var(--lapis); }
 .gloss dd { margin: 3px 0 0; font-size: 13.5px; color: var(--ink); }
 abbr[title] { text-decoration: underline dotted; text-underline-offset: 2px; cursor: help; }
+
+/* Right-to-left (Arabic). Layout uses logical properties above; these rules keep the parts
+   that must not mirror readable: the tile map is geography, formulas and codes read left to right,
+   and quoted French/English texts keep their own direction. */
+.zl bdi, .grid td span, .grid td b, .formula, .pp code, .bars .num { direction: ltr; unicode-bidi: isolate; }
+.tiles { direction: ltr; }
+[dir="rtl"] .intensity strong, [dir="rtl"] .kpis b, [dir="rtl"] .bars .num { unicode-bidi: isolate; }
+[dir="rtl"] .intensity strong { direction: ltr; }
+[dir="rtl"] .stele b.small { font-family: var(--body); }
+.formula { text-align: left; }
+[dir="rtl"] [lang="fr"], [dir="rtl"] [lang="en"] { direction: ltr; unicode-bidi: isolate; }
+[dir="rtl"] .langs [lang] { direction: inherit; }
+[dir="rtl"] .gloss dt { direction: ltr; text-align: right; }
+[dir="rtl"] .tape ul { animation-name: tape-rtl; }
+@keyframes tape-rtl { to { transform: translateX(50%); } }
+[dir="rtl"] .hero h1 { line-height: 1.25; }
+/* Letter-spacing breaks the joining of Arabic letters; keep it only on the Latin brand and language tabs. */
+html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 0 !important; }
 </style>
 </head>
 <body>
@@ -381,7 +399,7 @@ abbr[title] { text-decoration: underline dotted; text-underline-offset: 2px; cur
         <a href="#carte" data-i="nav.map"></a><a href="#radar" data-i="nav.radar"></a><a href="#acheteurs" data-i="nav.buyers"></a><a href="#simulateur" data-i="nav.sim"></a><a href="#strategie" data-i="nav.strategy"></a><a href="#glossaire" data-i="nav.glossary"></a><a href="#veille" data-i="nav.watch"></a><a href="#sources" data-i="nav.sources"></a>
       </nav>
       <div class="langs" id="langs" role="group" data-ia="aria-label:lang.label">
-        <button type="button" data-lang="fr" lang="fr" title="Français">FR</button><button type="button" data-lang="en" lang="en" title="English">EN</button><button type="button" data-lang="pt" lang="pt" title="Português">PT</button><button type="button" data-lang="es" lang="es" title="Español">ES</button>
+        <button type="button" data-lang="fr" lang="fr" title="Français">FR</button><button type="button" data-lang="en" lang="en" title="English">EN</button><button type="button" data-lang="pt" lang="pt" title="Português">PT</button><button type="button" data-lang="es" lang="es" title="Español">ES</button><button type="button" data-lang="ar" lang="ar" title="العربية">AR</button>
       </div>
     </div>
   </div>
@@ -442,13 +460,13 @@ abbr[title] { text-decoration: underline dotted; text-underline-offset: 2px; cur
         <div class="panel-h"><span class="eyebrow" id="grid-title"></span><span class="eyebrow" id="asof"></span></div>
         <div class="panel-b">
           <div class="scroll"><table class="grid" id="grid"></table></div>
-          <div class="legend">
+          <div class="legend zl">
             <strong class="eyebrow" data-i="legend.z"></strong>
-            <span><i style="background:var(--div-neg-2)"></i>▼▼ ≤ −1,5</span>
-            <span><i style="background:var(--div-neg-1)"></i>▼ −1,5 … −0,5</span>
+            <span><i style="background:var(--div-neg-2)"></i>▼▼ <bdi data-zr="≤ |-1.5"></bdi></span>
+            <span><i style="background:var(--div-neg-1)"></i>▼ <bdi data-zr="|-1.5|-0.5"></bdi></span>
             <span><i style="background:var(--div-mid)"></i>– <span data-i="legend.norm"></span></span>
-            <span><i style="background:var(--div-pos-1)"></i>▲ 0,5 … 1,5</span>
-            <span><i style="background:var(--div-pos-2)"></i>▲▲ ≥ 1,5</span>
+            <span><i style="background:var(--div-pos-1)"></i>▲ <bdi data-zr="|0.5|1.5"></bdi></span>
+            <span><i style="background:var(--div-pos-2)"></i>▲▲ <bdi data-zr="≥ |1.5"></bdi></span>
             <span data-i="legend.nd"></span>
           </div>
         </div>
@@ -633,8 +651,12 @@ abbr[title] { text-decoration: underline dotted; text-underline-offset: 2px; cur
   const store = { get: (k) => { try { return localStorage.getItem(k); } catch { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch {} } };
 
   // ---------- Language
-  const LANGS = ["fr", "en", "pt", "es"];
-  const LOC = { fr: "fr-FR", en: "en-GB", pt: "pt-PT", es: "es-ES" };
+  const LANGS = ["fr", "en", "pt", "es", "ar"];
+  // Arabic uses Latin digits ("nu-latn"): they are the norm in the Maghreb (Morocco, Algeria, Tunisia),
+  // in Arabic-language financial documents and on trading screens, and they keep yields, amounts and
+  // ISO codes legible next to the Latin-script data. Plain "ar" would switch to Arabic-Indic digits (٠١٢).
+  const LOC = { fr: "fr-FR", en: "en-GB", pt: "pt-PT", es: "es-ES", ar: "ar-u-nu-latn" };
+  const RTL = new Set(["ar"]);
   const pickLang = () => {
     const q = new URLSearchParams(location.search).get("lang");
     if (LANGS.includes(q)) return q;
@@ -656,17 +678,19 @@ abbr[title] { text-decoration: underline dotted; text-underline-offset: 2px; cur
     lang = l; L = D.i18n[l]; PR = new Intl.PluralRules(LOC[l]);
     try { DN = new Intl.DisplayNames([LOC[l]], { type: "region" }); } catch { DN = null; }
     document.documentElement.lang = l;
+    document.documentElement.dir = RTL.has(l) ? "rtl" : "ltr";
     document.title = t("doc.title");
     document.querySelector('meta[name="description"]').content = t("doc.desc");
     document.querySelectorAll("[data-i]").forEach((el) => { el.textContent = t(el.dataset.i); });
     document.querySelectorAll("[data-ih]").forEach((el) => { el.innerHTML = t(el.dataset.ih); });  // trusted strings from i18n/*.json
     document.querySelectorAll("[data-ia]").forEach((el) => el.dataset.ia.split(";").forEach((p) => { const [a, k] = p.split(":"); el.setAttribute(a, t(k)); }));
     document.querySelectorAll("#langs [data-lang]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === l)));
+    document.querySelectorAll("[data-zr]").forEach((el) => { const [pre, ...v] = el.dataset.zr.split("|"); el.textContent = pre + v.map((x) => nf(x, 1)).join(" … "); });
     store.set("cartouche-lang", l);
   }
 
   // ---------- Formatting
-  const nf = (v, d) => Number(v).toLocaleString(LOC[lang], { minimumFractionDigits: d, maximumFractionDigits: d });
+  const nf = (v, d) => Number(v).toLocaleString(LOC[lang], { minimumFractionDigits: d, maximumFractionDigits: d, signDisplay: "negative" });  // "negative": no "-0" for tiny negative values
   const pct = (v, d = 3) => (v == null ? null : `${nf(v, d)} %`);
   const money = (v, cur, d = 0) => `${nf(v, d)} ${cur ?? ""}`.trim();
   const amt = (v, cur) => {
@@ -679,7 +703,7 @@ abbr[title] { text-decoration: underline dotted; text-underline-offset: 2px; cur
   const tenor = (d) => d == null ? "" : d < 365 ? (d % 7 === 0 ? t("u.weeks", { n: d / 7 }) : t("u.days", { n: d })) : t("u.years", { n: Math.round(d / 365) });
   const factVal = (f) => f.value == null ? t("na") : f.unit === "%" ? pct(f.value) : /^[A-Z]{3}$/.test(f.unit || "") ? amt(f.value, f.unit) : `${f.value}${f.unit ? " " + f.unit : ""}`;
   const enNote = () => lang === "en" ? "" : ` <small class="note" style="margin:0">${esc(t("engine.en"))}</small>`;
-  const ext = (u, label) => `<a href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(label ?? u.replace(/^https?:\/\//, ""))}</a>`;
+  const ext = (u, label) => `<a href="${esc(u)}" dir="auto" target="_blank" rel="noopener noreferrer">${esc(label ?? u.replace(/^https?:\/\//, ""))}</a>`;
 
   // ---------- Data
   const AF = Object.fromEntries(D.africa.map((a) => [a.iso3, a]));
@@ -776,15 +800,15 @@ abbr[title] { text-decoration: underline dotted; text-underline-offset: 2px; cur
     const b = D.grid.buckets, list = rows.filter((r) => !C || r.country_iso3 === C);
     $("radar-f").innerHTML = fbadge();
     $("grid-title").textContent = C ? t("grid.title1", { c: NAME(C) }) : t("grid.title");
-    const head = `<caption class="sr">${esc(t("grid.caption"))}</caption><thead><tr><th scope="col">${esc(t("col.country"))}</th>${b.map((x) => `<th scope="col">${esc(M("bucket")[x] ?? x)}</th>`).join("")}<th scope="col" style="text-align:right">${esc(t("col.signals"))}</th></tr></thead>`;
+    const head = `<caption class="sr">${esc(t("grid.caption"))}</caption><thead><tr><th scope="col">${esc(t("col.country"))}</th>${b.map((x) => `<th scope="col">${esc(M("bucket")[x] ?? x)}</th>`).join("")}<th scope="col" style="text-align:end">${esc(t("col.signals"))}</th></tr></thead>`;
     const body = list.map((r) => {
       const by = Object.fromEntries(r.cells.map((c) => [c.bucket, c]));
       const cells = b.map((k) => {
         const c = by[k];
         if (!c) return `<td class="empty">—</td>`;
         const [bg, arrow, word] = demand(c.demand_z);
-        const zt = c.demand_z == null ? "n/d" : `z ${Number(c.demand_z) > 0 ? "+" : ""}${nf(c.demand_z, 1)}`;
-        return `<td style="background:${bg}" title="${esc(`${tenor(c.tenor_days)} · ${t("grid.auction")} ${date(c.auction_date)} · ${t("btc")} ${c.bid_to_cover ? nf(c.bid_to_cover, 2) + "×" : "n/d"} · ${word}`)}"><b>${pct(c.weighted_average_yield, 2) ?? "—"}</b><span><span aria-hidden="true">${arrow}</span> ${zt}</span></td>`;
+        const zt = c.demand_z == null ? t("nd") : `z ${Number(c.demand_z) > 0 ? "+" : ""}${nf(c.demand_z, 1)}`;
+        return `<td style="background:${bg}" title="${esc(`${tenor(c.tenor_days)} · ${t("grid.auction")} ${date(c.auction_date)} · ${t("btc")} ${c.bid_to_cover ? nf(c.bid_to_cover, 2) + "×" : t("nd")} · ${word}`)}"><b>${pct(c.weighted_average_yield, 2) ?? "—"}</b><span><span aria-hidden="true">${arrow}</span> ${zt}</span></td>`;
       }).join("");
       const sel = r.country_iso3 === C;
       return `<tr class="${sel ? "sel" : ""}"><th scope="row"><button type="button" data-c="${r.country_iso3}" aria-pressed="${sel}">${esc(NAME(r.country_iso3))}</button><small>${r.currency}</small></th>${cells}<td class="sig">${r.active_opportunities}</td></tr>`;
@@ -813,7 +837,7 @@ abbr[title] { text-decoration: underline dotted; text-underline-offset: 2px; cur
         <div><dt>${esc(t("col.country"))}</dt><dd>${esc(NAME(o.country_iso3))}</dd></div>
         <div><dt>${esc(t("col.instrument"))}</dt><dd>${sec ? `${esc(M("instr")[sec.instrument_type] ?? sec.instrument_type)} ${tenor(sec.tenor_days)}` : esc(t("level.country"))} <small style="color:var(--muted)">${esc(o.currency ?? "")}</small></dd></div>
         <div><dt>${esc(up ? t("col.auctiondate") : t("col.date"))}</dt><dd class="num">${date(o.auction_date) ?? "—"}</dd></div>
-        <div><dt title="${esc(up ? t("ref.tip") : "")}">${esc(up ? t("col.refyield") : t("col.yield"))}</dt><dd class="num"><strong>${pct(o.yield_pct) ?? "n/d"}</strong></dd></div>
+        <div><dt title="${esc(up ? t("ref.tip") : "")}">${esc(up ? t("col.refyield") : t("col.yield"))}</dt><dd class="num"><strong>${pct(o.yield_pct) ?? t("nd")}</strong></dd></div>
       </dl>
       <p class="expl" lang="en">${esc(o.explanation)}</p>
       <div class="intensity">${o.strength ? `${esc(t("strength"))} : <strong class="num">${nf(o.strength, 2)}×</strong> · ` : ""}${o.risk_flags.map((f) => esc(M("flag")[f] ?? f)).join(" · ")}</div>
@@ -843,7 +867,7 @@ abbr[title] { text-decoration: underline dotted; text-underline-offset: 2px; cur
     const months = w.months, vals = months.map((m) => Number(m.amount)), max = Math.max(...vals, 1);
     const flagged = new Set(opps.filter((o) => o.country_iso3 === C && o.opportunity_type === "refinancing_concentration").map((o) => o.evidence.facts[0].label.slice(-7)));
     const step = Math.pow(10, Math.floor(Math.log10(max))), top = Math.ceil(max / step) * step;
-    const W = 340, H = 190, Lm = 44, B = 30, T = 8, bw = (W - Lm - 6) / months.length;
+    const W = 340, H = 190, Lm = lang === "ar" ? 66 : 44, B = 30, T = 8, bw = (W - Lm - 6) / months.length;
     const y = (v) => T + (H - T - B) * (1 - v / top);
     let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(t("wall.aria", { c: NAME(C) }))}">`;
     [0, 0.5, 1].forEach((f) => { const v = top * f; svg += `<line class="gl" x1="${Lm}" x2="${W}" y1="${y(v)}" y2="${y(v)}"/><text x="${Lm - 6}" y="${y(v) + 3}" text-anchor="end">${amt(v, "").trim()}</text>`; });
@@ -852,7 +876,7 @@ abbr[title] { text-decoration: underline dotted; text-underline-offset: 2px; cur
       svg += `<rect class="b${hi ? " hi" : ""}" x="${x + 1}" y="${y(v)}" width="${bw - 2}" height="${h}" rx="2"><title>${m.month} : ${amt(v, w.currency)} (${m.share_pct ? nf(m.share_pct, 1) + " %" : "—"})${hi ? " · " + esc(t("wall.flag")) : ""}</title></rect>`;
       if (i % 2 === 0) svg += `<text x="${x + bw / 2}" y="${H - 12}" text-anchor="middle">${m.month.slice(5)}/${m.month.slice(2, 4)}</text>`;
     });
-    $("wall").innerHTML = svg + `<p class="note">${esc(t("wall.total"))} : <strong class="num">${amt(w.total, w.currency)}</strong>.${flagged.size ? " " + esc(t("wall.gold", { m: [...flagged].join(", ") })) : ""} ${esc(t("wall.scope"))}</p>`;
+    $("wall").innerHTML = svg + `<p class="note">${esc(t("wall.total"))} : <strong class="num">${amt(w.total, w.currency)}</strong>.${flagged.size ? " " + esc(t("wall.gold", { m: [...flagged].join(t("sep")) })) : ""} ${esc(t("wall.scope"))}</p>`;
   }
 
   // ---------- Buyers
@@ -874,7 +898,7 @@ abbr[title] { text-decoration: underline dotted; text-underline-offset: 2px; cur
       .sort((a, b) => (a.auction_date || "9").localeCompare(b.auction_date || "9"));
     const head = `<p class="note" style="margin:10px 0 8px"><strong>${esc(tn("n.matches", list.length))}</strong>${up ? " " + esc(t("f.amongup")) : ""}. ${esc(t("f.syn"))} ${up ? esc(t("ref.tip")) + "." : ""}</p>`;
     $("bres").innerHTML = head + (list.length ? `<div class="scroll"><table class="list"><thead><tr><th>${esc(t("col.auctiondate"))}</th><th>${esc(t("col.country"))}</th><th>${esc(t("col.instrument"))}</th><th>${esc(t("col.currency"))}</th><th>${esc(up ? t("col.refyield") : t("col.yield"))}</th><th></th></tr></thead><tbody>` +
-      list.slice(0, 15).map((o) => `<tr><td class="num">${date(o.auction_date) ?? "—"}</td><td>${esc(NAME(o.country_iso3))}</td><td>${o.security ? `${esc(M("instr")[o.security.instrument_type] ?? "")} ${tenor(o.security.tenor_days)}` : "—"}</td><td>${esc(o.currency ?? "")}</td><td class="num">${pct(o.yield_pct, 2) ?? "n/d"}</td><td style="white-space:nowrap">${o.opportunity_type === "upcoming_auction" ? `<a href="#simulateur" data-sim="${o.opportunity_id}">${esc(t("f.simulate"))}</a> · ` : ""}<a href="#radar" data-go="${o.country_iso3}">Radar</a></td></tr>`).join("") +
+      list.slice(0, 15).map((o) => `<tr><td class="num">${date(o.auction_date) ?? "—"}</td><td>${esc(NAME(o.country_iso3))}</td><td>${o.security ? `${esc(M("instr")[o.security.instrument_type] ?? "")} ${tenor(o.security.tenor_days)}` : "—"}</td><td>${esc(o.currency ?? "")}</td><td class="num">${pct(o.yield_pct, 2) ?? t("nd")}</td><td style="white-space:nowrap">${o.opportunity_type === "upcoming_auction" ? `<a href="#simulateur" data-sim="${o.opportunity_id}">${esc(t("f.simulate"))}</a> · ` : ""}<a href="#radar" data-go="${o.country_iso3}">${esc(t("nav.radar"))}</a></td></tr>`).join("") +
       `</tbody></table></div>${list.length > 15 ? `<p class="note">${esc(t("f.first", { n: list.length }))}</p>` : ""}` : "");
   }
   const QUOTE_LANG = { KEN: "en" };
@@ -883,7 +907,7 @@ abbr[title] { text-decoration: underline dotted; text-underline-offset: 2px; cur
     const f = (k) => tr?.[k] ?? b[k];
     const ql = QUOTE_LANG[b.key] ?? "fr";
     return `<article class="bcard">
-      <span class="eyebrow">${esc(tn("n.countries", b.countries.length))} · ${b.countries.map((c) => esc(NAME(c))).join(", ")}</span>
+      <span class="eyebrow">${esc(tn("n.countries", b.countries.length))} · ${b.countries.map((c) => esc(NAME(c))).join(t("sep"))}</span>
       <h3>${esc(M("zone_title")[b.key] ?? b.key)}</h3>
       <p class="who">${esc(f("investor_type"))}</p>
       <dl>
@@ -895,7 +919,7 @@ abbr[title] { text-decoration: underline dotted; text-underline-offset: 2px; cur
         <dt>${esc(t("bc.fees"))}</dt><dd><em>${esc(t("bc.fees.na"))}</em></dd>
       </dl>
       <details><summary class="src" style="cursor:pointer">${esc(t("bc.quotes", { n: b.quotes.length, l: M("lang_name")[ql] }))}</summary>${b.quotes.map((q) => `<blockquote lang="${ql}">« ${esc(q)} »</blockquote>`).join("")}</details>
-      <p class="src">${esc(t("bc.source"))} : ${b.sources.map((u) => ext(u, new URL(u).hostname)).join(", ")} · ${esc(t("bc.verified", { d: date(b.last_verified) }))}${lang !== "fr" ? `<br>${esc(t("bc.translated"))}` : ""}</p>
+      <p class="src">${esc(t("bc.source"))} : ${b.sources.map((u) => ext(u, new URL(u).hostname)).join(t("sep"))} · ${esc(t("bc.verified", { d: date(b.last_verified) }))}${lang !== "fr" ? `<br>${esc(t("bc.translated"))}` : ""}</p>
     </article>`;
   }
   function renderBuyers() {
@@ -944,7 +968,7 @@ abbr[title] { text-decoration: underline dotted; text-underline-offset: 2px; cur
           `</tbody></table></div>
           <p class="note">${esc(s.measure === "list" ? t("dl.order.list") : s.measure === "rank" ? t("dl.order.rank") : t("dl.order.share"))} ${esc(t("dl.neutral"))}</p>
           <details class="more" style="margin-top:6px"><summary style="font-size:13px">${esc(t("dl.details"))}</summary>
-            <blockquote lang="${s.lang}" style="margin:8px 0;padding:6px 10px;border-left:3px solid var(--line);font-size:12.5px;color:var(--muted);font-style:italic">« ${esc(s.quote)} »</blockquote>
+            <blockquote class="q" lang="${s.lang}">« ${esc(s.quote)} »</blockquote>
             ${s.note ? `<p class="note" lang="fr">${esc(s.note)}</p>` : ""}</details>
         </div></div>`;
     }).join("");
@@ -1027,7 +1051,7 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
       const net = coupons + gain - fees - taxes, outlay = paid + fees;
       const flows = Array.from({ length: n }, (_, k) => cpn * (1 - tax) + (k === n - 1 ? N : 0));
       const r = irr(outlay, flows);
-      html += `<div class="kpis">${kp(t("sim.r.price"), nf(P, 4))}${kp(t("sim.r.paid"), m(paid))}${kp(t("sim.r.coupons", { n }), m(coupons))}${kp(t("sim.r.capgain"), m(gain), gain < 0 ? "neg" : "")}${kp(t("sim.r.costs"), m(fees + taxes))}${kp(t("sim.r.net"), m(net), net >= 0 ? "hl" : "neg")}${kp(t("sim.r.irr"), r == null ? "n/d" : pct(r * 100, 2), net >= 0 ? "hl" : "neg")}${kp(t("sim.r.receive"), m(N))}</div>` +
+      html += `<div class="kpis">${kp(t("sim.r.price"), nf(P, 4))}${kp(t("sim.r.paid"), m(paid))}${kp(t("sim.r.coupons", { n }), m(coupons))}${kp(t("sim.r.capgain"), m(gain), gain < 0 ? "neg" : "")}${kp(t("sim.r.costs"), m(fees + taxes))}${kp(t("sim.r.net"), m(net), net >= 0 ? "hl" : "neg")}${kp(t("sim.r.irr"), r == null ? t("nd") : pct(r * 100, 2), net >= 0 ? "hl" : "neg")}${kp(t("sim.r.receive"), m(N))}</div>` +
         `<div class="scroll"><table class="list" style="min-width:360px"><thead><tr><th>${esc(t("sim.t.year"))}</th><th>${esc(t("sim.t.coupon"))}</th><th>${esc(t("sim.t.tax"))}</th><th>${esc(t("sim.t.principal"))}</th></tr></thead><tbody>` +
         flows.map((_, k) => `<tr><td class="num">${k + 1}</td><td class="num">${m(cpn)}</td><td class="num">${m(cpn * tax)}</td><td class="num">${k === n - 1 ? m(N) : "—"}</td></tr>`).join("") + `</tbody></table></div>` +
         `<div class="formula">P = Σ (100 × c) / (1 + y)^k + 100 / (1 + y)^n,  k = 1 … n</div>` +
@@ -1083,7 +1107,7 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
   function renderGlossary() {
     const q = ($("gq").value || "").trim().toLowerCase();
     const list = M("glossary").filter(([k, v]) => !q || k.toLowerCase().includes(q) || v.toLowerCase().includes(q));
-    $("gloss").innerHTML = list.map(([k, v]) => `<div id="g-${esc(k.replace(/[^A-Za-z0-9]+/g, "-"))}"><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("") || `<p class="note">${esc(t("gl.none"))}</p>`;
+    $("gloss").innerHTML = list.map(([k, v]) => `<div id="g-${esc(k.replace(/[^A-Za-z0-9]+/g, "-"))}"><dt lang="fr">${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("") || `<p class="note">${esc(t("gl.none"))}</p>`;
   }
 
   // ---------- Watch, sources, roadmap
@@ -1122,7 +1146,7 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
     $("cb").innerHTML = without.sort((a, b) => a.institution.localeCompare(b.institution)).map((x) => `<p>${esc(x.institution)}</p>`).join("");
   }
   function renderRoadmap() {
-    $("roadmap").innerHTML = `<thead><tr><th>Phase</th><th>${esc(t("r.content"))}</th><th>${esc(t("r.state"))}</th></tr></thead><tbody>` +
+    $("roadmap").innerHTML = `<thead><tr><th>${esc(t("r.phase"))}</th><th>${esc(t("r.content"))}</th><th>${esc(t("r.state"))}</th></tr></thead><tbody>` +
       M("roadmap").map(([p, c, s]) => `<tr><td class="num">${esc(p)}</td><td>${esc(c)}</td><td><span class="state ${s === "done" || s === "partial" ? "on" : "next"}">${esc(M("r_state")[s])}</span></td></tr>`).join("") + `</tbody>`;
   }
 
