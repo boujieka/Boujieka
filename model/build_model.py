@@ -1780,7 +1780,16 @@ GATES_FC = [
 ]
 r = 5
 G0 = r
+FQ = ["Q1 Technically viable", "Q2 Developable", "Q3 Economic for the system", "Q4 Investable for the developer",
+      "Q5 Bankable", "Q6 Buildable on budget", "Q7 Affordable for buyer and state", "Q8 Ready to close"]
+FQ_WHO = ["Developer, lenders", "Developer, state", "State", "Developer", "Lenders", "Developer, lenders", "State", "Developer, lenders, state"]
+GATE_Q = [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 5, 5, 6, 6, 4, 4, 3, 4, 6, 5, 4]  # framework question of each gate
+for col, w in zip("HI", [32, 24]):
+    ws.column_dimensions[col].width = w
+for j, h in enumerate(["Framework question", "Must be accepted by"]):
+    c = ws.cell(4, 8 + j, h); c.font = F_HDR; c.fill = FILL_HDR
 for k, (lab, area, crit, ev, test) in enumerate(GATES_FC):
+    ws.cell(r, 8, FQ[GATE_Q[k]]).font = F_BASE; ws.cell(r, 9, FQ_WHO[GATE_Q[k]]).font = F_BASE
     ws.cell(r, 1, k + 1).font = F_BASE
     ws.cell(r, 2, lab).font = F_BASE; ws.cell(r, 3, area).font = F_BASE
     c = ws.cell(r, 4, crit); c.font = F_INPUT
@@ -1806,6 +1815,19 @@ calc(ws, r, "fc_crit_part", "Critical gates PARTIAL", f'=COUNTIFS(D{G0}:D{G1},"Y
 calc(ws, r, "fc_decision", "FINANCIAL CLOSE DECISION",
      '=IF({fc_crit_fail}>0,"STOP: a critical gate is not met",IF({fc_crit_noev}>0,"STOP: critical evidence missing",IF({fc_crit_part}>0,"NOT READY: critical gates partly met",IF({fc_met}={fc_n},"GO: evidence complete for a close decision","CONDITIONAL GO: all critical gates met"))))', "", None, out=True); r += 1
 note(ws, r + 1, "A GO says the evidence file is complete for lenders and sponsors to decide. It is not an investment recommendation.")
+r += 3
+section(ws, r, "HYDRO READINESS FRAMEWORK: eight questions, 23 gates, one close decision"); r += 1
+for j, h in enumerate(["Question", "Must be accepted by", "Gates", "Met", "Critical not met or no evidence"]):
+    c = ws.cell(r, 2 + j, h); c.font = F_HDR; c.fill = FILL_HDR
+r += 1
+for qi, qn in enumerate(FQ[:7]):
+    ws.cell(r, 2, qn).font = F_BASE; ws.cell(r, 3, FQ_WHO[qi]).font = F_BASE
+    put(ws, f"D{r}", f'=COUNTIF(H{G0}:H{G1},B{r})', "int")
+    put(ws, f"E{r}", f'=COUNTIFS(H{G0}:H{G1},B{r},F{G0}:F{G1},"MET")', "int")
+    put(ws, f"F{r}", f'=COUNTIFS(H{G0}:H{G1},B{r},D{G0}:D{G1},"Y",F{G0}:F{G1},"NOT MET")+COUNTIFS(H{G0}:H{G1},B{r},D{G0}:D{G1},"Y",F{G0}:F{G1},"NO EVIDENCE")', "int")
+    r += 1
+ws.cell(r, 2, FQ[7]).font = F_BOLD; ws.cell(r, 3, FQ_WHO[7]).font = F_BASE
+put(ws, f"D{r}", "={fc_n}", "int"); put(ws, f"E{r}", "={fc_met}", "int"); put(ws, f"F{r}", "={fc_crit_fail}+{fc_crit_noev}", "int")
 
 # ===================================================================================
 # 32 DASHBOARD

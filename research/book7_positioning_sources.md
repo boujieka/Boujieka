@@ -1,0 +1,9 @@
+# Book 7 positioning: works compared (verified October 2026)
+
+Sources used in the front matter to position Book 7 against existing works. Status in brackets.
+
+[S1] IFC (2015), *Hydroelectric Power: A Guide for Developers and Investors*, prepared by Fichtner Management Consulting for IFC. The guide states that its technical sections "are more detailed and can be used as reference, while the permitting/licensing and financing sections are intended more as a high-level review." https://documents1.worldbank.org/curated/en/917841468188335073/pdf/99392-WP-Box393199B-PUBLIC-Hydropower-Report.pdf (full text read)
+[S2] Hydro Finance Handbook (2008), companion document to the Hydro Finance Tutorial, HydroVision 2008; covers the financial aspects of hydropower development and the steps towards financial closing. Publisher and authors not confirmed. https://www.researchgate.net/publication/304749148 (search-result only)
+[S3] Markkanen, S. and Plummer Braeckman, J. (2019), *Financing Sustainable Hydropower Projects in Emerging Markets: An Introduction to Concepts and Terminology*, University of Cambridge Institute for Sustainability Leadership, FutureDAMS working paper. https://www.cisl.cam.ac.uk/node/1709 (page read)
+[S4] Nongena, Y. (2026), *Project Financing Electricity Projects with Senior Debt: A Practical Guide*, Springer, ISBN 9783032162090; publication date and page count differ between sources. https://www.jpc.de/jpcng/books/detail/-/art/yandisa-nongena-project-financing-electricity-projects-with-senior-debt/hnum/12716557 (page read)
+[S5] Gatti, S. (2023), *Project Finance in Theory and Practice*, 4th edition, Academic Press (Elsevier). https://shop.elsevier.com/books/project-finance-in-theory-and-practice/gatti/978-0-323-98360-0 (page read)

@@ -116,3 +116,54 @@ lo_all = min(min(r[1], r[2]) for r in rows) * 100; hi_all = max(max(r[1], r[2]) 
 ax.set_xlim(lo_all - 3, hi_all + 3)
 save(fig, "fig16_1_tornado.png")
 print("figures written")
+
+# ---- 0.1 framework schematic ----
+from matplotlib.patches import FancyBboxPatch
+ws = wb["30A_CLOSE_READINESS"]
+rf = next(r for r in range(1, ws.max_row + 1) if str(ws.cell(r, 1).value or "").startswith("HYDRO READINESS FRAMEWORK")) + 2
+QS = [(ws.cell(r, 2).value, ws.cell(r, 3).value, ws.cell(r, 4).value) for r in range(rf, rf + 7)]
+fig, ax = plt.subplots(figsize=(W, 3.7)); ax.set_xlim(0, 100); ax.set_ylim(0, 100); ax.axis("off")
+
+
+def box(x, y, w, h, txt, fc, tc="white", fs=7, bold=False, ec=None):
+    ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0.4,rounding_size=1.2", fc=fc, ec=ec or fc, lw=1))
+    ax.text(x + w / 2, y + h / 2, txt, ha="center", va="center", color=tc, fontsize=fs, fontweight="bold" if bold else "normal", wrap=True)
+
+
+for j, p in enumerate(["DEVELOPER", "LENDERS", "STATE"]):
+    box(4 + j * 21, 88, 17, 8, p, GOLD, bold=True, fs=7.5)
+ax.text(70, 92, "Three parties must each\naccept the answer", fontsize=7, color=INK2, va="center")
+for i, (q, who, n) in enumerate(QS):
+    y = 76 - i * 10.5
+    box(2, y, 37, 8, f"{q}", GREEN, fs=6.6)
+    ax.text(41, y + 4, f"{who}  |  {n} gate{'s' if n != 1 else ''}", fontsize=6, color=INK2, va="center")
+    ax.annotate("", xy=(72, 45), xytext=(67, y + 4), arrowprops=dict(arrowstyle="-", color="#c9c3b0", lw=0.8))
+box(72, 37, 12, 16, "23\nevidence\ngates", SAGE, fs=7.2, bold=True)
+ax.annotate("", xy=(87, 45), xytext=(84.5, 45), arrowprops=dict(arrowstyle="->", color=INK, lw=1))
+box(87, 27, 12.5, 36, "Q8\nReady to\nclose?\n\nSTOP\nNOT\nREADY\nCOND.\nGO\nGO", INK, fs=6, bold=True)
+save(fig, "fig0_1_framework.png")
+
+# ---- 17.1 readiness map ----
+COL = {"MET": GREEN, "PARTIAL": GOLD, "NOT MET": RUST, "NO EVIDENCE": "#BDBDBD"}
+gates = []
+r = 5
+while isinstance(ws.cell(r, 1).value, int):
+    gates.append((ws.cell(r, 1).value, ws.cell(r, 4).value == "Y", ws.cell(r, 6).value, str(ws.cell(r, 8).value)))
+    r += 1
+qnames = [q for q, _, _ in QS]
+fig, ax = plt.subplots(figsize=(W, 2.9))
+for i, qn in enumerate(qnames):
+    y = len(qnames) - 1 - i
+    gs = [g for g in gates if g[3] == qn]
+    for k, (num, crit, st, _) in enumerate(gs):
+        ax.add_patch(plt.Rectangle((k * 1.15, y - 0.4), 1.0, 0.8, fc=COL.get(st, "#BDBDBD"), ec=INK if crit else "white", lw=1.6 if crit else 0.5))
+        ax.text(k * 1.15 + 0.5, y, str(num), ha="center", va="center", fontsize=7, color="white", fontweight="bold")
+ax.set_yticks(range(len(qnames))); ax.set_yticklabels(qnames[::-1], fontsize=7)
+ax.set_xlim(-0.2, 7.2); ax.set_ylim(-0.7, len(qnames) - 0.3); ax.set_xticks([]); ax.grid(False); ax.tick_params(axis="y", length=0)
+for s in ("left", "bottom"):
+    ax.spines[s].set_visible(False)
+handles = [plt.Rectangle((0, 0), 1, 1, fc=c) for c in COL.values()] + [plt.Rectangle((0, 0), 1, 1, fc="white", ec=INK, lw=1.6)]
+ax.legend(handles, list(COL.keys()) + ["Critical gate"], loc="center left", bbox_to_anchor=(0.62, 0.5), fontsize=7)
+ax.set_title(f"Readiness map: {sum(1 for g in gates if g[2] == 'MET')} of {len(gates)} gates met", loc="left")
+save(fig, "fig17_1_readiness_map.png")
+print("framework figures written")

@@ -1,6 +1,6 @@
 # About this book
 
-Book 7. Hydropower Development and Finance: Business Models, Project Development and Financial Structuring for Hydropower in Africa. First edition, version 0.1 (pre-publication).
+Book 7. Hydropower Development and Finance. From River to Financial Close: A Developer, Lender and Government Framework for Hydropower Projects in Africa. First edition, version 0.2 (pre-publication).
 
 The book belongs to the Africa Energy Finance collection, Business & Financial Models: a series of books, financial models, manuals, case studies and decision tools for energy businesses in African markets. Each book is built around one central question.
 
@@ -12,7 +12,7 @@ The book belongs to the Africa Energy Finance collection, Business & Financial M
 | Book 4 | Commercial and industrial solar with storage | Should the customer invest, sign a PPA or use an energy service company? | Planned |
 | Book 5 | Energy access fund | Can a fund mobilise capital and generate sustainable returns? | Planned |
 | Book 6 | Power utilities | Can the utility become financially sustainable? | Planned |
-| Book 7 | Hydropower: this book | Can this hydropower project be developed to financial close and financed on terms the developer, the lenders and the state can each accept? | First edition, v0.1 |
+| Book 7 | Hydropower: this book | Can this hydropower project be developed to financial close and financed on terms the developer, the lenders and the state can each accept? | First edition, v0.2 |
 
 Each book is the centre of a set of products that share one method. For Book 7 they are:
 
@@ -26,6 +26,16 @@ Each book is the centre of a set of products that share one method. For Book 7 t
 
 The book is written to stand on its own. A reader who never opens the model loses the worked numbers, not the argument.
 
+## What this book is, and what it is not
+
+This is an investment committee guide to developing and financing hydropower projects in Africa. It connects hydrology, development risk, the power purchase agreement, construction, project finance, the developer's returns, the buyer's creditworthiness and the state's exposure in one route to financial close, and it asks for evidence at every step.
+
+It is not a hydropower engineering textbook: the design of dams, waterways and turbines is covered well elsewhere, and the book takes the engineer's numbers as inputs to be tested. It is not a general project finance book: debt sizing, cover ratios and security packages are treated only as far as hydro and African buyers change them. And it is not a guide to writing a feasibility study.
+
+It is a decision framework for four questions that every hydro project faces before anyone puts more money into it. Should the project proceed? Who should fund each stage? Who should carry each risk? And is it actually ready to close?
+
+Africa is not a chapter of the book; it is the setting of every chapter. Currency, the creditworthiness of state utilities, the role of development finance institutions and blended finance, the cost of transmission, the fiscal capacity of the state and the risk of regulatory change shape the answers throughout, and the evidence cited comes mostly from African projects.
+
 # Preface
 
 This book asks one question: can a given hydropower project be developed to financial close and financed on terms that the developer, the lenders and the state can each accept? Most hydro projects in Africa that never reach close do not fail on engineering. They fail because one of the three parties cannot accept the terms the other two need. The developer cannot earn enough to justify years of at-risk spending. The lenders cannot get comfortable with the river, the contractor or the buyer. Or the state is asked to carry obligations its budget cannot bear.
@@ -33,6 +43,34 @@ This book asks one question: can a given hydropower project be developed to fina
 The book is written for the people who make those decisions. Developers and their finance directors building a development plan and a financing case. Credit officers and investment officers at development finance institutions and commercial banks sizing debt. Fund managers deciding whether to buy into a project before or after close. Transaction advisers who have to reconcile all of them. And staff in finance ministries and PPP units, who get one full chapter written for them, because a support package the ministry will not sign does not close.
 
 Each chapter supports one decision. Chapter 1 sets out the business model and the reason why a hydro project has to be read as three investments, not one. Chapters 2 to 4 cover the resource and the commercial route: the river, the configuration and the path to a power purchase agreement. Chapters 5 to 8 deal with development: the stage gates, the development budget, the consents and the contract set. Chapters 9 to 11 turn to construction and operation. Chapters 12 to 15 are about financing: sizing the debt, assembling the lender group, the developer's returns and the public side. Chapters 16 and 17 bring the analysis together for the people who carry the risk, through stress testing and the financial close gates. Chapter 18 walks through the complete case.
+
+## Four ideas that run through the book
+
+Four ideas recur in every chapter, and together they are the book's method.
+
+The first is that a hydro project is three investments in one asset: a development option, a construction contract and an operating annuity. Each has its own risk, its own capital, its own cost of capital and its own way of failing. A project can be a good asset after commercial operation and a poor decision at the development stage, and the Kasiri case shows exactly that.
+
+The second is that "feasible", "bankable", "investable", "affordable" and "ready" are different words for different tests. The book separates eight questions and answers each with its own evidence.
+
+The third is that a project closes only if three parties accept it at once: the developer, the lenders and the state. A structure that satisfies two of them by moving risk onto the third is not a solution; it is a transfer, and the book measures it.
+
+The fourth is that financial close is the result of evidence, not of negotiation alone. The book's 23 readiness gates, applied in the model, turn the eight questions into a close decision: STOP, NOT READY, CONDITIONAL GO or GO.
+
+The second and fourth ideas together form the Hydro Readiness Framework, set out in the Introduction: eight questions, 23 gates, one close decision.
+
+## How this book relates to other works
+
+Book 7 is not the first work to connect hydropower with finance, and it does not try to replace the works that came before it.
+
+The most complete public guide is the IFC's *Hydroelectric Power: A Guide for Developers and Investors*, published in 2015 [LIT:S1]. It covers the whole development cycle, from site selection to operation. By its own account, its technical sections "are more detailed and can be used as reference, while the permitting/licensing and financing sections are intended more as a high-level review" [LIT:S1]. Book 7 starts where that guide stops. The IFC guide explains how a hydro project is developed; this book explains how to decide whether it should continue, how it should be financed, who should bear each risk and whether it is ready to close.
+
+The closest predecessor in purpose is the *Hydro Finance Handbook* of 2008, written as a companion to a hydro finance tutorial and covering the financial aspects of hydro development and the steps towards financial close [LIT:S2]. We could see only a search summary of it, and its publisher and authors are not confirmed here. Book 7 goes further in three directions: it values the development stage itself, before any financing; it tests the project from the positions of the developer, the lenders and the state at once; and it treats financial close as the outcome of 23 evidence gates rather than as a sequence of steps.
+
+The University of Cambridge Institute for Sustainability Leadership published in 2019 an introduction to the concepts and terminology of financing sustainable hydropower in emerging markets [LIT:S3]. Its purpose is to help a reader who knows either hydropower or finance understand the other. This book assumes that understanding and uses it to reach a decision.
+
+General project finance works treat debt sizing, cash flow available for debt service and lender requirements in far more depth than this book does, among them Gatti's textbook [LIT:S5] and, for the power sector, Nongena's practical guide to senior debt for electricity projects, published by Springer in 2026 [LIT:S4]. They are not specific to hydrology, to African utilities or to the state's balance sheet. Readers who need the full mechanics of project finance should read them alongside this book.
+
+The book also has a companion in the author's own work. The author's *Bankable Is Not Enough* argues, across African independent power projects, that bankability alone can produce poor power deals. Book 7 applies that argument inside one sector, where the capital is heavy, the revenue depends on a river and the state is almost always a party, and turns it into a method for deciding whether a project should be developed, financed and closed.
 
 ## How the book works with the model
 
@@ -54,7 +92,7 @@ Every external claim carries a source identifier in square brackets, such as [HY
 
 ## Status of this edition
 
-This is the first edition of Book 7, issued as version 0.1 for pre-publication review. It replaces, for developers and lenders, the author's earlier policy paper on structuring hydro without unsustainable public liabilities, whose material is condensed in Chapter 15. Three things must happen before release: the sources marked as summaries in Annex L must be read in full; the companion model must complete its test in Microsoft Excel (it has been tested in LibreOffice, adversarially reviewed and corrected); and practitioners must review the text.
+This is the first edition of Book 7, issued as version 0.2 for pre-publication review. It replaces, for developers and lenders, the author's earlier policy paper on structuring hydro without unsustainable public liabilities, whose material is condensed in Chapter 15. Three things must happen before release: the sources marked as summaries in Annex L must be read in full; the companion model must complete its test in Microsoft Excel (it has been tested in LibreOffice, adversarially reviewed and corrected); and practitioners must review the text.
 
 ## Acknowledgements and disclaimer
 
@@ -82,20 +120,24 @@ A hydro project can be read in a fixed order, and the order matters more than an
 | Stress | What breaks first, and who holds it? | Break-even flow, overrun, distance to default | 16 |
 | Financial close | Go, conditional go or stop, on what evidence? | Gate status, decision and conditions | 17, 18 |
 
-## Eight questions that are not the same question
+## The Hydro Readiness Framework: eight questions, 23 gates, one close decision
 
-Hydro projects are often described as "feasible" or "bankable" as if those words meant one thing. The book separates eight questions, because a project can pass one and fail the next, and each is answered by a different document or test.
+Hydro projects are often described as "feasible" or "bankable" as if those words meant one thing. The book separates eight questions, because a project can pass one and fail the next, and each is answered by a different document or test. Each question must be accepted by a particular party, and each is tested by a set of the 23 financial close gates of Chapter 17. The eighth question, ready to close, is the sum of the other seven.
 
-| Question | Answered by | Typical trap |
-|---|---|---|
-| Is the site technically viable? | Feasibility study and geotechnical investigation (Chapters 2, 3, 9) | A feasibility study built on a short or synthetic flow record presented as a long one |
-| Is the project developable? | Consent sequence, land and water rights, PPA route (Chapters 5, 7) | Spending on bankable feasibility before the PPA route and water rights are secure |
-| Is it economic for the power system? | Least-cost plan, LCOE against alternatives (Chapters 3, 4) | Quoting plant cost when the system pays for plant and line |
-| Is it investable for the developer? | Risk-weighted development NPV, premium, sell-down value (Chapters 6, 14) | Reading the equity IRR at close as the developer's return, ignoring at-risk spend and the chance of failure |
-| Is it bankable? | Lender case, DSCR, LLCR, security package (Chapters 12, 13) | A project protected by backstops, so that lenders see none of the risk |
-| Is it buildable on budget? | Contract structure, contingency, reference class (Chapters 9, 10) | A "fixed-price" EPC contract with ground conditions excluded |
-| Is it affordable for the buyer and the state? | Payment capacity, support package, contingent liabilities (Chapter 15) | A bankable project whose arrangements move the risk onto the Treasury |
-| Is it ready to close? | Evidence-based financial close gates (Chapter 17) | Treating a signed term sheet as a closed deal |
+![Figure 0.1. The Hydro Readiness Framework: three parties, eight questions, 23 evidence gates and one close decision. Source: the author; gate mapping as in MODEL 7, sheet 30A_CLOSE_READINESS.](../src/figures/fig0_1_framework.png)
+
+| Question | Answered by | Must be accepted by | Gates | Typical trap |
+|---|---|---|---|---|
+| Q1. Is the site technically viable? | Feasibility study and geotechnical investigation (Chapters 2, 3, 9) | Developer, lenders | 1 to 4 | A feasibility study built on a short or synthetic flow record presented as a long one |
+| Q2. Is the project developable? | Consent sequence, land and water rights, PPA route (Chapters 5, 7) | Developer, state | 5 to 10 | Spending on bankable feasibility before the PPA route and water rights are secure |
+| Q3. Is it economic for the power system? | Least-cost plan, LCOE against alternatives (Chapters 3, 4) | State | 11, 12 | Quoting plant cost when the system pays for plant and line |
+| Q4. Is it investable for the developer? | Risk-weighted development NPV, premium, sell-down value (Chapters 6, 14) | Developer | 19 | Reading the equity IRR at close as the developer's return, ignoring at-risk spend and the chance of failure |
+| Q5. Is it bankable? | Lender case, DSCR, LLCR, security package (Chapters 12, 13) | Lenders | 17, 18, 20, 23 | A project protected by backstops, so that lenders see none of the risk |
+| Q6. Is it buildable on budget? | Contract structure, contingency, reference class (Chapters 9, 10) | Developer, lenders | 13, 14, 22 | A "fixed-price" EPC contract with ground conditions excluded |
+| Q7. Is it affordable for the buyer and the state? | Payment capacity, support package, contingent liabilities (Chapter 15) | State | 15, 16, 21 | A bankable project whose arrangements move the risk onto the Treasury |
+| Q8. Is it ready to close? | Evidence-based financial close gates (Chapter 17) | All three | All 23 | Treating a signed term sheet as a closed deal |
+
+A project that passes Q1 to Q7 on evidence reaches CONDITIONAL GO when every critical gate is met, and GO when all 23 are. For Kasiri, at the start of permitting, the answer is STOP: the framework does not say the project is bad, it says which questions are still open and who has to close them.
 
 The rest of the book follows the chain in order.
 
@@ -104,6 +146,8 @@ The rest of the book follows the chain in order.
 This chapter supports one decision, which comes before any other in the book: which kind of capital should fund which phase of a hydro project, and therefore which numbers each party should read first. A project funded as if it were one investment will be priced as one investment, and the price will be wrong for at least two of its three phases. The chapter sets out the three investments that sit inside one hydro project, shows where value and cash are created and where they diverge, describes who develops hydro in Africa and how projects fail, and explains how the rest of the book and the companion workbook are organised.
 
 *Place in the analytical chain: the frame for the whole chain, the three investments inside one project.*
+
+*Who must accept the answer: the developer, the lenders and the state.*
 
 ## 1.1 Three investments in one asset
 
@@ -196,6 +240,8 @@ This chapter supports a decision that is taken twice: is the hydrological eviden
 
 *Place in the analytical chain: hydrology evidence, the first link that every later number depends on.*
 
+*Who must accept the answer: the developer and the lenders.*
+
 ## 2.1 Four kinds of capacity
 
 Financing documents are full of capacity numbers, and they do not mean the same thing. Installed capacity is the nameplate rating of the generating units. Available capacity is installed capacity multiplied by the share of time the units can run, after planned and forced outages. Expected generation is the energy the river allows on average, which depends on flow, head and how often the flow exceeds what the turbines can use. Contracted energy is whatever the PPA refers to, and it may differ both from what is delivered, because of curtailment, and from what is paid for, because of deemed-energy clauses.
@@ -277,6 +323,8 @@ This chapter supports the decision on what to build: the design flow, the instal
 
 *Place in the analytical chain: configuration, between the hydrology evidence and the offtake route.*
 
+*Who must accept the answer: the developer and the state, as planner of the power system.*
+
 ## 3.1 Sizing the design flow
 
 The design flow is the flow at which the turbines reach their rating. A larger design flow captures more of the wet-season water and raises annual energy, but each additional cubic metre per second is used for fewer months a year. The marginal megawatt-hour therefore costs more than the average one.
@@ -335,6 +383,8 @@ The model computes two levelised costs of electricity at a 10 percent nominal di
 This chapter supports the decision on which offtake route to pursue and which tariff structure to propose. The route decides how long development will take, which lenders can participate and how much negotiating power the developer has. The tariff structure decides who carries the river, the currency and the buyer's credit.
 
 *Place in the analytical chain: the offtake route, which passes the tariff, its currency and its risk allocation to every later link.*
+
+*Who must accept the answer: the developer and the state, as owner of the buyer.*
 
 ## 4.1 Four routes to a PPA
 
@@ -404,6 +454,8 @@ This chapter supports a decision taken at the end of every development stage: co
 
 *Place in the analytical chain: the development plan, the link between the offtake route and the money spent to reach close.*
 
+*Who must accept the answer: the developer.*
+
 ## 5.1 Six stages from site to close
 
 The model divides development into six stages. The names vary between developers and between guides, but the sequence does not.
@@ -472,6 +524,8 @@ This chapter supports the decision on how much to spend on development, in what 
 
 *Place in the analytical chain: the development plan, continued; the money that buys the option described in Chapter 1.*
 
+*Who must accept the answer: the developer and any co-developer.*
+
 ## 6.1 What development costs
 
 Public data on development budgets for African hydro are thin. The evidence that exists is scattered across scales. The IFC's guide puts site identification at about USD 10,000 to 20,000 for a small hydro site and USD 150,000 to 200,000 for a larger one [DE:S1]. Feasibility and ESIA work for two small sites of 2 to 3 MW cost about USD 227,000 [DE:S14]; for a 1 MW site in Liberia, including design, about EUR 600,000 [DE:S15]; for a project of about 53 MW in Tanzania with its line, about USD 4.8 million [DE:S16]. Castalia, reported in Engineering News, put total development cost for a utility-scale renewable project in Africa at USD 1 million to 2.5 million [DE:S18], a range that reflects solar and wind more than hydro. An IFC InfraVentures presentation implies development budgets of roughly 7 to 10 percent of capital cost for large projects, a figure derived from its typical ticket and share [DE:S2].
@@ -539,6 +593,8 @@ This chapter supports the decision on which consents to pursue first and which s
 
 *Place in the analytical chain: consents, the legal rights that turn a feasible project into a developable one.*
 
+*Who must accept the answer: the developer and the state.*
+
 ## 7.1 The map of consents
 
 A hydro project in Sub-Saharan Africa typically needs most of the following. The names and the authorities differ between countries; the dependencies do not.
@@ -600,6 +656,8 @@ This chapter supports the decision on whether the chain of contracts is bankable
 
 *Place in the analytical chain: the contract set, which turns the consents and the offtake route into enforceable obligations.*
 
+*Who must accept the answer: the developer, the lenders and the state.*
+
 ## 8.1 The contract map
 
 A hydro IPP sits at the centre of about ten contracts.
@@ -654,6 +712,8 @@ Kasiri's contract set is incomplete: the PPA and implementation agreement are ag
 This chapter supports the decision on how to contract the construction, and therefore who takes ground and delay risk, at what price. In hydro the contract structure is a financing decision, because the largest cost risk is underground and lenders will size their comfort to whoever carries it.
 
 *Place in the analytical chain: construction, the second of the three investments.*
+
+*Who must accept the answer: the developer and the lenders.*
 
 ## 9.1 Three structures
 
@@ -725,6 +785,8 @@ This chapter supports two decisions: how large the contingency should be, and ho
 
 *Place in the analytical chain: construction, continued; the budget and the money behind it.*
 
+*Who must accept the answer: the developer and the lenders.*
+
 ## 10.1 Total uses
 
 Lenders and sponsors fund total uses, not plant cost. For Kasiri, in nominal terms:
@@ -760,6 +822,8 @@ With the financing package locked at its base-case terms, the model tests two ov
 | Two-year delay | 24 | 10.1% | 1.55x |
 
 With the debt locked, an overrun falls on equity. The DSCR barely moves, because debt service is fixed; the financing gap grows, because someone has to pay for the extra cost. That gap is the number that matters. Unless the sponsors have committed standby equity, or the lenders have provided a standby facility, an overrun of that size stops construction.
+
+African projects show the same pattern in practice. Bujagali in Uganda cost about USD 862 million against about USD 582 million for the 2001 design, an increase of about 48 percent driven by re-procurement and escalation [A2:S48; A2:S52]. Bui in Ghana rose from about USD 622 million to about USD 790 million, some 27 percent [A1:S38]. At Rusumo Falls, shared by Rwanda, Tanzania and Burundi, the civil works rose by about 47 percent and the cost of resettlement doubled [A2:S16]. Delay is as common as overrun. Karuma in Uganda, contracted in 2013 for five years of construction, was commissioned in 2024 [A2:S40; A2:S41], and Kafue Gorge Lower in Zambia reached full operation about three years late, with about USD 312 million of capitalised interest in a total cost of about USD 2.0 billion [A1:S59; A1:S60]. Most of these were public projects, so the overrun fell on the utility or the budget. In a private project with locked debt it falls first on the sponsors, which is why the financing gap in the table above is the number to negotiate.
 
 ## 10.4 Funding overruns
 
@@ -797,6 +861,8 @@ This chapter supports the decision on how the plant will be operated and maintai
 
 *Place in the analytical chain: operations, the start of the third investment.*
 
+*Who must accept the answer: the lenders and the developer.*
+
 ## 11.1 Who operates the plant
 
 Three models are common. The owner operates the plant with its own staff, which keeps control and knowledge but requires a team the developer may not have. An operations and maintenance contractor runs the plant under a contract with availability targets and incentives. The equipment manufacturer provides a long-term service agreement for the turbines and generators, usually alongside one of the first two. Lenders care less about the model than about the incentives: who pays when the plant is unavailable.
@@ -819,6 +885,10 @@ Post-commissioning civil problems are not rare. At Reventazón in Costa Rica, sp
 
 Construction all-risks and delay-in-start-up insurance protect the project during construction; operational all-risks and business interruption cover protect it afterwards. Hydro plants are exposed to floods, landslides and sediment, and insurers price those risks by site. The model carries insurance as a percentage of capital cost; the insurance adviser's report replaces it before close.
 
+## 11.6 Defects after commissioning
+
+Recent African plants show that the operating phase can start with the construction phase unfinished. Uganda's Isimba plant was reported to have about 700 defects at handover [A2:S34; A2:S35], and the contractor at Karuma asked for an additional Shs 148 billion to repair defects [A2:S42]. Both were state-financed plants built under contractor-financed packages. For a private project, the protections are contractual: a defects liability period long enough to cover a full wet and dry cycle, retention and a performance bond that survive commissioning, an owner's engineer with authority to refuse take-over, and a lenders' adviser who reports on the punch list before completion is certified.
+
 ## Points for the investment and credit committees
 
 1. Ask who pays for unavailability under each operating contract, and compare with the tariff's exposure.
@@ -836,6 +906,8 @@ Construction all-risks and delay-in-start-up insurance protect the project durin
 This chapter supports the decision on how much senior debt the project can carry, at what tenor and on which generation case. The amount of debt sets the amount of equity, and the amount of equity, at the developer's cost of capital, sets the tariff the project needs. Debt sizing is therefore not a technical step after the commercial negotiation; it is part of it.
 
 *Place in the analytical chain: debt, the first link of the financing layer.*
+
+*Who must accept the answer: the lenders.*
 
 ## 12.1 Tenor
 
@@ -915,6 +987,8 @@ This chapter supports the decision on which lenders to approach, which guarantee
 
 *Place in the analytical chain: the lender group, between the debt sizing and the developer's returns.*
 
+*Who must accept the answer: the lenders and the state, which indemnifies most guarantees.*
+
 ## 13.1 Who lends to African hydro
 
 Development finance institutions lend most of the senior debt for private African hydro, often in clubs. Nachtigal's debt came from eleven development finance institutions and local banks, coordinated by IFC [A2:S6]. Small plants in Uganda were financed by FMO, the Emerging Africa Infrastructure Fund and Proparco, among others [DE:S39; DE:S53]. Commercial banks participate mainly through A/B loan structures, in which a development finance institution is the lender of record, and through local-currency tranches.
@@ -975,6 +1049,8 @@ Once a plant is built and has a record of operation, its debt can be refinanced 
 This chapter supports the decision on whether the project is investable for the developer, and at what price and stage the developer should bring in partners or sell. It is the chapter most often missing from hydro analysis, because the equity return at close is easy to compute and looks like the developer's return. It is not.
 
 *Place in the analytical chain: developer returns, which close the financing layer from the sponsor's side.*
+
+*Who must accept the answer: the developer.*
 
 ## 14.1 Three measures of the developer's return
 
@@ -1044,6 +1120,8 @@ This chapter supports the decision on what support to ask the state for, and whe
 
 *Place in the analytical chain: public obligations, the link that decides whether the arrangements behind bankability are affordable.*
 
+*Who must accept the answer: the state.*
+
 ## 15.1 Can the buyer pay?
 
 A project finance model usually assumes the buyer pays. In Sub-Saharan Africa that assumption needs testing. Transmission and distribution losses averaged about 15 percent of energy dispatched across the region, and about 23 percent excluding South Africa; bill collection ranged from about 58 to close to 100 percent [UT-02]. The power sector's quasi-fiscal deficit averaged about 1.5 percent of GDP [UT-02].
@@ -1100,6 +1178,8 @@ This chapter supports the decision every lender and investor makes before commit
 
 *Place in the analytical chain: stress, which brings the earlier links together for the people who carry the risk.*
 
+*Who must accept the answer: the developer, the lenders and the state.*
+
 ## 16.1 Who carries what
 
 The model maps sixteen risks against eight parties: government, developer, construction contractor, lender, utility, consumer, insurer and development finance institution. The allocation for a private IPP with an energy-only tariff differs from the earlier paper's PPP in one important way: the developer is the primary bearer of hydrology risk, because the tariff pays only for energy delivered.
@@ -1150,6 +1230,8 @@ Three results stand out.
 
 The river breaks the debt first. Under an energy-only tariff, a three-year drought at 55 percent of normal flow pushes the minimum DSCR to 0.69x. The reserve is drawn but does not cover the whole shortfall. A lender sizing on the ten-year P90 needs either a larger reserve, a cash sweep in wet years, or completion of a drought test before close.
 
+African experience gives both stresses a real shape. In 2024 the Zambezi River Authority cut the water allocated for generation at Kariba by about 47 percent [CL-04], and the output of Kariba North was reported to have fallen from 1,080 MW to about 166 MW [CL-05]. On the buyer side, Ghana's Electricity Company owed the Bui Power Authority about USD 612 million in March 2023 [A1:S40]. Neither event is a tail case for the region; both are recent.
+
 The buyer breaks the project only if the state steps aside. With a budget backstop, the offtaker stress costs the state and leaves the project whole; without one, the project defaults. The project's credit is therefore partly the state's credit, whatever the structure says.
 
 Construction overruns break the equity, not the debt. With the financing locked, an overrun at the reference-class mean leaves a financing gap of about USD 68 million that only standby equity or new money can fill.
@@ -1175,6 +1257,8 @@ Reverse stress asks how far a variable must move before the project fails. With 
 This chapter supports the final decision of development: go, conditional go or stop for financial close, and on what evidence. Financial close is not a signing ceremony. It is the moment when every condition the lenders set has been met and the first money can be drawn, and many projects that "signed" never get there.
 
 *Place in the analytical chain: financial close, the end of development and the start of construction.*
+
+*Who must accept the answer: the developer, the lenders and the state.*
 
 ## 17.1 What financial close means
 
@@ -1202,41 +1286,66 @@ The model turns those conditions into 23 gates, each marked critical or not, eac
 **Table 17.1. Kasiri River Hydro: financial close readiness gates**
 {: .cap}
 
-| # | Gate | Area | Critical | Status |
+| # | Gate | Question | Critical | Status |
 |---|---|---|---|---|
-| 1 | Flow record of at least 15 years and independent hydrology review | Resource | Yes | NOT MET (model test) |
-| 2 | P90 energy confirmed by the lenders' technical adviser | Resource | Yes | PARTIAL |
-| 3 | Bankable feasibility study signed off by the lenders' technical adviser | Design | Yes | NOT MET (model test) |
-| 4 | Geotechnical investigation sufficient for a baseline report | Design | Yes | PARTIAL |
-| 5 | ESIA approved and compliant with lender standards | E&S | Yes | NOT MET (model test) |
-| 6 | Resettlement action plan approved and funded | E&S | Yes | MET (model test) |
-| 7 | Generation licence and water-use permit granted | Permits | Yes | PARTIAL |
-| 8 | Land rights secured for all project areas | Permits | Yes | NOT MET |
-| 9 | PPA signed and approved by the regulator | Revenue | Yes | PARTIAL |
-| 10 | Implementation or concession agreement signed | Revenue | Yes | PARTIAL |
-| 11 | Grid connection agreement signed and transmission financed | Grid | Yes | MET (model test) |
-| 12 | Transmission in service no later than plant COD | Grid | No | MET (model test) |
-| 13 | EPC contract(s) signed with fixed price, completion date and LDs | Construction | Yes | PARTIAL |
-| 14 | O&M arrangements and owner's team in place | Operations | No | PARTIAL |
-| 15 | Payment security of at least 6 months in place | Offtaker | Yes | NOT MET (model test) |
-| 16 | Offtaker payment capacity at least 1.2x the PPA bill (worst of first 10 years) | Offtaker | Yes | MET (model test) |
-| 17 | Financing plan fully committed (no financing gap) | Finance | Yes | NOT MET (model test) |
-| 18 | Minimum DSCR at or above the sizing target in the base case | Finance | Yes | MET (model test) |
-| 19 | Equity commitments signed and equity IRR at or above target | Finance | Yes | NOT MET (model test) |
-| 20 | Political risk cover or guarantees signed | Risk | No | NO EVIDENCE |
-| 21 | Government support approved by the finance ministry; fiscal screen not HIGH | Public finance | Yes | MET (model test) |
-| 22 | Insurance programme placed (construction all risks, DSU) | Risk | No | PARTIAL |
-| 23 | Independent model audit completed | Finance | No | NO EVIDENCE |
+| 1 | Flow record of at least 15 years and independent hydrology review | Q1 | Yes | NOT MET (model test) |
+| 2 | P90 energy confirmed by the lenders' technical adviser | Q1 | Yes | PARTIAL |
+| 3 | Bankable feasibility study signed off by the lenders' technical adviser | Q1 | Yes | NOT MET (model test) |
+| 4 | Geotechnical investigation sufficient for a baseline report | Q1 | Yes | PARTIAL |
+| 5 | ESIA approved and compliant with lender standards | Q2 | Yes | NOT MET (model test) |
+| 6 | Resettlement action plan approved and funded | Q2 | Yes | MET (model test) |
+| 7 | Generation licence and water-use permit granted | Q2 | Yes | PARTIAL |
+| 8 | Land rights secured for all project areas | Q2 | Yes | NOT MET |
+| 9 | PPA signed and approved by the regulator | Q2 | Yes | PARTIAL |
+| 10 | Implementation or concession agreement signed | Q2 | Yes | PARTIAL |
+| 11 | Grid connection agreement signed and transmission financed | Q3 | Yes | MET (model test) |
+| 12 | Transmission in service no later than plant COD | Q3 | No | MET (model test) |
+| 13 | EPC contract(s) signed with fixed price, completion date and LDs | Q6 | Yes | PARTIAL |
+| 14 | O&M arrangements and owner's team in place | Q6 | No | PARTIAL |
+| 15 | Payment security of at least 6 months in place | Q7 | Yes | NOT MET (model test) |
+| 16 | Offtaker payment capacity at least 1.2x the PPA bill (worst of first 10 years) | Q7 | Yes | MET (model test) |
+| 17 | Financing plan fully committed (no financing gap) | Q5 | Yes | NOT MET (model test) |
+| 18 | Minimum DSCR at or above the sizing target in the base case | Q5 | Yes | MET (model test) |
+| 19 | Equity commitments signed and equity IRR at or above target | Q4 | Yes | NOT MET (model test) |
+| 20 | Political risk cover or guarantees signed | Q5 | No | NO EVIDENCE |
+| 21 | Government support approved by the finance ministry; fiscal screen not HIGH | Q7 | Yes | MET (model test) |
+| 22 | Insurance programme placed (construction all risks, DSU) | Q6 | No | PARTIAL |
+| 23 | Independent model audit completed | Q5 | No | NO EVIDENCE |
 
 *Note: Statuses marked as model tests are computed by the model; the others are evidence statuses entered for the case.*
 
 Kasiri meets 6 of the 23 gates. The decision reads "STOP: a critical gate is not met". Seven critical gates are not met: the flow record and its independent review, the bankable feasibility sign-off, an ESIA approved to lender standards, land rights, payment security of six months, a fully committed financing plan, and an equity return at target. Several others are partly met. None of them is a surprise for a project at Kasiri's stage, and each points to a specific task.
 
-## 17.4 Funds flow at close
+## 17.4 Reading the gates through the framework
+
+The 23 gates are not a flat list. Each tests one of the eight questions of the Hydro Readiness Framework set out in the Introduction, and each question has to be accepted by a particular party. Read that way, Kasiri's STOP tells each party what it is waiting for.
+
+
+**Table 17.2. Kasiri River Hydro: readiness by framework question**
+{: .cap}
+
+| Question | Must be accepted by | Gates | Met | Critical gates not met |
+|---|---|---|---|---|
+| Q1 Technically viable | Developer, lenders | 4 | 0 | 2 |
+| Q2 Developable | Developer, state | 6 | 1 | 2 |
+| Q3 Economic for the system | State | 2 | 2 | 0 |
+| Q4 Investable for the developer | Developer | 1 | 0 | 1 |
+| Q5 Bankable | Lenders | 4 | 1 | 1 |
+| Q6 Buildable on budget | Developer, lenders | 3 | 0 | 0 |
+| Q7 Affordable for buyer and state | State | 3 | 2 | 1 |
+| Q8 Ready to close | Developer, lenders, state | 23 | 6 | 7 |
+
+![Figure 17.1. Kasiri River Hydro: readiness map. Each square is one gate, grouped by framework question; the outline marks critical gates. Source: MODEL 7, sheet 30A_CLOSE_READINESS.](../src/figures/fig17_1_readiness_map.png)
+
+The map shows where the work is. The technical and development questions (Q1 and Q2) belong to the developer: four critical gates are open there, the flow record, the feasibility sign-off, the ESIA and land, and the remaining development budget pays for them. The investment question (Q4) and the financing gap under Q5 are one problem with two names: the tariff is slightly too low for the sponsors' target return. The state's questions are mostly answered: Q3 is met, and Q7 is met except for payment security. Construction (Q6) has no critical gate failing, but none met either, because the contracts are still drafts. One limitation should be stated plainly: Q3, whether the project is economic for the power system, is tested here only through the grid and transmission gates; a comparison with the utility's least-cost plan sits outside the model and should be added to the evidence file.
+
+African projects show how long the path from mandate to close can be, and that it can stop. Kikagati in Uganda, a small private plant, reached financial close in 2019 with a 16-year loan [DE:S53]. Ruzizi III, a 206 MW regional project for the Democratic Republic of Congo, Rwanda and Burundi, has been under preparation for many years, and in 2025 the European Investment Bank was reported to be reviewing its financing because of the war in eastern Congo [A2:S22]. Gates measure readiness; they cannot remove a risk that no party is able to carry.
+
+## 17.5 Funds flow at close
 
 At close, the sources and uses table becomes a funds flow: who pays what into which account on which day. Development costs are reimbursed to the developer within the agreed cap, the development premium is paid, fees are paid, the debt service reserve is funded, and the first construction payments are made. The model's sources and uses on *17_PROJECT_FINANCE* are the starting point; a funds flow memorandum agreed by all parties replaces it.
 
-## 17.5 The investment memo
+## 17.6 The investment memo
 
 The decision to close is recorded in two memos: the sponsor's investment committee paper and the lender's credit paper. Annex H gives a template. Both should place the readiness decision next to the recommendation, list the open gates as conditions, and show the project's results on the success path, under stress and on the public side.
 
@@ -1257,6 +1366,8 @@ The decision to close is recorded in two memos: the sponsor's investment committ
 This chapter supports two decisions taken together, as they usually are in practice: whether a co-developer should fund the rest of Kasiri's development, and on what terms, and whether a group of development finance lenders should start due diligence. It walks the case through the analytical chain of the book and ends with a recommendation and the conditions for moving the readiness decision from STOP to CONDITIONAL GO.
 
 *Place in the analytical chain: the whole chain, applied to one project.*
+
+*Who must accept the answer: the developer, the lenders and the state.*
 
 ## 18.1 The ask
 
@@ -1345,7 +1456,24 @@ The readiness sheet reads "STOP: a critical gate is not met", with 6 of 23 gates
 
 A project that completes this programme reaches CONDITIONAL GO when every critical gate is met, and GO only when the remaining non-critical gates are too.
 
-## 18.7 Recommendation
+## 18.7 The verdict by party
+
+The framework asks each party its own question. On today's evidence, the three answers differ, and the recommendation follows from the difference.
+
+
+**Table 18.3. Kasiri River Hydro: the verdict by party**
+{: .cap}
+
+| Party | Its question | Answer today | What would change it |
+|---|---|---|---|
+| Developer | Q4: is it investable? | Not from reconnaissance (risk-weighted value USD −0.95 million); yes from permitting (position worth USD 1.28 million) | A tariff at the sponsors' target, a higher premium, or grant funding for studies |
+| Lenders | Q5: is it bankable? | On the base case, yes (minimum DSCR 1.53x); under a three-year drought, no (minimum DSCR 0.69x); financing gap USD 4.1 million | A larger reserve or cash sweep; standby equity; closing the gap through the tariff |
+| State | Q3 and Q7: is it economic and affordable? | The buyer can pay (6.0x cover in the worst early year) and the fiscal screen reads "LOW additional fiscal pressure", but the consolidated fiscal NPV is USD −28 million | Evidence that the tariff is below the utility's avoided cost; a decision on payment security |
+| All three | Q8: is it ready to close? | STOP: a critical gate is not met (6 of 23 gates) | The work programme in Table 18.2 |
+
+The table shows why the case is a negotiation and not a calculation. A higher tariff answers the developer's question and part of the lenders', and makes the state's harder. The recommendation therefore asks for the tariff question to be settled on evidence of the utility's avoided cost, not on the developer's required return alone.
+
+## 18.8 Recommendation
 
 To the co-developer: proceed, on three conditions. Commit the USD 3.8 million in three tranches, one each for permitting, the PPA and financing, each released on the success of the previous stage. Price the entry from the value of the position at the start of permitting, not from Tamarind's sunk costs, which implies a share of the value at close of about 62% at a 25 percent discount rate. Make the share adjustable for the tariff achieved in the PPA and for the development premium and reimbursement the lenders allow.
 
@@ -1353,7 +1481,7 @@ To the lenders: do not issue a mandate yet. Agree an indicative term sheet that 
 
 To the developer: settle the tariff question before the co-developer's share is fixed. On the model, the tariff that gives the target return in the IPP structure is about USD 116 per MWh, against 112. Bring an independent view of the utility's avoided cost to the negotiation, and test a drought reserve and a standby equity line in the model before the term sheet is discussed.
 
-## 18.8 What would change the recommendation
+## 18.9 What would change the recommendation
 
 The recommendation would change if the flow record under way showed a mean flow materially below the feasibility study's estimate; if the utility's finances deteriorated before the PPA was signed; if the construction contract came in above the reference-class mean; or if the ministry declined to provide any payment support. Each of these would lower the value of the position and the co-developer should be free to stop at the next tranche. It would also change, in the other direction, if a grant were found for the permitting studies or the tariff were agreed at the level the sponsors need.
 
@@ -1592,13 +1720,37 @@ This edition added the development module, the construction contracting module a
 
 ## Annex L. Sources and verification status
 
-Identifiers with two letters and a number (such as HY-08) refer to the research source database; identifiers with a prefix and S-number (such as DE:S1) refer to the numbered source lists of the research files: A1 and A2, African case files; INT, international benchmarks; DE, development evidence. Verification status records what the research team saw. Claims resting on a search summary only should be checked against the original before reliance.
+Identifiers with two letters and a number (such as HY-08) refer to the research source database; identifiers with a prefix and S-number (such as DE:S1) refer to the numbered source lists of the research files: A1 and A2, African case files; INT, international benchmarks; DE, development evidence; LIT, works compared in the front matter. Verification status records what the research team saw. Claims resting on a search summary only should be checked against the original before reliance.
 
 | ID | Source | Verification |
 |---|---|---|
+| A1:S1 | ENR, "Ethiopia Inaugurates $5B Renaissance Dam, Africa's Largest Hydropower Project". https://www.enr.com/articles/61317-ethiopia-inaugurates-5b-renaissance-dam-africas-largest-hydropower-project | Page or document opened |
+| A1:S38 | Graphic Online, "The power of Bui Dam". https://graphic.com.gh/features/opinion/the-power-of-bui-dam.html | Page or document opened |
+| A1:S40 | Ghana News Agency, "ECG owes BPA US$612 million to Chief Executive Officer" (31 Mar 2023). https://gna.org.gh/2023/03/ecg-owes-bpa-us612-million-chief-executive-officer/ | Page or document opened |
+| A1:S53 | BankTrack / International Rivers, "Gibe 3: African Development Bank and European Investment Bank out. Who's in?" (2010). https://www.banktrack.org/news/gibe_3_african_development_bank_and_european_investment_bank_out_who_s_in_ | Page or document opened |
+| A1:S54 | AidData, Project ID 105839: ICBC loan for Gibe III Hydro Power Generating Set Project. https://china.aiddata.org/projects/105839 | Page or document opened |
+| A1:S59 | African Energy, "Chinese contractors further delay Zambia's $2.3bn Kafue Gorge Lower" (Issue 459, 20 Apr 2022). https://www.africa-energy.com/news-centre/article/chinese-contractors-further-delay-zambias-23bn-kafue-gorge-lower | Page or document opened |
+| A1:S60 | African Energy, "Zambia cuts Kafue Gorge Lower cost to $2bn, enabling lower tariffs" (19 Dec 2023). https://www.africa-energy.com/news-centre/article/zambia-cuts-kafue-gorge-lower-cost-2bn-enabling-lower-tariffs | Page or document opened |
+| A2:S3 | World Bank , "Republic of Cameroon, Nachtigal Hydropower Project, Chair Summary" (19 Jul 2018), P157734; retrieved via the EWS mirror. https://ewsdata.rightsindevelopment.org/files/documents/34/WB-P157734.pdf | Opened; see research file |
+| A2:S6 | (search-result only) EDF , "EDF, IFC and the Republic of Cameroon sign final and binding agreements…" (lender list). https://www.edf.fr/en/edf/edf-ifc-and-the-republic-of-cameroon-sign-final-and-binding-agreements-for-the-construction-of-the-nachtigal-hydroelectric-dam-in-cameroon | Opened; see research file |
+| A2:S16 | World Bank , Restructuring Paper RES00514, "AFR RI-Regional Rusumo Falls Hydroelectric Project (P075941)" (2025). https://documents1.worldbank.org/curated/en/099031425175016420/pdf/P075941-6b9b2d48-2b91-41d5-bc03-4a588d5ae309.pdf | Opened; see research file |
+| A2:S20 | World Bank , "Ruzizi 3 Regional Hydropower Project (P178685), Concept Environmental and Social Review Summary" (22 Dec 2022). https://documents1.worldbank.org/curated/en/099340012222221781/pdf/P17868509cbf4c0cb08cce06954824c1b6f.pdf | Opened; see research file |
+| A2:S22 | Engineering News (Reuters) , "EIB reviews financing for $760m hydro project over DRC war" (13 Mar 2025). https://www.engineeringnews.co.za/article/eib-reviews-financing-for-760m-hydro-project-over-drc-war-2025-03-13 | Opened; see research file |
+| A2:S30 | Enerdata , "Tanzania commissions 2.1 GW Julius Nyerere hydropower plant". https://www.enerdata.net/publications/daily-energy-news/tanzania-commissions-21-gw-julius-nyerere-hydropower-plant.html | Opened; see research file |
+| A2:S34 | AidData (China's Global Development Footprint) , Project ID 36216, Isimba. https://china.aiddata.org/projects/36216 | Opened; see research file |
+| A2:S35 | NS Energy , "Isimba Hydropower Project, Uganda". https://www.nsenergybusiness.com/projects/isimba-hydropower-project-uganda/ | Opened; see research file |
+| A2:S40 | Eagle Online , "It's a milestone as Museveni commissions 600MW Karuma hydro power station" (26 Sep 2024). https://eagle.co.ug/2024/09/26/its-a-milestone-as-museveni-commissions-600mw-karuma-hydro-power-station | Opened; see research file |
+| A2:S41 | Renewable Energy World , "600 MW Karuma hydropower plant commissioned in Uganda". https://www.renewableenergyworld.com/news/600-mw-karuma-hydropower-plant-commissioned-in-uganda/ | Opened; see research file |
+| A2:S42 | Daily Monitor , "Karuma dam contractor wants additional Shs148b to fix defects". https://www.monitor.co.ug/uganda/news/national/karuma-dam-contractor-wants-additional-shs148b-to-fix-defects-5570110 | Opened; see research file |
+| A2:S45 | IFC , "Public-Private Partnership Stories: Uganda: Nyagak Hydro" (09/2016). https://www.ifc.org/content/dam/ifc/doc/2010/2016-uganda-nyagak-hydro-ppp-brief.pdf | Opened; see research file |
+| A2:S48 | World Bank / IFC , "Project Completion Note, Guarantee No. B-003-0-UG, IDA Partial Risk Guarantee… Bujagali Hydropower Project", Report No. 33722-UG (3 Oct 2005). https://documents1.worldbank.org/curated/en/655591468311069662/pdf/33722.pdf | Opened; see research file |
+| A2:S52 | The Independent (Uganda) , "Bujagali power expensive" (same as S37; cited for cost, lenders, tariff debate). https://independent.co.ug/bujagali-power-expensive | Opened; see research file |
+| A2:S53 | (search-result only) World Bank , "Indemnity Agreement (Partial Risk Guarantee for the Private Power Generation (Bujagali) Project) between IDA and Republic of Uganda", conformed copy (18 Jul 2007). https://documents1.worldbank.org/curated/en/316361468119086474/pdf/B01301UG1IA10CONFORMED.pdf | Opened; see research file |
+| A2:S57 | Engineering News , "Batoka Gorge hydroelectric scheme, Zambia and Zimbabwe to update" (29 Mar 2024). https://www.engineeringnews.co.za/article/batoka-gorge-hydroelectric-scheme-zambia-and-zimbabwe-2024-03-29 | Opened; see research file |
 | CL-01 | IHA with EBRD and World Bank Group (KGGTF) (2019). Hydropower Sector Climate Resilience Guide. Technical guide (launch page). https://www.hydropower.org/news/new-guide-to-help-hydropower-build-resilience-to-climate-change | Landing or summary page read |
 | CL-03 | Conway, Dalin, Landman, Osborn (Nature Energy 2:946-953) (2017). Hydropower plans in eastern and southern Africa increase risk of concurrent climate-related electricity supply disruption. Peer-reviewed article. https://www.lse.ac.uk/granthaminstitute/publication/hydropower-plans-eastern-southern-africa-increase-risk-concurrent-climate-related-electricity-supply-disruption/ | Search summary only |
 | CL-04 | The Energy Industry Times (news) (2024). Kariba Dam water allocation for electricity generation cut in half. News (secondary). https://teitimes.com/post/kariba-dam-water-allocation-for-electricity-generation-cut-in-half | Search summary only |
+| CL-05 | Bloomberg via BNN Bloomberg (2024). Zambia Warns It May Shut Operation at Its Biggest Dam by October. News (secondary). https://bnnbloomberg.ca/investing/2024/08/01/zambia-warns-it-may-shut-operation-at-its-biggest-dam-by-october | Search summary only |
 | DE:BENCH | Benchmark table for development model defaults, development evidence file (research note). Records where no public data were found. | Research note |
 | DE:S1 | IFC / World Bank (2015), *Hydroelectric Power: A Guide for Developers and Investors* (Fichtner). https://documents1.worldbank.org/curated/en/917841468188335073/pdf/99392-WP-Box393199B-PUBLIC-Hydropower-Report.pdf | Opened; see research file |
 | DE:S2 | L. Shah, IFC InfraVentures, "Early Stage Risk Capital for Renewable Energy", Asia Clean Energy Forum, June 2015. https://asiacleanenergyforum.adb.org/wp-content/uploads/2015/06/Lopa-Shah-ACEF-Presentation_Submitted.pdf | Opened; see research file |
@@ -1636,6 +1788,11 @@ Identifiers with two letters and a number (such as HY-08) refer to the research 
 | HY-15 | World Bank (ESF guidance) (n.d. (c. 2021, per document IDs)). Good Practice Note on Dam Safety. Good practice note. https://www.worldbank.org/en/topic/watersupply/publication/good-practice-note-on-dam-safety-new-guidance-on-managing-risks-associated-with-dams | Search summary only |
 | INT:S8 | Agência Pública, "Belo Monte está de pé mas precisa de mais dinheiro para ficar pronta" (Nov 2017): https://apublica.org/2017/11/belo-monte-esta-de-pe-mas-precisa-de-mais-dinheiro-para-ficar-pronta/ | Opened; see research file |
 | INT:S22 | CRHoy, "ICE asegura que reparaciones en planta Reventazón están al 71%" (May 2018): https://crhoy.com/nacionales/ice-asegura-que-reparaciones-en-planta-reventazon-estan-al-71/ | Opened; see research file |
+| LIT:S1 | IFC (2015), *Hydroelectric Power: A Guide for Developers and Investors*, prepared by Fichtner Management Consulting for IFC. The guide states that its technical sections "are more detailed and can be used as reference, while the permitting/licensing and financing sections are intended more as a high-level review." https://documents1.worldbank.org/curated/en/917841468188335073/pdf/99392-WP-Box393199B-PUBLIC-Hydropower-Report.pdf (full text read) | Opened; see research file |
+| LIT:S2 | Hydro Finance Handbook (2008), companion document to the Hydro Finance Tutorial, HydroVision 2008; covers the financial aspects of hydropower development and the steps towards financial closing. Publisher and authors not confirmed. https://www.researchgate.net/publication/304749148 (search-result only) | Opened; see research file |
+| LIT:S3 | Markkanen, S. and Plummer Braeckman, J. (2019), *Financing Sustainable Hydropower Projects in Emerging Markets: An Introduction to Concepts and Terminology*, University of Cambridge Institute for Sustainability Leadership, FutureDAMS working paper. https://www.cisl.cam.ac.uk/node/1709 (page read) | Opened; see research file |
+| LIT:S4 | Nongena, Y. (2026), *Project Financing Electricity Projects with Senior Debt: A Practical Guide*, Springer, ISBN 9783032162090; publication date and page count differ between sources. https://www.jpc.de/jpcng/books/detail/-/art/yandisa-nongena-project-financing-electricity-projects-with-senior-debt/hnum/12716557 (page read) | Opened; see research file |
+| LIT:S5 | Gatti, S. (2023), *Project Finance in Theory and Practice*, 4th edition, Academic Press (Elsevier). https://shop.elsevier.com/books/project-finance-in-theory-and-practice/gatti/978-0-323-98360-0 (page read) | Opened; see research file |
 | PF-01 | World Bank (n.d.). World Bank Guarantees Program. Program page. https://www.worldbank.org/en/programs/guarantees-program | Search summary only |
 | PF-02 | World Bank Treasury (n.d.). IBRD Financial Products: Credit Enhancement. Product page. https://treasury.worldbank.org/en/about/unit/treasury/ibrd-financial-products/creditenhancement | Search summary only |
 | PF-03 | MIGA (n.d.). Non-Honoring of Sovereign Financial Obligations (NHSFO) / Non-honoring of public debt. Product page. https://www.miga.org/product/non-honoring-public-debt | Search summary only |

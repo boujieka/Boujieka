@@ -17,7 +17,7 @@ os.chdir(ROOT)
 SRC, OUT = "book7/build/book7_resolved.md", "book7/build/Hydropower_Development_and_Finance.docx"
 GREEN, GOLD, INK, MUTED = RGBColor(0x0B, 0x30, 0x20), RGBColor(0xB0, 0x7C, 0x0F), RGBColor(0x1D, 0x1D, 0x1D), RGBColor(0x66, 0x66, 0x66)
 FONT = "Arial"
-TITLE, SUB = "Hydropower Development and Finance", "Developing, structuring and financing hydropower projects from site to financial close"
+TITLE, SUB = "Hydropower Development and Finance", "From River to Financial Close: A Developer, Lender and Government Framework for Hydropower Projects in Africa"
 AUTHOR = "Emmanuel Boujieka Kamga"
 
 doc = Document()
@@ -97,7 +97,7 @@ p = doc.add_paragraph(); add_runs(p, SUB, 14, INK)
 p = doc.add_paragraph(); p.paragraph_format.space_before = Pt(40); add_runs(p, "AUTHOR & IDEATION", 8.5, GOLD, True)
 p = doc.add_paragraph(); add_runs(p, AUTHOR, 14, GREEN, True)
 p = doc.add_paragraph(); add_runs(p, f"Africa Energy Finance  |  Business & Financial Models  |  {date.today():%B %Y}", 9.5, MUTED)
-p = doc.add_paragraph(); add_runs(p, "First edition, version 0.1 (pre-publication review draft)", 9.5, MUTED)
+p = doc.add_paragraph(); add_runs(p, "First edition, version 0.2 (pre-publication review draft)", 9.5, MUTED)
 p = doc.add_paragraph(); p.paragraph_format.space_before = Pt(80)
 add_runs(p, f"© {date.today().year} {AUTHOR}. All rights reserved. Decision support material; not investment, legal, tax or accounting advice. "
             "The default model inputs and the Kasiri River Hydro case are fictional and illustrative.", 8, MUTED)

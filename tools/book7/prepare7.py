@@ -83,13 +83,20 @@ assert "{{" not in text, re.findall(r"\{\{[^}]*\}\}", text)[:5]
 # ---------------- generated tables ----------------
 ws = wb["30A_CLOSE_READINESS"]
 g = ["Table: Table 17.1. Kasiri River Hydro: financial close readiness gates",
-     "| # | Gate | Area | Critical | Status |", "|---|---|---|---|---|"]
+     "| # | Gate | Question | Critical | Status |", "|---|---|---|---|---|"]
 r = 5
 while isinstance(ws.cell(r, 1).value, int):
     crit = "Yes" if ws.cell(r, 4).value == "Y" else "No"
     test = "" if ws.cell(r, 5).value != "model test" else " (model test)"
-    g.append(f"| {ws.cell(r, 1).value} | {ws.cell(r, 2).value} | {ws.cell(r, 3).value} | {crit} | {ws.cell(r, 6).value}{test} |")
+    q = str(ws.cell(r, 8).value or "").split(" ")[0]
+    g.append(f"| {ws.cell(r, 1).value} | {ws.cell(r, 2).value} | {q} | {crit} | {ws.cell(r, 6).value}{test} |")
     r += 1
+rf = next(rr for rr in range(r, r + 30) if str(ws.cell(rr, 1).value or "").startswith("HYDRO READINESS FRAMEWORK")) + 2
+fw = ["Table: Table 17.2. Kasiri River Hydro: readiness by framework question",
+      "| Question | Must be accepted by | Gates | Met | Critical gates not met |", "|---|---|---|---|---|"]
+for rr in range(rf, rf + 8):
+    fw.append(f"| {ws.cell(rr, 2).value} | {ws.cell(rr, 3).value} | {ws.cell(rr, 4).value} | {ws.cell(rr, 5).value} | {ws.cell(rr, 6).value} |")
+text = text.replace("%%FRAMEWORK7", "\n".join(fw))
 g.append("Note: Statuses marked as model tests are computed by the model; the others are evidence statuses entered for the case.")
 text = text.replace("%%GATES7", "\n".join(g))
 
@@ -114,7 +121,7 @@ for line in open("research/source_database.md", encoding="utf8"):
         SDV[cl[0]] = cl[-1]
 SD = {row["id"]: row for row in csv.DictReader(open("research/source_database.csv", encoding="utf8"))}
 CASEFILES = {"A1": "research/case_studies/africa_part1.md", "A2": "research/case_studies/africa_part2.md",
-             "INT": "research/case_studies/international_benchmarks.md", "DE": "research/hydro_development_evidence.md"}
+             "INT": "research/case_studies/international_benchmarks.md", "DE": "research/hydro_development_evidence.md", "LIT": "research/book7_positioning_sources.md"}
 CS = {}
 for k, p in CASEFILES.items():
     for line in open(p, encoding="utf8"):
@@ -147,14 +154,14 @@ def entry(cid):
 
 
 cited = []
-for m in re.finditer(r"\[((?:[A-Z]{2,3}(?::S\d+[a-z]?|-\d{2}|:BENCH)|CI)(?:;\s*(?:[A-Z]{2,3}(?::S\d+[a-z]?|-\d{2}|:BENCH)|CI))*)\]", text):
+for m in re.finditer(r"\[((?:[A-Z][A-Z0-9]{1,2}(?::S\d+[a-z]?|-\d{2}|:BENCH)|CI)(?:;\s*(?:[A-Z][A-Z0-9]{1,2}(?::S\d+[a-z]?|-\d{2}|:BENCH)|CI))*)\]", text):
     for i in m.group(1).split(";"):
         i = i.strip()
         if i not in cited:
             cited.append(i)
 unknown = [i for i in cited if i not in SD and i not in CS and i not in ("DE:BENCH", "CI")]
 assert not unknown, unknown
-PREF = {"A1": "African cases, part 1", "A2": "African cases, part 2", "INT": "International benchmarks", "DE": "Development evidence"}
+PREF = {"LIT": "Works compared", "A1": "African cases, part 1", "A2": "African cases, part 2", "INT": "International benchmarks", "DE": "Development evidence"}
 
 
 def key(cid):
@@ -163,7 +170,7 @@ def key(cid):
     return (a, int(n.group(1)) if n else 0, n.group(2) if n else b)
 
 
-L = ["Identifiers with two letters and a number (such as HY-08) refer to the research source database; identifiers with a prefix and S-number (such as DE:S1) refer to the numbered source lists of the research files: A1 and A2, African case files; INT, international benchmarks; DE, development evidence. Verification status records what the research team saw. Claims resting on a search summary only should be checked against the original before reliance.",
+L = ["Identifiers with two letters and a number (such as HY-08) refer to the research source database; identifiers with a prefix and S-number (such as DE:S1) refer to the numbered source lists of the research files: A1 and A2, African case files; INT, international benchmarks; DE, development evidence; LIT, works compared in the front matter. Verification status records what the research team saw. Claims resting on a search summary only should be checked against the original before reliance.",
      "", "| ID | Source | Verification |", "|---|---|---|"]
 for cid in sorted(cited, key=key):
     e, st = entry(cid)
