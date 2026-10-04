@@ -267,4 +267,16 @@ EN = {
     # Pied de page
     "TasetyGrid est un projet en conception. Ce n'est pas un service officiel de l'État camerounais et il n'est affilié à aucune administration citée.":
         "TasetyGrid is a project at the design stage. It is not an official service of the Cameroonian State and is not affiliated with any administration mentioned.",
+
+    # Atlas pays par pays
+    '>Atlas pays</a>': '>Country atlas</a>',
+    '>Atlas pays par pays</p>': '>Country-by-country atlas</p>',
+    '>Choisissez un pays, voyez ses infrastructures</h2>': '>Pick a country, see its infrastructure</h2>',
+    "La carte réunit les frontières, les régions, les routes, le rail, les aéroports, les ports et les villes du pays choisi. Le tableau de bord montre le format des résultats par secteur.":
+        "The map brings together the borders, regions, roads, rail, airports, ports and cities of the chosen country. The dashboard shows the format of results by sector.",
+    '>Pays</label>': '>Country</label>',
+    'data-chargement="Chargement de la liste des pays…"': 'data-chargement="Loading the list of countries…"',
+    'data-erreur="Les données n\'ont pas pu être chargées. Réessayez avec une connexion."': 'data-erreur="The data could not be loaded. Try again with a connection."',
+    '<option value="">Chargement…</option>': '<option value="">Loading…</option>',
+    '>Cette section demande JavaScript.</p>': '>This section needs JavaScript.</p>',
 }

@@ -2,9 +2,9 @@
    - Pages HTML : réseau d'abord (contenu à jour), cache en secours.
    - Fichiers statiques et polices : cache d'abord, mis à jour en arrière-plan.
    La version change à chaque build : les anciens caches sont supprimés. */
-const VERSION = "206fb51c142d";
+const VERSION = "d38eb9ff134f";
 const CACHE = "tasetygrid-" + VERSION;
-const PRECACHE = ["./", "./en/", "icons/apple-touch-icon.png", "icons/icon-192.png", "icons/icon-512.png", "icons/maskable-512.png", "manifest.webmanifest"];
+const PRECACHE = ["./", "./en/", "atlas/atlas-dashboard.js", "atlas/atlas-map.css", "atlas/atlas-map.js", "atlas/data/CMR.json", "atlas/data/index.json", "icons/apple-touch-icon.png", "icons/icon-192.png", "icons/icon-512.png", "icons/maskable-512.png", "manifest.webmanifest"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE).then((c) => c.addAll(PRECACHE)).then(() => self.skipWaiting()));

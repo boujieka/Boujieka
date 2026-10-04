@@ -25,7 +25,7 @@ from i18n_en import EN  # noqa: E402
 
 # Indices de français restant dans la page anglaise (hors noms propres et sigles)
 FRANCAIS = re.compile(r"[éèêàùçôîœ]|\b(le|la|les|des|du|une|est|et|pour|avec|sans|dans)\b", re.I)
-AUTORISE = ("Ta-Sety", "MINDCAF", "ARDFC", "AJPTER", "RGPH", "RGAE", "Kodya", "KODYA", "kodya", "tꜣ-stj")
+AUTORISE = ("Afrique", "Antarctique", "Asie", "Amérique", "Océanie", "Océans", "Ta-Sety", "MINDCAF", "ARDFC", "AJPTER", "RGPH", "RGAE", "Kodya", "KODYA", "kodya", "tꜣ-stj")
 
 
 def inner(svg_text):
@@ -102,17 +102,37 @@ MANIFESTE = {
 def ecrire_pwa(public):
     """Manifeste, icônes et service worker (versionné par le contenu du site)."""
     shutil.copytree(ROOT / "static" / "icons", public / "icons", dirs_exist_ok=True)
+    cible = public / "atlas"
+    cible.mkdir(parents=True, exist_ok=True)
+    for f in ("atlas-map.js", "atlas-map.css", "atlas-dashboard.js"):
+        shutil.copy2(ROOT / "static" / f, cible / f)
+    shutil.copytree(ROOT / "static" / "data", cible / "data", dirs_exist_ok=True)
     (public / "manifest.webmanifest").write_text(json.dumps(MANIFESTE, ensure_ascii=False, indent=2), encoding="utf-8")
     fichiers = sorted(p for p in public.rglob("*") if p.is_file() and p.name != "sw.js")
     empreinte = hashlib.sha256()
     for f in fichiers:
         empreinte.update(f.relative_to(public).as_posix().encode())
         empreinte.update(f.read_bytes())
-    precache = ["./", "./en/"] + [f.relative_to(public).as_posix() for f in fichiers if f.name != "index.html"]
+    # Les fichiers par pays (≈ 10 Mo) ne sont pas préchargés : ils entrent dans le cache à la première consultation.
+    def precharge(f):
+        r = f.relative_to(public).as_posix()
+        return f.name != "index.html" and not (r.startswith("atlas/data/") and r not in ("atlas/data/index.json", "atlas/data/CMR.json"))
+    precache = ["./", "./en/"] + [f.relative_to(public).as_posix() for f in fichiers if precharge(f)]
     sw = (ROOT / "sw.template.js").read_text(encoding="utf-8")
     sw = sw.replace("{{VERSION}}", empreinte.hexdigest()[:12]).replace("{{PRECACHE}}", json.dumps(precache))
     (public / "sw.js").write_text(sw, encoding="utf-8")
     return len(precache)
+
+
+ATLAS = re.compile(r"<!--ATLAS-->.*?<!--/ATLAS-->\n?", re.S)
+
+
+def atlas(html, racine):
+    """Avec `racine` (site statique) : garde la carte et les pays, chemins relatifs. Sans (Artifact, un seul
+    fichier, aucune ressource externe possible) : retire toute la section."""
+    if racine is None:
+        return ATLAS.sub("", html)
+    return html.replace("<!--ATLAS-->", "").replace("<!--/ATLAS-->", "").replace("{{ROOT}}", racine)
 
 
 def page(template, switch_href, switch_lang, switch_label):
@@ -136,11 +156,11 @@ def main():
 
     sorties = {
         # Artifact : liens relatifs entre les deux fichiers publiés
-        ROOT / "index.html": page(t, "en/index.html", "en", "EN"),
-        ROOT / "en" / "index.html": document(page(t_en, "../", "fr", "FR"), "en", "../", "fr"),
+        ROOT / "index.html": atlas(page(t, "en/index.html", "en", "EN"), None),
+        ROOT / "en" / "index.html": document(atlas(page(t_en, "../", "fr", "FR"), None), "en", "../", "fr"),
         # Site statique + PWA (liens relatifs)
-        ROOT / "public" / "index.html": document(page(t, "en/", "en", "EN"), "fr", "en/", "en", racine=""),
-        ROOT / "public" / "en" / "index.html": document(page(t_en, "../", "fr", "FR"), "en", "../", "fr", racine="../"),
+        ROOT / "public" / "index.html": document(atlas(page(t, "en/", "en", "EN"), ""), "fr", "en/", "en", racine=""),
+        ROOT / "public" / "en" / "index.html": document(atlas(page(t_en, "../", "fr", "FR"), "../"), "en", "../", "fr", racine="../"),
     }
     for chemin, html in sorties.items():
         chemin.parent.mkdir(parents=True, exist_ok=True)
