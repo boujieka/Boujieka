@@ -1,0 +1,230 @@
+{
+ "fetched": "2026-10-04",
+ "source": "Wikimedia Commons",
+ "countries": {
+  "BEN": {
+   "flag": {
+    "file": "ben-flag.svg",
+    "commons_title": "File:Flag of Benin.svg",
+    "requested": "File:Flag of Benin.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Benin.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Flag_of_Benin.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "sha256": "03e7fd78282d719338630eaf2301fa9c9dbcbf57a9639a20e8fbb43353409569",
+    "license": "Public domain",
+    "license_url": null,
+    "author": "Drawn by User:SKopp, rewritten by User:Gabbe",
+    "credit": "Own work",
+    "restrictions": "insignia"
+   },
+   "arms": {
+    "file": "ben-arms.svg",
+    "commons_title": "File:Coat of arms of Benin.svg",
+    "requested": "File:Coat of arms of Benin.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Benin.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/13/Coat_of_arms_of_Benin.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "sha256": "2e84acfcb4456309ee22dc9d1639c70f1673ebdc62edce63ef4e21c0efb9c778",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "author": "Tinynanorobots, Fenn-O-maniC",
+    "credit": "Own work",
+    "restrictions": "insignia"
+   }
+  },
+  "BFA": {
+   "flag": {
+    "file": "bfa-flag.svg",
+    "commons_title": "File:Flag of Burkina Faso.svg",
+    "requested": "File:Flag of Burkina Faso.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Burkina_Faso.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/31/Flag_of_Burkina_Faso.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "sha256": "ab95314190d43acb0825c7e05b4419b070cad6907d36e4e60903da590ddabb56",
+    "license": "Public domain",
+    "license_url": null,
+    "author": "Drawn by SKopp, rewritten by Gabbe and Андрей Перцев",
+    "credit": "Own work",
+    "restrictions": "communist|insignia"
+   },
+   "arms": {
+    "file": "bfa-arms.svg",
+    "commons_title": "File:Coat of arms of Burkina Faso (2025-present).svg",
+    "requested": "File:Coat of arms of Burkina Faso (2025-present).svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Burkina_Faso_(2025-present).svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Coat_of_arms_of_Burkina_Faso_%282025-present%29.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "sha256": "6aeeec516b07d52199fda671a614b20950b0c10e99044d332eb2201e012be28d",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "author": "This vector image includes elements that have been taken or adapted from this file:",
+    "credit": "https://gouvernement.gov.bf/",
+    "restrictions": "insignia"
+   }
+  },
+  "CIV": {
+   "flag": {
+    "file": "civ-flag.svg",
+    "commons_title": "File:Flag of Côte d'Ivoire.svg",
+    "requested": "File:Flag of Côte d'Ivoire.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Flag_of_C%C3%B4te_d%27Ivoire.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_C%C3%B4te_d%27Ivoire.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "sha256": "86101b1e1c4f9fe1caea981d5f81994c9939c005aef3d7af8c3a1c2620132736",
+    "license": "Public domain",
+    "license_url": null,
+    "author": "See File history below for details.",
+    "credit": "Own work",
+    "restrictions": "insignia"
+   },
+   "arms": {
+    "file": "civ-arms.svg",
+    "commons_title": "File:Coat of arms of Ivory Coast.svg",
+    "requested": "File:Coat of arms of Ivory Coast.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Ivory_Coast.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/95/Coat_of_arms_of_Ivory_Coast.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "sha256": "476416ceec310070767ab649918bb3fb2a09c389c4bf55de029bc042fe59cf47",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "author": "Prez001",
+    "credit": "Own work",
+    "restrictions": "insignia"
+   }
+  },
+  "GNB": {
+   "flag": {
+    "file": "gnb-flag.svg",
+    "commons_title": "File:Flag of Guinea-Bissau.svg",
+    "requested": "File:Flag of Guinea-Bissau.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Guinea-Bissau.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_Guinea-Bissau.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "sha256": "198766a42c30435f0683a57cdfc5c3948d8ce1d011950a4a7f587bfae185057f",
+    "license": "Public domain",
+    "license_url": null,
+    "author": null,
+    "credit": "Drawn by User:SKopp",
+    "restrictions": "insignia"
+   },
+   "arms": {
+    "file": "gnb-arms.svg",
+    "commons_title": "File:Emblem of Guinea-Bissau.svg",
+    "requested": "File:Emblem of Guinea-Bissau.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Emblem_of_Guinea-Bissau.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/06/Emblem_of_Guinea-Bissau.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "sha256": "f6a2036122cd0f87c969b19cb45c76124e32a4a32fc170495ca0144b694bc7b4",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "author": "DzWiki",
+    "credit": "Own work",
+    "restrictions": "insignia"
+   }
+  },
+  "MLI": {
+   "flag": {
+    "file": "mli-flag.svg",
+    "commons_title": "File:Flag of Mali.svg",
+    "requested": "File:Flag of Mali.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Mali.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/92/Flag_of_Mali.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "sha256": "ae9516c41b4bb5385e047fc66da8e0e3e3b9360a5850c36d4b5c21950be3853c",
+    "license": "Public domain",
+    "license_url": null,
+    "author": "SKopp",
+    "credit": "Drawn by SKopp",
+    "restrictions": "insignia"
+   },
+   "arms": {
+    "file": "mli-arms.svg",
+    "commons_title": "File:Coat of arms of Mali.svg",
+    "requested": "File:Coat of arms of Mali.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Mali.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Coat_of_arms_of_Mali.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "sha256": "b6c10aea5f80cad20ad55f6bdb7f3863cb3c384db4a336b13ea0e0ed83e50ac0",
+    "license": "Public domain",
+    "license_url": null,
+    "author": "Unknown, vectorized by Perhelion",
+    "credit": "Modified version of File:Seal of Mali (1961-1982).svg, according to File:Mali coat of arms.png, states-world.com koulouba.pr.ml",
+    "restrictions": "insignia"
+   }
+  },
+  "NER": {
+   "flag": {
+    "file": "ner-flag.svg",
+    "commons_title": "File:Flag of Niger.svg",
+    "requested": "File:Flag of Niger.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Niger.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Flag_of_Niger.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "sha256": "841f8f45796be4e970b29b790eb198bd666335c03393147d2a1e7838c37ee2ce",
+    "license": "Public domain",
+    "license_url": null,
+    "author": "Made by: Philippe Verdy User:verdy_p, see also fr:Utilisateur:verdy_p.",
+    "credit": "The flag of Niger often has the unusual 7:6 proportions. The three bands have exactly the same size. For exact and complete coverage of the image, it is used as background. The central filled circle is at least 50% of the median band in diameter. 85% is used for better rendering at small sizes. For reference colors, see Flags of the world that define Pantone colors. For Pantone color conversion, please use ONLY the sRGB color profile (at reference gamma = 2.2 on CRT screen, without gamma correction by software or by the graphics display driver, as defined in IEC 61966-2.1, and with slope limit of 1/32, this limit affecting only the indices 1 to 14 in the 8-bit colorimetric component space 0 to 255): The \"burnt orange\" color in the top band and circle is Pantone(166), i.e. RGB(224,82,6) = #E05206 on sRGB CRT screen, or CMYK(0,65%,100%,0) for process coated print, BUT NOT light orange #FF7000 which is somewhere between Pantone(130C) and Pantone(151), and is even lighter than X11 orange! See https://web.archive.org/web/20060207090052/http://www.seoconsultants.com/css/colors/conversion/100/ The central white band is plain D65 reference white = RGB(255,255,255) = #FFFFFF. The green color in the bottom band is Pantone(361), i.e. RGB(13,176,43) = #0DB02B on sRGB CRT screen, or CMYK(76%,0,91%,0) for process coated print, BUT NOT grass green #36A100 which too burnt and more like Pantone(369)! See https://web.archive.org/web/20060207090040/https://www.seoconsultants.com/css/colors/conversion/300/",
+    "restrictions": "insignia"
+   },
+   "arms": {
+    "file": "ner-arms.svg",
+    "commons_title": "File:Coat of arms of Niger.svg",
+    "requested": "File:Coat of arms of Niger.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Niger.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/03/Coat_of_arms_of_Niger.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "sha256": "6e93e3323d18cc7df750bbc2223b290e9c860b0e22fd68e3218f62904b35a842",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "author": "Pbroks13 (talk)",
+    "credit": "based on File:Coat of Arms of Niger.gif",
+    "restrictions": "insignia"
+   }
+  },
+  "SEN": {
+   "flag": {
+    "file": "sen-flag.svg",
+    "commons_title": "File:Flag of Senegal.svg",
+    "requested": "File:Flag of Senegal.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Senegal.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Flag_of_Senegal.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "sha256": "c9fb30d11cf7e230ee44d5cf663b7dce52a11c58798155b37fabec4158441497",
+    "license": "Public domain",
+    "license_url": null,
+    "author": "Original upload by Nightstallion",
+    "credit": "Original upload from Openclipart : Senegal. However, the current source code for this SVG file has almost nothing in common with the original upload.",
+    "restrictions": "insignia"
+   },
+   "arms": {
+    "file": "sen-arms.svg",
+    "commons_title": "File:Coat of arms of Senegal.svg",
+    "requested": "File:Coat of arms of Senegal.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Senegal.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Coat_of_arms_of_Senegal.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "sha256": "a4035552231767efd5139f0d8a4aee92767a4dac932c0283c4d7e245d8c799a0",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "author": null,
+    "credit": "Own work",
+    "restrictions": "insignia"
+   }
+  },
+  "TGO": {
+   "flag": {
+    "file": "tgo-flag.svg",
+    "commons_title": "File:Flag of Togo.svg",
+    "requested": "File:Flag of Togo.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Togo.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/68/Flag_of_Togo.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "sha256": "f31b0ce8ca32d59d1d9b9e0f9a0e86820c5f3efc219658f3ca60555d35e651e5",
+    "license": "Public domain",
+    "license_url": null,
+    "author": "See File history below for details.",
+    "credit": "BASED ON THIS SOURCE: Flags of the World - Togo. See also: Vexilla Mundi - Togo, which gives the ratio as 3:2. Znamierowski, Alfred. 2019. The World Encyclopedia of Flags: An Illustrated Guide to International Flags, Banners, Standards and Ensigns. Lorenz Books. (page 219) Dk. 2021. Complete Flags of the World: The Ultimate Pocket Guide. National Geographic Books. (page 131)",
+    "restrictions": "insignia"
+   },
+   "arms": {
+    "file": "tgo-arms.svg",
+    "commons_title": "File:Armoiries du Togo.svg",
+    "requested": "File:Armoiries du Togo.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Armoiries_du_Togo.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Armoiries_du_Togo.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "sha256": "c531fcbd21f17e406c0fbcf8a02796dab205bc6535fb2e24169948a1e8723089",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Edem Fiadjoe",
+    "credit": "Government websites, social media and publications. Examples: 1, 2 and 3.",
+    "restrictions": ""
+   }
+  }
+ }
+}

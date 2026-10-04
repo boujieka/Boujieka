@@ -68,7 +68,7 @@ def test_preview_has_no_country_pages_and_complete_has_them(lang):
     rows = [row(country=c, alloc=10e9, sub=12e9, yld=7) for c in ("SEN", "CIV")]
     prev = report.render((2026, 3), rows, date(2026, 10, 4), lang, "preview", "https://example.org/buy", {}, embed=False)
     full = report.render((2026, 3), rows, date(2026, 10, 4), lang, "complete", None, {}, embed=True)
-    assert prev.count('class="page"') + prev.count('class="page ') == 4  # cover, summary, countries, method
+    assert prev.count('class="page"') + prev.count('class="page ') == 5  # cover, summary, countries, method, credits
     assert full.count('class="chead"') == 2 and "https://www.umoatitres.org/x.pdf" in full
     assert "https://example.org/buy" in prev and "example.org" not in full
     assert "x.pdf" not in prev  # source list and operations stay in the complete edition

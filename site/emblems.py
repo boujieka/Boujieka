@@ -58,7 +58,10 @@ def _api(title: str) -> dict:
 
 
 def _text(html: str | None) -> str | None:
-    return re.sub(r"\s+", " ", unescape(re.sub(r"<[^>]+>", "", html))).strip() if html else None
+    if not html:
+        return None
+    html = re.sub(r'<span style="display: ?none;?">.*?</span>', "", html)  # hidden duplicates
+    return re.sub(r"\s+", " ", unescape(re.sub(r"<[^>]+>", "", html))).strip() or None
 
 
 def main() -> None:

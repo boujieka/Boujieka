@@ -83,7 +83,7 @@ T = {
                         "Variations : en % pour les montants, en points de base (pb) pour les rendements. « n.d. » : non disponible dans les données vérifiées."],
         "legal": "Publication indépendante de Cartouche · African Bond Intelligence. Elle n'émane d'aucun État, ni de la BCEAO, ni d'UMOA-Titres, et n'est approuvée par aucun d'eux. Les drapeaux et armoiries sont reproduits uniquement pour identifier les pays. Ce document est informatif et ne constitue ni un conseil en investissement ni une recommandation.",
         "credits": "Crédits des emblèmes (Wikimedia Commons)", "flag": "Drapeau", "arms": "Armoiries",
-        "license": "Licence", "author": "Auteur", "unchanged": "Reproduits sans modification, à taille réduite.",
+        "license": "Licence", "author": "Auteur", "see_page": "voir la page Commons", "unchanged": "Reproduits sans modification, à taille réduite.",
         "lead": "Au {q}, les {k} États de l'UMOA ont levé {alloc} lors de {n} adjudications d'émission{delta}.",
         "lead_yld": " Le rendement moyen pondéré ressort à {y}{dy}.",
         "lead_top": " Premier émetteur : {c} ({s} du total).",
@@ -123,7 +123,7 @@ T = {
                         "Changes: % for amounts, basis points (bp) for yields. \"n/a\": not available in the verified data."],
         "legal": "Independent publication by Cartouche · African Bond Intelligence. It is not issued or endorsed by any State, the BCEAO or UMOA-Titres. Flags and coats of arms are shown only to identify the countries. This document is for information only and is neither investment advice nor a recommendation.",
         "credits": "Emblem credits (Wikimedia Commons)", "flag": "Flag", "arms": "Coat of arms",
-        "license": "Licence", "author": "Author", "unchanged": "Reproduced unmodified, at reduced size.",
+        "license": "Licence", "author": "Author", "see_page": "see the Commons page", "unchanged": "Reproduced unmodified, at reduced size.",
         "lead": "In {q}, the {k} WAEMU States raised {alloc} in {n} issuance auctions{delta}.",
         "lead_yld": " The weighted average yield was {y}{dy}.",
         "lead_top": " Largest issuer: {c} ({s} of the total).",
@@ -373,7 +373,7 @@ h1 { font-size:30pt; line-height:1.1; } h2 { font-size:17pt; border-bottom:2px s
 .cover .q { font-family:Marcellus, Georgia, serif; font-size:40pt; color:var(--gold); margin:6mm 0 2mm; }
 .cover .flags { display:grid; grid-template-columns:repeat(4,1fr); gap:8mm 6mm; margin-top:auto; margin-bottom:14mm; }
 .cover .flags figure { margin:0; text-align:center; font-size:9pt; color:#d9cfb8; }
-.cover .flags img { width:100%; aspect-ratio:3/2; object-fit:cover; border:1px solid rgba(255,255,255,.35); display:block; margin-bottom:4px; }
+.cover .flags img { height:26mm; width:auto; max-width:100%; border:1px solid rgba(255,255,255,.35); display:block; margin:0 auto 4px; }  /* true proportions: flags differ (2:1, 7:6, 3:2...) */
 .cover .edition { display:inline-block; border:1px solid var(--gold); color:var(--gold); padding:2px 10px; border-radius:2px; font-size:9pt; letter-spacing:.06em; text-transform:uppercase; }
 .cover .legal { color:#b9ae97; font-size:7.5pt; }
 .kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:10px 0 14px; }
@@ -386,9 +386,9 @@ table { width:100%; border-collapse:collapse; font-size:9pt; }
 th { text-align:left; font-weight:600; color:var(--muted); border-bottom:1.5px solid var(--ink); padding:4px 5px; font-size:8pt; }
 td { border-bottom:1px solid var(--line); padding:4px 5px; vertical-align:middle; }
 td.r, th.r { text-align:right; }
-td img.mini { width:24px; height:16px; object-fit:cover; vertical-align:middle; margin-right:6px; border:1px solid var(--line); }
+td img.mini { height:16px; width:auto; vertical-align:middle; margin-right:6px; border:1px solid var(--line); }
 .chead { display:flex; align-items:center; gap:14px; margin-bottom:10px; }
-.chead .flag { width:66px; height:44px; object-fit:cover; border:1px solid var(--line); }
+.chead .flag { height:44px; width:auto; border:1px solid var(--line); }
 .chead .arms { height:62px; width:auto; max-width:80px; object-fit:contain; }
 .chead h2 { flex:1; margin:0; border:none; padding:0; font-size:22pt; }
 .charts { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:6px 0; }
@@ -447,6 +447,14 @@ def lead(q, cur, prev, by_country, lang) -> str:
         c, v = ranked[0]
         s += t["lead_top"].format(c=NAMES[c][lang], s=fmt_pct(Decimal(v) / cur["alloc"] * 100, lang, 1))
     return f'<p class="lead">{escape(s)}</p>'
+
+
+def author(e: dict, t: dict) -> str:
+    """Author as Commons states it; a pointer to the page when Commons gives no usable name."""
+    a = (e.get("author") or "").strip()
+    if not a or a.lower().startswith(("see ", "this vector image")):
+        return t["see_page"]
+    return a[:120]
 
 
 def notes(st: dict, t: dict) -> str:
@@ -566,11 +574,12 @@ def render(q, rows, as_of: date, lang: str, edition: str, purchase_url: str | No
             e = em.get(c, {}).get(kind)
             if e:
                 cred.append(f'<tr><td>{escape(NAMES[c][lang])} — {escape(t[kind])}</td><td><a href="{escape(e["page"])}">{escape(e["commons_title"])}</a></td>'
-                            f'<td>{escape(e["license"] or "")}</td><td>{escape((e["author"] or "")[:120])}</td></tr>')
+                            f'<td>{escape(e["license"] or "")}</td><td>{escape(author(e, t))}</td></tr>')
     pages.append(f"""<section class="page"><h2>{escape(t["method"])}</h2>
 <ul class="tight">{meth}</ul>
 <p class="small">{escape(t["legal"])}</p>
-<h3>{escape(t["credits"])}</h3>
+{footer(q, ed_label, lang)}</section>
+<section class="page"><h2>{escape(t["credits"])}</h2>
 <p class="small muted">{escape(t["unchanged"])}</p>
 <table class="credits"><thead><tr><th></th><th>Commons</th><th>{escape(t["license"])}</th><th>{escape(t["author"])}</th></tr></thead><tbody>{"".join(cred)}</tbody></table>
 {footer(q, ed_label, lang)}</section>""")
