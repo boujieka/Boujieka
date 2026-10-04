@@ -74,13 +74,13 @@ wb.properties.creator = "Bankable Hydro"
 wb.properties.lastModifiedBy = "Bankable Hydro"
 wb.properties.title = "Bankable Hydro Integrated Bankability Model"
 SHEETS = [
-    "00_README", "01_CONTROL_PANEL", "02_PROJECT_INPUTS", "03_HYDROLOGY", "04_GENERATION",
-    "05_PLANT_CAPEX", "06_CONSTRUCTION", "07_OPEX", "08_TRANSMISSION", "09_GRID", "10_DEMAND",
+    "00_README", "01_CONTROL_PANEL", "01A_DEVELOPMENT", "02_PROJECT_INPUTS", "03_HYDROLOGY", "04_GENERATION",
+    "05_PLANT_CAPEX", "05A_CONTRACTING", "06_CONSTRUCTION", "07_OPEX", "08_TRANSMISSION", "09_GRID", "10_DEMAND",
     "11_OFFTAKER", "12_UTILITY", "13_REGULATION", "14_PPA", "15_TARIFF", "16_REVENUE",
     "17_PROJECT_FINANCE", "17A_STRUCTURES", "18_DEBT", "19_EQUITY", "20_CASH_FLOW", "21_TAX",
     "22_GOVERNMENT_SUPPORT", "23_GUARANTEES", "24_CONTINGENT_LIABILITIES", "25_FISCAL_IMPACT",
     "26_DEBT_SUSTAINABILITY", "27_SCENARIOS", "28_SENSITIVITY", "29_RISK_ALLOCATION",
-    "30_BANKABILITY", "31_CASE_STUDY", "32_DASHBOARD", "33_CHECKS",
+    "30_BANKABILITY", "30A_CLOSE_READINESS", "31_CASE_STUDY", "32_DASHBOARD", "33_CHECKS",
 ]
 WS = {s: wb.create_sheet(s) for s in SHEETS}
 
@@ -367,7 +367,7 @@ inp(ws, r, "p_climate", "Climate trend on mean flows", -0.03, "% / decade", "Ill
 r += 1
 section(ws, r, "EFFECTIVE LEVERS USED BY THE ENGINE"); r += 1
 calc(ws, r, "eff_flow", "Effective flow factor", "={case_flow}*(1+{fx_gen})", "x", "n3"); r += 1
-calc(ws, r, "eff_capex", "Effective CAPEX factor", "={case_capex}*(1+{st_capex}*{p_overrun})*(1+{fx_capex})", "x", "n3"); r += 1
+calc(ws, r, "eff_capex", "Effective CAPEX factor (overrun borne by owner per contracting structure)", "={case_capex}*(1+{st_capex}*{p_overrun}*{epc_owner})*(1+{fx_capex})", "x", "n3"); r += 1
 calc(ws, r, "eff_delay", "Effective construction delay", "={st_delay}*{p_delay}", "years", "int"); r += 1
 calc(ws, r, "eff_demg", "Demand growth adjustment", "={case_demg}", "pp", "pct"); r += 1
 calc(ws, r, "eff_dem", "Demand level factor", "=IF({st_demand}=1,{p_lowdem},1)", "x", "n3"); r += 1
@@ -467,7 +467,7 @@ ts(ws, r, "opyr", "Operating year", "#", "=IF([opflag]=1,#T#-{cons_eff},0)", "in
 r += 1
 calc(ws, r, "cons_eff", "Effective construction period", "={cons_years}+{eff_delay}", "years", "int"); r += 1
 calc(ws, r, "cod_year", "Commercial operation date (first full operating year)", "={start_year}+{cons_eff}", "year", "yr", out=True); r += 1
-calc(ws, r, "capex_real", "Plant CAPEX (real 2026), incl. case, overrun & delay costs", "={capex_base}*{eff_capex}*(1+{delay_cost}*{eff_delay})", "USDm", "m", out=True); r += 1
+calc(ws, r, "capex_real", "Plant CAPEX (real 2026), incl. case, overrun & delay costs", "={capex_base}*{eff_capex}*(1+{delay_cost}*{eff_delay}*{epc_owner_d})", "USDm", "m", out=True); r += 1
 r += 1
 section(ws, r, "TIMING FLAGS", ts=True); r += 1
 ts(ws, r, "t", "Period index t", "#", "=#T#", "int"); r += 1
@@ -498,10 +498,12 @@ items = [("cx_civil", "Civil works (dam/weir, intake, headrace, powerhouse)", 52
          ("cx_em", "Electro-mechanical (turbines, generators, switchyard)", 210),
          ("cx_es", "Environmental & social (RAP, livelihood, offsets)", 40),
          ("cx_eng", "Engineering, supervision, owner's engineer", 45),
-         ("cx_dev", "Development costs & owner's costs", 45)]
+         ("cx_own", "Owner's costs during construction", 15)]
 first = r
 for nm, lab, v in items:
     inp(ws, r, nm, lab, v, "USDm", "Fictional", "m"); r += 1
+calc(ws, r, "cx_dev", "Development costs reimbursed at financial close (from 01A_DEVELOPMENT)", "={dev_total}", "USDm", "m"); r += 1
+calc(ws, r, "cx_epcprem", "Contractor risk premium on civil, hydro-mechanical and E&M works (from 05A_CONTRACTING)", "=({cx_civil}+{cx_hm}+{cx_em})*{epc_prem}", "USDm", "m"); r += 1
 calc(ws, r, "cx_sub", "Subtotal before contingency", f"=SUM(C{first}:C{r-1})", "USDm", "m"); r += 1
 inp(ws, r, "cont", "Physical contingency", 0.12, "%", "Higher where geology uncertain", "pct", True); r += 1
 calc(ws, r, "capex_base", "Base plant CAPEX (real 2026)", "={cx_sub}*(1+{cont})", "USDm", "m", out=True); r += 1
@@ -994,7 +996,8 @@ r = 4
 section(ws, r, "A. FUNDING BASE & USES (nominal USDm)"); r += 1
 calc(ws, r, "u_capex", "Plant CAPEX (nominal)", "=[C:capex_nom]", "USDm", "m"); r += 1
 calc(ws, r, "u_tx", "Transmission CAPEX funded by project", "=SUMPRODUCT([RNG:tx_spend_prj],[RNG:consflag])", "USDm", "m", "Project-built transmission spend falling in the construction period"); r += 1
-calc(ws, r, "fund_base", "FUNDING BASE (CAPEX)", "={u_capex}+{u_tx}", "USDm", "m", out=True); r += 1
+calc(ws, r, "u_devprem", "Development premium paid to the developer at financial close", "={dev_prem}", "USDm", "m"); r += 1
+calc(ws, r, "fund_base", "FUNDING BASE (CAPEX + development premium)", "={u_capex}+{u_tx}+{u_devprem}", "USDm", "m", out=True); r += 1
 calc(ws, r, "u_idc", "Interest during construction (equity-funded)", "=[C:idc]", "USDm", "m"); r += 1
 calc(ws, r, "u_fee", "Upfront financing fees", "={upfront_fee}*({debt_c}+{debt_m})", "USDm", "m"); r += 1
 calc(ws, r, "u_dsra", "Initial DSRA funding", "=[C:dsra_init]", "USDm", "m"); r += 1
@@ -1113,7 +1116,7 @@ title(ws, "20 CASH FLOW — Construction funding, operating waterfall, unlevered
 r = 6
 section(ws, r, "A. CONSTRUCTION FUNDING", ts=True); r += 1
 ts(ws, r, "use_t", "Uses: CAPEX + project transmission + IDC + fees + DSRA", "USDm",
-   "=[capex_nom]+[tx_spend_prj]*[consflag]+[idc]+IF(#T#=1,{u_fee},0)+[dsra_init]", "m", total="sum"); r += 1
+   "=[capex_nom]+[tx_spend_prj]*[consflag]+[idc]+IF(#T#=1,{u_fee}+{u_devprem},0)+[dsra_init]", "m", total="sum"); r += 1
 ts(ws, r, "grant_t", "Grants drawn", "USDm", "={s_grant}*[share]", "m", total="sum"); r += 1
 ts(ws, r, "debt_t", "Senior debt drawn", "USDm", "=[c_draw]+[m_draw]", "m", total="sum"); r += 1
 ts(ws, r, "eq_t", "Equity contributions (total)", "USDm", "=[use_t]-[grant_t]-[debt_t]", "m", total="sum"); r += 1
@@ -1150,8 +1153,8 @@ ts(ws, r, "eq_gov_cf", "Government equity cash flow", "USDm", "=-[eq_gov_in]+([d
 ts(ws, r, "eq_priv_cf", "Private equity cash flow", "USDm", "=-[eq_priv_in]+([dist]-[sf_eq])*(1-{gov_eq_share})", "m", total="sum", bold=True); r += 1
 ts(ws, r, "eq_priv_cum", "Private equity cumulative (unrecovered if negative)", "USDm", "=[eq_priv_cum@p]+[eq_priv_cf]", "m"); r += 1
 section(ws, r, "D. UNLEVERED & LCOE STREAMS", ts=True); r += 1
-ts(ws, r, "ucf", "Unlevered post-tax project cash flow", "USDm", "=-[capex_nom]-[tx_spend_prj]+[opflag]*([ebitda]-[tax_unlev])", "m", total="sum", bold=True); r += 1
-ts(ws, r, "lc_cost", "Plant cost stream (CAPEX + OPEX + royalty)", "USDm", "=[capex_nom]+[tx_spend_prj]+[opex]+[o_roy]", "m", total="sum"); r += 1
+ts(ws, r, "ucf", "Unlevered post-tax project cash flow", "USDm", "=-[capex_nom]-[tx_spend_prj]-IF(#T#=1,{u_devprem},0)+[opflag]*([ebitda]-[tax_unlev])", "m", total="sum", bold=True); r += 1
+ts(ws, r, "lc_cost", "Plant cost stream (CAPEX + OPEX + royalty)", "USDm", "=[capex_nom]+[tx_spend_prj]+IF(#T#=1,{u_devprem},0)+[opex]+[o_roy]", "m", total="sum"); r += 1
 ts(ws, r, "delivered_paid", "Energy delivered + deemed", "GWh", "=[delivered]+[deemed]", "gwh", total="sum"); r += 1
 ts(ws, r, "lc_cost_sys", "System cost stream (+ public transmission CAPEX & O&M)", "USDm", "=[lc_cost]+[tx_spend_pub]+IF({tx_party}=1,[tx_omc],0)", "m", total="sum"); r += 1
 ts(ws, r, "lc_e_sys", "Energy delivered to load (net of transmission losses)", "GWh", "=[delivered]*(1-{tx_loss})", "gwh", total="sum"); r += 1
@@ -1561,6 +1564,195 @@ calc(ws, r, None, "Median USD/kW of benchmark cases with USD cost (nominal, unad
 calc(ws, r, None, "Lumora Falls / median", f"=G{clast+1}/C{r-1}", "x", "x", out=True); r += 1
 note(ws, r + 1, "Costs are as published, in nominal currency of the year reported, with different scopes (some include IDC, transmission, resettlement). Unit costs are NOT price- or scope-adjusted and are indicative only. "
      "Full field-by-field case files (A-AD) incl. 'PUBLIC DATA NOT FOUND' entries are in research/case_studies/. EUR costs not converted (n/a).")
+
+# ===================================================================================
+# 01A DEVELOPMENT — stages, budget, attrition, developer returns, valuation step-ups
+# ===================================================================================
+ws = WS["01A_DEVELOPMENT"]
+title(ws, "01A DEVELOPMENT — From site to financial close: budget, attrition and developer returns",
+      "Development years precede the model start (financial close). Probabilities are user judgements informed by the research file; not calibrated statistics.")
+ND = 10  # development-year columns
+DCOLS = [L(6 + i) for i in range(ND)]  # F..O
+for c in DCOLS:
+    ws.column_dimensions[c].width = 9
+ws.column_dimensions["D"].width = 11; ws.column_dimensions["E"].width = 11
+r = 4
+section(ws, r, "A. DEVELOPMENT STAGES (inputs)"); r += 1
+for j, h in enumerate(["Stage", "Funder (typical)", "Duration (months)", "Budget (USDm, real)", "P(success to next stage)"]):
+    c = ws.cell(r, 1 + j, h); c.font = F_HDR; c.fill = FILL_HDR
+r += 1
+STAGES = [
+    ("Site identification and reconnaissance", "Developer equity", 6, 0.15, 0.60),
+    ("Pre-feasibility and start of flow gauging", "Developer equity / project preparation grant", 12, 0.60, 0.60),
+    ("Feasibility study, ESIA, geotechnical and grid studies", "Development equity, preparation facility", 18, 2.20, 0.70),
+    ("Licences, water rights, land and permits", "Development equity", 12, 0.60, 0.80),
+    ("PPA, implementation agreement and tariff approval", "Development equity", 12, 0.70, 0.70),
+    ("Financing: lenders' advisers, legal, insurance, close", "Development equity, co-developer", 12, 1.75, 0.80),
+]
+ST0 = r
+for k, (lab, fund, dur, cost, pr) in enumerate(STAGES):
+    ws.cell(r, 1, f"{k+1}. {lab}").font = F_BASE
+    ws.cell(r, 2, fund).font = F_BASE
+    for col, v, f in [(3, dur, "int"), (4, cost, "n2"), (5, pr, "pct")]:
+        c = ws.cell(r, col, v); c.font = F_INPUT; c.fill = FILL_INPUT; c.border = BOX; c.number_format = FMT[f]
+    r += 1
+ST1 = r - 1
+REF["dev_months"] = f"SUM({q(ws.title)}!$C${ST0}:$C${ST1})"
+calc(ws, r, "dev_total", "Total development budget (real)", f"=SUM(D{ST0}:D{ST1})", "USDm", "n2", out=True); r += 1
+calc(ws, r, "dev_years", "Development period", f"=SUM(C{ST0}:C{ST1})/12", "years", "n2", out=True); r += 1
+calc(ws, r, "dev_pfc", "Probability of reaching financial close from reconnaissance", f"=PRODUCT(E{ST0}:E{ST1})", "%", "pct", out=True); r += 1
+calc(ws, r, "dev_pct", "Development budget / plant CAPEX", "={dev_total}/{capex_real}", "%", "pct", out=True); r += 1
+r += 1
+section(ws, r, "B. DEVELOPER TERMS (inputs)"); r += 1
+inp(ws, r, "dev_prem_pct", "Development premium paid at financial close (% of plant CAPEX)", 0.03, "%", "Negotiated; check against the research file before use", "pct", True); r += 1
+calc(ws, r, "dev_prem", "Development premium", "={dev_prem_pct}*{capex_real}", "USDm", "n2", out=True); r += 1
+inp(ws, r, "dev_stake", "Developer's share of private equity after financial close", 0.30, "%", "Remainder from a co-investor or fund", "pct", True); r += 1
+inp(ws, r, "dev_rate", "Developer's discount rate for development-stage cash flows", 0.25, "%", "High-risk capital; assumption", "pct", True); r += 1
+inp(ws, r, "r_fc", "Equity discount rate at financial close (construction risk)", 0.16, "%", "Assumption", "pct"); r += 1
+inp(ws, r, "r_cod", "Equity discount rate at COD (operating asset)", 0.12, "%", "Assumption", "pct"); r += 1
+r += 1
+section(ws, r, "C. DEVELOPMENT CASH FLOWS ON THE SUCCESS PATH (USDm nominal; columns = development years, last = year before close)"); r += 1
+ws.cell(r, 1, "Development year").font = F_BOLD
+for i, c in enumerate(DCOLS):
+    put(ws, f"{c}{r}", f"={{start_year}}-{ND}+{i}", "yr")
+    ws[f"{c}{r}"].fill = FILL_HDR
+YR_ROW = r; r += 1
+SPEND0 = r
+for k in range(len(STAGES)):
+    rr = ST0 + k
+    ws.cell(r, 1, f"Spend: stage {k+1}").font = F_BASE
+    for i, c in enumerate(DCOLS):
+        # months measured backwards: development ends at month dev_months; column i covers months (i-(ND-12*dev_years/12))...
+        put(ws, f"{c}{r}",
+            f"=IF($C${rr}>0,MAX(0,MIN({{dev_months}}-12*({ND}-1-{i})-0,SUM($C${ST0}:$C${rr}))-MAX({{dev_months}}-12*({ND}-{i}),SUM($C${ST0}:$C${rr})-$C${rr}))/$C${rr}*$D${rr},0)*(1+{{us_cpi}})^({c}${YR_ROW}-{{base_year}})", "n2")
+    r += 1
+SPEND1 = r - 1
+ws.cell(r, 1, "Total development spend").font = F_BOLD
+for c in DCOLS:
+    put(ws, f"{c}{r}", f"=SUM({c}{SPEND0}:{c}{SPEND1})", "n2", font=F_BOLD)
+put(ws, f"C{r}", f"=SUM({DCOLS[0]}{r}:{DCOLS[-1]}{r})", "n2")
+TOT_ROW = r; r += 1
+ws.cell(r, 1, "Probability the project is still alive when the money is spent").font = F_BASE
+for c in DCOLS:
+    # weighted by stage: P(reach stage k) = product of probabilities of earlier stages
+    terms = "+".join(f"{c}{SPEND0+k}*PRODUCT($E${ST0}:$E${ST0+k})/$E${ST0+k}" for k in range(len(STAGES)))
+    put(ws, f"{c}{r}", f"=IF({c}{TOT_ROW}>0,({terms})/{c}{TOT_ROW},0)", "pct")
+PALIVE_ROW = r; r += 1
+r += 1
+section(ws, r, "D. DEVELOPER RETURNS"); r += 1
+calc(ws, r, "dev_reimb", "Development costs reimbursed by the project at close (nominal)", f"=C{TOT_ROW}", "USDm", "n2"); r += 1
+calc(ws, r, "dev_eq_npv_fc", "Developer's equity stake: NPV at close of its share of private equity flows at the close-stage rate", "={dev_stake}*NPV({r_fc},[RNG:eq_priv_cf])", "USDm", "n2"); r += 1
+calc(ws, r, "dev_success_value", "Value received at close on the success path (reimbursement + premium + equity NPV)", "={dev_reimb}+{dev_prem}+{dev_eq_npv_fc}", "USDm", "n2", out=True); r += 1
+calc(ws, r, "dev_pv_cost_unw", "PV at development start of spend on the success path", f"=NPV({{dev_rate}},{DCOLS[0]}{TOT_ROW}:{DCOLS[-1]}{TOT_ROW})", "USDm", "n2"); r += 1
+calc(ws, r, "dev_pv_cost_rw", "PV of risk-weighted spend (each stage weighted by the chance of reaching it)", f"=SUMPRODUCT({DCOLS[0]}{TOT_ROW}:{DCOLS[-1]}{TOT_ROW},{DCOLS[0]}{PALIVE_ROW}:{DCOLS[-1]}{PALIVE_ROW},1/(1+{{dev_rate}})^(COLUMN({DCOLS[0]}{TOT_ROW}:{DCOLS[-1]}{TOT_ROW})-COLUMN({DCOLS[0]}{TOT_ROW})+1))", "USDm", "n2"); r += 1
+calc(ws, r, "dev_pv_success", "PV at development start of value received at close", f"={{dev_success_value}}/(1+{{dev_rate}})^{ND}", "USDm", "n2"); r += 1
+calc(ws, r, "dev_npv_success", "Developer NPV if the project reaches close", "={dev_pv_success}-{dev_pv_cost_unw}", "USDm", "n2", out=True); r += 1
+calc(ws, r, "dev_enpv", "RISK-WEIGHTED DEVELOPER NPV (expected, from reconnaissance)", "={dev_pfc}*{dev_pv_success}-{dev_pv_cost_rw}", "USDm", "n2", out=True); r += 1
+calc(ws, r, "dev_be_prem", "Development premium that sets the risk-weighted NPV to zero", "=MAX(0,{dev_prem}-{dev_enpv}*(1+{dev_rate})^" + str(ND) + "/{dev_pfc})", "USDm", "n2", out=True); r += 1
+calc(ws, r, "dev_be_prem_pct", "  as % of plant CAPEX", "={dev_be_prem}/{capex_real}", "%", "pct", out=True); r += 1
+calc(ws, r, "dev_be_p", "Break-even probability of reaching close at the current premium", "={dev_pv_cost_rw}/{dev_pv_success}", "%", "pct", out=True); r += 1
+r += 1
+section(ws, r, "E. VALUATION STEP-UPS (private equity, 100%)"); r += 1
+calc(ws, r, "val_eq_in", "Private equity contributed (nominal)", "=[C:eq_priv_in]", "USDm", "n2"); r += 1
+calc(ws, r, "val_fc", "Value of private equity at close (NPV of all equity flows at close-stage rate, plus contributions at PV)", "=NPV({r_fc},[RNG:eq_priv_cf])+NPV({r_fc},[RNG:eq_priv_in])", "USDm", "n2"); r += 1
+calc(ws, r, "val_cod", "Value of private equity at COD (operating flows only, at COD rate, discounted to close)", "=SUMPRODUCT([RNG:opflag],[RNG:eq_priv_cf],1/(1+{r_cod})^([RNG:t]-{cons_eff}))/(1+{r_fc})^{cons_eff}", "USDm", "n2"); r += 1
+calc(ws, r, "val_step_fc", "Value created at close (value at close less PV of contributions)", "=NPV({r_fc},[RNG:eq_priv_cf])", "USDm", "n2", out=True); r += 1
+calc(ws, r, "val_step_cod", "De-risking step-up from close to COD (PV terms)", "={val_cod}-SUMPRODUCT([RNG:opflag],[RNG:eq_priv_cf],1/(1+{r_fc})^[RNG:t])", "USDm", "n2", out=True); r += 1
+note(ws, r + 1, "Reading: the risk-weighted NPV answers whether a developer should start; the success-path NPV answers what the developer earns if it closes; the step-ups show where value is created between close and COD.")
+DEV_TOT_ROW = TOT_ROW
+
+# ===================================================================================
+# 05A CONTRACTING — EPC structure, risk premium and owner's share of overruns
+# ===================================================================================
+ws = WS["05A_CONTRACTING"]
+title(ws, "05A CONTRACTING — Who carries construction risk, and at what price",
+      "Indicative parameters for comparing structures; replace with bids. Geological risk usually stays with the owner whatever the label.")
+ws.column_dimensions["D"].width = 14
+for j in range(3):
+    ws.column_dimensions[L(5 + j)].width = 16
+r = 4
+inp(ws, r, "epc_struct", "Contracting structure (1=turnkey lump-sum EPC, 2=split civil + E&M packages, 3=multi-contract, owner integrates)", 2, "1-3", "", "int", True); r += 1
+r += 1
+for j, h in enumerate(["Parameter", "Unit", "SELECTED", "", "1 Turnkey EPC", "2 Split packages", "3 Multi-contract"]):
+    c = ws.cell(r, 1 + j, h); c.font = F_HDR; c.fill = FILL_HDR
+r += 1
+EPC = [("epc_prem", "Contractor risk premium on civil, HM and E&M prices", "%", [0.12, 0.06, 0.0], "pct"),
+       ("epc_owner", "Share of a cost overrun borne by the owner", "%", [0.30, 0.55, 0.90], "pct"),
+       ("epc_owner_d", "Share of delay cost borne by the owner (after liquidated damages)", "%", [0.35, 0.60, 0.90], "pct"),
+       ("epc_interface", "Interface risk (qualitative, 1 low to 3 high)", "1-3", [1, 2, 3], "int")]
+for nm, lab, u, vals, f in EPC:
+    ws.cell(r, 1, lab).font = F_BASE; ws.cell(r, 2, u).font = F_BASE
+    for j, v in enumerate(vals):
+        c = ws.cell(r, 5 + j, v); c.font = F_INPUT; c.fill = FILL_INPUT; c.border = BOX; c.number_format = FMT[f]
+    put(ws, f"C{r}", f"=INDEX(E{r}:G{r},{{epc_struct}})", f)
+    REF[nm] = f"{q(ws.title)}!$C${r}"
+    r += 1
+r += 1
+note(ws, r, "Turnkey EPC buys price and date certainty at a premium, but unforeseen ground conditions are often excluded or capped; FIDIC's Emerald Book (2019) allocates subsurface risk through a geotechnical baseline report. Multi-contracting is cheaper on paper and leaves interface and overrun risk with the owner.")
+
+# ===================================================================================
+# 30A CLOSE READINESS — financial close gates (evidence first), Go / Conditional Go / Stop
+# ===================================================================================
+ws = WS["30A_CLOSE_READINESS"]
+title(ws, "30A FINANCIAL CLOSE READINESS — 23 gates, evidence first",
+      "Status: MET / PARTIAL / NOT MET / NO EVIDENCE. Model tests are automatic. STOP if a critical gate is NOT MET or has NO EVIDENCE; CONDITIONAL GO if every critical gate is MET; GO only if all gates are MET. Not a recommendation.")
+for col, w in zip("ABCDEFG", [6, 44, 16, 10, 16, 18, 48]):
+    ws.column_dimensions[col].width = w
+for j, h in enumerate(["#", "Gate", "Area", "Critical", "Evidence status (input)", "Status used", "Evidence / model test"]):
+    c = ws.cell(4, 1 + j, h); c.font = F_HDR; c.fill = FILL_HDR
+GATES_FC = [
+    ("Flow record of at least 15 years and independent hydrology review", "Resource", "Y", None, "AND({rec_years}>=15,{hyd_study}=3)"),
+    ("P90 energy confirmed by the lenders' technical adviser", "Resource", "Y", "PARTIAL", None),
+    ("Bankable feasibility study signed off by the lenders' technical adviser", "Design", "Y", None, "{fs_level}=3"),
+    ("Geotechnical investigation sufficient for a baseline report", "Design", "Y", "PARTIAL", None),
+    ("ESIA approved and compliant with lender standards", "E&S", "Y", None, "{es_level}=3"),
+    ("Resettlement action plan approved and funded", "E&S", "Y", None, "{rap_level}>=2"),
+    ("Generation licence and water-use permit granted", "Permits", "Y", "PARTIAL", None),
+    ("Land rights secured for all project areas", "Permits", "Y", "NOT MET", None),
+    ("PPA signed and approved by the regulator", "Revenue", "Y", "PARTIAL", None),
+    ("Implementation or concession agreement signed", "Revenue", "Y", "PARTIAL", None),
+    ("Grid connection agreement signed and transmission financed", "Grid", "Y", None, "{tx_fin}=1"),
+    ("Transmission in service no later than plant COD", "Grid", "N", None, "{tx_gap_yrs}<=0"),
+    ("EPC contract(s) signed with fixed price, completion date and LDs", "Construction", "Y", "PARTIAL", None),
+    ("O&M arrangements and owner's team in place", "Operations", "N", "PARTIAL", None),
+    ("Payment security of at least 6 months in place", "Offtaker", "Y", None, "{lc_months}>=6"),
+    ("Offtaker payment capacity at least 1.2x the PPA bill (worst of first 10 years)", "Offtaker", "Y", None, "{ut_ratio10}>=1.2"),
+    ("Financing plan fully committed (no financing gap)", "Finance", "Y", None, "{fin_gap}<=0.5"),
+    ("Minimum DSCR at or above the sizing target in the base case", "Finance", "Y", None, "{kpi_min_dscr}>={str_dscr}"),
+    ("Equity commitments signed and equity IRR at or above target", "Finance", "Y", None, "IF(ISNUMBER({kpi_eirr}),{kpi_eirr}>={str_hurdle},{s_priv}<=0)"),
+    ("Political risk cover or guarantees signed", "Risk", "N", "NO EVIDENCE", None),
+    ("Government support approved by the finance ministry; fiscal screen not HIGH", "Public finance", "Y", None, "LEFT({sc_result},4)<>\"HIGH\""),
+    ("Insurance programme placed (construction all risks, DSU)", "Risk", "N", "PARTIAL", None),
+    ("Independent model audit completed", "Finance", "N", "NO EVIDENCE", None),
+]
+r = 5
+G0 = r
+for k, (lab, area, crit, ev, test) in enumerate(GATES_FC):
+    ws.cell(r, 1, k + 1).font = F_BASE
+    ws.cell(r, 2, lab).font = F_BASE; ws.cell(r, 3, area).font = F_BASE
+    c = ws.cell(r, 4, crit); c.font = F_INPUT
+    if test is None:
+        c = ws.cell(r, 5, ev); c.font = F_INPUT; c.fill = FILL_INPUT; c.border = BOX
+        put(ws, f"F{r}", f"=E{r}")
+        ws.cell(r, 7, "Evidence file (document reference to be entered)").font = F_BASE
+    else:
+        ws.cell(r, 5, "model test").font = Font(name=ARIAL, size=9, italic=True, color="595959")
+        put(ws, f"F{r}", f'=IF({test},"MET","NOT MET")')
+        ws.cell(r, 7, "Automatic: " + test.replace("{", "").replace("}", "")).font = Font(name=ARIAL, size=9, color="595959")
+    r += 1
+G1 = r - 1
+dv_list(ws, f"E{G0}:E{G1}", ["MET", "PARTIAL", "NOT MET", "NO EVIDENCE"])
+for val, col in [("MET", "C6EFCE"), ("PARTIAL", "FFEB9C"), ("NOT MET", "FF7C80"), ("NO EVIDENCE", "D9D9D9")]:
+    ws.conditional_formatting.add(f"F{G0}:F{G1}", CellIsRule(operator="equal", formula=[f'"{val}"'], fill=PatternFill("solid", fgColor=col)))
+r += 1
+calc(ws, r, "fc_met", "Gates met", f'=COUNTIF(F{G0}:F{G1},"MET")', "#", "int", out=True); r += 1
+calc(ws, r, "fc_n", "Gates", f"=ROWS(F{G0}:F{G1})", "#", "int"); r += 1
+calc(ws, r, "fc_crit_fail", "Critical gates NOT MET", f'=COUNTIFS(D{G0}:D{G1},"Y",F{G0}:F{G1},"NOT MET")', "#", "int", out=True); r += 1
+calc(ws, r, "fc_crit_noev", "Critical gates with NO EVIDENCE", f'=COUNTIFS(D{G0}:D{G1},"Y",F{G0}:F{G1},"NO EVIDENCE")', "#", "int"); r += 1
+calc(ws, r, "fc_crit_part", "Critical gates PARTIAL", f'=COUNTIFS(D{G0}:D{G1},"Y",F{G0}:F{G1},"PARTIAL")', "#", "int"); r += 1
+calc(ws, r, "fc_decision", "FINANCIAL CLOSE DECISION",
+     '=IF({fc_crit_fail}>0,"STOP: a critical gate is not met",IF({fc_crit_noev}>0,"STOP: critical evidence missing",IF({fc_crit_part}>0,"NOT READY: critical gates partly met",IF({fc_met}={fc_n},"GO: evidence complete for a close decision","CONDITIONAL GO: all critical gates met"))))', "", None, out=True); r += 1
+note(ws, r + 1, "A GO says the evidence file is complete for lenders and sponsors to decide. It is not an investment recommendation.")
 
 # ===================================================================================
 # 32 DASHBOARD
