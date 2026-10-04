@@ -1,6 +1,6 @@
 # Book 7: Hydropower Development and Finance
 
-First edition, version 0.3 (pre-publication review draft). Author: Emmanuel Boujieka Kamga. Africa Energy Finance, Business & Financial Models.
+First edition, version 0.4 (pre-publication review draft). Author: Emmanuel Boujieka Kamga. Africa Energy Finance, Business & Financial Models.
 
 The book follows the format of the collection's PAYGo solar book: one decision per chapter, a place in the analytical chain, points for the investment and credit committees, and a "Working with the model" section tied to MODEL 7 (`model/Bankable_Hydro_Model.xlsx`).
 
@@ -19,7 +19,7 @@ python3 tools/book7/figures7.py                    # figures
 python3 tools/book7/prepare7.py                    # numbers, generated tables, sources, style lint -> build/book7_resolved.md
 cd book7/build && python3 ../../tools/house/publish_docs.py book7_resolved.md Hydropower_Development_and_Finance.pdf \
   --title "Hydropower Development and Finance" --subtitle "From River to Financial Close: A Developer, Lender and Government Framework for Hydropower Projects in Africa" \
-  --kicker "BOOK 7" --edition "First edition, version 0.3 (pre-publication review draft)" --case "Kasiri River Hydro case" \
+  --kicker "BOOK 7" --edition "First edition, version 0.4 (pre-publication review draft)" --case "Kasiri River Hydro case" \
   --keywords "hydropower; project development; project finance; Africa"
 python3 tools/book7/build_docx7.py                 # Word edition
 ```

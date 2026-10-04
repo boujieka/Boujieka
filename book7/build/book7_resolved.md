@@ -1,6 +1,6 @@
 # About this book
 
-Book 7. Hydropower Development and Finance. From River to Financial Close: A Developer, Lender and Government Framework for Hydropower Projects in Africa. First edition, version 0.3 (pre-publication).
+Book 7. Hydropower Development and Finance. From River to Financial Close: A Developer, Lender and Government Framework for Hydropower Projects in Africa. First edition, version 0.4 (pre-publication).
 
 The book belongs to the Africa Energy Finance collection, Business & Financial Models: a series of books, financial models, manuals, case studies and decision tools for energy businesses in African markets. Each book is built around one central question.
 
@@ -12,7 +12,7 @@ The book belongs to the Africa Energy Finance collection, Business & Financial M
 | Book 4 | Commercial and industrial solar with storage | Should the customer invest, sign a PPA or use an energy service company? | Planned |
 | Book 5 | Energy access fund | Can a fund mobilise capital and generate sustainable returns? | Planned |
 | Book 6 | Power utilities | Can the utility become financially sustainable? | Planned |
-| Book 7 | Hydropower: this book | Can this hydropower project be developed to financial close and financed on terms the developer, the lenders and the state can each accept? | First edition, v0.3 |
+| Book 7 | Hydropower: this book | Can this hydropower project be developed to financial close and financed on terms the developer, the lenders and the state can each accept? | First edition, v0.4 |
 
 Each book is the centre of a set of products that share one method. For Book 7 they are:
 
@@ -124,7 +124,7 @@ Every external claim carries a source identifier in square brackets, such as [HY
 
 ## Status of this edition
 
-This is the first edition of Book 7, issued as version 0.3 for pre-publication review. It replaces, for developers and lenders, the author's earlier policy paper on structuring hydro without unsustainable public liabilities, whose material is condensed in Chapter 15. Three things must happen before release: the sources marked as summaries in Annex L must be read in full; the companion model must complete its test in Microsoft Excel (it has been recalculated in LibreOffice, reproduced cell by cell by a second calculation engine, adversarially reviewed twice and corrected; Annex K gives the results); and practitioners must review the text.
+This is the first edition of Book 7, issued as version 0.4 for pre-publication review. It replaces, for developers and lenders, the author's earlier policy paper on structuring hydro without unsustainable public liabilities, whose material is condensed in Chapter 15. Three things must happen before release: the sources marked as summaries in Annex L must be read in full; the companion model must complete its test in Microsoft Excel (it has been recalculated in LibreOffice, reproduced cell by cell by a second calculation engine, adversarially reviewed twice and corrected; Annex K gives the results); and practitioners must review the text.
 
 ## Acknowledgements and disclaimer
 

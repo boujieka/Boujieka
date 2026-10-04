@@ -73,7 +73,7 @@ TITLE = "Hydropower Development and Finance"
 SUBTITLE = "From River to Financial Close: A Developer, Lender and Government Framework for Hydropower Projects in Africa"
 TAGLINE = "The Hydro Readiness Framework\u2122: 8 Questions \u00b7 23 Gates \u00b7 1 Financial Close Decision"
 PARTIES = "Developer \u00b7 Lender \u00b7 Government"
-EDITION = "First edition, version 0.3 (pre-publication; print proof draft)"
+EDITION = "First edition, version 0.4 (pre-publication; print proof draft)"
 ISBN_LINE = "ISBN: to be assigned (decision D4: KDP ISBN or own ISBN)"  # must be replaced before upload: KDP rejects placeholder text
 
 CSS = f"""
