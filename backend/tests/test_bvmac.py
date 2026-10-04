@@ -164,7 +164,7 @@ def test_single_spaced_order_book_tie_break():
             "                        1 PEq 100,00 100,00 106,00 94,00                0,00% 10 000,00")
     doc = parse("MARCHE DES OBLIGATIONS\nOBLIGATIONS DES ETATS\n" + line + "\n", "layout")
     q = doc.quotes["CM0000020370"]
-    assert not q.errors and TIE_BREAK_NOTE in q.notes  # tie-break recorded
+    assert not q.errors and TIE_BREAK_NOTE in q.notes  # recorded: the checker holds such a line
     assert (q.v("volume_traded"), q.v("value_traded")) == (Decimal("500000"), Decimal("5198260000"))
     # When no reading satisfies the identity, the readings are left as they are: still ambiguous
     # -> the columns are not read (held), nothing is guessed.
@@ -222,6 +222,20 @@ def store(tmp_path, monkeypatch):
 
     monkeypatch.setattr(get_settings(), "document_store_dir", str(tmp_path / "docs"))
     return tmp_path / "docs"
+
+
+def mark_ambiguous(monkeypatch, isins: set[str], mode: str):
+    """Make the checker's `mode` reading report that these lines' split was chosen by arithmetic."""
+    real = bvmac_check.parse
+
+    def parse_marked(text_, mode_):
+        out = real(text_, mode_)
+        if mode_ == mode:
+            for isin in isins:
+                out.quotes[isin].notes.append(TIE_BREAK_NOTE)
+        return out
+
+    monkeypatch.setattr(bvmac_check, "parse", parse_marked)
 
 
 def ingest(db, site, monkeypatch, **kw):
@@ -303,6 +317,47 @@ class TestPipeline:
         held = {h["isin"]: h["problems"] for h in report["held"]}
         assert set(held) == {"GA0000020636"}  # lines that did not trade do not depend on the totals
         assert any(p.startswith("section_total") for p in held["GA0000020636"])
+
+    def test_split_resolved_by_arithmetic_is_held(self, db, store, monkeypatch):
+        site = FakeSite(["BOC-20261001"])
+        mark_ambiguous(monkeypatch, {"GA0000020636"}, "raw")
+        _, report = ingest(db, site, monkeypatch)
+        held = {h["isin"]: h["problems"] for h in report["held"]}
+        assert set(held) == {"GA0000020636"} and report["observations_created"] == 0
+        assert any("ambiguous number split resolved only by arithmetic (raw reading)" in p
+                   for p in held["GA0000020636"])
+
+    def test_demote_ambiguous_only_basis_removes_security(self, db, store, monkeypatch):
+        site = FakeSite(["BOC-20261001"])
+        _, report = ingest(db, site, monkeypatch)
+        assert report["observations_created"] == 1
+        mark_ambiguous(monkeypatch, {"GA0000020636"}, "layout")
+        rep = bvmac_check.demote_ambiguous_splits(db)
+        assert [d["isin"] for d in rep["demoted"]] == ["GA0000020636"]
+        assert rep["observations_deleted"] == 1 and rep["securities_deleted"] == 1
+        assert db.scalar(select(Security).where(Security.isin == "GA0000020636")) is None
+        assert db.scalar(select(MarketObservation)) is None or all(
+            o.observation_date != date(2026, 10, 1) for o in db.scalars(select(MarketObservation)))
+        row = db.scalar(select(BvmacQuote).where(BvmacQuote.isin == "GA0000020636"))
+        assert row.verification_status == VerificationStatus.UNVERIFIED and row.promoted_observation_id is None
+        assert "arithmetic" in row.hold_reasons[0] and row.fields["value_traded"]["raw"] == "5 003 835"
+        # A later check run keeps it held.
+        report = bvmac_check.run(db, fetch=site.fetch, pause=0)
+        assert report["verified"] == 0 and [h["isin"] for h in report["held"]] == ["GA0000020636"]
+
+    def test_demote_keeps_security_with_other_verified_lines(self, db, store, monkeypatch):
+        site = FakeSite(["BOC-20261001", "BOC-20240731"])
+        ingest(db, site, monkeypatch)
+        sec = db.scalar(select(Security).where(Security.isin == "CM0000020305"))  # ECMR6, traded 2024-07-31
+        first_doc = sec.source_document_id
+        mark_ambiguous(monkeypatch, {"CM0000020305"}, "layout")
+        rep = bvmac_check.demote_ambiguous_splits(db)
+        assert [d["isin"] for d in rep["demoted"]] == ["CM0000020305"]
+        assert rep["securities_deleted"] == 0 and rep["securities_repointed"] == 1
+        db.refresh(sec)
+        assert sec.source_document_id != first_doc and sec.source_url.endswith("BOC-20261001.pdf")
+        assert "BOC n° 2607 du 2026-10-01" in sec.provenance_notes
+        assert db.scalar(select(MarketObservation).where(MarketObservation.security_id == sec.security_id)) is None
 
     def test_changed_document_is_held(self, db, store, monkeypatch):
         site = FakeSite(["BOC-20261001"])

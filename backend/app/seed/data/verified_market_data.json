@@ -134,18 +134,6 @@
    "source": "BVMAC — Bulletin officiel de la cote"
   },
   {
-   "url": "https://www.bvm-ac.org/wp-content/uploads/2024/03/BOC-20240307.pdf",
-   "title": "BVMAC — Bulletin officiel de la cote — séance du 2024-03-07",
-   "document_type": "price_list",
-   "publication_date": "2024-03-07",
-   "retrieved_at": "2026-10-04T21:01:12.426567+00:00",
-   "content_sha256": "87193e32187c47d159581898518339da3d67ca11bfe9513bca8b1cadf227e6fd",
-   "mime_type": "application/pdf",
-   "extraction_status": "complete",
-   "is_synthetic": false,
-   "source": "BVMAC — Bulletin officiel de la cote"
-  },
-  {
    "url": "https://www.bvm-ac.org/wp-content/uploads/2024/03/BOC-20240312.pdf",
    "title": "BVMAC — Bulletin officiel de la cote — séance du 2024-03-12",
    "document_type": "price_list",
@@ -206,42 +194,6 @@
    "source": "BVMAC — Bulletin officiel de la cote"
   },
   {
-   "url": "https://www.bvm-ac.org/wp-content/uploads/2024/08/BOC-20240813.pdf",
-   "title": "BVMAC — Bulletin officiel de la cote — séance du 2024-08-13",
-   "document_type": "price_list",
-   "publication_date": "2024-08-13",
-   "retrieved_at": "2026-10-04T20:56:35.885852+00:00",
-   "content_sha256": "a99aa3e1cc0941cf0664f927725a427e322f13aa85399f8dbc93b96010f7345c",
-   "mime_type": "application/pdf",
-   "extraction_status": "complete",
-   "is_synthetic": false,
-   "source": "BVMAC — Bulletin officiel de la cote"
-  },
-  {
-   "url": "https://www.bvm-ac.org/wp-content/uploads/2024/08/BOC-20240814.pdf",
-   "title": "BVMAC — Bulletin officiel de la cote — séance du 2024-08-14",
-   "document_type": "price_list",
-   "publication_date": "2024-08-14",
-   "retrieved_at": "2026-10-04T20:56:33.148411+00:00",
-   "content_sha256": "82035ab0b5f3408aae7a132c02b1aefdf474eb300c5a912258bd9affc8619c54",
-   "mime_type": "application/pdf",
-   "extraction_status": "complete",
-   "is_synthetic": false,
-   "source": "BVMAC — Bulletin officiel de la cote"
-  },
-  {
-   "url": "https://www.bvm-ac.org/wp-content/uploads/2024/08/BOC-20240827_compressed.pdf",
-   "title": "BVMAC — Bulletin officiel de la cote — séance du 2024-08-27",
-   "document_type": "price_list",
-   "publication_date": "2024-08-27",
-   "retrieved_at": "2026-10-04T20:56:12.459598+00:00",
-   "content_sha256": "1c98d8e0dde7146c6adcd58328b04a9ae11a8b3679d89e66bf8522a69c507bd5",
-   "mime_type": "application/pdf",
-   "extraction_status": "complete",
-   "is_synthetic": false,
-   "source": "BVMAC — Bulletin officiel de la cote"
-  },
-  {
    "url": "https://www.bvm-ac.org/wp-content/uploads/2024/09/BOC-20240905.pdf",
    "title": "BVMAC — Bulletin officiel de la cote — séance du 2024-09-05",
    "document_type": "price_list",
@@ -272,18 +224,6 @@
    "publication_date": "2024-09-26",
    "retrieved_at": "2026-10-04T20:55:15.694750+00:00",
    "content_sha256": "956255ac82f54faf6b88420e5136c7374e0c9d9201f2f94f6facf4930c65a32a",
-   "mime_type": "application/pdf",
-   "extraction_status": "complete",
-   "is_synthetic": false,
-   "source": "BVMAC — Bulletin officiel de la cote"
-  },
-  {
-   "url": "https://www.bvm-ac.org/wp-content/uploads/2024/10/BOC-20241004.pdf",
-   "title": "BVMAC — Bulletin officiel de la cote — séance du 2024-10-04",
-   "document_type": "price_list",
-   "publication_date": "2024-10-04",
-   "retrieved_at": "2026-10-04T20:55:00.099804+00:00",
-   "content_sha256": "e51ee77f984fb3c1cfb96fb553938c1bccf2c23f599d3da3b345b5b816bd776d",
    "mime_type": "application/pdf",
    "extraction_status": "complete",
    "is_synthetic": false,
@@ -464,18 +404,6 @@
    "publication_date": "2025-08-11",
    "retrieved_at": "2026-10-04T20:45:53.277644+00:00",
    "content_sha256": "86645e8095f921e27de85188c1b19bce2e796f65f83b8f42c873ffd932ee0f84",
-   "mime_type": "application/pdf",
-   "extraction_status": "complete",
-   "is_synthetic": false,
-   "source": "BVMAC — Bulletin officiel de la cote"
-  },
-  {
-   "url": "https://www.bvm-ac.org/wp-content/uploads/2025/08/BOC-20250822.pdf",
-   "title": "BVMAC — Bulletin officiel de la cote — séance du 2025-08-22",
-   "document_type": "price_list",
-   "publication_date": "2025-08-22",
-   "retrieved_at": "2026-10-04T20:45:32.002475+00:00",
-   "content_sha256": "b30b3f10719c9ef142c5173b7d1d4be265ad689eec9b38a37bcddbd82f64ada3",
    "mime_type": "application/pdf",
    "extraction_status": "complete",
    "is_synthetic": false,
@@ -812,18 +740,6 @@
    "publication_date": "2026-08-18",
    "retrieved_at": "2026-10-04T20:34:09.117828+00:00",
    "content_sha256": "0c1d0fde306016b6c19d1aa09069cfa845f670c289535ee6db9bc14514f1cfec",
-   "mime_type": "application/pdf",
-   "extraction_status": "complete",
-   "is_synthetic": false,
-   "source": "BVMAC — Bulletin officiel de la cote"
-  },
-  {
-   "url": "https://www.bvm-ac.org/wp-content/uploads/2026/08/BOC-20260824.pdf",
-   "title": "BVMAC — Bulletin officiel de la cote — séance du 2026-08-24",
-   "document_type": "price_list",
-   "publication_date": "2026-08-24",
-   "retrieved_at": "2026-10-04T20:33:56.140784+00:00",
-   "content_sha256": "472a82b0b6268ec019f16d2b172e93f57f762ebb14f5c72bbbf5f880f867368b",
    "mime_type": "application/pdf",
    "extraction_status": "complete",
    "is_synthetic": false,
@@ -144694,52 +144610,6 @@
    "isin": "CG0000020238"
   },
   {
-   "observation_date": "2024-08-13",
-   "kind": "secondary_market",
-   "yield_pct": null,
-   "price": "95.000000",
-   "spread_bps": null,
-   "volume": "1951368.0000",
-   "source_url": "https://www.bvm-ac.org/wp-content/uploads/2024/08/BOC-20240813.pdf",
-   "publication_date": "2024-08-13",
-   "extracted_at": "2026-10-04T21:26:12.301776+00:00",
-   "verification_status": "verified",
-   "data_nature": "FACT",
-   "confidence_score": "1.000",
-   "is_synthetic": false,
-   "field_status": {
-    "yield": "not_disclosed",
-    "spread_bps": "not_disclosed"
-   },
-   "provenance_notes": "BVMAC BOC n° 2072, séance du 2024-08-13, p3:L17 t18-18: price = closing price 'Clôt.' '95,00' (% of nominal); volume = 'Valeur transigée' '1 951 368' FCFA (includes accrued coupon); 300 bonds in 1 trade(s), status 'PEq', nominal '6 666,667', accrued coupon '171,23'. No yield printed. Printed line: 'ETAT DU CONGO          EOCG 6,25% NET 2021-2026 CG0000020238 ECG02 12/08/2024 100,00                         6 666,67 6 666,667           171,23           300 50 000           300     1 951 368              1 PEq 100,00 95,00 106,00 94,00                -5,00% 6 333,33'. Verified by bvmac_check (strict automatic checks, no human review). Source: BVMAC (written authorisation, free publication, no resale).",
-   "source": "BVMAC — Bulletin officiel de la cote",
-   "document_sha256": "a99aa3e1cc0941cf0664f927725a427e322f13aa85399f8dbc93b96010f7345c",
-   "isin": "CG0000020238"
-  },
-  {
-   "observation_date": "2024-08-14",
-   "kind": "secondary_market",
-   "yield_pct": null,
-   "price": "95.000000",
-   "spread_bps": null,
-   "volume": "323333290.0000",
-   "source_url": "https://www.bvm-ac.org/wp-content/uploads/2024/08/BOC-20240814.pdf",
-   "publication_date": "2024-08-14",
-   "extracted_at": "2026-10-04T21:26:13.811062+00:00",
-   "verification_status": "verified",
-   "data_nature": "FACT",
-   "confidence_score": "1.000",
-   "is_synthetic": false,
-   "field_status": {
-    "yield": "not_disclosed",
-    "spread_bps": "not_disclosed"
-   },
-   "provenance_notes": "BVMAC BOC n° 2073, séance du 2024-08-14, p3:L17 t20-20: price = closing price 'Clôt.' '95,00' (% of nominal); volume = 'Valeur transigée' '323 333 290' FCFA (includes accrued coupon); 49 700 bonds in 1 trade(s), status 'PEq', nominal '6 666,667', accrued coupon '172,37'. No yield printed. Printed line: 'ETAT DU CONGO          EOCG 6,25% NET 2021-2026 CG0000020238 ECG02 13/08/2024                      95,00     6 333,33 6 666,667           172,37 49 700 49 700 49 700 323 333 290                            1 PEq     95,00 95,00 100,70 89,30              0,00% 6 333,33'. Verified by bvmac_check (strict automatic checks, no human review). Source: BVMAC (written authorisation, free publication, no resale).",
-   "source": "BVMAC — Bulletin officiel de la cote",
-   "document_sha256": "82035ab0b5f3408aae7a132c02b1aefdf474eb300c5a912258bd9affc8619c54",
-   "isin": "CG0000020238"
-  },
-  {
    "observation_date": "2024-09-25",
    "kind": "secondary_market",
    "yield_pct": null,
@@ -145177,29 +145047,6 @@
    "isin": "CM0000020305"
   },
   {
-   "observation_date": "2024-01-19",
-   "kind": "secondary_market",
-   "yield_pct": null,
-   "price": "100.000000",
-   "spread_bps": null,
-   "volume": "2923082581.0000",
-   "source_url": "https://www.bvm-ac.org/wp-content/uploads/2024/01/BOC-20240119.pdf",
-   "publication_date": "2024-01-19",
-   "extracted_at": "2026-10-04T21:26:27.591740+00:00",
-   "verification_status": "verified",
-   "data_nature": "FACT",
-   "confidence_score": "1.000",
-   "is_synthetic": false,
-   "field_status": {
-    "yield": "not_disclosed",
-    "spread_bps": "not_disclosed"
-   },
-   "provenance_notes": "BVMAC BOC n° 1932, séance du 2024-01-19, p3:L19 t21-21: price = closing price 'Clôt.' '100,00' (% of nominal); volume = 'Valeur transigée' '2 923 082 581' FCFA (includes accrued coupon); 280 708 bonds in 1 trade(s), status 'PEq', nominal '10 000,000', accrued coupon '413,25'. No yield printed. Printed line: 'ETAT DU CAMEROUN ECMR 6,25% NET 2022-2029 CM0000020305 ECMR6 18/01/2024                            99       9 900,00 10 000,000           413,25 280 708 292 148 280 708 2 923 082 581                        1 PEq 100,00 100,00 104,94 93,06                1,01% 10 000,00'. Verified by bvmac_check (strict automatic checks, no human review). Source: BVMAC (written authorisation, free publication, no resale).",
-   "source": "BVMAC — Bulletin officiel de la cote",
-   "document_sha256": "26c97d50757d2d1a98a082a8ecb9c30c442be1e4041588128524a47d51f0417e",
-   "isin": "CM0000020305"
-  },
-  {
    "observation_date": "2024-01-24",
    "kind": "secondary_market",
    "yield_pct": null,
@@ -145591,29 +145438,6 @@
    "isin": "CM0000020362"
   },
   {
-   "observation_date": "2024-01-04",
-   "kind": "secondary_market",
-   "yield_pct": null,
-   "price": "100.000000",
-   "spread_bps": null,
-   "volume": "516341861.0000",
-   "source_url": "https://www.bvm-ac.org/wp-content/uploads/2024/01/BOC-20240104.pdf",
-   "publication_date": "2024-01-04",
-   "extracted_at": "2026-10-04T21:26:39.158952+00:00",
-   "verification_status": "verified",
-   "data_nature": "FACT",
-   "confidence_score": "1.000",
-   "is_synthetic": false,
-   "field_status": {
-    "yield": "not_disclosed",
-    "spread_bps": "not_disclosed"
-   },
-   "provenance_notes": "BVMAC BOC n° 1921, séance du 2024-01-04, p3:L23 t20-20: price = closing price 'Clôt.' '100,00' (% of nominal); volume = 'Valeur transigée' '516 341 861' FCFA (includes accrued coupon); 49 995 bonds in 1 trade(s), status 'PEq', nominal '10 000,000', accrued coupon '327,87'. No yield printed. Printed line: 'ETAT DU CAMEROUN ECMR 6.00% NET 2023-2027 CM0000020362 ECMR8 03/01/2024                           100 10 000,00 10 000,000                 327,87 49 995 249 108 49 995 516 341 861                             1 PEq 100,00 100,00 106,00 94,00                0,00% 10 000,00'. Verified by bvmac_check (strict automatic checks, no human review). Source: BVMAC (written authorisation, free publication, no resale).",
-   "source": "BVMAC — Bulletin officiel de la cote",
-   "document_sha256": "d715c688f82bf9814ee696ae4b3dcec51a8381fc0f2eb88bf9aae5bc78b34cb1",
-   "isin": "CM0000020362"
-  },
-  {
    "observation_date": "2024-02-15",
    "kind": "secondary_market",
    "yield_pct": null,
@@ -145634,29 +145458,6 @@
    "provenance_notes": "BVMAC BOC n° 1950, séance du 2024-02-15, p3:L23 t18-18: price = closing price 'Clôt.' '100,00' (% of nominal); volume = 'Valeur transigée' '2 079 344' FCFA (includes accrued coupon); 200 bonds in 1 trade(s), status 'PEq', nominal '10 000,000', accrued coupon '396,72'. No yield printed. Printed line: 'ETAT DU CAMEROUN ECMR 6.00% NET 2023-2027 CM0000020362 ECMR8 14/02/2024 100 10 000,00 10 000,000                                          396,72       200 119 090              200     2 079 344              1 PEq 100,00 100,00 106,00 94,00                0,00% 10 000,00'. Verified by bvmac_check (strict automatic checks, no human review). Source: BVMAC (written authorisation, free publication, no resale).",
    "source": "BVMAC — Bulletin officiel de la cote",
    "document_sha256": "d0e77ce7355051256fbe58c656e68a0e9503dd2a5d99ccf741c82a1a0eeff443",
-   "isin": "CM0000020362"
-  },
-  {
-   "observation_date": "2024-03-07",
-   "kind": "secondary_market",
-   "yield_pct": null,
-   "price": "100.000000",
-   "spread_bps": null,
-   "volume": "4986090.0000",
-   "source_url": "https://www.bvm-ac.org/wp-content/uploads/2024/03/BOC-20240307.pdf",
-   "publication_date": "2024-03-07",
-   "extracted_at": "2026-10-04T21:24:03.550564+00:00",
-   "verification_status": "verified",
-   "data_nature": "FACT",
-   "confidence_score": "1.000",
-   "is_synthetic": false,
-   "field_status": {
-    "yield": "not_disclosed",
-    "spread_bps": "not_disclosed"
-   },
-   "provenance_notes": "BVMAC BOC n° 1965, séance du 2024-03-07, p3:L23 t18-18: price = closing price 'Clôt.' '100,00' (% of nominal); volume = 'Valeur transigée' '4 986 090' FCFA (includes accrued coupon); 478 bonds in 1 trade(s), status 'PEq', nominal '10 000,000', accrued coupon '431,15'. No yield printed. Printed line: 'ETAT DU CAMEROUN ECMR 6.00% NET 2023-2027 CM0000020362 ECMR8 06/03/2024 100 10 000,00 10 000,000                                         431,15         478 118 890         478      4 986 090             1 PEq 100,00 100,00 106,00 94,00                  0,00% 10 000,00'. Verified by bvmac_check (strict automatic checks, no human review). Source: BVMAC (written authorisation, free publication, no resale).",
-   "source": "BVMAC — Bulletin officiel de la cote",
-   "document_sha256": "87193e32187c47d159581898518339da3d67ca11bfe9513bca8b1cadf227e6fd",
    "isin": "CM0000020362"
   },
   {
@@ -145727,52 +145528,6 @@
    "source": "BVMAC — Bulletin officiel de la cote",
    "document_sha256": "67a301402f19601fd9d8e2ccce532ba7d5a23b8973a47f7fff109b3bd8737a83",
    "isin": "CM0000020362"
-  },
-  {
-   "observation_date": "2024-10-04",
-   "kind": "secondary_market",
-   "yield_pct": null,
-   "price": "100.000000",
-   "spread_bps": null,
-   "volume": "246296226.0000",
-   "source_url": "https://www.bvm-ac.org/wp-content/uploads/2024/10/BOC-20241004.pdf",
-   "publication_date": "2024-10-04",
-   "extracted_at": "2026-10-04T21:26:05.280480+00:00",
-   "verification_status": "verified",
-   "data_nature": "FACT",
-   "confidence_score": "1.000",
-   "is_synthetic": false,
-   "field_status": {
-    "yield": "not_disclosed",
-    "spread_bps": "not_disclosed"
-   },
-   "provenance_notes": "BVMAC BOC n° 2109, séance du 2024-10-04, p3:L22 t20-20: price = closing price 'Clôt.' '100,00' (% of nominal); volume = 'Valeur transigée' '246 296 226' FCFA (includes accrued coupon); 24 200 bonds in 1 trade(s), status 'PEq', nominal '10 000,000', accrued coupon '177,53'. No yield printed. Printed line: 'ETAT DU CAMEROUN ECMR 6.00% NET 2023-2027 CM0000020362 ECMR8 03/10/2024 100,00 10 000,00 10 000,000                                      177,53 24 200 198 262 24 200 246 296 226                           1 PEq 100,00 100,00 106,00 94,00                0,00% 10 000,00'. Verified by bvmac_check (strict automatic checks, no human review). Source: BVMAC (written authorisation, free publication, no resale).",
-   "source": "BVMAC — Bulletin officiel de la cote",
-   "document_sha256": "e51ee77f984fb3c1cfb96fb553938c1bccf2c23f599d3da3b345b5b816bd776d",
-   "isin": "CM0000020362"
-  },
-  {
-   "observation_date": "2024-01-19",
-   "kind": "secondary_market",
-   "yield_pct": null,
-   "price": "100.000000",
-   "spread_bps": null,
-   "volume": "5198260000.0000",
-   "source_url": "https://www.bvm-ac.org/wp-content/uploads/2024/01/BOC-20240119.pdf",
-   "publication_date": "2024-01-19",
-   "extracted_at": "2026-10-04T21:26:27.595776+00:00",
-   "verification_status": "verified",
-   "data_nature": "FACT",
-   "confidence_score": "1.000",
-   "is_synthetic": false,
-   "field_status": {
-    "yield": "not_disclosed",
-    "spread_bps": "not_disclosed"
-   },
-   "provenance_notes": "BVMAC BOC n° 1932, séance du 2024-01-19, p3:L24 t21-21: price = closing price 'Clôt.' '100,00' (% of nominal); volume = 'Valeur transigée' '5 198 260 000' FCFA (includes accrued coupon); 500 000 bonds in 1 trade(s), status 'PEq', nominal '10 000,000', accrued coupon '396,52'. No yield printed. Printed line: 'ETAT DU CAMEROUN ECMR 6,75% NET 2023-2029 CM0000020370 ECMR9 18/01/2024 100 10 000,00 10 000,000                                          396,52 500 000 500 000 500 000 5 198 260 000                        1 PEq 100,00 100,00 106,00 94,00                0,00% 10 000,00'. Verified by bvmac_check (strict automatic checks, no human review). Source: BVMAC (written authorisation, free publication, no resale).",
-   "source": "BVMAC — Bulletin officiel de la cote",
-   "document_sha256": "26c97d50757d2d1a98a082a8ecb9c30c442be1e4041588128524a47d51f0417e",
-   "isin": "CM0000020370"
   },
   {
    "observation_date": "2024-11-26",
@@ -146028,29 +145783,6 @@
    "isin": "CM0000020628"
   },
   {
-   "observation_date": "2024-01-19",
-   "kind": "secondary_market",
-   "yield_pct": null,
-   "price": "100.000000",
-   "spread_bps": null,
-   "volume": "509562000.0000",
-   "source_url": "https://www.bvm-ac.org/wp-content/uploads/2024/01/BOC-20240119.pdf",
-   "publication_date": "2024-01-19",
-   "extracted_at": "2026-10-04T21:26:27.589230+00:00",
-   "verification_status": "verified",
-   "data_nature": "FACT",
-   "confidence_score": "1.000",
-   "is_synthetic": false,
-   "field_status": {
-    "yield": "not_disclosed",
-    "spread_bps": "not_disclosed"
-   },
-   "provenance_notes": "BVMAC BOC n° 1932, séance du 2024-01-19, p3:L16 t20-20: price = closing price 'Clôt.' '100,00' (% of nominal); volume = 'Valeur transigée' '509 562 000' FCFA (includes accrued coupon); 200 000 bonds in 1 trade(s), status 'PEq', nominal '2 500,000', accrued coupon '47,81'. No yield printed. Printed line: 'ETAT DU GABON         EOG 6,25% NET 2019-2024     GA0000020206 EGA05 18/01/2024                    99       2 475,00 2 500,000             47,81 200 000 200 000 200 000 509 562 000                          1 PEq 100,00 100,00 104,94 93,06                1,01% 2 500,00'. Verified by bvmac_check (strict automatic checks, no human review). Source: BVMAC (written authorisation, free publication, no resale).",
-   "source": "BVMAC — Bulletin officiel de la cote",
-   "document_sha256": "26c97d50757d2d1a98a082a8ecb9c30c442be1e4041588128524a47d51f0417e",
-   "isin": "GA0000020206"
-  },
-  {
    "observation_date": "2024-01-04",
    "kind": "secondary_market",
    "yield_pct": null,
@@ -146235,29 +145967,6 @@
    "isin": "GA0000020503"
   },
   {
-   "observation_date": "2026-08-24",
-   "kind": "secondary_market",
-   "yield_pct": null,
-   "price": "100.000000",
-   "spread_bps": null,
-   "volume": "5289169.0000",
-   "source_url": "https://www.bvm-ac.org/wp-content/uploads/2026/08/BOC-20260824.pdf",
-   "publication_date": "2026-08-24",
-   "extracted_at": "2026-10-04T21:23:51.842193+00:00",
-   "verification_status": "verified",
-   "data_nature": "FACT",
-   "confidence_score": "1.000",
-   "is_synthetic": false,
-   "field_status": {
-    "yield": "not_disclosed",
-    "spread_bps": "not_disclosed"
-   },
-   "provenance_notes": "BVMAC BOC n° 2579, séance du 2026-08-24, p3:L25 t17-17: price = closing price 'Clôt.' '100,00' (% of nominal); volume = 'Valeur transigée' '5 289 169' FCFA (includes accrued coupon); 513 bonds in 2 trade(s), status 'PEq', nominal '10 000,000', accrued coupon '310,27'. No yield printed. Printed line: 'ETAT DU GABON      EOG 7,5% NET 2024-2031      GA0000020503 EGA11 21/08/2026 100,00 10 000,00 10 000,000                    310,27       513      513     513      5 289 169        2 PEq    100,00 100,00 106,00      94,00      0,00% 10 000,00'. Verified by bvmac_check (strict automatic checks, no human review). Source: BVMAC (written authorisation, free publication, no resale).",
-   "source": "BVMAC — Bulletin officiel de la cote",
-   "document_sha256": "472a82b0b6268ec019f16d2b172e93f57f762ebb14f5c72bbbf5f880f867368b",
-   "isin": "GA0000020503"
-  },
-  {
    "observation_date": "2026-08-31",
    "kind": "secondary_market",
    "yield_pct": null,
@@ -146301,29 +146010,6 @@
    "provenance_notes": "BVMAC BOC n° 2319, séance du 2025-08-11, p3:L30 t20-20: price = closing price 'Clôt.' '100,00' (% of nominal); volume = 'Valeur transigée' '433 421 080' FCFA (includes accrued coupon); 43 000 bonds in 1 trade(s), status 'PEq', nominal '10 000,000', accrued coupon '79,560'. No yield printed. Printed line: 'ETAT DU GABON     EOG M T 6,60% NET 2024-2027 GA0000020511 EGA12       08/08/2025 100,00 10 000,00 10 000,000       79,560   43 000 43 000   43 000   433 421 080      1 PEq    100,00 100,00 106,00       94,00      0,00% 10000,00'. Verified by bvmac_check (strict automatic checks, no human review). Source: BVMAC (written authorisation, free publication, no resale).",
    "source": "BVMAC — Bulletin officiel de la cote",
    "document_sha256": "86645e8095f921e27de85188c1b19bce2e796f65f83b8f42c873ffd932ee0f84",
-   "isin": "GA0000020511"
-  },
-  {
-   "observation_date": "2025-08-22",
-   "kind": "secondary_market",
-   "yield_pct": null,
-   "price": "100.000000",
-   "spread_bps": null,
-   "volume": "3391529878.0000",
-   "source_url": "https://www.bvm-ac.org/wp-content/uploads/2025/08/BOC-20250822.pdf",
-   "publication_date": "2025-08-22",
-   "extracted_at": "2026-10-04T21:25:15.657255+00:00",
-   "verification_status": "verified",
-   "data_nature": "FACT",
-   "confidence_score": "1.000",
-   "is_synthetic": false,
-   "field_status": {
-    "yield": "not_disclosed",
-    "spread_bps": "not_disclosed"
-   },
-   "provenance_notes": "BVMAC BOC n° 2327, séance du 2025-08-22, p3:L29 t18-18: price = closing price 'Clôt.' '100,00' (% of nominal); volume = 'Valeur transigée' '3391529878' FCFA (includes accrued coupon); 335 693 bonds in 2 trade(s), status 'PEq', nominal '10 000,000', accrued coupon '103,070'. No yield printed. Printed line: 'ETAT DU GABON     EOG M T 6,60% NET 2024-2027 GA0000020511 EGA12       21/08/2025 100,00 10 000,00 10 000,000      103,070 335 693 335 693 335 693 3391529878         2 PEq    100,00 100,00 106,00       94,00      0,00% 10000,00'. Verified by bvmac_check (strict automatic checks, no human review). Source: BVMAC (written authorisation, free publication, no resale).",
-   "source": "BVMAC — Bulletin officiel de la cote",
-   "document_sha256": "b30b3f10719c9ef142c5173b7d1d4be265ad689eec9b38a37bcddbd82f64ada3",
    "isin": "GA0000020511"
   },
   {
@@ -146647,29 +146333,6 @@
    "source": "BVMAC — Bulletin officiel de la cote",
    "document_sha256": "f80c5acd8d76a506e6440459328a8662a8276e0642e4e48b3a73cef03a749166",
    "isin": "GA0000020636"
-  },
-  {
-   "observation_date": "2024-08-27",
-   "kind": "secondary_market",
-   "yield_pct": null,
-   "price": "100.000000",
-   "spread_bps": null,
-   "volume": "78250.0000",
-   "source_url": "https://www.bvm-ac.org/wp-content/uploads/2024/08/BOC-20240827_compressed.pdf",
-   "publication_date": "2024-08-27",
-   "extracted_at": "2026-10-04T21:26:12.054306+00:00",
-   "verification_status": "verified",
-   "data_nature": "FACT",
-   "confidence_score": "1.000",
-   "is_synthetic": false,
-   "field_status": {
-    "yield": "not_disclosed",
-    "spread_bps": "not_disclosed"
-   },
-   "provenance_notes": "BVMAC BOC n° 2081, séance du 2024-08-27, p3:L21 t16-16: price = closing price 'Clôt.' '100,00' (% of nominal); volume = 'Valeur transigée' '78 250' FCFA (includes accrued coupon); 10 bonds in 1 trade(s), status 'PEq', nominal '7 500,000', accrued coupon '325,00'. No yield printed. Printed line: 'ETAT DU TCHAD          EOTD 6,5% NET 2022-2027         TD0000020331 ETD01 26/08/2024 100,00                  7 500,00 7 500,000           325,00         10        200            10       78 250             1 PEq 100,00 100,00 106,00 94,00                0,00% 7 500,00'. Verified by bvmac_check (strict automatic checks, no human review). Source: BVMAC (written authorisation, free publication, no resale).",
-   "source": "BVMAC — Bulletin officiel de la cote",
-   "document_sha256": "1c98d8e0dde7146c6adcd58328b04a9ae11a8b3679d89e66bf8522a69c507bd5",
-   "isin": "TD0000020331"
   },
   {
    "observation_date": "2024-09-25",

@@ -46,6 +46,8 @@ python -m app.ingest.bvmac --since 2024-01-01          # fetch + stage
 python -m app.ingest.bvmac_check                       # strict checks + promotion
 python -m app.ingest.bvmac_check --dry-run --report r.json
 python -m app.ingest.bvmac --reextract                 # after a parser change (no network)
+python -m app.ingest.bvmac_check --demote-ambiguous    # re-hold verified lines whose split was
+                                                       # chosen by arithmetic (undoes promotion)
 python -m app.seed.verified export                     # write the verified dataset (git)
 ```
 
@@ -91,10 +93,16 @@ order-book identities (whole numbers of bonds and trades, traded ≤ demanded, t
 1 ≤ trades ≤ traded, nothing traded ⇔ value 0 and 0 trades), and **accepts a field only if all
 remaining readings agree**. In `-layout` text a gap of two or more spaces is a hard column
 boundary. In `-raw` text (single spaces, line breaks that can fall inside a token such as
-`GA000002031⏎3` or `EGA1⏎0`), each line break is tried both as a separator and as a join, a
-record must end at a line end, and — only when two readings remain — the readings satisfying the
-printed value identity are kept (the layout reading never uses this rule; the checker compares
-the two).
+`GA000002031⏎3` or `EGA1⏎0`), each line break is tried both as a separator and as a join and a
+record must end at a line end.
+
+**Ambiguous splits are held, never resolved by arithmetic** (project decision, 2026-10-04). When
+a traded line still has several readings (order-book numbers separated by single spaces, e.g.
+`500 000 500 000 500 000 5 198 260 000 1`), the parser shows in staging the reading that satisfies
+value = traded × (close % × nominal / 100 + accrued coupon), with a note; the checker then HOLDS
+the line ("ambiguous number split resolved only by arithmetic", in either reading). Volume
+demanded / offered that stay ambiguous are left unread (noted) and are never promoted; the line
+can still pass, since no promoted value depends on them.
 
 Every value carries its raw printed text and a locator `p<page>:L<line> t<i>-<j>` (page, line and
 token range in the `pdftotext -layout` text); the staging row keeps the printed line itself.
@@ -130,6 +138,7 @@ line, every check must pass:
   rounding (traded × 0.005 + 1 FCFA); printed variation = close / previous − 1 (± 0.006 %);
   the section "Total" line and the front-page "OBLIGATIONS" line print exactly the sums of the
   traded volumes, values and trades (both readings for the front page);
+* the number split is unambiguous in both readings (no choice made by the value identity);
 * characteristics table: the ISIN printed once, same mnemo, coupon / periodicity /
   amortisation read identically by both readings, coupon equal to the coupon in the bond name,
   periodicity AN / SEM / TRIM;
@@ -188,30 +197,37 @@ Run on 2026-10-04 (separate local database), all BOCs listed with a session date
 | Documents | 686 BOCs downloaded and stored (SHA-256), all in layout `bvmac_boc/1`; 0 fetch errors, 0 unsupported, 0 scanned; re-download at check time: 686 / 686 identical hashes |
 | Bond lines staged | 16,998 (one per bond per session); 94 of them with a trade |
 | Parser | 16,991 lines read completely; 7 partial (2024-08-07: regional table printed without its last column; 2025-05-15: one order book with several readings) |
-| Verified | 16,647 lines (92 traded lines) |
-| Held for review | 351 lines, of which 2 traded (see below) |
-| Bonds (ISINs) | 37, all promoted to `security`: sovereign 24 (Gabon 17, Cameroon 5, Congo 1, Chad 1), supranational 6 (BDEAC, ISIN CG), corporate 7 (Cameroon 6: ALIOS FINANCE, ACEP CAMEROUN …; Congo 1: SNPC) |
-| Observations | 92 `secondary_market` rows on 27 bonds, 2024-01-03 → 2026-10-01 (36 in 2024, 33 in 2025, 23 in 2026): Cameroon 38 (sovereign 28, corporate 10), Congo 24 (BDEAC 21, sovereign 3), Gabon 27, Chad 3. 11 of them came from a line whose order-book numbers were separated by single spaces and were told apart by the value identity (and then confirmed by the printed totals) |
+| Verified | 16,636 lines (81 traded lines) |
+| Held for review | 362 lines, of which 13 traded (see below) |
+| Bonds (ISINs) | 37, all promoted to `security` (each backed by verified lines of its own document): sovereign 24 (Gabon 17, Cameroon 5, Congo 1, Chad 1), supranational 6 (BDEAC, ISIN CG), corporate 7 (Cameroon 6: ALIOS FINANCE ×5, ACEP CAMEROUN; Congo 1: SNPC) |
+| Observations | 81 `secondary_market` rows on 25 bonds, 2024-01-03 → 2026-10-01 (27 in 2024, 32 in 2025, 22 in 2026): Cameroon 33 (sovereign 23, corporate 10), Congo 22 (BDEAC 21, sovereign 1), Gabon 24, Chad 2 |
 
-Held lines, by first reason (a line can have several):
+The first check run had promoted 92 observations; 11 of them came from lines whose number split
+had been chosen by the value identity. Under the project decision (ambiguous splits are held)
+they were demoted with `--demote-ambiguous`: the 11 observations were deleted, the lines went back
+to UNVERIFIED with their values, locators and the reason; no security depended on them alone
+(none deleted, none re-pointed).
+
+Held lines, by reason (a line can have several):
 
 | reason | lines | what it is |
 |---|---|---|
 | previous / next reference price ≠ price % × nominal | 185 | around partial redemptions the printed nominal (j+3) already reflects the amortisation while the FCFA prices do not (or the reverse); also matured bonds printed with nominal 0 |
 | characteristics table not readable by both readings | 114 | wrapped bond names push the numbers to another line (e.g. April 2026) or the table is missing a row |
 | session header missing on the bond pages | 32 | 2024-02-19 and 2024-05-16: the bond pages carry no "BULLETIN OFFICIEL DE LA COTE N° … DU …" header |
+| ambiguous number split resolved only by arithmetic | 12 | traded lines whose order-book numbers are separated by single spaces (e.g. 2024-01-19 `500 000 500 000 500 000 5 198 260 000`) |
 | coupon printed ≠ coupon in the name | 11 | BOC errors, e.g. 2026-04-13/14 ACEP "Taux facial 6" for "ACEP 7%", ALIOS 6.5% printed 7 (2026-01-14/15) |
 | line not read completely / readings disagree | 7 | see "Parser" above |
 | ISIN printed twice in the characteristics table | 4 | 2026-04-13/14: the AFC04 line carries ACEP's ISIN |
 
-The 2 held trades: 2024-12-17 EGA07 (the sovereign "Total" line prints 806 712 000 / 1 but no
-volume, so the totals check cannot pass) and 2025-10-01 ECMR6 (characteristics table unreadable
-that day). Both remain in `bvmac_quote` for a person.
+The 13 held trades: 12 ambiguous splits (2024-01-04, 2024-01-19 ×3, 2024-03-07, 2024-08-13,
+2024-08-14, 2024-08-27, 2024-10-04, 2024-12-17, 2025-08-22, 2026-08-24) and 2025-10-01 ECMR6
+(characteristics table unreadable that day). All remain in `bvmac_quote` for a person.
 
-Audit by eye (10 random promoted observations against the PDF text, `pdftotext -layout` of the
-stored file): all 10 match — closing price, value traded, and the session date in the page
-header (e.g. 2024-08-13 EOCG: printed "100,00 95,00 … -5,00%", stored price 95, value
-1 951 368 = 300 × (95 % × 6 666,667 + 171,23)).
+Audit by eye (10 random promoted observations, after the demotion, against `pdftotext -layout` of
+the stored PDF): all 10 match — closing price, value traded and the session date in the page
+header. E.g. 2026-05-07 EGA12: printed `5 887 5 871 5 871 60 879 863 2 PEq 100,00 98,00 … -2,00%`,
+stored price 98, value 60 879 863 = 5 871 × (98 % × 10 000 + 569,59).
 
 ## Limitations
 

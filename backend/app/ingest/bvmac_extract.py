@@ -27,12 +27,10 @@ enumerates EVERY reading compatible with the number grammar and the column order
 that satisfy the order-book identities (whole numbers of bonds and trades, traded <= demanded,
 traded <= offered, 1 <= trades <= traded, nothing traded <=> no value and no trade), and accepts
 a field only when all remaining readings give the same value; otherwise the field is left out
-and the row is incomplete (never guessed). One tie-break only: when a traded line still has
-several readings (order-book numbers separated by single spaces, e.g. "500 000 500 000 500 000
-5 198 260 000 1"), the readings that satisfy the printed value identity — value traded =
-traded x (closing % x nominal / 100 + accrued coupon) — are kept, and the row is noted; the
-checker then also requires the section "Total" line and the market summary line, printed
-separately, to carry exactly the same sums.
+and the row is incomplete (never guessed). When a traded line still has several readings
+(order-book numbers separated by single spaces, e.g. "500 000 500 000 500 000 5 198 260 000 1"),
+the readings satisfying the printed value identity are shown in staging with a note, but the
+checker HOLDS such a line: an ambiguous split is never resolved by arithmetic.
 
 Two independent readings of the same PDF are supported:
   * mode="layout" (`pdftotext -layout`): one table row per text line; a run of two or more spaces
@@ -374,12 +372,13 @@ TIE_BREAK_NOTE = "several readings of the order-book columns; one kept by the pr
 def _tie_break(row: BondRow, decoded: list[dict]) -> list[dict]:
     """When several readings remain (numbers of the order book separated by single spaces, e.g.
     "500 000 500 000 500 000 5 198 260 000"), keep the readings that satisfy the printed value
-    identity. Used only to choose between readings of the same printed characters; the checker
-    then also requires the section "Total" line and the market summary to print the same sums."""
-    if len({tuple(v[0] for v in d.values()) for d in decoded}) <= 1:
+    identity, and NOTE it. This only makes the candidate values visible in staging: the checker
+    holds every line carrying this note (an ambiguous split is never resolved by arithmetic)."""
+    variants = {tuple(v[0] for v in d.values()) for d in decoded}
+    if len(variants) <= 1:
         return decoded
     kept = [d for d in decoded if value_identity({k: v[0] for k, v in d.items()})]
-    if kept:
+    if kept and len({tuple(v[0] for v in d.values()) for d in kept}) < len(variants):
         row.notes.append(TIE_BREAK_NOTE)
         return kept
     return decoded

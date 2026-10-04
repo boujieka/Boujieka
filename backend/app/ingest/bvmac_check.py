@@ -149,9 +149,9 @@ def check_row(row: BvmacQuote, L: ParsedBoc, R: ParsedBoc) -> Checks:
     if not c.add("present_both", lq is not None and rq is not None, "ISIN not found by both readings"):
         return c
     c.add("layout_reading_clean", not lq.errors, "; ".join(lq.errors))
-    tie = [n for n in lq.notes + rq.notes if n == TIE_BREAK_NOTE]
-    if tie:  # informational; the totals checks below are then what independently confirms the reading
-        c.add("tie_break_by_value_identity", True, f"{len(tie)} reading(s) chose among readings by the value identity")
+    tie = [label for label, q in (("layout", lq), ("raw", rq)) if TIE_BREAK_NOTE in q.notes]
+    c.add("unambiguous_number_split", not tie,
+          f"ambiguous number split resolved only by arithmetic ({', '.join(tie)} reading)")
     c.add("raw_reading_clean", not rq.errors, "; ".join(rq.errors))
     staged = row.fields or {}
     for name in QUOTE_NAMES:
@@ -460,6 +460,93 @@ class _Rollback(Exception):
     pass
 
 
+def demote(session: Session, row: BvmacQuote, reason: str) -> dict:
+    """Send a VERIFIED row back to UNVERIFIED (held), undoing what it promoted: its observation is
+    deleted; its security is deleted only if no other VERIFIED line of the same ISIN remains
+    (otherwise the security's provenance is moved to the earliest remaining verified line).
+    The staging row keeps every extracted value, its locators and the reason."""
+    out = {"observation_deleted": False, "security_deleted": False, "security_repointed": False}
+    if row.promoted_observation_id:
+        obs = session.get(MarketObservation, row.promoted_observation_id)
+        row.promoted_observation_id = None
+        session.flush()
+        if obs is not None:
+            session.delete(obs)
+            out["observation_deleted"] = True
+    sec_id, row.promoted_security_id = row.promoted_security_id, None
+    row.verification_status = VerificationStatus.UNVERIFIED
+    row.reviewed_by = row.reviewed_at = None
+    row.hold_reasons = [reason]
+    row.checks = [*(row.checks or []), {"check": "demoted", "ok": False, "detail": reason}]
+    row.provenance_notes = (row.provenance_notes or "").replace(
+        f"VERIFIED by {REVIEWER}.", "UNVERIFIED until app.ingest.bvmac_check passes.")
+    session.flush()
+    sec = session.get(Security, sec_id) if sec_id else session.scalar(select(Security).where(Security.isin == row.isin))
+    if sec is None:
+        return out
+    others = session.scalars(select(BvmacQuote).where(
+        BvmacQuote.isin == row.isin, BvmacQuote.verification_status == VerificationStatus.VERIFIED)
+        .order_by(BvmacQuote.session_date, BvmacQuote.quote_id)).all()
+    if not others:
+        if session.scalar(select(MarketObservation.observation_id).where(
+                MarketObservation.security_id == sec.security_id)):
+            raise RuntimeError(f"{row.isin}: observations remain without a verified line")
+        for o in session.scalars(select(BvmacQuote).where(BvmacQuote.promoted_security_id == sec.security_id)):
+            o.promoted_security_id = None
+        session.flush()
+        session.delete(sec)
+        out["security_deleted"] = True
+    elif sec.source_document_id == row.source_document_id:
+        first = others[0]
+        doc = session.get(SourceDocument, first.source_document_id)
+        sec.source_document_id, sec.source_url, sec.publication_date = doc.document_id, doc.url, first.session_date
+        f = first.fields or {}
+        cl = f.get("char_coupon_rate") or {}
+        note = sec.provenance_notes or ""
+        note = re.sub(r"^BVMAC BOC n° \S+ du \S+:", f"BVMAC BOC n° {first.boc_number} du {first.session_date}:", note)
+        note = re.sub(r"quote line \S+", f"quote line {(f.get('mnemo') or {}).get('locator')}", note)
+        note = re.sub(r"Taux facial '[^']*' at \S+", f"Taux facial {cl.get('raw')!r} at {cl.get('locator')}", note)
+        sec.provenance_notes = note
+        if first.promoted_security_id is None:
+            first.promoted_security_id = sec.security_id
+        out["security_repointed"] = True
+    session.flush()
+    return out
+
+
+def demote_ambiguous_splits(session: Session, log: Callable[[str], None] = lambda _: None) -> dict:
+    """Re-read (from the stored, hash-checked PDFs) every VERIFIED traded line and demote those
+    whose number split, in either reading, was chosen only by the value identity. (A line with
+    nothing traded cannot be narrowed by that identity, so only traded lines are concerned.)"""
+    rep = {"checked": 0, "demoted": [], "observations_deleted": 0, "securities_deleted": 0,
+           "securities_repointed": 0}
+    rows = session.scalars(select(BvmacQuote).where(
+        BvmacQuote.verification_status == VerificationStatus.VERIFIED, BvmacQuote.traded.is_(True))
+        .order_by(BvmacQuote.session_date)).all()
+    for row in rows:
+        doc = session.get(SourceDocument, row.source_document_id)
+        content = Path(doc.storage_path).read_bytes()
+        if hashlib.sha256(content).hexdigest() != doc.content_sha256:
+            raise RuntimeError(f"stored file of document {doc.document_id} does not match its SHA-256")
+        rep["checked"] += 1
+        tie = []
+        for mode in ("layout", "raw"):
+            q = parse(pdf_text(content, mode), mode).quotes.get(row.isin)
+            if q is None or TIE_BREAK_NOTE in q.notes:
+                tie.append(mode)
+        if not tie:
+            continue
+        reason = ("unambiguous_number_split: ambiguous number split resolved only by arithmetic "
+                  f"({', '.join(tie)} reading)")
+        res = demote(session, row, reason)
+        rep["demoted"].append({"quote_id": row.quote_id, "isin": row.isin, "date": str(row.session_date), **res})
+        rep["observations_deleted"] += res["observation_deleted"]
+        rep["securities_deleted"] += res["security_deleted"]
+        rep["securities_repointed"] += res["security_repointed"]
+        log(f"demoted {row.session_date} {row.isin} ({', '.join(tie)}): {res}")
+    return rep
+
+
 def summary(report: dict) -> str:
     traded_held = sum(1 for h in report["held"] if h["traded"])
     return (f"documents {report['documents']} · rows checked {report['rows_checked']} · verified "
@@ -474,8 +561,17 @@ def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     p.add_argument("--dry-run", action="store_true", help="report only; change nothing")
     p.add_argument("--report", type=Path, help="write the full report as JSON")
+    p.add_argument("--demote-ambiguous", action="store_true",
+                   help="first demote VERIFIED lines whose number split was resolved only by arithmetic")
     args = p.parse_args(argv)
     with SessionLocal() as session:
+        if args.demote_ambiguous:
+            rep = demote_ambiguous_splits(session, log=print)
+            if args.dry_run:
+                session.rollback()
+            else:
+                session.commit()
+            print({k: (len(v) if isinstance(v, list) else v) for k, v in rep.items()})
         report = run(session, dry_run=args.dry_run, log=print, commit=not args.dry_run)
         if args.dry_run:
             session.rollback()
