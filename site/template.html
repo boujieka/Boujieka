@@ -877,7 +877,7 @@ abbr[title] { text-decoration: underline dotted; text-underline-offset: 2px; cur
       list.slice(0, 15).map((o) => `<tr><td class="num">${date(o.auction_date) ?? "—"}</td><td>${esc(NAME(o.country_iso3))}</td><td>${o.security ? `${esc(M("instr")[o.security.instrument_type] ?? "")} ${tenor(o.security.tenor_days)}` : "—"}</td><td>${esc(o.currency ?? "")}</td><td class="num">${pct(o.yield_pct, 2) ?? "n/d"}</td><td style="white-space:nowrap">${o.opportunity_type === "upcoming_auction" ? `<a href="#simulateur" data-sim="${o.opportunity_id}">${esc(t("f.simulate"))}</a> · ` : ""}<a href="#radar" data-go="${o.country_iso3}">Radar</a></td></tr>`).join("") +
       `</tbody></table></div>${list.length > 15 ? `<p class="note">${esc(t("f.first", { n: list.length }))}</p>` : ""}` : "");
   }
-  const QUOTE_LANG = { KEN: "en" };
+  const QUOTE_LANG = { KEN: "en", NGA: "en", GHA: "en", ZAF: "en", TZA: "en", UGA: "en", RWA: "en" };
   function buyerCard(b) {
     const tr = lang === "fr" ? null : M("buyer_cards")[b.key];
     const f = (k) => tr?.[k] ?? b[k];

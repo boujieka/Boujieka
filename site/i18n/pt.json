@@ -602,7 +602,13 @@
   "zone_title": {
     "CEMAC": "CEMAC · BEAC",
     "WAEMU": "UEMOA · UMOA-Titres",
-    "KEN": "Quénia · Banco Central do Quénia"
+    "KEN": "Quénia · Banco Central do Quénia",
+    "NGA": "Nigéria · Debt Management Office",
+    "GHA": "Gana · Banco do Gana",
+    "ZAF": "África do Sul · National Treasury",
+    "TZA": "Tanzânia · Banco da Tanzânia",
+    "UGA": "Uganda · Banco do Uganda",
+    "RWA": "Ruanda · Banco Nacional do Ruanda"
   },
   "lang_name": {
     "fr": "francês",
@@ -667,7 +673,8 @@
     "SGI": "SGI (intermediário)",
     "other": "Outro",
     "IVT": "IVT (intermediário em valores do Tesouro)",
-    "PD_BMS": "Operador primário e Bond Market Specialist"
+    "PD_BMS": "Operador primário e Bond Market Specialist",
+    "CDP": "CDP (participante do depositário central)"
   },
   "buyer_cards": {
     "CEMAC": {
@@ -700,6 +707,65 @@
       "submission_method": "Propostas através da aplicação móvel ou do portal DhowCSD. Mínimo: 50 000 KES (não competitiva) ou 2 000 000 KES (competitiva), em múltiplos de 50 000 KES.",
       "instruments": {
         "treasury_bill": "Valor facial mínimo: 50 000 KES (proposta não competitiva), 2 000 000 KES (proposta competitiva)."
+      }
+    },
+    "NGA": {
+      "investor_type": "Investidores (através de um PDMM)",
+      "eligibility": "Clientes dos PDMM: os PDMM apresentam propostas por conta própria e em nome dos seus clientes.",
+      "primary_dealer": "Primary Dealer Market Makers (PDMM) designados pelo DMO.",
+      "submission_method": "Formulário de subscrição (obtido num PDMM ou descarregado do site do DMO) entregue através de um PDMM; leilões mensais do DMO. Mínimo: 50 001 000 NGN, depois múltiplos de 1 000 NGN.",
+      "instruments": {
+        "treasury_bond": "Obrigações FGN: leilões mensais; mínimo de 50 001 000 NGN, depois múltiplos de 1 000 NGN; juros semestrais."
+      }
+    },
+    "GHA": {
+      "investor_type": "Investidores (através de um PD, de um BMS ou de um participante do depositário acreditado)",
+      "eligibility": "Leilão grossista reservado aos Primary Dealers autorizados; os outros investidores compram e vendem no mercado secundário através de participantes do depositário acreditados.",
+      "primary_dealer": "Primary Dealers (PD): instituições financeiras autorizadas pelo Bank of Ghana.",
+      "submission_method": "Compra ou venda no mercado secundário através de um participante do depositário acreditado.",
+      "instruments": {
+        "treasury_bill": "Bilhetes do Tesouro: leilão grossista reservado aos PD, que compram por conta própria (diretrizes de março de 2020).",
+        "treasury_bond": "Notas e obrigações: emitidas com os Bond Market Specialists, que substituem os coordenadores (JBR) (diretrizes de março de 2020)."
+      }
+    },
+    "ZAF": {
+      "investor_type": "Particulares: cidadãos e residentes permanentes sul-africanos",
+      "eligibility": "Cidadãos sul-africanos e residentes permanentes com número de identidade sul-africano válido e conta bancária na África do Sul; para um menor, o formulário deve ser assinado também por um progenitor ou tutor.",
+      "primary_dealer": "Compra direta ao National Treasury (online, no balcão de atendimento ou por telefone).",
+      "account_requirement": "Conta bancária num banco sul-africano; registo no National Treasury com documentos comprovativos.",
+      "submission_method": "Registo e depois pedido online (secure.rsaretailbonds.gov.za), no balcão de atendimento do National Treasury (40 Church Square, Pretória) ou por telefone para investidores já registados. Mínimo: 1 000 ZAR por obrigação.",
+      "instruments": {
+        "treasury_bond": "Obrigações de poupança a taxa fixa (Fixed Rate RSA Retail Savings Bonds): 2, 3 ou 5 anos; mínimo de 1 000 ZAR; a brochura de 2023 indica que não há custos nem comissões."
+      }
+    },
+    "TZA": {
+      "investor_type": "Todos os investidores, incluindo estrangeiros (através de um CDP)",
+      "eligibility": "Todos os investidores, incluindo cidadãos estrangeiros.",
+      "primary_dealer": "Central Depository Participants (CDP): as propostas passam por um CDP.",
+      "submission_method": "Propostas apresentadas online através de um CDP, antes das 11h do dia do leilão.",
+      "instruments": {
+        "treasury_bill": "Bilhetes do Tesouro: proposta mínima de 500 000 TZS, em múltiplos de 10 000 TZS; juros sujeitos a retenção na fonte de 10% (concurso n.º 1208 de 7 de outubro de 2026).",
+        "treasury_bond": "Obrigações do Tesouro: proposta mínima de 1 000 000 TZS, em múltiplos de 100 000 TZS; juros isentos de retenção na fonte; cotadas na Bolsa de Dar es Salaam (leilão de 30 de setembro de 2026, obrigação a 15 anos n.º 696)."
+      }
+    },
+    "UGA": {
+      "investor_type": "Investidores (através de um banco comercial)",
+      "eligibility": "Propostas não competitivas: através de qualquer banco comercial; propostas competitivas: apenas bancos Primary Dealers.",
+      "primary_dealer": "Bancos Primary Dealers (propostas competitivas) e outros bancos comerciais.",
+      "submission_method": "Os bancos apresentam as propostas ao Bank of Uganda através do Central Securities Depository (CSD). Mínimo não competitivo: 100 000 UGX; competitivo: 200 100 000 UGX.",
+      "instruments": {
+        "treasury_bill": "Bilhetes do Tesouro: mínimo de 100 000 UGX (não competitivo, através de qualquer banco comercial); propostas não competitivas aceites na totalidade até 200 000 000 UGX por prazo (concurso n.º 1235 de 30 de setembro de 2026).",
+        "treasury_bond": "Obrigações do Tesouro: 2, 3, 5, 10, 15, 20 e 25 anos; mínimo de 100 000 UGX (prospeto geral de julho de 2025)."
+      }
+    },
+    "RWA": {
+      "investor_type": "Investidores residentes e não residentes (conta CSD)",
+      "eligibility": "Residentes e não residentes que abriram uma conta CSD através de um banco comercial licenciado ou de um intermediário do mercado de capitais.",
+      "primary_dealer": "Bancos comerciais licenciados ou intermediários do mercado de capitais (agentes de colocação).",
+      "account_requirement": "Conta CSD aberta através de um banco comercial licenciado ou de um intermediário do mercado de capitais.",
+      "submission_method": "Formulário de subscrição (site do BNR) entregue através de um banco comercial licenciado ou de um intermediário do mercado de capitais. Mínimo: 100 000 RWF (não competitivo), 50 milhões de RWF (competitivo).",
+      "instruments": {
+        "treasury_bond": "Obrigações do Tesouro (book building): mínimo de 100 000 RWF (proposta não competitiva), 50 milhões de RWF (proposta competitiva); retenção na fonte de 5% sobre os juros (prospeto de 26 de fevereiro de 2026)."
       }
     }
   },

@@ -108,7 +108,7 @@ def load_subscription_routes(session: Session, countries: dict[str, Country]) ->
                       "settlement_method", "instrument_notes", "quotes"):
             setattr(row, field, route.get(field))
         row.official_source_url = route["source_url"]
-        row.last_verified = _date.fromisoformat(sr.VERIFIED_ON)
+        row.last_verified = _date.fromisoformat(route.get("verified_on", sr.VERIFIED_ON))
         session.add(row)
     session.flush()
     return len(rows)

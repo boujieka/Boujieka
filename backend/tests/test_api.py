@@ -291,23 +291,61 @@ class TestOpportunityRadar:
 
 
 class TestBuyers:
+    # Countries documented on 2026-10-04 and the instruments their official sources describe.
+    NEW_ROUTES = {
+        "NGA": {"treasury_bond"},
+        "GHA": {"treasury_bill", "treasury_bond"},
+        "ZAF": {"treasury_bond"},
+        "TZA": {"treasury_bill", "treasury_bond"},
+        "UGA": {"treasury_bill", "treasury_bond"},
+        "RWA": {"treasury_bond"},
+    }
+    OFFICIAL_HOSTS = {
+        "www.beac.int", "www.umoatitres.org", "www.centralbank.go.ke", "www.dmo.gov.ng", "www.bog.gov.gh",
+        "www.rsaretailbonds.gov.za", "www.bot.go.tz", "bou.or.ug", "www.bnr.rw",
+    }
+
     def test_routes_cover_pilot_zones(self, client):
         rows = get(client, "/subscription-routes")
-        assert len(rows) == 30
+        # 6 CEMAC + 8 WAEMU countries x 2 instruments, Kenya x 2, then 9 routes for the six new countries.
+        assert len(rows) == 39
         assert {r["country_iso3"] for r in rows if r["monetary_zone"] == "CEMAC"} == {"CMR", "CAF", "TCD", "COG", "GNQ", "GAB"}
         assert len({r["country_iso3"] for r in rows if r["monetary_zone"] == "WAEMU"}) == 8
         assert {r["instrument_type"] for r in get(client, "/subscription-routes", country="KEN")} == {"treasury_bill", "treasury_bond"}
 
+    def test_new_countries_have_only_documented_instruments(self, client):
+        for iso3, instruments in self.NEW_ROUTES.items():
+            rows = get(client, "/subscription-routes", country=iso3)
+            assert {r["instrument_type"] for r in rows} == instruments, iso3
+            assert all(r["last_verified"] == "2026-10-04" for r in rows)
+
     def test_every_route_is_sourced_and_quoted(self, client):
+        from urllib.parse import urlparse
+
         for r in get(client, "/subscription-routes"):
             assert r["official_source_url"].startswith("https://")
-            assert r["last_verified"] == "2026-10-03"
+            assert urlparse(r["official_source_url"]).hostname in self.OFFICIAL_HOSTS
+            assert r["last_verified"] in {"2026-10-03", "2026-10-04"}
             assert r["quotes"] and all(len(q) > 40 for q in r["quotes"])
-            assert r["fees"] is None and r["taxes"] is None  # not stated by the sources: never invented
+            assert len(set(r["quotes"])) == len(r["quotes"])
+            assert len(r["investor_type"]) <= 64  # subscription_route.investor_type is VARCHAR(64)
+            assert r["fees"] is None and r["taxes"] is None  # never filled from the sources: not invented
             assert "not advice" in r["disclaimer"]
 
-    def test_unknown_country_returns_empty(self, client):
-        assert get(client, "/subscription-routes", country="NGA") == []
+    def test_new_quotes_are_verbatim_shaped(self):
+        # Quotes are copied from English-language sources: no paraphrase markers or French text.
+        from app.seed.subscription_routes import COUNTRY_ROUTES, VERIFIED_ON_2
+
+        new = [r for r in COUNTRY_ROUTES if r.get("verified_on") == VERIFIED_ON_2]
+        assert {r["iso3"] for r in new} == set(self.NEW_ROUTES)
+        for r in new:
+            assert r["source_url"].startswith("https://")
+            for q in r["quotes"]:
+                assert len(q) > 40 and q == q.strip() and "  " not in q
+                assert not any(w in q for w in (" les ", " des ", "...", "[", "]"))
+
+    def test_country_without_route_returns_empty(self, client):
+        assert get(client, "/subscription-routes", country="MAR") == []
 
 
 class TestAccreditedDealers:
@@ -317,9 +355,12 @@ class TestAccreditedDealers:
         for d in data["dealers"]:
             by_src[d["source_id"]] = by_src.get(d["source_id"], 0) + 1
         # UMOA-Titres: 24 SVT over 8 states (45 state/SVT pairs); BEAC table 29 (Gabon duplicate removed);
-        # DMO 14 PDMM; BoG 15 PD; National Treasury 10 PD; Morocco top 3 only.
+        # DMO 14 PDMM; BoG 15 PD; National Treasury 10 PD; Morocco top 3 only; BoU 8 PD banks (T-bill
+        # tender 1235); BoT 51 registered CDPs (2022 guidelines); BoM 4 PD (2017 notice).
         assert by_src == {"umoa_rank_2024": 45, "beac_shares_2021": 76, "beac_list_2022": 94,
-                          "dmo_pdmm_2023": 14, "bog_pd_2026": 15, "ntsa_pd_2025": 10, "mef_ivt_2025": 3}
+                          "dmo_pdmm_2023": 14, "bog_pd_2026": 15, "ntsa_pd_2025": 10, "mef_ivt_2025": 3,
+                          "bou_pd_2026": 8, "bot_cdp_2022": 51, "bom_pd_2017": 4}
+        assert len({d["name"] for d in data["dealers"] if d["source_id"] == "bot_cdp_2022"}) == 51
         assert len({d["name"] for d in data["dealers"] if d["source_id"] == "umoa_rank_2024"}) == 24
         assert "not a recommendation" in data["disclaimer"]
 
@@ -351,4 +392,6 @@ class TestAccreditedDealers:
         sen = get(client, "/accredited-dealers", country="sen")
         assert [s["id"] for s in sen["sources"]] == ["umoa_rank_2024"]
         assert {d["country_iso3"] for d in sen["dealers"]} == {"SEN"} and len(sen["dealers"]) == 6
+        uga = get(client, "/accredited-dealers", country="UGA")
+        assert [s["id"] for s in uga["sources"]] == ["bou_pd_2026"] and len(uga["dealers"]) == 8
         assert get(client, "/accredited-dealers", country="KEN") == {**get(client, "/accredited-dealers", country="KEN"), "sources": [], "dealers": []}

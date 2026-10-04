@@ -602,7 +602,13 @@
   "zone_title": {
     "CEMAC": "CEMAC · BEAC",
     "WAEMU": "UEMOA · UMOA-Titres",
-    "KEN": "Kenya · Banque centrale du Kenya"
+    "KEN": "Kenya · Banque centrale du Kenya",
+    "NGA": "Nigeria · Debt Management Office",
+    "GHA": "Ghana · Banque du Ghana",
+    "ZAF": "Afrique du Sud · National Treasury",
+    "TZA": "Tanzanie · Banque de Tanzanie",
+    "UGA": "Ouganda · Banque d'Ouganda",
+    "RWA": "Rwanda · Banque nationale du Rwanda"
   },
   "lang_name": {
     "fr": "français",
@@ -667,7 +673,8 @@
     "SGI": "SGI",
     "other": "Autre",
     "IVT": "IVT (Intermédiaire en Valeurs du Trésor)",
-    "PD_BMS": "Primary dealer et Bond Market Specialist"
+    "PD_BMS": "Primary dealer et Bond Market Specialist",
+    "CDP": "CDP (participant au dépositaire central)"
   },
   "buyer_cards": {},
   "guide_steps": [

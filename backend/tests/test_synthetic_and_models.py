@@ -283,7 +283,9 @@ class TestSubscriptionRouteSources:
         on the verification date."""
         from app.seed import subscription_routes as sr
 
-        allowed = {sr.BEAC_URL, sr.UMOA_MARKET_URL, sr.UMOA_RETAIL_URL, sr.CBK_BILLS_URL}
+        allowed = {sr.BEAC_URL, sr.UMOA_MARKET_URL, sr.UMOA_RETAIL_URL, sr.CBK_BILLS_URL,
+                   sr.DMO_FGN_URL, sr.BOG_GUIDE_URL, sr.RSA_RETAIL_URL, sr.BOT_BILL_URL, sr.BOT_BOND_URL,
+                   sr.BOU_BILL_URL, sr.BOU_BOND_URL, sr.BNR_BOND_URL}
         for r in sr.ZONE_ROUTES + sr.COUNTRY_ROUTES:
             assert r["source_url"] in allowed
             assert r["quotes"]
@@ -294,4 +296,4 @@ class TestSubscriptionRouteSources:
 
         before = db.scalar(select(func.count()).select_from(SubscriptionRoute))
         load_reference(db)
-        assert db.scalar(select(func.count()).select_from(SubscriptionRoute)) == before == 30
+        assert db.scalar(select(func.count()).select_from(SubscriptionRoute)) == before == 39

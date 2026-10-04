@@ -602,7 +602,13 @@
   "zone_title": {
     "CEMAC": "CEMAC · BEAC",
     "WAEMU": "WAEMU · UMOA-Titres",
-    "KEN": "Kenya · Central Bank of Kenya"
+    "KEN": "Kenya · Central Bank of Kenya",
+    "NGA": "Nigeria · Debt Management Office",
+    "GHA": "Ghana · Bank of Ghana",
+    "ZAF": "South Africa · National Treasury",
+    "TZA": "Tanzania · Bank of Tanzania",
+    "UGA": "Uganda · Bank of Uganda",
+    "RWA": "Rwanda · National Bank of Rwanda"
   },
   "lang_name": {
     "fr": "French",
@@ -667,7 +673,8 @@
     "SGI": "SGI (broker-dealer)",
     "other": "Other",
     "IVT": "IVT (Treasury securities intermediary)",
-    "PD_BMS": "Primary dealer and Bond Market Specialist"
+    "PD_BMS": "Primary dealer and Bond Market Specialist",
+    "CDP": "CDP (Central Depository Participant)"
   },
   "buyer_cards": {
     "CEMAC": {
@@ -700,6 +707,65 @@
       "submission_method": "Bids through the DhowCSD mobile app or portal. Minimum: KES 50,000 (non-competitive) or KES 2,000,000 (competitive), in denominations of KES 50,000.",
       "instruments": {
         "treasury_bill": "Minimum face value: KES 50,000 (non-competitive bid), KES 2,000,000 (competitive bid)."
+      }
+    },
+    "NGA": {
+      "investor_type": "Investors (through a PDMM)",
+      "eligibility": "PDMM clients: PDMMs submit bids for their own account and on behalf of their clients.",
+      "primary_dealer": "Primary Dealer Market Makers (PDMMs) appointed by the DMO.",
+      "submission_method": "Application form (from a PDMM or downloaded from the DMO website) submitted through a PDMM; monthly DMO auctions. Minimum: NGN 50,001,000, then multiples of NGN 1,000.",
+      "instruments": {
+        "treasury_bond": "FGN bonds: monthly auctions; minimum NGN 50,001,000 then multiples of NGN 1,000; semi-annual interest."
+      }
+    },
+    "GHA": {
+      "investor_type": "Investors (through a PD, a BMS or an accredited depository participant)",
+      "eligibility": "Wholesale auction open only to authorised Primary Dealers; other investors buy and sell in the secondary market through accredited depository participants.",
+      "primary_dealer": "Primary Dealers (PDs): financial institutions authorised by the Bank of Ghana.",
+      "submission_method": "Purchase or sale in the secondary market through an accredited depository participant.",
+      "instruments": {
+        "treasury_bill": "Treasury bills: wholesale auction reserved for PDs, which buy for their own accounts (March 2020 guidelines).",
+        "treasury_bond": "Notes and bonds: issued with Bond Market Specialists, which replace the joint bookrunners (JBRs) (March 2020 guidelines)."
+      }
+    },
+    "ZAF": {
+      "investor_type": "Individuals: South African citizens and permanent residents",
+      "eligibility": "South African citizens and permanent residents with a valid South African identity number and a bank account in South Africa; for a minor, the form must be countersigned by a parent or guardian.",
+      "primary_dealer": "Direct purchase from National Treasury (online, at the walk-in centre or by phone).",
+      "account_requirement": "Bank account at a South African bank; registration with National Treasury with supporting documents.",
+      "submission_method": "Registration, then application online (secure.rsaretailbonds.gov.za), at National Treasury's walk-in centre (40 Church Square, Pretoria) or by phone for registered investors. Minimum: ZAR 1,000 per bond.",
+      "instruments": {
+        "treasury_bond": "Fixed Rate RSA Retail Savings Bonds: 2, 3 or 5 years; minimum ZAR 1,000; the 2023 brochure states that no fees or commissions are payable."
+      }
+    },
+    "TZA": {
+      "investor_type": "All investors, including foreigners (through a CDP)",
+      "eligibility": "All investors, including foreign nationals.",
+      "primary_dealer": "Central Depository Participants (CDPs): bids go through a CDP.",
+      "submission_method": "Bids submitted online through a CDP, before 11 a.m. on the auction date.",
+      "instruments": {
+        "treasury_bill": "Treasury bills: minimum bid TZS 500,000, in multiples of TZS 10,000; interest subject to 10% withholding tax (tender no. 1208 of 7 October 2026).",
+        "treasury_bond": "Treasury bonds: minimum bid TZS 1,000,000, in multiples of TZS 100,000; interest exempt from withholding tax; listed on the Dar es Salaam Stock Exchange (auction of 30 September 2026, 15-year bond no. 696)."
+      }
+    },
+    "UGA": {
+      "investor_type": "Investors (through a commercial bank)",
+      "eligibility": "Non-competitive bids: through any commercial bank; competitive bids: Primary Dealer banks only.",
+      "primary_dealer": "Primary Dealer banks (competitive bids) and other commercial banks.",
+      "submission_method": "Banks submit bids to the Bank of Uganda through the Central Securities Depository (CSD). Non-competitive minimum: UGX 100,000; competitive: UGX 200,100,000.",
+      "instruments": {
+        "treasury_bill": "Treasury bills: minimum UGX 100,000 (non-competitive, through any commercial bank); non-competitive bids accepted in full up to UGX 200,000,000 per maturity (tender no. 1235 of 30 September 2026).",
+        "treasury_bond": "Treasury bonds: 2, 3, 5, 10, 15, 20 and 25 years; minimum UGX 100,000 (general prospectus of July 2025)."
+      }
+    },
+    "RWA": {
+      "investor_type": "Resident and non-resident investors (CSD account)",
+      "eligibility": "Residents and non-residents who have opened a CSD account through a licensed commercial bank or a capital market intermediary.",
+      "primary_dealer": "Licensed commercial banks or capital market intermediaries (placing agents).",
+      "account_requirement": "CSD account opened through a licensed commercial bank or a capital market intermediary.",
+      "submission_method": "Application form (BNR website) submitted through a licensed commercial bank or a capital market intermediary. Minimum: RWF 100,000 (non-competitive), RWF 50 million (competitive).",
+      "instruments": {
+        "treasury_bond": "Treasury bonds (book building): minimum RWF 100,000 (non-competitive bid), RWF 50 million (competitive bid); 5% withholding tax on interest (prospectus of 26 February 2026)."
       }
     }
   },
