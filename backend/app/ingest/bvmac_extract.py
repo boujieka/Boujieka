@@ -440,8 +440,6 @@ def _region_walk(pages: list[str], out: ParsedBoc):
     for p_i, page in enumerate(pages, start=1):
         for l_i, line in enumerate(page.split("\n"), start=1):
             flat = nospace(line)
-            for m in HEADER_RE.finditer(fold(line)):
-                out.header_dates.add((p_i, m[1], f"{m[4]}-{m[3]}-{int(m[2]):02d}"))
             if flat.startswith("MARCHEDESACTIONS"):
                 region, section = "equity", None
                 yield p_i, l_i, line, "header", None
@@ -593,6 +591,9 @@ def parse(text: str, mode: str = "layout") -> ParsedBoc:
     out = ParsedBoc(mode=mode)
     pages = text.split("\f")
     (_parse_layout if mode == "layout" else _parse_raw)(pages, out)
+    for p_i, page in enumerate(pages, start=1):  # whole page: raw text may break a header line
+        for m in HEADER_RE.finditer(fold(page)):
+            out.header_dates.add((p_i, m[1], f"{m[4]}-{m[3]}-{int(m[2]):02d}"))
     # The session is the one printed on the front page and on every page that carries a bond
     # table read here; those headers must all agree. (Some BOCs repeat the previous session's
     # header on later pages — funds, company sheets — which is recorded as a warning only.)

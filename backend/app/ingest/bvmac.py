@@ -44,7 +44,7 @@ from app.models import BvmacQuote, Source, SourceDocument
 from app.models.enums import DataNature, SourceCategory, SourceStatus, VerificationStatus
 
 SOURCE_NAME = "BVMAC — Bulletin officiel de la cote"
-INSTITUTION = "BVMAC (Bourse des Valeurs Mobilières de l'Afrique Centrale)"
+INSTITUTION = "BVMAC"  # Bourse des Valeurs Mobilières de l'Afrique Centrale (site/build.py maps it to CEMAC)
 LISTING_URL = "https://www.bvm-ac.org/bulletin-officiel-de-la-cote-boc/"
 USER_AGENT = "CartoucheIngest/1.0 (https://cartouche-africa.netlify.app)"
 DOCUMENT_TYPE = "price_list"
