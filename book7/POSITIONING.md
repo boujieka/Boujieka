@@ -4,6 +4,20 @@
 **Hydropower Development and Finance**
 *From River to Financial Close: A Developer, Lender and Government Framework for Hydropower Projects in Africa*
 
+## Cover hierarchy (Amazon thumbnail must read in this order)
+1. HYDROPOWER DEVELOPMENT AND FINANCE
+2. From River to Financial Close
+3. The Hydro Readiness Framework™ · 8 Questions · 23 Gates · 1 Financial Close Decision
+4. Developer · Lender · Government
+5. Emmanuel Boujieka Kamga; Africa Energy Finance, Book 7
+
+Brand ladder: Africa Energy Finance (house) > Hydropower Development and Finance (book) > Hydro Readiness Framework (method) > MODEL 7 (tool).
+
+## Commercial positioning (v0.3 review)
+The practical investment committee framework for developing and financing hydropower projects in Africa. From hydrology and development risk to PPA, construction, debt, developer returns, utility creditworthiness, sovereign exposure and financial close. 8 Questions · 23 Gates · 1 Financial Close Decision.
+
+The technical annexes are presented as a "Technical due-diligence reference", not as the core of the book; the listing should not describe the book as an engineering text.
+
 ## Cover line under the subtitle
 **The Hydro Readiness Framework™: 8 Questions · 23 Gates · 1 Financial Close Decision**
 

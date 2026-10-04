@@ -130,7 +130,7 @@ def build_html(md_path, title, subtitle, kicker, pages=None, markers=False):
     <div class="kicker">{kicker}</div>
     <div class="title">{title}</div>
     <div class="subtitle">{subtitle}</div>
-    {f'<div class="tagline">{htmlmod.escape(TAGLINE)}</div>' if TAGLINE else ''}
+    {''.join(f'<div class="tagline">{htmlmod.escape(x.strip())}</div>' for x in TAGLINE.split('||')) if TAGLINE else ''}
     <div class="label">AUTHOR &amp; IDEATION</div>
     <div class="author">{AUTHOR}</div>
     <div class="meta">{HOUSE} &nbsp;|&nbsp; {SERIES.replace('&', '&amp;')} &nbsp;|&nbsp; {date.today().strftime('%B %Y')}</div>

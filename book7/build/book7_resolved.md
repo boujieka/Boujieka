@@ -1541,7 +1541,7 @@ Every number in this chapter comes from the base case of MODEL 7 and the full-en
 
 # Annexes
 
-The annexes are working tools. Annexes A to I are checklists and templates for use on a live transaction; Annex J lists the public benchmark cases; Annex K records how the model was tested and what it does not do; Annex L lists every source cited, with its verification status; Annex M is a glossary. Annexes N to R are the technical reference: each sets out what a decision-maker needs to know about one part of the engineering and environmental case, works it through on Kasiri where the case allows, and ends with decision tests for the investment and credit committees.
+The annexes are working tools. Annexes A to I are checklists and templates for use on a live transaction; Annex J lists the public benchmark cases; Annex K records how the model was tested and what it does not do; Annex L lists every source cited, with its verification status; Annex M is a glossary. Annexes N to R follow in a separate part, the Technical due-diligence reference: each sets out what a decision-maker needs to know about one part of the engineering and environmental case, works it through on Kasiri where the case allows, and ends with decision tests for the investment and credit committees.
 
 ## Annex A. Key results: definitions
 
@@ -1943,6 +1943,20 @@ Identifiers with two letters and a number (such as HY-08) refer to the research 
 | Sculpting | Setting debt service in each period as CFADS divided by a target DSCR |
 | Sell-down | Sale of part of the developer's stake, usually after commercial operation |
 | Step-up | The rise in value when a risk falls away, at close or at commercial operation |
+
+# Technical due-diligence reference
+
+The five annexes that follow are a reference, not the core of the book. The book's method is the decision framework of the eighteen chapters. These annexes give the investment or credit committee member enough engineering and environmental knowledge to challenge the engineering case: to know what a sound hydrology study, layout, equipment choice, construction plan or environmental and social assessment looks like, and which questions expose a weak one.
+
+They draw on the full texts of the IFC guide [DE:S1], the ESHA guide [LIT:S6], the Addleshaw Goddard and IHA investor's guide [LIT:S7] and the World Bank and ESMAP report on private solutions for large hydropower [HY-06], together with the book's source database. Each annex works through Kasiri where the case defines the values, flags every illustrative assumption it adds, and ends with decision tests linked to the gates of the Hydro Readiness Framework.
+
+| Annex | Topic | Framework questions | Chapters |
+|---|---|---|---|
+| N | Hydrology and energy assessment | Q1, Q5 | 2, 12, 16 |
+| O | Scheme layout, civil works and geotechnics | Q1, Q6 | 3, 9, 10 |
+| P | Electromechanical equipment and grid connection | Q1, Q3, Q6 | 3, 9, 11 |
+| Q | Construction, commissioning, operation and maintenance | Q6 | 9, 10, 11 |
+| R | Environmental, social and climate due diligence | Q2, Q7 | 7, 15 |
 
 ## Annex N. Hydrology and energy assessment
 

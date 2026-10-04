@@ -10,6 +10,7 @@ os.chdir(ROOT)
 CH = ["ch00_front"] + [f"ch{i:02d}" for i in range(1, 19)] + ["ch99_annexes"]
 text = "\n\n".join(open(f"book7/src/{c}.md", encoding="utf8").read().strip() for c in CH)
 TECH = sorted(glob.glob("book7/src/tech/annex_*.md"))
+text += "\n\n" + open("book7/src/ch99b_technical_intro.md", encoding="utf8").read().strip()
 text += "\n\n" + "\n\n".join(open(f, encoding="utf8").read().strip() for f in TECH)
 
 MAP = json.load(open("model/model_map.json"))
@@ -131,6 +132,9 @@ for line in open("research/source_database.md", encoding="utf8"):
 SD = {row["id"]: row for row in csv.DictReader(open("research/source_database.csv", encoding="utf8"))}
 CASEFILES = {"A1": "research/case_studies/africa_part1.md", "A2": "research/case_studies/africa_part2.md",
              "INT": "research/case_studies/international_benchmarks.md", "DE": "research/hydro_development_evidence.md", "LIT": "research/book7_positioning_sources.md"}
+for _k in ("R1", "R2", "R3", "R4"):
+    if os.path.exists(f"research/audit_sources_{_k}.md"):
+        CASEFILES[_k] = f"research/audit_sources_{_k}.md"
 CS = {}
 for k, p in CASEFILES.items():
     for line in open(p, encoding="utf8"):
@@ -170,7 +174,7 @@ for m in re.finditer(r"\[((?:[A-Z][A-Z0-9]{1,2}(?::S\d+[a-z]?|-\d{2}|:BENCH)|CI)
             cited.append(i)
 unknown = [i for i in cited if i not in SD and i not in CS and i not in ("DE:BENCH", "CI")]
 assert not unknown, unknown
-PREF = {"LIT": "Works compared", "A1": "African cases, part 1", "A2": "African cases, part 2", "INT": "International benchmarks", "DE": "Development evidence"}
+PREF = {"LIT": "Works compared", "R1": "Audit sources", "R2": "Audit sources", "R3": "Audit sources", "R4": "Audit sources", "A1": "African cases, part 1", "A2": "African cases, part 2", "INT": "International benchmarks", "DE": "Development evidence"}
 
 
 def key(cid):

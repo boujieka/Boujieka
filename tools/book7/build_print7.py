@@ -72,6 +72,7 @@ INK, GREY, RULE, SHADE, SHADE2 = "#000000", "#555555", "#9A9A9A", "#DCDCDC", "#F
 TITLE = "Hydropower Development and Finance"
 SUBTITLE = "From River to Financial Close: A Developer, Lender and Government Framework for Hydropower Projects in Africa"
 TAGLINE = "The Hydro Readiness Framework\u2122: 8 Questions \u00b7 23 Gates \u00b7 1 Financial Close Decision"
+PARTIES = "Developer \u00b7 Lender \u00b7 Government"
 EDITION = "First edition, version 0.3 (pre-publication; print proof draft)"
 ISBN_LINE = "ISBN: to be assigned (decision D4: KDP ISBN or own ISBN)"  # must be replaced before upload: KDP rejects placeholder text
 
@@ -107,6 +108,7 @@ figcaption {{ font-size: 8.4pt; line-height: 1.35; color: {INK}; text-align: lef
 .titlepage .title {{ font-size: 32pt; font-weight: bold; line-height: 1.08; margin: 0.15in 0 0.15in 0; border-top: 2pt solid {INK}; padding-top: 0.15in; }}
 .titlepage .subtitle {{ font-size: 14pt; line-height: 1.3; max-width: 4.8in; }}
 .titlepage .tagline {{ font-size: 10.5pt; font-weight: bold; margin-top: 0.22in; letter-spacing: 0.3pt; }}
+.titlepage .parties {{ font-size: 10pt; letter-spacing: 1.2pt; margin-top: 0.08in; color: {GREY}; }}
 .titlepage .author {{ font-size: 15pt; font-weight: bold; margin-top: 0.6in; }}
 .titlepage .foot {{ position: absolute; bottom: 0; font-size: 9pt; color: {GREY}; }}
 .copyright {{ height: {TRIM_H - TOP - BOTTOM - 0.3}in; position: relative; break-after: page; page-break-after: always; }}
@@ -172,6 +174,7 @@ def build_html(md_text, pages=None, markers=False):
   <div class="title">{htmlmod.escape(TITLE)}</div>
   <div class="subtitle">{htmlmod.escape(SUBTITLE)}</div>
   <div class="tagline">{htmlmod.escape(TAGLINE)}</div>
+  <div class="parties">{htmlmod.escape(PARTIES)}</div>
   <div class="author">{pd.AUTHOR}</div>
   <div class="foot">{pd.HOUSE} &nbsp;|&nbsp; {pd.SERIES.replace('&', '&amp;')}</div>
 </div>

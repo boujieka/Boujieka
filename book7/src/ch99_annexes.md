@@ -1,6 +1,6 @@
 # Annexes
 
-The annexes are working tools. Annexes A to I are checklists and templates for use on a live transaction; Annex J lists the public benchmark cases; Annex K records how the model was tested and what it does not do; Annex L lists every source cited, with its verification status; Annex M is a glossary. Annexes N to R are the technical reference: each sets out what a decision-maker needs to know about one part of the engineering and environmental case, works it through on Kasiri where the case allows, and ends with decision tests for the investment and credit committees.
+The annexes are working tools. Annexes A to I are checklists and templates for use on a live transaction; Annex J lists the public benchmark cases; Annex K records how the model was tested and what it does not do; Annex L lists every source cited, with its verification status; Annex M is a glossary. Annexes N to R follow in a separate part, the Technical due-diligence reference: each sets out what a decision-maker needs to know about one part of the engineering and environmental case, works it through on Kasiri where the case allows, and ends with decision tests for the investment and credit committees.
 
 ## Annex A. Key results: definitions
 
