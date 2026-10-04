@@ -27,7 +27,7 @@ from sqlalchemy.orm import Session, joinedload
 
 from app.analytics import calculations as calc
 from app.models import Auction, Opportunity, Security, Source
-from app.models.enums import AuctionStatus
+from app.models.enums import AuctionStatus, VerificationStatus
 
 # Every threshold the engine uses, in one place. Changing one changes which signals fire,
 # never the underlying data.
@@ -53,6 +53,8 @@ LABELS = {
     "auction_cancelled": "Auction cancelled",
     "auction_postponed": "Auction postponed",
 }
+
+ENGINE_STATUSES = (VerificationStatus.VERIFIED, VerificationStatus.SYNTHETIC)
 
 SeriesKey = tuple[int, str, int]  # (country_id, instrument_type, tenor_days)
 
@@ -90,8 +92,12 @@ class MarketData:
 
 
 def load_market(session: Session, as_of: date) -> MarketData:
+    # Only reviewed facts (VERIFIED) and labelled SYNTHETIC rows feed the engine; anything
+    # unverified, conflicting or rejected is excluded even if it reaches the auction table.
     auctions = session.scalars(
-        select(Auction).options(joinedload(Auction.security).joinedload(Security.country))
+        select(Auction)
+        .where(Auction.verification_status.in_(ENGINE_STATUSES))
+        .options(joinedload(Auction.security).joinedload(Security.country))
     ).all()
     completed: dict[SeriesKey, list[Auction]] = defaultdict(list)
     upcoming: list[Auction] = []

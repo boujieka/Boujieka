@@ -412,3 +412,53 @@ class AccreditedDealers(BaseModel):
         "Official lists only. Shares and ranks are reproduced as published, never estimated. "
         "A listing is not a recommendation; dealers' commercial terms are not published by these sources."
     )
+
+
+class ExtractedField(BaseModel):
+    """One value read from an official document, with where it was read and how sure we are."""
+
+    value: str | None
+    raw: str
+    locator: str
+    confidence: float
+    unit: str | None = None
+    note: str | None = None
+
+
+class ExtractionDocument(ORM):
+    document_id: int
+    url: str | None
+    title: str
+    document_type: str
+    publication_date: date | None
+    retrieved_at: datetime | None
+    content_sha256: str | None
+    extraction_status: str
+
+
+class ExtractionOut(BaseModel):
+    """A staged extraction. UNVERIFIED rows are NOT facts yet: they await human review."""
+
+    extraction_id: int
+    verification_status: VerificationStatus
+    data_nature: DataNature
+    notice: str
+    parse_status: str
+    confidence_score: Decimal | None
+    extractor: str
+    tranche_key: str
+    country_iso3: str | None
+    isin: str | None
+    instrument: str | None
+    auction_date: date | None
+    fields: dict[str, ExtractedField]
+    field_status: dict[str, str]
+    operation: dict
+    warnings: list[str]
+    checks: list[dict]
+    document: ExtractionDocument | None
+    extracted_at: datetime | None
+    reviewed_by: str | None
+    reviewed_at: datetime | None
+    review_reason: str | None
+    promoted_auction_id: int | None

@@ -24,3 +24,7 @@ next-env.d.ts
 
 # Built static site (rebuild with site/build.py)
 site/dist/
+
+# Fetched official documents (Phase 2 ingestion document store)
+backend/var/
+var/
