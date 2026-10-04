@@ -9,8 +9,11 @@ app.watch.daily, which refreshes the data and the source watch first.
 
 import argparse
 import json
+import os
 import shutil
 import sys
+from datetime import date
+from decimal import Decimal
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "backend"))
@@ -101,7 +104,78 @@ def export(as_of: str) -> dict:
 
     return {"as_of": as_of, "data": data_mode(), "summary": summary, "grid": grid, "opportunities": opps,
             "walls": walls, "sources": sources, "page_scope": page_scope, "africa": africa,
-            "buyers": list(buyers.values()), "dealers": get("/accredited-dealers"), "i18n": load_i18n(list(buyers))}
+            "buyers": list(buyers.values()), "dealers": get("/accredited-dealers"), "market": market(get, as_of),
+            "i18n": load_i18n(list(buyers))}
+
+
+def _num(v: str | None, scale: int = 1):
+    """Exact decimal string -> compact JSON number (int when whole), divided by `scale`."""
+    if v is None:
+        return None
+    d = (Decimal(v) / scale).normalize()
+    return int(d) if d == d.to_integral_value() else float(d)
+
+
+def market(get, as_of: str) -> dict:
+    """Every real (non-synthetic) auction up to as_of, as compact rows for the market charts.
+
+    Strings are stored once (countries, securities, URL suffixes, enum values) and rows point to them
+    by index. Amounts are in millions of the security currency (exact: the source values are whole
+    units). Nothing is derived here: the page computes sums and residual maturities from these rows.
+    """
+    items: list[dict] = []
+    while True:
+        page = get("/auctions", include_synthetic="false", date_to=as_of, order="asc", limit=500, offset=len(items))
+        items += page["items"]
+        if len(items) >= page["total"] or not page["items"]:
+            break
+    items = [a for a in items if not a["provenance"]["is_synthetic"]]
+    countries: list[str] = sorted({a["security"]["country_iso3"] for a in items})
+    instr = ["treasury_bill", "treasury_bond"]
+    types: list[str] = []
+    status: list[str] = []
+    secs: dict[int, int] = {}
+    sec_rows: list[list] = []
+    urls: list[str] = sorted({a["provenance"]["source_url"] or "" for a in items})
+    prefix = os.path.commonprefix(urls)
+    prefix = prefix[: prefix.rfind("/") + 1]
+    url_ix = {u: i for i, u in enumerate(urls)}
+    rows = []
+    for a in items:
+        s, o = a["security"], a["official"]
+        if s["security_id"] not in secs:
+            secs[s["security_id"]] = len(sec_rows)
+            it = s["instrument_type"]
+            if it not in instr:
+                instr.append(it)
+            sec_rows.append([s["security_name"], instr.index(it), s["tenor_days"], s["maturity_date"]])
+        if a["auction_type"] not in types:
+            types.append(a["auction_type"])
+        why = None
+        if o["weighted_average_yield"] is None:
+            reason = a["field_status"].get("weighted_average_yield", "not_available")
+            if reason not in status:
+                status.append(reason)
+            why = status.index(reason)
+        settle = None
+        if a["settlement_date"]:
+            settle = (date.fromisoformat(a["settlement_date"]) - date.fromisoformat(a["auction_date"])).days
+        rows.append([
+            a["auction_id"], a["auction_date"], countries.index(s["country_iso3"]), secs[s["security_id"]],
+            types.index(a["auction_type"]), _num(o["amount_submitted"], 10**6), _num(o["amount_allocated"], 10**6),
+            _num(o["weighted_average_yield"]), why, url_ix[a["provenance"]["source_url"] or ""], settle,
+        ])
+    return {
+        "fields": ["auction_id", "auction_date", "country", "security", "auction_type", "amount_submitted_m",
+                   "amount_allocated_m", "weighted_average_yield", "yield_status", "source_url", "settlement_offset_days"],
+        "sec_fields": ["security_name", "instrument_type", "tenor_days", "maturity_date"],
+        "amount_scale": 10**6, "countries": countries, "currency": sorted({a["security"]["currency"] for a in items}),
+        "instr": instr, "types": types, "status": status, "url_prefix": prefix,
+        "urls": [u[len(prefix):] for u in urls], "sec": sec_rows, "rows": rows,
+        "conventions": sorted({a["official"]["yield_convention"] or "" for a in items}),
+        "verification": sorted({a["provenance"]["verification_status"] for a in items}),
+        "sources": sorted({a["provenance"]["source"]["institution"] for a in items if a["provenance"]["source"]}),
+    }
 
 
 def data_mode() -> dict:

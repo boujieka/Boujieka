@@ -39,7 +39,11 @@ python site/build.py --as-of 2026-10-03   # needs a seeded database; writes site
 
 The site is available in French (reference), English, Portuguese and Spanish (`site/i18n/*.json`;
 the build fails if a language misses a key). A global country menu filters every section. It also
-has an investor area (official access procedures, accredited dealers, step-by-step guide), a
+has a market section built from the verified auction rows (observed yields by maturity, yield
+history per maturity bucket, monthly issuance with buybacks counted apart, a sortable auction table
+with CSV export and a link to each official PDF; an 8-country comparison when no country is
+selected), a global search (button or `/`: countries, ISINs, institutions, glossary, signals), an
+investor area (official access procedures, accredited dealers, step-by-step guide), a
 subscription simulator (CALCULATION), a diversification test bench and a glossary.
 
 Brand (logo, colours from ancient Egyptian pigments, type): see [`brand/BRAND.md`](brand/BRAND.md).
