@@ -14,7 +14,7 @@ Audit fichier par fichier : [AUDIT.md](AUDIT.md) · Sources et licences : `*/man
 | Localités | villes, villages, quartiers | 12 739 | OpenStreetMap (ODbL) |
 | Santé | 3 sources séparées + table de rapprochement | 2 106 / 1 990 / 3 019 | OSM (ODbL), healthsites.io, Maina et al. 2019 (CC0) |
 | Éducation, services | écoles, mairies, marchés | 5 011 / 290 / 378 | OSM (ODbL) |
-| Infrastructures | routes par classe, rail, gares, ponts, ports, aéroports, centrales, lignes, barrages, points d'eau, antennes | 21 107 | OSM (ODbL), OurAirports, World Port Index |
+| Infrastructures | routes par classe, rail, gares, ponts, ports, aéroports, centrales, lignes, barrages, points d'eau, antennes | 20 308 | OSM (ODbL), OurAirports, World Port Index |
 | Ressources | UFA et forêts communales, forêts communautaires, aires protégées, permis miniers | 1 026 | Atlas forestier MINFOF/WRI 2018 (CC BY 4.0) |
 | Population | estimation par arrondissement 2025-2026 | 360 lignes | WorldPop R2025A (CC BY 4.0), comparée à l'ONU WPP 2024 |
 | Occupation du sol | hectares par classe et par arrondissement | 360 lignes | ESA WorldCover 2021 (CC BY 4.0) |
