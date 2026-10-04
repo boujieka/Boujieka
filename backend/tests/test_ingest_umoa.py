@@ -15,10 +15,11 @@ from sqlalchemy import func, select
 from sqlalchemy.exc import IntegrityError
 
 from app.engine.opportunities import load_market
-from app.ingest import umoa
+from app.ingest import fix_tenors, umoa
 from app.ingest.pdf import extract_text, pdftotext_available
 from app.ingest.queue import ReviewError, approve, list_queue, reject
 from app.ingest.review import main as review_main
+from app.ingest.tenor import AUCTION_CODE, NOT_AVAILABLE, ORIGINAL_ISSUE, TenorEvidence, original_tenor
 from app.ingest.umoa_extract import _absorption, parse_compte_rendu, parse_french_date, parse_number
 from app.models import (
     Auction,
@@ -961,3 +962,186 @@ class TestVerifiedExport:
         db.flush()
         m = load_market(db, a.auction_date)
         assert all(x.auction_id != a.auction_id for series in m.completed.values() for x in series)
+
+
+# --------------------------------------------------------------------------- original tenor
+#
+# Values below are as printed in the official UMOA-Titres result reports (auction date, value
+# date, maturity, "Durée", "Adjudication n°", "Taux coupon couru"); the ISINs are real.
+
+
+def _ev(number, auction, settle, maturity, tenor, instrument="BAT", buyback=False, accrued=None):
+    return TenorEvidence(None, instrument, date.fromisoformat(auction), date.fromisoformat(settle),
+                         date.fromisoformat(maturity), buyback, tenor, tenor, "p1:L11 'duree'", number,
+                         D(accrued) if accrued else None, "report")
+
+
+TG_ISSUE = ("ADJ-TG0000003193-BAT1A-2025", "2025-05-09", "2025-05-12", "2026-05-10", "364 jours")
+TG_BUYBACK = ("RA-TG0000003193-08-2026", "2026-04-30", "2026-05-04", "2026-05-10", "7 jours")
+ML_BILL_ISSUE = ("ADJ-ML0000003813-BAT1A-2025", "2025-08-20", "2025-08-21", "2026-08-19", "364 jours")
+ML_BILL_REOPEN = ("ADJ-ML0000003813-BAT1A-1-2025", "2025-08-27", "2025-08-28", "2026-08-19", "357 jours")
+
+
+class TestOriginalTenorRule:
+    def test_original_issue_wins_over_later_buyback(self):
+        d = original_tenor([_ev(*TG_BUYBACK, buyback=True), _ev(*TG_ISSUE)])
+        assert (d.days, d.rule) == (364, ORIGINAL_ISSUE)
+        assert "ADJ-TG0000003193-BAT1A-2025" in d.note and "364 jours" in d.note
+
+    def test_reopening_alone_falls_back_to_the_code(self):
+        d = original_tenor([_ev(*ML_BILL_REOPEN)])  # 357 jours: a residual, not a full life
+        assert (d.days, d.rule) == (364, AUCTION_CODE)
+        assert "BAT1A" in d.note and "not among the known operations" in d.note
+
+    def test_bond_original_issue_vs_reopening_with_accrued_coupon(self):
+        issue = _ev("ADJ-ML0000003805-OAT5A-2025", "2025-08-04", "2025-08-05", "2030-08-05", "5 ans", "OAT")
+        reopen = _ev("ADJ-ML0000003805-OAT5A-1-2025", "2025-08-20", "2025-08-21", "2030-08-05", "5 ans", "OAT",
+                     accrued="0.2783562")
+        d = original_tenor([reopen, issue])
+        assert (d.days, d.rule) == (1825, ORIGINAL_ISSUE) and d.evidence is issue
+        assert "years x 365" in d.note
+        alone = original_tenor([reopen])  # "5 ans" printed on a reopening is not proof of issue
+        assert (alone.days, alone.rule) == (1825, AUCTION_CODE)
+
+    def test_fractional_residual_bond_tenor_is_not_original(self):
+        d = original_tenor([_ev("ADJ-XX-OAT3A-2-2025", "2025-02-13", "2025-02-14", "2027-12-22", "2.85 ans", "OAT")])
+        assert (d.days, d.rule) == (1095, AUCTION_CODE)
+
+    def test_buyback_only_without_code_is_not_available(self):
+        d = original_tenor([_ev("RA-SN0000001173-20-2026", "2026-03-09", "2026-03-10", "2026-09-16", "190 jours",
+                                buyback=True)])
+        assert (d.days, d.rule) == (None, NOT_AVAILABLE)
+        assert "no auction number carries a tenor code" in d.note
+
+    def test_buyback_codes_are_not_used(self):
+        # RA-BF0000002824-BAT1A-2024 was printed for a bill issued at "182 jours" (ADJ-…-BAT6M-2024).
+        rb = _ev("RA-BF0000002824-BAT1A-2024", "2024-07-03", "2024-07-04", "2024-08-14", "42 jours", buyback=True)
+        assert original_tenor([rb]).rule == NOT_AVAILABLE
+        issue = _ev("ADJ-BF0000002824-BAT6M-2024", "2024-02-14", "2024-02-15", "2024-08-14", "182 jours")
+        d = original_tenor([rb, issue])
+        assert (d.days, d.rule, d.conflict) == (182, ORIGINAL_ISSUE, None)
+
+    def test_residual_code_shorter_than_observed_life_is_rejected(self):
+        # CI0000007746 reopened as "BAT11M" (350 jours): 11 months cannot hold 350 days.
+        d = original_tenor([_ev("ADJ-CI0000007746-BAT11M-2024", "2024-07-23", "2024-07-24", "2025-07-08",
+                                "350 jours")])
+        assert (d.days, d.rule) == (None, NOT_AVAILABLE)
+        bond = original_tenor([_ev("ADJ-SN0000002072-OAT9M-9-2025", "2025-02-27", "2025-02-28", "2025-11-21",
+                                   "266 jours", "OAT")])
+        assert bond.rule == NOT_AVAILABLE and "in months" in bond.note
+
+    def test_earlier_known_operation_blocks_rule_a(self):
+        # A standard-looking line is not an original issue if the security was already traded earlier.
+        later = _ev("ADJ-XX-BAT6M-2025", "2025-01-09", "2025-01-10", "2025-07-10", "182 jours")
+        assert original_tenor([later]).rule == ORIGINAL_ISSUE
+        assert original_tenor([later], known_dates=[date(2024, 7, 10)]).rule == NOT_AVAILABLE
+
+    def test_disagreeing_codes_are_not_available(self):
+        a = _ev("ADJ-NE0000001427-OAT2A-1-2025", "2025-04-17", "2025-04-18", "2027-02-25", "2 ans", "OAT",
+                accrued="0.8405479")
+        b = _ev("ADJ-NE0000001427-OT5A-4-2026", "2026-01-29", "2026-01-29", "2027-02-25", "1 ans", "OAT",
+                accrued="5.4635616")
+        d = original_tenor([a, b])
+        assert d.days is None and d.conflict and "disagree" in d.note
+
+    def test_conflict_between_a_and_b_is_reported(self):
+        issue = _ev("ADJ-XX-BAT6M-2024", "2024-02-14", "2024-02-15", "2024-08-14", "182 jours")
+        later = _ev("ADJ-XX-BAT1A-1-2024", "2024-03-01", "2024-03-04", "2024-08-14", "164 jours")
+        d = original_tenor([issue, later])
+        assert (d.days, d.rule) == (182, ORIGINAL_ISSUE) and "BAT1A" in d.conflict
+
+    def test_no_evidence(self):
+        assert original_tenor([]).rule == NOT_AVAILABLE
+
+
+def _stage(db, number, auction, settle, maturity, tenor, *, isin, country, instrument="BAT", buyback=False):
+    """Stage one report line (values as printed) as an UNVERIFIED extraction."""
+    source = umoa.get_source(db)
+    doc = SourceDocument(source_id=source.source_id, url=f"https://www.umoatitres.org/test/{number}",
+                         title=f"report {number}", document_type="auction_result",
+                         content_sha256=hashlib.sha256(number.encode()).hexdigest())
+    db.add(doc)
+    db.flush()
+
+    def f(v, raw=None):
+        return {"value": v, "raw": raw or v, "locator": "p1:L1", "confidence": 0.9}
+
+    fields = {"isin": f(isin), "security_name": f(f"{isin}-{instrument}-{maturity[5:7]}-{maturity[:4]}"),
+              "auction_number": f(number), "tenor": f(tenor), "maturity_date": f(maturity),
+              "settlement_date": f(settle), "auction_date": f(auction), "face_value": f("1000000"),
+              "amount_submitted": f("7397000000"), "amount_allocated": f("7397000000"),
+              "weighted_average_yield": f("2.50"), "marginal_rate": f("2.5000"),
+              "tenor_days": {**f(tenor.split()[0], tenor), "unit": "days"}}
+    ext = AuctionExtraction(tranche_key=isin + ("/buyback" if buyback else ""), extractor="test",
+                            parse_status="complete", country_iso3=country, isin=isin, instrument=instrument,
+                            auction_date=date.fromisoformat(auction), fields=fields,
+                            operation={"operation_kind": "buyback" if buyback else "issue", "tranche_count": 2},
+                            source_id=source.source_id, source_document_id=doc.document_id, source_url=doc.url,
+                            verification_status=VerificationStatus.UNVERIFIED)
+    db.add(ext)
+    db.flush()
+    return ext
+
+
+class TestApproveKeepsOriginalTenor:
+    def test_buyback_approved_first_then_original(self, db):
+        rb = _stage(db, *TG_BUYBACK, isin="TG0000003193", country="TGO", buyback=True)
+        issue = _stage(db, *TG_ISSUE, isin="TG0000003193", country="TGO")
+        sec = approve(db, rb.extraction_id, "analyst-a").security
+        # Only a buyback is known: its "7 jours" is a remaining maturity, never the tenor.
+        assert sec.tenor_days is None and sec.field_status["tenor_days"] == "not_available"
+        approve(db, issue.extraction_id, "analyst-a")
+        assert sec.tenor_days == 364 and "tenor_days" not in sec.field_status
+        assert "tenor_days updated from NULL to 364" in sec.provenance_notes
+        assert "ADJ-TG0000003193-BAT1A-2025" in sec.provenance_notes
+
+    def test_reopening_approved_first_then_original(self, db):
+        reopen = _stage(db, *ML_BILL_REOPEN, isin="ML0000003813", country="MLI")
+        issue = _stage(db, *ML_BILL_ISSUE, isin="ML0000003813", country="MLI")
+        sec = approve(db, reopen.extraction_id, "analyst-a").security
+        assert sec.tenor_days == 364 and "auction-number code BAT1A" in sec.provenance_notes  # rule (b)
+        approve(db, issue.extraction_id, "analyst-a")
+        assert sec.tenor_days == 364  # same value, now from the original issue; nothing to correct
+        assert "updated from" not in sec.provenance_notes
+
+    def test_original_approved_first_then_reopening_and_buyback(self, db):
+        issue = _stage(db, *ML_BILL_ISSUE, isin="ML0000003813", country="MLI")
+        reopen = _stage(db, *ML_BILL_REOPEN, isin="ML0000003813", country="MLI")
+        sec = approve(db, issue.extraction_id, "analyst-a").security
+        assert sec.tenor_days == 364 and "original issue" in sec.provenance_notes
+        approve(db, reopen.extraction_id, "analyst-a")
+        assert sec.tenor_days == 364 and "updated from" not in sec.provenance_notes
+
+    def test_partial_evidence_never_downgrades(self, db):
+        # A database rebuilt from the versioned export has no staging rows for older auctions.
+        issue = _stage(db, *TG_ISSUE, isin="TG0000003193", country="TGO")
+        sec = approve(db, issue.extraction_id, "analyst-a").security
+        issue.verification_status = VerificationStatus.REJECTED  # its staging row is "gone"
+        db.flush()
+        rb = _stage(db, *TG_BUYBACK, isin="TG0000003193", country="TGO", buyback=True)
+        approve(db, rb.extraction_id, "analyst-a")
+        assert sec.tenor_days == 364
+
+    def test_fix_command_corrects_and_is_idempotent(self, db, monkeypatch):
+        issue = _stage(db, *TG_ISSUE, isin="TG0000003193", country="TGO")
+        rb = _stage(db, *TG_BUYBACK, isin="TG0000003193", country="TGO", buyback=True)
+        a = approve(db, issue.extraction_id, "analyst-a")
+        approve(db, rb.extraction_id, "analyst-a")
+        sec = a.security
+        sec.tenor_days = 7  # the defect: tenor taken from the buyback line
+        db.flush()
+        snapshot = (sec.isin, sec.instrument_type, sec.maturity_date, sec.coupon_rate, a.amount_allocated,
+                    a.weighted_average_yield, a.auction_date)
+        monkeypatch.setattr(db, "commit", db.flush)
+        dry = fix_tenors.run(db, apply=False, today=date(2026, 10, 4))
+        assert sec.tenor_days == 7 and any(c["isin"] == "TG0000003193" for c in dry["changes"])
+        report = fix_tenors.run(db, apply=True, today=date(2026, 10, 4))
+        change = next(c for c in report["changes"] if c["isin"] == "TG0000003193")
+        assert (change["before"], change["after"], change["rule"]) == (7, 364, ORIGINAL_ISSUE)
+        assert sec.tenor_days == 364
+        assert ("tenor_days corrected from 7 to 364 on 2026-10-04: original tenor from the original issue"
+                in sec.provenance_notes)
+        assert (sec.isin, sec.instrument_type, sec.maturity_date, sec.coupon_rate, a.amount_allocated,
+                a.weighted_average_yield, a.auction_date) == snapshot
+        again = fix_tenors.run(db, apply=True, today=date(2026, 10, 5))
+        assert all(c["isin"] != "TG0000003193" for c in again["changes"])
