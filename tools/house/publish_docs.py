@@ -34,6 +34,7 @@ ROOT = Path(__file__).resolve().parents[2]
 GREEN, GOLD, CREAM = "#0B3020", "#B07C0F", "#F7F3E8"
 AUTHOR = "Emmanuel Boujieka Kamga"
 EDITION = ""
+TAGLINE = ""
 CASE = "SolaraPay case"
 KEYWORDS = "PAYGo; solar home systems"
 HOUSE = "Africa Energy Finance"
@@ -76,6 +77,7 @@ p.cap {{ page-break-after: avoid; break-after: avoid; margin-bottom: 2px; }}
 .cover .kicker {{ color: {GOLD}; font-weight: bold; letter-spacing: 1px; font-size: 11pt; }}
 .cover .title {{ font-size: 28pt; font-weight: bold; margin: 6mm 0 3mm 0; line-height: 1.15; }}
 .cover .subtitle {{ font-size: 15pt; margin-bottom: 8mm; }}
+.cover .tagline {{ color: {GOLD}; font-size: 11pt; font-weight: bold; margin: -4mm 0 6mm 0; }}
 .cover .label {{ color: {GOLD}; font-size: 8.5pt; font-weight: bold; letter-spacing: 1px; margin-top: 6mm; }}
 .cover .author {{ font-size: 14pt; font-weight: bold; }}
 .cover .meta {{ color: #d9d9d9; font-size: 9.5pt; margin-top: 5mm; }}
@@ -128,6 +130,7 @@ def build_html(md_path, title, subtitle, kicker, pages=None, markers=False):
     <div class="kicker">{kicker}</div>
     <div class="title">{title}</div>
     <div class="subtitle">{subtitle}</div>
+    {f'<div class="tagline">{htmlmod.escape(TAGLINE)}</div>' if TAGLINE else ''}
     <div class="label">AUTHOR &amp; IDEATION</div>
     <div class="author">{AUTHOR}</div>
     <div class="meta">{HOUSE} &nbsp;|&nbsp; {SERIES.replace('&', '&amp;')} &nbsp;|&nbsp; {date.today().strftime('%B %Y')}</div>
@@ -227,10 +230,11 @@ def main():
     ap.add_argument("src"); ap.add_argument("out")
     ap.add_argument("--title", required=True); ap.add_argument("--subtitle", default="")
     ap.add_argument("--kicker", default="VOLUME 2"); ap.add_argument("--short", default=None)
-    ap.add_argument("--edition", default="")
+    ap.add_argument("--edition", default=""); ap.add_argument("--tagline", default="")
     ap.add_argument("--case", default="SolaraPay case"); ap.add_argument("--keywords", default="PAYGo; solar home systems")
     a = ap.parse_args()
-    global EDITION, CASE, KEYWORDS
+    global EDITION, CASE, KEYWORDS, TAGLINE
+    TAGLINE = a.tagline
     EDITION, CASE, KEYWORDS = a.edition, a.case, a.keywords
     short = a.short or a.title
     with tempfile.TemporaryDirectory() as td:

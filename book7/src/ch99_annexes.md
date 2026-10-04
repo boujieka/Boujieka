@@ -1,6 +1,6 @@
 # Annexes
 
-The annexes are working tools. Annexes A to I are checklists and templates for use on a live transaction; Annex J lists the public benchmark cases; Annex K records how the model was tested and what it does not do; Annex L lists every source cited, with its verification status; Annex M is a glossary.
+The annexes are working tools. Annexes A to I are checklists and templates for use on a live transaction; Annex J lists the public benchmark cases; Annex K records how the model was tested and what it does not do; Annex L lists every source cited, with its verification status; Annex M is a glossary. Annexes N to R are the technical reference: each sets out what a decision-maker needs to know about one part of the engineering and environmental case, works it through on Kasiri where the case allows, and ends with decision tests for the investment and credit committees.
 
 ## Annex A. Key results: definitions
 
@@ -181,6 +181,42 @@ Before this edition, the model behind the earlier policy paper was reviewed by a
 - locked financing holds every tranche and the commercial principal schedule at base-case values;
 - interest during construction and fees are funded within the gearing limit, without circularity;
 - the overrun stress at the reference-class mean and a deeper drought were added.
+
+### The findings and what was done
+
+The full review, with formula-level evidence for each finding, is kept with the model files. The table records each finding and its status in this edition.
+
+Table: Table K.1. Adversarial review findings and their status
+| ID | Severity | Finding (short) | Status in this edition |
+|---|---|---|---|
+| C-01 | Critical | Sovereign payment guarantee and budget backstop had no cap | Fixed: capped, reimbursed guarantee; arrears beyond the cap |
+| C-02 | Critical | The utility could buy supply that did not exist | Fixed: other supply capped; unserved demand shown |
+| C-03 | Critical | Fiscal perimeter excluded the state utility | Fixed: no-project counterfactual and consolidated fiscal NPV |
+| H-01 | High | Debt service reserve never drawn | Fixed: drawn first, released above target, topped up from cash |
+| H-02 | High | Locked debt did not lock the financing package | Fixed: tranches and principal schedule locked |
+| H-03 | High | Low-demand stress did not propagate | Fixed |
+| H-04 | High | Transmission delay modelled as a rescheduled line | Fixed: late line with cost penalty |
+| H-05 | High | Project-built transmission after COD dropped out of funding | Fixed; new integrity check |
+| H-06 | High | Financing gap an artefact of equity-funded IDC and fees | Fixed: IDC and fees debt-funded within the gearing limit |
+| H-07 | High | Gate metrics could be text or blank and mis-scored | Fixed: explicit fallbacks |
+| H-08 | High | Closed-form structure screen inconsistent with the full engine | Fixed: tax and IDC included; full-engine tariffs reported; identity stated as such |
+| H-09 | High | Contingent liabilities mixed stocks and flows | Fixed |
+| H-10 | High | Stress sizes inconsistent with the evidence base | Fixed: reference-class mean overrun and deeper drought added |
+| M-01 | Medium | LLCR covered only the commercial tranche | Fixed |
+| M-02 | Medium | No on-budget debt test in the fiscal gate | Fixed |
+| M-03 | Medium | Regulatory gate threshold inconsistent | Fixed |
+| M-04 | Medium | Lender case decorative; one-year P90 in every year | Addressed: ten-year P90 lender case with a separate drought test; one-year P90 run reported |
+| M-05 | Medium | Royalty charged on energy not generated | Fixed for the royalty |
+| M-06 | Medium | Currency step permanent in real terms | Not changed; stated as a limitation |
+| M-07 | Medium | Tax losses consumed during the tax holiday | Fixed for loss use; tax on cash revenue not changed |
+| M-08 | Medium | Screening measure added maxima from different years | Fixed |
+| M-09 | Medium | Debt drawn pro rata, not equity first | Not changed; stated as a limitation |
+| M-10 | Medium | Repayment check could not fail | Fixed: balloon check added |
+| L-01 to L-07 | Low | Labels, memo rows, dashboard ordering, a tautological gate test | Not recorded individually; to be closed before version 1.0 |
+
+### The integrity checks
+
+%%CHECKS7
 
 ### What changed in this edition
 

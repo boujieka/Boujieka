@@ -7,12 +7,23 @@ from openpyxl import load_workbook
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 os.chdir(ROOT)
-OUT = "book7/src/figures"
+PRINT = os.environ.get("PRINT") == "1"   # greyscale print figures at 450 ppi for the 7 x 10 in edition
+OUT = "book7/build/figures_print" if PRINT else "book7/src/figures"
+DPI = 450 if PRINT else 220
 os.makedirs(OUT, exist_ok=True)
 S = json.load(open("model/snapshot_results.json"))
 wb = load_workbook("model/Bankable_Hydro_Model.xlsx", data_only=True)
 
 GREEN, GOLD, SAGE, RUST, INK, INK2, GRID = "#0B3020", "#B07C0F", "#6E9A7E", "#A8432A", "#1d1d1d", "#55554f", "#e6e2d6"
+NOEV = "#BDBDBD"
+if PRINT:
+    GREEN, GOLD, SAGE, RUST, INK, INK2, GRID, NOEV = "#1a1a1a", "#9a9a9a", "#c4c4c4", "#5c5c5c", "#000000", "#444444", "#e2e2e2", "#e9e9e9"
+
+
+def on(fill):
+    """Text colour that reads on a fill."""
+    h = fill.lstrip("#"); lum = 0.3 * int(h[0:2], 16) + 0.59 * int(h[2:4], 16) + 0.11 * int(h[4:6], 16)
+    return "white" if lum < 140 else "black"
 plt.rcParams.update({
     "font.family": "Liberation Sans", "font.size": 8, "axes.edgecolor": INK2, "axes.labelcolor": INK2,
     "xtick.color": INK2, "ytick.color": INK2, "axes.spines.top": False, "axes.spines.right": False,
@@ -24,8 +35,11 @@ MINUS = "−"
 
 
 def save(fig, name):
-    fig.savefig(f"{OUT}/{name}", dpi=220, bbox_inches="tight", facecolor="white")
+    fig.savefig(f"{OUT}/{name}", dpi=DPI, bbox_inches="tight", facecolor="white")
     plt.close(fig)
+    if PRINT:
+        from PIL import Image
+        Image.open(f"{OUT}/{name}").convert("L").save(f"{OUT}/{name}", dpi=(DPI, DPI))
 
 
 def pct(v, d=1):
@@ -125,7 +139,8 @@ QS = [(ws.cell(r, 2).value, ws.cell(r, 3).value, ws.cell(r, 4).value) for r in r
 fig, ax = plt.subplots(figsize=(W, 3.7)); ax.set_xlim(0, 100); ax.set_ylim(0, 100); ax.axis("off")
 
 
-def box(x, y, w, h, txt, fc, tc="white", fs=7, bold=False, ec=None):
+def box(x, y, w, h, txt, fc, tc=None, fs=7, bold=False, ec=None):
+    tc = tc or on(fc)
     ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0.4,rounding_size=1.2", fc=fc, ec=ec or fc, lw=1))
     ax.text(x + w / 2, y + h / 2, txt, ha="center", va="center", color=tc, fontsize=fs, fontweight="bold" if bold else "normal", wrap=True)
 
@@ -144,7 +159,7 @@ box(87, 27, 12.5, 36, "Q8\nReady to\nclose?\n\nSTOP\nNOT\nREADY\nCOND.\nGO\nGO",
 save(fig, "fig0_1_framework.png")
 
 # ---- 17.1 readiness map ----
-COL = {"MET": GREEN, "PARTIAL": GOLD, "NOT MET": RUST, "NO EVIDENCE": "#BDBDBD"}
+COL = {"MET": GREEN, "PARTIAL": GOLD, "NOT MET": RUST, "NO EVIDENCE": NOEV}
 gates = []
 r = 5
 while isinstance(ws.cell(r, 1).value, int):
@@ -157,7 +172,7 @@ for i, qn in enumerate(qnames):
     gs = [g for g in gates if g[3] == qn]
     for k, (num, crit, st, _) in enumerate(gs):
         ax.add_patch(plt.Rectangle((k * 1.15, y - 0.4), 1.0, 0.8, fc=COL.get(st, "#BDBDBD"), ec=INK if crit else "white", lw=1.6 if crit else 0.5))
-        ax.text(k * 1.15 + 0.5, y, str(num), ha="center", va="center", fontsize=7, color="white", fontweight="bold")
+        ax.text(k * 1.15 + 0.5, y, str(num), ha="center", va="center", fontsize=7, color=on(COL.get(st, NOEV)), fontweight="bold")
 ax.set_yticks(range(len(qnames))); ax.set_yticklabels(qnames[::-1], fontsize=7)
 ax.set_xlim(-0.2, 7.2); ax.set_ylim(-0.7, len(qnames) - 0.3); ax.set_xticks([]); ax.grid(False); ax.tick_params(axis="y", length=0)
 for s in ("left", "bottom"):

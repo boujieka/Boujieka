@@ -1,6 +1,6 @@
 # About this book
 
-Book 7. Hydropower Development and Finance. From River to Financial Close: A Developer, Lender and Government Framework for Hydropower Projects in Africa. First edition, version 0.2 (pre-publication).
+Book 7. Hydropower Development and Finance. From River to Financial Close: A Developer, Lender and Government Framework for Hydropower Projects in Africa. First edition, version 0.3 (pre-publication).
 
 The book belongs to the Africa Energy Finance collection, Business & Financial Models: a series of books, financial models, manuals, case studies and decision tools for energy businesses in African markets. Each book is built around one central question.
 
@@ -12,7 +12,7 @@ The book belongs to the Africa Energy Finance collection, Business & Financial M
 | Book 4 | Commercial and industrial solar with storage | Should the customer invest, sign a PPA or use an energy service company? | Planned |
 | Book 5 | Energy access fund | Can a fund mobilise capital and generate sustainable returns? | Planned |
 | Book 6 | Power utilities | Can the utility become financially sustainable? | Planned |
-| Book 7 | Hydropower: this book | Can this hydropower project be developed to financial close and financed on terms the developer, the lenders and the state can each accept? | First edition, v0.2 |
+| Book 7 | Hydropower: this book | Can this hydropower project be developed to financial close and financed on terms the developer, the lenders and the state can each accept? | First edition, v0.3 |
 
 Each book is the centre of a set of products that share one method. For Book 7 they are:
 
@@ -30,7 +30,7 @@ The book is written to stand on its own. A reader who never opens the model lose
 
 This is an investment committee guide to developing and financing hydropower projects in Africa. It connects hydrology, development risk, the power purchase agreement, construction, project finance, the developer's returns, the buyer's creditworthiness and the state's exposure in one route to financial close, and it asks for evidence at every step.
 
-It is not a hydropower engineering textbook: the design of dams, waterways and turbines is covered well elsewhere, and the book takes the engineer's numbers as inputs to be tested. It is not a general project finance book: debt sizing, cover ratios and security packages are treated only as far as hydro and African buyers change them. And it is not a guide to writing a feasibility study.
+It is not a hydropower engineering textbook: the detailed design of dams, waterways and turbines is covered well elsewhere. But a decision-maker has to be able to challenge the engineer's numbers, so the book carries a technical reference, Annexes N to R, on hydrology and energy, layout and civil works, electromechanical equipment, construction and operation, and environmental and social due diligence, at the depth needed to ask the right questions and read the answers. It is not a general project finance book: debt sizing, cover ratios and security packages are treated only as far as hydro and African buyers change them. And it is not a guide to writing a feasibility study.
 
 It is a decision framework for four questions that every hydro project faces before anyone puts more money into it. Should the project proceed? Who should fund each stage? Who should carry each risk? And is it actually ready to close?
 
@@ -56,7 +56,7 @@ The third is that a project closes only if three parties accept it at once: the 
 
 The fourth is that financial close is the result of evidence, not of negotiation alone. The book's 23 readiness gates, applied in the model, turn the eight questions into a close decision: STOP, NOT READY, CONDITIONAL GO or GO.
 
-The second and fourth ideas together form the Hydro Readiness Framework, set out in the Introduction: eight questions, 23 gates, one close decision.
+The second and fourth ideas together form the Hydro Readiness Framework™, set out in the Introduction: eight questions, 23 gates, one financial close decision.
 
 ## How this book relates to other works
 
@@ -69,6 +69,16 @@ The closest predecessor in purpose is the *Hydro Finance Handbook* of 2008, writ
 The University of Cambridge Institute for Sustainability Leadership published in 2019 an introduction to the concepts and terminology of financing sustainable hydropower in emerging markets [LIT:S3]. Its purpose is to help a reader who knows either hydropower or finance understand the other. This book assumes that understanding and uses it to reach a decision.
 
 General project finance works treat debt sizing, cash flow available for debt service and lender requirements in far more depth than this book does, among them Gatti's textbook [LIT:S5] and, for the power sector, Nongena's practical guide to senior debt for electricity projects, published by Springer in 2026 [LIT:S4]. They are not specific to hydrology, to African utilities or to the state's balance sheet. Readers who need the full mechanics of project finance should read them alongside this book.
+
+Table: Table P.1. What this book adds to existing works
+| Work | Its strength | What it leaves to others | What this book adds |
+|---|---|---|---|
+| IFC guide (2015) [LIT:S1] | Full development cycle; detailed technical reference | Financing and permitting as a high-level review | The decisions to continue, finance and close, with the developer's, lenders' and state's tests side by side |
+| Hydro Finance Handbook (2008) [LIT:S2] | Financial aspects and the steps to financial close | Development-stage valuation; the state's balance sheet | Risk-weighted development value; 23 evidence gates; a working model |
+| CISL working paper (2019) [LIT:S3] | Concepts and terminology for readers new to one of the two fields | A method for deciding | A decision sequence with numbers at every step |
+| Project finance texts [LIT:S4; LIT:S5] | Depth in cash flow, debt sizing and security | Hydrology, African utilities, sovereign exposure | Hydro-specific lender cases, buyer payment capacity, contingent liabilities |
+| This book | An investment committee framework for hydro in Africa, from river to financial close | Detailed engineering design, covered by the IFC guide and engineering texts | |
+Note: The table compares purpose and coverage as stated by each work; it is not a ranking.
 
 The book also has a companion in the author's own work. The author's *Bankable Is Not Enough* argues, across African independent power projects, that bankability alone can produce poor power deals. Book 7 applies that argument inside one sector, where the capital is heavy, the revenue depends on a river and the state is almost always a party, and turns it into a method for deciding whether a project should be developed, financed and closed.
 
@@ -88,11 +98,24 @@ Currency amounts are in US dollars (USD) unless stated, and "USDm" means million
 
 The book draws on four kinds of material and labels each one. Institutional evidence comes from bodies such as the World Bank Group, the African Development Bank, IRENA and national regulators; project disclosures by development finance institutions are placed in the same class. Secondary reporting is trade press and law-firm guides that report those documents. A model assumption is an input of the companion workbook, chosen to make the mechanics visible. An illustrative case output is a figure produced by the workbook for Kasiri; it is never a benchmark for real projects.
 
+Several numbers in this book are easily misread as findings about African hydro. Most of them are not, and the table below gives the status of each.
+
+Table: Table P.2. Status of the key numbers used in the book
+| Number | Value | Status | What it is not |
+|---|---|---|---|
+| Kasiri capacity factor | {{m.cf|pct1}} | Illustrative case output | A benchmark for African hydro; IRENA's figures are cited separately in Chapter 3 |
+| Probability of reaching close from reconnaissance | {{m.dev_pfc|pct0}} | Model assumption, informed by Chapter 5 | A measured attrition rate; none is published for African hydro |
+| Overrun at the reference-class median and mean | 27% and 96% | Public evidence [HY-08] | A forecast for any one project |
+| Development premium | 3% of plant cost | Model assumption | A market rate; no public data were found [DE:BENCH] |
+| Developer IRR on the success path | {{m.dev_irr|pct1}} | Illustrative case output | An expected return |
+| Developer's risk-weighted NPV | USD {{m.dev_enpv|n2}} million | Illustrative case output | A valuation of any real position |
+| Financial close decision | {{m.fc_decision|t0}} | Illustrative case output, from evidence statuses entered for the case | A verdict on any real project |
+
 Every external claim carries a source identifier in square brackets, such as [HY-08] or [DE:S1], which points to Annex L. The annex records, for each source, whether its full text was read, only its landing page, or only a search-engine summary. Claims resting on a summary are flagged as such and should be checked against the original before they are quoted.
 
 ## Status of this edition
 
-This is the first edition of Book 7, issued as version 0.2 for pre-publication review. It replaces, for developers and lenders, the author's earlier policy paper on structuring hydro without unsustainable public liabilities, whose material is condensed in Chapter 15. Three things must happen before release: the sources marked as summaries in Annex L must be read in full; the companion model must complete its test in Microsoft Excel (it has been tested in LibreOffice, adversarially reviewed and corrected); and practitioners must review the text.
+This is the first edition of Book 7, issued as version 0.3 for pre-publication review. It replaces, for developers and lenders, the author's earlier policy paper on structuring hydro without unsustainable public liabilities, whose material is condensed in Chapter 15. Three things must happen before release: the sources marked as summaries in Annex L must be read in full; the companion model must complete its test in Microsoft Excel (it has been tested in LibreOffice, adversarially reviewed and corrected); and practitioners must review the text.
 
 ## Acknowledgements and disclaimer
 
@@ -120,7 +143,7 @@ A hydro project can be read in a fixed order, and the order matters more than an
 | Stress | What breaks first, and who holds it? | Break-even flow, overrun, distance to default | 16 |
 | Financial close | Go, conditional go or stop, on what evidence? | Gate status, decision and conditions | 17, 18 |
 
-## The Hydro Readiness Framework: eight questions, 23 gates, one close decision
+## The Hydro Readiness Framework™: eight questions, 23 gates, one financial close decision
 
 Hydro projects are often described as "feasible" or "bankable" as if those words meant one thing. The book separates eight questions, because a project can pass one and fail the next, and each is answered by a different document or test. Each question must be accepted by a particular party, and each is tested by a set of the 23 financial close gates of Chapter 17. The eighth question, ready to close, is the sum of the other seven.
 

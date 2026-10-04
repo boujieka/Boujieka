@@ -2,13 +2,15 @@
 
 python tools/book7/prepare7.py  ->  book7/build/book7_resolved.md
 """
-import csv, json, os, re, sys
+import csv, glob, json, os, re, sys
 from openpyxl import load_workbook
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 os.chdir(ROOT)
 CH = ["ch00_front"] + [f"ch{i:02d}" for i in range(1, 19)] + ["ch99_annexes"]
 text = "\n\n".join(open(f"book7/src/{c}.md", encoding="utf8").read().strip() for c in CH)
+TECH = sorted(glob.glob("book7/src/tech/annex_*.md"))
+text += "\n\n" + "\n\n".join(open(f, encoding="utf8").read().strip() for f in TECH)
 
 MAP = json.load(open("model/model_map.json"))
 SNAP = json.load(open("model/snapshot_results.json"))
@@ -97,6 +99,13 @@ fw = ["Table: Table 17.2. Kasiri River Hydro: readiness by framework question",
 for rr in range(rf, rf + 8):
     fw.append(f"| {ws.cell(rr, 2).value} | {ws.cell(rr, 3).value} | {ws.cell(rr, 4).value} | {ws.cell(rr, 5).value} | {ws.cell(rr, 6).value} |")
 text = text.replace("%%FRAMEWORK7", "\n".join(fw))
+wc = wb["33_CHECKS"]
+ck = ["Table: Table K.2. Integrity checks in MODEL 7 and their result for the base case", "| Check | Result |", "|---|---|"]
+for rr in range(4, 40):
+    lab, res = wc.cell(rr, 1).value, wc.cell(rr, 3).value
+    if lab and res:
+        ck.append(f"| {lab} | {res} |")
+text = text.replace("%%CHECKS7", "\n".join(ck))
 g.append("Note: Statuses marked as model tests are computed by the model; the others are evidence statuses entered for the case.")
 text = text.replace("%%GATES7", "\n".join(g))
 
