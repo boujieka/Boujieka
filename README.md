@@ -4,6 +4,8 @@
 
 > **TasetyGrid** : *Atlas des personnes, des terres et des ressources*. *Ta-Sety*, « le pays de l'arc », est le nom égyptien ancien de la Nubie. Ce nom remplace le nom de travail « POPGRID », déjà utilisé par le POPGRID Data Collaborative (CIESIN). Identité visuelle : [brand/charte-graphique.md](brand/charte-graphique.md).
 
+**Site en ligne : https://tasetygrid.netlify.app** (FR) · https://tasetygrid.netlify.app/en/ (EN), application web installable. Sources : [`site/`](site/), publication : `netlify.toml` (Netlify) et `.github/workflows/pages.yml` (GitHub Pages, une fois Pages activé).
+
 ## En une phrase
 
 Une infrastructure numérique publique qui permet à un État de savoir, pour chaque localité,
