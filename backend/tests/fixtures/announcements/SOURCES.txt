@@ -1,0 +1,44 @@
+Real official documents from UMOA-Titres (https://www.umoatitres.org), retrieved 2026-10-04.
+"Annonce au MTP" = official results announcement of an operation (the "Annonce" document of the
+operation page); "Compte rendu" = the official auction result report of the same operation.
+.txt files are `pdftotext -layout -enc UTF-8` output of the PDF; one announcement is kept as the
+original PDF (its table needs the printed word positions to be split into columns).
+
+Annonce-au-MTP-NE-ES-01.10.2026.txt
+  https://www.umoatitres.org/wp-content/uploads/2026/10/Annonce-au-MTP-NE-ES-01.10.2026.pdf
+  sha256 of PDF 0df3f1ff9c31272597ea7d1e5364229c48507a623627dc8a0679ad002d4d0366
+  Niger, 4 OAT + 1 BAT; prices printed with 2 decimals (the report prints 4: announcement coarser)
+  Report: tests/fixtures/umoa/Compte-Rendu-NE-ES-01.10.2026.txt
+
+Annonce-au-MTP-CI-ES-06.03.2024.txt
+  https://www.umoatitres.org/wp-content/uploads/2024/03/Annonce-au-MTP-CI-ES-06.03.2024.pdf
+  sha256 of PDF 8024c5df3d09135257a352df03a8e0f9bc0ffc096b2b5ac125bb048cca502e4e
+  Côte d'Ivoire, issue (BAT 364 jours + OAT 3 ans, tenor headers without dash) and two buyback
+  tables with ISIN headers; a row label wrapped over two lines around its values
+
+Annonce-au-MTP-GW-EC-20.08.2024.txt
+  https://www.umoatitres.org/wp-content/uploads/2024/08/Annonce-au-MTP-GW-EC-20.08.2024.pdf
+  sha256 of PDF 0abff9b6c5343f4ec7fa14a4a240fb589b8dbf03e28412ef855f257926c87564
+  Guinea-Bissau, one issue and one buyback, single-column tables without headers
+
+Annonce-au-MTP-SN-ES-31.05.2024.txt / Compte-Rendu-SN-ES-31.05.2024.txt
+  https://www.umoatitres.org/wp-content/uploads/2024/05/Annonce-au-MTP-SN-ES-31.05.2024.pdf
+  sha256 of PDF 3a6da7d7ba0cfdc74a9381fa3a4d107ef2db657e8c9c4b447bd7696aa85f4cd3
+  https://www.umoatitres.org/wp-content/uploads/2024/05/Compte-Rendu-SN-ES-31.05.2024.pdf
+  sha256 of PDF 66a93cf4357d3f1ff659542610b0e1778c51d3ca34ad61e801e1c45da9756517
+  Senegal, 1 BAT + 2 OAT; the report prints whole millions ("45 677 millions"), the announcement
+  the exact amounts ("45 676 800 000"): category B (rounding)
+
+Annonce-au-MTP-GW-ES-08.08.2024.txt / Compte-Rendu-GW-ES-08.08.2024.txt
+  https://www.umoatitres.org/wp-content/uploads/2024/07/Annonce-au-MTP-GW-ES-08.08.2024.pdf
+  sha256 of PDF 36b0169db3c849153b7a351350e3353ecd0a8c7492a592d565384c74bc5fc599
+  https://www.umoatitres.org/wp-content/uploads/2024/07/Compte-Rendu-GW-ES-08.08.2024.pdf
+  sha256 of PDF 4d9f8c2016e8de78df1e939136a63f7adeac8fee2eff3cbb824d9d1b7356ebc0
+  Guinea-Bissau; GW0000001242 submitted: report "4 450,55 millions" vs announcement
+  "4 450 660 000": a real discrepancy (category C, never changed)
+
+Annonce-au-MTP-CI-ES-26.11.2024.pdf
+  https://www.umoatitres.org/wp-content/uploads/2024/10/Annonce-au-MTP-CI-ES-26.11.2024.pdf
+  sha256 f04b100e156a6cfc1fd11c72b262322f3fc10d128b5f3d65ff03c78bdeaf48cd
+  Côte d'Ivoire, 6 columns; "5 988 000 000 193 667 000 000 ..." is single-spaced in the text
+  layer, so the cells are split from the printed word positions
