@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+/* Institutional terminal palette. Chart colours follow the validated reference palette
+   (dataviz skill): fixed categorical order, separate light and dark steps. */
+:root {
+  color-scheme: light;
+  --background: #f9f9f7;
+  --surface: #fcfcfb;
+  --surface-2: #f0efec;
+  --foreground: #0b0b0b;
+  --muted: #52514e;
+  --subtle: #898781;
+  --border: #e1e0d9;
+  --border-strong: #c3c2b7;
+  --accent: #184f95;
+  --accent-foreground: #ffffff;
+
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --series-4: #eda100;
+  --series-5: #e87ba4;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+
+  --status-good: #006300;
+  --status-warning: #8a5a00;
+  --status-critical: #b42323;
+
+  --nature-fact: #184f95;
+  --nature-calc: #4a3aa7;
+  --nature-estimate: #8a5a00;
+  --nature-ai: #6b6a65;
+  --nature-synthetic: #b42323;
+
+  /* Diverging demand scale: blue (above own history) ↔ gray ↔ red (below). Cell fills only;
+     text on them stays in ink colours. */
+  --div-pos-2: #9ec5f4;
+  --div-pos-1: #cde2fb;
+  --div-mid: #f0efec;
+  --div-neg-1: #f8d3d2;
+  --div-neg-2: #f0a8a7;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --background: #0d0d0d;
+    --surface: #1a1a19;
+    --surface-2: #232321;
+    --foreground: #ffffff;
+    --muted: #c3c2b7;
+    --subtle: #898781;
+    --border: #2c2c2a;
+    --border-strong: #383835;
+    --accent: #6da7ec;
+    --accent-foreground: #0b0b0b;
+    --series-1: #3987e5;
+    --series-2: #d95926;
+    --series-3: #199e70;
+    --series-4: #c98500;
+    --series-5: #d55181;
+    --grid: #2c2c2a;
+    --axis: #383835;
+    --status-good: #0ca30c;
+    --status-warning: #fab219;
+    --status-critical: #e66767;
+    --nature-fact: #6da7ec;
+    --nature-calc: #9085e9;
+    --nature-estimate: #fab219;
+    --nature-ai: #c3c2b7;
+    --nature-synthetic: #e66767;
+    --div-pos-2: #1c5cab;
+    --div-pos-1: #10345f;
+    --div-mid: #383835;
+    --div-neg-1: #5a2424;
+    --div-neg-2: #8e2f2f;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #0d0d0d;
+  --surface: #1a1a19;
+  --surface-2: #232321;
+  --foreground: #ffffff;
+  --muted: #c3c2b7;
+  --subtle: #898781;
+  --border: #2c2c2a;
+  --border-strong: #383835;
+  --accent: #6da7ec;
+  --accent-foreground: #0b0b0b;
+  --series-1: #3987e5;
+  --series-2: #d95926;
+  --series-3: #199e70;
+  --series-4: #c98500;
+  --series-5: #d55181;
+  --grid: #2c2c2a;
+  --axis: #383835;
+  --status-good: #0ca30c;
+  --status-warning: #fab219;
+  --status-critical: #e66767;
+  --nature-fact: #6da7ec;
+  --nature-calc: #9085e9;
+  --nature-estimate: #fab219;
+  --nature-ai: #c3c2b7;
+  --nature-synthetic: #e66767;
+  --div-pos-2: #1c5cab;
+  --div-pos-1: #10345f;
+  --div-mid: #383835;
+  --div-neg-1: #5a2424;
+  --div-neg-2: #8e2f2f;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-good: var(--status-good);
+  --color-warning: var(--status-warning);
+  --color-critical: var(--status-critical);
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+.num {
+  font-variant-numeric: tabular-nums;
+}

@@ -1,0 +1,972 @@
+{
+  "doc.title": "Cartouche · African Bond Intelligence",
+  "doc.desc": "Acompanhamento dos títulos de dívida pública soberana dos 54 países africanos: leilões, sinais rastreados até à fonte, calendários de refinanciamento, acesso dos investidores. Dados de mercado de demonstração sintéticos.",
+  "banner": "<strong>DADOS DE DEMONSTRAÇÃO</strong> · Os valores de mercado deste site (taxas, montantes, leilões) são <strong>sintéticos</strong>: são gerados para o desenvolvimento da plataforma, não descrevem nenhum mercado real e não devem servir para nenhuma decisão de investimento.",
+  "brand.home": "Cartouche, African Bond Intelligence, início",
+  "brand.top": "Voltar ao topo",
+  "nav.label": "Secções",
+  "nav.map": "Mapa",
+  "nav.radar": "Radar",
+  "nav.buyers": "Investidores",
+  "nav.sim": "Simulador",
+  "nav.strategy": "Estratégia",
+  "nav.glossary": "Glossário",
+  "nav.watch": "Monitorização",
+  "nav.sources": "Fontes",
+  "lang.label": "Idioma do site",
+  "hero.eyebrow": "Dívida soberana africana · 54 países",
+  "hero.title": "Cada oportunidade soberana africana, <em>com a sua prova.</em>",
+  "hero.lede": "Bilhetes e obrigações do Tesouro dos Estados africanos, acompanhados a partir das fontes oficiais. Um motor de regras assinala o que se move no mercado primário: leilões próximos, rácios de cobertura invulgares, variações de rendibilidade, concentrações de vencimentos. Cada sinal é entregue com os seus factos, o seu cálculo e a sua regra.",
+  "hero.cta1": "Explorar o Radar",
+  "hero.cta2": "Simular uma subscrição",
+  "hero.keyfigures": "Números-chave",
+  "cbar.label": "País",
+  "cbar.none": "Todos os países · visão geral",
+  "cbar.all": "Mostrar todos os países",
+  "cbar.hint": "Escolha um país: toda a página passará a mostrar apenas as suas informações.",
+  "cbar.route": "procedimento de acesso documentado",
+  "cbar.noroute": "procedimento de acesso não documentado",
+  "tape.label": "Fluxo de sinais ativos",
+  "k.countries": "Países abrangidos",
+  "k.withdata": "dos quais com dados de mercado",
+  "k.signals": "Sinais ativos",
+  "k.auctions7": "Leilões nos próximos 7 dias",
+  "k.routes": "Países com procedimento de acesso documentado",
+  "k.watch": "Última monitorização das fontes",
+  "k.reach": "{a}/{b} páginas acessíveis",
+  "asof": "Situação em {d}",
+  "map.eyebrow": "Cobertura pan-africana",
+  "map.title": "54 países, um só mapa",
+  "map.lede": "Cada Estado africano membro da ONU tem um perfil (moeda, zona monetária, banco central) e dados de mercado de demonstração, sintéticos até ao início da recolha real. Os países contornados a dourado são países-piloto: as suas fontes oficiais são monitorizadas diariamente. Clique numa casa para selecionar o país.",
+  "map.tiles": "Mapa dos 54 países africanos",
+  "map.pilot": "país-piloto",
+  "map.overview": "Visão geral",
+  "map.pick": "Selecione um país",
+  "map.pick.lede": "Clique numa casa do mapa ou utilize o menu «País» no topo da página. O Radar, a área de investidores, o simulador, a monitorização e as fontes ficarão limitados a esse país.",
+  "legend.cemac": "CEMAC (XAF)",
+  "legend.waemu": "UEMOA (XOF)",
+  "legend.cma": "Área Monetária Comum (CMA)",
+  "legend.none": "Moeda nacional",
+  "legend.pilot": "País-piloto (fontes oficiais monitorizadas)",
+  "p.code": "Código ISO",
+  "p.currency": "Moeda",
+  "p.zone": "Zona",
+  "p.cb": "Banco central",
+  "p.coverage": "Cobertura",
+  "p.cov.data": "Dados de mercado (sintéticos)",
+  "p.cov.ref": "Perfil de referência",
+  "p.signals": "Sinais ativos",
+  "p.route": "Acesso dos investidores",
+  "p.route.yes": "Procedimento documentado → ver",
+  "p.route.no": "Ainda não documentado",
+  "p.note.pilot": "País-piloto: fontes oficiais propostas e monitorizadas diariamente.",
+  "p.note.other": "Fonte oficial (banco central) registada, URL a confirmar.",
+  "p.note.common": "Perfil não verificado. Dados de mercado sintéticos; a existência de um mercado primário regular por leilão não foi verificada para todos os países.",
+  "p.go": "Ver {c} no Radar",
+  "radar.title": "O Radar de oportunidades",
+  "radar.lede": "A grelha compara o <abbr title=\"Montante total das propostas ÷ montante em leilão\">rácio de cobertura</abbr> (<em>bid-to-cover</em>) de cada leilão com o histórico da sua própria linha. Esta medida mantém-se comparável entre mercados, ao contrário das rendibilidades brutas, cujas convenções de cálculo diferem. Cada casa mostra a última rendibilidade média ponderada e o desvio da procura face à sua norma (z).",
+  "radar.filter": "Filtrar por tipo de sinal",
+  "grid.title": "Grelha de calor · 54 países",
+  "grid.title1": "Grelha de calor · {c}",
+  "grid.caption": "Última rendibilidade média ponderada e procura por país e maturidade",
+  "grid.auction": "leilão de",
+  "grid.empty": "Sem dados de mercado para este país.",
+  "btc": "rácio de cobertura",
+  "legend.z": "Procura face ao seu histórico (z)",
+  "legend.norm": "dentro da norma",
+  "legend.nd": "· n/d: menos de 6 leilões comparáveis",
+  "z.none": "histórico insuficiente",
+  "z.pp": "claramente acima do seu histórico",
+  "z.p": "acima do seu histórico",
+  "z.mid": "dentro da norma",
+  "z.n": "abaixo do seu histórico",
+  "z.nn": "claramente abaixo do seu histórico",
+  "col.country": "País",
+  "col.signals": "Sinais",
+  "col.instrument": "Título",
+  "col.auctiondate": "Data do leilão",
+  "col.date": "Data",
+  "col.refyield": "Taxa ref. (leilão ant.)",
+  "col.yield": "Rendibilidade",
+  "col.currency": "Moeda",
+  "col.maturity": "Maturidade",
+  "col.institution": "Instituição",
+  "col.page": "Página",
+  "col.state": "Estado",
+  "ref.tip": "A taxa apresentada é a rendibilidade média ponderada do leilão anterior da mesma maturidade, não uma previsão",
+  "level.country": "Nível país",
+  "strength": "Intensidade do sinal (múltiplo do limiar)",
+  "tag.syn": "Sintético",
+  "all": "Todos",
+  "allcountries": "todos os países",
+  "sig.none": "Nenhum sinal para este filtro.",
+  "sig.more": "{a} de {b} sinais apresentados. Escolha um país para ver todos os seus sinais.",
+  "engine.en": "Textos do motor de regras em inglês.",
+  "pp.title": "Passaporte do sinal: porque existe",
+  "pp.facts": "Factos publicados utilizados",
+  "pp.calc": "Cálculo",
+  "pp.result": "Resultado",
+  "pp.rule": "Regra acionada",
+  "pp.invalid": "O que o invalidaria",
+  "pp.limits": "Limitações",
+  "pp.version": "Regras {v} · calculado em {d}.",
+  "wall.title": "Calendário de reembolsos",
+  "wall.pick": "Selecione um país para ver os montantes que vencem em cada mês nos próximos 12 meses (o «muro de refinanciamento»).",
+  "wall.aria": "Montantes a vencer por mês, {c}",
+  "wall.flag": "concentração assinalada",
+  "wall.total": "Total a vencer em 12 meses",
+  "wall.gold": "A dourado: meses assinalados por concentração ({m}).",
+  "wall.scope": "Montantes adjudicados acompanhados aqui; exclui Eurobonds e empréstimos.",
+  "buy.eyebrow": "Área de investidores",
+  "buy.title": "Subscrever títulos públicos africanos: o quê, quem, como",
+  "buy.lede": "Para bancos, fundos, seguradoras, tesoureiros de empresas e particulares. Os títulos públicos são <strong>títulos de dívida</strong> (bilhetes e obrigações do Tesouro), <strong>não ações</strong>: ao subscrevê-los, o investidor empresta ao Estado, que reembolsa o valor nominal no vencimento e paga juros. Os procedimentos abaixo são citados palavra por palavra das páginas oficiais. O acesso nunca é garantido e nada aqui constitui aconselhamento de investimento.",
+  "buy.find.eyebrow": "Procurar um leilão segundo os seus critérios",
+  "f.currency": "Moeda",
+  "f.maturity": "Maturidade",
+  "f.minyield": "Rendibilidade mínima (%)",
+  "f.when": "Operações",
+  "f.upcoming": "Leilões próximos",
+  "f.allsignals": "Todos os sinais",
+  "f.all": "Todas",
+  "f.m1": "Até 1 ano",
+  "f.m2": "1 a 5 anos",
+  "f.m3": "Mais de 5 anos",
+  "n.matches.one": "{n} título corresponde aos seus critérios",
+  "n.matches.other": "{n} títulos correspondem aos seus critérios",
+  "f.amongup": "entre os leilões próximos",
+  "f.syn": "Dados de mercado sintéticos.",
+  "f.simulate": "Simular",
+  "f.first": "Primeiros 15 de {n} apresentados.",
+  "buy.access.eyebrow": "Procedimentos oficiais",
+  "buy.access.title": "Como aceder ao mercado primário",
+  "bc.who": "Quem pode subscrever",
+  "bc.via": "Através de quem",
+  "bc.account": "Conta necessária",
+  "bc.submit": "Como apresentar propostas",
+  "bc.instr": "Títulos emitidos",
+  "bc.fees": "Comissões e fiscalidade",
+  "bc.fees.na": "Não indicadas pela fonte oficial: pergunte ao intermediário.",
+  "bc.quotes": "Citações oficiais ({n}) · texto original em {l}",
+  "bc.source": "Fonte",
+  "bc.verified": "verificado em {d}",
+  "bc.translated": "Textos de procedimento resumidos e traduzidos pela Cartouche; apenas as citações fazem fé.",
+  "bc.none.title": "Procedimento de acesso não documentado",
+  "bc.none.body": "A Cartouche ainda não documentou, a partir de uma fonte oficial, como um investidor subscreve os títulos públicos deste país. Informe-se junto do banco central ({cb}) ou do Tesouro.",
+  "bc.note.all": "Procedimentos documentados para {a} de 54 países. Para os outros {b}, o procedimento ainda não está documentado: informe-se junto do banco central ou do Tesouro do país.",
+  "bc.note.one": "Cobertura atual: {a} de 54 países documentados ({b} não documentados).",
+  "n.countries.one": "{n} país",
+  "n.countries.other": "{n} países",
+  "buy.dealers.eyebrow": "Intermediários acreditados",
+  "buy.dealers.title": "Bancos e instituições acreditados para licitar",
+  "buy.dealers.lede": "Instituições autorizadas a apresentar propostas diretamente nos leilões (operadores primários e equiparados), quando foi encontrada uma lista oficial. As quotas de mercado só são apresentadas se a autoridade as publicar; nenhuma é estimada.",
+  "dl.pick": "Listas oficiais recolhidas para {n} países. Escolha um país para ver as suas instituições:",
+  "dl.none.any": "Ainda não foi recolhida nenhuma lista oficial de instituições acreditadas.",
+  "dl.none.one": "Ainda não foi recolhida nenhuma lista oficial de instituições acreditadas para {c}. A Cartouche não apresenta listas sem fonte.",
+  "dl.doc": "documento de origem",
+  "dl.name": "Instituição",
+  "dl.kind": "Estatuto",
+  "dl.share": "Quota de mercado",
+  "dl.share.na": "Não publicada pela fonte",
+  "dl.howto.v": "Para subscrever através de uma destas instituições: abrir uma conta de títulos na instituição e enviar-lhe uma ordem antes do seu prazo interno (ver o guia passo a passo abaixo). Pergunte-lhe diretamente as suas condições (comissões, mínimo, prazos).",
+  "dl.benefits": "Condições oferecidas",
+  "dl.benefits.na": "Não publicadas pelas fontes oficiais: pergunte à instituição.",
+  "dl.order.share": "Ordem do quadro oficial (não ordenado por quota).",
+  "dl.neutral": "Esta lista não é uma classificação de qualidade nem uma recomendação.",
+  "kind.fact": "Facto",
+  "kind.calc": "Cálculo",
+  "kind.syn": "Dados sintéticos",
+  "kind.ai": "Interpretação",
+  "buy.guide.eyebrow": "Guia passo a passo",
+  "buy.guide.title": "Subscrever através de um intermediário",
+  "buy.ask.title": "Perguntas a fazer a cada instituição",
+  "buy.ask.lede": "As fontes oficiais não publicam as condições comerciais dos intermediários. Para as comparar, pergunte a cada um:",
+  "sim.eyebrow": "Simulador de subscrição",
+  "sim.title": "Quanto renderia uma operação?",
+  "sim.lede": "Escolha um leilão próximo (dados sintéticos) ou introduza os seus próprios parâmetros. O simulador calcula o preço, o montante a pagar, os juros e o ganho líquido das comissões e impostos que indicar. É um cálculo aritmético, não uma previsão: a taxa efetivamente obtida depende do resultado do leilão.",
+  "sim.op": "Operação",
+  "sim.free": "Introdução livre (nenhuma operação)",
+  "sim.kind": "Tipo de título",
+  "sim.kind.bill": "Bilhete do Tesouro: juros pagos antecipadamente (cupão zero)",
+  "sim.kind.bond": "Obrigação do Tesouro: cupão anual",
+  "sim.nominal": "Valor nominal subscrito",
+  "sim.yield": "Taxa de rendibilidade (%)",
+  "sim.days": "Prazo (dias)",
+  "sim.basis": "Base de cálculo (dias por ano)",
+  "sim.conv": "Convenção de taxa",
+  "sim.conv.yield": "Rendibilidade em juros simples",
+  "sim.conv.discount": "Taxa de desconto (sobre o valor nominal)",
+  "sim.years": "Prazo (anos)",
+  "sim.coupon": "Taxa de cupão (%)",
+  "sim.fee": "Comissões (% do nominal)",
+  "sim.tax": "Imposto sobre os juros (%)",
+  "sim.err": "Verifique os parâmetros: montante positivo, taxa, prazo, comissões e imposto válidos (imposto entre 0 e 100 %).",
+  "sim.err.price": "Com esta taxa de desconto e este prazo, o preço torna-se nulo ou negativo: parâmetros incoerentes.",
+  "sim.op.note": "Parâmetros pré-preenchidos a partir do leilão sintético ({c}, {d}). A taxa é a do leilão anterior da mesma maturidade.",
+  "sim.unit": "Segundo o BEAC, o valor nominal unitário deste título é de {u}: o montante deveria ser um múltiplo desse valor.",
+  "sim.ken": "Segundo o Banco Central do Quénia: mínimo de 50 000 KES (proposta não competitiva) ou 2 000 000 KES (proposta competitiva), em múltiplos de 50 000 KES.",
+  "sim.r.price": "Preço por 100 de nominal",
+  "sim.r.paid": "Montante pago",
+  "sim.r.interest": "Juros brutos",
+  "sim.r.costs": "Comissões + imposto",
+  "sim.r.net": "Ganho líquido",
+  "sim.r.netrate": "Rendibilidade líquida anualizada (base {b})",
+  "sim.r.receive": "Reembolsado no vencimento",
+  "sim.r.date": "Vencimento",
+  "sim.r.after": "{d} dias após a liquidação",
+  "sim.r.coupons": "Cupões brutos ({n} anos)",
+  "sim.r.capgain": "Mais ou menos-valia no reembolso",
+  "sim.r.irr": "Taxa de rendibilidade líquida até ao vencimento",
+  "sim.t.year": "Ano",
+  "sim.t.coupon": "Cupão bruto",
+  "sim.t.tax": "Imposto",
+  "sim.t.principal": "Reembolso",
+  "sim.f.paid": "Pago",
+  "sim.f.int": "Juros",
+  "sim.f.net": "Ganho líquido",
+  "sim.f.fees": "Comissões",
+  "sim.f.tax": "Imposto",
+  "sim.cpn.assume": "O cupão real da linha não está disponível: por defeito, é igual à taxa de rendibilidade (preço ao par). Altere-o se o conhecer.",
+  "sim.disclaimer": "Simulação ilustrativa. Comissões e fiscalidade reais não indicadas pelas fontes oficiais: os valores introduzidos são os seus. Não constitui aconselhamento nem garantia de rendibilidade ou de colocação.",
+  "sim_assume_bill": [
+    "Título detido até ao vencimento, valor nominal reembolsado na totalidade.",
+    "Juros pagos antecipadamente: paga o preço e recebe o valor nominal; a diferença constitui os juros.",
+    "A convenção de taxa e a base de cálculo variam consoante o mercado e não foram verificadas para cada país: utilize as do anúncio do leilão.",
+    "Comissões calculadas sobre o nominal; imposto calculado sobre os juros brutos. Sem câmbio nem inflação."
+  ],
+  "sim_assume_bond": [
+    "Subscrição na emissão, detenção até ao vencimento, um cupão por ano, sem juros corridos nem prazo de liquidação.",
+    "Cupões não reinvestidos no ganho líquido; a taxa de rendibilidade líquida supõe o seu reinvestimento à mesma taxa.",
+    "Imposto aplicado apenas aos cupões; comissões calculadas sobre o nominal e pagas na compra. Sem câmbio nem inflação."
+  ],
+  "st.eyebrow": "Estratégia",
+  "st.title": "Diversificação e cooperação entre países",
+  "st.lede": "Um quadro de reflexão para investidores institucionais, intermediários e Tesouros: como repartir os riscos entre emitentes, maturidades e zonas monetárias, e que formas de cooperação entre países podem alargar o acesso ao mercado. Não é uma recomendação de investimento.",
+  "st.levers": "Cinco alavancas de diversificação",
+  "strategy_levers": [
+    [
+      "Emitentes",
+      "Repartir as subscrições por vários Estados reduz a exposição a um acontecimento próprio de um país (dificuldade orçamental, adiamento ou anulação de leilão). Limite: os Estados de uma mesma zona partilham frequentemente choques comuns (preços das matérias-primas, liquidez regional)."
+    ],
+    [
+      "Maturidades (escalonamento)",
+      "Escalonar as maturidades, por exemplo 3 meses, 1 ano, 3 anos e 5 anos, suaviza o risco de taxa de juro e o risco de reinvestimento: parte da carteira vence regularmente e pode ser reaplicada nas condições do momento."
+    ],
+    [
+      "Zonas monetárias e moedas",
+      "Combinar o franco CFA (XOF, XAF), as moedas da zona do rand (CMA) e moedas nacionais altera a natureza do risco cambial. Limite: XOF e XAF têm a mesma paridade fixa com o euro; combiná-los diversifica o risco do emitente, não o risco cambial face ao euro."
+    ],
+    [
+      "Instrumentos",
+      "Associar bilhetes (curto prazo, juros antecipados) e obrigações (cupões periódicos) equilibra liquidez e rendimento. Os bilhetes renovam-se com frequência; as obrigações fixam uma taxa por mais tempo, mas são mais sensíveis às variações de taxa."
+    ],
+    [
+      "Calendário de subscrição",
+      "Participar em vários leilões em vez de um só reduz a dependência da taxa de uma data: o preço médio de entrada suaviza-se ao longo do tempo."
+    ]
+  ],
+  "strategy_limits": [
+    "A diversificação não garante uma rendibilidade mais elevada nem a ausência de perdas. Reduz o risco próprio de cada emitente, não o risco comum a todos (subida mundial das taxas, choque regional).",
+    "Uma rendibilidade nominal mais elevada remunera em geral um risco mais elevado (crédito, câmbio, liquidez, inflação). Rendibilidades de países diferentes não se comparam sem ter em conta a inflação, o câmbio e as convenções de cálculo.",
+    "As moedas nacionais acrescentam risco cambial e, consoante o país, regras de convertibilidade ou de repatriamento de fundos a verificar junto do banco central.",
+    "Os dados de mercado deste site são sintéticos: a ferramenta abaixo ilustra um método, não descreve nenhuma carteira real."
+  ],
+  "st.pf.title": "Banco de ensaio de diversificação",
+  "st.pf.lede": "Componha uma carteira fictícia (país, maturidade, peso) e observe a sua concentração. As taxas são as últimas rendibilidades médias ponderadas sintéticas da grelha; nenhuma carteira é proposta ou otimizada.",
+  "st.pf.weight": "Peso",
+  "st.pf.add": "+ Adicionar uma linha",
+  "st.pf.remove": "Remover a linha",
+  "st.pf.empty": "Adicione pelo menos uma linha com peso positivo.",
+  "st.r.yield": "Rendibilidade média ponderada",
+  "st.r.mat": "Maturidade média ponderada",
+  "st.r.countries": "Número de países",
+  "st.r.currencies": "Número de moedas",
+  "st.r.hhic": "Concentração por país (HHI)",
+  "st.r.hhicur": "Concentração por moeda (HHI)",
+  "st.r.eur": "Parte em franco CFA, ancorado ao euro",
+  "st.r.zar": "Parte em rand e moedas ligadas (CMA)",
+  "st_pf_notes": [
+    "HHI: soma dos quadrados das partes em %. 10 000 = tudo numa única linha; quanto mais baixo, mais repartida a carteira.",
+    "A rendibilidade média ponderada não integra risco cambial, inflação, comissões, fiscalidade nem correlações entre países.",
+    "Pesos normalizados a 100 %; dados sintéticos."
+  ],
+  "st.coop": "Cooperação entre países: pistas",
+  "st.coop.lede": "Propostas da Cartouche para intermediários, investidores e Tesouros, a discutir e verificar com as autoridades competentes. São interpretações, não factos estabelecidos.",
+  "strategy_coop": [
+    [
+      "Apoiar-se nos mercados regionais",
+      "Na UEMOA como na CEMAC, os títulos de vários Estados são emitidos num mercado regional comum, com regras e intermediários comuns. Um mesmo intermediário pode assim, em princípio, apresentar subscrições em vários Estados da zona: confirme junto dele."
+    ],
+    [
+      "Sindicatos de intermediários transfronteiriços",
+      "Operadores primários e bancos de países diferentes podem agrupar-se para licitar em conjunto, partilhar a análise dos emitentes e repartir as colocações, alargando a sua base de investidores."
+    ],
+    [
+      "Fundos comuns regionais",
+      "Mutualizar a poupança num fundo permite a pequenos investidores aceder a vários países apesar de valores nominais elevados (1 milhão de FCFA por BTA na CEMAC, segundo o BEAC)."
+    ],
+    [
+      "Coordenação dos calendários de emissão",
+      "Tesouros que partilham os seus calendários podem evitar solicitar os mesmos investidores na mesma semana e suavizar os seus calendários de refinanciamento."
+    ],
+    [
+      "Interligação das infraestruturas",
+      "Aproximar centrais de depósito de títulos e sistemas de liquidação entre zonas reduziria o custo e os prazos de um investimento em várias zonas monetárias."
+    ],
+    [
+      "Dados harmonizados e formação",
+      "Publicar calendários, resultados e convenções de taxa em formatos comuns, e formar os investidores locais, alarga a procura interna e regional."
+    ]
+  ],
+  "gl.eyebrow": "Glossário",
+  "gl.title": "Termos e abreviaturas",
+  "gl.lede": "Definições dos termos de mercado e das siglas utilizados na plataforma. As definições próprias de uma zona citam a fonte oficial quando existe.",
+  "gl.search": "Procurar um termo ou sigla",
+  "gl.none": "Nenhum termo corresponde.",
+  "glossary": [
+    [
+      "Adjudication",
+      "Leilão (em francês): modo de emissão em que o Tesouro coloca à venda um montante de títulos; as propostas são satisfeitas por ordem de taxa (da mais baixa para a mais alta) ou de preço até ao montante aceite."
+    ],
+    [
+      "AMF-UMOA",
+      "Autorité des Marchés Financiers de l'Union Monétaire Ouest-Africaine: regulador do mercado financeiro regional da UEMOA."
+    ],
+    [
+      "BAT",
+      "Bon Assimilable du Trésor (UEMOA): título de dívida de curto prazo emitido por leilão; maturidade inferior a 2 anos segundo a UMOA-Titres."
+    ],
+    [
+      "BCEAO",
+      "Banque Centrale des États de l'Afrique de l'Ouest: banco central dos 8 Estados da UEMOA."
+    ],
+    [
+      "BEAC",
+      "Banque des États de l'Afrique Centrale: banco central dos 6 Estados da CEMAC."
+    ],
+    [
+      "BRVM",
+      "Bourse Régionale des Valeurs Mobilières: bolsa comum aos Estados da UEMOA."
+    ],
+    [
+      "BTA",
+      "Bon du Trésor Assimilable (CEMAC): 13, 26 ou 52 semanas, valor nominal de 1 milhão de FCFA, juros pagos antecipadamente (BEAC)."
+    ],
+    [
+      "BVMAC",
+      "Bourse des Valeurs Mobilières de l'Afrique Centrale: bolsa regional da CEMAC."
+    ],
+    [
+      "CBK",
+      "Central Bank of Kenya: banco central do Quénia, que organiza os leilões de bilhetes e obrigações do Tesouro queniano."
+    ],
+    [
+      "CEMAC",
+      "Comunidade Económica e Monetária da África Central: Camarões, República Centro-Africana, Congo, Gabão, Guiné Equatorial, Chade; moeda XAF."
+    ],
+    [
+      "CMA",
+      "Common Monetary Area (Área Monetária Comum): África do Sul, Essuatíni, Lesoto, Namíbia; moedas ligadas ao rand sul-africano."
+    ],
+    [
+      "COSUMAF",
+      "Commission de Surveillance du Marché Financier de l'Afrique Centrale: regulador do mercado financeiro da CEMAC."
+    ],
+    [
+      "Coupon",
+      "Cupão: juro periódico pago por uma obrigação, expresso em percentagem do valor nominal."
+    ],
+    [
+      "CRCT",
+      "Cellule de Règlement et de Conservation des Titres: central de depósito dos títulos públicos da CEMAC, segundo o BEAC."
+    ],
+    [
+      "CSD / DhowCSD",
+      "Central Securities Depository (central de depósito de títulos). O DhowCSD é o portal do Banco Central do Quénia para abrir uma conta de títulos e apresentar propostas."
+    ],
+    [
+      "Échéance / maturité",
+      "Vencimento / maturidade: data de reembolso do valor nominal. A maturidade residual é o prazo que falta até essa data."
+    ],
+    [
+      "Eurobond",
+      "Obrigação emitida nos mercados internacionais, em geral em dólares ou euros, fora do mercado doméstico do emitente."
+    ],
+    [
+      "HHI",
+      "Índice de Herfindahl-Hirschman: soma dos quadrados das partes (em %); 10 000 significa concentração total num único elemento."
+    ],
+    [
+      "Intérêts précomptés",
+      "Juros pagos antecipadamente: o investidor paga um preço inferior ao nominal e recebe o nominal no vencimento."
+    ],
+    [
+      "KES",
+      "Xelim queniano (código ISO 4217)."
+    ],
+    [
+      "Marché primaire / secondaire",
+      "Mercado primário: compra dos títulos na emissão, ao Estado. Mercado secundário: compra e venda de títulos já emitidos entre investidores."
+    ],
+    [
+      "Nominal (valeur faciale)",
+      "Valor nominal (valor facial): montante reembolsado no vencimento, sobre o qual se calculam os cupões."
+    ],
+    [
+      "OAT",
+      "Obligation Assimilable du Trésor (UEMOA): título de dívida de médio e longo prazo emitido por leilão; maturidade superior a 3 anos segundo a UMOA-Titres."
+    ],
+    [
+      "OPCVM",
+      "Organismo de investimento coletivo em valores mobiliários: fundo que mutualiza a poupança de vários investidores."
+    ],
+    [
+      "OTA",
+      "Obligation du Trésor Assimilable (CEMAC): prazo de 2 anos ou mais, valor nominal de 10 000 FCFA, juros anuais (BEAC)."
+    ],
+    [
+      "pb (point de base)",
+      "Ponto base: um centésimo de ponto percentual, 0,01 %. Uma subida de 8,00 % para 8,25 % corresponde a 25 pb."
+    ],
+    [
+      "Rendement moyen pondéré",
+      "Rendibilidade média ponderada: média das taxas das propostas aceites num leilão, ponderada pelos montantes aceites."
+    ],
+    [
+      "SGI",
+      "Société de Gestion et d'Intermédiation (UEMOA): intermediário autorizado a comprar e vender títulos por conta de clientes."
+    ],
+    [
+      "Soumission compétitive / non compétitive",
+      "Proposta competitiva: o investidor indica a taxa ou o preço que aceita. Não competitiva: aceita a taxa que resulta do leilão."
+    ],
+    [
+      "SVT",
+      "Spécialiste en Valeurs du Trésor (operador primário): instituição de crédito acreditada que participa nos leilões e anima o mercado secundário dos títulos públicos."
+    ],
+    [
+      "Taux de couverture (bid-to-cover)",
+      "Rácio de cobertura: montante total das propostas dividido pelo montante em leilão. Acima de 1, a procura excede a oferta."
+    ],
+    [
+      "UEMOA",
+      "União Económica e Monetária da África Ocidental: Benim, Burkina Faso, Costa do Marfim, Guiné-Bissau, Mali, Níger, Senegal, Togo; moeda XOF."
+    ],
+    [
+      "UMOA-Titres",
+      "Agência regional que organiza os leilões de títulos públicos (BAT e OAT) dos Estados da UMOA."
+    ],
+    [
+      "XOF / XAF",
+      "Códigos ISO do franco CFA da UEMOA (XOF) e da CEMAC (XAF). Mesma paridade fixa com o euro (1 € = 655,957 FCFA), mas as duas moedas não são intercambiáveis."
+    ],
+    [
+      "z (score)",
+      "Desvio de um valor face à média do seu histórico, expresso em número de desvios-padrão."
+    ]
+  ],
+  "m.eyebrow": "Como se constrói um sinal",
+  "m.title": "Da publicação oficial ao passaporte do sinal",
+  "m.lede": "Nenhum número é produzido por um modelo de linguagem. Os valores publicados continuam a ser factos, os valores derivados são cálculos, e nada mistura os dois. As etapas I e II chegam na fase 2; hoje, o motor funciona com dados sintéticos.",
+  "m.s1.t": "Monitorização das fontes",
+  "m.s1.p": "Todos os dias, as páginas oficiais (BEAC, BCEAO, UMOA-Titres, CBK…) são consultadas: disponibilidade, alterações, novos documentos publicados.",
+  "m.s1.s": "Operacional · diário",
+  "m.s2.t": "Extração verificada",
+  "m.s2.p": "Anúncios e resultados de leilões em PDF: texto, OCR, campos estruturados. Cada documento é desduplicado por impressão digital e passa por uma fila de verificação humana.",
+  "m.s2.s": "Fase 2",
+  "m.s3.t": "Motor de regras",
+  "m.s3.p": "Regras determinísticas, com limiares explícitos e rótulos neutros. Voltar a executá-lo não cria duplicados.",
+  "m.s3.s": "Operacional",
+  "m.s4.t": "Passaporte do sinal",
+  "m.s4.p": "Factos utilizados, cálculo, regra acionada, o que invalidaria o sinal e limitações. Tudo arquivado para auditoria.",
+  "m.s4.s": "Operacional",
+  "v.eyebrow": "Monitorização diária · dados reais",
+  "v.title": "O que mudou nos sites oficiais",
+  "v.never": "A monitorização ainda não foi executada.",
+  "v.last": "Última execução: {w}. {n} páginas oficiais consultadas.",
+  "v.baseline": "Primeira execução: o estado das páginas serve de referência; as novidades serão assinaladas a partir da execução seguinte.",
+  "v.compare": "Comparação com a execução anterior.",
+  "v.lead": "Um novo documento é uma pista a examinar, não um acontecimento de mercado verificado.",
+  "v.filtered": "Lista filtrada para {c} (as estatísticas continuam globais).",
+  "v.s.checked": "Páginas verificadas",
+  "v.s.ok": "Acessíveis",
+  "v.s.ko": "Com falha",
+  "v.s.changed": "Alteradas",
+  "v.s.new": "Novos documentos",
+  "v.s.listed": "Documentos listados",
+  "v.feed": "Novos documentos detetados",
+  "v.pages": "Páginas monitorizadas",
+  "v.hist": "Histórico de execuções",
+  "v.total": "{n} no total",
+  "v.detected": "detetado em {d}",
+  "v.feed.base": "Referência estabelecida: os documentos publicados a partir de agora aparecerão aqui.",
+  "v.feed.none": "Nenhum documento novo desde a última execução.",
+  "v.ok": "acessível",
+  "v.ko": "falha",
+  "v.changed": "alterada",
+  "v.new": "{n} novos",
+  "v.nopages": "Ainda não há páginas monitorizadas para este país.",
+  "v.ref": "ref.",
+  "src.eyebrow": "Registo de fontes",
+  "src.title": "Fontes oficiais propostas",
+  "src.lede": "{s} fontes oficiais registadas para esta seleção. {u} URL propostos para {i} instituições, verificados a 3 de outubro de 2026: {ok} acessíveis com um título de página que nomeia a instituição, {b} bloqueados por proteção anti-bot, {w} encontrados apenas por pesquisa na web. Nenhum é ativado enquanto um operador não o confirmar.",
+  "src.url": "URL proposto",
+  "src.content": "Conteúdo",
+  "src.check": "Verificação",
+  "src.nourl": "Nenhum URL proposto para esta seleção.",
+  "src.others": "{n} outras fontes registadas, URL a confirmar",
+  "r.eyebrow": "Roteiro",
+  "r.title": "Em que ponto está a plataforma",
+  "r.content": "Conteúdo",
+  "r.state": "Estado",
+  "roadmap": [
+    [
+      "1",
+      "Base de dados, modelos, rastreabilidade das fontes, API, painel · referencial dos 54 países",
+      "done"
+    ],
+    [
+      "1b",
+      "Autenticação, perfis, limitação de pedidos, registo de auditoria (pré-requisito de qualquer implementação da plataforma)",
+      "done"
+    ],
+    [
+      "2",
+      "Recolha das fontes oficiais, extração PDF/OCR, verificação humana",
+      "partial"
+    ],
+    [
+      "3",
+      "Convenções de rendibilidade por mercado, curvas de taxas, calibração dos limiares",
+      "todo"
+    ],
+    [
+      "4",
+      "Motor de oportunidades e Radar (recompras, trocas e Eurobonds pendentes)",
+      "partial"
+    ],
+    [
+      "5",
+      "Monitorização diária das fontes oficiais e atualização do site a cada 24 h · alertas e relatório diário a seguir",
+      "partial"
+    ],
+    [
+      "6",
+      "Área de investidores: procedimentos de acesso oficiais (21 países), intermediários acreditados, simulador",
+      "partial"
+    ],
+    [
+      "7",
+      "Motor de financiamento soberano (cenários para os Tesouros)",
+      "todo"
+    ],
+    [
+      "8",
+      "API pública e pesquisa global",
+      "todo"
+    ]
+  ],
+  "r_state": {
+    "done": "Entregue",
+    "partial": "Entregue em parte",
+    "next": "Próxima etapa",
+    "todo": "Por fazer"
+  },
+  "foot.tag": "INTELIGÊNCIA SOBRE A DÍVIDA SOBERANA AFRICANA",
+  "foot.p1": "<strong>Apenas informação e análise.</strong> Não constitui aconselhamento de investimento, recomendação, nem garantia de rendibilidade ou de acesso a um mercado. Os sinais são observações factuais baseadas em regras; não classificam investimentos e não têm em conta fiscalidade, comissões, câmbio nem o risco próprio de cada investidor.",
+  "foot.p2": "Os dados de mercado apresentados são <strong>sintéticos</strong>; apenas a monitorização das fontes e os procedimentos de acesso citados são reais. Os perfis dos países são dados de referência <strong>não verificados</strong>. Situação em",
+  "foot.p3": "Idiomas: francês (referência), inglês, português, espanhol, árabe. As traduções foram redigidas pela Cartouche e ainda não foram revistas por um tradutor profissional; as citações oficiais mantêm-se na língua original.",
+  "na": "Não disponível",
+  "nd": "n/d",
+  "r.phase": "Fase",
+  "sep": ", ",
+  "u.weeks": "{n} sem.",
+  "u.days": "{n} d",
+  "u.years": "{n} anos",
+  "units": [
+    "bil.",
+    "mM",
+    "M"
+  ],
+  "n.signals.one": "{n} sinal",
+  "n.signals.other": "{n} sinais",
+  "region": {
+    "north": "Norte de África",
+    "west": "África Ocidental",
+    "central": "África Central",
+    "east": "África Oriental",
+    "southern": "África Austral"
+  },
+  "zone": {
+    "CEMAC": "CEMAC · franco CFA (BEAC)",
+    "WAEMU": "UEMOA · franco CFA (BCEAO)",
+    "CMA": "Área Monetária Comum (CMA)",
+    "NONE": "Moeda nacional"
+  },
+  "zone_title": {
+    "CEMAC": "CEMAC · BEAC",
+    "WAEMU": "UEMOA · UMOA-Titres",
+    "KEN": "Quénia · Banco Central do Quénia",
+    "NGA": "Nigéria · Debt Management Office",
+    "GHA": "Gana · Banco do Gana",
+    "ZAF": "África do Sul · National Treasury",
+    "TZA": "Tanzânia · Banco da Tanzânia",
+    "UGA": "Uganda · Banco do Uganda",
+    "RWA": "Ruanda · Banco Nacional do Ruanda"
+  },
+  "lang_name": {
+    "fr": "francês",
+    "en": "inglês"
+  },
+  "instr": {
+    "treasury_bill": "Bilhete do Tesouro",
+    "treasury_bond": "Obrigação do Tesouro"
+  },
+  "bucket": {
+    "3M": "3 meses",
+    "6M": "6 meses",
+    "12M": "12 meses",
+    "2-3Y": "2-3 anos",
+    "5Y": "5 anos",
+    "7Y+": "7 anos +"
+  },
+  "nature": {
+    "SYNTHETIC": "SINTÉTICO",
+    "FACT": "FACTO"
+  },
+  "ev": {
+    "http_200": "acessível",
+    "http_403": "anti-bot (403)",
+    "search_only": "só pesquisa"
+  },
+  "flag": {
+    "synthetic_data": "dados sintéticos",
+    "small_sample": "amostra pequena",
+    "partial_debt_coverage": "cobertura parcial da dívida",
+    "mixed_yield_conventions": "convenções de rendibilidade mistas",
+    "different_auction_dates": "datas de leilão diferentes"
+  },
+  "sig_type": {
+    "upcoming_auction": "Leilões próximos",
+    "yield_move": "Variações de rendibilidade",
+    "high_demand": "Procura forte",
+    "low_demand": "Procura fraca",
+    "high_yield": "Rendibilidade elevada",
+    "curve_inversion": "Inversão da curva",
+    "refinancing_concentration": "Refinanciamento",
+    "auction_cancelled": "Anulados",
+    "auction_postponed": "Adiados"
+  },
+  "sig_label": {
+    "Upcoming auction": "Leilão próximo",
+    "Newly announced auction": "Leilão recentemente anunciado",
+    "Significant yield movement (higher)": "Variação significativa de rendibilidade (subida)",
+    "Significant yield movement (lower)": "Variação significativa de rendibilidade (descida)",
+    "High demand relative to recent auctions": "Rácio de cobertura elevado face aos leilões recentes",
+    "Low demand relative to recent auctions": "Rácio de cobertura baixo face aos leilões recentes",
+    "Higher historical yield (same tenor)": "Rendibilidade historicamente elevada (mesma maturidade)",
+    "Yield curve inversion": "Inversão da curva de rendimentos",
+    "Refinancing concentration": "Concentração de vencimentos",
+    "Auction cancelled": "Leilão anulado",
+    "Auction postponed": "Leilão adiado"
+  },
+  "dealer_kind": {
+    "SVT": "Operador primário (SVT)",
+    "primary_dealer": "Operador primário",
+    "bank": "Banco",
+    "SGI": "SGI (intermediário)",
+    "other": "Outro",
+    "IVT": "IVT (intermediário em valores do Tesouro)",
+    "PD_BMS": "Operador primário e Bond Market Specialist",
+    "CDP": "CDP (participante do depositário central)"
+  },
+  "buyer_cards": {
+    "CEMAC": {
+      "investor_type": "Pessoas singulares e coletivas, residentes e não residentes",
+      "eligibility": "Investidores pessoas singulares e coletivas, residentes e não residentes.",
+      "primary_dealer": "Spécialistes en Valeurs du Trésor (SVT, operadores primários): instituições de crédito autorizadas.",
+      "account_requirement": "Custódia na CRCT (central de depósito), através de um intermediário autorizado.",
+      "submission_method": "Subscrição através das instituições habilitadas (SVT); leilões organizados pelas Direções Nacionais do BEAC.",
+      "instruments": {
+        "treasury_bill": "BTA: 13, 26 e 52 semanas; valor nominal de 1 milhão de FCFA; juros pagos antecipadamente.",
+        "treasury_bond": "OTA: prazo de 2 anos ou mais; valor nominal de 10 000 FCFA; juros anuais."
+      }
+    },
+    "WAEMU": {
+      "investor_type": "Particulares, empresas e organizações (através de intermediário)",
+      "eligibility": "Participantes diretos: instituições de crédito, SGI e organismos financeiros regionais com conta de liquidação no BCEAO. Outros investidores: através destes intermediários.",
+      "primary_dealer": "SVT do Estado emitente (obrigatório nos leilões dirigidos).",
+      "account_requirement": "Conta numa instituição de crédito ou numa SGI da zona UEMOA.",
+      "submission_method": "Propostas através de uma instituição de crédito ou de uma SGI; leilões organizados pela UMOA-Titres.",
+      "instruments": {
+        "treasury_bill": "BAT: maturidade inferior a 2 anos; juros pagos antecipadamente.",
+        "treasury_bond": "OAT: maturidade indicada como «superior a 3 anos» na página de origem."
+      }
+    },
+    "KEN": {
+      "investor_type": "Particulares e empresas (diretamente ou através de um banco)",
+      "eligibility": "Particulares e empresas: diretamente sem intermediário, ou através de um banco comercial ou banco de investimento queniano.",
+      "primary_dealer": "Nenhum intermediário obrigatório; bancos comerciais e bancos de investimento quenianos podem atuar como custodiantes.",
+      "account_requirement": "Conta CSD aberta no portal DhowCSD do Banco Central do Quénia.",
+      "submission_method": "Propostas através da aplicação móvel ou do portal DhowCSD. Mínimo: 50 000 KES (não competitiva) ou 2 000 000 KES (competitiva), em múltiplos de 50 000 KES.",
+      "instruments": {
+        "treasury_bill": "Valor facial mínimo: 50 000 KES (proposta não competitiva), 2 000 000 KES (proposta competitiva)."
+      }
+    },
+    "NGA": {
+      "investor_type": "Investidores (através de um PDMM)",
+      "eligibility": "Clientes dos PDMM: os PDMM apresentam propostas por conta própria e em nome dos seus clientes.",
+      "primary_dealer": "Primary Dealer Market Makers (PDMM) designados pelo DMO.",
+      "submission_method": "Formulário de subscrição (obtido num PDMM ou descarregado do site do DMO) entregue através de um PDMM; leilões mensais do DMO. Mínimo: 50 001 000 NGN, depois múltiplos de 1 000 NGN.",
+      "instruments": {
+        "treasury_bond": "Obrigações FGN: leilões mensais; mínimo de 50 001 000 NGN, depois múltiplos de 1 000 NGN; juros semestrais."
+      }
+    },
+    "GHA": {
+      "investor_type": "Investidores (através de um PD, de um BMS ou de um participante do depositário acreditado)",
+      "eligibility": "Leilão grossista reservado aos Primary Dealers autorizados; os outros investidores compram e vendem no mercado secundário através de participantes do depositário acreditados.",
+      "primary_dealer": "Primary Dealers (PD): instituições financeiras autorizadas pelo Bank of Ghana.",
+      "submission_method": "Compra ou venda no mercado secundário através de um participante do depositário acreditado.",
+      "instruments": {
+        "treasury_bill": "Bilhetes do Tesouro: leilão grossista reservado aos PD, que compram por conta própria (diretrizes de março de 2020).",
+        "treasury_bond": "Notas e obrigações: emitidas com os Bond Market Specialists, que substituem os coordenadores (JBR) (diretrizes de março de 2020)."
+      }
+    },
+    "ZAF": {
+      "investor_type": "Particulares: cidadãos e residentes permanentes sul-africanos",
+      "eligibility": "Cidadãos sul-africanos e residentes permanentes com número de identidade sul-africano válido e conta bancária na África do Sul; para um menor, o formulário deve ser assinado também por um progenitor ou tutor.",
+      "primary_dealer": "Compra direta ao National Treasury (online, no balcão de atendimento ou por telefone).",
+      "account_requirement": "Conta bancária num banco sul-africano; registo no National Treasury com documentos comprovativos.",
+      "submission_method": "Registo e depois pedido online (secure.rsaretailbonds.gov.za), no balcão de atendimento do National Treasury (40 Church Square, Pretória) ou por telefone para investidores já registados. Mínimo: 1 000 ZAR por obrigação.",
+      "instruments": {
+        "treasury_bond": "Obrigações de poupança a taxa fixa (Fixed Rate RSA Retail Savings Bonds): 2, 3 ou 5 anos; mínimo de 1 000 ZAR; a brochura de 2023 indica que não há custos nem comissões."
+      }
+    },
+    "TZA": {
+      "investor_type": "Todos os investidores, incluindo estrangeiros (através de um CDP)",
+      "eligibility": "Todos os investidores, incluindo cidadãos estrangeiros.",
+      "primary_dealer": "Central Depository Participants (CDP): as propostas passam por um CDP.",
+      "submission_method": "Propostas apresentadas online através de um CDP, antes das 11h do dia do leilão.",
+      "instruments": {
+        "treasury_bill": "Bilhetes do Tesouro: proposta mínima de 500 000 TZS, em múltiplos de 10 000 TZS; juros sujeitos a retenção na fonte de 10% (concurso n.º 1208 de 7 de outubro de 2026).",
+        "treasury_bond": "Obrigações do Tesouro: proposta mínima de 1 000 000 TZS, em múltiplos de 100 000 TZS; juros isentos de retenção na fonte; cotadas na Bolsa de Dar es Salaam (leilão de 30 de setembro de 2026, obrigação a 15 anos n.º 696)."
+      }
+    },
+    "UGA": {
+      "investor_type": "Investidores (através de um banco comercial)",
+      "eligibility": "Propostas não competitivas: através de qualquer banco comercial; propostas competitivas: apenas bancos Primary Dealers.",
+      "primary_dealer": "Bancos Primary Dealers (propostas competitivas) e outros bancos comerciais.",
+      "submission_method": "Os bancos apresentam as propostas ao Bank of Uganda através do Central Securities Depository (CSD). Mínimo não competitivo: 100 000 UGX; competitivo: 200 100 000 UGX.",
+      "instruments": {
+        "treasury_bill": "Bilhetes do Tesouro: mínimo de 100 000 UGX (não competitivo, através de qualquer banco comercial); propostas não competitivas aceites na totalidade até 200 000 000 UGX por prazo (concurso n.º 1235 de 30 de setembro de 2026).",
+        "treasury_bond": "Obrigações do Tesouro: 2, 3, 5, 10, 15, 20 e 25 anos; mínimo de 100 000 UGX (prospeto geral de julho de 2025)."
+      }
+    },
+    "RWA": {
+      "investor_type": "Investidores residentes e não residentes (conta CSD)",
+      "eligibility": "Residentes e não residentes que abriram uma conta CSD através de um banco comercial licenciado ou de um intermediário do mercado de capitais.",
+      "primary_dealer": "Bancos comerciais licenciados ou intermediários do mercado de capitais (agentes de colocação).",
+      "account_requirement": "Conta CSD aberta através de um banco comercial licenciado ou de um intermediário do mercado de capitais.",
+      "submission_method": "Formulário de subscrição (site do BNR) entregue através de um banco comercial licenciado ou de um intermediário do mercado de capitais. Mínimo: 100 000 RWF (não competitivo), 50 milhões de RWF (competitivo).",
+      "instruments": {
+        "treasury_bond": "Obrigações do Tesouro (book building): mínimo de 100 000 RWF (proposta não competitiva), 50 milhões de RWF (proposta competitiva); retenção na fonte de 5% sobre os juros (prospeto de 26 de fevereiro de 2026)."
+      }
+    }
+  },
+  "guide_steps": [
+    "Escolher um intermediário acreditado: operador primário (SVT), banco ou SGI, ou o acesso direto quando o banco central o permite (portal DhowCSD no Quénia).",
+    "Abrir uma conta de títulos e uma conta à ordem; fornecer os documentos de identificação pedidos (conhecimento do cliente).",
+    "Consultar o calendário de emissões e o anúncio do leilão: montante em leilão, maturidade, data e hora limite das propostas, data-valor.",
+    "Enviar a ordem antes do prazo interno do intermediário: proposta competitiva (indica uma taxa) ou não competitiva (aceita a taxa fixada).",
+    "Aprovisionar a conta à ordem para a liquidação na data-valor.",
+    "Receber o aviso de colocação: a ordem pode ser satisfeita na totalidade, em parte ou não ser satisfeita.",
+    "Acompanhar os cupões e o reembolso no vencimento; eventualmente revender os títulos no mercado secundário."
+  ],
+  "ask_list": [
+    "Comissão de subscrição ou de colocação",
+    "Comissões de custódia da conta de títulos",
+    "Montante mínimo aceite e múltiplos",
+    "Data e hora limite internas para as ordens",
+    "Acesso ao mercado secundário e preço de recompra proposto",
+    "Fiscalidade aplicada aos juros consoante a sua residência",
+    "Prazo de pagamento dos cupões e do reembolso",
+    "Extratos e notas de execução fornecidos"
+  ],
+  "dl.rank": "Posição publicada",
+  "dl.page": "página oficial",
+  "dl.order.list": "Ordem da lista oficial.",
+  "dl.order.rank": "Ordem da classificação oficial.",
+  "dl.details": "Citação e notas sobre a fonte",
+  "dl.fr": "As notas sobre as fontes estão redigidas em francês.",
+  "dl.share.all": "As quotas de mercado só aparecem quando a autoridade as publica por instituição.",
+  "dl.none.ken": "O Banco Central do Quénia não publica uma lista nominativa de intermediários acreditados: os investidores licitam diretamente no DhowCSD ou recorrem a um banco comercial ou de investimento queniano (ver o procedimento acima).",
+  "doc.desc.real": "Acompanhamento dos títulos de dívida pública soberana de 54 países africanos: resultados oficiais de leilões dos 8 países da UEMOA (UMOA-Titres), sinais rastreados até à fonte, acesso dos investidores.",
+  "banner.real": "<strong>DADOS OFICIAIS</strong> · Os valores de mercado provêm dos relatórios de resultados de leilões publicados pela UMOA-Titres: {n} leilões de {first} a {last}, {c} países da UEMOA. Cada valor foi verificado automaticamente face ao documento oficial e uma amostra foi auditada, sem revisão humana linha a linha. Sem dados de mercado para os outros países. Nada aqui constitui aconselhamento de investimento.",
+  "map.lede.real": "Cada Estado africano membro da ONU tem um perfil (moeda, zona monetária, banco central). Os 8 países da UEMOA têm dados de mercado oficiais (resultados de leilões da UMOA-Titres); os outros ainda não. Os países contornados a dourado têm as suas fontes oficiais monitorizadas diariamente. Clique numa casa para selecionar o país.",
+  "p.cov.data.real": "Dados de mercado oficiais (UMOA-Titres)",
+  "p.note.common.real": "Perfil não verificado. Dados de mercado: relatórios oficiais da UMOA-Titres para os países da UEMOA; ainda sem dados de mercado para os outros países.",
+  "f.syn.real": "Resultados oficiais da UMOA-Titres, verificados automaticamente.",
+  "sim.lede.real": "Retome os parâmetros de um leilão passado (resultado oficial da UMOA-Titres) ou introduza os seus. O simulador calcula o preço, o montante a pagar, os juros e o ganho líquido das comissões e impostos que indicar. É um cálculo aritmético: uma taxa passada não garante a taxa de um próximo leilão.",
+  "sim.op.note.real": "Parâmetros retomados do leilão de {d} ({c}), resultado oficial da UMOA-Titres. É uma taxa passada, não uma promessa de rendibilidade.",
+  "strategy_limits.real": [
+    "A diversificação não garante uma rendibilidade mais elevada nem a ausência de perdas. Reduz o risco próprio de cada emitente, não o risco comum a todos (subida mundial das taxas, choque regional).",
+    "Uma rendibilidade nominal mais elevada remunera em geral um risco mais elevado (crédito, câmbio, liquidez, inflação). Rendibilidades de países diferentes não se comparam sem ter em conta a inflação, o câmbio e as convenções de cálculo.",
+    "As moedas nacionais acrescentam risco cambial e, consoante o país, regras de convertibilidade ou de repatriamento de fundos a verificar junto do banco central.",
+    "As rendibilidades usadas abaixo são resultados de leilões passados, apenas para os países da UEMOA: a ferramenta ilustra um método, não é uma previsão."
+  ],
+  "st.pf.lede.real": "Componha uma carteira fictícia (país, maturidade, peso) e observe a sua concentração. As taxas são as últimas rendibilidades médias ponderadas oficiais (UMOA-Titres); só os países da UEMOA têm dados. Nenhuma carteira é proposta ou otimizada.",
+  "st_pf_notes.real": [
+    "HHI: soma dos quadrados das partes em %. 10 000 = tudo numa única linha; quanto mais baixo, mais repartida a carteira.",
+    "A rendibilidade média ponderada não integra risco cambial, inflação, comissões, fiscalidade nem correlações entre países.",
+    "Pesos normalizados a 100 %; resultados oficiais passados (UMOA-Titres)."
+  ],
+  "m.lede.real": "Nenhum número é produzido por um modelo de linguagem. Os valores publicados continuam a ser factos, os valores derivados são cálculos, e nada mistura os dois. As etapas I e II funcionam agora para a UMOA-Titres; as outras fontes seguir-se-ão.",
+  "foot.p2.real": "Dados de mercado: relatórios oficiais de resultados de leilões da UMOA-Titres (UEMOA), verificados automaticamente face a cada documento; sem dados de mercado para os outros países. Os perfis dos países são dados de referência <strong>não verificados</strong>. Situação em",
+  "nav.market": "Mercado",
+  "p.market": "Ver os seus dados de mercado",
+  "search.open": "Pesquisar",
+  "search.open.aria": "Pesquisar no site (atalho: /)",
+  "search.label": "Pesquisa no site",
+  "search.ph": "País, ISIN, instituição, termo…",
+  "search.close": "Fechar",
+  "search.results": "Resultados da pesquisa",
+  "search.start": "Escreva pelo menos 2 caracteres: um país (nome ou código ISO), um ISIN, um banco central, uma instituição acreditada, uma fonte, um termo do glossário ou um sinal.",
+  "search.keys": "↑ ↓ para percorrer · Enter para abrir · Esc para fechar",
+  "search.empty": "Nenhum resultado para «{q}».",
+  "search.count.one": "{n} resultado",
+  "search.count.other": "{n} resultados",
+  "search.g.country": "Países",
+  "search.g.isin": "Títulos (ISIN)",
+  "search.g.inst": "Instituições",
+  "search.g.gloss": "Glossário",
+  "search.g.signal": "Sinais",
+  "search.data": "dados de mercado verificados",
+  "search.ref": "perfil de referência",
+  "search.last": "último leilão em {d}",
+  "search.cb": "Banco central",
+  "search.dealer": "Instituição acreditada",
+  "search.source": "Fonte oficial",
+  "mk.eyebrow": "Dados de mercado · UMOA-Titres",
+  "mk.title": "Leilões: rendibilidades e volumes",
+  "mk.lede.all": "{n} resultados oficiais de leilão da UMOA-Titres ({first} – {last}) para os {k} países da UEMOA. Escolha um país para ver as rendibilidades observadas, os volumes e o detalhe de cada leilão, com a ligação para o PDF de origem. Os outros países ainda não têm dados de mercado verificados.",
+  "mk.lede.one": "{n} leilões verificados para {c} ({first} – {last}), retirados dos relatórios oficiais de resultados da UMOA-Titres. Cada linha da tabela remete para o PDF de origem.",
+  "mk.lede.none": "Por agora, só existem dados de mercado verificados para os {n} países da UEMOA.",
+  "mk.loading": "Os gráficos são desenhados quando chega a esta secção.",
+  "mk.period": "Período",
+  "mk.p.12": "Últimos 12 meses",
+  "mk.p.24": "Últimos 24 meses",
+  "mk.p.all": "Histórico completo",
+  "mk.k.auctions": "Leilões de emissão",
+  "mk.k.allotted": "Montante colocado (emissões)",
+  "mk.k.buybacks": "Recompras (contadas à parte)",
+  "mk.k.last": "Último leilão",
+  "mk.k.note": "No período escolhido. Montante colocado: soma dos montantes publicados (cálculo). As recompras nunca são somadas às emissões.",
+  "mk.curve.t": "Rendibilidades observadas por prazo · {c}",
+  "mk.curve.aria": "Nuvem de pontos das últimas rendibilidades médias ponderadas por prazo residual, {c}: {n} pontos",
+  "mk.curve.note": "Pontos observados, não ligados: para cada prazo de referência (3 e 6 meses, 1, 2, 3, 4, 5, 7, 10 e 15 anos), o último leilão de emissão dos últimos 365 dias cujo prazo residual é o mais próximo. Eixo horizontal: prazo até ao vencimento na data de liquidação (vencimento menos liquidação), escala logarítmica. Nenhuma curva é ajustada nem interpolada; os pontos podem ser de dias diferentes. Recompras excluídas.",
+  "mk.nodata.curve": "Nenhum leilão de emissão com rendibilidade publicada nos últimos 365 dias.",
+  "mk.nodata.period": "Nenhum leilão de emissão verificado neste período.",
+  "mk.res": "Prazo residual",
+  "mk.res.short": "{d} até ao vencimento",
+  "mk.tip.yield": "Rendibilidade média ponderada",
+  "mk.tip.none": "Nenhum leilão de emissão verificado neste mês.",
+  "mk.tip.more": "+ {n} outros (ver a tabela)",
+  "col.allotted": "Montante colocado",
+  "col.submitted": "Montante proposto",
+  "col.wavg": "Rendibilidade média ponderada",
+  "col.source": "Fonte",
+  "mk.bills": "Bilhetes do Tesouro",
+  "mk.bonds": "Obrigações do Tesouro",
+  "mk.total": "Total",
+  "mk.month": "Mês",
+  "mk.n.auctions.one": "{n} leilão",
+  "mk.n.auctions.other": "{n} leilões",
+  "mk.hist.t": "Histórico das rendibilidades por escalão de maturidade",
+  "mk.hist.aria": "Rendibilidades médias ponderadas dos leilões de emissão ao longo do tempo, por escalão de maturidade, {c}: {n} pontos",
+  "mk.hist.toggle": "Mostrar ou ocultar um escalão",
+  "mk.hist.allhidden": "Todos os escalões estão ocultos.",
+  "mk.hist.note": "Cada ponto é um leilão de emissão (rendibilidade média ponderada publicada), classificado pelo prazo residual na data de liquidação. As linhas ligam leilões sucessivos do mesmo escalão; interrompem-se após mais de 6 meses sem leilão, e não existe valor entre dois pontos. Toque num escalão para o mostrar ou ocultar. Recompras excluídas.",
+  "mk.vol.t": "Montante colocado por mês (emissões)",
+  "mk.vol.aria": "Montante colocado por mês, emissões, {c}",
+  "mk.vol.note": "Soma dos montantes colocados nos leilões de emissão verificados. Um mês sem barra não tem nenhum leilão verificado na base: algumas extrações ainda aguardam revisão, pelo que não significa necessariamente ausência de emissão.",
+  "mk.vol.bb": "Recompras excluídas do gráfico: {n} operações no período, {a} colocados.",
+  "mk.vol.bb0": "Nenhuma recompra no período.",
+  "mk.ov.curves.t": "Última rendibilidade por escalão de maturidade, últimos 365 dias",
+  "mk.ov.curves.note": "Para cada país e escalão (prazo residual na data de liquidação), a rendibilidade média ponderada do último leilão de emissão dos últimos 365 dias. Mesma escala para todos os países; pontos observados, nada é ajustado. Países por ordem alfabética: não é uma classificação. As diferenças refletem também datas e prazos diferentes.",
+  "mk.ov.aria": "Última rendibilidade média ponderada por escalão de maturidade, {c}",
+  "mk.ov.none": "Nenhum leilão de emissão com rendibilidade publicada neste escalão em 365 dias.",
+  "mk.n.points.one": "{n} escalão",
+  "mk.n.points.other": "{n} escalões",
+  "mk.ov.vol.t": "Montante colocado por país no período (emissões)",
+  "mk.ov.vol.aria": "Montante colocado por país no período, emissões",
+  "mk.ov.vol.note": "Soma dos montantes colocados publicados (cálculo). Países por ordem alfabética, não é uma classificação. Só os leilões verificados são contados.",
+  "mk.ov.tv.note": "Colunas por escalão: última rendibilidade média ponderada dos últimos 365 dias e data do leilão.",
+  "mk.tbl.t": "Detalhe dos leilões",
+  "mk.tbl.q": "Filtrar por ISIN ou nome do título",
+  "mk.tbl.csv": "Descarregar CSV ({n} linhas)",
+  "mk.tbl.more": "Mostrar mais {n}",
+  "mk.tbl.shown": "{a} linhas mostradas de {b}.",
+  "mk.tbl.none": "Nenhum leilão para estes filtros.",
+  "mk.tbl.caption": "Leilões, {c}",
+  "mk.tbl.note": "Rendibilidade: rendibilidade média ponderada tal como publicada pela UMOA-Titres. n/d: valor não publicado no relatório de resultados (passe o cursor para ver o motivo). Prazo: tempo restante na data de liquidação. Montantes em francos CFA (XOF). O CSV contém todas as linhas filtradas, com os valores exatos.",
+  "mk.col.type": "Operação",
+  "mk.ty.all": "Todas",
+  "mk.ty": {
+    "primary_auction": "Emissão",
+    "buyback": "Recompra",
+    "switch": "Troca"
+  },
+  "mk.fs": {
+    "not_disclosed": "não publicado no relatório oficial de resultados",
+    "not_available": "nenhuma fonte disponível",
+    "pending": "resultado ainda não publicado"
+  },
+  "mk.table.view": "Ver os dados em tabela",
+  "mk.tick": {
+    "91": "3 m",
+    "182": "6 m",
+    "364": "1 ano",
+    "730": "2 anos",
+    "1095": "3 anos",
+    "1460": "4 anos",
+    "1825": "5 anos",
+    "2555": "7 anos",
+    "3650": "10 anos",
+    "5475": "15 anos"
+  },
+  "mk.bshort": {
+    "3M": "3m",
+    "6M": "6m",
+    "12M": "1a",
+    "2-3Y": "2-3a",
+    "5Y": "5a",
+    "7Y+": "7a+"
+  },
+  "mk.empty.title": "Ainda sem dados de mercado verificados para {c}",
+  "mk.empty.short": "Só são mostrados resultados retirados de documentos oficiais verificados",
+  "mk.empty.body": "A Cartouche só mostra resultados de leilão retirados de documentos oficiais verificados; nenhum está ainda integrado para {c}. O que já existe:",
+  "mk.empty.route.yes": "Procedimento de acesso dos investidores documentado (fonte oficial)",
+  "mk.empty.route.no": "Procedimento de acesso dos investidores: ainda não documentado",
+  "mk.empty.dealers.one": "{n} instituição acreditada (lista oficial)",
+  "mk.empty.dealers.other": "{n} instituições acreditadas (lista oficial)",
+  "mk.empty.dealers0": "Lista oficial de instituições acreditadas: ainda não recolhida",
+  "mk.empty.sources.one": "{n} fonte oficial registada",
+  "mk.empty.sources.other": "{n} fontes oficiais registadas",
+  "mk.empty.cb": "Banco central: {cb}",
+  "nav.reports": "Relatórios",
+  "rp.eyebrow": "Síntese trimestral · UEMOA",
+  "rp.title": "Relatórios trimestrais",
+  "rp.lede": "Para cada trimestre concluído, é calculado um relatório de síntese apenas a partir dos leilões verificados: montantes colocados, rendimentos, maturidades, comparação com o trimestre anterior e o ano anterior, com a bandeira e o brasão de cada país. A pré-visualização é gratuita (em francês ou inglês).",
+  "rp.q": "T{q} {y}",
+  "rp.th.q": "Trimestre",
+  "rp.th.n": "Leilões",
+  "rp.th.alloc": "Montante colocado",
+  "rp.th.flags": "Países",
+  "rp.th.read": "Pré-visualização gratuita",
+  "rp.read.fr": "Français",
+  "rp.read.en": "English",
+  "rp.pdf": "PDF",
+  "rp.full": "A edição completa acrescenta uma ficha por país (bandeira, brasão, números-chave, histórico de 8 trimestres, rendimentos por maturidade, maiores operações com ligação ao relatório oficial) e a lista dos documentos-fonte.",
+  "rp.buy": "Obter a edição completa",
+  "rp.none": "Ainda não há nenhum trimestre concluído.",
+  "rp.legal": "Publicação independente: não é emitida nem aprovada por nenhum Estado, pelo BCEAO ou pela UMOA-Titres. Bandeiras e brasões reproduzidos para identificar os países (créditos em cada relatório). Não constitui aconselhamento de investimento."
+}

@@ -1,0 +1,1366 @@
+{
+ "decided_by": "Propriétaire (Boujieka), messages du 2026-10-04: '1a, 2a, 3a, 4a, 5a, 6a, 7 : approuver' et 'Applique les corrections avec preuve'",
+ "entries": [
+  {
+   "extraction_id": 503,
+   "isin": "NE0000002581",
+   "auction_date": "2026-01-29",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "checker: 'maturity not after auction date' (BAT bought back on its maturity day: auction 29/01/2026, Durée 1 jours, échéance 29/01/2026)",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 721,
+   "isin": "NE0000001153",
+   "auction_date": "2025-10-27",
+   "decision": "1a/2a",
+   "summary": "failed check: NE0000001153/buyback: submitted = allocated + rejected: 20427280000 vs 20427280000 + 3555020000",
+   "set": {},
+   "column": {},
+   "clear": {
+    "amount_rejected": {
+     "status": "not_available",
+     "reason": "document incohérent (soumis = retenu mais rejeté 3 555,02 M); aucun chiffre recoupé imprimé (décision 1a)"
+    }
+   }
+  },
+  {
+   "extraction_id": 791,
+   "isin": "ML0000003839",
+   "auction_date": "2025-09-03",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "parse_status=partial: results header prints 'OAT - 7 ans' while the ISIN block prints 'Durée : 6 ans' for ML0000003474 (reopening of the 7-year OAT, residual ~6,46 years); parser flagged the column ma",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 792,
+   "isin": "ML0000003847",
+   "auction_date": "2025-09-03",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "parse_status=partial: results header prints 'OAT - 7 ans' while the ISIN block prints 'Durée : 6 ans' for ML0000003474 (reopening of the 7-year OAT, residual ~6,46 years); parser flagged the column ma",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 793,
+   "isin": "ML0000003805",
+   "auction_date": "2025-09-03",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "parse_status=partial: results header prints 'OAT - 7 ans' while the ISIN block prints 'Durée : 6 ans' for ML0000003474 (reopening of the 7-year OAT, residual ~6,46 years); parser flagged the column ma",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 794,
+   "isin": "ML0000003474",
+   "auction_date": "2025-09-03",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "parse_status=partial: results header prints 'OAT - 7 ans' while the ISIN block prints 'Durée : 6 ans' for ML0000003474 (reopening of the 7-year OAT, residual ~6,46 years); parser flagged the column ma",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 912,
+   "isin": "CI0000009346",
+   "auction_date": "2025-07-11",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "amount_submitted: stored '20208700000' but '20 208, 7 millions de F CFA' gives '20208000000'",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 989,
+   "isin": "CI0000007613",
+   "auction_date": "2025-06-03",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "maturity not after auction date",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 991,
+   "isin": "CI0000008959",
+   "auction_date": "2025-06-03",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "maturity not after auction date",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 1083,
+   "isin": "ML0000003615",
+   "auction_date": "2025-04-30",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "reviewer excluded for human decision: CR prints the cell malformed as '6 622 ,4millions de F CFA' (stray space before the decimal comma); earlier parse stored 4 000 000",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 1097,
+   "isin": "CI0000008959",
+   "auction_date": "2025-04-28",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "weighted_average_rate=22500.0000 outside 0–30 %",
+   "set": {
+    "weighted_average_rate": {
+     "value": "3.00",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2025/04/Annonce-au-MTP-CI-EC-28.04.2025.pdf",
+      "sha256": "83b218063c7df6fe519d508f0b361bd92aa7c624d4b743b3e0164d693de000eb",
+      "line": "Moyen Pondéré 2,25% 3,50% 2,50% 3,00%  (columns: Résultats du rachat BAT - 36 jours BAT - 1 jours BAT - 29 jours BAT - 36 jours; 4th column = CI0000008959)"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 1109,
+   "isin": "NE0000001500",
+   "auction_date": "2025-04-24",
+   "decision": "1a/2a",
+   "summary": "checker: weighted_average_yield=100.00 outside 0-30 % (CR buyback table prints 'Rendement moyen pondéré ... 100,00%' for OAT - 22 jours)",
+   "set": {
+    "maturity_date": {
+     "value": "2025-06-17",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2022/06/Compte-Rendu-NE-ES-16.06.2022.pdf",
+      "sha256": "828373e95544580f5645b81b7083001501cf89bff13b743408c47075e9cdd38e",
+      "line": "Code ISIN : NE0000001518 NE0000001500 / Dénomination de l'émission : NE0000001518-BAT-06-2023 NE0000001500-OAT-06-2025 / Date d'échéance : 15/06/2023 17/06/2025 / Taux d'intérêt fixe annoncé : 5,60%"
+     }
+    },
+    "security_name": {
+     "value": "NE0000001500-OAT-06-2025",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2025/05/Compte-Rendu-NE-EC-07.05.2025.pdf",
+      "sha256": "b1bb2fd40947ba332b79b6e15b03c2ef63f31204fc19af143728a966956141af",
+      "line": "Dénomination de l'émission : NE0000001500-OAT-06-2025 ... Date d'échéance : 17/06/2025"
+     }
+    }
+   },
+   "column": {},
+   "clear": {
+    "weighted_average_yield": {
+     "status": "not_available",
+     "reason": "rendement imprimé 100,00 %, non significatif (décisions 1a/2a)"
+    }
+   }
+  },
+  {
+   "extraction_id": 1251,
+   "isin": "ML0000002906",
+   "auction_date": "2025-03-05",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "failed check: sum_amount_submitted: sum of tranches 2503000000000 vs published total 5500000000; failed check: ML0000002906/buyback: submitted = allocated + rejected: 2500000000000 vs 2500000000 + 0",
+   "set": {
+    "amount_submitted": {
+     "value": "2500000000",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2025/03/Annonce-au-MTP-ML-EC-05.03.2025.pdf",
+      "sha256": "d6e92db4318ef5edae588b0967bcfcc0e1ce520a7d83beeb919fc8e09073785f",
+      "line": "Résultats du rachat BAT - 42 jours BAT - 70 jours / Montant global des soumissions (en FCFA) 2 500 000 000 3 000 000 000"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 1252,
+   "isin": "ML0000002971",
+   "auction_date": "2025-03-05",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "failed check: sum_amount_submitted: sum of tranches 2503000000000 vs published total 5500000000",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 1275,
+   "isin": "SN0000001298",
+   "auction_date": "2025-02-27",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "failed doc-level checks sum_amount_submitted/sum_amount_allocated (17 324 430 000 vs 58 733 400 000)",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 1276,
+   "isin": "SN0000001348",
+   "auction_date": "2025-02-27",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "failed check SN0000001348/buyback: submitted = allocated + rejected (999 940 000 vs 99 940 000 + 0) + the false-positive page-split sum checks",
+   "set": {
+    "amount_allocated": {
+     "value": "999940000",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2025/02/Annonce-au-MTP-SN-EC-27.02.2025.pdf",
+      "sha256": "3b6ed71ff4d3851f21b3fe01f1f7703deddd3b0e59758927f36839f8e1e10c74",
+      "line": "Montant retenu (en FCFA)  391 320 000  999 940 000  10 500 000 000 ... (column SN0000001348)"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 1277,
+   "isin": "SN0000001397",
+   "auction_date": "2025-02-27",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "failed doc-level checks sum_amount_submitted/sum_amount_allocated (17 324 430 000 vs 58 733 400 000)",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 1278,
+   "isin": "SN0000001488",
+   "auction_date": "2025-02-27",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "failed doc-level checks sum_amount_submitted/sum_amount_allocated (17 324 430 000 vs 58 733 400 000)",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 1279,
+   "isin": "SN0000001876",
+   "auction_date": "2025-02-27",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "failed doc-level checks sum_amount_submitted/sum_amount_allocated (17 324 430 000 vs 58 733 400 000); parse_status=partial (column mapping doubtful because the CR results header labels SN0000001439 'B",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 1280,
+   "isin": "SN0000001892",
+   "auction_date": "2025-02-27",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "failed doc-level checks sum_amount_submitted/sum_amount_allocated (17 324 430 000 vs 58 733 400 000); parse_status=partial (column mapping doubtful because the CR results header labels SN0000001439 'B",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 1281,
+   "isin": "SN0000001900",
+   "auction_date": "2025-02-27",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "failed doc-level checks sum_amount_submitted/sum_amount_allocated (17 324 430 000 vs 58 733 400 000); parse_status=partial (column mapping doubtful because the CR results header labels SN0000001439 'B",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 1282,
+   "isin": "SN0000001967",
+   "auction_date": "2025-02-27",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "failed doc-level checks sum_amount_submitted/sum_amount_allocated (17 324 430 000 vs 58 733 400 000); parse_status=partial (column mapping doubtful because the CR results header labels SN0000001439 'B",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 1426,
+   "isin": "GW0000001309",
+   "auction_date": "2025-01-27",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "failed check: sum_amount_submitted: sum of tranches 26177820000 vs published total 26176820000",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 1427,
+   "isin": "GW0000001317",
+   "auction_date": "2025-01-27",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "failed check: sum_amount_submitted: sum of tranches 26177820000 vs published total 26176820000",
+   "set": {
+    "amount_submitted": {
+     "value": "2715820000",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2025/01/Annonce-au-MTP-GW-ES-27.01.2025.pdf",
+      "sha256": "93c1610cc5f4e1bddfa3a1f89dc53d69edcb0f7c37a0e52bd6ab58179cb0052e",
+      "line": "Résultats de l'émission BAT - 351 jours OAT - 3 ans / Montant global des soumissions (en FCFA) 23 461 000 000 2 715 820 000"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 1553,
+   "isin": "SN0000003518",
+   "auction_date": "2024-12-05",
+   "decision": "1a/2a",
+   "summary": "weighted_average_yield=0.00 outside 0–30 %; marginal_rate=0.0000 outside 0–30 %; weighted_average_rate=0.0000 outside 0–30 %",
+   "set": {},
+   "column": {},
+   "clear": {
+    "marginal_rate": {
+     "status": "not_disclosed",
+     "reason": "publié 0,00 %, non significatif (décision 2a)"
+    },
+    "weighted_average_rate": {
+     "status": "not_disclosed",
+     "reason": "publié 0,00 %, non significatif (décision 2a)"
+    },
+    "weighted_average_yield": {
+     "status": "not_disclosed",
+     "reason": "publié 0,00 %, non significatif (décision 2a)"
+    },
+    "number_of_bids": {
+     "status": "not_available",
+     "reason": "sources en conflit: compte rendu 7, annonce 6 (décision 1a)"
+    }
+   }
+  },
+  {
+   "extraction_id": 1567,
+   "isin": "CI0000007993",
+   "auction_date": "2024-12-03",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "checker: 'maturity not after auction date' (BAT bought back on maturity day 03/12/2024, Durée 1 jours)",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 1695,
+   "isin": "SN0000003286",
+   "auction_date": "2024-09-20",
+   "decision": "1a/2a",
+   "summary": "failed check: SN0000003286: submitted = allocated + rejected: 38764620000 vs 37282000000 + 1483000000",
+   "set": {},
+   "column": {},
+   "clear": {
+    "amount_rejected": {
+     "status": "not_available",
+     "reason": "document incohérent (1 483,00 imprimé, 1 482,62 implicite); aucun chiffre recoupé imprimé (décision 1a)"
+    }
+   }
+  },
+  {
+   "extraction_id": 1894,
+   "isin": "ML0000000850",
+   "auction_date": "2024-06-12",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "reviewer excluded for human decision: CR results table prints '2 509 millions' for OAT - 198 jours while its regional table and totals use 2 509,480; absorption printed as '1'",
+   "set": {
+    "amount_submitted": {
+     "value": "2509480000",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2025/10/Annonce-au-MTP-ML-RS-12.06.2024.pdf",
+      "sha256": "38215d743da6d84daf1f7dc73fe33ad30e2ff3aee76e28b8355f4520ed3abbfe",
+      "line": "Résultats du rachat OAT - 198 jours ... Montant global des soumissions (en FCFA) 2 509 480 00|0 ; Montant retenu (en FCFA) 2 509 480 00|0 (cell wraps: '2 509 480 00' then '0' on the next line) ; RESULTAT GLOBAL 5 843 480 000"
+     }
+    },
+    "amount_allocated": {
+     "value": "2509480000",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2025/10/Annonce-au-MTP-ML-RS-12.06.2024.pdf",
+      "sha256": "38215d743da6d84daf1f7dc73fe33ad30e2ff3aee76e28b8355f4520ed3abbfe",
+      "line": "Résultats du rachat OAT - 198 jours ... Montant global des soumissions (en FCFA) 2 509 480 00|0 ; Montant retenu (en FCFA) 2 509 480 00|0 (cell wraps: '2 509 480 00' then '0' on the next line) ; RESULTAT GLOBAL 5 843 480 000"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 1910,
+   "isin": "NE0000001872",
+   "auction_date": "2024-06-10",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "maturity not after auction date",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 1941,
+   "isin": "CI0000007563",
+   "auction_date": "2024-05-28",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "parse_status=partial: coupon_rate NOT_AVAILABLE - the CR prints the OAT coupon on an unlabelled line (e.g. '5,70%' above 'Taux coupon couru'), parser does not read it",
+   "set": {
+    "coupon_rate": {
+     "value": "5.70",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/05/AAO-CI-ES-28.05.2024.pdf",
+      "sha256": "ccc792920c0e54f884d794e1fee4c55eb4f95c685077749bb5f48056dc98034a",
+      "line": "Taux d’intérêt Multiples Multiples 5,70% (columns BAT 182 Jours / BAT 343 Jours / OAT 3 ans; Code ISIN CI0000007555 CI0000007563)"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 1947,
+   "isin": "TG0000002633",
+   "auction_date": "2024-05-24",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "amount_submitted: '7 041,080 millions de FCFA' is only the tail of a longer printed number; amount_allocated: '6 800,000 millions de FCFA' is only the tail of a longer printed number; amount_rejected:",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 1954,
+   "isin": "GW0000001093",
+   "auction_date": "2024-05-21",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "parse_status=partial: coupon_rate NOT_AVAILABLE - the CR prints the OAT coupon on an unlabelled line (e.g. '6,25%' above 'Taux coupon couru'), parser does not read it",
+   "set": {
+    "coupon_rate": {
+     "value": "6.25",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/05/AAO-GW-ES-21.05.2024.pdf",
+      "sha256": "b04b7b919466c93db8f057725a1469f163bfc88a91272c717abd9f08a7edd72d",
+      "line": "Taux d’intérêt Multiples Multiples 6,25% (columns BAT 91 Jours / BAT 364 Jours / OAT 3 ans)"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 1957,
+   "isin": "ML0000002997",
+   "auction_date": "2024-05-15",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "amount_submitted: '70,000 millions de FCFA' is only the tail of a longer printed number; amount_allocated: '70,000 millions de FCFA' is only the tail of a longer printed number",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 1960,
+   "isin": "CI0000007563",
+   "auction_date": "2024-05-14",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "parse_status=partial: coupon_rate NOT_AVAILABLE - the CR prints the OAT coupon on an unlabelled line (e.g. '5,70%' above 'Taux coupon couru'), parser does not read it",
+   "set": {
+    "coupon_rate": {
+     "value": "5.70",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/05/AAO-CI-ES-14.05.2024.pdf",
+      "sha256": "22b280a890106756fd1de14e473ea0aa179e5e79e5196f6666ace95429903265",
+      "line": "Taux d’intérêt Multiples Multiples 5,70% (columns BAT 91 / BAT 357 / OAT 3 ans; Code ISIN CI0000007555 CI0000007563)"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 1963,
+   "isin": "GW0000001016",
+   "auction_date": "2024-05-13",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "parse_status=partial",
+   "set": {
+    "coupon_rate": {
+     "value": "6.25",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/05/AAO-GW-ES-13.05.2024.pdf",
+      "sha256": "011ec74c5d320f0bdea1365f56b18ccd8c79dd77196af6f9ddb35f45f72b785d",
+      "line": "Taux d’intérêt Multiples Multiples 6,25%  (Adjudications BAT 91 Jours BAT 364 Jours OAT 3 ans) ; 'Le paiement des intérêts se fera annuellement à un taux d’intérêt de 6,25% l’an dès la première année.'"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 1966,
+   "isin": "TG0000002823",
+   "auction_date": "2024-05-10",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "parse_status=partial: coupon_rate NOT_AVAILABLE - the CR prints the OAT coupon on an unlabelled line (e.g. '6,15%' above 'Taux coupon couru'), parser does not read it",
+   "set": {
+    "coupon_rate": {
+     "value": "6.15",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/05/AAO-TG-ES-10.05.2024.pdf",
+      "sha256": "eba9af57a1c4588638e34bd9fcb89985e87620aa3d85ca7d38ab51dc8aea1843",
+      "line": "Taux d’intérêt Multiples Multiples 6,15% (columns BAT 91 / BAT 364 / OAT 3 ans; Code ISIN TG0000002823)"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 1973,
+   "isin": "CI0000007563",
+   "auction_date": "2024-05-07",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "parse_status=partial",
+   "set": {
+    "coupon_rate": {
+     "value": "5.70",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/05/AAO-CI-ES-07.05.2024.pdf",
+      "sha256": "ec09745de8c2f4c6e6fc1737c94cbfc0e3869ec93e9e075950ee1390801752be",
+      "line": "Taux d’intérêt Multiples Multiples 5,70%  (Adjudications BAT 91 Jours BAT 364 Jours OAT 3 ans) ; 'annuellement à un taux d’intérêt de 5,70% l’an dès la première année.'"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 1976,
+   "isin": "NE0000002003",
+   "auction_date": "2024-05-06",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "checker placement test: amount raw 'is only the tail of a longer printed number' - on the results line the cell is preceded by the previous column's 'dont ONC :0,000' and the checker glues them",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 1978,
+   "isin": "BJ0000002077",
+   "auction_date": "2024-05-06",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "amount_submitted: '29 947,950 millions de FCFA' is only the tail of a longer printed number; amount_allocated: '29 947,950 millions de FCFA' is only the tail of a longer printed number",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 1979,
+   "isin": "BJ0000002085",
+   "auction_date": "2024-05-06",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "amount_submitted: '22 925,700 millions de FCFA' is only the tail of a longer printed number; amount_allocated: '22 925,700 millions de FCFA' is only the tail of a longer printed number",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 1984,
+   "isin": "ML0000002963",
+   "auction_date": "2024-05-02",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "parse_status=partial: coupon_rate NOT_AVAILABLE - the CR prints the OAT coupon on an unlabelled line (e.g. '6,15%' above 'Taux coupon couru'), parser does not read it",
+   "set": {
+    "coupon_rate": {
+     "value": "6.15",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/04/AAO-ML-ES-02.05.2024.pdf",
+      "sha256": "e439be5e470f4463633f13d7cd74ade40e1734ee5db9e0c151298eeb9d2e682a",
+      "line": "Taux d’intérêt Multiples Multiples 6,15% (columns BAT 182 / BAT 364 / OAT 3 ans)"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 1993,
+   "isin": "CI0000007530",
+   "auction_date": "2024-04-30",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "weighted_average_yield=0.00 outside 0–30 %",
+   "set": {
+    "amount_submitted": {
+     "value": "5929140000",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/04/Annonce-au-MTP-CI-ES-30.04.2024.pdf",
+      "sha256": "7f7defa55eba5d6ae2fbd7e464893eae5a877bc6434a1fb220cde76aa6dfbd97",
+      "line": "Résultats de l'émission BAT - 182 jours BAT - 364 jours OAT - 3 ans OAT - 5 ans OAT - 10 ans / Montant global des soumissions (en FCFA) 6 005 000 000 34 726 000 000 25 201 000 000 265 000 000 5 929 140 000"
+     }
+    },
+    "amount_allocated": {
+     "value": "5929140000",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/04/Annonce-au-MTP-CI-ES-30.04.2024.pdf",
+      "sha256": "7f7defa55eba5d6ae2fbd7e464893eae5a877bc6434a1fb220cde76aa6dfbd97",
+      "line": "Montant retenu (en FCFA) 4 005 000 000 34 726 000 000 25 201 000 000 265 000 000 5 929 140 000"
+     }
+    }
+   },
+   "column": {},
+   "clear": {
+    "weighted_average_yield": {
+     "status": "not_disclosed",
+     "reason": "publié 0,00 %, non significatif (décision 2a)"
+    }
+   }
+  },
+  {
+   "extraction_id": 2000,
+   "isin": "NE0000001963",
+   "auction_date": "2024-04-26",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "checker placement test: amount raw 'is only the tail of a longer printed number' - on the results line the cell is preceded by the previous column's 'dont ONC :0,000' and the checker glues them",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 2001,
+   "isin": "NE0000001971",
+   "auction_date": "2024-04-26",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "checker placement test: amount raw 'is only the tail of a longer printed number' - on the results line the cell is preceded by the previous column's 'dont ONC :0,000' and the checker glues them",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 2004,
+   "isin": "GW0000001036",
+   "auction_date": "2024-04-25",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "parse_status=partial",
+   "set": {
+    "coupon_rate": {
+     "value": "6.25",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/04/AAO-GW-ES-25.04.2024.pdf",
+      "sha256": "b64eaa029f976a5d2c3f5b723c230c1e98373bf9bd879b6b9ac32ceb8e1f6bc3",
+      "line": "Taux d’intérêt Multiples Multiples 6,25%  (Adjudications BAT 91 Jours BAT 364 Jours OAT 3 ans) ; 'annuellement à un taux d’intérêt de 6,25% l’an dès la première année.'"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 2008,
+   "isin": "CI0000007498",
+   "auction_date": "2024-04-23",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "checker: 'allotted > submitted' (11 858 vs 11 858,27) and weighted_average_yield=0.00 outside 0-30 %",
+   "set": {
+    "amount_submitted": {
+     "value": "11858270000",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/04/Annonce-au-MTP-CI-ES-23.04.2024.pdf",
+      "sha256": "872c2259c2629d7c833f7e8ba36dbbf8d43cc5510dcc0eda97827fe522b8542c",
+      "line": "Montant global des soumissions (en FCFA) 48 664 000 000 21 550 000 000 14 311 900 000 11 858 270 000 (OAT - 15 ans)"
+     }
+    }
+   },
+   "column": {},
+   "clear": {
+    "weighted_average_yield": {
+     "status": "not_disclosed",
+     "reason": "publié 0,00 %, non significatif (décision 2a)"
+    }
+   }
+  },
+  {
+   "extraction_id": 2011,
+   "isin": "ML0000002920",
+   "auction_date": "2024-04-17",
+   "decision": "1a/2a",
+   "summary": "amount_submitted: '26,760 millions de FCFA' is only the tail of a longer printed number; amount_rejected: '26,760 millions de FCFA' is only the tail of a longer printed number",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 2015,
+   "isin": "TG0000002633",
+   "auction_date": "2024-04-12",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "parse_status=partial: coupon_rate NOT_AVAILABLE - the CR prints the OAT coupon on an unlabelled line (e.g. '6,40%' above 'Taux coupon couru'), parser does not read it",
+   "set": {
+    "coupon_rate": {
+     "value": "6.40",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/04/AAO-TG-ES-12.04.2024.pdf",
+      "sha256": "7877336a8753c576d0a968e473b9a19a8b796e4abf2e572c4815da8ceddbbf5e",
+      "line": "Taux d’intérêt Multiples Multiples 6,40% (Denomination BAT-91 Jours BAT-364 Jours OAT-5 ans; Code ISIN TG0000002633)"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 2025,
+   "isin": "GW0000000871",
+   "auction_date": "2024-04-11",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "parse_status=partial",
+   "set": {
+    "coupon_rate": {
+     "value": "6.25",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/04/AAO-GW-ES-11.04.2024.pdf",
+      "sha256": "c450766e01268abeb21c59c0d8205187df9fd3f68fdf21b25782a39a153408fc",
+      "line": "Code ISIN GW0000000871 ; Taux d’intérêt Multiples Multiples Multiples 6,25%  (Adjudications BAT 91 Jours BAT 182 Jours BAT 364 Jours OAT 3 ans)"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 2031,
+   "isin": "CI0000007399",
+   "auction_date": "2024-03-28",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "parse_status=partial: column mapping flagged doubtful (results header 'OAT - 10 ans' vs ISIN block '9,92 ans' for CI0000007225)",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 2032,
+   "isin": "CI0000007407",
+   "auction_date": "2024-03-28",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "parse_status=partial: column mapping flagged doubtful (results header 'OAT - 10 ans' vs ISIN block '9,92 ans' for CI0000007225)",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 2033,
+   "isin": "CI0000007415",
+   "auction_date": "2024-03-28",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "parse_status=partial: column mapping flagged doubtful (results header 'OAT - 10 ans' vs ISIN block '9,92 ans' for CI0000007225)",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 2034,
+   "isin": "CI0000007423",
+   "auction_date": "2024-03-28",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "parse_status=partial: column mapping flagged doubtful (see CI0000007225)",
+   "set": {
+    "amount_submitted": {
+     "value": "29936350000",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/03/Annonce-au-MTP-CI-ES-28.03.2024.pdf",
+      "sha256": "53fc5ed311ec62070c1bf78fd7dd35d32d653eb28cf53fa3ca27f0c006127f7a",
+      "line": "Montant global des soumissions (en FCFA) ... OAT - 3 ans: 29 936 350 000"
+     }
+    },
+    "amount_allocated": {
+     "value": "29936350000",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/03/Annonce-au-MTP-CI-ES-28.03.2024.pdf",
+      "sha256": "53fc5ed311ec62070c1bf78fd7dd35d32d653eb28cf53fa3ca27f0c006127f7a",
+      "line": "Montant retenu (en FCFA) ... OAT - 3 ans: 29 936 350 000"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 2035,
+   "isin": "CI0000007431",
+   "auction_date": "2024-03-28",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "parse_status=partial: column mapping flagged doubtful (results header 'OAT - 10 ans' vs ISIN block '9,92 ans' for CI0000007225)",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 2036,
+   "isin": "CI0000007225",
+   "auction_date": "2024-03-28",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "parse_status=partial (mapping doubt) + checker: tenor '9,92 ans' is not a whole number of days/weeks/months/years",
+   "set": {
+    "amount_submitted": {
+     "value": "20547930000",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/03/Annonce-au-MTP-CI-ES-28.03.2024.pdf",
+      "sha256": "53fc5ed311ec62070c1bf78fd7dd35d32d653eb28cf53fa3ca27f0c006127f7a",
+      "line": "Montant global des soumissions (en FCFA) ... OAT - 9,92 ans: 20 547 930 000"
+     }
+    },
+    "amount_allocated": {
+     "value": "20547930000",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/03/Annonce-au-MTP-CI-ES-28.03.2024.pdf",
+      "sha256": "53fc5ed311ec62070c1bf78fd7dd35d32d653eb28cf53fa3ca27f0c006127f7a",
+      "line": "Montant retenu (en FCFA) ... OAT - 9,92 ans: 20 547 930 000"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 2045,
+   "isin": "BF0000002956",
+   "auction_date": "2024-03-27",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "parse_status=partial",
+   "set": {
+    "coupon_rate": {
+     "value": "6.00",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/03/AAO-BF-ES-27.03.2024.pdf",
+      "sha256": "5a3f74a6cb611229cff365e068750add650c08fc56fd34ee18cc70ec11246222",
+      "line": "Taux d’intérêt Multiples Multiples 6,00%  (Adjudications BAT 182 Jours BAT 364 Jours OAT 3 ans) ; 'annuellement à un taux d’intérêt de 6,00% l’an dès la première année.'"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 2057,
+   "isin": "GW0000000871",
+   "auction_date": "2024-03-19",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "parse_status=partial",
+   "set": {
+    "coupon_rate": {
+     "value": "6.25",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/03/AAO-GW-ES-19.03.2024.pdf",
+      "sha256": "b3c176a96a24e2de3cb75c3062321f4077cc7414025f389760ee24774bccef6e",
+      "line": "Code ISIN GW0000000871 ; Taux d’intérêt Multiples Multiples 6,25% ; 'annuellement à un taux d’intérêt de 6,25% l’an dès la première année.'"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 2069,
+   "isin": "TG0000002633",
+   "auction_date": "2024-03-15",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "amount_submitted: '1 105,000 millions de FCFA' is only the tail of a longer printed number; amount_allocated: '1 105,000 millions de FCFA' is only the tail of a longer printed number; amount_rejected:",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 2072,
+   "isin": "BF0000002899",
+   "auction_date": "2024-03-13",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "checker placement test: amount raw 'is only the tail of a longer printed number' - on the results line the cell is preceded by the previous column's 'dont ONC :0,000' and the checker glues them",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 2075,
+   "isin": "CI0000007340",
+   "auction_date": "2024-03-12",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "parse_status=partial",
+   "set": {
+    "coupon_rate": {
+     "value": "5.50",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/03/AAO-CI-ES-12.03.2024.pdf",
+      "sha256": "d204706ca9bab6ba1ebe6b8ae631a7f84758d50fcab5c9e743d11608e45d2f2a",
+      "line": "Code ISIN CI0000007340 ; Taux d’intérêt Multiples Multiples 5,50% ; 'annuellement à un taux d’intérêt de 5,50% l’an dès la première année.'"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 2080,
+   "isin": "SN0000002940",
+   "auction_date": "2024-03-08",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "checker placement test: amount raw 'is only the tail of a longer printed number' - on the results line the cell is preceded by the previous column's 'dont ONC :0,000' and the checker glues them",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 2084,
+   "isin": "CI0000007126",
+   "auction_date": "2024-03-06",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "ISIN CI0000007126 does not match country None",
+   "set": {},
+   "column": {
+    "country_iso3": {
+     "value": "CIV",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/03/AAO-CI-EC-06.03.2024.pdf",
+      "sha256": "5c960f6be7c422b3c557d172cf21679eff57bbcec31a59c2779b5c4e2f0df160",
+      "line": "ÉMETTEUR : ÉTAT DE CÔTE D'IVOIRE ; ISIN CI0000004453 CI0000006227 CI0000006441 CI0000006508 CI0000006557 CI0000007126 (CARACTÉRISTIQUES DES TITRES A RACHATER)"
+     }
+    }
+   }
+  },
+  {
+   "extraction_id": 2085,
+   "isin": "CI0000006557",
+   "auction_date": "2024-03-06",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "ISIN CI0000006557 does not match country None",
+   "set": {},
+   "column": {
+    "country_iso3": {
+     "value": "CIV",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/03/AAO-CI-EC-06.03.2024.pdf",
+      "sha256": "5c960f6be7c422b3c557d172cf21679eff57bbcec31a59c2779b5c4e2f0df160",
+      "line": "ÉMETTEUR : ÉTAT DE CÔTE D'IVOIRE ; ISIN CI0000004453 CI0000006227 CI0000006441 CI0000006508 CI0000006557 CI0000007126 (CARACTÉRISTIQUES DES TITRES A RACHATER)"
+     }
+    }
+   }
+  },
+  {
+   "extraction_id": 2086,
+   "isin": "CI0000006508",
+   "auction_date": "2024-03-06",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "ISIN CI0000006508 does not match country None",
+   "set": {},
+   "column": {
+    "country_iso3": {
+     "value": "CIV",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/03/AAO-CI-EC-06.03.2024.pdf",
+      "sha256": "5c960f6be7c422b3c557d172cf21679eff57bbcec31a59c2779b5c4e2f0df160",
+      "line": "ÉMETTEUR : ÉTAT DE CÔTE D'IVOIRE ; ISIN CI0000004453 CI0000006227 CI0000006441 CI0000006508 CI0000006557 CI0000007126 (CARACTÉRISTIQUES DES TITRES A RACHATER)"
+     }
+    }
+   }
+  },
+  {
+   "extraction_id": 2087,
+   "isin": "CI0000006441",
+   "auction_date": "2024-03-06",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "parse_status=partial; ISIN CI0000006441 does not match country None",
+   "set": {
+    "amount_allocated": {
+     "value": "20240000000",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/03/Annonce-au-MTP-CI-ES-06.03.2024.pdf",
+      "sha256": "8024c5df3d09135257a352df03a8e0f9bc0ffc096b2b5ac125bb048cca502e4e",
+      "line": "Rachat CI0000004453 CI0000006441 CI0000006557 / Montant retenu (F CFA) 2 500 000 000 20 240 000 000 7 287 000 000"
+     }
+    }
+   },
+   "column": {
+    "country_iso3": {
+     "value": "CIV",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/03/AAO-CI-EC-06.03.2024.pdf",
+      "sha256": "5c960f6be7c422b3c557d172cf21679eff57bbcec31a59c2779b5c4e2f0df160",
+      "line": "ÉMETTEUR : ÉTAT DE CÔTE D'IVOIRE ; ISIN CI0000004453 CI0000006227 CI0000006441 CI0000006508 CI0000006557 CI0000007126 (CARACTÉRISTIQUES DES TITRES A RACHATER)"
+     }
+    }
+   }
+  },
+  {
+   "extraction_id": 2088,
+   "isin": "CI0000006227",
+   "auction_date": "2024-03-06",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "parse_status=partial; ISIN CI0000006227 does not match country None",
+   "set": {
+    "amount_allocated": {
+     "value": "7000000000",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/03/Annonce-au-MTP-CI-ES-06.03.2024.pdf",
+      "sha256": "8024c5df3d09135257a352df03a8e0f9bc0ffc096b2b5ac125bb048cca502e4e",
+      "line": "Rachat CI0000007126 CI0000006508 CI0000006227 / Montant retenu (F CFA) 958 000 000 10 000 000 000 7 000 000 000"
+     }
+    }
+   },
+   "column": {
+    "country_iso3": {
+     "value": "CIV",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/03/AAO-CI-EC-06.03.2024.pdf",
+      "sha256": "5c960f6be7c422b3c557d172cf21679eff57bbcec31a59c2779b5c4e2f0df160",
+      "line": "ÉMETTEUR : ÉTAT DE CÔTE D'IVOIRE ; ISIN CI0000004453 CI0000006227 CI0000006441 CI0000006508 CI0000006557 CI0000007126 (CARACTÉRISTIQUES DES TITRES A RACHATER)"
+     }
+    }
+   }
+  },
+  {
+   "extraction_id": 2089,
+   "isin": "CI0000004453",
+   "auction_date": "2024-03-06",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "parse_status=partial; ISIN CI0000004453 does not match country None",
+   "set": {
+    "amount_allocated": {
+     "value": "2500000000",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/03/Annonce-au-MTP-CI-ES-06.03.2024.pdf",
+      "sha256": "8024c5df3d09135257a352df03a8e0f9bc0ffc096b2b5ac125bb048cca502e4e",
+      "line": "Rachat CI0000004453 CI0000006441 CI0000006557 / Montant retenu (F CFA) 2 500 000 000 20 240 000 000 7 287 000 000"
+     }
+    }
+   },
+   "column": {
+    "country_iso3": {
+     "value": "CIV",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/03/AAO-CI-EC-06.03.2024.pdf",
+      "sha256": "5c960f6be7c422b3c557d172cf21679eff57bbcec31a59c2779b5c4e2f0df160",
+      "line": "ÉMETTEUR : ÉTAT DE CÔTE D'IVOIRE ; ISIN CI0000004453 CI0000006227 CI0000006441 CI0000006508 CI0000006557 CI0000007126 (CARACTÉRISTIQUES DES TITRES A RACHATER)"
+     }
+    }
+   }
+  },
+  {
+   "extraction_id": 2092,
+   "isin": "ML0000002815",
+   "auction_date": "2024-03-06",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "parse_status=partial: coupon_rate NOT_AVAILABLE - the CR prints the OAT coupon on an unlabelled line (e.g. '6,15%' above 'Taux coupon couru'), parser does not read it",
+   "set": {
+    "coupon_rate": {
+     "value": "6.15",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/02/AAO-ML-ES-06.03.2024.pdf",
+      "sha256": "2d41bf2b875e9a704e1b81690ce03584954f7e9bcef3d985b4c14003b18246cf",
+      "line": "Taux d’intérêt Multiples Multiples 6,15% (columns BAT 182 / BAT 364 / OAT 3 ans; Code ISIN ML0000002815)"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 2095,
+   "isin": "CI0000007340",
+   "auction_date": "2024-03-05",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "parse_status=partial",
+   "set": {
+    "coupon_rate": {
+     "value": "5.50",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/03/AAO-CI-ES-05.03.2024.pdf",
+      "sha256": "4e12fe2c75ad454e83367c7074839904660cd72883a048d7d447643778d6f0d1",
+      "line": "Taux d’intérêt Multiples Multiples 5,50%  (Adjudications BAT 91 Jours BAT 364 Jours OAT 3 ans) ; 'annuellement à un taux d’intérêt de 5,50% l’an dès la première année.'"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 2098,
+   "isin": "TG0000002617",
+   "auction_date": "2024-03-01",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "parse_status=partial: coupon_rate NOT_AVAILABLE - the CR prints the OAT coupon on an unlabelled line (e.g. '6,15%' above 'Taux coupon couru'), parser does not read it",
+   "set": {
+    "coupon_rate": {
+     "value": "6.15",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/02/AAO-TG-ES-01.03.2024.pdf",
+      "sha256": "34ffea11601491f0d516738344fbf1698b228181c4241e0fdfc17b29173972e5",
+      "line": "Taux d’intérêt Multiples Multiples 6,15% (columns BAT 182 / BAT 364 / OAT 3 ans; Code ISIN TG0000002617)"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 2099,
+   "isin": "CI0000005922",
+   "auction_date": "2024-02-29",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "tenor: '1,94 ans' is not a whole number of days, weeks, months or years",
+   "set": {
+    "amount_submitted": {
+     "value": "2153450000",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/02/Annonce-au-MTP-CI-Rachat-29.02.2024.pdf",
+      "sha256": "41a8fcd3f69346e31d7e7e7a96f1834ca2cd1e9f39873fc52439f0548830d80a",
+      "line": "Émission simultanée CI0000005922 CI0000007134 CI0000007316 / Montant global des soumissions (F CFA) 2 153 450 000 20 539 000 000 31 487 000 000"
+     }
+    },
+    "amount_allocated": {
+     "value": "2153450000",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/02/Annonce-au-MTP-CI-Rachat-29.02.2024.pdf",
+      "sha256": "41a8fcd3f69346e31d7e7e7a96f1834ca2cd1e9f39873fc52439f0548830d80a",
+      "line": "Montant retenu (F CFA) 2 153 450 000 20 539 000 000 31 487 000 000"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 2112,
+   "isin": "BF0000002758",
+   "auction_date": "2024-02-28",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "parse_status=partial: coupon_rate NOT_AVAILABLE - the CR prints the OAT coupon on an unlabelled line (e.g. '6,00%' above 'Taux coupon couru'), parser does not read it",
+   "set": {
+    "coupon_rate": {
+     "value": "6.00",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/02/AAO-BF-ES-28.02.2024.pdf",
+      "sha256": "3f37df9fc864c6e8e1924f79bb58ff759e92bfab3c413e007c28c382f7a9f9a0",
+      "line": "Taux d’intérêt Multiples Multiples 6,00% (columns BAT 91 / BAT 364 / OAT 3 ans; Code ISIN BF0000002758)"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 2121,
+   "isin": "CI0000007167",
+   "auction_date": "2024-02-27",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "tenor: '2,98 ans' is not a whole number of days, weeks, months or years",
+   "set": {
+    "amount_submitted": {
+     "value": "5577500000",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/02/Annonce-au-MTP-CI-ES-27.02.2024.pdf",
+      "sha256": "b2e202c7ee2313361773ea11f88b04527a0d781434c32b017e1ca530e581e459",
+      "line": "BAT 182 jours BAT - 357 jours OAT - 2,98 ans OAT 10 ans / Montant global des soumissions (F [label wrapped over two lines, value printed between them:] 51 050 000 000 5 519 000 000 5 577 500 000 3 520 000 000 / CFA)"
+     }
+    },
+    "amount_allocated": {
+     "value": "5527500000",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/02/Annonce-au-MTP-CI-ES-27.02.2024.pdf",
+      "sha256": "b2e202c7ee2313361773ea11f88b04527a0d781434c32b017e1ca530e581e459",
+      "line": "Montant retenu (F CFA) 38 050 000 000 5 519 000 000 5 527 500 000 3 520 000 000"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 2125,
+   "isin": "SN0000002874",
+   "auction_date": "2024-02-23",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "parse_status=partial: coupon_rate NOT_AVAILABLE - the CR prints the OAT coupon on an unlabelled line (e.g. '6,20%' above 'Taux coupon couru'), parser does not read it",
+   "set": {
+    "coupon_rate": {
+     "value": "6.20",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/02/AAO-SN-ES-23.02.2024.pdf",
+      "sha256": "83944a33dff7cd24aad5f4a8c05537b546813b7ed0ddda497ff916deaf42843c",
+      "line": "Taux d’intérêt Multiples Multiples 6,20% (columns BAT 182 / BAT 364 / OAT 3 ans)"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 2147,
+   "isin": "BJ0000002002",
+   "auction_date": "2024-02-08",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "parse_status=partial",
+   "set": {
+    "coupon_rate": {
+     "value": "5.75",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/01/AAO-BJ-ES-08.02.2024.pdf",
+      "sha256": "0a7115bc9852ad6cc25e340312f267b054ba3257a6d04c8f78cbf537dfa1cfd8",
+      "line": "Code ISIN BJ0000002002 ; Taux d’intérêt Multiples Multiples 5,75% ; 'annuellement à un taux d’intérêt de 5,75% l’an dès la première année.'"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 2154,
+   "isin": "CI0000003315",
+   "auction_date": "2024-01-25",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "checker: tenor '1,17 ans' is not a whole number of days/weeks/months/years (fractional residual tenor of a reopened OAT)",
+   "set": {
+    "amount_submitted": {
+     "value": "15967330000",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/01/Annonce-au-MTP-CI-Rachat-25.01.2024.pdf",
+      "sha256": "65f2869ab25d0a8b903c69a9a4e305c4756508be0f1a1f717e1790c862ca71c2",
+      "line": "Émission simultanée CI0000007076 CI0000005138 CI0000003315 ; Montant global des soumissions (F CFA) 12 294 000 000 16 209 800 000 15 967 330 000 ; Montant retenu (F CFA) 12 294 000 000 16 209 800 000 15 967 330 000 ; Taux Et Prix Marginal 6,4000% 97,5594% 98,4534% ; Taux Et Prix Moyen Pondéré 6,4000% 97,5594% 98,4534% ; RMP 6,82% 7,25% 7,25%"
+     }
+    },
+    "amount_allocated": {
+     "value": "15967330000",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/01/Annonce-au-MTP-CI-Rachat-25.01.2024.pdf",
+      "sha256": "65f2869ab25d0a8b903c69a9a4e305c4756508be0f1a1f717e1790c862ca71c2",
+      "line": "Émission simultanée CI0000007076 CI0000005138 CI0000003315 ; Montant global des soumissions (F CFA) 12 294 000 000 16 209 800 000 15 967 330 000 ; Montant retenu (F CFA) 12 294 000 000 16 209 800 000 15 967 330 000 ; Taux Et Prix Marginal 6,4000% 97,5594% 98,4534% ; Taux Et Prix Moyen Pondéré 6,4000% 97,5594% 98,4534% ; RMP 6,82% 7,25% 7,25%"
+     }
+    },
+    "marginal_price": {
+     "value": "98.4534",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/01/Annonce-au-MTP-CI-Rachat-25.01.2024.pdf",
+      "sha256": "65f2869ab25d0a8b903c69a9a4e305c4756508be0f1a1f717e1790c862ca71c2",
+      "line": "Émission simultanée CI0000007076 CI0000005138 CI0000003315 ; Montant global des soumissions (F CFA) 12 294 000 000 16 209 800 000 15 967 330 000 ; Montant retenu (F CFA) 12 294 000 000 16 209 800 000 15 967 330 000 ; Taux Et Prix Marginal 6,4000% 97,5594% 98,4534% ; Taux Et Prix Moyen Pondéré 6,4000% 97,5594% 98,4534% ; RMP 6,82% 7,25% 7,25%"
+     }
+    },
+    "weighted_average_price": {
+     "value": "98.4534",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/01/Annonce-au-MTP-CI-Rachat-25.01.2024.pdf",
+      "sha256": "65f2869ab25d0a8b903c69a9a4e305c4756508be0f1a1f717e1790c862ca71c2",
+      "line": "Émission simultanée CI0000007076 CI0000005138 CI0000003315 ; Montant global des soumissions (F CFA) 12 294 000 000 16 209 800 000 15 967 330 000 ; Montant retenu (F CFA) 12 294 000 000 16 209 800 000 15 967 330 000 ; Taux Et Prix Marginal 6,4000% 97,5594% 98,4534% ; Taux Et Prix Moyen Pondéré 6,4000% 97,5594% 98,4534% ; RMP 6,82% 7,25% 7,25%"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 2155,
+   "isin": "CI0000005138",
+   "auction_date": "2024-01-25",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "checker: tenor '1,16 ans' is not a whole number of days/weeks/months/years (fractional residual tenor of a reopened OAT)",
+   "set": {
+    "amount_submitted": {
+     "value": "16209800000",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/01/Annonce-au-MTP-CI-Rachat-25.01.2024.pdf",
+      "sha256": "65f2869ab25d0a8b903c69a9a4e305c4756508be0f1a1f717e1790c862ca71c2",
+      "line": "Émission simultanée CI0000007076 CI0000005138 CI0000003315 ; Montant global des soumissions (F CFA) 12 294 000 000 16 209 800 000 15 967 330 000 ; Montant retenu (F CFA) 12 294 000 000 16 209 800 000 15 967 330 000 ; Taux Et Prix Marginal 6,4000% 97,5594% 98,4534% ; Taux Et Prix Moyen Pondéré 6,4000% 97,5594% 98,4534% ; RMP 6,82% 7,25% 7,25%"
+     }
+    },
+    "amount_allocated": {
+     "value": "16209800000",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/01/Annonce-au-MTP-CI-Rachat-25.01.2024.pdf",
+      "sha256": "65f2869ab25d0a8b903c69a9a4e305c4756508be0f1a1f717e1790c862ca71c2",
+      "line": "Émission simultanée CI0000007076 CI0000005138 CI0000003315 ; Montant global des soumissions (F CFA) 12 294 000 000 16 209 800 000 15 967 330 000 ; Montant retenu (F CFA) 12 294 000 000 16 209 800 000 15 967 330 000 ; Taux Et Prix Marginal 6,4000% 97,5594% 98,4534% ; Taux Et Prix Moyen Pondéré 6,4000% 97,5594% 98,4534% ; RMP 6,82% 7,25% 7,25%"
+     }
+    },
+    "marginal_price": {
+     "value": "97.5594",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/01/Annonce-au-MTP-CI-Rachat-25.01.2024.pdf",
+      "sha256": "65f2869ab25d0a8b903c69a9a4e305c4756508be0f1a1f717e1790c862ca71c2",
+      "line": "Émission simultanée CI0000007076 CI0000005138 CI0000003315 ; Montant global des soumissions (F CFA) 12 294 000 000 16 209 800 000 15 967 330 000 ; Montant retenu (F CFA) 12 294 000 000 16 209 800 000 15 967 330 000 ; Taux Et Prix Marginal 6,4000% 97,5594% 98,4534% ; Taux Et Prix Moyen Pondéré 6,4000% 97,5594% 98,4534% ; RMP 6,82% 7,25% 7,25%"
+     }
+    },
+    "weighted_average_price": {
+     "value": "97.5594",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/01/Annonce-au-MTP-CI-Rachat-25.01.2024.pdf",
+      "sha256": "65f2869ab25d0a8b903c69a9a4e305c4756508be0f1a1f717e1790c862ca71c2",
+      "line": "Émission simultanée CI0000007076 CI0000005138 CI0000003315 ; Montant global des soumissions (F CFA) 12 294 000 000 16 209 800 000 15 967 330 000 ; Montant retenu (F CFA) 12 294 000 000 16 209 800 000 15 967 330 000 ; Taux Et Prix Marginal 6,4000% 97,5594% 98,4534% ; Taux Et Prix Moyen Pondéré 6,4000% 97,5594% 98,4534% ; RMP 6,82% 7,25% 7,25%"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 2165,
+   "isin": "SN0000002841",
+   "auction_date": "2024-01-25",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "amount_submitted: '2 320,000 millions de FCFA' is only the tail of a longer printed number; amount_allocated: '2 318,000 millions de FCFA' is only the tail of a longer printed number; amount_rejected:",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 2168,
+   "isin": "ML0000002765",
+   "auction_date": "2024-01-24",
+   "decision": "3a/6a/7/1a (valeurs confirmées par un second document officiel)",
+   "summary": "checker placement test: amount raw 'is only the tail of a longer printed number' - on the results line the cell is preceded by the previous column's 'dont ONC :0,000' and the checker glues them",
+   "set": {},
+   "column": {}
+  },
+  {
+   "extraction_id": 2171,
+   "isin": "CI0000007100",
+   "auction_date": "2024-01-23",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "parse_status=partial",
+   "set": {
+    "coupon_rate": {
+     "value": "5.50",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/01/AAO-CI-ES-23.01.2024.pdf",
+      "sha256": "f62fc799326dcab7adf340145e695117c03211b154b8994490a6945d84bb5e49",
+      "line": "Taux d’intérêt Multiples Multiples 5,50%  (Adjudications BAT 91 Jours BAT 364 Jours OAT 3 ans) ; 'annuellement à un taux d’intérêt de 5,50% l’an dès la première année.'"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 2182,
+   "isin": "BJ0000002002",
+   "auction_date": "2024-01-18",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "parse_status=partial: coupon_rate NOT_AVAILABLE - the CR prints the OAT coupon on an unlabelled line (e.g. '5,75%' above 'Taux coupon couru'), parser does not read it",
+   "set": {
+    "coupon_rate": {
+     "value": "5.75",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/01/AAO-BJ-ES-18.01.2024.pdf",
+      "sha256": "d221d16809d813006ed8016c1ef9e18824c5db295196deef63a058b845ff84e2",
+      "line": "Taux d’intérêt Multiples Multiples 5,75% (columns BAT 182 / BAT 364 / OAT 3 ans)"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 2190,
+   "isin": "ML0000001106",
+   "auction_date": "2024-01-11",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "parse_status=partial; tenor: '0,13 ans' is not a whole number of days, weeks, months or years",
+   "set": {
+    "coupon_rate": {
+     "value": "6.40",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/01/AAO-ML-Emission-Rachat-11.01.2024.pdf",
+      "sha256": "784fc197f2ad666e2a17763c50e5ae30246a4e625e76474f596a1cc8ebd4d0c5",
+      "line": "CARACTÉRISTIQUES DES TITRES A RACHATER ; ISIN ML0000001106 ML0000001577 ; Taux d'intérêt 6,40% 6,00%"
+     }
+    },
+    "tenor_days": {
+     "value": "48",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/01/AAO-ML-Emission-Rachat-11.01.2024.pdf",
+      "sha256": "784fc197f2ad666e2a17763c50e5ae30246a4e625e76474f596a1cc8ebd4d0c5",
+      "line": "Dénomination OAT-48 jours OAT-17 jours ; ISIN ML0000001106 ML0000001577 ; Durée résiduelle 48 jours 17 jours ; Date d'échéance 28.févr.2024 28.janv.2024"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 2191,
+   "isin": "ML0000001577",
+   "auction_date": "2024-01-11",
+   "decision": "1a/5a/7 (correction avec preuve officielle)",
+   "summary": "parse_status=partial; tenor: '0,05 ans' is not a whole number of days, weeks, months or years",
+   "set": {
+    "coupon_rate": {
+     "value": "6.00",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/01/AAO-ML-Emission-Rachat-11.01.2024.pdf",
+      "sha256": "784fc197f2ad666e2a17763c50e5ae30246a4e625e76474f596a1cc8ebd4d0c5",
+      "line": "CARACTÉRISTIQUES DES TITRES A RACHATER ; ISIN ML0000001106 ML0000001577 ; Taux d'intérêt 6,40% 6,00%"
+     }
+    },
+    "tenor_days": {
+     "value": "17",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/01/AAO-ML-Emission-Rachat-11.01.2024.pdf",
+      "sha256": "784fc197f2ad666e2a17763c50e5ae30246a4e625e76474f596a1cc8ebd4d0c5",
+      "line": "Dénomination OAT-48 jours OAT-17 jours ; ISIN ML0000001106 ML0000001577 ; Durée résiduelle 48 jours 17 jours ; Date d'échéance 28.févr.2024 28.janv.2024"
+     }
+    }
+   },
+   "column": {}
+  }
+ ],
+ "held_for_owner": [
+  {
+   "extraction_id": 932,
+   "isin": "SN0000003971",
+   "reason": "seconde adjudication le même jour: non décidé"
+  },
+  {
+   "extraction_id": 1283,
+   "isin": "SN0000001439",
+   "reason": "sources en désaccord sur l'existence du rachat: non décidé"
+  },
+  {
+   "extraction_id": 1529,
+   "isin": "CI0000008355",
+   "reason": "4a: rachat réglé après l'échéance, laissé en attente"
+  },
+  {
+   "extraction_id": 2022,
+   "isin": "GW0000000954",
+   "reason": "adjudication sans soumission: non décidé"
+  },
+  {
+   "extraction_id": 2054,
+   "isin": "ML0000002898",
+   "reason": "seconde adjudication le même jour: non décidé"
+  },
+  {
+   "extraction_id": 2059,
+   "isin": "TG0000002617",
+   "reason": "seconde adjudication le même jour: non décidé"
+  }
+ ]
+}

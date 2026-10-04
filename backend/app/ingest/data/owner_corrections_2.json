@@ -1,0 +1,32 @@
+{
+ "decided_by": "Propriétaire (Boujieka), décisions du 2026-10-04 (5a, 6a) et instruction de traiter les 6 cas par le réseau d'agents",
+ "entries": [
+  {
+   "extraction_id": 2054,
+   "isin": "ML0000002898",
+   "auction_date": "2024-03-20",
+   "decision": "5a/correction avec preuve (coupon de l'avis d'appel d'offres); seconde adjudication du même jour",
+   "summary": "coupon printed on an unlabelled line in the report; tender notice prints it",
+   "set": {
+    "coupon_rate": {
+     "value": "6.15",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/03/AAO-ML-ES-20.03.2024.pdf",
+      "sha256": "4ef3763da85852125baf801e294f13ef808ec57c07948dcf6a5beb75d25cb7df",
+      "line": "Taux d’intérêt Multiples Multiples 6,15% (columns BAT 91 Jours / BAT 364 Jours / OAT 3 ans)"
+     }
+    }
+   },
+   "column": {}
+  },
+  {
+   "extraction_id": 2059,
+   "isin": "TG0000002617",
+   "auction_date": "2024-03-15",
+   "decision": "6a (réouverture: le code OAT3A explique la durée résiduelle 2,85 ans); seconde adjudication du même jour",
+   "summary": "residual tenor 2,85 ans on a reopening; values confirmed by the results announcement",
+   "set": {},
+   "column": {}
+  }
+ ]
+}

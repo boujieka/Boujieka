@@ -1,0 +1,12 @@
+{
+  "decided_by": "Propriétaire de la plateforme (Boujieka), message du 2026-10-04",
+  "decisions": {
+    "1_document_inconsistent": "a: corriger avec le chiffre qui recoupe le même document officiel (tableau régional / totaux), note 'document incohérent'",
+    "2_zero_yields": "a: ne pas enregistrer de rendement; field_status not_disclosed; note 'publié 0,00 %, non significatif'",
+    "3_buyback_on_maturity_day": "a: accepter pour les rachats uniquement (ligne par ligne, approbation par décision du propriétaire)",
+    "4_buyback_settlement_after_maturity": "a: laisser en attente",
+    "5_missing_issuer": "a: pays dérivé du préfixe ISIN, marqué dérivé, uniquement si l'avis d'appel d'offres confirme l'émetteur",
+    "6_reopening_tenor_mismatch": "a: accepter quand le code de durée du numéro d'adjudication explique l'écart",
+    "7_rows_1894_1083": "approuver avec la valeur recoupée (1894: 2 509,48 M d'après le tableau régional et le total; 1083: 6 622,4 M confirmé par la ligne des montants retenus)"
+  }
+}
