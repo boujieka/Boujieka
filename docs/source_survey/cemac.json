@@ -1,0 +1,350 @@
+{
+  "survey_date": "2026-10-04",
+  "method": "curl via agent proxy, UA CartoucheSourceSurvey/1.0, 2s delay; ~65 requests. Listing tables parsed from static HTML (WordPress + DataTables client-side; all rows are in the HTML, no server pagination).",
+  "sources": [
+    {
+      "id": "beac_annonces_communiques",
+      "url": "https://www.beac.int/m-des-titres-publics/annonces-et-communiques/",
+      "status": 200,
+      "lists_documents": true,
+      "doc_count": 992,
+      "doc_types": [
+        "PDF"
+      ],
+      "listing_structure": "Single HTML table (title | size | Pays | Année), newest first, no pagination. Country column values inconsistent (Cameroun/CAMEROUN/Cameoun, RCA/Centrafrique, Guinée Eqquatoriale...).",
+      "content_mix": {
+        "announcements": 429,
+        "auction_results": 297,
+        "weekly_reports_and_dashboards": 237,
+        "other": 29
+      },
+      "naming_pattern": "Highly inconsistent, no stable scheme. Examples: 'Communiqué-des-résultats-BTA-26-semaines-du-15-septembre-2026.pdf' (COG), 'COMMUNIQUE-DES-RESULTATS-DE-LEMISSION-DES-OTA-3-ANS_14-SEPT-2026_TRESOR-DU-CAMEROUN.pdf', 'Communiqué-des-résultats-BTA-13S-220726_GA1100002292.pdf' (GAB, ISIN in name), 'Communique-des-resultats-definitifs-CM1300000872-BTA-52-20-MAI-2026.pdf'. Upload folder often reused (2016/11) so path date != publication date. Some GNQ docs also in Spanish, some CMR in English.",
+      "history_oldest": "2019 (Année column; earliest results e.g. 'Communiqué-des-résultats-BTA-Gabon_05-06-2019.pdf', upload dir 2019/02)",
+      "history_newest": "Results for auctions of 14-15 Sep 2026 (CMR/CAF/COG, signed 16-18 Sep 2026); announcements for 21-22 Sep 2026",
+      "results_per_year_by_Annee_column": {
+        "2019": 32,
+        "2020": 84,
+        "2021": 64,
+        "2022": 21,
+        "2023": 8,
+        "2024": 21,
+        "2025": 34,
+        "2026": 33
+      },
+      "cadence": "Weekly auctions per country; documents posted irregularly, within days of the auction. Coverage NOT exhaustive (very few results listed for 2022-2023) - treat as partial.",
+      "fields_available": {
+        "code_emission_ISIN": "yes (e.g. CG1200002133, CM2J00000279, CF2A00000132, GA1100002292, TD2A00001246)",
+        "issuer_country": "yes (letterhead + ISIN prefix CM/CF/TD/CG/GQ?/GA; table column 'Pays' on listing page)",
+        "instrument_BTA_OTA": "yes (in code line, e.g. 'BTA-26', 'OTA-03 ANS 6,25%')",
+        "tenor_maturity": "yes (maturity date in code line, e.g. '18-MARS-2027'); OTA coupon in code line",
+        "amount_offered": "yes ('Montant annoncé par le Trésor', millions FCFA)",
+        "amount_submitted": "yes ('Montant total des soumissions')",
+        "amount_allotted": "yes ('Montant total servi')",
+        "marginal_rate_or_price": "yes ('Taux limite' for BTA; 'Prix limite' for OTA)",
+        "weighted_average": "yes ('Taux moyen pondéré' BTA / 'Prix moyen pondéré' OTA); CMR also prints 'Taux de rendement'",
+        "min_max_bid": "yes (taux/prix minimum & maximum proposé)",
+        "price": "OTA only (prices in %)",
+        "number_of_bidders": "yes ('Nombre de SVT soumissionnaires' + 'Nombre de SVT du réseau')",
+        "coverage_ratio": "yes ('Taux de couverture')",
+        "settlement_date": "NO on result communiqués; present on announcement communiqués ('Date de règlement', 'Date de valeur') and on the weekly 'Tableau de bord' (dates d'opérations / dates de règlement) - join by ISIN"
+      },
+      "text_or_scanned": "SCANNED. All 13 sampled result/announcement PDFs are page images (HP Scan, Canon, Xerox, CamScanner, Genius Scan). 2026 COG/CMR/CAF/GAB samples have no text layer at all. Some (TCD 2023/2026, CMR 2020, GAB 2022, CAF 2021) carry a scanner OCR layer that is noisy (e.g. '6,007o' for 6,00%, 'ls 000' for 15 000, 'I9' for 19) -> unusable without re-OCR + strict validation. NEEDS OCR (tesseract/ocrmypdf not installed in this env).",
+      "layout_notes": "Single-auction communiqué, 1-2 pages, one 'Code Emission' block per line (CAF puts 2 lines on one page in bordered table). Labels are very stable across countries ('Nombre de SVT du réseau', 'Montant annoncé...', 'Montant total servi', 'Taux/Prix limite', 'Taux/Prix moyen pondéré', 'Taux de couverture') -> label-anchored OCR parsing feasible. Values in millions FCFA, French decimals.",
+      "data_quality_flag": "GAB OTA 10y 16 Mar 2022 scanner-OCR text reads 'Prix Moyen Pondéré : 93,1662%' while max price proposed is 90,0000% - either a source error or an OCR error (not verified against image); illustrates need for the strict checker (min<=avg<=max, servi<=soumissions).",
+      "sample_files": [
+        "samples/beac_res_Communique-des-resultats-BTA-26-semaines-du-15-septembre-2026.pdf",
+        "samples/beac_res_COMMUNIQUE-DES-RESULTATS-DE-LEMISSION-DES-OTA-3-ANS_14-SEPT-2026_TRESOR-DU-CAMEROUN.pdf",
+        "samples/beac_res_COMMUNIQUE-DES-RESULTATS-DES-EMISSIONS-DES-OTA-_14-SEPT-2026_TRESOR-DE-LA-RCA.pdf",
+        "samples/beac_res_Communique-des-resultats-BTA-13S-220726_GA1100002292.pdf",
+        "samples/beac_res_COMMUNIQUE-DES-RESULTATS-DES-EMISSIONS-DES-OTA-2-ANS-DU-19-AOUT-2026_TRESOR-DU-TCHAD.pdf",
+        "samples/beac_res_COMMUNIQUE-RESULTAT-DES-BTA-GQ-8JANV20-French.pdf",
+        "samples/beac_res_Communique-des-resultats-definitifs-CM1300000872-BTA-52-20-MAI-2026.pdf",
+        "samples/beac_res_Communiques-des-resultats-CM2J00000113-OTA-03ANS-625-29-MAI-2027.pdf",
+        "samples/beac_res_COMMUNIQUE-RESULTATS-BTA-CMR-15JANV20-ENG.pdf",
+        "samples/beac_res_COMMUNIQUE-RESULTATS-Gabon-14-08-2019.pdf",
+        "samples/chk_2021.pdf",
+        "samples/chk_2022.pdf",
+        "samples/chk_2023.pdf",
+        "samples/chk_2024.pdf",
+        "samples/chk_2025.pdf",
+        "samples/beac_annonce_cog_bta13_2026-09-22.pdf",
+        "samples/png/ (rendered page images)"
+      ],
+      "terms_of_use": {
+        "url": "https://www.beac.int/mentions-legales/",
+        "quote": "La BEAC autorise l'Utilisateur de son Site à télécharger et copier les informations, documents figurant sur le site pour son usage personnel, à des fins non commerciales, sans toutefois lui conférer le droit de reproduire tout ou partie dudit contenu à des fins de revente ou de rediffusion, sous quelque forme que ce soit, conformément aux conditions énoncées ci-après et celles plus limitatives qui peuvent s'appliquer à certains éléments du contenu de ce Site.",
+        "assessment": "Personal, non-commercial use only; republication/redistribution not granted. Legal review or written permission from BEAC advisable before republishing values."
+      },
+      "notes": "Primary per-auction source for all 6 CEMAC states. GNQ results seen only for 2020 in my sample; GNQ 2026 announcement present (OTA 3 ans 22 Sep 2026)."
+    },
+    {
+      "id": "beac_weekly_mvt_reports",
+      "url": "https://www.beac.int/m-des-titres-publics/annonces-et-communiques/ (same listing; titles 'Rapport hebdomadaire des opérations du marché des valeurs du trésor de la CEMAC', 'Tableau de bord hebdomadaire...', 'Rapport hebdomadaire ... marché financier unifié')",
+      "status": 200,
+      "doc_types": [
+        "PDF"
+      ],
+      "doc_count": 237,
+      "history_oldest": "2021 (e.g. week 11-15 Oct 2021; Année counts 2021:25, 2022:91, 2023:58, 2024:39, 2025:21, 2026:3)",
+      "history_newest": "Tableau de bord for week 23-27 Feb 2026 (nothing newer listed as of 2026-10-04 -> publication appears stalled since Feb 2026)",
+      "cadence": "Weekly (3 docs/week at times), with gaps",
+      "fields_available": {
+        "Rapport hebdomadaire (realised ops)": "Trésor (country), instrument (BTA 26 semaines / OTA 5 ans), Code enchère = ISIN + description (e.g. 'CM1200002226 BTA-26 19-AOUT-2026'), type d'opération (émission par adjudication, remboursement, paiement d'intérêts, rachat, abondement), montant mis en adjudication, montant levé, taux de participation SVT, taux de souscription, taux/prix moyen pondéré, taux/prix marginal, min, max, observations (e.g. 'émission déclarée infructueuse')",
+        "Tableau de bord (planned ops)": "country, instrument, ISIN code, operation type, amount FCFA, date d'opération, date de règlement"
+      },
+      "text_or_scanned": "SCANNED (HP Scan; 2022-12 and 2026-02 samples have no text layer). Tabular, coloured -> OCR table extraction harder than single communiqués.",
+      "sample_files": [
+        "samples/beac_weekly_mvt_2026-02-16.pdf",
+        "samples/beac_tdb_mvt_2026-02-23.pdf",
+        "samples/beac_weekly_mvt_2022-12-12.pdf"
+      ],
+      "terms_of_use": {
+        "url": "https://www.beac.int/mentions-legales/",
+        "quote": "La BEAC autorise l'Utilisateur de son Site à télécharger et copier les informations, documents figurant sur le site pour son usage personnel, à des fins non commerciales, sans toutefois lui conférer le droit de reproduire tout ou partie dudit contenu à des fins de revente ou de rediffusion, sous quelque forme que ce soit, conformément aux conditions énoncées ci-après et celles plus limitatives qui peuvent s'appliquer à certains éléments du contenu de ce Site.",
+        "assessment": "Personal, non-commercial use only; republication/redistribution not granted. Legal review or written permission from BEAC advisable before republishing values."
+      },
+      "notes": "Best cross-country consolidated view incl. redemptions/coupons; useful to cross-check per-auction communiqués and to recover settlement dates; but scanned and stale since Feb 2026."
+    },
+    {
+      "id": "beac_calendrier_trimestriel",
+      "url": "https://www.beac.int/m-des-titres-publics/calendrier-trimestriel-demission-titres-publics-etats-de-cemac/",
+      "status": 200,
+      "doc_types": [
+        "PDF"
+      ],
+      "doc_count": 43,
+      "history_oldest": "2019 (CMR Q3 2019; GE 2nd semester 2019)",
+      "history_newest": "Q2 2026 calendars (TCD, GNQ, GAB, COG, CMR); Q3 2026 TCD calendar appears on the annonces page",
+      "cadence": "Quarterly per country (some semi-annual early on); revisions posted ('REVISE-1', 'VERSION-MODIFIEE')",
+      "fields_available": "Indicative schedule of auctions (not opened page by page except one sample)",
+      "text_or_scanned": "Sample TCD Q2 2026 is SCANNED (Genius Scan, no text layer).",
+      "sample_files": [
+        "samples/beac_calendar_tcd_2026q2.pdf"
+      ],
+      "terms_of_use": {
+        "url": "https://www.beac.int/mentions-legales/",
+        "quote": "La BEAC autorise l'Utilisateur de son Site à télécharger et copier les informations, documents figurant sur le site pour son usage personnel, à des fins non commerciales, sans toutefois lui conférer le droit de reproduire tout ou partie dudit contenu à des fins de revente ou de rediffusion, sous quelque forme que ce soit, conformément aux conditions énoncées ci-après et celles plus limitatives qui peuvent s'appliquer à certains éléments du contenu de ce Site.",
+        "assessment": "Personal, non-commercial use only; republication/redistribution not granted. Legal review or written permission from BEAC advisable before republishing values."
+      },
+      "notes": "Not results data; useful for expected-auction monitoring only."
+    },
+    {
+      "id": "beac_programme_annuel",
+      "url": "https://www.beac.int/m-des-titres-publics/programme-annuel-emissions-de-titres-publics-etats-de-cemac/",
+      "status": 200,
+      "doc_types": [
+        "PDF"
+      ],
+      "doc_count": 19,
+      "history_oldest": "2024 (programmes annuels COG, CAF)",
+      "history_newest": "2026 (Q1 2026 'calendrier prévisionnel' per country)",
+      "cadence": "Annual (+ quarterly forecast calendars)",
+      "fields_available": "Not inspected in detail (planning docs, not results)",
+      "text_or_scanned": "not checked",
+      "sample_files": [],
+      "terms_of_use": {
+        "url": "https://www.beac.int/mentions-legales/",
+        "quote": "La BEAC autorise l'Utilisateur de son Site à télécharger et copier les informations, documents figurant sur le site pour son usage personnel, à des fins non commerciales, sans toutefois lui conférer le droit de reproduire tout ou partie dudit contenu à des fins de revente ou de rediffusion, sous quelque forme que ce soit, conformément aux conditions énoncées ci-après et celles plus limitatives qui peuvent s'appliquer à certains éléments du contenu de ce Site.",
+        "assessment": "Personal, non-commercial use only; republication/redistribution not granted. Legal review or written permission from BEAC advisable before republishing values."
+      },
+      "notes": "Page sidebar also links some 2019 communiqués."
+    },
+    {
+      "id": "beac_bulletin_marche_titres_publics",
+      "url": "https://www.beac.int/m-des-titres-publics/bulletins-marche-titres-publics/",
+      "status": 200,
+      "doc_types": [
+        "PDF"
+      ],
+      "doc_count": 16,
+      "history_oldest": "BMTP n°1 - mars 2018",
+      "history_newest": "BMTP n°18 - juin 2022 (posted 2023/01); no newer issue listed",
+      "cadence": "Quarterly in principle; discontinued/stalled after n°18 (gaps: n°3, n°8 not listed)",
+      "fields_available": "Narrative + aggregate tables and statistical annexes (e.g. 'Tableau 22: évolution du taux de couverture moyen ... depuis 2011'); aggregates by country/instrument, not per-ISIN results (not exhaustively checked)",
+      "text_or_scanned": "TEXT (InDesign PDF, 76 pages, 370k chars extracted)",
+      "sample_files": [
+        "samples/beac_bmtp18_2022-06.pdf",
+        "samples/beac_bmtp18_2022-06.txt"
+      ],
+      "terms_of_use": {
+        "url": "https://www.beac.int/mentions-legales/",
+        "quote": "La BEAC autorise l'Utilisateur de son Site à télécharger et copier les informations, documents figurant sur le site pour son usage personnel, à des fins non commerciales, sans toutefois lui conférer le droit de reproduire tout ou partie dudit contenu à des fins de revente ou de rediffusion, sous quelque forme que ce soit, conformément aux conditions énoncées ci-après et celles plus limitatives qui peuvent s'appliquer à certains éléments du contenu de ce Site.",
+        "assessment": "Personal, non-commercial use only; republication/redistribution not granted. Legal review or written permission from BEAC advisable before republishing values."
+      },
+      "notes": "Good for historical aggregates/back-checks 2018-2022 only."
+    },
+    {
+      "id": "beac_statistiques_titres_publics",
+      "url": "https://www.beac.int/economie-stats/statistiques-titres-publics/",
+      "status": 200,
+      "doc_types": [
+        "PDF (267)",
+        "XLSX (10)"
+      ],
+      "doc_count": 277,
+      "history_oldest": "Sept 2015 (CBT_CMR_Sept2015-1.pdf / CBT_Gabon_Sept2015-1.pdf)",
+      "history_newest": "July 2026 yield curves (CEMAC, Congo, Gabon, Cameroun)",
+      "cadence": "Monthly yield curves ('Courbe des taux de rendement des titres publics') per country (CMR, GAB, COG; TCD occasionally) + CEMAC composite; months sometimes missing",
+      "fields_available": "Recent PDFs: chart of yield curve by tenor (3m..15y) for Cameroun/Congo/Gabon; NO numeric values in text layer (only axis labels). XLSX 2016-2017 ('Données CBT') contain numeric curve points (tenors 3m..5y, CMR & GAB).",
+      "text_or_scanned": "PDF is Word-generated but the curve values are graphics only -> not extractable; XLSX (2016-09..2017-08 only) machine-readable",
+      "sample_files": [
+        "samples/beac_yieldcurve_cemac_2026-07.pdf",
+        "samples/beac_cbt_2017-08.xlsx"
+      ],
+      "terms_of_use": {
+        "url": "https://www.beac.int/mentions-legales/",
+        "quote": "La BEAC autorise l'Utilisateur de son Site à télécharger et copier les informations, documents figurant sur le site pour son usage personnel, à des fins non commerciales, sans toutefois lui conférer le droit de reproduire tout ou partie dudit contenu à des fins de revente ou de rediffusion, sous quelque forme que ce soit, conformément aux conditions énoncées ci-après et celles plus limitatives qui peuvent s'appliquer à certains éléments du contenu de ce Site.",
+        "assessment": "Personal, non-commercial use only; republication/redistribution not granted. Legal review or written permission from BEAC advisable before republishing values."
+      },
+      "notes": "Low priority: derived curves, chart-only since 2017."
+    },
+    {
+      "id": "bvmac_boc",
+      "url": "https://www.bvm-ac.org/bulletin-officiel-de-la-cote-boc/",
+      "status": 200,
+      "lists_documents": true,
+      "doc_count": 1349,
+      "doc_types": [
+        "PDF"
+      ],
+      "naming_pattern": "https://www.bvm-ac.org/wp-content/uploads/YYYY/MM/BOC-YYYYMMDD.pdf (current; e.g. BOC-20261001.pdf); older 'BOC-BVMAC-DD-MM-YYYY.pdf' / 'BOC-BVMAC-DD-MM-YY.pdf', a few 'BOC-automatise-*.pdf'. 2 links malformed ('https://https://...').",
+      "history_oldest": "BOC-BVMAC-02-08-19.pdf (2 Aug 2019)",
+      "history_newest": "BOC-20261001.pdf (BOC n°2607 du 01/10/2026)",
+      "links_per_upload_year": {
+        "2019": 55,
+        "2020": 148,
+        "2021": 150,
+        "2022": 151,
+        "2023": 159,
+        "2024": 251,
+        "2025": 249,
+        "2026": 186
+      },
+      "cadence": "Daily (each trading session)",
+      "fields_available": {
+        "bond quotes table (Obligations des Etats / Régionales / Privées)": "issuer, bond name (e.g. 'ECMR 6.25% NET 2022-2029'), ISIN, mnemo, previous price date, previous price %, price FCFA, nominal, accrued coupon, volume demanded/offered/traded, value traded, nb trades, status (NC = not quoted), open/close %, upper/lower thresholds, variation, reference price",
+        "bond characteristics table ('31 lignes obligataires')": "issuer, name, ISIN, mnemo, coupon (taux facial), first listing date, amount raised, number of securities, nominal, price %, maturity (years), amortisation type (CONSTANT / IN FINE), periodicity, previous & next payment dates, outstanding, net yield ('Rend net'), turnover rate",
+        "not present": "no yield-to-maturity in the quote table other than 'Rend net' column in characteristics table (meaning to be verified)"
+      },
+      "listed_bonds_2026_10_01": "31 bond lines: 20 sovereign (Cameroun ECMR, Gabon EOG, Tchad EOTD), 6 regional (BDEAC), 5 private (ALIOS FINANCE x3, ACEP CAMEROUN, SNPC). ISIN prefixes CM/GA/TD/CG.",
+      "text_or_scanned": "TEXT (Word-generated, 27 pages, pdftotext -layout works; some long names run into ISIN column, e.g. 'EOG MT 6,60% NET 2024-2027GA0000020511' -> parse ISIN by regex [A-Z]{2}[0-9]{10}). 2021 format was 2 pages, no ISIN column (code like 'ECMR.05-18/23') -> two parser generations.",
+      "liquidity_note": "Almost all bond lines 'NC' (no trade) on 2026-10-01; one trade (EGA20). Prices mostly stale at par.",
+      "sample_files": [
+        "samples/bvmac_BOC-20261001.pdf",
+        "samples/bvmac_BOC-20261001.txt",
+        "samples/bvmac_BOC-BVMAC-04-01-2021.pdf",
+        "samples/bvmac_BOC-BVMAC-04-01-2021.txt"
+      ],
+      "terms_of_use": {
+        "url": "https://www.bvm-ac.org/mentions-legales-de-la-bvmac/",
+        "quote": "La BVMAC autorise l'utilisateur de son site à télécharger et copier les informations, documents figurant sur le site pour son usage personnel, à des fins non commerciales, sans toutefois lui conférer le droit de reproduire tout ou partie dudit contenu à des fins de revente ou de rediffusion, sous quelque forme que ce soit, conformément aux conditions énoncées ci-après et celles plus limitatives qui peuvent s'appliquer à certains éléments du contenu de ce Site ;",
+        "footer": "Copyright © 2019 | Tous droits réservés.",
+        "assessment": "Same restriction as BEAC (personal, non-commercial use; no rediffusion)."
+      },
+      "notes": "robots.txt only disallows /wp-admin/. One transient connection reset on first download (proxy tunnel closed); retry succeeded."
+    },
+    {
+      "id": "bvmac_other_pages",
+      "url": "https://www.bvm-ac.org/obligations-tendances/ ; https://www.bvm-ac.org/espace-emetteurs/emetteurs-obligations/ ; https://www.bvm-ac.org/bvmac-capitalisation-du-marche/",
+      "status": 200,
+      "doc_types": [
+        "HTML"
+      ],
+      "fields_available": "'obligations-tendances' and 'capitalisation' pages have no data in static HTML (likely JS-loaded; not investigated). 'emetteurs-obligations' lists issuers (SNPC, ACEP CAMEROUN, ALIOS FINANCE CAMEROUN, BDEAC, CAMEROUN, GABON, TCHAD) with descriptive text only.",
+      "text_or_scanned": "HTML",
+      "sample_files": [],
+      "terms_of_use": {
+        "url": "https://www.bvm-ac.org/mentions-legales-de-la-bvmac/",
+        "quote": "La BVMAC autorise l'utilisateur de son site à télécharger et copier les informations, documents figurant sur le site pour son usage personnel, à des fins non commerciales, sans toutefois lui conférer le droit de reproduire tout ou partie dudit contenu à des fins de revente ou de rediffusion, sous quelque forme que ce soit, conformément aux conditions énoncées ci-après et celles plus limitatives qui peuvent s'appliquer à certains éléments du contenu de ce Site ;",
+        "footer": "Copyright © 2019 | Tous droits réservés.",
+        "assessment": "Same restriction as BEAC (personal, non-commercial use; no rediffusion)."
+      },
+      "notes": "Use BOC PDF instead."
+    },
+    {
+      "id": "bvmac_cm",
+      "url": "https://www.bvmac.cm/",
+      "status": 200,
+      "doc_types": [
+        "HTML frameset"
+      ],
+      "notes": "452-byte frameset that frames https://www.bvm-ac.org - not a separate source.",
+      "terms_of_use": {
+        "url": "https://www.bvm-ac.org/mentions-legales-de-la-bvmac/",
+        "quote": "La BVMAC autorise l'utilisateur de son site à télécharger et copier les informations, documents figurant sur le site pour son usage personnel, à des fins non commerciales, sans toutefois lui conférer le droit de reproduire tout ou partie dudit contenu à des fins de revente ou de rediffusion, sous quelque forme que ce soit, conformément aux conditions énoncées ci-après et celles plus limitatives qui peuvent s'appliquer à certains éléments du contenu de ce Site ;",
+        "footer": "Copyright © 2019 | Tous droits réservés.",
+        "assessment": "Same restriction as BEAC (personal, non-commercial use; no rediffusion)."
+      }
+    },
+    {
+      "id": "minfi_cm",
+      "url": "https://www.minfi.gov.cm/",
+      "status": "unreachable (HTTPS: connection reset - proxy reports upstream tunnel closed after ~12s; http:// returned 503)",
+      "notes": "Could not assess from this environment; retry from another network.",
+      "terms_of_use": "not checked"
+    },
+    {
+      "id": "caa_cm",
+      "url": "https://www.caa.cm/",
+      "status": "TLS failure: 'unable to get local issuer certificate' (server does not send full chain); not bypassed per policy",
+      "notes": "Would need the intermediate CA added to a trust bundle; not assessed.",
+      "terms_of_use": "not checked"
+    },
+    {
+      "id": "dette_ga",
+      "url": "https://dette.ga/",
+      "status": "unreachable (connection reset / upstream tunnel closed, also www.dette.ga)",
+      "notes": "Not assessed.",
+      "terms_of_use": "not checked"
+    },
+    {
+      "id": "finances_gouv_cg",
+      "url": "https://www.finances.gouv.cg/",
+      "status": 200,
+      "doc_types": [
+        "HTML",
+        "PDF"
+      ],
+      "fields_available": "Homepage links 'Bulletin statistique de la dette - 2ème trimestre 2026' (https://www.finances.gouv.cg/fr/bulletin-statistique-de-la-dette-2%C3%A8me-trimestre-2026 -> PDF Bulletin_Statistique_Dette_2e Trimestre_2026_VF.pdf) and 'Situation mensuelle de la dette - juin 2026'; documentation section with taxonomy filters.",
+      "history_oldest": "not determined",
+      "history_newest": "Q2 2026 debt bulletin; June 2026 monthly debt situation",
+      "cadence": "Quarterly debt bulletin + monthly debt situation (inferred from titles)",
+      "text_or_scanned": "TEXT (Word-generated, 20 pages)",
+      "content_not_in_beac": "Debt stock by creditor (domestic 58,29% / external 41,71% of 5 575,21 bn FCFA), outstanding public securities table (Tableau 5 'Encours des titres publics'), and mentions a USD 850 million Eurobond issue - i.e. Eurobond/external-debt info not covered by BEAC.",
+      "sample_files": [
+        "samples/cog_bulletin_dette_2026q2.pdf",
+        "samples/cog_bulletin_dette_2026q2.txt"
+      ],
+      "terms_of_use": "not found (not checked beyond homepage)"
+    }
+  ],
+  "summary": {
+    "usable_now_text_extraction": [
+      "bvmac_boc (daily, text PDF, ISIN-keyed, 2019-08..2026-10; parser needed for 2 layout generations)",
+      "finances_gouv_cg debt bulletin (text PDF, quarterly aggregates incl. Eurobond)",
+      "beac_bulletin_marche_titres_publics (text, but stopped at June 2022)"
+    ],
+    "needs_OCR": [
+      "beac_annonces_communiques auction results + announcements (all scanned; stable labels; primary source for BTA/OTA per ISIN)",
+      "beac_weekly_mvt_reports (scanned tables, 2021..Feb 2026)",
+      "beac_calendrier_trimestriel (scanned)"
+    ],
+    "not_extractable_numerically": [
+      "beac_statistiques_titres_publics yield curves since 2017 (chart only); XLSX only 2016-2017"
+    ],
+    "unreachable": [
+      "minfi.gov.cm (reset/503)",
+      "dette.ga (reset)",
+      "caa.cm (TLS chain incomplete)"
+    ],
+    "legal_blocker": "Both BEAC and BVMAC mentions légales restrict use to personal, non-commercial and deny right of 'rediffusion'. Must be cleared before publishing values in Cartouche.",
+    "recommended_order": [
+      "1. BVMAC BOC (text, daily, ISIN) - listed CEMAC sovereign + BDEAC + corporate bonds",
+      "2. BEAC per-auction result communiqués via OCR pipeline (label-anchored, strict checker, join with announcement communiqués by ISIN for settlement/value dates); human review queue for low-confidence OCR",
+      "3. BEAC weekly MVT reports (OCR tables) as cross-check/backfill 2021-2026",
+      "4. Congo MoF debt bulletin (aggregate + Eurobond context)",
+      "5. Calendars/programmes (expected auctions), BMTP historical aggregates",
+      "Defer: yield-curve PDFs (chart only); country sites unreachable"
+    ]
+  }
+}

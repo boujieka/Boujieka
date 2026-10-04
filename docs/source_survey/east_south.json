@@ -1,0 +1,837 @@
+{
+ "_meta": {
+  "survey_date": "2026-10-04",
+  "user_agent": "CartoucheSourceSurvey/1.0 (https://cartouche-africa.netlify.app)",
+  "requests_made": 141,
+  "method": "Official home pages fetched first, then navigated via links / site JS bundles to the auction-results pages; all URLs below were fetched and returned the status shown. 'uncertain' marks anything not directly observed.",
+  "tools": "curl via agent proxy (TLS verified), pdftotext -layout, pdffonts, pdfimages, openpyxl/xlrd (installed in scratchpad only)"
+ },
+ "countries": {
+  "KEN": {
+   "usable_now": "yes",
+   "recommended_order": 1,
+   "sources": [
+    {
+     "name": "CBK Treasury bill auction results (91/182/364d)",
+     "url": "https://www.centralbank.go.ke/bills-bonds/treasury-bills/",
+     "status": 200,
+     "format": "HTML page (wpDataTables) listing PDF links; one PDF per weekly auction covering all three tenors. ~1,581 PDF links split across folders /uploads/91_day_..., /182_day_..., /364_day_historical_treasury_bill_results/",
+     "history_oldest": "2014 (filenames in 182/364-day folders; 91-day folder from 2016)",
+     "history_newest": "Issue 2702/091 dated 05/10/2026 (auction 01/10/2026)",
+     "cadence": "weekly (Thursday auction, Monday value date)",
+     "fields_available": [
+      "issue number",
+      "tenor",
+      "ISIN",
+      "due date (maturity)",
+      "amount offered",
+      "bids received",
+      "performance rate",
+      "total amount accepted",
+      "competitive / non-competitive accepted",
+      "bid-to-cover",
+      "rollover/redemptions",
+      "new borrowing",
+      "market weighted average rate",
+      "weighted average rate of accepted bids",
+      "price per 100 at average rate",
+      "comparative rates vs last auction",
+      "next auction offer amounts"
+     ],
+     "fields_missing": [
+      "cut-off rate",
+      "number of bids"
+     ],
+     "text_or_scanned": "text (embedded TrueType fonts, pdftotext clean)",
+     "sample_files": [
+      "samples/KEN/ke_tbill_results_2702_2026-10-05.pdf",
+      "samples/KEN/ke_tbill_results_2702_2026-10-05.txt"
+     ],
+     "terms_of_use": "No terms/reuse page linked from the page footer; only '© 2017 Central Bank of Kenya' (footer of https://www.centralbank.go.ke/bills-bonds/treasury-bills/). Reuse terms: not found.",
+     "notes": "Note /securities/treasury-bills/ (the seed URL) is an investor-info page; actual results are at /bills-bonds/treasury-bills/. Filenames embed issue numbers and dates; some older files are named '.xlsx.pdf'. The page is ~1.9 MB HTML."
+    },
+    {
+     "name": "CBK Treasury bond auction results",
+     "url": "https://www.centralbank.go.ke/bills-bonds/treasury-bonds/",
+     "status": 200,
+     "format": "HTML page listing PDF links in /uploads/historical_treasury_bond_results/ (226 links) + prospectuses in /uploads/treasury_bonds_prospectuses/ (208)",
+     "history_oldest": "2007 (by filename years)",
+     "history_newest": "Results FXD3/2019/015 & FXD1/2019/020 dated 05/10/2026",
+     "cadence": "monthly primary auctions plus tap sales, switches, buybacks",
+     "fields_available": [
+      "issue number",
+      "tenor / years to maturity",
+      "ISIN",
+      "due date",
+      "total amount offered",
+      "bids received",
+      "performance rate",
+      "amount accepted",
+      "competitive / non-competitive",
+      "bid-to-cover",
+      "market weighted average rate",
+      "weighted average rate of accepted bids",
+      "price per 100 at average yield",
+      "coupon rate",
+      "redemptions",
+      "new borrowing"
+     ],
+     "fields_missing": [
+      "cut-off rate",
+      "number of bids",
+      "value date only via title 'DATED'"
+     ],
+     "text_or_scanned": "text",
+     "sample_files": [
+      "samples/KEN/ke_tbond_results_2026-10-05.pdf",
+      "samples/KEN/ke_tbond_results_2026-10-05.txt"
+     ],
+     "terms_of_use": "not found (same footer as above)",
+     "notes": "Format of older (2007-2015) PDFs not checked; may differ / may be scanned (uncertain)."
+    },
+    {
+     "name": "CBK Weekly Bulletin",
+     "url": "https://www.centralbank.go.ke/releases/weekly-bulletin/",
+     "status": 200,
+     "format": "PDF (933 links)",
+     "history_oldest": "2016-01-08",
+     "history_newest": "2026-10-02",
+     "cadence": "weekly (Friday)",
+     "fields_available": [
+      "T-bill auction summary table (amount offered/accepted, average rate)",
+      "Table 5 performance of T-bond auctions (offered, bids, accepted, average rate)",
+      "NSE bond turnover",
+      "Eurobond yields"
+     ],
+     "text_or_scanned": "text",
+     "sample_files": [
+      "samples/KEN/ke_weekly_bulletin_2026-10-02.pdf"
+     ],
+     "terms_of_use": "not found",
+     "notes": "Useful cross-check; secondary data source NSE cited inside."
+    },
+    {
+     "name": "CBK interest rates statistics (CSV)",
+     "url": "https://www.centralbank.go.ke/statistics/interest-rates/",
+     "status": 200,
+     "format": "CSV (commercial bank weighted average rates; CBR)",
+     "notes": "Not auction data; listed because CBK does publish machine-readable CSV here."
+    },
+    {
+     "name": "NSE (Nairobi Securities Exchange) daily bond price list (secondary market)",
+     "url": "https://www.nse.co.ke/market-statistics/",
+     "status": 200,
+     "format": "PDF 'BondPrices_DD-MMM-YYYY.pdf' linked from market-statistics; sample https://www.nse.co.ke/wp-content/uploads/BondPrices_02-OCT-2026.pdf (200)",
+     "cadence": "daily (trading days)",
+     "text_or_scanned": "SCANNED/IMAGE: 2 pages, each a single 2480x3507 RGB image, no fonts (Producer PDFill) -> needs OCR",
+     "sample_files": [
+      "samples/KEN/nse_bondprices_2026-10-02.pdf"
+     ],
+     "terms_of_use": "NSE terms (https://www.nse.co.ke/terms-and-conditions/): 'The intellectual property rights (“IPR”) inducing, without limitation, copyright in the Historical Data in the form as it is received, shall be vested at all times with the NSE.' NSE sells historical/EOD data (pricelist PDFs linked).",
+     "notes": "https://www.nse.co.ke/government-bonds/ (seed URL, 200) is descriptive only, no data. Free but not machine-readable; licensing of redistribution unclear -> treat as restricted."
+    }
+   ]
+  },
+  "UGA": {
+   "usable_now": "partial (2017-2024 text PDFs yes; 2026 template needs OCR)",
+   "recommended_order": 4,
+   "sources": [
+    {
+     "name": "Bank of Uganda auction results (via site's Strapi API)",
+     "url": "https://bou.or.ug/api/financial-market-auction-information?populate=auctionInformation.overview.button&populate=auctionInformation.items.file.file.file&populate=auctionInformation.items.file.fileWithMonth.file.file",
+     "status": 200,
+     "format": "JSON index (title, year, month, file url) -> PDF files under https://bou.or.ug/uploads/ ; 368 'Auction results' items: 354 PDF, 12 XLS/XLSX (2018, 2022), 1 DOCX (30-Sep-2026 T-bill)",
+     "history_oldest": "2017",
+     "history_newest": "30-Sep-2026 (T-bills, docx); 23-Sep-2026 (T-bonds, pdf)",
+     "cadence": "T-bills about every 2 weeks; T-bonds about twice a month (Sep 2026: bills 02 & 30 Sep; bonds 09 & 23 Sep)",
+     "fields_available": [
+      "auction no",
+      "auction date",
+      "settlement date",
+      "maturity date",
+      "cut-off price",
+      "annualised discount rate",
+      "money market yield",
+      "effective yield (bills)",
+      "yield at cut-off price (bonds)",
+      "ISIN + coupon + maturity (bonds, in header)",
+      "offered",
+      "tendered",
+      "competitive / non-competitive tendered",
+      "accepted bids (competitive / non-competitive)",
+      "bid-to-cover"
+     ],
+     "fields_missing": [
+      "weighted average yield (bills show MMY at cut-off only)",
+      "number of bids"
+     ],
+     "text_or_scanned": "MIXED: 2024 sample is a text PDF (Excel-generated, clean pdftotext). 2026 samples (new '60' template, PDFium/InDesign) have header text only; the table glyphs are vector outlines (no fonts, no images) -> needs render+OCR",
+     "sample_files": [
+      "samples/UGA/ug_tbill_results_2026-09-02.pdf",
+      "samples/UGA/ug_tbond_results_2026-09-23.pdf",
+      "samples/UGA/ug_tbill_results_2024-12.pdf",
+      "samples/UGA/ug_tbill_results_2024-12.txt",
+      "samples/UGA/ug_tbill_preview-1.png",
+      "samples/UGA/ug_tbond_preview-1.png"
+     ],
+     "terms_of_use": "https://bou.or.ug/terms_and_condition (API https://bou.or.ug/api/terms-and-condition?populate=terms): 'BOU is pleased to allow Users to visit the Site and download and copy the information, documents and materials (collectively, \"Materials\") from the Site for User use subject to the terms and conditions outlined below and also subject to more specific restrictions that may apply to specific material within this Site.' Footer: '© 2026 Bank of Uganda. All rights reserved.'",
+     "notes": "www.bou.or.ug is a React SPA; the human page is /financial-market-auction-information (route seen in bundle). Same API also lists 'Invitation to tender' (780 items, 2001-2026)."
+    },
+    {
+     "name": "BoU Daily Secondary Market Trades (government securities)",
+     "url": "https://bou.or.ug/api/financial-market-report?populate=reports.overview.button&populate=reports.items.file.file.file&populate=reports.items.file.fileWithMonth.file.file",
+     "status": 200,
+     "format": "PDF (737 items 2021-2026), e.g. https://bou.or.ug/uploads/Web_SCM_Trades_Report_for_02_SEP_2026_8ca5d25c73.pdf",
+     "cadence": "daily",
+     "fields_available": [
+      "trade date",
+      "coupon",
+      "maturity date",
+      "money market yield",
+      "YTM",
+      "price per 100",
+      "amount (face)",
+      "amount (cost)"
+     ],
+     "text_or_scanned": "text (Word-generated)",
+     "sample_files": [
+      "samples/UGA/ug_secondary_trades_2026-09-02.pdf",
+      "samples/UGA/ug_secondary_trades_2026-09-02.txt"
+     ],
+     "terms_of_use": "same BoU terms",
+     "notes": "Free, official, text-extractable; securities identified by coupon+maturity (no ISIN in sample)."
+    }
+   ]
+  },
+  "TZA": {
+   "usable_now": "yes (structured JSON)",
+   "recommended_order": 2,
+   "sources": [
+    {
+     "name": "Bank of Tanzania T-bill auction results",
+     "url": "https://www.bot.go.tz/TBills",
+     "status": 200,
+     "format": "HTML list (347 auctions) + per-auction JSON via POST https://www.bot.go.tz/Tbills/getTbillsDetails (form field au_no) used by the page's 'View' button (Scripts/custom2.js)",
+     "history_oldest": "Auction 859, 12-SEP-2012",
+     "history_newest": "Auction 1207, 23-SEP-2026",
+     "cadence": "about every 2 weeks",
+     "fields_available": [
+      "tenor (35/91/182/364 days)",
+      "maturity date",
+      "number of bids",
+      "successful bids",
+      "highest/lowest bid price",
+      "minimum successful price (cut-off)",
+      "weighted average price",
+      "weighted average yield",
+      "amount offered",
+      "amount tendered",
+      "under/over subscribed",
+      "successful bids amount"
+     ],
+     "fields_missing": [
+      "ISIN",
+      "non-competitive split"
+     ],
+     "text_or_scanned": "structured JSON (no PDF parsing)",
+     "sample_files": [
+      "samples/TZA/tz_tbill_auction_1207_2026-09-23.json",
+      "samples/TZA/tz_tbill_auction_859_2012-09-12.json"
+     ],
+     "terms_of_use": "Disclaimer only (Swahili default) https://www.bot.go.tz/Home/Disclaimer : 'Benki Kuu ya Tanzania haitawajibika kwa hasara, madhara au athari yoyote itakayotokana na kutegemea taarifa zilizomo kwenye tovuti hii au zinazopatikana kupitia tovuti hii.' (liability disclaimer; no reuse/licence clause). Footer: 'Hatimiliki ya Benki Kuu ya Tanzania © 2026'. English version at ?lang=en not fetched.",
+     "notes": "Unit quirk: 'Successful Bids TZS (00,000)' label vs '(000,000)' elsewhere - verify. Dates in M/D/YYYY. POST endpoint is undocumented (used by official page)."
+    },
+    {
+     "name": "Bank of Tanzania T-bond auction results",
+     "url": "https://www.bot.go.tz/TBonds",
+     "status": 200,
+     "format": "HTML list (374 auctions) + JSON via POST https://www.bot.go.tz/TBonds/AuctionSummaries (au_no, au_days from button value e.g. '696_3')",
+     "history_oldest": "Auction 315, 9.18% 5-year, 05-SEP-2012",
+     "history_newest": "Auction 696, 12.25% 15-year, 30-SEP-2026",
+     "cadence": "about every 2 weeks (rotating tenors)",
+     "fields_available": [
+      "redemption date",
+      "number of bids (competitive / non-comp)",
+      "successful bids",
+      "highest/lowest bid price",
+      "minimum successful price",
+      "WAP",
+      "weighted average YTM",
+      "weighted average coupon yield",
+      "amount offered",
+      "total tendered",
+      "under/over subscribed",
+      "successful amount",
+      "coupon dates",
+      "accrued interest"
+     ],
+     "text_or_scanned": "structured JSON",
+     "sample_files": [
+      "samples/TZA/tz_tbond_auction_696_2026-09-30.json"
+     ],
+     "terms_of_use": "as above",
+     "notes": "Coupon rate is in list title (e.g. '12.25% 15-YEAR TREASURY BOND'); ISIN not shown."
+    },
+    {
+     "name": "DSE government bond page (secondary market)",
+     "url": "https://dse.co.tz/government/bond",
+     "status": 200,
+     "format": "HTML descriptive; daily market reports via https://dse.co.tz/get/daily/report/<token> (HTML viewer, content format not determined)",
+     "terms_of_use": "DSE Data Vending Policy and paid market-data pricelist linked: https://dse.co.tz/storage/data_services/DSE MARKET DATA PRODUCT PRICELIST - 2026.pdf (not read)",
+     "notes": "Secondary prices: free machine-readable source not confirmed. BoT also runs https://market-yields.bot.go.tz/ (JS app, 200; data API not inspected)."
+    }
+   ]
+  },
+  "RWA": {
+   "usable_now": "yes (XLS/XLSX full history)",
+   "recommended_order": 3,
+   "sources": [
+    {
+     "name": "BNR T-bill market history (XLSX)",
+     "url": "https://www.bnr.rw/documents/T-BILL_MARKET_up_to_October_1st_2026.xlsx",
+     "status": 200,
+     "format": "XLSX, sheet 'T-BILL MARKET' ~2,750 rows, one row per tenor per auction (filename changes each update; discoverable via JSON index https://www.bnr.rw/search)",
+     "history_oldest": "2012-10-18",
+     "history_newest": "2026-10-01",
+     "cadence": "weekly",
+     "fields_available": [
+      "tenor",
+      "auction date",
+      "maturity date",
+      "auction code (security id e.g. TBL2026103028/MN)",
+      "amount offered",
+      "weekly offered",
+      "applied amount",
+      "amount sold",
+      "no. bids offered",
+      "no. bids accepted",
+      "WAP",
+      "annual rate at WAP",
+      "non-comp tendered/filled",
+      "subscription level"
+     ],
+     "fields_missing": [
+      "cut-off price (present in per-auction PDF, not in history sheet)"
+     ],
+     "text_or_scanned": "native spreadsheet",
+     "sample_files": [
+      "samples/RWA/rw_tbill_market_to_2026-10-01.xlsx"
+     ],
+     "terms_of_use": "BNR 'Terms of Use for Official Statistics' (https://www.bnr.rw/statuse; SPA route, text in site bundle): 'The official statistics provided by NBR are available under A Creative Commons Attribution 4.0 International ... Data published are free to use and Users may: Access, download, and use the statistics for personal, commercial, academic, or research purposes. Share or redistribute the statistics, provided the source National Bank of Rwanda is clearly acknowledged.' Attribution: 'Source: National Bank of Rwanda'.",
+     "notes": "Best licence found in the survey (CC BY 4.0). Mixed date formats (DD.MM.YYYY recent, M/D/YYYY old)."
+    },
+    {
+     "name": "BNR T-bill auction summary results (PDF, latest only)",
+     "url": "https://www.bnr.rw/documents/T-BILLS_SUMMARY_RESULTS_ON_OCTOBER_1st_2026.pdf",
+     "status": 200,
+     "format": "PDF; only the latest 2 summaries are in the document index",
+     "cadence": "weekly",
+     "fields_available": [
+      "tenor",
+      "auction date",
+      "maturity date",
+      "auction code",
+      "amount offered",
+      "applied",
+      "sold",
+      "no. bids offered/accepted",
+      "bid range",
+      "cut-off price",
+      "WAP",
+      "annual rate at WAP",
+      "non-comp tendered/filled"
+     ],
+     "text_or_scanned": "text",
+     "sample_files": [
+      "samples/RWA/rw_tbill_results_2026-10-01.pdf",
+      "samples/RWA/rw_tbill_results_2026-10-01.txt"
+     ],
+     "terms_of_use": "CC BY 4.0 (as above)"
+    },
+    {
+     "name": "BNR Summary of Treasury Bonds issued 2008-Aug 2026 (XLS)",
+     "url": "https://www.bnr.rw/documents/Summary_Treasury_Bonds_issued_from_2008_to_August_2026.xls",
+     "status": 200,
+     "format": "XLS sheets 'Cumulative' (135 issues incl. reopenings) and 'Outstanding'",
+     "history_oldest": "FXD 1/2008/2Yr (2008)",
+     "history_newest": "FXD2/2026/7YR issued 2026-07-15; last row FXD3/2026/10YR carries issue serial 46364 = 2026-12-08 (anomalous, verify)",
+     "cadence": "bond auctions roughly quarterly/monthly (calendar PDF in index)",
+     "fields_available": [
+      "bond no",
+      "ISIN-like code (e.g. RWBO10Y000683/MN)",
+      "issue date (Excel serial)",
+      "maturity date",
+      "offered",
+      "applied",
+      "sold",
+      "dirty price",
+      "coupon",
+      "yield",
+      "tenor",
+      "subscription level"
+     ],
+     "text_or_scanned": "native spreadsheet",
+     "sample_files": [
+      "samples/RWA/rw_tbonds_summary_2008_2026-08.xls"
+     ],
+     "terms_of_use": "CC BY 4.0",
+     "notes": "Excel serial 46364 decodes to 2026-12-08 which is after the file date - possibly a planned/value date; verify before ingest (uncertain)."
+    },
+    {
+     "name": "Rwanda Stock Exchange bond market (secondary)",
+     "url": "https://rse.rw/bond-market",
+     "status": 200,
+     "format": "HTML table (bond no, closing, previous, change, volume, value) - latest session only",
+     "terms_of_use": "Footer '© 2026 Rwanda Stock Exchange. All rights Reserved.'; Terms & Conditions page not fetched",
+     "notes": "Free HTML, scrapeable; no history observed."
+    }
+   ]
+  },
+  "ZAF": {
+   "usable_now": "yes (XLSX)",
+   "recommended_order": 5,
+   "sources": [
+    {
+     "name": "National Treasury - Historical auction results (fixed-rate bonds)",
+     "url": "https://investor.treasury.gov.za/Debt%20Operations%20and%20Data/Historical%20Results/Fixed-rate%20bonds/",
+     "status": 200,
+     "format": "XLS/XLSX one file per fiscal year (16 files), one sheet per month; e.g. 'Fixed-rate bond auctions - 2026-27.xlsx'",
+     "history_oldest": "FY 2010-13 file",
+     "history_newest": "August 2026 sheet (file fetched 2026-10-04)",
+     "cadence": "weekly (Tuesday) bond auctions; file updated with lag",
+     "fields_available": [
+      "auction date",
+      "settlement date",
+      "bond code (R2037 etc.)",
+      "coupon; redemption year",
+      "total amount allocated",
+      "non-comps",
+      "number of bids",
+      "total bids",
+      "clearing yield",
+      "best bid",
+      "worst bid",
+      "bid-to-cover"
+     ],
+     "fields_missing": [
+      "ISIN",
+      "price"
+     ],
+     "text_or_scanned": "native spreadsheet (column-per-bond layout, needs pivoting)",
+     "sample_files": [
+      "samples/ZAF/za_fixed_rate_bond_auctions_2026-27.xlsx"
+     ],
+     "terms_of_use": "Investor site/treasury.gov.za: only footer 'Copyright © The National Treasury' (https://www.treasury.gov.za/); no reuse statement found.",
+     "notes": "Sibling folders also exist: Floating-rate note auctions, Inflation-linked bonds, Switch auctions (not downloaded)."
+    },
+    {
+     "name": "National Treasury - Historical auction results (Treasury bills)",
+     "url": "https://investor.treasury.gov.za/Debt%20Operations%20and%20Data/Historical%20Results/Treasury%20bills/",
+     "status": 200,
+     "format": "XLS/XLSX per fiscal year (17 files)",
+     "history_oldest": "FY 2010-11",
+     "history_newest": "May 2026 sheet in 'Treasury bill auctions - 2026-27.xlsx'",
+     "cadence": "weekly",
+     "fields_available": [
+      "tenor 91/182/273/364",
+      "auction date",
+      "settlement date",
+      "maturity date",
+      "amount on offer",
+      "allocated",
+      "bids received",
+      "weighted average discount rate",
+      "weighted average effective yield",
+      "best/worst allotted rate",
+      "worst bid rate",
+      "bid-to-cover"
+     ],
+     "text_or_scanned": "native spreadsheet",
+     "sample_files": [
+      "samples/ZAF/za_tbill_auctions_2026-27.xlsx"
+     ],
+     "terms_of_use": "as above",
+     "notes": "QUALITY: the 'FY 2026-27' T-bill file actually contains sheets April 2023 ... May 2026 in non-chronological order and some columns dated 2022 inside 2023 sheets, and '#DIV/0!' cells -> ingest must key on the dates in cells, not sheet names."
+    },
+    {
+     "name": "National Treasury - Latest Auction Results",
+     "url": "https://investor.treasury.gov.za/Debt%20Operations%20and%20Data/Auction%20Related%20Information/Latest%20Auction%20Results/",
+     "status": 200,
+     "format": "XLSX: Fixed-Rate Bonds Auction.xlsx, Floating-Rate Notes Auction.xlsx, Switch Auction.xlsx, Inflation-Linked Bonds Auction.xlsx (not downloaded)",
+     "cadence": "per auction",
+     "terms_of_use": "as above"
+    },
+    {
+     "name": "SARB (fiscal agent) auctions calendar",
+     "url": "https://www.resbank.co.za/en/home/calendar/auctions-calendar",
+     "status": 200,
+     "format": "JS-rendered, no static data",
+     "terms_of_use": "SARB disclaimer https://www.resbank.co.za/en/home/quick-links/disclaimer : 'All intellectual property rights, including but not limited to copyright and trademarks in the material contained on this website is held by the South African Reserve Bank and may not be copied, reproduced, adapted, published or distributed in any form whatsoever without the prior written consent of the South African Reserve Bank.'",
+     "notes": "Prefer NT investor site (data owner = issuer) over SARB pages."
+    },
+    {
+     "name": "JSE (secondary market)",
+     "url": "https://www.jse.co.za/",
+     "status": 403,
+     "notes": "Blocked automated access (403). JSE bond data is a commercial product (not verified this session). No free official machine-readable bond price list confirmed."
+    }
+   ]
+  },
+  "ZMB": {
+   "usable_now": "yes (JSON:API + text PDFs) - licence restrictive",
+   "recommended_order": 6,
+   "sources": [
+    {
+     "name": "Bank of Zambia T-bill auction results (Drupal JSON:API)",
+     "url": "https://www.boz.zm/jsonapi/node/tbills_auction_results?include=field_tbills_auction_results,field_auction&sort=-field_tbills_auction_date&page%5Blimit%5D=5",
+     "status": 200,
+     "format": "JSON:API (title, auction date, per-tenor ISIN / yield / discount rate) + linked PDF (field_auction -> /sites/default/files/YYYY-MM/Treasury-Bills-Results-Tender-No-NN-YYYY-DD-MM-YYYY.pdf)",
+     "history_oldest": "Tender 01/2014, 2014-01-09 (API record)",
+     "history_newest": "Tender 20/2026, 2026-10-01",
+     "cadence": "every 2 weeks",
+     "fields_available": [
+      "tender no",
+      "auction date",
+      "tenor 91/182/273/364",
+      "ISIN",
+      "amount offered",
+      "amount bid face/cost",
+      "amount allocated face/cost",
+      "cut-off price",
+      "cut-off yield",
+      "range of accepted yields",
+      "range of rejected yields",
+      "discount rate (API)"
+     ],
+     "fields_missing": [
+      "number of bids",
+      "weighted average yield (cut-off only)"
+     ],
+     "text_or_scanned": "API structured; PDF text (Word-generated)",
+     "sample_files": [
+      "samples/ZMB/zm_tbill_results_20-2026_2026-10-01.pdf",
+      "samples/ZMB/zm_tbill_results_20-2026_2026-10-01.txt"
+     ],
+     "terms_of_use": "BoZ site terms modal (text in https://www.boz.zm/main.98bf04ed93a98a0c.js, linked from footer): 'Unless otherwise stated, the contents of this website are the property and copyright of the Bank of Zambia. The Bank grants permission for users to: Download, display or print material for personal use or use within an individual organisation and for non-commercial use only. ... Reproduce short extracts, provided the source is stated ... For any further authorisation regarding use, including for commercial purposes, of the material provided on this website, a written request must be made to the Bank of Zambia'",
+     "notes": "Whether pre-2025 'migrated' records all have attached files/fields was not checked. Human page: https://www.boz.zm/markets-securities/treasury-bills (Angular route)."
+    },
+    {
+     "name": "Bank of Zambia GRZ bond auction results (JSON:API)",
+     "url": "https://www.boz.zm/jsonapi/node/bond_auction?sort=-created&page%5Blimit%5D=5",
+     "status": 200,
+     "format": "JSON:API (per-tenor ISIN, coupon, yield) + PDF (field_results_file e.g. /sites/default/files/2026-09/Bonds-Press-Results-07-2026-BA.pdf)",
+     "history_oldest": "01/2014/BA (2014)",
+     "history_newest": "07/2026/BA, 2026-09-25",
+     "cadence": "roughly monthly / every 1-2 months",
+     "fields_available": [
+      "tender no",
+      "tenor",
+      "ISIN",
+      "amount offered",
+      "amount bid face/cost",
+      "amount allocated face/cost",
+      "cut-off dirty price",
+      "coupon",
+      "cut-off yield",
+      "range of successful / unsuccessful yields"
+     ],
+     "text_or_scanned": "text",
+     "sample_files": [
+      "samples/ZMB/zm_bond_results_07-2026_2026-09-25.pdf",
+      "samples/ZMB/zm_bond_results_07-2026_2026-09-25.txt"
+     ],
+     "terms_of_use": "as above (non-commercial only without written permission)"
+    },
+    {
+     "name": "LuSE (secondary)",
+     "url": "https://www.luse.co.zm/",
+     "status": 403,
+     "notes": "Blocked automated access (403); not assessed."
+    }
+   ]
+  },
+  "MOZ": {
+   "usable_now": "yes (XLSX, T-bills only)",
+   "recommended_order": 7,
+   "priority": "low",
+   "sources": [
+    {
+     "url": "https://www.bancomoc.mz/pt/areas-de-actuacao/mercados/mercado-monetario/",
+     "status": 200,
+     "notes": "XLSX 'série-leilões-bilhetes-de-tesouro.xlsx' (19 MB, 1,565 rows): auction date, settlement, tenor, maturity, instrument (BT Tipo A), offer, demand, subscribed, weighted avg rate; 2016-01-06 to 2026-10-01. Also secondary-market BT operations series XLSX. Treasury bonds (OT) are listed on BVM (not checked; proxy failures to www.bvm-ac.org were logged by the proxy).",
+     "sample_files": [
+      "samples/MOZ/mz_serie_leiloes_bt.xlsx"
+     ],
+     "terms_of_use": "not checked (low priority)"
+    }
+   ]
+  },
+  "MWI": {
+   "usable_now": "yes (text PDFs)",
+   "recommended_order": 12,
+   "priority": "low",
+   "sources": [
+    {
+     "url": "https://www.rbm.mw/FinancialMarkets/TreasuryBills/",
+     "status": 200,
+     "notes": "HTML table of auctions (date, amount raised) with PDF downloads via /Home/GetContentFile/?ContentID=N; dates 2013-2026; frequent (several/week in mid-2026). Sample fields: tenor, applied face/cost, allotted face/cost, lowest/highest yield, average yield current/previous. Also /FinancialMarkets/TreasuryNotes/ and /TreasuryBonds/ exist (not fetched). First download attempt hit a connection reset; retry OK.",
+     "sample_files": [
+      "samples/MWI/mw_tbill_results_2026-09-29.pdf"
+     ],
+     "terms_of_use": "not checked (low priority)"
+    }
+   ]
+  },
+  "BWA": {
+   "usable_now": "yes (text PDFs, some DocuSign-wrapped)",
+   "recommended_order": 9,
+   "priority": "low",
+   "sources": [
+    {
+     "url": "https://bankofbotswana.bw/government-securities-auctions",
+     "status": 200,
+     "notes": "HTML table (auction date, allotted, auctioned) + PDF per auction day (bills + bonds together); page states results since March 2008; 5 pages. Fields: security code, ISIN, coupon, maturity, offered, bids received, allotted, maturing, number of bids, successful bids, stop-out price/yield, simple yield, bid-to-offer, highest/lowest bid, WAY of winning bids, partial allotment. www.bankofbotswana.bw failed (no response) but bankofbotswana.bw works.",
+     "sample_files": [
+      "samples/BWA/bw_govsec_results_2026-09-24.pdf"
+     ],
+     "terms_of_use": "not checked (low priority)"
+    }
+   ]
+  },
+  "NAM": {
+   "usable_now": "yes (text PDFs)",
+   "recommended_order": 8,
+   "priority": "low",
+   "sources": [
+    {
+     "url": "https://www.bon.com.na/Bank/Financial-Markets/Public-debt-management/Government-securities-tender-and-auction-annonceme.aspx",
+     "status": 200,
+     "notes": "1.5 MB HTML (slow, >40s) listing ~1,600 /getattachment/<guid>/.aspx links (invitations + results) 2013-2026; resolves to PDF. Fields: Bloomberg-style security (NAMITB 0 12/31/26, NAMIGB 9 10/15/29), settlement date, allocated, bids count/amount, successful bids, low/high price-yield allocated, weighted average price/yield, best/worst bid, partial allocation, bid-to-cover, amount offered. Weekly T-bills, IRS/ILB bond tenders, switch auctions.",
+     "sample_files": [
+      "samples/NAM/na_tbill_results_2026-10-01.pdf",
+      "samples/NAM/na_bond_results_2026-09-16.pdf"
+     ],
+     "terms_of_use": "not checked (low priority)"
+    }
+   ]
+  },
+  "MUS": {
+   "usable_now": "yes (text PDFs)",
+   "recommended_order": 10,
+   "priority": "low",
+   "sources": [
+    {
+     "url": "https://www.bom.mu/markets/government-of-mauritius-securities/government-of-mauritius-treasury-bills/results-of-auctions",
+     "status": 200,
+     "notes": "Drupal list, 20 PDFs/page, pages to ?page=8; separate result pages for Treasury Notes and 5/7/10/15/20-year bonds and BOM bills/notes. Fields: tenor, ISIN, settlement date, bids received (amount, number), allocated, successful bids, low/high price-yield allocated, worst bid, weighted average price/yield. Fonts not embedded but text extracts cleanly.",
+     "sample_files": [
+      "samples/MUS/mu_tbill_results_2026-10-01.pdf"
+     ],
+     "terms_of_use": "not checked (low priority)"
+    }
+   ]
+  },
+  "ETH": {
+   "usable_now": "yes (HTML tables)",
+   "recommended_order": 13,
+   "priority": "low",
+   "sources": [
+    {
+     "url": "https://nbe.gov.et/treasury-bills/",
+     "status": 200,
+     "notes": "Single 600 KB page with 56 HTML result tables (2024-2026): auction no, maturity, offered, bids received, accepted (competitive/non-comp), max/min price & yield, cut-off price & yield, weighted average price & yield. T-bills only (28/91/182/364d); approx. fortnightly.",
+     "sample_files": [
+      "samples/ETH/et_treasury_bills_page_2026-10-04.html"
+     ],
+     "terms_of_use": "not checked (low priority)"
+    }
+   ]
+  },
+  "SYC": {
+   "usable_now": "yes (JSON index + text PDFs)",
+   "recommended_order": 11,
+   "priority": "low",
+   "sources": [
+    {
+     "url": "https://www.cbs.sc/marketinfo/TBILLResults.html",
+     "status": 200,
+     "notes": "Index JSON https://www.cbs.sc/Controller/MarketinfoController.jsp?type=tbill%20results lists 1,163 files (2010-04-01 to 2026-10-02); PDFs at https://www.cbs.sc/Downloads/monetaryfiles/Tbillsresults/<fileName>. Fields: tenor 91/182/365, offered, bids received (no./value), highest/lowest yield received and accepted, bids accepted, weighted average yield and price. Weekly.",
+     "sample_files": [
+      "samples/SYC/sc_tbill_results_2026-10-02.pdf"
+     ],
+     "terms_of_use": "not checked (low priority)"
+    }
+   ]
+  },
+  "BDI": {
+   "usable_now": "yes (text PDFs)",
+   "recommended_order": 14,
+   "priority": "low",
+   "sources": [
+    {
+     "url": "https://www.brb.bi/r-sultats-d-adjudications-des-bons-du-tr-sor",
+     "status": 200,
+     "notes": "Drupal list (10/page, paginated) of node pages each linking a PDF under /sites/default/files/; separate page for Obligations du Trésor results (/r-sultats-d-adjudication-des-obligations-du-tr-sor, not fetched). Fields: maturité, date enchère, date échéance, N° enchère (security code), montant annoncé/offert/adjugé, nombre offres/adjugées, plage de taux, taux marginal, taux moyen pondéré, offres non comp., taux de satisfaction. Oldest date not determined.",
+     "sample_files": [
+      "samples/BDI/bi_tbill_results_2026-09-23.pdf"
+     ],
+     "terms_of_use": "not checked (low priority)"
+    }
+   ]
+  },
+  "COM": {
+   "usable_now": "partial (HTML press text only)",
+   "recommended_order": null,
+   "priority": "low",
+   "sources": [
+    {
+     "url": "https://banque-comores.km/article/show/annonce-du-resultat-global-de-ladjudication-de-lappel-doffres-demission-de-bons-du-tresor-n00042026-du-31-aout-2026",
+     "status": 200,
+     "notes": "Short HTML articles: amount issued, maturity, number of bids, coverage ratio, weighted average rate (TMP). 2026 auctions N°0002-0004 seen. www.banque-comores.km redirected to banque-comores.km.",
+     "sample_files": [],
+     "terms_of_use": "not checked (low priority)"
+    }
+   ]
+  },
+  "SWZ": {
+   "usable_now": "partial (stale XLSX 2015-2020)",
+   "recommended_order": null,
+   "priority": "low",
+   "sources": [
+    {
+     "url": "https://www.centralbank.org.sz/t-bills-historical-information/",
+     "status": 200,
+     "notes": "6 XLSX 'TB-Results-Historical-Information-2015..2020.xlsx' (not downloaded). Current T-bill/bond result documents not found on /treasury-bills-2/, /government-bonds/ (only bond adverts/calendar PDFs to Aug 2026) or /tenders/.",
+     "sample_files": [],
+     "terms_of_use": "not checked (low priority)"
+    }
+   ]
+  },
+  "LSO": {
+   "usable_now": "unclear",
+   "recommended_order": null,
+   "priority": "low",
+   "sources": [
+    {
+     "url": "https://centralbank.org.ls/results/",
+     "status": 200,
+     "notes": "'TBonds & Tbills Results' page with tabs, but no document links in static HTML (likely loaded via admin-ajax). /auctions/ (200) describes T-bills/bonds (bonds quarterly, listed on Maseru Securities Market). www.centralbank.org.ls failed; centralbank.org.ls works.",
+     "sample_files": [],
+     "terms_of_use": "not checked (low priority)"
+    }
+   ]
+  },
+  "ZWE": {
+   "usable_now": "no (not found)",
+   "recommended_order": null,
+   "priority": "low",
+   "sources": [
+    {
+     "url": "https://www.rbz.co.zw/index.php/financial-markets",
+     "status": 200,
+     "notes": "Financial markets section shows only FX auction / NPS; no T-bill/bond auction results found by navigation.",
+     "sample_files": [],
+     "terms_of_use": "not checked (low priority)"
+    }
+   ]
+  },
+  "SSD": {
+   "usable_now": "no",
+   "recommended_order": null,
+   "priority": "low",
+   "sources": [
+    {
+     "url": "https://boss.gov.ss/treasury-bills/",
+     "status": 200,
+     "notes": "Page exists but only a heading 'Information on Treasury Bills'; no results/documents.",
+     "sample_files": [],
+     "terms_of_use": "not checked (low priority)"
+    }
+   ]
+  },
+  "MDG": {
+   "usable_now": "not determined",
+   "recommended_order": null,
+   "priority": "low",
+   "sources": [
+    {
+     "url": "https://www.banky-foibe.mg/",
+     "status": 200,
+     "notes": "Angular SPA (headless WordPress at /admin/wp-json); WP REST search/media endpoints returned 404. Auction (BTA) results not located; Treasury (Ministry of Finance) site not checked.",
+     "sample_files": [],
+     "terms_of_use": "not checked (low priority)"
+    }
+   ]
+  },
+  "AGO": {
+   "usable_now": "not determined",
+   "recommended_order": null,
+   "priority": "low",
+   "sources": [
+    {
+     "url": "https://www.bna.ao/",
+     "status": 200,
+     "notes": "Home page is a near-empty JS shell (7 KB); auction pages not located without JS rendering.",
+     "sample_files": [],
+     "terms_of_use": "not checked (low priority)"
+    }
+   ]
+  },
+  "SDN": {
+   "usable_now": "not determined",
+   "recommended_order": null,
+   "priority": "low",
+   "sources": [
+    {
+     "url": "https://cbos.gov.sd/",
+     "status": 200,
+     "notes": "Arabic site; no securities/auction links found on home page.",
+     "sample_files": [],
+     "terms_of_use": "not checked (low priority)"
+    }
+   ]
+  },
+  "DJI": {
+   "usable_now": "no (no domestic T-bill programme visible)",
+   "recommended_order": null,
+   "priority": "low",
+   "sources": [
+    {
+     "url": "https://banque-centrale.dj/",
+     "status": 200,
+     "notes": "No auction/securities links on home page (www. variant timed out).",
+     "sample_files": [],
+     "terms_of_use": "not checked (low priority)"
+    }
+   ]
+  },
+  "SOM": {
+   "usable_now": "not determined",
+   "recommended_order": null,
+   "priority": "low",
+   "sources": [
+    {
+     "url": "https://centralbank.gov.so/",
+     "status": 403,
+     "notes": "Blocked automated access (403).",
+     "sample_files": [],
+     "terms_of_use": "not checked (low priority)"
+    }
+   ]
+  },
+  "ERI": {
+   "usable_now": "not determined",
+   "recommended_order": null,
+   "priority": "low",
+   "sources": [
+    {
+     "url": "https://www.boe.gov.er/",
+     "status": 0,
+     "notes": "No response (connection failed); domain/URL is a guess from memory - unverified.",
+     "sample_files": [],
+     "terms_of_use": "not checked (low priority)"
+    }
+   ]
+  }
+ }
+}

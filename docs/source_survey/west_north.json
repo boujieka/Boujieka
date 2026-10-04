@@ -1,0 +1,716 @@
+{
+ "_meta": {
+  "survey_date": "2026-10-04",
+  "user_agent": "CartoucheSourceSurvey/1.0 (https://cartouche-africa.netlify.app)",
+  "requests_made": "~120",
+  "method": "Every URL below was fetched during this survey unless marked 'not fetched'. Navigated from official home pages.",
+  "tls_note": "www.bank-of-algeria.dz and www.tunisieclearing.com serve incomplete certificate chains. Verification was kept on: the missing intermediates (DigiCert Global G2 TLS RSA SHA256 2020 CA1, Sectigo Public Server Authentication CA DV R36) were downloaded from the issuers' AIA URLs and appended to the proxy CA bundle (certs/bundle.pem)."
+ },
+ "countries": {
+  "NGA": {
+   "usable_now": "yes",
+   "recommended_rank": 1,
+   "sources": [
+    {
+     "name": "CBN government securities JSON API: NTB primary auctions",
+     "url": "https://www.cbn.gov.ng/api/GetAllSecuritiesNTB",
+     "found_via": "https://www.cbn.gov.ng/rates/GovtSecurities.html (the page JS calls the API)",
+     "status": 200,
+     "format": "JSON (1,812 records)",
+     "history_oldest": "2002-01-03",
+     "history_newest": "2026-09-23",
+     "cadence": "biweekly NTB auctions (91/182/364-day)",
+     "fields_available": [
+      "auctionDate",
+      "securityType",
+      "tenor",
+      "auctionNo",
+      "auction (Primary Market/OMO)",
+      "maturityDate",
+      "amtOffered",
+      "totalSubscription",
+      "totalSuccessful (allotted)",
+      "rangeBid",
+      "successfulBidRates",
+      "rate (stop/issue rate)",
+      "trueYield",
+      "totalAmtRepaid",
+      "netType",
+      "netValue"
+     ],
+     "text_or_scanned": "structured JSON",
+     "sample_files": [
+      "NGA_cbn_ntb_sample.json"
+     ],
+     "terms_of_use": "not found (CBN homepage has no terms/disclaimer link, and /disclaimer.html returned 404)",
+     "notes": "Best source in the survey. No ISIN, no bid count. Amounts look like NGN millions for NTB (e.g. amtOffered 100000.0000). Dates are strings like 'September-23-2026'. trueYield is 0.0000 on recent records."
+    },
+    {
+     "name": "CBN JSON API: FGN Bond",
+     "url": "https://www.cbn.gov.ng/api/GetAllSecuritiesFGNBond",
+     "status": 200,
+     "format": "JSON (508 records)",
+     "history_oldest": "2002-11-29",
+     "history_newest": "2023-06-19",
+     "cadence": "monthly; this feed appears STALE after 2023-06",
+     "fields_available": "same schema as NTB",
+     "text_or_scanned": "structured JSON",
+     "sample_files": [
+      "NGA_cbn_fgnbond_sample.json"
+     ],
+     "terms_of_use": "not found",
+     "notes": "Use the DMO PDFs for FGN bonds after 2023."
+    },
+    {
+     "name": "CBN JSON API: OMO",
+     "url": "https://www.cbn.gov.ng/api/GetAllSecuritiesOMO",
+     "status": 200,
+     "format": "JSON (2,421 records)",
+     "history_oldest": "2002-01-04",
+     "history_newest": "2026-09-29",
+     "cadence": "several per month",
+     "fields_available": "same schema",
+     "text_or_scanned": "structured JSON",
+     "sample_files": [
+      "NGA_cbn_omo_sample.json"
+     ],
+     "terms_of_use": "not found",
+     "notes": "These are CBN bills, not sovereign debt. Units are inconsistent: recent OMO amounts are in full naira (5e11), older ones in millions."
+    },
+    {
+     "name": "DMO FGN Bond auction results",
+     "url": "https://www.dmo.gov.ng/fgn-bonds/auction",
+     "status": 200,
+     "format": "HTML listing (Joomla, 20 per page, ~12 pages) -> text PDF via /<id>-<slug>/file",
+     "history_oldest": "2008-01 ('Summary of Auction Result for January 2008', last listing page limitstart=220)",
+     "history_newest": "2026-09-14",
+     "cadence": "monthly",
+     "fields_available": [
+      "auction date",
+      "settlement date",
+      "maturity date",
+      "tenor",
+      "term-to-maturity",
+      "coupon (in bond name)",
+      "amount offered",
+      "total bids (count)",
+      "successful bids (count)",
+      "subscription",
+      "non-competitive allotment",
+      "amount allotted to market",
+      "range of bids",
+      "marginal rate"
+     ],
+     "text_or_scanned": "text (Excel-generated PDF)",
+     "sample_files": [
+      "NGA_dmo_fgnbond_auction_sep2026.pdf"
+     ],
+     "terms_of_use": "'Copyright © 2026 Debt Management Office Nigeria. All Rights Reserved.' (footer, https://www.dmo.gov.ng/). No terms-of-use page found, only a /privacy notice.",
+     "notes": "No ISIN. Each listing item has an RSS feed (?format=rss). The DMO also publishes daily Eurobond closing price and yield files on its homepage (e.g. /6090-nigeria-s-eurobonds-closing-prices-...-/file; format not opened)."
+    },
+    {
+     "name": "DMO Nigerian Treasury Bills listing",
+     "url": "https://www.dmo.gov.ng/fgn-bonds/nigerian-treasury-bills",
+     "status": 200,
+     "format": "HTML listing -> PDF",
+     "history_oldest": "~2010",
+     "history_newest": "2021-03-10",
+     "cadence": "stale",
+     "fields_available": "not inspected",
+     "text_or_scanned": "n/a",
+     "sample_files": [],
+     "terms_of_use": "as DMO",
+     "notes": "STALE since March 2021. Use the CBN NTB API instead."
+    },
+    {
+     "name": "NGX bonds price list (exchange)",
+     "url": "https://ngxgroup.com/exchange/data/bonds-price-list/",
+     "api": "https://doclib.ngxgroup.com/REST/api/statistics/bonds/?market=&sector=&orderby=&pageSize=300&pageNo=0",
+     "status": 200,
+     "format": "JSON behind a JS page",
+     "history_oldest": "current snapshot only",
+     "history_newest": "live",
+     "cadence": "daily",
+     "fields_available": [
+      "Symbol",
+      "PrevClosingPrice",
+      "OpeningPrice",
+      "High",
+      "Low",
+      "ClosePrice",
+      "Change",
+      "Trades",
+      "Volume",
+      "Value",
+      "Market",
+      "Sector"
+     ],
+     "text_or_scanned": "structured JSON",
+     "sample_files": [
+      "NGA_ngx_bonds_pricelist_sample.json"
+     ],
+     "terms_of_use": "'The Data Agreement and Policy document set out the terms and conditions under which persons or entities receiving NGX Market Data may use and/or disseminate it.' (https://ngxgroup.com/exchange/data/data-pricing-policies-contracts/). Redistribution appears to need a licence; the agreement document was not read.",
+     "notes": "Most listed bonds show no trades. FMDQ (fmdqgroup.com) homepage fetched but no machine-readable quotation link found; not pursued."
+    }
+   ]
+  },
+  "GHA": {
+   "usable_now": "yes",
+   "recommended_rank": 2,
+   "sources": [
+    {
+     "name": "BoG treasury bill rates table (wpDataTables)",
+     "url": "https://www.bog.gov.gh/treasury-and-the-markets/treasury-bill-rates/",
+     "api": "POST https://www.bog.gov.gh/wp-admin/admin-ajax.php?action=get_wdtable&table_id=2 (needs the wdtNonce scraped from the page)",
+     "status": 200,
+     "format": "HTML table + server-side JSON (1,386 rows)",
+     "history_oldest": "2013-08-26",
+     "history_newest": "2026-09-28",
+     "cadence": "weekly",
+     "fields_available": [
+      "Issue Date",
+      "Tender no.",
+      "Security Type (91/182/364-day bills, 1-2Y notes, 3-15Y FXR bonds)",
+      "Discount Rate",
+      "Interest Rate"
+     ],
+     "text_or_scanned": "structured",
+     "sample_files": [
+      "GHA_bog_tbill_rates_sample.json"
+     ],
+     "terms_of_use": "see BoG disclaimer below",
+     "notes": "Rates only, no amounts. The AJAX endpoint is internal and its nonce rotates."
+    },
+    {
+     "name": "BoG weekly GoG T-bill auction results",
+     "url": "https://www.bog.gov.gh/gog_auction_results/",
+     "status": 200,
+     "format": "HTML post -> text PDF (wp-content/uploads/YYYY/MM/Auctresults-<tender>.pdf)",
+     "history_oldest": "only ~12 most recent tenders visible (from 2026-07-10). /page/N/ returns the same list, so the archive could not be browsed",
+     "history_newest": "2026-09-26 (tender 2026)",
+     "cadence": "weekly",
+     "fields_available": [
+      "ISIN",
+      "security (tenor)",
+      "bids tendered",
+      "bids accepted",
+      "range of bid rates",
+      "bid rates allotted in full (discount and interest)",
+      "weighted average discount and interest rate",
+      "target amount",
+      "issue date",
+      "previous-tender totals",
+      "next tender target"
+     ],
+     "text_or_scanned": "text (Word-generated)",
+     "sample_files": [
+      "GHA_bog_gog_tender2026.pdf"
+     ],
+     "terms_of_use": "'The information on this site is provided for general reference purposes only. Whilst every effort is made to ensure that the site is up-to-date and accurate, the Bank of Ghana does not guarantee, nor does it accept any responsibility or liability for, the accuracy or completeness of the content...' (https://www.bog.gov.gh/disclaimer/). Footer: '© 2026 Bank of Ghana. All rights reserved.' No explicit reuse clause.",
+     "notes": "Also /bog_auction_results/ (BoG bills, central bank paper). Ghana bond auctions (MoF) not surveyed."
+    },
+    {
+     "name": "GSE / GFIM",
+     "url": "https://gse.com.gh/market-reports/",
+     "status": 200,
+     "format": "page content not machine-readable in static HTML",
+     "history_oldest": "unknown",
+     "history_newest": "unknown",
+     "cadence": "unknown",
+     "fields_available": [],
+     "text_or_scanned": "needs JS?",
+     "sample_files": [],
+     "terms_of_use": "not checked",
+     "notes": "gse.com.gh links to http://gfim.com.gh/ (not fetched). Not usable without more work."
+    }
+   ]
+  },
+  "MAR": {
+   "usable_now": "yes",
+   "recommended_rank": 3,
+   "sources": [
+    {
+     "name": "Bank Al-Maghrib: Résultats des émissions de bons du Trésor",
+     "url": "https://www.bkam.ma/Marches/Principaux-indicateurs/Marche-obligataire/Marche-des-bons-de-tresor/Marche-des-adjudications-des-bons-du-tresor/Resultats-des-emissions-de-bons-du-tresor",
+     "query": "?date=DD/MM/YYYY&block=f8d362b3c0ed59471cdd44431682a04a (date = settlement date, a Monday)",
+     "csv_export": "https://www.bkam.ma/export/blockcsv/1776/c84c024076969f9a943da18ad33b34d5/f8d362b3c0ed59471cdd44431682a04a?block=f8d362b3c0ed59471cdd44431682a04a",
+     "status": 200,
+     "format": "HTML table + CSV export (';' separator, decimal comma, UTF-8)",
+     "history_oldest": "at least 2003-01-06 (queried); earliest not determined",
+     "history_newest": "2026-10-05 (settlement date)",
+     "cadence": "weekly",
+     "fields_available": [
+      "settlement date",
+      "maturity bucket (13/26/52 weeks, 2/5/10/15/20/30 years)",
+      "characteristics (maturity date, coupon)",
+      "amount bid (MAD m)",
+      "min/max rate or price",
+      "amount allotted",
+      "limit (stop) rate or price",
+      "weighted average rate or price"
+     ],
+     "text_or_scanned": "structured",
+     "sample_files": [
+      "MAR_bkam_tbond_auction_latest.csv"
+     ],
+     "terms_of_use": "'Le droit d'auteur sur le présent site Web et tous les documents qui y sont contenus appartient à Bank Al-Maghrib. La reproduction, en totalité ou en partie du présent site Web est interdite. Les utilisateurs sont tenus de se conformer aux conditions de réutilisation des données et statistiques de la Banque intégrées au niveau de la Charte de Bank Al-Maghrib sur la diffusion des données et statistiques.' (https://www.bkam.ma/Trouvez-l-information-concernant/Mentions-legales). The Charte was not read.",
+     "notes": "No ISIN and no bid count. A date with no auction returns 'Aucun enregistrement trouvé'. BKAM also runs a free developer API portal (https://apihelpdesk.centralbankofmorocco.ma, free API key needed; catalogue not checked). Also available: 'Taux de référence des bons du Trésor' (secondary yield curve) at /Marches/.../Marche-secondaire/Taux-de-reference-des-bons-du-tresor (not fetched)."
+    },
+    {
+     "name": "Ministère de l'Économie et des Finances (DTFE) communiqués",
+     "url": "https://www.finances.gov.ma/fr/Pages/communiques.aspx",
+     "status": 200,
+     "format": "HTML list -> PDFs",
+     "history_oldest": "not determined",
+     "history_newest": "2026-10-02",
+     "cadence": "daily",
+     "fields_available": "treasury cash placements and 'Cotation électronique des BDT (E-Bond Maroc)' communiqués. No auction-result PDF seen on the first page",
+     "text_or_scanned": "not opened",
+     "sample_files": [],
+     "terms_of_use": "not checked",
+     "notes": "BKAM is the better source for auction results."
+    },
+    {
+     "name": "Bourse de Casablanca",
+     "url": "https://www.casablanca-bourse.com/",
+     "status": 200,
+     "format": "JS-rendered site (13 KB shell)",
+     "notes": "No bond price list found in the static HTML. Not pursued.",
+     "history_oldest": null,
+     "history_newest": null,
+     "cadence": null,
+     "fields_available": [],
+     "text_or_scanned": "needs JS",
+     "sample_files": [],
+     "terms_of_use": "not checked"
+    }
+   ]
+  },
+  "EGY": {
+   "usable_now": "yes (MoF yields only; CBE blocked)",
+   "recommended_rank": 4,
+   "sources": [
+    {
+     "name": "Central Bank of Egypt",
+     "url": "https://www.cbe.org.eg/",
+     "status": "200 with body 'Request Rejected' (WAF); a deep URL returned 403",
+     "format": "n/a",
+     "notes": "The origin WAF blocks this UA, even with browser Accept headers. Not a proxy denial (proxy status shows no failures). The CBE auction pages could not be confirmed.",
+     "history_oldest": null,
+     "history_newest": null,
+     "cadence": null,
+     "fields_available": [],
+     "text_or_scanned": "n/a",
+     "sample_files": [],
+     "terms_of_use": "not reachable"
+    },
+    {
+     "name": "Ministry of Finance: Treasury Bills posts (API behind the React SPA)",
+     "url": "https://mof.gov.eg/ (SPA)",
+     "api": "https://api.mof.gov.eg/api/posts?filter={\"where\":{\"postType\":\"treasuryBills\"},\"limit\":400,\"order\":\"createdAt DESC\"}",
+     "status": 200,
+     "format": "JSON; each post's content.raw is an HTML table",
+     "history_oldest": "2020-12-15",
+     "history_newest": "2026-08-23 ('Treasury Securities Auctions Results 23 August 2026')",
+     "cadence": "per auction, with gaps (387 posts since 2020)",
+     "fields_available": [
+      "tenor",
+      "high yield",
+      "low yield",
+      "average yield",
+      "auction date (in a second table)"
+     ],
+     "text_or_scanned": "HTML in JSON",
+     "sample_files": [
+      "EGY_mof_treasury_posts_sample.json"
+     ],
+     "terms_of_use": "not checked",
+     "notes": "No amounts offered or accepted and no ISIN. The table layout varies over time (needs a robust HTML-table parser). The API endpoint was found in the site JS (main.82fbec15.chunk.js) and is undocumented. EGX (www.egx.com.eg) returned an empty reply."
+    }
+   ]
+  },
+  "TUN": {
+   "usable_now": "partial (archive only)",
+   "recommended_rank": 7,
+   "sources": [
+    {
+     "name": "Ministère des Finances: Adjudications",
+     "url": "https://www.finances.gov.tn/fr/adjudications",
+     "status": 200,
+     "format": "HTML -> text PDFs (Excel-generated)",
+     "history_oldest": "2007 (annual 'Emissions des BTA 2007-2008')",
+     "history_newest": "2018 ('Emission BTC 2018'). Monthly 'Résultat de l'adjudication des BTA' PDFs end in March 2013",
+     "cadence": "STALE",
+     "fields_available": [
+      "auction month and date",
+      "line (BTA coupon and maturity)",
+      "amount offered per line",
+      "amount accepted per line",
+      "TMP (weighted average rate)",
+      "total announced/offered/accepted",
+      "ratios"
+     ],
+     "text_or_scanned": "text",
+     "sample_files": [
+      "TUN_mof_emission_BTA_2017.pdf"
+     ],
+     "terms_of_use": "not found on the MoF page",
+     "notes": "Usable only for 2007-2018 history. /fr/les-indicateurs/marche-secondaire fetched (no PDF/XLS links in static HTML)."
+    },
+    {
+     "name": "Banque Centrale de Tunisie",
+     "url": "https://www.bct.gov.tn/bct/siteprod/index.jsp",
+     "status": 200,
+     "format": "HTML",
+     "notes": "No T-bill auction results page found in the sitemap (plan_site3.jsp) or the statistics index (stat_index.jsp lists only interest rates such as TMM).",
+     "history_oldest": null,
+     "history_newest": null,
+     "cadence": null,
+     "fields_available": [],
+     "text_or_scanned": "n/a",
+     "sample_files": [],
+     "terms_of_use": "'l'ensemble du contenu du site web est protégé par le droit d'auteur et constitue la propriété exclusive de la BCT. Les usagers peuvent imprimer, télécharger des informations ou données du site à des fins exclusivement personnelles. Ils ne sont pas autorisés à recopier tout ou partie du site sur un autre site ou un réseau interne. Ils ne sont pas autorisés à vendre ou à distribuer le contenu du site...' (https://www.bct.gov.tn/bct/siteprod/documents/termes.pdf)"
+    },
+    {
+     "name": "Tunisie Clearing",
+     "url": "https://www.tunisieclearing.com/tc/",
+     "status": 200,
+     "format": "Angular SPA (needs JS)",
+     "notes": "The current BTA/BTCT results most likely live here, but the site is client-rendered and no public API path was found in the bundle. Unconfirmed.",
+     "history_oldest": null,
+     "history_newest": null,
+     "cadence": null,
+     "fields_available": [],
+     "text_or_scanned": "needs JS",
+     "sample_files": [],
+     "terms_of_use": "not checked"
+    },
+    {
+     "name": "BVMT",
+     "url": "https://www.bvmt.com.tn/",
+     "status": 200,
+     "format": "redirect notice to https://tunis-stockexchange.com/ (not fetched)",
+     "notes": "",
+     "history_oldest": null,
+     "history_newest": null,
+     "cadence": null,
+     "fields_available": [],
+     "text_or_scanned": "n/a",
+     "sample_files": [],
+     "terms_of_use": "not checked"
+    }
+   ]
+  },
+  "DZA": {
+   "usable_now": "no (auctions); OAT trading data only",
+   "recommended_rank": 10,
+   "sources": [
+    {
+     "name": "Banque d'Algérie",
+     "url": "https://www.bank-of-algeria.dz/",
+     "status": "200 (after supplying the missing DigiCert intermediate)",
+     "format": "HTML",
+     "notes": "No treasury auction results found. 'Statistiques du marché' covers the interbank, FX and liquidity markets. The Ministry of Finance (https://www.mf.gov.dz/) returned HTTP 500.",
+     "history_oldest": null,
+     "history_newest": null,
+     "cadence": null,
+     "fields_available": [],
+     "text_or_scanned": "n/a",
+     "sample_files": [],
+     "terms_of_use": "not checked"
+    },
+    {
+     "name": "Bourse d'Alger (SGBV): OAT trading history",
+     "url": "https://www.sgbv.dz/?page=histo_boc_oat&lang=fr",
+     "status": 200,
+     "format": "HTML table",
+     "history_oldest": "at least 2026-01-06 on the default view",
+     "history_newest": "2026",
+     "cadence": "per trading day",
+     "fields_available": [
+      "date",
+      "volume",
+      "value (DA)",
+      "number of trades",
+      "detail link"
+     ],
+     "text_or_scanned": "HTML",
+     "sample_files": [],
+     "terms_of_use": "not checked",
+     "notes": "Secondary-market OAT trades. Not auction results. /?page=oat lists the listed OATs (not fetched)."
+    }
+   ]
+  },
+  "GMB": {
+   "usable_now": "yes",
+   "recommended_rank": 5,
+   "sources": [
+    {
+     "name": "Central Bank of The Gambia: Auction Results",
+     "url": "https://www.cbg.gm/auction-results",
+     "download": "https://www.cbg.gm/auction-results-download/YYYY-MM-DD 00:00:00/xlsx (also /pdf)",
+     "status": 200,
+     "format": "HTML table + XLSX/PDF per auction date",
+     "history_oldest": "2017-11-29 (383 dates in the selector; the oldest XLSX downloaded OK)",
+     "history_newest": "2026-09-30",
+     "cadence": "weekly",
+     "fields_available": [
+      "maturity (91/182/364-day T-bills, Sukuk al-Salaam SS)",
+      "amount floated",
+      "applied",
+      "accepted",
+      "under/over-subscription",
+      "weighted average price",
+      "yield p.a.",
+      "lowest/highest bid price"
+     ],
+     "text_or_scanned": "structured XLSX",
+     "sample_files": [
+      "GMB_cbg_auction_2026-09-30.xlsx",
+      "GMB_cbg_auction_2017-11-29.xlsx"
+     ],
+     "terms_of_use": "Footer only: 'Copyright © 2026. All Rights Reserved.' No terms page found.",
+     "notes": "Clean and easy to ingest. The XLSX title has a typo ('Aunction'). /bonds and /central-bank-bills pages exist (not fetched)."
+    }
+   ]
+  },
+  "SLE": {
+   "usable_now": "yes (PDF parse)",
+   "recommended_rank": 6,
+   "sources": [
+    {
+     "name": "Bank of Sierra Leone: Treasury Bills Auction",
+     "url": "https://bsl.gov.sl/Treasury_Bills.html",
+     "status": "200 (www.bsl.gov.sl gives proxy CONNECT 502; use the bare domain)",
+     "format": "static HTML list -> text PDFs ('Announcement  DD MM YYYY.pdf')",
+     "history_oldest": "2025-07-03 (64 links on the page)",
+     "history_newest": "2026-09-24",
+     "cadence": "weekly (Thursday)",
+     "fields_available": [
+      "tenor",
+      "amount demanded",
+      "amount supplied/issued",
+      "highest/lowest bid price",
+      "clearing price",
+      "average discount price",
+      "annual yield",
+      "next week's offer (issue date, maturity date, amount)"
+     ],
+     "text_or_scanned": "text (Word-generated)",
+     "sample_files": [
+      "SLE_bsl_tbill_auction_2026-09-24.pdf"
+     ],
+     "terms_of_use": "'Users of the Bank of Sierra Leone website are free to make personal use of the information obtained directly therefrom... Any other use of the information, other than merely for personal consultation, is authorised only if the following terms and conditions are observed and complied with: Any distribution or reproduction of information disseminated on the Bank of Sierra Leone website shall be carried out faithfully, without any ...' (https://bsl.gov.sl/Disclaimer.html)",
+     "notes": "File names contain double spaces and irregular suffixes. The 2026 auction calendar PDF is on the homepage."
+    }
+   ]
+  },
+  "LBR": {
+   "usable_now": "no (T-bills stale); CBL bills weekly",
+   "recommended_rank": 11,
+   "sources": [
+    {
+     "name": "CBL publications: Treasury Bills",
+     "url": "https://www.cbl.org.lr/publications/document-type/treasury-bills",
+     "status": 200,
+     "format": "HTML list -> PDFs",
+     "history_oldest": "2013-05",
+     "history_newest": "2015-08",
+     "cadence": "STALE",
+     "fields_available": "not opened",
+     "text_or_scanned": "not checked",
+     "sample_files": [],
+     "terms_of_use": "not checked",
+     "notes": "Government T-bill results stop in 2015 here. /publications/document-type/central-bank-liberia-bills has weekly 'CBL Bills Issuance Report' PDFs up to 2026-07-31 (central bank paper, not sovereign). The MFDP site was not checked."
+    }
+   ]
+  },
+  "COD": {
+   "usable_now": "partial (T-bills stop in 2024)",
+   "recommended_rank": 8,
+   "sources": [
+    {
+     "name": "BCC: Bons du Trésor avis au public / Taux des bons du Trésor",
+     "url": "https://www.bcc.cd/politique-monetaire/taux-bons-tresor",
+     "listing": "https://www.bcc.cd/politique-monetaire/bons-tresor-avis-au-public",
+     "status": 200,
+     "format": "Next.js HTML (data embedded) -> text PDFs on resources.bcc.cd",
+     "history_oldest": "2021 (year filter), 2023-11-16",
+     "history_newest": "2024-12-03",
+     "cadence": "irregular; nothing after Dec 2024 seen",
+     "fields_available": [
+      "auction number",
+      "auction date",
+      "ISIN",
+      "total bids",
+      "total allotted",
+      "competitive bids received",
+      "marginal yield",
+      "weighted average yield",
+      "yield range",
+      "number of bids received/refused/allotted",
+      "per-bid table (bank, account, amount, yield, price)"
+     ],
+     "text_or_scanned": "text (Excel-generated)",
+     "sample_files": [
+      "COD_bcc_bons_tresor_indexes_2024-06-04.pdf"
+     ],
+     "terms_of_use": "'La reproduction ou la diffusion de ces contenus est autorisée à des fins d'information, d'étude ou de recherche, sous réserve de citer la source « Banque Centrale du Congo » ainsi que, le cas échéant, la date de publication. Toute utilisation des contenus du site à des fins mercantiles ou commerciales est interdite.' (https://www.bcc.cd/mentions-legales)",
+     "notes": "WARNING: the per-bid table names individual investors (personal data). Ingest only the summary fields. Commercial use is prohibited. '/politique-monetaire/adjudications-resultats/<date>' (326 entries, 2016-03-21 to 2025-11-12) are FX auctions (ABD), not T-bills (sample COD_bcc_FX_auction_ABD_2025-11-12.pdf). 'Bons BCC' (central bank bills) are published up to July 2026."
+    }
+   ]
+  },
+  "BDI": {
+   "usable_now": "yes (PDF parse)",
+   "recommended_rank": 9,
+   "sources": [
+    {
+     "name": "BRB: Résultats d'adjudication des Obligations du Trésor",
+     "url": "https://www.brb.bi/r-sultats-d-adjudication-des-obligations-du-tr-sor",
+     "status": 200,
+     "format": "Drupal listing -> node page -> text PDF",
+     "history_oldest": "not determined (pagination did not resolve beyond page 1 in static HTML)",
+     "history_newest": "2026-09-23",
+     "cadence": "weekly",
+     "fields_available": [
+      "maturity",
+      "auction date",
+      "maturity date",
+      "auction number (ISIN-like code BIOT...)",
+      "amount announced",
+      "amount offered",
+      "amount allotted",
+      "number of bids",
+      "number of allotted bids",
+      "price range",
+      "marginal price",
+      "weighted average price",
+      "non-competitive bids",
+      "satisfaction rate"
+     ],
+     "text_or_scanned": "text (Excel-generated)",
+     "sample_files": [
+      "BDI_brb_OT_adjudication_2026-09-23.pdf"
+     ],
+     "terms_of_use": "not checked",
+     "notes": "T-bond results. A T-bill page ('Appel de soumission aux Bons du Trésor') also exists (not fetched). Check whether the East Africa survey already covers Burundi."
+    }
+   ]
+  },
+  "STP": {
+   "usable_now": "partial (summary PDF)",
+   "recommended_rank": 12,
+   "sources": [
+    {
+     "name": "BCSTP: Bilhetes do Tesouro statistics",
+     "url": "https://www.bcstp.st/Banco-Central?x=khMZ5XOM5dFO7BVAMIu77A==&&z=pEvrI8hJvZcfm/czXZ8ZQA==",
+     "pdf": "https://www.bcstp.st/Upload/New_DOC/ME/BT%20total%20resumo_26.pdf",
+     "status": 200,
+     "format": "HTML -> text PDF (cumulative issuance table)",
+     "history_oldest": "2025-09-18 (in the current file)",
+     "history_newest": "2026-07-07",
+     "cadence": "ad hoc (~monthly)",
+     "fields_available": [
+      "ID/ISIN-like code (STPBTTES00xx)",
+      "issue date",
+      "maturity date",
+      "rate",
+      "auction type",
+      "number of participants",
+      "offer",
+      "placement",
+      "demand",
+      "excess demand",
+      "allotment ratio"
+     ],
+     "text_or_scanned": "text",
+     "sample_files": [
+      "STP_bcstp_BT_total_resumo_26.pdf"
+     ],
+     "terms_of_use": "not checked",
+     "notes": "An OT (bonds) page also exists. The file is overwritten in place, so it must be snapshotted to build history."
+    }
+   ]
+  },
+  "GIN": {
+   "usable_now": "no",
+   "recommended_rank": 13,
+   "sources": [
+    {
+     "name": "BCRG Marché obligataire",
+     "url": "https://www.bcrg-guinee.org/marches/marche-obligtaire/",
+     "status": 200,
+     "format": "HTML",
+     "notes": "No auction results or data links in static HTML (only governance PDFs). Treasury site not checked.",
+     "history_oldest": null,
+     "history_newest": null,
+     "cadence": null,
+     "fields_available": [],
+     "text_or_scanned": "n/a",
+     "sample_files": [],
+     "terms_of_use": "not checked"
+    }
+   ]
+  },
+  "CPV": {
+   "usable_now": "no (not found)",
+   "recommended_rank": 14,
+   "sources": [
+    {
+     "name": "Banco de Cabo Verde",
+     "url": "https://www.bcv.cv/pt/Paginas/Homepage.aspx",
+     "status": 200,
+     "format": "SharePoint HTML",
+     "notes": "Only 'Títulos do Banco Central' (central bank securities) was linked. No treasury auction results found. Bolsa de Valores de Cabo Verde was not checked.",
+     "history_oldest": null,
+     "history_newest": null,
+     "cadence": null,
+     "fields_available": [],
+     "text_or_scanned": "n/a",
+     "sample_files": [],
+     "terms_of_use": "not checked"
+    }
+   ]
+  },
+  "MRT": {
+   "usable_now": "no (JS)",
+   "recommended_rank": 15,
+   "sources": [
+    {
+     "name": "Banque Centrale de Mauritanie",
+     "url": "https://www.bcm.mr/",
+     "status": 200,
+     "format": "JS SPA (2.5 KB shell)",
+     "notes": "Needs JavaScript. Auction pages could not be confirmed.",
+     "history_oldest": null,
+     "history_newest": null,
+     "cadence": null,
+     "fields_available": [],
+     "text_or_scanned": "needs JS",
+     "sample_files": [],
+     "terms_of_use": "not checked"
+    }
+   ]
+  },
+  "LBY": {
+   "usable_now": "no",
+   "recommended_rank": 16,
+   "sources": [
+    {
+     "name": "Central Bank of Libya",
+     "url": "https://cbl.gov.ly/",
+     "status": 200,
+     "format": "HTML (Arabic)",
+     "notes": "No auction, bill or bond links found on the homepage.",
+     "history_oldest": null,
+     "history_newest": null,
+     "cadence": null,
+     "fields_available": [],
+     "text_or_scanned": "n/a",
+     "sample_files": [],
+     "terms_of_use": "not checked"
+    }
+   ]
+  }
+ }
+}
