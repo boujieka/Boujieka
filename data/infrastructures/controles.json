@@ -1,0 +1,412 @@
+{
+  "routes_motorway": {
+    "nb_entites": 110,
+    "geometries_valides": true,
+    "emprise": [
+      9.8783,
+      2.7175,
+      11.5443,
+      3.9535
+    ],
+    "dans_emprise_cameroun": true,
+    "taille_mo": 0.07,
+    "longueur_totale_km": 229.7,
+    "longueur_bretelles_km": 15.8,
+    "part_longueur_avec_surface": 0.699,
+    "surface_km": {
+      "asphalt": 160.5,
+      "non_renseigne": 69.2
+    }
+  },
+  "routes_trunk": {
+    "nb_entites": 2841,
+    "geometries_valides": true,
+    "emprise": [
+      8.8354,
+      2.0429,
+      15.699,
+      12.7341
+    ],
+    "dans_emprise_cameroun": true,
+    "taille_mo": 2.2,
+    "longueur_totale_km": 8090.8,
+    "longueur_bretelles_km": 21.4,
+    "part_longueur_avec_surface": 0.905,
+    "surface_km": {
+      "asphalt": 4182.9,
+      "unpaved": 1205.8,
+      "paved": 980.8,
+      "non_renseigne": 766.8,
+      "ground": 466.1,
+      "laterite": 222.9,
+      "karral": 72.6,
+      "compacted": 65.1
+    }
+  },
+  "routes_primary": {
+    "nb_entites": 2004,
+    "geometries_valides": true,
+    "emprise": [
+      8.8444,
+      2.1619,
+      15.5662,
+      12.3693
+    ],
+    "dans_emprise_cameroun": true,
+    "taille_mo": 1.65,
+    "longueur_totale_km": 5530.3,
+    "longueur_bretelles_km": 5.0,
+    "part_longueur_avec_surface": 0.896,
+    "surface_km": {
+      "unpaved": 1690.6,
+      "asphalt": 1320.3,
+      "ground": 748.0,
+      "paved": 660.2,
+      "non_renseigne": 577.2,
+      "laterite": 306.8,
+      "gravel": 87.6,
+      "compacted": 61.2
+    }
+  },
+  "routes_secondary": {
+    "nb_entites": 3292,
+    "geometries_valides": true,
+    "emprise": [
+      8.5345,
+      1.6949,
+      16.1307,
+      12.7795
+    ],
+    "dans_emprise_cameroun": true,
+    "taille_mo": 3.09,
+    "longueur_totale_km": 11012.5,
+    "longueur_bretelles_km": 6.7,
+    "part_longueur_avec_surface": 0.86,
+    "surface_km": {
+      "unpaved": 4892.7,
+      "ground": 2522.8,
+      "non_renseigne": 1536.4,
+      "asphalt": 738.7,
+      "paved": 572.5,
+      "laterite": 291.2,
+      "compacted": 175.9,
+      "karral": 145.3
+    }
+  },
+  "routes_tertiary": {
+    "nb_entites": 6938,
+    "geometries_valides": true,
+    "emprise": [
+      8.6176,
+      1.6496,
+      16.1953,
+      12.8481
+    ],
+    "dans_emprise_cameroun": true,
+    "taille_mo": 6.52,
+    "longueur_totale_km": 21098.5,
+    "longueur_bretelles_km": 3.0,
+    "part_longueur_avec_surface": 0.763,
+    "surface_km": {
+      "unpaved": 7191.4,
+      "ground": 6776.5,
+      "non_renseigne": 4999.8,
+      "asphalt": 518.8,
+      "dirt": 431.9,
+      "paved": 425.0,
+      "compacted": 331.6,
+      "laterite": 326.8
+    }
+  },
+  "voies_ferrees": {
+    "nb_entites": 476,
+    "geometries_valides": true,
+    "emprise": [
+      9.4632,
+      3.5464,
+      13.8039,
+      7.9918
+    ],
+    "dans_emprise_cameroun": true,
+    "taille_mo": 0.29,
+    "longueur_totale_km": 1126.1,
+    "longueur_hors_service_km": 1023.3,
+    "longueur_par_usage_km": {
+      "branch": 101.8,
+      "freight": 6.8,
+      "industrial": 4.1,
+      "main": 885.6,
+      "non_renseigne": 127.8
+    }
+  },
+  "ponts_routes_principales": {
+    "nb_entites": 885,
+    "geometries_valides": true,
+    "emprise": [
+      8.8444,
+      2.1755,
+      15.5165,
+      12.3745
+    ],
+    "dans_emprise_cameroun": true,
+    "taille_mo": 0.36,
+    "longueur_totale_km": 38.85,
+    "nb_ponts_100m_et_plus": 68,
+    "par_classe": {
+      "trunk": 557,
+      "primary": 328
+    }
+  },
+  "gares": {
+    "nb_entites": 66,
+    "geometries_valides": true,
+    "emprise": [
+      9.4637,
+      3.5163,
+      13.5897,
+      7.3386
+    ],
+    "dans_emprise_cameroun": true,
+    "taille_mo": 0.03,
+    "exclus_hors_cameroun": 0,
+    "paires_a_moins_de_200m_doublons_possibles_ou_densite": 7,
+    "geometrie_source": {
+      "Point": 51,
+      "Polygon": 15
+    }
+  },
+  "ports_osm": {
+    "nb_entites": 16,
+    "geometries_valides": true,
+    "emprise": [
+      9.3763,
+      2.0013,
+      15.22,
+      4.5367
+    ],
+    "dans_emprise_cameroun": true,
+    "taille_mo": 0.01,
+    "exclus_hors_cameroun": 3,
+    "paires_a_moins_de_200m_doublons_possibles_ou_densite": 0,
+    "geometrie_source": {
+      "Point": 14,
+      "Polygon": 2
+    }
+  },
+  "aerodromes_osm": {
+    "nb_entites": 30,
+    "geometries_valides": true,
+    "emprise": [
+      9.3064,
+      1.9442,
+      16.0373,
+      10.4514
+    ],
+    "dans_emprise_cameroun": true,
+    "taille_mo": 0.01,
+    "exclus_hors_cameroun": 3,
+    "paires_a_moins_de_200m_doublons_possibles_ou_densite": 0,
+    "geometrie_source": {
+      "Polygon": 16,
+      "Point": 13,
+      "MultiPolygon": 1
+    }
+  },
+  "centrales_electriques": {
+    "nb_entites": 34,
+    "geometries_valides": true,
+    "emprise": [
+      9.1242,
+      2.3734,
+      15.0337,
+      12.1117
+    ],
+    "dans_emprise_cameroun": true,
+    "taille_mo": 0.02,
+    "exclus_hors_cameroun": 2,
+    "paires_a_moins_de_200m_doublons_possibles_ou_densite": 2,
+    "geometrie_source": {
+      "Polygon": 32,
+      "Point": 1,
+      "MultiPolygon": 1
+    }
+  },
+  "barrages": {
+    "nb_entites": 68,
+    "geometries_valides": true,
+    "emprise": [
+      9.5594,
+      2.3767,
+      15.0625,
+      11.0025
+    ],
+    "dans_emprise_cameroun": true,
+    "taille_mo": 0.03,
+    "exclus_hors_cameroun": 2,
+    "paires_a_moins_de_200m_doublons_possibles_ou_densite": 0,
+    "geometrie_source": {
+      "Point": 22,
+      "LineString": 22,
+      "Polygon": 21,
+      "MultiPolygon": 3
+    }
+  },
+  "points_eau": {
+    "nb_entites": 3108,
+    "geometries_valides": true,
+    "emprise": [
+      8.87,
+      2.3952,
+      15.4893,
+      12.1037
+    ],
+    "dans_emprise_cameroun": true,
+    "taille_mo": 1.64,
+    "exclus_hors_cameroun": 26,
+    "paires_a_moins_de_200m_doublons_possibles_ou_densite": 7340,
+    "geometrie_source": {
+      "Point": 3096,
+      "Polygon": 12
+    }
+  },
+  "antennes_telecom": {
+    "nb_entites": 290,
+    "geometries_valides": true,
+    "emprise": [
+      8.8572,
+      2.2457,
+      15.0469,
+      12.877
+    ],
+    "dans_emprise_cameroun": true,
+    "taille_mo": 0.12,
+    "exclus_hors_cameroun": 17,
+    "paires_a_moins_de_200m_doublons_possibles_ou_densite": 50,
+    "geometrie_source": {
+      "Point": 270,
+      "Polygon": 20
+    }
+  },
+  "postes_electriques_non_publies": {
+    "nb_entites": 54,
+    "exclus_hors_cameroun": 6,
+    "par_substation": {
+      "non_renseigne": 23,
+      "transmission": 15,
+      "minor_distribution": 8,
+      "generation": 5,
+      "distribution": 2,
+      "industrial": 1
+    }
+  },
+  "lignes_electriques": {
+    "nb_entites": 101,
+    "geometries_valides": true,
+    "emprise": [
+      9.1219,
+      2.1617,
+      14.9187,
+      12.3767
+    ],
+    "dans_emprise_cameroun": true,
+    "taille_mo": 0.07,
+    "longueur_totale_km": 2112.0,
+    "longueur_par_classe_tension_km": {
+      "HT_60-149kV": 942.3,
+      "MT_<60kV": 214.4,
+      "THT_>=150kV": 955.3
+    }
+  },
+  "aeroports_ourairports": {
+    "nb_entites": 47,
+    "geometries_valides": true,
+    "emprise": [
+      9.0673,
+      2.3411,
+      15.4608,
+      10.4514
+    ],
+    "dans_emprise_cameroun": true,
+    "taille_mo": 0.02,
+    "ourairports_total_CM": 47,
+    "ourairports_par_type": {
+      "small_airport": 34,
+      "medium_airport": 7,
+      "large_airport": 3,
+      "closed": 2,
+      "heliport": 1
+    },
+    "ourairports_actifs_hors_heliports": 44,
+    "osm_aerodromes": 30,
+    "ourairports_actifs_avec_osm_a_moins_de_5km": 20,
+    "codes_icao_concordants": 18,
+    "osm_sans_ourairports_a_moins_de_5km": 9
+  },
+  "croisement_aeroports": {
+    "ourairports_total_CM": 47,
+    "ourairports_par_type": {
+      "small_airport": 34,
+      "medium_airport": 7,
+      "large_airport": 3,
+      "closed": 2,
+      "heliport": 1
+    },
+    "ourairports_actifs_hors_heliports": 44,
+    "osm_aerodromes": 30,
+    "ourairports_actifs_avec_osm_a_moins_de_5km": 20,
+    "codes_icao_concordants": 18,
+    "osm_sans_ourairports_a_moins_de_5km": 9
+  },
+  "ports_wpi": {
+    "nb_entites": 2,
+    "geometries_valides": true,
+    "emprise": [
+      9.6833,
+      2.7185,
+      9.8605,
+      4.05
+    ],
+    "dans_emprise_cameroun": true,
+    "taille_mo": 0.0,
+    "terminaux_exclus_S1": 5
+  },
+  "gridfinder_estime": {
+    "nb_troncons_decoupes": 3015,
+    "longueur_totale_km_dans_cameroun": 16056.3
+  },
+  "synthese_par_arrondissement": {
+    "nb_arrondissements": 360,
+    "points_hors_polygones_adm3_non_comptes": {
+      "nb_gares": 0,
+      "nb_ports_osm": 6,
+      "nb_aerodromes_osm": 0,
+      "nb_aeroports_ourairports": 0,
+      "nb_centrales_electriques": 2,
+      "nb_barrages": 0,
+      "nb_points_eau": 5,
+      "nb_antennes_telecom": 7,
+      "nb_postes_electriques": 2
+    },
+    "totaux_km": {
+      "km_route_motorway": 229.7,
+      "km_route_trunk": 7999.3,
+      "km_route_primary": 5457.4,
+      "km_route_secondary": 10931.1,
+      "km_route_tertiary": 20890.8,
+      "km_voie_ferree_osm": 1128.3,
+      "km_ligne_electrique_osm": 2101.3,
+      "km_reseau_mt_gridfinder_estime": 16056.3
+    },
+    "totaux_nb": {
+      "nb_gares": 66,
+      "nb_ports_osm": 10,
+      "nb_aerodromes_osm": 30,
+      "nb_aeroports_ourairports": 47,
+      "nb_centrales_electriques": 32,
+      "nb_barrages": 68,
+      "nb_points_eau": 3103,
+      "nb_antennes_telecom": 283,
+      "nb_postes_electriques": 52
+    }
+  }
+}
