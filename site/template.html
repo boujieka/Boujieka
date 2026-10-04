@@ -276,48 +276,153 @@ footer { background: var(--night); color: #d9cfb8; padding-block: 36px 52px; fon
 footer .brand { margin-bottom: 16px; }
 footer p { max-width: 82ch; margin: 0 0 8px; }
 footer strong { color: var(--papyrus); }
+/* Language tabs */
+.langs { display: inline-flex; border: 1px solid rgba(201,162,74,.55); border-radius: 2px; overflow: hidden; }
+.langs button { all: unset; cursor: pointer; font: 600 12px/1 var(--body); letter-spacing: .08em; padding: 8px 10px; color: #d9cfb8; }
+.langs button + button { border-left: 1px solid rgba(201,162,74,.35); }
+.langs button[aria-pressed="true"] { background: var(--gold); color: var(--night); }
+.langs button:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
+.mast-r { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; }
+
+/* Global country bar */
+.cbar { position: sticky; top: 0; z-index: 30; background: var(--surface); border-bottom: 1px solid var(--line); box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+.cbar-in { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding-block: 10px; }
+.cbar label { font: 600 11px/1 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--gold-ink); }
+.cbar select { font: 500 15px var(--body); padding: 8px 10px; border: 1px solid var(--gold-ink); background: var(--paper); color: var(--ink); border-radius: 2px; min-width: min(300px, 100%); max-width: 100%; }
+.cbar button { font: 500 13px var(--body); padding: 8px 12px; border: 1px solid var(--line); background: transparent; color: var(--lapis); border-radius: 2px; cursor: pointer; }
+.cbar-ctx { font-size: 13px; color: var(--muted); }
+.cbar-ctx b { color: var(--ink); font-weight: 600; }
+@media (max-width: 600px) {
+  .cbar-in { flex-wrap: nowrap; padding-block: 6px; }
+  .cbar label { font-size: 10px; letter-spacing: .1em; }
+  .cbar select { min-width: 0; flex: 1; font-size: 14px; padding: 7px 8px; }
+  .cbar button, .cbar-ctx { display: none; }
+}
+.filtered { display: inline-block; font: 600 10.5px/1 var(--body); letter-spacing: .06em; text-transform: uppercase; color: var(--carnelian); border: 1px solid currentColor; padding: 4px 6px; border-radius: 2px; margin-left: 8px; vertical-align: middle; }
+section { scroll-margin-top: 64px; }
+
+/* Shared form look */
+.form { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; background: var(--surface); border: 1px solid var(--line); padding: 16px; min-width: 0; }
+.form label { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: var(--muted); min-width: 0; }
+.form select, .form input { font: 500 14px var(--body); padding: 8px 10px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); border-radius: 2px; width: 100%; min-width: 0; }
+.form .wide { grid-column: 1 / -1; }
+.form [hidden] { display: none; }
+.kind-tag { font: 600 10px/1 var(--body); letter-spacing: .06em; text-transform: uppercase; padding: 3px 6px; border: 1px solid currentColor; border-radius: 2px; }
+.kind-tag.calc { color: var(--gold-ink); } .kind-tag.fact { color: var(--lapis); } .kind-tag.syn { color: var(--carnelian); } .kind-tag.ai { color: var(--faience-ink); }
+
+/* Buyers: dealers + guide */
+.sub { margin-top: 36px; }
+.sub h3 { font: 400 24px/1.2 var(--display); color: var(--lapis); margin: 6px 0 8px; }
+.guide { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 18px; margin-top: 14px; }
+@media (max-width: 860px) { .guide { grid-template-columns: minmax(0, 1fr); } }
+.steps { counter-reset: st; list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.steps li { counter-increment: st; background: var(--surface); border: 1px solid var(--line); padding: 10px 12px 10px 48px; position: relative; font-size: 14px; }
+.steps li::before { content: counter(st, upper-roman); position: absolute; left: 12px; top: 9px; font: 400 18px/1 var(--display); color: var(--gold-ink); width: 28px; text-align: center; }
+.asklist { background: var(--surface); border: 1px solid var(--line); padding: 14px 16px; font-size: 14px; }
+.asklist ul { margin: 6px 0 0; padding-left: 18px; }
+
+/* Simulator */
+.simwrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; margin-top: 22px; align-items: start; }
+@media (max-width: 900px) { .simwrap { grid-template-columns: minmax(0, 1fr); } }
+.simout { background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--gold); padding: 16px 18px; min-width: 0; }
+.kpis { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 10px 0 12px; }
+.kpis div { background: var(--surface); padding: 10px 12px; min-width: 0; }
+.kpis span { display: block; font-size: 12px; color: var(--muted); }
+.kpis b { display: block; font: 600 18px/1.25 var(--mono); color: var(--ink); overflow-wrap: anywhere; }
+.kpis div.hl b { color: var(--faience-ink); }
+.kpis div.neg b { color: var(--carnelian); }
+.assume { font-size: 12.5px; color: var(--muted); margin: 8px 0 0; padding-left: 18px; }
+.formula { font: 12px/1.6 var(--mono); background: var(--paper); border: 1px solid var(--line); padding: 8px 10px; margin-top: 10px; overflow-x: auto; white-space: pre; }
+.warnbox { border-left: 3px solid var(--carnelian); background: var(--paper); padding: 8px 10px; font-size: 13px; margin-top: 10px; }
+
+/* Strategy */
+.levers { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 18px; }
+.lever { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--faience-ink); padding: 14px 16px; min-width: 0; }
+.lever h4, .coop h4 { margin: 0 0 6px; font: 600 15px/1.3 var(--body); }
+.lever p, .coop p { margin: 0; font-size: 13.5px; color: var(--muted); }
+.limits { margin: 16px 0 0; padding: 14px 16px 14px 34px; background: var(--paper); border: 1px solid var(--carnelian); font-size: 13.5px; }
+.limits li + li { margin-top: 6px; }
+.coops { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-top: 14px; }
+.coop { background: var(--surface); border: 1px dashed var(--faience-ink); padding: 14px 16px; min-width: 0; }
+.pf { margin-top: 14px; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 18px; align-items: start; }
+@media (max-width: 900px) { .pf { grid-template-columns: minmax(0, 1fr); } }
+.pf table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.pf th { text-align: left; font: 600 11px/1 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 6px; border-bottom: 2px solid var(--gold); }
+.pf td { padding: 6px; border-bottom: 1px solid var(--line); }
+.pf select, .pf input { font: 500 13px var(--body); padding: 6px 8px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); border-radius: 2px; width: 100%; min-width: 0; }
+.pf input[type=number] { width: 80px; }
+.pf .rm { all: unset; cursor: pointer; color: var(--carnelian); font-weight: 700; padding: 4px 8px; }
+.pf .rm:focus-visible { outline: 2px solid var(--gold); }
+.bars { display: grid; gap: 6px; margin-top: 10px; }
+.bars div { display: grid; grid-template-columns: 110px minmax(0, 1fr) 52px; gap: 8px; align-items: center; font-size: 12px; }
+.bars i { display: block; height: 10px; background: var(--bar); border-radius: 1px; }
+
+/* Glossary */
+.gfilter { margin: 18px 0 12px; }
+.gfilter input { font: 500 14px var(--body); padding: 8px 10px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 2px; width: min(360px, 100%); }
+.gloss { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0 28px; margin: 0; }
+.gloss div { padding: 10px 0; border-bottom: 1px solid var(--line); break-inside: avoid; min-width: 0; }
+.gloss dt { font: 600 14px/1.3 var(--mono); color: var(--lapis); }
+.gloss dd { margin: 3px 0 0; font-size: 13.5px; color: var(--ink); }
+abbr[title] { text-decoration: underline dotted; text-underline-offset: 2px; cursor: help; }
 </style>
 </head>
 <body>
-<div class="banner"><div class="wrap"><strong>DONNÉES DE DÉMONSTRATION</strong> · Les chiffres de marché de ce site sont <strong>synthétiques</strong> : ils sont générés pour le développement de la plateforme, ne décrivent aucun marché réel et ne doivent servir à aucune décision.</div></div>
+<div class="banner"><div class="wrap" data-ih="banner"></div></div>
 
 <header class="hero">
   <div class="wrap mast">
-    <a class="brand" href="#" aria-label="Cartouche, African Bond Intelligence, accueil">
+    <a class="brand" href="#" data-ia="aria-label:brand.home">
       <svg viewBox="0 0 64 96" aria-hidden="true"><rect x="8" y="4" width="48" height="78" rx="24" fill="#13306b" stroke="#c9a24a" stroke-width="4"/><rect x="5" y="86" width="54" height="6" rx="2" fill="#c9a24a"/><circle cx="32" cy="23" r="7" fill="#c9a24a"/><path d="M17 72V60l3.5-4 3.5 4v12zM28.5 72V51l3.5-4 3.5 4v21zM40 72V42l3.5-4 3.5 4v30z" fill="#3fb2a6"/></svg>
       <span><b>CARTOUCHE</b><small>AFRICAN BOND INTELLIGENCE</small></span>
     </a>
-    <nav aria-label="Sections"><a href="#carte">Carte</a><a href="#radar">Radar</a><a href="#acheteurs">Acheteurs</a><a href="#methode">Méthode</a><a href="#veille">Veille</a><a href="#sources">Sources</a><a href="#feuille">Feuille de route</a></nav>
+    <div class="mast-r">
+      <nav data-ia="aria-label:nav.label">
+        <a href="#carte" data-i="nav.map"></a><a href="#radar" data-i="nav.radar"></a><a href="#acheteurs" data-i="nav.buyers"></a><a href="#simulateur" data-i="nav.sim"></a><a href="#strategie" data-i="nav.strategy"></a><a href="#glossaire" data-i="nav.glossary"></a><a href="#veille" data-i="nav.watch"></a><a href="#sources" data-i="nav.sources"></a>
+      </nav>
+      <div class="langs" id="langs" role="group" data-ia="aria-label:lang.label">
+        <button type="button" data-lang="fr" lang="fr" title="Français">FR</button><button type="button" data-lang="en" lang="en" title="English">EN</button><button type="button" data-lang="pt" lang="pt" title="Português">PT</button><button type="button" data-lang="es" lang="es" title="Español">ES</button>
+      </div>
+    </div>
   </div>
   <div class="wrap hero-body">
     <div>
-      <span class="eyebrow">Dette souveraine africaine · 54 pays</span>
-      <h1>Chaque opportunité souveraine africaine, <em>avec sa preuve.</em></h1>
-      <p>Les bons et obligations du Trésor africains sont suivis depuis les sources officielles. Un moteur de règles signale ce qui bouge : enchères à venir, demande inhabituelle, mouvements de rendement, murs de refinancement. Chaque signal est livré avec ses faits, son calcul et sa règle.</p>
-      <div class="cta"><a class="btn gold" href="#radar">Explorer le Radar</a><a class="btn ghost" href="#carte">Voir les 54 pays</a></div>
+      <span class="eyebrow" data-i="hero.eyebrow"></span>
+      <h1 data-ih="hero.title"></h1>
+      <p data-i="hero.lede"></p>
+      <div class="cta"><a class="btn gold" href="#radar" data-i="hero.cta1"></a><a class="btn ghost" href="#simulateur" data-i="hero.cta2"></a></div>
     </div>
-    <div class="stele" id="stele" aria-label="Chiffres clés"></div>
+    <div class="stele" id="stele" data-ia="aria-label:hero.keyfigures"></div>
   </div>
   <div class="collar" aria-hidden="true"></div>
 </header>
 
-<div class="tape" aria-label="Fil des signaux actifs"><ul id="tape"></ul></div>
+<div class="cbar" id="cbar">
+  <div class="wrap cbar-in">
+    <label for="gsel" data-i="cbar.label"></label>
+    <select id="gsel"></select>
+    <button type="button" id="gall" data-i="cbar.all"></button>
+    <span class="cbar-ctx" id="gctx" aria-live="polite"></span>
+  </div>
+</div>
+
+<div class="tape" data-ia="aria-label:tape.label"><ul id="tape"></ul></div>
 
 <main>
   <section id="carte">
     <div class="wrap">
-      <span class="eyebrow">Couverture panafricaine</span>
-      <h2>54 pays, une seule carte</h2>
-      <p class="lede">Chaque État africain membre de l'ONU a un profil (devise, zone monétaire, banque centrale) et des données de marché de démonstration, synthétiques en attendant la collecte réelle. Les pays cerclés d'or sont les pays pilotes : leurs sources officielles sont proposées et surveillées chaque jour. Cliquez une case pour afficher le profil du pays.</p>
+      <span class="eyebrow" data-i="map.eyebrow"></span>
+      <h2 data-i="map.title"></h2>
+      <p class="lede" data-i="map.lede"></p>
       <div class="mapwrap">
         <div>
-          <div class="tiles" id="tiles" role="group" aria-label="Carte des 54 pays africains"></div>
-          <div class="mlegend" aria-label="Légende de la carte">
-            <span><i style="background:var(--z-cemac-bg)"></i>CEMAC (XAF)</span>
-            <span><i style="background:var(--z-waemu-bg)"></i>UEMOA (XOF)</span>
-            <span><i style="background:var(--z-cma-bg)"></i>Zone monétaire commune (CMA)</span>
-            <span><i style="background:var(--z-none-bg)"></i>Monnaie nationale</span>
-            <span><i style="box-shadow:inset 0 0 0 2px var(--gold);background:transparent"></i>Pays pilote (sources officielles surveillées)</span>
+          <div class="tiles" id="tiles" role="group" data-ia="aria-label:map.tiles"></div>
+          <div class="mlegend">
+            <span><i style="background:var(--z-cemac-bg)"></i><span data-i="legend.cemac"></span></span>
+            <span><i style="background:var(--z-waemu-bg)"></i><span data-i="legend.waemu"></span></span>
+            <span><i style="background:var(--z-cma-bg)"></i><span data-i="legend.cma"></span></span>
+            <span><i style="background:var(--z-none-bg)"></i><span data-i="legend.none"></span></span>
+            <span><i style="box-shadow:inset 0 0 0 2px var(--gold);background:transparent"></i><span data-i="legend.pilot"></span></span>
           </div>
         </div>
         <div>
@@ -331,31 +436,30 @@ footer strong { color: var(--papyrus); }
   <section id="radar">
     <div class="wrap">
       <span class="eyebrow">Opportunity Radar</span>
-      <h2>Choisissez un pays, voyez toutes ses opportunités</h2>
-      <p class="lede">La grille compare la demande de chaque enchère (bid-to-cover) à l'historique de sa propre série. Cette mesure reste comparable d'un marché à l'autre, contrairement aux rendements bruts, dont les conventions diffèrent.</p>
-      <div class="csel"><label for="country-select">Pays</label><select id="country-select"></select><button type="button" id="country-all">Tous les pays</button></div>
-      <div class="panel">
-        <div class="panel-h"><span class="eyebrow">Grille de chaleur · 54 pays</span><span class="eyebrow" id="asof"></span></div>
+      <h2><span data-i="radar.title"></span><span id="radar-f"></span></h2>
+      <p class="lede" data-ih="radar.lede"></p>
+      <div class="panel" style="margin-top:22px">
+        <div class="panel-h"><span class="eyebrow" id="grid-title"></span><span class="eyebrow" id="asof"></span></div>
         <div class="panel-b">
           <div class="scroll"><table class="grid" id="grid"></table></div>
-          <div class="legend" aria-label="Légende">
-            <strong class="eyebrow">Demande vs son historique (z)</strong>
+          <div class="legend">
+            <strong class="eyebrow" data-i="legend.z"></strong>
             <span><i style="background:var(--div-neg-2)"></i>▼▼ ≤ −1,5</span>
-            <span><i style="background:var(--div-neg-1)"></i>▼ −1,5 à −0,5</span>
-            <span><i style="background:var(--div-mid)"></i>– dans la norme</span>
-            <span><i style="background:var(--div-pos-1)"></i>▲ 0,5 à 1,5</span>
+            <span><i style="background:var(--div-neg-1)"></i>▼ −1,5 … −0,5</span>
+            <span><i style="background:var(--div-mid)"></i>– <span data-i="legend.norm"></span></span>
+            <span><i style="background:var(--div-pos-1)"></i>▲ 0,5 … 1,5</span>
             <span><i style="background:var(--div-pos-2)"></i>▲▲ ≥ 1,5</span>
-            <span>· n/d : moins de 6 enchères comparables</span>
+            <span data-i="legend.nd"></span>
           </div>
         </div>
       </div>
       <div class="split">
         <div class="signals">
-          <div class="sig-head"><strong id="sigcount"></strong><div class="types" id="types" role="group" aria-label="Filtrer par type de signal"></div></div>
+          <div class="sig-head"><strong id="sigcount"></strong><div class="types" id="types" role="group" data-ia="aria-label:radar.filter"></div></div>
           <div id="cards" class="signals"></div>
         </div>
-        <aside class="panel wall" aria-label="Mur de refinancement">
-          <div class="panel-h"><span class="eyebrow" id="wall-title">Mur de refinancement</span><span class="tag syn">Synthétique</span></div>
+        <aside class="panel wall" data-ia="aria-label:wall.title">
+          <div class="panel-h"><span class="eyebrow" id="wall-title"></span><span class="tag syn" data-i="tag.syn"></span></div>
           <div class="panel-b" id="wall"></div>
         </aside>
       </div>
@@ -364,55 +468,135 @@ footer strong { color: var(--papyrus); }
 
   <section id="acheteurs">
     <div class="wrap">
-      <span class="eyebrow">Espace acheteurs</span>
-      <h2>Acheter des titres publics africains : quoi, qui, comment</h2>
-      <p class="lede">Pour les banques, fonds, assureurs, trésoriers d'entreprise et particuliers qui veulent acheter des bons et obligations du Trésor. Les procédures ci-dessous sont citées mot pour mot des pages officielles. L'accès n'est jamais garanti, et rien ici n'est un conseil en investissement.</p>
+      <span class="eyebrow" data-i="buy.eyebrow"></span>
+      <h2><span data-i="buy.title"></span><span id="buy-f"></span></h2>
+      <p class="lede" data-ih="buy.lede"></p>
 
-      <form class="bfind" id="bfind" aria-label="Vos critères d'achat" onsubmit="return false">
-        <label for="b-cur">Devise<select id="b-cur"></select></label>
-        <label for="b-mat">Maturité<select id="b-mat"><option value="">Toutes</option><option value="0-366">Jusqu'à 1 an</option><option value="367-1826">1 à 5 ans</option><option value="1827-99999">Plus de 5 ans</option></select></label>
-        <label for="b-yld">Rendement minimum (%)<input id="b-yld" type="number" min="0" step="0.5" placeholder="ex. 8"></label>
-        <label class="chk" for="b-up"><input id="b-up" type="checkbox" checked> Enchères à venir seulement</label>
-      </form>
-      <div class="bres" id="bres" aria-live="polite"></div>
+      <div class="sub">
+        <span class="eyebrow" data-i="buy.find.eyebrow"></span>
+        <form class="form" id="bfind" onsubmit="return false" style="margin-top:10px">
+          <label><span data-i="f.currency"></span><select id="b-cur"></select></label>
+          <label><span data-i="f.maturity"></span><select id="b-mat"></select></label>
+          <label><span data-i="f.minyield"></span><input id="b-yld" type="number" min="0" step="0.5" placeholder="8"></label>
+          <label><span data-i="f.when"></span><select id="b-up"><option value="1" data-i="f.upcoming"></option><option value="0" data-i="f.allsignals"></option></select></label>
+        </form>
+        <div class="bres" id="bres" aria-live="polite"></div>
+      </div>
 
-      <div class="bcards" id="bcards"></div>
-      <p class="buyers-note" id="bnote"></p>
+      <div class="sub">
+        <span class="eyebrow" data-i="buy.access.eyebrow"></span>
+        <h3 data-i="buy.access.title"></h3>
+        <div class="bcards" id="bcards"></div>
+        <p class="buyers-note" id="bnote"></p>
+      </div>
+
+      <div class="sub" id="dealers-sub">
+        <span class="eyebrow" data-i="buy.dealers.eyebrow"></span>
+        <h3 data-i="buy.dealers.title"></h3>
+        <p class="lede" data-i="buy.dealers.lede"></p>
+        <div id="dealers"></div>
+      </div>
+
+      <div class="sub">
+        <span class="eyebrow" data-i="buy.guide.eyebrow"></span>
+        <h3 data-i="buy.guide.title"></h3>
+        <div class="guide">
+          <ol class="steps" id="steps"></ol>
+          <div class="asklist"><strong data-i="buy.ask.title"></strong><p class="note" data-i="buy.ask.lede"></p><ul id="asks"></ul></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="simulateur">
+    <div class="wrap">
+      <span class="eyebrow" data-i="sim.eyebrow"></span>
+      <h2><span data-i="sim.title"></span><span id="sim-f"></span></h2>
+      <p class="lede" data-i="sim.lede"></p>
+      <div class="simwrap">
+        <form class="form" id="sim" onsubmit="return false">
+          <label class="wide"><span data-i="sim.op"></span><select id="s-op"></select></label>
+          <label class="wide"><span data-i="sim.kind"></span><select id="s-kind"><option value="bill" data-i="sim.kind.bill"></option><option value="bond" data-i="sim.kind.bond"></option></select></label>
+          <label><span><span data-i="sim.nominal"></span> <span id="s-curl"></span></span><input id="s-nom" type="number" min="0" step="any" value="10000000"></label>
+          <label><span data-i="sim.yield"></span><input id="s-yld" type="number" step="0.01" value="8"></label>
+          <label data-k="bill"><span data-i="sim.days"></span><input id="s-days" type="number" min="1" max="3650" step="1" value="182"></label>
+          <label data-k="bill"><span data-i="sim.basis"></span><select id="s-basis"><option value="360">360</option><option value="364">364</option><option value="365">365</option></select></label>
+          <label data-k="bill" class="wide"><span data-i="sim.conv"></span><select id="s-conv"><option value="yield" data-i="sim.conv.yield"></option><option value="discount" data-i="sim.conv.discount"></option></select></label>
+          <label data-k="bond"><span data-i="sim.years"></span><input id="s-years" type="number" min="1" max="40" step="1" value="3"></label>
+          <label data-k="bond"><span data-i="sim.coupon"></span><input id="s-cpn" type="number" min="0" step="0.01" value="8"></label>
+          <label><span data-i="sim.fee"></span><input id="s-fee" type="number" min="0" step="0.01" value="0"></label>
+          <label><span data-i="sim.tax"></span><input id="s-tax" type="number" min="0" max="100" step="0.5" value="0"></label>
+        </form>
+        <div class="simout" id="simout" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="strategie">
+    <div class="wrap">
+      <span class="eyebrow" data-i="st.eyebrow"></span>
+      <h2 data-i="st.title"></h2>
+      <p class="lede" data-i="st.lede"></p>
+      <div class="sub"><h3 data-i="st.levers"></h3><div class="levers" id="levers"></div></div>
+      <ul class="limits" id="limits"></ul>
+      <div class="sub">
+        <h3><span data-i="st.pf.title"></span> <span class="kind-tag calc" data-i="kind.calc"></span> <span class="kind-tag syn" data-i="kind.syn"></span></h3>
+        <p class="lede" data-i="st.pf.lede"></p>
+        <div class="pf">
+          <div><div class="scroll"><table id="pf-rows"></table></div><p><button type="button" class="btn ghost" id="pf-add" style="color:var(--lapis);border-color:var(--line)" data-i="st.pf.add"></button></p></div>
+          <div class="simout" id="pf-out" aria-live="polite"></div>
+        </div>
+      </div>
+      <div class="sub">
+        <h3><span data-i="st.coop"></span> <span class="kind-tag ai" data-i="kind.ai"></span></h3>
+        <p class="lede" data-i="st.coop.lede"></p>
+        <div class="coops" id="coops"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="glossaire">
+    <div class="wrap">
+      <span class="eyebrow" data-i="gl.eyebrow"></span>
+      <h2 data-i="gl.title"></h2>
+      <p class="lede" data-i="gl.lede"></p>
+      <div class="gfilter"><input id="gq" type="search" data-ia="placeholder:gl.search;aria-label:gl.search"></div>
+      <dl class="gloss" id="gloss"></dl>
     </div>
   </section>
 
   <section id="methode">
     <div class="wrap">
-      <span class="eyebrow">Comment un signal est construit</span>
-      <h2>De la publication officielle au passeport du signal</h2>
-      <p class="lede">Aucun chiffre n'est produit par un modèle de langage. Les valeurs publiées restent des faits, les valeurs dérivées sont des calculs, et rien ne mélange les deux. Les étapes 1 et 2 arrivent en phase 2 ; aujourd'hui, le moteur tourne sur des données synthétiques.</p>
+      <span class="eyebrow" data-i="m.eyebrow"></span>
+      <h2 data-i="m.title"></h2>
+      <p class="lede" data-i="m.lede"></p>
       <div class="pipe">
-        <div class="step"><span class="n">I</span><h3>Veille des sources</h3><p>Chaque jour, les pages officielles (BEAC, BCEAO, UMOA-Titres, CBK…) sont interrogées : disponibilité, modifications, nouveaux documents publiés.</p><span class="state on">Opérationnel · quotidien</span></div>
-        <div class="step"><span class="n">II</span><h3>Extraction vérifiée</h3><p>Avis et résultats en PDF : texte, OCR, champs structurés. Chaque document est dédupliqué par empreinte et passe par une file de vérification humaine.</p><span class="state next">Phase 2</span></div>
-        <div class="step"><span class="n">III</span><h3>Moteur de règles</h3><p>Sept règles déterministes, avec des seuils explicites et des libellés neutres. Le relancer ne crée aucun doublon.</p><span class="state on">Opérationnel</span></div>
-        <div class="step"><span class="n">IV</span><h3>Passeport du signal</h3><p>Faits utilisés, calcul, règle déclenchée, ce qui invaliderait le signal, et limites. Le tout est archivé pour audit.</p><span class="state on">Opérationnel</span></div>
+        <div class="step"><span class="n">I</span><h3 data-i="m.s1.t"></h3><p data-i="m.s1.p"></p><span class="state on" data-i="m.s1.s"></span></div>
+        <div class="step"><span class="n">II</span><h3 data-i="m.s2.t"></h3><p data-i="m.s2.p"></p><span class="state next" data-i="m.s2.s"></span></div>
+        <div class="step"><span class="n">III</span><h3 data-i="m.s3.t"></h3><p data-i="m.s3.p"></p><span class="state on" data-i="m.s3.s"></span></div>
+        <div class="step"><span class="n">IV</span><h3 data-i="m.s4.t"></h3><p data-i="m.s4.p"></p><span class="state on" data-i="m.s4.s"></span></div>
       </div>
     </div>
   </section>
 
   <section id="veille">
     <div class="wrap">
-      <span class="eyebrow">Veille quotidienne · données réelles</span>
-      <h2>Ce qui a bougé sur les sites officiels</h2>
+      <span class="eyebrow" data-i="v.eyebrow"></span>
+      <h2><span data-i="v.title"></span><span id="v-f"></span></h2>
       <p class="lede" id="v-lede"></p>
       <div class="vstats" id="v-stats"></div>
       <div class="vgrid">
-        <div class="panel"><div class="panel-h"><span class="eyebrow">Nouveaux documents détectés</span><span class="eyebrow" id="v-feed-n"></span></div><div class="panel-b"><ul class="feed" id="v-feed"></ul></div></div>
-        <div class="panel"><div class="panel-h"><span class="eyebrow">Pages surveillées</span><span class="eyebrow" id="v-run"></span></div><div class="panel-b scroll"><table class="list" id="v-pages" style="min-width:520px"></table></div></div>
+        <div class="panel"><div class="panel-h"><span class="eyebrow" data-i="v.feed"></span><span class="eyebrow" id="v-feed-n"></span></div><div class="panel-b"><ul class="feed" id="v-feed"></ul></div></div>
+        <div class="panel"><div class="panel-h"><span class="eyebrow" data-i="v.pages"></span><span class="eyebrow" id="v-run"></span></div><div class="panel-b scroll"><table class="list" id="v-pages" style="min-width:520px"></table></div></div>
       </div>
-      <details class="more"><summary>Historique des exécutions</summary><div class="scroll"><table class="list" id="v-hist" style="min-width:520px"></table></div></details>
+      <details class="more"><summary data-i="v.hist"></summary><div class="scroll"><table class="list" id="v-hist" style="min-width:520px"></table></div></details>
     </div>
   </section>
 
   <section id="sources">
     <div class="wrap">
-      <span class="eyebrow">Registre des sources</span>
-      <h2>Sources officielles proposées</h2>
+      <span class="eyebrow" data-i="src.eyebrow"></span>
+      <h2><span data-i="src.title"></span><span id="src-f"></span></h2>
       <p class="lede" id="src-lede"></p>
       <div class="scroll" style="margin-top:20px"><table class="list" id="srcs"></table></div>
       <details class="more"><summary id="cb-sum"></summary><div class="cb" id="cb"></div></details>
@@ -421,36 +605,22 @@ footer strong { color: var(--papyrus); }
 
   <section id="feuille">
     <div class="wrap">
-      <span class="eyebrow">Feuille de route</span>
-      <h2>Où en est la plateforme</h2>
-      <div class="scroll" style="margin-top:20px">
-        <table class="list">
-          <thead><tr><th>Phase</th><th>Contenu</th><th>État</th></tr></thead>
-          <tbody>
-            <tr><td class="num">1</td><td>Base de données, modèles, traçabilité des sources, API, tableau de bord · référentiel des 54 pays</td><td><span class="state on">Livré</span></td></tr>
-            <tr><td class="num">1b</td><td>Authentification, rôles, limitation de débit, journal d'audit (prérequis à tout déploiement de la plateforme)</td><td><span class="state next">À faire</span></td></tr>
-            <tr><td class="num">2</td><td>Collecte des sources officielles, extraction PDF/OCR, vérification humaine</td><td><span class="state next">Prochaine étape</span></td></tr>
-            <tr><td class="num">3</td><td>Conventions de rendement par marché, courbes, calibration des seuils</td><td><span class="state next">À faire</span></td></tr>
-            <tr><td class="num">4</td><td>Moteur d'opportunités et Radar (rachats, échanges et Eurobonds en attente)</td><td><span class="state on">Livré en partie</span></td></tr>
-            <tr><td class="num">5</td><td>Veille quotidienne des sources officielles et mise à jour du site toutes les 24 h · alertes et rapport <em>Africa Sovereign Debt Daily</em> à venir</td><td><span class="state on">Livré en partie</span></td></tr>
-            <tr><td class="num">6</td><td>Guide de souscription pour investisseurs</td><td><span class="state next">À faire</span></td></tr>
-            <tr><td class="num">7</td><td>Moteur de financement souverain (scénarios pour les Trésors)</td><td><span class="state next">À faire</span></td></tr>
-            <tr><td class="num">8</td><td>API publique et recherche globale</td><td><span class="state next">À faire</span></td></tr>
-          </tbody>
-        </table>
-      </div>
+      <span class="eyebrow" data-i="r.eyebrow"></span>
+      <h2 data-i="r.title"></h2>
+      <div class="scroll" style="margin-top:20px"><table class="list" id="roadmap"></table></div>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <a class="brand" href="#" aria-label="Retour en haut">
+    <a class="brand" href="#" data-ia="aria-label:brand.top">
       <svg viewBox="0 0 64 96" aria-hidden="true"><rect x="8" y="4" width="48" height="78" rx="24" fill="#13306b" stroke="#c9a24a" stroke-width="4"/><rect x="5" y="86" width="54" height="6" rx="2" fill="#c9a24a"/><circle cx="32" cy="23" r="7" fill="#c9a24a"/><path d="M17 72V60l3.5-4 3.5 4v12zM28.5 72V51l3.5-4 3.5 4v21zM40 72V42l3.5-4 3.5 4v30z" fill="#3fb2a6"/></svg>
-      <span><b>CARTOUCHE</b><small>L'INTELLIGENCE DE LA DETTE SOUVERAINE AFRICAINE</small></span>
+      <span><b>CARTOUCHE</b><small data-i="foot.tag"></small></span>
     </a>
-    <p><strong>Information et analyse uniquement.</strong> Ni conseil en investissement, ni recommandation, ni garantie de rendement ou d'accès à un marché. Les signaux sont des observations factuelles fondées sur des règles ; ils ne classent pas les investissements et ne tiennent compte ni de la fiscalité, ni des frais, ni du change, ni du risque propre à chaque investisseur.</p>
-    <p>Les données de marché affichées sont <strong>synthétiques</strong> ; seule la veille des sources est réelle. Les profils pays (devise, zone, banque centrale) sont des données de référence <strong>non vérifiées</strong> contre les sources officielles. Instantané du <span id="foot-asof"></span>. Les textes d'explication du moteur sont en anglais.</p>
+    <p data-ih="foot.p1"></p>
+    <p><span data-ih="foot.p2"></span> <span id="foot-asof"></span>.</p>
+    <p data-i="foot.p3"></p>
   </div>
 </footer>
 
@@ -460,288 +630,548 @@ footer strong { color: var(--papyrus); }
   const D = JSON.parse(document.getElementById("data").textContent);
   const $ = (id) => document.getElementById(id);
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-
-  const AF = Object.fromEntries(D.africa.map((a) => [a.iso3, a]));
-  const NAME = (iso3) => AF[iso3]?.name_fr ?? iso3;
-  const REGION = { north: "Afrique du Nord", west: "Afrique de l'Ouest", central: "Afrique centrale", east: "Afrique de l'Est", southern: "Afrique australe" };
-  const ZONE = { CEMAC: "CEMAC · franc CFA (BEAC)", WAEMU: "UEMOA · franc CFA (BCEAO)", CMA: "Zone monétaire commune (CMA)", NONE: "Monnaie nationale" };
-  const LABEL_FR = {
-    "Upcoming auction": "Enchère à venir", "Newly announced auction": "Enchère nouvellement annoncée",
-    "Significant yield movement (higher)": "Mouvement de rendement significatif (hausse)",
-    "Significant yield movement (lower)": "Mouvement de rendement significatif (baisse)",
-    "High demand relative to recent auctions": "Demande forte par rapport aux enchères récentes",
-    "Low demand relative to recent auctions": "Demande faible par rapport aux enchères récentes",
-    "Higher historical yield (same tenor)": "Rendement historiquement élevé (même maturité)",
-    "Yield curve inversion": "Inversion de la courbe", "Refinancing concentration": "Concentration de refinancement",
-    "Auction cancelled": "Enchère annulée", "Auction postponed": "Enchère reportée",
-  };
-  const TYPE_FR = { upcoming_auction: "Enchères à venir", yield_move: "Mouvements de rendement", high_demand: "Demande forte",
-    low_demand: "Demande faible", high_yield: "Rendement élevé", curve_inversion: "Inversion de courbe",
-    refinancing_concentration: "Refinancement", auction_cancelled: "Annulées", auction_postponed: "Reportées" };
-  const INSTR = { treasury_bill: "Bon du Trésor", treasury_bond: "Obligation du Trésor" };
-  const FLAG_FR = { synthetic_data: "données synthétiques", small_sample: "petit échantillon", partial_debt_coverage: "couverture partielle de la dette",
-    mixed_yield_conventions: "conventions de rendement mixtes", different_auction_dates: "dates d'enchères différentes" };
-  const EV_FR = { http_200: "joignable", http_403: "anti-bot (403)", search_only: "recherche seulement" };
-
-  const nf = (v, d) => Number(v).toLocaleString("fr-FR", { minimumFractionDigits: d, maximumFractionDigits: d });
-  const pct = (v, d = 3) => (v == null ? null : `${nf(v, d)} %`);
-  const amt = (v, cur) => {
-    if (v == null) return null;
-    const n = Number(v), a = Math.abs(n);
-    const [div, u] = a >= 1e12 ? [1e12, " Bn"] : a >= 1e9 ? [1e9, " Md"] : a >= 1e6 ? [1e6, " M"] : [1, ""];
-    return `${nf(n / div, div > 1 ? 1 : 0)}${u} ${cur ?? ""}`.trim();
-  };
-  const date = (s) => s ? new Date(s.slice(0, 10) + "T00:00:00Z").toLocaleDateString("fr-FR", { day: "2-digit", month: "short", year: "numeric", timeZone: "UTC" }) : null;
-  const tenor = (d) => d == null ? "" : d < 365 ? (d % 7 === 0 ? `${d / 7} sem.` : `${d} j`) : `${Math.round(d / 365)} ans`;
-  const factVal = (f) => f.value == null ? "Non disponible" : f.unit === "%" ? pct(f.value) : /^[A-Z]{3}$/.test(f.unit || "") ? amt(f.value, f.unit) : `${f.value}${f.unit ? " " + f.unit : ""}`;
   const store = { get: (k) => { try { return localStorage.getItem(k); } catch { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch {} } };
 
+  // ---------- Language
+  const LANGS = ["fr", "en", "pt", "es"];
+  const LOC = { fr: "fr-FR", en: "en-GB", pt: "pt-PT", es: "es-ES" };
+  const pickLang = () => {
+    const q = new URLSearchParams(location.search).get("lang");
+    if (LANGS.includes(q)) return q;
+    const s = store.get("cartouche-lang");
+    if (LANGS.includes(s)) return s;
+    const n = (navigator.language || "fr").slice(0, 2).toLowerCase();
+    return LANGS.includes(n) ? n : "fr";
+  };
+  let lang = pickLang(), L, PR, DN;
+  const FR = D.i18n.fr;
+  const t = (k, v) => {
+    let s = L[k] ?? FR[k] ?? k;
+    if (v) for (const [a, b] of Object.entries(v)) s = s.split(`{${a}}`).join(b);
+    return s;
+  };
+  const tn = (k, n, v) => t(`${k}.${PR.select(n) === "one" ? "one" : "other"}`, { n: nf(n, 0), ...v });
+  const M = (k) => L[k] ?? FR[k];  // maps and lists
+  function setLang(l) {
+    lang = l; L = D.i18n[l]; PR = new Intl.PluralRules(LOC[l]);
+    try { DN = new Intl.DisplayNames([LOC[l]], { type: "region" }); } catch { DN = null; }
+    document.documentElement.lang = l;
+    document.title = t("doc.title");
+    document.querySelector('meta[name="description"]').content = t("doc.desc");
+    document.querySelectorAll("[data-i]").forEach((el) => { el.textContent = t(el.dataset.i); });
+    document.querySelectorAll("[data-ih]").forEach((el) => { el.innerHTML = t(el.dataset.ih); });  // trusted strings from i18n/*.json
+    document.querySelectorAll("[data-ia]").forEach((el) => el.dataset.ia.split(";").forEach((p) => { const [a, k] = p.split(":"); el.setAttribute(a, t(k)); }));
+    document.querySelectorAll("#langs [data-lang]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === l)));
+    store.set("cartouche-lang", l);
+  }
+
+  // ---------- Formatting
+  const nf = (v, d) => Number(v).toLocaleString(LOC[lang], { minimumFractionDigits: d, maximumFractionDigits: d });
+  const pct = (v, d = 3) => (v == null ? null : `${nf(v, d)} %`);
+  const money = (v, cur, d = 0) => `${nf(v, d)} ${cur ?? ""}`.trim();
+  const amt = (v, cur) => {
+    if (v == null) return null;
+    const n = Number(v), a = Math.abs(n), U = M("units");
+    const [div, u] = a >= 1e12 ? [1e12, U[0]] : a >= 1e9 ? [1e9, U[1]] : a >= 1e6 ? [1e6, U[2]] : [1, ""];
+    return `${nf(n / div, div > 1 ? 1 : 0)}${u ? " " + u : ""} ${cur ?? ""}`.trim();
+  };
+  const date = (s) => s ? new Date(s.slice(0, 10) + "T00:00:00Z").toLocaleDateString(LOC[lang], { day: "2-digit", month: "short", year: "numeric", timeZone: "UTC" }) : null;
+  const tenor = (d) => d == null ? "" : d < 365 ? (d % 7 === 0 ? t("u.weeks", { n: d / 7 }) : t("u.days", { n: d })) : t("u.years", { n: Math.round(d / 365) });
+  const factVal = (f) => f.value == null ? t("na") : f.unit === "%" ? pct(f.value) : /^[A-Z]{3}$/.test(f.unit || "") ? amt(f.value, f.unit) : `${f.value}${f.unit ? " " + f.unit : ""}`;
+  const enNote = () => lang === "en" ? "" : ` <small class="note" style="margin:0">${esc(t("engine.en"))}</small>`;
+  const ext = (u, label) => `<a href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(label ?? u.replace(/^https?:\/\//, ""))}</a>`;
+
+  // ---------- Data
+  const AF = Object.fromEntries(D.africa.map((a) => [a.iso3, a]));
+  const NAME = (iso3) => {
+    const a = AF[iso3];
+    if (!a) return iso3;
+    if (lang === "fr") return a.name_fr;
+    if (lang === "en") return a.name_en;
+    try { return DN?.of(a.iso2) || a.name_en; } catch { return a.name_en; }
+  };
   const opps = D.opportunities.items;
   const rows = D.grid.rows;
-  const marketIso = new Set(rows.map((r) => r.country_iso3));
-  const MAX_ALL = 40;  // cards shown when no country is selected
-  let country = "", type = "", mapSel = store.get("cartouche-map") || "CMR";
+  const MAX_ALL = 40;
+  const EUR_PEG = new Set(["XOF", "XAF"]), ZAR_LINK = new Set(["ZAR", "LSL", "NAD", "SZL"]);
+  const cardFor = (iso) => (D.buyers || []).find((b) => b.countries.includes(iso));
+  const inScope = (scope) => !C || (scope || []).includes(C);
+
+  // ---------- Global state: selected country ("" = all)
+  let C = "", type = "";
   const saved = store.get("cartouche-country");
-  if (saved && marketIso.has(saved)) country = saved;
+  if (saved && AF[saved]) C = saved;
   const hash = location.hash.slice(1).toUpperCase();
-  if (AF[hash]) { mapSel = hash; if (marketIso.has(hash)) country = hash; }
+  if (AF[hash]) C = hash;
+  const fbadge = () => C ? `<span class="filtered">${esc(NAME(C))}</span>` : "";
 
-  // Stele (key figures)
-  const s = D.summary;
-  $("stele").innerHTML = [
-    ["Pays couverts", s.countries_monitored],
-    ["dont avec données de marché", s.countries_with_market_data],
-    ["Signaux actifs", s.new_opportunities],
-    ["Enchères dans les 7 jours", `${s.upcoming_auctions_7d}`],
-    ["Pays pilotes surveillés", D.africa.filter((a) => a.pilot).length],
-  ].map(([k, v]) => `<div><span>${k}</span><b class="num">${v}</b></div>`).join("") +
-    (D.veille ? `<div><span>Dernière veille des sources</span><b class="small num">${date(D.veille.as_of)}<br>${D.veille.summary.reachable}/${D.veille.summary.pages_checked} pages joignables</b></div>` : "");
-  $("asof").textContent = `Instantané du ${date(D.as_of)}`;
-  $("foot-asof").textContent = date(D.as_of);
+  // ---------- Country bar
+  function renderCountryBar() {
+    const regions = Object.keys(M("region"));
+    const byReg = regions.map((r) => [r, D.africa.filter((a) => a.region === r).sort((a, b) => NAME(a.iso3).localeCompare(NAME(b.iso3), LOC[lang]))]);
+    $("gsel").innerHTML = `<option value="">${esc(t("cbar.none"))}</option>` + byReg.map(([r, list]) =>
+      `<optgroup label="${esc(M("region")[r])}">${list.map((a) => `<option value="${a.iso3}"${a.iso3 === C ? " selected" : ""}>${esc(NAME(a.iso3))}</option>`).join("")}</optgroup>`).join("");
+    $("gall").hidden = !C;
+    if (!C) { $("gctx").textContent = t("cbar.hint"); return; }
+    const a = AF[C], card = cardFor(C), n = opps.filter((o) => o.country_iso3 === C).length;
+    $("gctx").innerHTML = `<b>${esc(a.currency)}</b> · ${esc(M("zone")[a.zone])} · ${esc(tn("n.signals", n))} · ${card ? "✓ " + esc(t("cbar.route")) : "— " + esc(t("cbar.noroute"))}`;
+  }
 
-  // Ticker
-  const tapeItems = opps.map((o) => `<li><b>${o.country_iso3}</b>${esc(LABEL_FR[o.label] ?? o.label)}${o.security ? ` · ${tenor(o.security.tenor_days)}` : ""}${o.yield_pct ? ` · ${pct(o.yield_pct, 2)}` : ""}</li>`).join("");
-  $("tape").innerHTML = tapeItems + tapeItems.replace(/<li>/g, '<li aria-hidden="true">');
+  // ---------- Stele, ticker
+  function renderStele() {
+    const s = D.summary;
+    $("stele").innerHTML = [
+      [t("k.countries"), s.countries_monitored],
+      [t("k.withdata"), s.countries_with_market_data],
+      [t("k.signals"), s.new_opportunities],
+      [t("k.auctions7"), s.upcoming_auctions_7d],
+      [t("k.routes"), new Set((D.buyers || []).flatMap((b) => b.countries)).size],
+    ].map(([k, v]) => `<div><span>${esc(k)}</span><b class="num">${v}</b></div>`).join("") +
+      (D.veille ? `<div><span>${esc(t("k.watch"))}</span><b class="small num">${date(D.veille.as_of)}<br>${esc(t("k.reach", { a: D.veille.summary.reachable, b: D.veille.summary.pages_checked }))}</b></div>` : "");
+    $("asof").textContent = t("asof", { d: date(D.as_of) });
+    $("foot-asof").textContent = date(D.as_of);
+  }
+  function renderTape() {
+    const list = opps.filter((o) => !C || o.country_iso3 === C);
+    const items = list.map((o) => `<li><b>${o.country_iso3}</b>${esc(M("sig_label")[o.label] ?? o.label)}${o.security ? ` · ${tenor(o.security.tenor_days)}` : ""}${o.yield_pct ? ` · ${pct(o.yield_pct, 2)}` : ""}</li>`).join("");
+    $("tape").innerHTML = items + items.replace(/<li>/g, '<li aria-hidden="true">');
+    $("tape").parentElement.hidden = !list.length;
+  }
 
-  // ---------- Africa tile map
+  // ---------- Map
   function renderTiles() {
-    $("tiles").innerHTML = D.africa.map((a) => `<button type="button" class="tile z-${a.zone}${a.pilot ? " data" : ""}" style="grid-column:${a.tile[0] + 1};grid-row:${a.tile[1] + 1}" data-m="${a.iso3}" aria-pressed="${a.iso3 === mapSel}" title="${esc(a.name_fr)}"><span aria-hidden="true">${a.iso3}</span><span class="sr">${esc(a.name_fr)}${a.pilot ? ", pays pilote" : ""}</span></button>`).join("");
+    $("tiles").innerHTML = D.africa.map((a) => `<button type="button" class="tile z-${a.zone}${a.pilot ? " data" : ""}" style="grid-column:${a.tile[0] + 1};grid-row:${a.tile[1] + 1}" data-m="${a.iso3}" aria-pressed="${a.iso3 === C}" title="${esc(NAME(a.iso3))}"><span aria-hidden="true">${a.iso3}</span><span class="sr">${esc(NAME(a.iso3))}${a.pilot ? ", " + esc(t("map.pilot")) : ""}</span></button>`).join("");
   }
   function renderProfile() {
-    const a = AF[mapSel];
-    const hasData = a.coverage === "market_data";
-    $("profile").innerHTML = `<span class="eyebrow">${REGION[a.region]}</span><h3>${esc(a.name_fr)}</h3>
-      <dl>
-        <dt>Code</dt><dd class="num">${a.iso3}</dd>
-        <dt>Devise</dt><dd class="num">${a.currency}</dd>
-        <dt>Zone</dt><dd>${ZONE[a.zone]}</dd>
-        <dt>Banque centrale</dt><dd>${esc(a.central_bank)}</dd>
-        <dt>Couverture</dt><dd><span class="tier ${a.coverage}">${hasData ? "Données de marché (synthétiques)" : "Profil de référence"}</span></dd>
-        <dt>Signaux actifs</dt><dd class="num">${a.signals}</dd>
-      </dl>
-      <p class="note">${a.pilot ? "Pays pilote : sources officielles proposées et surveillées chaque jour." : "Source officielle (banque centrale) enregistrée, URL à confirmer."} Profil non vérifié. Données de marché synthétiques${a.pilot ? "" : ", avec un niveau de rendement tiré au hasard"} ; l'existence d'un marché d'enchères domestique régulier n'a pas été vérifiée pour tous les pays.</p>
-      ${hasData ? `<p style="margin:14px 0 0"><a class="btn gold" href="#radar" data-go="${a.iso3}">Voir ${esc(a.name_fr)} dans le Radar</a></p>` : ""}`;
     const counts = {};
     D.africa.forEach((x) => (counts[x.region] = (counts[x.region] || 0) + 1));
-    $("regions").innerHTML = Object.keys(REGION).map((r) => `<div><b>${counts[r]}</b><span>${REGION[r]}</span></div>`).join("");
+    $("regions").innerHTML = Object.keys(M("region")).map((r) => `<div><b>${counts[r]}</b><span>${esc(M("region")[r])}</span></div>`).join("");
+    if (!C) { $("profile").innerHTML = `<span class="eyebrow">${esc(t("map.overview"))}</span><h3>${esc(t("map.pick"))}</h3><p class="note">${esc(t("map.pick.lede"))}</p>`; return; }
+    const a = AF[C], hasData = a.coverage === "market_data", card = cardFor(C);
+    $("profile").innerHTML = `<span class="eyebrow">${esc(M("region")[a.region])}</span><h3>${esc(NAME(C))}</h3>
+      <dl>
+        <dt>${esc(t("p.code"))}</dt><dd class="num">${a.iso3}</dd>
+        <dt>${esc(t("p.currency"))}</dt><dd class="num">${a.currency}</dd>
+        <dt>${esc(t("p.zone"))}</dt><dd>${esc(M("zone")[a.zone])}</dd>
+        <dt>${esc(t("p.cb"))}</dt><dd>${esc(a.central_bank)}</dd>
+        <dt>${esc(t("p.coverage"))}</dt><dd><span class="tier ${a.coverage}">${esc(hasData ? t("p.cov.data") : t("p.cov.ref"))}</span></dd>
+        <dt>${esc(t("p.signals"))}</dt><dd class="num">${a.signals}</dd>
+        <dt>${esc(t("p.route"))}</dt><dd>${card ? `<a href="#acheteurs">${esc(t("p.route.yes"))}</a>` : esc(t("p.route.no"))}</dd>
+      </dl>
+      <p class="note">${esc(a.pilot ? t("p.note.pilot") : t("p.note.other"))} ${esc(t("p.note.common"))}</p>
+      ${hasData ? `<p style="margin:14px 0 0"><a class="btn gold" href="#radar">${esc(t("p.go", { c: NAME(C) }))}</a></p>` : ""}`;
   }
 
   // ---------- Radar
   function demand(z) {
-    if (z == null) return ["transparent", "·", "historique insuffisant"];
+    if (z == null) return ["transparent", "·", t("z.none")];
     z = Number(z);
-    if (z >= 1.5) return ["var(--div-pos-2)", "▲▲", "nettement au-dessus de son historique"];
-    if (z >= 0.5) return ["var(--div-pos-1)", "▲", "au-dessus de son historique"];
-    if (z > -0.5) return ["var(--div-mid)", "–", "dans la norme"];
-    if (z > -1.5) return ["var(--div-neg-1)", "▼", "en dessous de son historique"];
-    return ["var(--div-neg-2)", "▼▼", "nettement en dessous de son historique"];
+    if (z >= 1.5) return ["var(--div-pos-2)", "▲▲", t("z.pp")];
+    if (z >= 0.5) return ["var(--div-pos-1)", "▲", t("z.p")];
+    if (z > -0.5) return ["var(--div-mid)", "–", t("z.mid")];
+    if (z > -1.5) return ["var(--div-neg-1)", "▼", t("z.n")];
+    return ["var(--div-neg-2)", "▼▼", t("z.nn")];
   }
-  const BUCKET_FR = { "3M": "3 mois", "6M": "6 mois", "12M": "12 mois", "2-3Y": "2-3 ans", "5Y": "5 ans", "7Y+": "7 ans +" };
   function renderGrid() {
-    const b = D.grid.buckets;
-    const head = `<caption class="sr">Dernier rendement d'enchère et demande par pays et maturité</caption><thead><tr><th scope="col">Pays</th>${b.map((x) => `<th scope="col">${BUCKET_FR[x] ?? x}</th>`).join("")}<th scope="col" style="text-align:right">Signaux</th></tr></thead>`;
-    const body = rows.map((r) => {
+    const b = D.grid.buckets, list = rows.filter((r) => !C || r.country_iso3 === C);
+    $("radar-f").innerHTML = fbadge();
+    $("grid-title").textContent = C ? t("grid.title1", { c: NAME(C) }) : t("grid.title");
+    const head = `<caption class="sr">${esc(t("grid.caption"))}</caption><thead><tr><th scope="col">${esc(t("col.country"))}</th>${b.map((x) => `<th scope="col">${esc(M("bucket")[x] ?? x)}</th>`).join("")}<th scope="col" style="text-align:right">${esc(t("col.signals"))}</th></tr></thead>`;
+    const body = list.map((r) => {
       const by = Object.fromEntries(r.cells.map((c) => [c.bucket, c]));
       const cells = b.map((k) => {
         const c = by[k];
         if (!c) return `<td class="empty">—</td>`;
         const [bg, arrow, word] = demand(c.demand_z);
         const zt = c.demand_z == null ? "n/d" : `z ${Number(c.demand_z) > 0 ? "+" : ""}${nf(c.demand_z, 1)}`;
-        return `<td style="background:${bg}" title="${esc(`${tenor(c.tenor_days)} · enchère du ${date(c.auction_date)} · bid-to-cover ${c.bid_to_cover ? nf(c.bid_to_cover, 2) + "×" : "n/d"} · ${word}`)}"><b>${pct(c.weighted_average_yield, 2) ?? "—"}</b><span><span aria-hidden="true">${arrow}</span> ${zt}</span></td>`;
+        return `<td style="background:${bg}" title="${esc(`${tenor(c.tenor_days)} · ${t("grid.auction")} ${date(c.auction_date)} · ${t("btc")} ${c.bid_to_cover ? nf(c.bid_to_cover, 2) + "×" : "n/d"} · ${word}`)}"><b>${pct(c.weighted_average_yield, 2) ?? "—"}</b><span><span aria-hidden="true">${arrow}</span> ${zt}</span></td>`;
       }).join("");
-      const sel = r.country_iso3 === country;
+      const sel = r.country_iso3 === C;
       return `<tr class="${sel ? "sel" : ""}"><th scope="row"><button type="button" data-c="${r.country_iso3}" aria-pressed="${sel}">${esc(NAME(r.country_iso3))}</button><small>${r.currency}</small></th>${cells}<td class="sig">${r.active_opportunities}</td></tr>`;
     }).join("");
-    $("grid").innerHTML = head + `<tbody>${body}</tbody>`;
-  }
-  function renderChips() {
-    const list = rows.map((r) => ({ iso3: r.country_iso3, name: NAME(r.country_iso3), n: r.active_opportunities }))
-      .sort((a, b) => a.name.localeCompare(b.name, "fr"));
-    $("country-select").innerHTML = `<option value="">Tous les pays (${opps.length} signaux)</option>` +
-      list.map((c) => `<option value="${c.iso3}"${c.iso3 === country ? " selected" : ""}>${esc(c.name)} · ${c.n} signal${c.n > 1 ? "s" : ""}</option>`).join("");
+    $("grid").innerHTML = head + `<tbody>${body || `<tr><td colspan="${b.length + 2}" class="empty">${esc(t("grid.empty"))}</td></tr>`}</tbody>`;
   }
   function passport(o) {
     const p = o.evidence;
-    const facts = p.facts.map((f) => `<li><span class="nat ${esc(f.data_nature)}">${f.data_nature === "SYNTHETIC" ? "SYNTHÉTIQUE" : f.data_nature === "FACT" ? "FAIT" : esc(f.data_nature)}</span><span lang="en">${esc(f.label)}</span> : <strong class="num">${esc(factVal(f))}</strong>${f.auction_date ? ` · enchère du ${date(f.auction_date)}` : ""}${f.source ? ` · ${esc(f.source)}` : ""}</li>`).join("");
+    const facts = p.facts.map((f) => `<li><span class="nat ${esc(f.data_nature)}">${esc(M("nature")[f.data_nature] ?? f.data_nature)}</span><span lang="en">${esc(f.label)}</span> : <strong class="num">${esc(factVal(f))}</strong>${f.auction_date ? ` · ${esc(t("grid.auction"))} ${date(f.auction_date)}` : ""}${f.source ? ` · ${esc(f.source)}` : ""}</li>`).join("");
     const c = p.calculation;
-    const calc = c ? `<div><h4><span class="nat CALC">CALC</span>2 · Calcul</h4><code lang="en">${esc(c.formula)}</code>${c.inputs ? `<br><code>${esc(Object.entries(c.inputs).map(([k, v]) => `${k} = ${v}`).join(" · "))}</code>` : ""}<div style="margin-top:4px">Résultat : <strong class="num">${esc(c.result)}</strong> ${esc(c.unit ?? "")}</div></div>` : "";
-    const cav = p.caveats?.length ? `<div><h4>5 · Limites</h4><ul lang="en">${p.caveats.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>` : "";
-    return `<details class="passport"><summary>Passeport du signal : pourquoi il existe</summary><div class="pp">
-      <div><h4>1 · Faits publiés utilisés</h4><ul>${facts}</ul></div>${calc}
-      <div><h4>3 · Règle déclenchée</h4><span lang="en">${esc(p.rule.description)}</span></div>
-      <div><h4>4 · Ce qui l'invaliderait</h4><span lang="en">${esc(p.invalidated_if)}</span></div>${cav}
-      <div class="note">Règles ${esc(p.rules_version)} · calculé au ${date(p.as_of)}</div></div></details>`;
+    const calc = c ? `<div><h4><span class="nat CALC">CALC</span>2 · ${esc(t("pp.calc"))}</h4><code lang="en">${esc(c.formula)}</code>${c.inputs ? `<br><code>${esc(Object.entries(c.inputs).map(([k, v]) => `${k} = ${v}`).join(" · "))}</code>` : ""}<div style="margin-top:4px">${esc(t("pp.result"))} : <strong class="num">${esc(c.result)}</strong> ${esc(c.unit ?? "")}</div></div>` : "";
+    const cav = p.caveats?.length ? `<div><h4>5 · ${esc(t("pp.limits"))}</h4><ul lang="en">${p.caveats.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>` : "";
+    return `<details class="passport"><summary>${esc(t("pp.title"))}</summary><div class="pp">
+      <div><h4>1 · ${esc(t("pp.facts"))}</h4><ul>${facts}</ul></div>${calc}
+      <div><h4>3 · ${esc(t("pp.rule"))}</h4><span lang="en">${esc(p.rule.description)}</span></div>
+      <div><h4>4 · ${esc(t("pp.invalid"))}</h4><span lang="en">${esc(p.invalidated_if)}</span></div>${cav}
+      <div class="note">${esc(t("pp.version", { v: p.rules_version, d: date(p.as_of) }))}${enNote()}</div></div></details>`;
   }
   function card(o) {
     const sec = o.security, up = o.opportunity_type === "upcoming_auction";
     const warn = /low_demand|auction_/.test(o.opportunity_type);
     return `<article class="card${warn ? " warn" : ""}">
-      <div class="tags"><span class="tag">${esc(TYPE_FR[o.opportunity_type] ?? o.opportunity_type)}</span>${o.is_synthetic ? '<span class="tag syn">Synthétique</span>' : ""}</div>
-      <h3>${esc(LABEL_FR[o.label] ?? o.label)}</h3>
+      <div class="tags"><span class="tag">${esc(M("sig_type")[o.opportunity_type] ?? o.opportunity_type)}</span>${o.is_synthetic ? `<span class="tag syn">${esc(t("tag.syn"))}</span>` : ""}</div>
+      <h3>${esc(M("sig_label")[o.label] ?? o.label)}</h3>
       <dl class="facts">
-        <div><dt>Pays</dt><dd>${esc(NAME(o.country_iso3))}</dd></div>
-        <div><dt>Instrument</dt><dd>${sec ? `${INSTR[sec.instrument_type] ?? sec.instrument_type} ${tenor(sec.tenor_days)}` : "Niveau pays"} <small style="color:var(--muted)">${esc(o.currency ?? "")}</small></dd></div>
-        <div><dt>${up ? "Date d'enchère" : "Date"}</dt><dd class="num">${date(o.auction_date) ?? "—"}</dd></div>
-        <div><dt title="${up ? "Dernier résultat publié pour la même maturité, pas une prévision" : ""}">${up ? "Rdt réf. (enchère préc.)" : "Rendement"}</dt><dd class="num"><strong>${pct(o.yield_pct) ?? "n/d"}</strong></dd></div>
+        <div><dt>${esc(t("col.country"))}</dt><dd>${esc(NAME(o.country_iso3))}</dd></div>
+        <div><dt>${esc(t("col.instrument"))}</dt><dd>${sec ? `${esc(M("instr")[sec.instrument_type] ?? sec.instrument_type)} ${tenor(sec.tenor_days)}` : esc(t("level.country"))} <small style="color:var(--muted)">${esc(o.currency ?? "")}</small></dd></div>
+        <div><dt>${esc(up ? t("col.auctiondate") : t("col.date"))}</dt><dd class="num">${date(o.auction_date) ?? "—"}</dd></div>
+        <div><dt title="${esc(up ? t("ref.tip") : "")}">${esc(up ? t("col.refyield") : t("col.yield"))}</dt><dd class="num"><strong>${pct(o.yield_pct) ?? "n/d"}</strong></dd></div>
       </dl>
       <p class="expl" lang="en">${esc(o.explanation)}</p>
-      <div class="intensity">${o.strength ? `Intensité du signal : <strong class="num">${nf(o.strength, 2)}×</strong> le seuil · ` : ""}${o.risk_flags.map((f) => esc(FLAG_FR[f] ?? f)).join(" · ")}</div>
+      <div class="intensity">${o.strength ? `${esc(t("strength"))} : <strong class="num">${nf(o.strength, 2)}×</strong> · ` : ""}${o.risk_flags.map((f) => esc(M("flag")[f] ?? f)).join(" · ")}</div>
       ${passport(o)}</article>`;
   }
   function renderSignals() {
-    const inCountry = opps.filter((o) => !country || o.country_iso3 === country);
+    const inCountry = opps.filter((o) => !C || o.country_iso3 === C);
     const counts = {};
     inCountry.forEach((o) => (counts[o.opportunity_type] = (counts[o.opportunity_type] || 0) + 1));
     if (type && !counts[type]) type = "";
     const list = inCountry.filter((o) => !type || o.opportunity_type === type);
-    $("sigcount").textContent = `${list.length} signal${list.length > 1 ? "s" : ""}${country ? " · " + NAME(country) : " · tous les pays"}`;
-    $("types").innerHTML = `<button type="button" data-t="" aria-pressed="${!type}">Tous</button>` +
-      Object.entries(counts).sort((a, b) => b[1] - a[1]).map(([t, n]) => `<button type="button" data-t="${t}" aria-pressed="${t === type}">${esc(TYPE_FR[t] ?? t)} <span class="num">${n}</span></button>`).join("");
-    const shown = country ? list : list.slice(0, MAX_ALL);
-    $("cards").innerHTML = (shown.map(card).join("") || `<p class="note">Aucun signal pour ce filtre.</p>`) +
-      (shown.length < list.length ? `<p class="note">${shown.length} signaux affichés sur ${list.length}. Choisissez un pays pour voir tous ses signaux.</p>` : "");
+    $("sigcount").textContent = `${tn("n.signals", list.length)} · ${C ? NAME(C) : t("allcountries")}`;
+    $("types").innerHTML = `<button type="button" data-t="" aria-pressed="${!type}">${esc(t("all"))}</button>` +
+      Object.entries(counts).sort((a, b) => b[1] - a[1]).map(([k, n]) => `<button type="button" data-t="${k}" aria-pressed="${k === type}">${esc(M("sig_type")[k] ?? k)} <span class="num">${n}</span></button>`).join("");
+    const shown = C ? list : list.slice(0, MAX_ALL);
+    $("cards").innerHTML = (shown.map(card).join("") || `<p class="note">${esc(t("sig.none"))}</p>`) +
+      (shown.length < list.length ? `<p class="note">${esc(t("sig.more", { a: shown.length, b: list.length }))}</p>` : "");
   }
   function renderWall() {
-    if (!country) {
-      $("wall-title").textContent = "Mur de refinancement";
-      $("wall").innerHTML = `<p class="note" style="margin:0">Sélectionnez un pays pour voir les montants qui arrivent à échéance chaque mois sur les 12 prochains mois.</p>`;
+    if (!C || !D.walls[C]) {
+      $("wall-title").textContent = t("wall.title");
+      $("wall").innerHTML = `<p class="note" style="margin:0">${esc(t("wall.pick"))}</p>`;
       return;
     }
-    const w = D.walls[country];
-    $("wall-title").textContent = `Mur de refinancement · ${NAME(country)}`;
+    const w = D.walls[C];
+    $("wall-title").textContent = `${t("wall.title")} · ${NAME(C)}`;
     const months = w.months, vals = months.map((m) => Number(m.amount)), max = Math.max(...vals, 1);
-    const flagged = new Set(opps.filter((o) => o.country_iso3 === country && o.opportunity_type === "refinancing_concentration").map((o) => o.evidence.facts[0].label.slice(-7)));
+    const flagged = new Set(opps.filter((o) => o.country_iso3 === C && o.opportunity_type === "refinancing_concentration").map((o) => o.evidence.facts[0].label.slice(-7)));
     const step = Math.pow(10, Math.floor(Math.log10(max))), top = Math.ceil(max / step) * step;
-    const W = 340, H = 190, L = 44, B = 30, T = 8, bw = (W - L - 6) / months.length;
+    const W = 340, H = 190, Lm = 44, B = 30, T = 8, bw = (W - Lm - 6) / months.length;
     const y = (v) => T + (H - T - B) * (1 - v / top);
-    let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Montants arrivant à échéance par mois, ${esc(NAME(country))}">`;
-    [0, 0.5, 1].forEach((f) => { const v = top * f; svg += `<line class="gl" x1="${L}" x2="${W}" y1="${y(v)}" y2="${y(v)}"/><text x="${L - 6}" y="${y(v) + 3}" text-anchor="end">${amt(v, "").trim()}</text>`; });
+    let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(t("wall.aria", { c: NAME(C) }))}">`;
+    [0, 0.5, 1].forEach((f) => { const v = top * f; svg += `<line class="gl" x1="${Lm}" x2="${W}" y1="${y(v)}" y2="${y(v)}"/><text x="${Lm - 6}" y="${y(v) + 3}" text-anchor="end">${amt(v, "").trim()}</text>`; });
     months.forEach((m, i) => {
-      const v = vals[i], x = L + 3 + i * bw, h = Math.max(0, y(0) - y(v)), hi = flagged.has(m.month);
-      svg += `<rect class="b${hi ? " hi" : ""}" x="${x + 1}" y="${y(v)}" width="${bw - 2}" height="${h}" rx="2"><title>${m.month} : ${amt(v, w.currency)} (${m.share_pct ? nf(m.share_pct, 1) + " %" : "—"})${hi ? " · concentration signalée" : ""}</title></rect>`;
+      const v = vals[i], x = Lm + 3 + i * bw, h = Math.max(0, y(0) - y(v)), hi = flagged.has(m.month);
+      svg += `<rect class="b${hi ? " hi" : ""}" x="${x + 1}" y="${y(v)}" width="${bw - 2}" height="${h}" rx="2"><title>${m.month} : ${amt(v, w.currency)} (${m.share_pct ? nf(m.share_pct, 1) + " %" : "—"})${hi ? " · " + esc(t("wall.flag")) : ""}</title></rect>`;
       if (i % 2 === 0) svg += `<text x="${x + bw / 2}" y="${H - 12}" text-anchor="middle">${m.month.slice(5)}/${m.month.slice(2, 4)}</text>`;
     });
-    $("wall").innerHTML = svg + `<p class="note">Total sur 12 mois : <strong class="num">${amt(w.total, w.currency)}</strong>.${flagged.size ? ` En or : mois signalés en concentration (${[...flagged].join(", ")}).` : ""} Montants alloués des titres adjugés suivis ici ; hors Eurobonds et prêts.</p>`;
-  }
-
-  // ---------- Sources
-  function renderSources() {
-    const withUrl = D.sources.filter((x) => x.candidates.length);
-    const without = D.sources.filter((x) => !x.candidates.length);
-    const all = withUrl.flatMap((x) => x.candidates);
-    const ok = all.filter((c) => c.check === "http_200").length;
-    $("src-lede").textContent = `${D.sources.length} sources officielles enregistrées pour les 54 pays. ${all.length} URL proposées pour ${withUrl.length} institutions, vérifiées le 3 octobre 2026 : ${ok} joignables avec un titre de page qui nomme l'institution, ${all.filter((c) => c.check === "http_403").length} bloquées par un anti-bot, ${all.filter((c) => c.check === "search_only").length} trouvées uniquement par recherche web. Aucune n'est activée tant qu'un opérateur ne l'a pas confirmée.`;
-    $("srcs").innerHTML = `<thead><tr><th>Institution</th><th>URL proposée</th><th>Contenu</th><th>Vérification</th></tr></thead><tbody>` +
-      withUrl.sort((a, b) => a.priority - b.priority || a.name.localeCompare(b.name)).flatMap((x) => x.candidates.map((c, i) =>
-        `<tr>${i === 0 ? `<td rowspan="${x.candidates.length}"><strong>${esc(x.institution)}</strong><br><small style="color:var(--muted)">${esc(x.category.replace(/_/g, " "))}</small></td>` : ""}<td><a href="${esc(c.url)}" target="_blank" rel="noopener noreferrer">${esc(c.url.replace(/^https:\/\//, ""))}</a></td><td lang="en">${esc(c.purpose)}</td><td><span class="ev ${c.check}" title="${esc(c.evidence)}">${EV_FR[c.check]}</span></td></tr>`)).join("") + `</tbody>`;
-    $("cb-sum").textContent = `${without.length} autres sources enregistrées, URL à confirmer`;
-    $("cb").innerHTML = without.sort((a, b) => a.institution.localeCompare(b.institution)).map((x) => `<p>${esc(x.institution)}</p>`).join("");
+    $("wall").innerHTML = svg + `<p class="note">${esc(t("wall.total"))} : <strong class="num">${amt(w.total, w.currency)}</strong>.${flagged.size ? " " + esc(t("wall.gold", { m: [...flagged].join(", ") })) : ""} ${esc(t("wall.scope"))}</p>`;
   }
 
   // ---------- Buyers
-  const ZONE_TITLE = { CEMAC: "CEMAC · BEAC", WAEMU: "UEMOA · UMOA-Titres", KEN: "Kenya · Banque centrale du Kenya" };
-  function renderBuyers() {
-    const curs = [...new Set(opps.map((o) => o.currency).filter(Boolean))].sort();
-    $("b-cur").innerHTML = `<option value="">Toutes</option>` + curs.map((c) => `<option>${c}</option>`).join("");
-    const cards = D.buyers || [];
-    $("bcards").innerHTML = cards.map((b) => `<article class="bcard">
-      <span class="eyebrow">${b.countries.length} pays · ${b.countries.map((c) => esc(NAME(c))).join(", ")}</span>
-      <h3>${esc(ZONE_TITLE[b.key] ?? b.key)}</h3>
-      <p class="who">${esc(b.investor_type)}</p>
-      <dl>
-        <dt>Qui peut acheter</dt><dd>${esc(b.eligibility)}</dd>
-        <dt>Par qui passer</dt><dd>${esc(b.primary_dealer)}</dd>
-        <dt>Compte nécessaire</dt><dd>${esc(b.account_requirement)}</dd>
-        <dt>Comment soumettre</dt><dd>${esc(b.submission_method)}</dd>
-        <dt>Titres</dt><dd>${b.instruments.map(([t, n]) => `<div>${esc(n)}</div>`).join("")}</dd>
-        <dt>Frais et fiscalité</dt><dd><em>Non indiqués par la source officielle : à demander à l'intermédiaire.</em></dd>
-      </dl>
-      <details><summary class="src" style="cursor:pointer">Citations officielles (${b.quotes.length})</summary>${b.quotes.map((q) => `<blockquote>« ${esc(q)} »</blockquote>`).join("")}</details>
-      <p class="src">Source : ${b.sources.map((u) => `<a href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(new URL(u).hostname)}</a>`).join(", ")} · vérifié le ${date(b.last_verified)}</p>
-    </article>`).join("");
-    const covered = new Set(cards.flatMap((b) => b.countries));
-    $("bnote").textContent = `Procédures documentées pour ${covered.size} pays sur 54. Pour les ${54 - covered.size} autres, la procédure n'est pas encore documentée : renseignez-vous auprès de la banque centrale ou du Trésor du pays.`;
-    renderBuyerMatches();
+  const MAT = [["", "f.all"], ["0-366", "f.m1"], ["367-1826", "f.m2"], ["1827-99999", "f.m3"]];
+  function renderFinderOptions() {
+    const curSel = $("b-cur").value, matSel = $("b-mat").value;
+    const curs = [...new Set(opps.filter((o) => !C || o.country_iso3 === C).map((o) => o.currency).filter(Boolean))].sort();
+    $("b-cur").innerHTML = `<option value="">${esc(t("f.all"))}</option>` + curs.map((c) => `<option${c === curSel ? " selected" : ""}>${c}</option>`).join("");
+    $("b-mat").innerHTML = MAT.map(([v, k]) => `<option value="${v}"${v === matSel ? " selected" : ""}>${esc(t(k))}</option>`).join("");
   }
   function renderBuyerMatches() {
-    const cur = $("b-cur").value, mat = $("b-mat").value, ymin = parseFloat($("b-yld").value), up = $("b-up").checked;
+    const cur = $("b-cur").value, mat = $("b-mat").value, ymin = parseFloat($("b-yld").value), up = $("b-up").value === "1";
     const [lo, hi] = mat ? mat.split("-").map(Number) : [0, Infinity];
-    const list = opps.filter((o) => (!up || o.opportunity_type === "upcoming_auction")
+    const list = opps.filter((o) => (!C || o.country_iso3 === C)
+      && (!up || o.opportunity_type === "upcoming_auction")
       && (!cur || o.currency === cur)
       && (!mat || (o.security && o.security.tenor_days >= lo && o.security.tenor_days <= hi))
       && (isNaN(ymin) || (o.yield_pct != null && Number(o.yield_pct) >= ymin)))
       .sort((a, b) => (a.auction_date || "9").localeCompare(b.auction_date || "9"));
-    const head = `<p class="note" style="margin:0 0 8px"><strong>${list.length}</strong> titre${list.length > 1 ? "s" : ""} correspond${list.length > 1 ? "ent" : ""} à vos critères${up ? " parmi les enchères à venir" : ""}. Données de marché synthétiques. ${up ? "Le rendement affiché est celui de l'enchère précédente de même maturité, pas une prévision." : ""}</p>`;
-    $("bres").innerHTML = head + (list.length ? `<div class="scroll"><table class="list"><thead><tr><th>Date</th><th>Pays</th><th>Instrument</th><th>Devise</th><th>${up ? "Rdt réf." : "Rendement"}</th><th></th></tr></thead><tbody>` +
-      list.slice(0, 15).map((o) => `<tr><td class="num">${date(o.auction_date) ?? "—"}</td><td>${esc(NAME(o.country_iso3))}</td><td>${o.security ? `${INSTR[o.security.instrument_type] ?? ""} ${tenor(o.security.tenor_days)}` : "—"}</td><td>${esc(o.currency ?? "")}</td><td class="num">${pct(o.yield_pct, 2) ?? "n/d"}</td><td><a href="#radar" data-go="${o.country_iso3}">Radar →</a></td></tr>`).join("") +
-      `</tbody></table></div>${list.length > 15 ? `<p class="note">15 premiers affichés sur ${list.length}.</p>` : ""}` : "");
+    const head = `<p class="note" style="margin:10px 0 8px"><strong>${esc(tn("n.matches", list.length))}</strong>${up ? " " + esc(t("f.amongup")) : ""}. ${esc(t("f.syn"))} ${up ? esc(t("ref.tip")) + "." : ""}</p>`;
+    $("bres").innerHTML = head + (list.length ? `<div class="scroll"><table class="list"><thead><tr><th>${esc(t("col.auctiondate"))}</th><th>${esc(t("col.country"))}</th><th>${esc(t("col.instrument"))}</th><th>${esc(t("col.currency"))}</th><th>${esc(up ? t("col.refyield") : t("col.yield"))}</th><th></th></tr></thead><tbody>` +
+      list.slice(0, 15).map((o) => `<tr><td class="num">${date(o.auction_date) ?? "—"}</td><td>${esc(NAME(o.country_iso3))}</td><td>${o.security ? `${esc(M("instr")[o.security.instrument_type] ?? "")} ${tenor(o.security.tenor_days)}` : "—"}</td><td>${esc(o.currency ?? "")}</td><td class="num">${pct(o.yield_pct, 2) ?? "n/d"}</td><td style="white-space:nowrap">${o.opportunity_type === "upcoming_auction" ? `<a href="#simulateur" data-sim="${o.opportunity_id}">${esc(t("f.simulate"))}</a> · ` : ""}<a href="#radar" data-go="${o.country_iso3}">Radar</a></td></tr>`).join("") +
+      `</tbody></table></div>${list.length > 15 ? `<p class="note">${esc(t("f.first", { n: list.length }))}</p>` : ""}` : "");
   }
-  ["b-cur", "b-mat", "b-yld", "b-up"].forEach((id) => $(id).addEventListener("input", renderBuyerMatches));
+  const QUOTE_LANG = { KEN: "en" };
+  function buyerCard(b) {
+    const tr = lang === "fr" ? null : M("buyer_cards")[b.key];
+    const f = (k) => tr?.[k] ?? b[k];
+    const ql = QUOTE_LANG[b.key] ?? "fr";
+    return `<article class="bcard">
+      <span class="eyebrow">${esc(tn("n.countries", b.countries.length))} · ${b.countries.map((c) => esc(NAME(c))).join(", ")}</span>
+      <h3>${esc(M("zone_title")[b.key] ?? b.key)}</h3>
+      <p class="who">${esc(f("investor_type"))}</p>
+      <dl>
+        <dt>${esc(t("bc.who"))}</dt><dd>${esc(f("eligibility"))}</dd>
+        <dt>${esc(t("bc.via"))}</dt><dd>${esc(f("primary_dealer"))}</dd>
+        <dt>${esc(t("bc.account"))}</dt><dd>${esc(f("account_requirement"))}</dd>
+        <dt>${esc(t("bc.submit"))}</dt><dd>${esc(f("submission_method"))}</dd>
+        <dt>${esc(t("bc.instr"))}</dt><dd>${b.instruments.map(([ty, n]) => `<div>${esc(tr?.instruments?.[ty] ?? n)}</div>`).join("")}</dd>
+        <dt>${esc(t("bc.fees"))}</dt><dd><em>${esc(t("bc.fees.na"))}</em></dd>
+      </dl>
+      <details><summary class="src" style="cursor:pointer">${esc(t("bc.quotes", { n: b.quotes.length, l: M("lang_name")[ql] }))}</summary>${b.quotes.map((q) => `<blockquote lang="${ql}">« ${esc(q)} »</blockquote>`).join("")}</details>
+      <p class="src">${esc(t("bc.source"))} : ${b.sources.map((u) => ext(u, new URL(u).hostname)).join(", ")} · ${esc(t("bc.verified", { d: date(b.last_verified) }))}${lang !== "fr" ? `<br>${esc(t("bc.translated"))}` : ""}</p>
+    </article>`;
+  }
+  function renderBuyers() {
+    $("buy-f").innerHTML = fbadge();
+    const cards = D.buyers || [];
+    const covered = new Set(cards.flatMap((b) => b.countries));
+    if (C) {
+      const b = cardFor(C);
+      $("bcards").innerHTML = b ? buyerCard(b) : `<article class="bcard"><span class="eyebrow">${esc(NAME(C))}</span><h3>${esc(t("bc.none.title"))}</h3><p>${esc(t("bc.none.body", { cb: AF[C].central_bank }))}</p></article>`;
+      $("bnote").textContent = t("bc.note.one", { a: covered.size, b: 54 - covered.size });
+    } else {
+      $("bcards").innerHTML = cards.map(buyerCard).join("");
+      $("bnote").textContent = t("bc.note.all", { a: covered.size, b: 54 - covered.size });
+    }
+    renderDealers();
+    $("steps").innerHTML = M("guide_steps").map((s) => `<li>${esc(s)}</li>`).join("");
+    $("asks").innerHTML = M("ask_list").map((s) => `<li>${esc(s)}</li>`).join("");
+    renderFinderOptions(); renderBuyerMatches();
+  }
+  function renderDealers() {
+    const DL = D.dealers || { sources: [], dealers: [] };
+    if (!C) {
+      const by = {};
+      DL.dealers.forEach((d) => { (by[d.country_iso3] ||= new Set()).add(d.name); });
+      const keys = Object.keys(by).sort((a, b) => NAME(a).localeCompare(NAME(b), LOC[lang]));
+      $("dealers").innerHTML = keys.length
+        ? `<p class="note">${esc(t("dl.pick", { n: keys.length }))}</p><p style="display:flex;flex-wrap:wrap;gap:8px">${keys.map((k) => `<button type="button" class="chip" data-m="${k}">${esc(NAME(k))} <span class="num">${by[k].size}</span></button>`).join("")}</p>`
+        : `<p class="note">${esc(t("dl.none.any"))}</p>`;
+      return;
+    }
+    const srcs = DL.sources.filter((s) => s.countries.includes(C));
+    const blocks = srcs.map((s) => {
+      const list = DL.dealers.filter((d) => d.source_id === s.id && d.country_iso3 === C);
+      if (!list.length) return "";
+      const hasM = s.measure !== "list";
+      const mcol = s.measure === "rank" ? t("dl.rank") : t("dl.share");
+      const mval = (d) => s.measure === "share" && d.market_share_pct != null ? `<strong>${pct(d.market_share_pct, 1)}</strong>`
+        : s.measure === "rank" && d.rank != null ? `<strong>${d.rank}</strong>` : `<em style="font-family:var(--body)">${esc(t("dl.share.na"))}</em>`;
+      return `<div class="panel" style="margin-top:14px"><div class="panel-h" style="display:block">
+          <div><span class="kind-tag fact">${esc(t("kind.fact"))}</span> <strong>${esc(s.institution)}</strong> · <span lang="${s.lang}">${esc(s.title)}</span></div>
+          <div class="note" style="margin-top:4px">${esc(s.document_date)} · ${ext(s.document_url || s.page_url, t("dl.doc"))}${s.document_url ? ` · ${ext(s.page_url, t("dl.page"))}` : ""} · ${esc(t("bc.verified", { d: date(s.verified_on) }))}</div>
+          ${s.basis ? `<div class="note" style="margin-top:4px"><b>${esc(mcol)}</b> : <span lang="fr">${esc(s.basis)}</span></div>` : ""}
+        </div><div class="panel-b">
+          <div class="scroll"><table class="list" style="min-width:420px"><thead><tr><th>${esc(t("dl.name"))}</th><th>${esc(t("dl.kind"))}</th>${hasM ? `<th>${esc(mcol)}</th>` : ""}</tr></thead><tbody>` +
+          list.map((d) => `<tr><td><strong>${esc(d.name)}</strong></td><td>${esc(M("dealer_kind")[d.kind] ?? d.kind)}</td>${hasM ? `<td class="num">${mval(d)}</td>` : ""}</tr>`).join("") +
+          `</tbody></table></div>
+          <p class="note">${esc(s.measure === "list" ? t("dl.order.list") : s.measure === "rank" ? t("dl.order.rank") : t("dl.order.share"))} ${esc(t("dl.neutral"))}</p>
+          <details class="more" style="margin-top:6px"><summary style="font-size:13px">${esc(t("dl.details"))}</summary>
+            <blockquote lang="${s.lang}" style="margin:8px 0;padding:6px 10px;border-left:3px solid var(--line);font-size:12.5px;color:var(--muted);font-style:italic">« ${esc(s.quote)} »</blockquote>
+            ${s.note ? `<p class="note" lang="fr">${esc(s.note)}</p>` : ""}</details>
+        </div></div>`;
+    }).join("");
+    $("dealers").innerHTML = blocks
+      ? `<div class="warnbox"><strong>${esc(t("dl.benefits"))}</strong> : ${esc(t("dl.benefits.na"))} ${esc(t("dl.share.all"))}</div>` + blocks + `<p class="note">${esc(t("dl.howto.v"))}${lang !== "fr" ? " " + esc(t("dl.fr")) : ""}</p>`
+      : `<div class="warnbox">${esc(C === "KEN" ? t("dl.none.ken") : t("dl.none.one", { c: NAME(C) }))}</div>`;
+  }
 
+  // ---------- Simulator (CALCULATION)
+  const UNIT = { "CEMAC:treasury_bill": 1000000, "CEMAC:treasury_bond": 10000 };  // BEAC page, nominal per security
+  function simOps() {
+    return opps.filter((o) => o.opportunity_type === "upcoming_auction" && o.security && o.yield_pct != null && (!C || o.country_iso3 === C))
+      .sort((a, b) => (a.auction_date || "").localeCompare(b.auction_date || "") || NAME(a.country_iso3).localeCompare(NAME(b.country_iso3)));
+  }
+  let simCur = "";
+  function renderSimOps(keep = true) {
+    $("sim-f").innerHTML = fbadge();
+    const prev = keep ? $("s-op").value : "";
+    const ops = simOps().slice(0, C ? 200 : 80);
+    $("s-op").innerHTML = `<option value="">${esc(t("sim.free"))}</option>` + ops.map((o) =>
+      `<option value="${o.opportunity_id}">${date(o.auction_date)} · ${esc(NAME(o.country_iso3))} · ${esc(M("instr")[o.security.instrument_type])} ${tenor(o.security.tenor_days)} · ${pct(o.yield_pct, 2)}</option>`).join("");
+    if (prev && ops.some((o) => String(o.opportunity_id) === prev)) $("s-op").value = prev;
+    else if (prev) { $("s-op").value = ""; }
+  }
+  function loadOp(id) {
+    const o = opps.find((x) => String(x.opportunity_id) === String(id));
+    if (!o) { simCur = ""; computeSim(); return; }
+    const bill = o.security.instrument_type === "treasury_bill";
+    $("s-kind").value = bill ? "bill" : "bond";
+    $("s-yld").value = Number(o.yield_pct).toFixed(2);
+    if (bill) $("s-days").value = o.security.tenor_days;
+    else { $("s-years").value = Math.max(1, Math.round(o.security.tenor_days / 365)); $("s-cpn").value = Number(o.yield_pct).toFixed(2); }
+    simCur = o.currency || "";
+    computeSim();
+  }
+  const num = (id) => parseFloat($(id).value);
+  function irr(outlay, flows) {  // annual flows; bisection on [-0.99, 1]
+    const pv = (r) => flows.reduce((s, f, k) => s + f / Math.pow(1 + r, k + 1), 0) - outlay;
+    let a = -0.99, b = 1;
+    if (pv(a) * pv(b) > 0) return null;
+    for (let i = 0; i < 200; i++) { const m = (a + b) / 2; (pv(a) * pv(m) <= 0) ? (b = m) : (a = m); }
+    return (a + b) / 2;
+  }
+  function computeSim() {
+    const kind = $("s-kind").value;
+    document.querySelectorAll("#sim [data-k]").forEach((el) => { el.hidden = el.dataset.k !== kind; });
+    const o = opps.find((x) => String(x.opportunity_id) === $("s-op").value);
+    const cur = o ? o.currency : simCur;
+    $("s-curl").textContent = cur ? `(${cur})` : "";
+    const N = num("s-nom"), y = num("s-yld") / 100, fee = (num("s-fee") || 0) / 100, tax = (num("s-tax") || 0) / 100;
+    const out = $("simout");
+    const head = `<div class="tags"><span class="kind-tag calc">${esc(t("kind.calc"))}</span>${o ? ` <span class="kind-tag syn">${esc(t("kind.syn"))}</span>` : ""}</div>`;
+    if (!(N > 0) || isNaN(y) || y < 0 || fee < 0 || tax < 0 || tax > 1) { out.innerHTML = head + `<p class="warnbox">${esc(t("sim.err"))}</p>`; return; }
+    const kp = (k, v, cls = "") => `<div class="${cls}"><span>${esc(k)}</span><b>${v}</b></div>`;
+    const m = (v) => money(v, cur, 0);
+    let html = head + (o ? `<p class="note" style="margin:6px 0 0">${esc(t("sim.op.note", { c: NAME(o.country_iso3), d: date(o.auction_date) }))}</p>` : "");
+    const unitKey = o ? `${AF[o.country_iso3].zone}:${o.security.instrument_type}` : "";
+    if (UNIT[unitKey] && N % UNIT[unitKey] !== 0) html += `<div class="warnbox">${esc(t("sim.unit", { u: money(UNIT[unitKey], "XAF") }))}</div>`;
+    if (o && o.country_iso3 === "KEN" && (N < 50000 || N % 50000 !== 0)) html += `<div class="warnbox">${esc(t("sim.ken"))}</div>`;
+    if (kind === "bill") {
+      const d = Math.round(num("s-days")), B = Number($("s-basis").value), conv = $("s-conv").value;
+      if (!(d > 0)) { out.innerHTML = head + `<p class="warnbox">${esc(t("sim.err"))}</p>`; return; }
+      const P = conv === "yield" ? 100 / (1 + y * d / B) : 100 * (1 - y * d / B);
+      if (!(P > 0)) { out.innerHTML = head + `<p class="warnbox">${esc(t("sim.err.price"))}</p>`; return; }
+      const paid = N * P / 100, interest = N - paid, fees = N * fee, taxes = interest * tax, net = interest - fees - taxes, outlay = paid + fees;
+      const netRate = net / outlay * B / d;
+      html += `<div class="kpis">${kp(t("sim.r.price"), nf(P, 4))}${kp(t("sim.r.paid"), m(paid))}${kp(t("sim.r.interest"), m(interest))}${kp(t("sim.r.costs"), m(fees + taxes))}${kp(t("sim.r.net"), m(net), net >= 0 ? "hl" : "neg")}${kp(t("sim.r.netrate", { b: B }), pct(netRate * 100, 2), net >= 0 ? "hl" : "neg")}${kp(t("sim.r.receive"), m(N))}${kp(t("sim.r.date"), t("sim.r.after", { d }))}</div>` +
+        `<div class="formula">${conv === "yield" ? "P = 100 / (1 + y × d / B)" : "P = 100 × (1 − y × d / B)"}
+${esc(t("sim.f.paid"))} = N × P / 100
+${esc(t("sim.f.int"))} = N − ${esc(t("sim.f.paid"))}
+${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − ${esc(t("sim.f.tax"))}</div>` +
+        `<ul class="assume">${M("sim_assume_bill").map((s) => `<li>${esc(s)}</li>`).join("")}</ul>`;
+    } else {
+      const n = Math.round(num("s-years")), c = (num("s-cpn") || 0) / 100;
+      if (!(n >= 1) || c < 0) { out.innerHTML = head + `<p class="warnbox">${esc(t("sim.err"))}</p>`; return; }
+      let P = 0;
+      for (let k = 1; k <= n; k++) P += 100 * c / Math.pow(1 + y, k);
+      P += 100 / Math.pow(1 + y, n);
+      const paid = N * P / 100, cpn = N * c, coupons = cpn * n, gain = N - paid, fees = N * fee, taxes = coupons * tax;
+      const net = coupons + gain - fees - taxes, outlay = paid + fees;
+      const flows = Array.from({ length: n }, (_, k) => cpn * (1 - tax) + (k === n - 1 ? N : 0));
+      const r = irr(outlay, flows);
+      html += `<div class="kpis">${kp(t("sim.r.price"), nf(P, 4))}${kp(t("sim.r.paid"), m(paid))}${kp(t("sim.r.coupons", { n }), m(coupons))}${kp(t("sim.r.capgain"), m(gain), gain < 0 ? "neg" : "")}${kp(t("sim.r.costs"), m(fees + taxes))}${kp(t("sim.r.net"), m(net), net >= 0 ? "hl" : "neg")}${kp(t("sim.r.irr"), r == null ? "n/d" : pct(r * 100, 2), net >= 0 ? "hl" : "neg")}${kp(t("sim.r.receive"), m(N))}</div>` +
+        `<div class="scroll"><table class="list" style="min-width:360px"><thead><tr><th>${esc(t("sim.t.year"))}</th><th>${esc(t("sim.t.coupon"))}</th><th>${esc(t("sim.t.tax"))}</th><th>${esc(t("sim.t.principal"))}</th></tr></thead><tbody>` +
+        flows.map((_, k) => `<tr><td class="num">${k + 1}</td><td class="num">${m(cpn)}</td><td class="num">${m(cpn * tax)}</td><td class="num">${k === n - 1 ? m(N) : "—"}</td></tr>`).join("") + `</tbody></table></div>` +
+        `<div class="formula">P = Σ (100 × c) / (1 + y)^k + 100 / (1 + y)^n,  k = 1 … n</div>` +
+        `<ul class="assume">${M("sim_assume_bond").map((s) => `<li>${esc(s)}</li>`).join("")}${o ? `<li>${esc(t("sim.cpn.assume"))}</li>` : ""}</ul>`;
+    }
+    out.innerHTML = html + `<p class="note">${esc(t("sim.disclaimer"))}</p>`;
+  }
+
+  // ---------- Strategy: diversification test bench (CALCULATION on synthetic data)
+  const cellsOf = (iso) => (rows.find((r) => r.country_iso3 === iso)?.cells || []).filter((c) => c.weighted_average_yield != null);
+  let pf = null;
+  function initPf() { const first = C && cellsOf(C).length ? C : rows[0]?.country_iso3; pf = first ? [{ c: first, b: cellsOf(first)[0]?.bucket, w: 100 }] : []; }
+  function renderPf() {
+    if (!pf) initPf();
+    const countries = rows.map((r) => r.country_iso3).sort((a, b) => NAME(a).localeCompare(NAME(b), LOC[lang]));
+    $("pf-rows").innerHTML = `<thead><tr><th>${esc(t("col.country"))}</th><th>${esc(t("col.maturity"))}</th><th>${esc(t("st.pf.weight"))}</th><th></th></tr></thead><tbody>` +
+      pf.map((r, i) => `<tr><td><select data-pf="c" data-ix="${i}" aria-label="${esc(t("col.country"))}">${countries.map((c) => `<option value="${c}"${c === r.c ? " selected" : ""}>${esc(NAME(c))}</option>`).join("")}</select></td>` +
+        `<td><select data-pf="b" data-ix="${i}" aria-label="${esc(t("col.maturity"))}">${cellsOf(r.c).map((c) => `<option value="${c.bucket}"${c.bucket === r.b ? " selected" : ""}>${esc(M("bucket")[c.bucket] ?? c.bucket)}</option>`).join("")}</select></td>` +
+        `<td><input data-pf="w" data-ix="${i}" type="number" min="0" step="5" value="${r.w}" aria-label="${esc(t("st.pf.weight"))}"></td>` +
+        `<td><button type="button" class="rm" data-pfrm="${i}" aria-label="${esc(t("st.pf.remove"))}">✕</button></td></tr>`).join("") + `</tbody>`;
+    $("pf-add").disabled = pf.length >= 10;
+    computePf();
+  }
+  function hhi(map, total) { return Object.values(map).reduce((s, v) => s + Math.pow(100 * v / total, 2), 0); }
+  function computePf() {
+    const lines = pf.map((r) => ({ ...r, cell: cellsOf(r.c).find((c) => c.bucket === r.b), w: Math.max(0, Number(r.w) || 0) })).filter((r) => r.cell && r.w > 0);
+    const W = lines.reduce((s, r) => s + r.w, 0);
+    const out = $("pf-out");
+    if (!W) { out.innerHTML = `<p class="note">${esc(t("st.pf.empty"))}</p>`; return; }
+    const byC = {}, byCur = {}, byZone = {};
+    let y = 0, mat = 0, eur = 0, zar = 0;
+    lines.forEach((r) => {
+      const a = AF[r.c], cur = a.currency;
+      byC[r.c] = (byC[r.c] || 0) + r.w; byCur[cur] = (byCur[cur] || 0) + r.w; byZone[a.zone] = (byZone[a.zone] || 0) + r.w;
+      y += r.w * Number(r.cell.weighted_average_yield); mat += r.w * r.cell.tenor_days;
+      if (EUR_PEG.has(cur)) eur += r.w; if (ZAR_LINK.has(cur)) zar += r.w;
+    });
+    const kp = (k, v) => `<div><span>${esc(k)}</span><b>${v}</b></div>`;
+    const top = Object.entries(byC).sort((a, b) => b[1] - a[1]);
+    out.innerHTML = `<div class="tags"><span class="kind-tag calc">${esc(t("kind.calc"))}</span> <span class="kind-tag syn">${esc(t("kind.syn"))}</span></div>
+      <div class="kpis">${kp(t("st.r.yield"), pct(y / W, 2))}${kp(t("st.r.mat"), tenor(Math.round(mat / W)))}${kp(t("st.r.countries"), Object.keys(byC).length)}${kp(t("st.r.currencies"), Object.keys(byCur).length)}${kp(t("st.r.hhic"), nf(hhi(byC, W), 0))}${kp(t("st.r.hhicur"), nf(hhi(byCur, W), 0))}${kp(t("st.r.eur"), pct(100 * eur / W, 0))}${kp(t("st.r.zar"), pct(100 * zar / W, 0))}</div>
+      <div class="bars">${top.map(([c, v]) => `<div><span>${esc(NAME(c))}</span><i style="width:${(100 * v / W).toFixed(1)}%"></i><span class="num">${nf(100 * v / W, 0)} %</span></div>`).join("")}</div>
+      <ul class="assume">${M("st_pf_notes").map((s) => `<li>${esc(s)}</li>`).join("")}</ul>`;
+  }
+  function renderStrategy() {
+    $("levers").innerHTML = M("strategy_levers").map(([h, p]) => `<div class="lever"><h4>${esc(h)}</h4><p>${esc(p)}</p></div>`).join("");
+    $("limits").innerHTML = M("strategy_limits").map((s) => `<li>${esc(s)}</li>`).join("");
+    $("coops").innerHTML = M("strategy_coop").map(([h, p]) => `<div class="coop"><h4>${esc(h)}</h4><p>${esc(p)}</p></div>`).join("");
+    renderPf();
+  }
+
+  // ---------- Glossary
+  function renderGlossary() {
+    const q = ($("gq").value || "").trim().toLowerCase();
+    const list = M("glossary").filter(([k, v]) => !q || k.toLowerCase().includes(q) || v.toLowerCase().includes(q));
+    $("gloss").innerHTML = list.map(([k, v]) => `<div id="g-${esc(k.replace(/[^A-Za-z0-9]+/g, "-"))}"><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("") || `<p class="note">${esc(t("gl.none"))}</p>`;
+  }
+
+  // ---------- Watch, sources, roadmap
   function renderVeille() {
     const V = D.veille;
-    if (!V) { $("v-lede").textContent = "La veille n'a pas encore tourné."; return; }
+    $("v-f").innerHTML = fbadge();
+    if (!V) { $("v-lede").textContent = t("v.never"); return; }
     const s = V.summary, dt = new Date(V.run_at);
-    const when = dt.toLocaleString("fr-FR", { dateStyle: "long", timeStyle: "short", timeZone: "UTC" }) + " UTC";
-    $("v-lede").textContent = `Dernière exécution : ${when}. ${s.pages_checked} pages officielles interrogées. ` +
-      (s.baseline ? "Première exécution : l'état des pages sert de référence, les nouveautés seront signalées à partir de demain." :
-        "Comparaison avec l'exécution précédente.") + " Un nouveau document est une piste à examiner, pas un événement de marché vérifié.";
-    $("v-stats").innerHTML = [["Pages vérifiées", s.pages_checked], ["Joignables", s.reachable], ["En échec", s.failing],
-      ["Modifiées", s.baseline ? "—" : s.changed], ["Nouveaux documents", s.baseline ? "—" : s.new_documents], ["Documents listés", s.documents_listed]]
-      .map(([k, v]) => `<div><b>${v}</b><span>${k}</span></div>`).join("");
+    const when = dt.toLocaleString(LOC[lang], { dateStyle: "long", timeStyle: "short", timeZone: "UTC" }) + " UTC";
+    $("v-lede").textContent = `${t("v.last", { w: when, n: s.pages_checked })} ${s.baseline ? t("v.baseline") : t("v.compare")} ${t("v.lead")}${C ? " " + t("v.filtered", { c: NAME(C) }) : ""}`;
+    $("v-stats").innerHTML = [[t("v.s.checked"), s.pages_checked], [t("v.s.ok"), s.reachable], [t("v.s.ko"), s.failing],
+      [t("v.s.changed"), s.baseline ? "—" : s.changed], [t("v.s.new"), s.baseline ? "—" : s.new_documents], [t("v.s.listed"), s.documents_listed]]
+      .map(([k, v]) => `<div><b>${v}</b><span>${esc(k)}</span></div>`).join("");
     $("v-run").textContent = date(V.as_of);
-    const feed = V.feed || [];
-    $("v-feed-n").textContent = feed.length ? `${feed.length} au total` : "";
-    $("v-feed").innerHTML = feed.length ? feed.slice(0, 25).map((f) => `<li><a href="${esc(f.url)}" target="_blank" rel="noopener noreferrer">${esc(f.text || f.url.split("/").pop())}</a><small>${esc(f.institution)} · détecté le ${date(f.detected_at)}</small></li>`).join("")
-      : `<li class="note">${s.baseline ? "Référence établie aujourd'hui : les documents publiés à partir de demain apparaîtront ici." : "Aucun nouveau document depuis la dernière exécution."}</li>`;
-    $("v-pages").innerHTML = `<thead><tr><th>Institution</th><th>Page</th><th>État</th></tr></thead><tbody>` + V.pages.map((p) =>
-      `<tr><td>${esc(p.institution)}</td><td><a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">${esc(p.title || p.url.replace(/^https:\/\//, ""))}</a></td><td>${p.reachable ? `<span class="ok">✓ joignable</span>${p.changed ? ' · <span class="chg">modifiée</span>' : ""}${p.new_documents.length ? ` · <span class="chg">${p.new_documents.length} nouv.</span>` : ""}` : `<span class="ko" title="${esc(p.error)}">✕ échec</span>`}</td></tr>`).join("") + `</tbody>`;
-    $("v-hist").innerHTML = `<thead><tr><th>Date</th><th>Vérifiées</th><th>Joignables</th><th>Modifiées</th><th>Nouveaux documents</th></tr></thead><tbody>` +
-      [...(V.history || [])].reverse().map((h) => `<tr><td>${date(h.as_of)}</td><td class="num">${h.pages_checked}</td><td class="num">${h.reachable}</td><td class="num">${h.baseline ? "réf." : h.changed}</td><td class="num">${h.baseline ? "réf." : h.new_documents}</td></tr>`).join("") + `</tbody>`;
+    const feed = (V.feed || []).filter((f) => inScope(D.page_scope[f.page]));
+    $("v-feed-n").textContent = feed.length ? t("v.total", { n: feed.length }) : "";
+    $("v-feed").innerHTML = feed.length ? feed.slice(0, 25).map((f) => `<li>${ext(f.url, f.text || f.url.split("/").pop())}<small>${esc(f.institution)} · ${esc(t("v.detected", { d: date(f.detected_at) }))}</small></li>`).join("")
+      : `<li class="note">${esc(s.baseline ? t("v.feed.base") : t("v.feed.none"))}</li>`;
+    const pages = V.pages.filter((p) => inScope(D.page_scope[p.url]));
+    $("v-pages").innerHTML = `<thead><tr><th>${esc(t("col.institution"))}</th><th>${esc(t("col.page"))}</th><th>${esc(t("col.state"))}</th></tr></thead><tbody>` + (pages.map((p) =>
+      `<tr><td>${esc(p.institution)}</td><td>${ext(p.url, p.title || p.url.replace(/^https:\/\//, ""))}</td><td>${p.reachable ? `<span class="ok">✓ ${esc(t("v.ok"))}</span>${p.changed ? ` · <span class="chg">${esc(t("v.changed"))}</span>` : ""}${p.new_documents.length ? ` · <span class="chg">${esc(t("v.new", { n: p.new_documents.length }))}</span>` : ""}` : `<span class="ko" title="${esc(p.error)}">✕ ${esc(t("v.ko"))}</span>`}</td></tr>`).join("") || `<tr><td colspan="3" class="note">${esc(t("v.nopages"))}</td></tr>`) + `</tbody>`;
+    $("v-hist").innerHTML = `<thead><tr><th>${esc(t("col.date"))}</th><th>${esc(t("v.s.checked"))}</th><th>${esc(t("v.s.ok"))}</th><th>${esc(t("v.s.changed"))}</th><th>${esc(t("v.s.new"))}</th></tr></thead><tbody>` +
+      [...(V.history || [])].reverse().map((h) => `<tr><td>${date(h.as_of)}</td><td class="num">${h.pages_checked}</td><td class="num">${h.reachable}</td><td class="num">${h.baseline ? t("v.ref") : h.changed}</td><td class="num">${h.baseline ? t("v.ref") : h.new_documents}</td></tr>`).join("") + `</tbody>`;
+  }
+  function renderSources() {
+    $("src-f").innerHTML = fbadge();
+    const src = D.sources.filter((x) => inScope(x.scope));
+    const withUrl = src.filter((x) => x.candidates.length), without = src.filter((x) => !x.candidates.length);
+    const all = withUrl.flatMap((x) => x.candidates);
+    $("src-lede").textContent = t("src.lede", { s: src.length, u: all.length, i: withUrl.length,
+      ok: all.filter((c) => c.check === "http_200").length, b: all.filter((c) => c.check === "http_403").length, w: all.filter((c) => c.check === "search_only").length });
+    $("srcs").innerHTML = `<thead><tr><th>${esc(t("col.institution"))}</th><th>${esc(t("src.url"))}</th><th>${esc(t("src.content"))}</th><th>${esc(t("src.check"))}</th></tr></thead><tbody>` +
+      (withUrl.sort((a, b) => a.priority - b.priority || a.name.localeCompare(b.name)).flatMap((x) => x.candidates.map((c, i) =>
+        `<tr>${i === 0 ? `<td rowspan="${x.candidates.length}"><strong>${esc(x.institution)}</strong><br><small style="color:var(--muted)">${esc(x.category.replace(/_/g, " "))}</small></td>` : ""}<td>${ext(c.url)}</td><td lang="en">${esc(c.purpose)}</td><td><span class="ev ${c.check}" title="${esc(c.evidence)}">${esc(M("ev")[c.check])}</span></td></tr>`)).join("") || `<tr><td colspan="4" class="note">${esc(t("src.nourl"))}</td></tr>`) + `</tbody>`;
+    $("cb-sum").textContent = t("src.others", { n: without.length });
+    $("cb").innerHTML = without.sort((a, b) => a.institution.localeCompare(b.institution)).map((x) => `<p>${esc(x.institution)}</p>`).join("");
+  }
+  function renderRoadmap() {
+    $("roadmap").innerHTML = `<thead><tr><th>Phase</th><th>${esc(t("r.content"))}</th><th>${esc(t("r.state"))}</th></tr></thead><tbody>` +
+      M("roadmap").map(([p, c, s]) => `<tr><td class="num">${esc(p)}</td><td>${esc(c)}</td><td><span class="state ${s === "done" || s === "partial" ? "on" : "next"}">${esc(M("r_state")[s])}</span></td></tr>`).join("") + `</tbody>`;
   }
 
-  function selectRadar(c) {
-    country = c; store.set("cartouche-country", c);
-    renderChips(); renderGrid(); renderSignals(); renderWall();
+  // ---------- Wiring
+  function renderCountryViews() {
+    renderCountryBar(); renderTape(); renderTiles(); renderProfile(); renderGrid(); renderSignals(); renderWall();
+    renderBuyers(); renderSimOps(); computeSim(); renderVeille(); renderSources();
   }
-  function selectMap(iso) {
-    mapSel = iso; store.set("cartouche-map", iso);
-    renderTiles(); renderProfile();
+  function renderAll() {
+    renderStele(); renderCountryViews(); renderStrategy(); renderGlossary(); renderRoadmap();
   }
-  $("country-select").addEventListener("change", (e) => selectRadar(e.target.value));
-  $("country-all").addEventListener("click", () => selectRadar(""));
+  function setCountry(iso) {
+    C = AF[iso] ? iso : ""; store.set("cartouche-country", C);
+    if (pf && C && cellsOf(C).length && pf.length === 1) pf = [{ c: C, b: cellsOf(C)[0].bucket, w: 100 }];
+    renderCountryViews(); renderPf();
+    history.replaceState(null, "", C ? `#${C.toLowerCase()}` : location.pathname + location.search);
+  }
+  $("gsel").addEventListener("change", (e) => setCountry(e.target.value));
+  $("gall").addEventListener("click", () => setCountry(""));
+  $("langs").addEventListener("click", (e) => { const b = e.target.closest("[data-lang]"); if (b && b.dataset.lang !== lang) { setLang(b.dataset.lang); renderAll(); } });
+  ["b-cur", "b-mat", "b-yld", "b-up"].forEach((id) => $(id).addEventListener("input", renderBuyerMatches));
+  $("s-op").addEventListener("change", (e) => loadOp(e.target.value));
+  ["s-kind", "s-nom", "s-yld", "s-days", "s-basis", "s-conv", "s-years", "s-cpn", "s-fee", "s-tax"].forEach((id) => $(id).addEventListener("input", computeSim));
+  $("gq").addEventListener("input", renderGlossary);
+  $("pf-add").addEventListener("click", () => { const c = pf.length ? pf[pf.length - 1].c : rows[0].country_iso3; pf.push({ c, b: cellsOf(c)[0]?.bucket, w: 0 }); renderPf(); });
+  $("pf-rows").addEventListener("input", (e) => {
+    const el = e.target.closest("[data-pf]"); if (!el) return;
+    const r = pf[Number(el.dataset.ix)];
+    if (el.dataset.pf === "c") { r.c = el.value; r.b = cellsOf(r.c)[0]?.bucket; renderPf(); }
+    else if (el.dataset.pf === "b") { r.b = el.value; computePf(); }
+    else { r.w = el.value; computePf(); }
+  });
+  $("pf-rows").addEventListener("click", (e) => { const b = e.target.closest("[data-pfrm]"); if (b) { pf.splice(Number(b.dataset.pfrm), 1); renderPf(); } });
   document.addEventListener("click", (e) => {
+    const sim = e.target.closest("[data-sim]");
+    if (sim) { renderSimOps(false); $("s-op").value = sim.dataset.sim; loadOp(sim.dataset.sim); return; }
     const go = e.target.closest("[data-go]");
-    if (go) { selectRadar(go.dataset.go); return; }
+    if (go) { setCountry(go.dataset.go); return; }
     const m = e.target.closest("[data-m]");
-    if (m) { selectMap(m.dataset.m); return; }
+    if (m) { setCountry(m.dataset.m === C && m.closest("#tiles") ? "" : m.dataset.m); return; }
     const c = e.target.closest("[data-c]");
-    if (c) { selectRadar(c.dataset.c === country && c.closest("#grid") ? "" : c.dataset.c); return; }
-    const t = e.target.closest("[data-t]");
-    if (t) { type = t.dataset.t; renderSignals(); }
+    if (c) { setCountry(c.dataset.c === C ? "" : c.dataset.c); return; }
+    const ty = e.target.closest("[data-t]");
+    if (ty) { type = ty.dataset.t; renderSignals(); }
   });
 
-  renderTiles(); renderProfile(); renderChips(); renderGrid(); renderSignals(); renderWall(); renderSources(); renderVeille(); renderBuyers();
+  setLang(lang);
+  renderAll();
+  window.__cartouche = { setCountry, setLang: (l) => { setLang(l); renderAll(); } };  // used by the site checks
 })();
 </script>
 </body>

@@ -26,6 +26,11 @@ python site/build.py --as-of 2026-10-03   # needs a seeded database; writes site
 # then deploy site/dist/ to the Netlify project "cartouche-africa"
 ```
 
+The site is available in French (reference), English, Portuguese and Spanish (`site/i18n/*.json`;
+the build fails if a language misses a key). A global country menu filters every section. It also
+has an investor area (official access procedures, accredited dealers, step-by-step guide), a
+subscription simulator (CALCULATION), a diversification test bench and a glossary.
+
 Brand (logo, colours from ancient Egyptian pigments, type): see [`brand/BRAND.md`](brand/BRAND.md).
 
 ## Coverage
@@ -113,5 +118,6 @@ cd frontend && npm test && npm run typecheck && npm run lint && npm run build
 | `GET /api/v1/opportunities` | Opportunity Radar signals with passports; investor-criteria matching |
 | `GET /api/v1/market/heat-grid` | Country × tenor grid: latest yield + demand vs own history |
 | `GET /api/v1/countries/{iso3}/maturity-wall` | Tracked maturities per month, next 12 months |
+| `GET /api/v1/accredited-dealers` | Institutions accredited to bid at auctions, from official lists (UMOA-Titres, BEAC, DMO Nigeria, Bank of Ghana, National Treasury South Africa, Morocco top 3); shares and ranks only where the authority publishes them; filter: `country` |
 | `GET /api/v1/subscription-routes` | How buyers access each market (who, intermediary, account, minimums), with verbatim official quotes; filter: `country`. Covers CEMAC, WAEMU and Kenya (15 countries) |
 | `GET /api/v1/data-quality` | Stale/pending sources, missing fields, duplicates, synthetic counts |

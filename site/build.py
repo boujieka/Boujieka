@@ -21,6 +21,9 @@ from app.main import app  # noqa: E402
 from app.seed.africa import AFRICA  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent
+LANGS = ("fr", "en", "pt", "es")
+# Regional institutions: which member countries a source without a country speaks for.
+REGIONAL = {"BCEAO": "WAEMU", "UMOA-Titres": "WAEMU", "BRVM": "WAEMU", "BEAC": "CEMAC", "BVMAC": "CEMAC"}
 # Countries whose official sources are proposed and watched daily (app/seed/source_candidates.py).
 PILOTS = {"CMR", "COG", "GAB", "CIV", "SEN", "KEN"}
 DIST = ROOT / "dist"
@@ -41,6 +44,20 @@ def export(as_of: str) -> dict:
     sources = [s for s in get("/sources") if not s["is_synthetic"]]
     countries = {c["iso3"]: c for c in get("/countries")}
 
+    by_id = {c["country_id"]: c["iso3"] for c in countries.values()}
+    members: dict[str, list[str]] = {}
+    for a in AFRICA:
+        members.setdefault(a.zone.value, []).append(a.iso3)
+    every = [a.iso3 for a in AFRICA]
+    page_scope: dict[str, list[str]] = {}
+    for s in sources:
+        if s["country_id"] is not None:
+            s["scope"] = [by_id[s["country_id"]]]
+        else:
+            s["scope"] = members[REGIONAL[s["institution"]]] if s["institution"] in REGIONAL else every
+        for c in s["candidates"]:
+            page_scope[c["url"]] = s["scope"]
+
     for o in opps["items"]:
         ((o["evidence"].get("calculation") or {}).get("inputs") or {}).pop("peer_auction_ids", None)
     for s in sources:
@@ -52,7 +69,7 @@ def export(as_of: str) -> dict:
 
     africa = [
         {
-            "iso3": a.iso3, "name_fr": a.name_fr, "currency": a.currency, "zone": a.zone.value,
+            "iso3": a.iso3, "iso2": a.iso2, "name_en": a.name, "name_fr": a.name_fr, "currency": a.currency, "zone": a.zone.value,
             "central_bank": a.central_bank, "region": a.region, "tile": list(a.tile),
             "coverage": countries[a.iso3]["coverage_tier"], "signals": signals.get(a.iso3, 0),
             "pilot": a.iso3 in PILOTS,
@@ -83,7 +100,28 @@ def export(as_of: str) -> dict:
             card["sources"].append(r["official_source_url"])
 
     return {"as_of": as_of, "summary": summary, "grid": grid, "opportunities": opps,
-            "walls": walls, "sources": sources, "africa": africa, "buyers": list(buyers.values())}
+            "walls": walls, "sources": sources, "page_scope": page_scope, "africa": africa,
+            "buyers": list(buyers.values()), "dealers": get("/accredited-dealers"), "i18n": load_i18n(list(buyers))}
+
+
+def load_i18n(buyer_keys: list[str]) -> dict:
+    """Interface strings per language. Fails the build if a language misses or adds a key."""
+    tables = {lang: json.loads((ROOT / "i18n" / f"{lang}.json").read_text()) for lang in LANGS}
+    ref = tables["fr"]
+    for lang, t in tables.items():
+        missing, extra = set(ref) - set(t), set(t) - set(ref)
+        if missing or extra:
+            raise SystemExit(f"i18n/{lang}.json: missing {sorted(missing)}, extra {sorted(extra)}")
+        for key in ("glossary", "strategy_levers", "strategy_limits", "strategy_coop", "guide_steps", "ask_list"):
+            if len(t[key]) != len(ref[key]):
+                raise SystemExit(f"i18n/{lang}.json: '{key}' has {len(t[key])} items, fr has {len(ref[key])}")
+        if [g[0] for g in t["glossary"]] != [g[0] for g in ref["glossary"]]:
+            raise SystemExit(f"i18n/{lang}.json: glossary terms differ from fr")
+        if lang != "fr":
+            for k in buyer_keys:
+                if k not in t["buyer_cards"]:
+                    raise SystemExit(f"i18n/{lang}.json: buyer_cards lacks '{k}'")
+    return tables
 
 
 def main() -> None:

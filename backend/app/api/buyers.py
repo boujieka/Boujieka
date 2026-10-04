@@ -1,11 +1,14 @@
 """Buyer access: who can buy government securities and how (procedural, quoted, not advice)."""
 
+from decimal import Decimal
+
 from fastapi import APIRouter
 from sqlalchemy import select
 
 from app.api.deps import SessionDep
 from app.models import Country, SubscriptionRoute
-from app.schemas import SubscriptionRouteOut
+from app.schemas import AccreditedDealers, DealerOut, DealerSourceOut, SubscriptionRouteOut
+from app.seed.dealers import DEALER_SOURCES, DEALERS, VERIFIED_ON
 
 router = APIRouter(tags=["buyers"])
 
@@ -37,3 +40,20 @@ def subscription_routes(session: SessionDep, country: str | None = None) -> list
         )
         for r, c in rows
     ]
+
+
+@router.get("/accredited-dealers", response_model=AccreditedDealers)
+def accredited_dealers(country: str | None = None) -> AccreditedDealers:
+    """Institutions accredited to bid at auctions, from official lists (static, versioned data)."""
+    iso = country.upper() if country else None
+    sources = [s for s in DEALER_SOURCES if iso is None or iso in s["countries"]]
+    ids = {s["id"] for s in sources}
+    return AccreditedDealers(
+        sources=[DealerSourceOut(**s, verified_on=VERIFIED_ON) for s in sources],
+        dealers=[
+            DealerOut(source_id=src, country_iso3=c, name=n, kind=k,
+                      market_share_pct=Decimal(share) if share is not None else None, rank=rank)
+            for src, c, n, k, share, rank in DEALERS
+            if src in ids and (iso is None or c == iso)
+        ],
+    )

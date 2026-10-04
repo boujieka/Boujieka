@@ -375,3 +375,40 @@ class SubscriptionRouteOut(BaseModel):
     quotes: list[str]
     data_nature: DataNature = DataNature.FACT
     disclaimer: str = "Procedural information from official pages; access is not guaranteed and this is not advice."
+
+
+class DealerSourceOut(BaseModel):
+    """Official document listing accredited auction participants."""
+
+    id: str
+    lang: str  # language of title and quote (fr | en); notes are written in French
+    institution: str
+    title: str
+    countries: list[str]
+    measure: str  # "list" | "rank" | "share": what the document publishes per institution
+    basis: str | None
+    page_url: str
+    document_url: str | None
+    document_date: str
+    quote: str
+    note: str | None
+    verified_on: date
+    data_nature: DataNature = DataNature.FACT
+
+
+class DealerOut(BaseModel):
+    source_id: str
+    country_iso3: str
+    name: str  # exactly as printed in the source
+    kind: str  # SVT | primary_dealer | PD_BMS | IVT
+    market_share_pct: Decimal | None  # only where the authority publishes it per institution
+    rank: int | None
+
+
+class AccreditedDealers(BaseModel):
+    sources: list[DealerSourceOut]
+    dealers: list[DealerOut]
+    disclaimer: str = (
+        "Official lists only. Shares and ranks are reproduced as published, never estimated. "
+        "A listing is not a recommendation; dealers' commercial terms are not published by these sources."
+    )

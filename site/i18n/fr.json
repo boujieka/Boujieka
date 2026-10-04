@@ -1,0 +1,700 @@
+{
+  "doc.title": "Cartouche · African Bond Intelligence",
+  "doc.desc": "Veille des titres publics souverains des 54 pays africains : adjudications, signaux tracés jusqu'à leur source, échéanciers de refinancement, accès des investisseurs. Données de marché de démonstration synthétiques.",
+  "banner": "<strong>DONNÉES DE DÉMONSTRATION</strong> · Les chiffres de marché de ce site (taux, montants, adjudications) sont <strong>synthétiques</strong> : ils sont générés pour le développement de la plateforme, ne décrivent aucun marché réel et ne doivent servir à aucune décision d'investissement.",
+  "brand.home": "Cartouche, African Bond Intelligence, accueil",
+  "brand.top": "Retour en haut",
+  "nav.label": "Sections",
+  "nav.map": "Carte",
+  "nav.radar": "Radar",
+  "nav.buyers": "Investisseurs",
+  "nav.sim": "Simulateur",
+  "nav.strategy": "Stratégie",
+  "nav.glossary": "Glossaire",
+  "nav.watch": "Veille",
+  "nav.sources": "Sources",
+  "lang.label": "Langue du site",
+  "hero.eyebrow": "Dette souveraine africaine · 54 pays",
+  "hero.title": "Chaque opportunité souveraine africaine, <em>avec sa preuve.</em>",
+  "hero.lede": "Bons et obligations du Trésor des États africains, suivis depuis les sources officielles. Un moteur de règles signale ce qui bouge sur le marché primaire : adjudications à venir, taux de couverture inhabituels, variations de rendement, concentrations d'échéances. Chaque signal est livré avec ses faits, son calcul et sa règle.",
+  "hero.cta1": "Explorer le Radar",
+  "hero.cta2": "Simuler une souscription",
+  "hero.keyfigures": "Chiffres clés",
+  "cbar.label": "Pays",
+  "cbar.none": "Tous les pays · vue d'ensemble",
+  "cbar.all": "Afficher tous les pays",
+  "cbar.hint": "Choisissez un pays : toute la page n'affichera plus que ses informations.",
+  "cbar.route": "procédure d'accès documentée",
+  "cbar.noroute": "procédure d'accès non documentée",
+  "tape.label": "Fil des signaux actifs",
+  "k.countries": "Pays couverts",
+  "k.withdata": "dont avec données de marché",
+  "k.signals": "Signaux actifs",
+  "k.auctions7": "Adjudications dans les 7 jours",
+  "k.routes": "Pays avec procédure d'accès documentée",
+  "k.watch": "Dernière veille des sources",
+  "k.reach": "{a}/{b} pages joignables",
+  "asof": "Instantané du {d}",
+  "map.eyebrow": "Couverture panafricaine",
+  "map.title": "54 pays, une seule carte",
+  "map.lede": "Chaque État africain membre de l'ONU a un profil (devise, zone monétaire, banque centrale) et des données de marché de démonstration, synthétiques en attendant la collecte réelle. Les pays cerclés d'or sont les pays pilotes : leurs sources officielles sont surveillées chaque jour. Cliquez une case pour sélectionner le pays.",
+  "map.tiles": "Carte des 54 pays africains",
+  "map.pilot": "pays pilote",
+  "map.overview": "Vue d'ensemble",
+  "map.pick": "Sélectionnez un pays",
+  "map.pick.lede": "Cliquez une case de la carte ou utilisez le menu « Pays » en haut de la page. Le Radar, l'espace investisseurs, le simulateur, la veille et les sources se limiteront alors à ce pays.",
+  "legend.cemac": "CEMAC (XAF)",
+  "legend.waemu": "UEMOA (XOF)",
+  "legend.cma": "Zone monétaire commune (CMA)",
+  "legend.none": "Monnaie nationale",
+  "legend.pilot": "Pays pilote (sources officielles surveillées)",
+  "p.code": "Code ISO",
+  "p.currency": "Devise",
+  "p.zone": "Zone",
+  "p.cb": "Banque centrale",
+  "p.coverage": "Couverture",
+  "p.cov.data": "Données de marché (synthétiques)",
+  "p.cov.ref": "Profil de référence",
+  "p.signals": "Signaux actifs",
+  "p.route": "Accès investisseurs",
+  "p.route.yes": "Procédure documentée → voir",
+  "p.route.no": "Non documenté à ce jour",
+  "p.note.pilot": "Pays pilote : sources officielles proposées et surveillées chaque jour.",
+  "p.note.other": "Source officielle (banque centrale) enregistrée, URL à confirmer.",
+  "p.note.common": "Profil non vérifié. Données de marché synthétiques ; l'existence d'un marché primaire régulier par adjudication n'a pas été vérifiée pour tous les pays.",
+  "p.go": "Voir {c} dans le Radar",
+  "radar.title": "Le Radar des opportunités",
+  "radar.lede": "La grille compare le <abbr title=\"Taux de couverture : montant total des soumissions ÷ montant mis en adjudication\">taux de couverture</abbr> (<em>bid-to-cover</em>) de chaque adjudication à l'historique de sa propre ligne. Cette mesure reste comparable d'un marché à l'autre, contrairement aux rendements bruts, dont les conventions de calcul diffèrent. Chaque case affiche le dernier rendement moyen pondéré et l'écart de la demande à sa norme (z).",
+  "radar.filter": "Filtrer par type de signal",
+  "grid.title": "Grille de chaleur · 54 pays",
+  "grid.title1": "Grille de chaleur · {c}",
+  "grid.caption": "Dernier rendement moyen pondéré et demande par pays et par maturité",
+  "grid.auction": "adjudication du",
+  "grid.empty": "Aucune donnée de marché pour ce pays.",
+  "btc": "taux de couverture",
+  "legend.z": "Demande vs son historique (z)",
+  "legend.norm": "dans la norme",
+  "legend.nd": "· n/d : moins de 6 adjudications comparables",
+  "z.none": "historique insuffisant",
+  "z.pp": "nettement au-dessus de son historique",
+  "z.p": "au-dessus de son historique",
+  "z.mid": "dans la norme",
+  "z.n": "en dessous de son historique",
+  "z.nn": "nettement en dessous de son historique",
+  "col.country": "Pays",
+  "col.signals": "Signaux",
+  "col.instrument": "Titre",
+  "col.auctiondate": "Date d'adjudication",
+  "col.date": "Date",
+  "col.refyield": "Taux réf. (adj. préc.)",
+  "col.yield": "Rendement",
+  "col.currency": "Devise",
+  "col.maturity": "Maturité",
+  "col.institution": "Institution",
+  "col.page": "Page",
+  "col.state": "État",
+  "ref.tip": "Le taux affiché est le rendement moyen pondéré de l'adjudication précédente de même maturité, pas une prévision",
+  "level.country": "Niveau pays",
+  "strength": "Intensité du signal (multiple du seuil)",
+  "tag.syn": "Synthétique",
+  "all": "Tous",
+  "allcountries": "tous les pays",
+  "sig.none": "Aucun signal pour ce filtre.",
+  "sig.more": "{a} signaux affichés sur {b}. Choisissez un pays pour voir tous ses signaux.",
+  "engine.en": "Textes du moteur de règles en anglais.",
+  "pp.title": "Passeport du signal : pourquoi il existe",
+  "pp.facts": "Faits publiés utilisés",
+  "pp.calc": "Calcul",
+  "pp.result": "Résultat",
+  "pp.rule": "Règle déclenchée",
+  "pp.invalid": "Ce qui l'invaliderait",
+  "pp.limits": "Limites",
+  "pp.version": "Règles {v} · calculé au {d}.",
+  "wall.title": "Échéancier de remboursement",
+  "wall.pick": "Sélectionnez un pays pour voir les montants qui arrivent à échéance chaque mois sur les 12 prochains mois (« mur de refinancement »).",
+  "wall.aria": "Montants arrivant à échéance par mois, {c}",
+  "wall.flag": "concentration signalée",
+  "wall.total": "Total des tombées d'échéances sur 12 mois",
+  "wall.gold": "En or : mois signalés en concentration ({m}).",
+  "wall.scope": "Encours adjugés suivis ici ; hors Eurobonds et prêts.",
+  "buy.eyebrow": "Espace investisseurs",
+  "buy.title": "Souscrire des titres publics africains : quoi, qui, comment",
+  "buy.lede": "Pour les banques, fonds, assureurs, trésoriers d'entreprise et particuliers. Les titres publics sont des <strong>titres de créance</strong> (bons et obligations du Trésor), <strong>pas des actions</strong> : en les souscrivant, l'investisseur prête à l'État, qui rembourse le nominal à l'échéance et verse des intérêts. Les procédures ci-dessous sont citées mot pour mot des pages officielles. L'accès n'est jamais garanti, et rien ici n'est un conseil en investissement.",
+  "buy.find.eyebrow": "Rechercher une adjudication selon vos critères",
+  "f.currency": "Devise",
+  "f.maturity": "Maturité",
+  "f.minyield": "Rendement minimum (%)",
+  "f.when": "Opérations",
+  "f.upcoming": "Adjudications à venir",
+  "f.allsignals": "Tous les signaux",
+  "f.all": "Toutes",
+  "f.m1": "Jusqu'à 1 an",
+  "f.m2": "1 à 5 ans",
+  "f.m3": "Plus de 5 ans",
+  "n.matches.one": "{n} titre correspond à vos critères",
+  "n.matches.other": "{n} titres correspondent à vos critères",
+  "f.amongup": "parmi les adjudications à venir",
+  "f.syn": "Données de marché synthétiques.",
+  "f.simulate": "Simuler",
+  "f.first": "15 premiers affichés sur {n}.",
+  "buy.access.eyebrow": "Procédures officielles",
+  "buy.access.title": "Comment accéder au marché primaire",
+  "bc.who": "Qui peut souscrire",
+  "bc.via": "Par qui passer",
+  "bc.account": "Compte nécessaire",
+  "bc.submit": "Comment soumissionner",
+  "bc.instr": "Titres émis",
+  "bc.fees": "Frais et fiscalité",
+  "bc.fees.na": "Non indiqués par la source officielle : à demander à l'intermédiaire.",
+  "bc.quotes": "Citations officielles ({n}) · texte original en {l}",
+  "bc.source": "Source",
+  "bc.verified": "vérifié le {d}",
+  "bc.translated": "Textes de procédure résumés par Cartouche ; seules les citations font foi.",
+  "bc.none.title": "Procédure d'accès non documentée",
+  "bc.none.body": "Cartouche n'a pas encore documenté, à partir d'une source officielle, comment un investisseur souscrit les titres publics de ce pays. Renseignez-vous auprès de la banque centrale ({cb}) ou du Trésor.",
+  "bc.note.all": "Procédures documentées pour {a} pays sur 54. Pour les {b} autres, la procédure n'est pas encore documentée : renseignez-vous auprès de la banque centrale ou du Trésor du pays.",
+  "bc.note.one": "Couverture actuelle : {a} pays documentés sur 54 ({b} non documentés).",
+  "n.countries.one": "{n} pays",
+  "n.countries.other": "{n} pays",
+  "buy.dealers.eyebrow": "Intermédiaires agréés",
+  "buy.dealers.title": "Banques et établissements agréés pour soumissionner",
+  "buy.dealers.lede": "Liste des établissements autorisés à soumissionner directement aux adjudications (SVT et assimilés), lorsqu'une liste officielle a été trouvée. Les parts de marché ne sont affichées que si l'autorité les publie ; aucune n'est estimée.",
+  "dl.pick": "Listes officielles collectées pour {n} pays. Choisissez un pays pour voir ses établissements :",
+  "dl.none.any": "Aucune liste officielle d'établissements agréés n'a encore été collectée.",
+  "dl.none.one": "Aucune liste officielle d'établissements agréés n'a encore été collectée pour {c}. Cartouche n'affiche pas de liste non sourcée.",
+  "dl.doc": "document source",
+  "dl.name": "Établissement",
+  "dl.kind": "Statut",
+  "dl.share": "Part de marché",
+  "dl.share.na": "Non publiée par la source",
+  "dl.howto.v": "Pour souscrire auprès d'un de ces établissements : ouvrir un compte titres chez lui, puis lui transmettre un ordre avant sa date limite interne (voir le guide pas à pas ci-dessous). Ses conditions (frais, minimum, délais) sont à lui demander directement.",
+  "dl.benefits": "Conditions proposées",
+  "dl.benefits.na": "Non publiées par les sources officielles : à demander à l'établissement.",
+  "dl.order.share": "Ordre du tableau officiel (non trié par part).",
+  "dl.neutral": "Cette liste n'est ni un classement de qualité ni une recommandation.",
+  "kind.fact": "Fait",
+  "kind.calc": "Calcul",
+  "kind.syn": "Données synthétiques",
+  "kind.ai": "Interprétation",
+  "buy.guide.eyebrow": "Guide pas à pas",
+  "buy.guide.title": "Souscrire auprès d'un intermédiaire",
+  "buy.ask.title": "Questions à poser à chaque établissement",
+  "buy.ask.lede": "Les sources officielles ne publient pas les conditions commerciales des intermédiaires. Pour les comparer, demandez à chacun :",
+  "sim.eyebrow": "Simulateur de souscription",
+  "sim.title": "Combien rapporterait une opération ?",
+  "sim.lede": "Choisissez une adjudication à venir (données synthétiques) ou saisissez vos propres paramètres. Le simulateur calcule le prix, le montant à décaisser, les intérêts et le gain net de frais et d'impôts que vous indiquez. C'est un calcul arithmétique, pas une prévision : le taux réellement obtenu dépend du résultat de l'adjudication.",
+  "sim.op": "Opération",
+  "sim.free": "Saisie libre (aucune opération)",
+  "sim.kind": "Type de titre",
+  "sim.kind.bill": "Bon du Trésor : intérêts précomptés (zéro-coupon)",
+  "sim.kind.bond": "Obligation du Trésor : coupon annuel",
+  "sim.nominal": "Montant nominal souscrit",
+  "sim.yield": "Taux de rendement (%)",
+  "sim.days": "Durée (jours)",
+  "sim.basis": "Base de calcul (jours par an)",
+  "sim.conv": "Convention de taux",
+  "sim.conv.yield": "Taux de rendement en intérêts simples",
+  "sim.conv.discount": "Taux d'escompte (précompté sur le nominal)",
+  "sim.years": "Durée (années)",
+  "sim.coupon": "Taux du coupon (%)",
+  "sim.fee": "Frais (% du nominal)",
+  "sim.tax": "Impôt sur les intérêts (%)",
+  "sim.err": "Vérifiez les paramètres : montant positif, taux, durée, frais et impôt valides (impôt entre 0 et 100 %).",
+  "sim.err.price": "Avec ce taux d'escompte et cette durée, le prix devient nul ou négatif : paramètres incohérents.",
+  "sim.op.note": "Paramètres préremplis depuis l'adjudication synthétique ({c}, {d}). Le taux est celui de l'adjudication précédente de même maturité.",
+  "sim.unit": "Selon la BEAC, la valeur nominale unitaire de ce titre est de {u} : le montant devrait en être un multiple.",
+  "sim.ken": "Selon la Banque centrale du Kenya : minimum 50 000 KES (offre non compétitive) ou 2 000 000 KES (offre compétitive), par tranches de 50 000 KES.",
+  "sim.r.price": "Prix pour 100 de nominal",
+  "sim.r.paid": "Montant décaissé",
+  "sim.r.interest": "Intérêts bruts",
+  "sim.r.costs": "Frais + impôt",
+  "sim.r.net": "Gain net",
+  "sim.r.netrate": "Rendement net annualisé (base {b})",
+  "sim.r.receive": "Remboursé à l'échéance",
+  "sim.r.date": "Échéance",
+  "sim.r.after": "{d} jours après le règlement",
+  "sim.r.coupons": "Coupons bruts ({n} ans)",
+  "sim.r.capgain": "Plus ou moins-value au remboursement",
+  "sim.r.irr": "Rendement actuariel net",
+  "sim.t.year": "Année",
+  "sim.t.coupon": "Coupon brut",
+  "sim.t.tax": "Impôt",
+  "sim.t.principal": "Remboursement",
+  "sim.f.paid": "Décaissé",
+  "sim.f.int": "Intérêts",
+  "sim.f.net": "Gain net",
+  "sim.f.fees": "Frais",
+  "sim.f.tax": "Impôt",
+  "sim.cpn.assume": "Le coupon réel de la ligne n'est pas disponible : il est fixé par défaut égal au taux de rendement (prix au pair). Modifiez-le si vous le connaissez.",
+  "sim.disclaimer": "Simulation à titre d'illustration. Frais et fiscalité réels non indiqués par les sources officielles : les valeurs saisies sont les vôtres. Ni conseil, ni garantie de rendement ou d'allocation.",
+  "sim_assume_bill": [
+    "Titre conservé jusqu'à l'échéance, nominal remboursé en totalité.",
+    "Intérêts précomptés : vous payez le prix, vous recevez le nominal ; la différence constitue les intérêts.",
+    "La convention de taux et la base de calcul varient selon les marchés et n'ont pas été vérifiées pour chaque pays : choisissez celles de l'avis d'adjudication.",
+    "Frais calculés sur le nominal ; impôt calculé sur les intérêts bruts. Ni change ni inflation."
+  ],
+  "sim_assume_bond": [
+    "Souscription à l'émission, conservation jusqu'à l'échéance, un coupon par an, pas de coupon couru ni de délai de règlement.",
+    "Coupons non réinvestis dans le gain net ; le rendement actuariel net suppose leur réinvestissement au même taux.",
+    "Impôt appliqué aux coupons seulement ; frais calculés sur le nominal et payés à l'achat. Ni change ni inflation."
+  ],
+  "st.eyebrow": "Stratégie",
+  "st.title": "Diversification et coopération entre pays",
+  "st.lede": "Un cadre de réflexion pour les investisseurs institutionnels, les intermédiaires et les Trésors : comment répartir les risques entre émetteurs, échéances et zones monétaires, et quelles formes de coopération entre pays peuvent élargir l'accès au marché. Ce n'est pas une recommandation d'investissement.",
+  "st.levers": "Cinq leviers de diversification",
+  "strategy_levers": [
+    [
+      "Émetteurs",
+      "Répartir les souscriptions entre plusieurs États réduit l'exposition à un événement propre à un pays (difficulté budgétaire, report ou annulation d'adjudication). Limite : les États d'une même zone partagent souvent des chocs communs (prix des matières premières, liquidité régionale)."
+    ],
+    [
+      "Échéances (échelonnement)",
+      "Étager les maturités, par exemple 3 mois, 1 an, 3 ans et 5 ans, lisse le risque de taux et le risque de réinvestissement : une partie du portefeuille arrive à échéance régulièrement et peut être replacée aux conditions du moment."
+    ],
+    [
+      "Zones monétaires et devises",
+      "Combiner franc CFA (XOF, XAF), monnaies de la zone rand (CMA) et monnaies nationales change la nature du risque de change. Limite : XOF et XAF ont la même parité fixe avec l'euro ; les combiner diversifie le risque émetteur, pas le risque de change face à l'euro."
+    ],
+    [
+      "Instruments",
+      "Associer bons (court terme, intérêts précomptés) et obligations (coupons périodiques) équilibre liquidité et revenu. Les bons se renouvellent souvent ; les obligations fixent un taux plus longtemps mais sont plus sensibles aux variations de taux."
+    ],
+    [
+      "Calendrier de souscription",
+      "Participer à plusieurs adjudications plutôt qu'à une seule réduit la dépendance au taux d'une date donnée : le prix d'entrée moyen se lisse dans le temps."
+    ]
+  ],
+  "strategy_limits": [
+    "La diversification ne garantit ni un rendement plus élevé ni l'absence de perte. Elle réduit le risque propre à chaque émetteur, pas le risque commun à tous (hausse mondiale des taux, choc régional).",
+    "Un rendement nominal plus élevé rémunère en général un risque plus élevé (crédit, change, liquidité, inflation). Des rendements de pays différents ne se comparent pas sans tenir compte de l'inflation, du change et des conventions de calcul.",
+    "Les monnaies nationales ajoutent un risque de change et, selon les pays, des règles de convertibilité ou de rapatriement des fonds à vérifier auprès de la banque centrale.",
+    "Les données de marché de ce site sont synthétiques : l'outil ci-dessous illustre une méthode, il ne décrit aucun portefeuille réel."
+  ],
+  "st.pf.title": "Banc d'essai de diversification",
+  "st.pf.lede": "Composez un portefeuille fictif (pays, maturité, poids) et observez sa concentration. Les taux sont les derniers rendements moyens pondérés synthétiques de la grille ; aucun portefeuille n'est proposé ni optimisé.",
+  "st.pf.weight": "Poids",
+  "st.pf.add": "+ Ajouter une ligne",
+  "st.pf.remove": "Retirer la ligne",
+  "st.pf.empty": "Ajoutez au moins une ligne avec un poids positif.",
+  "st.r.yield": "Rendement moyen pondéré",
+  "st.r.mat": "Maturité moyenne pondérée",
+  "st.r.countries": "Nombre de pays",
+  "st.r.currencies": "Nombre de devises",
+  "st.r.hhic": "Concentration par pays (HHI)",
+  "st.r.hhicur": "Concentration par devise (HHI)",
+  "st.r.eur": "Part en franc CFA, arrimé à l'euro",
+  "st.r.zar": "Part en rand et monnaies liées (CMA)",
+  "st_pf_notes": [
+    "HHI : somme des carrés des parts en %. 10 000 = tout sur une seule ligne ; plus il est bas, plus le portefeuille est réparti.",
+    "Le rendement moyen pondéré n'intègre ni risque de change, ni inflation, ni frais, ni fiscalité, ni corrélations entre pays.",
+    "Poids normalisés à 100 % ; données synthétiques."
+  ],
+  "st.coop": "Coopération entre pays : pistes",
+  "st.coop.lede": "Propositions de Cartouche pour les intermédiaires, investisseurs et Trésors, à discuter et à vérifier avec les autorités compétentes. Ce sont des interprétations, pas des faits établis.",
+  "strategy_coop": [
+    [
+      "S'appuyer sur les marchés régionaux",
+      "Dans l'UEMOA comme dans la CEMAC, les titres de plusieurs États sont émis sur un marché régional commun, avec des règles et des intermédiaires communs. Un même intermédiaire peut donc, en principe, porter des souscriptions sur plusieurs États de la zone : à confirmer auprès de lui."
+    ],
+    [
+      "Syndicats d'intermédiaires transfrontaliers",
+      "Des SVT et banques de pays différents peuvent se regrouper pour soumissionner ensemble, partager l'analyse des émetteurs et répartir les allocations, ce qui élargit leur base d'investisseurs."
+    ],
+    [
+      "Fonds communs régionaux (OPCVM)",
+      "Mutualiser l'épargne dans un fonds permet à de petits investisseurs d'accéder à plusieurs pays malgré des valeurs nominales élevées (1 million de FCFA par BTA dans la CEMAC, selon la BEAC)."
+    ],
+    [
+      "Coordination des calendriers d'émission",
+      "Des Trésors qui partagent leurs calendriers peuvent éviter de solliciter les mêmes investisseurs la même semaine et lisser leurs échéanciers de refinancement."
+    ],
+    [
+      "Interconnexion des infrastructures",
+      "Rapprocher dépositaires centraux et systèmes de règlement-livraison entre zones réduirait le coût et les délais d'un investissement dans plusieurs zones monétaires."
+    ],
+    [
+      "Données harmonisées et formation",
+      "Publier calendriers, résultats et conventions de taux dans des formats communs, et former les investisseurs locaux, élargit la demande intérieure et régionale."
+    ]
+  ],
+  "gl.eyebrow": "Glossaire",
+  "gl.title": "Termes et abréviations",
+  "gl.lede": "Définitions des termes de marché et des sigles utilisés sur la plateforme. Les définitions propres à une zone citent leur source officielle lorsqu'elle existe.",
+  "gl.search": "Rechercher un terme ou un sigle",
+  "gl.none": "Aucun terme ne correspond.",
+  "glossary": [
+    [
+      "Adjudication",
+      "Mode d'émission par lequel le Trésor met en vente un montant de titres ; les soumissions sont servies par ordre de taux (du plus bas au plus élevé) ou de prix jusqu'au montant retenu."
+    ],
+    [
+      "AMF-UMOA",
+      "Autorité des Marchés Financiers de l'Union Monétaire Ouest-Africaine : régulateur du marché financier régional de l'UEMOA."
+    ],
+    [
+      "BAT",
+      "Bon Assimilable du Trésor (UEMOA) : titre de créance à court terme émis par adjudication ; maturité inférieure à 2 ans selon UMOA-Titres."
+    ],
+    [
+      "BCEAO",
+      "Banque Centrale des États de l'Afrique de l'Ouest : banque centrale des 8 États de l'UEMOA."
+    ],
+    [
+      "BEAC",
+      "Banque des États de l'Afrique Centrale : banque centrale des 6 États de la CEMAC."
+    ],
+    [
+      "BRVM",
+      "Bourse Régionale des Valeurs Mobilières : bourse commune aux États de l'UEMOA."
+    ],
+    [
+      "BTA",
+      "Bon du Trésor Assimilable (CEMAC) : 13, 26 ou 52 semaines, valeur nominale 1 million de FCFA, intérêts précomptés (BEAC)."
+    ],
+    [
+      "BVMAC",
+      "Bourse des Valeurs Mobilières de l'Afrique Centrale : bourse régionale de la CEMAC."
+    ],
+    [
+      "CBK",
+      "Central Bank of Kenya : banque centrale du Kenya, qui organise les adjudications de bons et d'obligations du Trésor kényan."
+    ],
+    [
+      "CEMAC",
+      "Communauté Économique et Monétaire de l'Afrique Centrale : Cameroun, Centrafrique, Congo, Gabon, Guinée équatoriale, Tchad ; monnaie XAF."
+    ],
+    [
+      "CMA",
+      "Common Monetary Area (zone monétaire commune) : Afrique du Sud, Eswatini, Lesotho, Namibie ; monnaies liées au rand sud-africain."
+    ],
+    [
+      "COSUMAF",
+      "Commission de Surveillance du Marché Financier de l'Afrique Centrale : régulateur du marché financier de la CEMAC."
+    ],
+    [
+      "Coupon",
+      "Intérêt périodique versé par une obligation, exprimé en pourcentage du nominal."
+    ],
+    [
+      "CRCT",
+      "Cellule de Règlement et de Conservation des Titres : dépositaire central des titres publics de la CEMAC, selon la BEAC."
+    ],
+    [
+      "CSD / DhowCSD",
+      "Central Securities Depository (dépositaire central de titres). DhowCSD est le portail de la Banque centrale du Kenya pour ouvrir un compte titres et soumettre des offres."
+    ],
+    [
+      "Échéance / maturité",
+      "Date de remboursement du nominal. La maturité résiduelle est la durée restant à courir jusqu'à cette date."
+    ],
+    [
+      "Eurobond",
+      "Obligation émise sur les marchés internationaux, en général en dollar ou en euro, hors du marché domestique de l'émetteur."
+    ],
+    [
+      "HHI",
+      "Indice de Herfindahl-Hirschman : somme des carrés des parts (en %) ; 10 000 signifie une concentration totale sur un seul élément."
+    ],
+    [
+      "Intérêts précomptés",
+      "Intérêts payés d'avance : l'investisseur paie un prix inférieur au nominal et reçoit le nominal à l'échéance."
+    ],
+    [
+      "KES",
+      "Shilling kényan (code ISO 4217)."
+    ],
+    [
+      "Marché primaire / secondaire",
+      "Primaire : achat des titres à l'émission, auprès de l'État. Secondaire : revente et achat de titres déjà émis entre investisseurs."
+    ],
+    [
+      "Nominal (valeur faciale)",
+      "Montant remboursé à l'échéance, sur lequel sont calculés les coupons."
+    ],
+    [
+      "OAT",
+      "Obligation Assimilable du Trésor (UEMOA) : titre de créance à moyen et long terme émis par adjudication ; maturité supérieure à 3 ans selon UMOA-Titres."
+    ],
+    [
+      "OPCVM",
+      "Organisme de Placement Collectif en Valeurs Mobilières : fonds qui mutualise l'épargne de plusieurs investisseurs."
+    ],
+    [
+      "OTA",
+      "Obligation du Trésor Assimilable (CEMAC) : durée de 2 ans ou plus, valeur nominale 10 000 FCFA, intérêts annuels (BEAC)."
+    ],
+    [
+      "pb (point de base)",
+      "Un centième de point de pourcentage : 0,01 %. Une hausse de 8,00 % à 8,25 % représente 25 pb."
+    ],
+    [
+      "Rendement moyen pondéré",
+      "Moyenne des taux des soumissions retenues lors d'une adjudication, pondérée par les montants retenus."
+    ],
+    [
+      "SGI",
+      "Société de Gestion et d'Intermédiation (UEMOA) : intermédiaire agréé pour l'achat et la vente de titres pour le compte de clients."
+    ],
+    [
+      "Soumission compétitive / non compétitive",
+      "Compétitive : l'investisseur indique le taux ou le prix qu'il accepte. Non compétitive : il accepte le taux qui résulte de l'adjudication."
+    ],
+    [
+      "SVT",
+      "Spécialiste en Valeurs du Trésor : établissement de crédit agréé qui participe aux adjudications et anime le marché secondaire des titres publics."
+    ],
+    [
+      "Taux de couverture (bid-to-cover)",
+      "Montant total des soumissions divisé par le montant mis en adjudication. Au-dessus de 1, la demande dépasse l'offre."
+    ],
+    [
+      "UEMOA",
+      "Union Économique et Monétaire Ouest-Africaine : Bénin, Burkina Faso, Côte d'Ivoire, Guinée-Bissau, Mali, Niger, Sénégal, Togo ; monnaie XOF."
+    ],
+    [
+      "UMOA-Titres",
+      "Agence régionale qui organise les émissions de titres publics des États de l'UMOA (BAT et OAT) par adjudication."
+    ],
+    [
+      "XOF / XAF",
+      "Codes ISO du franc CFA de l'UEMOA (XOF) et de la CEMAC (XAF). Même parité fixe avec l'euro (1 € = 655,957 FCFA), mais les deux monnaies ne sont pas interchangeables."
+    ],
+    [
+      "z (score)",
+      "Écart d'une valeur à la moyenne de son historique, exprimé en nombre d'écarts-types."
+    ]
+  ],
+  "m.eyebrow": "Comment un signal est construit",
+  "m.title": "De la publication officielle au passeport du signal",
+  "m.lede": "Aucun chiffre n'est produit par un modèle de langage. Les valeurs publiées restent des faits, les valeurs dérivées sont des calculs, et rien ne mélange les deux. Les étapes I et II arrivent en phase 2 ; aujourd'hui, le moteur tourne sur des données synthétiques.",
+  "m.s1.t": "Veille des sources",
+  "m.s1.p": "Chaque jour, les pages officielles (BEAC, BCEAO, UMOA-Titres, CBK…) sont interrogées : disponibilité, modifications, nouveaux documents publiés.",
+  "m.s1.s": "Opérationnel · quotidien",
+  "m.s2.t": "Extraction vérifiée",
+  "m.s2.p": "Avis et résultats d'adjudication en PDF : texte, OCR, champs structurés. Chaque document est dédupliqué par empreinte et passe par une file de vérification humaine.",
+  "m.s2.s": "Phase 2",
+  "m.s3.t": "Moteur de règles",
+  "m.s3.p": "Règles déterministes, avec des seuils explicites et des libellés neutres. Le relancer ne crée aucun doublon.",
+  "m.s3.s": "Opérationnel",
+  "m.s4.t": "Passeport du signal",
+  "m.s4.p": "Faits utilisés, calcul, règle déclenchée, ce qui invaliderait le signal, et limites. Le tout est archivé pour audit.",
+  "m.s4.s": "Opérationnel",
+  "v.eyebrow": "Veille quotidienne · données réelles",
+  "v.title": "Ce qui a bougé sur les sites officiels",
+  "v.never": "La veille n'a pas encore tourné.",
+  "v.last": "Dernière exécution : {w}. {n} pages officielles interrogées.",
+  "v.baseline": "Première exécution : l'état des pages sert de référence, les nouveautés seront signalées à partir de l'exécution suivante.",
+  "v.compare": "Comparaison avec l'exécution précédente.",
+  "v.lead": "Un nouveau document est une piste à examiner, pas un événement de marché vérifié.",
+  "v.filtered": "Liste filtrée sur {c} (les statistiques restent globales).",
+  "v.s.checked": "Pages vérifiées",
+  "v.s.ok": "Joignables",
+  "v.s.ko": "En échec",
+  "v.s.changed": "Modifiées",
+  "v.s.new": "Nouveaux documents",
+  "v.s.listed": "Documents listés",
+  "v.feed": "Nouveaux documents détectés",
+  "v.pages": "Pages surveillées",
+  "v.hist": "Historique des exécutions",
+  "v.total": "{n} au total",
+  "v.detected": "détecté le {d}",
+  "v.feed.base": "Référence établie : les documents publiés ensuite apparaîtront ici.",
+  "v.feed.none": "Aucun nouveau document depuis la dernière exécution.",
+  "v.ok": "joignable",
+  "v.ko": "échec",
+  "v.changed": "modifiée",
+  "v.new": "{n} nouv.",
+  "v.nopages": "Aucune page surveillée pour ce pays à ce jour.",
+  "v.ref": "réf.",
+  "src.eyebrow": "Registre des sources",
+  "src.title": "Sources officielles proposées",
+  "src.lede": "{s} sources officielles enregistrées pour cette sélection. {u} URL proposées pour {i} institutions, vérifiées le 3 octobre 2026 : {ok} joignables avec un titre de page qui nomme l'institution, {b} bloquées par un anti-bot, {w} trouvées uniquement par recherche web. Aucune n'est activée tant qu'un opérateur ne l'a pas confirmée.",
+  "src.url": "URL proposée",
+  "src.content": "Contenu",
+  "src.check": "Vérification",
+  "src.nourl": "Aucune URL proposée pour cette sélection.",
+  "src.others": "{n} autres sources enregistrées, URL à confirmer",
+  "r.eyebrow": "Feuille de route",
+  "r.title": "Où en est la plateforme",
+  "r.content": "Contenu",
+  "r.state": "État",
+  "roadmap": [
+    [
+      "1",
+      "Base de données, modèles, traçabilité des sources, API, tableau de bord · référentiel des 54 pays",
+      "done"
+    ],
+    [
+      "1b",
+      "Authentification, rôles, limitation de débit, journal d'audit (prérequis à tout déploiement de la plateforme)",
+      "todo"
+    ],
+    [
+      "2",
+      "Collecte des sources officielles, extraction PDF/OCR, vérification humaine",
+      "next"
+    ],
+    [
+      "3",
+      "Conventions de rendement par marché, courbes des taux, calibration des seuils",
+      "todo"
+    ],
+    [
+      "4",
+      "Moteur d'opportunités et Radar (rachats, échanges et Eurobonds en attente)",
+      "partial"
+    ],
+    [
+      "5",
+      "Veille quotidienne des sources officielles et mise à jour du site toutes les 24 h · alertes et rapport quotidien à venir",
+      "partial"
+    ],
+    [
+      "6",
+      "Espace investisseurs : procédures d'accès officielles (15 pays), intermédiaires agréés, simulateur",
+      "partial"
+    ],
+    [
+      "7",
+      "Moteur de financement souverain (scénarios pour les Trésors)",
+      "todo"
+    ],
+    [
+      "8",
+      "API publique et recherche globale",
+      "todo"
+    ]
+  ],
+  "r_state": {
+    "done": "Livré",
+    "partial": "Livré en partie",
+    "next": "Prochaine étape",
+    "todo": "À faire"
+  },
+  "foot.tag": "L'INTELLIGENCE DE LA DETTE SOUVERAINE AFRICAINE",
+  "foot.p1": "<strong>Information et analyse uniquement.</strong> Ni conseil en investissement, ni recommandation, ni garantie de rendement ou d'accès à un marché. Les signaux sont des observations factuelles fondées sur des règles ; ils ne classent pas les investissements et ne tiennent compte ni de la fiscalité, ni des frais, ni du change, ni du risque propre à chaque investisseur.",
+  "foot.p2": "Les données de marché affichées sont <strong>synthétiques</strong> ; seules la veille des sources et les procédures d'accès citées sont réelles. Les profils pays sont des données de référence <strong>non vérifiées</strong>. Instantané du",
+  "foot.p3": "Langues : français (référence), anglais, portugais, espagnol. Les traductions ont été rédigées par Cartouche et n'ont pas encore été relues par un traducteur professionnel ; les citations officielles restent dans leur langue d'origine.",
+  "na": "Non disponible",
+  "u.weeks": "{n} sem.",
+  "u.days": "{n} j",
+  "u.years": "{n} ans",
+  "units": [
+    "Bn",
+    "Md",
+    "M"
+  ],
+  "n.signals.one": "{n} signal",
+  "n.signals.other": "{n} signaux",
+  "region": {
+    "north": "Afrique du Nord",
+    "west": "Afrique de l'Ouest",
+    "central": "Afrique centrale",
+    "east": "Afrique de l'Est",
+    "southern": "Afrique australe"
+  },
+  "zone": {
+    "CEMAC": "CEMAC · franc CFA (BEAC)",
+    "WAEMU": "UEMOA · franc CFA (BCEAO)",
+    "CMA": "Zone monétaire commune (CMA)",
+    "NONE": "Monnaie nationale"
+  },
+  "zone_title": {
+    "CEMAC": "CEMAC · BEAC",
+    "WAEMU": "UEMOA · UMOA-Titres",
+    "KEN": "Kenya · Banque centrale du Kenya"
+  },
+  "lang_name": {
+    "fr": "français",
+    "en": "anglais"
+  },
+  "instr": {
+    "treasury_bill": "Bon du Trésor",
+    "treasury_bond": "Obligation du Trésor"
+  },
+  "bucket": {
+    "3M": "3 mois",
+    "6M": "6 mois",
+    "12M": "12 mois",
+    "2-3Y": "2-3 ans",
+    "5Y": "5 ans",
+    "7Y+": "7 ans +"
+  },
+  "nature": {
+    "SYNTHETIC": "SYNTHÉTIQUE",
+    "FACT": "FAIT"
+  },
+  "ev": {
+    "http_200": "joignable",
+    "http_403": "anti-bot (403)",
+    "search_only": "recherche seulement"
+  },
+  "flag": {
+    "synthetic_data": "données synthétiques",
+    "small_sample": "petit échantillon",
+    "partial_debt_coverage": "couverture partielle de la dette",
+    "mixed_yield_conventions": "conventions de rendement mixtes",
+    "different_auction_dates": "dates d'adjudication différentes"
+  },
+  "sig_type": {
+    "upcoming_auction": "Adjudications à venir",
+    "yield_move": "Variations de rendement",
+    "high_demand": "Demande forte",
+    "low_demand": "Demande faible",
+    "high_yield": "Rendement élevé",
+    "curve_inversion": "Inversion de courbe",
+    "refinancing_concentration": "Refinancement",
+    "auction_cancelled": "Annulées",
+    "auction_postponed": "Reportées"
+  },
+  "sig_label": {
+    "Upcoming auction": "Adjudication à venir",
+    "Newly announced auction": "Adjudication nouvellement annoncée",
+    "Significant yield movement (higher)": "Variation de rendement significative (hausse)",
+    "Significant yield movement (lower)": "Variation de rendement significative (baisse)",
+    "High demand relative to recent auctions": "Taux de couverture élevé par rapport aux adjudications récentes",
+    "Low demand relative to recent auctions": "Taux de couverture faible par rapport aux adjudications récentes",
+    "Higher historical yield (same tenor)": "Rendement historiquement élevé (même maturité)",
+    "Yield curve inversion": "Inversion de la courbe des taux",
+    "Refinancing concentration": "Concentration d'échéances",
+    "Auction cancelled": "Adjudication annulée",
+    "Auction postponed": "Adjudication reportée"
+  },
+  "dealer_kind": {
+    "SVT": "SVT",
+    "primary_dealer": "Primary dealer (négociant principal)",
+    "bank": "Banque",
+    "SGI": "SGI",
+    "other": "Autre",
+    "IVT": "IVT (Intermédiaire en Valeurs du Trésor)",
+    "PD_BMS": "Primary dealer et Bond Market Specialist"
+  },
+  "buyer_cards": {},
+  "guide_steps": [
+    "Choisir un intermédiaire agréé : SVT, banque ou SGI, ou l'accès direct lorsque la banque centrale le permet (portail DhowCSD au Kenya).",
+    "Ouvrir un compte titres et un compte espèces ; fournir les pièces d'identification demandées (connaissance du client).",
+    "Consulter le calendrier d'émission et l'avis d'adjudication : montant mis en adjudication, maturité, date et heure limites de soumission, date de valeur.",
+    "Transmettre l'ordre avant la date limite interne de l'intermédiaire : soumission compétitive (vous indiquez un taux) ou non compétitive (vous acceptez le taux retenu).",
+    "Approvisionner le compte espèces pour le règlement à la date de valeur.",
+    "Recevoir l'avis d'allocation : l'ordre peut être servi en totalité, en partie ou pas du tout.",
+    "Suivre les coupons et le remboursement à l'échéance ; revendre éventuellement les titres sur le marché secondaire."
+  ],
+  "ask_list": [
+    "Commission de souscription ou de placement",
+    "Droits de garde du compte titres",
+    "Montant minimum accepté et multiples",
+    "Date et heure limites internes de transmission des ordres",
+    "Accès au marché secondaire et prix de rachat proposé",
+    "Fiscalité appliquée aux intérêts selon votre résidence",
+    "Délai de versement des coupons et du remboursement",
+    "Relevés et avis d'opéré fournis"
+  ],
+  "dl.rank": "Rang publié",
+  "dl.page": "page officielle",
+  "dl.order.list": "Ordre de la liste officielle.",
+  "dl.order.rank": "Ordre du classement officiel.",
+  "dl.details": "Citation et notes sur la source",
+  "dl.fr": "",
+  "dl.share.all": "Les parts de marché ne figurent que lorsque l'autorité les publie par établissement.",
+  "dl.none.ken": "La Banque centrale du Kenya ne publie pas de liste nominative d'intermédiaires agréés : les investisseurs soumissionnent directement sur DhowCSD ou passent par une banque commerciale ou une banque d'investissement kényane (voir la procédure ci-dessus)."
+}

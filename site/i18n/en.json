@@ -1,0 +1,733 @@
+{
+  "doc.title": "Cartouche · African Bond Intelligence",
+  "doc.desc": "Monitoring of sovereign government securities in all 54 African countries: auctions, signals traced back to their source, refinancing schedules, investor access. Synthetic demonstration market data.",
+  "banner": "<strong>DEMONSTRATION DATA</strong> · Market figures on this site (yields, amounts, auctions) are <strong>synthetic</strong>: they are generated to develop the platform, describe no real market and must not be used for any investment decision.",
+  "brand.home": "Cartouche, African Bond Intelligence, home",
+  "brand.top": "Back to top",
+  "nav.label": "Sections",
+  "nav.map": "Map",
+  "nav.radar": "Radar",
+  "nav.buyers": "Investors",
+  "nav.sim": "Simulator",
+  "nav.strategy": "Strategy",
+  "nav.glossary": "Glossary",
+  "nav.watch": "Watch",
+  "nav.sources": "Sources",
+  "lang.label": "Site language",
+  "hero.eyebrow": "African sovereign debt · 54 countries",
+  "hero.title": "Every African sovereign opportunity, <em>with its evidence.</em>",
+  "hero.lede": "Treasury bills and bonds of African states, tracked from official sources. A rules engine flags what moves in the primary market: upcoming auctions, unusual bid-to-cover ratios, yield moves, maturity concentrations. Every signal comes with its facts, its calculation and its rule.",
+  "hero.cta1": "Explore the Radar",
+  "hero.cta2": "Simulate a subscription",
+  "hero.keyfigures": "Key figures",
+  "cbar.label": "Country",
+  "cbar.none": "All countries · overview",
+  "cbar.all": "Show all countries",
+  "cbar.hint": "Pick a country: the whole page will then show only its information.",
+  "cbar.route": "access procedure documented",
+  "cbar.noroute": "access procedure not documented",
+  "tape.label": "Active signals ticker",
+  "k.countries": "Countries covered",
+  "k.withdata": "of which with market data",
+  "k.signals": "Active signals",
+  "k.auctions7": "Auctions in the next 7 days",
+  "k.routes": "Countries with a documented access procedure",
+  "k.watch": "Latest source watch",
+  "k.reach": "{a}/{b} pages reachable",
+  "asof": "Snapshot as of {d}",
+  "map.eyebrow": "Pan-African coverage",
+  "map.title": "54 countries, one map",
+  "map.lede": "Every African UN member state has a profile (currency, monetary zone, central bank) and demonstration market data, synthetic until real collection starts. Countries outlined in gold are pilot countries: their official sources are watched daily. Click a tile to select the country.",
+  "map.tiles": "Map of the 54 African countries",
+  "map.pilot": "pilot country",
+  "map.overview": "Overview",
+  "map.pick": "Select a country",
+  "map.pick.lede": "Click a tile on the map or use the \"Country\" menu at the top of the page. The Radar, investor area, simulator, watch and sources will then be limited to that country.",
+  "legend.cemac": "CEMAC (XAF)",
+  "legend.waemu": "WAEMU (XOF)",
+  "legend.cma": "Common Monetary Area (CMA)",
+  "legend.none": "National currency",
+  "legend.pilot": "Pilot country (official sources watched)",
+  "p.code": "ISO code",
+  "p.currency": "Currency",
+  "p.zone": "Zone",
+  "p.cb": "Central bank",
+  "p.coverage": "Coverage",
+  "p.cov.data": "Market data (synthetic)",
+  "p.cov.ref": "Reference profile",
+  "p.signals": "Active signals",
+  "p.route": "Investor access",
+  "p.route.yes": "Procedure documented → see",
+  "p.route.no": "Not documented yet",
+  "p.note.pilot": "Pilot country: official sources proposed and watched daily.",
+  "p.note.other": "Official source (central bank) registered, URL to be confirmed.",
+  "p.note.common": "Unverified profile. Synthetic market data; whether a regular primary auction market exists has not been verified for every country.",
+  "p.go": "See {c} in the Radar",
+  "radar.title": "The Opportunity Radar",
+  "radar.lede": "The grid compares each auction's <abbr title=\"Total bids received ÷ amount offered\">bid-to-cover ratio</abbr> with the history of its own line. This measure stays comparable across markets, unlike raw yields, whose calculation conventions differ. Each cell shows the latest weighted average yield and how far demand is from its norm (z).",
+  "radar.filter": "Filter by signal type",
+  "grid.title": "Heat grid · 54 countries",
+  "grid.title1": "Heat grid · {c}",
+  "grid.caption": "Latest weighted average yield and demand by country and maturity",
+  "grid.auction": "auction of",
+  "grid.empty": "No market data for this country.",
+  "btc": "bid-to-cover",
+  "legend.z": "Demand vs its own history (z)",
+  "legend.norm": "within the norm",
+  "legend.nd": "· n/a: fewer than 6 comparable auctions",
+  "z.none": "insufficient history",
+  "z.pp": "well above its history",
+  "z.p": "above its history",
+  "z.mid": "within the norm",
+  "z.n": "below its history",
+  "z.nn": "well below its history",
+  "col.country": "Country",
+  "col.signals": "Signals",
+  "col.instrument": "Security",
+  "col.auctiondate": "Auction date",
+  "col.date": "Date",
+  "col.refyield": "Ref. yield (prev. auction)",
+  "col.yield": "Yield",
+  "col.currency": "Currency",
+  "col.maturity": "Maturity",
+  "col.institution": "Institution",
+  "col.page": "Page",
+  "col.state": "Status",
+  "ref.tip": "The rate shown is the weighted average yield of the previous auction of the same maturity, not a forecast",
+  "level.country": "Country level",
+  "strength": "Signal strength (multiple of threshold)",
+  "tag.syn": "Synthetic",
+  "all": "All",
+  "allcountries": "all countries",
+  "sig.none": "No signal for this filter.",
+  "sig.more": "{a} of {b} signals shown. Pick a country to see all of its signals.",
+  "engine.en": "Rules-engine texts are in English.",
+  "pp.title": "Signal passport: why it exists",
+  "pp.facts": "Published facts used",
+  "pp.calc": "Calculation",
+  "pp.result": "Result",
+  "pp.rule": "Rule triggered",
+  "pp.invalid": "What would invalidate it",
+  "pp.limits": "Limitations",
+  "pp.version": "Rules {v} · computed as of {d}.",
+  "wall.title": "Redemption schedule",
+  "wall.pick": "Select a country to see the amounts maturing each month over the next 12 months (the \"refinancing wall\").",
+  "wall.aria": "Amounts maturing per month, {c}",
+  "wall.flag": "concentration flagged",
+  "wall.total": "Total maturing over 12 months",
+  "wall.gold": "In gold: months flagged for concentration ({m}).",
+  "wall.scope": "Auctioned amounts tracked here; excludes Eurobonds and loans.",
+  "buy.eyebrow": "Investor area",
+  "buy.title": "Buying African government securities: what, who, how",
+  "buy.lede": "For banks, funds, insurers, corporate treasurers and individuals. Government securities are <strong>debt securities</strong> (Treasury bills and bonds), <strong>not shares</strong>: by subscribing, the investor lends to the state, which repays the face value at maturity and pays interest. The procedures below are quoted word for word from official pages. Access is never guaranteed, and nothing here is investment advice.",
+  "buy.find.eyebrow": "Find an auction matching your criteria",
+  "f.currency": "Currency",
+  "f.maturity": "Maturity",
+  "f.minyield": "Minimum yield (%)",
+  "f.when": "Operations",
+  "f.upcoming": "Upcoming auctions",
+  "f.allsignals": "All signals",
+  "f.all": "All",
+  "f.m1": "Up to 1 year",
+  "f.m2": "1 to 5 years",
+  "f.m3": "Over 5 years",
+  "n.matches.one": "{n} security matches your criteria",
+  "n.matches.other": "{n} securities match your criteria",
+  "f.amongup": "among upcoming auctions",
+  "f.syn": "Synthetic market data.",
+  "f.simulate": "Simulate",
+  "f.first": "First 15 of {n} shown.",
+  "buy.access.eyebrow": "Official procedures",
+  "buy.access.title": "How to access the primary market",
+  "bc.who": "Who can subscribe",
+  "bc.via": "Through whom",
+  "bc.account": "Account required",
+  "bc.submit": "How to bid",
+  "bc.instr": "Securities issued",
+  "bc.fees": "Fees and taxes",
+  "bc.fees.na": "Not stated by the official source: ask the intermediary.",
+  "bc.quotes": "Official quotes ({n}) · original text in {l}",
+  "bc.source": "Source",
+  "bc.verified": "verified on {d}",
+  "bc.translated": "Procedure texts summarised and translated by Cartouche; only the quotes are authoritative.",
+  "bc.none.title": "Access procedure not documented",
+  "bc.none.body": "Cartouche has not yet documented, from an official source, how an investor subscribes to this country's government securities. Ask the central bank ({cb}) or the Treasury.",
+  "bc.note.all": "Procedures documented for {a} of 54 countries. For the other {b}, the procedure is not documented yet: ask the country's central bank or Treasury.",
+  "bc.note.one": "Current coverage: {a} of 54 countries documented ({b} not documented).",
+  "n.countries.one": "{n} country",
+  "n.countries.other": "{n} countries",
+  "buy.dealers.eyebrow": "Accredited intermediaries",
+  "buy.dealers.title": "Banks and institutions accredited to bid",
+  "buy.dealers.lede": "Institutions authorised to bid directly at auctions (primary dealers and equivalents), where an official list was found. Market shares are shown only if the authority publishes them; none is estimated.",
+  "dl.pick": "Official lists collected for {n} countries. Pick a country to see its institutions:",
+  "dl.none.any": "No official list of accredited institutions has been collected yet.",
+  "dl.none.one": "No official list of accredited institutions has been collected yet for {c}. Cartouche does not display unsourced lists.",
+  "dl.doc": "source document",
+  "dl.name": "Institution",
+  "dl.kind": "Status",
+  "dl.share": "Market share",
+  "dl.share.na": "Not published by the source",
+  "dl.howto.v": "To subscribe through one of these institutions: open a securities account with it, then send it an order before its internal cut-off (see the step-by-step guide below). Ask it directly for its terms (fees, minimum, timing).",
+  "dl.benefits": "Terms offered",
+  "dl.benefits.na": "Not published by official sources: ask the institution.",
+  "dl.order.share": "Order of the official table (not sorted by share).",
+  "dl.neutral": "This list is neither a quality ranking nor a recommendation.",
+  "kind.fact": "Fact",
+  "kind.calc": "Calculation",
+  "kind.syn": "Synthetic data",
+  "kind.ai": "Interpretation",
+  "buy.guide.eyebrow": "Step-by-step guide",
+  "buy.guide.title": "Subscribing through an intermediary",
+  "buy.ask.title": "Questions to ask each institution",
+  "buy.ask.lede": "Official sources do not publish intermediaries' commercial terms. To compare them, ask each one about:",
+  "sim.eyebrow": "Subscription simulator",
+  "sim.title": "What would an operation earn?",
+  "sim.lede": "Pick an upcoming auction (synthetic data) or enter your own parameters. The simulator computes the price, the amount to pay, the interest and the gain net of the fees and taxes you enter. It is arithmetic, not a forecast: the rate actually obtained depends on the auction result.",
+  "sim.op": "Operation",
+  "sim.free": "Free input (no operation)",
+  "sim.kind": "Security type",
+  "sim.kind.bill": "Treasury bill: discount, interest paid up front (zero-coupon)",
+  "sim.kind.bond": "Treasury bond: annual coupon",
+  "sim.nominal": "Face value subscribed",
+  "sim.yield": "Yield (%)",
+  "sim.days": "Term (days)",
+  "sim.basis": "Day-count basis (days per year)",
+  "sim.conv": "Rate convention",
+  "sim.conv.yield": "Simple-interest yield",
+  "sim.conv.discount": "Discount rate (on face value)",
+  "sim.years": "Term (years)",
+  "sim.coupon": "Coupon rate (%)",
+  "sim.fee": "Fees (% of face value)",
+  "sim.tax": "Tax on interest (%)",
+  "sim.err": "Check the inputs: positive amount, valid rate, term, fees and tax (tax between 0 and 100%).",
+  "sim.err.price": "With this discount rate and term the price becomes zero or negative: inconsistent inputs.",
+  "sim.op.note": "Inputs pre-filled from the synthetic auction ({c}, {d}). The rate is that of the previous auction of the same maturity.",
+  "sim.unit": "According to BEAC, the unit face value of this security is {u}: the amount should be a multiple of it.",
+  "sim.ken": "According to the Central Bank of Kenya: minimum KES 50,000 (non-competitive bid) or KES 2,000,000 (competitive bid), in denominations of KES 50,000.",
+  "sim.r.price": "Price per 100 of face value",
+  "sim.r.paid": "Amount paid",
+  "sim.r.interest": "Gross interest",
+  "sim.r.costs": "Fees + tax",
+  "sim.r.net": "Net gain",
+  "sim.r.netrate": "Net annualised yield ({b} basis)",
+  "sim.r.receive": "Repaid at maturity",
+  "sim.r.date": "Maturity",
+  "sim.r.after": "{d} days after settlement",
+  "sim.r.coupons": "Gross coupons ({n} years)",
+  "sim.r.capgain": "Gain or loss at redemption",
+  "sim.r.irr": "Net yield to maturity",
+  "sim.t.year": "Year",
+  "sim.t.coupon": "Gross coupon",
+  "sim.t.tax": "Tax",
+  "sim.t.principal": "Redemption",
+  "sim.f.paid": "Paid",
+  "sim.f.int": "Interest",
+  "sim.f.net": "Net gain",
+  "sim.f.fees": "Fees",
+  "sim.f.tax": "Tax",
+  "sim.cpn.assume": "The line's actual coupon is not available: it defaults to the yield (price at par). Change it if you know it.",
+  "sim.disclaimer": "Illustrative simulation. Actual fees and taxes are not stated by official sources: the values entered are yours. Neither advice nor a guarantee of return or allotment.",
+  "sim_assume_bill": [
+    "Security held to maturity, face value repaid in full.",
+    "Interest paid up front: you pay the price and receive the face value; the difference is the interest.",
+    "The rate convention and day-count basis vary by market and have not been verified for every country: use those in the auction notice.",
+    "Fees computed on face value; tax computed on gross interest. No FX or inflation."
+  ],
+  "sim_assume_bond": [
+    "Bought at issue, held to maturity, one coupon per year, no accrued interest or settlement lag.",
+    "Coupons are not reinvested in the net gain; the net yield to maturity assumes reinvestment at the same rate.",
+    "Tax applied to coupons only; fees computed on face value and paid at purchase. No FX or inflation."
+  ],
+  "st.eyebrow": "Strategy",
+  "st.title": "Diversification and cross-country cooperation",
+  "st.lede": "A framework for institutional investors, intermediaries and Treasuries: how to spread risk across issuers, maturities and monetary zones, and which forms of cross-country cooperation can widen market access. This is not an investment recommendation.",
+  "st.levers": "Five diversification levers",
+  "strategy_levers": [
+    [
+      "Issuers",
+      "Spreading subscriptions across several states reduces exposure to a country-specific event (fiscal stress, auction postponed or cancelled). Limit: states in the same zone often share common shocks (commodity prices, regional liquidity)."
+    ],
+    [
+      "Maturities (laddering)",
+      "Staggering maturities, for example 3 months, 1 year, 3 years and 5 years, smooths interest-rate and reinvestment risk: part of the portfolio matures regularly and can be reinvested at prevailing terms."
+    ],
+    [
+      "Monetary zones and currencies",
+      "Combining the CFA franc (XOF, XAF), rand-area currencies (CMA) and national currencies changes the nature of currency risk. Limit: XOF and XAF have the same fixed parity with the euro; combining them diversifies issuer risk, not currency risk against the euro."
+    ],
+    [
+      "Instruments",
+      "Combining bills (short term, discount) and bonds (periodic coupons) balances liquidity and income. Bills roll over often; bonds lock in a rate for longer but are more sensitive to rate changes."
+    ],
+    [
+      "Subscription timing",
+      "Taking part in several auctions rather than one reduces dependence on a single date's rate: the average entry price is smoothed over time."
+    ]
+  ],
+  "strategy_limits": [
+    "Diversification guarantees neither a higher return nor the absence of loss. It reduces each issuer's specific risk, not the risk common to all (global rate rise, regional shock).",
+    "A higher nominal yield generally compensates for higher risk (credit, currency, liquidity, inflation). Yields of different countries cannot be compared without accounting for inflation, exchange rates and calculation conventions.",
+    "National currencies add currency risk and, depending on the country, convertibility or repatriation rules to check with the central bank.",
+    "Market data on this site is synthetic: the tool below illustrates a method and describes no real portfolio."
+  ],
+  "st.pf.title": "Diversification test bench",
+  "st.pf.lede": "Build a fictitious portfolio (country, maturity, weight) and look at its concentration. Rates are the latest synthetic weighted average yields from the grid; no portfolio is proposed or optimised.",
+  "st.pf.weight": "Weight",
+  "st.pf.add": "+ Add a line",
+  "st.pf.remove": "Remove line",
+  "st.pf.empty": "Add at least one line with a positive weight.",
+  "st.r.yield": "Weighted average yield",
+  "st.r.mat": "Weighted average maturity",
+  "st.r.countries": "Number of countries",
+  "st.r.currencies": "Number of currencies",
+  "st.r.hhic": "Concentration by country (HHI)",
+  "st.r.hhicur": "Concentration by currency (HHI)",
+  "st.r.eur": "Share in CFA franc, pegged to the euro",
+  "st.r.zar": "Share in rand and linked currencies (CMA)",
+  "st_pf_notes": [
+    "HHI: sum of squared shares in %. 10,000 = everything in one line; the lower it is, the more spread the portfolio.",
+    "The weighted average yield ignores currency risk, inflation, fees, taxes and cross-country correlations.",
+    "Weights normalised to 100%; synthetic data."
+  ],
+  "st.coop": "Cross-country cooperation: ideas",
+  "st.coop.lede": "Cartouche's proposals for intermediaries, investors and Treasuries, to be discussed and checked with the relevant authorities. These are interpretations, not established facts.",
+  "strategy_coop": [
+    [
+      "Use the regional markets",
+      "In WAEMU as in CEMAC, several states' securities are issued on a common regional market with common rules and intermediaries. A single intermediary can therefore, in principle, carry subscriptions across several states of the zone: confirm with it."
+    ],
+    [
+      "Cross-border intermediary syndicates",
+      "Primary dealers and banks from different countries can team up to bid together, share issuer analysis and split allotments, widening their investor base."
+    ],
+    [
+      "Regional collective funds",
+      "Pooling savings in a fund lets small investors reach several countries despite high face values (CFA 1 million per BTA in CEMAC, according to BEAC)."
+    ],
+    [
+      "Coordinated issuance calendars",
+      "Treasuries that share their calendars can avoid tapping the same investors in the same week and smooth their refinancing schedules."
+    ],
+    [
+      "Linking infrastructure",
+      "Bringing central securities depositories and settlement systems closer across zones would cut the cost and delays of investing in several monetary zones."
+    ],
+    [
+      "Harmonised data and training",
+      "Publishing calendars, results and rate conventions in common formats, and training local investors, broadens domestic and regional demand."
+    ]
+  ],
+  "gl.eyebrow": "Glossary",
+  "gl.title": "Terms and abbreviations",
+  "gl.lede": "Definitions of the market terms and acronyms used on the platform. Zone-specific definitions cite their official source where one exists.",
+  "gl.search": "Search a term or acronym",
+  "gl.none": "No term matches.",
+  "glossary": [
+    [
+      "Adjudication",
+      "French for auction: issuance method in which the Treasury offers an amount of securities; bids are filled in order of rate (lowest first) or price up to the amount accepted."
+    ],
+    [
+      "AMF-UMOA",
+      "Autorité des Marchés Financiers de l'Union Monétaire Ouest-Africaine: regulator of the WAEMU regional financial market."
+    ],
+    [
+      "BAT",
+      "Bon Assimilable du Trésor (WAEMU): short-term debt security issued by auction; maturity under 2 years according to UMOA-Titres."
+    ],
+    [
+      "BCEAO",
+      "Banque Centrale des États de l'Afrique de l'Ouest: central bank of the 8 WAEMU states."
+    ],
+    [
+      "BEAC",
+      "Banque des États de l'Afrique Centrale: central bank of the 6 CEMAC states."
+    ],
+    [
+      "BRVM",
+      "Bourse Régionale des Valeurs Mobilières: stock exchange shared by the WAEMU states."
+    ],
+    [
+      "BTA",
+      "Bon du Trésor Assimilable (CEMAC): 13, 26 or 52 weeks, face value CFA 1 million, interest paid up front (BEAC)."
+    ],
+    [
+      "BVMAC",
+      "Bourse des Valeurs Mobilières de l'Afrique Centrale: CEMAC regional stock exchange."
+    ],
+    [
+      "CBK",
+      "Central Bank of Kenya, which runs the auctions of Kenyan Treasury bills and bonds."
+    ],
+    [
+      "CEMAC",
+      "Central African Economic and Monetary Community: Cameroon, Central African Republic, Congo, Gabon, Equatorial Guinea, Chad; currency XAF."
+    ],
+    [
+      "CMA",
+      "Common Monetary Area: South Africa, Eswatini, Lesotho, Namibia; currencies linked to the South African rand."
+    ],
+    [
+      "COSUMAF",
+      "Commission de Surveillance du Marché Financier de l'Afrique Centrale: CEMAC financial market regulator."
+    ],
+    [
+      "Coupon",
+      "Periodic interest paid by a bond, expressed as a percentage of face value."
+    ],
+    [
+      "CRCT",
+      "Cellule de Règlement et de Conservation des Titres: central depository of CEMAC government securities, according to BEAC."
+    ],
+    [
+      "CSD / DhowCSD",
+      "Central Securities Depository. DhowCSD is the Central Bank of Kenya's portal to open a securities account and submit bids."
+    ],
+    [
+      "Échéance / maturité",
+      "French for maturity: date the face value is repaid. Residual maturity is the time remaining until that date."
+    ],
+    [
+      "Eurobond",
+      "Bond issued on international markets, usually in dollars or euros, outside the issuer's domestic market."
+    ],
+    [
+      "HHI",
+      "Herfindahl-Hirschman Index: sum of squared shares (in %); 10,000 means total concentration on a single item."
+    ],
+    [
+      "Intérêts précomptés",
+      "French for interest paid up front (discount): the investor pays a price below face value and receives the face value at maturity."
+    ],
+    [
+      "KES",
+      "Kenyan shilling (ISO 4217 code)."
+    ],
+    [
+      "Marché primaire / secondaire",
+      "Primary market: buying securities at issue, from the state. Secondary market: buying and selling already-issued securities between investors."
+    ],
+    [
+      "Nominal (valeur faciale)",
+      "Face value: amount repaid at maturity, on which coupons are calculated."
+    ],
+    [
+      "OAT",
+      "Obligation Assimilable du Trésor (WAEMU): medium- and long-term debt security issued by auction; maturity over 3 years according to UMOA-Titres."
+    ],
+    [
+      "OPCVM",
+      "French for collective investment scheme (UCITS-type fund) pooling the savings of several investors."
+    ],
+    [
+      "OTA",
+      "Obligation du Trésor Assimilable (CEMAC): term of 2 years or more, face value CFA 10,000, annual interest (BEAC)."
+    ],
+    [
+      "pb (point de base)",
+      "Basis point (bp): one hundredth of a percentage point, 0.01%. A move from 8.00% to 8.25% is 25 bp."
+    ],
+    [
+      "Rendement moyen pondéré",
+      "Weighted average yield: average rate of the bids accepted at an auction, weighted by the amounts accepted."
+    ],
+    [
+      "SGI",
+      "Société de Gestion et d'Intermédiation (WAEMU): licensed broker-dealer buying and selling securities for clients."
+    ],
+    [
+      "Soumission compétitive / non compétitive",
+      "Competitive bid: the investor states the rate or price it accepts. Non-competitive bid: it accepts the rate resulting from the auction."
+    ],
+    [
+      "SVT",
+      "Spécialiste en Valeurs du Trésor (primary dealer): accredited credit institution that takes part in auctions and makes the secondary market in government securities."
+    ],
+    [
+      "Taux de couverture (bid-to-cover)",
+      "Bid-to-cover ratio: total bids divided by the amount offered. Above 1, demand exceeds supply."
+    ],
+    [
+      "UEMOA",
+      "West African Economic and Monetary Union (WAEMU): Benin, Burkina Faso, Côte d'Ivoire, Guinea-Bissau, Mali, Niger, Senegal, Togo; currency XOF."
+    ],
+    [
+      "UMOA-Titres",
+      "Regional agency that organises auctions of government securities (BAT and OAT) for the WAMU states."
+    ],
+    [
+      "XOF / XAF",
+      "ISO codes of the WAEMU (XOF) and CEMAC (XAF) CFA francs. Same fixed parity with the euro (EUR 1 = CFA 655.957), but the two currencies are not interchangeable."
+    ],
+    [
+      "z (score)",
+      "Distance of a value from the mean of its history, in standard deviations."
+    ]
+  ],
+  "m.eyebrow": "How a signal is built",
+  "m.title": "From official publication to signal passport",
+  "m.lede": "No figure is produced by a language model. Published values stay facts, derived values are calculations, and nothing mixes the two. Steps I and II arrive in phase 2; today the engine runs on synthetic data.",
+  "m.s1.t": "Source watch",
+  "m.s1.p": "Every day, official pages (BEAC, BCEAO, UMOA-Titres, CBK…) are checked: availability, changes, newly published documents.",
+  "m.s1.s": "Live · daily",
+  "m.s2.t": "Verified extraction",
+  "m.s2.p": "Auction notices and results in PDF: text, OCR, structured fields. Each document is deduplicated by fingerprint and goes through a human verification queue.",
+  "m.s2.s": "Phase 2",
+  "m.s3.t": "Rules engine",
+  "m.s3.p": "Deterministic rules with explicit thresholds and neutral labels. Re-running it creates no duplicates.",
+  "m.s3.s": "Live",
+  "m.s4.t": "Signal passport",
+  "m.s4.p": "Facts used, calculation, rule triggered, what would invalidate the signal, and limitations. All archived for audit.",
+  "m.s4.s": "Live",
+  "v.eyebrow": "Daily watch · real data",
+  "v.title": "What changed on official websites",
+  "v.never": "The watch has not run yet.",
+  "v.last": "Latest run: {w}. {n} official pages checked.",
+  "v.baseline": "First run: the pages' current state is the baseline; new items will be flagged from the next run.",
+  "v.compare": "Compared with the previous run.",
+  "v.lead": "A new document is a lead to review, not a verified market event.",
+  "v.filtered": "List filtered on {c} (statistics stay global).",
+  "v.s.checked": "Pages checked",
+  "v.s.ok": "Reachable",
+  "v.s.ko": "Failing",
+  "v.s.changed": "Changed",
+  "v.s.new": "New documents",
+  "v.s.listed": "Documents listed",
+  "v.feed": "New documents detected",
+  "v.pages": "Pages watched",
+  "v.hist": "Run history",
+  "v.total": "{n} in total",
+  "v.detected": "detected on {d}",
+  "v.feed.base": "Baseline set: documents published from now on will appear here.",
+  "v.feed.none": "No new document since the last run.",
+  "v.ok": "reachable",
+  "v.ko": "failing",
+  "v.changed": "changed",
+  "v.new": "{n} new",
+  "v.nopages": "No page watched for this country yet.",
+  "v.ref": "base",
+  "src.eyebrow": "Source registry",
+  "src.title": "Proposed official sources",
+  "src.lede": "{s} official sources registered for this selection. {u} URLs proposed for {i} institutions, checked on 3 October 2026: {ok} reachable with a page title naming the institution, {b} blocked by anti-bot protection, {w} found by web search only. None is activated until an operator confirms it.",
+  "src.url": "Proposed URL",
+  "src.content": "Content",
+  "src.check": "Check",
+  "src.nourl": "No URL proposed for this selection.",
+  "src.others": "{n} other registered sources, URL to be confirmed",
+  "r.eyebrow": "Roadmap",
+  "r.title": "Where the platform stands",
+  "r.content": "Content",
+  "r.state": "Status",
+  "roadmap": [
+    [
+      "1",
+      "Database, models, source traceability, API, dashboard · reference data for 54 countries",
+      "done"
+    ],
+    [
+      "1b",
+      "Authentication, roles, rate limiting, audit log (prerequisite to any platform deployment)",
+      "todo"
+    ],
+    [
+      "2",
+      "Collection of official sources, PDF/OCR extraction, human verification",
+      "next"
+    ],
+    [
+      "3",
+      "Yield conventions by market, yield curves, threshold calibration",
+      "todo"
+    ],
+    [
+      "4",
+      "Opportunity engine and Radar (buybacks, exchanges and Eurobonds pending)",
+      "partial"
+    ],
+    [
+      "5",
+      "Daily watch of official sources and site update every 24 h · alerts and daily report to come",
+      "partial"
+    ],
+    [
+      "6",
+      "Investor area: official access procedures (15 countries), accredited intermediaries, simulator",
+      "partial"
+    ],
+    [
+      "7",
+      "Sovereign funding engine (scenarios for Treasuries)",
+      "todo"
+    ],
+    [
+      "8",
+      "Public API and global search",
+      "todo"
+    ]
+  ],
+  "r_state": {
+    "done": "Delivered",
+    "partial": "Partly delivered",
+    "next": "Next step",
+    "todo": "To do"
+  },
+  "foot.tag": "AFRICAN SOVEREIGN DEBT INTELLIGENCE",
+  "foot.p1": "<strong>Information and analysis only.</strong> Not investment advice, not a recommendation, and no guarantee of return or of access to any market. Signals are rule-based factual observations; they do not rank investments and take no account of taxes, fees, exchange rates or each investor's own risk.",
+  "foot.p2": "Market data shown is <strong>synthetic</strong>; only the source watch and the quoted access procedures are real. Country profiles are <strong>unverified</strong> reference data. Snapshot as of",
+  "foot.p3": "Languages: French (reference), English, Portuguese, Spanish. Translations were written by Cartouche and have not yet been reviewed by a professional translator; official quotes stay in their original language.",
+  "na": "Not available",
+  "u.weeks": "{n} wk",
+  "u.days": "{n} d",
+  "u.years": "{n} yr",
+  "units": [
+    "tn",
+    "bn",
+    "m"
+  ],
+  "n.signals.one": "{n} signal",
+  "n.signals.other": "{n} signals",
+  "region": {
+    "north": "North Africa",
+    "west": "West Africa",
+    "central": "Central Africa",
+    "east": "East Africa",
+    "southern": "Southern Africa"
+  },
+  "zone": {
+    "CEMAC": "CEMAC · CFA franc (BEAC)",
+    "WAEMU": "WAEMU · CFA franc (BCEAO)",
+    "CMA": "Common Monetary Area (CMA)",
+    "NONE": "National currency"
+  },
+  "zone_title": {
+    "CEMAC": "CEMAC · BEAC",
+    "WAEMU": "WAEMU · UMOA-Titres",
+    "KEN": "Kenya · Central Bank of Kenya"
+  },
+  "lang_name": {
+    "fr": "French",
+    "en": "English"
+  },
+  "instr": {
+    "treasury_bill": "Treasury bill",
+    "treasury_bond": "Treasury bond"
+  },
+  "bucket": {
+    "3M": "3 months",
+    "6M": "6 months",
+    "12M": "12 months",
+    "2-3Y": "2-3 years",
+    "5Y": "5 years",
+    "7Y+": "7 years +"
+  },
+  "nature": {
+    "SYNTHETIC": "SYNTHETIC",
+    "FACT": "FACT"
+  },
+  "ev": {
+    "http_200": "reachable",
+    "http_403": "anti-bot (403)",
+    "search_only": "search only"
+  },
+  "flag": {
+    "synthetic_data": "synthetic data",
+    "small_sample": "small sample",
+    "partial_debt_coverage": "partial debt coverage",
+    "mixed_yield_conventions": "mixed yield conventions",
+    "different_auction_dates": "different auction dates"
+  },
+  "sig_type": {
+    "upcoming_auction": "Upcoming auctions",
+    "yield_move": "Yield moves",
+    "high_demand": "High demand",
+    "low_demand": "Low demand",
+    "high_yield": "High yield",
+    "curve_inversion": "Curve inversion",
+    "refinancing_concentration": "Refinancing",
+    "auction_cancelled": "Cancelled",
+    "auction_postponed": "Postponed"
+  },
+  "sig_label": {
+    "Upcoming auction": "Upcoming auction",
+    "Newly announced auction": "Newly announced auction",
+    "Significant yield movement (higher)": "Significant yield move (higher)",
+    "Significant yield movement (lower)": "Significant yield move (lower)",
+    "High demand relative to recent auctions": "High bid-to-cover relative to recent auctions",
+    "Low demand relative to recent auctions": "Low bid-to-cover relative to recent auctions",
+    "Higher historical yield (same tenor)": "Historically high yield (same maturity)",
+    "Yield curve inversion": "Yield curve inversion",
+    "Refinancing concentration": "Maturity concentration",
+    "Auction cancelled": "Auction cancelled",
+    "Auction postponed": "Auction postponed"
+  },
+  "dealer_kind": {
+    "SVT": "Primary dealer (SVT)",
+    "primary_dealer": "Primary dealer",
+    "bank": "Bank",
+    "SGI": "SGI (broker-dealer)",
+    "other": "Other",
+    "IVT": "IVT (Treasury securities intermediary)",
+    "PD_BMS": "Primary dealer and Bond Market Specialist"
+  },
+  "buyer_cards": {
+    "CEMAC": {
+      "investor_type": "Individuals and legal entities, resident and non-resident",
+      "eligibility": "Investors: individuals and legal entities, resident and non-resident.",
+      "primary_dealer": "Spécialistes en Valeurs du Trésor (SVT, primary dealers): licensed credit institutions.",
+      "account_requirement": "Custody with the CRCT (central depository), through an authorised intermediary.",
+      "submission_method": "Subscription through the authorised institutions (SVT); auctions organised by BEAC's National Directorates.",
+      "instruments": {
+        "treasury_bill": "BTA: 13, 26 and 52 weeks; face value CFA 1 million; interest paid up front.",
+        "treasury_bond": "OTA: 2 years or more; face value CFA 10,000; annual interest."
+      }
+    },
+    "WAEMU": {
+      "investor_type": "Individuals, companies and organisations (through an intermediary)",
+      "eligibility": "Direct participants: credit institutions, SGIs and regional financial bodies holding a settlement account with BCEAO. Other investors: through these intermediaries.",
+      "primary_dealer": "SVT of the issuing state (mandatory for targeted auctions).",
+      "account_requirement": "Account with a credit institution or an SGI in the WAEMU zone.",
+      "submission_method": "Bids through a credit institution or an SGI; auctions organised by UMOA-Titres.",
+      "instruments": {
+        "treasury_bill": "BAT: maturity under 2 years; interest paid up front.",
+        "treasury_bond": "OAT: maturity stated as \"over 3 years\" on the source page."
+      }
+    },
+    "KEN": {
+      "investor_type": "Individuals and corporate bodies (direct or through a bank)",
+      "eligibility": "Individuals and companies: directly without an intermediary, or through a Kenyan commercial bank or investment bank.",
+      "primary_dealer": "No mandatory intermediary; Kenyan commercial banks and investment banks may act as custodians.",
+      "account_requirement": "CSD account opened on the Central Bank of Kenya's DhowCSD portal.",
+      "submission_method": "Bids through the DhowCSD mobile app or portal. Minimum: KES 50,000 (non-competitive) or KES 2,000,000 (competitive), in denominations of KES 50,000.",
+      "instruments": {
+        "treasury_bill": "Minimum face value: KES 50,000 (non-competitive bid), KES 2,000,000 (competitive bid)."
+      }
+    }
+  },
+  "guide_steps": [
+    "Choose an accredited intermediary: primary dealer (SVT), bank or SGI, or direct access where the central bank allows it (DhowCSD portal in Kenya).",
+    "Open a securities account and a cash account; provide the identification documents requested (know-your-customer).",
+    "Read the issuance calendar and the auction notice: amount offered, maturity, bid deadline (date and time), value date.",
+    "Send your order before the intermediary's internal cut-off: competitive bid (you state a rate) or non-competitive bid (you accept the rate set).",
+    "Fund the cash account for settlement on the value date.",
+    "Receive the allotment notice: the order may be filled in full, in part or not at all.",
+    "Track coupons and redemption at maturity; optionally sell the securities on the secondary market."
+  ],
+  "ask_list": [
+    "Subscription or placement fee",
+    "Custody fees on the securities account",
+    "Minimum amount accepted and multiples",
+    "Internal cut-off date and time for orders",
+    "Access to the secondary market and buy-back price offered",
+    "Tax applied to interest given your residence",
+    "Time taken to pay coupons and redemption",
+    "Statements and trade confirmations provided"
+  ],
+  "dl.rank": "Published rank",
+  "dl.page": "official page",
+  "dl.order.list": "Order of the official list.",
+  "dl.order.rank": "Order of the official ranking.",
+  "dl.details": "Quote and notes on the source",
+  "dl.fr": "Notes on sources are written in French.",
+  "dl.share.all": "Market shares appear only where the authority publishes them per institution.",
+  "dl.none.ken": "The Central Bank of Kenya does not publish a named list of accredited intermediaries: investors bid directly on DhowCSD or go through a Kenyan commercial or investment bank (see the procedure above)."
+}

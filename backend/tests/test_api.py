@@ -308,3 +308,47 @@ class TestBuyers:
 
     def test_unknown_country_returns_empty(self, client):
         assert get(client, "/subscription-routes", country="NGA") == []
+
+
+class TestAccreditedDealers:
+    def test_counts_match_official_documents(self, client):
+        data = get(client, "/accredited-dealers")
+        by_src: dict[str, int] = {}
+        for d in data["dealers"]:
+            by_src[d["source_id"]] = by_src.get(d["source_id"], 0) + 1
+        # UMOA-Titres: 24 SVT over 8 states (45 state/SVT pairs); BEAC table 29 (Gabon duplicate removed);
+        # DMO 14 PDMM; BoG 15 PD; National Treasury 10 PD; Morocco top 3 only.
+        assert by_src == {"umoa_rank_2024": 45, "beac_shares_2021": 76, "beac_list_2022": 94,
+                          "dmo_pdmm_2023": 14, "bog_pd_2026": 15, "ntsa_pd_2025": 10, "mef_ivt_2025": 3}
+        assert len({d["name"] for d in data["dealers"] if d["source_id"] == "umoa_rank_2024"}) == 24
+        assert "not a recommendation" in data["disclaimer"]
+
+    def test_every_source_is_official_and_dated(self, client):
+        for s in get(client, "/accredited-dealers")["sources"]:
+            assert s["page_url"].startswith("https://") and s["quote"] and s["document_date"]
+            assert s["verified_on"] == "2026-10-04" and s["data_nature"] == "FACT"
+            assert s["measure"] in {"list", "rank", "share"}
+
+    def test_shares_only_where_published_and_sum_to_100(self, client):
+        data = get(client, "/accredited-dealers")
+        totals: dict[str, float] = {}
+        for d in data["dealers"]:
+            if d["source_id"] != "beac_shares_2021":
+                assert d["market_share_pct"] is None  # no other source publishes per-institution shares
+                continue
+            totals[d["country_iso3"]] = totals.get(d["country_iso3"], 0) + float(d["market_share_pct"])
+        assert set(totals) == {"CMR", "CAF", "COG", "GAB", "GNQ", "TCD"}
+        assert all(abs(v - 100) <= 0.2 for v in totals.values()), totals
+
+    def test_ranks_are_contiguous_per_country(self, client):
+        ranks: dict[tuple[str, str], list[int]] = {}
+        for d in get(client, "/accredited-dealers")["dealers"]:
+            if d["rank"] is not None:
+                ranks.setdefault((d["source_id"], d["country_iso3"]), []).append(d["rank"])
+        assert ranks and all(sorted(v) == list(range(1, len(v) + 1)) for v in ranks.values())
+
+    def test_country_filter(self, client):
+        sen = get(client, "/accredited-dealers", country="sen")
+        assert [s["id"] for s in sen["sources"]] == ["umoa_rank_2024"]
+        assert {d["country_iso3"] for d in sen["dealers"]} == {"SEN"} and len(sen["dealers"]) == 6
+        assert get(client, "/accredited-dealers", country="KEN") == {**get(client, "/accredited-dealers", country="KEN"), "sources": [], "dealers": []}
