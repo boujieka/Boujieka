@@ -15,7 +15,9 @@
 | 9 | **Souveraineté / dépendance à un prestataire** | Élevée (politique) | Propriété publique des données, hébergement national, formats ouverts, réversibilité |
 | 10 | **Coût récurrent** (mise à jour, hébergement, agents) souvent oublié dans les projets financés sur projet | Élevée | Modèle de financement récurrent à définir dès la phase 0 |
 | 11 | **Sécurité des agents et des informateurs** dans certaines zones | Élevée | Critères sécuritaires de déploiement, signalements non publics |
-| 12 | **Nom « POPGRID »** possiblement déjà utilisé | Moyenne | Vérification de marque avant usage public |
+| 12 | **Nom « POPGRID »** déjà utilisé (POPGRID Data Collaborative, CIESIN) | Moyenne | Choisir un autre nom |
+| 13 | **Instabilité du cadre foncier** : la circulaire de février 2026 (ARDFC/AJPTER) est un texte de rang inférieur dont la compatibilité avec l'ordonnance de 1974 est débattue | Moyenne | Modéliser les attestations comme un type de droit distinct et paramétrable ; suivre l'évolution réglementaire |
+| 14 | **Conformité données personnelles** : la loi n° 2024/017 est en vigueur depuis le 23 juin 2026 | Élevée | Analyse d'impact et formalités auprès de l'Autorité dès la phase 0 |
 
 ## 2. Explications concurrentes à garder en tête
 
@@ -32,7 +34,7 @@
 
 1. Qui est le **porteur institutionnel** principal : planification, administration territoriale, statistique ?
 2. Quel est le **modèle économique** : marché public, partenariat public-privé, financement de bailleur, abonnement des collectivités ?
-3. Faut-il intégrer les **microdonnées du recensement** dans le périmètre technique (enclave hébergée) ou seulement recevoir des agrégats ?
+3. Quelle convention avec le BUCREP pour recevoir les **résultats et la cartographie du 4ᵉ RGPH/RGAE 2026** ? Faut-il intégrer les **microdonnées du recensement** dans le périmètre technique (enclave hébergée) ou seulement recevoir des agrégats ?
 4. Quel traitement pour les **terres coutumières non titrées** : simple déclaration, ou appui à une procédure de reconnaissance (qui relève de l'autorité compétente) ?
 5. Quelle **politique de données ouvertes** pour la couche S0 ?
 6. Quelles **zones pilotes**, avec quelles garanties sécuritaires ?

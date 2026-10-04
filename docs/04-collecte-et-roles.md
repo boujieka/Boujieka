@@ -37,7 +37,15 @@ Cumul de fonctions en zone rurale : **oui**, mais avec deux garde-fous :
 
 ## 3. Le chef de village comme « sentinelle territoriale »
 
-L'idée est bonne et se défend bien, à condition de traiter trois risques que la version initiale ne mentionnait pas.
+> **Mise à jour (octobre 2026)** : depuis le 1ᵉʳ avril 2026, une lettre-circulaire du MINDCAF du
+> 20 février 2026 permet aux chefs de 3ᵉ degré de **délivrer** des attestations foncières (ARDFC,
+> AJPTER) qui valent « commencement de preuve » sur le domaine national. Le chef n'est donc plus
+> seulement déclarant : il est aussi **autorité émettrice d'actes intermédiaires**. Ce ne sont pas des
+> titres fonciers. Voir [05 §3.3](05-gouvernance-et-cadre-juridique.md#33-conséquences-de-la-circulaire-foncière-de-février-2026).
+> Dans la plateforme, les deux rôles (sentinelle N0 / émetteur d'attestations N3) sont des comptes et
+> des traces distincts.
+
+L'idée est bonne et se défend bien, à condition de traiter les risques que la version initiale ne mentionnait pas.
 
 **Interface proposée** : carte simplifiée de son territoire, pré-remplie par N1, avec trois actions
 seulement : **« Il manque quelque chose »**, **« Ceci n'existe plus / a changé »**, **« Je signale un
@@ -47,7 +55,7 @@ smartphones manquent.
 
 | Risque | Description | Mesure |
 |---|---|---|
-| **Conflit d'intérêts** | Le chef est souvent partie prenante dans l'attribution coutumière des terres et dans les litiges | Ses signalements fonciers sont des **déclarations** affichées comme telles ; jamais de validation par le chef ; contradiction possible par d'autres acteurs |
+| **Conflit d'intérêts** | Le chef est souvent partie prenante dans l'attribution coutumière des terres et dans les litiges ; ce risque augmente avec son pouvoir de délivrer des ARDFC/AJPTER | Ses signalements fonciers sont des **déclarations** affichées comme telles. Ses attestations sont enregistrées comme attestations, jamais comme titres. Détection automatique des attestations qui se chevauchent entre elles ou avec des titres et des concessions. Contradiction possible par d'autres acteurs |
 | **Légitimité contestée** | Successions disputées, chefferies concurrentes sur un même territoire | Historisation, rattachement à l'acte officiel de reconnaissance ; pas de « chef unique » imposé par la plateforme |
 | **Exposition** | Un chef qui signale une occupation illégale ou une exploitation minière informelle peut être menacé | Signalements sensibles en **S1**, transmis à l'autorité sans publication ; possibilité de signalement non public |
 | **Incitations** | Pourquoi le chef consacrerait-il du temps ? Risque inverse : gonfler les chiffres pour obtenir des équipements | Retour visible (fiche du village, déficits identifiés) ; les chiffres déclarés n'alimentent **jamais directement** les calculs de besoins sans vérification |

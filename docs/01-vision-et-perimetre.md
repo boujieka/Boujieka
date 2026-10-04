@@ -64,10 +64,13 @@ avec réversibilité contractuelle.
 
 ## 5. Nom du produit
 
-« POPGRID » : un **POPGRID Data Collaborative** existe, à ma connaissance, comme collectif international
-de producteurs de données de population maillées (CIESIN / Université Columbia et partenaires).
-**Cela n'a pas été vérifié dans cette session** ; si c'est confirmé, le nom expose à une confusion,
-voire à un conflit de marque. Par ailleurs « POP » réduit le produit à la population, ce que le
+« POPGRID » : **confirmé, le nom est déjà utilisé** dans exactement le même domaine. Le **POPGRID Data
+Collaborative**, lancé en 2017 et géré par le CIESIN (Université Columbia) avec le réseau TReNDS des Nations
+unies (SDSN), réunit les producteurs de données maillées de population et d'établissements humains
+([CIESIN](https://ciesin.columbia.edu/content/leaving-no-one-map-guide-gridded-population-data-sustainable-development),
+[NASA Earthdata](https://www.earthdata.nasa.gov/news/popgrid-data-collaborative-updates-website-presents-webinar)).
+Le risque de confusion est donc réel. L'existence d'une marque déposée n'a pas été vérifiée.
+**Recommandation : abandonner « POPGRID ».** Par ailleurs « POP » réduit le produit à la population, ce que le
 concept affiné dépasse justement.
 
 Pistes à tester (disponibilité de marque et de domaine non vérifiée) : un nom qui évoque le
@@ -82,7 +85,8 @@ Initiatives et données comparables (à intégrer comme sources, pas à concurre
 - empreintes de bâtiments issues d'imagerie (Google Open Buildings, Microsoft Building Footprints) ;
 - cartes d'occupation du sol (ex. ESA WorldCover) et de couvert forestier (Global Forest Watch) ;
 - l'Atlas forestier interactif du Cameroun (WRI / ministère des forêts) ;
-- les publications de l'ITIE si le pays y adhère (rapports sur les revenus extractifs).
+- les rapports de l'**ITIE** sur les revenus extractifs : le Cameroun met en œuvre l'ITIE depuis 2005, et sa dernière validation a été lancée en octobre 2023 ;
+- les résultats du **4ᵉ RGPH/RGAE** (collecte avril–septembre 2026) dès leur publication.
 
 La couverture précise de chacune de ces sources pour le Cameroun **n'a pas été vérifiée ici** et doit
 faire l'objet d'un inventaire des sources en phase 0 (voir [07](07-pilote-cameroun.md)).

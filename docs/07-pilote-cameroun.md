@@ -11,8 +11,22 @@ ni de coût.
 - **Socle national léger** : uniquement ce qui est peu coûteux et utile partout (N1 + imports N3).
 - **Pilote de terrain approfondi** : toutes les couches, N0 à N3, dans **3 communes contrastées**.
 
-Le pays compte 10 régions et, à ma connaissance, 58 départements et environ 360 arrondissements/communes
-(chiffres à confirmer sur le référentiel officiel en vigueur).
+Le pays compte **10 régions, 58 départements et 360 arrondissements** (INS), ainsi que **374 collectivités
+territoriales décentralisées : 360 communes et 14 communautés urbaines**, auxquelles s'ajoutent les régions.
+En décembre 2025, le MINAT a demandé aux gouverneurs des propositions de **nouveaux départements et
+arrondissements** : le découpage est susceptible de changer pendant le projet. C'est une raison de plus
+pour un référentiel territorial **versionné**.
+
+> **Contexte recensement (octobre 2026)** : le **4ᵉ RGPH, couplé au recensement général de l'agriculture
+> et de l'élevage (RGAE)**, a été conduit par le BUCREP à partir du 24 avril 2026. Il a été prolongé deux fois :
+> au 31 juillet, puis par une période de rattrapage du 1ᵉʳ août au 15 septembre 2026. Selon la presse, le
+> budget initial était de 13,3 milliards FCFA (État + appui de la Banque mondiale), avec 6 milliards FCFA
+> supplémentaires mobilisés ensuite. Les retards ont été attribués à la logistique, à l'enclavement et à la
+> rémunération des agents. **Les résultats ne sont pas encore publiés** à ma connaissance.
+> Conséquence : la plateforme ne « prépare » plus ce recensement. Elle doit être conçue pour
+> **recevoir ses agrégats et sa cartographie censitaire** (sous accord avec le BUCREP), et pour préparer les
+> mises à jour intercensitaires. Les difficultés de terrain observées (enclavement, routes dégradées) sont
+> précisément ce que les couches ASSETS/INF doivent documenter.
 
 ## 2. Phases
 
@@ -57,10 +71,15 @@ Mesurer, avant toute extension :
 Par vagues régionales, en commençant par la cartographie (N1 + N3), le terrain N2 étant ciblé par la
 file d'anomalies et l'échantillonnage.
 
-### Phase 5 — Recensement et mise à jour continue
-- Le **recensement de la population** utilise la cartographie produite (zones de dénombrement, listes
-  de bâtiments), sous la responsabilité de l'institution compétente. C'est un **apport direct** au
-  recensement, pas une substitution.
+### Phase 5 — Intégration du recensement et mise à jour continue
+- **Intégration du 4ᵉ RGPH/RGAE 2026** : import des agrégats publiés et, sous convention avec le BUCREP,
+  de la cartographie censitaire (zones de dénombrement). Le volet agricole (RGAE) alimente directement la
+  couche LAND/agriculture.
+- **Prochain recensement** : la cartographie produite (zones de dénombrement, listes de bâtiments) le
+  prépare, sous la responsabilité de l'institution compétente. C'est un **apport direct** au recensement,
+  pas une substitution.
+- **Visa statistique** (loi n° 2020/010) : toute enquête de terrain du pilote auprès des ménages ou des
+  entreprises doit vérifier si elle y est soumise.
 - Mise à jour continue : détection de changements par imagerie, signalements N0, imports périodiques
   des registres, et état civil lorsque sa couverture le permettra.
 

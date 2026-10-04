@@ -39,6 +39,10 @@ Deux notions distinctes, souvent confondues :
 Une même parcelle peut être « agricole » (usage) sur une « concession forestière » (régime) revendiquée
 par une communauté (droit coutumier déclaré). Le modèle doit pouvoir porter les trois sans les fusionner.
 
+Depuis avril 2026, une couche intermédiaire s'ajoute entre la déclaration et le titre : les **ARDFC et
+AJPTER** délivrées par les chefs de 3ᵉ degré (« commencement de preuve », circulaire MINDCAF du 20 février 2026).
+Elles sont stockées comme des droits d'un type distinct, jamais confondues avec un titre foncier.
+
 Champs « propriétaire / détenteur / concessionnaire / durée / superficie / statut » : **uniquement
 lorsqu'une source juridique les établit**, avec référence de l'acte. Les déclarations communautaires
 sont conservées comme *déclarations*, distinctes des droits validés.
@@ -49,7 +53,8 @@ Structure par chefferie (affinée) :
 
 ```
 CHEFFERIE
-├── identification : nom, degré/classement officiel, rattachement administratif
+├── identification : nom, degré (1ᵉʳ/2ᵉ/3ᵉ, décret n° 77/245 du 15 juillet 1977), rattachement administratif
+├── attestations foncières délivrées (ARDFC/AJPTER, si 3ᵉ degré) : registre, S1
 ├── autorité : titulaire actuel (S1), date d'intronisation, acte de reconnaissance
 ├── territoire traditionnel : géométrie DÉCLARÉE (≠ limites administratives, souvent contestée)
 ├── population desservie (agrégat dérivé, pas déclaratif)

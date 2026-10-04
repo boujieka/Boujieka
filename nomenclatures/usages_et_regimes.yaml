@@ -2,7 +2,9 @@
 #  - USAGE_SOL : ce qu'on observe (imagerie, terrain)
 #  - REGIME    : ce que dit le droit (seule l'autorité compétente fait foi)
 # Les catégories de régime sont génériques et doivent être alignées sur le droit
-# foncier et domanial camerounais en vigueur (revue juridique en phase 0).
+# foncier et domanial camerounais en vigueur : ordonnances n° 74-1 et 74-2 du 6 juillet 1974 (modifiées),
+# lettre-circulaire MINDCAF du 20/02/2026 (ARDFC/AJPTER), loi n° 2024/008 (forêts), loi n° 2023/014 (mines).
+# Voir docs/05 §3.
 
 USAGE_SOL:
   AGRICOLE:      {fr: Agricole, en: Cropland}
@@ -37,6 +39,8 @@ DROIT:
   PERMIS_EXPLOITATION:      {fr: Permis d'exploitation minière, en: Mining licence}
   AUTORISATION_CARRIERE:    {fr: Autorisation d'exploitation de carrière, en: Quarry authorisation}
   CONCESSION_SERVICE:       {fr: Concession de service public (eau, énergie, port…), en: Public service concession}
-  DROIT_COUTUMIER_DECLARE:  {fr: Droit coutumier déclaré, en: Declared customary right}
+  ARDFC:                    {fr: Attestation de reconnaissance des droits fonciers coutumiers, en: Customary land rights recognition certificate, sensibilite: S1_RESTREINT, note: "commencement de preuve, délivrée par chef de 3e degré (circulaire MINDCAF 20/02/2026) ; PAS un titre"}
+  AJPTER:                   {fr: Attestation de jouissance paisible des terres, en: Peaceful land occupation certificate, sensibilite: S1_RESTREINT, note: "commencement de preuve, délivrée par chef de 3e degré (circulaire MINDCAF 20/02/2026) ; PAS un titre"}
+  DROIT_COUTUMIER_DECLARE:  {fr: Droit coutumier déclaré (sans attestation), en: Declared customary right}
   GESTION:                  {fr: Responsabilité de gestion (ex. école gérée par…), en: Management responsibility}
   EXPLOITATION:             {fr: Exploitation / opérateur, en: Operator}

@@ -87,6 +87,7 @@ Niveau de preuve requis selon le type d'information :
 | Existence d'un bâtiment, d'une route | OBSERVÉ | — |
 | Usage d'un bâtiment, état d'une école | OBSERVÉ | — |
 | Droit de propriété, titre foncier | DÉCLARÉ | **VALIDÉ** par l'administration domaniale |
+| Attestation ARDFC / AJPTER (depuis avril 2026) | DÉCLARÉ (si rapportée sans pièce) | **VALIDÉ** = existence de l'attestation, constatée dans le registre officiel. Elle vaut commencement de preuve, **pas** droit de propriété |
 | Concession, permis minier ou forestier | IMPORTÉ / DÉCLARÉ | **VALIDÉ** par le ministère compétent |
 | Limite de territoire traditionnel | DÉCLARÉ | Reconnaissance par l'autorité administrative compétente (si elle existe) |
 | Population | Estimation modélisée | Résultats officiels du recensement |

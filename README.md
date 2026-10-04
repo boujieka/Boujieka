@@ -1,6 +1,6 @@
 # Boujieka — Plateforme nationale de recensement territorial et patrimonial
 
-> Nom de travail historique : **POPGRID Africa** — voir [docs/01](docs/01-vision-et-perimetre.md#nom-du-produit) : ce nom présente un risque de collision avec une initiative internationale existante et doit être vérifié avant tout usage public.
+> Nom de travail historique : **POPGRID Africa**. **À abandonner** : le nom POPGRID est déjà utilisé par le POPGRID Data Collaborative (CIESIN/Columbia), dans le même domaine. Voir [docs/01](docs/01-vision-et-perimetre.md#5-nom-du-produit).
 
 ## En une phrase
 
@@ -37,4 +37,14 @@ Nomenclatures : [`nomenclatures/`](nomenclatures/)
 ## Statut
 
 Document de conception (pas encore de code applicatif). Les références juridiques et institutionnelles
-marquées **(à vérifier)** n'ont pas été contrôlées sur les textes officiels.
+camerounaises ont été **vérifiées en octobre 2026 sur des sources secondaires** : bases LEAP/PNUE, FAOLEX,
+INS, ITIE, UNESCO, presse. Le Journal officiel n'a pas été consulté directement ; une revue par un juriste
+reste nécessaire. Détail et sources : [docs/05 §3](docs/05-gouvernance-et-cadre-juridique.md#3-cadre-juridique-et-institutionnel-camerounais).
+
+**Changements de contexte majeurs identifiés lors de cette vérification :**
+- circulaire MINDCAF du 20 février 2026 : les chefs de 3ᵉ degré délivrent des attestations foncières
+  (ARDFC/AJPTER) depuis le 1ᵉʳ avril 2026 ;
+- 4ᵉ RGPH couplé au RGAE réalisé d'avril à septembre 2026 ;
+- loi sur les données personnelles n° 2024/017, en vigueur depuis le 23 juin 2026 ;
+- nouvelle loi forestière n° 2024/008, qui abroge la loi de 1994 ;
+- nouveau Code minier n° 2023/014.
