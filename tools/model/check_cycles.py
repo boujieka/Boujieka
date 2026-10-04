@@ -7,7 +7,7 @@ from openpyxl import load_workbook
 from openpyxl.utils import range_boundaries, get_column_letter as L
 wb=load_workbook(sys.argv[1])
 g={}
-pat=re.compile(r"(?:'([^']+)'!)?(\$?[A-Z]{1,3}\$?\d+(?::\$?[A-Z]{1,3}\$?\d+)?)")
+pat=re.compile(r"(?:(?:'([^']+)'|([A-Za-z0-9_]+))!)?(\$?[A-Z]{1,3}\$?\d+(?::\$?[A-Z]{1,3}\$?\d+)?)")
 for ws in wb:
     for row in ws.iter_rows():
         for c in row:
@@ -15,8 +15,8 @@ for ws in wb:
             if isinstance(v,str) and v.startswith('='):
                 f=re.sub(r'"[^"]*"','',v)
                 deps=[]
-                for sh,ref in pat.findall(f):
-                    sh=sh or ws.title
+                for sh,sh2,ref in pat.findall(f):
+                    sh=sh or sh2 or ws.title
                     ref=ref.replace('$','')
                     if ':' in ref:
                         a,b,c2,d=range_boundaries(ref)
