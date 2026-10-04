@@ -40,7 +40,7 @@ Owner:
 | 13, 14 | No optimisation of returns; honest results | Done | Readiness 2 of 23 and 4 of 23 after gate 10 took in the DSCR (an unattractive result kept); decision STOP shown beside the analyst's Conditional Go |
 | 15 | Conflicts shown and investigated | Done | 08 M-KOPA reconciliation; register status CONFLICTING SOURCES |
 
-## 2. Book 2 (01_BOOK_PAYGO_SOLAR_FINANCE_v0.2.pdf, 117 pages)
+## 2. Book 2 (01_BOOK_PAYGO_SOLAR_FINANCE_v0.2.pdf, 119 pages)
 
 | # | Item | Gate | Status | Owner | Evidence or next step |
 |---|---|---|---|---|---|
@@ -48,11 +48,11 @@ Owner:
 | B2 | No "investment grade", no "bankable" series | Gate | Done | P | Search of the assembled text: 0 hits ("bankable" once as a quoted word in the introduction) |
 | B3 | Paginated contents, running headers, bookmarks | | Done | P | Two-pass build |
 | B4 | Figures (15) read from the recalculated workbooks | | Done | P | Figure builder asserts key values (Figure 3: month 14, LCY 11,832) |
-| B5 | Primary documents read and cited by page: E1 ESMAP MTR 2024, E3 MTF, E7 BBOXX Gazette notice, E4-G M-Kopa Holdings group accounts, E5, E6, E8 to E10 | Gate | Open | A | Research pass done (16): primary hosts refused by the network, so no status changed; 62% period wording in conflict between sources. Upload the documents or allow the domains |
+| B5 | Primary documents read and cited by page: E1 ESMAP MTR 2024, E3 MTF, E7 BBOXX Gazette notice, E4-G M-Kopa Holdings group accounts, E5, E6, E8 to E10 | Gate | Open | A | Research pass done (16): primary hosts refused by the network. Second client extraction of MTR 2024 received 4 Oct 2026 (21): it agrees with the first on every figure used and settles the 62% period wording at secondary level, but gives no page per figure, so E1 stays PENDING; 44 of 69 claims pending. Upload the documents or allow the domains |
 | B6 | Practitioner review (PAYGo, lender, investor, modeller) | Gate | Open | R | Preparatory expert review done (17, 50 findings); it is not a practitioner review. v0.3 |
 | B7 | Professional copyedit (British English, house rules) | Gate | Open | R | First copyedit pass applied (18, 139 edits); a professional copyedit is still required. v0.4 |
 | B8 | "Status of this edition" and "pre-publication" wording replaced for the commercial edition | Gate | Open | P | At v1.0 only |
-| B9 | Print edition: trim size, greyscale figures, KDP interior and cover | Gate | Open | A, P | Draft files built (20): 7x10 interior 176 pages, wrap cover, greyscale figures, test EPUB (0 EPUBCheck errors). Open: KDP specifications from the KDP site, ISBN placeholder, figure text dashes and minus signs, Figure 3 leader line, Kindle Previewer, proof copy |
+| B9 | Print edition: trim size, greyscale figures, KDP interior and cover | Gate | Open | A, P | Draft files built (20): 7x10 interior 178 pages, wrap cover, greyscale figures, test EPUB (0 EPUBCheck errors). Open: KDP specifications from the KDP site, ISBN placeholder, figure text dashes and minus signs, Figure 3 leader line, Kindle Previewer, proof copy |
 | B10 | Rights to quoted text (PERFORM guides: short quotations only) | Gate | Open | A | Rights audit done (19, not a legal opinion): copyright page, fixed year, licence notices and a no endorsement statement to add; counsel review before v1.0 |
 
 ## 3. MODEL 2 (02_PAYGO_SOLAR_FINANCE_MODEL_v0.8-dev.xlsx)

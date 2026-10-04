@@ -1,0 +1,613 @@
+CLAUDE CODE KNOWLEDGE PACK
+OFF-GRID SOLAR MARKET TRENDS REPORT 2024
+Source: ESMAP / World Bank / GOGLA / Dalberg
+Publication: October 2024
+
+PURPOSE
+Use this source-derived evidence to improve the PAYGo Solar Finance book and the associated financial model. Treat the figures below as source evidence, not as universal assumptions. Preserve the distinction between global, Sub-Saharan Africa, and country-specific evidence. Do not invent missing values.
+
+1. MARKET SCALE AND ELECTRIFICATION
+
+- In 2022, 685 million people lacked electricity access globally; this was the first reversal in progress in 20 years.
+- Under current trends, 660 million people could still lack Tier 1 electricity access in 2030; 85% would be in Sub-Saharan Africa.
+- A further 1.6 billion people live in weak-grid areas without reliable electricity.
+- The OGS sector served 561 million people in 2023.
+- OGS accounted for 55% of new electricity connections in Sub-Saharan Africa from 2020–2022.
+- OGS is estimated to be the least-cost solution for 398 million people who need electrification by 2030, equal to 41% of the approximately 969 million people requiring electrification after accounting for population growth.
+- OGS can also serve weak-grid customers, including businesses currently relying on diesel generators.
+
+2. GLOBAL OGS MARKET — SALES AND TURNOVER
+
+- More than 50 million OGS products were sold in 2022 and 2023 combined, exceeding the previous pre-COVID record of 47 million in 2019.
+- Market turnover:
+  2019: USD 3.3 billion
+  2021: approximately USD 2.9 billion
+  2022: USD 3.9 billion
+  2023: USD 3.8 billion
+- 2022 market turnover grew 32% versus 2021.
+- 2023 turnover declined approximately 3% versus 2022 but remained about 15% above pre-pandemic levels.
+- Total OGS sales volumes rebounded 36% in 2022 and declined only 3% in 2023.
+- In 2023, 1.76 million fans and TVs were sold, alongside about 30,000 solar water pumps and refrigerators.
+- Fans and solar water pumps showed strong growth; TVs and refrigerators were relatively stable.
+- 39% of affiliate OGS products were sold through PAYG in 2023, versus 24% in 2018.
+- In 2023, PAYG penetration was approximately:
+  smaller SHS: 67%
+  larger SHS: 96%
+- Solar lanterns with mobile charging declined 23% in 2023, while lower-cost single-light portable lanterns increased 11%.
+
+3. PRODUCT TYPOLOGY / MTF
+
+- Solar energy kits include solar lanterns and solar home systems.
+- Solar lanterns: below 3 Wp and below Tier 1.
+- Smaller SHS: 3–49.9 Wp.
+- Larger SHS: 50 Wp and above.
+- Tier 1 MTF access requires at least:
+  4 hours electricity/day, including at least 1 evening hour;
+  at least 3 Wp capacity;
+  ability to generate at least 12 Wh/day.
+- Tier 2 requires at least:
+  4 hours/day, including at least 2 evening hours;
+  at least 50 Wp;
+  ability to generate at least 200 Wh/day.
+- Productive-use OGS appliances include solar water pumps, refrigerators, milling machines and similar income-generating appliances.
+- Social infrastructure includes schools, health facilities and community facilities.
+- Mini-grids and clean cooking are OUT OF SCOPE of this report.
+
+4. PAYG BUSINESS MODEL — SOURCE ASSUMPTIONS
+
+The report defines PAYG as technology-enabled embedded consumer financing:
+- Customer makes a down payment.
+- Customer makes regular payments, generally via mobile money.
+- Typical contract duration in the definition: 6 months to 8 years.
+- The affordability model used in the report for Tier 1 includes:
+  cash price assumption for urban households: USD 71.61 (2017 PPP dollars)
+  cash price assumption for rural households: USD 198.75 (2017 PPP dollars)
+  PAYG down payment: 20% of product cost
+  repayment period: 2 years
+  annual interest rate assumption: 40%
+  affordability threshold: 5% of monthly household income
+  "affordable at a stretch": 10% of monthly household income.
+- Tier 2 affordability model uses USD 465 product price, 20% down payment, 40% annual interest, 2-year repayment period.
+
+IMPORTANT: These are modelling assumptions used by the MTR methodology, not recommendations for the user's commercial model.
+
+5. AFFORDABILITY
+
+Global:
+- Only 22% of households lacking electricity can afford a Tier 1 solar energy kit through PAYG at the 5%-of-income threshold.
+- A further 27% can afford it "at a stretch" at the 10%-of-income threshold.
+- Therefore 51% are either affordable or affordable-at-stretch; 49% are unaffordable under the report's definition.
+- Tier 2 PAYG is affordable for only 1% and affordable-at-stretch for 2%.
+- Productive-use appliances sold through PAYG remain unaffordable for most and reach only about 2% of the addressable market.
+
+Sub-Saharan Africa:
+- Tier 1 monthly PAYG payments are affordable for only 16% of the population lacking access.
+- An additional 46% can afford at a stretch.
+- This leaves a large affordability gap.
+
+Remote / FCV:
+- 82% of people lacking electricity live in low-density rural, remote or conflict-affected contexts.
+- About 562 million people lacking access live in hard-to-reach areas.
+- About 31% (~211 million) live in active conflict zones.
+- Nearly three-quarters of those in conflict zones (~158 million) are concentrated in Nigeria, Ethiopia and DRC.
+- About 51 million forcibly displaced people live in FCV contexts; nearly 94% lack reliable electricity.
+- Serving remote/FCV populations can increase prices by up to 57%.
+- Indicative Tier 1 PAYG system price rises from approximately USD 127 for urban consumers to USD 199 for remote consumers.
+
+6. COST STRUCTURE / UNIT ECONOMICS
+
+The report identifies four major cost categories for OGS companies:
+1) manufacturing / landed cost
+2) operational cost to reach and serve customers
+3) bad debt / credit losses
+4) financing cost
+plus resulting gross margin before overheads.
+
+Figure 20 gives a typical Tier 1 PAYG SHS cost structure and shows:
+- manufacturing/landed cost is relatively difficult to reduce through scale because products are relatively commoditized;
+- operational costs fall with customer density and economies of scale;
+- financing costs can fall materially with scale and access to cheaper capital;
+- bad debt is more dependent on customer assessment and repayment practices than scale.
+
+The report notes that a 2–3 percentage-point increase in cost of capital can translate into approximately a 5% increase in end-user prices.
+
+Remote-market economics:
+- Urban indicative PAYG price: USD 127.
+- Remote indicative PAYG price: USD 199.
+- Increase: +57%.
+- Remote cost increases are driven by higher OPEX, weak local distribution, higher financing costs and higher credit risk.
+
+Use this structure in the financial model:
+Revenue / PAYG collections
+- landed hardware cost
+- customer acquisition / distribution / logistics / installation
+- financing cost
+- bad debt / write-offs
+= gross margin
+- corporate overhead
+- technology/platform costs
+- other OPEX
+= EBITDA / operating cash flow
+Then model working capital, receivables, debt service and equity returns.
+
+7. PAYG PORTFOLIO PERFORMANCE / CREDIT RISK
+
+Definitions:
+- Collection rate = customer payments received / payments expected in a given period.
+- RAR 30 = receivables more than 30 days overdue.
+- Write-off ratio = expected customer payments written off due to non-payment.
+- RAR 30 + write-off ratio provides a more standardized view of portfolio stress.
+
+Key findings:
+- Average collection rate remained around 62% from 2021 to 2023.
+- Top-quartile companies achieved approximately 75–80% collection rates.
+- Bottom-quartile companies were below 50%.
+- One in four PAYG customers was facing payment difficulties in 2023.
+- This compares with fewer than one in five approximately four years earlier.
+- RAR 30 continued to rise even as write-offs improved in 2023.
+- Half of OGS companies had RAR 30 + write-off ratio in the 30–50% range in 2023, versus 18% in 2021.
+- Macroeconomic shocks, inflation and currency depreciation materially affected repayment.
+- Companies responded through stronger credit screening, portfolio monitoring and incentives for collection agents.
+- Responsible sales practices and matching customer repayment capacity to payment obligations are important.
+
+MODEL IMPLICATION:
+Do NOT assume 100% PAYG collections.
+The model should explicitly include:
+- collection rate;
+- RAR 30;
+- write-off ratio;
+- grace periods;
+- repossession / recovery assumptions;
+- customer credit scoring;
+- portfolio seasoning;
+- FX stress;
+- inflation stress;
+- sensitivity of repayment to income shocks.
+
+8. CURRENCY AND PRICING RISK
+
+- Currency devaluations in developing countries caused large local-currency price increases.
+- In Nigeria, selected VeraSol-certified solar lantern prices increased by roughly 91% to 300% depending on product.
+- In Kenya, selected solar lantern price increases ranged approximately 15% to 207%.
+- In USD terms, OGS prices declined about 3% in 2023, partly because solar panel and battery costs fell.
+- The report highlights the mismatch between local-currency revenues and hard-currency costs.
+
+MODEL IMPLICATION:
+Include:
+- local-currency revenue;
+- USD/EUR import costs;
+- FX depreciation scenarios;
+- local inflation;
+- ability to pass through price increases;
+- FX hedging or local-currency debt;
+- currency denomination of debt versus receivables.
+
+9. INVESTMENT FLOWS
+
+OGS investment excluding RBF:
+- 2017: USD 307m
+- 2018: USD 357m
+- 2019: USD 304m
+- 2020: USD 316m
+- 2021: USD 457m
+- 2022: USD 746m
+- 2023: USD 425m
+
+2022–23 total investment: approximately USD 1.2 billion.
+2020–21: approximately USD 773 million.
+Since 2017, investment grew about 6% annually.
+Debt financing grew about 8% annually over the period.
+
+2022 was strongly affected by Sun King's USD 330m equity raise.
+
+10. INVESTMENT MIX
+
+Investment categories:
+- debt
+- equity
+- grants
+
+Investment purpose:
+- equity: scale-up, expansion, entering new markets, patient capital;
+- debt: working capital, inventory, customer financing, expansion;
+- grants: de-risking and catalytic capital, generally without repayment.
+
+Important finding:
+- smaller OGS companies depend much more heavily on public/donor capital;
+- approximately 57% of funding for smaller companies in 2022–23 came from public/donor sources versus about 20% for larger global companies.
+
+11. LOCAL-CURRENCY FINANCE / SECURITIZATION
+
+- More than one-third of total OGS investment in 2023 was in local currency.
+- 2017–2023 average local-currency debt financing was about 20% of investment.
+- Smaller companies have struggled to access local-currency financing because of high local interest rates.
+- Local-currency financing reduces mismatch between local-currency receivables and hard-currency costs.
+- Off-balance-sheet financing through securitization can unlock cash otherwise tied up in PAYG receivables for up to two years.
+
+Examples cited:
+- Bboxx: approximately USD 16m local financing loans in Rwanda/Togo with partners including AfDB-backed FEI OGEF.
+- Sun King Kenya: KES-denominated loan equivalent to USD 75m (2021).
+- AfDB LEAF Framework: USD 171m GCF co-financing within a USD 959.9m framework aiming to crowd in local-currency debt and commercial capital for mini-grid and SHS projects in SSA.
+- Bboxx: USD 15m SBM Bank Kenya financing guaranteed by GuarantCo (2022).
+- d.light / Solar Frontier Capital: multi-currency receivables financing facility up to USD 238m face value (2022).
+- Sun King: approximately USD 130m KES-denominated securitization (2023).
+
+12. RESULTS-BASED FINANCING / PUBLIC FUNDING
+
+- RBF committed since 2018: USD 733m.
+- RBF disbursed since 2018: USD 350m.
+- Increasingly, RBF programs include end-user subsidies to address affordability.
+- Credit lines are becoming less central, while guarantees are increasingly used to unlock debt.
+- Climate finance and carbon finance remain underutilized.
+- GCF committed USD 65m to the Hardest-to-Reach Fund in 2021.
+- World Bank lending to governments for scaling proven OGS solutions reached a record approximately USD 660m in FY2024 (the report also contains a separate figure of USD 626m in one later modelling section; do not reconcile this discrepancy silently—verify against the original figure before using it).
+
+13. UNIVERSAL ACCESS FUNDING NEED
+
+Universal-access scenario:
+- 398 million people for whom OGS is the least-cost solution.
+- USD 21bn required to electrify these 398m people.
+- More detailed household analysis gives USD 21.3bn, or about USD 3.6bn/year from 2025–2030.
+- Approximate funding composition:
+  USD 6.4bn debt
+  USD 4.3bn equity
+  USD 1.5bn grants
+  USD 9.2bn affordability gap/subsidies
+  Total = USD 21.3bn.
+
+The USD 10.7bn commercial debt/equity requirement is approximately:
+- 60% debt
+- 40% equity.
+
+The USD 1.5bn grants help cover higher costs of serving hard-to-reach/fragile markets.
+The USD 9.2bn affordability gap is associated with about 240 million people, around 59% of the 398m target population.
+
+Public funding needs to be available alongside private debt/equity; the report stresses that grants, debt and equity need to be deployed in parallel.
+
+14. CURRENT TRENDS VS UNIVERSAL ACCESS
+
+Current-trends scenario:
+- Only about 216m of the 398m people for whom OGS is least-cost would be electrified by 2030.
+- Approximate investment: USD 9bn.
+- Current PUE growth would reach only a small fraction of the addressable market.
+- Current trends would leave more than 660m people without Tier 1 access in 2030.
+
+Universal-access scenario:
+- USD 21bn household OGS investment.
+- USD 74bn for the total addressable market of productive-use solutions:
+  USD 16.0bn solar irrigation for 30.9m farming households;
+  USD 32.7bn solar refrigeration for 37.9m households;
+  USD 25.0bn reliable electricity for >35m MSMEs.
+- USD 2.4bn to electrify approximately 0.7m schools and 60,000 healthcare facilities (the report also describes this as more than 750,000 schools/health facilities in another passage; preserve the detailed 0.7m schools + 60,000 health facilities figure when possible).
+
+15. COST COMPARISON / DEVELOPMENT CASE
+
+The report states:
+- OGS electrification cost per household is approximately 3.7x lower than grid electrification and 5.7x lower than mini-grid electrification in the modeled scenario.
+- OGS is faster to deploy than grid/mini-grid solutions in the modeled contexts.
+- SSA fossil-fuel subsidies were approximately USD 50bn in 2022.
+- The universal OGS scenario's approximately USD 97bn total addressable investment is less than two years of SSA fossil-fuel subsidies.
+
+Potential benefits:
+- Universal Tier 1 access could save USD 15.5–16.7bn/year globally, equivalent to approximately USD 142/household, through reduced inefficient lighting expenditure and higher incomes.
+- Replacing diesel generators used by businesses with OGS could save USD 6.3–12.5bn/year in fuel costs and avoid approximately 8.3–16.6 MtCO2e/year.
+- Electrifying social infrastructure could reduce annual generator expenses by approximately USD 10,000 per school and USD 30,000 per health center.
+- Government OGS investment can create tax revenue and reduce fossil-fuel subsidy expenditure.
+
+16. PRODUCTIVE USE OF ENERGY
+
+Important market segments:
+- solar water pumps;
+- solar refrigeration/cold storage;
+- Tier 2+ systems for MSMEs;
+- other income-generating appliances.
+
+Key constraint:
+PAYG is often insufficient for productive-use assets because ticket sizes are larger and cash flows are seasonal.
+
+Models recommended/identified by the report:
+- PUE-as-a-service;
+- rent-to-own;
+- demand aggregation;
+- seasonal pricing;
+- technology innovation;
+- partnerships with productive-use businesses.
+
+This is highly relevant to a PAYGo financial model: productive-use finance should not simply copy household SHS PAYG assumptions.
+
+17. SOCIAL INFRASTRUCTURE
+
+OGS can electrify:
+- schools;
+- health centers;
+- community facilities.
+
+Key barrier:
+Upfront capital may be available, but public institutions frequently lack sustainable O&M budgets, leading to premature system failure.
+
+Recommended business-model direction:
+- long-term service contracts;
+- energy-as-a-service;
+- de-risking instruments;
+- reliable O&M funding.
+
+18. BUSINESS MODEL DIVERSIFICATION
+
+Three major trends:
+1. consolidation;
+2. diversification of business models;
+3. skills shortages.
+
+Companies with diversified businesses or innovative models have shown improved commercial performance.
+
+Examples:
+- higher-value products for higher-income customers;
+- C&I customers;
+- energy-as-a-service;
+- rental models;
+- battery rental;
+- solar kiosks/hubs.
+
+Strategic lesson:
+A PAYGo company serving only the lowest-income households may have weak economics. Cross-subsidization and higher-margin customer segments can strengthen overall portfolio economics.
+
+19. C&I / HIGHER-MARGIN SEGMENTS
+
+The report explicitly identifies commercial and industrial customers as a potential higher-value/higher-margin customer segment.
+
+For the financial model, consider adding:
+- C&I customer segment;
+- larger systems;
+- longer contracts;
+- energy-as-a-service;
+- lease / rent-to-own;
+- customer credit assessment;
+- anchor customers;
+- portfolio-level cross-subsidy.
+
+20. GAME CHANGERS IDENTIFIED BY THE REPORT
+
+A. Improve commercial viability:
+- improve repayment rates;
+- sell higher-margin products;
+- customer risk analytics;
+- tailor upfront/monthly prices to ability to pay;
+- train/incentivize distribution agents;
+- community-based trust building;
+- local-currency financing;
+- off-balance-sheet financing / securitization;
+- tailored finance for smaller companies;
+- guarantees;
+- technical assistance;
+- better data analytics.
+
+B. First-time access:
+- large-scale public funding;
+- RBF;
+- end-user subsidies;
+- concessional consumer financing;
+- impact-linked concessional finance;
+- multi-country financing facilities;
+- upfront grants;
+- humanitarian partnerships.
+
+C. Beyond traditional consumer PAYG:
+- PPPs;
+- energy-as-a-service;
+- public procurement;
+- alternative financing models.
+
+D. Productive use:
+- technology innovation;
+- demand aggregation;
+- PUE-as-a-service;
+- seasonal pricing.
+
+E. Social infrastructure:
+- long-term service contracts;
+- de-risking instruments;
+- O&M funding.
+
+21. IMPACT-LINKED FINANCE
+
+Example:
+Acumen Hardest-to-Reach Fund launched in 2023:
+- impact-indexed loans;
+- financing cost decreases as companies reach poorer communities.
+
+Potential model implication:
+A financing instrument can link interest rates or concessionality to verified impact metrics such as:
+- new connections;
+- Tier 1/Tier 2 access;
+- rural customers;
+- women customers;
+- productive-use customers;
+- avoided CO2;
+- collection/portfolio quality.
+
+22. DATA / AI / DIGITALIZATION
+
+The report highlights data platforms such as:
+- Odyssey;
+- Prospect;
+- Waya Energy;
+- Electricity Access Explorer;
+- Global Electrification Platform.
+
+Potential uses:
+- identify customers;
+- improve demand aggregation;
+- improve investment readiness;
+- strengthen national electrification planning;
+- improve RBF management;
+- automate monitoring;
+- improve investor confidence.
+
+The report also notes that AI could help:
+- increase visibility of risks;
+- support resource exploration/assessment;
+- optimize asset O&M.
+
+23. KEY LESSONS FOR THE PAYGO SOLAR FINANCIAL MODEL
+
+The model should NOT be a simple "CAPEX + sales volume + interest" model.
+
+It should include at minimum:
+
+A. Commercial assumptions
+- product type / system size;
+- hardware cost;
+- landed cost;
+- selling price;
+- down payment;
+- repayment term;
+- customer interest / implicit financing rate;
+- customer segment;
+- acquisition cost;
+- installation cost;
+- distribution cost;
+- O&M;
+- warranty;
+- replacement cycle.
+
+B. PAYG portfolio
+- customer additions;
+- active customers;
+- repayment schedule;
+- collection rate;
+- RAR 30;
+- write-off ratio;
+- repossession;
+- recovery value;
+- portfolio seasoning.
+
+C. Funding
+- equity;
+- working-capital debt;
+- receivables finance;
+- securitization;
+- local-currency debt;
+- hard-currency debt;
+- grants;
+- RBF;
+- end-user subsidies;
+- guarantees.
+
+D. FX and macroeconomic stress
+- exchange rate;
+- depreciation;
+- inflation;
+- price escalation;
+- ability to pass through price increases;
+- local vs hard currency debt;
+- local vs hard currency costs.
+
+E. Liquidity / cash flow
+- inventory financing;
+- customer receivables;
+- debt service;
+- DSCR;
+- cash conversion cycle;
+- minimum cash;
+- funding gaps;
+- refinancing needs.
+
+F. Investor metrics
+- gross margin;
+- EBITDA;
+- operating cash flow;
+- portfolio yield;
+- cost of capital;
+- ROE;
+- IRR;
+- MOIC;
+- DSCR;
+- debt/equity ratio;
+- break-even customers;
+- break-even month/year.
+
+G. Impact metrics
+- households connected;
+- people reached;
+- Tier 1/Tier 2 access;
+- productive-use customers;
+- income-generating uses;
+- diesel displacement;
+- CO2 avoided;
+- women/underserved customers;
+- rural/hard-to-reach customers.
+
+24. CRITICAL MODELLING INSIGHT
+
+The central lesson from the MTR 2024 is that PAYGo affordability and PAYGo company profitability are linked but not identical.
+
+A company can improve profitability by:
+- improving repayment rates;
+- targeting higher-value customers;
+- selling higher-margin products;
+- using cheaper financing;
+- localizing financing currency;
+- securitizing receivables;
+- increasing customer density;
+- diversifying into C&I/PUE.
+
+Universal access, however, still requires public support because a large share of the lowest-income and hardest-to-reach customers cannot support commercially viable PAYG payments.
+
+Therefore the model should separate:
+1. commercially viable customers;
+2. marginal customers;
+3. affordability-gap customers;
+4. subsidy/RBF-supported customers.
+
+25. IMPORTANT SOURCE LIMITATIONS / DO NOT OVERSTATE
+
+- The report is primarily about off-grid solar kits and mature productive-use appliances; mini-grids and clean cooking are outside scope.
+- Global affordability assumptions are model assumptions, not universal commercial pricing recommendations.
+- PAYG portfolio statistics are based on participating companies/country firms and are not necessarily representative of every company.
+- Investment figures exclude RBF in the investment-flow analysis.
+- The universal-access funding model assumes specific PAYG pricing, repayment and replacement assumptions and does not fully model alternative business models.
+- The report itself notes limitations related to constant PAYG prices, replacement rates, steady cash flows and repayment assumptions.
+- Do not present global figures as Cameroon-specific figures without additional country research.
+- Where the report contains apparent numerical inconsistencies (for example USD 660m vs USD 626m World Bank FY2024 lending in different sections, and differing wording around the number of facilities), flag and verify rather than silently reconcile.
+
+26. RECOMMENDED USE IN THE BOOK
+
+Use this evidence to strengthen chapters on:
+- PAYGo unit economics;
+- affordability;
+- credit risk;
+- portfolio quality;
+- financing structures;
+- local-currency debt;
+- securitization;
+- blended finance;
+- RBF;
+- end-user subsidies;
+- productive-use finance;
+- C&I diversification;
+- investor due diligence;
+- sensitivity and scenario analysis.
+
+Use the report especially to demonstrate why a PAYGo model must integrate:
+AFFORDABILITY + CREDIT RISK + UNIT ECONOMICS + WORKING CAPITAL + FX RISK + COST OF CAPITAL + SUBSIDY/RBF + PORTFOLIO FINANCE.
+
+27. SOURCE CITATION
+
+Primary source:
+ESMAP / World Bank / GOGLA / Dalberg, Off-Grid Solar Market Trends Report 2024, October 2024.
+
+Relevant report sections:
+- Chapter 1: pp. 22–28
+- Chapter 2: pp. 29–49
+- Chapter 3: pp. 50–55
+- Chapter 4: pp. 56–62
+- Chapter 5: pp. 63–67
+- Chapter 6: pp. 73–85
+- Chapter 7: pp. 86–92
+- Chapter 8: pp. 93–100
+- Annexes: pp. 104–116
+
+END OF KNOWLEDGE PACK
+
+INSTRUCTION TO CLAUDE CODE:
+Use the above as a source-grounded evidence pack. Do not fabricate missing data. Where a numerical value is marked as a modelling assumption, keep it explicitly labeled as an assumption. Where the report has an apparent inconsistency, flag it for verification. Integrate the evidence into the PAYGo Solar Finance book and financial model without turning global MTR statistics into Cameroon-specific assumptions. Preserve source attribution to "ESMAP / World Bank / GOGLA / Dalberg, Off-Grid Solar Market Trends Report 2024."

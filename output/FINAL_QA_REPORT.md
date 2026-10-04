@@ -14,7 +14,7 @@ The purpose assessed is a pre-publication edition (Book v0.2, Model v0.8). The l
 |---|---|---|
 | BOOK QA | PASS WITH WARNING | Text, numbers and labels consistent; primary documents, practitioner review and copyedit still open |
 | MODEL QA | PASS WITH WARNING | 38 tests OK, faults detected, static tables reproduced; not yet opened in Microsoft Excel |
-| SOURCE QA | PASS WITH WARNING | Every claim carries a grade and a status, and none is overstated; 40 of 64 claims await the primary document |
+| SOURCE QA | PASS WITH WARNING | Every claim carries a grade and a status, and none is overstated; 44 of 69 claims await the primary document |
 | ACCOUNTING QA | PASS WITH WARNING | No compliance claim anywhere; the treatment has not been reviewed by an accountant |
 | FORMULA QA | PASS WITH WARNING | 0 error values in 100,857 formulas in two engines; Excel behaviour unverified |
 | LINK QA | PASS WITH WARNING | Internal hyperlinks valid, no external links; web addresses in the source register not checked (network blocked) |
@@ -25,7 +25,7 @@ The purpose assessed is a pre-publication edition (Book v0.2, Model v0.8). The l
 ## BOOK QA: PASS WITH WARNING
 
 **Verified**
-* 117 pages; paginated contents; text scan clean (no dashes, no tool or AI traces).
+* 119 pages; paginated contents; text scan clean (no dashes, no tool or AI traces).
 * No "investment grade". "Bankable" appears only once, as a quoted word.
 * The series page lists the six-book collection, and Book 2 numbering is unchanged.
 * Collection rate is distinguished from the PAYGo PERFORM 2026 Repayment Rate in every chapter. The last older wording (Ch 1, 11 to 13, 15, 16.9) was corrected in this cycle.
@@ -55,14 +55,14 @@ The purpose assessed is a pre-publication edition (Book v0.2, Model v0.8). The l
 ## SOURCE QA: PASS WITH WARNING
 
 **Verified**
-* Register of 64 claims: grades A 5, B 46, C 8, D 5. Statuses:
+* Register of 69 claims: grades A 5, B 51, C 8, D 5. Statuses:
 
   | Status | Claims |
   |---|---|
   | VERIFIED | 8 |
   | VERIFIED (HISTORICAL) | 5 |
-  | PENDING PRIMARY DOCUMENT | 40 |
-  | CONFLICTING SOURCES | 3 |
+  | PENDING PRIMARY DOCUMENT | 44 |
+  | CONFLICTING SOURCES | 4 |
   | NOT USED | 8 |
 
 * Only VERIFIED claims feed Calibration, so every Calibration reference is suspended today.
@@ -70,7 +70,7 @@ The purpose assessed is a pre-publication edition (Book v0.2, Model v0.8). The l
 * No page number is invented.
 
 **Open**
-* The 40 pending claims: documents to upload, or a decision to keep them as context only.
+* The 44 pending claims: documents to upload, or a decision to keep them as context only.
 
 ## ACCOUNTING QA: PASS WITH WARNING
 

@@ -187,4 +187,11 @@ Default and case values unchanged in every cell compared (all numeric cells of b
 * 17 Expert review (preparatory, not a practitioner review): 50 findings, of which the major ones are listed for a correction cycle (allowance against ECL disclosure, PAR30 in proxy mode, draw stop on covenant breach, nominal against effective APR, advance rate sizing, 180 DPD default framing, roll rate period in 6.4).
 * 18 Copyedit (first pass, not a professional copyedit): 139 edits applied to the book.
 * 19 Rights audit (not a legal opinion): copyright page, fixed copyright year, licence notices and a no endorsement statement to add; Annex G items E4 and E9 to reconcile.
-* 20 Print production drafts: 7x10 interior (176 pages), wrap cover, greyscale figures for print, test EPUB. The print and Kindle builds print figure captions. Build tools added: build_book2_print.py, build_book2_cover.py, build_book2_kindle.py.
+* 20 Print production drafts: 7x10 interior (178 pages), wrap cover, greyscale figures for print, test EPUB. The print and Kindle builds print figure captions. Build tools added: build_book2_print.py, build_book2_cover.py, build_book2_kindle.py.
+
+## Second client extraction of MTR 2024 (4 October 2026)
+
+* The author's knowledge pack is stored in `volumes/02-solar-home-systems/sources/` and reviewed in 21. It agrees with the first extraction on every figure the book uses. It gives no page per figure, so E1 stays PENDING PRIMARY DOCUMENT.
+* Register: 64 to 69 claims (E1-26 to E1-30, E1-30 CONFLICTING SOURCES); E1-08, E1-10, E1-14, E1-16, E1-24 and E1-25 corrected.
+* Book: Ch 1.6, 2.3, 5.6, 7.4, 11.3, 13.1, 13.7 and Annex G updated with reported figures; 119 pages, text scan clean. Print draft 178 pages, cover rebuilt for the new spine, EPUB 0 errors.
+* Model: Source_Register rebuilt and lookup ranges extended; no calculation change, results unchanged.

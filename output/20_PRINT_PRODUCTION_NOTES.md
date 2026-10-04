@@ -46,9 +46,9 @@ folio 0.45 in from the bottom (both inside the 0.25 in minimum). Text block 5.65
 | volumes/02-solar-home-systems/book/figures_print/fig01 to fig15 | Greyscale figures, 8 bit grey PNG, 450 ppi, built from scratchpad lo/s10out/fm.xlsx and fc.xlsx (recalculated workbooks) |
 | tools/build_book2.py (changed) | Same behaviour; the assembly is now a function (`assemble`) behind a main guard, so the print and Kindle builders read exactly the same text (checked: identical to the current v0.2 Markdown) |
 | tools/build_book2_print.py (new) | KDP interior builder (helpers of tools/publish_docs.py, same browser engine) |
-| output/20_BOOK2_INTERIOR_7x10_draft.pdf | Interior, **176 pages** (15 blank versos and end pad), 504 x 720 pt, 4.6 MB |
+| output/20_BOOK2_INTERIOR_7x10_draft.pdf | Interior, **178 pages** (15 blank versos and end pad), 504 x 720 pt, 4.6 MB |
 | tools/build_book2_cover.py (new) | Full wrap cover builder; reads the page count from the interior |
-| output/20_BOOK2_COVER_7x10_draft.pdf | Cover, 14.6464 x 10.25 in (372.0 x 260.3 mm), spine 0.3964 in |
+| output/20_BOOK2_COVER_7x10_draft.pdf | Cover, 14.6509 x 10.25 in (372.1 x 260.3 mm), spine 0.4009 in |
 | output/20_BOOK2_COVER_thumb160.png | Front cover at 160 px wide |
 | tools/build_book2_kindle.py (new) | Test EPUB builder and wide table report |
 | output/20_BOOK2_KINDLE_test.epub | EPUB 3, 27 sections, 15 colour figures, cover image, 2.1 MB |
@@ -87,7 +87,7 @@ Rebuild order: `build_book2_figures.py <fm> <fc> --print`, then `build_book2_pri
 * KDP clean up: bookmarks and link annotations removed; document information limited to title and author.
 
 ### 3.3 Cover
-* 176 pages x 0.002252 = 0.3964 in spine; 0.125 + 7 + 0.3964 + 7 + 0.125 = 14.6464 in by 10.25 in.
+* 178 pages x 0.002252 = 0.4009 in spine; 0.125 + 7 + 0.4009 + 7 + 0.125 = 14.6509 in by 10.25 in.
 * Front: AFRICA ENERGY FINANCE brand line, BOOK 2 mark, PAYGo / SOLAR / FINANCE in three dominant lines, subtitle, author.
   Back: section 5 text of the Amazon pack, word for word. Spine: BOOK 2, PAYGo SOLAR FINANCE, author, 13 pt, reading top to
   bottom, inside the 0.0625 in spine margins; no colour block on the spine (fold drift would show its edge).
@@ -140,9 +140,9 @@ Rebuild order: `build_book2_figures.py <fm> <fc> --print`, then `build_book2_pri
 ## 6. What still needs a proof copy (or KDP's own tools)
 
 * Upload the interior and cover to KDP's previewer: margin, gutter and spine warnings; cover against the KDP template for
-  the final page count (spine 0.3964 in at 176 pages; any change in count changes the cover width).
+  the final page count (spine 0.4009 in at 178 pages; any change in count changes the cover width).
 * Printed proof: grey levels of the figures on KDP paper (hatching and 0.5 pt rules can fill in or vanish), the light
   table shading (#F1F1F1 and #DCDCDC may print lighter or darker), the smallest figure text near 7 pt, the gutter on a
-  176 page binding, the green and gold of the cover on the KDP cover stock, and spine text alignment.
+  178 page binding, the green and gold of the cover on the KDP cover stock, and spine text alignment.
 * Kindle Previewer on phone, tablet and e-reader for the EPUB, after the table conversions.
 * A professional prepress check is advised before the commercial release; this note is not one.
