@@ -1,4 +1,4 @@
-"""KDP paperback interior for Book 7, Hydropower Development and Finance: 7 x 10 in, black ink on white paper, no bleed.
+"""KDP paperback interior for Book 7, Hydropower Development and Finance: 7 x 10 in (BOOK_TRIM=6x9 for 6 x 9), black ink on white paper, no bleed.
 
 Run: python tools/book7/build_print7.py [--out book7/build/Hydropower_Development_and_Finance_7x10.pdf]
 Before: python tools/book7/prepare7.py (text) and PRINT=1 python tools/book7/figures7.py (greyscale figures, figures_print/)
@@ -21,6 +21,7 @@ Pipeline
    banned words (tools/publish_docs.py).
 """
 import argparse
+import os
 import base64
 import html as htmlmod
 import io
@@ -48,14 +49,16 @@ import publish_docs as pd  # noqa: E402
 BOOK = ROOT / "book7" / "build"
 SRC = BOOK / "book7_resolved.md"
 FIG_PRINT = BOOK / "figures_print"
-OUT = BOOK / "Hydropower_Development_and_Finance_7x10.pdf"
+# BOOK_TRIM=6x9 builds the 6 x 9 in edition (default 7x10); both meet the KDP minimum margins
+TRIM_TAG = os.environ.get("BOOK_TRIM", "7x10")
+OUT = BOOK / f"Hydropower_Development_and_Finance_{TRIM_TAG}.pdf"
 
 # ---- page geometry (inches). KDP minimums for a paperback without bleed: outside, top and bottom at least 0.25 in;
 # inside (gutter) 0.375 in for 24 to 150 pages, 0.5 in for 151 to 300, 0.625 in for 301 to 500, 0.75 in for 501 to 700,
 # 0.875 in for 701 to 828. The values below exceed every minimum up to 700 pages, so a change in page count during copyedit
 # does not force a new layout. See output/20_PRINT_PRODUCTION_NOTES.md for sources.
-TRIM_W, TRIM_H = 7.0, 10.0
-INSIDE, OUTSIDE, TOP, BOTTOM = 0.75, 0.6, 0.85, 0.8
+TRIM_W, TRIM_H = (6.0, 9.0) if TRIM_TAG == "6x9" else (7.0, 10.0)
+INSIDE, OUTSIDE, TOP, BOTTOM = (0.75, 0.5, 0.75, 0.7) if TRIM_TAG == "6x9" else (0.75, 0.6, 0.85, 0.8)
 HEAD_Y, FOLIO_Y = 0.5, 0.45          # baseline of the running head from the top edge, of the folio from the bottom edge
 SIDE = (INSIDE + OUTSIDE) / 2         # symmetric render margin before the gutter shift
 SHIFT = (INSIDE - OUTSIDE) / 2
@@ -80,7 +83,7 @@ IMPRINT = "Independently published"  # KDP-assigned ISBN; the imprint must read 
 CSS = f"""
 @page {{ size: {TRIM_W}in {TRIM_H}in; margin: {TOP}in {SIDE}in {BOTTOM}in {SIDE}in; }}
 html {{ -webkit-print-color-adjust: exact; print-color-adjust: exact; }}
-body {{ font-family: 'Liberation Sans', Arial, sans-serif; font-size: 9.8pt; line-height: 1.45; color: {INK}; margin: 0; }}
+body {{ font-family: 'Liberation Sans', Arial, sans-serif; font-size: 9.8pt; line-height: 1.45; color: {INK}; margin: 0; overflow-wrap: break-word; }}
 h1 {{ font-size: 19pt; line-height: 1.2; border-bottom: 1.5pt solid {INK}; padding: 0.55in 0 5pt 0; margin: 0 0 12pt 0;
      break-before: page; page-break-before: always; }}
 h2 {{ font-size: 13pt; margin: 16pt 0 6pt 0; border-left: 3pt solid {RULE}; padding-left: 7pt; break-after: avoid; page-break-after: avoid; }}
@@ -96,6 +99,8 @@ td {{ border-bottom: 0.5pt solid #BDBDBD; padding: 2.5pt 4pt; vertical-align: to
 td, th {{ text-align: left; hyphens: none; }}
 tr:nth-child(even) td {{ background: {SHADE2}; }}
 code {{ background: {SHADE2}; padding: 0 2pt; font-size: 8.6pt; }}
+table.wide {{ font-size: 7pt; }}
+table.wide th, table.wide td {{ overflow-wrap: anywhere; padding-left: 2pt; padding-right: 2pt; }}
 pre {{ background: {SHADE2}; padding: 6pt; font-size: 8pt; white-space: pre-wrap; overflow-wrap: anywhere; }}
 blockquote {{ background: {SHADE2}; border-left: 3pt solid {RULE}; margin: 8pt 0; padding: 4pt 10pt; }}
 img {{ display: block; margin: 8pt auto 4pt auto; max-width: 100%; }}
@@ -157,6 +162,13 @@ def build_html(md_text, pages=None, markers=False):
             continue
         w_in = _img_tag_size(p)
         body = body.replace(f'src="{img}"', f'style="width:{w_in:.3f}in" src="data:image/png;base64,{base64.b64encode(p.read_bytes()).decode()}"')
+    # very wide tables (8 columns or more) set smaller and may break long words, so that no table is wider than the text
+    # block (Chromium would otherwise shrink every page to fit the widest element)
+    def _wide(m):
+        head = re.search(r"<tr>(.*?)</tr>", m.group(0), re.S)
+        n = len(re.findall(r"<th", head.group(1))) if head else 0
+        return m.group(0).replace("<table>", '<table class="wide">', 1) if n >= 8 else m.group(0)
+    body = re.sub(r"<table>.*?</table>", _wide, body, flags=re.S)
     # the figure caption lives in the Markdown alt text: print it under the figure (alt text alone is invisible on paper)
     body = re.sub(r'<p>(<img [^>]*alt="([^"]+)"[^>]*>)</p>',
                   lambda m: f'<figure>{m.group(1)}<figcaption>{m.group(2)}</figcaption></figure>', body)

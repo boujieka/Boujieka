@@ -1,4 +1,4 @@
-"""KDP paperback full wrap cover (draft) for Book 7, Hydropower Development and Finance, 7 x 10 in, white paper.
+"""KDP paperback full wrap cover (draft) for Book 7, Hydropower Development and Finance, 7 x 10 in (BOOK_TRIM=6x9 for 6 x 9), white paper.
 
 Run: python tools/book7/build_cover7.py [--interior book7/build/Hydropower_Development_and_Finance_7x10.pdf]
 The page count is read from the interior PDF; the spine width is page count x 0.002252 in (KDP multiplier for black ink on
@@ -10,6 +10,7 @@ of the back cover, at least 0.25 in from the spine and the trim) is left empty: 
 Draft only: the final cover must be checked against the template that the KDP cover calculator produces for the final count.
 """
 import argparse
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -25,7 +26,9 @@ ROOT = Path(__file__).resolve().parents[2]
 GREEN, GOLD, CREAM = "#0B3020", "#B07C0F", "#F7F3E8"
 GOLD_LIGHT = "#E0B44A"  # lighter gold for small type on the green ground (contrast)
 AUTHOR = "Emmanuel Boujieka Kamga"
-TRIM_W, TRIM_H, BLEED = 7.0, 10.0, 0.125
+TRIM_TAG = os.environ.get("BOOK_TRIM", "7x10")  # 6x9 or 7x10, to match the interior
+TRIM_W, TRIM_H = (6.0, 9.0) if TRIM_TAG == "6x9" else (7.0, 10.0)
+BLEED = 0.125
 WHITE_PAPER = 0.002252     # in per page, black ink on white paper (KDP)
 SAFE = 0.5                 # text kept 0.5 in inside every trim edge (KDP asks at least 0.125 in; 0.5 in is margin for drift)
 SPINE_GAP = 0.0625         # KDP: at least 0.0625 in between spine text and the spine edges
@@ -126,11 +129,12 @@ def draw(c, spine, x0_front):
     # subtitle in two levels
     y -= 34
     c.setFillColor(white)
-    c.setFont("SansBold", 24)
+    sub = min(24, (right - left) / c.stringWidth("From River to Financial Close", "SansBold", 1))
+    c.setFont("SansBold", sub)
     c.drawString(left, y, "From River to Financial Close")
     y -= 26
-    for ln in wrap(c, "A Developer, Lender and Government Framework for Hydropower Projects in Africa", "Sans", 15, right - left):
-        c.setFont("Sans", 15)
+    for ln in wrap(c, "A Developer, Lender and Government Framework for Hydropower Projects in Africa", "Sans", 15 * min(1, TRIM_W / 7.0 + 0.08), right - left):
+        c.setFont("Sans", 15 * min(1, TRIM_W / 7.0 + 0.08))
         c.drawString(left, y, ln)
         y -= 20
     # framework panel: the 23 gates as squares grouped by question
@@ -143,7 +147,8 @@ def draw(c, spine, x0_front):
     c.setFont("Sans", 12.5)
     c.drawString(left, y, "8 Questions \u00b7 23 Gates \u00b7 1 Financial Close Decision")
     y -= 30
-    sq, gap, ggap = 0.15 * I, 0.045 * I, 0.15 * I
+    K = TRIM_W / 7.0  # the gate row and the subtitle scale with the trim width (1 at 7 x 10)
+    sq, gap, ggap = 0.15 * I * K, 0.045 * I * K, 0.15 * I * K
     x = left
     for gi, n in enumerate(GROUPS):
         for k in range(n):
@@ -154,8 +159,8 @@ def draw(c, spine, x0_front):
             x += sq + gap
         x += ggap - gap
     c.setFillColor(white)
-    c.rect(x + 0.04 * I, y - 0.03 * I, 0.21 * I, 0.21 * I, stroke=0, fill=1)  # the close decision
-    assert x + 0.25 * I <= right, "gate row outside the safe area"
+    c.rect(x + 0.04 * I * K, y - 0.03 * I * K, 0.21 * I * K, 0.21 * I * K, stroke=0, fill=1)  # the close decision
+    assert x + 0.25 * I * K <= right, "gate row outside the safe area"
     y -= 34
     c.setFillColor(HexColor(GOLD_LIGHT))
     c.setFont("SansBold", 11)
@@ -234,9 +239,9 @@ def draw(c, spine, x0_front):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--interior", default=str(ROOT / "book7/build/Hydropower_Development_and_Finance_7x10.pdf"))
-    ap.add_argument("--out", default=str(ROOT / "book7/publishing/BOOK7_COVER_7x10_draft.pdf"))
-    ap.add_argument("--thumb", default=str(ROOT / "book7/publishing/BOOK7_COVER_thumb160.png"))
+    ap.add_argument("--interior", default=str(ROOT / f"book7/build/Hydropower_Development_and_Finance_{TRIM_TAG}.pdf"))
+    ap.add_argument("--out", default=str(ROOT / f"book7/publishing/BOOK7_COVER_{TRIM_TAG}_draft.pdf"))
+    ap.add_argument("--thumb", default=str(ROOT / ("book7/publishing/BOOK7_COVER_thumb160.png" if TRIM_TAG == "7x10" else f"book7/publishing/BOOK7_COVER_{TRIM_TAG}_thumb160.png")))
     ap.add_argument("--preview", default=None, help="optional PNG of the whole wrap, 1400 px wide, for review")
     ap.add_argument("--no-barcode", action="store_true", help="leave the barcode area empty so that KDP prints its own")
     a = ap.parse_args()

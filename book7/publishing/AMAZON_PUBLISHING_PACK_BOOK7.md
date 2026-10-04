@@ -31,12 +31,15 @@ The IFC guide explains how a hydro project is developed; this book explains how 
 
 | Format | Role | Indicative list price (US) | Status |
 |---|---|---|---|
-| Paperback, 7 x 10 in, black ink, white paper | Main product | USD 34.99 (test 29.99) | Interior and cover ready (draft) |
+| Paperback, 6 x 9 in, black ink, white paper | Main product (KDP's most common trim) | USD 34.99 (test 29.99) | Interior (200 pages) and cover ready (draft) |
+| Paperback, 7 x 10 in, black ink, white paper | Alternative trim (choose one of the two in KDP) | USD 34.99 (test 29.99) | Interior (170 pages) and cover ready (draft) |
 | Kindle ebook | Discovery | USD 12.99 | Conversion to test (wide tables) |
 | Hardcover | Reference edition | USD 49.99 | After paperback demand |
 | MODEL 7 and MANUAL 7 | Professional product | Off Amazon | Not sold through Amazon |
 
-Interior: 162 pages including 13 blank versos, so that every chapter opens on a right-hand page. Figures are greyscale at 450 ppi or more.
+Interiors: 6 x 9 in, 200 pages including 10 blank versos (`book7/build/Hydropower_Development_and_Finance_6x9.pdf`); 7 x 10 in, 170 pages including 14 blank versos (`book7/build/Hydropower_Development_and_Finance_7x10.pdf`). Blank versos make every chapter open on a right-hand page. Body text 9.8 pt in both; figures greyscale at about 450 ppi.
+
+**The trim size chosen in KDP must match the files.** Choose 6 x 9 in KDP and upload the 6x9 interior and cover, or choose 7 x 10 and upload the 7x10 pair. `Hydropower_Development_and_Finance.pdf` is the A4 reading edition (8.27 x 11.69 in): never upload it to KDP; KDP rejects it as the wrong size.
 
 ## 4. Metadata
 
@@ -122,10 +125,12 @@ About 2,300 characters. KDP accepts a small set of HTML tags in the description 
 Endorsements are added only when received in writing with permission to print.
 
 ### 6.1 Cover files
-* `book7/publishing/BOOK7_COVER_7x10_draft.pdf`: full wrap, vector, fonts embedded; spine 0.3648 in (162 pages x 0.002252 in, black ink on white paper); full size 14.6148 x 10.25 in including 0.125 in bleed; text kept 0.5 in inside the trim; barcode area (2 x 1.2 in, bottom right of the back) left clear.
-* Barcode: `BOOK7_COVER_7x10_draft.pdf` prints its own vector EAN-13 of ISBN 979-8178961780 (with the line "ISBN 979-8178961780") on a white panel in the barcode area; it decodes to 9798178961780 at 300 and 600 dpi. When uploading this file, answer yes to KDP's question on whether the cover already includes a barcode. `BOOK7_COVER_7x10_no_barcode.pdf` leaves the area empty, for KDP to print its own; use one or the other, never both.
-* `book7/publishing/BOOK7_COVER_thumb160.png`: the front at 160 px wide, the size of a search result thumbnail. The title, the subtitle line and the author remain readable.
-* Built by `tools/book7/build_cover7.py`, which reads the page count from the interior PDF. Rebuild after any change in page count, then check against the template from the KDP cover calculator.
+* `book7/publishing/BOOK7_COVER_6x9_draft.pdf`: full wrap for the 6 x 9 interior, vector, fonts embedded; spine 0.4504 in (200 pages x 0.002252 in, black ink on white paper); full size 12.7004 x 9.25 in including 0.125 in bleed.
+* `book7/publishing/BOOK7_COVER_7x10_draft.pdf`: full wrap for the 7 x 10 interior; spine 0.3828 in (170 pages x 0.002252 in); full size 14.6328 x 10.25 in including 0.125 in bleed.
+* Both: text kept 0.5 in inside the trim; barcode area (2 x 1.2 in, bottom right of the back). The row of 23 gold squares under the framework line is the gate pictogram (gates grouped by question: 4, 6, 2, 1, 4, 3, 3) with a white square for the close decision; it is a drawing, not missing characters.
+* Barcode: the `_draft` covers print their own vector EAN-13 of ISBN 979-8178961780 (with the line "ISBN 979-8178961780") on a white panel in the barcode area; both decode to 9798178961780 at 300 dpi. When uploading one of them, answer yes to KDP's question on whether the cover already includes a barcode. The `_no_barcode` covers (`BOOK7_COVER_6x9_no_barcode.pdf`, `BOOK7_COVER_7x10_no_barcode.pdf`) leave the area empty, for KDP to print its own; use one or the other, never both.
+* `book7/publishing/BOOK7_COVER_thumb160.png` (7x10) and `BOOK7_COVER_6x9_thumb160.png`: the front at 160 px wide, the size of a search result thumbnail. The title, the subtitle line and the author remain readable.
+* Built by `tools/book7/build_cover7.py` (`BOOK_TRIM=6x9` for the 6 x 9 pair), which reads the page count from the interior PDF. Rebuild after any change in page count, then check against the template from the KDP cover calculator.
 
 ## 7. Author biography
 **To be written by the author.** Nothing is inferred about career, employers or credentials.
@@ -137,11 +142,13 @@ Rules as checked for Book 2 on 3 October 2026 (section 11):
 * Printing cost, black ink, 110 to 828 pages: USD 1.00 plus a per-page rate. Sources conflict between USD 0.012 and USD 0.017 per page; read the exact figure in the KDP printing cost calculator.
 * Kindle 70% royalty band on Amazon.com: list price USD 2.99 to 12.99; above USD 9.99 the 70% option must be selected manually.
 
-| Paperback, 162 pages | At USD 0.012 per page | At USD 0.017 per page |
+| Paperback, 6 x 9, 200 pages | At USD 0.012 per page | At USD 0.017 per page |
 |---|---|---|
-| Printing cost | USD 2.94 | USD 3.75 |
-| Royalty at USD 29.99 (60% = 17.99) | USD 15.05 | USD 14.24 |
-| Royalty at USD 34.99 (60% = 20.99) | USD 18.05 | USD 17.24 |
+| Printing cost | USD 3.40 | USD 4.40 |
+| Royalty at USD 29.99 (60% = 17.99) | USD 14.59 | USD 13.59 |
+| Royalty at USD 34.99 (60% = 20.99) | USD 17.59 | USD 16.59 |
+
+The 7 x 10 edition (170 pages) costs USD 3.04 or 3.89 to print at the same two rates. KDP may price 7 x 10 as a large trim on some marketplaces; confirm in the calculator.
 
 Recommendation (an assumption to test): paperback USD 34.99, given the professional audience and the length; Kindle USD 12.99 with the 70% option selected. Expanded distribution pays a lower royalty; decide with the African reach question in mind.
 
@@ -150,7 +157,7 @@ MODEL 7 and MANUAL 7 are not sold on Amazon. The book's back matter should carry
 
 ## 10. KDP upload checklist
 1. Release gates in section 2 closed.
-2. Interior PDF `book7/build/Hydropower_Development_and_Finance_7x10.pdf` rebuilt after the last text change; build checks clean (fonts embedded, images at least 300 ppi, every word inside the margins, chapters on right-hand pages).
+2. Trim size in KDP matches the files (6 x 9: `_6x9` interior and cover; 7 x 10: `_7x10` pair). Interior PDF rebuilt after the last text change; build checks clean (fonts embedded, images at least 300 ppi, every word inside the margins, chapters on right-hand pages).
 3. Copyright page: ISBN 979-8178961780 and imprint "Independently published" (done); check them against the KDP setup page.
 4. Cover rebuilt from the final page count and checked against the KDP template.
 5. Metadata entered as in section 4, matching the cover word for word.
