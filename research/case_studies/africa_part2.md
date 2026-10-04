@@ -23,14 +23,14 @@ Field key: A Project size · B Installed capacity · C Generation · D Hydrology
 - **B Installed capacity:** 420 MW [S2][S3]. The units are 7 × 60 MW GE turbines (search-result only) [S7].
 - **C Generation:** "Nearly 3 TWh" per year [S4].
 - **D Hydrology notes:** Sanaga River. Cameroon's 2015 installed capacity was 1,286 MW, about 60% of it hydro [S2]. Upstream regulation by Lom Pangar is widely cited, but no primary source was retrieved in this pass. PUBLIC DATA NOT FOUND (primary).
-- **E CAPEX:** EUR 1.2 billion [S1][S4]. Business in Cameroon reports a total investment of CFA 786 billion [S5].
-- **F Construction period:** Construction began at end-2018 with financial close (signing on 8 Nov 2018) [S4][S6]. The plan was 5 years [S1], with COD originally 2023 [S4] and later a planned COD of September 2024 [S5]. Full activation was postponed to December 2024 (search-result headline) [S8]. A search summary says the last unit came online on 18 March 2025, but that traces to Wikipedia and is unverified.
+- **E CAPEX:** EUR 1.2 billion [S1][S4]. The World Bank PAD gives EUR 1,184 million (about US$1,383 million) including EUR 114 million of funded contingencies [S63]. Business in Cameroon reports a total investment of CFA 786 billion [S5].
+- **F Construction period:** Construction began at end-2018 with financial close (signing on 8 Nov 2018) [S4][S6]. The plan was 5 years [S1], with COD originally 2023 [S4] and later a planned COD of September 2024 [S5]. Full activation was postponed to December 2024 (search-result headline) [S8]. Cameroon Tribune (27 Mar 2025) reports the plant reached full capacity on 27 Feb 2025 with the coupling of the seventh and last unit [S64]. The PAD planned a 57-month construction period [S63].
 - **G Cost overruns:** PUBLIC DATA NOT FOUND. In August 2023 the regulator ARSEL found construction defects: spillway cracks, water infiltration and early concrete degradation [S5].
-- **H Financing structure:** About 25% equity and 75% debt [S4]. The debt came from 11 DFIs plus local banks, coordinated by IFC [S6].
+- **H Financing structure:** About 25% equity and 75% debt [S4]; the PAD gives 76:24 debt:equity, with the whole debt package under IFC's Global Coordinator mandate [S63]. The debt came from 11 DFIs plus local banks, coordinated by IFC [S6].
 - **I Debt:** Lenders were AfDB, AFC, AFD, CDC, DEG, EAIF, EIB, FMO, IFC, OFID and Proparco, plus the local banks Attijariwafa SCB Cameroon, BICEC, Société Générale Cameroun and Standard Chartered Cameroon (search-result list) [S6]. The IFC A loan was up to EUR 130 million [S3]. The local-currency tranche was EUR 171 million, about one-fifth of total debt, with a 21-year tenor [S1].
 - **J Equity:** At close: EDF 40%, IFC 30%, Republic of Cameroon 30% [S4]. Later: EDF 40%, IFC 20%, Cameroon 15%, Africa50 15%, STOA 10% (search-result only) [S9]. IFC equity was up to EUR 60 million [S3].
 - **K Concessional finance:** Of the DFI debt, the amount on concessional terms is PUBLIC DATA NOT FOUND. IBRD guarantees are non-concessional; see M.
-- **L Government contribution:** Equity stake of 30%, later reported as 15% [S4][S9]. The state also backs the IBRD guarantees through an indemnity [S3].
+- **L Government contribution:** Equity stake of 30%, later reported as 15% [S4][S9]. The state also backs the IBRD guarantees through a single Indemnity Agreement covering both guarantees [S63] (the Chair Summary [S3] does not mention the indemnity).
 - **M Guarantees:** IBRD payment guarantee up to EUR 86 million (US$100 million). IBRD loan guarantee up to EUR 171 million (US$200 million). MIGA guarantees up to EUR 224.8 million (US$262.5 million) were approved [S3]. MIGA issued EUR 164.5 million of breach-of-contract cover for 15 years to EDF International and STOA [S2].
 - **N PPA structure:** Long-term PPA under a 35-year BOOT concession [S2][S4]. Capacity-style payments of CFA 10 billion per month from COD are "payable by Eneo … or Treasury" regardless of consumption [S5].
 - **O Offtaker:** ENEO (Energy of Cameroon), the privately owned distribution utility [S2].
@@ -45,7 +45,7 @@ Field key: A Project size · B Installed capacity · C Generation · D Hydrology
 - **X Political risk:** Mitigated by MIGA breach-of-contract cover [S2][S3].
 - **Y E&S risk:** The World Bank Board highlighted the prevalence of gender-based violence and asked for E&S lessons to be documented [S3]. Construction defects were also found [S5].
 - **Z Fiscal exposure:** CFA 10 billion per month falls to ENEO, or to the Treasury if ENEO cannot pay [S5]. The state also carries its IBRD guarantee indemnity obligations [S3].
-- **AA Contingent liabilities:** Up to EUR 86 million payment guarantee and EUR 171 million loan guarantee, both counter-guaranteed by Cameroon [S3]. MIGA breach-of-contract cover is a contingent claim on the state's performance [S2].
+- **AA Contingent liabilities:** Up to EUR 86 million payment guarantee and EUR 171 million loan guarantee, both counter-guaranteed by Cameroon through an Indemnity Agreement [S63]. MIGA breach-of-contract cover is a contingent claim on the state's performance [S2].
 - **AB Delays:** About 1.5–2 years against the 2023 COD [S4][S5][S8].
 - **AC Restructuring:** PUBLIC DATA NOT FOUND (shareholding changes only) [S9].
 - **AD Lessons for financial close (Analyst inference):** This was the "full WBG stack": IBRD payment and loan guarantees, MIGA cover, and IFC equity and debt. Together they let 11+ DFIs and local banks lend at a EUR 0.061 tariff. A 21-year local-currency tranche is replicable. However, take-or-pay obligations backstopped by the Treasury turn a private IPP into a sovereign contingent liability, so the guarantee and indemnity totals should be modelled as fiscal exposure.
@@ -128,7 +128,7 @@ Field key: A Project size · B Installed capacity · C Generation · D Hydrology
 - **B Installed capacity:** Ruzizi I is 29.2 MW [S20] (29.8 MW in another source, search-result only [S25]). Ruzizi II is 43.8 MW [S20]. Ruzizi III is 206 MW [S20][S22]. An EIB 2020 release said 147 MW [S21], so earlier configurations differed.
 - **C Generation:** Ruzizi III: 1,140 GWh/yr [S20].
 - **D Hydrology notes:** Lake Kivu outflow to Lake Tanganyika. Ruzizi I, 3 km downstream of the lake outlet, controls Lake Kivu's discharge [S20].
-- **E CAPEX:** Ruzizi III is US$760 million [S20][S22].
+- **E CAPEX:** Ruzizi III is US$760 million [S20][S22]. The EIB's 2020 release gave EUR 728 million for the earlier 147 MW configuration [S21].
 - **F Construction period:** Target operation was 2030 before the conflict pause [S22]. Ruzizi I and II were commissioned in 1958 and 1989 [S20].
 - **G Cost overruns:** Not applicable (pre-construction).
 - **H Financing structure:** IFIs (World Bank, EU, EIB, AfDB, KfW, AFD) were expected to fund about 60% (search-result only) [S23]. EIB is lead arranger [S22]. IDA support for Ruzizi 3 was listed as a US$200 million credit and US$100 million grant (EWS mirror; a search snippet gave US$168 million and US$92 million, so verify) [S24].
@@ -201,7 +201,7 @@ Field key: A Project size · B Installed capacity · C Generation · D Hydrology
 - **E CAPEX:** TZS 6.5 trillion (search-result only) [S32] to TZS 7.45 trillion (US$2.8 billion) [S30]. Water Power Magazine gives US$2.9 billion [S31].
 - **F Construction period:** EPC awarded Dec 2018 with a contractual 42 months [S31]. Construction June 2019 to March 2025 [S30]. Commissioned 22 Aug 2026 [S30][S31].
 - **G Cost overruns:** Cost estimates rose from TZS 6.5 trillion to TZS 7.45 trillion [S30][S32]. The original contract value was not verified.
-- **H Financing structure:** 100% government budget (domestic revenue), with no project finance (search-result only) [S32].
+- **H Financing structure:** 100% government budget (domestic revenue), with no project finance (search-result only) [S32]. The Citizen (5 Apr 2025) reports that 99.5 percent of the Sh6.5 trillion had been paid by the government and came from domestic revenue [S65].
 - **I Debt:** PUBLIC DATA NOT FOUND (no project debt identified).
 - **J Equity:** TANESCO and the Government of Tanzania. Owner: TANESCO (Wikipedia lead, unverified).
 - **K Concessional finance:** None identified. PUBLIC DATA NOT FOUND.
@@ -253,7 +253,7 @@ Field key: A Project size · B Installed capacity · C Generation · D Hydrology
 - **V PPP/IPP structure:** Public, with Chinese EPC (CWE) [S34][S35].
 - **W FX risk:** USD debt on the sovereign balance sheet and UGX tariffs [S34].
 - **X Political risk:** Low (G2G).
-- **Y E&S risk:** PUBLIC DATA NOT FOUND (quantified). Safety concern: UEGCL reported "nearly 700" defects, including spillway concrete deterioration posing "great risk to … stability of the dam" [S34]. Defects persist and the contractor has been slow to repair [S38].
+- **Y E&S risk:** PUBLIC DATA NOT FOUND (quantified). Safety concern: UEGCL reported "nearly 700" defects by June 2021, about two years after commissioning, including spillway concrete deterioration posing "great risk to … stability of the dam" [S34]. Defects persist and the contractor has been slow to repair [S38].
 - **Z Fiscal exposure:** Sovereign debt of US$482.58 million [S34].
 - **AA Contingent liabilities:** Dam-safety remediation [S34][S38].
 - **AB Delays:** About 7 months against the planned completion [S34].
@@ -480,13 +480,13 @@ Field key: A Project size · B Installed capacity · C Generation · D Hydrology
 [S20] World Bank — "Ruzizi 3 Regional Hydropower Project (P178685), Concept Environmental and Social Review Summary" (22 Dec 2022). https://documents1.worldbank.org/curated/en/099340012222221781/pdf/P17868509cbf4c0cb08cce06954824c1b6f.pdf
 [S21] EIB — Press release 2020-065 "One step closer to clean energy for 30 million people in Africa" (20 Feb 2020). https://www.eib.org/en/press/all/2020-065-one-step-closer-to-clean-energy-for-30-million-people-in-africa
 [S22] Engineering News (Reuters) — "EIB reviews financing for $760m hydro project over DRC war" (13 Mar 2025). https://www.engineeringnews.co.za/article/eib-reviews-financing-for-760m-hydro-project-over-drc-war-2025-03-13
-[S23] (search-result only) Power Technology — "Ruzizi III Hydropower Plant Project". https://www.power-technology.com/projects/ruzizi-iii-hydropower-plant-project/
+[S23] (fetched 2026-10-04) Power Technology — "Ruzizi III Hydropower Plant Project". https://www.power-technology.com/projects/ruzizi-iii-hydropower-plant-project/
 [S24] Early Warning System (mirror of World Bank data) — "Ruzizi 3 Regional Hydropower Project (WB-P510120)". https://ewsdata.rightsindevelopment.org/projects/WB-P510120/
 [S25] (search-result only) Africa Energy — "DR Congo: Ingerop to prepare tenders for rehabilitation of Ruzizi I and II". https://www.africa-energy.com/news-centre/article/dr-congo-ingerop-prepare-tenders-rehabilitation-ruzizi-i-and-ii
 [S26] IFC Disclosure — Project 43014 "Mpatamanga". https://disclosures.ifc.org/project-detail/ED/43014/mpatamanga
 [S27] Early Warning System (mirror of World Bank data) — "Mpatamanga Hydropower Storage Project Guarantee (WB-P513960)". https://ewsdata.rightsindevelopment.org/projects/p513960-mpatamanga-hydropower-storage-project-guarantee/
 [S28] IPP Journal — "World Bank Approves Grant Financing for 358.5 MW Mpatamanga Hydropower Storage Project". https://ippjournal.com/update/world-bank-approves-grant-financing-for-3585-mw-mpatamanga-hydropower-storage-project
-[S29] (search-result only) ENR — "$1B 350-MW Malawi hydropower project goes to team led by Norway's Scatec". https://enr.com/articles/54778-1b-350mw-malawi-hydropower-project-goes-to-team-led-by-norways-scatec
+[S29] (fetched 2026-10-04; article dated 12 Sep 2022) ENR — "$1B 350-MW Malawi hydropower project goes to team led by Norway's Scatec". https://enr.com/articles/54778-1b-350mw-malawi-hydropower-project-goes-to-team-led-by-norways-scatec
 [S30] Enerdata — "Tanzania commissions 2.1 GW Julius Nyerere hydropower plant". https://www.enerdata.net/publications/daily-energy-news/tanzania-commissions-21-gw-julius-nyerere-hydropower-plant.html
 [S31] Water Power Magazine — "Tanzania inaugurates 2.1GW Julius Nyerere hydropower project". https://www.waterpowermagazine.com/news/tanzania-inaugurates-2-1gw-julius-nyerere-hydropower-project/
 [S32] (search-result only) The Citizen / Nation — "Tanzania's Sh6.5 trillion Julius Nyerere Hydropower Project nears completion". https://www.nation.africa/tanzania/news/national/tanzania-s-sh6-5-trillion-julius-nyerere-hydropower-project-nears-completion-4929876
@@ -510,7 +510,7 @@ Field key: A Project size · B Installed capacity · C Generation · D Hydrology
 [S50] AllAfrica (AfDB release) — "Consortium Delivers Bujagali Refinancing to Reduce Ugandan Electricity Costs" (24 Jul 2018). https://allafrica.com/stories/201807300413.html
 [S51] Eagle Online — "Electricity: Bujagali loan repayment period pushed to 2032" (11 Apr 2018). https://eagle.co.ug/2018/04/11/electricity-bujagali-loan-repayment-period-pushed-to-2032/
 [S52] The Independent (Uganda) — "Bujagali power expensive" (same as S37; cited for cost, lenders, tariff debate). https://independent.co.ug/bujagali-power-expensive
-[S53] (search-result only) World Bank — "Indemnity Agreement (Partial Risk Guarantee for the Private Power Generation (Bujagali) Project) between IDA and Republic of Uganda", conformed copy (18 Jul 2007). https://documents1.worldbank.org/curated/en/316361468119086474/pdf/B01301UG1IA10CONFORMED.pdf
+[S53] (fetched 2026-10-04) World Bank — "Indemnity Agreement (Partial Risk Guarantee for the Private Power Generation (Bujagali) Project) between IDA and Republic of Uganda", conformed copy (18 Jul 2007). https://documents1.worldbank.org/curated/en/316361468119086474/pdf/B01301UG1IA10CONFORMED.pdf
 [S54] (search-result only) Renewable Energy World — "World Bank approves US$360 million for Uganda's 250-MW Bujagali". https://www.renewableenergyworld.com/energy-business/energy-finance/world-bank-approves-us360-million-for-ugandas-250-mw-bujagali/
 [S55] (search-result only) Daily Monitor — "Taxpayers lose Shs104.4b to UETCL's non-evacuated power". https://monitor.co.ug/uganda/business/technology/taxpayers-lose-shs104-4b-to-uetcl-s-non-evacuated-power--3253858 ; and Land Matrix "Factsheet About Bujagali Energy Limited (BEL)" https://landmatrix.org/media/uploads/Factsheet About  Bujagali Energy Limited (BEL).pdf
 [S56] (search-result only; page returned 403) IEA — "Uganda case study: Utility-scale hydropower in Uganda: refinancing operational assets to bring in lower-cost capital". https://www.iea.org/reports/uganda-case-study/utility-scale-hydropower-in-uganda-refinancing-operational-assets-to-bring-in-lower-cost-capital
@@ -520,3 +520,6 @@ Field key: A Project size · B Installed capacity · C Generation · D Hydrology
 [S60] (search-result only) Daily Monitor — "Nyagak dam puts lights on in West Nile after 20 years". https://www.monitor.co.ug/uganda/news/national/nyagak-dam-puts-lights-on-in-west-nile-after-20-years-1522350
 [S61] (search-result only) Parliament of Uganda — "Parliament sets conditions for Bujagali Tax Waiver". https://gateway.parliament.go.ug/news/723/parliament-sets-conditions-bujagali-tax-waiver
 [S62] (search-result only) CAO (Compliance Advisor Ombudsman) — "Uganda: Bujagali-07/Bujagali". https://www.cao-ombudsman.org/case/uganda-bujagali-07bujagali
+[S63] World Bank — "Project Appraisal Document … Nachtigal Hydropower Project", Report No. 122876-CM (2018), P157734; retrieved via the EWS mirror (fetched 2026-10-04). https://ewsdata.rightsindevelopment.org/files/documents/34/WB-P157734_j0tmCq4.pdf
+[S64] Cameroon Tribune — "Barrage de Nachtigal : à pleine puissance" (27 Mar 2025) (fetched 2026-10-04). https://cameroon-tribune.cm/article.html/69784/fr.html/details_2
+[S65] The Citizen (Tanzania) — "Julius Nyerere Hydropower Project reaches major milestone with full turbine activation" (5 Apr 2025) (fetched 2026-10-04). https://thecitizen.co.tz/tanzania/news/national/julius-nyerere-hydropower-project-reaches-major-milestone-with-full-turbine-activation-4991572

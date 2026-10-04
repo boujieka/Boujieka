@@ -2,7 +2,7 @@
 
 ### P.1 Purpose and scope
 
-The electromechanical (E&M) package turns head and flow into saleable energy: turbines, generators, governors and excitation, transformers, switchyard, protection, SCADA, auxiliaries, and the hydromechanical gates and valves that control water to the units. Each large plant's E&M equipment is custom-designed [DE:S1]. In the IFC benchmark sample E&M averages 30.3% of total project cost, with a range of 14.9 to 56.6% [DE:S1]. The decisions a committee must test are few: turbine type, number and speed of units, turbine setting, sediment protection, and the contract and test regime that makes supplier guarantees enforceable.
+The electromechanical (E&M) package turns head and flow into saleable energy: turbines, generators, governors and excitation, transformers, switchyard, protection, SCADA, auxiliaries, and the hydromechanical gates and valves that control water to the units. Each large plant's E&M equipment is custom-designed [DE:S1]. In the IFC benchmark sample E&M averages 30.3% of total plant cost (median 29.2%), with a range of 14.9 to 56.6% [DE:S1]. The decisions a committee must test are few: turbine type, number and speed of units, turbine setting, sediment protection, and the contract and test regime that makes supplier guarantees enforceable.
 
 ### P.2 Turbine types and selection by head and flow
 
@@ -11,7 +11,7 @@ Turbine choice rests on the site's head and flow, including how often the turbin
 - **Impulse** (Pelton, Turgo, cross-flow): the runner turns in air under one or more jets. They hold efficiency under fluctuating flow, avoid penstock overpressure, control overspeed easily and are easy to maintain.
 - **Reaction** (Francis, propeller, Kaplan, bulb): the runner is immersed in a pressure casing and driven by lift; a draft tube recovers head below the runner. Runners are smaller and faster than Peltons, can run submerged, and give higher efficiency at higher power.
 
-The IFC guide's head classes are: low head below 10 m and high head above 100 m; its medium-head range is misprinted in the text ("50 m < H < 10 m") and should not be quoted [DE:S1]. The guide's head-flow chart (Figure 4-19, on log axes of 1 to 1000 m head and 1 to 1000 m^3^/s flow) places, as far as it can be read, Pelton and Turgo at high head and low flow, Kaplan at low head and high flow, cross-flow at low to medium head and small flow, and Francis across the wide middle field; the boundaries depend on each manufacturer's design [DE:S1].
+The IFC guide classes schemes as high head above 100 m, medium head 30 to 100 m and low head below 30 m [DE:S1]. Its turbine section uses a different low-head limit (below 10 m) and misprints the medium range ("50 m < H < 10 m"), so quote the scheme classes [DE:S1]. The guide's head-flow chart (Figure 4-19, on log axes of 1 to 1000 m head and 1 to 1000 m^3^/s flow) places, as far as it can be read, Pelton and Turgo at high head and low flow, Kaplan at low head and high flow, cross-flow at low to medium head and small flow, and Francis across the wide middle field; the boundaries depend on each manufacturer's design [DE:S1].
 
 Table: Table P.1. Turbine types: principle, application and part-load features
 | Type | Principle | Application as stated in the sources | Features relevant to a committee |
@@ -141,7 +141,7 @@ Future O&M staff should attend shop assembly and testing [DE:S1]. Site tests run
 
 > P = ρ × g × Q × H × η = 1,000 × 9.81 × 57 × 120 × 0.92 × 0.98 = 60.5 MW
 
-Hydraulic power is 67.1 MW, shaft power 61.7 MW and output 60.5 MW, so the 60 MW rating is consistent. Two comments. First, 0.92 is a design-point efficiency; at part load the Francis curve falls (P.4), so the energy model needs a curve, not a constant. Second, 0.98 for generator and transformer combined is optimistic: IFC puts generator efficiency alone at up to about 98% above 1 MW [DE:S1], and transformer losses come on top. The energy check (60.5 MW × 8,760 h × 0.56 ≈ 297 GWh) agrees with the P50 of about 292 GWh.
+Hydraulic power is 67.1 MW, shaft power 61.7 MW and output 60.5 MW, so the 60 MW rating is consistent. Two comments. First, 0.92 is a design-point efficiency; at part load the Francis curve falls (P.4), so the energy model needs a curve, not a constant. Second, 0.98 for generator and transformer combined is optimistic: IFC puts generator efficiency alone at up to about 98% above 1 MW [DE:S1], and transformer losses come on top. The P50 of about 292 GWh over 60 MW × 8,760 h gives the case capacity factor of 55.6% (Table N.2).
 
 **Turbine type.** At 120 m net head and 57 m^3^/s (19 to 57 m^3^/s per unit), Kasiri sits in the high-head class (above 100 m) and in the Francis field of the IFC head-flow chart, well above the bulb ceiling of 30 m and at flows beyond the Pelton field [DE:S1]. The design ratio Q~d~/Q~av~ = 57/38 = 1.5 is at the top of the 1.0 to 1.5 range for run-of-river, and the 56% capacity factor lies within the 40 to 70% run-of-river range [DE:S1].
 

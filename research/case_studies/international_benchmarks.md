@@ -92,7 +92,7 @@
 | D. Financing | Base 72:28 debt:equity: debt US$900 m, equity US$350 m [S11]. Debt including contingency ~US$1 bn, 50% USD and 50% THB, from MDBs, bilaterals, ECAs (COFACE, EKN, GIEK), 9 international and 7 Thai commercial banks [S9][S10]. Financial close 10 June 2005 [S10] |
 | E. Guarantees | IDA PRG up to US$50 m; ADB PRG up to US$50 m; MIGA up to US$50 m per CAREC [S11]. The MIGA brochure reports US$91 m MIGA cover (US$86 m on Fortis-led loan; balance for EDF International transfer risk) [S9]. IDA, ADB and MIGA together covered ~US$186 m of debt [S9]. Political-risk cover was "a pre-requisite" for dollar lenders [S9] |
 | F. Government equity | The Government of Lao PDR (GOL) funded its EDL stake (via NTPI) with an IDA grant of US$20 m, an ADB public loan of US$20 m, and AFD and EIB support [S11] |
-| G. PPA | EGAT PPA signed 2003, 25 years from COD; concession 25 years from COD, BOOT [S9]. COD 30 April 2010 (snippet) [S12] |
+| G. PPA | EGAT PPA signed 2003, 25 years from COD; concession 25 years from COD, BOOT [S9]. COD 30 April 2010 (snippet) [S12]; EIB states the plant was commissioned in April 2010 [S24] |
 | H. Revenue management | Government revenues are ring-fenced for eligible poverty-reduction spending (education, health, rural roads, environment) under World Bank and ADB oversight. More than US$2 bn of government revenue projected over 25 years. First receipt was ~US$600,000 in June 2010 (snippet) [S12]. The MIGA brochure projects US$1.9 bn in FX earnings over 25 years [S9] |
 | I. Cost overrun/delay | Turnkey, price-capped EPC with EDF [S9]. Material overrun: PUBLIC DATA NOT FOUND |
 | J. Fiscal exposure (country context) | Lao PDR is now in debt distress (World Bank LIC-DSF). Public and publicly guaranteed debt was 112% of GDP at end-2022, and the energy sector (mainly EDL) was ~43% of it, with substantial further contingent liabilities [S13]. NT2 itself was export-backed; the later EDL-backed take-or-pay IPP wave is the cautionary part |
@@ -123,13 +123,13 @@
 | Field | Data |
 |---|---|
 | A. Capacity | 216 MW run-of-river, 3×72 MW [S15][S16] |
-| B. Generation | ~1,427 GWh/yr [S18]; ~1,456 GWh/yr (snippet) [S19] |
+| B. Generation | ~1,427 GWh/yr [S18]; ~1,456 GWh/yr [S19] |
 | C. CAPEX | US$647.4 m: equity US$194.2 m, debt US$453.2 m (~70:30) [S17] |
 | D. Financing | IFC-led US$453 m package with 9 lenders. IFC US$190 m (US$95 m own account + US$95 m as implementing entity). Other lenders: KEXIM, ADB, AIIB (US$90 m), KDB, CDC/BII, FMO (US$15.38 m), OPEC Fund, Proparco [S15][S16][S18]. Announced Nov 2019 [S15] |
 | E. Guarantees | MIGA US$135 m political risk cover for sponsors [S15] |
 | F. Sponsors | Korea South-East Power 50%, Daelim 15%, Kyeryong 10%, IFC 15%, local partner 10% [S18] |
 | G. PPA | With Nepal Electricity Authority, signed 28 Jan 2018, 30 years, take-or-pay. Tariff based on Nepal's standard run-of-river feed-in tariff with separate wet- and dry-season rates [S16][S17]. FMO cites a levelised tariff of US¢5.1/kWh [S18]. Reported as a USD-denominated PPA (headline only; page not opened) [S19b] |
-| H. Delay | Expected COD 2024 at financing announcement [S15]. Completion now reported for December 2026 (snippet) [S19] |
+| H. Delay | Expected COD 2024 at financing announcement [S15]. Completion now reported for December 2026 [S19] |
 | I. Fiscal exposure | NEA, a state utility, carries take-or-pay and, if the PPA is in USD, FX risk (inference). The project PDA and PPA are expected to serve as model agreements for Nepal [S17] |
 
 **Lessons for African structuring (Analyst inference)**
@@ -190,9 +190,10 @@
 - [S16] AIIB project page, Nepal Upper Trishuli-1: https://www.aiib.org/en/projects/details/2019/approved/Nepal-Upper-Trishuli-1-Hydropower-Project.html
 - [S17] AIIB PSI, updated Oct 2025: https://aiib.org/en/projects/details/2025/_download/Nepal/PSI-P000085-Nepal-Upper-Trishuli-1-Hydropower-updated-Oct-2025-v2.pdf
 - [S18] FMO project detail 55588: https://www.fmo.nl/project-detail/55588
-- [S19] ANDRITZ Hydronews, Upper Trishuli-1 (search-result snippet; page timed out): https://andritz.com/hydro-en/hydronews/hn36/upper-trishuli-1-nepal
+- [S19] ANDRITZ Hydronews, Upper Trishuli-1 (fetched 2026-10-04: "completion scheduled for December 2026"): https://andritz.com/hydro-en/hydronews/hn36/upper-trishuli-1-nepal
 - [S19b] The Himalayan Times, "NEA to sign PPA in USD with Upper Trishuli-1" (headline only; page redirected): https://thehimalayantimes.com/business/nepal-electricity-authority-sign-power-purchase-agreement-usd-upper-trishuli-1
 - [S20] IJGlobal / Green Street, "Deal analysis: Reventazón" (2014): https://infrastructure.greenstreet.com/articles/127517/deal-analysis-and-65279reventaz-n
 - [S21] Delfino.cr, "Planta Hidroeléctrica Reventazón suma casi 10.000 GWh generados en una década" (23 Sep 2026): https://delfino.cr/2026/09/planta-hidroelectrica-reventazon-suma-casi-10000-gwh-generados-en-una-decada
 - [S22] CRHoy, "ICE asegura que reparaciones en planta Reventazón están al 71%" (May 2018): https://crhoy.com/nacionales/ice-asegura-que-reparaciones-en-planta-reventazon-estan-al-71/
 - [S23] New Energy Events, "Costa Rica inaugurates largest hydroelectric plant in Central America" (search-result snippet): https://newenergyevents.com/costa-rica-inaugurates-largest-hydroelectric-plant-in-central-america
+- [S24] EIB, "Nam Theun 2 hydropower project, Laos" (topical brief; fetched 2026-10-04): https://www.eib.org/en/press/topical-briefs/all/nam-theun-2-hydropower-project-laos

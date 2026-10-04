@@ -37,7 +37,7 @@ The ESIA starts at site selection, informs the feasibility design and produces a
 
 **Baseline seasons.** The sources set no minimum duration. The test is whether surveys cover the flow extremes that drive impacts. Kasiri's mean monthly flow ranges from 20 m3/s in February to 70 m3/s in May (case values); a single-season baseline would miss either low-flow stress in the dewatered reach or high-flow conditions for fish movement.
 
-**Cumulative impact assessment.** The ESIA for the first dam on a river should assess all known proposed dams, and cumulative mitigation should be complete or well advanced before the second dam is built [DE:S1]. In a cascade each reservoir must not raise the tailwater of the plant upstream [DE:S1]. The World Bank recommends that governments prepare basin plans and cumulative assessments before procurement [HY-06].
+**Cumulative impact assessment.** The ESIA for the first dam on a river should assess all known proposed dams, and cumulative mitigation should be complete or well advanced before the second dam is built [DE:S1]. In a cascade each reservoir must not raise the tailwater of the plant upstream [DE:S1]. The World Bank report proposes that DFIs help governments prepare pre-feasibility studies that include river basin management plans and cumulative impact assessments [HY-06].
 
 ### R.4 Key hydro impacts
 
@@ -66,7 +66,7 @@ Table: Table R.2. Kasiri environmental flow by month (case mean flows)
 | Dec | 36 | 32 | 11% |
 Note: Derived from case values; monthly means hide daily variation. The same method reproduces the case P50 of about 292 GWh/yr.
 
-The release costs about 32 GWh/yr, 11 percent of P50. Each further 1 m3/s costs about 8 GWh/yr (close to 3 percent of P50) until the release exceeds 13 m3/s and bites in May too. The release is 10.5 percent of mean flow but 17 to 20 percent of flow in the driest months, where ecologists will test its adequacy.
+The release costs about 32 GWh/yr, 11 percent of P50. Each further 1 m3/s costs about 8 GWh/yr (close to 3 percent of P50) until the release exceeds 13 m3/s and bites in May too. The release is 10.6 percent of mean flow but 17 to 20 percent of flow in the driest months, where ecologists will test its adequacy.
 
 **Fish passage.** Dams block upstream migration, downstream passage through turbines and spillways often fails, and ladders, lifts and trap-and-truck schemes are usually of limited effectiveness [DE:S1]. Fish-friendly turbines are emerging [DE:S1]; intakes need fish diversion and passes where required [LIT:S6]. Stocking with non-native species is undesirable [DE:S1].
 
@@ -74,7 +74,7 @@ The release costs about 32 GWh/yr, 11 percent of P50. Each further 1 m3/s costs 
 
 **Water quality.** Impoundment lowers oxygen and dilution, flooded biomass decays, and low oxygen or gas supersaturation kills fish; selective clearing before filling is standard mitigation [DE:S1].
 
-**Reservoir greenhouse gases.** Flooded biomass emits carbon dioxide and methane. Most hydro more than offsets this, but some reservoirs, such as Balbina in Brazil, appear to emit more than gas-fired generation would for many years; the best mitigation is to flood little land, especially forest [DE:S1]. PS 1 requires significance to be assessed [DE:S1], and Climate Bonds Initiative criteria test greenhouse gas intensity [HY-06]. The sources give no threshold; for run-of-river with small pondage the issue is usually minor, but the ESIA should state flooded area and biomass.
+**Reservoir greenhouse gases.** Flooded biomass emits carbon dioxide and methane. Most hydro more than offsets this, but some reservoirs, such as Balbina in Brazil, appear to emit more than gas-fired generation would for many years; the best mitigation is to flood little land, especially forest [DE:S1]. PS 1 requires significance to be assessed [DE:S1], and Climate Bonds Initiative criteria require low greenhouse gas infrastructure [HY-06]. The sources give no threshold; for run-of-river with small pondage the issue is usually minor, but the ESIA should state flooded area and biomass.
 
 **Biodiversity and critical habitat.** Flooded riverine forest is usually worth more than the aquatic habitat created [DE:S1]. PS 6 bars significant conversion of natural and critical habitat unless specific conditions are met; compensatory protected areas of comparable size and quality are the preferred offset, and wildlife rescue rarely succeeds [DE:S1].
 
@@ -90,7 +90,7 @@ PS 7 requires full respect for indigenous peoples' rights, livelihoods and cultu
 
 ### R.7 Community health, safety and dam safety
 
-PS 4 requires design, construction and operation to good international practice by competent professionals, with external review in high-risk cases [DE:S1]. The IFC guide distinguishes the normal operation design flood, often a 100-year event set by national rules for the hazard class, from the maximum design flood the structures must survive, the probable maximum or 10,000-year flood [DE:S1]. The World Bank's dam safety note covers independent panels and hydrological and seismic risk [HY-15]. Other risks are drowning, which needs access control, and water-related disease such as malaria and schistosomiasis around reservoirs in warm climates [DE:S1]. PS 1 requires emergency plans [DE:S1]; for a dam this means a tested emergency preparedness plan for downstream communities.
+PS 4 requires design, construction and operation to good international practice by competent professionals, with external review in high-risk cases [DE:S1]. The IFC guide distinguishes the normal operation design flood, defined by a return period such as 100 years and set by national rules for the hazard class, from the maximum design flood the structures must survive, the probable maximum or 10,000-year flood [DE:S1]. The World Bank's dam safety note is accompanied by technical notes on hydrological and seismic risk [HY-15; R4:S1]. Other risks are drowning, which needs access control, and water-related disease such as malaria and schistosomiasis around reservoirs in warm climates [DE:S1]. PS 1 requires emergency plans [DE:S1]; for a dam this means a tested emergency preparedness plan for downstream communities.
 
 ### R.8 Stakeholder engagement and grievance
 
@@ -106,7 +106,7 @@ The Hydropower Sustainability Tools comprise the good practice guidelines, the A
 
 ### R.11 Climate resilience and screening
 
-Climate change may bring significant regional changes in flow volume and timing; the uncertainty is outside the developer's control but can be simulated [DE:S1]. A 2015 drought at Kariba caused load shedding in Zambia [LIT:S7], and the 2024 Kariba generation allocation was cut by about 47 percent (search summary only) [CL-04]. Planned dams would concentrate regional capacity in single basins, raising the risk of simultaneous shortfall [CL-03]. Methods exist: a six-phase screening and stress test [CL-01], basin-level revenue studies for African rivers [CL-02], and contract allocation of hydrology and flood risk [CL-06]. Hydrology risk transferred to government becomes a contingent liability [HY-06].
+Climate change may bring significant regional changes in flow volume and timing; the uncertainty is outside the developer's control but can be simulated [DE:S1]. A 2015 drought at Kariba caused load shedding in Zambia [LIT:S7], and the 2024 Kariba generation allocation was cut by about 47 percent, from 30 to 16 billion m3 [CL-04]. Planned dams would concentrate regional capacity in single basins, raising the risk of simultaneous shortfall [CL-03]. Methods exist: a six-phase screening and stress test [CL-01], basin-level revenue studies for African rivers [CL-02], and contract allocation of hydrology and flood risk [CL-06]. Hydrology risk transferred to government becomes a contingent liability [HY-06].
 
 For Kasiri, scaling every monthly mean flow by 0.9 with the 4 m3/s release held fixed cuts modelled energy by about 10 percent, to roughly 264 GWh/yr; in February the release would then be 22 percent of flow. The 10 percent scenario is an analyst's test value, not a projection. The 12-year record is shorter than the 15 years the IFC guide expects [DE:S1], widening uncertainty before any climate adjustment. Screening should also re-run the design floods for heavier extreme rainfall and report spillway capacity and freeboard.
 

@@ -53,7 +53,7 @@ Table: Table N.1. Kasiri monthly flow duration reading (case flows)
 | 10 | Jan | 24 | 83.3 | 76.9 | 20 | 21.2 |
 | 11 | Sep | 22 | 91.7 | 84.6 | 18 | 19.1 |
 | 12 | Feb | 20 | 100.0 | 92.3 | 16 | 17.0 |
-Note: Mean flow 37.8 m3/s; mean usable flow 33.1 m3/s; median about 33 m3/s. Twelve monthly means cannot resolve Q~95~ or flood peaks.
+Note: Mean flow 37.8 m3/s; mean usable flow 33.1 m3/s; median about 33 m3/s. Twelve monthly means cannot resolve Q~95~ or flood peaks. At 57 m3/s the hydraulic calculation gives 60.5 MW, slightly above the 60 MW rating; capping May at 60 MW would remove about 0.3 GWh.
 
 First, full load needs 61 m3/s in the river (57 + 4), which only May exceeds, so on monthly data the plant runs at full output about one month in twelve; daily data would show more full-load days. Second, the level of use f~a~ = Q~d~/Q~av~ = 57/37.8 = 1.51, at the top of the 1.0 to 1.5 range the IFC guide gives for run-of-river plants, whose first-estimate rule is a design flow available 100 to 120 days a year, about 30% of the time [DE:S1]. Third, ESHA notes that optimisation normally gives a design flow "significantly larger than" mean flow less reserved flow [LIT:S6], here 33.8 m3/s. A 57 m3/s design flow is defensible only if the optimisation is shown: IRR, NPV, benefit/cost or LCOE computed across a range of design flows, with stepwise cost changes as unit and penstock sizes change [DE:S1; LIT:S6]. It should run on daily flows: a monthly FDC rewards oversizing.
 
@@ -104,7 +104,7 @@ Table: Table N.3. Kasiri: items outside the case P50 (effect on 292.2 GWh, one a
 | Item | Basis | Result |
 |---|---|---|
 | Auxiliary demand 0.5 to 3.0% | [DE:S1] | 290.7 to 283.4 GWh |
-| Monthly data overestimate of 10% | [DE:S1] | 263 GWh |
+| Monthly data overestimate of 10% (292.2 / 1.10) | [DE:S1] | 266 GWh |
 | One Francis unit, 40% minimum flow | Illustrative assumption | about 252 GWh |
 | Losses on 35 km, 132 kV line | No source value | not quantified |
 | Availability 97 to 98% after year three | [DE:S1] | 298 to 301 GWh |
@@ -115,7 +115,7 @@ Outage timing matters: maintenance in February, at about 17 MW, costs far less t
 
 ### N.7 Firm energy and seasonal profile
 
-ESHA defines firm energy as the power deliverable during a given period with at least 90 to 95% certainty; run-of-river schemes have little, storage adds more [LIT:S6]. In the IFC example, firm capacity at 90% of the year is 11 MW for a run-of-river plant and 23 MW for a storage plant at the same site [DE:S1]. On monthly means Kasiri's firm capacity is about 17 MW (February) to 19 MW (flow exceeded in 11 of 12 months), under a third of installed capacity; a daily Q~95~ would give less. The May to February power ratio is 3.6, milder than the ten-fold swing in the IFC central African example [DE:S1]. Where the PPA pays for capacity, the firm figure matters most.
+ESHA defines firm energy as the power deliverable during a given period with at least 90 to 95% certainty; run-of-river schemes have little, storage adds more [LIT:S6]. In the IFC example, firm capacity at 90% of the year is 11 MW for a run-of-river plant and 23 MW for a storage plant at the same site [DE:S1]. On monthly means Kasiri's firm capacity is about 17 MW (February) to 19 MW (flow exceeded in 11 of 12 months) before outages, or about 16 MW in February after 95% availability, the figure Chapter 3 uses; that is under a third of installed capacity, and a daily Q~95~ would give less. The May to February power ratio is 3.6, milder than the ten-fold swing in the IFC central African example [DE:S1]. Where the PPA pays for capacity, the firm figure matters most.
 
 ### N.8 Inter-annual variability: P50, P90, one-year and multi-year
 
@@ -125,7 +125,9 @@ The IFC guide defines dry-year (P75) and very-dry-year (P95) energy and requires
 
 where N is the number of averaged years and z = 1.282 for P90. The √N reduction assumes independent years. Dry years tend to cluster, which widens the true spread, so MODEL 7 adds a first-order serial correlation ρ between years, set at 0.3 for Kasiri as a model assumption:
 
-> E~P90,N~ = E~P50~ × (1 − 1.2816 × CV × √((1 + ρ) / (1 − ρ) / N)) A second uncertainty sits on the mean: 12 years estimate it with a standard error of about 0.15/√12 = 4.3%, before rating-curve and correlation errors, and this term does not shrink with tenor.
+> E~P90,N~ = E~P50~ × (1 − 1.2816 × CV × √((1 + ρ) / (1 − ρ) / N))
+
+A second uncertainty sits on the mean: 12 years estimate it with a standard error of about 0.15/√12 = 4.3%, before rating-curve and correlation errors, and this term does not shrink with tenor.
 
 Table: Table N.4. Kasiri exceedance values (CV 0.15, normal distribution assumed)
 | Measure | Spread | GWh |
@@ -135,10 +137,10 @@ Table: Table N.4. Kasiri exceedance values (CV 0.15, normal distribution assumed
 | P90, one year | 1.282 × 0.15 | 236 |
 | P95, one year | 1.645 × 0.15 | 220 |
 | P99, one year | 2.326 × 0.15 | 190 |
-| P90, 10-year average | 1.282 × 0.15/√10 | 274 |
-| P90, 10-year average, serial correlation 0.3 (MODEL 7 lender case) | 1.282 × 0.15 × √(1.857/10) | 268 |
+| P90, ten-year average | 1.282 × 0.15/√10 | 274 |
+| P90, ten-year average, serial correlation 0.3 (MODEL 7 lender case) | 1.282 × 0.15 × √(1.857/10) | 268 |
 | P90, 25-year average | 1.282 × 0.15/√25 | 281 |
-| P90, 10-year, with 4.3% mean uncertainty | 1.282 × √(0.047² + 0.043²) | 268 |
+| P90, ten-year average, with 4.3% mean uncertainty | 1.282 × √(0.047² + 0.043²) | 268 |
 Note: Analyst calculation, except the MODEL 7 row. The two 268 GWh rows reach the same value by different routes: one widens the spread for correlated years, the other for the short record. Applied together they would give a lower figure. Skewed records give lower dry-year values still.
 
 The one-year P90 is 19% below P50; a multi-year view alone understates what a debt service reserve must bridge. Kariba's 2024 drought allocation cut of about 47% shows how far the tail can reach in a regional drought [CL-04]. African PPAs often share this risk through deemed energy or a hydrological floor, negotiated on the quality of the hydrological data [LIT:S7].

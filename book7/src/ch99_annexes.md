@@ -1,6 +1,6 @@
 # Annexes
 
-The annexes are working tools. Annexes A to I are checklists and templates for use on a live transaction; Annex J lists the public benchmark cases; Annex K records how the model was tested and what it does not do; Annex L lists every source cited, with its verification status; Annex M is a glossary. Annexes N to R follow in a separate part, the Technical due-diligence reference: each sets out what a decision-maker needs to know about one part of the engineering and environmental case, works it through on Kasiri where the case allows, and ends with decision tests for the investment and credit committees.
+The annexes are working tools. Annex A defines the key results; Annexes B to I are checklists and templates for use on a live transaction; Annex J lists the public benchmark cases; Annex K records how the model was tested and what it does not do; Annex L lists every source cited, with its verification status; Annex M is a glossary. Annexes N to R follow in a separate part, the Technical due-diligence reference: each sets out what a decision-maker needs to know about one part of the engineering and environmental case, works it through on Kasiri where the case allows, and ends with decision tests for the investment and credit committees.
 
 ## Annex A. Key results: definitions
 
@@ -10,9 +10,9 @@ The annexes are working tools. Annexes A to I are checklists and templates for u
 | Capacity factor | P50 generation divided by installed capacity times 8,760 hours | *03_HYDROLOGY* |
 | Total uses | Plant cost, project-built transmission, development costs and premium, interest during construction, fees and the initial debt service reserve, all nominal | *17_PROJECT_FINANCE* |
 | Gearing | Senior debt divided by total uses | *17_PROJECT_FINANCE* |
-| CFADS | Cash flow available for debt service: revenue less operating costs, taxes and maintenance capital spending | *20_CASH_FLOW* |
+| CFADS | Cash flow available for debt service: revenue less operating costs and taxes, and less any project-funded transmission spending during operation | *20_CASH_FLOW* |
 | DSCR | CFADS divided by scheduled debt service in a year; minimum and average over the loan life | *20_CASH_FLOW* |
-| LLCR | Present value of CFADS over the loan life divided by debt outstanding at commercial operation | *17_PROJECT_FINANCE* |
+| LLCR | Present value of CFADS over the life of the longest tranche, at the weighted interest rate, divided by debt outstanding at commercial operation | *17_PROJECT_FINANCE* |
 | Project IRR | Post-tax, nominal, on all capital | *17_PROJECT_FINANCE* |
 | Private equity IRR | Nominal, on private equity contributions and distributions | *17_PROJECT_FINANCE* |
 | Financing gap | Private equity required less private equity committed | *17_PROJECT_FINANCE* |
@@ -168,7 +168,7 @@ A short note for the ministry of finance, to accompany any request for support.
 
 ### How the model was tested
 
-MODEL 7 is built from a single specification. Every formula refers to named inputs and rows, a cycle detector confirms that the model has no circular references, and 14 integrity checks on *33_CHECKS* test sources against uses, the cash waterfall, debt balances, reserve balances and the treatment of project-built transmission. The checks confirm internal consistency, not the realism of the assumptions. Every number in this book was produced by recalculating the model and running the scenarios through the full engine.
+MODEL 7 is built from a single specification. Every formula refers to named inputs and rows, a dependency check on the workbook found no circular references, and 14 integrity checks on *33_CHECKS* test sources against uses, the cash waterfall, debt balances, reserve balances and the treatment of project-built transmission. The checks confirm internal consistency, not the realism of the assumptions. Every number in this book was produced by recalculating the model and running the scenarios through the full engine.
 
 ### The adversarial review
 
@@ -201,7 +201,7 @@ Table: Table K.1. Adversarial review findings and their status
 | H-07 | High | Gate metrics could be text or blank and mis-scored | Fixed: explicit fallbacks |
 | H-08 | High | Closed-form structure screen inconsistent with the full engine | Fixed: tax and IDC included; full-engine tariffs reported; identity stated as such |
 | H-09 | High | Contingent liabilities mixed stocks and flows | Fixed |
-| H-10 | High | Stress sizes inconsistent with the evidence base | Fixed: reference-class mean overrun and deeper drought added |
+| H-10 | High | Stress sizes inconsistent with the evidence base | Partly fixed: reference-class mean overrun and deeper drought added; no currency pass-through (see M-06) |
 | M-01 | Medium | LLCR covered only the commercial tranche | Fixed |
 | M-02 | Medium | No on-budget debt test in the fiscal gate | Fixed |
 | M-03 | Medium | Regulatory gate threshold inconsistent | Fixed |
@@ -228,6 +228,7 @@ This edition added the development module, the construction contracting module a
 - Debt and equity are drawn pro rata with spending, not equity first, which slightly flatters the equity return.
 - There is no developer promote or carried interest, and no shareholder loans.
 - There is no refinancing; the step-up in value after commercial operation is valued directly.
+- The currency step is permanent in real terms, with no pass-through to local prices.
 - The utility model has no balance sheet.
 - Stresses are deterministic. There is no Monte Carlo over hydrology and currency and no joint distribution of drought, currency and utility distress.
 - Stage probabilities, the development premium and the developer's discount rate are user judgements; no public data were found to calibrate them for African hydro.
@@ -254,12 +255,12 @@ This edition added the development module, the construction contracting module a
 | EPC | Engineering, procurement and construction contract |
 | ESIA | Environmental and social impact assessment |
 | Financial close | The point at which all conditions precedent are met and lenders are obliged to fund |
-| Gearing | Debt as a share of total funding |
+| Gearing | Senior debt as a share of total uses |
 | IDC | Interest during construction |
 | IPP | Independent power producer |
 | LLCR | Loan life coverage ratio |
 | Locked financing | Stress testing with the financing package held at its base-case terms |
-| P50, P90 | Generation exceeded with 50 and 90 percent probability |
+| P50, P90 | Central estimate of annual generation; generation exceeded with 90 percent probability, in one year (one-year P90) or on average over ten years (ten-year P90) |
 | PPA | Power purchase agreement |
 | PPP | Public-private partnership |
 | Reference class | A set of comparable past projects used to estimate overruns or delays |
