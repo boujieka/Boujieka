@@ -8,7 +8,15 @@ layouts exist, both read from `pdftotext -layout` output:
 * multi tranche ("émission simultanée", ~2023 → today): a header block with one column per
   security (ISIN, name, tenor, maturity…), global totals, then a results table whose columns
   are headed "OAT - 2 ans", "BAT - 364 jours"… Columns are matched to the ISIN columns in
-  order and cross-checked on instrument and tenor.
+  order and cross-checked on instrument and tenor. Variants handled: headings without dash or
+  misspelt ("BAT 182 jours", "BAT 107 jous"), fractional residual tenors ("OAT - 2,85 ans"),
+  buyback tables headed by the ISIN codes (matched by code), units printed in their own cell
+  ("182   jours"), header rows continued on the next line, and one buyback printed over
+  several pages (one operation for the sum checks).
+
+A PDF may hold several reports (issue + buyback). A report is a buyback when its heading says
+"rachat" or its auction numbers start with "RA-". Consistency checks are attached to the
+tranches they involve only, so one inconsistent tranche does not hold its siblings.
 
 Every extracted value is a `Field` with the raw text, a locator (page, line, label, column)
 and a deterministic confidence. Values are normalised only by unit conversion (French number
@@ -25,16 +33,23 @@ import re
 import unicodedata
 from dataclasses import asdict, dataclass, field, replace
 from datetime import date
-from decimal import Decimal, InvalidOperation
+from decimal import ROUND_HALF_UP, Decimal, InvalidOperation
 
 from app.models.enums import FieldStatus
 
-EXTRACTOR = "umoa_compte_rendu/1"
+EXTRACTOR = "umoa_compte_rendu/2"
 
 ISIN_RE = re.compile(r"\b[A-Z]{2}[A-Z0-9]{9}\d\b")
 DATE_RE = re.compile(r"(\d{2})/(\d{2})/(\d{4})")
 NUM_RE = re.compile(r"-?\d{1,3}(?: \d{3})+(?:,\d+)?|-?\d+(?:,\d+)?")
-TRANCHE_RE = re.compile(r"\b(BAT|OAT)\s*-\s*(\d+)\s*(jours|ans|mois|semaines)\b", re.IGNORECASE)
+# Results-table column heading: "OAT - 2 ans", "BAT - 364 jours"; early-2024 reports print it
+# without the dash ("BAT 182 jours") and sometimes misspelt ("BAT 107 jous"); reopened lines
+# show a fractional residual tenor ("OAT - 2,85 ans").
+TENOR_UNITS = r"(jours|jour|jous|ans|an|mois|semaines)"
+TRANCHE_RE = re.compile(r"\b(BAT|OAT)\s*-?\s*(\d+(?:,\d+)?)\s*" + TENOR_UNITS + r"\b", re.IGNORECASE)
+UNIT_NAMES = {"jour": "jours", "jous": "jours", "an": "ans"}
+# A cell holding only a unit, printed apart from its number ("182   jours", "1 000 000   FCFA").
+UNIT_ONLY_RE = re.compile(r"(?:jours?|jous|ans?|mois|semaines|f ?cfa)", re.IGNORECASE)
 TOKEN_RE = re.compile(r"\S+(?: \S+)*")  # runs of text separated by 2+ spaces
 NULL_TOKENS = {"", "-", "--", "nd", "n/a", "na"}
 MILLION = Decimal(1_000_000)
@@ -90,6 +105,11 @@ class Tranche:
     # Facts of the operation (report section) this tranche belongs to.
     operation: dict[str, Field] = field(default_factory=dict)
     operation_tranches: int = 1
+    # Consistency checks that involve this tranche (its own, and its operation's sum checks),
+    # so a failed check in one tranche or section does not hold its siblings.
+    checks: list[dict] = field(default_factory=list)
+    # Remarks on how a value was read (not errors): e.g. a blank cell in a tranche with no bids.
+    notes: list[str] = field(default_factory=list)
 
     def value(self, name: str) -> str | None:
         f = self.fields.get(name)
@@ -248,10 +268,27 @@ def tokens_after(line: Line, start: int) -> list[tuple[int, str]]:
     return out
 
 
+def merge_unit_cells(tokens: list[tuple[int, str]]) -> list[tuple[int, str]]:
+    """Join a unit printed in its own cell to the number before it: "182   jours" → "182 jours",
+    "1 000 000   FCFA" → "1 000 000 FCFA". Only a unit-only cell right after a bare number is
+    joined; anything else is left as printed."""
+    out: list[tuple[int, str]] = []
+    for pos, tok in tokens:
+        if out and UNIT_ONLY_RE.fullmatch(tok) and re.fullmatch(r"\d[\d ]*(?:,\d+)?", out[-1][1]):
+            out[-1] = (out[-1][0], f"{out[-1][1]} {tok}")
+        else:
+            out.append((pos, tok))
+    return out
+
+
 # One amount cell of the results table: "66 462,40 millions de F CFA[, dont ONC :0]". The
 # number is matched leftmost; a valid French-format amount never starts with "0" followed by
 # a digit, which separates cells printed with no space at all ("… ONC :05 484,13 millions").
-AMOUNT_CELL_RE = re.compile(r"(?:0|[1-9]\d{0,2}(?: \d{3})*|[1-9]\d*)(?:,\d+)?\s*millions[^,\d]*", re.IGNORECASE)
+# Some reports print a stray space around the decimal comma ("20 208, 7 millions",
+# "6 622 ,4millions"); the cell is kept as printed and read by `_amount_millions`.
+AMOUNT_CELL_RE = re.compile(
+    r"(?:0|[1-9]\d{0,2}(?: \d{3})*|[1-9]\d*)(?: ?, ?\d+)?\s*millions[^,\d]*", re.IGNORECASE)
+SPACED_DECIMAL_RE = re.compile(r"(\d) ?, ?(\d+\s*millions)", re.IGNORECASE)
 
 
 def amount_tokens(line: Line, start: int) -> list[tuple[int, str]]:
@@ -302,17 +339,36 @@ def single_value(line: Line, after: int) -> str:
     return toks[0][1] if toks else ""
 
 
+def single_amount(line: Line, after: int) -> str:
+    """An amount after its label, with its unit when the unit is printed in the next cell
+    ("9 050,000        millions de FCFA, dont en ONC : 0" → "9 050,000 millions de FCFA"): the
+    scale is part of the printed evidence."""
+    toks = tokens_after(line, after)
+    if not toks:
+        return ""
+    raw = toks[0][1]
+    if len(toks) > 1 and "millions" not in raw.lower() and re.fullmatch(r"\d[\d ]*(?:,\d+)?", raw):
+        unit = re.match(r"millions(?: de)?(?: f ?cfa)?", toks[1][1], re.IGNORECASE)
+        if unit:
+            raw = f"{raw} {unit.group()}"
+    return raw
+
+
 # --------------------------------------------------------------------------- field builders
 
 
 def _amount_millions(raw: str, loc: str, conf: float) -> tuple[Field | None, str | None]:
     if is_null(raw):
         return None, FieldStatus.NOT_DISCLOSED.value
-    n = parse_number(raw)
+    note = "published in millions of FCFA; converted to FCFA"
+    joined = SPACED_DECIMAL_RE.sub(r"\1,\2", raw, count=1)
+    if joined != raw:
+        note += "; printed with a space around the decimal comma, read as " + repr(
+            joined.split("millions")[0].strip())
+    n = parse_number(joined)
     if n is None:
         return None, FieldStatus.NOT_AVAILABLE.value
-    return Field(str((n * MILLION).normalize().quantize(Decimal(1))), raw, loc, conf, "XOF",
-                 "published in millions of FCFA; converted to FCFA"), None
+    return Field(str((n * MILLION).normalize().quantize(Decimal(1))), raw, loc, conf, "XOF", note), None
 
 
 def _percent(raw: str, loc: str, conf: float, allow_ratio: bool = False) -> tuple[Field | None, str | None]:
@@ -363,14 +419,19 @@ def _text(raw: str, loc: str, conf: float) -> tuple[Field | None, str | None]:
     return Field(raw.strip(), raw, loc, conf), None
 
 
+def tenor_text(number: str, unit: str) -> str:
+    """Normalised tenor: '182 jours', '3 ans'; a fractional residual tenor keeps its decimals
+    ('2,85 ans' → '2.85 ans')."""
+    return f"{number.replace(',', '.')} {UNIT_NAMES.get(unit.lower(), unit.lower())}"
+
+
 def _tenor(raw: str, loc: str, conf: float) -> tuple[Field | None, str | None]:
     if is_null(raw):
         return None, FieldStatus.NOT_DISCLOSED.value
-    m = re.search(r"(\d+)\s*(jours|ans|an|mois|semaines)", _fold(raw))
+    m = re.search(r"(\d+(?:,\d+)?)\s*" + TENOR_UNITS + r"\b", _fold(raw))
     if not m:
         return None, FieldStatus.NOT_AVAILABLE.value
-    unit = {"an": "ans"}.get(m.group(2), m.group(2))
-    return Field(f"{m.group(1)} {unit}", raw, loc, conf), None
+    return Field(tenor_text(m.group(1), m.group(2)), raw, loc, conf), None
 
 
 def _put(target_fields: dict, target_status: dict, errors: list, name: str,
@@ -438,7 +499,7 @@ def _operation_fields(lines: list[Line], doc: ParsedDocument, end: int) -> None:
         if hit:
             i, after = hit
             _put(op, status, errs, "total_amount_offered",
-                 _amount_millions(single_value(lines[i], after), lines[i].loc(label), 0.95))
+                 _amount_millions(single_amount(lines[i], after), lines[i].loc(label), 0.95))
             onc = re.search(r"dont (?:en )?onc\s*:\s*(.*?)\s*$", lines[i].folded)
             raw_onc = lines[i].text[onc.start(1):onc.end(1)] if onc else ""
             _put(op, status, errs, "total_onc_offered",
@@ -451,9 +512,11 @@ def _operation_fields(lines: list[Line], doc: ParsedDocument, end: int) -> None:
              _date(single_value(lines[i], after), lines[i].loc("Date d'adjudication"), 0.95))
     else:  # single layout: "Adjudication N° : … du : 02/09/2026"
         for i, ln in enumerate(lines[:end]):
-            m = re.search(r"\bdu\s*:\s*(\d{2}/\d{2}/\d{4})", ln.folded)
+            m = re.search(r"\b(du\s*:)\s*(\d{2}/\d{2}/\d{4})", ln.folded)
             if m and "adjudication" in ln.folded:
-                _put(op, status, errs, "auction_date", _date(m.group(1), ln.loc("Adjudication N° … du"), 0.95))
+                # The date's own label is the printed "du :" of the "Adjudication N°" line.
+                label = ln.text[m.start(1):m.end(1)]
+                _put(op, status, errs, "auction_date", _date(ln.text[m.start(2):m.end(2)], ln.loc(label), 0.95))
                 break
     hit = find_line(lines, "date de valeur", end=end)
     if hit:
@@ -466,7 +529,7 @@ def _operation_fields(lines: list[Line], doc: ParsedDocument, end: int) -> None:
         hit = find_line(lines, label, end=end)
         if hit and ":" in lines[hit[0]].text[hit[1]:hit[1] + 20]:
             i, after = hit
-            _put(op, status, errs, name, _amount_millions(single_value(lines[i], after), lines[i].loc(label), 0.95))
+            _put(op, status, errs, name, _amount_millions(single_amount(lines[i], after), lines[i].loc(label), 0.95))
 
     # "Taux de couverture …" spans 2–3 lines; the two percentages appear in reading order:
     # coverage by bids, then coverage by accepted bids.
@@ -484,7 +547,7 @@ def _operation_fields(lines: list[Line], doc: ParsedDocument, end: int) -> None:
     if hit:
         i, after = hit
         _put(op, status, errs, "absorption_rate",
-             _percent(single_value(lines[i], after), lines[i].loc("Taux d'absorption"), 0.95, allow_ratio=True))
+             _absorption(single_value(lines[i], after), lines[i].loc("Taux d'absorption"), 0.95))
     for ln in reversed(lines):
         d = parse_french_date(ln.text)
         if d:
@@ -500,6 +563,46 @@ def _instrument_from(text: str | None) -> str | None:
     return m.group(1) if m else None
 
 
+def find_results_head(lines: list[Line], isin_idx: int, isins: list[str]) -> tuple[int | None, list[tuple]]:
+    """The results-table header: the first line after the ISIN line made only of column
+    headings, either "OAT - 2 ans" / "BAT 182 jours" or (buyback reports) the ISIN codes of the
+    section. Returns (line index, [(column start, kind, label)]) where kind is "BAT"/"OAT" with
+    a normalised tenor label, or "ISIN" with the code."""
+    for j in range(isin_idx + 1, len(lines)):
+        text = lines[j].text
+        if TRANCHE_RE.search(text) and not TRANCHE_RE.sub("", text).strip():
+            return j, [(m.start(), m.group(1).upper(), tenor_text(m.group(2), m.group(3)))
+                       for m in TRANCHE_RE.finditer(text)]
+        codes = ISIN_RE.findall(text)
+        if codes and not ISIN_RE.sub("", text).strip() and set(codes) <= set(isins):
+            return j, [(m.start(), "ISIN", m.group()) for m in ISIN_RE.finditer(text)]
+    return None, []
+
+
+def _continuation(lines: list[Line], i: int, tokens: list[tuple[int, str]],
+                  starts: list[int]) -> list[tuple[int, str, Line]] | None:
+    """Header cells printed over two lines: the label line holds the first column(s) and the
+    next, unlabelled line the remaining ones ("Dénomination de l'émission : CI…-BAT-05-2024" /
+    "      CI…-OAT-06-2024   CI…-BAT-04-2024 …"). Returns the cells of both lines when together
+    they fill every column exactly once, each cell nearest to its own column; else None."""
+    n = len(starts)
+    if not tokens or len(tokens) >= n or i + 1 >= len(lines):
+        return None
+    nxt = lines[i + 1]
+    if nxt.page != lines[i].page or nxt.number != lines[i].number + 1:
+        return None
+    if nxt.text[:starts[0]].strip() or ":" in nxt.text:
+        return None  # a label, or text left of the value columns: not a continuation
+    more = merge_unit_cells(tokens_after(nxt, 0))
+    cells = [(p, t, lines[i]) for p, t in tokens] + [(p, t, nxt) for p, t in more]
+    if len(cells) != n:
+        return None
+    for c, (pos, _, _) in enumerate(cells):
+        if min(range(n), key=lambda k: abs(starts[k] - pos)) != c:
+            return None
+    return cells
+
+
 def _parse_multi(lines: list[Line], isin_idx: int, doc: ParsedDocument) -> None:
     isin_line = lines[isin_idx]
     after = isin_line.folded.find("code isin") + len("code isin")
@@ -510,10 +613,9 @@ def _parse_multi(lines: list[Line], isin_idx: int, doc: ParsedDocument) -> None:
     for i, (_, isin) in enumerate(cols):
         tranches[i].fields["isin"] = Field(isin, isin, isin_line.loc("Code ISIN", i, n), 0.95)
 
-    # Results table header ("OAT - 2 ans   BAT - 364 jours"), first after the ISIN line.
-    head_idx = next((j for j in range(isin_idx + 1, len(lines))
-                     if len(TRANCHE_RE.findall(lines[j].text)) >= 1
-                     and not TRANCHE_RE.sub("", lines[j].text).strip()), None)
+    # Results table header ("OAT - 2 ans   BAT - 364 jours", or the ISIN codes), first after
+    # the ISIN line.
+    head_idx, heads = find_results_head(lines, isin_idx, [c[1] for c in cols])
     table_end = find_line(lines, "lieu de soumission", start=isin_idx) or find_line(
         lines, "montant propose", start=isin_idx)
     end = table_end[0] if table_end else len(lines)
@@ -524,16 +626,33 @@ def _parse_multi(lines: list[Line], isin_idx: int, doc: ParsedDocument) -> None:
         if not hit:
             for t in tranches:
                 t.field_status.setdefault(name, FieldStatus.NOT_DISCLOSED.value)
+            if name == "coupon_rate":
+                _unlabelled_coupon(lines, isin_idx, head_idx or end, tranches)
             continue
         i, after_label = hit
-        assigned, conf, problem = assign_columns(tokens_after(lines[i], after_label), starts)
+        tokens = merge_unit_cells(tokens_after(lines[i], after_label))
+        build = builder or _face_value
+        cells = _continuation(lines, i, tokens, starts)
+        if cells:
+            doc.warnings.append(f"{name}: values printed over two lines; merged by column position")
+            for c, t in enumerate(tranches):
+                pos, raw, ln = cells[c]
+                _put(t.fields, t.field_status, t.errors, name,
+                     build(_header_raw(name, raw), ln.loc(label, c, n), 0.80))
+            continue
+        assigned, conf, problem = assign_columns(tokens, starts)
         if problem:
+            # The cells could not be told apart: none of them is reliable, and a printed value
+            # must never be reported as "not disclosed".
             doc.warnings.append(f"{name}: {problem}")
+            for c, t in enumerate(tranches):
+                t.field_status[name] = FieldStatus.NOT_AVAILABLE.value
+                t.errors.append(f"{name}: cells of {lines[i].loc(label)} could not be assigned to columns ({problem})")
+            continue
         for c, t in enumerate(tranches):
             raw = assigned.get(c, (0, ""))[1]
             loc = lines[i].loc(label, c, n)
-            build = builder or _face_value
-            _put(t.fields, t.field_status, t.errors, name, build(raw, loc, conf or 0.9))
+            _put(t.fields, t.field_status, t.errors, name, build(_header_raw(name, raw), loc, conf or 0.9))
     for t in tranches:
         instr = _instrument_from(t.value("security_name"))
         if instr:
@@ -547,29 +666,39 @@ def _parse_multi(lines: list[Line], isin_idx: int, doc: ParsedDocument) -> None:
         doc.tranches = tranches
         return
 
-    head = lines[head_idx]
-    heads = [(m.start(), m.group(1).upper(), f"{m.group(2)} {m.group(3).lower()}")
-             for m in TRANCHE_RE.finditer(head.text)]
-    # Map results columns to ISIN columns: in order when instrument and tenor agree.
+    # Map results columns to ISIN columns.
     order = list(range(len(heads)))
     mapping_conf = 1.0
-    expected = [(t.value("instrument"), t.value("tenor")) for t in tranches]
     got = [(h[1], h[2]) for h in heads]
-    if len(heads) != n or any(e[0] and e != g for e, g in zip(expected, got)):
-        perm = []
-        for e in expected:
-            matches = [k for k, g in enumerate(got) if g == e and k not in perm]
-            perm.append(matches[0] if len(matches) == 1 else -1)
-        if -1 not in perm and len(heads) == n:
-            order = perm
-            doc.warnings.append("results columns reordered to match instrument/tenor of ISIN columns")
-        else:
+    if heads and heads[0][1] == "ISIN":
+        # Columns headed by ISIN codes: matched by exact code.
+        codes = [h[2] for h in heads]
+        perm = [codes.index(t.value("isin")) if codes.count(t.value("isin")) == 1 else -1 for t in tranches]
+        if -1 in perm:
             mapping_conf = 0.6
-            doc.warnings.append(
-                f"results columns {got} do not match ISIN columns {expected}; mapped by position"
-            )
+            doc.warnings.append(f"results columns {codes} do not match ISIN columns; mapped by position")
             for t in tranches:
                 t.errors.append("column mapping between ISIN block and results table is doubtful")
+        else:
+            order = perm
+    else:
+        # In order when instrument and tenor agree.
+        expected = [(t.value("instrument"), t.value("tenor")) for t in tranches]
+        if len(heads) != n or any(e[0] and e != g for e, g in zip(expected, got)):
+            perm = []
+            for e in expected:
+                matches = [k for k, g in enumerate(got) if g == e and k not in perm]
+                perm.append(matches[0] if len(matches) == 1 else -1)
+            if -1 not in perm and len(heads) == n:
+                order = perm
+                doc.warnings.append("results columns reordered to match instrument/tenor of ISIN columns")
+            else:
+                mapping_conf = 0.6
+                doc.warnings.append(
+                    f"results columns {got} do not match ISIN columns {expected}; mapped by position"
+                )
+                for t in tranches:
+                    t.errors.append("column mapping between ISIN block and results table is doubtful")
     head_starts = [h[0] for h in heads]
 
     for label, name, builder in RESULT_LABELS:
@@ -590,6 +719,14 @@ def _parse_multi(lines: list[Line], isin_idx: int, doc: ParsedDocument) -> None:
             raw = assigned.get(k, (0, ""))[1]
             loc = lines[i].loc(label, k, len(heads))
             if not raw:
+                if name == "absorption_rate" and t.value("amount_submitted") == "0" \
+                        and t.value("amount_allocated") == "0":
+                    # A tranche that received no bid: the document prints 0 amounts and leaves
+                    # the absorption cell blank (absorption is undefined without bids).
+                    t.field_status[name] = FieldStatus.NOT_DISCLOSED.value
+                    t.notes.append(f"{name}: cell blank in the source at {loc}; the tranche received "
+                                   "no bids (amount submitted 0), so no absorption rate is published")
+                    continue
                 # Every results column carries a value ("-" when nothing applies): an empty
                 # cell means the row was not split correctly. Never treat it as "not disclosed".
                 t.field_status[name] = FieldStatus.NOT_AVAILABLE.value
@@ -600,10 +737,46 @@ def _parse_multi(lines: list[Line], isin_idx: int, doc: ParsedDocument) -> None:
     doc.tranches = tranches
 
 
+def _header_raw(name: str, raw: str) -> str:
+    """The face value is stored in FCFA as printed; a unit printed in its own cell ("FCFA") is
+    dropped from the raw number (the field's unit says XOF). Tenor keeps its unit."""
+    if name == "face_value":
+        return re.sub(r"\s+f ?cfa$", "", raw, flags=re.IGNORECASE)
+    return raw
+
+
+def _unlabelled_coupon(lines: list[Line], start: int, end: int, tranches: list[Tranche]) -> None:
+    """Some 2024 reports print the bond coupon on a line with no label (e.g. "5,70%" under the
+    face value, sometimes right above "Taux coupon couru"). It is not read automatically (which
+    field it belongs to is an inference), but the bond tranches must not claim the coupon is
+    undisclosed either: NOT_AVAILABLE with an error, for a person to confirm."""
+    stop = find_line(lines, "montant global des soumissions", start=start, end=end)
+    for ln in lines[start + 1:stop[0] if stop else end]:
+        if "%" in ln.text and not re.search(r"[a-z]", ln.folded):
+            for t in tranches:
+                if _instrument_from(t.value("security_name")) == "OAT":
+                    t.field_status["coupon_rate"] = FieldStatus.NOT_AVAILABLE.value
+                    t.errors.append(f"coupon_rate: a percentage is printed without a label at "
+                                    f"{ln.loc('(no label)')}; not read automatically")
+            return
+
+
+def _absorption(raw: str, loc: str, conf: float) -> tuple[Field | None, str | None]:
+    """Absorption rate (allotted / submitted): a percentage between 0 and 100. A reading outside
+    that range is not a value of this field (e.g. a stray digit glued to the cell)."""
+    f, status = _percent(raw, loc, conf, allow_ratio=True)
+    if f is not None and not (Decimal(0) <= Decimal(f.value) <= Decimal(100)):
+        return None, FieldStatus.NOT_AVAILABLE.value
+    return f, status
+
+
 def _put_result(t: Tranche, name: str, builder, raw: str, loc: str, conf: float) -> None:
     instr = t.value("instrument")
     if name == "absorption_rate":
-        _put(t.fields, t.field_status, t.errors, name, _percent(raw, loc, conf, allow_ratio=True))
+        f, status = _absorption(raw, loc, conf)
+        if f is None and status == FieldStatus.NOT_AVAILABLE.value and parse_number(raw) is not None:
+            t.errors.append(f"absorption_rate: '{raw}' at {loc} does not read as a percentage between 0 and 100")
+        _put(t.fields, t.field_status, t.errors, name, (f, status))
     elif name in ("marginal", "weighted_average"):
         # "Taux/Prix": a rate for bills (BAT), a price in % of nominal for bonds (OAT).
         if instr == "BAT":
@@ -629,8 +802,9 @@ def _parse_single(lines: list[Line], isin_idx: int, doc: ParsedDocument) -> None
             t.field_status.setdefault(name, FieldStatus.NOT_DISCLOSED.value)
             return
         i, after = hit
+        value = single_amount if builder is _amount_millions else single_value
         _put(t.fields, t.field_status, t.errors, name,
-             builder(single_value(lines[i], after), lines[i].loc(label), 0.95))
+             builder(value(lines[i], after), lines[i].loc(label), 0.95))
 
     labelled("denomination de l'emission", "security_name", _text)
     hit = find_line(lines, "adjudication n")
@@ -642,7 +816,10 @@ def _parse_single(lines: list[Line], isin_idx: int, doc: ParsedDocument) -> None
     hit = find_line(lines, "duree")
     if hit:
         i, after = hit
-        _put(t.fields, t.field_status, t.errors, "tenor", _tenor(lines[i].text[after:], lines[i].loc("Durée"), 0.95))
+        # The tenor cell, with its unit when printed in the next cell ("182      jours").
+        cells = merge_unit_cells(tokens_after(lines[i], after))
+        _put(t.fields, t.field_status, t.errors, "tenor",
+             _tenor(cells[0][1] if cells else "", lines[i].loc("Durée"), 0.95))
     labelled("date d'echeance", "maturity_date", _date)
     labelled("valeur nominale unitaire", "face_value", _face_value)
     labelled("taux d'interet fixe annonce", "coupon_rate", lambda r, l, c: _percent(r, l, c, allow_ratio=True))
@@ -676,7 +853,11 @@ def _parse_single(lines: list[Line], isin_idx: int, doc: ParsedDocument) -> None
 
 
 def _check(doc: ParsedDocument, name: str, ok: bool, detail: str, tranches: list[Tranche]) -> None:
-    doc.checks.append({"check": name, "ok": ok, "detail": detail, "data_nature": "CALCULATION"})
+    """Record a check on the document and on each tranche it involves (only those)."""
+    check = {"check": name, "ok": ok, "detail": detail, "data_nature": "CALCULATION"}
+    doc.checks.append(check)
+    for t in tranches:
+        t.checks.append(dict(check))
     if not ok:
         doc.warnings.append(f"check failed: {name} ({detail})")
         for t in tranches:
@@ -694,35 +875,41 @@ def _tolerance(*fields: Field | None) -> Decimal:
     return sum((Decimal(5_000) if exact(f) else Decimal(500_000) for f in fields), Decimal(0))
 
 
-def _run_checks(doc: ParsedDocument) -> None:
-    """Consistency checks (CALCULATION, for the reviewer). A failed check lowers confidence;
-    it never changes a value, since the document itself may be inconsistent."""
+def _run_checks(doc: ParsedDocument, operation: dict[str, Field], tranches: list[Tranche]) -> None:
+    """Consistency checks (CALCULATION, for the reviewer) of one operation: its published totals
+    against its tranches, and each tranche on its own. A failed check lowers confidence; it
+    never changes a value, since the document itself may be inconsistent."""
 
     def dec(v):
         return Decimal(v) if v is not None else None
 
-    if len(doc.tranches) > 1:
+    def op_value(name):
+        f = operation.get(name)
+        return f.value if f else None
+
+    if len(tranches) > 1:
         for total, part in (("total_amount_submitted", "amount_submitted"),
                             ("total_amount_allocated", "amount_allocated")):
-            tot = dec(doc.value(total))
-            parts = [dec(t.value(part)) for t in doc.tranches]
+            tot = dec(op_value(total))
+            parts = [dec(t.value(part)) for t in tranches]
             if tot is not None and None not in parts:
                 s = sum(parts, Decimal(0))
-                tol = _tolerance(doc.operation.get(total), *(t.fields.get(part) for t in doc.tranches))
+                tol = _tolerance(operation.get(total), *(t.fields.get(part) for t in tranches))
                 _check(doc, f"sum_{part}", abs(s - tot) <= tol,
-                       f"sum of tranches {s} vs published total {tot}", doc.tranches)
-    for t in doc.tranches:
+                       f"sum of tranches {s} vs published total {tot}", tranches)
+    for t in tranches:
         names = ("amount_submitted", "amount_allocated", "amount_rejected")
         sub, alloc, rej = (dec(t.value(f)) for f in names)
         if None not in (sub, alloc, rej):
             _check(doc, f"{t.tranche_key}: submitted = allocated + rejected",
                    abs(sub - alloc - rej) <= _tolerance(*(t.fields.get(f) for f in names)),
                    f"{sub} vs {alloc} + {rej}", [t])
-        isin, iso3 = t.value("isin"), doc.value("country_iso3")
+        country = (t.operation or operation).get("country_iso3")
+        isin, iso3 = t.value("isin"), country.value if country else None
         if isin and iso3:
             _check(doc, f"{t.tranche_key}: ISIN prefix matches issuer",
                    ISIN_PREFIX.get(isin[:2]) == iso3, f"{isin[:2]} vs {iso3}", [t])
-        ad, sd, md = doc.value("auction_date"), doc.value("settlement_date"), t.value("maturity_date")
+        ad, sd, md = t.value("auction_date"), t.value("settlement_date"), t.value("maturity_date")
         if ad and sd and md:
             # "<=": a buyback can settle on the maturity date of the security bought back.
             _check(doc, f"{t.tranche_key}: auction <= settlement <= maturity", ad <= sd <= md,
@@ -735,27 +922,63 @@ def _run_checks(doc: ParsedDocument) -> None:
 # --------------------------------------------------------------------------- entry point
 
 
+def _is_buyback(heading: Line | None, d: ParsedDocument) -> bool:
+    """A buyback ("rachat") report: by its heading, or by its auction numbers, which UMOA-Titres
+    prefixes "RA-" for buybacks ("ADJ-" for issues) — this also covers a misspelt heading
+    ("COMPTE RENDU DE RACAHT …") and single reports printed without a heading."""
+    if heading is not None and "rachat" in heading.folded:
+        return True
+    numbers = [t.value("auction_number") for t in d.tranches]
+    return bool(numbers) and all(n and n.upper().startswith("RA-") for n in numbers)
+
+
+def _continues(prev: ParsedDocument, d: ParsedDocument) -> bool:
+    """True when buyback section `d` is the next page of the operation reported by `prev`: one
+    operation of many securities printed over several pages, each repeating the operation
+    header (same auction date and amount offered) while only the first prints the totals."""
+    same = all(d.value(k) is not None and d.value(k) == prev.value(k)
+               for k in ("auction_date", "total_amount_offered"))
+    own_totals = any(d.value(k) is not None for k in ("total_amount_submitted", "total_amount_allocated"))
+    return same and not own_totals
+
+
 def parse_compte_rendu(text: str) -> ParsedDocument:
     """Parse a result report. A PDF may hold several reports (e.g. "EC": an issue report
     followed by a buyback report); each section starting with a "COMPTE RENDU …" heading is
-    parsed on its own and the tranches are combined, each keeping its section's facts."""
+    parsed on its own and the tranches are combined, each keeping its section's facts. A
+    buyback printed over several pages (one section per page) is one operation: its sum checks
+    run over all its pages. Checks are recorded on the tranches they involve."""
     lines = to_lines(text)
     heads = [i for i, ln in enumerate(lines) if "compte rendu d" in ln.folded]
     bounds = sorted({0, *heads, len(lines)})
-    sections = []
+    sections: list[tuple[str, ParsedDocument]] = []
+    groups: list[list[ParsedDocument]] = []  # sections forming one operation
     for a, b in zip(bounds, bounds[1:]):
         sec = lines[a:b]
         if not any("code isin" in ln.folded for ln in sec):
             continue
-        kind = "buyback" if a in heads and "rachat" in sec[0].folded else "issue"
         d = _parse_section(sec)
+        kind = "buyback" if _is_buyback(sec[0] if a in heads else None, d) else "issue"
+        if kind == "buyback" and a in heads and "rachat" not in sec[0].folded:
+            d.warnings.append(f"heading {sec[0].text.strip()!r} read as a buyback: auction numbers start with 'RA-'")
         for t in d.tranches:
-            t.kind, t.operation, t.operation_tranches = kind, d.operation, len(d.tranches)
+            t.kind, t.operation = kind, d.operation
+        if kind == "buyback" and sections and sections[-1][0] == "buyback" and _continues(groups[-1][0], d):
+            groups[-1].append(d)
+            d.warnings.append("continuation page of the previous buyback operation (same date and "
+                              "amount offered, no totals of its own); checked together with it")
+        else:
+            groups.append([d])
         sections.append((kind, d))
     if not sections:
         doc = ParsedDocument(layout="unknown")
         doc.warnings.append("no 'Code ISIN' line: not a recognised UMOA-Titres result report")
         return doc
+    for group in groups:
+        tranches = [t for d in group for t in d.tranches]
+        for t in tranches:
+            t.operation_tranches = len(tranches)
+        _run_checks(group[0], group[0].operation, tranches)
     main = sections[0][1]
     for kind, d in sections[1:]:
         main.layout = f"{main.layout}+{kind}:{d.layout}"
@@ -784,8 +1007,7 @@ def _parse_section(lines: list[Line]) -> ParsedDocument:
                else find_line(lines, "resultat global", start=isin_idx))
     end = end_hit[0] if end_hit else len(lines)
     if doc.layout == "multi_tranche":
-        head = next((j for j in range(isin_idx + 1, len(lines)) if TRANCHE_RE.search(lines[j].text)
-                     and not TRANCHE_RE.sub("", lines[j].text).strip()), None)
+        head, _ = find_results_head(lines, isin_idx, ISIN_RE.findall(lines[isin_idx].text))
         end = head if head is not None else end
     _operation_fields(lines, doc, end)
 
@@ -815,13 +1037,25 @@ def _parse_section(lines: list[Line]) -> ParsedDocument:
         else:
             t.field_status["amount_offered"] = FieldStatus.NOT_DISCLOSED.value
         if t.value("tenor"):
-            num, unit = t.value("tenor").split()
-            days = {"jours": int(num), "ans": int(num) * 365, "semaines": int(num) * 7}.get(unit)
-            if days:
-                src = t.fields["tenor"]
-                t.fields["tenor_days"] = Field(
-                    str(days), src.raw, src.locator, src.confidence, "days",
-                    None if unit == "jours" else f"stated as '{num} {unit}'; stored as days "
-                    "with the platform's 365-day-year bucket convention")
-    _run_checks(doc)
+            _tenor_days(t)
     return doc
+
+
+def _tenor_days(t: Tranche) -> None:
+    src = t.fields["tenor"]
+    num, unit = src.value.split()
+    n = Decimal(num)
+    factor = {"jours": 1, "ans": 365, "semaines": 7}.get(unit)
+    if factor is None:
+        return
+    exact = n * factor
+    days = int(exact.quantize(Decimal(1), rounding=ROUND_HALF_UP))
+    if unit == "jours" and exact == days:
+        note = None
+    elif n == n.to_integral_value():
+        note = f"stated as '{num} {unit}'; stored as days with the platform's 365-day-year bucket convention"
+    else:
+        # A reopened line printed with its residual tenor ("2,85 ans").
+        note = (f"stated as a fractional tenor '{src.raw.strip()}'; converted to days as "
+                f"round({num} x {factor}) = {days} (365-day year); not a whole number of {unit}")
+    t.fields["tenor_days"] = Field(str(days), src.raw, src.locator, src.confidence, "days", note)

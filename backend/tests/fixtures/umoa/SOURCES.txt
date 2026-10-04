@@ -52,3 +52,69 @@ emissions_listing_excerpt.html
 operation_page_NE_01-10-2026_documents.html
   Verbatim "Téléchargez les documents" block of
   https://www.umoatitres.org/fr/emission/emission-simultanee-dobligations-du-tresor-du-niger-du-01-10-2026/
+
+Layout variants added for the parser fixes of the held-rows diagnosis (full `pdftotext -layout
+-enc UTF-8` output of each PDF, form feeds kept; sha256 checked against the stored copy):
+
+Compte-Rendu-ML-RA-OAT-26-jours-02.09.2026.txt
+  https://www.umoatitres.org/wp-content/uploads/2026/09/Compte-Rendu-ML-RA-OAT-26-jours-02.09.2026.pdf
+  sha256 of PDF 9bc1d1cb8d6ecb9ac3eae1d3474c8a9a0ca476d69246b53bc3339b6fa0a66188
+  Mali, single-security buyback with no heading ("RA-" auction number); amounts printed with
+  "millions de FCFA" in a separate cell; auction date on the "Adjudication N° … du :" line
+
+Compte-Rendu-CI-ES-28.05.2024.txt
+  https://www.umoatitres.org/wp-content/uploads/2024/05/Compte-Rendu-CI-ES-28.05.2024.pdf
+  sha256 of PDF 4e62e0e8b2e06c426e70fcc8647e9db5702944e489244f5f7c839dc8ac6128f9
+  Côte d'Ivoire, 2 BAT + 1 OAT; early-2024 template: results header without dash
+  ("BAT 182 jours"), units in their own cells ("182   jours", "1 000 000   FCFA"), OAT coupon
+  printed on a line with no label ("5,70%")
+
+Compte-Rendu-GW-ES-12.03.2024.txt
+  https://www.umoatitres.org/wp-content/uploads/2024/03/Compte-Rendu-GW-ES-12.03.2024.pdf
+  sha256 of PDF e742867d54e05b99b5f0cc2d844fa5faa5a0e07ff69bef4bdcab253e24657615
+  Guinea-Bissau, 2 BAT; results header misspelt in the document ("BAT 107 jous")
+
+Compte-Rendu-CI-RS-17.09.2024.txt
+  https://www.umoatitres.org/wp-content/uploads/2024/09/Compte-Rendu-CI-RS-17.09.2024.pdf
+  sha256 of PDF 764f2c13ccdb52fcf4acf4da3171042ed6a4d27f0a90fdbbfdd48d3cac3647ec
+  Côte d'Ivoire, buyback of 7 BAT; results table headed by ISIN codes; absorption of column 1
+  printed as a bare "1"
+
+Compte-Rendu-TG-EC15.03.2024.txt
+  https://www.umoatitres.org/wp-content/uploads/2024/03/Compte-Rendu-TG-EC15.03.2024.pdf
+  sha256 of PDF 9147b176112a4dd3e1467f04b9b2fc98dc22284f986ffbc3935339288adf514f
+  Togo, issue of 3 BAT + 1 reopened OAT with fractional residual tenor ("OAT - 2,85 ans")
+
+Compte-Rendu-CI-ES-29.02.2024.txt
+  https://www.umoatitres.org/wp-content/uploads/2024/02/Compte-Rendu-CI-ES-29.02.2024.pdf
+  sha256 of PDF 7a5227ab1c862ab84fc6289963944e6e27b565cef1a7a4dcfad989ccffc36d26
+  Côte d'Ivoire, issue with "1,94 ans" tenor, then a buyback of 8 securities whose header
+  cells run over two lines (column 1 on the label line, columns 2-8 on the next line)
+
+Compte-Rendu-CI-ES-04.03.2025.txt
+  https://www.umoatitres.org/wp-content/uploads/2025/02/Compte-Rendu-CI-ES-04.03.2025.pdf
+  sha256 of PDF e2003cb37d4a36dbc5b296bff15835517a6907932da9690dc09b81c0fefa3c92
+  Côte d'Ivoire, 3 BAT + 3 OAT; two OAT tranches received no bids: 0 amounts and a blank
+  "Taux d'absorption" cell
+
+Compte-Rendu-CI-EC-05.02.2026.txt
+  https://www.umoatitres.org/wp-content/uploads/2026/02/Compte-Rendu-CI-EC-05.02.2026.pdf
+  sha256 of PDF 5639cc3987ff421f85af51b6e432a6377419a1b5e6dfe18e0fddd85a65858038
+  Côte d'Ivoire, issue of 3 OAT, then one buyback of 12 securities printed over three pages
+  (each page repeats the operation header; only the first prints the totals, 114 033 M)
+
+Compte-rendu-CI-EC-11.07.2025-1.txt
+  https://www.umoatitres.org/wp-content/uploads/2025/07/Compte-rendu-CI-EC-11.07.2025-1.pdf
+  sha256 of PDF 42e5046e3c907edd31e2a4a84601ca9da2f3e3f77abadad561f5a646de19e63d
+  Côte d'Ivoire; amount printed with a space after the decimal comma ("20 208, 7 millions")
+
+Compte-Rendu-ML-ES-30.04.2025-1.txt
+  https://www.umoatitres.org/wp-content/uploads/2025/04/Compte-Rendu-ML-ES-30.04.2025-1.pdf
+  sha256 of PDF febff874aba331f88406ee1e4e537436c65ed8f3533f5053448cfc6b039f5f59
+  Mali; amount printed with a space before the decimal comma ("6 622 ,4millions")
+
+Compte-Rendu-CI-EC-17.12.2024.txt
+  https://www.umoatitres.org/wp-content/uploads/2024/12/Compte-Rendu-CI-EC-17.12.2024.pdf
+  sha256 of PDF 19c7f99caecb6ca5c1b3a825dd621f28c67f59e0e33d78f569fbdcc5c0a1b26d
+  Côte d'Ivoire, single BAT issue, then a buyback whose heading is misspelt in the document
+  ("COMPTE RENDU DE RACAHT"; auction number "RA-CI0000008355-BAT1M-2024")
