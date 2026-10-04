@@ -1,0 +1,75 @@
+{
+ "decided_by": "Propriétaire (Boujieka), message du 2026-10-04: '932 : accepter l'annonce, 2022 : enregistrer à zéro'",
+ "entries": [
+  {
+   "extraction_id": 932,
+   "isin": "SN0000003971",
+   "auction_date": "2025-07-03",
+   "decision": "5a amendée: l'annonce officielle des résultats remplace l'avis d'appel d'offres (propriétaire, 2026-10-04)",
+   "summary": "issuer not printed in the report; confirmed by the official results announcement",
+   "set": {},
+   "column": {
+    "country_iso3": {
+     "value": "SEN",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2025/07/Annonce-au-MTP-SN-03.07.2025.pdf",
+      "sha256": "2fc8a07e6fa8c38695ec62189d951e7aa119e2427eee70a7611d5fad3e67dfd2",
+      "line": "a organisé le jeudi 03 juillet 2025, à la demande de la Direction Générale de la Comptabilité Publique et du Trésor du Sénégal, l'émission ... à trois cent soixante-quatre (364) jours, pour un montant de 14 milliards de FCFA."
+     }
+    }
+   }
+  },
+  {
+   "extraction_id": 2022,
+   "isin": "GW0000000954",
+   "auction_date": "2024-04-11",
+   "decision": "2022: enregistrer à zéro (propriétaire, 2026-10-04)",
+   "summary": "zero-bid auction: report prints rejected 0 and the regional table 0,000 proposed / 0,000 retained",
+   "set": {
+    "amount_submitted": {
+     "value": "0",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/04/Compet-Rendu-GW-ES-11.04.2024.pdf",
+      "sha256": "fd82145757f5ed10dd6ac435d02e5990bb16afedc9ed012f6cc3f39da1cb96b5",
+      "line": "BAT 91 jours BAT 182 jours BAT 364 jours OAT 3 ans ... Soumissions rejetées 0 millions de FCFA, dont ONC :0 ... GUINEE-BISSAU 0,000 1 500,000 1 500,000 0,000 0,000"
+     }
+    },
+    "amount_allocated": {
+     "value": "0",
+     "evidence": {
+      "url": "https://www.umoatitres.org/wp-content/uploads/2024/04/Compet-Rendu-GW-ES-11.04.2024.pdf",
+      "sha256": "fd82145757f5ed10dd6ac435d02e5990bb16afedc9ed012f6cc3f39da1cb96b5",
+      "line": "BAT 91 jours BAT 182 jours BAT 364 jours OAT 3 ans ... Soumissions rejetées 0 millions de FCFA, dont ONC :0 ... GUINEE-BISSAU 0,000 1 500,000 1 500,000 0,000 0,000"
+     }
+    }
+   },
+   "column": {},
+   "clear": {
+    "marginal_rate": {
+     "status": "not_disclosed",
+     "reason": "aucune soumission pour ce titre (adjudication sans soumission): non applicable (décision du propriétaire 2026-10-04)"
+    },
+    "weighted_average_rate": {
+     "status": "not_disclosed",
+     "reason": "aucune soumission pour ce titre (adjudication sans soumission): non applicable (décision du propriétaire 2026-10-04)"
+    },
+    "weighted_average_yield": {
+     "status": "not_disclosed",
+     "reason": "aucune soumission pour ce titre (adjudication sans soumission): non applicable (décision du propriétaire 2026-10-04)"
+    },
+    "number_of_participants": {
+     "status": "not_disclosed",
+     "reason": "aucune soumission pour ce titre (adjudication sans soumission): non applicable (décision du propriétaire 2026-10-04)"
+    },
+    "number_of_bids": {
+     "status": "not_disclosed",
+     "reason": "aucune soumission pour ce titre (adjudication sans soumission): non applicable (décision du propriétaire 2026-10-04)"
+    },
+    "absorption_rate": {
+     "status": "not_disclosed",
+     "reason": "aucune soumission pour ce titre (adjudication sans soumission): non applicable (décision du propriétaire 2026-10-04)"
+    }
+   }
+  }
+ ]
+}
