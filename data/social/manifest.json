@@ -1,0 +1,177 @@
+{
+  "theme": "social",
+  "description": "Infrastructures sociales du Cameroun : santé (3 sources), éducation, mairies, marchés.",
+  "date_collecte": "2026-10-04",
+  "scripts": [
+    "scripts/00_telecharger.sh",
+    "scripts/commun.py",
+    "scripts/01_osm_extraire.py",
+    "scripts/02_couches.py",
+    "scripts/03_rapprochement_sante.py",
+    "scripts/04_synthese.py",
+    "scripts/05_manifest.py"
+  ],
+  "avertissement_completude": "Aucune de ces couches n'est exhaustive. OpenStreetMap dépend de contributions bénévoles : de nombreux arrondissements n'ont aucun établissement de santé (176/360) ou aucune école (120/360) dans OSM. La base Maina 2019 ne couvre que le secteur public et date de 2019. Ces données sont des assertions importées (statut IMPORTE), à confronter aux listes officielles (MINSANTE, MINEDUB, MINESEC, MINESUP, MINDDEVEL) avant tout usage décisionnel.",
+  "fichiers": [
+    {
+      "fichier": "sante/etablissements_sante_osm.geojson",
+      "source_code": "OSM_OSMFR_2026-10-03",
+      "producteur": "Contributeurs OpenStreetMap, extrait Cameroun du miroir openstreetmap.fr",
+      "url": "https://download.openstreetmap.fr/extracts/africa/cameroon.osm.pbf",
+      "licence": "ODbL 1.0",
+      "attribution": "© les contributeurs d'OpenStreetMap (openstreetmap.org/copyright)",
+      "date_telechargement": "2026-10-04",
+      "date_situation": "2026-10-03",
+      "sha256_source": "e882d863daf58cf091a6492bd16c9f5e1fb5c036787e8e72add0cc54582d4f7f",
+      "sha256_fichier": "74880e8aeb82c4aed848d6d1957054739c77db780d8934d319dd3f47bff44e55",
+      "nb_entites": 2106,
+      "methode": "scripts/01_osm_extraire.py puis 02_couches.py. Objets OSM (noeuds, ways fermés, multipolygones) avec amenity in {hospital, clinic, doctors, pharmacy, dentist} ou healthcare=* (hors objets école/mairie/marché). Classement (champ classement_regle) : HOPITAL si amenity|healthcare=hospital ; PHARMACIE si pharmacy ; LABORATOIRE si healthcare=laboratory ; CENTRE si healthcare=centre ; clinic/doctors dont le nom contient centre de santé, CSI, CMA, centre médical, dispensaire, health centre... -> CENTRE (règle tag+nom) ; autre clinic -> CLINIQUE ; doctors, dentist et valeurs non reconnues -> tg_type null (valeurs brutes amenity/healthcare conservées). Filtre d'emprise : bbox lon 8,4-16,2 / lat 1,6-13,1 ET intersection stricte avec l'union des 360 polygones geoBoundaries CMR ADM3 (l'extrait OSM déborde sur les pays voisins). Champs exclus : user, uid, phone, contact:*, email, addr:*, operator, website.",
+      "limites": "OSM n'est PAS exhaustif : couverture très inégale (forte en ville et dans les zones de projets de cartographie humanitaire, faible en zone rurale). Les absences ne signifient pas l'absence d'établissement. Surfaces converties en centroïdes. Les tags sont saisis par des bénévoles : erreurs de classification possibles. Noms tels que saisis (fautes, casse, mojibake éventuels conservés). Les noms d'établissements privés peuvent contenir un nom de personne (ex. « Clinique Dr ... ») : ce sont des raisons sociales publiques affichées, conservées telles quelles ; aucun autre attribut personnel n'est exporté. La distinction CENTRE/CLINIQUE repose en partie sur le nom (règle tag+nom). Quelques objets sont des districts de santé (unités administratives) étiquetés comme établissements.",
+      "controle": "Emprise : {\"entites_avant_filtre\": 2316, \"hors_bbox\": 0, \"filtre_limites\": \"strict\", \"hors_limites_cameroun\": 210, \"conservees\": 2106, \"bbox_resultat\": [8.8731, 2.0497, 16.0672, 12.3896]}. Comptes par tg_type : {\"SOC.SANTE.CENTRE\": 520, \"SOC.SANTE.HOPITAL\": 473, \"SOC.SANTE.PHARMACIE\": 445, \"SOC.SANTE.CLINIQUE\": 430, \"null\": 222, \"SOC.SANTE.LABORATOIRE\": 16}. Doublons internes suspects (distance < 100 m et similarité de nom (token_sort_ratio) >= 90, ou coordonnées identiques) : 43 paires, 83 entités signalées dans le champ doublon_interne_suspect (rien n'est supprimé)."
+    },
+    {
+      "fichier": "sante/etablissements_sante_healthsites.geojson",
+      "source_code": "HEALTHSITES_HDX_2026-09-29",
+      "producteur": "healthsites.io (Global Healthsites Mapping Project), données issues d'OpenStreetMap, publiées sur HDX par Open Healthsite Consulting",
+      "url": "https://data.humdata.org/dataset/cameroon-healthsites (ressource cameroon.geojson)",
+      "licence": "ODbL 1.0",
+      "attribution": "healthsites.io ; © les contributeurs d'OpenStreetMap",
+      "date_telechargement": "2026-10-04",
+      "date_situation": "2026-09-15",
+      "sha256_source": "04e43f25629ecea0e4dffab4c6cdc05ea8482427658b3c190eb555d1231f18d9",
+      "sha256_fichier": "957f01ac4656c9c33dad5a5d24786c51b026dbb17c7d4e03d44697c649a5252e",
+      "nb_entites": 1990,
+      "methode": "scripts/02_couches.py. Export HDX lu tel quel ; polygones convertis en centroïdes ; source_id = osm_type/osm_id ; mêmes règles de classement que la couche OSM. Champs changeset_* non exportés (rattachables à un contributeur). Filtre d'emprise : bbox + limites ADM3 avec tolérance ~1 km (source déclarée Cameroun).",
+      "limites": "healthsites.io est DÉRIVÉ d'OSM : ce n'est pas une source indépendante. Mêmes limites que la couche OSM ; décalage temporel (situation 2026-09-15 contre 2026-10-03 pour l'extrait OSM). Période HDX déclarée 2010-10-28 à 2026-09-15.",
+      "controle": "Emprise : {\"entites_avant_filtre\": 1990, \"hors_bbox\": 0, \"filtre_limites\": \"tol_1km\", \"hors_limites_cameroun\": 0, \"conservees\": 1990, \"bbox_resultat\": [8.8731, 2.0497, 16.0672, 12.3896]}. Comptes par tg_type : {\"SOC.SANTE.CENTRE\": 483, \"SOC.SANTE.HOPITAL\": 462, \"SOC.SANTE.PHARMACIE\": 438, \"SOC.SANTE.CLINIQUE\": 430, \"null\": 161, \"SOC.SANTE.LABORATOIRE\": 16}. Doublons internes suspects (distance < 100 m et similarité de nom (token_sort_ratio) >= 90, ou coordonnées identiques) : 37 paires, 71 entités signalées dans le champ doublon_interne_suspect (rien n'est supprimé)."
+    },
+    {
+      "fichier": "sante/etablissements_sante_publics_maina2019.geojson",
+      "source_code": "MAINA2019_FIGSHARE_7725374",
+      "producteur": "Maina J., Ouma P.O., Macharia P.M., Alegana V.A., Mitto B., Snow R.W. et al. (KEMRI-Wellcome Trust Research Programme), 2019. « A spatial database of health facilities managed by the public health sector in sub Saharan Africa », Scientific Data 6:134, doi:10.1038/s41597-019-0142-2",
+      "url": "https://doi.org/10.6084/m9.figshare.7725374.v1 (fichier https://ndownloader.figshare.com/files/14379593, « 00 SSA MFL (130219).xlsx », md5 3bf56fc31081c8fd798789a3d70564b8 vérifié)",
+      "licence": "CC0 1.0 (licence déclarée sur figshare ; l'article est sous CC BY 4.0)",
+      "attribution": "Maina et al. 2019, Scientific Data ; figshare doi:10.6084/m9.figshare.7725374.v1",
+      "date_telechargement": "2026-10-04",
+      "date_situation": "2019",
+      "sha256_source": "6ab31b0d2601e0cd53e6360c5f6f9b415b2f6e2895b7a687b35f2ddedc3950b1",
+      "sha256_fichier": "047fa7749192866077ce425e6aa8d497f3a63b8af3ab093a1d329e411b7a7cc3",
+      "nb_entites": 3019,
+      "methode": "scripts/02_couches.py. Feuille « SSA MFL », lignes Country = Cameroon (3061 lignes, dont 42 sans coordonnées exclues). source_id = numéro de ligne Excel (la source n'a pas d'identifiant). Classement depuis « Facility type » : Centre de Santé Intégré, Health Centre, Centre Médical d'Arrondissement, Dispensaire -> CENTRE ; Hôpital de District/Régional/Général/Centraux -> HOPITAL ; Clinic -> CLINIQUE. Valeur brute dans type_source. Filtre d'emprise : bbox + limites ADM3 avec tolérance ~1 km.",
+      "limites": "Données de 2019 (situation antérieure, date exacte non publiée ; fichier daté 13/02/2019). Secteur PUBLIC uniquement (gestionnaire « MoH » ; inclut des structures confessionnelles intégrées au système public). Coordonnées arrondies à 4 décimales par les auteurs et souvent géocodées au niveau du village (source_coordonnees : {\"Digitized from online map\": 2089, \"Geonames\": 350, \"Combination\": 283, \"Other\": 160, \"Google Earth\": 97, \"Encarta\": 37, \"Fallingrain\": 3}) : écart médian ~0,9 km constaté avec les objets OSM de même nom. Doublons de noms possibles (même établissement à deux positions).",
+      "controle": "Emprise : {\"entites_avant_filtre\": 3019, \"hors_bbox\": 0, \"filtre_limites\": \"tol_1km\", \"hors_limites_cameroun\": 0, \"conservees\": 3019, \"bbox_resultat\": [8.5404, 1.7109, 16.1167, 12.8951]}. Comptes par tg_type : {\"SOC.SANTE.CENTRE\": 2833, \"SOC.SANTE.HOPITAL\": 183, \"SOC.SANTE.CLINIQUE\": 3}. Doublons internes suspects (distance < 100 m et similarité de nom (token_sort_ratio) >= 90, ou coordonnées identiques) : 1 paires, 2 entités signalées dans le champ doublon_interne_suspect (rien n'est supprimé)."
+    },
+    {
+      "fichier": "education/etablissements_education_osm.geojson",
+      "source_code": "OSM_OSMFR_2026-10-03",
+      "producteur": "Contributeurs OpenStreetMap, extrait Cameroun du miroir openstreetmap.fr",
+      "url": "https://download.openstreetmap.fr/extracts/africa/cameroon.osm.pbf",
+      "licence": "ODbL 1.0",
+      "attribution": "© les contributeurs d'OpenStreetMap (openstreetmap.org/copyright)",
+      "date_telechargement": "2026-10-04",
+      "date_situation": "2026-10-03",
+      "sha256_source": "e882d863daf58cf091a6492bd16c9f5e1fb5c036787e8e72add0cc54582d4f7f",
+      "sha256_fichier": "64cc9d7fe4d4f498f085f81bc6df404d4c8079a10e79c41dffd3d0dd447dbf75",
+      "nb_entites": 5011,
+      "methode": "scripts/01_osm_extraire.py puis 02_couches.py. amenity in {school, college, university, kindergarten}. Classement (champ classement_regle) : kindergarten -> MATERNELLE ; university -> SUPERIEUR ; sinon isced:level (0 MATERNELLE, 1 PRIMAIRE, 2 SECONDAIRE_1, 3 SECONDAIRE_2, 5-8 SUPERIEUR) ; sinon nom : université/faculté/institut supérieur/ENS -> SUPERIEUR ; maternelle/nursery -> MATERNELLE (PRIMAIRE si le nom mentionne aussi le primaire, règle tag+nom;multi_niveaux) ; lycée/collège technique, CETIC, CETI, SAR, GTHS -> TECHNIQUE ; lycée/high school/GBHS/GHS -> SECONDAIRE_2 ; collège/CES/CEG/secondary school/GSS -> SECONDAIRE_1 ; amenity=school + école primaire/école publique/EP/EPP/GS/primary school -> PRIMAIRE ; sinon tg_type null (valeur brute amenity conservée). Filtre d'emprise : bbox lon 8,4-16,2 / lat 1,6-13,1 ET intersection stricte avec l'union des 360 polygones geoBoundaries CMR ADM3 (l'extrait OSM déborde sur les pays voisins). Champs exclus : user, uid, phone, contact:*, email, addr:*, operator, website.",
+      "limites": "OSM n'est PAS exhaustif : couverture très inégale (forte en ville et dans les zones de projets de cartographie humanitaire, faible en zone rurale). Les absences ne signifient pas l'absence d'établissement. Surfaces converties en centroïdes. Les tags sont saisis par des bénévoles : erreurs de classification possibles. Noms tels que saisis (fautes, casse, mojibake éventuels conservés). Les noms d'établissements privés peuvent contenir un nom de personne (ex. « Clinique Dr ... ») : ce sont des raisons sociales publiques affichées, conservées telles quelles ; aucun autre attribut personnel n'est exporté. Seulement 5011 objets : forte sous-représentation probable, surtout du primaire rural (aucun chiffre officiel n'a été téléchargé pour comparaison). 44 % des objets non classés (tg_type null). Un lycée camerounais couvre souvent les deux cycles du secondaire : SECONDAIRE_2 = « lycée » au sens du nom. Les « collèges » privés peuvent aussi couvrir les deux cycles. Certains objets university/college sont des bâtiments ou facultés d'un même campus (pas des établissements distincts). Classement par le nom = inférence, à valider.",
+      "controle": "Emprise : {\"entites_avant_filtre\": 5153, \"hors_bbox\": 0, \"filtre_limites\": \"strict\", \"hors_limites_cameroun\": 142, \"conservees\": 5011, \"bbox_resultat\": [8.9826, 2.0749, 16.0716, 12.4031]}. Comptes par tg_type : {\"null\": 2190, \"SOC.EDU.PRIMAIRE\": 980, \"SOC.EDU.MATERNELLE\": 796, \"SOC.EDU.SECONDAIRE_1\": 394, \"SOC.EDU.SECONDAIRE_2\": 301, \"SOC.EDU.SUPERIEUR\": 192, \"SOC.EDU.TECHNIQUE\": 158}. Doublons internes suspects (distance < 100 m et similarité de nom (token_sort_ratio) >= 90, ou coordonnées identiques) : 167 paires, 244 entités signalées dans le champ doublon_interne_suspect (rien n'est supprimé)."
+    },
+    {
+      "fichier": "services/mairies_osm.geojson",
+      "source_code": "OSM_OSMFR_2026-10-03",
+      "producteur": "Contributeurs OpenStreetMap, extrait Cameroun du miroir openstreetmap.fr",
+      "url": "https://download.openstreetmap.fr/extracts/africa/cameroon.osm.pbf",
+      "licence": "ODbL 1.0",
+      "attribution": "© les contributeurs d'OpenStreetMap (openstreetmap.org/copyright)",
+      "date_telechargement": "2026-10-04",
+      "date_situation": "2026-10-03",
+      "sha256_source": "e882d863daf58cf091a6492bd16c9f5e1fb5c036787e8e72add0cc54582d4f7f",
+      "sha256_fichier": "88cc0f154fbcef3ae839ce22ceb3508fcaf7a05487338a0dc3546f15034ec2fd",
+      "nb_entites": 290,
+      "methode": "scripts/01_osm_extraire.py puis 02_couches.py. amenity=townhall -> SOC.ADMIN.MAIRIE. Filtre d'emprise : bbox lon 8,4-16,2 / lat 1,6-13,1 ET intersection stricte avec l'union des 360 polygones geoBoundaries CMR ADM3 (l'extrait OSM déborde sur les pays voisins). Champs exclus : user, uid, phone, contact:*, email, addr:*, operator, website.",
+      "limites": "OSM n'est PAS exhaustif : couverture très inégale (forte en ville et dans les zones de projets de cartographie humanitaire, faible en zone rurale). Les absences ne signifient pas l'absence d'établissement. Surfaces converties en centroïdes. Les tags sont saisis par des bénévoles : erreurs de classification possibles. Noms tels que saisis (fautes, casse, mojibake éventuels conservés). Les noms d'établissements privés peuvent contenir un nom de personne (ex. « Clinique Dr ... ») : ce sont des raisons sociales publiques affichées, conservées telles quelles ; aucun autre attribut personnel n'est exporté. 229 arrondissements sur 360 n'ont aucun objet townhall dans OSM. amenity=townhall peut aussi désigner une salle communautaire ou une annexe.",
+      "controle": "Emprise : {\"entites_avant_filtre\": 294, \"hors_bbox\": 0, \"filtre_limites\": \"strict\", \"hors_limites_cameroun\": 4, \"conservees\": 290, \"bbox_resultat\": [8.9817, 2.3757, 15.3514, 12.0857]}. Comptes par tg_type : {\"SOC.ADMIN.MAIRIE\": 290}. Doublons internes suspects (distance < 100 m et similarité de nom (token_sort_ratio) >= 90, ou coordonnées identiques) : 7 paires, 6 entités signalées dans le champ doublon_interne_suspect (rien n'est supprimé)."
+    },
+    {
+      "fichier": "services/marches_osm.geojson",
+      "source_code": "OSM_OSMFR_2026-10-03",
+      "producteur": "Contributeurs OpenStreetMap, extrait Cameroun du miroir openstreetmap.fr",
+      "url": "https://download.openstreetmap.fr/extracts/africa/cameroon.osm.pbf",
+      "licence": "ODbL 1.0",
+      "attribution": "© les contributeurs d'OpenStreetMap (openstreetmap.org/copyright)",
+      "date_telechargement": "2026-10-04",
+      "date_situation": "2026-10-03",
+      "sha256_source": "e882d863daf58cf091a6492bd16c9f5e1fb5c036787e8e72add0cc54582d4f7f",
+      "sha256_fichier": "feaad708857cce9be93f23432a673b1920b7f6c390f4b864f1dbfe5595c8bf9a",
+      "nb_entites": 378,
+      "methode": "scripts/01_osm_extraire.py puis 02_couches.py. amenity=marketplace -> ECO.MARCHE. Filtre d'emprise : bbox lon 8,4-16,2 / lat 1,6-13,1 ET intersection stricte avec l'union des 360 polygones geoBoundaries CMR ADM3 (l'extrait OSM déborde sur les pays voisins). Champs exclus : user, uid, phone, contact:*, email, addr:*, operator, website.",
+      "limites": "OSM n'est PAS exhaustif : couverture très inégale (forte en ville et dans les zones de projets de cartographie humanitaire, faible en zone rurale). Les absences ne signifient pas l'absence d'établissement. Surfaces converties en centroïdes. Les tags sont saisis par des bénévoles : erreurs de classification possibles. Noms tels que saisis (fautes, casse, mojibake éventuels conservés). Les noms d'établissements privés peuvent contenir un nom de personne (ex. « Clinique Dr ... ») : ce sont des raisons sociales publiques affichées, conservées telles quelles ; aucun autre attribut personnel n'est exporté. Les marchés périodiques ruraux sont très peu cartographiés.",
+      "controle": "Emprise : {\"entites_avant_filtre\": 407, \"hors_bbox\": 0, \"filtre_limites\": \"strict\", \"hors_limites_cameroun\": 29, \"conservees\": 378, \"bbox_resultat\": [8.9068, 2.1888, 15.4473, 12.6344]}. Comptes par tg_type : {\"ECO.MARCHE\": 378}. Doublons internes suspects (distance < 100 m et similarité de nom (token_sort_ratio) >= 90, ou coordonnées identiques) : 4 paires, 8 entités signalées dans le champ doublon_interne_suspect (rien n'est supprimé)."
+    },
+    {
+      "fichier": "sante/rapprochement_sources_sante.csv",
+      "source_code": "OSM_OSMFR_2026-10-03;HEALTHSITES_HDX_2026-09-29;MAINA2019_FIGSHARE_7725374",
+      "producteur": "Dérivé TasetyGrid des trois couches santé ci-dessus",
+      "url": null,
+      "licence": "ODbL 1.0 (base dérivée d'OSM/healthsites ; Maina CC0 compatible)",
+      "attribution": "© les contributeurs d'OpenStreetMap ; healthsites.io ; Maina et al. 2019",
+      "date_telechargement": "2026-10-04",
+      "date_situation": "OSM 2026-10-03 ; healthsites 2026-09-15 ; Maina 2019",
+      "sha256_source": {
+        "osm": "e882d863daf58cf091a6492bd16c9f5e1fb5c036787e8e72add0cc54582d4f7f",
+        "healthsites": "04e43f25629ecea0e4dffab4c6cdc05ea8482427658b3c190eb555d1231f18d9",
+        "maina": "6ab31b0d2601e0cd53e6360c5f6f9b415b2f6e2895b7a687b35f2ddedc3950b1"
+      },
+      "sha256_fichier": "88fed7e10f076dab58bcf4699dd8c7e4ac9f3a7489df95b64e9ffba39854aa20",
+      "nb_entites": 5101,
+      "methode": "scripts/03_rapprochement_sante.py. Une ligne = un établissement présumé ; colonnes *_source_id renvoyant aux couches (aucune couche n'est modifiée). (1) OSM<->healthsites par identifiant OSM identique ; (2) résidus par distance < 500 m et similarité de nom >= 85 ; (3) Maina<->entités OSM/healthsites par distance < 500 m, similarité de nom >= 85 (moyenne token_set/token_sort rapidfuzz sur noms sans termes génériques ; noms vides ou purement génériques non appariables) et types compatibles (hôpital<->hôpital, centre<->clinique, null avec tout) ; appariement 1-1 glouton.",
+      "limites": "Le seuil de 500 m imposé est très strict face à la précision des coordonnées Maina (géocodage au village) : le recouvrement Maina/OSM est donc SOUS-ESTIMÉ. Sensibilité (paires Maina appariées) : {\"dist<250m_sim>=85\": 8, \"dist<500m_sim>=75\": 34, \"dist<500m_sim>=85\": 25, \"dist<500m_sim>=95\": 21, \"dist<1000m_sim>=85\": 109, \"dist<2000m_sim>=85\": 161, \"dist<5000m_sim>=85\": 171} sur 3019 établissements Maina. Faux positifs résiduels repérés à la relecture : objets OSM « District de santé de X » appariés au CSI de X. Faux négatifs : noms très différents d'une source à l'autre, établissements renommés ou reclassés depuis 2019. Le recouvrement OSM/healthsites n'est pas une confirmation indépendante (healthsites dérive d'OSM).",
+      "controle": "Répartition : {\"MAINA2019\": 2994, \"OSM;HEALTHSITES\": 1965, \"OSM\": 116, \"OSM;HEALTHSITES;MAINA2019\": 24, \"OSM;MAINA2019\": 1, \"HEALTHSITES\": 1}. OSM<->healthsites : {\"liens_par_identifiant_osm\": 1989, \"liens_par_distance_et_nom\": 0, \"pct_osm_present_dans_healthsites\": 94.4, \"pct_healthsites_present_dans_osm\": 99.9, \"healthsites_sans_correspondant_osm_actuel\": 1, \"avertissement\": \"healthsites.io est dérivé d'OSM : ce recouvrement mesure la synchronisation entre deux copies d'OSM, pas une confirmation indépendante.\"} ; écart de position sur les liens par identifiant : {\"mediane\": 0.0, \"max\": 11.9, \"nb_ecart_sup_100m\": 0}. Maina<->OSM/healthsites : {\"maina_apparies\": 25, \"pct_maina_retrouves_dans_osm_ou_healthsites\": 0.8, \"pct_osm_centres_et_hopitaux_retrouves_dans_maina\": 2.1, \"accord_tg_type_sur_paires_osm_maina\": 84.0, \"distance_mediane_m\": 328.8}. Les 25 paires Maina retenues ont été relues une à une (voir limites)."
+    },
+    {
+      "fichier": "synthese_par_arrondissement.csv",
+      "source_code": "OSM_OSMFR_2026-10-03;HEALTHSITES_HDX_2026-09-29;MAINA2019_FIGSHARE_7725374;GEOBOUNDARIES_CMR_ADM3_9469f09",
+      "producteur": "Dérivé TasetyGrid ; limites geoBoundaries (Runfola et al. 2020, wmgeolab) utilisées pour la jointure seulement",
+      "url": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/CMR/ADM3/geoBoundaries-CMR-ADM3.geojson (lu via media.githubusercontent.com, objet Git LFS)",
+      "licence": "ODbL 1.0 (comptes dérivés d'OSM ; limites geoBoundaries CMR ADM3 elles-mêmes sous ODbL 1.0, voir sources_documentees)",
+      "attribution": "© les contributeurs d'OpenStreetMap ; healthsites.io ; Maina et al. 2019 ; geoBoundaries",
+      "date_telechargement": "2026-10-04",
+      "date_situation": "OSM 2026-10-03 ; healthsites 2026-09-15 ; Maina 2019 ; limites : année représentée 2017, mise à jour source 2023-01-19, build 2023-12-12",
+      "sha256_source": {
+        "osm": "e882d863daf58cf091a6492bd16c9f5e1fb5c036787e8e72add0cc54582d4f7f",
+        "healthsites": "04e43f25629ecea0e4dffab4c6cdc05ea8482427658b3c190eb555d1231f18d9",
+        "maina": "6ab31b0d2601e0cd53e6360c5f6f9b415b2f6e2895b7a687b35f2ddedc3950b1",
+        "geoboundaries_cmr_adm3_geojson": "9d0ff998057c3afe7f3a6334d71e9d7c353c64fe6e7c35b01fe14d804c97f04b"
+      },
+      "sha256_fichier": "3b772d2946ee15a33dc565dd8a3a02305847509b30ce5bf13f60bc02551a9c44",
+      "nb_entites": 8643,
+      "methode": "scripts/04_synthese.py. Jointure point-dans-polygone (within) avec les 360 polygones ADM3 ; format long : gb_shape_id, arrondissement (shapeName, mojibake UTF-8/Latin-1 corrigé), source, couche, tg_type (vide = non classé), nombre. Toutes les combinaisons arrondissement x tg_type présentes dans une couche sont listées, zéros compris. gb_shape_id = HORS_LIMITES pour les points hors polygones (Maina, tolérance ~1 km).",
+      "limites": "NE PAS additionner les trois sources santé (elles se recouvrent ; voir sante/rapprochement_sources_sante.csv). Un zéro signifie « rien dans la source », pas « aucun établissement ». Les limites geoBoundaries (OSM/Wambacher, année représentée 2017) ne sont pas officielles (boundaryCanonical = Unknown) ; le rattachement à un arrondissement peut différer du découpage administratif officiel près des limites.",
+      "controle": "{\"lignes\": 8643, \"arrondissements\": 360, \"points_hors_limites_adm3\": {\"sante_osm\": 0, \"sante_healthsites\": 0, \"sante_maina\": 11, \"education_osm\": 0, \"mairies_osm\": 0, \"marches_osm\": 0}, \"arrondissements_sans_aucun_etablissement_osm_sante\": 176, \"arrondissements_sans_aucune_ecole_osm\": 120, \"arrondissements_sans_mairie_osm\": 229, \"noms_arrondissement_dupliques\": 0}. Contrôle de cohérence : pour chaque couche, la somme des nombres égale le nombre d'entités de la couche (assert dans le script). 360 arrondissements (= nombre officiel, docs CONVENTIONS §5)."
+    }
+  ],
+  "sources_documentees": [
+    {
+      "source": "Geofabrik — https://download.geofabrik.de/africa/cameroon-latest.osm.pbf",
+      "statut": "NON UTILISÉE : inaccessible depuis l'environnement de collecte (connexion réinitialisée par le proxy de sortie, 2026-10-04). Remplacée par le miroir openstreetmap.fr (mêmes données OSM, même licence ODbL)."
+    },
+    {
+      "source": "Overpass API — overpass-api.de, overpass.kumi.systems, overpass.private.coffee, maps.mail.ru",
+      "statut": "NON UTILISÉE : inaccessible ou hors délai depuis l'environnement de collecte (2026-10-04)."
+    },
+    {
+      "source": "HOT Export Tool / HDX hotosm_cmr_health_facilities, hotosm_cmr_education_facilities (ODbL)",
+      "statut": "NON UTILISÉE : simple autre extraction d'OSM, redondante avec l'extrait complet utilisé."
+    },
+    {
+      "source": "geoBoundaries gbOpen CMR ADM3, boundaryID CMR-ADM3-9386221, commit 9469f09 (https://www.geoboundaries.org/api/current/gbOpen/CMR/ADM3/)",
+      "statut": "UTILISÉE pour la jointure spatiale et le filtre d'emprise, NON COMMITÉE (un autre agent s'en charge). ATTENTION : la consigne la supposait sous CC BY 4.0 ; les métadonnées geoBoundaries indiquent « Open Data Commons Open Database License 1.0 » (source OpenStreetMap, Wambacher). Année représentée 2017, mise à jour source 2023-01-19, build 2023-12-12, 360 unités. Les noms (shapeName) contiennent du mojibake (ex. « MÃ©long ») corrigé à la lecture.",
+      "sha256": "9d0ff998057c3afe7f3a6334d71e9d7c353c64fe6e7c35b01fe14d804c97f04b"
+    },
+    {
+      "source": "HDX health-facilities-in-sub-saharan-africa (copie Maina et al., CC BY)",
+      "statut": "NON UTILISÉE : la version d'origine figshare (CC0) a été préférée."
+    }
+  ]
+}
