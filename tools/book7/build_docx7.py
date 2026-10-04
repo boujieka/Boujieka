@@ -153,7 +153,7 @@ while i < len(lines):
     m = re.match(r"!\[(.*)\]\((.*)\)", L)
     if m:
         path = os.path.normpath(os.path.join("book7/build", m.group(2)))
-        doc.add_picture(path, width=Mm(150)); doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
+        doc.add_picture(path, width=Mm(35 if "qr_" in path else 150)); doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
         p = doc.add_paragraph(); add_runs(p, m.group(1), 8.5, MUTED, italic=True)
         i += 1; continue
     if L.startswith("|"):

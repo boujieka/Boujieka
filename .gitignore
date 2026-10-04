@@ -4,3 +4,4 @@ __pycache__/
 .~lock*
 book/build/
 deliverables/*.zip
+deliverables/BOOK7_Companion_Materials/

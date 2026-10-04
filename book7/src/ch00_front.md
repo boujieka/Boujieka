@@ -90,6 +90,36 @@ All default inputs in the workbook, and all Kasiri figures, are illustrative. Th
 
 A second fictional project, Lumora Falls, a 400 MW scheme structured as a public-private partnership, appears as a contrast in Chapters 1, 2, 4 and 15. It comes from the author's earlier policy paper on hydro and public liabilities, which is now a companion paper to this book.
 
+## Companion materials
+
+The materials that accompany this book are kept together in one online folder. Scan the code below with a phone camera, or type the address into a web browser.
+
+![Scan to open the companion materials of Book 7.](figures/qr_companion.png){: style="width:32mm"}
+
+The address, if you prefer to type it:
+
+https://drive.google.com/drive/folders/1cLpEF8qvR_OMg0JKVFHKvLxtROvZAmfr
+
+The folder holds seven sub-folders:
+
+- **01_Hydro_Readiness_Framework**: the eight questions, the 23 gates and the decision ladder, as a stand-alone reference.
+- **02_Bankable_Hydro_Model**: MODEL 7, the workbook behind every number in this book, with its test reports.
+- **03_Model_User_Manual**: MANUAL 7, the user and methodology manual, and an audio guide to the model.
+- **04_Kasiri_River_Case**: the worked case of Chapter 18 and its key figures.
+- **05_Transaction_Tools**: editable versions of the checklists and templates of Annexes A to I.
+- **06_Technical_Due_Diligence**: Annexes N to R as a stand-alone reference, in PDF and Word.
+- **07_Sources_and_References**: the source list with its verification status, and the research files behind it.
+
+To use the materials:
+
+1. Open the folder in a web browser. The files can be viewed and downloaded, not edited in place.
+2. Download the workbook and open it in Microsoft Excel or a compatible spreadsheet program. It contains no macros.
+3. Start on the cover sheet of the workbook, then follow the quick start in the manual or the audio guide.
+4. Work on your own copy. Replace the illustrative Kasiri inputs with project data only in that copy, and keep a record of each assumption and its source.
+5. Check that the version on the workbook cover matches the version of this book. Updated materials may be added to the same folder under a new version number.
+
+If the code or the address no longer opens the folder, look for an updated address on the author's page of the bookseller where you bought this book.
+
 ## Conventions
 
 The Kasiri case runs on model time: development from 2021, financial close in 2027 and commercial operation in 2030. When the book says that Tamarind is at the start of permitting, it refers to the stage reached, not to a calendar date.

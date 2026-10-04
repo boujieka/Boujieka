@@ -94,6 +94,36 @@ All default inputs in the workbook, and all Kasiri figures, are illustrative. Th
 
 A second fictional project, Lumora Falls, a 400 MW scheme structured as a public-private partnership, appears as a contrast in Chapters 1, 2, 4 and 15. It comes from the author's earlier policy paper on hydro and public liabilities, which is now a companion paper to this book.
 
+## Companion materials
+
+The materials that accompany this book are kept together in one online folder. Scan the code below with a phone camera, or type the address into a web browser.
+
+![Scan to open the companion materials of Book 7.](../src/figures/qr_companion.png){: style="width:32mm"}
+
+The address, if you prefer to type it:
+
+https://drive.google.com/drive/folders/1cLpEF8qvR_OMg0JKVFHKvLxtROvZAmfr
+
+The folder holds seven sub-folders:
+
+- **01_Hydro_Readiness_Framework**: the eight questions, the 23 gates and the decision ladder, as a stand-alone reference.
+- **02_Bankable_Hydro_Model**: MODEL 7, the workbook behind every number in this book, with its test reports.
+- **03_Model_User_Manual**: MANUAL 7, the user and methodology manual, and an audio guide to the model.
+- **04_Kasiri_River_Case**: the worked case of Chapter 18 and its key figures.
+- **05_Transaction_Tools**: editable versions of the checklists and templates of Annexes A to I.
+- **06_Technical_Due_Diligence**: Annexes N to R as a stand-alone reference, in PDF and Word.
+- **07_Sources_and_References**: the source list with its verification status, and the research files behind it.
+
+To use the materials:
+
+1. Open the folder in a web browser. The files can be viewed and downloaded, not edited in place.
+2. Download the workbook and open it in Microsoft Excel or a compatible spreadsheet program. It contains no macros.
+3. Start on the cover sheet of the workbook, then follow the quick start in the manual or the audio guide.
+4. Work on your own copy. Replace the illustrative Kasiri inputs with project data only in that copy, and keep a record of each assumption and its source.
+5. Check that the version on the workbook cover matches the version of this book. Updated materials may be added to the same folder under a new version number.
+
+If the code or the address no longer opens the folder, look for an updated address on the author's page of the bookseller where you bought this book.
+
 ## Conventions
 
 The Kasiri case runs on model time: development from 2021, financial close in 2027 and commercial operation in 2030. When the book says that Tamarind is at the start of permitting, it refers to the stage reached, not to a calendar date.
@@ -249,7 +279,7 @@ Kasiri is the opposite case. Its tariff is paid only for energy delivered, as un
 
 The book has 18 chapters, built around the central question. Chapters 2 to 4 cover the resource and the commercial route. Chapters 5 to 8 cover development: the stage gates, the budget, the consents and the contracts. Chapters 9 to 11 cover construction and operation. Chapters 12 to 15 cover financing, from the lender case to the public side. Chapters 16 and 17 cover stress testing and financial close, and Chapter 18 walks through the Kasiri case from site to close.
 
-The companion workbook, MODEL 7, is an annual, 40-period model with 41 sheets, including a cover sheet, and about 11,300 formulas, no macros and no circular references. It links hydrology, transmission, demand, the utility's cash flow, the PPA, project finance, five financing structures, government support, contingent liabilities and a fiscal screen. A development module covers the years before close, a contracting module compares construction contract structures, and a readiness sheet applies 23 financial close gates. Its 14 integrity checks confirm internal consistency, not the realism of the assumptions. The model was reviewed adversarially before this edition; the review found and fixed defects that the model's own checks had missed, and Annex K records what was changed. Two sheets connect it to this book: *34_FRAMEWORK_MAP* links each of the 23 gates to its framework question, the party that must accept it, the sheet that tests it and the chapters that discuss it; *35_BOOK_CHECK* compares the live model with every Kasiri figure printed here and reads ALL PASS with the default inputs.
+The companion workbook, MODEL 7, is an annual, 40-period model with 41 sheets, including a cover sheet, and about 11,300 formulas, no macros and no circular references. It links hydrology, transmission, demand, the utility's cash flow, the PPA, project finance, five financing structures, government support, contingent liabilities and a fiscal screen. A development module covers the years before close, a contracting module compares construction contract structures, and a readiness sheet applies 23 financial close gates. Its 14 integrity checks confirm internal consistency, not the realism of the assumptions. The model was reviewed adversarially before this edition; the review found and fixed defects that the model's own checks had missed, and Annex K records what was changed. The workbook, its manual and the other companion materials can be downloaded from the folder described under Companion materials, in the Preface. Two sheets connect it to this book: *34_FRAMEWORK_MAP* links each of the 23 gates to its framework question, the party that must accept it, the sheet that tests it and the chapters that discuss it; *35_BOOK_CHECK* compares the live model with every Kasiri figure printed here and reads ALL PASS with the default inputs.
 
 The workbook never rates a project. Its readiness sheet counts each gate only on evidence and applies a fixed rule: STOP when a critical gate is not met or its evidence is missing, CONDITIONAL GO when every critical gate is met, GO only when all gates are met. In its default state, Kasiri meets 6 of the 23 gates and reads "STOP: a critical gate is not met". That is a finding about the state of the project's evidence, not a judgement on the project.
 

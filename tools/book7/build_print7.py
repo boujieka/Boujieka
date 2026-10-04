@@ -348,6 +348,7 @@ def main():
     ap.add_argument("--out", default=str(OUT))
     a = ap.parse_args()
     md_text = SRC.read_text(encoding="utf-8")
+    md_text = re.sub(r'\{: style="[^"]*"\}', "", md_text)  # print sets every figure at its natural size
     with tempfile.TemporaryDirectory() as td:
         p1 = Path(td) / "pass1.pdf"
         doc, heads = build_html(md_text, markers=True)
@@ -400,7 +401,7 @@ def main():
           + (f", BELOW 300: {low}" if low else ""))
     front_ok = "All rights reserved" in texts[1] and "Contents" in texts[2] and not texts[0].count("All rights reserved")
     print("front matter: title p1, copyright p2, contents p3:", front_ok)
-    figs = {Image.open(f).size: f for f in FIG_PRINT.glob("fig*.png")}
+    figs = {Image.open(f).size: f for f in FIG_PRINT.glob("*.png")}
     same, checked = 0, 0
     for page in PdfReader(a.out).pages:
         for im in page.images:
