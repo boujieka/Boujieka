@@ -80,6 +80,10 @@ The site has three offers on show, none on sale yet, each with a waiting list an
 
 See [`docs/DATA_OFFER.md`](docs/DATA_OFFER.md).
 
+Downloads (report PDFs, data CSVs) require a free account (Supabase Auth, e-mail link), enforced by
+a Netlify Edge Function once `SUPABASE_URL` and the public key are configured. See
+[`docs/ACCOUNTS.md`](docs/ACCOUNTS.md).
+
 ## Principles
 
 - **Source first.** Every market-data record carries source, URL, document, publication date,

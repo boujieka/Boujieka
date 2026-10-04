@@ -1058,5 +1058,22 @@
   "wl.sending": "Enviando…",
   "wl.ok": "Gracias, queda registrado.",
   "wl.err": "El envío falló. Inténtelo más tarde.",
-  "wl.privacy": "Sus respuestas, junto con la dirección IP y el tipo de navegador que Netlify registra automáticamente, las almacena el alojamiento del sitio (Netlify, en Estados Unidos). Solo sirven para medir el interés por estas ofertas y avisarle de su lanzamiento. No se venden ni se comparten. Para salir de la lista, envíe de nuevo el formulario con la misma dirección marcando «Quitarme de la lista»."
+  "wl.privacy": "Sus respuestas, junto con la dirección IP y el tipo de navegador que Netlify registra automáticamente, las almacena el alojamiento del sitio (Netlify, en Estados Unidos). Solo sirven para medir el interés por estas ofertas y avisarle de su lanzamiento. No se venden ni se comparten. Para salir de la lista, envíe de nuevo el formulario con la misma dirección marcando «Quitarme de la lista».",
+  "ac.signin": "Cuenta gratuita",
+  "ac.me": "Mi cuenta",
+  "ac.eyebrow": "Cuenta gratuita",
+  "ac.title": "Su cuenta Cartouche",
+  "ac.lede": "La consulta sigue siendo libre. Se pide una cuenta gratuita para descargar los informes (PDF) y los datos (CSV). Sin contraseña: recibe un enlace de acceso por correo.",
+  "ac.needed": "Se pide una cuenta gratuita para descargar: {f}. Regístrese o inicie sesión con su correo.",
+  "ac.send": "Recibir el enlace de acceso",
+  "ac.sent": "Enlace enviado a {e}. Ábralo en este dispositivo; solo es válido durante un tiempo limitado.",
+  "ac.err": "El acceso falló. Inténtelo más tarde.",
+  "ac.consent": "Acepto que Cartouche registre mi cuenta (correo, perfil, organización, país) para el acceso a las descargas.",
+  "ac.news": "También quiero recibir información sobre nuevos informes y ofertas (opcional).",
+  "ac.in": "Conectado: {e}",
+  "ac.resume": "Descargar {f}",
+  "ac.out": "Cerrar sesión",
+  "ac.delete": "Solicitar la eliminación de mi cuenta",
+  "ac.deleted": "Solicitud registrada: su cuenta será eliminada.",
+  "ac.privacy": "Las cuentas las gestiona Supabase (servicio de autenticación); las solicitudes de eliminación pasan por Netlify, el alojamiento del sitio. Una cookie de sesión (cartouche_at) solo sirve para autorizar las descargas. Sus datos no se venden ni se comparten."
 }

@@ -966,5 +966,22 @@
   "wl.sending": "Envoi…",
   "wl.ok": "Merci, c'est enregistré.",
   "wl.err": "L'envoi a échoué. Réessayez plus tard.",
-  "wl.privacy": "Vos réponses, ainsi que l'adresse IP et le type de navigateur que Netlify enregistre automatiquement, sont stockées par l'hébergeur du site (Netlify, aux États-Unis). Elles servent uniquement à mesurer l'intérêt pour ces offres et à vous prévenir de leur lancement. Elles ne sont ni revendues ni partagées. Pour être retiré de la liste, renvoyez le formulaire avec la même adresse en cochant « Me retirer de la liste »."
+  "wl.privacy": "Vos réponses, ainsi que l'adresse IP et le type de navigateur que Netlify enregistre automatiquement, sont stockées par l'hébergeur du site (Netlify, aux États-Unis). Elles servent uniquement à mesurer l'intérêt pour ces offres et à vous prévenir de leur lancement. Elles ne sont ni revendues ni partagées. Pour être retiré de la liste, renvoyez le formulaire avec la même adresse en cochant « Me retirer de la liste ».",
+  "ac.signin": "Compte gratuit",
+  "ac.me": "Mon compte",
+  "ac.eyebrow": "Compte gratuit",
+  "ac.title": "Votre compte Cartouche",
+  "ac.lede": "La consultation reste libre. Un compte gratuit est demandé pour télécharger les rapports (PDF) et les données (CSV). Pas de mot de passe : vous recevez un lien de connexion par e-mail.",
+  "ac.needed": "Un compte gratuit est demandé pour télécharger : {f}. Inscrivez-vous ou connectez-vous avec votre e-mail.",
+  "ac.send": "Recevoir le lien de connexion",
+  "ac.sent": "Lien envoyé à {e}. Ouvrez-le sur cet appareil ; il n'est valable que pour une durée limitée.",
+  "ac.err": "La connexion a échoué. Réessayez plus tard.",
+  "ac.consent": "J'accepte que Cartouche enregistre mon compte (e-mail, profil, organisation, pays) pour l'accès aux téléchargements.",
+  "ac.news": "Je souhaite aussi être informé des nouveaux rapports et offres (facultatif).",
+  "ac.in": "Connecté : {e}",
+  "ac.resume": "Télécharger {f}",
+  "ac.out": "Se déconnecter",
+  "ac.delete": "Demander la suppression de mon compte",
+  "ac.deleted": "Demande enregistrée : votre compte sera supprimé.",
+  "ac.privacy": "Les comptes sont gérés par Supabase (service d'authentification) ; les demandes de suppression passent par Netlify, l'hébergeur du site. Un cookie de session (cartouche_at) sert uniquement à autoriser les téléchargements. Vos données ne sont ni revendues ni partagées."
 }

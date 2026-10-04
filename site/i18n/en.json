@@ -1058,5 +1058,22 @@
   "wl.sending": "Sending…",
   "wl.ok": "Thank you, it is recorded.",
   "wl.err": "Sending failed. Please try again later.",
-  "wl.privacy": "Your answers, together with the IP address and browser type that Netlify records automatically, are stored by the site's host (Netlify, in the United States). They are used only to measure interest in these offers and to tell you when they launch. They are neither sold nor shared. To be removed, send the form again with the same address and tick \"Remove me from the list\"."
+  "wl.privacy": "Your answers, together with the IP address and browser type that Netlify records automatically, are stored by the site's host (Netlify, in the United States). They are used only to measure interest in these offers and to tell you when they launch. They are neither sold nor shared. To be removed, send the form again with the same address and tick \"Remove me from the list\".",
+  "ac.signin": "Free account",
+  "ac.me": "My account",
+  "ac.eyebrow": "Free account",
+  "ac.title": "Your Cartouche account",
+  "ac.lede": "Browsing stays free. A free account is required to download reports (PDF) and data (CSV). No password: you receive a sign-in link by e-mail.",
+  "ac.needed": "A free account is required to download: {f}. Sign up or sign in with your e-mail.",
+  "ac.send": "Get the sign-in link",
+  "ac.sent": "Link sent to {e}. Open it on this device; it is valid for a limited time only.",
+  "ac.err": "Sign-in failed. Please try again later.",
+  "ac.consent": "I agree that Cartouche records my account (e-mail, profile, organisation, country) for access to downloads.",
+  "ac.news": "I would also like to hear about new reports and offers (optional).",
+  "ac.in": "Signed in: {e}",
+  "ac.resume": "Download {f}",
+  "ac.out": "Sign out",
+  "ac.delete": "Request deletion of my account",
+  "ac.deleted": "Request recorded: your account will be deleted.",
+  "ac.privacy": "Accounts are managed by Supabase (authentication service); deletion requests go through Netlify, the site's host. A session cookie (cartouche_at) is used only to authorise downloads. Your data are neither sold nor shared."
 }

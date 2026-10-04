@@ -216,6 +216,34 @@ def load_i18n(buyer_keys: list[str]) -> dict:
     return tables
 
 
+def auth_config() -> dict | None:
+    """Free accounts (Supabase Auth): on only when the project URL and its public key are in the
+    environment. The key is the publishable/anon key, meant to be public; never the service key."""
+    url = (os.environ.get("SUPABASE_URL") or "").rstrip("/")
+    key = os.environ.get("SUPABASE_PUBLISHABLE_KEY") or os.environ.get("SUPABASE_ANON_KEY") or ""
+    if not url or not key:
+        return None
+    if not url.startswith("https://") or any(c in url for c in " \"'<>") or key.startswith("sb_secret_"):
+        raise SystemExit("SUPABASE_URL must be https://..., and the key must be the public (publishable/anon) key")
+    return {"url": url, "key": key}
+
+
+def write_netlify(auth: dict | None) -> None:
+    """netlify.toml for the deployed folder; with accounts on, the CSP lets the page reach Supabase
+    and the download gate (site/edge/gate.js) is added as an edge function."""
+    toml = (ROOT / "netlify.toml").read_text()
+    edge = DIST / "netlify"
+    if edge.exists():
+        shutil.rmtree(edge)
+    if auth:
+        toml = toml.replace("default-src 'self';", f"default-src 'self'; connect-src 'self' {auth['url']};", 1)
+        (edge / "edge-functions").mkdir(parents=True)
+        code = (ROOT / "edge" / "gate.js").read_text().replace("__CONFIG__", json.dumps(auth))
+        (edge / "edge-functions" / "gate.js").write_text(code)
+        toml = toml.replace('  publish = "."', '  publish = "."\n  edge_functions = "netlify/edge-functions"', 1)
+    (DIST / "netlify.toml").write_text(toml)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--as-of", required=True)
@@ -235,6 +263,7 @@ def main() -> None:
     payload["brief"] = brief.write(date.fromisoformat(args.as_of), DIST)
     offer = dataset.write(date.fromisoformat(args.as_of), DIST)
     payload["data_offer"] = {k: offer[k] for k in ("auctions", "securities", "documents", "countries")}
+    payload["auth"] = auth_config()
     if args.veille and args.veille.exists():
         veille = json.loads(args.veille.read_text())
         # Embed the report only; the comparison state stays in the downloadable veille.json.
@@ -244,7 +273,7 @@ def main() -> None:
     DIST.mkdir(exist_ok=True)
     (DIST / "index.html").write_text(html)
     shutil.copy(ROOT.parent / "brand" / "favicon.svg", DIST / "favicon.svg")
-    shutil.copy(ROOT / "netlify.toml", DIST / "netlify.toml")
+    write_netlify(payload["auth"])
     shutil.copy(ROOT / "merci.html", DIST / "merci.html")  # waiting-list form fallback page (no JavaScript)
     if args.veille and args.veille.exists() and args.veille.resolve() != (DIST / "veille.json").resolve():
         shutil.copy(args.veille, DIST / "veille.json")

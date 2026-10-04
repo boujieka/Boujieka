@@ -238,6 +238,10 @@ details.passport summary { cursor: pointer; padding: 8px 12px; font: 600 12px/1.
 
 /* Tables */
 table.list { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 640px; }
+.acct { color: var(--gold); text-decoration: none; border: 1px solid var(--gold); padding: 4px 10px; border-radius: 2px; font-size: 13px; white-space: nowrap; }
+.acct:hover { background: rgba(201,162,74,.12); }
+.ac-form { max-width: 760px; }
+.ac-msg { padding: 10px 14px; border-inline-start: 3px solid var(--gold); background: var(--surface); margin: 12px 0; }
 .offers { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin: 18px 0 8px; }
 .offer { background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--gold); padding: 14px 16px; }
 .offer h3 { margin: 0 0 6px; } .offer p { margin: 0 0 8px; font-size: 14px; }
@@ -247,8 +251,8 @@ table.list { width: 100%; border-collapse: collapse; font-size: 13px; min-width:
 .wl textarea { font: 500 14px var(--body); padding: 8px 10px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); border-radius: 2px; width: 100%; resize: vertical; }
 .wl fieldset { border: 1px solid var(--line); padding: 8px 12px; display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 0; }
 .wl legend { font-size: 12px; color: var(--muted); padding: 0 4px; }
-.wl label.chk { flex-direction: row; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--ink); }
-.wl label.chk input { width: auto; margin-top: 3px; }
+.wl label.chk, .ac-form label.chk { flex-direction: row; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--ink); }
+.wl label.chk input, .ac-form label.chk input { width: auto; margin-top: 3px; }
 #wl-status { font-size: 14px; margin-inline-start: 10px; }
 .rp-flags img { height: 14px; width: auto; border: 1px solid var(--line); margin-inline-end: 3px; vertical-align: middle; }
 .list th { text-align: start; font: 600 11px/1 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 10px 12px; border-bottom: 2px solid var(--gold); }
@@ -537,6 +541,7 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
       <nav data-ia="aria-label:nav.label">
         <a href="#carte" data-i="nav.map"></a><a href="#marche" data-i="nav.market"></a><a href="#radar" data-i="nav.radar"></a><a href="#acheteurs" data-i="nav.buyers"></a><a href="#simulateur" data-i="nav.sim"></a><a href="#strategie" data-i="nav.strategy"></a><a href="#brief" data-i="nav.brief"></a><a href="#rapports" data-i="nav.reports"></a><a href="#offres" data-i="nav.offers"></a><a href="#glossaire" data-i="nav.glossary"></a><a href="#veille" data-i="nav.watch"></a><a href="#sources" data-i="nav.sources"></a>
       </nav>
+      <a class="acct" id="acct-btn" href="#compte" hidden></a>
       <div class="langs" id="langs" role="group" data-ia="aria-label:lang.label">
         <button type="button" data-lang="fr" lang="fr" title="Français">FR</button><button type="button" data-lang="en" lang="en" title="English">EN</button><button type="button" data-lang="pt" lang="pt" title="Português">PT</button><button type="button" data-lang="es" lang="es" title="Español">ES</button><button type="button" data-lang="ar" lang="ar" title="العربية">AR</button>
       </div>
@@ -802,6 +807,23 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
       <p class="note" data-i="wl.privacy"></p>
     </div>
   </section>
+
+  <section id="compte" hidden>
+    <div class="wrap">
+      <span class="eyebrow" data-i="ac.eyebrow"></span>
+      <h2 data-i="ac.title"></h2>
+      <p class="lede" data-i="ac.lede"></p>
+      <div id="ac-body" aria-live="polite"></div>
+      <form name="suppression-compte" id="ac-del" method="POST" action="/merci.html" data-netlify="true" netlify-honeypot="bot-field" hidden>
+        <input type="hidden" name="form-name" value="suppression-compte">
+        <p hidden><label>bot <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <input type="hidden" name="email" id="ac-del-email">
+        <button type="submit" class="btn ghost" style="color:var(--carnelian);border-color:var(--line)" data-i="ac.delete"></button> <span id="ac-del-st" role="status"></span>
+      </form>
+      <p class="note" data-i="ac.privacy"></p>
+    </div>
+  </section>
+
 
 
   <section id="glossaire">
@@ -1379,6 +1401,115 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
       if (!r.ok) throw new Error(String(r.status));
       f.reset(); $("wl-lang").value = lang; st.textContent = t("wl.ok");
     } catch { st.textContent = t("wl.err"); }
+  });
+
+  // ---------- Free account (Supabase Auth). Required for downloads only when the build carries
+  // D.auth ({url, key}); without it nothing is gated. The edge function site/edge/gate.js checks
+  // the same access token (cookie) for report PDFs and data CSVs.
+  const AUTH = D.auth || null;
+  const AC = { token: null, email: null, sent: null, err: null, busy: false };
+  const PROFILES = ["bank", "broker", "asset_manager", "corporate_treasury", "dfi", "consultant_research", "media", "individual", "public_sector", "other"];
+  const setTok = (v, age) => { document.cookie = `cartouche_at=${v ? encodeURIComponent(v) : ""}; Path=/; Max-Age=${v ? age : 0}; SameSite=Lax; Secure`; };
+  const authFetch = (path, o = {}) => fetch(AUTH.url + path, { ...o, headers: { apikey: AUTH.key, "Content-Type": "application/json", ...(o.headers || {}) } });
+  function saveSession(x) {
+    AC.token = x.access_token; setTok(x.access_token, Math.max(60, (Number(x.expires_in) || 3600) - 30));
+    if (x.refresh_token) store.set("cartouche-rt", x.refresh_token);
+  }
+  function dropSession() { AC.token = null; AC.email = null; setTok(""); store.set("cartouche-rt", ""); }
+  const nextFile = () => new URLSearchParams(location.search).get("next") || "";
+  async function initAuth() {
+    if (!AUTH) return;
+    $("compte").hidden = false; $("acct-btn").hidden = false;
+    const h = new URLSearchParams(location.hash.slice(1));
+    try {
+      if (h.get("access_token")) {
+        saveSession({ access_token: h.get("access_token"), refresh_token: h.get("refresh_token"), expires_in: h.get("expires_in") });
+        history.replaceState(null, "", location.pathname + location.search + "#compte");
+      } else if (h.get("error_description")) {
+        AC.err = h.get("error_description");
+      } else if (store.get("cartouche-rt")) {
+        const r = await authFetch("/auth/v1/token?grant_type=refresh_token", { method: "POST", body: JSON.stringify({ refresh_token: store.get("cartouche-rt") }) });
+        if (r.ok) saveSession(await r.json()); else dropSession();
+      }
+      if (AC.token) {
+        const r = await authFetch("/auth/v1/user", { headers: { Authorization: `Bearer ${AC.token}` } });
+        if (!r.ok) throw new Error("user");
+        AC.email = (await r.json()).email || "";
+      }
+    } catch { dropSession(); }
+    renderAccount();
+    if (AC.token && nextFile()) jump(undefined, "compte");
+  }
+  function renderAccount() {
+    if (!AUTH) return;
+    const btn = $("acct-btn"), nf_ = nextFile(), file = nf_.split("/").pop();
+    btn.textContent = AC.token ? t("ac.me") : t("ac.signin");
+    $("ac-del").hidden = !AC.token;
+    if (AC.token) {
+      $("ac-del-email").value = AC.email;
+      $("ac-body").innerHTML = `<p class="ac-msg">${esc(t("ac.in", { e: AC.email }))}</p>` +
+        (nf_ && /^\/(rapports|donnees)\/[A-Za-z0-9._\/-]+$/.test(nf_) ? `<p><a class="btn gold" href="${esc(nf_)}" download>${esc(t("ac.resume", { f: file }))}</a></p>` : "") +
+        `<p><button type="button" class="btn ghost" id="ac-out" style="color:var(--lapis);border-color:var(--line)">${esc(t("ac.out"))}</button></p>`;
+      return;
+    }
+    const opts = PROFILES.map((v) => `<option value="${v}">${esc(t("wl.profile." + v))}</option>`).join("");
+    $("ac-body").innerHTML = (nf_ ? `<p class="ac-msg">${esc(t("ac.needed", { f: file }))}</p>` : "") +
+      (AC.err ? `<p class="ac-msg">${esc(t("ac.err"))} (${esc(AC.err)})</p>` : "") +
+      (AC.sent ? `<p class="ac-msg">${esc(t("ac.sent", { e: AC.sent }))}</p>` : "") +
+      `<form class="form ac-form" id="ac-form">
+        <label><span>${esc(t("wl.email"))}</span><input type="email" name="email" required autocomplete="email" maxlength="200"></label>
+        <label><span>${esc(t("wl.profile"))}</span><select name="profil" required><option value="">${esc(t("wl.choose"))}</option>${opts}</select></label>
+        <label><span>${esc(t("wl.org"))}</span><input name="organisation" autocomplete="organization" maxlength="200"></label>
+        <label><span>${esc(t("wl.country"))}</span><input name="pays" autocomplete="country-name" maxlength="100"></label>
+        <label class="wide chk"><input type="checkbox" name="consent" required><span>${esc(t("ac.consent"))}</span></label>
+        <label class="wide chk"><input type="checkbox" name="news"><span>${esc(t("ac.news"))}</span></label>
+        <div class="wide"><button class="btn gold" type="submit" ${AC.busy ? "disabled" : ""}>${esc(t("ac.send"))}</button></div>
+      </form>`;
+  }
+  // Downloads: ask for the free account first (the edge function enforces it server-side).
+  function needAccount(file) {
+    if (!AUTH || AC.token) return false;
+    const u = new URL(location.href); u.searchParams.set("next", file); u.hash = "compte";
+    history.replaceState(null, "", u.pathname + u.search + u.hash);
+    AC.sent = null; renderAccount(); jump(undefined, "compte");
+    return true;
+  }
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest("a[href]");
+    if (a && AUTH && !AC.token) {
+      const u = new URL(a.getAttribute("href"), location.href);
+      if (u.origin === location.origin && /^\/(rapports\/.+\.pdf|donnees\/.+\.csv)$/i.test(u.pathname) && needAccount(u.pathname)) e.preventDefault();
+    }
+    if (e.target.closest("#ac-out")) {
+      if (AC.token) authFetch("/auth/v1/logout", { method: "POST", headers: { Authorization: `Bearer ${AC.token}` } }).catch(() => {});
+      dropSession(); renderAccount();
+    }
+  }, true);
+  document.addEventListener("submit", async (e) => {
+    if (e.target.id !== "ac-form") return;
+    e.preventDefault();
+    const f = e.target; if (!f.reportValidity()) return;
+    const v = Object.fromEntries(new FormData(f));
+    const back = new URL(location.origin + location.pathname); if (nextFile()) back.searchParams.set("next", nextFile());
+    AC.busy = true; AC.err = null; renderAccount();
+    try {
+      const r = await authFetch(`/auth/v1/otp?redirect_to=${encodeURIComponent(back.toString())}`, { method: "POST", body: JSON.stringify({
+        email: v.email, create_user: true,
+        data: { profil: v.profil, organisation: v.organisation || "", pays: v.pays || "", langue: lang, consent_at: new Date().toISOString(), news: !!v.news },
+      }) });
+      if (!r.ok) throw new Error(String(r.status));
+      AC.sent = v.email;
+    } catch (err) { AC.err = String(err.message || err); }
+    AC.busy = false; renderAccount();
+  });
+  $("ac-del").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const f = e.target;
+    try {
+      const r = await fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams(new FormData(f)).toString() });
+      if (!r.ok) throw new Error(String(r.status));
+      $("ac-del-st").textContent = t("ac.deleted");
+    } catch { $("ac-del-st").textContent = t("wl.err"); }
   });
 
   // ---------- Quarterly reports (previews are static pages built by site/report.py)
@@ -2022,7 +2153,7 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
     renderMarket(); renderBrief(); renderBuyers(); renderSimOps(); computeSim(); renderVeille(); renderSources();
   }
   function renderAll() {
-    renderBanner(); renderStele(); renderCountryViews(); renderStrategy(); renderReports(); renderOffers(); renderGlossary(); renderRoadmap();
+    renderBanner(); renderStele(); renderCountryViews(); renderStrategy(); renderReports(); renderOffers(); renderAccount(); renderGlossary(); renderRoadmap();
   }
   function setCountry(iso, keepTable) {
     C = AF[iso] ? iso : ""; store.set("cartouche-country", C);
@@ -2048,7 +2179,7 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
     const so = e.target.closest("[data-sort]");
     if (so) { const k = so.dataset.sort; tb.dir = tb.sort === k ? -tb.dir : (k === "c" || k === "isin" ? 1 : -1); tb.sort = k; renderTable(); $("mk-tbl").querySelector(`[data-sort="${k}"]`)?.focus(); return; }
     if (e.target.closest("#mk-more")) { tb.n += 50; renderTable(); return; }
-    if (e.target.closest("#mk-csv")) downloadCsv();
+    if (e.target.closest("#mk-csv") && !needAccount("CSV")) downloadCsv();
   });
   $("mk").addEventListener("input", (e) => {
     const id = e.target.id;
@@ -2102,6 +2233,8 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
 
   setLang(lang);
   renderAll();
+  initAuth();
+  window.addEventListener("hashchange", () => { if (/access_token=|error_description=/.test(location.hash)) initAuth(); });  // sign-in link opened in this same tab
   initNav();
   window.__cartouche = { setCountry, setLang: (l) => { setLang(l); renderAll(); }, openSearch, ensureMarket, market: () => ({ AU, curvePoints, volData, ovPoints }) };  // used by the site checks
 })();
