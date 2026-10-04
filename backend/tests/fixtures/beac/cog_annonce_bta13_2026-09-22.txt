@@ -1,0 +1,14 @@
+# Announcement notice (Congo, BTA 13 weeks, auction on 22 September 2026):
+# https://www.beac.int/wp-content/uploads/2016/11/Communiqué-dannonce-BTA-13-semaines-du-22-septembre-2026.pdf
+=== A
+COMMUNIQUE D'ANNONCE
+EMISSION DES BONS DU TRESOR
+Code Emission || CG1100001458 BTA 13 - 24 DECE 2026
+Echéance || 24 décembre 2026
+Volume d'émission (en millions de FCFA) || 15 000
+Date limite de souscription || Mardi 22 septembre 2026
+Date d'annonce des résultats || Mardi 22 septembre 2026 avant 15 h 00
+Date de règlement || Jeudi 24 septembre 2026 avant 15 h 00
+Date de valeur || Jeudi 24 septembre 2026avant 15 h 00
+=== B
+same as A
