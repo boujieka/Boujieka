@@ -859,5 +859,22 @@
   "mk.empty.dealers0": "Liste officielle d'établissements agréés : pas encore collectée",
   "mk.empty.sources.one": "{n} source officielle enregistrée",
   "mk.empty.sources.other": "{n} sources officielles enregistrées",
-  "mk.empty.cb": "Banque centrale : {cb}"
+  "mk.empty.cb": "Banque centrale : {cb}",
+  "nav.reports": "Rapports",
+  "rp.eyebrow": "Synthèse trimestrielle · UEMOA",
+  "rp.title": "Rapports trimestriels",
+  "rp.lede": "Chaque trimestre achevé, un rapport de synthèse est calculé à partir des seules adjudications vérifiées : montants retenus, rendements, maturités, comparaison avec le trimestre précédent et l'année précédente, avec le drapeau et les armoiries de chaque pays. L'aperçu est gratuit.",
+  "rp.q": "T{q} {y}",
+  "rp.th.q": "Trimestre",
+  "rp.th.n": "Adjudications",
+  "rp.th.alloc": "Montant retenu",
+  "rp.th.flags": "Pays",
+  "rp.th.read": "Aperçu gratuit",
+  "rp.read.fr": "Français",
+  "rp.read.en": "English",
+  "rp.pdf": "PDF",
+  "rp.full": "L'édition complète ajoute une fiche par pays (drapeau, armoiries, chiffres clés, historique sur 8 trimestres, rendements par maturité, plus grosses opérations avec lien vers le compte rendu officiel) et la liste des documents sources.",
+  "rp.buy": "Obtenir l'édition complète",
+  "rp.none": "Aucun trimestre complet n'est encore disponible.",
+  "rp.legal": "Publication indépendante : elle n'émane d'aucun État, ni de la BCEAO, ni d'UMOA-Titres. Drapeaux et armoiries reproduits pour identifier les pays (crédits dans chaque rapport). Ce n'est pas un conseil en investissement."
 }

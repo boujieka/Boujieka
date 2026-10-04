@@ -179,7 +179,7 @@ def main() -> None:
 
     subprocess.run(
         [sys.executable, str(REPO / "site" / "build.py"), "--as-of", args.as_of.isoformat(),
-         "--veille", str(veille_path)],
+         "--veille", str(veille_path), "--pdf"],  # --pdf: quarterly reports; skipped without Chromium
         check=True,
     )
 

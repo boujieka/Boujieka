@@ -951,5 +951,22 @@
   "mk.empty.dealers0": "Lista oficial de entidades acreditadas: aún no recopilada",
   "mk.empty.sources.one": "{n} fuente oficial registrada",
   "mk.empty.sources.other": "{n} fuentes oficiales registradas",
-  "mk.empty.cb": "Banco central: {cb}"
+  "mk.empty.cb": "Banco central: {cb}",
+  "nav.reports": "Informes",
+  "rp.eyebrow": "Síntesis trimestral · UEMOA",
+  "rp.title": "Informes trimestrales",
+  "rp.lede": "Para cada trimestre cerrado se calcula un informe de síntesis solo a partir de las subastas verificadas: importes adjudicados, rendimientos, vencimientos, comparación con el trimestre anterior y el año anterior, con la bandera y el escudo de cada país. La vista previa es gratuita (en francés o inglés).",
+  "rp.q": "T{q} {y}",
+  "rp.th.q": "Trimestre",
+  "rp.th.n": "Subastas",
+  "rp.th.alloc": "Importe adjudicado",
+  "rp.th.flags": "Países",
+  "rp.th.read": "Vista previa gratuita",
+  "rp.read.fr": "Français",
+  "rp.read.en": "English",
+  "rp.pdf": "PDF",
+  "rp.full": "La edición completa añade una ficha por país (bandera, escudo, cifras clave, histórico de 8 trimestres, rendimientos por vencimiento, mayores operaciones con enlace al informe oficial) y la lista de documentos fuente.",
+  "rp.buy": "Obtener la edición completa",
+  "rp.none": "Todavía no hay ningún trimestre cerrado.",
+  "rp.legal": "Publicación independiente: no la emite ni la aprueba ningún Estado, el BCEAO ni UMOA-Titres. Banderas y escudos reproducidos para identificar los países (créditos en cada informe). No constituye asesoramiento de inversión."
 }

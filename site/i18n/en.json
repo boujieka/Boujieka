@@ -951,5 +951,22 @@
   "mk.empty.dealers0": "Official list of accredited institutions: not collected yet",
   "mk.empty.sources.one": "{n} registered official source",
   "mk.empty.sources.other": "{n} registered official sources",
-  "mk.empty.cb": "Central bank: {cb}"
+  "mk.empty.cb": "Central bank: {cb}",
+  "nav.reports": "Reports",
+  "rp.eyebrow": "Quarterly review · WAEMU",
+  "rp.title": "Quarterly reports",
+  "rp.lede": "For every completed quarter, a summary report is computed from verified auctions only: amounts allotted, yields, maturities, comparison with the previous quarter and the previous year, with each country's flag and coat of arms. The preview is free.",
+  "rp.q": "Q{q} {y}",
+  "rp.th.q": "Quarter",
+  "rp.th.n": "Auctions",
+  "rp.th.alloc": "Amount allotted",
+  "rp.th.flags": "Countries",
+  "rp.th.read": "Free preview",
+  "rp.read.fr": "Français",
+  "rp.read.en": "English",
+  "rp.pdf": "PDF",
+  "rp.full": "The full edition adds one page per country (flag, coat of arms, key figures, 8-quarter history, yields by maturity, largest operations linked to the official results report) and the list of source documents.",
+  "rp.buy": "Get the full edition",
+  "rp.none": "No completed quarter is available yet.",
+  "rp.legal": "Independent publication: not issued or endorsed by any State, the BCEAO or UMOA-Titres. Flags and coats of arms are shown to identify the countries (credits in each report). Not investment advice."
 }

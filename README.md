@@ -60,6 +60,16 @@ A scheduled job rolls the data forward, re-runs the Opportunity Engine, **watche
 source pages for real** (reachability, changes, newly published documents), and redeploys the
 site. See [`docs/DAILY_WATCH.md`](docs/DAILY_WATCH.md).
 
+## Quarterly report
+For each completed quarter, `site/report.py` computes a summary of the WAEMU auctions from the
+verified data only, with each country's flag and coat of arms. There are two editions:
+
+- a free preview, deployed under `/rapports/`;
+- a complete edition, written to `site/reports/`, never committed or deployed, and meant for sale.
+
+See [`docs/QUARTERLY_REPORT.md`](docs/QUARTERLY_REPORT.md), including the licence and legal
+points about state emblems.
+
 ## Principles
 
 - **Source first.** Every market-data record carries source, URL, document, publication date,

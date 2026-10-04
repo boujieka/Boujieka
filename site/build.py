@@ -3,7 +3,8 @@
     python site/build.py --as-of 2026-10-03
 
 Requires a seeded database (ABI_DATABASE_URL). Writes site/dist/: index.html (data embedded),
-favicon.svg, netlify.toml and, when --veille is given, veille.json. Normally run by
+favicon.svg, netlify.toml, rapports/ (quarterly report previews, see site/report.py) and, when
+--veille is given, veille.json. Normally run by
 app.watch.daily, which refreshes the data and the source watch first.
 """
 
@@ -219,9 +220,15 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--as-of", required=True)
     parser.add_argument("--veille", type=Path, help="veille.json from app.watch.daily (optional)")
+    parser.add_argument("--pdf", action="store_true", help="also print the quarterly reports to PDF (needs Chromium)")
     args = parser.parse_args()
 
     payload = export(args.as_of)
+    # Quarterly reports: public previews into dist/rapports, complete editions into site/reports (never deployed).
+    import report
+    purchase = os.environ.get("CARTOUCHE_REPORT_PURCHASE_URL") or None
+    payload["reports"] = report.build(date.fromisoformat(args.as_of), DIST, pdf=args.pdf, purchase_url=purchase)
+    payload["reports_purchase_url"] = purchase
     if args.veille and args.veille.exists():
         veille = json.loads(args.veille.read_text())
         # Embed the report only; the comparison state stays in the downloadable veille.json.

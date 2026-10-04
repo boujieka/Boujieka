@@ -238,6 +238,7 @@ details.passport summary { cursor: pointer; padding: 8px 12px; font: 600 12px/1.
 
 /* Tables */
 table.list { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 640px; }
+.rp-flags img { width: 21px; height: 14px; object-fit: cover; border: 1px solid var(--line); margin-inline-end: 3px; vertical-align: middle; }
 .list th { text-align: start; font: 600 11px/1 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 10px 12px; border-bottom: 2px solid var(--gold); }
 .list td { padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
 .list td a { overflow-wrap: anywhere; }
@@ -522,7 +523,7 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
     </a>
     <div class="mast-r">
       <nav data-ia="aria-label:nav.label">
-        <a href="#carte" data-i="nav.map"></a><a href="#marche" data-i="nav.market"></a><a href="#radar" data-i="nav.radar"></a><a href="#acheteurs" data-i="nav.buyers"></a><a href="#simulateur" data-i="nav.sim"></a><a href="#strategie" data-i="nav.strategy"></a><a href="#glossaire" data-i="nav.glossary"></a><a href="#veille" data-i="nav.watch"></a><a href="#sources" data-i="nav.sources"></a>
+        <a href="#carte" data-i="nav.map"></a><a href="#marche" data-i="nav.market"></a><a href="#radar" data-i="nav.radar"></a><a href="#acheteurs" data-i="nav.buyers"></a><a href="#simulateur" data-i="nav.sim"></a><a href="#strategie" data-i="nav.strategy"></a><a href="#rapports" data-i="nav.reports"></a><a href="#glossaire" data-i="nav.glossary"></a><a href="#veille" data-i="nav.watch"></a><a href="#sources" data-i="nav.sources"></a>
       </nav>
       <div class="langs" id="langs" role="group" data-ia="aria-label:lang.label">
         <button type="button" data-lang="fr" lang="fr" title="Français">FR</button><button type="button" data-lang="en" lang="en" title="English">EN</button><button type="button" data-lang="pt" lang="pt" title="Português">PT</button><button type="button" data-lang="es" lang="es" title="Español">ES</button><button type="button" data-lang="ar" lang="ar" title="العربية">AR</button>
@@ -550,7 +551,7 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
     <button type="button" class="sbtn" id="sopen" aria-haspopup="dialog" aria-keyshortcuts="/" data-ia="aria-label:search.open.aria"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg><span class="sl" data-i="search.open"></span><kbd aria-hidden="true">/</kbd></button>
   </div>
   <nav class="wrap secnav" id="secnav" data-ia="aria-label:nav.label">
-    <a href="#carte" data-i="nav.map"></a><a href="#marche" data-i="nav.market"></a><a href="#radar" data-i="nav.radar"></a><a href="#acheteurs" data-i="nav.buyers"></a><a href="#simulateur" data-i="nav.sim"></a><a href="#strategie" data-i="nav.strategy"></a><a href="#glossaire" data-i="nav.glossary"></a><a href="#veille" data-i="nav.watch"></a><a href="#sources" data-i="nav.sources"></a>
+    <a href="#carte" data-i="nav.map"></a><a href="#marche" data-i="nav.market"></a><a href="#radar" data-i="nav.radar"></a><a href="#acheteurs" data-i="nav.buyers"></a><a href="#simulateur" data-i="nav.sim"></a><a href="#strategie" data-i="nav.strategy"></a><a href="#rapports" data-i="nav.reports"></a><a href="#glossaire" data-i="nav.glossary"></a><a href="#veille" data-i="nav.watch"></a><a href="#sources" data-i="nav.sources"></a>
   </nav>
 </div>
 
@@ -721,6 +722,18 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
         <p class="lede" data-i="st.coop.lede"></p>
         <div class="coops" id="coops"></div>
       </div>
+    </div>
+  </section>
+
+  <section id="rapports">
+    <div class="wrap">
+      <span class="eyebrow" data-i="rp.eyebrow"></span>
+      <h2 data-i="rp.title"></h2>
+      <p class="lede" data-i="rp.lede"></p>
+      <div class="scroll" style="margin-top:20px"><table class="list" id="rp-list" style="min-width:560px"></table></div>
+      <p class="note" data-i="rp.full"></p>
+      <p id="rp-buy"></p>
+      <p class="note" data-i="rp.legal"></p>
     </div>
   </section>
 
@@ -1265,6 +1278,19 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
     $("limits").innerHTML = M("strategy_limits").map((s) => `<li>${esc(s)}</li>`).join("");
     $("coops").innerHTML = M("strategy_coop").map(([h, p]) => `<div class="coop"><h4>${esc(h)}</h4><p>${esc(p)}</p></div>`).join("");
     renderPf();
+  }
+
+  // ---------- Quarterly reports (previews are static pages built by site/report.py)
+  function renderReports() {
+    const R = D.reports || [];
+    if (!R.length) { $("rp-list").innerHTML = `<tr><td>${esc(t("rp.none"))}</td></tr>`; $("rp-buy").innerHTML = ""; return; }
+    const flag = (c) => `<img src="rapports/emblems/${c.toLowerCase()}-flag.svg" alt="${esc(NAME(c))}" title="${esc(NAME(c))}">`;
+    const links = (r) => ["fr", "en"].filter((l) => r.preview[l]).map((l) =>
+      `<a href="${esc(r.preview[l])}" lang="${l}">${esc(t("rp.read." + l))}</a>${r.preview_pdf[l] ? ` · <a href="${esc(r.preview_pdf[l])}" lang="${l}">${esc(t("rp.pdf"))}</a>` : ""}`).join("<br>");
+    $("rp-list").innerHTML = `<thead><tr><th>${esc(t("rp.th.q"))}</th><th>${esc(t("rp.th.flags"))}</th><th class="num">${esc(t("rp.th.n"))}</th><th class="num">${esc(t("rp.th.alloc"))}</th><th>${esc(t("rp.th.read"))}</th></tr></thead><tbody>` +
+      R.map((r) => `<tr><td><b>${esc(t("rp.q", { q: r.quarter, y: r.year }))}</b><br><small class="note" style="margin:0">${esc(date(r.start))} – ${esc(date(r.end))}</small></td>` +
+        `<td class="rp-flags">${r.countries.map((c) => (r.flags || []).includes(c) ? flag(c) : `<abbr title="${esc(NAME(c))}">${esc(c)}</abbr> `).join("")}</td><td class="num">${nf(r.auctions, 0)}</td><td class="num">${esc(amt(r.allotted, "XOF"))}</td><td>${links(r)}</td></tr>`).join("") + "</tbody>";
+    $("rp-buy").innerHTML = D.reports_purchase_url ? `<a class="btn gold" href="${esc(D.reports_purchase_url)}" rel="noopener">${esc(t("rp.buy"))}</a>` : "";
   }
 
   // ---------- Glossary
@@ -1895,7 +1921,7 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
     renderMarket(); renderBuyers(); renderSimOps(); computeSim(); renderVeille(); renderSources();
   }
   function renderAll() {
-    renderBanner(); renderStele(); renderCountryViews(); renderStrategy(); renderGlossary(); renderRoadmap();
+    renderBanner(); renderStele(); renderCountryViews(); renderStrategy(); renderReports(); renderGlossary(); renderRoadmap();
   }
   function setCountry(iso, keepTable) {
     C = AF[iso] ? iso : ""; store.set("cartouche-country", C);

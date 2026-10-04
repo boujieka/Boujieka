@@ -951,5 +951,22 @@
   "mk.empty.dealers0": "Lista oficial de instituições acreditadas: ainda não recolhida",
   "mk.empty.sources.one": "{n} fonte oficial registada",
   "mk.empty.sources.other": "{n} fontes oficiais registadas",
-  "mk.empty.cb": "Banco central: {cb}"
+  "mk.empty.cb": "Banco central: {cb}",
+  "nav.reports": "Relatórios",
+  "rp.eyebrow": "Síntese trimestral · UEMOA",
+  "rp.title": "Relatórios trimestrais",
+  "rp.lede": "Para cada trimestre concluído, é calculado um relatório de síntese apenas a partir dos leilões verificados: montantes colocados, rendimentos, maturidades, comparação com o trimestre anterior e o ano anterior, com a bandeira e o brasão de cada país. A pré-visualização é gratuita (em francês ou inglês).",
+  "rp.q": "T{q} {y}",
+  "rp.th.q": "Trimestre",
+  "rp.th.n": "Leilões",
+  "rp.th.alloc": "Montante colocado",
+  "rp.th.flags": "Países",
+  "rp.th.read": "Pré-visualização gratuita",
+  "rp.read.fr": "Français",
+  "rp.read.en": "English",
+  "rp.pdf": "PDF",
+  "rp.full": "A edição completa acrescenta uma ficha por país (bandeira, brasão, números-chave, histórico de 8 trimestres, rendimentos por maturidade, maiores operações com ligação ao relatório oficial) e a lista dos documentos-fonte.",
+  "rp.buy": "Obter a edição completa",
+  "rp.none": "Ainda não há nenhum trimestre concluído.",
+  "rp.legal": "Publicação independente: não é emitida nem aprovada por nenhum Estado, pelo BCEAO ou pela UMOA-Titres. Bandeiras e brasões reproduzidos para identificar os países (créditos em cada relatório). Não constitui aconselhamento de investimento."
 }
