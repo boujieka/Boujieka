@@ -1,528 +1,528 @@
 1
-00:00:00,400 --> 00:00:06,554
+00:00:00,400 --> 00:00:06,889
 Welcome to the video guide to MODEL 7, the Hydropower Development and Finance Model.
 
 2
-00:00:06,554 --> 00:00:13,075
+00:00:06,889 --> 00:00:13,765
 It accompanies Book 7, Hydropower Development and Finance, From River to Financial Close.
 
 3
-00:00:13,975 --> 00:00:25,965
-In the next thirteen minutes, we will walk through the model one step at a time, on its reference case: Kasiri River Hydro, a fictional sixty megawatt run-of-river plant in the fictional Republic of Navaria.
+00:00:14,665 --> 00:00:28,112
+In the next fifteen minutes, we will walk through the model one step at a time, on its reference case: Kasiri River Hydro, a fictional sixty megawatt run-of-river plant in the fictional Republic of Navaria.
 
 4
-00:00:25,965 --> 00:00:36,101
+00:00:28,112 --> 00:00:39,535
 By the end, you will know where to start, how to check that the model is sound, how to read its results, how to stress them, and how to replace the case with your own project.
 
 5
-00:00:37,001 --> 00:00:41,177
+00:00:40,435 --> 00:00:45,117
 Please open the workbook now, and keep it next to you as you watch.
 
 6
-00:00:41,177 --> 00:00:44,731
+00:00:45,117 --> 00:00:49,100
 Pause the video whenever you want to try a step yourself.
 
 7
-00:00:46,231 --> 00:00:48,916
+00:00:50,600 --> 00:00:54,067
 The workbook opens on the cover sheet.
 
 8
-00:00:48,916 --> 00:01:01,074
+00:00:54,067 --> 00:01:09,760
 At the top, you see the title and the framework the model applies: the Hydro Readiness Framework, with eight questions, twenty-three gates and one financial close decision.
 
 9
-00:01:01,974 --> 00:01:08,603
+00:01:10,660 --> 00:01:17,917
 Below it, a block called Live status gives six answers that update with every change you make.
 
 10
-00:01:08,603 --> 00:01:11,635
+00:01:17,917 --> 00:01:21,237
 For the default case, they read as follows.
 
 11
-00:01:11,635 --> 00:01:16,783
+00:01:21,237 --> 00:01:26,872
 The financial close decision is STOP, because a critical gate is not met.
 
 12
-00:01:16,783 --> 00:01:19,181
+00:01:26,872 --> 00:01:29,497
 Six of twenty-three gates are met.
 
 13
-00:01:19,181 --> 00:01:22,848
+00:01:29,497 --> 00:01:33,512
 The nine-gate development screen reads not bankable.
 
 14
-00:01:22,848 --> 00:01:26,727
+00:01:33,512 --> 00:01:37,758
 The fiscal screen reads low additional fiscal pressure.
 
 15
-00:01:26,727 --> 00:01:29,477
+00:01:37,758 --> 00:01:40,769
 The model integrity checks read all OK.
 
 16
-00:01:29,477 --> 00:01:32,721
+00:01:40,769 --> 00:01:44,320
 And the book consistency check reads all pass.
 
 17
-00:01:33,621 --> 00:01:38,453
+00:01:45,220 --> 00:01:50,691
 At the foot of the cover, the Start here links take you straight to the main sheets.
 
 18
-00:01:38,453 --> 00:01:40,236
+00:01:50,691 --> 00:01:52,710
 We will use them in this order.
 
 19
-00:01:41,736 --> 00:01:44,898
+00:01:54,210 --> 00:01:58,234
 Click the link to the Read me sheet.
 
 20
-00:01:44,898 --> 00:01:49,818
+00:01:58,234 --> 00:02:04,493
 It explains what the model does and how it is organised.
 
 21
-00:01:49,818 --> 00:01:53,860
+00:02:04,493 --> 00:02:09,635
 Three points matter before you touch anything.
 
 22
-00:01:54,760 --> 00:01:56,552
+00:02:10,535 --> 00:02:12,661
 First, the colour code.
 
 23
-00:01:56,552 --> 00:01:59,435
+00:02:12,661 --> 00:02:16,080
 Blue font is an input you may change.
 
 24
-00:01:59,435 --> 00:02:02,864
+00:02:16,080 --> 00:02:20,147
 Black font is a formula; never type over it.
 
 25
-00:02:02,864 --> 00:02:05,981
+00:02:20,147 --> 00:02:23,843
 Green font is a link from another sheet.
 
 26
-00:02:05,981 --> 00:02:09,098
+00:02:23,843 --> 00:02:27,540
 And a shaded green cell is a key output.
 
 27
-00:02:09,998 --> 00:02:11,585
+00:02:28,440 --> 00:02:30,078
 Second, the timeline.
 
 28
-00:02:11,585 --> 00:02:22,314
+00:02:30,078 --> 00:02:41,155
 The model is annual, with forty periods, and every amount is in millions of US dollars, nominal, unless the label says real twenty twenty-six.
 
 29
-00:02:23,214 --> 00:02:25,188
+00:02:42,055 --> 00:02:44,403
 Third, the two levels of gates.
 
 30
-00:02:25,188 --> 00:02:29,200
+00:02:44,403 --> 00:02:49,175
 A nine-gate screen helps you decide whether to keep developing.
 
 31
-00:02:29,200 --> 00:02:35,504
+00:02:49,175 --> 00:02:56,674
 The twenty-three gates, on sheet thirty A, test whether the evidence file supports financial close.
 
 32
-00:02:35,504 --> 00:02:39,006
+00:02:56,674 --> 00:03:00,840
 Keep that distinction in mind; we will come back to it.
 
 33
-00:02:40,506 --> 00:02:45,013
+00:03:02,340 --> 00:03:07,928
 Now open sheet zero one, the control panel.
 
 34
-00:02:45,013 --> 00:02:50,149
+00:03:07,928 --> 00:03:14,295
 This is the only sheet you need to run scenarios.
 
 35
-00:02:51,049 --> 00:02:52,939
+00:03:15,195 --> 00:03:17,112
 Section A sets the case.
 
 36
-00:02:52,939 --> 00:02:57,900
+00:03:17,112 --> 00:03:22,144
 The model case is one for base, two for low and three for high.
 
 37
-00:02:57,900 --> 00:03:05,932
+00:03:22,144 --> 00:03:30,292
 The generation case for cash flows is one for P fifty, two for P seventy-five, and three for P ninety.
 
 38
-00:03:05,932 --> 00:03:13,807
+00:03:30,292 --> 00:03:38,280
 The lender sizing case has four options; the default, four, sizes the debt on the ten-year P ninety.
 
 39
-00:03:14,707 --> 00:03:16,675
+00:03:39,180 --> 00:03:41,503
 Section B sets the transaction.
 
 40
-00:03:16,675 --> 00:03:20,102
+00:03:41,503 --> 00:03:45,551
 Structure two is a private independent power producer.
 
 41
-00:03:20,102 --> 00:03:25,878
+00:03:45,551 --> 00:03:52,371
 Debt mode one means the debt is sized inside the model; mode two locks it at given amounts.
 
 42
-00:03:25,878 --> 00:03:33,240
+00:03:52,371 --> 00:04:01,065
 The budget backstop, set to one, means the government covers any shortfall in the utility's payments to the project.
 
 43
-00:03:34,140 --> 00:03:39,668
+00:04:01,965 --> 00:04:07,568
 Section C holds nine stress toggles, from drought to transmission delay.
 
 44
-00:03:39,668 --> 00:03:43,200
+00:04:07,568 --> 00:04:11,148
 Each is zero or one, and they can be combined.
 
 45
-00:03:43,200 --> 00:03:52,107
+00:04:11,148 --> 00:04:20,175
 Section D holds five sensitivity flexes, in percent, for cost, generation, tariff, operating cost and interest rate.
 
 46
-00:03:53,007 --> 00:03:55,886
+00:04:21,075 --> 00:04:24,113
 Leave every value at its default for now.
 
 47
-00:03:55,886 --> 00:04:01,502
+00:04:24,113 --> 00:04:30,040
 Section E, at the bottom, shows the main results for whatever you have selected.
 
 48
-00:04:03,002 --> 00:04:08,174
+00:04:31,540 --> 00:04:37,336
 Before reading any result, check that the model is sound.
 
 49
-00:04:08,174 --> 00:04:11,078
+00:04:37,336 --> 00:04:40,590
 Open sheet thirty-three, Checks.
 
 50
-00:04:11,078 --> 00:04:21,785
+00:04:40,590 --> 00:04:52,588
 It runs fourteen integrity tests: sources equal uses, debt is fully repaid, the energy chain is consistent, and so on.
 
 51
-00:04:21,785 --> 00:04:24,597
+00:04:52,588 --> 00:04:55,740
 The last line must read all OK.
 
 52
-00:04:25,497 --> 00:04:28,149
+00:04:56,640 --> 00:04:59,655
 Then open sheet thirty-five, Book check.
 
 53
-00:04:28,149 --> 00:04:33,452
+00:04:59,655 --> 00:05:05,685
 It compares the live model with the twenty-six Kasiri figures printed in Book 7.
 
 54
-00:04:33,452 --> 00:04:36,568
+00:05:05,685 --> 00:05:09,228
 With the default inputs, every line reads pass.
 
 55
-00:04:36,568 --> 00:04:44,854
+00:05:09,228 --> 00:05:18,650
 If you change an input, some lines will read check; that is expected, because the printed figures belong to the default case.
 
 56
-00:04:45,754 --> 00:04:51,374
+00:05:19,550 --> 00:05:26,925
 The rule is simple: do not rely on any output until the integrity checks read all OK.
 
 57
-00:04:52,874 --> 00:04:56,037
+00:05:28,425 --> 00:05:32,133
 Open sheet thirty-two, the dashboard.
 
 58
-00:04:56,037 --> 00:05:06,893
+00:05:32,133 --> 00:05:44,860
 Row four gives three verdicts side by side: the nine-gate screen, the twenty-three gate close readiness, and the fiscal screen.
 
 59
-00:05:07,793 --> 00:05:23,118
+00:05:45,760 --> 00:06:04,160
 The project block shows the plant: sixty megawatts, about two hundred and ninety-two gigawatt hours a year at P fifty, a capacity factor of about fifty-six percent, and a plant cost of about one hundred and fifty-seven million dollars in twenty twenty-six terms.
 
 60
-00:05:24,018 --> 00:05:27,470
+00:06:05,060 --> 00:06:08,858
 The financial block shows how the plant is financed.
 
 61
-00:05:27,470 --> 00:05:31,719
+00:06:08,858 --> 00:06:13,533
 Senior debt is about one hundred and forty-five million dollars.
 
 62
-00:05:31,719 --> 00:05:35,768
+00:06:13,533 --> 00:06:17,989
 The minimum debt service cover ratio is one point five three.
 
 63
-00:05:35,768 --> 00:05:41,544
+00:06:17,989 --> 00:06:24,344
 The private equity return is thirteen point eight percent, against a target of fifteen.
 
 64
-00:05:41,544 --> 00:05:45,460
+00:06:24,344 --> 00:06:28,654
 And there is a financing gap of about four million dollars.
 
 65
-00:05:45,460 --> 00:05:51,369
+00:06:28,654 --> 00:06:35,155
 In other words, the project is sound, but slightly short of the tariff its sponsors need.
 
 66
-00:05:52,269 --> 00:05:56,096
+00:06:36,055 --> 00:06:40,102
 The developer block shows the economics of getting there.
 
 67
-00:05:56,096 --> 00:06:06,370
+00:06:40,102 --> 00:06:50,967
 The development budget is about nine million dollars over six years, with about a fifteen percent chance of reaching financial close from reconnaissance.
 
 68
-00:06:06,370 --> 00:06:10,601
+00:06:50,967 --> 00:06:55,440
 On the success path, the developer earns about sixteen percent.
 
 69
-00:06:10,601 --> 00:06:17,047
+00:06:55,440 --> 00:07:02,257
 But weighted by the chance of failure, its net present value is about minus one million dollars.
 
 70
-00:06:17,047 --> 00:06:22,956
+00:07:02,257 --> 00:07:08,506
 The project is attractive once it succeeds, and not worth starting on these assumptions.
 
 71
-00:06:22,956 --> 00:06:25,575
+00:07:08,506 --> 00:07:11,275
 Book 7, Chapter fourteen, explains why.
 
 72
-00:06:26,475 --> 00:06:41,359
+00:07:12,175 --> 00:07:30,950
 The utility and public finance blocks show the other side of the deal: the buyer can pay about six times the bill, but the government and the utility together lose about twenty-eight million dollars in present value, because the tariff is above what the utility collects from its customers.
 
 73
-00:06:42,859 --> 00:06:45,979
+00:07:32,450 --> 00:07:36,010
 Open sheet thirty A, Close readiness.
 
 74
-00:06:45,979 --> 00:06:49,688
+00:07:36,010 --> 00:07:40,244
 Each of the twenty-three gates has a status.
 
 75
-00:06:49,688 --> 00:07:00,648
+00:07:40,244 --> 00:07:52,753
 Some are tested automatically by the model; the others are evidence statuses that you enter, met, partial, not met or no evidence.
 
 76
-00:07:00,648 --> 00:07:03,851
+00:07:52,753 --> 00:07:56,410
 A gate counts as met only on evidence.
 
 77
-00:07:03,851 --> 00:07:06,971
+00:07:56,410 --> 00:07:59,970
 A blank status counts as no evidence.
 
 78
-00:07:07,871 --> 00:07:10,457
+00:08:00,870 --> 00:08:03,931
 The decision follows a fixed ladder.
 
 79
-00:07:10,457 --> 00:07:13,115
+00:08:03,931 --> 00:08:07,077
 Any critical gate not met gives STOP.
 
 80
-00:07:13,115 --> 00:07:16,420
+00:08:07,077 --> 00:08:10,988
 Critical gates only partly met give not ready.
 
 81
-00:07:16,420 --> 00:07:19,581
+00:08:10,988 --> 00:08:14,729
 All critical gates met gives conditional go.
 
 82
-00:07:19,581 --> 00:07:22,024
+00:08:14,729 --> 00:08:17,620
 And all twenty-three met gives go.
 
 83
-00:07:22,924 --> 00:07:42,986
+00:08:18,520 --> 00:08:39,245
 For Kasiri, seven critical gates are not met: the flow record and its independent review, the bankable feasibility sign-off, the environmental and social assessment to lender standards, land rights, six months of payment security, a fully committed financing plan, and an equity return at target.
 
 84
-00:07:43,886 --> 00:07:54,826
+00:08:40,145 --> 00:08:52,346
 At the foot of the sheet, the gates are grouped under the eight questions of the framework, and each question names the party that must accept it: developer, lender or government.
 
 85
-00:07:54,826 --> 00:08:02,466
+00:08:52,346 --> 00:09:00,865
 Sheet thirty-four, the framework map, shows for each gate where the model tests it and which chapters of the book discuss it.
 
 86
-00:08:02,466 --> 00:08:04,728
+00:09:00,865 --> 00:09:03,387
 STOP is not a verdict on the project.
 
 87
-00:08:04,728 --> 00:08:06,134
+00:09:03,387 --> 00:09:04,955
 It is a work programme.
 
 88
-00:08:07,634 --> 00:08:10,475
+00:09:06,455 --> 00:09:09,952
 Open sheet zero one A, Development.
 
 89
-00:08:10,475 --> 00:08:18,918
+00:09:09,952 --> 00:09:20,343
 Section A lists the six development stages, each with a duration, a budget and a probability of success.
 
 90
-00:08:18,918 --> 00:08:26,062
+00:09:20,343 --> 00:09:29,135
 These probabilities are your judgement; no public data calibrate them for African hydro.
 
 91
-00:08:26,962 --> 00:08:35,368
+00:09:30,035 --> 00:09:40,354
 Section D gives the developer's returns: the risk-weighted net present value, the break-even development premium and the success-path value.
 
 92
-00:08:35,368 --> 00:08:40,112
+00:09:40,354 --> 00:09:46,177
 Section D two values the whole development position at the start of each stage.
 
 93
-00:08:40,112 --> 00:08:48,098
+00:09:46,177 --> 00:09:55,980
 Use it to price a co-developer's entry: at the start of permitting, Kasiri's position is worth about one point three million dollars.
 
 94
-00:08:48,998 --> 00:08:50,013
+00:09:56,880 --> 00:09:58,187
 Try one change.
 
 95
-00:08:50,013 --> 00:08:55,562
+00:09:58,187 --> 00:10:05,333
 Raise the probability of the feasibility stage, and watch the risk-weighted value.
 
 96
-00:08:55,562 --> 00:08:56,713
+00:10:05,333 --> 00:10:06,815
 Then set it back.
 
 97
-00:08:58,213 --> 00:09:02,673
+00:10:08,315 --> 00:10:13,788
 Go back to the control panel and set the drought toggle to one.
 
 98
-00:09:02,673 --> 00:09:07,417
+00:10:13,788 --> 00:10:19,608
 The model applies three years at fifty-five percent of normal flow.
 
 99
-00:09:07,417 --> 00:09:13,010
+00:10:19,608 --> 00:10:26,470
 The debt is still sized on the same lender case, so the amount does not change.
 
 100
-00:09:13,010 --> 00:09:20,374
+00:10:26,470 --> 00:10:35,505
 But open the dashboard: the minimum debt service cover ratio falls below one, to about zero point seven.
 
 101
-00:09:20,374 --> 00:09:23,985
+00:10:35,505 --> 00:10:39,935
 The reserve account is drawn, and it is not enough.
 
 102
-00:09:24,885 --> 00:09:28,834
+00:10:40,835 --> 00:10:45,271
 This is the most important stress for an energy-only tariff.
 
 103
-00:09:28,834 --> 00:09:34,166
+00:10:45,271 --> 00:10:51,259
 A lender would ask for a larger reserve, a cash sweep in wet years, or less debt.
 
 104
-00:09:34,166 --> 00:09:36,535
+00:10:51,259 --> 00:10:53,920
 Set the drought toggle back to zero.
 
 105
-00:09:38,035 --> 00:09:40,499
+00:10:55,420 --> 00:10:58,379
 Now set the offtaker stress to one.
 
 106
-00:09:40,499 --> 00:09:46,269
+00:10:58,379 --> 00:11:05,310
 The utility's collections fall, transfers are cut and the retail tariff is frozen.
 
 107
-00:09:46,269 --> 00:09:50,984
+00:11:05,310 --> 00:11:10,974
 Within ten years, the utility can no longer pay the project's bill.
 
 108
-00:09:50,984 --> 00:10:04,425
+00:11:10,974 --> 00:11:27,120
 With the budget backstop on, the project is paid in full, and the cost moves to the government: the consolidated fiscal value falls to about minus one hundred and twenty-five million dollars.
 
 109
-00:10:05,325 --> 00:10:07,236
+00:11:28,020 --> 00:11:30,264
 Then set the backstop to zero.
 
 110
-00:10:07,236 --> 00:10:16,023
+00:11:30,264 --> 00:11:40,587
 The twelve-month payment guarantee is used up, the rest becomes arrears, and the project defaults: the minimum cover ratio turns negative.
 
 111
-00:10:16,023 --> 00:10:22,773
+00:11:40,587 --> 00:11:48,517
 This is the central lesson of the book: a project can be bankable because the risk has moved to the state.
 
 112
-00:10:22,773 --> 00:10:25,065
+00:11:48,517 --> 00:11:51,210
 Reset both values to their defaults.
 
 113
-00:10:26,565 --> 00:10:37,031
+00:11:52,710 --> 00:12:04,325
 On the control panel, set the structure to one, then three, four and five, and read sheet seventeen A, Structures, together with the dashboard.
 
 114
-00:10:37,031 --> 00:10:47,862
+00:12:04,325 --> 00:12:16,346
 Structure one is public, three a public-private partnership with concessional debt, four a hybrid with public civil works, and five blended finance.
 
 115
-00:10:47,862 --> 00:10:59,351
+00:12:16,346 --> 00:12:29,098
 Watch how the equity return and the fiscal value move together: a grant that is not matched by a lower tariff transfers public money to private shareholders.
 
 116
-00:10:59,351 --> 00:11:01,547
+00:12:29,098 --> 00:12:31,535
 Set the structure back to two.
 
 117
-00:11:02,447 --> 00:11:13,539
+00:12:32,435 --> 00:12:44,391
 On sheet zero five A, Contracting, the construction contract structure can be one, a single turnkey contract, two, split packages, or three, multiple contracts.
 
 118
-00:11:13,539 --> 00:11:17,630
+00:12:44,391 --> 00:12:48,800
 Compare the cost and the share of overruns the owner keeps.
 
 119
-00:11:19,130 --> 00:11:25,172
+00:12:50,300 --> 00:12:56,479
 To apply the model to a real project, replace the blue inputs in this order.
 
 120
-00:11:25,172 --> 00:11:37,576
+00:12:56,479 --> 00:13:09,163
 First, sheet zero two, the project inputs, and sheet zero three, the hydrology: monthly flows, head, design flow, the length and quality of the flow record.
 
 121
-00:11:37,576 --> 00:11:40,756
+00:13:09,163 --> 00:13:12,415
 Second, sheet zero five, the plant cost.
 
 122
-00:11:40,756 --> 00:11:46,720
+00:13:12,415 --> 00:13:18,513
 Third, sheet zero one A, the development stages, budgets and probabilities.
 
 123
-00:11:46,720 --> 00:11:56,420
+00:13:18,513 --> 00:13:28,432
 Fourth, the commercial terms: sheet fourteen for the power purchase agreement, and sheets eleven and twelve for the buyer.
 
 124
-00:11:56,420 --> 00:12:01,270
+00:13:28,432 --> 00:13:33,392
 Fifth, the financing terms on the debt and structures sheets.
 
 125
-00:12:01,270 --> 00:12:07,233
+00:13:33,392 --> 00:13:39,490
 Finally, the evidence statuses of the twenty-three gates on sheet thirty A.
 
 126
-00:12:08,133 --> 00:12:13,225
+00:13:40,390 --> 00:13:46,154
 After every block of changes, check sheet thirty-three before reading any result.
 
 127
-00:12:13,225 --> 00:12:18,316
+00:13:46,154 --> 00:13:51,918
 Expect sheet thirty-five to show check lines: it only applies to the Kasiri case.
 
 128
-00:12:18,316 --> 00:12:23,848
+00:13:51,918 --> 00:13:58,180
 And keep a record of every assumption and its source, because the gates will ask for it.
 
 129
-00:12:25,348 --> 00:12:35,811
+00:13:59,680 --> 00:14:12,034
 That is the whole route: the cover, the checks, the dashboard, the close decision, the developer's view, the stresses and your own project.
 
 130
-00:12:35,811 --> 00:12:46,426
+00:14:12,034 --> 00:14:24,565
 The User and Methodology Manual, MANUAL 7, gives every formula and every sheet in detail, and Book 7 explains the reasoning behind each step.
 
 131
-00:12:47,326 --> 00:12:54,694
+00:14:25,465 --> 00:14:34,618
 Remember that MODEL 7 is a decision-support tool, not investment advice, and that every default input is illustrative.
 
 132
-00:12:54,694 --> 00:12:56,193
+00:14:34,618 --> 00:14:36,480
 Thank you for listening.
 

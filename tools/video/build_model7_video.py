@@ -1,12 +1,14 @@
 """Video guide to MODEL 7: "How to use MODEL 7, step by step" (1920 x 1080, narrated).
 
 Run: python3 tools/video/build_model7_video.py
-Needs: piper-tts with the en_GB-cori-high voice (VOICE below), ffmpeg, playwright with Chromium, and the scenario copies
+Needs: Kokoro-82M (pip install kokoro; voices af_heart in English, ff_siwis in French) or piper-tts (TTS_ENGINE=piper), ffmpeg, playwright with Chromium, and the scenario copies
 (drought, offtaker, offtaker without backstop) recalculated from the master workbook (built automatically).
 
 Every image is a render of the workbook itself: cell values, number formats, fonts and fills come from the calculated
 file, so the numbers on screen are the model's numbers. Stress scenes show copies recalculated with the stress on.
 Output: course/video/MODEL7_Video_Guide.mp4 (H.264 + AAC, chapters, soft English subtitles) and .srt.
+VIDEO_LANG=fr builds the French version (MODEL7_Video_Guide_FR.mp4, .fr.srt) from course/video/script_fr.md with the
+fr_FR-siwis-medium voice: narration, title cards, headers and captions in French; the workbook itself stays in English.
 """
 import base64
 import html
@@ -24,7 +26,12 @@ from playwright.sync_api import sync_playwright
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 os.chdir(ROOT)
 WORK = os.environ.get("VIDEO_WORK", "/tmp/model7_video")
-VOICE = os.environ.get("PIPER_VOICE", "/tmp/claude-0/-home-user-Boujieka/92f87389-f945-55f4-b28c-902b8d98c6ca/scratchpad/voice/en_GB-cori-high.onnx")
+LANG = os.environ.get("VIDEO_LANG", "en")  # "en" or "fr"
+ENGINE = os.environ.get("TTS_ENGINE", "kokoro")  # "kokoro" (default, more natural) or "piper"
+KOKORO_VOICE = os.environ.get("KOKORO_VOICE", "ff_siwis" if LANG == "fr" else "af_heart")
+KOKORO_SPEED = float(os.environ.get("KOKORO_SPEED", "0.94"))
+VOICE_DIR = "/tmp/claude-0/-home-user-Boujieka/92f87389-f945-55f4-b28c-902b8d98c6ca/scratchpad/voice"
+VOICE = os.environ.get("PIPER_VOICE", f"{VOICE_DIR}/" + ("fr_FR-siwis-medium.onnx" if LANG == "fr" else "en_GB-cori-high.onnx"))
 RECALC = os.environ.get("RECALC", "/root/.claude/skills/synced/595554f7-3334-4cb8-90b6-40da4dcb6b84_e238fe12-8a4b-4490-8c46-5bf1323948af/xlsx/scripts/recalc.py")
 MODEL = "model/Bankable_Hydro_Model.xlsx"
 OUT_DIR = "course/video"
@@ -182,8 +189,8 @@ td.ovr {{ box-shadow: inset 0 0 0 9999px rgba(224,180,74,.55) !important; font-w
 
 def page(chap, inner, sheet_note=""):
     return (f"<html><head><meta charset='utf-8'><style>{CSS}</style></head><body>"
-            f"<div class='top'><div class='brand'>MODEL 7<span>Hydropower Development and Finance Model</span></div><div class='chap'>{html.escape(chap)}</div></div>"
-            f"{inner}<div class='foot'><div>Africa Energy Finance  |  Book 7 companion  |  v1.0 RC1</div><div>{sheet_note}</div></div></body></html>")
+            f"<div class='top'><div class='brand'>MODEL 7<span>{t_('Hydropower Development and Finance Model')}</span></div><div class='chap'>{html.escape(chap)}</div></div>"
+            f"{inner}<div class='foot'><div>{t_('Africa Energy Finance  |  Book 7 companion  |  v1.0 RC1')}</div><div>{t_(sheet_note)}</div></div></body></html>")
 
 
 def sheets_inner(panels):
@@ -194,20 +201,67 @@ def card(kicker, title, sub="", body="", qr=False):
     q = ""
     if qr:
         b64 = base64.b64encode(open("book7/src/figures/qr_companion.png", "rb").read()).decode()
-        q = f"<div class='qr'><img src='data:image/png;base64,{b64}' width='230'><div>Companion materials</div></div>"
+        q = f"<div class='qr'><img src='data:image/png;base64,{b64}' width='230'><div>{t_('Companion materials')}</div></div>"
+    if LANG == "fr":
+        kicker, title, sub = t_(kicker), t_(title), t_(sub)
+        body = OWN_PROJECT_FR if body.startswith("<ol><li>02 ") else "".join(t_(x) for x in re.split(r"(?<=</li>)(?=<li>Record)", body))
     return f"<div class='card'><div class='k'>{kicker}</div><h1>{title}</h1><div class='rule'></div><h2>{sub}</h2>{body}{q}</div>"
 
 
+# ---------------------------------------------------------------- French on-screen text
+FR = {
+    "Hydropower Development and Finance Model": "Modèle de développement et de financement hydroélectrique",
+    "Africa Energy Finance  |  Book 7 companion  |  v1.0 RC1": "Africa Energy Finance  |  Compagnon du Livre 7  |  v1.0 RC1",
+    "Companion materials": "Ressources du livre",
+    "VIDEO GUIDE": "GUIDE VIDÉO", "How to use <em>MODEL 7</em>,<br>step by step": "Utiliser <em>MODEL 7</em>,<br>pas à pas",
+    "Hydropower Development and Finance Model  |  Companion to Book 7": "Modèle de développement et de financement hydroélectrique  |  Compagnon du Livre 7",
+    "THE ROUTE": "LE PARCOURS", "From the cover<br>to your own project": "De la feuille de garde<br>à votre propre projet",
+    "Kasiri River Hydro: 60 MW run-of-river, fictional Republic of Navaria": "Kasiri River Hydro : 60 MW au fil de l'eau, République fictive de Navaria",
+    "<ol><li>Cover and checks</li><li>Dashboard and the close decision</li><li>Developer view and stresses</li><li>Your own project</li></ol>":
+        "<ol><li>Feuille de garde et contrôles</li><li>Tableau de bord et décision de bouclage</li><li>Point de vue du développeur et stress</li><li>Votre propre projet</li></ol>",
+    "BEFORE YOU START": "AVANT DE COMMENCER", "Open the workbook": "Ouvrez le classeur",
+    "<p>Keep it open next to the video. Pause whenever you want to try a step.</p>": "<p>Gardez-le ouvert à côté de la vidéo. Mettez en pause pour essayer chaque étape.</p>",
+    "Sheet: COVER": "Feuille : COVER", "Sheet: COVER, live status": "Feuille : COVER, live status", "Sheet: COVER, start here": "Feuille : COVER, start here",
+    "Sheet: 00_README": "Feuille : 00_README", "Sheet: 00_README, colour code": "Feuille : 00_README, code couleur",
+    "Sheet: 00_README, units and timeline": "Feuille : 00_README, unités et chronologie", "Sheet: 00_README, two levels of gates": "Feuille : 00_README, deux niveaux de portes",
+    "Sheet: 01_CONTROL_PANEL": "Feuille : 01_CONTROL_PANEL", "Section A: case and generation": "Section A : cas et production",
+    "Section B: transaction structure": "Section B : structure de la transaction", "Sections C and D: stresses and flexes": "Sections C et D : stress et sensibilités",
+    "Section E: active scenario read-out": "Section E : résultats du scénario actif", "Sheet: 33_CHECKS": "Feuille : 33_CHECKS", "Sheet: 35_BOOK_CHECK": "Feuille : 35_BOOK_CHECK",
+    "Rule: ALL OK before reading any result": "Règle : ALL OK avant de lire un résultat", "Sheet: 32_DASHBOARD": "Feuille : 32_DASHBOARD",
+    "Project block": "Bloc projet", "Financial block": "Bloc financier", "Developer block": "Bloc développeur",
+    "Utility and public finance blocks": "Blocs compagnie d'électricité et finances publiques", "Sheet: 30A_CLOSE_READINESS": "Feuille : 30A_CLOSE_READINESS",
+    "The decision ladder": "L'échelle de décision", "The seven critical gates not met": "Les sept portes critiques non franchies",
+    "Framework summary and 34_FRAMEWORK_MAP": "Synthèse du cadre et 34_FRAMEWORK_MAP", "Sheet: 01A_DEVELOPMENT, stages": "Feuille : 01A_DEVELOPMENT, étapes",
+    "Returns and value of the position by stage": "Rendements et valeur de la position par étape", "Try a change: stage probabilities": "Essayez : probabilités des étapes",
+    "Drought on: minimum DSCR": "Sécheresse activée : DSCR minimum", "Drought (left) against the base case (right)": "Sécheresse (à gauche) contre cas de base (à droite)",
+    "Offtaker stress with the budget backstop": "Stress acheteur avec garantie budgétaire", "Offtaker stress, no backstop": "Stress acheteur, sans garantie budgétaire",
+    "Sheet: 17A_STRUCTURES, full-engine runs": "Feuille : 17A_STRUCTURES, calculs complets", "Sheet: 05A_CONTRACTING": "Feuille : 05A_CONTRACTING",
+    "YOUR OWN PROJECT": "VOTRE PROPRE PROJET", "Replace the blue inputs,<br>in this order": "Remplacez les données bleues,<br>dans cet ordre",
+    "AFTER EVERY CHANGE": "APRÈS CHAQUE MODIFICATION", "Check, then read": "Vérifier, puis lire",
+    "<ol><li>33_CHECKS must read ALL OK</li><li>35_BOOK_CHECK will show CHECK lines: expected</li>": "<ol><li>33_CHECKS doit indiquer ALL OK</li><li>35_BOOK_CHECK affichera des lignes CHECK : c'est normal</li>",
+    "<li>Record each assumption and its source</li></ol>": "<li>Notez chaque hypothèse et sa source</li></ol>",
+    "THE WHOLE ROUTE": "TOUT LE PARCOURS", "Cover, checks, dashboard,<br>close decision, stresses": "Garde, contrôles, tableau de bord,<br>décision, stress",
+    "MANUAL 7 gives every formula; Book 7 explains the reasoning": "MANUAL 7 détaille chaque formule ; le Livre 7 explique le raisonnement",
+    "Decision support,<br>not investment advice": "Aide à la décision,<br>pas un conseil en investissement",
+    "All default inputs are illustrative  |  Emmanuel Boujieka Kamga  |  Africa Energy Finance": "Toutes les valeurs par défaut sont illustratives  |  Emmanuel Boujieka Kamga  |  Africa Energy Finance",
+}
+OWN_PROJECT_FR = ("<ol><li>02 Données du projet et 03 Hydrologie</li><li>05 Coût d'investissement de la centrale</li><li>01A Étapes, budgets et probabilités</li>"
+                  "<li>14 Contrat d'achat ; 11 et 12 l'acheteur</li><li>Conditions de financement : 17A et 18</li><li>Statuts de preuve des 23 portes : 30A</li></ol>")
+
+
+def t_(x):
+    return FR.get(x, x) if LANG == "fr" else x
+
+
 # ---------------------------------------------------------------- narration
-script = open("course/audio/model7_walkthrough/script.md", encoding="utf8").read()
+script = open("course/video/script_fr.md" if LANG == "fr" else "course/audio/model7_walkthrough/script.md", encoding="utf8").read()
 CH = {}
 for num, title, body in re.findall(r"^## (\d+)\. (.+?)\n(.*?)(?=^## |\Z)", script, re.S | re.M):
     paras = [p.strip() for p in body.strip().split("\n\n") if p.strip()]
     CH[int(num)] = (title, paras)
 VIDEO_EDITS = [("Welcome to the audio guide to MODEL 7", "Welcome to the video guide to MODEL 7"),
                ("keep it next to you as you listen", "keep it next to you as you watch"),
-               ("Pause the recording", "Pause the video"),
-               ("In the next fifteen minutes", "In the next thirteen minutes")]
+               ("Pause the recording", "Pause the video")] if LANG == "en" else []
 
 
 def para(ch, i):
@@ -218,7 +272,7 @@ def para(ch, i):
 
 
 def chap_label(ch):
-    return f"Part {ch}. {CH[ch][0]}"
+    return f"{'Partie' if LANG == 'fr' else 'Part'} {ch}. {CH[ch][0]}"
 
 
 W = {}  # width caps for long text columns
@@ -311,15 +365,51 @@ def render_images():
         b.close()
 
 
+# How the French voice should say English names (respellings checked by transcribing the synthesised audio)
+SAY_FR = [("Hydropower Development and Finance, From River to Financial Close",
+           "Haïdropaweur Dévelopmeunt ènde Faïnance, Frome Riveur tou Faïnancheul Clôze"),
+          ("Hydro Readiness Framework", "Haïdro Rédinesse Framework"), ("Kasiri River Hydro", "Kasiri Riveur Haïdro"),
+          ("Read me", "Rîd mî"), ("Start here", "Start hir"), ("Close readiness", "Clôze rédinesse"),
+          ("Development", "Dévelopmeunt"), ("Contracting", "Contractinng"), ("Book check", "Bouk tchèk"),
+          ("lignes check", "lignes tchèk"), ("MODEL 7", "Modèle 7"), ("MANUAL 7", "Manuel 7")]
+
+
 def tts():
     for k, (ch, pi, _, _) in enumerate(SCENES):
         out = f"{WORK}/scene_{k:02d}.wav"
         if os.environ.get("REUSE_TTS") and os.path.exists(out):  # regenerate only the scenes whose wav was deleted
             continue
-        text = (f"Part {ch}. {CH[ch][0]}.\n\n" if pi == 0 and ch > 1 else "") + para(ch, pi)
-        text = text.replace("Read me", "Read-me")
-        subprocess.run([sys.executable, "-m", "piper", "-m", VOICE, "-f", out, "--length-scale", "1.06", "--sentence-silence", "0.45"],
-                       input=text.encode(), check=True, capture_output=True)
+        text = (f"{chap_label(ch)}.\n\n" if pi == 0 and ch > 1 else "") + para(ch, pi)
+        for x, y in (SAY_FR if LANG == "fr" else [("Read me", "Read-me")]):
+            text = text.replace(x, y)
+        if ENGINE == "piper":
+            subprocess.run([sys.executable, "-m", "piper", "-m", VOICE, "-f", out, "--length-scale", "1.06", "--sentence-silence", "0.45"],
+                           input=text.encode(), check=True, capture_output=True)
+        else:
+            kokoro_say(text, out)
+
+
+_KP = {}
+
+
+def kokoro_say(text, out):
+    """Kokoro-82M (Apache-2.0): one pass per sentence, joined with short pauses, so the pacing stays calm and even."""
+    import numpy as np
+    import soundfile as sf
+    from kokoro import KPipeline
+    lang = "f" if LANG == "fr" else "a"
+    if lang not in _KP:
+        _KP[lang] = KPipeline(lang_code=lang, repo_id="hexgrad/Kokoro-82M")
+    sr, parts = 24000, []
+    blocks = [x for x in text.split("\n\n") if x.strip()]
+    for bi, block in enumerate(blocks):
+        for sent in re.split(r"(?<=[.!?;:])\s+", block.strip()):
+            audio = [a.numpy() if hasattr(a, "numpy") else a for _, _, a in _KP[lang](sent, voice=KOKORO_VOICE, speed=KOKORO_SPEED)]
+            if audio:
+                parts += [np.concatenate(audio), np.zeros(int(sr * (0.32 if sent[-1] in ".!?" else 0.18)))]
+        if bi + 1 < len(blocks):
+            parts.append(np.zeros(int(sr * 0.45)))  # after the "Part N" announcement
+    sf.write(out, np.concatenate(parts), sr)
 
 
 def dur(f):
@@ -362,23 +452,23 @@ def assemble():
     with open(f"{WORK}/list.txt", "w") as fh:
         for c in clips:
             fh.write(f"file '{c}'\n")
-    meta = [";FFMETADATA1", "title=How to use MODEL 7, step by step", "artist=Emmanuel Boujieka Kamga",
+    meta = [";FFMETADATA1", "title=" + ("Utiliser MODEL 7, pas à pas" if LANG == "fr" else "How to use MODEL 7, step by step"), "artist=Emmanuel Boujieka Kamga",
             "album=Africa Energy Finance: Book 7 companion", "comment=Video guide to MODEL 7 v1.0 RC1. Narration: synthetic voice."]
     for i, (st, name) in enumerate(chapters):
         end = chapters[i + 1][0] if i + 1 < len(chapters) else t
         meta += ["[CHAPTER]", "TIMEBASE=1/1000", f"START={int(st * 1000)}", f"END={int(end * 1000)}", f"title={name}"]
     open(f"{WORK}/chapters.txt", "w").write("\n".join(meta) + "\n")
-    srt = f"{OUT_DIR}/MODEL7_Video_Guide.en.srt"
+    srt = f"{OUT_DIR}/MODEL7_Video_Guide" + ("_FR.fr.srt" if LANG == "fr" else ".en.srt")
     with open(srt, "w", encoding="utf8") as fh:
         for i, (a, b, s_) in enumerate(subs, 1):
             fh.write(f"{i}\n{srt_time(a)} --> {srt_time(b)}\n{s_}\n\n")
     joined = f"{WORK}/joined.mkv"
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-f", "concat", "-safe", "0", "-i", f"{WORK}/list.txt", "-c", "copy", joined], check=True)
-    out = f"{OUT_DIR}/MODEL7_Video_Guide.mp4"
+    out = f"{OUT_DIR}/MODEL7_Video_Guide" + ("_FR.mp4" if LANG == "fr" else ".mp4")
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", joined, "-i", srt, "-i", f"{WORK}/chapters.txt",
                     "-map", "0:v", "-map", "0:a", "-map", "1:s", "-map_metadata", "2", "-map_chapters", "2",
                     "-c:v", "copy", "-af", "highpass=f=60,loudnorm=I=-16:TP=-1.5:LRA=11", "-c:a", "aac", "-b:a", "192k", "-ar", "48000",
-                    "-c:s", "mov_text", "-metadata:s:s:0", "language=eng", "-movflags", "+faststart", out], check=True)
+                    "-c:s", "mov_text", "-metadata:s:s:0", "language=" + ("fre" if LANG == "fr" else "eng"), "-movflags", "+faststart", out], check=True)
     print(out, f"{t / 60:.1f} min, {len(SCENES)} scenes, {len(chapters)} chapters")
 
 

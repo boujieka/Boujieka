@@ -1,0 +1,528 @@
+1
+00:00:00,400 --> 00:00:08,146
+Bienvenue dans le guide vidéo de MODEL 7, le modèle de développement et de financement hydroélectrique.
+
+2
+00:00:08,146 --> 00:00:15,065
+Il accompagne le Livre 7, Hydropower Development and Finance, From River to Financial Close.
+
+3
+00:00:15,965 --> 00:00:30,604
+Pendant les seize prochaines minutes, nous allons parcourir le modèle étape par étape, sur son cas de référence : Kasiri River Hydro, une centrale fictive au fil de l'eau de soixante mégawatts, dans la République fictive de Navaria.
+
+4
+00:00:30,604 --> 00:00:43,035
+À la fin, vous saurez par où commencer, comment vérifier que le modèle est sain, comment lire ses résultats, comment les soumettre à des stress, et comment remplacer le cas par votre propre projet.
+
+5
+00:00:43,935 --> 00:00:48,251
+Ouvrez maintenant le classeur, et gardez-le à côté de la vidéo.
+
+6
+00:00:48,251 --> 00:00:53,800
+Mettez la vidéo en pause chaque fois que vous voulez essayer une étape vous-même.
+
+7
+00:00:55,300 --> 00:00:59,167
+Le classeur s'ouvre sur la feuille de garde.
+
+8
+00:00:59,167 --> 00:01:14,460
+En haut, vous voyez le titre et le cadre que le modèle applique : le Hydro Readiness Framework, avec huit questions, vingt-trois portes et une décision de bouclage financier.
+
+9
+00:01:15,360 --> 00:01:22,461
+En dessous, un bloc appelé Live status donne six réponses qui se mettent à jour à chaque modification.
+
+10
+00:01:22,461 --> 00:01:25,664
+Pour le cas par défaut, elles se lisent ainsi.
+
+11
+00:01:25,664 --> 00:01:31,999
+La décision de bouclage financier est STOP, parce qu'une porte critique n'est pas franchie.
+
+12
+00:01:31,999 --> 00:01:34,923
+Six portes sur vingt-trois sont franchies.
+
+13
+00:01:34,923 --> 00:01:39,100
+L'écran de développement à neuf portes indique non bancable.
+
+14
+00:01:39,100 --> 00:01:44,182
+L'écran budgétaire indique une faible pression budgétaire supplémentaire.
+
+15
+00:01:44,182 --> 00:01:48,220
+Les contrôles d'intégrité du modèle indiquent tout est OK.
+
+16
+00:01:48,220 --> 00:01:52,745
+Et le contrôle de cohérence avec le livre indique que tout passe.
+
+17
+00:01:53,645 --> 00:02:00,092
+En bas de la feuille de garde, les liens Start here mènent directement aux feuilles principales.
+
+18
+00:02:00,092 --> 00:02:02,510
+Nous les utiliserons dans cet ordre.
+
+19
+00:02:04,010 --> 00:02:08,363
+Cliquez sur le lien vers la feuille Read me.
+
+20
+00:02:08,363 --> 00:02:14,597
+Elle explique ce que fait le modèle et comment il est organisé.
+
+21
+00:02:14,597 --> 00:02:20,335
+Trois points comptent avant de toucher à quoi que ce soit.
+
+22
+00:02:21,235 --> 00:02:23,163
+D'abord, le code couleur.
+
+23
+00:02:23,163 --> 00:02:28,562
+Une police bleue signale une donnée d'entrée que vous pouvez modifier.
+
+24
+00:02:28,562 --> 00:02:33,112
+Une police noire signale une formule ; ne l'écrasez jamais.
+
+25
+00:02:33,112 --> 00:02:37,586
+Une police verte signale un lien depuis une autre feuille.
+
+26
+00:02:37,586 --> 00:02:41,365
+Et une cellule sur fond vert est un résultat clé.
+
+27
+00:02:42,265 --> 00:02:43,920
+Ensuite, la chronologie.
+
+28
+00:02:43,920 --> 00:02:55,505
+Le modèle est annuel, sur quarante périodes, et tous les montants sont en millions de dollars américains courants, sauf si le libellé indique réel deux mille vingt-six.
+
+29
+00:02:56,405 --> 00:02:58,863
+Enfin, les deux niveaux de portes.
+
+30
+00:02:58,863 --> 00:03:04,718
+Un écran à neuf portes vous aide à décider s'il faut poursuivre le développement.
+
+31
+00:03:04,718 --> 00:03:12,886
+Les vingt-trois portes, sur la feuille trente A, vérifient si le dossier de preuves permet le bouclage financier.
+
+32
+00:03:12,886 --> 00:03:16,790
+Gardez cette distinction en tête ; nous y reviendrons.
+
+33
+00:03:18,290 --> 00:03:24,577
+Ouvrez maintenant la feuille zéro un, le panneau de contrôle.
+
+34
+00:03:24,577 --> 00:03:31,895
+C'est la seule feuille dont vous avez besoin pour lancer des scénarios.
+
+35
+00:03:32,795 --> 00:03:34,455
+La section A fixe le cas.
+
+36
+00:03:34,455 --> 00:03:41,428
+Pour le cas du modèle, choisissez un pour le cas de base, deux pour le cas bas et trois pour le cas haut.
+
+37
+00:03:41,428 --> 00:03:50,925
+Pour le cas de production des flux de trésorerie, choisissez un pour P cinquante, deux pour P soixante-quinze et trois pour P quatre-vingt-dix.
+
+38
+00:03:50,925 --> 00:04:00,555
+Le cas de dimensionnement des prêteurs a quatre options ; la valeur par défaut, quatre, dimensionne la dette sur le P quatre-vingt-dix à dix ans.
+
+39
+00:04:01,455 --> 00:04:03,762
+La section B fixe la transaction.
+
+40
+00:04:03,762 --> 00:04:08,516
+La structure deux est un producteur d'électricité indépendant privé.
+
+41
+00:04:08,516 --> 00:04:16,487
+En mode de dette un, la dette est dimensionnée par le modèle ; en mode deux, elle est fixée à des montants donnés.
+
+42
+00:04:16,487 --> 00:04:26,065
+La garantie budgétaire, réglée sur un, signifie que l'État couvre tout manque dans les paiements de la compagnie d'électricité au projet.
+
+43
+00:04:26,965 --> 00:04:34,106
+La section C contient neuf interrupteurs de stress, de la sécheresse au retard de la ligne de transport.
+
+44
+00:04:34,106 --> 00:04:37,745
+Chacun vaut zéro ou un, et ils peuvent être combinés.
+
+45
+00:04:37,745 --> 00:04:48,525
+La section D contient cinq variations de sensibilité, en pourcentage, pour le coût, la production, le tarif, les charges d'exploitation et le taux d'intérêt.
+
+46
+00:04:49,425 --> 00:04:53,062
+Laissez pour l'instant toutes les valeurs par défaut.
+
+47
+00:04:53,062 --> 00:04:58,690
+La section E, en bas, affiche les principaux résultats pour la sélection en cours.
+
+48
+00:05:00,190 --> 00:05:05,872
+Avant de lire le moindre résultat, vérifiez que le modèle est sain.
+
+49
+00:05:05,872 --> 00:05:09,180
+Ouvrez la feuille trente-trois, Checks.
+
+50
+00:05:09,180 --> 00:05:23,683
+Elle effectue quatorze tests d'intégrité : les ressources égalent les emplois, la dette est entièrement remboursée, la chaîne énergétique est cohérente, et ainsi de suite.
+
+51
+00:05:23,683 --> 00:05:27,415
+La dernière ligne doit indiquer tout est OK.
+
+52
+00:05:28,315 --> 00:05:31,767
+Ouvrez ensuite la feuille trente-cinq, Book check.
+
+53
+00:05:31,767 --> 00:05:38,050
+Elle compare le modèle en direct aux vingt-six chiffres de Kasiri imprimés dans le Livre 7.
+
+54
+00:05:38,050 --> 00:05:41,847
+Avec les valeurs par défaut, chaque ligne indique pass.
+
+55
+00:05:41,847 --> 00:05:51,375
+Si vous modifiez une donnée, certaines lignes indiqueront check ; c'est normal, car les chiffres imprimés correspondent au cas par défaut.
+
+56
+00:05:52,275 --> 00:06:00,575
+La règle est simple : ne vous fiez à aucun résultat tant que les contrôles d'intégrité n'indiquent pas tout est OK.
+
+57
+00:06:02,075 --> 00:06:06,860
+Ouvrez la feuille trente-deux, le tableau de bord.
+
+58
+00:06:06,860 --> 00:06:20,735
+La ligne quatre donne trois verdicts côte à côte : l'écran à neuf portes, la préparation au bouclage à vingt-trois portes, et l'écran budgétaire.
+
+59
+00:06:21,635 --> 00:06:39,635
+Le bloc projet décrit la centrale : soixante mégawatts, environ deux cent quatre-vingt-douze gigawattheures par an, en P cinquante, un facteur de charge d'environ cinquante-six pour cent, et un coût de centrale d'environ cent cinquante-sept millions de dollars en valeur deux mille vingt-six.
+
+60
+00:06:40,535 --> 00:06:44,522
+Le bloc financier montre comment la centrale est financée.
+
+61
+00:06:44,522 --> 00:06:49,265
+La dette senior est d'environ cent quarante-cinq millions de dollars.
+
+62
+00:06:49,265 --> 00:06:55,314
+Le ratio minimal de couverture du service de la dette est de un virgule cinquante-trois.
+
+63
+00:06:55,314 --> 00:07:02,394
+Le rendement des fonds propres privés est de treize virgule huit pour cent, pour un objectif de quinze.
+
+64
+00:07:02,394 --> 00:07:08,306
+Et il reste un besoin de financement non couvert d'environ quatre millions de dollars.
+
+65
+00:07:08,306 --> 00:07:15,180
+Autrement dit, le projet est solide, mais un peu en dessous du tarif dont ses promoteurs ont besoin.
+
+66
+00:07:16,080 --> 00:07:20,088
+Le bloc développeur montre l'économie du chemin qui y mène.
+
+67
+00:07:20,088 --> 00:07:32,249
+Le budget de développement est d'environ neuf millions de dollars sur six ans, avec environ quinze pour cent de chances d'atteindre le bouclage financier depuis la reconnaissance.
+
+68
+00:07:32,249 --> 00:07:36,529
+En cas de succès, le développeur gagne environ seize pour cent.
+
+69
+00:07:36,529 --> 00:07:43,595
+Mais pondérée par le risque d'échec, sa valeur actuelle nette est d'environ moins un million de dollars.
+
+70
+00:07:43,595 --> 00:07:50,728
+Le projet est attractif une fois qu'il réussit, et ne vaut pas la peine d'être lancé avec ces hypothèses.
+
+71
+00:07:50,728 --> 00:07:54,125
+Le chapitre quatorze du Livre 7 explique pourquoi.
+
+72
+00:07:55,025 --> 00:08:16,000
+Les blocs compagnie d'électricité et finances publiques montrent l'autre côté de l'opération : l'acheteur peut payer environ six fois la facture, mais l'État et la compagnie d'électricité perdent ensemble environ vingt-huit millions de dollars en valeur actuelle, parce que le tarif est supérieur à ce que la compagnie encaisse auprès de ses clients.
+
+73
+00:08:17,500 --> 00:08:21,238
+Ouvrez la feuille trente A, Close readiness.
+
+74
+00:08:21,238 --> 00:08:24,891
+Chacune des vingt-trois portes a un statut.
+
+75
+00:08:24,891 --> 00:08:41,203
+Certaines sont testées automatiquement par le modèle ; les autres sont des statuts de preuve que vous saisissez, en anglais dans le classeur : franchie, partielle, non franchie ou sans preuve.
+
+76
+00:08:41,203 --> 00:08:44,602
+Une porte n'est franchie que sur preuve.
+
+77
+00:08:44,602 --> 00:08:48,000
+Un statut vide compte comme sans preuve.
+
+78
+00:08:48,900 --> 00:08:51,270
+La décision suit une échelle fixe.
+
+79
+00:08:51,270 --> 00:08:55,660
+Une seule porte critique non franchie, et la décision est STOP.
+
+80
+00:08:55,660 --> 00:09:01,654
+Si les portes critiques sont seulement en partie franchies, la décision est not ready.
+
+81
+00:09:01,654 --> 00:09:07,090
+Si toutes les portes critiques sont franchies, la décision est conditional go.
+
+82
+00:09:07,090 --> 00:09:11,550
+Et si les vingt-trois portes sont franchies, la décision est go.
+
+83
+00:09:12,450 --> 00:09:34,325
+Pour Kasiri, sept portes critiques ne sont pas franchies : la série de débits et sa revue indépendante, la validation de l'étude de faisabilité bancable, l'évaluation environnementale et sociale aux normes des prêteurs, les droits fonciers, six mois de garantie de paiement, un plan de financement entièrement engagé, et un rendement des fonds propres à l'objectif.
+
+84
+00:09:35,225 --> 00:09:47,096
+En bas de la feuille, les portes sont regroupées sous les huit questions du cadre, et chaque question désigne la partie qui doit l'accepter : le développeur, les prêteurs ou l'État.
+
+85
+00:09:47,096 --> 00:09:55,819
+La feuille trente-quatre, la carte du cadre, indique pour chaque porte où le modèle la teste et quels chapitres du livre la traitent.
+
+86
+00:09:55,819 --> 00:09:58,442
+STOP n'est pas un verdict sur le projet.
+
+87
+00:09:58,442 --> 00:10:00,410
+C'est un programme de travail.
+
+88
+00:10:01,910 --> 00:10:05,586
+Ouvrez la feuille zéro un A, Development.
+
+89
+00:10:05,586 --> 00:10:15,896
+La section A liste les six étapes du développement, chacune avec une durée, un budget et une probabilité de succès.
+
+90
+00:10:15,896 --> 00:10:26,565
+Ces probabilités relèvent de votre jugement ; aucune donnée publique ne les calibre pour l'hydroélectricité en Afrique.
+
+91
+00:10:27,465 --> 00:10:39,137
+La section D donne les rendements du développeur : la valeur actuelle nette pondérée par le risque, la prime de développement d'équilibre et la valeur en cas de succès.
+
+92
+00:10:39,137 --> 00:10:45,599
+La section D deux évalue l'ensemble de la position de développement au début de chaque étape.
+
+93
+00:10:45,599 --> 00:10:56,785
+Utilisez-la pour fixer le prix d'entrée d'un co-développeur : au début des autorisations, la position de Kasiri vaut environ un virgule trois million de dollars.
+
+94
+00:10:57,685 --> 00:10:59,670
+Essayez une modification.
+
+95
+00:10:59,670 --> 00:11:07,371
+Augmentez la probabilité de l'étape de faisabilité, et observez la valeur pondérée par le risque.
+
+96
+00:11:07,371 --> 00:11:10,070
+Puis remettez la valeur d'origine.
+
+97
+00:11:11,570 --> 00:11:17,966
+Revenez au panneau de contrôle et réglez l'interrupteur de sécheresse sur un.
+
+98
+00:11:17,966 --> 00:11:24,196
+Le modèle applique trois années à cinquante-cinq pour cent du débit normal.
+
+99
+00:11:24,196 --> 00:11:31,173
+La dette reste dimensionnée sur le même cas prêteur, donc son montant ne change pas.
+
+100
+00:11:31,173 --> 00:11:41,971
+Mais ouvrez le tableau de bord : le ratio minimal de couverture du service de la dette tombe sous un, à environ zéro virgule sept.
+
+101
+00:11:41,971 --> 00:11:46,540
+Le compte de réserve est mobilisé, et il ne suffit pas.
+
+102
+00:11:47,440 --> 00:11:53,549
+C'est le stress le plus important pour un tarif rémunérant uniquement l'énergie produite.
+
+103
+00:11:53,549 --> 00:12:01,236
+Un prêteur demanderait une réserve plus grande, un balayage de trésorerie les années humides, ou moins de dette.
+
+104
+00:12:01,236 --> 00:12:04,325
+Remettez l'interrupteur de sécheresse à zéro.
+
+105
+00:12:05,825 --> 00:12:09,729
+Réglez maintenant le stress sur l'acheteur sur un.
+
+106
+00:12:09,729 --> 00:12:18,865
+Les encaissements de la compagnie d'électricité baissent, les transferts sont réduits et le tarif de détail est gelé.
+
+107
+00:12:18,865 --> 00:12:24,643
+En moins de dix ans, la compagnie ne peut plus payer la facture du projet.
+
+108
+00:12:24,643 --> 00:12:39,400
+Avec la garantie budgétaire activée, le projet est payé intégralement, et le coût passe à l'État : la valeur budgétaire consolidée tombe à environ moins cent vingt-cinq millions de dollars.
+
+109
+00:12:40,300 --> 00:12:42,996
+Réglez ensuite la garantie sur zéro.
+
+110
+00:12:42,996 --> 00:12:54,680
+La garantie de paiement de douze mois est épuisée, le reste devient des arriérés, et le projet fait défaut : le ratio minimal de couverture devient négatif.
+
+111
+00:12:54,680 --> 00:13:02,844
+C'est la leçon centrale du livre : un projet peut être bancable parce que le risque a été transféré à l'État.
+
+112
+00:13:02,844 --> 00:13:05,615
+Remettez les deux valeurs par défaut.
+
+113
+00:13:07,115 --> 00:13:18,608
+Sur le panneau de contrôle, réglez la structure sur un, puis trois, quatre et cinq, et lisez la feuille dix-sept A, Structures, avec le tableau de bord.
+
+114
+00:13:18,608 --> 00:13:32,521
+La structure un est publique, la trois un partenariat public-privé avec dette concessionnelle, la quatre une structure hybride avec génie civil public, et la cinq un financement mixte.
+
+115
+00:13:32,521 --> 00:13:47,946
+Observez comment le rendement des fonds propres et la valeur budgétaire évoluent ensemble : une subvention qui ne se traduit pas par un tarif plus bas transfère de l'argent public aux actionnaires privés.
+
+116
+00:13:47,946 --> 00:13:50,290
+Remettez la structure sur deux.
+
+117
+00:13:51,190 --> 00:14:03,002
+Sur la feuille zéro cinq A, Contracting, la structure du contrat de construction peut valoir un, un contrat clés en main unique, deux, des lots séparés, ou trois, des contrats multiples.
+
+118
+00:14:03,002 --> 00:14:07,955
+Comparez le coût et la part des dépassements que conserve le maître d'ouvrage.
+
+119
+00:14:09,455 --> 00:14:15,779
+Pour appliquer le modèle à un projet réel, remplacez les données bleues dans cet ordre.
+
+120
+00:14:15,779 --> 00:14:28,935
+D'abord, la feuille zéro deux, les données du projet, et la feuille zéro trois, l'hydrologie : débits mensuels, chute, débit d'équipement, longueur et qualité de la série de débits.
+
+121
+00:14:28,935 --> 00:14:32,861
+Ensuite, la feuille zéro cinq, le coût de la centrale.
+
+122
+00:14:32,861 --> 00:14:39,257
+Puis la feuille zéro un A, les étapes de développement, les budgets et les probabilités.
+
+123
+00:14:39,257 --> 00:14:49,724
+Ensuite, les conditions commerciales : la feuille quatorze pour le contrat d'achat d'électricité, et les feuilles onze et douze pour l'acheteur.
+
+124
+00:14:49,724 --> 00:14:56,048
+Ensuite, les conditions de financement, sur les feuilles de la dette et des structures.
+
+125
+00:14:56,048 --> 00:15:01,645
+Enfin, les statuts de preuve des vingt-trois portes, sur la feuille trente A.
+
+126
+00:15:02,545 --> 00:15:09,344
+Après chaque série de modifications, vérifiez la feuille trente-trois avant de lire le moindre résultat.
+
+127
+00:15:09,344 --> 00:15:16,470
+Attendez-vous à ce que la feuille trente-cinq affiche des lignes check : elle ne s'applique qu'au cas Kasiri.
+
+128
+00:15:16,470 --> 00:15:22,485
+Et gardez une trace de chaque hypothèse et de sa source, car les portes vous la demanderont.
+
+129
+00:15:23,985 --> 00:15:38,167
+Voilà tout le parcours : la feuille de garde, les contrôles, le tableau de bord, la décision de bouclage, le point de vue du développeur, les stress et votre propre projet.
+
+130
+00:15:38,167 --> 00:15:51,195
+Le manuel d'utilisation et de méthodologie, MANUAL 7, détaille chaque formule et chaque feuille, et le Livre 7 explique le raisonnement derrière chaque étape.
+
+131
+00:15:52,095 --> 00:16:02,532
+Rappelez-vous que MODEL 7 est un outil d'aide à la décision, pas un conseil en investissement, et que toutes les valeurs par défaut sont illustratives.
+
+132
+00:16:02,532 --> 00:16:04,260
+Merci de votre attention.
+

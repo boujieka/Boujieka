@@ -104,7 +104,7 @@ The folder holds seven sub-folders:
 
 - **01_Hydro_Readiness_Framework**: the full book in PDF, and the eight questions, the 23 gates and the decision ladder as a stand-alone reference.
 - **02_Bankable_Hydro_Model**: MODEL 7, the workbook behind every number in this book, with its test reports.
-- **03_Model_User_Manual**: MANUAL 7, the user and methodology manual, a narrated video guide to the model with English subtitles, and an audio guide.
+- **03_Model_User_Manual**: MANUAL 7, the user and methodology manual, narrated video guides to the model in English and in French, with subtitles, and an audio guide.
 - **04_Kasiri_River_Case**: the worked case of Chapter 18 and its key figures.
 - **05_Transaction_Tools**: editable versions of the checklists and templates of Annexes A to I.
 - **06_Technical_Due_Diligence**: Annexes N to R as a stand-alone reference, in PDF and Word.

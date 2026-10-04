@@ -104,7 +104,7 @@ for f in ("MANUAL7_User_and_Methodology.pdf", "MANUAL7_User_and_Methodology.docx
     shutil.copy(f"manual/build/{f}", f"{OUT}/03_Model_User_Manual/{f}")
 shutil.copy("course/audio/model7_walkthrough/MODEL7_Audio_Guide.mp3", f"{OUT}/03_Model_User_Manual/MODEL7_Audio_Guide.mp3")
 shutil.copy("course/audio/model7_walkthrough/script.md", f"{OUT}/03_Model_User_Manual/MODEL7_Audio_Guide_script.md")
-for f in ("MODEL7_Video_Guide.mp4", "MODEL7_Video_Guide.en.srt"):
+for f in ("MODEL7_Video_Guide.mp4", "MODEL7_Video_Guide.en.srt", "MODEL7_Video_Guide_FR.mp4", "MODEL7_Video_Guide_FR.fr.srt"):
     shutil.copy(f"course/video/{f}", f"{OUT}/03_Model_User_Manual/{f}")
 # 04 Kasiri key figures from the workbook's book check
 wb = load_workbook("model/Bankable_Hydro_Model.xlsx", data_only=True)
@@ -125,7 +125,7 @@ open(f"{OUT}/README.txt", "w", encoding="utf8").write(
     "AFRICA ENERGY FINANCE\nBOOK 7, HYDROPOWER DEVELOPMENT AND FINANCE: companion materials\n" + VERSION + "\n\n"
     "01_Hydro_Readiness_Framework   The full book (PDF) and the framework as a stand-alone reference (PDF, Word)\n"
     "02_Bankable_Hydro_Model        MODEL 7 workbook (opens on its cover sheet) and its test reports\n"
-    "03_Model_User_Manual           MANUAL 7 (PDF, Word), the video guide (MP4, English subtitles) and the audio guide with its script\n"
+    "03_Model_User_Manual           MANUAL 7 (PDF, Word), the video guide in English and in French (MP4, subtitles) and the audio guide with its script\n"
     "04_Kasiri_River_Case           The Kasiri case of Chapter 18 (PDF, Word) and its key figures (CSV)\n"
     "05_Transaction_Tools           Checklists and templates of Annexes A to I (PDF; editable Word)\n"
     "06_Technical_Due_Diligence     Annexes N to R (PDF, Word)\n"

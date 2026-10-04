@@ -126,6 +126,7 @@ Endorsements are added only when received in writing with permission to print.
 
 ### 6.1 Cover files
 * `book7/publishing/BOOK7_COVER_6x9_draft.pdf`: full wrap for the 6 x 9 interior, vector, fonts embedded; spine 0.4504 in (200 pages x 0.002252 in, black ink on white paper); full size 12.7004 x 9.25 in including 0.125 in bleed.
+* `book7/publishing/BOOK7_FRONT_COVER_6x9.pdf`: the front cover alone, exactly 6 x 9 in, cut from the 6 x 9 wrap, for previews, the author page or marketing. KDP's paperback cover upload needs the full wrap above (back, spine and front in one PDF), not this file.
 * `book7/publishing/BOOK7_COVER_7x10_draft.pdf`: full wrap for the 7 x 10 interior; spine 0.3828 in (170 pages x 0.002252 in); full size 14.6328 x 10.25 in including 0.125 in bleed.
 * Both: text kept 0.5 in inside the trim; barcode area (2 x 1.2 in, bottom right of the back). The row of 23 gold squares under the framework line is the gate pictogram (gates grouped by question: 4, 6, 2, 1, 4, 3, 3) with a white square for the close decision; it is a drawing, not missing characters.
 * Barcode: the `_draft` covers print their own vector EAN-13 of ISBN 979-8178961780 (with the line "ISBN 979-8178961780") on a white panel in the barcode area; both decode to 9798178961780 at 300 dpi. When uploading one of them, answer yes to KDP's question on whether the cover already includes a barcode. The `_no_barcode` covers (`BOOK7_COVER_6x9_no_barcode.pdf`, `BOOK7_COVER_7x10_no_barcode.pdf`) leave the area empty, for KDP to print its own; use one or the other, never both.
