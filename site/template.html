@@ -1,0 +1,638 @@
+<title>TasetyGrid</title>
+<meta name="description" content="TasetyGrid, l'atlas des personnes, des terres et des ressources : savoir ce qui existe sur un territoire, où, dans quel état, et ce qui manque.">
+<link rel="icon" href="{{FAVICON}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Mise en page : une colonne éditoriale de 1120px ; le symbole Kodya porte le hero,
+   chaque section est un « feuillet » de l'atlas, la fiche territoriale est l'objet central. */
+:root {
+  --bleu: #1D3F8F;          /* bleu égyptien */
+  --or: #C9982E;            /* or de Nubie */
+  --ocre: #A6412B;          /* ocre de Kerma */
+  --noir: #17130F;          /* noir Kemet */
+  --blanc: #F6F0E4;         /* blanc mpemba */
+  --turquoise: #2E8C83;     /* faïence */
+
+  --bg: #F6F0E4;
+  --surface: #FFFDF8;
+  --surface-2: #EFE7D6;
+  --fg: #17130F;
+  --muted: #5B5246;
+  --line: #DDD2BD;
+  --titre: #1D3F8F;
+  --accent: #A6412B;
+  --or-texte: #8A6516;      /* or assombri, lisible sur fond clair */
+  --ok: #2E7D5B;
+  --alerte: #B7791F;
+  --critique: #A6412B;
+  --logo-bleu: #1D3F8F;
+  --logo-or: #C9982E;
+  --logo-ocre: #A6412B;
+  --ombre: 0 1px 0 rgba(23,19,15,.04), 0 12px 32px -18px rgba(23,19,15,.25);
+
+  --f-display: "Cinzel", "Trajan Pro", Georgia, serif;
+  --f-texte: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --f-donnee: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --largeur: 1120px;
+  --r: 14px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #17130F; --surface: #211C16; --surface-2: #2A241C; --fg: #F2EBDD; --muted: #B8AC98;
+    --line: #3A3227; --titre: #9DB7F2; --accent: #E07A5F; --or-texte: #D9AE4F;
+    --ok: #6CC49A; --alerte: #E3B04B; --critique: #E8826A;
+    --logo-bleu: #F6F0E4; --logo-or: #C9982E; --logo-ocre: #C9573D;
+    --ombre: 0 1px 0 rgba(0,0,0,.2), 0 12px 32px -18px rgba(0,0,0,.6);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #17130F; --surface: #211C16; --surface-2: #2A241C; --fg: #F2EBDD; --muted: #B8AC98;
+  --line: #3A3227; --titre: #9DB7F2; --accent: #E07A5F; --or-texte: #D9AE4F;
+  --ok: #6CC49A; --alerte: #E3B04B; --critique: #E8826A;
+  --logo-bleu: #F6F0E4; --logo-or: #C9982E; --logo-ocre: #C9573D;
+  --ombre: 0 1px 0 rgba(0,0,0,.2), 0 12px 32px -18px rgba(0,0,0,.6);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 400 17px/1.6 var(--f-texte);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--or); outline-offset: 3px; border-radius: 6px; }
+.wrap { max-width: var(--largeur); margin: 0 auto; padding-inline: 20px; }
+h1, h2, h3 { text-wrap: balance; margin: 0; }
+h2 { font: 700 clamp(26px, 3.4vw, 38px)/1.15 var(--f-display); color: var(--titre); letter-spacing: .01em; }
+h3 { font: 600 19px/1.3 var(--f-texte); }
+p { margin: 0; }
+.eyebrow {
+  font: 500 12px/1 var(--f-donnee); letter-spacing: .16em; text-transform: uppercase; color: var(--accent);
+}
+.lead { font-size: 19px; color: var(--muted); max-width: 62ch; }
+section { padding-block: clamp(56px, 8vw, 96px); }
+.section-head { display: grid; gap: 14px; margin-bottom: 36px; max-width: 760px; }
+
+/* En-tête */
+.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: saturate(1.2) blur(10px); -webkit-backdrop-filter: saturate(1.2) blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 10px; }
+.top .logo svg { height: 40px; width: auto; display: block; }
+.nav { display: flex; gap: 22px; align-items: center; font-size: 15px; }
+.nav a { text-decoration: none; color: var(--muted); }
+.nav a:hover { color: var(--fg); }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; text-decoration: none; cursor: pointer;
+  font: 600 15px/1 var(--f-texte); padding: 13px 20px; border-radius: 999px; border: 1.5px solid transparent;
+  transition: transform .15s ease, background-color .15s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-plein { background: var(--titre); color: var(--bg); }
+.btn-ligne { border-color: var(--line); color: var(--fg); background: var(--surface); }
+.nav .btn { padding: 10px 16px; color: var(--bg); }
+
+/* Hero */
+.hero { padding-block: clamp(40px, 7vw, 88px) clamp(48px, 7vw, 80px); }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 48px; align-items: center; }
+.hero h1 {
+  font: 700 clamp(36px, 5.6vw, 66px)/1.05 var(--f-display); color: var(--titre); letter-spacing: .005em;
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero .lead { margin-top: 22px; }
+.hero .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.hero .meta { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 8px 18px; font: 500 13px/1.4 var(--f-donnee); color: var(--muted); }
+.hero .meta span::before { content: "◆ "; color: var(--or-texte); }
+.symbole { position: relative; max-width: 440px; justify-self: center; width: 100%; }
+.symbole svg { width: 100%; height: auto; display: block; }
+.kodya { stroke-dasharray: 1; stroke-dashoffset: 0; animation: tracer 2.4s cubic-bezier(.6,.05,.25,1) .2s both; }
+@keyframes tracer { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+.symbole figcaption { margin-top: 10px; text-align: center; font: 500 12px/1.5 var(--f-donnee); color: var(--muted); letter-spacing: .04em; }
+
+/* Cinq questions */
+.questions { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.questions div { padding: 22px 18px 22px 0; display: grid; gap: 6px; align-content: start; }
+.questions div + div { padding-left: 18px; border-left: 1px solid var(--line); }
+.questions b { font: 700 22px/1.2 var(--f-display); color: var(--titre); }
+.questions span { color: var(--muted); font-size: 15px; }
+
+/* Fiche territoriale */
+.demo { background: var(--surface-2); }
+.fiche-zone { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+.onglets { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.onglet {
+  font: 500 14px/1 var(--f-texte); padding: 10px 14px; border-radius: 999px; cursor: pointer;
+  border: 1.5px solid var(--line); background: var(--surface); color: var(--fg);
+}
+.onglet[aria-selected="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.fiche { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--ombre); overflow: hidden; }
+.fiche-tete { padding: 18px 20px; border-bottom: 1px solid var(--line); display: grid; gap: 4px; }
+.fiche-tete .nom { font: 700 22px/1.2 var(--f-display); color: var(--titre); }
+.fiche-tete .loc { font: 500 13px/1.4 var(--f-donnee); color: var(--muted); }
+.exemple { display: inline-block; justify-self: start; font: 500 11px/1 var(--f-donnee); letter-spacing: .08em; text-transform: uppercase;
+  padding: 5px 8px; border-radius: 6px; background: color-mix(in srgb, var(--alerte) 18%, transparent); color: var(--fg); }
+.lignes { display: grid; }
+.ligne { display: grid; grid-template-columns: 112px minmax(0, 1fr) auto; gap: 12px; align-items: baseline; padding: 11px 20px; border-bottom: 1px solid var(--line); }
+.ligne:last-child { border-bottom: 0; }
+.ligne dt { font: 500 12px/1.4 var(--f-donnee); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.ligne dd { margin: 0; font-variant-numeric: tabular-nums; }
+.ligne .src { font-size: 12px; color: var(--muted); display: block; }
+.conf { font: 500 13px/1 var(--f-donnee); white-space: nowrap; }
+.conf[data-n="3"] { color: var(--ok); }
+.conf[data-n="2"] { color: var(--alerte); }
+.conf[data-n="1"] { color: var(--muted); }
+.legende { display: flex; flex-wrap: wrap; gap: 6px 16px; padding: 12px 20px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--line); background: var(--surface-2); }
+
+.manque { display: grid; gap: 14px; }
+.manque h3 { font: 700 22px/1.2 var(--f-display); color: var(--titre); }
+.score { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 18px 20px; display: grid; gap: 12px; }
+.score-haut { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.score-val { font: 700 40px/1 var(--f-display); color: var(--titre); font-variant-numeric: tabular-nums; }
+.score-val small { font: 500 15px var(--f-donnee); color: var(--muted); }
+.composantes { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.composantes div { display: grid; gap: 6px; font-size: 12px; color: var(--muted); }
+.jauge { height: 6px; border-radius: 99px; background: var(--surface-2); overflow: hidden; }
+.jauge i { display: block; height: 100%; background: var(--titre); border-radius: 99px; transition: width .5s ease; }
+.deficits { display: grid; gap: 10px; }
+.deficit { background: var(--surface); border: 1px solid var(--line); border-left: 5px solid var(--ok); border-radius: 10px; padding: 12px 16px; display: grid; gap: 4px; }
+.deficit[data-niveau="alerte"] { border-left-color: var(--alerte); }
+.deficit[data-niveau="critique"] { border-left-color: var(--critique); }
+.deficit .haut { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.deficit b { font-weight: 600; }
+.pastille { font: 500 11px/1 var(--f-donnee); letter-spacing: .08em; text-transform: uppercase; padding: 5px 8px; border-radius: 6px; color: var(--fg);
+  background: color-mix(in srgb, var(--ok) 20%, transparent); }
+.deficit[data-niveau="alerte"] .pastille { background: color-mix(in srgb, var(--alerte) 22%, transparent); }
+.deficit[data-niveau="critique"] .pastille { background: color-mix(in srgb, var(--critique) 22%, transparent); }
+.deficit p { font-size: 14px; color: var(--muted); }
+.note { font-size: 13px; color: var(--muted); }
+
+/* Modules */
+.modules { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+.module { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 20px 18px; display: grid; gap: 10px; align-content: start; }
+.module .code { font: 500 12px/1 var(--f-donnee); color: var(--or-texte); letter-spacing: .12em; }
+.module h3 { font: 700 19px/1.2 var(--f-display); color: var(--titre); }
+.module p { font-size: 15px; color: var(--muted); }
+
+/* Méthode : une séquence réelle, d'où la numérotation */
+.niveaux { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; counter-reset: n -1; }
+.niveau { padding: 0 20px 0 0; display: grid; gap: 10px; align-content: start; position: relative; }
+.niveau + .niveau { padding-left: 20px; border-left: 1px solid var(--line); }
+.niveau .num { font: 500 13px/1 var(--f-donnee); color: var(--accent); }
+.niveau h3 { font-size: 18px; }
+.niveau p { font-size: 15px; color: var(--muted); }
+.niveau .statut { font: 500 12px/1 var(--f-donnee); justify-self: start; padding: 6px 9px; border-radius: 6px; background: var(--surface-2); color: var(--fg); }
+
+/* Sentinelle */
+.sentinelle { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: center; }
+.telephone {
+  justify-self: center; width: min(320px, 100%); border-radius: 34px; padding: 14px; background: var(--fg);
+  box-shadow: var(--ombre);
+}
+.ecran { background: var(--bg); border-radius: 24px; padding: 18px; display: grid; gap: 12px; }
+.ecran .titre { font: 700 17px/1.3 var(--f-display); color: var(--titre); }
+.ecran .sous { font-size: 13px; color: var(--muted); }
+.ecran button {
+  font: 600 15px/1.2 var(--f-texte); text-align: left; padding: 14px; border-radius: 14px; cursor: pointer;
+  border: 1.5px solid var(--line); background: var(--surface); color: var(--fg); display: grid; gap: 2px;
+}
+.ecran button small { font-weight: 400; font-size: 12px; color: var(--muted); }
+.ecran button[aria-pressed="true"] { border-color: var(--titre); background: color-mix(in srgb, var(--titre) 10%, var(--surface)); }
+.ecran .retour { font-size: 13px; min-height: 2.6em; color: var(--fg); }
+.liste { display: grid; gap: 14px; margin-top: 22px; padding: 0; list-style: none; }
+.liste li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 10px; }
+.liste li::before { content: ""; width: 10px; height: 10px; margin-top: 8px; border-radius: 50%; background: var(--or); }
+
+/* Confiance */
+.confiance { background: var(--fg); color: var(--bg); }
+.confiance h2 { color: var(--bg); }
+.confiance .lead { color: color-mix(in srgb, var(--bg) 75%, var(--fg)); }
+.confiance .eyebrow { color: var(--or); }
+.engagements { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: color-mix(in srgb, var(--bg) 20%, var(--fg)); border-radius: var(--r); overflow: hidden; }
+.engagements div { background: var(--fg); padding: 24px 22px; display: grid; gap: 8px; align-content: start; }
+.engagements b { font: 600 17px/1.3 var(--f-texte); color: var(--or); }
+.engagements p { font-size: 15px; color: color-mix(in srgb, var(--bg) 78%, var(--fg)); }
+.classes { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 10px; }
+.classes span { font: 500 13px/1 var(--f-donnee); padding: 9px 12px; border-radius: 8px; border: 1px solid color-mix(in srgb, var(--bg) 30%, var(--fg)); }
+
+/* Pilote : séquence réelle */
+.phases { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; border-left: 2px solid var(--line); }
+.phases li { position: relative; padding: 0 0 26px 28px; display: grid; gap: 4px; }
+.phases li:last-child { padding-bottom: 0; }
+.phases li::before { content: ""; position: absolute; left: -8px; top: 4px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 3px solid var(--or); }
+.phases .ph { font: 500 12px/1 var(--f-donnee); letter-spacing: .1em; color: var(--accent); text-transform: uppercase; }
+.phases p { color: var(--muted); font-size: 15px; max-width: 70ch; }
+.pilote-grille { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 48px; align-items: start; }
+.encart { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 22px; display: grid; gap: 12px; }
+.encart h3 { font: 700 19px/1.25 var(--f-display); color: var(--titre); }
+.encart p, .encart li { font-size: 15px; color: var(--muted); }
+.encart ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+
+/* Nom */
+.nom-sec .wrap { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 48px; align-items: center; }
+.hiero { font: 700 clamp(40px, 7vw, 76px)/1 var(--f-display); color: var(--titre); }
+.hiero small { display: block; margin-top: 12px; font: 500 14px/1.4 var(--f-donnee); color: var(--muted); letter-spacing: .06em; }
+.trois { display: grid; gap: 18px; }
+.trois div { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 16px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.trois div:last-child { border-bottom: 0; padding-bottom: 0; }
+.trois b { font: 700 16px/1.4 var(--f-display); color: var(--accent); }
+.trois p { color: var(--muted); font-size: 16px; }
+
+/* Appel final */
+.appel { background: var(--titre); color: var(--bg); }
+.appel h2 { color: var(--bg); }
+.appel .wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 40px; align-items: center; }
+.appel p { color: color-mix(in srgb, var(--bg) 82%, var(--titre)); margin-top: 14px; max-width: 60ch; }
+.publics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.publics div { padding: 16px; border-radius: 12px; background: color-mix(in srgb, var(--bg) 10%, var(--titre)); display: grid; gap: 4px; }
+.publics b { font-weight: 600; }
+.publics span { font-size: 14px; color: color-mix(in srgb, var(--bg) 78%, var(--titre)); }
+.contact { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.contact-note { font: 500 14px/1.4 var(--f-donnee); padding: 12px 16px; border-radius: 10px; border: 1px dashed color-mix(in srgb, var(--bg) 45%, var(--titre)); }
+
+/* Pied de page */
+footer { padding-block: 40px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
+footer .wrap { display: grid; gap: 18px; }
+footer .logo svg { height: 34px; width: auto; }
+footer .bas { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+
+@media (max-width: 960px) {
+  .hero .wrap, .fiche-zone, .sentinelle, .pilote-grille, .nom-sec .wrap, .appel .wrap { grid-template-columns: minmax(0, 1fr); }
+  .symbole { max-width: 320px; order: -1; }
+  .modules { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .questions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .questions div, .questions div + div { padding: 18px 14px; border-left: 0; border-top: 1px solid var(--line); }
+  .questions div:nth-child(-n+2) { border-top: 0; }
+  .questions div:nth-child(even) { border-left: 1px solid var(--line); }
+  .questions div:last-child { grid-column: 1 / -1; border-left: 0; }
+  .niveaux, .engagements { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .niveau, .niveau + .niveau { padding: 18px; border: 0; }
+  .nav a:not(.btn) { display: none; }
+}
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  .modules, .niveaux, .engagements, .publics, .composantes { grid-template-columns: minmax(0, 1fr); }
+  .composantes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ligne { grid-template-columns: minmax(0, 1fr) auto; }
+  .ligne dt { grid-column: 1 / -1; }
+  .trois div { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .top .logo svg { height: 32px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .kodya { animation: none; }
+  .btn, .jauge i { transition: none; }
+}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#accueil" aria-label="TasetyGrid, accueil">
+      <svg viewBox="0 0 2090 512" role="img" aria-hidden="true">{{LOGO_HEADER}}</svg>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#fiche">Fiche territoriale</a>
+      <a href="#methode">Méthode</a>
+      <a href="#confiance">Confiance</a>
+      <a href="#pilote">Pilote</a>
+      <a class="btn btn-plein" href="#rejoindre">Rejoindre le pilote</a>
+    </nav>
+  </div>
+</header>
+
+<main id="accueil">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Atlas des personnes, des terres et des ressources</p>
+        <h1 style="margin-top:16px">Savoir ce qui existe sur chaque territoire. <em>Et ce qui manque.</em></h1>
+        <p class="lead">TasetyGrid réunit sur une seule carte la population, le foncier, les écoles, la santé, les routes,
+          l'énergie, les ressources et le patrimoine de chaque localité. Chaque chiffre affiche sa source et son niveau de vérification.</p>
+        <div class="actions">
+          <a class="btn btn-plein" href="#fiche">Voir une fiche territoriale</a>
+          <a class="btn btn-ligne" href="#rejoindre">Rejoindre le pilote Cameroun</a>
+        </div>
+        <div class="meta"><span>10 régions</span><span>58 départements</span><span>374 collectivités</span><span>Pays bilingue, plateforme bilingue</span></div>
+      </div>
+      <figure class="symbole" style="margin:0">
+        <svg viewBox="0 0 512 512" role="img" aria-label="Symbole Kodya : une spirale de coquille d'escargot tracée sur une grille, prolongée par un cercle à quatre points">{{SYMBOLE_HERO}}</svg>
+        <figcaption>KODYA · la coquille qui grandit jusqu'à devenir le cercle</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="questions" role="list">
+        <div role="listitem"><b>Qui ?</b><span>Ménages et population, en agrégats protégés</span></div>
+        <div role="listitem"><b>Quoi ?</b><span>Bâtiments, équipements, infrastructures, ressources</span></div>
+        <div role="listitem"><b>À qui ?</b><span>Titres, concessions et permis, quand l'autorité les établit</span></div>
+        <div role="listitem"><b>Quel état ?</b><span>Capacité, fonctionnement, date du dernier constat</span></div>
+        <div role="listitem"><b>Que manque-t-il ?</b><span>Déficits calculés selon les normes officielles</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo" id="fiche">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Démonstration</p>
+        <h2>Une fiche pour chaque localité</h2>
+        <p class="lead">Choisissez un exemple. Les chiffres ci-dessous sont fictifs : ils montrent le format, pas une localité réelle.</p>
+      </div>
+      <div class="onglets" role="tablist" aria-label="Exemples de localités">
+        <button class="onglet" role="tab" id="tab-a" aria-selected="true" aria-controls="fiche-panneau" data-ex="a">Village en zone forestière</button>
+        <button class="onglet" role="tab" id="tab-b" aria-selected="false" aria-controls="fiche-panneau" data-ex="b" tabindex="-1">Quartier périurbain</button>
+      </div>
+      <div class="fiche-zone" id="fiche-panneau" role="tabpanel" aria-labelledby="tab-a" aria-live="polite">
+        <article class="fiche">
+          <div class="fiche-tete">
+            <span class="exemple">Exemple fictif</span>
+            <span class="nom" id="f-nom"></span>
+            <span class="loc" id="f-loc"></span>
+          </div>
+          <dl class="lignes" id="f-lignes" style="margin:0"></dl>
+          <div class="legende"><span>● vérifié</span><span>◐ estimé ou partiel</span><span>○ déclaré</span><span>⚠ anomalie à vérifier</span></div>
+        </article>
+        <div class="manque">
+          <h3>Ce qui manque</h3>
+          <div class="score">
+            <div class="score-haut">
+              <span>Score de confiance des données</span>
+              <span class="score-val" id="f-score"></span>
+            </div>
+            <div class="composantes" id="f-comp"></div>
+          </div>
+          <div class="deficits" id="f-deficits"></div>
+          <p class="note">Les besoins sont calculés à partir des normes fixées par chaque ministère, saisies dans la plateforme avec leur texte de référence. Aucune norme n'est inventée.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="modules">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">La plateforme</p>
+        <h2>Cinq modules, un seul référentiel territorial</h2>
+      </div>
+      <div class="modules">
+        <div class="module"><span class="code">PEOPLE</span><h3>Population</h3><p>Habitat, ménages et dynamique démographique, publiés uniquement en agrégats.</p></div>
+        <div class="module"><span class="code">LAND</span><h3>Foncier</h3><p>Occupation du sol, titres, attestations ARDFC/AJPTER, concessions et aires protégées.</p></div>
+        <div class="module"><span class="code">ASSETS</span><h3>Équipements</h3><p>Écoles, santé, routes, eau, énergie, télécoms, chefferies et patrimoine.</p></div>
+        <div class="module"><span class="code">RESOURCES</span><h3>Ressources</h3><p>Forêts, mines, carrières, eau, potentiel solaire et hydroélectrique, activités économiques.</p></div>
+        <div class="module"><span class="code">INTELLIGENCE</span><h3>Décision</h3><p>Rapprochement des sources, déficits, accessibilité et priorités d'investissement.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="methode" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Méthode</p>
+        <h2>Chaque information monte en preuve, étape par étape</h2>
+        <p class="lead">Un agent de terrain ne devient jamais une autorité juridique. Chaque donnée garde la trace de qui l'a fournie et de qui l'a validée.</p>
+      </div>
+      <div class="niveaux">
+        <div class="niveau"><span class="num">Niveau 0</span><h3>Déclaration</h3><p>Chefs de village, communes et citoyens signalent ce qui manque ou a changé.</p><span class="statut">○ Déclaré</span></div>
+        <div class="niveau"><span class="num">Niveau 1</span><h3>Imagerie</h3><p>Bâtiments, routes, forêts et plans d'eau détectés par satellite.</p><span class="statut">◐ Détecté</span></div>
+        <div class="niveau"><span class="num">Niveau 2</span><h3>Terrain</h3><p>Des agents vérifient l'usage, l'état et le fonctionnement, hors connexion si besoin.</p><span class="statut">● Observé</span></div>
+        <div class="niveau"><span class="num">Niveau 3</span><h3>Administration</h3><p>Le ministère compétent valide titres, concessions, permis et licences.</p><span class="statut">● Validé</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap sentinelle">
+      <div>
+        <p class="eyebrow">Le chef de village, sentinelle du territoire</p>
+        <h2 style="margin-top:14px">« Voici votre territoire. Dites-nous ce qui manque. »</h2>
+        <p class="lead" style="margin-top:16px">Une application à trois boutons, utilisable hors connexion. Les signalements orientent les vérifications ; ils ne remplacent pas les autorités compétentes.</p>
+        <ul class="liste">
+          <li><span>Les signalements sensibles (conflit foncier, exploitation illégale) sont transmis à l'autorité sans être publiés.</span></li>
+          <li><span>Les attestations ARDFC et AJPTER délivrées par les chefs de 3ᵉ degré sont enregistrées comme attestations, jamais comme titres fonciers.</span></li>
+          <li><span>Chaque village reçoit sa fiche territoriale en retour.</span></li>
+        </ul>
+      </div>
+      <div class="telephone" aria-label="Aperçu de l'application du chef de village">
+        <div class="ecran">
+          <span class="titre">Votre territoire</span>
+          <span class="sous">Essayez : touchez une action.</span>
+          <button type="button" id="b1" data-msg="Point placé sur la carte. Ajoutez une photo et une catégorie : maison, forage, école, piste…">Il manque quelque chose<small>Nouvelle maison, école, forage, route…</small></button>
+          <button type="button" id="b2" data-msg="Objet sélectionné. Indiquez ce qui a changé : détruit, fermé, en travaux…">Ceci a changé<small>Disparu, fermé, agrandi</small></button>
+          <button type="button" id="b3" data-msg="Signalement non public, transmis à l'autorité compétente. Vous serez informé de la suite.">Je signale un problème<small>Conflit, dégradation, risque</small></button>
+          <p class="retour" id="retour" aria-live="polite"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="confiance" id="confiance">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Confiance et souveraineté</p>
+        <h2>Les données du pays restent au pays</h2>
+        <p class="lead">Une base qui relie personnes, terres et ressources doit protéger avant de montrer. TasetyGrid est conçu selon la loi n° 2024/017 sur la protection des données à caractère personnel.</p>
+      </div>
+      <div class="engagements">
+        <div><b>L'État est propriétaire</b><p>Des données comme de l'hébergement. Formats ouverts et réversibilité garantis par contrat.</p></div>
+        <div><b>Le recensement reste secret</b><p>Les réponses individuelles restent chez l'institution de recensement. L'atlas ne reçoit que des agrégats.</p></div>
+        <div><b>Aucun droit créé</b><p>La plateforme référence les titres et concessions établis par l'autorité. Elle n'en délivre aucun.</p></div>
+        <div><b>Le patrimoine sacré est protégé</b><p>Forêts sacrées et sites rituels ne sont localisés publiquement qu'avec l'accord des communautés.</p></div>
+        <div><b>Chaque consultation est tracée</b><p>Un journal inaltérable des accès, audité par une instance indépendante.</p></div>
+        <div><b>Toute information est contestable</b><p>Une personne ou une communauté peut contester une donnée qui la concerne.</p></div>
+      </div>
+      <div class="classes" aria-label="Classes de sensibilité">
+        <span>S0 · Public</span><span>S1 · Restreint aux administrations</span><span>S2 · Confidentiel</span><span>S3 · Protégé culturel</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="pilote">
+    <div class="wrap pilote-grille">
+      <div>
+        <div class="section-head">
+          <p class="eyebrow">Pilote Cameroun</p>
+          <h2>Commencer petit, mesurer, puis étendre</h2>
+        </div>
+        <ol class="phases">
+          <li><span class="ph">Phase 0 · Cadrage</span><h3>Sources, droit et partenaires</h3><p>Inventaire des données existantes, revue juridique, accords avec les institutions propriétaires de chaque couche.</p></li>
+          <li><span class="ph">Phase 1 · Socle national</span><h3>Le référentiel du pays</h3><p>Découpage administratif versionné, localités et bâtiments par imagerie, import des registres sectoriels.</p></li>
+          <li><span class="ph">Phase 2 · Terrain</span><h3>Trois communes pilotes</h3><p>Une commune urbaine, une rurale agricole, une forestière ou minière : toutes les couches, du signalement à la validation.</p></li>
+          <li><span class="ph">Phase 3 · Évaluation</span><h3>Coûts et qualité mesurés</h3><p>Coût par bâtiment vérifié, taux d'erreur, délais de validation, usage réel dans les décisions.</p></li>
+          <li><span class="ph">Phase 4 · Extension</span><h3>Par vagues régionales</h3><p>Imagerie et registres partout, terrain ciblé là où les sources se contredisent.</p></li>
+          <li><span class="ph">Phase 5 · Mise à jour continue</span><h3>Recensement intégré</h3><p>Intégration des résultats du 4ᵉ recensement général (RGPH/RGAE 2026) dès leur publication, puis mises à jour entre deux recensements.</p></li>
+        </ol>
+      </div>
+      <aside class="encart">
+        <h3>Ancré dans le cadre en vigueur</h3>
+        <ul>
+          <li>Loi n° 2024/017 · données personnelles</li>
+          <li>Loi n° 2020/010 · activité statistique</li>
+          <li>Ordonnances n° 74-1 et 74-2 · foncier et domaines</li>
+          <li>Circulaire MINDCAF du 20 février 2026 · ARDFC et AJPTER</li>
+          <li>Loi n° 2019/024 · collectivités territoriales</li>
+          <li>Loi n° 2024/008 · forêts et faune</li>
+          <li>Loi n° 2023/014 · Code minier</li>
+          <li>Loi n° 2013/003 · patrimoine culturel</li>
+        </ul>
+        <p>Au service de la Stratégie nationale de développement 2020-2030 et de la décentralisation.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="nom-sec" style="padding-top:0">
+    <div class="wrap">
+      <p class="hiero">Ta-Sety<small>tꜣ-stj · « le pays de l'arc »</small></p>
+      <div class="trois">
+        <div><b>Le nom</b><p>Ta-Sety est le nom que l'Égypte ancienne donnait à la Nubie. Grid, c'est la grille : la carte, la mesure, la donnée.</p></div>
+        <div><b>La coquille</b><p>Dans la pensée kongo, la coquille d'escargot (kodya) évoque la vie qui grandit. La spirale du symbole est tracée sur une grille qui grandit avec elle.</p></div>
+        <div><b>Le cercle</b><p>Le cercle et ses quatre points reprennent le cosmogramme kongo : le cycle complet, comme la mise à jour continue du territoire.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="appel" id="rejoindre">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow" style="color:var(--or)">Rejoindre le pilote</p>
+        <h2 style="margin-top:14px">Construisons l'atlas avec ceux qui connaissent le terrain</h2>
+        <p>Nous cherchons trois communes pilotes et les institutions qui détiennent les données de référence. Le projet est en phase de conception.</p>
+        <div class="contact">
+          <span class="contact-note">Adresse de contact publiée prochainement.</span>
+        </div>
+      </div>
+      <div class="publics">
+        <div><b>Communes</b><span>Inventaire de votre patrimoine et de vos besoins</span></div>
+        <div><b>Ministères</b><span>Vos cartes sectorielles, à jour et rapprochées</span></div>
+        <div><b>Chefferies</b><span>Votre territoire et votre patrimoine, documentés</span></div>
+        <div><b>Partenaires</b><span>Un ciblage des investissements fondé sur des preuves</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="logo"><svg viewBox="0 0 2090 512" role="img" aria-label="TasetyGrid">{{LOGO_FOOTER}}</svg></span>
+    <div class="bas">
+      <span>TasetyGrid est un projet en conception. Ce n'est pas un service officiel de l'État camerounais et il n'est affilié à aucune administration citée.</span>
+      <span>© 2026 TasetyGrid</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Données d'exemple, fictives : elles illustrent le format d'une fiche.
+  var EX = {
+    a: {
+      nom: "Village forestier (exemple)",
+      loc: "Commune rurale · zone forestière · référentiel v2026.1",
+      lignes: [
+        ["Population", "≈ 1 840 hab.", "intervalle 1 650 à 2 030 · estimation 2026", 2],
+        ["Ménages", "426", "recensement", 3],
+        ["Bâtiments", "381 détectés · 374 vérifiés", "imagerie 2025 · terrain", 3],
+        ["Surface", "1 245 ha", "agricole 630 · forêt 420 · autre 195", 2],
+        ["Chefferie", "1 chefferie de 3ᵉ degré", "3 sites patrimoniaux, dont 1 protégé", 3],
+        ["Éducation", "1 école primaire · 1 collège", "carte scolaire · terrain", 3],
+        ["Santé", "1 centre de santé, dégradé", "terrain, mars 2026", 3],
+        ["Ressources", "1 carrière ⚠ titre non trouvé", "observée, non rapprochée", 1],
+        ["Routes", "8,2 km · 3,1 km toute l'année", "terrain", 2]
+      ],
+      score: 78, comp: [["Couverture", .95], ["Accord", .80], ["Fraîcheur", .70], ["Vérification", .65]],
+      deficits: [
+        ["Santé", "critique", "Accès critique", "Centre de santé dégradé ; le suivant est à 14 km par une piste coupée en saison des pluies."],
+        ["Éducation primaire", "alerte", "4 salles manquantes", "Calcul : enfants d'âge scolaire estimés ÷ norme élèves par salle du ministère."],
+        ["Électricité", "alerte", "17 % des ménages", "Réseau moyenne tension à 6 km ; un mini-réseau solaire est à étudier."],
+        ["Carrière", "alerte", "Anomalie", "Exploitation observée sans titre correspondant au cadastre minier : vérification transmise."]
+      ]
+    },
+    b: {
+      nom: "Quartier périurbain (exemple)",
+      loc: "Commune d'arrondissement · zone urbaine · référentiel v2026.1",
+      lignes: [
+        ["Population", "≈ 12 600 hab.", "intervalle 11 400 à 13 900 · estimation 2026", 2],
+        ["Ménages", "2 910", "recensement", 3],
+        ["Bâtiments", "2 284 détectés · 1 240 vérifiés", "imagerie 2025 · terrain partiel", 2],
+        ["Surface", "186 ha", "résidentiel 142 · commerce 21 · autre 23", 2],
+        ["Foncier", "312 titres · 57 attestations", "MINDCAF · registre des attestations", 3],
+        ["Éducation", "3 écoles primaires · 1 lycée", "carte scolaire", 3],
+        ["Santé", "1 CMA · 4 cliniques privées", "carte sanitaire · terrain", 3],
+        ["Économie", "1 marché · 214 commerces", "terrain, comptage agrégé", 2],
+        ["Eau", "38 % raccordés", "enquête ménages", 1]
+      ],
+      score: 71, comp: [["Couverture", .90], ["Accord", .62], ["Fraîcheur", .85], ["Vérification", .48]],
+      deficits: [
+        ["Eau potable", "critique", "38 % raccordés", "Extension du réseau prioritaire pour 1 800 ménages environ."],
+        ["Foncier", "alerte", "9 chevauchements", "Attestations qui recouvrent des titres existants : signalées au service des domaines."],
+        ["Éducation primaire", "alerte", "Effectifs élevés", "Classes au-dessus de la norme sectorielle dans 2 écoles sur 3."],
+        ["Santé", "ok", "Couverture correcte", "92 % des habitants à moins de 30 minutes d'une formation sanitaire."]
+      ]
+    }
+  };
+  var PT = { 3: "●", 2: "◐", 1: "○" };
+  function el(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
+
+  function afficher(k) {
+    var d = EX[k];
+    document.getElementById("f-nom").textContent = d.nom;
+    document.getElementById("f-loc").textContent = d.loc;
+    var L = document.getElementById("f-lignes"); L.textContent = "";
+    d.lignes.forEach(function (l) {
+      var row = el("div", "ligne");
+      row.appendChild(el("dt", null, l[0]));
+      var dd = el("dd", null, l[1]); dd.appendChild(el("span", "src", l[2])); row.appendChild(dd);
+      var c = el("span", "conf", PT[l[3]]); c.setAttribute("data-n", l[3]);
+      c.setAttribute("aria-label", l[3] === 3 ? "vérifié" : l[3] === 2 ? "estimé" : "déclaré");
+      row.appendChild(c); L.appendChild(row);
+    });
+    var s = document.getElementById("f-score"); s.textContent = d.score; s.appendChild(el("small", null, " / 100"));
+    var C = document.getElementById("f-comp"); C.textContent = "";
+    d.comp.forEach(function (c) {
+      var b = el("div"); b.appendChild(el("span", null, c[0] + " " + Math.round(c[1] * 100) + " %"));
+      var j = el("div", "jauge"); var i = el("i"); i.style.width = Math.round(c[1] * 100) + "%"; j.appendChild(i); b.appendChild(j); C.appendChild(b);
+    });
+    var D = document.getElementById("f-deficits"); D.textContent = "";
+    d.deficits.forEach(function (x) {
+      var b = el("div", "deficit"); b.setAttribute("data-niveau", x[1]);
+      var h = el("div", "haut"); h.appendChild(el("b", null, x[0])); h.appendChild(el("span", "pastille", x[2]));
+      b.appendChild(h); b.appendChild(el("p", null, x[3])); D.appendChild(b);
+    });
+  }
+
+  var tabs = Array.prototype.slice.call(document.querySelectorAll(".onglet"));
+  function choisir(t) {
+    tabs.forEach(function (o) { var on = o === t; o.setAttribute("aria-selected", on); o.tabIndex = on ? 0 : -1; });
+    document.getElementById("fiche-panneau").setAttribute("aria-labelledby", t.id);
+    afficher(t.getAttribute("data-ex"));
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener("click", function () { choisir(t); });
+    t.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+        var n = tabs[(i + (e.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length]; n.focus(); choisir(n);
+      }
+    });
+  });
+  afficher("a");
+
+  var boutons = Array.prototype.slice.call(document.querySelectorAll(".ecran button"));
+  boutons.forEach(function (b) {
+    b.addEventListener("click", function () {
+      boutons.forEach(function (o) { o.setAttribute("aria-pressed", o === b); });
+      document.getElementById("retour").textContent = b.getAttribute("data-msg");
+    });
+  });
+  boutons.forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
+
+})();
+</script>
