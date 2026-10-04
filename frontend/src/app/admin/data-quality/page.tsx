@@ -2,11 +2,40 @@ import { Kpi } from "@/components/kpi";
 import { SourceTable } from "@/components/source-table";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { TBody, TD, TH, THead, TR, Table } from "@/components/ui/table";
-import { api } from "@/lib/api";
+import { ApiError, api } from "@/lib/api";
 import { formatDate, titleCase } from "@/lib/format";
+import type { DataQualityReport, SourceOut } from "@/lib/types";
+
+function Unauthorized({ status }: { status: number }) {
+  return (
+    <div className="space-y-4">
+      <h1 className="text-lg font-semibold">Admin · Data quality</h1>
+      <Card>
+        <div className="space-y-2 px-4 py-3 text-sm">
+          <p>
+            <strong>{status === 401 ? "Not authorized." : "Access denied."}</strong> The data-quality report is
+            restricted to analyst and admin API keys.
+          </p>
+          <p className="text-muted">
+            {status === 401
+              ? "Set ABI_API_KEY (server-side environment, never NEXT_PUBLIC_) to a valid, non-revoked key and restart the frontend."
+              : "The configured ABI_API_KEY does not have the analyst or admin role."}{" "}
+            See docs/SECURITY.md.
+          </p>
+        </div>
+      </Card>
+    </div>
+  );
+}
 
 export default async function DataQualityPage() {
-  const [dq, sources] = await Promise.all([api.dataQuality(), api.sources()]);
+  let dq: DataQualityReport, sources: SourceOut[];
+  try {
+    [dq, sources] = await Promise.all([api.dataQuality(), api.sources()]);
+  } catch (e) {
+    if (e instanceof ApiError && (e.status === 401 || e.status === 403)) return <Unauthorized status={e.status} />;
+    throw e;
+  }
   return (
     <div className="space-y-4">
       <div className="flex flex-wrap items-baseline justify-between gap-2">

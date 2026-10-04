@@ -9,6 +9,8 @@ sovereign Treasury bills, bonds and Eurobonds.
 ## Status
 
 **Phases 1 and 4 complete** (database, provenance, read API, dashboard; Opportunity Engine + Opportunity Radar).
+**Phase 1b security baseline in place**: API keys (hashed), roles, rate limiting, audit log, security
+headers — see [`docs/SECURITY.md`](docs/SECURITY.md).
 See [`docs/IMPLEMENTATION_PLAN.md`](docs/IMPLEMENTATION_PLAN.md) and
 [`docs/PHASE_1_REPORT.md`](docs/PHASE_1_REPORT.md), [`docs/PHASE_4_REPORT.md`](docs/PHASE_4_REPORT.md).
 
@@ -85,12 +87,14 @@ export ABI_DATABASE_URL=postgresql+psycopg://abi:abi@localhost:5432/abi
 alembic upgrade head
 python -m app.seed.load --synthetic      # idempotent; also runs the Opportunity Engine
 python -m app.engine.run --as-of 2026-10-03   # re-run signal detection
-uvicorn app.main:app --port 8000         # API docs at http://localhost:8000/docs
+python -m app.security.keys create --name me --role admin   # prints the key ONCE
+uvicorn app.main:app --port 8000 --no-server-header   # API docs at http://localhost:8000/docs
 
 # Frontend
 cd frontend
 npm install
-ABI_API_URL=http://localhost:8000/api/v1 npm run dev   # http://localhost:3000
+ABI_API_URL=http://localhost:8000/api/v1 ABI_API_KEY=<analyst or admin key> npm run dev   # http://localhost:3000
+# ABI_API_KEY is optional (only /admin pages need it) and server-side only: never NEXT_PUBLIC_.
 ```
 
 Or `docker compose up --build` (see `docker-compose.yml`; local credentials only).
@@ -103,7 +107,13 @@ ABI_TEST_DATABASE_URL=postgresql+psycopg://abi:abi@localhost:5432/abi_test pytes
 cd frontend && npm test && npm run typecheck && npm run lint && npm run build
 ```
 
-## API (v1, read-only)
+## API (v1)
+
+Market endpoints are **public** (no key) and read-only. Protected endpoints need an API key in the
+`X-API-Key` header: no key → `401`, unknown or revoked key → `401` (on any endpoint), wrong role →
+`403`. Requests are rate-limited per key or per client IP (`429` + `Retry-After`); protected calls and
+every refusal are written to the audit log. Details, key management and limits:
+[`docs/SECURITY.md`](docs/SECURITY.md).
 
 | Endpoint | Purpose |
 |---|---|
@@ -120,4 +130,5 @@ cd frontend && npm test && npm run typecheck && npm run lint && npm run build
 | `GET /api/v1/countries/{iso3}/maturity-wall` | Tracked maturities per month, next 12 months |
 | `GET /api/v1/accredited-dealers` | Institutions accredited to bid at auctions, from official lists (UMOA-Titres, BEAC, DMO Nigeria, Bank of Ghana, National Treasury South Africa, Morocco top 3); shares and ranks only where the authority publishes them; filter: `country` |
 | `GET /api/v1/subscription-routes` | How buyers access each market (who, intermediary, account, minimums), with verbatim official quotes; filter: `country`. Covers CEMAC, WAEMU and Kenya (15 countries) |
-| `GET /api/v1/data-quality` | Stale/pending sources, missing fields, duplicates, synthetic counts |
+| `GET /api/v1/data-quality` | **analyst/admin.** Stale/pending sources, missing fields, duplicates, synthetic counts |
+| `GET /api/v1/admin/audit-log?limit=` | **admin.** Latest audit rows (key id, role, method, path, status, truncated IP, request id) |

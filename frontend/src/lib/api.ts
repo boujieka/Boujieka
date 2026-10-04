@@ -18,6 +18,9 @@ import type {
 
 // Server-side only: the browser never talks to the API directly and never sees credentials.
 const BASE = process.env.ABI_API_URL ?? "http://localhost:8000/api/v1";
+// Optional analyst/admin key for protected endpoints (e.g. /data-quality). Server-side env only:
+// never prefix it with NEXT_PUBLIC_, which would ship it to the browser.
+const API_KEY = process.env.ABI_API_KEY || undefined;
 
 export class ApiError extends Error {
   constructor(
@@ -42,7 +45,10 @@ function query(params: Params = {}): string {
 }
 
 async function get<T>(path: string, params?: Params): Promise<T> {
-  const res = await fetch(`${BASE}${path}${query(params)}`, { cache: "no-store" });
+  const res = await fetch(`${BASE}${path}${query(params)}`, {
+    cache: "no-store",
+    headers: API_KEY ? { "X-API-Key": API_KEY } : undefined,
+  });
   if (!res.ok) throw new ApiError(res.status, `${res.status} ${res.statusText} for ${path}`);
   return res.json() as Promise<T>;
 }

@@ -17,6 +17,8 @@ from sqlalchemy.pool import StaticPool
 from app.db import get_session
 from app.main import create_app
 from app.models import Base
+from app.models.enums import Role
+from app.security.keys import create_key
 from app.seed.load import load_reference, load_synthetic
 
 REFERENCE_DATE = date(2026, 10, 3)
@@ -71,3 +73,22 @@ def client(seeded):
     app.dependency_overrides[get_session] = override
     with TestClient(app) as c:
         yield c
+
+
+@pytest.fixture(scope="session")
+def api_keys(seeded) -> dict[Role, str]:
+    """Plaintext keys for each key role, committed so the client can see them."""
+    with Session(seeded) as s:
+        keys = {role: create_key(s, f"test-{role.value}", role)[1] for role in (Role.ANALYST, Role.ADMIN)}
+        s.commit()
+    return keys
+
+
+@pytest.fixture(scope="session")
+def analyst_headers(api_keys) -> dict[str, str]:
+    return {"X-API-Key": api_keys[Role.ANALYST]}
+
+
+@pytest.fixture(scope="session")
+def admin_headers(api_keys) -> dict[str, str]:
+    return {"X-API-Key": api_keys[Role.ADMIN]}

@@ -21,6 +21,7 @@ from app.models.enums import (
     InstrumentType,
     CoverageTier,
     MonetaryZone,
+    Role,
     SourceCategory,
     SourceStatus,
     VerificationStatus,
@@ -412,3 +413,17 @@ class AccreditedDealers(BaseModel):
         "Official lists only. Shares and ranks are reproduced as published, never estimated. "
         "A listing is not a recommendation; dealers' commercial terms are not published by these sources."
     )
+
+
+class AuditLogOut(ORM):
+    """An audit-log row. Carries a key id, never a key or its hash."""
+
+    id: int
+    at: datetime
+    api_key_id: int | None
+    role: Role
+    method: str
+    path: str
+    status_code: int
+    client_ip: str | None
+    request_id: str

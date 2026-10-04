@@ -2,14 +2,14 @@
 
 from datetime import datetime, time, timedelta, timezone
 
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 from sqlalchemy import func, select
 
 from app.api.serializers import AUCTION_OFFICIAL_FIELDS
 from app.api.deps import AsOfDep, SessionDep
 from app.config import get_settings
 from app.models import Auction, Country, Opportunity, Security, Source
-from app.models.enums import AuctionStatus, FieldStatus, SourceStatus, VerificationStatus
+from app.models.enums import AuctionStatus, FieldStatus, Role, SourceStatus, VerificationStatus
 from app.schemas import (
     AmountByCurrency,
     DashboardSummary,
@@ -17,6 +17,7 @@ from app.schemas import (
     MissingFieldStat,
     SourceOut,
 )
+from app.security.auth import require_role
 
 router = APIRouter(tags=["overview"])
 
@@ -82,7 +83,12 @@ def list_sources(session: SessionDep) -> list[SourceOut]:
     return [SourceOut.model_validate(s) for s in rows]
 
 
-@router.get("/data-quality", response_model=DataQualityReport)
+# Internal operations view: analysts and admins only (and audited).
+@router.get(
+    "/data-quality",
+    response_model=DataQualityReport,
+    dependencies=[Depends(require_role(Role.ANALYST, Role.ADMIN))],
+)
 def data_quality(session: SessionDep, as_of: AsOfDep) -> DataQualityReport:
     settings = get_settings()
     sources = session.scalars(select(Source).order_by(Source.name)).all()

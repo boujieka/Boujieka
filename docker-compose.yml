@@ -15,7 +15,8 @@ services:
       retries: 10
 
   redis:
-    # Not used yet; reserved for the Phase 2/5 task queue and API rate limiting.
+    # Not used yet; reserved for the Phase 2/5 task queue and a shared (multi-instance)
+    # rate limiter. The API currently rate-limits in memory, per process.
     image: redis:7
     ports: ["6379:6379"]
 
@@ -26,7 +27,7 @@ services:
       ABI_CORS_ORIGINS: '["http://localhost:3000"]'
     command: >
       sh -c "alembic upgrade head && python -m app.seed.load --synthetic &&
-             uvicorn app.main:app --host 0.0.0.0 --port 8000"
+             uvicorn app.main:app --host 0.0.0.0 --port 8000 --no-server-header"
     ports: ["8000:8000"]
     depends_on:
       db: { condition: service_healthy }
@@ -35,6 +36,8 @@ services:
     build: ./frontend
     environment:
       ABI_API_URL: http://api:8000/api/v1
+      # Optional analyst/admin key for /admin pages (server-side only; see docs/SECURITY.md).
+      ABI_API_KEY: ${ABI_API_KEY:-}
     ports: ["3000:3000"]
     depends_on: [api]
 
