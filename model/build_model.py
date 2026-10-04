@@ -1002,7 +1002,7 @@ calc(ws, r, "u_capex", "Plant CAPEX (nominal)", "=[C:capex_nom]", "USDm", "m"); 
 calc(ws, r, "u_tx", "Transmission CAPEX funded by project", "=SUMPRODUCT([RNG:tx_spend_prj],[RNG:consflag])", "USDm", "m", "Project-built transmission spend falling in the construction period"); r += 1
 calc(ws, r, "u_devprem", "Development premium paid to the developer at financial close", "={dev_prem}", "USDm", "m"); r += 1
 calc(ws, r, "fund_base", "FUNDING BASE (CAPEX + development premium)", "={u_capex}+{u_tx}+{u_devprem}", "USDm", "m", out=True); r += 1
-calc(ws, r, "u_idc", "Interest during construction (equity-funded)", "=[C:idc]", "USDm", "m"); r += 1
+calc(ws, r, "u_idc", "Interest during construction (debt-funded within the gearing limit through closed-form factors)", "=[C:idc]", "USDm", "m"); r += 1
 calc(ws, r, "u_fee", "Upfront financing fees", "={upfront_fee}*({debt_c}+{debt_m})", "USDm", "m"); r += 1
 calc(ws, r, "u_dsra", "Initial DSRA funding", "=[C:dsra_init]", "USDm", "m"); r += 1
 calc(ws, r, "uses", "TOTAL USES", "={fund_base}+{u_idc}+{u_fee}+{u_dsra}", "USDm", "m", out=True); r += 1
@@ -1042,7 +1042,7 @@ calc(ws, r, "afford_tariff", "Utility payment headroom per MWh (avg max sustaina
 # 18 DEBT
 # ===================================================================================
 ws = WS["18_DEBT"]
-title(ws, "18 DEBT — Concessional & commercial tranches, DSCR sculpting, DSRA", "Non-circular: IDC and DSRA are equity-funded; sizing uses an unlevered-tax lender case", ts=True)
+title(ws, "18 DEBT — Concessional & commercial tranches, DSCR sculpting, DSRA", "Non-circular: IDC and fees are debt-funded through closed-form factors; the DSRA is equity-funded; sizing uses an unlevered-tax lender case", ts=True)
 r = 6
 inp(ws, r, "lock_m", "Locked commercial debt (debt_mode = 2)", 90.0, "USDm", "Base-case debt_m (written by tools/run_snapshots.py)", "m", True); r += 1
 inp(ws, r, "lock_c", "Locked concessional debt (debt_mode = 2)", 0.0, "USDm", "Base-case debt_c", "m", True); r += 1
@@ -1963,7 +1963,7 @@ lines = [
     ("Colour code", "Blue font = hard-coded input; yellow fill = key lever; black = formula; green = link to another sheet; green-shaded cell = key output."),
     ("Units", "USD million nominal unless stated; energy GWh; capacity MW; real inputs in 2026 USD."),
     ("Timeline", "Annual, 40 periods from model start year. Construction + concession must fit within 40 years (checked)."),
-    ("Circularity", "None. IDC, fees and DSRA are equity-funded; commercial debt is sculpted on a lender-case CFADS with unlevered tax. Documented simplifications."),
+    ("Circularity", "None (checked with tools/model/check_cycles.py). IDC and fees are debt-funded within the gearing limit through closed-form factors; the DSRA is equity-funded; commercial debt is sculpted on a lender-case CFADS with unlevered tax. Documented simplifications."),
     ("Scenarios", "Three exclusive cases (Base/Low/High) + nine combinable stress toggles + five sensitivity flexes. Full-engine snapshots: python tools/run_snapshots.py."),
     ("Structures", "Five structures on 17A_STRUCTURES evaluated by the full engine (select on control panel) and by a live closed-form comparison."),
     ("Bankability", "Nine-gate weakest-link framework with explicit thresholds (30_BANKABILITY). No hidden weights."),

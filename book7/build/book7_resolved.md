@@ -19,7 +19,7 @@ Each book is the centre of a set of products that share one method. For Book 7 t
 | Product | Name | Role |
 |---|---|---|
 | Book | Hydropower Development and Finance (this book) | Explains the method and why it works |
-| Model | MODEL 7: Hydropower Development and Finance Model | Quantifies the method: annual, 40 period, integrated project, utility and public-finance model with a development module and 23 financial close gates |
+| Model | MODEL 7: Hydropower Development and Finance Model | Quantifies the method: annual, 40-period, integrated project, utility and public-finance model with a development module and 23 financial close gates |
 | Manual | MANUAL 7: User and Methodology Manual | Teaches the reader to operate the model |
 | Case | CASE 7: Kasiri River Hydro | Demonstrates the method on a fictional 60 MW run-of-river project |
 | Training | Video course | Walks through the book and the model |
@@ -42,7 +42,7 @@ This book asks one question: can a given hydropower project be developed to fina
 
 The book is written for the people who make those decisions. Developers and their finance directors building a development plan and a financing case. Credit officers and investment officers at development finance institutions and commercial banks sizing debt. Fund managers deciding whether to buy into a project before or after close. Transaction advisers who have to reconcile all of them. And staff in finance ministries and PPP units, who get one full chapter written for them, because a support package the ministry will not sign does not close.
 
-Each chapter supports one decision. Chapter 1 sets out the business model and the reason why a hydro project has to be read as three investments, not one. Chapters 2 to 4 cover the resource and the commercial route: the river, the configuration and the path to a power purchase agreement. Chapters 5 to 8 deal with development: the stage gates, the development budget, the consents and the contract set. Chapters 9 to 11 turn to construction and operation. Chapters 12 to 15 are about financing: sizing the debt, assembling the lender group, the developer's returns and the public side. Chapters 16 and 17 bring the analysis together for the people who carry the risk, through stress testing and the financial close gates. Chapter 18 walks through the complete case.
+Each chapter supports one decision. Chapter 1 sets out the business model and why a hydro project has to be read as three investments, not one. Chapters 2 to 4 cover the resource and the commercial route: the river, the configuration and the path to a power purchase agreement. Chapters 5 to 8 deal with development: the stage gates, the development budget, the consents and the contract set. Chapters 9 to 11 turn to construction and operation. Chapters 12 to 15 are about financing: sizing the debt, assembling the lender group, the developer's returns and the public side. Chapters 16 and 17 bring the analysis together for the people who carry the risk, through stress testing and the financial close gates. Chapter 18 walks through the complete case.
 
 ## Four ideas that run through the book
 
@@ -64,11 +64,11 @@ Book 7 is not the first work to connect hydropower with finance, and it does not
 
 The most complete public guide is the IFC's *Hydroelectric Power: A Guide for Developers and Investors*, published in 2015 [LIT:S1]. It covers the whole development cycle, from site selection to operation. By its own account, its technical sections "are more detailed and can be used as reference, while the permitting/licensing and financing sections are intended more as a high-level review" [LIT:S1]. Book 7 starts where that guide stops. The IFC guide explains how a hydro project is developed; this book explains how to decide whether it should continue, how it should be financed, who should bear each risk and whether it is ready to close.
 
-The closest predecessor in purpose is the *Hydro Finance Handbook* of 2008, written as a companion to a hydro finance tutorial and covering the financial aspects of hydro development and the steps towards financial close [LIT:S2]. We could see only a search summary of it, and its publisher and authors are not confirmed here. Book 7 goes further in three directions: it values the development stage itself, before any financing; it tests the project from the positions of the developer, the lenders and the state at once; and it treats financial close as the outcome of 23 evidence gates rather than as a sequence of steps.
+The closest predecessor in purpose appears to be the *Hydro Finance Handbook* of 2008, described as a companion to a hydro finance tutorial at HydroVision 2008 and as covering the financial aspects of hydro development and the steps towards financial close [LIT:S2]. We could see only a search summary of it, and its publisher and authors are not confirmed here, so the comparison rests on that description. On that basis, Book 7 differs in three ways: it values the development stage itself, before any financing; it tests the project from the positions of the developer, the lenders and the state at once; and it treats financial close as the outcome of 23 evidence gates rather than as a sequence of steps.
 
-The University of Cambridge Institute for Sustainability Leadership published in 2019 an introduction to the concepts and terminology of financing sustainable hydropower in emerging markets [LIT:S3]. Its purpose is to help a reader who knows either hydropower or finance understand the other. This book assumes that understanding and uses it to reach a decision.
+The University of Cambridge Institute for Sustainability Leadership published in 2019 an introduction to the concepts and terminology of financing sustainable hydropower in emerging markets [LIT:S3]. It introduces the terms and concepts of finance for large hydropower in emerging markets, for readers new to finance, to hydropower or to both. This book assumes that grounding and uses it to reach a decision.
 
-General project finance works treat debt sizing, cash flow available for debt service and lender requirements in far more depth than this book does, among them Gatti's textbook [LIT:S5] and, for the power sector, Nongena's practical guide to senior debt for electricity projects, published by Springer in 2026 [LIT:S4]. They are not specific to hydrology, to African utilities or to the state's balance sheet. Readers who need the full mechanics of project finance should read them alongside this book.
+General project finance works treat debt sizing, cash flow available for debt service and lender requirements in far more depth than this book does, among them Gatti's textbook [LIT:S5] and, for the power sector, Nongena's practical guide to senior debt for electricity projects, listed by Springer for 2026 [LIT:S4]. They are not specific to hydrology, to African utilities or to the state's balance sheet. Readers who need the full mechanics of project finance should read them alongside this book.
 
 
 **Table P.1. What this book adds to existing works**
@@ -77,12 +77,12 @@ General project finance works treat debt sizing, cash flow available for debt se
 | Work | Its strength | What it leaves to others | What this book adds |
 |---|---|---|---|
 | IFC guide (2015) [LIT:S1] | Full development cycle; detailed technical reference | Financing and permitting as a high-level review | The decisions to continue, finance and close, with the developer's, lenders' and state's tests side by side |
-| Hydro Finance Handbook (2008) [LIT:S2] | Financial aspects and the steps to financial close | Development-stage valuation; the state's balance sheet | Risk-weighted development value; 23 evidence gates; a working model |
-| CISL working paper (2019) [LIT:S3] | Concepts and terminology for readers new to one of the two fields | A method for deciding | A decision sequence with numbers at every step |
+| Hydro Finance Handbook (2008) [LIT:S2] | Financial aspects and the steps to financial close, as described in a search summary | Not confirmed: the full text was not seen | Risk-weighted development value; the state's test alongside the lenders'; 23 evidence gates; a working model |
+| CISL working paper (2019) [LIT:S3] | Concepts and terminology for readers new to finance, hydropower or both | A method for deciding | A decision sequence with numbers at every step |
 | Project finance texts [LIT:S4; LIT:S5] | Depth in cash flow, debt sizing and security | Hydrology, African utilities, sovereign exposure | Hydro-specific lender cases, buyer payment capacity, contingent liabilities |
 | This book | An investment committee framework for hydro in Africa, from river to financial close | Detailed engineering design, covered by the IFC guide and engineering texts | |
 
-*Note: The table compares purpose and coverage as stated by each work; it is not a ranking.*
+*Note: The table compares purpose and coverage as stated by each work, or for the 2008 handbook as described in a search summary; it is not a ranking.*
 
 The book also has a companion in the author's own work. The author's *Bankable Is Not Enough* argues, across African independent power projects, that bankability alone can produce poor power deals. Book 7 applies that argument inside one sector, where the capital is heavy, the revenue depends on a river and the state is almost always a party, and turns it into a method for deciding whether a project should be developed, financed and closed.
 
@@ -92,9 +92,11 @@ The book has a companion workbook, MODEL 7, together with a user manual and a wo
 
 All default inputs in the workbook, and all Kasiri figures, are illustrative. They were chosen to make the mechanics visible and to sit inside the ranges found in public sources, not to describe any real project. Where the book cites figures about real projects or about the sector, it says where they come from and how far they have been verified. Where public sources conflict, the book reports the conflict rather than choosing the more convenient number. Where no public figure exists, as for development premiums or stage-by-stage attrition in African hydro, the book says so and treats the value as a model assumption.
 
-A second fictional project, Lumora Falls, a 400 MW scheme structured as a public-private partnership, appears as a contrast in Chapters 1, 15 and 16. It comes from the author's earlier policy paper on hydro and public liabilities, which is now a companion paper to this book.
+A second fictional project, Lumora Falls, a 400 MW scheme structured as a public-private partnership, appears as a contrast in Chapters 1, 2, 4 and 15. It comes from the author's earlier policy paper on hydro and public liabilities, which is now a companion paper to this book.
 
 ## Conventions
+
+The Kasiri case runs on model time: development from 2021, financial close in 2027 and commercial operation in 2030. When the book says that Tamarind is at the start of permitting, it refers to the stage reached, not to a calendar date.
 
 Currency amounts are in US dollars (USD) unless stated, and "USDm" means millions of US dollars. Unless stated otherwise, amounts in the model are nominal; capital costs quoted "real 2026" are before escalation. Energy is in GWh and capacity in MW. P50 and P90 denote the energy exceeded with 50 and 90 percent probability; "one-year" and "ten-year" P90 are distinguished in Chapter 2. Unit costs are labelled by scope (plant, funding base, total uses or system), because a USD/kW figure without a scope cannot be compared with anything. Negative amounts are shown with a minus sign. British spelling is used throughout.
 
@@ -110,9 +112,9 @@ Several numbers in this book are easily misread as findings about African hydro.
 
 | Number | Value | Status | What it is not |
 |---|---|---|---|
-| Kasiri capacity factor | 55.6% | Illustrative case output | A benchmark for African hydro; IRENA's figures are cited separately in Chapter 3 |
+| Kasiri capacity factor | 55.6% | Illustrative case output | A benchmark for African hydro; IRENA's figures are cited separately in Chapters 2 and 3 |
 | Probability of reaching close from reconnaissance | 15% | Model assumption, informed by Chapter 5 | A measured attrition rate; none is published for African hydro |
-| Overrun at the reference-class median and mean | 27% and 96% | Public evidence [HY-08] | A forecast for any one project |
+| Real cost overrun of large dams, reference-class median and mean | 27% and 96% | Public evidence [HY-08] | A forecast for any one project |
 | Development premium | 3% of plant cost | Model assumption | A market rate; no public data were found [DE:BENCH] |
 | Developer IRR on the success path | 16.0% | Illustrative case output | An expected return |
 | Developer's risk-weighted NPV | USD −0.95 million | Illustrative case output | A valuation of any real position |
@@ -217,11 +219,11 @@ Those two numbers describe the same project. The first answers the question "wha
 
 Three kinds of developer take hydro projects to close in Sub-Saharan Africa.
 
-State utilities and governments develop most large schemes, often with export-credit or bilateral finance and an engineering, procurement and construction contractor who also arranges the loan. Julius Nyerere in Tanzania was funded from the state budget [A2:S30]. Isimba and Karuma in Uganda were 85 percent financed by China Exim [A2:S34; A2:S40].
+State utilities and governments develop most large schemes, often with export-credit or bilateral finance and an engineering, procurement and construction contractor who also arranges the loan. Julius Nyerere in Tanzania was funded from the state budget [A2:S65]. Isimba and Karuma in Uganda were 85 percent financed by China Exim [A2:S34; A2:S40].
 
-Private developers, often regional companies backed by development finance institutions, develop most small and medium plants. The World Bank's 2024 review of private participation in large hydro found that the private share of hydro capacity falls sharply with plant size [HY-06]. Uganda's GET FiT programme supported a portfolio of small private hydro plants, with about EUR 94 million of public money mobilising about EUR 450 million of private investment according to KfW [DE:S35].
+Private developers, often regional companies backed by development finance institutions, develop most small and medium plants. The World Bank's 2024 review of private participation in large hydro found, worldwide, that private participation falls sharply with plant size: 74 percent of plants below 10 MW against 8 percent of plants above 2,500 MW [HY-06]. Uganda's GET FiT programme supported a portfolio of mostly small private hydro plants; KfW expected about EUR 94 million of public money to allow about EUR 450 million of private investment [DE:S35].
 
-Development finance institutions increasingly co-develop. IFC InfraVentures typically funds a minority share of development costs and an average ticket of about USD 4 million per project [DE:S2]. The African Development Bank's Sustainable Energy Fund for Africa has provided project preparation grants of around USD 1 million to small hydro [DE:S17].
+Development finance institutions increasingly co-develop. IFC InfraVentures funds a minority share of development costs, on average about USD 4 million for a 20 to 30 percent share [DE:S2]. The African Development Bank's Sustainable Energy Fund for Africa granted about USD 1 million to prepare a 7.8 MW community hydro project in Kenya [DE:S17].
 
 This book is written mainly for the second and third groups, and for the lenders and ministries who deal with them. Its main case is a 60 MW private project because that is the scale at which a private developer is the protagonist.
 
@@ -229,11 +231,11 @@ This book is written mainly for the second and third groups, and for the lenders
 
 Hydro projects fail in three patterns, one for each investment.
 
-Development stalls. Ngonye Falls in Zambia has been in development for more than a decade without reaching financial close [DE:S3]. Ruzizi III, a regional public-private partnership, has been stalled since about 2009 [A2:S20]. Most of the money spent on such projects is never recovered.
+Development stalls. Ngonye Falls in Zambia has been in development for more than a decade without reaching financial close [DE:S3]. Ruzizi III, a regional public-private partnership, has been in preparation since at least 2009 without reaching financial close [A2:S21; A2:S22]. Most of the money spent on such projects is never recovered.
 
 Construction overruns. The reference class for large dams shows a median real cost overrun of 27 percent and a mean of 96 percent [HY-08]. African examples include a 27 percent cost increase at Bui [A1:S38], a 47 percent increase in the main civil works contract at Rusumo [A2:S16] and a commissioning date several years late at Karuma [A2:S40]. The reference class covers large dams, not medium run-of-river plants, so it is a warning rather than a calibrated forecast for a project like Kasiri.
 
-The operating annuity breaks. A run of dry years cuts revenue. At Kariba in 2024 the water allocation for generation was cut by about half, according to news reporting [CL-04]. A buyer that cannot pay leaves arrears: Ghana's ECG owed the Bui Power Authority about USD 612 million in March 2023 [A1:S40]. A currency step multiplies the local-currency cost of a dollar tariff overnight.
+The operating annuity breaks. A run of dry years cuts revenue. At Kariba the water allocated for generation in 2024 was 16 billion cubic metres [R1:S1], about half the 2023 allocation according to news reporting [CL-04]. A buyer that cannot pay leaves arrears: Ghana's ECG owed the Bui Power Authority about USD 612 million in March 2023 [A1:S40]. A currency step multiplies the local-currency cost of a dollar tariff overnight.
 
 None of these failures is visible first in the project's income statement. All of them are visible first in the development budget, the flow record, the contract structure and the buyer's cash flow.
 
@@ -247,7 +249,7 @@ Kasiri is the opposite case. Its tariff is paid only for energy delivered, as un
 
 The book has 18 chapters, built around the central question. Chapters 2 to 4 cover the resource and the commercial route. Chapters 5 to 8 cover development: the stage gates, the budget, the consents and the contracts. Chapters 9 to 11 cover construction and operation. Chapters 12 to 15 cover financing, from the lender case to the public side. Chapters 16 and 17 cover stress testing and financial close, and Chapter 18 walks through the Kasiri case from site to close.
 
-The companion workbook, MODEL 7, is an annual, 40 period model with 38 sheets and about 11,000 formulas, no macros and no circular references. It links hydrology, transmission, demand, the utility's cash flow, the PPA, project finance, five financing structures, government support, contingent liabilities and a fiscal screen. A development module covers the years before close, a contracting module compares construction contract structures, and a readiness sheet applies 23 financial close gates. Its 14 integrity checks confirm internal consistency, not the realism of the assumptions. The model was reviewed adversarially before this edition; the review found and fixed defects that the model's own checks had missed, and Annex K records what was changed.
+The companion workbook, MODEL 7, is an annual, 40-period model with 38 sheets and about 11,000 formulas, no macros and no circular references. It links hydrology, transmission, demand, the utility's cash flow, the PPA, project finance, five financing structures, government support, contingent liabilities and a fiscal screen. A development module covers the years before close, a contracting module compares construction contract structures, and a readiness sheet applies 23 financial close gates. Its 14 integrity checks confirm internal consistency, not the realism of the assumptions. The model was reviewed adversarially before this edition; the review found and fixed defects that the model's own checks had missed, and Annex K records what was changed.
 
 The workbook never rates a project. Its readiness sheet counts each gate only on evidence and applies a fixed rule: STOP when a critical gate is not met or its evidence is missing, CONDITIONAL GO when every critical gate is met, GO only when all gates are met. In its default state, Kasiri meets 6 of the 23 gates and reads "STOP: a critical gate is not met". That is a finding about the state of the project's evidence, not a judgement on the project.
 
@@ -280,7 +282,7 @@ The gap between nameplate and energy can be large. Belo Monte in Brazil has 11,2
 
 ## 2.2 The flow record
 
-Everything in this book that depends on energy depends on the flow record. The IFC's guide for hydro developers sets a minimum of about 15 years of hydrological data for lenders [DE:S1]. Few African sites have that much measured data at the intake. Most developers start a gauging programme at pre-feasibility and extend the short on-site record by correlation with a longer regional gauge.
+Everything in this book that depends on energy depends on the flow record. The IFC's guide for hydro developers says that flow data should cover at least 15 years for reliable statements [DE:S1]. Few African sites have that much measured data at the intake. Most developers start a gauging programme at pre-feasibility and extend the short on-site record by correlation with a longer regional gauge.
 
 That practice is sound if it is done well and described honestly. The questions a lender's adviser will ask are concrete. How many years were measured on site, and how many were synthesised? How good is the correlation, and over which flow range was it tested? Were the rating curves checked at high flows, where most of the uncertainty sits? Are there gaps, and how were they filled? Has upstream land use, abstraction or a new dam changed the river since the regional record began?
 
@@ -296,11 +298,11 @@ For each month, the model computes usable flow, average power and energy:
 >
 > E = P × hours × availability / 1000
 
-Q is mean river flow in m³/s, Q<sub>env</sub> the environmental flow release, Q<sub>design</sub> the rated turbine flow, H the net head in metres, η the efficiencies, P in MW and E in GWh. For Kasiri, mean monthly flows range from 20 to 70 m³/s, the design flow is 57 m³/s, the environmental release 4 m³/s and the net head 120 m. The long-term mean energy, the P50, is about 292 GWh a year, a capacity factor of 55.6%. IRENA reports a weighted average capacity factor of 55 percent for small hydro commissioned in Africa between 2018 and 2024, within a 5th to 95th percentile band of 50 to 66 percent [HY-01].
+Q is mean river flow in m³/s, Q<sub>env</sub> the environmental flow release, Q<sub>design</sub> the rated turbine flow, H the net head in metres, η the efficiencies, P in MW and E in GWh. For Kasiri, mean monthly flows range from 20 to 70 m³/s, the design flow is 57 m³/s, the environmental release 4 m³/s and the net head 120 m. The long-term mean energy, the P50, is about 292 GWh a year, a capacity factor of 55.6%. IRENA classes plants above 10 MW as large hydro and reports a weighted average capacity factor of 48 percent for large hydro commissioned in Africa between 2018 and 2024, within a 5th to 95th percentile band of 33 to 81 percent [HY-01]. Chapter 3 compares Kasiri with both size classes.
 
 ![Figure 2.1. Kasiri River Hydro: mean monthly flow against design flow and environmental release, and expected monthly energy. Source: MODEL 7, sheet 03_HYDROLOGY.](../src/figures/fig2_1_hydrology.png)
 
-The equations hide a bias that matters for finance. Energy is a concave function of flow: it rises with flow until the turbines are full and then stops. Applying the function to mean monthly flows overstates mean energy, because the water spilled in wet years cannot make up for the energy lost in dry ones. For a bankable estimate, energy should be computed month by month over the whole record and then averaged. The model accepts a simulated series when one exists and flags the bias when it does not.
+The equations hide a bias that matters for finance. Energy is a concave function of flow: it rises with flow until the turbines are full and then stops. Applying the function to mean monthly flows overstates mean energy, because the water spilled in wet years cannot make up for the energy lost in dry ones. The IFC guide notes that even monthly averaging can overstate energy by 10 percent or more against shorter averaging periods [DE:S1]. For a bankable estimate, energy should be computed month by month, or more finely, over the whole record and then averaged. The model accepts a simulated series when one exists and flags the bias when it does not.
 
 ## 2.4 P50, one-year P90 and ten-year P90
 
@@ -320,15 +322,15 @@ The choice between the two is not technical. It is a negotiation about who carri
 
 ## 2.5 Who carries the river
 
-The tariff structure decides who carries hydrology risk. Under a two-part tariff, a capacity charge pays the fixed costs whether or not the river flows, and the buyer carries most of the hydrology risk. Under an energy-only tariff, as in East African feed-in tariffs, the project is paid only for what it delivers, and the river is the project's problem [DE:S8; DE:S42].
+The tariff structure decides who carries hydrology risk. Under a two-part tariff, a capacity charge pays the fixed costs whether or not the river flows, and the buyer carries most of the hydrology risk. Under an energy-only tariff, as in East African feed-in tariffs, the project is paid only for what it delivers, or under a deemed-energy clause could have delivered, and the river is the project's problem [DE:S8; DE:S42].
 
 Kasiri has an energy-only tariff. With the financing package fixed at its base-case terms, a three-year drought at 55 percent of normal flow from the fourth operating year reduces the minimum DSCR from 1.53x to 0.69x and the equity return from 13.8% to 11.0%. Running the whole cash flow on the one-year P90 instead of P50 gives a minimum DSCR of 1.16x and an equity return of 8.1%. The contrast with Lumora, where a similar drought barely moved the equity return, is the tariff, not the river.
 
-The drought factor deserves a word. In 2024 the water allocation for generation at Kariba was cut from 30 to 16 billion cubic metres, according to news reporting [CL-04]. The model's default of 55 percent of normal flow for three years is set close to that event. A single-year statistic would never produce it.
+The drought factor deserves a word. For 2024 the Zambezi River Authority allocated 16 billion cubic metres of water for generation at Kariba [R1:S1], against 30 billion in 2023 according to news reporting [CL-04]. The model's default of 55 percent of normal flow is set close to the depth of that cut, and it is held for three years. A single-year statistic would never produce it.
 
 ## 2.6 Climate
 
-Peer-reviewed work warns that planned hydro expansion in eastern and southern Africa concentrates capacity in basins with correlated rainfall, which raises the risk of concurrent supply disruption across interconnected systems [CL-03]. For a single project, the practical consequence is that the historical record may not describe the next thirty years. The IHA's climate resilience guide sets out how to test a design against climate scenarios [CL-01]. The model offers a flow trend per decade as a stress, labelled illustrative until a basin study supports a number. With a decline of 3 percent per decade, Kasiri's equity return falls from 13.8% to 12.8%.
+Peer-reviewed work warns that planned hydro expansion in eastern and southern Africa concentrates capacity in basins with correlated rainfall, which raises the risk of concurrent climate-related supply disruption within each region [CL-03]. For a single project, the practical consequence is that the historical record may not describe the next thirty years. The IHA's climate resilience guide sets out how to test a design against climate scenarios [CL-01]. The model offers a flow trend per decade as a stress, labelled illustrative until a basin study supports a number. With a decline of 3 percent per decade, Kasiri's equity return falls from 13.8% to 12.8%.
 
 ## 2.7 What the Kasiri case shows
 
@@ -365,6 +367,8 @@ The standard tool is the flow duration curve: the share of time each flow is exc
 
 Kasiri's design flow is 57 m³/s. Only in May, the wettest month, does the river exceed the design flow plus the environmental release, and the excess is spilled; in April and June the plant runs close to its rating. In the four driest months it runs at between about a quarter and two fifths of its rating.
 
+Kasiri is designed with two Francis units of about 30 MW each, a case fact set for this edition. A single unit would have to stop in the driest months, when the river falls below the minimum flow a Francis turbine can pass; two units keep the plant running through the dry season, which is what the model's monthly energy calculation assumes. Annex P sets out the turbine choice and the minimum-flow test.
+
 ## 3.2 Run-of-river, pondage and storage
 
 Kasiri is a run-of-river scheme with a small daily pond. It can shift some energy within a day, from night into the evening peak, but not between seasons. A storage scheme can move water from the wet season into the dry season, which raises firm energy and its value to the system, at the cost of a larger dam, a larger reservoir, more resettlement and more geological risk.
@@ -373,15 +377,15 @@ For a private developer, storage changes the financing problem in three ways. It
 
 ## 3.3 Capacity factor and firm energy
 
-IRENA reports capacity factors for newly commissioned African large hydro of 33, 48 and 81 percent at the 5th percentile, weighted average and 95th percentile, and 50, 55 and 66 percent for small hydro [HY-01]. Kasiri's 55.6% sits at the small-hydro average.
+For plants commissioned in Africa between 2018 and 2024, IRENA reports capacity factors of 33, 48 and 81 percent at the 5th percentile, weighted average and 95th percentile for large hydro (above 10 MW), and 50, 55 and 66 percent for small hydro (10 MW or less) [HY-01]. Kasiri's 55.6% is above the large-hydro average, the class a 60 MW plant belongs to, and close to the small-hydro average. It is an illustrative input, not evidence that the site is better than average.
 
 Annual energy is not the whole story. The utility's planner cares about what the plant delivers in the driest month, because that is when the system is short. Kasiri's dry-season firm output, the lowest monthly average after availability, is about 16 MW against an installed 60 MW. A planner comparing Kasiri with a gas plant or a solar plant with storage would credit it with that firm figure, not the nameplate.
 
 ## 3.4 The cost envelope
 
-IRENA's cost database gives a weighted average installed cost for large hydro (above 10 MW) in Africa of USD 2,330 per kW for projects commissioned in 2010 to 2017 and USD 2,515 per kW for 2018 to 2024, in 2024 dollars, and about USD 4,084 per kW for small hydro [HY-01]. Project-level costs vary much more widely. Uganda's GET FiT-era small plants range from about USD 1,700 per kW at Nyamagasani 1 to about USD 6,200 per kW at Kikagati (derived from reported costs) [DE:S39b; DE:S53]. The IFC's guide gives a global small-hydro range of USD 1,300 to 8,000 per kW [DE:S1].
+IRENA's cost database gives a weighted average installed cost for large hydro (above 10 MW) in Africa of USD 2,330 per kW for projects commissioned in 2010 to 2017 and USD 2,515 per kW for 2018 to 2024, in 2024 dollars, and USD 4,084 per kW for small hydro (10 MW or less) in 2018 to 2024 [HY-01]. Project-level costs vary much more widely. Uganda's GET FiT-era small plants range from about USD 1,700 per kW at Nyamagasani 1 to about USD 6,200 per kW at Kikagati (derived from reported costs) [DE:S39b; DE:S53]. The IFC's guide gives a global small-hydro range of USD 1,300 to 8,000 per kW [DE:S1].
 
-Kasiri's base plant cost is about USD 2,614 per kW in real 2026 terms, including development costs, the contractor's risk premium and a 10 percent contingency. That is a model assumption chosen inside the envelope, not a benchmark. The contingency follows the IFC's median of 9.8 percent of total plant cost, within a range of 5.4 to 12.6 percent [DE:S1].
+Kasiri's base plant cost is about USD 2,614 per kW in real 2026 terms, including development costs, the contractor's risk premium and a 10 percent contingency. That is a model assumption chosen inside the envelope, not a benchmark. The contingency is close to the median of 9.8 percent of total plant cost in the IFC guide's sample of appraised plants, within a range of 5.4 to 12.6 percent [DE:S1]. That comparison flatters the case. The model charges the 10 percent on a subtotal that includes development costs and the contractor's premium, which carry no physical risk; on the six base cost lines alone it comes to about USD 12.7 million, below the USD 13.4 to 14.4 million that the IFC guide's industry practice of 15 percent on civil works and 7.5 to 10 percent on equipment would give [DE:S1]. Annex O works through the comparison. A lender's technical adviser would ask for more contingency on the tunnel and the civil works.
 
 | Item | USDm, real 2026 | Share |
 |---|---|---|
@@ -389,10 +393,10 @@ Kasiri's base plant cost is about USD 2,614 per kW in real 2026 terms, including
 | Hydro-mechanical and electro-mechanical equipment | 42 | Priced in hard currency |
 | Environmental and social, engineering, owner's costs | 17 | Includes resettlement and supervision |
 | Development costs reimbursed at close | 9.0 | From the development budget, Chapter 6 |
-| Contractor risk premium and contingency | balance | Chapter 9 and 10 |
+| Contractor risk premium and contingency | balance | Chapters 9 and 10 |
 | **Total plant cost** | 157 | |
 
-A cost figure is only comparable when its scope is stated. The model reports four measures separately: plant cost, the funding base (adding any project-built transmission and the development premium), total uses (adding interest during construction, fees and the initial debt service reserve), and system cost (adding publicly funded transmission). For Kasiri these are about USD 157 million real, USD 187 million and USD 215 million nominal.
+A cost figure is only comparable when its scope is stated. The model reports four measures separately: plant cost, the funding base (adding any project-built transmission and the development premium), total uses (adding interest during construction, fees and the initial debt service reserve), and system cost (adding publicly funded transmission). For Kasiri the first three are about USD 157 million real, USD 187 million and USD 215 million nominal.
 
 ## 3.5 Plant cost and system cost
 
@@ -410,7 +414,7 @@ The model computes two levelised costs of electricity at a 10 percent nominal di
 
 *03_HYDROLOGY* holds the plant parameters and shows monthly usable flow, power and spill. *05_PLANT_CAPEX* holds the cost breakdown and the benchmark comparison; development costs come from *01A_DEVELOPMENT* and the contractor's premium from *05A_CONTRACTING*. *17_PROJECT_FINANCE* reports the LCOE measures, and *31_CASE_STUDY* compares Kasiri's unit cost with public benchmark projects.
 
-The technical reference for this chapter is Annexes N, O and P, which sets out the engineering and environmental detail behind it and the questions to put to the project's engineers.
+The technical references for this chapter are Annexes N, O and P, which set out the engineering and environmental detail behind it and the questions to put to the project's engineers.
 
 # Chapter 4. The route to a PPA: procurement, tariff and the buyer
 
@@ -436,7 +440,7 @@ Kasiri, at 60 MW, is above the standard-tariff thresholds in the region. Tamarin
 
 ## 4.2 Procurement as a lender filter
 
-The route matters to lenders for a reason that has little to do with price. At Gibe III in Ethiopia, the main civil works contract was awarded without competitive tender, which was incompatible with World Bank procurement policy; the African Development Bank and the European Investment Bank withdrew and the electro-mechanical package was financed by a Chinese commercial bank [A1:S53; A1:S54]. The first attempt at Bujagali collapsed after export credit agencies withdrew and corruption investigations followed [A2:S48]. At Batoka Gorge, Zambia withdrew from the 2019 arrangement in 2023, citing improper procurement [A2:S57].
+The route matters to lenders for a reason that has little to do with price. At Gibe III in Ethiopia, the main civil works contract was awarded without competitive tender, which was incompatible with World Bank procurement policy; the African Development Bank and the European Investment Bank withdrew and the electro-mechanical package was financed by a Chinese commercial bank [A1:S53; A1:S54]. The first attempt at Bujagali collapsed after export credit agencies withdrew, amid corruption investigations involving one of the construction contractors [A2:S48]. At Batoka Gorge, Zambia withdrew from the 2019 arrangement in 2023, citing improper procurement [A2:S57].
 
 A developer pursuing direct negotiation should therefore plan, from the start, how it will demonstrate value for money: an independent tariff review, a published cost benchmark or an open procurement of the construction contract.
 
@@ -448,7 +452,7 @@ An energy-only tariff pays a price per MWh delivered. The project carries hydrol
 
 A two-part tariff pays a capacity charge per kW per month, as long as the plant is available, and an energy charge per MWh. The buyer carries most of the hydrology risk. Lumora's two-part tariff put about 71 percent of revenue on the capacity side, which is why its equity return barely moved in a drought. The protection is not free. In a drought the buyer pays capacity charges for a plant that produces less and buys replacement energy elsewhere.
 
-Kasiri's PPA is energy-only at USD 112 per MWh in 2026 dollars, half indexed to US inflation, for an assumed term of 25 years. That is well above the standard tariffs quoted above, for two reasons: Kasiri's unit cost is higher than the plants those tariffs were set for, and it is not eligible for a standard tariff. Chapter 12 shows how close the tariff is to the level the project needs, and Chapter 14 shows how the developer's return depends on it. A tariff of 116 USD per MWh in 2026 dollars would bring the private equity return to the 15 percent target.
+Kasiri's PPA is energy-only at USD 112 per MWh in 2026 dollars, half indexed to US inflation, for a 20-year term; the model assumes a five-year extension at the same tariff, a gap Chapter 8 discusses. That is well above the standard tariffs quoted above, for two reasons: Kasiri is too large to be eligible for them, and its unit cost is higher than that of the plants they were set for. Chapter 12 shows how close the tariff is to the level the project needs, and Chapter 14 shows how the developer's return depends on it. A tariff of 116 USD per MWh in 2026 dollars would bring the private equity return to the 15 percent target.
 
 ## 4.4 Indexation and currency
 
@@ -464,7 +468,7 @@ Deemed energy pays for energy the plant could have delivered but the grid or the
 
 Payment security covers the risk that the buyer pays late. A letter of credit or an escrow sized to a number of months of billing is the minimum lenders expect. The model treats six months as ready and three as conditional; Kasiri has three.
 
-Results-based support can bridge the gap between the tariff a project needs and the tariff a buyer can pay. Uganda's GET FiT programme paid a premium of about USD 0.014 per kWh for small hydro, calculated on 20 years of output but paid within five years, half at commercial operation [DE:S9]. Programmes of that kind change the developer's cash flow profile more than its long-run returns, because they arrive early, when equity is most expensive.
+Results-based support can bridge the gap between the tariff a project needs and the tariff a buyer can pay. Uganda's GET FiT programme paid a premium of about USD 0.014 per kWh for small hydro, calculated on 20 years of output but paid within five years, half at commercial operation [DE:S9]. Because the money arrives early, when equity is most expensive, a premium of that kind is worth more to the equity investor than its share of lifetime revenue suggests.
 
 ## 4.6 What the Kasiri case shows
 
@@ -507,7 +511,7 @@ The durations, budgets and probabilities are model assumptions for Kasiri, infor
 
 ## 5.2 How long it takes
 
-The IFC's guide for hydro developers gives indicative durations for small hydro: one to six months for site identification, about a month for pre-feasibility (three to six for larger plants), and two to six months for the feasibility study (nine to eighteen for medium and large plants), with procurement of the construction contract taking up to eighteen months for larger projects [DE:S1]. Those durations cover the studies themselves, not the waiting between them. An IFC InfraVentures presentation put the total time from development to commercial operation for hydro at eight to ten years [DE:S2]. Ngonye Falls in Zambia has been in development for more than a decade without reaching financial close [DE:S3], and Nyagak III in Uganda took about ten years from award to commissioning [DE:S4].
+The IFC's guide for hydro developers gives indicative durations for small hydro: one to six months for site identification, about a month for pre-feasibility (three to six for larger plants), and two to six months for the feasibility study (nine to eighteen for medium and large plants), with procurement of the construction contract taking up to eighteen months for larger projects [DE:S1]. Those durations cover the studies themselves, not the waiting between them. An IFC InfraVentures presentation noted that development and construction of a hydro project can take eight to ten years [DE:S2]. Ngonye Falls in Zambia has been in development for more than a decade without reaching financial close [DE:S3], and Nyagak III in Uganda took about ten years from its launch in 2015 to commissioning in 2025 [DE:S4].
 
 Kasiri's six stages take 6 years in the model, followed by three years of construction. That places it in the middle of the observed range.
 
@@ -534,11 +538,11 @@ The most important gate is the one at the end of pre-feasibility, because the ne
 
 ## 5.5 The probability-weighted timeline
 
-Each stage that might fail also might be late. Lenders and buyers plan on a commercial operation date; the developer should plan on a distribution of dates. A simple discipline is to report, alongside the target date, the date by which the project has at least an even chance of closing if it survives, and to update both at every gate. The model does not simulate delay in development; it treats development as a fixed sequence ending at financial close in 2027. The value of time is captured in Chapter 14 through the developer's discount rate.
+Each stage that might fail might also be late. Lenders and buyers plan on a commercial operation date; the developer should plan on a distribution of dates. A simple discipline is to report, alongside the target date, the date by which the project has at least an even chance of closing if it survives, and to update both at every gate. The model does not simulate delay in development; it treats development as a fixed sequence ending at financial close in 2027. The value of time is captured in Chapter 14 through the developer's discount rate.
 
 ## 5.6 What the Kasiri case shows
 
-Tamarind has completed feasibility and is midway through permitting and PPA negotiations. Its remaining development budget is mostly the financing stage, and its remaining risks are concentrated in land rights, the regulator's approval of the tariff and the lenders' view of the flow record. That is a typical profile for a project at this point, and it explains the "ask" in Chapter 18: a co-developer to fund the rest of development and a DFI-led lender group.
+Tamarind has completed feasibility and is at the start of permitting, with PPA discussions under way. Its remaining development budget is mostly the financing stage, and its remaining risks are concentrated in land rights, the regulator's approval of the tariff and the lenders' view of the flow record. That is a typical profile for a project at this point, and it explains the "ask" in Chapter 18: a co-developer to fund the rest of development and a DFI-led lender group.
 
 ## Points for the investment and credit committees
 
@@ -562,7 +566,7 @@ This chapter supports the decision on how much to spend on development, in what 
 
 ## 6.1 What development costs
 
-Public data on development budgets for African hydro are thin. The evidence that exists is scattered across scales. The IFC's guide puts site identification at about USD 10,000 to 20,000 for a small hydro site and USD 150,000 to 200,000 for a larger one [DE:S1]. Feasibility and ESIA work for two small sites of 2 to 3 MW cost about USD 227,000 [DE:S14]; for a 1 MW site in Liberia, including design, about EUR 600,000 [DE:S15]; for a project of about 53 MW in Tanzania with its line, about USD 4.8 million [DE:S16]. Castalia, reported in Engineering News, put total development cost for a utility-scale renewable project in Africa at USD 1 million to 2.5 million [DE:S18], a range that reflects solar and wind more than hydro. An IFC InfraVentures presentation implies development budgets of roughly 7 to 10 percent of capital cost for large projects, a figure derived from its typical ticket and share [DE:S2].
+Public data on development budgets for African hydro are thin. The evidence that exists is scattered across scales. The IFC's guide puts site identification at about USD 10,000 to 20,000 for a small hydro site and USD 150,000 to 200,000 for a larger one [DE:S1]. Feasibility and ESIA work for two small sites of 2 to 3 MW cost about USD 227,000 in 2007 [DE:S14]; for a 1 MW site in Liberia, including design, about EUR 600,000 [DE:S15]; for a project of about 53 MW in Tanzania with its line, about USD 4.8 million [DE:S16]. Castalia, reported in Engineering News, put total development cost for a utility-scale renewable project in Africa at USD 1 million to 2.5 million [DE:S18], a range that reflects solar and wind more than hydro. An IFC InfraVentures presentation implies development budgets of roughly 7 to 10 percent of capital cost for large projects, a figure derived from its typical ticket and share [DE:S2]. Across the plants appraised for the IFC guide, project development, engineering and environmental and social costs together had a median of 7.5 percent of total plant cost, within a range of 3.0 to 17.2 percent [DE:S1]; that scope is wider than a development budget.
 
 Kasiri's development budget is USD 9.0 million in 2026 dollars, about 5.7% of plant cost. The largest item is the feasibility stage, which carries the geotechnical investigation, the ESIA and the grid study.
 
@@ -570,7 +574,7 @@ Kasiri's development budget is USD 9.0 million in 2026 dollars, about 5.7% of pl
 
 Development spending is recovered only if the project closes. At close, lenders normally allow the project company to reimburse the developer's documented development costs out of the financing, within a cap agreed in the term sheet, and the developer receives a development premium on top. If the project fails, the money is lost.
 
-That makes the timing of spend as important as its size. Spending that can be deferred to a stage with a higher probability of success is worth more than spending that cannot. Kasiri's model shows the effect in one row: the probability that the project is still alive when each dollar is spent. In the year the feasibility study starts, that probability is about 40%; in the year before close, about 17%.
+That makes the timing of spend as important as its size. Spending that can be deferred to a later stage costs less in expectation than spending that cannot, because it is incurred only if the earlier stages succeed. Kasiri's model shows the effect in one row: the probability that the project is still alive when each dollar is spent. In the year the feasibility study starts, that probability is about 40%; in the year before close, about 17%.
 
 ## 6.3 Expected spend and the value of the position
 
@@ -641,26 +645,26 @@ A hydro project in Sub-Saharan Africa typically needs most of the following. The
 | Land rights and resettlement | Land authority, local government, communities | Resettlement action plan, compensation | Access for construction; reputational risk |
 | Concession or implementation agreement | Government (energy and finance ministries) | Licence, PPA | Defines state obligations, including termination |
 | Grid connection agreement | Transmission company or utility | Grid study | Evacuation and deemed energy |
-| Dam safety approval | Dam safety authority, where one exists | Design review | Lenders apply international dam safety practice [HY-15] |
+| Dam safety approval | Dam safety authority, where one exists | Design review | Lenders expect international dam safety practice, such as the World Bank's dam safety requirements [HY-15; R2:S2] |
 | Tax, customs and exchange control approvals | Revenue authority, central bank | Investment registration | Cash flow and repatriation |
 
 The water permit and the environmental approval usually come first, because the licence and the concession depend on them. Land is often the slowest item and the one most likely to delay construction after close.
 
 ## 7.2 Durations
 
-Published durations are scarce. Uganda's electricity regulator has up to 180 days to process a generation licence application, according to a secondary source [DE:S5]. Environmental approvals depend on the scale of the project and the quality of the ESIA. Land acquisition can take years where customary rights, graves or informal settlements are involved.
+Published durations are scarce. Uganda's Electricity Act of 1999 requires the regulator to process a licence application within 180 days of receiving it [R2:S1; DE:S5]. Environmental approvals depend on the scale of the project and the quality of the ESIA. Land acquisition can take years where customary rights, graves or informal settlements are involved.
 
 The practical rule is to identify the consent with the longest expected duration and the highest chance of failure, start it first, and avoid spending on later stages until it is secure.
 
 ## 7.3 Lender standards
 
-International lenders apply environmental and social standards that are stricter than many national laws. The Equator Principles apply to project financings with a total capital cost of USD 10 million or more, and require projects in Sub-Saharan Africa to comply with the IFC Performance Standards [DE:S49; DE:S50]. The Hydropower Sustainability Standard provides a sector-specific framework that some lenders and buyers ask for [HY-03]. In practice the lenders' environmental and social adviser will review the ESIA against those standards and agree an environmental and social action plan, which becomes a condition of disbursement.
+International lenders apply environmental and social standards that are stricter than many national laws. The Equator Principles apply to project financings with a total capital cost of USD 10 million or more, and require projects in Sub-Saharan Africa to comply with the IFC Performance Standards [DE:S49; DE:S50]. The Hydropower Sustainability Standard offers a sector-specific certification, which its owners present as evidence for lenders' due diligence and for green bond investors and power buyers [HY-03; R2:S3]. In practice the lenders' environmental and social adviser will review the ESIA against those standards and agree an environmental and social action plan, which becomes a condition of disbursement.
 
-A national approval is therefore necessary but not sufficient. Kasiri's ESIA has been approved nationally but not yet reviewed against lender standards, so Gate 5 of the readiness sheet reads NOT MET.
+A national approval is therefore necessary but not sufficient. Kasiri's ESIA has been approved nationally but not yet reviewed against lender standards, so Gate 5 of the financial close readiness sheet (Table 17.1) reads NOT MET.
 
 ## 7.4 Resettlement
 
-Resettlement is the consent most likely to delay construction and the one with the largest reputational risk. Lenders expect a resettlement action plan that is approved, budgeted and implemented before the land is needed. At Rusumo Falls, land acquisition and livelihood restoration costs roughly doubled during implementation, from about USD 18 million to about USD 38 million [A2:S16].
+Resettlement is the item most likely to delay construction and the one with the largest reputational risk. Lenders expect a resettlement action plan that is approved, budgeted and implemented before the land is needed. At Rusumo Falls, livelihood restoration and local development costs roughly doubled during implementation, from about USD 18 million to about USD 38 million, largely to repair houses damaged by construction blasting and to fund extra local works requested by the governments [A2:S16].
 
 Kasiri's resettlement action plan has been approved but not yet implemented, and land rights for the tunnel portal and the powerhouse are not yet secured. That is the item on its critical path.
 
@@ -725,11 +729,11 @@ Grid interface. The PPA's deemed-energy clause and the grid connection agreement
 
 ## 8.3 Guarantees and their counter-indemnities
 
-Where the buyer's credit is weak, lenders often ask for a guarantee. Multilateral guarantees to commercial lenders are backed by indemnities from the host government. Uganda signed an indemnity agreement with IDA in 2007 to support the Bujagali partial risk guarantee of up to USD 115 million [A2:S53]. Cameroon backs the IBRD guarantees for Nachtigal through a similar indemnity [A2:S3]. A guarantee therefore changes the lender's counterparty without removing the state's obligation, which is why Chapter 15 counts these instruments as contingent liabilities.
+Where the buyer's credit is weak, lenders often ask for a guarantee. Multilateral guarantees to commercial lenders are backed by indemnities from the host government. Uganda signed an indemnity agreement with IDA in 2007 to support the Bujagali partial risk guarantee of up to USD 115 million [A2:S53]. Cameroon backs the IBRD guarantees for Nachtigal through a similar indemnity [A2:S63]. A guarantee therefore changes the lender's counterparty without removing the state's obligation, which is why Chapter 15 counts these instruments as contingent liabilities.
 
 ## 8.4 What the Kasiri case shows
 
-Kasiri's contract set is incomplete: the PPA and implementation agreement are agreed in principle but not signed, land agreements are outstanding, and the construction contracts are at term-sheet stage. The two consistency issues to resolve before close are the gap between the PPA and the operating term, and a termination amount in the implementation agreement that covers the debt.
+Kasiri's contract set is incomplete: the PPA and implementation agreement are agreed in principle but not signed, land agreements are outstanding, and the construction contracts are at term-sheet stage. Two consistency issues must be resolved before close: the gap between the 20-year PPA and the 25-year operating term, and a termination amount in the implementation agreement that covers the debt.
 
 ## Points for the investment and credit committees
 
@@ -778,7 +782,7 @@ The consequence for the developer is that the quality of the geotechnical invest
 
 ## 9.3 Payment terms, security and damages
 
-The IFC's guide reports typical down payments of 10 to 30 percent of the contract price and retentions of 10 to 20 percent; equipment is often paid 30 percent in advance, 50 percent on delivery and 20 percent on acceptance [DE:S1]. Down payments raise the project's early funding need and interest during construction. Retentions and performance bonds give the owner a hold over the contractor until completion.
+The IFC's guide reports typical down payments of 10 to 30 percent of the contract price and retentions of 10 to 20 percent; electro-mechanical equipment is often paid 30 percent in advance, 50 percent on delivery and 20 percent on acceptance [DE:S1]. Down payments raise the project's early funding need and interest during construction. Retentions and performance bonds give the owner a hold over the contractor until completion.
 
 Liquidated damages for delay should cover at least the project's lost revenue and interest during the delay; damages for performance shortfall should cover the value of lost energy over the life of the plant. Caps on damages, typically a share of the contract price, decide how much of the risk really passes to the contractor.
 
@@ -788,7 +792,7 @@ Several large African plants were built under an EPC contract bundled with expor
 
 ## 9.5 What the model shows
 
-The model runs the three structures with debt sized in each case, first in the base case and then with an overrun at the reference-class mean of 96 percent.
+The model runs the three structures with debt sized in each case, first in the base case and then with an overrun at the reference-class mean of 96 percent. Because the debt is resized for each run, the overrun results differ slightly from the locked-financing stresses in Chapter 10.
 
 | Run | Turnkey EPC | Split packages | Multi-contract |
 |---|---|---|---|
@@ -815,7 +819,7 @@ Whatever the structure, the owner needs an engineer who represents it on site, c
 
 *05A_CONTRACTING* selects the structure and holds its parameters. The contractor's premium flows into *05_PLANT_CAPEX*; the owner's share of an overrun and of delay costs flows into the capital cost on *06_CONSTRUCTION* when the overrun or delay stress is switched on. The six contracting runs are in the full-engine snapshot.
 
-The technical reference for this chapter is Annexes O and Q, which sets out the engineering and environmental detail behind it and the questions to put to the project's engineers.
+The technical reference for this chapter is Annexes O and Q, which set out the engineering and environmental detail behind it and the questions to put to the project's engineers.
 
 # Chapter 10. Construction budget, contingency and funding the build
 
@@ -846,11 +850,11 @@ The plant cost already includes the development costs reimbursed at close and a 
 
 The IFC's guide reports a median contingency of 9.8 percent of total plant cost across its sample, with a range of 5.4 to 12.6 percent, and an industry practice of about 15 percent for civil works and 7.5 to 10 percent for electro-mechanical and grid works [DE:S1]. A contingency set by item, with the larger share on civil works and tunnels, is more defensible than a single percentage.
 
-The reference class gives a sobering comparison. Across 245 large dams, the median real cost overrun was 27 percent and the mean 96 percent [HY-08]. That study covers large dams, so it overstates the risk for a medium run-of-river plant with a short tunnel; it is still the best public reference class available, and it shows that a 10 percent contingency is a central estimate, not a margin of safety.
+The reference class is less reassuring. Across 245 large dams, the median real cost overrun was 27 percent and the mean 96 percent [HY-08]. That study covers large dams, so it probably overstates the risk for a medium run-of-river plant with a short tunnel; it is still the best public reference class available, and it shows that a 10 percent contingency is a central estimate, not a margin of safety.
 
 ## 10.3 What an overrun does
 
-With the financing package locked at its base-case terms, the model tests two overruns, applied to the owner's share under the split-package structure.
+With the financing package locked at its base-case terms, the model tests two overruns, applied to the owner's share under the split-package structure, and a two-year delay.
 
 | Run | Financing gap (USDm) | Private equity IRR | Minimum DSCR |
 |---|---|---|---|
@@ -861,7 +865,7 @@ With the financing package locked at its base-case terms, the model tests two ov
 
 With the debt locked, an overrun falls on equity. The DSCR barely moves, because debt service is fixed; the financing gap grows, because someone has to pay for the extra cost. That gap is the number that matters. Unless the sponsors have committed standby equity, or the lenders have provided a standby facility, an overrun of that size stops construction.
 
-African projects show the same pattern in practice. Bujagali in Uganda cost about USD 862 million against about USD 582 million for the 2001 design, an increase of about 48 percent driven by re-procurement and escalation [A2:S48; A2:S52]. Bui in Ghana rose from about USD 622 million to about USD 790 million, some 27 percent [A1:S38]. At Rusumo Falls, shared by Rwanda, Tanzania and Burundi, the civil works rose by about 47 percent and the cost of resettlement doubled [A2:S16]. Delay is as common as overrun. Karuma in Uganda, contracted in 2013 for five years of construction, was commissioned in 2024 [A2:S40; A2:S41], and Kafue Gorge Lower in Zambia reached full operation about three years late, with about USD 312 million of capitalised interest in a total cost of about USD 2.0 billion [A1:S59; A1:S60]. Most of these were public projects, so the overrun fell on the utility or the budget. In a private project with locked debt it falls first on the sponsors, which is why the financing gap in the table above is the number to negotiate.
+African projects show the same pattern in practice. Bujagali in Uganda was reported in 2012 to have cost about USD 862 million, against about USD 582 million estimated for the cancelled 2001 design, about 48 percent more; the 2001 scope also included a 100 km transmission line, so the gap is not a like-for-like overrun [A2:S48; A2:S52]. Bui in Ghana rose from about USD 622 million to about USD 790 million, some 27 percent [A1:S38]. At Rusumo Falls, shared by Rwanda, Tanzania and Burundi, the main civil works contract rose by about 47 percent and livelihood restoration and local development costs doubled [A2:S16]. Delay is as common as overrun. Karuma in Uganda, contracted in 2013 for five years of construction, was commissioned in 2024 [A2:S40; A2:S41], and Kafue Gorge Lower in Zambia reached full operation about three years late, with about USD 312 million of capitalised interest in a total cost of about USD 2.0 billion [A1:S57; A1:S58; A1:S60]. Most of these were public projects, so the overrun fell on the utility or the budget. In a private project with locked debt it falls first on the sponsors, which is why the financing gap in the table above is the number to negotiate.
 
 ## 10.4 Funding overruns
 
@@ -873,9 +877,9 @@ A developer without the balance sheet to give completion support should expect l
 
 ## 10.5 Interest during construction and the draw schedule
 
-Interest during construction depends on when money is drawn. Equity first, debt later, reduces interest during construction and is what lenders usually require; drawing debt and equity pro rata raises it. The model draws both pro rata with spending, on an annual basis, which slightly flatters the equity return; a monthly, equity-first draw schedule is on the list of extensions in Annex K.
+Interest during construction depends on when money is drawn. Equity first, debt later, reduces interest during construction and is what lenders usually require; drawing debt and equity pro rata raises it. The model draws both pro rata with spending, on an annual basis, which slightly flatters the equity return; Annex K lists this among the model's limitations.
 
-Interest during construction is funded by debt within the gearing limit. To avoid circularity, the model uses a closed form: if debt is drawn in proportion to spending, interest per dollar of debt is a constant *k* set by the drawdown profile and the rate, and the debt that respects a gearing limit *g* with fees *f* is
+Interest during construction is funded by debt within the gearing limit. To avoid circularity, the model uses a closed form: if debt is drawn in proportion to spending, interest per dollar of debt is a constant *k* set by the drawdown profile and the rate, and the debt that respects a gearing limit *g* on a funding base *K*, with upfront fees *f*, is
 
 > D = g × K / (1 − g × (k + f))
 
@@ -893,7 +897,7 @@ for a single tranche, with an extension for a concessional tranche. This is a st
 
 *17_PROJECT_FINANCE* shows sources and uses, the gearing and the financing gap. *06_CONSTRUCTION* holds the spending profile and escalation. *18_DEBT* shows the drawdown and the closed-form interest factors. Switch on the overrun and delay stresses on *01_CONTROL_PANEL*, with *debt_mode* set to 2 to lock the financing package.
 
-The technical reference for this chapter is Annexes O and Q, which sets out the engineering and environmental detail behind it and the questions to put to the project's engineers.
+The technical reference for this chapter is Annexes O and Q, which set out the engineering and environmental detail behind it and the questions to put to the project's engineers.
 
 # Chapter 11. Operations: availability, O&M, major maintenance and insurance
 
@@ -909,7 +913,7 @@ Three models are common. The owner operates the plant with its own staff, which 
 
 ## 11.2 Costs
 
-IRENA reports fixed operation and maintenance costs for hydro of 1 to 3 percent of installed cost a year, with an average a little under 2 percent and lower ratios for large plants [HY-01]. The IFC's guide gives 1 to 4 percent for small hydro [DE:S1]. Kasiri's operating costs in its second year of operation, including fixed and variable O&M, insurance, a major maintenance reserve, administration and community programmes, are about USD 6.1 million. The water-use royalty, a payment to the state, adds about USD 0.8 million.
+In a sample of 25 projects, IRENA found annual operation and maintenance costs of 1 to 3 percent of total installed cost, with an average a little under 2 percent and lower ratios for large plants [HY-01]. The IFC's guide gives 1 to 4 percent for small hydro [DE:S1]. Kasiri's operating costs in its second year of operation, including fixed and variable O&M, insurance, a major maintenance reserve, administration and community programmes, are about USD 6.1 million. The water-use royalty, a payment to the state, adds about USD 0.8 million.
 
 ## 11.3 Availability
 
@@ -919,7 +923,7 @@ The model assumes 95 percent availability after the first year and a commissioni
 
 Turbines need major overhauls, typically at intervals of a decade or more, and civil works need periodic repair. The costs are large and irregular. Lenders usually require a major maintenance reserve account funded from cash flow before distributions. The model funds a reserve contribution as an operating cost each year, a simplification that smooths the cost; a full model would schedule overhauls and draw the reserve.
 
-Post-commissioning civil problems are not rare. At Reventazón in Costa Rica, spillway foundation repairs estimated at USD 15 million were needed after commercial operation [INT:S22]. World Bank guidance on operation and maintenance strategies for hydro sets out how to plan for such costs [HY-07].
+Post-commissioning civil problems are not rare. At Reventazón in Costa Rica, spillway foundation repairs estimated at USD 15 million were needed after commercial operation [INT:S22]. The World Bank's handbook on operation and maintenance strategies for hydropower sets out how owners can plan maintenance over the life of a plant and avoid costly rehabilitation of neglected assets [HY-07; R2:S4].
 
 ## 11.5 Insurance
 
@@ -927,7 +931,7 @@ Construction all-risks and delay-in-start-up insurance protect the project durin
 
 ## 11.6 Defects after commissioning
 
-Recent African plants show that the operating phase can start with the construction phase unfinished. Uganda's Isimba plant was reported to have about 700 defects at handover [A2:S34; A2:S35], and the contractor at Karuma asked for an additional Shs 148 billion to repair defects [A2:S42]. Both were state-financed plants built under contractor-financed packages. For a private project, the protections are contractual: a defects liability period long enough to cover a full wet and dry cycle, retention and a performance bond that survive commissioning, an owner's engineer with authority to refuse take-over, and a lenders' adviser who reports on the punch list before completion is certified.
+Recent African plants show that the operating phase can start with the construction phase unfinished. As section 9.4 noted, Uganda's Isimba plant was reported in 2021, two years after commissioning, to have nearly 700 unrepaired defects [A2:S34], and the contractor at Karuma asked for an additional Shs 148 billion, about USD 40 million, to repair defects [A2:S42]. Both were state-financed plants built under contractor-financed packages. For a private project, the protections are contractual: a defects liability period long enough to cover a full wet and dry cycle, retention and a performance bond that survive commissioning, an owner's engineer with authority to refuse take-over, and a lenders' adviser who reports on the punch list before completion is certified.
 
 ## Points for the investment and credit committees
 
@@ -941,7 +945,7 @@ Recent African plants show that the operating phase can start with the construct
 
 *07_OPEX* holds operating cost inputs and the annual cost lines, including the water royalty. *03_HYDROLOGY* holds availability and the commissioning ramp. *18_DEBT* and *20_CASH_FLOW* hold the debt service reserve; the major maintenance reserve is carried as an operating cost on *07_OPEX*.
 
-The technical reference for this chapter is Annexes P and Q, which sets out the engineering and environmental detail behind it and the questions to put to the project's engineers.
+The technical reference for this chapter is Annexes P and Q, which set out the engineering and environmental detail behind it and the questions to put to the project's engineers.
 
 # Chapter 12. Sizing hydro debt: the lender case
 
@@ -953,15 +957,15 @@ This chapter supports the decision on how much senior debt the project can carry
 
 ## 12.1 Tenor
 
-For an asset that can run for fifty years or more, the length of the debt matters more for the tariff than almost any other financing term. Commercial tenors for African hydro are rarely longer than fifteen to eighteen years [PF-13]. Kikagati in Uganda closed with a 16-year loan from FMO and the Emerging Africa Infrastructure Fund [DE:S53]. Bugoye was refinanced in 2017 with 12-year debt [DE:S30]. Nachtigal raised an 18-year euro tranche and a 21-year local-currency tranche guaranteed by IBRD [PF-11].
+For an asset that can run for fifty years or more, the length of the debt matters more for the tariff than almost any other financing term. Debt tenors from development finance institutions and commercial lenders for African hydro have rarely been longer than 15 to 18 years [PF-13]. Kikagati in Uganda closed with a 16-year loan from FMO and the Emerging Africa Infrastructure Fund [DE:S53]. Bugoye was refinanced in 2017 with 12-year debt from the same two lenders [DE:S29; DE:S30]. Nachtigal raised an 18-year euro tranche and a 21-year local-currency tranche guaranteed by IBRD [PF-11].
 
-Kasiri's senior debt has a 16-year repayment period after commercial operation at 8 percent, fixed or swapped for three quarters of the amount, with a target DSCR of 1.35 for sizing.
+Kasiri's senior debt is repaid over 16 years after commercial operation at an all-in rate of 8 percent, with three quarters of it fixed or swapped, and is sized to a target DSCR of 1.35.
 
 ## 12.2 Gearing and cover
 
-Public evidence on gearing for small and medium African hydro sits between about 62 and 76 percent of total cost: about 70 percent at Nyamagasani 1, 75 percent at Nyamagasani 2 and about 62 percent at Kikagati (derived) [DE:S39b; DE:S39c; DE:S53]. The IFC's guide indicates DSCR targets of 1.2 to 1.5, with cover above 1.0 in the worst dry year [DE:S1]. The most specific public covenant evidence for a large African hydro IPP is Nachtigal's lenders' base case, with a minimum DSCR of 1.45 and an average of 1.53 [PF-11].
+Public evidence on gearing for small and medium African hydro sits between about 62 and 75 percent of total cost: about 70 percent at Nyamagasani 1, 75 percent at Nyamagasani 2 and about 62 percent at Kikagati (derived) [DE:S39b; DE:S39c; DE:S53]. The IFC's guide gives a usual DSCR range of 1.2 to 1.5 for small hydro, with cover above 1.0 under worst-case dry-year hydrology [DE:S1]. The most specific public covenant evidence for a large African hydro IPP is Nachtigal's lenders' base case, with a minimum DSCR of 1.45 and an average of 1.53, at a debt-to-equity ratio of 76:24 [PF-11].
 
-Debt is sized by whichever constraint binds first: the gearing limit or the cover requirement. For a project with an energy-only tariff and a variable river, cover usually binds. At Kasiri the two constraints nearly coincide: the lender case on the ten-year P90 would support about USD 148 million at a DSCR of 1.35, and the 70 percent gearing limit, applied to capital cost plus debt-funded interest and fees, allows about USD 145 million, about 68% of total uses. On the one-year P90, cover binds by a wide margin, as section 12.4 shows.
+Debt is sized by whichever constraint binds first: the gearing limit or the cover requirement. For a project with an energy-only tariff and a variable river, cover usually binds. At Kasiri the two constraints nearly coincide: the lender case on the ten-year P90 would support about USD 148 million at a DSCR of 1.35, and the 70 percent gearing limit, applied to the funding base plus debt-funded interest and fees, allows about USD 145 million, about 68% of total uses. On the one-year P90, cover binds by a wide margin, as section 12.4 shows.
 
 ## 12.3 Sculpting
 
@@ -979,8 +983,8 @@ The lender case uses a downside generation case, and the choice changes the debt
 
 | Lender case | Debt capacity (USDm) | Gearing on total uses |
 |---|---|---|
-| P90 ten-year average (default) | 145 | 68% |
-| P90 one-year, every year | 127 | 60% |
+| Ten-year P90 (default) | 145 | 68% |
+| One-year P90, every year | 127 | 60% |
 
 The difference is equity, which is the most expensive capital in the structure. The debate between sponsor and lender over the lender case is a debate about who funds that difference.
 
@@ -1009,7 +1013,7 @@ The minimum DSCR in the P50 case is above the 1.35 sizing target because debt is
 
 ## 12.7 Testing a package already sized
 
-Once a package is sized, lenders ask how it performs when things go wrong, not how much they would lend in a bad world. The model's locked mode holds every tranche amount, the grant, the government's equity and the commercial principal schedule at their base-case values; interest floats only on the unhedged share, and equity absorbs the difference. All stress results in this book use that mode.
+Once a package is sized, lenders ask how it performs when things go wrong, not how much they would lend in a bad world. The model's locked mode holds every tranche amount, the grant, the government's equity and the commercial principal schedule at their base-case values; interest floats only on the unhedged share, and equity absorbs the difference. All stress results in this book use that mode, except the comparison of contracting structures in section 9.5, where debt is resized for each structure.
 
 ## Points for the investment and credit committees
 
@@ -1033,17 +1037,17 @@ This chapter supports the decision on which lenders to approach, which guarantee
 
 ## 13.1 Who lends to African hydro
 
-Development finance institutions lend most of the senior debt for private African hydro, often in clubs. Nachtigal's debt came from eleven development finance institutions and local banks, coordinated by IFC [A2:S6]. Small plants in Uganda were financed by FMO, the Emerging Africa Infrastructure Fund and Proparco, among others [DE:S39; DE:S53]. Commercial banks participate mainly through A/B loan structures, in which a development finance institution is the lender of record, and through local-currency tranches.
+Development finance institutions lend most of the senior debt for private African hydro, often in clubs. Nachtigal's debt came from eleven development finance institutions and four local banks, coordinated by IFC [A2:S4]. Small plants in Uganda were financed by FMO, the Emerging Africa Infrastructure Fund and Proparco, among others [DE:S39; DE:S53]. Commercial banks participate mainly through A/B loan structures, in which a development finance institution is the lender of record, and through local-currency tranches.
 
 Export credit agencies finance equipment and sometimes whole plants, usually tied to a contractor from their country. Their terms can be long and cheap, and they come with the contractor.
 
 ## 13.2 Local currency
 
-A local-currency tranche reduces the currency mismatch for a project paid in local currency. Nachtigal's 21-year local-currency tranche, guaranteed by IBRD, is the leading African example [PF-11]. For a project paid in dollars, as Kasiri is, local-currency debt adds currency risk to the project rather than removing it; the mismatch sits with the utility instead, and Chapter 15 measures it.
+A local-currency tranche reduces the currency mismatch for a project paid in local currency. Nachtigal's 21-year local-currency tranche, guaranteed by IBRD, is the leading African example [PF-11]. For a project paid in dollars, as Kasiri is, local-currency debt would add currency risk to the project rather than remove it. Kasiri's mismatch sits with the utility, which earns in local currency and pays the PPA in dollars; the currency stress in Chapter 16 measures it.
 
 ## 13.3 Concessional and blended finance
 
-Concessional debt, grants and results-based premiums lower the cost of capital and therefore the tariff. The model compares five structures for the same plant. The full engine solves, for each structure with private equity, the tariff that gives the sponsors their target return.
+Concessional debt, grants and results-based premiums lower the cost of capital and therefore the tariff. The model compares five structures for the same plant. The table shows the four with private equity; the fifth, fully public, has none. For each of the four, the full engine solves the tariff that gives the sponsors their target return.
 
 | Structure | Private equity IRR at the base tariff | Tariff for target return (USD/MWh, 2026) |
 |---|---|---|
@@ -1060,9 +1064,9 @@ Uganda's GET FiT programme is an example of results-based support designed with 
 
 Four instruments cover risks that lenders will not take.
 
-Political risk insurance from MIGA covers expropriation, war, transfer restriction and breach of contract, and MIGA's non-honouring cover protects against a sovereign's failure to pay a financial obligation [PF-03].
+Political risk insurance from MIGA covers, among other risks, currency transfer restriction, war and civil disturbance and breach of contract, and its non-honouring cover protects against a government's failure to make a payment due under an unconditional financial obligation [PF-03].
 
-Partial risk and loan guarantees from the World Bank and the African Development Bank cover lenders against a government's failure to meet specific obligations, backed by an indemnity from the government [PF-01; PF-02; PF-06].
+Partial risk and loan guarantees from the World Bank and the African Development Bank cover lenders against a government's failure to meet specific obligations, backed by an indemnity from the government [PF-01; PF-02; PF-06; R3:S3].
 
 Liquidity facilities bridge temporary payment delays by the buyer. ATIDI's Regional Liquidity Support Facility can cover up to twelve months of revenue for projects of up to about 100 MW, according to its published description [PF-04].
 
@@ -1072,7 +1076,7 @@ Each of these moves risk towards the state or towards an institution the state i
 
 ## 13.5 Refinancing
 
-Once a plant is built and has a record of operation, its debt can be refinanced on better terms. Bugoye in Uganda was refinanced in 2017 by the Emerging Africa Infrastructure Fund and FMO, after its original sponsors had sold [DE:S30]. Refinancing allows the developer or its buyer to release equity and recycle it into new projects, and it is part of the value step-up between close and operation discussed in Chapter 14. The model does not refinance; the step-up is valued directly.
+Once a plant is built and has a record of operation, its debt can be refinanced on better terms. Bugoye in Uganda, by then owned by the Africa Renewable Energy Fund, refinanced its senior debt in 2017 with the Emerging Africa Infrastructure Fund and FMO [DE:S30]; Norfund, one of its original sponsors, had exited in 2015 [R3:S1]. Refinancing allows the developer or its buyer to release equity and recycle it into new projects, and it is part of the value step-up between close and operation discussed in Chapter 14. The model does not refinance; the step-up is valued directly.
 
 ## Points for the investment and credit committees
 
@@ -1128,9 +1132,11 @@ The model tests the levers available to a developer.
 | Stage odds 10 points higher at every stage | −0.96 | 16.0% |
 | Grant funds half of the feasibility stage | −0.59 | 18.4% |
 | Tariff 10% higher | −0.76 | 20.7% |
-| All four development levers together | −0.05 | 22.1% |
+| Rate, premium, odds and grant together (tariff unchanged) | −0.05 | 22.1% |
 
-Three lessons follow, and the first runs against common practice. Better stage odds on their own do not help: the risk-weighted value barely moves, for the reason given in section 14.2. A lower development discount rate makes things slightly worse, because the success-path return is below 18 percent as well. What helps is anything that raises the value at close or lowers the cost of getting there: a higher premium, a grant for the feasibility stage, or a higher tariff. Only all the levers together bring the risk-weighted value close to zero. A developer looking at numbers like these should first negotiate the tariff and the premium, then decide how much to spend on improving its odds.
+The risk-weighted NPV in this table, USD −0.95 million in the base case, differs from the value of the position at reconnaissance in Chapter 6, USD −1.20 million. Both answer the same question by different routes. The NPV discounts the nominal spend year by year in the development cash flow; the value by stage uses real stage budgets spent at mid-stage. Read the NPV for the decision to start, and the value by stage for pricing an entry.
+
+Three lessons follow, and the first runs against common practice. Better stage odds on their own do not help: the risk-weighted value barely moves, for the reason given in section 14.2. A lower development discount rate makes things slightly worse, because the success-path return is below 18 percent as well. What helps is anything that raises the value at close or lowers the cost of getting there: a higher premium, a grant for the feasibility stage, or a higher tariff. Only the four development levers together, with the tariff unchanged, bring the risk-weighted value close to zero. A developer looking at numbers like these should first negotiate the tariff and the premium, then decide how much to spend on improving its odds.
 
 ## 14.4 Value step-ups
 
@@ -1138,7 +1144,7 @@ Value is created at two moments after development. At financial close, the priva
 
 ## 14.5 Sell-down
 
-In the model, the developer holds 40 percent of the private equity after close and sells half of that stake at commercial operation at the value of the operating equity. The sale brings in about USD 19.5 million. At Bugoye in Uganda, the original sponsors exited in 2015, according to search summaries we could not confirm in a primary source, and the buyer refinanced the plant in 2017 [DE:S11; DE:S30]; the case illustrates the pattern. Selling at commercial operation recycles capital into the next project; holding captures the long-run yield. The right choice depends on the developer's pipeline and its cost of capital.
+In the model, the developer holds 40 percent of the private equity after close and sells half of that stake at commercial operation at the value of the operating equity. The sale brings in about USD 19.5 million. Bugoye in Uganda illustrates the pattern: Norfund, one of the original sponsors, exited in 2015 [R3:S1], and by 2017 the plant was wholly owned by the Africa Renewable Energy Fund, which refinanced its debt [DE:S30]. Selling at commercial operation recycles capital into the next project; holding captures the long-run yield. The right choice depends on the developer's pipeline and its cost of capital.
 
 ## 14.6 What the Kasiri case shows
 
@@ -1174,7 +1180,7 @@ The model builds a simplified cash model of the buyer, translating local-currenc
 >
 > GAP<sub>t</sub> = max(0, PPA<sub>t</sub> − MSP<sub>t</sub>)
 
-For Kasiri, the buyer's payment capacity is about 6.0x times the PPA bill in the worst of the first ten years. A 60 MW plant is small in a national system, and the buyer can pay it.
+For Kasiri, the ratio of the buyer's payment capacity to the PPA bill is about 6.0x in the worst of the first ten years. A 60 MW plant is small in a national system, and the buyer can pay it.
 
 ## 15.2 Can the buyer afford it?
 
@@ -1200,7 +1206,7 @@ The IMF and World Bank debt sustainability framework for low-income countries an
 
 ## 15.6 A contrast: Lumora Falls
 
-The earlier policy paper's 400 MW Lumora scheme gave a different answer. Its contingent exposure at commercial operation was of the order of 3 percent of GDP, its fiscal screen was moderate in the base case and high under cost overrun or offtaker stress, and the offtaker stress turned a small positive central-government fiscal NPV into a loss of more than a billion dollars in present value. Size, a capacity-heavy tariff and a state-built line put Lumora's risks on the public side. Kasiri's size and energy-only tariff keep most of its risks with the developer and the lenders. The method is the same; the answer depends on the project.
+The earlier policy paper's 400 MW Lumora scheme gave a different answer. Its peak contingent exposure was about 2.7 percent of GDP, its fiscal screen was moderate in the base case and high under cost overruns, the offtaker stress or the currency step, and the offtaker stress turned a small positive central-government fiscal NPV into a loss of more than a billion dollars in present value. Size, a capacity-heavy tariff and a state-built line put Lumora's risks on the public side. Kasiri's size and energy-only tariff keep most of its risks with the developer and the lenders. The method is the same; the answer depends on the project.
 
 ## Points for the investment and credit committees
 
@@ -1224,7 +1230,7 @@ This chapter supports the decision every lender and investor makes before commit
 
 ## 16.1 Who carries what
 
-The model maps sixteen risks against eight parties: government, developer, construction contractor, lender, utility, consumer, insurer and development finance institution. The allocation for a private IPP with an energy-only tariff differs from the earlier paper's PPP in one important way: the developer is the primary bearer of hydrology risk, because the tariff pays only for energy delivered.
+The model maps sixteen risks against eight parties: government, developer, construction contractor, lender, utility, consumer, insurer and development finance institution. The table shows the main ones for Kasiri. The allocation for a private IPP with an energy-only tariff differs from the earlier paper's PPP in one important way: the developer is the primary bearer of hydrology risk, because the tariff pays only for energy delivered.
 
 | Risk | Primary bearer at Kasiri | Main instruments | Model stress |
 |---|---|---|---|
@@ -1270,11 +1276,11 @@ All stresses below hold the financing package at its base-case terms.
 
 Three results stand out.
 
-The river breaks the debt first. Under an energy-only tariff, a three-year drought at 55 percent of normal flow pushes the minimum DSCR to 0.69x. The reserve is drawn but does not cover the whole shortfall. A lender sizing on the ten-year P90 needs either a larger reserve, a cash sweep in wet years, or completion of a drought test before close.
-
-African experience gives both stresses a real shape. In 2024 the Zambezi River Authority cut the water allocated for generation at Kariba by about 47 percent [CL-04], and the output of Kariba North was reported to have fallen from 1,080 MW to about 166 MW [CL-05]. On the buyer side, Ghana's Electricity Company owed the Bui Power Authority about USD 612 million in March 2023 [A1:S40]. Neither event is a tail case for the region; both are recent.
+The river breaks the debt first. Under an energy-only tariff, a three-year drought at 55 percent of normal flow pushes the minimum DSCR to 0.69x. The reserve is drawn but does not cover the whole shortfall. A lender sizing on the ten-year P90 needs a larger reserve, a cash sweep in wet years or a smaller loan, and should see the drought test before close.
 
 The buyer breaks the project only if the state steps aside. With a budget backstop, the offtaker stress costs the state and leaves the project whole; without one, the project defaults. The project's credit is therefore partly the state's credit, whatever the structure says.
+
+African experience gives the drought and buyer stresses a real shape. For 2024 the Zambezi River Authority cut the water allocated for generation at Kariba by about 47 percent [CL-04], and the output of the 1,080 MW Kariba North Bank station was reported at 98 MW in June 2024, down from 166 MW a month earlier [R3:S2]. On the buyer side, Ghana's Electricity Company owed the Bui Power Authority about USD 612 million in March 2023 [A1:S40]. Neither event is a tail case for the region; both are recent.
 
 Construction overruns break the equity, not the debt. With the financing locked, an overrun at the reference-class mean leaves a financing gap of about USD 68 million that only standby equity or new money can fill.
 
@@ -1460,7 +1466,7 @@ The tariff is the largest single driver of value. A tariff that brings the equit
 
 ## 18.4 The credit question
 
-What would lenders see in due diligence? On the base case, a project that meets the usual tests with a margin: a minimum DSCR of 1.53x on the P50 case and an LLCR of 1.59x, with debt sized on the ten-year P90 and the 70 percent gearing limit binding by a small margin.
+What would lenders see in due diligence? On the base case, a project that meets the usual tests with a margin: a minimum DSCR of 1.53x on the P50 case and an LLCR of 1.59x, with debt set by the 70 percent gearing limit, which binds just before cover on the ten-year P90.
 
 Under stress, three findings would come out of the lenders' model review, and they should come out of the developer's first.
 
@@ -1541,7 +1547,7 @@ Every number in this chapter comes from the base case of MODEL 7 and the full-en
 
 # Annexes
 
-The annexes are working tools. Annexes A to I are checklists and templates for use on a live transaction; Annex J lists the public benchmark cases; Annex K records how the model was tested and what it does not do; Annex L lists every source cited, with its verification status; Annex M is a glossary. Annexes N to R follow in a separate part, the Technical due-diligence reference: each sets out what a decision-maker needs to know about one part of the engineering and environmental case, works it through on Kasiri where the case allows, and ends with decision tests for the investment and credit committees.
+The annexes are working tools. Annex A defines the key results; Annexes B to I are checklists and templates for use on a live transaction; Annex J lists the public benchmark cases; Annex K records how the model was tested and what it does not do; Annex L lists every source cited, with its verification status; Annex M is a glossary. Annexes N to R follow in a separate part, the Technical due-diligence reference: each sets out what a decision-maker needs to know about one part of the engineering and environmental case, works it through on Kasiri where the case allows, and ends with decision tests for the investment and credit committees.
 
 ## Annex A. Key results: definitions
 
@@ -1551,9 +1557,9 @@ The annexes are working tools. Annexes A to I are checklists and templates for u
 | Capacity factor | P50 generation divided by installed capacity times 8,760 hours | *03_HYDROLOGY* |
 | Total uses | Plant cost, project-built transmission, development costs and premium, interest during construction, fees and the initial debt service reserve, all nominal | *17_PROJECT_FINANCE* |
 | Gearing | Senior debt divided by total uses | *17_PROJECT_FINANCE* |
-| CFADS | Cash flow available for debt service: revenue less operating costs, taxes and maintenance capital spending | *20_CASH_FLOW* |
+| CFADS | Cash flow available for debt service: revenue less operating costs and taxes, and less any project-funded transmission spending during operation | *20_CASH_FLOW* |
 | DSCR | CFADS divided by scheduled debt service in a year; minimum and average over the loan life | *20_CASH_FLOW* |
-| LLCR | Present value of CFADS over the loan life divided by debt outstanding at commercial operation | *17_PROJECT_FINANCE* |
+| LLCR | Present value of CFADS over the life of the longest tranche, at the weighted interest rate, divided by debt outstanding at commercial operation | *17_PROJECT_FINANCE* |
 | Project IRR | Post-tax, nominal, on all capital | *17_PROJECT_FINANCE* |
 | Private equity IRR | Nominal, on private equity contributions and distributions | *17_PROJECT_FINANCE* |
 | Financing gap | Private equity required less private equity committed | *17_PROJECT_FINANCE* |
@@ -1731,7 +1737,7 @@ A short note for the ministry of finance, to accompany any request for support.
 
 ### How the model was tested
 
-MODEL 7 is built from a single specification. Every formula refers to named inputs and rows, a cycle detector confirms that the model has no circular references, and 14 integrity checks on *33_CHECKS* test sources against uses, the cash waterfall, debt balances, reserve balances and the treatment of project-built transmission. The checks confirm internal consistency, not the realism of the assumptions. Every number in this book was produced by recalculating the model and running the scenarios through the full engine.
+MODEL 7 is built from a single specification. Every formula refers to named inputs and rows, a dependency check on the workbook found no circular references, and 14 integrity checks on *33_CHECKS* test sources against uses, the cash waterfall, debt balances, reserve balances and the treatment of project-built transmission. The checks confirm internal consistency, not the realism of the assumptions. Every number in this book was produced by recalculating the model and running the scenarios through the full engine.
 
 ### The adversarial review
 
@@ -1767,7 +1773,7 @@ The full review, with formula-level evidence for each finding, is kept with the 
 | H-07 | High | Gate metrics could be text or blank and mis-scored | Fixed: explicit fallbacks |
 | H-08 | High | Closed-form structure screen inconsistent with the full engine | Fixed: tax and IDC included; full-engine tariffs reported; identity stated as such |
 | H-09 | High | Contingent liabilities mixed stocks and flows | Fixed |
-| H-10 | High | Stress sizes inconsistent with the evidence base | Fixed: reference-class mean overrun and deeper drought added |
+| H-10 | High | Stress sizes inconsistent with the evidence base | Partly fixed: reference-class mean overrun and deeper drought added; no currency pass-through (see M-06) |
 | M-01 | Medium | LLCR covered only the commercial tranche | Fixed |
 | M-02 | Medium | No on-budget debt test in the fiscal gate | Fixed |
 | M-03 | Medium | Regulatory gate threshold inconsistent | Fixed |
@@ -1814,6 +1820,7 @@ This edition added the development module, the construction contracting module a
 - Debt and equity are drawn pro rata with spending, not equity first, which slightly flatters the equity return.
 - There is no developer promote or carried interest, and no shareholder loans.
 - There is no refinancing; the step-up in value after commercial operation is valued directly.
+- The currency step is permanent in real terms, with no pass-through to local prices.
 - The utility model has no balance sheet.
 - Stresses are deterministic. There is no Monte Carlo over hydrology and currency and no joint distribution of drought, currency and utility distress.
 - Stage probabilities, the development premium and the developer's discount rate are user judgements; no public data were found to calibrate them for African hydro.
@@ -1821,7 +1828,7 @@ This edition added the development module, the construction contracting module a
 
 ## Annex L. Sources and verification status
 
-Identifiers with two letters and a number (such as HY-08) refer to the research source database; identifiers with a prefix and S-number (such as DE:S1) refer to the numbered source lists of the research files: A1 and A2, African case files; INT, international benchmarks; DE, development evidence; LIT, works compared in the front matter. Verification status records what the research team saw. Claims resting on a search summary only should be checked against the original before reliance.
+Identifiers with two letters and a number (such as HY-08) refer to the research source database; identifiers with a prefix and S-number (such as DE:S1) refer to the numbered source lists of the research files: A1 and A2, African case files; INT, international benchmarks; DE, development evidence; LIT, works compared in the front matter; R1 to R4, sources added during the pre-publication source audit. Verification status records what the research team saw. Claims resting on a search summary only should be checked against the original before reliance.
 
 | ID | Source | Verification |
 |---|---|---|
@@ -1830,29 +1837,28 @@ Identifiers with two letters and a number (such as HY-08) refer to the research 
 | A1:S40 | Ghana News Agency, "ECG owes BPA US$612 million to Chief Executive Officer" (31 Mar 2023). https://gna.org.gh/2023/03/ecg-owes-bpa-us612-million-chief-executive-officer/ | Page or document opened |
 | A1:S53 | BankTrack / International Rivers, "Gibe 3: African Development Bank and European Investment Bank out. Who's in?" (2010). https://www.banktrack.org/news/gibe_3_african_development_bank_and_european_investment_bank_out_who_s_in_ | Page or document opened |
 | A1:S54 | AidData, Project ID 105839: ICBC loan for Gibe III Hydro Power Generating Set Project. https://china.aiddata.org/projects/105839 | Page or document opened |
-| A1:S59 | African Energy, "Chinese contractors further delay Zambia's $2.3bn Kafue Gorge Lower" (Issue 459, 20 Apr 2022). https://www.africa-energy.com/news-centre/article/chinese-contractors-further-delay-zambias-23bn-kafue-gorge-lower | Page or document opened |
+| A1:S57 | AidData, Project ID 92289: ICBC and China Eximbank syndicated loan for Kafue Gorge Lower. https://china.aiddata.org/projects/92289 | Page or document opened |
+| A1:S58 | Power Technology, "Kafue Gorge Lower (KGL) Power Station". https://www.power-technology.com/projects/kafue-gorge-lower-kgl-power-station/ | Page or document opened |
 | A1:S60 | African Energy, "Zambia cuts Kafue Gorge Lower cost to $2bn, enabling lower tariffs" (19 Dec 2023). https://www.africa-energy.com/news-centre/article/zambia-cuts-kafue-gorge-lower-cost-2bn-enabling-lower-tariffs | Page or document opened |
-| A2:S3 | World Bank , "Republic of Cameroon, Nachtigal Hydropower Project, Chair Summary" (19 Jul 2018), P157734; retrieved via the EWS mirror. https://ewsdata.rightsindevelopment.org/files/documents/34/WB-P157734.pdf | Opened; see research file |
-| A2:S6 | (search-result only) EDF , "EDF, IFC and the Republic of Cameroon sign final and binding agreements…" (lender list). https://www.edf.fr/en/edf/edf-ifc-and-the-republic-of-cameroon-sign-final-and-binding-agreements-for-the-construction-of-the-nachtigal-hydroelectric-dam-in-cameroon | Opened; see research file |
+| A2:S4 | Renewable Energy World , "EDF, IFC, Republic of Cameroon sign agreements to build 420-MW Nachtigal hydropower plant". https://www.renewableenergyworld.com/energy-business/energy-finance/edf-ifc-republic-of-cameroon-sign-agreements-to-build-420-mw-nachtigal-hydropower-plant/ | Opened; see research file |
 | A2:S16 | World Bank , Restructuring Paper RES00514, "AFR RI-Regional Rusumo Falls Hydroelectric Project (P075941)" (2025). https://documents1.worldbank.org/curated/en/099031425175016420/pdf/P075941-6b9b2d48-2b91-41d5-bc03-4a588d5ae309.pdf | Opened; see research file |
-| A2:S20 | World Bank , "Ruzizi 3 Regional Hydropower Project (P178685), Concept Environmental and Social Review Summary" (22 Dec 2022). https://documents1.worldbank.org/curated/en/099340012222221781/pdf/P17868509cbf4c0cb08cce06954824c1b6f.pdf | Opened; see research file |
+| A2:S21 | EIB , Press release 2020-065 "One step closer to clean energy for 30 million people in Africa" (20 Feb 2020). https://www.eib.org/en/press/all/2020-065-one-step-closer-to-clean-energy-for-30-million-people-in-africa | Opened; see research file |
 | A2:S22 | Engineering News (Reuters) , "EIB reviews financing for $760m hydro project over DRC war" (13 Mar 2025). https://www.engineeringnews.co.za/article/eib-reviews-financing-for-760m-hydro-project-over-drc-war-2025-03-13 | Opened; see research file |
-| A2:S30 | Enerdata , "Tanzania commissions 2.1 GW Julius Nyerere hydropower plant". https://www.enerdata.net/publications/daily-energy-news/tanzania-commissions-21-gw-julius-nyerere-hydropower-plant.html | Opened; see research file |
 | A2:S34 | AidData (China's Global Development Footprint) , Project ID 36216, Isimba. https://china.aiddata.org/projects/36216 | Opened; see research file |
-| A2:S35 | NS Energy , "Isimba Hydropower Project, Uganda". https://www.nsenergybusiness.com/projects/isimba-hydropower-project-uganda/ | Opened; see research file |
 | A2:S40 | Eagle Online , "It's a milestone as Museveni commissions 600MW Karuma hydro power station" (26 Sep 2024). https://eagle.co.ug/2024/09/26/its-a-milestone-as-museveni-commissions-600mw-karuma-hydro-power-station | Opened; see research file |
 | A2:S41 | Renewable Energy World , "600 MW Karuma hydropower plant commissioned in Uganda". https://www.renewableenergyworld.com/news/600-mw-karuma-hydropower-plant-commissioned-in-uganda/ | Opened; see research file |
 | A2:S42 | Daily Monitor , "Karuma dam contractor wants additional Shs148b to fix defects". https://www.monitor.co.ug/uganda/news/national/karuma-dam-contractor-wants-additional-shs148b-to-fix-defects-5570110 | Opened; see research file |
 | A2:S45 | IFC , "Public-Private Partnership Stories: Uganda: Nyagak Hydro" (09/2016). https://www.ifc.org/content/dam/ifc/doc/2010/2016-uganda-nyagak-hydro-ppp-brief.pdf | Opened; see research file |
 | A2:S48 | World Bank / IFC , "Project Completion Note, Guarantee No. B-003-0-UG, IDA Partial Risk Guarantee… Bujagali Hydropower Project", Report No. 33722-UG (3 Oct 2005). https://documents1.worldbank.org/curated/en/655591468311069662/pdf/33722.pdf | Opened; see research file |
 | A2:S52 | The Independent (Uganda) , "Bujagali power expensive" (same as S37; cited for cost, lenders, tariff debate). https://independent.co.ug/bujagali-power-expensive | Opened; see research file |
-| A2:S53 | (search-result only) World Bank , "Indemnity Agreement (Partial Risk Guarantee for the Private Power Generation (Bujagali) Project) between IDA and Republic of Uganda", conformed copy (18 Jul 2007). https://documents1.worldbank.org/curated/en/316361468119086474/pdf/B01301UG1IA10CONFORMED.pdf | Opened; see research file |
+| A2:S53 | (fetched 2026-10-04) World Bank , "Indemnity Agreement (Partial Risk Guarantee for the Private Power Generation (Bujagali) Project) between IDA and Republic of Uganda", conformed copy (18 Jul 2007). https://documents1.worldbank.org/curated/en/316361468119086474/pdf/B01301UG1IA10CONFORMED.pdf | Page or document opened |
 | A2:S57 | Engineering News , "Batoka Gorge hydroelectric scheme, Zambia and Zimbabwe to update" (29 Mar 2024). https://www.engineeringnews.co.za/article/batoka-gorge-hydroelectric-scheme-zambia-and-zimbabwe-2024-03-29 | Opened; see research file |
+| A2:S63 | World Bank , "Project Appraisal Document … Nachtigal Hydropower Project", Report No. 122876-CM (2018), P157734; retrieved via the EWS mirror (fetched 2026-10-04). https://ewsdata.rightsindevelopment.org/files/documents/34/WB-P157734_j0tmCq4.pdf | Page or document opened |
+| A2:S65 | The Citizen (Tanzania) , "Julius Nyerere Hydropower Project reaches major milestone with full turbine activation" (5 Apr 2025) (fetched 2026-10-04). https://thecitizen.co.tz/tanzania/news/national/julius-nyerere-hydropower-project-reaches-major-milestone-with-full-turbine-activation-4991572 | Page or document opened |
 | CL-01 | IHA with EBRD and World Bank Group (KGGTF) (2019). Hydropower Sector Climate Resilience Guide. Technical guide (launch page). https://www.hydropower.org/news/new-guide-to-help-hydropower-build-resilience-to-climate-change | Landing or summary page read |
 | CL-02 | Cervigni, Liden, Neumann, Strzepek (eds.) / World Bank (Africa Development Forum) (2015). Enhancing the Climate Resilience of Africa's Infrastructure: The Power and Water Sectors. Book. https://www.worldbank.org/content/dam/Worldbank/Feature%20Story/Africa/Conference%20Edition%20Enhancing%20Africas%20Infrastructure.pdf | Search summary only |
 | CL-03 | Conway, Dalin, Landman, Osborn (Nature Energy 2:946-953) (2017). Hydropower plans in eastern and southern Africa increase risk of concurrent climate-related electricity supply disruption. Peer-reviewed article. https://www.lse.ac.uk/granthaminstitute/publication/hydropower-plans-eastern-southern-africa-increase-risk-concurrent-climate-related-electricity-supply-disruption/ | Search summary only |
 | CL-04 | The Energy Industry Times (news) (2024). Kariba Dam water allocation for electricity generation cut in half. News (secondary). https://teitimes.com/post/kariba-dam-water-allocation-for-electricity-generation-cut-in-half | Search summary only |
-| CL-05 | Bloomberg via BNN Bloomberg (2024). Zambia Warns It May Shut Operation at Its Biggest Dam by October. News (secondary). https://bnnbloomberg.ca/investing/2024/08/01/zambia-warns-it-may-shut-operation-at-its-biggest-dam-by-october | Search summary only |
 | CL-06 | World Bank Group (PPIAF) (2023). Climate Toolkits for Infrastructure PPPs: Hydropower Sector. Toolkit. https://openknowledge.worldbank.org/bitstreams/5743a31b-98f9-48f6-9f91-68a2a08c22c3/download | Landing or summary page read |
 | DE:BENCH | Benchmark table for development model defaults, development evidence file (research note). Records where no public data were found. | Research note |
 | DE:S1 | IFC / World Bank (2015), *Hydroelectric Power: A Guide for Developers and Investors* (Fichtner). https://documents1.worldbank.org/curated/en/917841468188335073/pdf/99392-WP-Box393199B-PUBLIC-Hydropower-Report.pdf | Opened; see research file |
@@ -1862,7 +1868,6 @@ Identifiers with two letters and a number (such as HY-08) refer to the research 
 | DE:S5 | WikiProcedure, "Uganda: Apply for Electricity Generation License". https://wikiprocedure.com/index.php/Uganda_-_Apply_for_Electricity_Generation_License | Opened; see research file |
 | DE:S8 | ALN, *Uganda Power Guide 2024*. https://aln.africa/wp-content/uploads/2024/06/ALN-Uganda-Power-Guide-2024.pdf | Opened; see research file |
 | DE:S9 | ERA / KfW, *GET FiT Program Uganda Overview Brief*. https://www.era.go.ug/wp-content/uploads/2025/05/GET-FiT-Info-Brief.pdf | Opened; see research file |
-| DE:S11 | Wikipedia, Bugoye Hydroelectric Power Station. https://en.wikipedia.org/wiki/Bugoye_Hydroelectric_Power_Station | Search summary only |
 | DE:S12 | Renewable Energy World, "Serengeti Energy reports small hydro project commissioned in Uganda". https://www.renewableenergyworld.com/hydro-power/serengeti-energy-reports-small-hydro-project-commissioned-in-uganda/ | Opened; see research file |
 | DE:S13 | World Bank Blogs, "Hydropower in Cameroon: made possible through local banks' participation & novel infrastructure financing". https://blogs.worldbank.org/ppps/hydropower-cameroon-made-possible-through-local-banks-participation-novel-infrastructure | Opened; see research file |
 | DE:S14 | IED, Small Hydro Power Projects for tea factories, Kenya and Uganda (2007). https://extranet.ied-sa.fr/en/projects-and-references/references/details/10/85/fiches-gb-2007.html | Opened; see research file |
@@ -1872,6 +1877,7 @@ Identifiers with two letters and a number (such as HY-08) refer to the research 
 | DE:S18 | Engineering News, "Financing and legal frameworks key for successful renewables projects in Africa", 19 July 2016 (Castalia). https://www.engineeringnews.co.za/article/financing-and-legal-frameworks-key-for-successful-renewables-projects-in-africa-2016-07-19 | Opened; see research file |
 | DE:S21 | Cities Climate Finance Leadership Alliance, Africa50 Project Development. https://citiesclimatefinance.org/project-preparation-resource-directory/africa50-project-development | Opened; see research file |
 | DE:S23 | Brookings, "Figures of the week: Africa's infrastructure paradox", 24 Feb 2021 (citing McKinsey 2020). https://www.brookings.edu/articles/figures-of-the-week-africas-infrastructure-paradox | Opened; see research file |
+| DE:S29 | Renewable Energy World, "Plant refinancing leading to more hydroelectric power in Uganda". https://www.renewableenergyworld.com/energy-business/energy-finance/plant-refinancing-leading-to-more-hydroelectric-power-in-uganda/ | Opened; see research file |
 | DE:S30 | FMO project detail, Bugoye Hydro Limited (51836). https://www.fmo.nl/project-detail/51836 | Opened; see research file |
 | DE:S35 | KfW Development Bank, "Energy Supply: Uganda: GET FIT" factsheet (last updated 05/2017). https://www.kfw-entwicklungsbank.de/PDF/Entwicklungsfinanzierung/Themen-NEU/Get-Fit-Programme-EN_Mai2015.pdf | Opened; see research file |
 | DE:S39 | FMO news, "FMO enhances renewable energy provision in Uganda" (Nyamagasani, 22 Sep 2017). https://www.fmo.nl/news-detail/d6343286-eecc-4e35-b477-f22c01c2697a/fmo-enhances-renewable-energy-provision-in-uganda | Opened; see research file |
@@ -1910,6 +1916,15 @@ Identifiers with two letters and a number (such as HY-08) refer to the research 
 | PF-06 | African Development Bank (press release) (n.d.). Madagascar: African Development Bank approves guarantee of $100 million to hydropower project (Sahofika PRG). Press release. https://afdb.africa-newsroom.com/press/madagascar-african-development-bank-approves-guarantee-of-100-million-to-hydropower-project-to-benefit-over-2-million-people | Search summary only |
 | PF-11 | World Bank (2018). Project Appraisal Document: Nachtigal Hydropower Project, Cameroon (IBRD Payment & Loan Guarantees; Report No. 122876-CM). Project appraisal document. https://ewsdata.rightsindevelopment.org/files/documents/34/WB-P157734_j0tmCq4.pdf | Full text read |
 | PF-13 | Alain Ebobisse (Africa50) & Amadou Hott (AfDB) / Brookings Africa in Focus (2018). Enhancing the attractiveness of private investment in hydropower in Africa. Policy blog/article. https://www.brookings.edu/articles/enhancing-the-attractiveness-of-private-investment-in-hydropower-in-africa | Landing or summary page read |
+| R1:S1 | Zambezi River Authority (2023), Press statement: Water allocation for power generation at Kariba for the 2023/2024 hydrological year, Lusaka, 28 December 2023. https://www.zambezira.org/sites/default/files/Press%20Statement%20-%20Water%20allocation%20at%20Kariba%20Dam_28%20December%202023_Final.pdf (full text read) | Opened; see research file |
+| R2:S1 | Republic of Uganda (1999), Electricity Act, 1999 (Act 6 of 1999), section 35. https://www.tradebarriers.org/library/regulations/Uganda/Electricity%20Act,%201999..pdf (full text read) | Opened; see research file |
+| R2:S2 | Renewable Energy World (2021), World Bank releases Good Practice Note on Dam Safety. https://www.renewableenergyworld.com/hydro-power/dams-civil-structures/world-bank-releases-good-practice-note-on-dam-safety/ (page read) | Opened; see research file |
+| R2:S3 | Hydropower Sustainability Alliance (n.d.), Hydropower Sustainability Standard. https://www.hs-alliance.org/standard (page read) | Opened; see research file |
+| R2:S4 | World Bank (2020), Operation and Maintenance Strategies for Hydropower: Handbook for Practitioners and Decision Makers, publication page. https://www.worldbank.org/en/topic/energy/publication/operation-and-maintenance-strategies-for-hydropower (page read) | Opened; see research file |
+| R3:S1 | Norfund (2016), Annual Report 2015 (states: "In 2015 Norfund exited from five equity investments: ... the hydropower plant Bugoye in Uganda"; Note 10, Exited investments). https://www.norfund.no/wp-content/uploads/2020/02/Annual-Report-2015.pdf (full text read) | Opened; see research file |
+| R3:S2 | The Zambian Digest (24 June 2024), Kariba power generation falls by a worrying 91%: Kariba operating at 9% of installed capacity as supply-demand gap rises to 948MW (reports ZESCO disclosure: Kariba North Bank output "dropped by 90.9% from 1,080MW to 98MW"; "Barely a month ago, it was producing 166MW"). https://www.zambiandigest.net/2024/06/24/kariba-power-generation-falls-by-a-worrying-91kariba-operating-at-9-of-installed-capacity-as-supply-demand-gap-rises-to-948mw/ (page read) | Opened; see research file |
+| R3:S3 | Hansen, K. (Norton Rose Fulbright) and Molle, A. (World Bank) (2016), World Bank guarantees for private projects ("A partial risk guarantee protects private lenders against debt service defaults ... caused by a government's failure to meet specific obligations under project contracts"; "All World Bank guarantees require a sovereign indemnity of the bank"). https://www.projectfinance.law/publications/2016/april/world-bank-guarantees-for-private-projects (page read) | Opened; see research file |
+| R4:S1 | Renewable Energy World (2021), World Bank releases Good Practice Note on Dam Safety. https://www.renewableenergyworld.com/hydro-power/dams-civil-structures/world-bank-releases-good-practice-note-on-dam-safety/ (page read; panel-of-experts terms of reference appendix confirmed by search summary only) | Opened; see research file |
 | UT-02 | Trimble, Kojima, Perez Arroyo, Mohammadzadeh / World Bank (2016). Financial Viability of Electricity Sectors in Sub-Saharan Africa: Quasi-Fiscal Deficits and Hidden Costs (WPS7788). Policy research working paper. https://documents1.worldbank.org/curated/en/182071470748085038/pdf/WPS7788.pdf | Full text read |
 
 ## Annex M. Glossary
@@ -1929,12 +1944,12 @@ Identifiers with two letters and a number (such as HY-08) refer to the research 
 | EPC | Engineering, procurement and construction contract |
 | ESIA | Environmental and social impact assessment |
 | Financial close | The point at which all conditions precedent are met and lenders are obliged to fund |
-| Gearing | Debt as a share of total funding |
+| Gearing | Senior debt as a share of total uses |
 | IDC | Interest during construction |
 | IPP | Independent power producer |
 | LLCR | Loan life coverage ratio |
 | Locked financing | Stress testing with the financing package held at its base-case terms |
-| P50, P90 | Generation exceeded with 50 and 90 percent probability |
+| P50, P90 | Central estimate of annual generation; generation exceeded with 90 percent probability, in one year (one-year P90) or on average over ten years (ten-year P90) |
 | PPA | Power purchase agreement |
 | PPP | Public-private partnership |
 | Reference class | A set of comparable past projects used to estimate overruns or delays |
@@ -1948,7 +1963,7 @@ Identifiers with two letters and a number (such as HY-08) refer to the research 
 
 The five annexes that follow are a reference, not the core of the book. The book's method is the decision framework of the eighteen chapters. These annexes give the investment or credit committee member enough engineering and environmental knowledge to challenge the engineering case: to know what a sound hydrology study, layout, equipment choice, construction plan or environmental and social assessment looks like, and which questions expose a weak one.
 
-They draw on the full texts of the IFC guide [DE:S1], the ESHA guide [LIT:S6], the Addleshaw Goddard and IHA investor's guide [LIT:S7] and the World Bank and ESMAP report on private solutions for large hydropower [HY-06], together with the book's source database. Each annex works through Kasiri where the case defines the values, flags every illustrative assumption it adds, and ends with decision tests linked to the gates of the Hydro Readiness Framework.
+They draw on the full texts of the IFC guide [DE:S1], the ESHA guide [LIT:S6], the Addleshaw Goddard and IHA investor's guide [LIT:S7] and the World Bank and ESMAP report on private solutions for large hydropower [HY-06], together with the book's source database. Each annex works through Kasiri where the case defines the values, flags every illustrative assumption it adds, and ends with decision tests. The table shows which questions of the Hydro Readiness Framework and which chapters each annex informs.
 
 | Annex | Topic | Framework questions | Chapters |
 |---|---|---|---|
@@ -1956,7 +1971,7 @@ They draw on the full texts of the IFC guide [DE:S1], the ESHA guide [LIT:S6], t
 | O | Scheme layout, civil works and geotechnics | Q1, Q6 | 3, 9, 10 |
 | P | Electromechanical equipment and grid connection | Q1, Q3, Q6 | 3, 9, 11 |
 | Q | Construction, commissioning, operation and maintenance | Q6 | 9, 10, 11 |
-| R | Environmental, social and climate due diligence | Q2, Q7 | 7, 15 |
+| R | Environmental, social and climate due diligence | Q2, Q5, Q7 | 2, 7, 15, 16 |
 
 ## Annex N. Hydrology and energy assessment
 
@@ -2017,7 +2032,7 @@ Table N.1 ranks the twelve Kasiri monthly means. Usable flow is river flow less 
 | 11 | Sep | 22 | 91.7 | 84.6 | 18 | 19.1 |
 | 12 | Feb | 20 | 100.0 | 92.3 | 16 | 17.0 |
 
-*Note: Mean flow 37.8 m3/s; mean usable flow 33.1 m3/s; median about 33 m3/s. Twelve monthly means cannot resolve Q<sub>95</sub> or flood peaks.*
+*Note: Mean flow 37.8 m3/s; mean usable flow 33.1 m3/s; median about 33 m3/s. Twelve monthly means cannot resolve Q<sub>95</sub> or flood peaks. At 57 m3/s the hydraulic calculation gives 60.5 MW, slightly above the 60 MW rating; capping May at 60 MW would remove about 0.3 GWh.*
 
 First, full load needs 61 m3/s in the river (57 + 4), which only May exceeds, so on monthly data the plant runs at full output about one month in twelve; daily data would show more full-load days. Second, the level of use f<sub>a</sub> = Q<sub>d</sub>/Q<sub>av</sub> = 57/37.8 = 1.51, at the top of the 1.0 to 1.5 range the IFC guide gives for run-of-river plants, whose first-estimate rule is a design flow available 100 to 120 days a year, about 30% of the time [DE:S1]. Third, ESHA notes that optimisation normally gives a design flow "significantly larger than" mean flow less reserved flow [LIT:S6], here 33.8 m3/s. A 57 m3/s design flow is defensible only if the optimisation is shown: IRR, NPV, benefit/cost or LCOE computed across a range of design flows, with stepwise cost changes as unit and penstock sizes change [DE:S1; LIT:S6]. It should run on daily flows: a monthly FDC rewards oversizing.
 
@@ -2075,7 +2090,7 @@ The arithmetic holds, but the case figure is a monthly calculation with constant
 | Item | Basis | Result |
 |---|---|---|
 | Auxiliary demand 0.5 to 3.0% | [DE:S1] | 290.7 to 283.4 GWh |
-| Monthly data overestimate of 10% | [DE:S1] | 263 GWh |
+| Monthly data overestimate of 10% (292.2 / 1.10) | [DE:S1] | 266 GWh |
 | One Francis unit, 40% minimum flow | Illustrative assumption | about 252 GWh |
 | Losses on 35 km, 132 kV line | No source value | not quantified |
 | Availability 97 to 98% after year three | [DE:S1] | 298 to 301 GWh |
@@ -2087,7 +2102,7 @@ Outage timing matters: maintenance in February, at about 17 MW, costs far less t
 
 ### N.7 Firm energy and seasonal profile
 
-ESHA defines firm energy as the power deliverable during a given period with at least 90 to 95% certainty; run-of-river schemes have little, storage adds more [LIT:S6]. In the IFC example, firm capacity at 90% of the year is 11 MW for a run-of-river plant and 23 MW for a storage plant at the same site [DE:S1]. On monthly means Kasiri's firm capacity is about 17 MW (February) to 19 MW (flow exceeded in 11 of 12 months), under a third of installed capacity; a daily Q<sub>95</sub> would give less. The May to February power ratio is 3.6, milder than the ten-fold swing in the IFC central African example [DE:S1]. Where the PPA pays for capacity, the firm figure matters most.
+ESHA defines firm energy as the power deliverable during a given period with at least 90 to 95% certainty; run-of-river schemes have little, storage adds more [LIT:S6]. In the IFC example, firm capacity at 90% of the year is 11 MW for a run-of-river plant and 23 MW for a storage plant at the same site [DE:S1]. On monthly means Kasiri's firm capacity is about 17 MW (February) to 19 MW (flow exceeded in 11 of 12 months) before outages, or about 16 MW in February after 95% availability, the figure Chapter 3 uses; that is under a third of installed capacity, and a daily Q<sub>95</sub> would give less. The May to February power ratio is 3.6, milder than the ten-fold swing in the IFC central African example [DE:S1]. Where the PPA pays for capacity, the firm figure matters most.
 
 ### N.8 Inter-annual variability: P50, P90, one-year and multi-year
 
@@ -2097,7 +2112,9 @@ The IFC guide defines dry-year (P75) and very-dry-year (P95) energy and requires
 
 where N is the number of averaged years and z = 1.282 for P90. The √N reduction assumes independent years. Dry years tend to cluster, which widens the true spread, so MODEL 7 adds a first-order serial correlation ρ between years, set at 0.3 for Kasiri as a model assumption:
 
-> E<sub>P90,N</sub> = E<sub>P50</sub> × (1 − 1.2816 × CV × √((1 + ρ) / (1 − ρ) / N)) A second uncertainty sits on the mean: 12 years estimate it with a standard error of about 0.15/√12 = 4.3%, before rating-curve and correlation errors, and this term does not shrink with tenor.
+> E<sub>P90,N</sub> = E<sub>P50</sub> × (1 − 1.2816 × CV × √((1 + ρ) / (1 − ρ) / N))
+
+A second uncertainty sits on the mean: 12 years estimate it with a standard error of about 0.15/√12 = 4.3%, before rating-curve and correlation errors, and this term does not shrink with tenor.
 
 
 **Table N.4. Kasiri exceedance values (CV 0.15, normal distribution assumed)**
@@ -2110,10 +2127,10 @@ where N is the number of averaged years and z = 1.282 for P90. The √N reductio
 | P90, one year | 1.282 × 0.15 | 236 |
 | P95, one year | 1.645 × 0.15 | 220 |
 | P99, one year | 2.326 × 0.15 | 190 |
-| P90, 10-year average | 1.282 × 0.15/√10 | 274 |
-| P90, 10-year average, serial correlation 0.3 (MODEL 7 lender case) | 1.282 × 0.15 × √(1.857/10) | 268 |
+| P90, ten-year average | 1.282 × 0.15/√10 | 274 |
+| P90, ten-year average, serial correlation 0.3 (MODEL 7 lender case) | 1.282 × 0.15 × √(1.857/10) | 268 |
 | P90, 25-year average | 1.282 × 0.15/√25 | 281 |
-| P90, 10-year, with 4.3% mean uncertainty | 1.282 × √(0.047² + 0.043²) | 268 |
+| P90, ten-year average, with 4.3% mean uncertainty | 1.282 × √(0.047² + 0.043²) | 268 |
 
 *Note: Analyst calculation, except the MODEL 7 row. The two 268 GWh rows reach the same value by different routes: one widens the spread for correlated years, the other for the short record. Applied together they would give a lower figure. Skewed records give lower dry-year values still.*
 
@@ -2274,7 +2291,7 @@ Dams have been described as "the single man-made structures capable of causing m
 
 **Classification.** Most countries require owners to classify dams by hazard (low, significant, high), based on the consequence of failure [LIT:S6; DE:S1]. Classification sets the design flood. Typical criteria are the probable maximum flood, or alternatively the 10,000-year flood, as the maximum inflow design flood for high-hazard structures with a 1,000-year normal operation flood; 100 to 1,000 years for medium hazard; and typically 100 years for low hazard [LIT:S6]. The IFC guide's rough assessment is a design discharge near the 1,000-year flood [DE:S1].
 
-**Independent review.** IFC Performance Standard 4 requires competent professionals to design and build structural elements to good international industry practice and, in high-risk situations, external experts to review the project through its stages [DE:S1]. The World Bank Good Practice Note on Dam Safety sets out requirements including independent panels and hydrological and seismic risk [HY-15]. A panel of experts should be appointed early, review investigation, design, construction and first filling, and report to lenders as well as to the owner.
+**Independent review.** IFC Performance Standard 4 requires competent professionals to design and build structural elements to good international industry practice and, in high-risk situations, external experts to review the project through its stages [DE:S1]. The World Bank Good Practice Note on Dam Safety (2021) includes sample terms of reference for a panel of experts and technical notes on hydrological and seismic risk [HY-15; R4:S1]. A panel of experts should be appointed early, review investigation, design, construction and first filling, and report to lenders as well as to the owner.
 
 **Instrumentation and surveillance.** Dam safety improves with monitoring systems, reviews and regular inspections [LIT:S6]. Instruments should measure what the design relies on: uplift and seepage (uplift is a design load [DE:S1]), deformation and settlement, and strong motion in seismic zones. First filling should follow a written plan.
 
@@ -2300,7 +2317,7 @@ Civil estimates should rest on bills of quantities benchmarked to national unit 
 
 ### O.10 Site access and logistics
 
-Site selection must check whether access roads exist, need upgrading or must be built [DE:S1]. Access roads through difficult terrain can be a "deal breaker" because of cost [DE:S1], and benchmark cost outliers come from sites without infrastructure [DE:S1]. The IFC guide lists access roads, penstock construction, tunnelling, E&M manufacturing and grid connection as critical path items [DE:S1]. DFIs can help by financing access roads and grid links before construction [HY-06].
+Site selection must check whether access roads exist, need upgrading or must be built [DE:S1]. Access roads through difficult terrain can be a "deal breaker" because of cost [DE:S1], and benchmark cost outliers come from sites without infrastructure [DE:S1]. The IFC guide lists access roads, penstock construction, tunnelling, E&M manufacturing and grid connection as critical path items [DE:S1]. DFIs can support governments by financing project transmission lines [HY-06]; access roads need the same early funding.
 
 Logistics questions that move cost: the heaviest transport load against bridge ratings; wet-season reliability of cement, steel and fuel routes; and quarry haul distance.
 
@@ -2320,13 +2337,13 @@ Power check: 1,000 × 9.81 × 57 × 120 × 0.92 × 0.98 ≈ 60.5 MW, consistent 
 | Trash rack gross area | Approach velocity 0.25 to 1.0 m/s | [LIT:S6] | 57 / 1.0 to 57 / 0.25 = 57 to 228 m2 before bar blockage factor |
 | Headrace tunnel | Velocity below 3 to 4 m/s | [DE:S1] | Area 14.3 to 19.0 m2; circular equivalent diameter about 4.3 to 4.9 m |
 | Headrace canal, if chosen | Velocity 1.0 to 1.5 m/s | [DE:S1] | Wetted area 38 to 57 m2 |
-| Penstock material | Prestressed concrete limited to about 15 bar (150 m) | [DE:S1] | Net head 120 m plus gross head margin plus water hammer approaches the limit; steel is the expected choice |
+| Penstock material | Prestressed concrete limited to about 15 bar (150 m) | [DE:S1] | Static head above 120 m plus a water hammer allowance of 25 to 50% for reaction turbines [LIT:S6] exceeds 150 m; steel is the expected choice |
 
 Pondage (illustrative): in February the mean flow is 20 m3/s, leaving 16 m3/s after the environmental flow. Running at 57 m3/s for 4 peak hours requires (57 − 16) × 14,400 s ≈ 0.59 million m3 of live storage. That is below the 1 million m3 in ESHA's small-dam definition [LIT:S6], but a weir high enough to hold it could still exceed 15 m or need dam safety classification. Pondage pays only if the PPA rewards peak delivery, which the case does not define.
 
 River diversion: monthly flows (20 m3/s in February, 22 m3/s in September, 70 m3/s in May) give two dry windows a year for riverbed works. Over the 3-year build, the chance that the diversion design flood is exceeded at least once is about 27 percent for a 10-year flood, 14 percent for a 20-year flood, 6 percent for a 50-year flood and 3 percent for a 100-year flood. Kasiri's 12-year record is shorter than the 15 years the IFC guide expects for hydrology [DE:S1], so flood peaks for these return periods carry wide uncertainty and should be checked by regional analysis.
 
-Cost: civil works of USD 68m are 43 percent of the USD 157m plant cost and 54 percent of the USD 127m sum of the six base cost lines, close to the benchmark median of 55.2 percent [DE:S1]. The model's plant cost adds to those lines USD 9.0m of development costs reimbursed at close and a USD 6.6m contractor's risk premium, giving a subtotal of USD 142.6m, and then a 10 percent contingency of USD 14.3m. That contingency is close to what industry practice would give on the works alone (15 percent on civil, 7.5 to 10 percent on the USD 42m of equipment: USD 13.4m to 14.4m) [DE:S1], but only because it is also charged on development costs and the premium, which carry no physical risk. On the works alone, the case's contingency would be 10 percent, below practice for a scheme with a tunnel. A civil overrun at the large-dam median of 27 percent [HY-08] adds USD 18.4m; at the mean of 96 percent, USD 65.3m. With the illustrative tunnel, the gap between contingency and the median stress case should be covered by GBR risk sharing, sponsor support or a standby facility.
+Cost: civil works of USD 68m are 43 percent of the USD 157m plant cost and 54 percent of the USD 127m sum of the six base cost lines, close to the benchmark median of 55.2 percent [DE:S1]. The model's plant cost adds to those lines USD 9.0m of development costs reimbursed at close and a USD 6.6m contractor's risk premium, giving a subtotal of USD 142.6m, and then a 10 percent contingency of USD 14.3m. That contingency is close to what industry practice would give on the works alone (15 percent on civil, 7.5 to 10 percent on the USD 42m of equipment: USD 13.4m to 14.4m) [DE:S1], but only because it is also charged on development costs and the premium, which carry no physical risk. Charged on the six base lines alone, 10 percent would be USD 12.7m, below that practice range, and below what a scheme with a tunnel warrants. A civil overrun at the large-dam median of 27 percent [HY-08] adds USD 18.4m; at the mean of 96 percent, USD 65.3m. With the illustrative tunnel, the gap between contingency and the median stress case should be covered by GBR risk sharing, sponsor support or a standby facility.
 
 ### O.12 Component risks and the evidence lenders ask for
 
@@ -2367,7 +2384,7 @@ Cost: civil works of USD 68m are 43 percent of the USD 157m plant cost and 54 pe
 
 ### P.1 Purpose and scope
 
-The electromechanical (E&M) package turns head and flow into saleable energy: turbines, generators, governors and excitation, transformers, switchyard, protection, SCADA, auxiliaries, and the hydromechanical gates and valves that control water to the units. Each large plant's E&M equipment is custom-designed [DE:S1]. In the IFC benchmark sample E&M averages 30.3% of total project cost, with a range of 14.9 to 56.6% [DE:S1]. The decisions a committee must test are few: turbine type, number and speed of units, turbine setting, sediment protection, and the contract and test regime that makes supplier guarantees enforceable.
+The electromechanical (E&M) package turns head and flow into saleable energy: turbines, generators, governors and excitation, transformers, switchyard, protection, SCADA, auxiliaries, and the hydromechanical gates and valves that control water to the units. Each large plant's E&M equipment is custom-designed [DE:S1]. In the IFC benchmark sample E&M averages 30.3% of total plant cost (median 29.2%), with a range of 14.9 to 56.6% [DE:S1]. The decisions a committee must test are few: turbine type, number and speed of units, turbine setting, sediment protection, and the contract and test regime that makes supplier guarantees enforceable.
 
 ### P.2 Turbine types and selection by head and flow
 
@@ -2376,7 +2393,7 @@ Turbine choice rests on the site's head and flow, including how often the turbin
 - **Impulse** (Pelton, Turgo, cross-flow): the runner turns in air under one or more jets. They hold efficiency under fluctuating flow, avoid penstock overpressure, control overspeed easily and are easy to maintain.
 - **Reaction** (Francis, propeller, Kaplan, bulb): the runner is immersed in a pressure casing and driven by lift; a draft tube recovers head below the runner. Runners are smaller and faster than Peltons, can run submerged, and give higher efficiency at higher power.
 
-The IFC guide's head classes are: low head below 10 m and high head above 100 m; its medium-head range is misprinted in the text ("50 m < H < 10 m") and should not be quoted [DE:S1]. The guide's head-flow chart (Figure 4-19, on log axes of 1 to 1000 m head and 1 to 1000 m<sup>3</sup>/s flow) places, as far as it can be read, Pelton and Turgo at high head and low flow, Kaplan at low head and high flow, cross-flow at low to medium head and small flow, and Francis across the wide middle field; the boundaries depend on each manufacturer's design [DE:S1].
+The IFC guide classes schemes as high head above 100 m, medium head 30 to 100 m and low head below 30 m [DE:S1]. Its turbine section uses a different low-head limit (below 10 m) and misprints the medium range ("50 m < H < 10 m"), so quote the scheme classes [DE:S1]. The guide's head-flow chart (Figure 4-19, on log axes of 1 to 1000 m head and 1 to 1000 m<sup>3</sup>/s flow) places, as far as it can be read, Pelton and Turgo at high head and low flow, Kaplan at low head and high flow, cross-flow at low to medium head and small flow, and Francis across the wide middle field; the boundaries depend on each manufacturer's design [DE:S1].
 
 
 **Table P.1. Turbine types: principle, application and part-load features**
@@ -2517,11 +2534,11 @@ Future O&M staff should attend shop assembly and testing [DE:S1]. Site tests run
 
 > P = ρ × g × Q × H × η = 1,000 × 9.81 × 57 × 120 × 0.92 × 0.98 = 60.5 MW
 
-Hydraulic power is 67.1 MW, shaft power 61.7 MW and output 60.5 MW, so the 60 MW rating is consistent. Two comments. First, 0.92 is a design-point efficiency; at part load the Francis curve falls (P.4), so the energy model needs a curve, not a constant. Second, 0.98 for generator and transformer combined is optimistic: IFC puts generator efficiency alone at up to about 98% above 1 MW [DE:S1], and transformer losses come on top. The energy check (60.5 MW × 8,760 h × 0.56 ≈ 297 GWh) agrees with the P50 of about 292 GWh.
+Hydraulic power is 67.1 MW, shaft power 61.7 MW and output 60.5 MW, so the 60 MW rating is consistent. Two comments. First, 0.92 is a design-point efficiency; at part load the Francis curve falls (P.4), so the energy model needs a curve, not a constant. Second, 0.98 for generator and transformer combined is optimistic: IFC puts generator efficiency alone at up to about 98% above 1 MW [DE:S1], and transformer losses come on top. The P50 of about 292 GWh over 60 MW × 8,760 h gives the case capacity factor of 55.6% (Table N.2).
 
 **Turbine type.** At 120 m net head and 57 m<sup>3</sup>/s (19 to 57 m<sup>3</sup>/s per unit), Kasiri sits in the high-head class (above 100 m) and in the Francis field of the IFC head-flow chart, well above the bulb ceiling of 30 m and at flows beyond the Pelton field [DE:S1]. The design ratio Q<sub>d</sub>/Q<sub>av</sub> = 57/38 = 1.5 is at the top of the 1.0 to 1.5 range for run-of-river, and the 56% capacity factor lies within the 40 to 70% run-of-river range [DE:S1].
 
-**Specific speed.** Unit count, grid frequency (50 Hz) and speeds below are illustrative assumptions, not case facts.
+**Specific speed.** The case sets two units (Chapter 3). The one- and three-unit rows, the grid frequency (50 Hz) and the speeds below are illustrative assumptions, used to show why two units were chosen.
 
 
 **Table P.4. Illustrative Kasiri unit configurations (H = 120 m, η<sub>t</sub> = 0.92, 50 Hz)**
@@ -2584,7 +2601,7 @@ Construction starts before the first concrete is poured. Hydro sites are often r
 
 The typical critical path given by the IFC guide runs through access roads, penstock construction, tunnelling, E&M equipment manufacturing and connection to the grid, although critical items vary by project [DE:S1]. E&M installation can only follow completion of powerhouse civil works, and long-lead items must be ordered in time, though equipment that arrives too early must be stored on site at added risk [DE:S1]. River diversion is the hinge between these chains: the dam and powerhouse foundations cannot be built in the dry until the river has been diverted, and on run-of-river projects dry commissioning tests must be completed before the construction pit is flooded and the cofferdams removed (Q.6) [DE:S1]. A programme that shows diversion slipping past a dry season, without showing the knock-on to the next low-flow window, is incomplete.
 
-In Africa, missing transmission lines and grid upgrades are often a key barrier to reaching COD, leading to deemed energy claims that burden offtakers [HY-06].
+Missing transmission lines and grid upgrades are often a key barrier to reaching COD, leading to deemed energy claims that burden offtakers [HY-06].
 
 
 **Table Q.1. Schedule benchmarks from the sources**
@@ -2743,7 +2760,7 @@ Case values: 60 MW, construction three years, operations 25 years, plant cost ab
 
 *Note: Applying the IFC E&M percentage to hydromechanical as well as electromechanical cost is an analyst assumption.*
 
-Each percentage point of availability is worth roughly 292 / 0.95 × 0.01 ≈ 3.1 GWh/yr if outages fell evenly across the year. They need not. Usable flow in February is 20 minus 4 = 16 m3/s, 28% of rated flow. Under an illustrative assumption of three equal units of 19 m3/s each (not a case fact), two units could pass all usable February flow, so a scheduled overhaul then loses almost no energy, subject to part-load efficiency. The O&M plan should therefore place overhauls in the lowest-flow months (February, September and January), and the model should not deduct scheduled outages pro rata.
+Each percentage point of availability is worth roughly 292 / 0.95 × 0.01 ≈ 3.1 GWh/yr if outages fell evenly across the year. They need not. Usable flow in February is 20 minus 4 = 16 m3/s, 28% of rated flow. Under the two-unit base case of Annex P (28.5 m3/s each, not a case fact), one unit can pass all usable February flow and stays above its 40% minimum of 11.4 m3/s, so an overhaul of the other unit then loses almost no energy, subject to part-load efficiency. The O&M plan should therefore place overhauls in the lowest-flow months (February, September and January), and the model should not deduct scheduled outages pro rata.
 
 ### Q.14 Decision tests
 
@@ -2803,7 +2820,7 @@ The ESIA starts at site selection, informs the feasibility design and produces a
 
 **Baseline seasons.** The sources set no minimum duration. The test is whether surveys cover the flow extremes that drive impacts. Kasiri's mean monthly flow ranges from 20 m3/s in February to 70 m3/s in May (case values); a single-season baseline would miss either low-flow stress in the dewatered reach or high-flow conditions for fish movement.
 
-**Cumulative impact assessment.** The ESIA for the first dam on a river should assess all known proposed dams, and cumulative mitigation should be complete or well advanced before the second dam is built [DE:S1]. In a cascade each reservoir must not raise the tailwater of the plant upstream [DE:S1]. The World Bank recommends that governments prepare basin plans and cumulative assessments before procurement [HY-06].
+**Cumulative impact assessment.** The ESIA for the first dam on a river should assess all known proposed dams, and cumulative mitigation should be complete or well advanced before the second dam is built [DE:S1]. In a cascade each reservoir must not raise the tailwater of the plant upstream [DE:S1]. The World Bank report proposes that DFIs help governments prepare pre-feasibility studies that include river basin management plans and cumulative impact assessments [HY-06].
 
 ### R.4 Key hydro impacts
 
@@ -2836,7 +2853,7 @@ With H<sub>n</sub> = 120 m, η<sub>t</sub> = 0.92, η<sub>gt</sub> = 0.98 and A 
 
 *Note: Derived from case values; monthly means hide daily variation. The same method reproduces the case P50 of about 292 GWh/yr.*
 
-The release costs about 32 GWh/yr, 11 percent of P50. Each further 1 m3/s costs about 8 GWh/yr (close to 3 percent of P50) until the release exceeds 13 m3/s and bites in May too. The release is 10.5 percent of mean flow but 17 to 20 percent of flow in the driest months, where ecologists will test its adequacy.
+The release costs about 32 GWh/yr, 11 percent of P50. Each further 1 m3/s costs about 8 GWh/yr (close to 3 percent of P50) until the release exceeds 13 m3/s and bites in May too. The release is 10.6 percent of mean flow but 17 to 20 percent of flow in the driest months, where ecologists will test its adequacy.
 
 **Fish passage.** Dams block upstream migration, downstream passage through turbines and spillways often fails, and ladders, lifts and trap-and-truck schemes are usually of limited effectiveness [DE:S1]. Fish-friendly turbines are emerging [DE:S1]; intakes need fish diversion and passes where required [LIT:S6]. Stocking with non-native species is undesirable [DE:S1].
 
@@ -2844,7 +2861,7 @@ The release costs about 32 GWh/yr, 11 percent of P50. Each further 1 m3/s costs 
 
 **Water quality.** Impoundment lowers oxygen and dilution, flooded biomass decays, and low oxygen or gas supersaturation kills fish; selective clearing before filling is standard mitigation [DE:S1].
 
-**Reservoir greenhouse gases.** Flooded biomass emits carbon dioxide and methane. Most hydro more than offsets this, but some reservoirs, such as Balbina in Brazil, appear to emit more than gas-fired generation would for many years; the best mitigation is to flood little land, especially forest [DE:S1]. PS 1 requires significance to be assessed [DE:S1], and Climate Bonds Initiative criteria test greenhouse gas intensity [HY-06]. The sources give no threshold; for run-of-river with small pondage the issue is usually minor, but the ESIA should state flooded area and biomass.
+**Reservoir greenhouse gases.** Flooded biomass emits carbon dioxide and methane. Most hydro more than offsets this, but some reservoirs, such as Balbina in Brazil, appear to emit more than gas-fired generation would for many years; the best mitigation is to flood little land, especially forest [DE:S1]. PS 1 requires significance to be assessed [DE:S1], and Climate Bonds Initiative criteria require low greenhouse gas infrastructure [HY-06]. The sources give no threshold; for run-of-river with small pondage the issue is usually minor, but the ESIA should state flooded area and biomass.
 
 **Biodiversity and critical habitat.** Flooded riverine forest is usually worth more than the aquatic habitat created [DE:S1]. PS 6 bars significant conversion of natural and critical habitat unless specific conditions are met; compensatory protected areas of comparable size and quality are the preferred offset, and wildlife rescue rarely succeeds [DE:S1].
 
@@ -2860,7 +2877,7 @@ PS 7 requires full respect for indigenous peoples' rights, livelihoods and cultu
 
 ### R.7 Community health, safety and dam safety
 
-PS 4 requires design, construction and operation to good international practice by competent professionals, with external review in high-risk cases [DE:S1]. The IFC guide distinguishes the normal operation design flood, often a 100-year event set by national rules for the hazard class, from the maximum design flood the structures must survive, the probable maximum or 10,000-year flood [DE:S1]. The World Bank's dam safety note covers independent panels and hydrological and seismic risk [HY-15]. Other risks are drowning, which needs access control, and water-related disease such as malaria and schistosomiasis around reservoirs in warm climates [DE:S1]. PS 1 requires emergency plans [DE:S1]; for a dam this means a tested emergency preparedness plan for downstream communities.
+PS 4 requires design, construction and operation to good international practice by competent professionals, with external review in high-risk cases [DE:S1]. The IFC guide distinguishes the normal operation design flood, defined by a return period such as 100 years and set by national rules for the hazard class, from the maximum design flood the structures must survive, the probable maximum or 10,000-year flood [DE:S1]. The World Bank's dam safety note is accompanied by technical notes on hydrological and seismic risk [HY-15; R4:S1]. Other risks are drowning, which needs access control, and water-related disease such as malaria and schistosomiasis around reservoirs in warm climates [DE:S1]. PS 1 requires emergency plans [DE:S1]; for a dam this means a tested emergency preparedness plan for downstream communities.
 
 ### R.8 Stakeholder engagement and grievance
 
@@ -2876,7 +2893,7 @@ The Hydropower Sustainability Tools comprise the good practice guidelines, the A
 
 ### R.11 Climate resilience and screening
 
-Climate change may bring significant regional changes in flow volume and timing; the uncertainty is outside the developer's control but can be simulated [DE:S1]. A 2015 drought at Kariba caused load shedding in Zambia [LIT:S7], and the 2024 Kariba generation allocation was cut by about 47 percent (search summary only) [CL-04]. Planned dams would concentrate regional capacity in single basins, raising the risk of simultaneous shortfall [CL-03]. Methods exist: a six-phase screening and stress test [CL-01], basin-level revenue studies for African rivers [CL-02], and contract allocation of hydrology and flood risk [CL-06]. Hydrology risk transferred to government becomes a contingent liability [HY-06].
+Climate change may bring significant regional changes in flow volume and timing; the uncertainty is outside the developer's control but can be simulated [DE:S1]. A 2015 drought at Kariba caused load shedding in Zambia [LIT:S7], and the 2024 Kariba generation allocation was cut by about 47 percent, from 30 to 16 billion m3 [CL-04]. Planned dams would concentrate regional capacity in single basins, raising the risk of simultaneous shortfall [CL-03]. Methods exist: a six-phase screening and stress test [CL-01], basin-level revenue studies for African rivers [CL-02], and contract allocation of hydrology and flood risk [CL-06]. Hydrology risk transferred to government becomes a contingent liability [HY-06].
 
 For Kasiri, scaling every monthly mean flow by 0.9 with the 4 m3/s release held fixed cuts modelled energy by about 10 percent, to roughly 264 GWh/yr; in February the release would then be 22 percent of flow. The 10 percent scenario is an analyst's test value, not a projection. The 12-year record is shorter than the 15 years the IFC guide expects [DE:S1], widening uncertainty before any climate adjustment. Screening should also re-run the design floods for heavier extreme rainfall and report spillway capacity and freeboard.
 

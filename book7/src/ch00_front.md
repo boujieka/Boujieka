@@ -92,6 +92,8 @@ A second fictional project, Lumora Falls, a 400 MW scheme structured as a public
 
 ## Conventions
 
+The Kasiri case runs on model time: development from 2021, financial close in 2027 and commercial operation in 2030. When the book says that Tamarind is at the start of permitting, it refers to the stage reached, not to a calendar date.
+
 Currency amounts are in US dollars (USD) unless stated, and "USDm" means millions of US dollars. Unless stated otherwise, amounts in the model are nominal; capital costs quoted "real 2026" are before escalation. Energy is in GWh and capacity in MW. P50 and P90 denote the energy exceeded with 50 and 90 percent probability; "one-year" and "ten-year" P90 are distinguished in Chapter 2. Unit costs are labelled by scope (plant, funding base, total uses or system), because a USD/kW figure without a scope cannot be compared with anything. Negative amounts are shown with a minus sign. British spelling is used throughout.
 
 ## Sources and evidence

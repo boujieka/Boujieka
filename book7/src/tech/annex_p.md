@@ -145,7 +145,7 @@ Hydraulic power is 67.1 MW, shaft power 61.7 MW and output 60.5 MW, so the 60 MW
 
 **Turbine type.** At 120 m net head and 57 m^3^/s (19 to 57 m^3^/s per unit), Kasiri sits in the high-head class (above 100 m) and in the Francis field of the IFC head-flow chart, well above the bulb ceiling of 30 m and at flows beyond the Pelton field [DE:S1]. The design ratio Q~d~/Q~av~ = 57/38 = 1.5 is at the top of the 1.0 to 1.5 range for run-of-river, and the 56% capacity factor lies within the 40 to 70% run-of-river range [DE:S1].
 
-**Specific speed.** Unit count, grid frequency (50 Hz) and speeds below are illustrative assumptions, not case facts.
+**Specific speed.** The case sets two units (Chapter 3). The one- and three-unit rows, the grid frequency (50 Hz) and the speeds below are illustrative assumptions, used to show why two units were chosen.
 
 Table: Table P.4. Illustrative Kasiri unit configurations (H = 120 m, η~t~ = 0.92, 50 Hz)
 | Units | Q per unit (m^3^/s) | Shaft power per unit (MW) | Speed (rpm) | Pole pairs | n~s~ (kW) | n~q~ | n~QE~ |

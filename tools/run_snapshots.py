@@ -170,6 +170,7 @@ table(wb["17A_STRUCTURES"], MAP["CMP_SNAP"], "STRUCTURES (base case, debt sized 
 table(wb["28_SENSITIVITY"], MAP["SENS_SNAP_ROW"], "SENSITIVITIES", ["Base — debt locked"] + [l for l, _ in SENS])
 wb.save(MODEL)
 subprocess.run([sys.executable, RECALC, MODEL, "300"], check=True)
+subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "model", "excel_quote_fix.py"), MODEL], check=True)  # Excel needs quoted digit-leading sheet names
 SLUG = {"Base — debt sized in-model": "base_sized", "Base — debt locked": "base_locked", "Low case": "low", "High case": "high",
         "Drought": "drought", "CAPEX overrun": "overrun", "CAPEX overrun, reference-class mean (+96%)": "overrun96", "Construction delay": "delay", "Low demand": "lowdem",
         "Offtaker stress": "offtaker", "Offtaker stress, no budget backstop (PPA guarantee called)": "offtaker_nobs",

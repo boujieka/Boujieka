@@ -154,7 +154,7 @@ Table: Table Q.4. Kasiri construction and O&M checks using source benchmarks
 | Availability | Case 0.95 against IFC year 1 of 95% and later 97% to 98% [DE:S1] | Conservative after year 3 |
 Note: Applying the IFC E&M percentage to hydromechanical as well as electromechanical cost is an analyst assumption.
 
-Each percentage point of availability is worth roughly 292 / 0.95 × 0.01 ≈ 3.1 GWh/yr if outages fell evenly across the year. They need not. Usable flow in February is 20 minus 4 = 16 m3/s, 28% of rated flow. Under the illustrative two-unit base case of Annex P (28.5 m3/s each, not a case fact), one unit can pass all usable February flow and stays above its 40% minimum of 11.4 m3/s, so an overhaul of the other unit then loses almost no energy, subject to part-load efficiency. The O&M plan should therefore place overhauls in the lowest-flow months (February, September and January), and the model should not deduct scheduled outages pro rata.
+Each percentage point of availability is worth roughly 292 / 0.95 × 0.01 ≈ 3.1 GWh/yr if outages fell evenly across the year. They need not. Usable flow in February is 20 minus 4 = 16 m3/s, 28% of rated flow. Under the two-unit base case of Annex P (28.5 m3/s each, not a case fact), one unit can pass all usable February flow and stays above its 40% minimum of 11.4 m3/s, so an overhaul of the other unit then loses almost no energy, subject to part-load efficiency. The O&M plan should therefore place overhauls in the lowest-flow months (February, September and January), and the model should not deduct scheduled outages pro rata.
 
 ### Q.14 Decision tests
 

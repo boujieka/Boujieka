@@ -183,7 +183,7 @@ def key(cid):
     return (a, int(n.group(1)) if n else 0, n.group(2) if n else b)
 
 
-L = ["Identifiers with two letters and a number (such as HY-08) refer to the research source database; identifiers with a prefix and S-number (such as DE:S1) refer to the numbered source lists of the research files: A1 and A2, African case files; INT, international benchmarks; DE, development evidence; LIT, works compared in the front matter. Verification status records what the research team saw. Claims resting on a search summary only should be checked against the original before reliance.",
+L = ["Identifiers with two letters and a number (such as HY-08) refer to the research source database; identifiers with a prefix and S-number (such as DE:S1) refer to the numbered source lists of the research files: A1 and A2, African case files; INT, international benchmarks; DE, development evidence; LIT, works compared in the front matter; R1 to R4, sources added during the pre-publication source audit. Verification status records what the research team saw. Claims resting on a search summary only should be checked against the original before reliance.",
      "", "| ID | Source | Verification |", "|---|---|---|"]
 for cid in sorted(cited, key=key):
     e, st = entry(cid)
