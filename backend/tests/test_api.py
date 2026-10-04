@@ -6,8 +6,8 @@ AS_OF = "2026-10-03"
 API = "/api/v1"
 
 
-def get(client, path, **params):
-    r = client.get(f"{API}{path}", params=params)
+def get(client, path, headers=None, **params):
+    r = client.get(f"{API}{path}", params=params, headers=headers)
     assert r.status_code == 200, r.text
     return r.json()
 
@@ -202,8 +202,8 @@ class TestOverview:
         assert rows[0]["priority"] == 1  # central banks first
         assert any(s["category"] == "synthetic" for s in rows)
 
-    def test_data_quality(self, client):
-        dq = get(client, "/data-quality", as_of=AS_OF)
+    def test_data_quality(self, client, analyst_headers):
+        dq = get(client, "/data-quality", headers=analyst_headers, as_of=AS_OF)
         assert dq["synthetic_auctions"] > 0
         assert dq["unverified_records"] == 54  # the 54 country reference rows
         assert len(dq["sources_pending_configuration"]) == dq["sources_total"] - 1
@@ -218,9 +218,11 @@ class TestOverview:
     "path",
     ["/dashboard/summary", "/auctions", "/countries", "/countries/KEN", "/sources", "/data-quality"],
 )
-def test_no_ranking_language(client, path):
+def test_no_ranking_language(client, analyst_headers, path):
     """The API must not label anything as a 'best' investment or a buy/sell call."""
-    text = client.get(f"{API}{path}", params={"as_of": AS_OF}).text.lower()
+    r = client.get(f"{API}{path}", params={"as_of": AS_OF}, headers=analyst_headers)
+    assert r.status_code == 200
+    text = r.text.lower()
     for word in ("best investment", "\"best\"", "strong buy", "guaranteed"):
         assert word not in text
 

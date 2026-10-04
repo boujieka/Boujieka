@@ -118,3 +118,11 @@ class CoverageTier(StrEnum):
 
     MARKET_DATA = "market_data"  # Auction/security data is loaded (synthetic until Phase 2).
     REFERENCE_ONLY = "reference_only"  # Identity, currency, zone, central bank; no market data yet.
+
+
+class Role(StrEnum):
+    """Access level of an API caller. Requests without a key are PUBLIC."""
+
+    PUBLIC = "public"  # No key: read-only public endpoints.
+    ANALYST = "analyst"  # Key holder: internal analytics (e.g. data quality).
+    ADMIN = "admin"  # Key holder: everything, including the audit log.
