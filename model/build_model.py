@@ -1656,7 +1656,7 @@ calc(ws, r, "dev_pv_cost_rw", "PV of risk-weighted spend (each stage weighted by
 calc(ws, r, "dev_pv_success", "PV at development start of value received at close", f"={{dev_success_value}}/(1+{{dev_rate}})^({{dev_months}}/12)", "USDm", "n2"); r += 1
 calc(ws, r, "dev_npv_success", "Developer NPV if the project reaches close", "={dev_pv_success}-{dev_pv_cost_unw}", "USDm", "n2", out=True); r += 1
 calc(ws, r, "dev_enpv", "RISK-WEIGHTED DEVELOPER NPV (expected, from reconnaissance)", "={dev_pfc}*{dev_pv_success}-{dev_pv_cost_rw}", "USDm", "n2", out=True); r += 1
-calc(ws, r, "dev_be_prem", "Development premium that sets the risk-weighted NPV to zero", "=MAX(0,{dev_prem}-{dev_enpv}*(1+{dev_rate})^({dev_months}/12)/{dev_pfc})", "USDm", "n2", out=True); r += 1
+calc(ws, r, "dev_be_prem", "Development premium that sets the risk-weighted NPV to zero, first order (holds plant cost and equity fixed; the full-engine value is in the snapshot)", "=MAX(0,{dev_prem}-{dev_enpv}*(1+{dev_rate})^({dev_months}/12)/{dev_pfc})", "USDm", "n2", out=True); r += 1
 calc(ws, r, "dev_be_prem_pct", "  as % of plant CAPEX", "={dev_be_prem}/{capex_real}", "%", "pct", out=True); r += 1
 calc(ws, r, "dev_be_p", "Break-even probability of reaching close at the current premium (indicative: spend weights held fixed; n/a if the project loses value even on the success path)", '=IF({dev_npv_success}<=0,"n/a: negative on the success path",{dev_pv_cost_rw}/{dev_pv_success})', "%", "pct", out=True); r += 1
 r += 1
@@ -1767,7 +1767,7 @@ GATES_FC = [
     ("Land rights secured for all project areas", "Permits", "Y", "NOT MET", None),
     ("PPA signed and approved by the regulator", "Revenue", "Y", "PARTIAL", None),
     ("Implementation or concession agreement signed", "Revenue", "Y", "PARTIAL", None),
-    ("Grid connection agreement signed and transmission financed", "Grid", "Y", None, "{tx_fin}=1"),
+    ("Transmission financed (model test); signed grid connection agreement to be evidenced", "Grid", "Y", None, "{tx_fin}=1"),
     ("Transmission in service no later than plant COD", "Grid", "N", None, "{tx_gap_yrs}<=0"),
     ("EPC contract(s) signed with fixed price, completion date and LDs", "Construction", "Y", "PARTIAL", None),
     ("O&M arrangements and owner's team in place", "Operations", "N", "PARTIAL", None),
@@ -1775,9 +1775,9 @@ GATES_FC = [
     ("Offtaker payment capacity at least 1.2x the PPA bill (worst of first 10 years)", "Offtaker", "Y", None, "{ut_ratio10}>=1.2"),
     ("Financing plan fully committed (no financing gap)", "Finance", "Y", None, "{fin_gap}<=0.5"),
     ("Minimum DSCR at or above the sizing target in the selected case", "Finance", "Y", None, "AND({debt_m}+{debt_c}>0,{kpi_min_dscr}>={str_dscr})"),
-    ("Equity commitments signed and equity IRR at or above target", "Finance", "Y", None, "IF(ISNUMBER({kpi_eirr}),{kpi_eirr}>={str_hurdle},{s_priv}<=0)"),
+    ("Equity IRR at or above target (model test); signed equity commitments to be evidenced", "Finance", "Y", None, "IF(ISNUMBER({kpi_eirr}),{kpi_eirr}>={str_hurdle},{s_priv}<=0)"),
     ("Political risk cover or guarantees signed", "Risk", "N", "NO EVIDENCE", None),
-    ("Government support approved by the finance ministry; fiscal screen not HIGH", "Public finance", "Y", None, "LEFT({sc_result},4)<>\"HIGH\""),
+    ("Fiscal screen not HIGH (model test); finance ministry approval of support to be evidenced", "Public finance", "Y", None, "LEFT({sc_result},4)<>\"HIGH\""),
     ("Insurance programme placed (construction all risks, DSU)", "Risk", "N", "PARTIAL", None),
     ("Independent model audit completed", "Finance", "N", "NO EVIDENCE", None),
 ]
@@ -1798,7 +1798,7 @@ for k, (lab, area, crit, ev, test) in enumerate(GATES_FC):
     c = ws.cell(r, 4, crit); c.font = F_INPUT
     if test is None:
         c = ws.cell(r, 5, ev); c.font = F_INPUT; c.fill = FILL_INPUT; c.border = BOX
-        put(ws, f"F{r}", f"=E{r}")
+        put(ws, f"F{r}", f'=IF(OR(E{r}="MET",E{r}="PARTIAL",E{r}="NOT MET"),E{r},"NO EVIDENCE")')  # blank or mistyped counts as no evidence
         ws.cell(r, 7, "Evidence file (document reference to be entered)").font = F_BASE
     else:
         ws.cell(r, 5, "model test").font = Font(name=ARIAL, size=9, italic=True, color="595959")
@@ -1892,7 +1892,7 @@ c = ws["G17"]; c.value = "23-GATE FINANCIAL CLOSE READINESS (transaction stage)"
 for qi in range(8):
     rq = FW_ROW0 + qi
     ws[f"G{18 + qi}"] = FQ[qi]; ws[f"G{18 + qi}"].font = F_BASE
-    put(ws, f"H{18 + qi}", f"='30A_CLOSE_READINESS'!E{rq}&\" of \"&'30A_CLOSE_READINESS'!D{rq}&\" met; \"&'30A_CLOSE_READINESS'!F{rq}&\" critical open\"")
+    put(ws, f"H{18 + qi}", f"='30A_CLOSE_READINESS'!E{rq}&\" of \"&'30A_CLOSE_READINESS'!D{rq}&\" met; \"&'30A_CLOSE_READINESS'!F{rq}&\" critical not met\"")
     ws[f"H{18 + qi}"].border = BOX
 ws["G26"] = "Decision"; ws["G26"].font = F_BOLD
 put(ws, "H26", "={fc_decision}"); ws["H26"].border = BOX
@@ -2053,7 +2053,7 @@ for lab, nm, txt, where in [("Financial close decision", "fc_decision", "STOP: a
                             ("Fiscal screen", "sc_result", "LOW additional fiscal pressure", "Chapters 15, 18")]:
     ws.cell(rr, 1, lab).font = F_BASE; ws.cell(rr, 2, txt).font = F_INPUT
     put(ws, f"C{rr}", f"={{{nm}}}")
-    put(ws, f"E{rr}", f'=IF(C{rr}=B{rr},"PASS","CHECK")')
+    put(ws, f"E{rr}", f'=IF(ISERROR(C{rr}),"CHECK",IF(C{rr}=B{rr},"PASS","CHECK"))')
     ws.cell(rr, 6, where).font = F_BASE
     rr += 1
 BC1 = rr - 1

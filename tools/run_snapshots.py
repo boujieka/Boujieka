@@ -128,6 +128,22 @@ for grp in (SCEN, STRS, SENS, EPCS, DEVS, LENS):
         print("running", lab)
         results[lab] = base if st is BASE else run(st)
 
+def be_premium():
+    """Development premium (% of plant CAPEX) that sets the risk-weighted developer NPV to zero, full engine
+    (the premium also raises plant cost, debt and equity, which the first-order formula on 01A ignores)."""
+    lo, hi = 0.0, 0.6
+    for _ in range(10):
+        mid = (lo + hi) / 2
+        v = run(dict(BASE, dev_prem_pct=mid))["dev_enpv"]
+        if v < 0:
+            lo = mid
+        else:
+            hi = mid
+    return (lo + hi) / 2
+
+
+print("break-even development premium, full engine")
+BE_PREM = be_premium()
 REQ = {}
 for i in range(2, 6):
     print("required tariff, structure", i)
@@ -185,5 +201,6 @@ out = {SLUG.get(k, k): dict(v, label=k) for k, v in results.items()}
 for k, v in REQ.items():
     out[k]["req_tariff_flex"] = v
 out["base_locked"]["be_flow_flex"] = BE_FLOW
+out["base_sized"]["dev_be_prem_full"] = BE_PREM
 json.dump(out, open("model/snapshot_results.json", "w"), indent=1, default=str)
 print("done")
