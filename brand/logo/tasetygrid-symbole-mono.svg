@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="TasetyGrid — symbole monochrome">
+<title>TasetyGrid — symbole monochrome</title>
+<circle cx="256.0" cy="256.0" r="225.28" fill="none" stroke="#17130F" stroke-width="20.48"/>
+<clipPath id="clip71788"><circle cx="256.0" cy="256.0" r="215.04"/></clipPath>
+<g clip-path="url(#clip71788)" fill="none" stroke="#17130F" stroke-width="5.12" opacity="0.45"><rect x="288.18" y="191.63" width="10.73" height="10.73"/><rect x="298.91" y="191.63" width="10.73" height="10.73"/><rect x="288.18" y="170.18" width="21.46" height="21.46"/><rect x="256.00" y="170.18" width="32.18" height="32.18"/><rect x="256.00" y="202.36" width="53.64" height="53.64"/><rect x="309.64" y="170.18" width="85.82" height="85.82"/><rect x="256.00" y="30.72" width="139.46" height="139.46"/><rect x="30.72" y="30.72" width="225.28" height="225.28"/><rect x="30.72" y="256.00" width="364.74" height="364.74"/><rect x="395.46" y="30.72" width="590.02" height="590.02"/><rect x="30.72" y="-924.04" width="954.76" height="954.76"/></g>
+<path d="M288.18,191.63 A10.73,10.73 0 0 0 298.91,202.36 A10.73,10.73 0 0 0 309.64,191.63 A21.46,21.46 0 0 0 288.18,170.18 A32.18,32.18 0 0 0 256.00,202.36 A53.64,53.64 0 0 0 309.64,256.00 A85.82,85.82 0 0 0 395.46,170.18 A139.46,139.46 0 0 0 256.00,30.72 A225.28,225.28 0 0 0 30.72,256.00" fill="none" stroke="#17130F" stroke-width="20.48" stroke-linecap="round"/>
+<circle cx="481.28" cy="256.00" r="18.43" fill="#17130F"/>
+<circle cx="256.00" cy="481.28" r="18.43" fill="#17130F"/>
+<circle cx="30.72" cy="256.00" r="18.43" fill="#17130F"/>
+<circle cx="256.00" cy="30.72" r="18.43" fill="#17130F"/>
+<circle cx="288.18" cy="191.63" r="12.29" fill="#17130F"/>
+</svg>

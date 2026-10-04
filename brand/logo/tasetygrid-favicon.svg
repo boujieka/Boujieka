@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="TasetyGrid — favicon">
+<title>TasetyGrid — favicon</title>
+<rect width="512" height="512" rx="92.2" fill="#1D3F8F"/>
+<circle cx="256.0" cy="256.0" r="204.80" fill="none" stroke="#A6412B" stroke-width="43.52"/>
+<clipPath id="clip675756"><circle cx="256.0" cy="256.0" r="183.04"/></clipPath>
+<g clip-path="url(#clip675756)" fill="none" stroke="#1D3F8F" stroke-width="5.12" opacity="0.55"></g>
+<path d="M285.26,177.98 A29.26,29.26 0 0 0 256.00,207.24 A48.76,48.76 0 0 0 304.76,256.00 A78.02,78.02 0 0 0 382.78,177.98 A126.78,126.78 0 0 0 256.00,51.20 A204.80,204.80 0 0 0 51.20,256.00" fill="none" stroke="#C9982E" stroke-width="43.52" stroke-linecap="round"/>
+</svg>

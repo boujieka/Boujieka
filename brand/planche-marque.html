@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TasetyGrid — planche de marque</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bleu: #1D3F8F; --or: #C9982E; --ocre: #A6412B;
+    --noir: #17130F; --blanc: #F6F0E4; --turquoise: #2E8C83;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--blanc); color: var(--noir); font-family: Inter, system-ui, sans-serif; }
+  .page { max-width: 1200px; margin: 0 auto; padding: 48px 24px 64px; }
+  h1 { font-family: Cinzel, serif; color: var(--bleu); font-size: 40px; margin: 0 0 4px; letter-spacing: .04em; }
+  h2 { font-family: Cinzel, serif; color: var(--ocre); font-size: 18px; letter-spacing: .12em; margin: 40px 0 16px; }
+  .lead { max-width: 760px; line-height: 1.6; }
+  .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
+  .card { background: #fff; border-radius: 16px; padding: 28px; display: flex; align-items: center; justify-content: center; min-height: 220px; }
+  .card.dark { background: var(--noir); }
+  .card img { max-width: 100%; max-height: 180px; }
+  .row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .row .card { min-height: 160px; flex-direction: column; gap: 8px; font-size: 12px; }
+  .row .card img { max-height: 110px; }
+  .swatches { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+  .sw { border-radius: 12px; overflow: hidden; background: #fff; font-size: 13px; border: 1px solid #e4dccb; }
+  .sw div:first-child { height: 96px; }
+  .sw p { margin: 8px 12px; line-height: 1.35; }
+  .sw b { display: block; }
+  .symb { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .symb div { background: #fff; border-radius: 12px; padding: 16px; line-height: 1.5; font-size: 14px; }
+  .symb b { color: var(--bleu); }
+  .type { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .type div { background: #fff; border-radius: 12px; padding: 20px; }
+  .cinzel { font-family: Cinzel, serif; font-size: 34px; color: var(--bleu); }
+  .inter { font-family: Inter, sans-serif; font-weight: 600; font-size: 34px; color: var(--or); }
+  @media (max-width: 800px) {
+    .hero, .type { grid-template-columns: 1fr; }
+    .row, .symb { grid-template-columns: repeat(2, 1fr); }
+    .swatches { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <h1>TasetyGrid</h1>
+  <p class="lead"><b>Atlas des personnes, des terres et des ressources.</b> <i>Ta-Sety</i> (tꜣ-sty, « le pays de l'arc ») est le nom
+  que l'Égypte ancienne donnait à la Nubie. Le symbole <b>Kodya</b> réunit une coquille d'escargot qui grandit sur une grille,
+  et le cercle du cosmogramme kongo : la coquille grandit jusqu'à devenir le cercle.</p>
+
+  <div class="hero">
+    <div class="card"><img src="logo/tasetygrid-logo-horizontal.svg" alt="Logo TasetyGrid horizontal"></div>
+    <div class="card dark"><img src="logo/tasetygrid-logo-horizontal-inverse.svg" alt="Logo TasetyGrid sur fond sombre"></div>
+  </div>
+
+  <h2>DÉCLINAISONS</h2>
+  <div class="row">
+    <div class="card"><img src="logo/tasetygrid-symbole.svg" alt=""><span>Symbole</span></div>
+    <div class="card"><img src="logo/tasetygrid-symbole-mono.svg" alt=""><span>Monochrome</span></div>
+    <div class="card"><img src="logo/tasetygrid-symbole-inverse.svg" alt=""><span>Inversé</span></div>
+    <div class="card"><img src="logo/tasetygrid-icone.svg" alt=""><span>Icône d'application</span></div>
+    <div class="card"><img src="logo/tasetygrid-favicon.svg" alt=""><span>Favicon (≤ 32 px)</span></div>
+  </div>
+
+  <h2>LECTURE DU SYMBOLE</h2>
+  <div class="symb">
+    <div><b>La coquille (kodya)</b><br>Dans la pensée kongo, l'enfant dans le ventre de sa mère est comparé à l'escargot dans sa coquille. Le coquillage <i>zinga</i> signifie « vivre ». Ici, la croissance d'un territoire.</div>
+    <div><b>La grille</b><br>Les carrés de Fibonacci qui portent la spirale : le cadastre, la donnée, la mesure. La grille grandit avec la coquille.</div>
+    <div><b>Le cercle et les 4 points</b><br>Le cosmogramme kongo (dikenga) : le cycle du soleil et ses quatre moments. Les deux axes qui se croisent au centre sont tracés par la grille elle-même.</div>
+    <div><b>Les couleurs</b><br>Bleu égyptien, or de Nubie, ocre de Kerma, noir du limon (kmt), blanc du kaolin (mpemba).</div>
+  </div>
+
+  <h2>PALETTE</h2>
+  <div class="swatches">
+    <div class="sw"><div style="background:var(--bleu)"></div><p><b>Bleu égyptien</b>#1D3F8F · principal</p></div>
+    <div class="sw"><div style="background:var(--or)"></div><p><b>Or de Nubie</b>#C9982E · accent</p></div>
+    <div class="sw"><div style="background:var(--ocre)"></div><p><b>Ocre de Kerma</b>#A6412B · accent</p></div>
+    <div class="sw"><div style="background:var(--noir)"></div><p><b>Noir Kemet</b>#17130F · texte</p></div>
+    <div class="sw"><div style="background:var(--blanc);border-bottom:1px solid #ddd"></div><p><b>Blanc mpemba</b>#F6F0E4 · fond</p></div>
+    <div class="sw"><div style="background:var(--turquoise)"></div><p><b>Turquoise faïence</b>#2E8C83 · données</p></div>
+  </div>
+
+  <h2>TYPOGRAPHIE</h2>
+  <div class="type">
+    <div><span class="cinzel">TASETY</span><p>Cinzel SemiBold — capitales lapidaires. Titres et logotype.</p></div>
+    <div><span class="inter">GRID · 1 842 hab.</span><p>Inter — interface, chiffres, données, texte courant.</p></div>
+  </div>
+</div>
+</body>
+</html>

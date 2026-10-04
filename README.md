@@ -1,6 +1,8 @@
-# Boujieka — Plateforme nationale de recensement territorial et patrimonial
+# TasetyGrid — Plateforme nationale de recensement territorial et patrimonial
 
-> Nom de travail historique : **POPGRID Africa**. **À abandonner** : le nom POPGRID est déjà utilisé par le POPGRID Data Collaborative (CIESIN/Columbia), dans le même domaine. Voir [docs/01](docs/01-vision-et-perimetre.md#5-nom-du-produit).
+![TasetyGrid](brand/logo/tasetygrid-logo-horizontal.svg)
+
+> **TasetyGrid** : *Atlas des personnes, des terres et des ressources*. *Ta-Sety*, « le pays de l'arc », est le nom égyptien ancien de la Nubie. Ce nom remplace le nom de travail « POPGRID », déjà utilisé par le POPGRID Data Collaborative (CIESIN). Identité visuelle : [brand/charte-graphique.md](brand/charte-graphique.md).
 
 ## En une phrase
 
@@ -32,7 +34,7 @@ comment c'est utilisé — et ce qui manque.**
 7. [Pilote Cameroun](docs/07-pilote-cameroun.md)
 8. [Risques, points faibles et questions ouvertes](docs/08-risques-et-questions-ouvertes.md)
 
-Nomenclatures : [`nomenclatures/`](nomenclatures/)
+Nomenclatures : [`nomenclatures/`](nomenclatures/) · Marque et logo : [`brand/`](brand/charte-graphique.md)
 
 ## Statut
 

@@ -33,7 +33,7 @@ statistique, cartographie), et en fait au contraire leur **outil commun**.
 
 ## 3. Architecture produit
 
-| Module | Contenu | Utilisateurs principaux |
+| Module (TasetyGrid …) | Contenu | Utilisateurs principaux |
 |---|---|---|
 | **PEOPLE** | Habitat, ménages, population (agrégats), dynamique démographique | Institution de recensement, statistique, communes |
 | **LAND** | Unités foncières, occupation du sol, droits et concessions référencés | Domaines/cadastre, agriculture, forêts, communes |
@@ -64,17 +64,19 @@ avec réversibilité contractuelle.
 
 ## 5. Nom du produit
 
-« POPGRID » : **confirmé, le nom est déjà utilisé** dans exactement le même domaine. Le **POPGRID Data
-Collaborative**, lancé en 2017 et géré par le CIESIN (Université Columbia) avec le réseau TReNDS des Nations
-unies (SDSN), réunit les producteurs de données maillées de population et d'établissements humains
-([CIESIN](https://ciesin.columbia.edu/content/leaving-no-one-map-guide-gridded-population-data-sustainable-development),
-[NASA Earthdata](https://www.earthdata.nasa.gov/news/popgrid-data-collaborative-updates-website-presents-webinar)).
-Le risque de confusion est donc réel. L'existence d'une marque déposée n'a pas été vérifiée.
-**Recommandation : abandonner « POPGRID ».** Par ailleurs « POP » réduit le produit à la population, ce que le
-concept affiné dépasse justement.
+**Nom retenu : TasetyGrid**, avec la signature *Atlas des personnes, des terres et des ressources*.
+Le sens du nom, le logo et la charte sont décrits dans [`../brand/charte-graphique.md`](../brand/charte-graphique.md).
 
-Pistes à tester (disponibilité de marque et de domaine non vérifiée) : un nom qui évoque le
-territoire plutôt que la population, bilingue français/anglais, et prononçable localement.
+Modules : **TasetyGrid People**, **TasetyGrid Land**, **TasetyGrid Assets**, **TasetyGrid Resources**,
+**TasetyGrid Intelligence**.
+
+Historique : le nom de travail « POPGRID » a été abandonné. Il est déjà utilisé, dans le même domaine,
+par le POPGRID Data Collaborative (CIESIN, Université Columbia, et réseau TReNDS des Nations unies)
+([CIESIN](https://ciesin.columbia.edu/content/leaving-no-one-map-guide-gridded-population-data-sustainable-development)).
+
+Avant tout dépôt : recherche d'antériorité de marque (OAPI, OMPI, EUIPO) et vérification des noms de
+domaine. Une simple recherche web (octobre 2026) n'a trouvé aucune utilisation de « TasetyGrid », mais
+cela ne vaut pas recherche d'antériorité.
 
 ## 6. Positionnement par rapport à l'existant
 

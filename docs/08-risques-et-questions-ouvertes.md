@@ -15,7 +15,7 @@
 | 9 | **Souveraineté / dépendance à un prestataire** | Élevée (politique) | Propriété publique des données, hébergement national, formats ouverts, réversibilité |
 | 10 | **Coût récurrent** (mise à jour, hébergement, agents) souvent oublié dans les projets financés sur projet | Élevée | Modèle de financement récurrent à définir dès la phase 0 |
 | 11 | **Sécurité des agents et des informateurs** dans certaines zones | Élevée | Critères sécuritaires de déploiement, signalements non publics |
-| 12 | **Nom « POPGRID »** déjà utilisé (POPGRID Data Collaborative, CIESIN) | Moyenne | Choisir un autre nom |
+| 12 | **Nom** : « POPGRID » abandonné (déjà utilisé) ; « TasetyGrid » retenu mais non vérifié comme marque. Ses symboles (Nubie, Kongo) ne sont pas camerounais | Moyenne | Recherche d'antériorité OAPI/OMPI ; présentation du symbole à des personnes ressources kongo ; argumentaire panafricain |
 | 13 | **Instabilité du cadre foncier** : la circulaire de février 2026 (ARDFC/AJPTER) est un texte de rang inférieur dont la compatibilité avec l'ordonnance de 1974 est débattue | Moyenne | Modéliser les attestations comme un type de droit distinct et paramétrable ; suivre l'évolution réglementaire |
 | 14 | **Conformité données personnelles** : la loi n° 2024/017 est en vigueur depuis le 23 juin 2026 | Élevée | Analyse d'impact et formalités auprès de l'Autorité dès la phase 0 |
 
@@ -39,4 +39,4 @@
 5. Quelle **politique de données ouvertes** pour la couche S0 ?
 6. Quelles **zones pilotes**, avec quelles garanties sécuritaires ?
 7. Application de collecte : **outil open source existant** ou développement propre ?
-8. Quel **nom** définitif ?
+8. ~~Quel nom définitif ?~~ **TasetyGrid** (reste : recherche d'antériorité et dépôt).
