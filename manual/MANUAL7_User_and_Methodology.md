@@ -137,12 +137,13 @@ When Book 7 says Tamarind is "at the start of permitting", it means the stage re
 
 ## 3. Sheet map
 
-All 40 sheets, grouped as on *00_README*.
+All 41 sheets: the cover sheet, then the 40 working sheets grouped as on *00_README*.
 
 **Orientation and control**
 
 | Sheet | Purpose |
 |---|---|
+| COVER | Title, version, live status (close decision, gates met, 9-gate screen, fiscal screen, checks, book check) and links to the main sheets |
 | 00_README | Purpose, philosophy, users, colour code, units, circularity, versions, limitations, sheet map |
 | 01_CONTROL_PANEL | Case, generation case, lender case, structure, debt mode, budget backstop, nine stress toggles, five flexes, and an active-scenario read-out |
 | 01A_DEVELOPMENT | Six development stages, budget, attrition, risk-weighted developer NPV, break-even premium, value by stage, step-ups, sell-down, developer IRR |

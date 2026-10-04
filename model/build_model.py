@@ -17,6 +17,7 @@ Design notes
 - No macros, no circular references, no data tables. Scenario/structure
   snapshots are produced by tools/run_snapshots.py (LibreOffice headless).
 """
+import os
 import re
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
@@ -74,7 +75,7 @@ wb.properties.creator = "Bankable Hydro"
 wb.properties.lastModifiedBy = "Bankable Hydro"
 wb.properties.title = "Bankable Hydro Integrated Bankability Model"
 SHEETS = [
-    "00_README", "01_CONTROL_PANEL", "01A_DEVELOPMENT", "02_PROJECT_INPUTS", "03_HYDROLOGY", "04_GENERATION",
+    "COVER", "00_README", "01_CONTROL_PANEL", "01A_DEVELOPMENT", "02_PROJECT_INPUTS", "03_HYDROLOGY", "04_GENERATION",
     "05_PLANT_CAPEX", "05A_CONTRACTING", "06_CONSTRUCTION", "07_OPEX", "08_TRANSMISSION", "09_GRID", "10_DEMAND",
     "11_OFFTAKER", "12_UTILITY", "13_REGULATION", "14_PPA", "15_TARIFF", "16_REVENUE",
     "17_PROJECT_FINANCE", "17A_STRUCTURES", "18_DEBT", "19_EQUITY", "20_CASH_FLOW", "21_TAX",
@@ -2089,7 +2090,7 @@ lines = [
     ("Fiscal screening", "26 is a PROJECT-LEVEL FISCAL EXPOSURE SCREENING. It does not replace IMF/World Bank debt sustainability analysis."),
     ("Limitations", "Simplified utility model; normal-approximation P-values; proportional curtailment; annual periodicity; deterministic guarantee calls; user-judgement probabilities. Not investment, legal or tax advice."),
     ("Sources", "See research/source_database.md and research/case_studies/. Benchmark placeholders are labelled; replace with verified values before use."),
-    ("Sheet map", "00 README | 01 Control, 01A Development | 02-07 Project, 05A Contracting | 08-10 Power system | 11-12 Offtaker/utility | 13-16 Regulation, PPA, tariff, revenue | 17-21 Finance, 17A Structures | 22-26 Public finance | 27-28 Scenarios/sensitivity | 29 Risk allocation | 30 9-gate screen, 30A 23-gate close readiness | 31 Case study | 32 Dashboard | 33 Checks | 34 Framework map | 35 Book check"),
+    ("Sheet map", "COVER | 00 README | 01 Control, 01A Development | 02-07 Project, 05A Contracting | 08-10 Power system | 11-12 Offtaker/utility | 13-16 Regulation, PPA, tariff, revenue | 17-21 Finance, 17A Structures | 22-26 Public finance | 27-28 Scenarios/sensitivity | 29 Risk allocation | 30 9-gate screen, 30A 23-gate close readiness | 31 Case study | 32 Dashboard | 33 Checks | 34 Framework map | 35 Book check"),
 ]
 r = 4
 for k, v in lines:
@@ -2124,6 +2125,70 @@ add_line(dash, "T3", "Debt service vs CFADS (USDm)", [("cfads", "CFADS"), ("ds",
 finalize()
 for s in SHEETS:
     WS[s].sheet_properties.tabColor = {"0": "1F3864", "1": "2F5597", "2": "548235", "3": "C00000"}.get(s[0], "7F7F7F")
+# ===================================================================================
+# COVER
+# ===================================================================================
+ws = WS["COVER"]
+ws.sheet_view.showGridLines = False
+ws.sheet_view.zoomScale = 90
+G_GREEN, G_GOLD, G_GOLDL = "0B3020", "B07C0F", "E0B44A"
+fill_g = PatternFill("solid", fgColor=G_GREEN)
+for col, w in zip("ABCDEFGHIJ", [3, 26, 22, 22, 22, 22, 22, 3, 3, 3]):
+    ws.column_dimensions[col].width = w
+for rr in range(1, 47):
+    ws.row_dimensions[rr].height = 18
+    for cc in range(1, 9):
+        ws.cell(rr, cc).fill = fill_g
+try:  # logo on a white plate (the logo's own green would vanish on the green ground)
+    from openpyxl.drawing.image import Image as XLImage
+    _logo = XLImage(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "brand", "aef_logo_cover.png"))
+    ws.add_image(_logo, "B2")
+except Exception:
+    pass
+def ctext(cell, text, size, color="FFFFFF", bold=False, italic=False):
+    c = ws[cell]; c.value = text; c.font = Font(name=ARIAL, size=size, bold=bold, italic=italic, color=color)
+    c.alignment = Alignment(vertical="center")
+    return c
+ctext("B8", "AFRICA ENERGY FINANCE  |  BUSINESS & FINANCIAL MODELS", 10, G_GOLDL, bold=True)
+ctext("B10", "MODEL 7", 14, G_GOLDL, bold=True)
+ws.row_dimensions[12].height = 40; ws.row_dimensions[13].height = 40
+ctext("B12", "HYDROPOWER DEVELOPMENT", 30, bold=True)
+ctext("B13", "AND FINANCE MODEL", 30, G_GOLDL, bold=True)
+ws.row_dimensions[15].height = 24
+ctext("B15", "From River to Financial Close", 18, bold=True)
+ctext("B16", "A Developer, Lender and Government Framework for Hydropower Projects in Africa", 12)
+ctext("B18", "THE HYDRO READINESS FRAMEWORK\u2122:  8 Questions \u00b7 23 Gates \u00b7 1 Financial Close Decision", 11, G_GOLDL, bold=True)
+ctext("B19", "DEVELOPER  \u00b7  LENDER  \u00b7  GOVERNMENT", 10, G_GOLDL)
+ctext("B21", "Companion to Book 7, Hydropower Development and Finance, and MANUAL 7. Version 1.0 release candidate 1.", 10)
+ctext("B22", "Reference case: Kasiri River Hydro, 60 MW run-of-river IPP, fictional Republic of Navaria. All inputs are illustrative.", 10)
+ctext("B24", "LIVE STATUS", 10, G_GOLDL, bold=True)
+status = [("Financial close decision (23 gates)", f"={REF['fc_decision']}"), ("Gates met", f"={REF['fc_met']}&\" of 23\""),
+          ("9-gate development screen", f"={REF['bk_overall']}"), ("Fiscal screen", f"={REF['sc_result']}"),
+          ("Model integrity checks (33_CHECKS)", f"={REF['chk_all']}"),
+          ("Book consistency (35_BOOK_CHECK)", "='35_BOOK_CHECK'!E" + str(BC1 + 2))]  # written resolved: the template pass has already run
+for k, (lab, f) in enumerate(status):
+    rr = 25 + k
+    ctext(f"B{rr}", lab, 10)
+    ws[f"D{rr}"] = f; ws[f"D{rr}"].font = Font(name=ARIAL, size=10, bold=True, color="FFFFFF")
+    ws[f"D{rr}"].fill = fill_g
+ctext("B32", "START HERE", 10, G_GOLDL, bold=True)
+nav = [("00_README", "What the model does, colour code, versions"), ("01_CONTROL_PANEL", "Case, structure, stresses and lender case"),
+       ("32_DASHBOARD", "Results: project, finance, developer, utility, public finance"), ("30A_CLOSE_READINESS", "The 23 financial close gates and the decision"),
+       ("34_FRAMEWORK_MAP", "Book 7 framework mapped to the model"), ("33_CHECKS", "Integrity checks")]
+for k, (sh, desc) in enumerate(nav):
+    rr = 33 + k
+    c = ws[f"B{rr}"]; c.value = sh; c.hyperlink = f"#'{sh}'!A1"
+    c.font = Font(name=ARIAL, size=10, bold=True, underline="single", color=G_GOLDL)
+    ctext(f"C{rr}", desc, 10)
+ctext("B41", "Author and ideation: Emmanuel Boujieka Kamga", 11, bold=True)
+ctext("B43", "Decision-support tool; not investment, legal, tax or accounting advice. Replace every input with project data before use.", 9, "D9D9D9", italic=True)
+ctext("B44", "Blue font = input; black = formula; green = link; shaded green cell = key output. No macros, no circular references.", 9, "D9D9D9", italic=True)
+ws.print_area = "A1:H46"
+ws.page_setup.orientation = "landscape"
+ws.sheet_properties.pageSetUpPr.fitToPage = True
+ws.page_setup.fitToWidth = 1; ws.page_setup.fitToHeight = 1
+wb.active = wb.sheetnames.index("COVER")
+
 for _ws in wb.worksheets:  # every validation stops an invalid entry with a message
     for _dv in _ws.data_validations.dataValidation:
         _dv.showErrorMessage = True; _dv.errorStyle = "stop"
