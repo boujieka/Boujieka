@@ -99,9 +99,26 @@ def export(as_of: str) -> dict:
         if r["official_source_url"] not in card["sources"]:
             card["sources"].append(r["official_source_url"])
 
-    return {"as_of": as_of, "summary": summary, "grid": grid, "opportunities": opps,
+    return {"as_of": as_of, "data": data_mode(), "summary": summary, "grid": grid, "opportunities": opps,
             "walls": walls, "sources": sources, "page_scope": page_scope, "africa": africa,
             "buyers": list(buyers.values()), "dealers": get("/accredited-dealers"), "i18n": load_i18n(list(buyers))}
+
+
+def data_mode() -> dict:
+    """What market data the snapshot holds: synthetic count, and the span of real verified data."""
+    from sqlalchemy import func, select
+
+    from app.db import SessionLocal
+    from app.models import Auction, Country, Security
+
+    with SessionLocal() as s:
+        syn = s.scalar(select(func.count()).select_from(Auction).where(Auction.is_synthetic)) or 0
+        real = s.execute(select(func.count(), func.min(Auction.auction_date), func.max(Auction.auction_date))
+                         .where(Auction.is_synthetic.is_(False))).one()
+        countries = sorted(s.scalars(select(Country.iso3).join(Security, Security.country_id == Country.country_id)
+                                     .where(Security.is_synthetic.is_(False)).distinct()))
+    return {"synthetic_auctions": syn, "real_auctions": real[0], "first": real[1] and real[1].isoformat(),
+            "last": real[2] and real[2].isoformat(), "real_countries": countries}
 
 
 def load_i18n(buyer_keys: list[str]) -> dict:

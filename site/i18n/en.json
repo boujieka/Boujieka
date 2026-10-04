@@ -798,5 +798,27 @@
   "dl.details": "Quote and notes on the source",
   "dl.fr": "Notes on sources are written in French.",
   "dl.share.all": "Market shares appear only where the authority publishes them per institution.",
-  "dl.none.ken": "The Central Bank of Kenya does not publish a named list of accredited intermediaries: investors bid directly on DhowCSD or go through a Kenyan commercial or investment bank (see the procedure above)."
+  "dl.none.ken": "The Central Bank of Kenya does not publish a named list of accredited intermediaries: investors bid directly on DhowCSD or go through a Kenyan commercial or investment bank (see the procedure above).",
+  "doc.desc.real": "Monitoring of sovereign government securities in 54 African countries: official auction results for the 8 WAEMU countries (UMOA-Titres), signals traced back to their source, investor access.",
+  "banner.real": "<strong>OFFICIAL DATA</strong> · Market figures come from the auction result reports published by UMOA-Titres: {n} auctions from {first} to {last}, {c} WAEMU countries. Every value was checked automatically against the official document and a sample was audited, without line-by-line human review. No market data for other countries. Nothing here is investment advice.",
+  "map.lede.real": "Every African UN member state has a profile (currency, monetary zone, central bank). The 8 WAEMU countries have official market data (UMOA-Titres auction results); the others do not yet. Countries outlined in gold have their official sources watched daily. Click a tile to select the country.",
+  "p.cov.data.real": "Official market data (UMOA-Titres)",
+  "p.note.common.real": "Unverified profile. Market data: official UMOA-Titres reports for WAEMU countries; no market data for other countries yet.",
+  "f.syn.real": "Official UMOA-Titres results, checked automatically.",
+  "sim.lede.real": "Reuse the parameters of a past auction (official UMOA-Titres result) or enter your own. The simulator computes the price, the amount to pay, the interest and the gain net of the fees and taxes you enter. It is arithmetic: a past rate does not guarantee the rate of a future auction.",
+  "sim.op.note.real": "Inputs taken from the auction of {d} ({c}), official UMOA-Titres result. It is a past rate, not a promised return.",
+  "strategy_limits.real": [
+    "Diversification guarantees neither a higher return nor the absence of loss. It reduces each issuer's specific risk, not the risk common to all (global rate rise, regional shock).",
+    "A higher nominal yield generally compensates for higher risk (credit, currency, liquidity, inflation). Yields of different countries cannot be compared without accounting for inflation, exchange rates and calculation conventions.",
+    "National currencies add currency risk and, depending on the country, convertibility or repatriation rules to check with the central bank.",
+    "The yields used below are past auction results, for WAEMU countries only: the tool illustrates a method; it is not a forecast."
+  ],
+  "st.pf.lede.real": "Build a fictitious portfolio (country, maturity, weight) and look at its concentration. Rates are the latest official weighted average yields (UMOA-Titres); only WAEMU countries have data. No portfolio is proposed or optimised.",
+  "st_pf_notes.real": [
+    "HHI: sum of squared shares in %. 10,000 = everything in one line; the lower it is, the more spread the portfolio.",
+    "The weighted average yield ignores currency risk, inflation, fees, taxes and cross-country correlations.",
+    "Weights normalised to 100%; past official results (UMOA-Titres)."
+  ],
+  "m.lede.real": "No figure is produced by a language model. Published values stay facts, derived values are calculations, and nothing mixes the two. Steps I and II now run for UMOA-Titres; other sources will follow.",
+  "foot.p2.real": "Market data: official UMOA-Titres auction result reports (WAEMU), checked automatically against each document; no market data for other countries. Country profiles are <strong>unverified</strong> reference data. Snapshot as of"
 }

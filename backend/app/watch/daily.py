@@ -5,8 +5,8 @@
 
 Steps:
   1. Reference data for the 54 countries (upsert).
-  2. Synthetic market data rolled forward to the as-of date: announced auctions whose date has
-     passed get their synthetic result; new auctions are announced. (Synthetic until Phase 2.)
+  2. Verified real market data loaded from the repository (app/seed/data, see app.seed.verified).
+     The labelled synthetic generator runs only with --synthetic, or while no verified file exists.
   3. Opportunity Engine re-run for the as-of date.
   4. REAL watch of official source pages: reachability, changed pages, new documents.
   5. Writes veille.json (report + state + history) and rebuilds the static site.
@@ -28,6 +28,7 @@ from sqlalchemy import select
 from app.db import SessionLocal
 from app.engine.opportunities import run as run_engine
 from app.models import Source
+from app.seed import verified
 from app.seed.load import load_reference, load_synthetic
 from app.watch.sources import Target, check, summarize, to_json
 
@@ -93,7 +94,7 @@ def build_veille(as_of: date, previous: dict | None, reports, state: dict, now: 
         "history": history,
         "state": state,
         "note": "Real checks of official pages. A new document link is a lead to review, not a "
-        "verified market event. Market data elsewhere on the site remains synthetic.",
+        "verified market event.",
     }
 
 
@@ -103,15 +104,20 @@ def main() -> None:
     parser.add_argument("--previous", help="URL or path of the previous veille.json")
     parser.add_argument("--out", type=Path, default=REPO / "site" / "dist")
     parser.add_argument("--skip-watch", action="store_true", help="skip network checks (offline runs)")
+    parser.add_argument("--synthetic", action="store_true",
+                        help="development only: also roll the labelled synthetic generator forward")
     args = parser.parse_args()
     now = datetime.now(timezone.utc)
 
     with SessionLocal() as session:
         countries = load_reference(session)
-        added = load_synthetic(session, countries, args.as_of)
+        real = verified.load(session)  # verified real data versioned in the repo (app/seed/data)
+        # Until a verified dataset is committed, keep the labelled synthetic data so the site is not empty.
+        use_synthetic = args.synthetic or not verified.DATA_FILE.exists()
+        added = load_synthetic(session, countries, args.as_of) if use_synthetic else 0
         session.flush()
         engine = run_engine(session, args.as_of)
-        print(f"Market data rolled to {args.as_of}: {added} new synthetic auctions; engine {engine}")
+        print(f"Verified data loaded {real}; synthetic auctions added: {added}; engine {engine}")
 
         previous = load_previous(args.previous)
         sources = list(session.scalars(select(Source)))

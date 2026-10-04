@@ -706,5 +706,27 @@
   "dl.details": "Citation et notes sur la source",
   "dl.fr": "",
   "dl.share.all": "Les parts de marché ne figurent que lorsque l'autorité les publie par établissement.",
-  "dl.none.ken": "La Banque centrale du Kenya ne publie pas de liste nominative d'intermédiaires agréés : les investisseurs soumissionnent directement sur DhowCSD ou passent par une banque commerciale ou une banque d'investissement kényane (voir la procédure ci-dessus)."
+  "dl.none.ken": "La Banque centrale du Kenya ne publie pas de liste nominative d'intermédiaires agréés : les investisseurs soumissionnent directement sur DhowCSD ou passent par une banque commerciale ou une banque d'investissement kényane (voir la procédure ci-dessus).",
+  "doc.desc.real": "Veille des titres publics souverains des 54 pays africains : résultats officiels d'adjudication des 8 pays de l'UEMOA (UMOA-Titres), signaux tracés jusqu'à leur source, accès des investisseurs.",
+  "banner.real": "<strong>DONNÉES OFFICIELLES</strong> · Chiffres de marché tirés des comptes rendus d'adjudication publiés par UMOA-Titres : {n} adjudications du {first} au {last}, {c} pays de l'UEMOA. Chaque valeur a été contrôlée automatiquement contre le document officiel et un échantillon a été audité, sans relecture humaine ligne à ligne. Aucune donnée de marché pour les autres pays. Rien ici n'est un conseil en investissement.",
+  "map.lede.real": "Chaque État africain membre de l'ONU a un profil (devise, zone monétaire, banque centrale). Les 8 pays de l'UEMOA ont des données de marché officielles (résultats d'adjudication UMOA-Titres) ; les autres n'en ont pas encore. Les pays cerclés d'or ont leurs sources officielles surveillées chaque jour. Cliquez une case pour sélectionner le pays.",
+  "p.cov.data.real": "Données de marché officielles (UMOA-Titres)",
+  "p.note.common.real": "Profil non vérifié. Données de marché : comptes rendus officiels d'UMOA-Titres pour les pays de l'UEMOA ; aucune donnée de marché pour les autres pays à ce jour.",
+  "f.syn.real": "Résultats officiels UMOA-Titres, contrôlés automatiquement.",
+  "sim.lede.real": "Reprenez les paramètres d'une adjudication passée (résultat officiel UMOA-Titres) ou saisissez les vôtres. Le simulateur calcule le prix, le montant à décaisser, les intérêts et le gain net des frais et impôts que vous indiquez. C'est un calcul arithmétique : un taux passé ne garantit pas le taux d'une prochaine adjudication.",
+  "sim.op.note.real": "Paramètres repris de l'adjudication du {d} ({c}), résultat officiel UMOA-Titres. C'est un taux passé, pas une promesse de rendement.",
+  "strategy_limits.real": [
+    "La diversification ne garantit ni un rendement plus élevé ni l'absence de perte. Elle réduit le risque propre à chaque émetteur, pas le risque commun à tous (hausse mondiale des taux, choc régional).",
+    "Un rendement nominal plus élevé rémunère en général un risque plus élevé (crédit, change, liquidité, inflation). Des rendements de pays différents ne se comparent pas sans tenir compte de l'inflation, du change et des conventions de calcul.",
+    "Les monnaies nationales ajoutent un risque de change et, selon les pays, des règles de convertibilité ou de rapatriement des fonds à vérifier auprès de la banque centrale.",
+    "Les rendements utilisés ci-dessous sont des résultats d'adjudication passés, pour les seuls pays de l'UEMOA : l'outil illustre une méthode, ce n'est pas une prévision."
+  ],
+  "st.pf.lede.real": "Composez un portefeuille fictif (pays, maturité, poids) et observez sa concentration. Les taux sont les derniers rendements moyens pondérés officiels (UMOA-Titres) ; seuls les pays de l'UEMOA ont des données. Aucun portefeuille n'est proposé ni optimisé.",
+  "st_pf_notes.real": [
+    "HHI : somme des carrés des parts en %. 10 000 = tout sur une seule ligne ; plus il est bas, plus le portefeuille est réparti.",
+    "Le rendement moyen pondéré n'intègre ni risque de change, ni inflation, ni frais, ni fiscalité, ni corrélations entre pays.",
+    "Poids normalisés à 100 % ; résultats officiels passés (UMOA-Titres)."
+  ],
+  "m.lede.real": "Aucun chiffre n'est produit par un modèle de langage. Les valeurs publiées restent des faits, les valeurs dérivées sont des calculs, et rien ne mélange les deux. Les étapes I et II tournent aujourd'hui pour UMOA-Titres ; les autres sources suivront.",
+  "foot.p2.real": "Données de marché : comptes rendus officiels d'adjudication d'UMOA-Titres (UEMOA), contrôlés automatiquement contre chaque document ; aucune donnée de marché pour les autres pays. Les profils pays sont des données de référence <strong>non vérifiées</strong>. Instantané du"
 }

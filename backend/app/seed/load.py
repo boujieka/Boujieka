@@ -208,6 +208,9 @@ def main() -> None:
         created = 0
         if args.reset_synthetic:
             print(f"Removed {reset_synthetic(session)} synthetic auctions.")
+        from app.seed import verified
+
+        print(f"Verified real data: {verified.load(session)}")
         if args.synthetic:
             created = load_synthetic(session, countries, args.reference_date)
             session.flush()

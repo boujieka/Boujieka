@@ -636,3 +636,32 @@ class TestReview:
         assert review_main(["approve", str(rows[1].extraction_id), "--reviewer", "a"], factory) == 1
         assert rows[0].verification_status == VerificationStatus.VERIFIED
         assert rows[1].verification_status == VerificationStatus.REJECTED
+
+
+class TestVerifiedExport:
+    def test_export_then_load_restores_the_same_rows(self, db, store, tmp_path):
+        from app.seed import verified
+
+        rows = _stage_text(db, NE_2026)
+        bat = next(r for r in rows if r.isin == "NE0000002797")
+        approve(db, bat.extraction_id, "analyst-a")
+        db.flush()
+        path = tmp_path / "verified.json"
+        counts = verified.export(db, path)
+        assert counts["securities"] >= 1 and counts["auctions"] >= 1 and counts["documents"] >= 1
+
+        before = db.scalar(select(Auction).join(Security).where(Security.isin == "NE0000002797"))
+        snapshot = {k: getattr(before, k) for k in ("auction_date", "amount_submitted", "amount_allocated",
+                                                    "cutoff_yield", "weighted_average_yield", "provenance_notes",
+                                                    "verification_status", "confidence_score")}
+        sec = before.security
+        db.delete(before)
+        db.flush()
+        db.delete(sec)
+        db.flush()
+
+        assert verified.load(db, path)["auctions"] >= 1
+        after = db.scalar(select(Auction).join(Security).where(Security.isin == "NE0000002797"))
+        assert {k: getattr(after, k) for k in snapshot} == snapshot
+        assert after.is_synthetic is False and after.source_document_id is not None
+        assert verified.load(db, path) == {"documents": 0, "securities": 0, "auctions": 0}  # idempotent

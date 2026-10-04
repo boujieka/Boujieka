@@ -82,6 +82,8 @@ section + section { border-top: 1px solid var(--line); }
 
 /* Synthetic banner */
 .banner { background: #8f321c; color: #fff7ee; font-size: 13px; padding-block: 7px; }
+.banner.real { background: var(--night); border-bottom: 2px solid var(--gold); }
+[data-mode="real"] .syn-only { display: none; }
 .banner strong:first-child { letter-spacing: .08em; }
 
 /* Hero: tomb-ceiling night with gold stars */
@@ -386,7 +388,7 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
 </style>
 </head>
 <body>
-<div class="banner"><div class="wrap" data-ih="banner"></div></div>
+<div class="banner" id="banner"><div class="wrap" id="banner-text"></div></div>
 
 <header class="hero">
   <div class="wrap mast">
@@ -477,7 +479,7 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
           <div id="cards" class="signals"></div>
         </div>
         <aside class="panel wall" data-ia="aria-label:wall.title">
-          <div class="panel-h"><span class="eyebrow" id="wall-title"></span><span class="tag syn" data-i="tag.syn"></span></div>
+          <div class="panel-h"><span class="eyebrow" id="wall-title"></span><span class="tag syn syn-only" data-i="tag.syn"></span></div>
           <div class="panel-b" id="wall"></div>
         </aside>
       </div>
@@ -558,7 +560,7 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
       <div class="sub"><h3 data-i="st.levers"></h3><div class="levers" id="levers"></div></div>
       <ul class="limits" id="limits"></ul>
       <div class="sub">
-        <h3><span data-i="st.pf.title"></span> <span class="kind-tag calc" data-i="kind.calc"></span> <span class="kind-tag syn" data-i="kind.syn"></span></h3>
+        <h3><span data-i="st.pf.title"></span> <span class="kind-tag calc" data-i="kind.calc"></span> <span class="kind-tag syn syn-only" data-i="kind.syn"></span></h3>
         <p class="lede" data-i="st.pf.lede"></p>
         <div class="pf">
           <div><div class="scroll"><table id="pf-rows"></table></div><p><button type="button" class="btn ghost" id="pf-add" style="color:var(--lapis);border-color:var(--line)" data-i="st.pf.add"></button></p></div>
@@ -667,17 +669,22 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
   };
   let lang = pickLang(), L, PR, DN;
   const FR = D.i18n.fr;
+  // Data mode: "real" when no synthetic market data is loaded. Keys "<key>.real" then replace "<key>".
+  const MODE = D.data && D.data.synthetic_auctions === 0 ? "real" : "synthetic";
+  const pick = (k) => (MODE === "real" && (L[k + ".real"] ?? FR[k + ".real"]) !== undefined ? k + ".real" : k);
   const t = (k, v) => {
+    k = pick(k);
     let s = L[k] ?? FR[k] ?? k;
     if (v) for (const [a, b] of Object.entries(v)) s = s.split(`{${a}}`).join(b);
     return s;
   };
   const tn = (k, n, v) => t(`${k}.${PR.select(n) === "one" ? "one" : "other"}`, { n: nf(n, 0), ...v });
-  const M = (k) => L[k] ?? FR[k];  // maps and lists
+  const M = (k) => { k = pick(k); return L[k] ?? FR[k]; };  // maps and lists
   function setLang(l) {
     lang = l; L = D.i18n[l]; PR = new Intl.PluralRules(LOC[l]);
     try { DN = new Intl.DisplayNames([LOC[l]], { type: "region" }); } catch { DN = null; }
     document.documentElement.lang = l;
+    document.documentElement.dataset.mode = MODE;
     document.documentElement.dir = RTL.has(l) ? "rtl" : "ltr";
     document.title = t("doc.title");
     document.querySelector('meta[name="description"]').content = t("doc.desc");
@@ -742,6 +749,11 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
   }
 
   // ---------- Stele, ticker
+  function renderBanner() {
+    const d = D.data || {};
+    $("banner-text").innerHTML = t("banner", { n: nf(d.real_auctions || 0, 0), first: date(d.first) ?? "—", last: date(d.last) ?? "—", c: d.real_countries?.length ?? 0 });
+    $("banner").classList.toggle("real", MODE === "real");
+  }
   function renderStele() {
     const s = D.summary;
     $("stele").innerHTML = [
@@ -980,7 +992,9 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
   // ---------- Simulator (CALCULATION)
   const UNIT = { "CEMAC:treasury_bill": 1000000, "CEMAC:treasury_bond": 10000 };  // BEAC page, nominal per security
   function simOps() {
-    return opps.filter((o) => o.opportunity_type === "upcoming_auction" && o.security && o.yield_pct != null && (!C || o.country_iso3 === C))
+    const seen = new Set();
+    return opps.filter((o) => (MODE === "real" || o.opportunity_type === "upcoming_auction") && o.security && o.yield_pct != null && (!C || o.country_iso3 === C))
+      .filter((o) => { const k = `${o.security.security_id}|${o.auction_date}`; if (seen.has(k)) return false; seen.add(k); return true; })
       .sort((a, b) => (a.auction_date || "").localeCompare(b.auction_date || "") || NAME(a.country_iso3).localeCompare(NAME(b.country_iso3)));
   }
   let simCur = "";
@@ -1020,7 +1034,7 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
     $("s-curl").textContent = cur ? `(${cur})` : "";
     const N = num("s-nom"), y = num("s-yld") / 100, fee = (num("s-fee") || 0) / 100, tax = (num("s-tax") || 0) / 100;
     const out = $("simout");
-    const head = `<div class="tags"><span class="kind-tag calc">${esc(t("kind.calc"))}</span>${o ? ` <span class="kind-tag syn">${esc(t("kind.syn"))}</span>` : ""}</div>`;
+    const head = `<div class="tags"><span class="kind-tag calc">${esc(t("kind.calc"))}</span>${o?.is_synthetic ? ` <span class="kind-tag syn">${esc(t("kind.syn"))}</span>` : ""}</div>`;
     if (!(N > 0) || isNaN(y) || y < 0 || fee < 0 || tax < 0 || tax > 1) { out.innerHTML = head + `<p class="warnbox">${esc(t("sim.err"))}</p>`; return; }
     const kp = (k, v, cls = "") => `<div class="${cls}"><span>${esc(k)}</span><b>${v}</b></div>`;
     const m = (v) => money(v, cur, 0);
@@ -1091,7 +1105,7 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
     });
     const kp = (k, v) => `<div><span>${esc(k)}</span><b>${v}</b></div>`;
     const top = Object.entries(byC).sort((a, b) => b[1] - a[1]);
-    out.innerHTML = `<div class="tags"><span class="kind-tag calc">${esc(t("kind.calc"))}</span> <span class="kind-tag syn">${esc(t("kind.syn"))}</span></div>
+    out.innerHTML = `<div class="tags"><span class="kind-tag calc">${esc(t("kind.calc"))}</span>${MODE === "real" ? "" : ` <span class="kind-tag syn">${esc(t("kind.syn"))}</span>`}</div>
       <div class="kpis">${kp(t("st.r.yield"), pct(y / W, 2))}${kp(t("st.r.mat"), tenor(Math.round(mat / W)))}${kp(t("st.r.countries"), Object.keys(byC).length)}${kp(t("st.r.currencies"), Object.keys(byCur).length)}${kp(t("st.r.hhic"), nf(hhi(byC, W), 0))}${kp(t("st.r.hhicur"), nf(hhi(byCur, W), 0))}${kp(t("st.r.eur"), pct(100 * eur / W, 0))}${kp(t("st.r.zar"), pct(100 * zar / W, 0))}</div>
       <div class="bars">${top.map(([c, v]) => `<div><span>${esc(NAME(c))}</span><i style="width:${(100 * v / W).toFixed(1)}%"></i><span class="num">${nf(100 * v / W, 0)} %</span></div>`).join("")}</div>
       <ul class="assume">${M("st_pf_notes").map((s) => `<li>${esc(s)}</li>`).join("")}</ul>`;
@@ -1156,7 +1170,7 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
     renderBuyers(); renderSimOps(); computeSim(); renderVeille(); renderSources();
   }
   function renderAll() {
-    renderStele(); renderCountryViews(); renderStrategy(); renderGlossary(); renderRoadmap();
+    renderBanner(); renderStele(); renderCountryViews(); renderStrategy(); renderGlossary(); renderRoadmap();
   }
   function setCountry(iso) {
     C = AF[iso] ? iso : ""; store.set("cartouche-country", C);
@@ -1168,6 +1182,7 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
   $("gall").addEventListener("click", () => setCountry(""));
   $("langs").addEventListener("click", (e) => { const b = e.target.closest("[data-lang]"); if (b && b.dataset.lang !== lang) { setLang(b.dataset.lang); renderAll(); } });
   ["b-cur", "b-mat", "b-yld", "b-up"].forEach((id) => $(id).addEventListener("input", renderBuyerMatches));
+  if (MODE === "real") $("b-up").value = "0";
   $("s-op").addEventListener("change", (e) => loadOp(e.target.value));
   ["s-kind", "s-nom", "s-yld", "s-days", "s-basis", "s-conv", "s-years", "s-cpn", "s-fee", "s-tax"].forEach((id) => $(id).addEventListener("input", computeSim));
   $("gq").addEventListener("input", renderGlossary);

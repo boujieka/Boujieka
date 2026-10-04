@@ -798,5 +798,27 @@
   "dl.details": "Citação e notas sobre a fonte",
   "dl.fr": "As notas sobre as fontes estão redigidas em francês.",
   "dl.share.all": "As quotas de mercado só aparecem quando a autoridade as publica por instituição.",
-  "dl.none.ken": "O Banco Central do Quénia não publica uma lista nominativa de intermediários acreditados: os investidores licitam diretamente no DhowCSD ou recorrem a um banco comercial ou de investimento queniano (ver o procedimento acima)."
+  "dl.none.ken": "O Banco Central do Quénia não publica uma lista nominativa de intermediários acreditados: os investidores licitam diretamente no DhowCSD ou recorrem a um banco comercial ou de investimento queniano (ver o procedimento acima).",
+  "doc.desc.real": "Acompanhamento dos títulos de dívida pública soberana de 54 países africanos: resultados oficiais de leilões dos 8 países da UEMOA (UMOA-Titres), sinais rastreados até à fonte, acesso dos investidores.",
+  "banner.real": "<strong>DADOS OFICIAIS</strong> · Os valores de mercado provêm dos relatórios de resultados de leilões publicados pela UMOA-Titres: {n} leilões de {first} a {last}, {c} países da UEMOA. Cada valor foi verificado automaticamente face ao documento oficial e uma amostra foi auditada, sem revisão humana linha a linha. Sem dados de mercado para os outros países. Nada aqui constitui aconselhamento de investimento.",
+  "map.lede.real": "Cada Estado africano membro da ONU tem um perfil (moeda, zona monetária, banco central). Os 8 países da UEMOA têm dados de mercado oficiais (resultados de leilões da UMOA-Titres); os outros ainda não. Os países contornados a dourado têm as suas fontes oficiais monitorizadas diariamente. Clique numa casa para selecionar o país.",
+  "p.cov.data.real": "Dados de mercado oficiais (UMOA-Titres)",
+  "p.note.common.real": "Perfil não verificado. Dados de mercado: relatórios oficiais da UMOA-Titres para os países da UEMOA; ainda sem dados de mercado para os outros países.",
+  "f.syn.real": "Resultados oficiais da UMOA-Titres, verificados automaticamente.",
+  "sim.lede.real": "Retome os parâmetros de um leilão passado (resultado oficial da UMOA-Titres) ou introduza os seus. O simulador calcula o preço, o montante a pagar, os juros e o ganho líquido das comissões e impostos que indicar. É um cálculo aritmético: uma taxa passada não garante a taxa de um próximo leilão.",
+  "sim.op.note.real": "Parâmetros retomados do leilão de {d} ({c}), resultado oficial da UMOA-Titres. É uma taxa passada, não uma promessa de rendibilidade.",
+  "strategy_limits.real": [
+    "A diversificação não garante uma rendibilidade mais elevada nem a ausência de perdas. Reduz o risco próprio de cada emitente, não o risco comum a todos (subida mundial das taxas, choque regional).",
+    "Uma rendibilidade nominal mais elevada remunera em geral um risco mais elevado (crédito, câmbio, liquidez, inflação). Rendibilidades de países diferentes não se comparam sem ter em conta a inflação, o câmbio e as convenções de cálculo.",
+    "As moedas nacionais acrescentam risco cambial e, consoante o país, regras de convertibilidade ou de repatriamento de fundos a verificar junto do banco central.",
+    "As rendibilidades usadas abaixo são resultados de leilões passados, apenas para os países da UEMOA: a ferramenta ilustra um método, não é uma previsão."
+  ],
+  "st.pf.lede.real": "Componha uma carteira fictícia (país, maturidade, peso) e observe a sua concentração. As taxas são as últimas rendibilidades médias ponderadas oficiais (UMOA-Titres); só os países da UEMOA têm dados. Nenhuma carteira é proposta ou otimizada.",
+  "st_pf_notes.real": [
+    "HHI: soma dos quadrados das partes em %. 10 000 = tudo numa única linha; quanto mais baixo, mais repartida a carteira.",
+    "A rendibilidade média ponderada não integra risco cambial, inflação, comissões, fiscalidade nem correlações entre países.",
+    "Pesos normalizados a 100 %; resultados oficiais passados (UMOA-Titres)."
+  ],
+  "m.lede.real": "Nenhum número é produzido por um modelo de linguagem. Os valores publicados continuam a ser factos, os valores derivados são cálculos, e nada mistura os dois. As etapas I e II funcionam agora para a UMOA-Titres; as outras fontes seguir-se-ão.",
+  "foot.p2.real": "Dados de mercado: relatórios oficiais de resultados de leilões da UMOA-Titres (UEMOA), verificados automaticamente face a cada documento; sem dados de mercado para os outros países. Os perfis dos países são dados de referência <strong>não verificados</strong>. Situação em"
 }
