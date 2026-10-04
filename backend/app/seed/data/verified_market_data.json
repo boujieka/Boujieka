@@ -57357,7 +57357,7 @@
    "status": "completed",
    "amount_offered": null,
    "amount_submitted": "302000000.0000",
-   "amount_allocated": "302000000.0000",
+   "amount_allocated": "302220000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
    "cutoff_yield": null,
@@ -57382,7 +57382,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Burkina — 2024-02-28' (staging row 2116); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Burkina — 2024-02-28' (staging row 2116); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_allocated refined from 302000000 to 302220000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/02/Annonce-au-MTP-BF-EC-28.02.2024.pdf (sha256 6e845b0681218569bd3d3805fb6304c3e0c9c5284d38859b673b6ab94768d613); the result report printed the rounded value '302 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "d9e1ddbf6e2158e25212657864b5eccf76c02f0ab4bddfa1502da7f931436404",
    "isin": "BF0000001834"
@@ -58407,8 +58407,8 @@
    "auction_reference": "ADJ-BF0000002956-OT3A-07-2024",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "2314000000.0000",
-   "amount_allocated": "2314000000.0000",
+   "amount_submitted": "2313790000.0000",
+   "amount_allocated": "2313790000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
    "cutoff_yield": null,
@@ -58433,7 +58433,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Burkina — 2024-03-28' (staging row 2038); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Burkina — 2024-03-28' (staging row 2038); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 2314000000 to 2313790000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/04/Annonce-au-MTP-BF-EC-28.03.2024-1.pdf (sha256 dfa17c3949387bc0275140f4786e5b9cd579eeccb0403662ed765a1d2676e0e4); the result report printed the rounded value '2 314 millions de F CFA'. amount_allocated refined from 2314000000 to 2313790000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/04/Annonce-au-MTP-BF-EC-28.03.2024-1.pdf (sha256 dfa17c3949387bc0275140f4786e5b9cd579eeccb0403662ed765a1d2676e0e4); the result report printed the rounded value '2 314 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "f6f3a4f2f3e89460e5f84cff5965181b95e0cff006d7933d6446fff5d9e370b5",
    "isin": "BF0000002956"
@@ -58446,8 +58446,8 @@
    "auction_reference": "ADJ-BF0000002956-OAT3A-2-2024",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "8348000000.0000",
-   "amount_allocated": "8348000000.0000",
+   "amount_submitted": "8347700000.0000",
+   "amount_allocated": "8347700000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
    "cutoff_yield": null,
@@ -58472,7 +58472,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Burkina — 2024-06-05' (staging row 1920); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Burkina — 2024-06-05' (staging row 1920); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 8348000000 to 8347700000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/05/Annonce-au-MTP-BF-ES-05.06.2024.pdf (sha256 62e5661bbea27e76c689894d3cc5df45359f798036df318dab794ef528f97fe9); the result report printed the rounded value '8 348 millions de F CFA'. amount_allocated refined from 8348000000 to 8347700000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/05/Annonce-au-MTP-BF-ES-05.06.2024.pdf (sha256 62e5661bbea27e76c689894d3cc5df45359f798036df318dab794ef528f97fe9); the result report printed the rounded value '8 348 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "1e9ce85543f0afb5189208fd6ef25349fe61c4b5920e1063a41cca1c3aea2d4f",
    "isin": "BF0000002956"
@@ -58719,8 +58719,8 @@
    "auction_reference": "ADJ-BF0000002998-OAT7A-3-2024",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "14089000000.0000",
-   "amount_allocated": "14089000000.0000",
+   "amount_submitted": "14089030000.0000",
+   "amount_allocated": "14089030000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
    "cutoff_yield": null,
@@ -58745,7 +58745,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Burkina — 2024-06-19' (staging row 1887); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Burkina — 2024-06-19' (staging row 1887); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 14089000000 to 14089030000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/06/Annonce-au-MTP-BF-ES-19.06.2024.pdf (sha256 2408d1b6e465746410e819106f8e37bb88bc39269391fd60567622a9219792ae); the result report printed the rounded value '14 089 millions de F CFA'. amount_allocated refined from 14089000000 to 14089030000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/06/Annonce-au-MTP-BF-ES-19.06.2024.pdf (sha256 2408d1b6e465746410e819106f8e37bb88bc39269391fd60567622a9219792ae); the result report printed the rounded value '14 089 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "ebb31681f8259883cce5dce2d93a1e7c1d7a268c06fac64d9d4c8eda3c45157c",
    "isin": "BF0000002998"
@@ -58914,8 +58914,8 @@
    "auction_reference": "ADJ-BF0000003038-OAT5A-2024",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "26708000000.0000",
-   "amount_allocated": "26708000000.0000",
+   "amount_submitted": "26707730000.0000",
+   "amount_allocated": "26707730000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
    "cutoff_yield": null,
@@ -58940,7 +58940,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Burkina — 2024-06-19' (staging row 1886); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Burkina — 2024-06-19' (staging row 1886); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 26708000000 to 26707730000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/06/Annonce-au-MTP-BF-ES-19.06.2024.pdf (sha256 2408d1b6e465746410e819106f8e37bb88bc39269391fd60567622a9219792ae); the result report printed the rounded value '26 708 millions de F CFA'. amount_allocated refined from 26708000000 to 26707730000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/06/Annonce-au-MTP-BF-ES-19.06.2024.pdf (sha256 2408d1b6e465746410e819106f8e37bb88bc39269391fd60567622a9219792ae); the result report printed the rounded value '26 708 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "ebb31681f8259883cce5dce2d93a1e7c1d7a268c06fac64d9d4c8eda3c45157c",
    "isin": "BF0000003038"
@@ -59185,8 +59185,8 @@
    "auction_reference": "ADJ-BF0000003095-OT3A-25-2024",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "1631000000.0000",
-   "amount_allocated": "1631000000.0000",
+   "amount_submitted": "1631030000.0000",
+   "amount_allocated": "1631030000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
    "cutoff_yield": null,
@@ -59211,7 +59211,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Burkina — 2024-09-11' (staging row 1720); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Burkina — 2024-09-11' (staging row 1720); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 1631000000 to 1631030000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/09/Annonce-au-MTP-BF-ES-11.09.2024.pdf (sha256 109e5b3453b5e08732d373ff27737f7e3cbbc07f516fef70621d98481a2d8ec6); the result report printed the rounded value '1 631 millions de F CFA'. amount_allocated refined from 1631000000 to 1631030000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/09/Annonce-au-MTP-BF-ES-11.09.2024.pdf (sha256 109e5b3453b5e08732d373ff27737f7e3cbbc07f516fef70621d98481a2d8ec6); the result report printed the rounded value '1 631 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "1e1a8913b08a8c9dd1563c02e5143f075e9a5825c11660190dade066444b32a6",
    "isin": "BF0000003095"
@@ -59224,8 +59224,8 @@
    "auction_reference": "ADJ-BF0000003095-OT3A-28-2024",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "7500000000.0000",
-   "amount_allocated": "7490000000.0000",
+   "amount_submitted": "7499920000.0000",
+   "amount_allocated": "7490050000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
    "cutoff_yield": null,
@@ -59250,7 +59250,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Burkina — 2024-09-25' (staging row 1684); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Burkina — 2024-09-25' (staging row 1684); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 7500000000 to 7499920000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/08/Annonce-au-MTP-BF-ES-25.09.2024.pdf (sha256 a1c8e192c97f164be3bdd397886d57ab131e9f8987eb1170b536c15bd08588a2); the result report printed the rounded value '7 500 millions de F CFA'. amount_allocated refined from 7490000000 to 7490050000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/08/Annonce-au-MTP-BF-ES-25.09.2024.pdf (sha256 a1c8e192c97f164be3bdd397886d57ab131e9f8987eb1170b536c15bd08588a2); the result report printed the rounded value '7 490 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "d8e4ea5d61d3944ba46137fc9067c3438a0ab7906dfd9ecf6cf3acc0274c9929",
    "isin": "BF0000003095"
@@ -59380,8 +59380,8 @@
    "auction_reference": "ADJ-BF0000003103-OT5A-25-2024",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "18723000000.0000",
-   "amount_allocated": "18723000000.0000",
+   "amount_submitted": "18723170000.0000",
+   "amount_allocated": "18723170000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
    "cutoff_yield": null,
@@ -59406,7 +59406,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Burkina — 2024-09-11' (staging row 1721); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Burkina — 2024-09-11' (staging row 1721); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 18723000000 to 18723170000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/09/Annonce-au-MTP-BF-ES-11.09.2024.pdf (sha256 109e5b3453b5e08732d373ff27737f7e3cbbc07f516fef70621d98481a2d8ec6); the result report printed the rounded value '18 723 millions de F CFA'. amount_allocated refined from 18723000000 to 18723170000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/09/Annonce-au-MTP-BF-ES-11.09.2024.pdf (sha256 109e5b3453b5e08732d373ff27737f7e3cbbc07f516fef70621d98481a2d8ec6); the result report printed the rounded value '18 723 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "1e1a8913b08a8c9dd1563c02e5143f075e9a5825c11660190dade066444b32a6",
    "isin": "BF0000003103"
@@ -59536,8 +59536,8 @@
    "auction_reference": "ADJ-BF0000003111-OT7A-25-2024",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "5537000000.0000",
-   "amount_allocated": "5537000000.0000",
+   "amount_submitted": "5537440000.0000",
+   "amount_allocated": "5537440000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
    "cutoff_yield": null,
@@ -59562,7 +59562,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Burkina — 2024-09-11' (staging row 1722); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Burkina — 2024-09-11' (staging row 1722); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 5537000000 to 5537440000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/09/Annonce-au-MTP-BF-ES-11.09.2024.pdf (sha256 109e5b3453b5e08732d373ff27737f7e3cbbc07f516fef70621d98481a2d8ec6); the result report printed the rounded value '5 537 millions de F CFA'. amount_allocated refined from 5537000000 to 5537440000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/09/Annonce-au-MTP-BF-ES-11.09.2024.pdf (sha256 109e5b3453b5e08732d373ff27737f7e3cbbc07f516fef70621d98481a2d8ec6); the result report printed the rounded value '5 537 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "1e1a8913b08a8c9dd1563c02e5143f075e9a5825c11660190dade066444b32a6",
    "isin": "BF0000003111"
@@ -67861,7 +67861,7 @@
    "auction_reference": "ADJ-BJ0000002127-OT3A-08-2024",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "2934000000.0000",
+   "amount_submitted": "2933600000.0000",
    "amount_allocated": "2815000000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
@@ -67887,7 +67887,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Bénin — 2024-09-12' (staging row 1717); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Bénin — 2024-09-12' (staging row 1717); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 2934000000 to 2933600000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/08/Annonce-au-MTP-BJ-ES-12.09.2024.pdf (sha256 ec6721988a29e2a4617adba254a803780fea07a6dfd2e4ba1a7fced1d5da7fd2); the result report printed the rounded value '2 934 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "dab7cc74dc3129670553ba032157b49e4cbfaa6a1ee07c3e28d0eac00901da9e",
    "isin": "BJ0000002127"
@@ -67939,8 +67939,8 @@
    "auction_reference": "ADJ-BJ0000002135-OT5A-08-2024",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "12122000000.0000",
-   "amount_allocated": "12122000000.0000",
+   "amount_submitted": "12122090000.0000",
+   "amount_allocated": "12122090000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
    "cutoff_yield": null,
@@ -67965,7 +67965,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Bénin — 2024-09-12' (staging row 1718); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Bénin — 2024-09-12' (staging row 1718); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 12122000000 to 12122090000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/08/Annonce-au-MTP-BJ-ES-12.09.2024.pdf (sha256 ec6721988a29e2a4617adba254a803780fea07a6dfd2e4ba1a7fced1d5da7fd2); the result report printed the rounded value '12 122 millions de F CFA'. amount_allocated refined from 12122000000 to 12122090000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/08/Annonce-au-MTP-BJ-ES-12.09.2024.pdf (sha256 ec6721988a29e2a4617adba254a803780fea07a6dfd2e4ba1a7fced1d5da7fd2); the result report printed the rounded value '12 122 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "dab7cc74dc3129670553ba032157b49e4cbfaa6a1ee07c3e28d0eac00901da9e",
    "isin": "BJ0000002135"
@@ -70355,8 +70355,8 @@
    "auction_reference": "RA-CI0000003315-11-2025",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "8975000000.0000",
-   "amount_allocated": "8975000000.0000",
+   "amount_submitted": "8975490000.0000",
+   "amount_allocated": "8975490000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
    "cutoff_yield": null,
@@ -70381,7 +70381,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Côte d’Ivoire — 2025-01-16' (staging row 1453); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Côte d’Ivoire — 2025-01-16' (staging row 1453); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 8975000000 to 8975490000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2025/01/Annonce-au-MTP-CI-EC-16.01.2025.pdf (sha256 797a22fe5cf716f476766a2d1c505539c8208e809abcae2978103b485c17632c); the result report printed the rounded value '8 975 millions de F CFA'. amount_allocated refined from 8975000000 to 8975490000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2025/01/Annonce-au-MTP-CI-EC-16.01.2025.pdf (sha256 797a22fe5cf716f476766a2d1c505539c8208e809abcae2978103b485c17632c); the result report printed the rounded value '8 975 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "050de1e940c6c4966467b8f0107b8b81aa6539709b22bfb19a10a2317da62842",
    "isin": "CI0000003315"
@@ -70673,7 +70673,7 @@
    "maximum_bid": null,
    "cutoff_yield": null,
    "weighted_average_yield": "4.000000",
-   "average_price": "100.030000",
+   "average_price": "100.033900",
    "reported_bid_to_cover": null,
    "number_of_bidders": 1,
    "number_of_successful_bidders": null,
@@ -70693,7 +70693,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Côte d’Ivoire — 2024-01-25' (staging row 2157); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Côte d’Ivoire — 2024-01-25' (staging row 2157); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. average_price refined from 100.03 to 100.0339 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/01/Annonce-au-MTP-CI-Rachat-25.01.2024.pdf (sha256 65f2869ab25d0a8b903c69a9a4e305c4756508be0f1a1f717e1790c862ca71c2); the result report printed the rounded value '100,03%'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "6690dc53458a5e375019dce8ba53d778d9974532d53a2a080838aa8ea1843aaa",
    "isin": "CI0000004123"
@@ -70712,7 +70712,7 @@
    "maximum_bid": null,
    "cutoff_yield": null,
    "weighted_average_yield": "4.000000",
-   "average_price": "100.110000",
+   "average_price": "100.113400",
    "reported_bid_to_cover": null,
    "number_of_bidders": 1,
    "number_of_successful_bidders": null,
@@ -70732,7 +70732,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Côte d’Ivoire — 2024-01-25' (staging row 2158); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Côte d’Ivoire — 2024-01-25' (staging row 2158); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. average_price refined from 100.11 to 100.1134 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/01/Annonce-au-MTP-CI-Rachat-25.01.2024.pdf (sha256 65f2869ab25d0a8b903c69a9a4e305c4756508be0f1a1f717e1790c862ca71c2); the result report printed the rounded value '100,11%'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "6690dc53458a5e375019dce8ba53d778d9974532d53a2a080838aa8ea1843aaa",
    "isin": "CI0000004206"
@@ -71720,8 +71720,8 @@
    "auction_reference": "RA-CI0000005435-12-2025",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "14229000000.0000",
-   "amount_allocated": "14229000000.0000",
+   "amount_submitted": "14229450000.0000",
+   "amount_allocated": "14229450000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
    "cutoff_yield": null,
@@ -71746,7 +71746,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Côte d’Ivoire — 2025-01-16' (staging row 1454); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Côte d’Ivoire — 2025-01-16' (staging row 1454); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 14229000000 to 14229450000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2025/01/Annonce-au-MTP-CI-EC-16.01.2025.pdf (sha256 797a22fe5cf716f476766a2d1c505539c8208e809abcae2978103b485c17632c); the result report printed the rounded value '14 229 millions de F CFA'. amount_allocated refined from 14229000000 to 14229450000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2025/01/Annonce-au-MTP-CI-EC-16.01.2025.pdf (sha256 797a22fe5cf716f476766a2d1c505539c8208e809abcae2978103b485c17632c); the result report printed the rounded value '14 229 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "050de1e940c6c4966467b8f0107b8b81aa6539709b22bfb19a10a2317da62842",
    "isin": "CI0000005435"
@@ -76474,7 +76474,7 @@
    "auction_reference": "ADJ-CI0000007167-OAT3A-2024",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "10224000000.0000",
+   "amount_submitted": "10223620000.0000",
    "amount_allocated": "8633000000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
@@ -76500,7 +76500,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Côte d’Ivoire — 2024-02-20' (staging row 2133); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Côte d’Ivoire — 2024-02-20' (staging row 2133); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 10224000000 to 10223620000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/02/Annonce-au-MTP-CI-ES-20.02.2024.pdf (sha256 6485748c06ccebbc38cba1165e22ea4f379be5f2ea07c7ad32f81a92e30a4f70); the result report printed the rounded value '10 224 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "f9649767dbac3f2148d4ba87017904c35f9c9b35e7111edd58bc5ad2936b2afa",
    "isin": "CI0000007167"
@@ -78075,8 +78075,8 @@
    "auction_reference": "ADJ-CI0000007431-OT5A-15-2024",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "62634000000.0000",
-   "amount_allocated": "62284000000.0000",
+   "amount_submitted": "62633860000.0000",
+   "amount_allocated": "62283860000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
    "cutoff_yield": null,
@@ -78101,7 +78101,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Côte d’Ivoire — 2024-04-08' (staging row 2029); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Côte d’Ivoire — 2024-04-08' (staging row 2029); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 62634000000 to 62633860000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/04/Annonce-au-MTP-CI-ES-08.04.2024.pdf (sha256 bd817a8b3e23d5e366c126f5090625793a2ede35ac58377233bfd8ac34a0c910); the result report printed the rounded value '62 634 millions de F CFA'. amount_allocated refined from 62284000000 to 62283860000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/04/Annonce-au-MTP-CI-ES-08.04.2024.pdf (sha256 bd817a8b3e23d5e366c126f5090625793a2ede35ac58377233bfd8ac34a0c910); the result report printed the rounded value '62 284 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "0dfd022378da44785b26fb6604c9c6b415ec59e0505f78be37a3401103d60c1e",
    "isin": "CI0000007431"
@@ -78348,7 +78348,7 @@
    "auction_reference": "ADJ-CI0000007480-OAT3A-2024",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "14312000000.0000",
+   "amount_submitted": "14311900000.0000",
    "amount_allocated": "14311900000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
@@ -78374,7 +78374,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Côte d’Ivoire — 2024-04-23' (staging row 2007); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Côte d’Ivoire — 2024-04-23' (staging row 2007); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 14312000000 to 14311900000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/04/Annonce-au-MTP-CI-ES-23.04.2024.pdf (sha256 872c2259c2629d7c833f7e8ba36dbbf8d43cc5510dcc0eda97827fe522b8542c); the result report printed the rounded value '14 312 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "0738a42c1024c8214aa36b533ab78e0f7523b0ef44a9fe507b392f6b5184d851",
    "isin": "CI0000007480"
@@ -80413,8 +80413,8 @@
    "auction_reference": "ADJ-CI0000007720-OAT10A-2024",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "8150000000.0000",
-   "amount_allocated": "7610000000.0000",
+   "amount_submitted": "8150450000.0000",
+   "amount_allocated": "7610450000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
    "cutoff_yield": null,
@@ -80439,7 +80439,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Côte d’Ivoire — 2024-07-02' (staging row 1861); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Côte d’Ivoire — 2024-07-02' (staging row 1861); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 8150000000 to 8150450000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/06/Annonce-au-MTP-CI-ES-02.07.2024.pdf (sha256 ec0ba3979195172265463b511d0f48c421be9c2d84199f667812a70e8b43f0e4); the result report printed the rounded value '8 150 millions de F CFA'. amount_allocated refined from 7610000000 to 7610450000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/06/Annonce-au-MTP-CI-ES-02.07.2024.pdf (sha256 ec0ba3979195172265463b511d0f48c421be9c2d84199f667812a70e8b43f0e4); the result report printed the rounded value '7 610 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "0556901d9e50c16f616ce2416287b07db6ff6beda7a4dc7ffd0fbc892f25fae9",
    "isin": "CI0000007720"
@@ -82281,8 +82281,8 @@
    "auction_reference": "ADJ-CI0000008025-OT3A-51-2024",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "15224000000.0000",
-   "amount_allocated": "15224000000.0000",
+   "amount_submitted": "15224430000.0000",
+   "amount_allocated": "15224430000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
    "cutoff_yield": null,
@@ -82307,7 +82307,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Côte d’Ivoire — 2024-09-10' (staging row 1726); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Côte d’Ivoire — 2024-09-10' (staging row 1726); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 15224000000 to 15224430000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/08/Annonce-au-MTP-CI-ES-10.09.2024.pdf (sha256 92543cfe08a8f61d96dc8afd2796a1ce46708738b5171c9e8f7000a6b80fc489); the result report printed the rounded value '15 224 millions de F CFA'. amount_allocated refined from 15224000000 to 15224430000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/08/Annonce-au-MTP-CI-ES-10.09.2024.pdf (sha256 92543cfe08a8f61d96dc8afd2796a1ce46708738b5171c9e8f7000a6b80fc489); the result report printed the rounded value '15 224 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "4314f4b24cf5062f2c480a991c7319cb475e14b21e341e87ec58ee2704da6dbc",
    "isin": "CI0000008025"
@@ -97906,7 +97906,7 @@
    "maximum_bid": null,
    "cutoff_yield": null,
    "weighted_average_yield": "2.500000",
-   "average_price": "100.560000",
+   "average_price": "100.561800",
    "reported_bid_to_cover": null,
    "number_of_bidders": 1,
    "number_of_successful_bidders": null,
@@ -97926,7 +97926,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Guinée Bissau — 2024-02-14' (staging row 2140); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Guinée Bissau — 2024-02-14' (staging row 2140); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. average_price refined from 100.56 to 100.5618 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/02/Annonce-au-MTP-GW-ES-15.02.2024.pdf (sha256 b85a8642766d7fae9ef8703751370f464d6bde089d988b92ad85679b1953a2e5); the result report printed the rounded value '100,56%'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "a73ecd054c65f3663ffae9c71c725cb0705cbdfc7a95f5ce1f979bbaecff9e60",
    "isin": "GW0000000426"
@@ -97939,8 +97939,8 @@
    "auction_reference": "RA-GW0000000426-OAT3A-1-2024",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "4538000000.0000",
-   "amount_allocated": "4538000000.0000",
+   "amount_submitted": "4537900000.0000",
+   "amount_allocated": "4537900000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
    "cutoff_yield": null,
@@ -97965,7 +97965,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Guinée Bissau — 2024-04-11' (staging row 2018); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Guinée Bissau — 2024-04-11' (staging row 2018); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 4538000000 to 4537900000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/04/Annonce-au-MTP-GW-EC-11.04.2024.pdf (sha256 585dd97068c856e9119b727ed29c32e6da99e5fd2c157e15bb2b542635202161); the result report printed the rounded value '4 538 millions de F CFA'. amount_allocated refined from 4538000000 to 4537900000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/04/Annonce-au-MTP-GW-EC-11.04.2024.pdf (sha256 585dd97068c856e9119b727ed29c32e6da99e5fd2c157e15bb2b542635202161); the result report printed the rounded value '4 538 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "17370978b4ace5b972841e11b8c3573972e96e2e180ac3a22af801c41012be05",
    "isin": "GW0000000426"
@@ -99615,7 +99615,7 @@
    "auction_reference": "ADJ-GW0000001036-OAT3A-1-2024",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "1364000000.0000",
+   "amount_submitted": "1364010000.0000",
    "amount_allocated": "1364000000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
@@ -99641,7 +99641,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Guinée Bissau — 2024-06-18' (staging row 1890); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Guinée Bissau — 2024-06-18' (staging row 1890); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 1364000000 to 1364010000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/06/Annonce-au-MTP-GW-ES-18.06.2024.pdf (sha256 869975f630c73901f628a88a2ea3670913da7ae248f400645ebe9d0fd9bae653); the result report printed the rounded value '1 364 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "4a43e0ed94f2d2e21d3b4ce5d0bd6d900aa00c512dbb290f04ac0063298cbe1d",
    "isin": "GW0000001036"
@@ -99964,7 +99964,7 @@
    "auction_reference": "ADJ-GW0000001093-OT3A-12-2024",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "2861000000.0000",
+   "amount_submitted": "2860650000.0000",
    "amount_allocated": "0.0000",
    "minimum_bid": null,
    "maximum_bid": null,
@@ -99992,7 +99992,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Guinée Bissau — 2024-09-17' (staging row 1709); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Nothing was allotted: the published 0,00% rates are not market yields and are not stored. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Guinée Bissau — 2024-09-17' (staging row 1709); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Nothing was allotted: the published 0,00% rates are not market yields and are not stored. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 2861000000 to 2860650000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/08/Annonce-au-MTP-GW-ES-17.09.2024.pdf (sha256 e3a8f1cdb7c0e04591c5539bda810ceccb13af552391d4b413e2820e09ee0e1d); the result report printed the rounded value '2 861 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "19d4ddee30b0dd15ae3f25071b08449ede2cfb53c0d737cacdd2df0d92ada7a9",
    "isin": "GW0000001093"
@@ -100317,7 +100317,7 @@
    "auction_reference": "ADJ-GW0000001143-OAT3A-2024",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "6354000000.0000",
+   "amount_submitted": "6354060000.0000",
    "amount_allocated": "6081000000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
@@ -100343,7 +100343,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Guinée Bissau — 2024-07-16' (staging row 1827); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Guinée Bissau — 2024-07-16' (staging row 1827); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 6354000000 to 6354060000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/07/Annonce-au-MTP-GW-ES-16.07.2024.pdf (sha256 98c46a2496c20e9c94af104ce918e92ca9ff7ac91e23ba7fad240857cdea6ef8); the result report printed the rounded value '6 354 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "3dd9240a87ca238b941053258dd47e8f867e9d3e1af8a2893c90a39da256101a",
    "isin": "GW0000001143"
@@ -101600,8 +101600,8 @@
    "auction_reference": "ADJ-GW0000001275-OAT3A-2-2024",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "1697000000.0000",
-   "amount_allocated": "1697000000.0000",
+   "amount_submitted": "1697430000.0000",
+   "amount_allocated": "1697430000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
    "cutoff_yield": null,
@@ -101626,7 +101626,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Guinée Bissau — 2024-12-03' (staging row 1565); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Guinée Bissau — 2024-12-03' (staging row 1565); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 1697000000 to 1697430000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/10/Annonce-au-MTP-GW-ES-03.12.2024.pdf (sha256 28bc771ce4df2ddb7e5149d2b736d0181fba533e90f93eab10df22df7d9ba719); the result report printed the rounded value '1 697 millions de F CFA'. amount_allocated refined from 1697000000 to 1697430000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/10/Annonce-au-MTP-GW-ES-03.12.2024.pdf (sha256 28bc771ce4df2ddb7e5149d2b736d0181fba533e90f93eab10df22df7d9ba719); the result report printed the rounded value '1 697 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "f4556877d84e9c11bcca679855443053f35eedd421f8efc8f14fec9ab3dbecb1",
    "isin": "GW0000001275"
@@ -105845,8 +105845,8 @@
    "auction_reference": "RA-ML0000001957-29-2025",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "9220000000.0000",
-   "amount_allocated": "9220000000.0000",
+   "amount_submitted": "9219810000.0000",
+   "amount_allocated": "9219810000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
    "cutoff_yield": null,
@@ -105871,7 +105871,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Mali — 2025-05-30' (staging row 998); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Mali — 2025-05-30' (staging row 998); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 9220000000 to 9219810000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2025/05/Annonce-au-MTP-ML-EC-30.05.2025.pdf (sha256 d4f1f88931c725eebc2542a431934e317950159ff6fd18a8b146c9235a1872c3); the result report printed the rounded value '9 220 millions de F CFA'. amount_allocated refined from 9220000000 to 9219810000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2025/05/Annonce-au-MTP-ML-EC-30.05.2025.pdf (sha256 d4f1f88931c725eebc2542a431934e317950159ff6fd18a8b146c9235a1872c3); the result report printed the rounded value '9 220 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "532418773458cab9b7f909c342bd86764a7c9d4d303c4538f0ad11939e557f26",
    "isin": "ML0000001957"
@@ -106231,8 +106231,8 @@
    "auction_reference": "RA-ML0000002351-BAT1A-2-2024",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "5343000000.0000",
-   "amount_allocated": "5343000000.0000",
+   "amount_submitted": "5343030000.0000",
+   "amount_allocated": "5343030000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
    "cutoff_yield": "4.000000",
@@ -106257,7 +106257,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Mali — 2024-02-21' (staging row 2129); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Mali — 2024-02-21' (staging row 2129); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 5343000000 to 5343030000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/02/Annonce-au-MTP-ML-EC-21.02.2024.pdf (sha256 8afb9c3556be892fa185795eeaef9d09daa7f9841fdbcb9f79571605c157b59d); the result report printed the rounded value '5 343 millions de F CFA'. amount_allocated refined from 5343000000 to 5343030000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/02/Annonce-au-MTP-ML-EC-21.02.2024.pdf (sha256 8afb9c3556be892fa185795eeaef9d09daa7f9841fdbcb9f79571605c157b59d); the result report printed the rounded value '5 343 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "e977960b6a65f70ecb017a4d3d0a9171f2b588b10fa2b83faf3ba40773a3fce8",
    "isin": "ML0000002351"
@@ -118271,8 +118271,8 @@
    "auction_reference": "RA-NE0000001278-OAT3A-2-2024",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "7276000000.0000",
-   "amount_allocated": "7276000000.0000",
+   "amount_submitted": "7276120000.0000",
+   "amount_allocated": "7276120000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
    "cutoff_yield": null,
@@ -118297,7 +118297,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Niger — 2024-06-10' (staging row 1909); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Niger — 2024-06-10' (staging row 1909); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 7276000000 to 7276120000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/06/Annonce-au-MTP-NE-EC-10.06.2024.pdf (sha256 2be28147cf270ca2fcf3f9103e3d1370ff9bb01eab683a015f4d6e9166a4f3ef); the result report printed the rounded value '7 276 millions de F CFA'. amount_allocated refined from 7276000000 to 7276120000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/06/Annonce-au-MTP-NE-EC-10.06.2024.pdf (sha256 2be28147cf270ca2fcf3f9103e3d1370ff9bb01eab683a015f4d6e9166a4f3ef); the result report printed the rounded value '7 276 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "efd7c06a82b0de96306a2a9a98e1fb52e82001373f67ffff9bdf39bdfb7a9aef",
    "isin": "NE0000001278"
@@ -118740,8 +118740,8 @@
    "auction_reference": "RA-NE0000001500-15-2025",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "1313000000.0000",
-   "amount_allocated": "1313000000.0000",
+   "amount_submitted": "1312500000.0000",
+   "amount_allocated": "1312500000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
    "cutoff_yield": null,
@@ -118766,7 +118766,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Niger — 2025-05-07' (staging row 1065); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Niger — 2025-05-07' (staging row 1065); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 1313000000 to 1312500000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2025/05/Annonce-au-MTP-NE-EC-07.05.2025.pdf (sha256 6d1824a05590f2d63827c335d8b1471eaacaee281efc6780c5e97e5e2bf2a0d7); the result report printed the rounded value '1 313 millions de F CFA'. amount_allocated refined from 1313000000 to 1312500000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2025/05/Annonce-au-MTP-NE-EC-07.05.2025.pdf (sha256 6d1824a05590f2d63827c335d8b1471eaacaee281efc6780c5e97e5e2bf2a0d7); the result report printed the rounded value '1 313 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "b1bb2fd40947ba332b79b6e15b03c2ef63f31204fc19af143728a966956141af",
    "isin": "NE0000001500"
@@ -126345,8 +126345,8 @@
    "auction_reference": "RA-SN0000001397-08-2025",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "4227000000.0000",
-   "amount_allocated": "4227000000.0000",
+   "amount_submitted": "4227280000.0000",
+   "amount_allocated": "4227280000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
    "cutoff_yield": null,
@@ -126371,7 +126371,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Sénégal — 2025-02-10' (staging row 1366); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Sénégal — 2025-02-10' (staging row 1366); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 4227000000 to 4227280000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2025/02/Annonce-au-MTP-SN-EC-10.02.2025.pdf (sha256 b61d8f3b757ea76976dbd8e9f45fb4013243b719f0df9d7f01481709736d0fe1); the result report printed the rounded value '4 227 millions de F CFA'. amount_allocated refined from 4227000000 to 4227280000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2025/02/Annonce-au-MTP-SN-EC-10.02.2025.pdf (sha256 b61d8f3b757ea76976dbd8e9f45fb4013243b719f0df9d7f01481709736d0fe1); the result report printed the rounded value '4 227 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "f529100e39cf8f4488fd36e6e9fc30d636559980cda61272bb2d6e0c432b8b09",
    "isin": "SN0000001397"
@@ -128139,8 +128139,8 @@
    "auction_reference": "ADJ-SN0000003161-OAT3A-2024",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "45677000000.0000",
-   "amount_allocated": "32178000000.0000",
+   "amount_submitted": "45676800000.0000",
+   "amount_allocated": "32178130000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
    "cutoff_yield": null,
@@ -128165,7 +128165,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Sénégal — 2024-05-31' (staging row 1934); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Sénégal — 2024-05-31' (staging row 1934); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 45677000000 to 45676800000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/05/Annonce-au-MTP-SN-ES-31.05.2024.pdf (sha256 3a6da7d7ba0cfdc74a9381fa3a4d107ef2db657e8c9c4b447bd7696aa85f4cd3); the result report printed the rounded value '45 677 millions de F CFA'. amount_allocated refined from 32178000000 to 32178130000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/05/Annonce-au-MTP-SN-ES-31.05.2024.pdf (sha256 3a6da7d7ba0cfdc74a9381fa3a4d107ef2db657e8c9c4b447bd7696aa85f4cd3); the result report printed the rounded value '32 178 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "66a93cf4357d3f1ff659542610b0e1778c51d3ca34ad61e801e1c45da9756517",
    "isin": "SN0000003161"
@@ -128178,8 +128178,8 @@
    "auction_reference": "ADJ-SN0000003179-OAT5A-2024",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "10910000000.0000",
-   "amount_allocated": "10541000000.0000",
+   "amount_submitted": "10910370000.0000",
+   "amount_allocated": "10540870000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
    "cutoff_yield": null,
@@ -128204,7 +128204,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Sénégal — 2024-05-31' (staging row 1935); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Sénégal — 2024-05-31' (staging row 1935); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 10910000000 to 10910370000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/05/Annonce-au-MTP-SN-ES-31.05.2024.pdf (sha256 3a6da7d7ba0cfdc74a9381fa3a4d107ef2db657e8c9c4b447bd7696aa85f4cd3); the result report printed the rounded value '10 910 millions de F CFA'. amount_allocated refined from 10541000000 to 10540870000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/05/Annonce-au-MTP-SN-ES-31.05.2024.pdf (sha256 3a6da7d7ba0cfdc74a9381fa3a4d107ef2db657e8c9c4b447bd7696aa85f4cd3); the result report printed the rounded value '10 541 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "66a93cf4357d3f1ff659542610b0e1778c51d3ca34ad61e801e1c45da9756517",
    "isin": "SN0000003179"
@@ -136770,8 +136770,8 @@
    "auction_reference": "ADJ-TG0000001460-OAT11M-2024",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "7389000000.0000",
-   "amount_allocated": "7389000000.0000",
+   "amount_submitted": "7388960000.0000",
+   "amount_allocated": "7388960000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
    "cutoff_yield": null,
@@ -136796,7 +136796,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Togo — 2024-12-06' (staging row 1550); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Togo — 2024-12-06' (staging row 1550); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 7389000000 to 7388960000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/12/Annonce-au-MTP-TG-EC-06.12.2024.pdf (sha256 674486ee7ee05bd4175bc2d8125ad5d521361d37823de2a2343767a4fa07e5a5); the result report printed the rounded value '7 389 millions de F CFA'. amount_allocated refined from 7389000000 to 7388960000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/12/Annonce-au-MTP-TG-EC-06.12.2024.pdf (sha256 674486ee7ee05bd4175bc2d8125ad5d521361d37823de2a2343767a4fa07e5a5); the result report printed the rounded value '7 389 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "114836730def66226028bcbef136a9a625c9899d346a478caeeb1fb57bbdfe6a",
    "isin": "TG0000001460"
@@ -136809,8 +136809,8 @@
    "auction_reference": "RA-TG0000001460-13-2025",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "490000000.0000",
-   "amount_allocated": "490000000.0000",
+   "amount_submitted": "490150000.0000",
+   "amount_allocated": "490150000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
    "cutoff_yield": null,
@@ -136835,7 +136835,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Togo — 2025-03-14' (staging row 1218); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Togo — 2025-03-14' (staging row 1218); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 490000000 to 490150000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2025/03/Annonce-au-MTP-TG-EC-14.03.2025.pdf (sha256 cf5799fd2fa50c80e4bfcaf4a7bf1825303ac327122332af4cc3d420cafc34f5); the result report printed the rounded value '490 millions de F CFA'. amount_allocated refined from 490000000 to 490150000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2025/03/Annonce-au-MTP-TG-EC-14.03.2025.pdf (sha256 cf5799fd2fa50c80e4bfcaf4a7bf1825303ac327122332af4cc3d420cafc34f5); the result report printed the rounded value '490 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "b259bd4f21b3462f6a8b1bcd9f2ea8a2e841a9e1d938fafd41cc7c6da94cce68",
    "isin": "TG0000001460"
@@ -137860,7 +137860,7 @@
    "auction_reference": "ADJ-TG0000002633-OAT5A-2-2024",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "4624000000.0000",
+   "amount_submitted": "4623570000.0000",
    "amount_allocated": "4600000000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
@@ -137886,7 +137886,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Togo — 2024-06-07' (staging row 1913); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Togo — 2024-06-07' (staging row 1913); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 4624000000 to 4623570000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/05/Annonce-au-MTP-TG-ES-07.06.2024.pdf (sha256 17859dc5c9b5a54e7138b01d55d338414266a20276b4fd53e5e9a823dcb3cd03); the result report printed the rounded value '4 624 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "1925a4e5f0109e62ce8909a60d736baa4a6be087102572dce0673f6a33491a17",
    "isin": "TG0000002633"
@@ -137938,7 +137938,7 @@
    "auction_reference": "ADJ-TG0000002633-OAT5A-6-2024",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "2672000000.0000",
+   "amount_submitted": "2671610000.0000",
    "amount_allocated": "1600000000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
@@ -137964,7 +137964,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Togo — 2024-07-12' (staging row 1830); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Togo — 2024-07-12' (staging row 1830); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 2672000000 to 2671610000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/07/Annonce-au-MTP-TG-ES-12.07.2024.pdf (sha256 b6814cc94c0d5370b85864524fd7675679cd836e6d7481cc9cc0b1a8cd4e9c50); the result report printed the rounded value '2 672 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "f7c48777f0e82c58bc092586ec108a9e136975f01fb302148bd8162fb38ad0e5",
    "isin": "TG0000002633"
@@ -138915,7 +138915,7 @@
    "auction_reference": "ADJ-TG0000002864-OAT3A-2024",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "7672000000.0000",
+   "amount_submitted": "7672270000.0000",
    "amount_allocated": "0.0000",
    "minimum_bid": null,
    "maximum_bid": null,
@@ -138943,7 +138943,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Togo — 2024-06-07' (staging row 1912); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Nothing was allotted: the published 0,00% rates are not market yields and are not stored. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Togo — 2024-06-07' (staging row 1912); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Nothing was allotted: the published 0,00% rates are not market yields and are not stored. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 7672000000 to 7672270000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/05/Annonce-au-MTP-TG-ES-07.06.2024.pdf (sha256 17859dc5c9b5a54e7138b01d55d338414266a20276b4fd53e5e9a823dcb3cd03); the result report printed the rounded value '7 672 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "1925a4e5f0109e62ce8909a60d736baa4a6be087102572dce0673f6a33491a17",
    "isin": "TG0000002864"
@@ -138995,7 +138995,7 @@
    "auction_reference": "ADJ-TG0000002864-OAT3A-4-2024",
    "status": "completed",
    "amount_offered": null,
-   "amount_submitted": "18792000000.0000",
+   "amount_submitted": "18792380000.0000",
    "amount_allocated": "11200000000.0000",
    "minimum_bid": null,
    "maximum_bid": null,
@@ -139021,7 +139021,7 @@
     "maximum_bid": "not_disclosed",
     "number_of_successful_bidders": "not_disclosed"
    },
-   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Togo — 2024-07-12' (staging row 1829); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review.",
+   "provenance_notes": "Extracted by umoa_compte_rendu/1 from 'UMOA-Titres — Compte rendu d'adjudication — Togo — 2024-07-12' (staging row 1829); verified against the document by Claude - controles automatiques stricts + audit IA (instruction du proprietaire, option A, 2026-10-04) on 2026-10-04. Bond auction: a marginal price is published, not a marginal yield. Multi-security operation: amount offered and coverage are published only for all securities together (kept in the staging row). Reviewer note: Strict autocheck: re-download + SHA-256, independent pdftotext, column placement and unit re-derivation, consistency checks. Independent AI audit of a stratified sample of 216/1811 rows (3,315 fields): 0 mismatches. Not a line-by-line human review. amount_submitted refined from 18792000000 to 18792380000 on 2026-10-04: exact figure printed in https://www.umoatitres.org/wp-content/uploads/2024/07/Annonce-au-MTP-TG-ES-12.07.2024.pdf (sha256 b6814cc94c0d5370b85864524fd7675679cd836e6d7481cc9cc0b1a8cd4e9c50); the result report printed the rounded value '18 792 millions de F CFA'.",
    "source": "UMOA-Titres — auction calendar and results",
    "document_sha256": "f7c48777f0e82c58bc092586ec108a9e136975f01fb302148bd8162fb38ad0e5",
    "isin": "TG0000002864"
