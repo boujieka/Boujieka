@@ -85,3 +85,39 @@ def test_emblem_manifest_is_consistent():
             assert hashlib.sha256(body).hexdigest() == e["sha256"], (iso3, kind)
             assert e["page"].startswith("https://commons.wikimedia.org/") and e["license"]
             assert b"<script" not in body.lower()
+
+
+def _load(name):
+    import sys
+    sys.path.insert(0, str(SITE))  # brief/dataset import `report` by name
+    s = importlib.util.spec_from_file_location(name, SITE / f"{name}.py")
+    m = importlib.util.module_from_spec(s)
+    s.loader.exec_module(m)
+    return m
+
+
+def test_brief_window_and_totals_match_the_verified_data():
+    brief = _load("brief")
+    b = brief.build(date(2026, 10, 4))
+    rows = report.load_rows()
+    lo = date.fromisoformat(b["from"])
+    assert lo == date(2026, 9, 28)
+    assert len(b["results"]) == sum(1 for r in rows if lo <= r["date"] <= date(2026, 10, 4))
+    issue = [r for r in rows if lo <= r["date"] <= date(2026, 10, 4) and r["type"] not in report.NON_ISSUANCE]
+    assert b["totals"]["current"]["n"] == len(issue)
+    assert Decimal(b["totals"]["current"]["allotted"]) == sum((r["alloc"] or 0 for r in issue), Decimal(0))
+    assert all(date(2026, 10, 4) < date.fromisoformat(m["maturity"]) <= date(2026, 10, 18) for m in b["maturing"])
+    html = brief.email_html(b, "fr")
+    assert "<script" not in html and "conseil" in html
+
+
+def test_dataset_files_keep_every_verified_row_and_the_sample_stays_small(tmp_path):
+    import csv
+    dataset = _load("dataset")
+    out = dataset.write(date(2026, 10, 4), tmp_path / "dist", tmp_path / "private")
+    full = list(csv.DictReader(open(tmp_path / "private" / "auctions.csv", encoding="utf-8-sig")))
+    sample = list(csv.DictReader(open(tmp_path / "dist" / "donnees" / "echantillon.csv", encoding="utf-8-sig")))
+    assert len(full) == out["auctions"] == len(report.load_rows())
+    assert len(sample) == dataset.SAMPLE and set(sample[0]) == set(full[0])
+    assert all(r["source_url"].startswith("https://www.umoatitres.org/") and len(r["document_sha256"]) == 64 for r in full)
+    assert not (tmp_path / "dist" / "donnees" / "auctions.csv").exists()  # full file never in the deployed tree

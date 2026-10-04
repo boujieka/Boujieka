@@ -70,6 +70,16 @@ verified data only, with each country's flag and coat of arms. There are two edi
 See [`docs/QUARTERLY_REPORT.md`](docs/QUARTERLY_REPORT.md), including the licence and legal
 points about state emblems.
 
+## Offers, waiting list and daily brief
+The site has three offers on show, none on sale yet, each with a waiting list and a price test
+(Netlify Forms):
+
+- the quarterly report;
+- a licence of the verified auction data, with a free dictionary and sample;
+- a daily auction brief that contains facts only.
+
+See [`docs/DATA_OFFER.md`](docs/DATA_OFFER.md).
+
 ## Principles
 
 - **Source first.** Every market-data record carries source, URL, document, publication date,

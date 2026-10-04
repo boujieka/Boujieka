@@ -229,6 +229,12 @@ def main() -> None:
     purchase = os.environ.get("CARTOUCHE_REPORT_PURCHASE_URL") or None
     payload["reports"] = report.build(date.fromisoformat(args.as_of), DIST, pdf=args.pdf, purchase_url=purchase)
     payload["reports_purchase_url"] = purchase
+    # Daily auction brief (section "Brief" + e-mail-ready pages) and the data offer (dictionary, sample).
+    import brief
+    import dataset
+    payload["brief"] = brief.write(date.fromisoformat(args.as_of), DIST)
+    offer = dataset.write(date.fromisoformat(args.as_of), DIST)
+    payload["data_offer"] = {k: offer[k] for k in ("auctions", "securities", "documents", "countries")}
     if args.veille and args.veille.exists():
         veille = json.loads(args.veille.read_text())
         # Embed the report only; the comparison state stays in the downloadable veille.json.
@@ -239,6 +245,7 @@ def main() -> None:
     (DIST / "index.html").write_text(html)
     shutil.copy(ROOT.parent / "brand" / "favicon.svg", DIST / "favicon.svg")
     shutil.copy(ROOT / "netlify.toml", DIST / "netlify.toml")
+    shutil.copy(ROOT / "merci.html", DIST / "merci.html")  # waiting-list form fallback page (no JavaScript)
     if args.veille and args.veille.exists() and args.veille.resolve() != (DIST / "veille.json").resolve():
         shutil.copy(args.veille, DIST / "veille.json")
     print(f"Built {DIST / 'index.html'} ({len(html) // 1024} KB)")

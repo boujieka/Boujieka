@@ -238,6 +238,18 @@ details.passport summary { cursor: pointer; padding: 8px 12px; font: 600 12px/1.
 
 /* Tables */
 table.list { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 640px; }
+.offers { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin: 18px 0 8px; }
+.offer { background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--gold); padding: 14px 16px; }
+.offer h3 { margin: 0 0 6px; } .offer p { margin: 0 0 8px; font-size: 14px; }
+.offer-st { font-size: 12px !important; color: var(--muted); }
+.br-h { margin-top: 22px; }
+.br-mat { columns: 2 260px; font-size: 14px; padding-inline-start: 18px; }
+.wl textarea { font: 500 14px var(--body); padding: 8px 10px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); border-radius: 2px; width: 100%; resize: vertical; }
+.wl fieldset { border: 1px solid var(--line); padding: 8px 12px; display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 0; }
+.wl legend { font-size: 12px; color: var(--muted); padding: 0 4px; }
+.wl label.chk { flex-direction: row; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--ink); }
+.wl label.chk input { width: auto; margin-top: 3px; }
+#wl-status { font-size: 14px; margin-inline-start: 10px; }
 .rp-flags img { height: 14px; width: auto; border: 1px solid var(--line); margin-inline-end: 3px; vertical-align: middle; }
 .list th { text-align: start; font: 600 11px/1 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 10px 12px; border-bottom: 2px solid var(--gold); }
 .list td { padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
@@ -523,7 +535,7 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
     </a>
     <div class="mast-r">
       <nav data-ia="aria-label:nav.label">
-        <a href="#carte" data-i="nav.map"></a><a href="#marche" data-i="nav.market"></a><a href="#radar" data-i="nav.radar"></a><a href="#acheteurs" data-i="nav.buyers"></a><a href="#simulateur" data-i="nav.sim"></a><a href="#strategie" data-i="nav.strategy"></a><a href="#rapports" data-i="nav.reports"></a><a href="#glossaire" data-i="nav.glossary"></a><a href="#veille" data-i="nav.watch"></a><a href="#sources" data-i="nav.sources"></a>
+        <a href="#carte" data-i="nav.map"></a><a href="#marche" data-i="nav.market"></a><a href="#radar" data-i="nav.radar"></a><a href="#acheteurs" data-i="nav.buyers"></a><a href="#simulateur" data-i="nav.sim"></a><a href="#strategie" data-i="nav.strategy"></a><a href="#brief" data-i="nav.brief"></a><a href="#rapports" data-i="nav.reports"></a><a href="#offres" data-i="nav.offers"></a><a href="#glossaire" data-i="nav.glossary"></a><a href="#veille" data-i="nav.watch"></a><a href="#sources" data-i="nav.sources"></a>
       </nav>
       <div class="langs" id="langs" role="group" data-ia="aria-label:lang.label">
         <button type="button" data-lang="fr" lang="fr" title="Français">FR</button><button type="button" data-lang="en" lang="en" title="English">EN</button><button type="button" data-lang="pt" lang="pt" title="Português">PT</button><button type="button" data-lang="es" lang="es" title="Español">ES</button><button type="button" data-lang="ar" lang="ar" title="العربية">AR</button>
@@ -551,7 +563,7 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
     <button type="button" class="sbtn" id="sopen" aria-haspopup="dialog" aria-keyshortcuts="/" data-ia="aria-label:search.open.aria"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg><span class="sl" data-i="search.open"></span><kbd aria-hidden="true">/</kbd></button>
   </div>
   <nav class="wrap secnav" id="secnav" data-ia="aria-label:nav.label">
-    <a href="#carte" data-i="nav.map"></a><a href="#marche" data-i="nav.market"></a><a href="#radar" data-i="nav.radar"></a><a href="#acheteurs" data-i="nav.buyers"></a><a href="#simulateur" data-i="nav.sim"></a><a href="#strategie" data-i="nav.strategy"></a><a href="#rapports" data-i="nav.reports"></a><a href="#glossaire" data-i="nav.glossary"></a><a href="#veille" data-i="nav.watch"></a><a href="#sources" data-i="nav.sources"></a>
+    <a href="#carte" data-i="nav.map"></a><a href="#marche" data-i="nav.market"></a><a href="#radar" data-i="nav.radar"></a><a href="#acheteurs" data-i="nav.buyers"></a><a href="#simulateur" data-i="nav.sim"></a><a href="#strategie" data-i="nav.strategy"></a><a href="#brief" data-i="nav.brief"></a><a href="#rapports" data-i="nav.reports"></a><a href="#offres" data-i="nav.offers"></a><a href="#glossaire" data-i="nav.glossary"></a><a href="#veille" data-i="nav.watch"></a><a href="#sources" data-i="nav.sources"></a>
   </nav>
 </div>
 
@@ -725,6 +737,20 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
     </div>
   </section>
 
+  <section id="brief">
+    <div class="wrap">
+      <span class="eyebrow" data-i="br.eyebrow"></span>
+      <h2><span data-i="br.title"></span><span id="br-f"></span></h2>
+      <p class="lede" id="br-lede"></p>
+      <div class="vstats" id="br-stats"></div>
+      <div class="scroll" style="margin-top:16px"><table class="list" id="br-list" style="min-width:620px"></table></div>
+      <h3 class="br-h" data-i="br.maturing.title"></h3>
+      <ul class="br-mat" id="br-mat"></ul>
+      <p class="note"><span data-i="br.email"></span> <a href="brief/fr.html" lang="fr">Français</a> · <a href="brief/en.html" lang="en">English</a> · <a href="#offres" data-i="br.subscribe"></a></p>
+      <p class="note" data-i="br.legal"></p>
+    </div>
+  </section>
+
   <section id="rapports">
     <div class="wrap">
       <span class="eyebrow" data-i="rp.eyebrow"></span>
@@ -736,6 +762,47 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
       <p class="note" data-i="rp.legal"></p>
     </div>
   </section>
+
+  <section id="offres">
+    <div class="wrap">
+      <span class="eyebrow" data-i="of.eyebrow"></span>
+      <h2 data-i="of.title"></h2>
+      <p class="lede" data-i="of.lede"></p>
+      <div class="offers">
+        <div class="offer"><h3 data-i="of.report.t"></h3><p data-i="of.report.p"></p><p class="offer-st" data-i="of.report.s"></p><a href="#rapports" data-i="of.report.a"></a></div>
+        <div class="offer"><h3 data-i="of.data.t"></h3><p id="of-data-p"></p><p class="offer-st" data-i="of.data.s"></p><a href="donnees/fr.html" lang="fr">Français</a> · <a href="donnees/en.html" lang="en">English</a> · <a href="donnees/echantillon.csv" download data-i="of.data.a"></a></div>
+        <div class="offer"><h3 data-i="of.brief.t"></h3><p data-i="of.brief.p"></p><p class="offer-st" data-i="of.brief.s"></p><a href="#brief" data-i="of.brief.a"></a></div>
+      </div>
+      <h3 class="br-h" data-i="wl.title"></h3>
+      <p class="note" data-i="wl.lede"></p>
+      <form class="form wl" name="liste-attente" id="wl" method="POST" action="/merci.html" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="liste-attente">
+        <input type="hidden" name="langue" id="wl-lang" value="fr">
+        <p hidden><label>bot <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <label><span data-i="wl.email"></span><input type="email" name="email" required autocomplete="email" maxlength="200"></label>
+        <label><span data-i="wl.profile"></span><select name="profil" required><option value="" data-i="wl.choose"></option><option value="bank" data-i="wl.profile.bank"></option><option value="broker" data-i="wl.profile.broker"></option><option value="asset_manager" data-i="wl.profile.asset_manager"></option><option value="corporate_treasury" data-i="wl.profile.corporate_treasury"></option><option value="dfi" data-i="wl.profile.dfi"></option><option value="consultant_research" data-i="wl.profile.consultant_research"></option><option value="media" data-i="wl.profile.media"></option><option value="individual" data-i="wl.profile.individual"></option><option value="public_sector" data-i="wl.profile.public_sector"></option><option value="other" data-i="wl.profile.other"></option></select></label>
+        <label><span data-i="wl.org"></span><input name="organisation" autocomplete="organization" maxlength="200"></label>
+        <label><span data-i="wl.country"></span><input name="pays" autocomplete="country-name" maxlength="100"></label>
+        <fieldset class="wide wl-int"><legend data-i="wl.interest"></legend>
+          <label class="chk"><input type="checkbox" name="interet_rapport" value="oui"><span data-i="wl.int.report"></span></label>
+          <label class="chk"><input type="checkbox" name="interet_donnees" value="oui"><span data-i="wl.int.data"></span></label>
+          <label class="chk"><input type="checkbox" name="interet_brief" value="oui"><span data-i="wl.int.brief"></span></label>
+          <label class="chk"><input type="checkbox" name="interet_alertes" value="oui"><span data-i="wl.int.alerts"></span></label>
+          <label class="chk"><input type="checkbox" name="interet_api" value="oui"><span data-i="wl.int.api"></span></label>
+          <label class="chk"><input type="checkbox" name="interet_cemac" value="oui"><span data-i="wl.int.cemac"></span></label>
+        </fieldset>
+        <label><span data-i="wl.price.report"></span><select name="prix_rapport_trimestriel"><option value="" data-i="wl.choose"></option><option value="free_only" data-i="wl.pr.free_only"></option><option value="lt25" data-i="wl.pr.lt25"></option><option value="25_49" data-i="wl.pr.25_49"></option><option value="50_99" data-i="wl.pr.50_99"></option><option value="100_199" data-i="wl.pr.100_199"></option><option value="200plus" data-i="wl.pr.200plus"></option><option value="unsure" data-i="wl.pr.unsure"></option></select></label>
+        <label><span data-i="wl.price.data"></span><select name="prix_licence_annuelle"><option value="" data-i="wl.choose"></option><option value="lt500" data-i="wl.pd.lt500"></option><option value="500_1999" data-i="wl.pd.500_1999"></option><option value="2000_4999" data-i="wl.pd.2000_4999"></option><option value="5000_19999" data-i="wl.pd.5000_19999"></option><option value="20000plus" data-i="wl.pd.20000plus"></option><option value="unsure" data-i="wl.pd.unsure"></option></select></label>
+        <label><span data-i="wl.price.brief"></span><select name="prix_brief_mensuel"><option value="" data-i="wl.choose"></option><option value="free_only" data-i="wl.pb.free_only"></option><option value="lt10" data-i="wl.pb.lt10"></option><option value="10_29" data-i="wl.pb.10_29"></option><option value="30plus" data-i="wl.pb.30plus"></option><option value="unsure" data-i="wl.pb.unsure"></option></select></label>
+        <label class="wide"><span data-i="wl.message"></span><textarea name="message" rows="3" maxlength="2000"></textarea></label>
+        <label class="wide chk"><input type="checkbox" name="consentement" value="oui" required><span data-i="wl.consent"></span></label>
+        <label class="wide chk"><input type="checkbox" name="desinscription" value="oui"><span data-i="wl.unsub"></span></label>
+        <div class="wide"><button class="btn gold" type="submit" data-i="wl.submit"></button> <span id="wl-status" role="status" aria-live="polite"></span></div>
+      </form>
+      <p class="note" data-i="wl.privacy"></p>
+    </div>
+  </section>
+
 
   <section id="glossaire">
     <div class="wrap">
@@ -1279,6 +1346,40 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
     $("coops").innerHTML = M("strategy_coop").map(([h, p]) => `<div class="coop"><h4>${esc(h)}</h4><p>${esc(p)}</p></div>`).join("");
     renderPf();
   }
+
+  // ---------- Daily auction brief (built by site/brief.py)
+  function renderBrief() {
+    const B = D.brief;
+    $("br-f").innerHTML = fbadge();
+    if (!B) { $("br-lede").textContent = t("br.none"); return; }
+    const res = B.results.filter((r) => !C || r.country === C), mat = B.maturing.filter((m) => !C || m.country === C);
+    $("br-lede").textContent = t("br.lede", { a: date(B.from), b: date(B.as_of), last: date(B.last_result) }) + (C ? " " + t("v.filtered", { c: NAME(C) }) : "");
+    const cur = B.totals.current, prev = B.totals.previous;
+    $("br-stats").innerHTML = C ? "" : [[t("br.s.n"), nf(cur.n, 0)], [t("br.s.alloc"), amt(cur.allotted, "XOF")], [t("br.s.prev"), `${nf(prev.n, 0)} · ${amt(prev.allotted, "XOF")}`]]
+      .map(([k, v]) => `<div><b>${esc(v)}</b><span>${esc(k)}</span></div>`).join("");
+    $("br-list").innerHTML = res.length ? `<thead><tr><th>${esc(t("br.th.date"))}</th><th>${esc(t("br.th.country"))}</th><th>${esc(t("br.th.sec"))}</th><th class="num">${esc(t("br.th.alloc"))}</th><th class="num">${esc(t("br.th.sub"))}</th><th class="num">${esc(t("br.th.yld"))}</th></tr></thead><tbody>` +
+      res.map((r) => `<tr><td class="num">${esc(date(r.date))}</td><td>${esc(NAME(r.country))}</td><td>${ext(r.url, r.name)} <small class="note" style="margin:0">${esc(t(r.type === "primary_auction" ? "br.issue" : "br.buyback"))}</small></td>` +
+        `<td class="num">${esc(amt(r.allotted, "XOF") ?? t("nd"))}</td><td class="num">${esc(amt(r.submitted, "XOF") ?? t("nd"))}</td><td class="num">${esc(pct(r.yield, 2) ?? t("nd"))}</td></tr>`).join("") + "</tbody>"
+      : `<tr><td>${esc(t("br.empty"))}</td></tr>`;
+    $("br-mat").innerHTML = mat.length ? mat.map((m) => `<li><span class="num">${esc(date(m.maturity))}</span> · ${esc(NAME(m.country))} · ${esc(m.name)}</li>`).join("") : `<li>${esc(t("br.empty"))}</li>`;
+  }
+  function renderOffers() {
+    const O = D.data_offer;
+    $("of-data-p").textContent = O ? t("of.data.p", { n: nf(O.auctions, 0), k: O.countries, d: nf(O.documents, 0) }) : "";
+    $("wl-lang").value = lang;
+  }
+  $("wl").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const f = e.target, st = $("wl-status");
+    if (!f.reportValidity()) return;
+    $("wl-lang").value = lang;
+    st.textContent = t("wl.sending");
+    try {
+      const r = await fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams(new FormData(f)).toString() });
+      if (!r.ok) throw new Error(String(r.status));
+      f.reset(); $("wl-lang").value = lang; st.textContent = t("wl.ok");
+    } catch { st.textContent = t("wl.err"); }
+  });
 
   // ---------- Quarterly reports (previews are static pages built by site/report.py)
   function renderReports() {
@@ -1918,10 +2019,10 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
   // ---------- Wiring
   function renderCountryViews() {
     renderCountryBar(); renderTape(); renderTiles(); renderProfile(); renderGrid(); renderSignals(); renderWall();
-    renderMarket(); renderBuyers(); renderSimOps(); computeSim(); renderVeille(); renderSources();
+    renderMarket(); renderBrief(); renderBuyers(); renderSimOps(); computeSim(); renderVeille(); renderSources();
   }
   function renderAll() {
-    renderBanner(); renderStele(); renderCountryViews(); renderStrategy(); renderReports(); renderGlossary(); renderRoadmap();
+    renderBanner(); renderStele(); renderCountryViews(); renderStrategy(); renderReports(); renderOffers(); renderGlossary(); renderRoadmap();
   }
   function setCountry(iso, keepTable) {
     C = AF[iso] ? iso : ""; store.set("cartouche-country", C);
