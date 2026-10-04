@@ -1,0 +1,52 @@
+# Publie la landing page TasetyGrid (site + PWA) sur GitHub Pages.
+# Prérequis (une fois) : Settings → Pages → Source : « GitHub Actions ».
+name: Déployer TasetyGrid sur GitHub Pages
+
+on:
+  push:
+    branches: [ccr-65cb650f-l2j0s8]
+    paths:
+      - "site/**"
+      - "brand/logo/**"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Construire le site (FR, EN, PWA)
+        run: python3 site/build.py
+      - name: Vérifier les fichiers attendus
+        run: |
+          for f in index.html en/index.html manifest.webmanifest sw.js icons/icon-512.png icons/maskable-512.png; do
+            test -s "site/public/$f" || { echo "Fichier manquant : $f"; exit 1; }
+          done
+          python3 -c "import json; json.load(open('site/public/manifest.webmanifest'))"
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

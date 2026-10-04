@@ -3,12 +3,17 @@
 Sorties :
 - site/index.html et site/en/index.html : publication en Artifact (la page
   française sans squelette, l'artifact l'ajoute ; la page anglaise complète) ;
-- site/public/ : site statique complet (FR à la racine, EN sous /en/), à déployer
-  tel quel sur Netlify ou tout hébergeur statique.
+- site/public/ : site statique complet et application web installable (PWA) :
+  FR à la racine, EN sous en/, manifeste, service worker et icônes. Tous les
+  liens sont relatifs : le site fonctionne à la racine d'un domaine (Netlify)
+  comme dans un sous-dossier (GitHub Pages : /Boujieka/).
 
 Usage : python3 site/build.py
 """
+import hashlib
+import json
 import re
+import shutil
 import sys
 from pathlib import Path
 from urllib.parse import quote
@@ -51,15 +56,63 @@ def traduire(html):
     return html
 
 
-def document(contenu, lang, alt_href, alt_lang):
-    """Document HTML complet (doctype, lang, liens hreflang)."""
+def document(contenu, lang, alt_href, alt_lang, racine=None):
+    """Document HTML complet (doctype, lang, hreflang). Avec `racine` (chemin relatif
+    vers la racine du site), ajoute le manifeste, les icônes et le service worker."""
     i = contenu.index("<header")
     tete, corps = contenu[:i], contenu[i:]
+    pwa, script = "", ""
+    if racine is not None:
+        pwa = (f'<link rel="manifest" href="{racine}manifest.webmanifest">\n'
+               '<meta name="theme-color" content="#1D3F8F">\n'
+               f'<link rel="apple-touch-icon" href="{racine}icons/apple-touch-icon.png">\n'
+               '<meta name="apple-mobile-web-app-title" content="TasetyGrid">\n')
+        script = ('<script>if ("serviceWorker" in navigator) { window.addEventListener("load", function () {'
+                  f' navigator.serviceWorker.register("{racine}sw.js", {{ scope: "{racine}" }}).catch(function () {{}}); }}); }}</script>\n')
     return ("<!doctype html>\n"
             f'<html lang="{lang}">\n<head>\n<meta charset="utf-8">\n'
             '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n'
             f'<link rel="alternate" hreflang="{alt_lang}" href="{alt_href}">\n'
-            + tete + "</head>\n<body>\n" + corps + "\n</body>\n</html>\n")
+            + pwa + tete + "</head>\n<body>\n" + corps + "\n" + script + "</body>\n</html>\n")
+
+
+MANIFESTE = {
+    "name": "TasetyGrid — Atlas des personnes, des terres et des ressources",
+    "short_name": "TasetyGrid",
+    "description": "Savoir ce qui existe sur chaque territoire, et ce qui manque.",
+    "lang": "fr",
+    "dir": "ltr",
+    "id": "./",
+    "start_url": "./",
+    "scope": "./",
+    "display": "standalone",
+    "background_color": "#F6F0E4",
+    "theme_color": "#1D3F8F",
+    "icons": [
+        {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+        {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+        {"src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"},
+    ],
+    "shortcuts": [
+        {"name": "English version", "short_name": "English", "url": "./en/", "lang": "en"},
+    ],
+}
+
+
+def ecrire_pwa(public):
+    """Manifeste, icônes et service worker (versionné par le contenu du site)."""
+    shutil.copytree(ROOT / "static" / "icons", public / "icons", dirs_exist_ok=True)
+    (public / "manifest.webmanifest").write_text(json.dumps(MANIFESTE, ensure_ascii=False, indent=2), encoding="utf-8")
+    fichiers = sorted(p for p in public.rglob("*") if p.is_file() and p.name != "sw.js")
+    empreinte = hashlib.sha256()
+    for f in fichiers:
+        empreinte.update(f.relative_to(public).as_posix().encode())
+        empreinte.update(f.read_bytes())
+    precache = ["./", "./en/"] + [f.relative_to(public).as_posix() for f in fichiers if f.name != "index.html"]
+    sw = (ROOT / "sw.template.js").read_text(encoding="utf-8")
+    sw = sw.replace("{{VERSION}}", empreinte.hexdigest()[:12]).replace("{{PRECACHE}}", json.dumps(precache))
+    (public / "sw.js").write_text(sw, encoding="utf-8")
+    return len(precache)
 
 
 def page(template, switch_href, switch_lang, switch_label):
@@ -85,14 +138,16 @@ def main():
         # Artifact : liens relatifs entre les deux fichiers publiés
         ROOT / "index.html": page(t, "en/index.html", "en", "EN"),
         ROOT / "en" / "index.html": document(page(t_en, "../", "fr", "FR"), "en", "../", "fr"),
-        # Site statique
-        ROOT / "public" / "index.html": document(page(t, "/en/", "en", "EN"), "fr", "/en/", "en"),
-        ROOT / "public" / "en" / "index.html": document(page(t_en, "/", "fr", "FR"), "en", "/", "fr"),
+        # Site statique + PWA (liens relatifs)
+        ROOT / "public" / "index.html": document(page(t, "en/", "en", "EN"), "fr", "en/", "en", racine=""),
+        ROOT / "public" / "en" / "index.html": document(page(t_en, "../", "fr", "FR"), "en", "../", "fr", racine="../"),
     }
     for chemin, html in sorties.items():
         chemin.parent.mkdir(parents=True, exist_ok=True)
         chemin.write_text(html, encoding="utf-8")
         print("écrit", chemin.relative_to(ROOT.parent), f"({len(html) // 1024} Ko)")
+    n = ecrire_pwa(ROOT / "public")
+    print(f"écrit site/public/manifest.webmanifest, icons/, sw.js ({n} ressources mises en cache)")
 
 
 if __name__ == "__main__":

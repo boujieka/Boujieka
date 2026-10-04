@@ -21,6 +21,7 @@ EN = {
     '>Confiance</a>': '>Trust</a>',
     '>Pilote</a>': '>Pilot</a>',
     '>Rejoindre le pilote</a>': '>Join the pilot</a>',
+    'hidden>Installer l\'app</button>': 'hidden>Install the app</button>',
 
     # Hero
     '>Atlas des personnes, des terres et des ressources<': '>Atlas of people, land and resources<',

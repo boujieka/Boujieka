@@ -102,6 +102,7 @@ section { padding-block: clamp(56px, 8vw, 96px); }
 .nav .btn { padding: 10px 16px; color: var(--bg); }
 .nav .langue { font: 500 13px/1 var(--f-donnee); letter-spacing: .08em; color: var(--fg); padding: 8px 10px; border: 1.5px solid var(--line); border-radius: 8px; }
 .nav .langue:hover { border-color: var(--fg); }
+.nav .installer { background: var(--surface); cursor: pointer; }
 
 /* Hero */
 .hero { padding-block: clamp(40px, 7vw, 88px) clamp(48px, 7vw, 80px); }
@@ -314,6 +315,7 @@ footer .bas { display: flex; flex-wrap: wrap; justify-content: space-between; ga
       <a href="#methode">Méthode</a>
       <a href="#confiance">Confiance</a>
       <a href="#pilote">Pilote</a>
+      <button class="langue installer" id="installer" type="button" hidden>Installer l'app</button>
       <a class="langue" href="en/index.html" hreflang="en" lang="en">EN</a>
       <a class="btn btn-plein" href="#rejoindre">Rejoindre le pilote</a>
     </nav>
@@ -662,6 +664,16 @@ footer .bas { display: flex; flex-wrap: wrap; justify-content: space-between; ga
     });
   });
   boutons.forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
+
+  // Installation de l'application (navigateurs qui le proposent : Chrome, Edge, Android)
+  var installer = document.getElementById("installer"), invite = null;
+  window.addEventListener("beforeinstallprompt", function (e) { e.preventDefault(); invite = e; installer.hidden = false; });
+  installer.addEventListener("click", function () {
+    if (!invite) return;
+    invite.prompt();
+    invite.userChoice.finally(function () { invite = null; installer.hidden = true; });
+  });
+  window.addEventListener("appinstalled", function () { installer.hidden = true; });
 
 })();
 </script>
