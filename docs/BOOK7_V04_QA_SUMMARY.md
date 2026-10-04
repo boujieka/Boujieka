@@ -1,4 +1,4 @@
-# Book 7 v0.4: pre-publication QA summary
+# Book 7 v1.0 RC1: pre-publication QA summary
 
 | Workstream | Scope | Result | Report |
 |---|---|---|---|
@@ -22,3 +22,8 @@
 4. ISBN and the KDP cover (spine width from the final page count and paper).
 5. Low model points: zero-flow behaviour, design flow not linked to capacity and cost, gate label "base case", zero-tariff behaviour.
 6. Practitioner and engineer review of the text and Annexes N to R.
+
+## RC1 additions (after the external model test)
+- 34_FRAMEWORK_MAP and 35_BOOK_CHECK added (ALL PASS with default inputs); dashboard and README separate the 9-gate development screen from the 23-gate transaction-stage readiness test.
+- Gate boundary tests (54 recalculations) and independent recomputation of the critical formulas: docs/MODEL7_GATE_AND_FORMULA_AUDIT.md. Fixed: blank evidence status now counts as NO EVIDENCE; gate labels 11, 19, 21; full-engine break-even development premium (about 26% of plant cost, against 19% first order).
+- MANUAL 7 rewritten for the current model: manual/MANUAL7_User_and_Methodology.md.

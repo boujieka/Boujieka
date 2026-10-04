@@ -1214,7 +1214,8 @@
     0
    ]
   },
-  "label": "Base \u2014 debt sized in-model"
+  "label": "Base \u2014 debt sized in-model",
+  "dev_be_prem_full": 0.2645507812499999
  },
  "base_locked": {
   "kpi_pirr": 0.112182480312486,

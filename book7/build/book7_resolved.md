@@ -454,6 +454,8 @@ A two-part tariff pays a capacity charge per kW per month, as long as the plant 
 
 Kasiri's PPA is energy-only at USD 112 per MWh in 2026 dollars, half indexed to US inflation, for a 20-year term; the model assumes a five-year extension at the same tariff, a gap Chapter 8 discusses. That is well above the standard tariffs quoted above, for two reasons: Kasiri is too large to be eligible for them, and its unit cost is higher than that of the plants they were set for. Chapter 12 shows how close the tariff is to the level the project needs, and Chapter 14 shows how the developer's return depends on it. A tariff of 116 USD per MWh in 2026 dollars would bring the private equity return to the 15 percent target.
 
+The choice also shows in the model's 9-gate development screen. Its regulation and PPA gate expects at least 20 percent of revenue to be fixed, as a capacity charge, before it reads anything better than a critical gap, because lenders in weak-buyer markets prefer revenue that does not depend on the river. Kasiri's energy-only tariff has no fixed revenue, so the gate reads CRITICAL GAP for that reason alone. The threshold is an editable model assumption, not a rule: an energy-only tariff can be bankable, as Chapter 12 shows, if the debt is sized on a downside energy case and the reserve covers a drought.
+
 ## 4.4 Indexation and currency
 
 A dollar tariff moves currency risk from the project to a buyer whose revenue is in local currency. The model lets part of the tariff be denominated in local currency and indexed to local inflation. Tanzania's standardised PPAs set tariffs in dollars but pay them in shillings [DE:S44]. Kenya's feed-in tariffs were set in dollars [DE:S42].
@@ -686,7 +688,7 @@ Kasiri's critical path runs through land and the lender-standard review of its E
 
 ## Working with the model
 
-*13_REGULATION* holds the regulatory readiness matrix and the E&S readiness inputs that feed Gate 9 of *30_BANKABILITY* and Gates 5 to 8 of *30A_CLOSE_READINESS*. *29_RISK_ALLOCATION* records who carries E&S risk.
+*13_REGULATION* holds the regulatory readiness matrix and the E&S readiness inputs that feed Gate 9 of *30_BANKABILITY* and the automatic tests of Gates 5 and 6 of *30A_CLOSE_READINESS*; Gates 7 and 8, permits and land, are counted on evidence entered on that sheet. *29_RISK_ALLOCATION* records who carries E&S risk.
 
 The technical reference for this chapter is Annex R, which sets out the engineering and environmental detail behind it and the questions to put to the project's engineers.
 
@@ -1114,7 +1116,7 @@ The value of the position at each stage, described in Chapter 6, prices entry by
 
 On the base-case assumptions, Kasiri is not worth starting, and the reason is not the one usually given. The usual argument is attrition: a project with a 15 percent chance of closing must earn, when it closes, enough to pay for the five or six that fail. That argument holds only if the project creates value when it succeeds. Kasiri does not, at the developer's 25 percent rate. Even if it were certain to close, the developer's net present value at the start of development would be USD −1.00 million. Development money is returned at close at cost plus a 3 percent premium, years after it was spent, and the developer's share of the equity is worth less than it costs at a 15 percent construction-stage rate, because the equity return is below target.
 
-That changes what the break-even values mean. The development premium that sets the risk-weighted value to zero is about 19% of plant cost, which no lender or buyer would accept. A break-even probability of close does not exist on these assumptions: raising the odds only makes it more likely that a loss-making path is followed to the end. The model reports "n/a: negative on the success path" for it.
+That changes what the break-even values mean. The development premium that sets the risk-weighted value to zero is about 26% of plant cost when the full model is run, because a larger premium also raises the plant cost, the debt and the equity the developer must put in; a first-order estimate that holds those fixed gives about 19%. Either figure is far above anything a lender or buyer would accept. A break-even probability of close does not exist on these assumptions: raising the odds only makes it more likely that a loss-making path is followed to the end. The model reports "n/a: negative on the success path" for it.
 
 The practical consequence is that the value at close must be fixed before the odds are worth improving. Private hydro development in Africa is done by developers with portfolios, by co-developers who enter later at higher probabilities, with grants that fund the riskiest studies, or by states that prepare and tender sites. Each of these lowers the cost of getting to close; none of them helps a project whose success path loses money.
 
@@ -1346,7 +1348,7 @@ The model turns those conditions into 23 gates, each marked critical or not, eac
 | 8 | Land rights secured for all project areas | Q2 | Yes | NOT MET |
 | 9 | PPA signed and approved by the regulator | Q2 | Yes | PARTIAL |
 | 10 | Implementation or concession agreement signed | Q2 | Yes | PARTIAL |
-| 11 | Grid connection agreement signed and transmission financed | Q3 | Yes | MET (model test) |
+| 11 | Transmission financed (model test); signed grid connection agreement to be evidenced | Q3 | Yes | MET (model test) |
 | 12 | Transmission in service no later than plant COD | Q3 | No | MET (model test) |
 | 13 | EPC contract(s) signed with fixed price, completion date and LDs | Q6 | Yes | PARTIAL |
 | 14 | O&M arrangements and owner's team in place | Q6 | No | PARTIAL |
@@ -1354,9 +1356,9 @@ The model turns those conditions into 23 gates, each marked critical or not, eac
 | 16 | Offtaker payment capacity at least 1.2x the PPA bill (worst of first 10 years) | Q7 | Yes | MET (model test) |
 | 17 | Financing plan fully committed (no financing gap) | Q5 | Yes | NOT MET (model test) |
 | 18 | Minimum DSCR at or above the sizing target in the selected case | Q5 | Yes | MET (model test) |
-| 19 | Equity commitments signed and equity IRR at or above target | Q4 | Yes | NOT MET (model test) |
+| 19 | Equity IRR at or above target (model test); signed equity commitments to be evidenced | Q4 | Yes | NOT MET (model test) |
 | 20 | Political risk cover or guarantees signed | Q5 | No | NO EVIDENCE |
-| 21 | Government support approved by the finance ministry; fiscal screen not HIGH | Q7 | Yes | MET (model test) |
+| 21 | Fiscal screen not HIGH (model test); finance ministry approval of support to be evidenced | Q7 | Yes | MET (model test) |
 | 22 | Insurance programme placed (construction all risks, DSU) | Q6 | No | PARTIAL |
 | 23 | Independent model audit completed | Q5 | No | NO EVIDENCE |
 
@@ -1830,7 +1832,7 @@ Before this version the workbook was tested a second time, by a reviewer working
 
 The test found five faults, all corrected in this version. The most serious was in packaging, not in calculation: the recalculation step saved the workbook without the quotation marks Excel requires around sheet names that begin with a digit, in 10,818 formulas and four charts. A strict Excel grammar parser refused the file. The quotation marks are now restored automatically after every recalculation. The developer IRR returned a placeholder of minus 100 percent in six stress runs where a valid rate exists, because an error trap caught the first attempt before the fallback could run; it now tries three starting values in turn. Two input selectors accepted a value the model cannot use, and no validation showed an error message; both are corrected. With no debt, the minimum cover ratio showed a placeholder of 99 that let the readiness gate on cover read as met; the gate now requires debt to exist, and the average cover ratio no longer returns an error.
 
-Four minor points remain open and are listed here so that users are not surprised. The model does not degrade gracefully at zero river flow, where division errors appear. The design flow is not linked to installed capacity or cost, so raising it changes nothing and lowering it reduces energy without reducing cost. The label of the readiness gate on cover says "in the base case" but the gate reads the selected case. With a zero tariff and locked debt, sponsors fund the shortfall indefinitely and no default is triggered. The full test report is kept with the model files.
+Three minor points remain open and are listed here so that users are not surprised. The model does not degrade gracefully at zero river flow, where division errors appear. The design flow is not linked to installed capacity or cost, so raising it changes nothing and lowering it reduces energy without reducing cost. With a zero tariff and locked debt, sponsors fund the shortfall indefinitely and no default is triggered. A second test then examined the 23 readiness gates and the critical formulas. In 54 recalculations, each of the twelve automatic gates changed status exactly at its threshold, the five possible decisions followed the stated ladder, and a case meeting all 23 gates was constructed and read GO. Project and equity IRR, NPV, DSCR, LLCR, LCOE, fiscal NPVs and every developer measure were recomputed independently from the workbook's own rows in five cases and matched to within rounding error. The test found that a blank or mistyped evidence status on a critical gate was ignored instead of counted as missing evidence, which could have produced a CONDITIONAL GO; it is now treated as no evidence. It also found that the first-order break-even development premium understated the full-model value, which Chapter 14 now reports; and that three gate labels promised a signed document while testing only a model number, which the labels now state. Two conventions are worth knowing: net present values are discounted at year end, and the levelised cost of energy is nominal, about USD 106 per MWh against about USD 84 in real 2026 terms.
 
 ### What changed in this edition
 
