@@ -1,0 +1,46 @@
+# Deux axes DISTINCTS pour une même unité foncière (docs/02, I2) :
+#  - USAGE_SOL : ce qu'on observe (imagerie, terrain)
+#  - REGIME    : ce que dit le droit (seule l'autorité compétente fait foi)
+# Les catégories de régime sont génériques et doivent être alignées sur le droit
+# foncier et domanial camerounais en vigueur : ordonnances n° 74-1 et 74-2 du 6 juillet 1974 (modifiées),
+# lettre-circulaire MINDCAF du 20/02/2026 (ARDFC/AJPTER), loi n° 2024/008 (forêts), loi n° 2023/014 (mines).
+# Voir docs/05 §3.
+
+USAGE_SOL:
+  AGRICOLE:      {fr: Agricole, en: Cropland}
+  FORESTIER:     {fr: Forestier, en: Forest}
+  PASTORAL:      {fr: Pastoral, en: Pasture}
+  RESIDENTIEL:   {fr: Résidentiel, en: Residential}
+  COMMERCIAL:    {fr: Commercial, en: Commercial}
+  INDUSTRIEL:    {fr: Industriel, en: Industrial}
+  MINIER:        {fr: Minier / carrière, en: Mining / quarrying}
+  INFRASTRUCTURE: {fr: Infrastructure, en: Infrastructure}
+  ZONE_HUMIDE:   {fr: Zone humide, en: Wetland}
+  PLAN_EAU:      {fr: Plan d'eau, en: Water}
+  SOL_NU:        {fr: Sol nu / savane, en: Bare / grassland}
+  JACHERE:       {fr: Jachère / non cultivé cultivable, en: Fallow / cultivable uncultivated}
+
+REGIME:
+  DOMAINE_PUBLIC:        {fr: Domaine public, en: Public domain}
+  DOMAINE_PRIVE_ETAT:    {fr: Domaine privé de l'État, en: State private domain}
+  DOMAINE_NATIONAL:      {fr: Domaine national, en: National lands}
+  PROPRIETE_PRIVEE:      {fr: Propriété privée titrée, en: Titled private property, sensibilite: S1_RESTREINT}
+  COUTUMIER_DECLARE:     {fr: Terre coutumière (déclarée, non titrée), en: Customary land (declared), note: "déclaration, pas un titre"}
+  AIRE_PROTEGEE:         {fr: Aire protégée, en: Protected area}
+  FORET_COMMUNAUTAIRE:   {fr: Forêt communautaire, en: Community forest}
+  FORET_COMMUNALE:       {fr: Forêt communale, en: Council forest}
+  INCONNU:               {fr: Régime non établi, en: Unknown}
+
+DROIT:
+  TITRE_FONCIER:            {fr: Titre foncier, en: Land title}
+  BAIL:                     {fr: Bail / bail emphytéotique, en: Lease}
+  CONCESSION_FORESTIERE:    {fr: Concession forestière, en: Forest concession}
+  PERMIS_RECHERCHE_MINIERE: {fr: Permis de recherche minière, en: Exploration permit}
+  PERMIS_EXPLOITATION:      {fr: Permis d'exploitation minière, en: Mining licence}
+  AUTORISATION_CARRIERE:    {fr: Autorisation d'exploitation de carrière, en: Quarry authorisation}
+  CONCESSION_SERVICE:       {fr: Concession de service public (eau, énergie, port…), en: Public service concession}
+  ARDFC:                    {fr: Attestation de reconnaissance des droits fonciers coutumiers, en: Customary land rights recognition certificate, sensibilite: S1_RESTREINT, note: "commencement de preuve, délivrée par chef de 3e degré (circulaire MINDCAF 20/02/2026) ; PAS un titre"}
+  AJPTER:                   {fr: Attestation de jouissance paisible des terres, en: Peaceful land occupation certificate, sensibilite: S1_RESTREINT, note: "commencement de preuve, délivrée par chef de 3e degré (circulaire MINDCAF 20/02/2026) ; PAS un titre"}
+  DROIT_COUTUMIER_DECLARE:  {fr: Droit coutumier déclaré (sans attestation), en: Declared customary right}
+  GESTION:                  {fr: Responsabilité de gestion (ex. école gérée par…), en: Management responsibility}
+  EXPLOITATION:             {fr: Exploitation / opérateur, en: Operator}

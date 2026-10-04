@@ -1,0 +1,19 @@
+# Indicateurs (domaine MESURE). Unité et source attendue indiquées.
+# Les indicateurs "calculés" ne sont jamais saisis : ils sont dérivés par le module INTELLIGENCE.
+
+POP_TOTALE:            {fr: Population totale, unite: hab, source: recensement ou estimation modélisée}
+NB_MENAGES:            {fr: Nombre de ménages, unite: ménages, source: recensement}
+NB_BATIMENTS:          {fr: Nombre de bâtiments, unite: bâtiments, source: imagerie / terrain}
+DENSITE:               {fr: Densité, unite: hab/km², calcule: true}
+CAPACITE_PLACES:       {fr: Capacité d'accueil, unite: places, source: sectorielle / terrain}
+CAPACITE_LITS:         {fr: Lits, unite: lits, source: sectorielle / terrain}
+NB_SALLES:             {fr: Salles de classe, unite: salles, source: carte scolaire / terrain}
+EFFECTIF_INSCRITS:     {fr: Élèves inscrits, unite: élèves, source: sectorielle}
+EFFECTIF_PERSONNEL:    {fr: Personnel (agrégé), unite: personnes, source: sectorielle}
+ETAT:                  {fr: État (bon/dégradé/hors service), unite: classe, source: terrain}
+LONGUEUR_PRATICABLE:   {fr: Longueur praticable toute l'année, unite: km, source: terrain / sectorielle}
+PRODUCTION_DECLAREE:   {fr: Production déclarée, unite: selon substance/culture, source: administration / opérateur}
+TAUX_ACCES_EAU:        {fr: Ménages ayant accès à l'eau potable, unite: '%', source: recensement / enquête}
+TAUX_ACCES_ELEC:       {fr: Ménages ayant accès à l'électricité, unite: '%', source: recensement / enquête / opérateur}
+POP_A_MOINS_DE_X_MIN:  {fr: Population à moins de X min d'un équipement fonctionnel, unite: '%', calcule: true}
+SCORE_CONFIANCE:       {fr: Score de confiance (par couche), unite: 0-100, calcule: true}

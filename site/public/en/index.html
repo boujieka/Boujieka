@@ -1,0 +1,799 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="alternate" hreflang="fr" href="../">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#1D3F8F">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="TasetyGrid">
+<title>TasetyGrid</title>
+<meta name="description" content="TasetyGrid, the atlas of people, land and resources: know what exists across a territory, where it is, what condition it is in, and what is missing.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%20width%3D%22512%22%20height%3D%22512%22%20role%3D%22img%22%20aria-label%3D%22TasetyGrid%20%E2%80%94%20favicon%22%3E%0A%3Ctitle%3ETasetyGrid%20%E2%80%94%20favicon%3C/title%3E%0A%3Crect%20width%3D%22512%22%20height%3D%22512%22%20rx%3D%2292.2%22%20fill%3D%22%231D3F8F%22/%3E%0A%3Ccircle%20cx%3D%22256.0%22%20cy%3D%22256.0%22%20r%3D%22204.80%22%20fill%3D%22none%22%20stroke%3D%22%23A6412B%22%20stroke-width%3D%2243.52%22/%3E%0A%3CclipPath%20id%3D%22clip675756%22%3E%3Ccircle%20cx%3D%22256.0%22%20cy%3D%22256.0%22%20r%3D%22183.04%22/%3E%3C/clipPath%3E%0A%3Cg%20clip-path%3D%22url%28%23clip675756%29%22%20fill%3D%22none%22%20stroke%3D%22%231D3F8F%22%20stroke-width%3D%225.12%22%20opacity%3D%220.55%22%3E%3C/g%3E%0A%3Cpath%20d%3D%22M285.26%2C177.98%20A29.26%2C29.26%200%200%200%20256.00%2C207.24%20A48.76%2C48.76%200%200%200%20304.76%2C256.00%20A78.02%2C78.02%200%200%200%20382.78%2C177.98%20A126.78%2C126.78%200%200%200%20256.00%2C51.20%20A204.80%2C204.80%200%200%200%2051.20%2C256.00%22%20fill%3D%22none%22%20stroke%3D%22%23C9982E%22%20stroke-width%3D%2243.52%22%20stroke-linecap%3D%22round%22/%3E%0A%3C/svg%3E%0A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../atlas/atlas-map.css">
+<style>
+/* Mise en page : une colonne éditoriale de 1120px ; le symbole Kodya porte le hero,
+   chaque section est un « feuillet » de l'atlas, la fiche territoriale est l'objet central. */
+:root {
+  --bleu: #1D3F8F;          /* bleu égyptien */
+  --or: #C9982E;            /* or de Nubie */
+  --ocre: #A6412B;          /* ocre de Kerma */
+  --noir: #17130F;          /* noir Kemet */
+  --blanc: #F6F0E4;         /* blanc mpemba */
+  --turquoise: #2E8C83;     /* faïence */
+
+  --bg: #F6F0E4;
+  --surface: #FFFDF8;
+  --surface-2: #EFE7D6;
+  --fg: #17130F;
+  --muted: #5B5246;
+  --line: #DDD2BD;
+  --titre: #1D3F8F;
+  --accent: #A6412B;
+  --or-texte: #8A6516;      /* or assombri, lisible sur fond clair */
+  --ok: #2E7D5B;
+  --alerte: #B7791F;
+  --critique: #A6412B;
+  --logo-bleu: #1D3F8F;
+  --logo-or: #C9982E;
+  --logo-ocre: #A6412B;
+  --ombre: 0 1px 0 rgba(23,19,15,.04), 0 12px 32px -18px rgba(23,19,15,.25);
+
+  --f-display: "Cinzel", "Trajan Pro", Georgia, serif;
+  --f-texte: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --f-donnee: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --largeur: 1120px;
+  --r: 14px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #17130F; --surface: #211C16; --surface-2: #2A241C; --fg: #F2EBDD; --muted: #B8AC98;
+    --line: #3A3227; --titre: #9DB7F2; --accent: #E07A5F; --or-texte: #D9AE4F;
+    --ok: #6CC49A; --alerte: #E3B04B; --critique: #E8826A;
+    --logo-bleu: #F6F0E4; --logo-or: #C9982E; --logo-ocre: #C9573D;
+    --ombre: 0 1px 0 rgba(0,0,0,.2), 0 12px 32px -18px rgba(0,0,0,.6);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #17130F; --surface: #211C16; --surface-2: #2A241C; --fg: #F2EBDD; --muted: #B8AC98;
+  --line: #3A3227; --titre: #9DB7F2; --accent: #E07A5F; --or-texte: #D9AE4F;
+  --ok: #6CC49A; --alerte: #E3B04B; --critique: #E8826A;
+  --logo-bleu: #F6F0E4; --logo-or: #C9982E; --logo-ocre: #C9573D;
+  --ombre: 0 1px 0 rgba(0,0,0,.2), 0 12px 32px -18px rgba(0,0,0,.6);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 400 17px/1.6 var(--f-texte);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--or); outline-offset: 3px; border-radius: 6px; }
+.wrap { max-width: var(--largeur); margin: 0 auto; padding-inline: 20px; }
+h1, h2, h3 { text-wrap: balance; margin: 0; }
+h2 { font: 700 clamp(26px, 3.4vw, 38px)/1.15 var(--f-display); color: var(--titre); letter-spacing: .01em; }
+h3 { font: 600 19px/1.3 var(--f-texte); }
+p { margin: 0; }
+.eyebrow {
+  font: 500 12px/1 var(--f-donnee); letter-spacing: .16em; text-transform: uppercase; color: var(--accent);
+}
+.lead { font-size: 19px; color: var(--muted); max-width: 62ch; }
+section { padding-block: clamp(56px, 8vw, 96px); }
+.section-head { display: grid; gap: 14px; margin-bottom: 36px; max-width: 760px; }
+
+/* En-tête */
+.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: saturate(1.2) blur(10px); -webkit-backdrop-filter: saturate(1.2) blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 10px; }
+.top .logo svg { height: 40px; width: auto; display: block; }
+.nav { display: flex; gap: 22px; align-items: center; font-size: 15px; }
+.nav a { text-decoration: none; color: var(--muted); }
+.nav a:hover { color: var(--fg); }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; text-decoration: none; cursor: pointer;
+  font: 600 15px/1 var(--f-texte); padding: 13px 20px; border-radius: 999px; border: 1.5px solid transparent;
+  transition: transform .15s ease, background-color .15s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-plein { background: var(--titre); color: var(--bg); }
+.btn-ligne { border-color: var(--line); color: var(--fg); background: var(--surface); }
+.nav .btn { padding: 10px 16px; color: var(--bg); }
+.nav .langue { font: 500 13px/1 var(--f-donnee); letter-spacing: .08em; color: var(--fg); padding: 8px 10px; border: 1.5px solid var(--line); border-radius: 8px; }
+.nav .langue:hover { border-color: var(--fg); }
+.nav .installer { background: var(--surface); cursor: pointer; }
+
+/* Hero */
+.hero { padding-block: clamp(40px, 7vw, 88px) clamp(48px, 7vw, 80px); }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 48px; align-items: center; }
+.hero h1 {
+  font: 700 clamp(36px, 5.6vw, 66px)/1.05 var(--f-display); color: var(--titre); letter-spacing: .005em;
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero .lead { margin-top: 22px; }
+.hero .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.hero .meta { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 8px 18px; font: 500 13px/1.4 var(--f-donnee); color: var(--muted); }
+.hero .meta span::before { content: "◆ "; color: var(--or-texte); }
+.symbole { position: relative; max-width: 440px; justify-self: center; width: 100%; }
+.symbole svg { width: 100%; height: auto; display: block; }
+.kodya { stroke-dasharray: 1; stroke-dashoffset: 0; animation: tracer 2.4s cubic-bezier(.6,.05,.25,1) .2s both; }
+@keyframes tracer { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+.symbole figcaption { margin-top: 10px; text-align: center; font: 500 12px/1.5 var(--f-donnee); color: var(--muted); letter-spacing: .04em; }
+
+/* Cinq questions */
+.questions { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.questions div { padding: 22px 18px 22px 0; display: grid; gap: 6px; align-content: start; }
+.questions div + div { padding-left: 18px; border-left: 1px solid var(--line); }
+.questions b { font: 700 22px/1.2 var(--f-display); color: var(--titre); }
+.questions span { color: var(--muted); font-size: 15px; }
+
+/* Fiche territoriale */
+.demo { background: var(--surface-2); }
+.fiche-zone { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+.onglets { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.onglet {
+  font: 500 14px/1 var(--f-texte); padding: 10px 14px; border-radius: 999px; cursor: pointer;
+  border: 1.5px solid var(--line); background: var(--surface); color: var(--fg);
+}
+.onglet[aria-selected="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.fiche { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--ombre); overflow: hidden; }
+.fiche-tete { padding: 18px 20px; border-bottom: 1px solid var(--line); display: grid; gap: 4px; }
+.fiche-tete .nom { font: 700 22px/1.2 var(--f-display); color: var(--titre); }
+.fiche-tete .loc { font: 500 13px/1.4 var(--f-donnee); color: var(--muted); }
+.exemple { display: inline-block; justify-self: start; font: 500 11px/1 var(--f-donnee); letter-spacing: .08em; text-transform: uppercase;
+  padding: 5px 8px; border-radius: 6px; background: color-mix(in srgb, var(--alerte) 18%, transparent); color: var(--fg); }
+.lignes { display: grid; }
+.ligne { display: grid; grid-template-columns: 112px minmax(0, 1fr) auto; gap: 12px; align-items: baseline; padding: 11px 20px; border-bottom: 1px solid var(--line); }
+.ligne:last-child { border-bottom: 0; }
+.ligne dt { font: 500 12px/1.4 var(--f-donnee); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.ligne dd { margin: 0; font-variant-numeric: tabular-nums; }
+.ligne .src { font-size: 12px; color: var(--muted); display: block; }
+.conf { font: 500 13px/1 var(--f-donnee); white-space: nowrap; }
+.conf[data-n="3"] { color: var(--ok); }
+.conf[data-n="2"] { color: var(--alerte); }
+.conf[data-n="1"] { color: var(--muted); }
+.legende { display: flex; flex-wrap: wrap; gap: 6px 16px; padding: 12px 20px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--line); background: var(--surface-2); }
+
+.manque { display: grid; gap: 14px; }
+.manque h3 { font: 700 22px/1.2 var(--f-display); color: var(--titre); }
+.score { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 18px 20px; display: grid; gap: 12px; }
+.score-haut { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.score-val { font: 700 40px/1 var(--f-display); color: var(--titre); font-variant-numeric: tabular-nums; }
+.score-val small { font: 500 15px var(--f-donnee); color: var(--muted); }
+.composantes { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.composantes div { display: grid; gap: 6px; font-size: 12px; color: var(--muted); }
+.jauge { height: 6px; border-radius: 99px; background: var(--surface-2); overflow: hidden; }
+.jauge i { display: block; height: 100%; background: var(--titre); border-radius: 99px; transition: width .5s ease; }
+.deficits { display: grid; gap: 10px; }
+.deficit { background: var(--surface); border: 1px solid var(--line); border-left: 5px solid var(--ok); border-radius: 10px; padding: 12px 16px; display: grid; gap: 4px; }
+.deficit[data-niveau="alerte"] { border-left-color: var(--alerte); }
+.deficit[data-niveau="critique"] { border-left-color: var(--critique); }
+.deficit .haut { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.deficit b { font-weight: 600; }
+.pastille { font: 500 11px/1 var(--f-donnee); letter-spacing: .08em; text-transform: uppercase; padding: 5px 8px; border-radius: 6px; color: var(--fg);
+  background: color-mix(in srgb, var(--ok) 20%, transparent); }
+.deficit[data-niveau="alerte"] .pastille { background: color-mix(in srgb, var(--alerte) 22%, transparent); }
+.deficit[data-niveau="critique"] .pastille { background: color-mix(in srgb, var(--critique) 22%, transparent); }
+.deficit p { font-size: 14px; color: var(--muted); }
+.note { font-size: 13px; color: var(--muted); }
+
+/* Atlas pays par pays : carte SIG + tableau de bord */
+.atlas-outils { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin-bottom: 18px; }
+.atlas-outils label { font: 600 14px/1 var(--f-texte); color: var(--muted); }
+.atlas-outils select {
+  font: 600 16px/1.2 var(--f-texte); color: var(--fg); background: var(--surface); border: 1.5px solid var(--line);
+  border-radius: 10px; padding: 11px 14px; min-width: min(320px, 100%); max-width: 100%;
+}
+.atlas-outils select:focus-visible { outline: 3px solid var(--or); outline-offset: 2px; }
+.atlas-outils .note { margin: 0; flex-basis: 100%; }
+.atlas-grille { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 22px; align-items: start; }
+.atlas-carte { min-width: 0; min-height: 420px; }
+#atlas-bord { display: grid; gap: 16px; min-width: 0; }
+.ad-bloc { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 18px; display: grid; gap: 14px; box-shadow: var(--ombre); }
+.ad-entete { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.ad-titre { font: 700 17px/1.25 var(--f-display); color: var(--titre); margin: 0; flex: 1 1 200px; }
+.ad-badge { font: 500 11px/1 var(--f-donnee); letter-spacing: .08em; text-transform: uppercase; padding: 6px 9px; border-radius: 6px; }
+.ad-badge-reel { background: color-mix(in srgb, var(--ok) 18%, transparent); color: var(--fg); }
+.ad-badge-fictif { background: color-mix(in srgb, var(--alerte) 24%, transparent); color: var(--fg); }
+.ad-kpi { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 0; }
+.ad-k { background: var(--surface-2); border-radius: 10px; padding: 10px 12px; display: grid; gap: 4px; }
+.ad-k dt { font-size: 12px; color: var(--muted); }
+.ad-k dd { margin: 0; font: 500 18px/1.1 var(--f-donnee); color: var(--fg); overflow-wrap: anywhere; }
+.ad-k .ad-sous { font-size: 11.5px; color: var(--muted); }
+.ad-note { font-size: 12.5px; color: var(--muted); margin: 0; }
+.ad-bascule { display: inline-flex; border: 1.5px solid var(--line); border-radius: 10px; overflow: hidden; }
+.ad-bascule button { font: 600 13px/1 var(--f-texte); padding: 9px 12px; border: 0; background: var(--surface); color: var(--fg); cursor: pointer; }
+.ad-bascule button[aria-pressed="true"] { background: var(--titre); color: var(--surface); }
+.ad-bascule button:focus-visible { outline: 3px solid var(--or); outline-offset: -3px; }
+.ad-liste { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.ad-ligne { display: grid; gap: 6px; }
+.ad-ligne-tete { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; font-size: 14px; }
+.ad-total { color: var(--muted); font-size: 13px; flex: 1 1 auto; }
+.ad-def { font: 500 11px/1 var(--f-donnee); padding: 5px 8px; border-radius: 6px; background: var(--surface-2); }
+.ad-def[data-niveau="moyen"] { background: color-mix(in srgb, var(--alerte) 22%, transparent); }
+.ad-def[data-niveau="fort"] { background: color-mix(in srgb, var(--critique) 22%, transparent); }
+.ad-def[data-niveau="faible"] { background: color-mix(in srgb, var(--ok) 20%, transparent); }
+.ad-barre { display: flex; height: 10px; border-radius: 6px; overflow: hidden; background: var(--surface-2); }
+.ad-barre i { display: block; height: 100%; }
+.ad-v { background: var(--titre); } .ad-e { background: var(--or); } .ad-d { background: color-mix(in srgb, var(--muted) 45%, var(--surface-2)); }
+.ad-chiffres { font: 500 12px/1 var(--f-donnee); color: var(--muted); }
+@media (max-width: 900px) { .atlas-grille { grid-template-columns: minmax(0, 1fr); } .ad-kpi { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Modules */
+.modules { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+.module { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 20px 18px; display: grid; gap: 10px; align-content: start; }
+.module .code { font: 500 12px/1 var(--f-donnee); color: var(--or-texte); letter-spacing: .12em; }
+.module h3 { font: 700 19px/1.2 var(--f-display); color: var(--titre); }
+.module p { font-size: 15px; color: var(--muted); }
+
+/* Méthode : une séquence réelle, d'où la numérotation */
+.niveaux { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; counter-reset: n -1; }
+.niveau { padding: 0 20px 0 0; display: grid; gap: 10px; align-content: start; position: relative; }
+.niveau + .niveau { padding-left: 20px; border-left: 1px solid var(--line); }
+.niveau .num { font: 500 13px/1 var(--f-donnee); color: var(--accent); }
+.niveau h3 { font-size: 18px; }
+.niveau p { font-size: 15px; color: var(--muted); }
+.niveau .statut { font: 500 12px/1 var(--f-donnee); justify-self: start; padding: 6px 9px; border-radius: 6px; background: var(--surface-2); color: var(--fg); }
+
+/* Sentinelle */
+.sentinelle { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: center; }
+.telephone {
+  justify-self: center; width: min(320px, 100%); border-radius: 34px; padding: 14px; background: var(--fg);
+  box-shadow: var(--ombre);
+}
+.ecran { background: var(--bg); border-radius: 24px; padding: 18px; display: grid; gap: 12px; }
+.ecran .titre { font: 700 17px/1.3 var(--f-display); color: var(--titre); }
+.ecran .sous { font-size: 13px; color: var(--muted); }
+.ecran button {
+  font: 600 15px/1.2 var(--f-texte); text-align: left; padding: 14px; border-radius: 14px; cursor: pointer;
+  border: 1.5px solid var(--line); background: var(--surface); color: var(--fg); display: grid; gap: 2px;
+}
+.ecran button small { font-weight: 400; font-size: 12px; color: var(--muted); }
+.ecran button[aria-pressed="true"] { border-color: var(--titre); background: color-mix(in srgb, var(--titre) 10%, var(--surface)); }
+.ecran .retour { font-size: 13px; min-height: 2.6em; color: var(--fg); }
+.liste { display: grid; gap: 14px; margin-top: 22px; padding: 0; list-style: none; }
+.liste li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 10px; }
+.liste li::before { content: ""; width: 10px; height: 10px; margin-top: 8px; border-radius: 50%; background: var(--or); }
+
+/* Confiance */
+.confiance { background: var(--fg); color: var(--bg); }
+.confiance h2 { color: var(--bg); }
+.confiance .lead { color: color-mix(in srgb, var(--bg) 75%, var(--fg)); }
+.confiance .eyebrow { color: var(--or); }
+.engagements { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: color-mix(in srgb, var(--bg) 20%, var(--fg)); border-radius: var(--r); overflow: hidden; }
+.engagements div { background: var(--fg); padding: 24px 22px; display: grid; gap: 8px; align-content: start; }
+.engagements b { font: 600 17px/1.3 var(--f-texte); color: var(--or); }
+.engagements p { font-size: 15px; color: color-mix(in srgb, var(--bg) 78%, var(--fg)); }
+.classes { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 10px; }
+.classes span { font: 500 13px/1 var(--f-donnee); padding: 9px 12px; border-radius: 8px; border: 1px solid color-mix(in srgb, var(--bg) 30%, var(--fg)); }
+
+/* Pilote : séquence réelle */
+.phases { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; border-left: 2px solid var(--line); }
+.phases li { position: relative; padding: 0 0 26px 28px; display: grid; gap: 4px; }
+.phases li:last-child { padding-bottom: 0; }
+.phases li::before { content: ""; position: absolute; left: -8px; top: 4px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 3px solid var(--or); }
+.phases .ph { font: 500 12px/1 var(--f-donnee); letter-spacing: .1em; color: var(--accent); text-transform: uppercase; }
+.phases p { color: var(--muted); font-size: 15px; max-width: 70ch; }
+.pilote-grille { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 48px; align-items: start; }
+.encart { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 22px; display: grid; gap: 12px; }
+.encart h3 { font: 700 19px/1.25 var(--f-display); color: var(--titre); }
+.encart p, .encart li { font-size: 15px; color: var(--muted); }
+.encart ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+
+/* Nom */
+.nom-sec .wrap { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 48px; align-items: center; }
+.hiero { font: 700 clamp(40px, 7vw, 76px)/1 var(--f-display); color: var(--titre); }
+.hiero small { display: block; margin-top: 12px; font: 500 14px/1.4 var(--f-donnee); color: var(--muted); letter-spacing: .06em; }
+.trois { display: grid; gap: 18px; }
+.trois div { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 16px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.trois div:last-child { border-bottom: 0; padding-bottom: 0; }
+.trois b { font: 700 16px/1.4 var(--f-display); color: var(--accent); }
+.trois p { color: var(--muted); font-size: 16px; }
+
+/* Appel final */
+.appel { background: var(--titre); color: var(--bg); }
+.appel h2 { color: var(--bg); }
+.appel .wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 40px; align-items: center; }
+.appel p { color: color-mix(in srgb, var(--bg) 82%, var(--titre)); margin-top: 14px; max-width: 60ch; }
+.publics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.publics div { padding: 16px; border-radius: 12px; background: color-mix(in srgb, var(--bg) 10%, var(--titre)); display: grid; gap: 4px; }
+.publics b { font-weight: 600; }
+.publics span { font-size: 14px; color: color-mix(in srgb, var(--bg) 78%, var(--titre)); }
+.contact { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.contact-note { font: 500 14px/1.4 var(--f-donnee); padding: 12px 16px; border-radius: 10px; border: 1px dashed color-mix(in srgb, var(--bg) 45%, var(--titre)); }
+
+/* Pied de page */
+footer { padding-block: 40px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
+footer .wrap { display: grid; gap: 18px; }
+footer .logo svg { height: 34px; width: auto; }
+footer .bas { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+
+@media (max-width: 960px) {
+  .hero .wrap, .fiche-zone, .sentinelle, .pilote-grille, .nom-sec .wrap, .appel .wrap { grid-template-columns: minmax(0, 1fr); }
+  .symbole { max-width: 320px; order: -1; }
+  .modules { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .questions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .questions div, .questions div + div { padding: 18px 14px; border-left: 0; border-top: 1px solid var(--line); }
+  .questions div:nth-child(-n+2) { border-top: 0; }
+  .questions div:nth-child(even) { border-left: 1px solid var(--line); }
+  .questions div:last-child { grid-column: 1 / -1; border-left: 0; }
+  .niveaux, .engagements { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .niveau, .niveau + .niveau { padding: 18px; border: 0; }
+  .nav a:not(.btn):not(.langue) { display: none; }
+}
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  .modules, .niveaux, .engagements, .publics, .composantes { grid-template-columns: minmax(0, 1fr); }
+  .composantes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ligne { grid-template-columns: minmax(0, 1fr) auto; }
+  .ligne dt { grid-column: 1 / -1; }
+  .trois div { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .top .logo svg { height: 32px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .kodya { animation: none; }
+  .btn, .jauge i { transition: none; }
+}
+</style>
+
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#accueil" aria-label="TasetyGrid, home">
+      <svg viewBox="0 0 2090 512" role="img" aria-hidden="true"><circle cx="256.0" cy="256.0" r="225.28" fill="none" style="stroke:var(--logo-ocre)" stroke-width="20.48"/>
+<clipPath id="clipHead699686"><circle cx="256.0" cy="256.0" r="215.04"/></clipPath>
+<g clip-path="url(#clipHead699686)" fill="none" style="stroke:var(--logo-bleu)" stroke-width="5.12" opacity="0.55"><rect x="288.18" y="191.63" width="10.73" height="10.73"/><rect x="298.91" y="191.63" width="10.73" height="10.73"/><rect x="288.18" y="170.18" width="21.46" height="21.46"/><rect x="256.00" y="170.18" width="32.18" height="32.18"/><rect x="256.00" y="202.36" width="53.64" height="53.64"/><rect x="309.64" y="170.18" width="85.82" height="85.82"/><rect x="256.00" y="30.72" width="139.46" height="139.46"/><rect x="30.72" y="30.72" width="225.28" height="225.28"/><rect x="30.72" y="256.00" width="364.74" height="364.74"/><rect x="395.46" y="30.72" width="590.02" height="590.02"/><rect x="30.72" y="-924.04" width="954.76" height="954.76"/></g>
+<path d="M288.18,191.63 A10.73,10.73 0 0 0 298.91,202.36 A10.73,10.73 0 0 0 309.64,191.63 A21.46,21.46 0 0 0 288.18,170.18 A32.18,32.18 0 0 0 256.00,202.36 A53.64,53.64 0 0 0 309.64,256.00 A85.82,85.82 0 0 0 395.46,170.18 A139.46,139.46 0 0 0 256.00,30.72 A225.28,225.28 0 0 0 30.72,256.00" fill="none" style="stroke:var(--logo-or)" stroke-width="20.48" stroke-linecap="round"/>
+<circle cx="481.28" cy="256.00" r="18.43" style="fill:var(--logo-ocre)"/>
+<circle cx="256.00" cy="481.28" r="18.43" style="fill:var(--logo-ocre)"/>
+<circle cx="30.72" cy="256.00" r="18.43" style="fill:var(--logo-ocre)"/>
+<circle cx="256.00" cy="30.72" r="18.43" style="fill:var(--logo-ocre)"/>
+<circle cx="288.18" cy="191.63" r="12.29" style="fill:var(--logo-or)"/>
+<g transform="translate(572.0,181.0)"><path d="M82.92857142857143 0.6428571428571388V150.0H56.785714285714285V0.6428571428571388ZM136.07142857142856 -0.21428571428569398V7.928571428571445H3.4285714285714284V-0.21428571428569398ZM136.07142857142856 7.285714285714306V29.785714285714292L133.92857142857142 29.571428571428584V26.785714285714292Q133.92857142857142 18.428571428571445 128.78571428571428 13.285714285714292Q123.64285714285714 8.142857142857139 115.28571428571428 7.928571428571445V7.285714285714306ZM136.07142857142856 -4.071428571428555V2.142857142857139L109.92857142857142 -0.21428571428569398Q114.64285714285714 -0.21428571428569398 119.89285714285714 -0.857142857142847Q125.14285714285714 -1.5 129.64285714285714 -2.357142857142847Q134.14285714285714 -3.214285714285694 136.07142857142856 -4.071428571428555ZM57.42857142857142 134.35714285714286V150.0H40.285714285714285V147.85714285714286Q40.285714285714285 147.85714285714286 41.67857142857143 147.85714285714286Q43.07142857142857 147.85714285714286 43.07142857142857 147.85714285714286Q48.64285714285714 147.85714285714286 52.607142857142854 143.89285714285714Q56.57142857142857 139.92857142857142 56.785714285714285 134.35714285714286ZM82.28571428571428 134.35714285714286H82.92857142857143Q83.14285714285714 139.92857142857142 87.10714285714286 143.89285714285714Q91.07142857142857 147.85714285714286 96.64285714285714 147.85714285714286Q96.64285714285714 147.85714285714286 98.03571428571428 147.85714285714286Q99.42857142857142 147.85714285714286 99.42857142857142 147.85714285714286V150.0H82.28571428571428ZM24.21428571428571 7.285714285714306V7.928571428571445Q15.857142857142856 8.142857142857139 10.714285714285714 13.285714285714292Q5.571428571428571 18.428571428571445 5.571428571428571 26.785714285714292V29.571428571428584L3.4285714285714284 29.785714285714292V7.285714285714306ZM3.4285714285714284 -4.071428571428555Q5.571428571428571 -3.214285714285694 9.964285714285714 -2.357142857142847Q14.357142857142856 -1.5 19.71428571428571 -0.857142857142847Q25.07142857142857 -0.21428571428569398 29.57142857142857 -0.21428571428569398L3.4285714285714284 2.142857142857139ZM227.57142857142856 -3.857142857142861 295.2857142857143 148.71428571428572H263.57142857142856L217.5 30.42857142857143ZM181.5 134.35714285714286Q179.78571428571428 138.64285714285714 180.85714285714283 141.64285714285714Q181.92857142857142 144.64285714285714 184.5 146.25Q187.07142857142856 147.85714285714286 189.64285714285714 147.85714285714286H191.57142857142856V150.0H146.57142857142856V147.85714285714286Q146.57142857142856 147.85714285714286 147.53571428571428 147.85714285714286Q148.5 147.85714285714286 148.5 147.85714285714286Q153.42857142857142 147.85714285714286 158.67857142857142 144.75Q163.92857142857142 141.64285714285714 167.35714285714283 134.35714285714286ZM227.57142857142856 -3.857142857142861 228.6428571428571 18.64285714285714 175.28571428571428 149.35714285714286H160.7142857142857L216.0 22.285714285714292Q216.42857142857142 21.428571428571445 217.82142857142856 18.107142857142875Q219.21428571428572 14.785714285714306 221.03571428571428 10.500000000000014Q222.85714285714283 6.214285714285722 224.1428571428571 2.250000000000014Q225.42857142857142 -1.714285714285694 225.6428571428571 -3.857142857142861ZM252.6428571428571 96.42857142857143V104.57142857142858H188.14285714285714V96.42857142857143ZM258.0 134.35714285714286H288.85714285714283Q292.2857142857143 141.64285714285714 297.5357142857143 144.75Q302.7857142857143 147.85714285714286 307.71428571428567 147.85714285714286Q307.71428571428567 147.85714285714286 308.57142857142856 147.85714285714286Q309.42857142857144 147.85714285714286 309.42857142857144 147.85714285714286V150.0H247.92857142857142V147.85714285714286H249.85714285714283Q253.92857142857142 147.85714285714286 257.1428571428571 144.32142857142856Q260.35714285714283 140.78571428571428 258.0 134.35714285714286ZM373.92857142857144 -3.0Q378.0 -3.0 383.57142857142856 -2.5714285714285694Q389.1428571428571 -2.142857142857139 394.82142857142856 -1.3928571428571388Q400.5 -0.6428571428571388 405.0 0.1071428571428612Q409.5 0.8571428571428612 411.2142857142857 1.7142857142857224L409.5 28.92857142857143H407.35714285714283Q407.35714285714283 18.0 399.5357142857143 11.57142857142857Q391.7142857142857 5.142857142857139 379.2857142857143 5.142857142857139Q366.85714285714283 5.142857142857139 359.46428571428567 11.57142857142857Q352.07142857142856 18.0 351.85714285714283 27.214285714285722Q351.42857142857144 32.571428571428584 354.9642857142857 37.60714285714287Q358.5 42.64285714285715 364.5 46.92857142857143L405.85714285714283 77.57142857142857Q414.6428571428571 83.35714285714286 418.71428571428567 91.60714285714286Q422.7857142857143 99.85714285714286 422.35714285714283 110.14285714285714Q421.7142857142857 129.85714285714286 408.1071428571429 141.42857142857144Q394.5 153.0 371.1428571428571 153.0Q363.2142857142857 153.0 354.9642857142857 151.60714285714286Q346.7142857142857 150.21428571428572 339.8571428571429 147.32142857142856Q333.0 144.42857142857142 328.92857142857144 140.35714285714286Q327.64285714285717 136.07142857142858 327.8571428571429 129.96428571428572Q328.07142857142856 123.85714285714286 329.57142857142856 117.32142857142857Q331.07142857142856 110.78571428571428 333.2142857142857 106.28571428571428H335.14285714285717Q334.2857142857143 117.21428571428572 338.7857142857143 126.10714285714286Q343.2857142857143 135.0 351.96428571428567 140.03571428571428Q360.6428571428571 145.07142857142858 372.42857142857144 144.85714285714286Q385.7142857142857 144.42857142857142 393.75 137.35714285714283Q401.7857142857143 130.28571428571428 401.7857142857143 119.14285714285714Q401.7857142857143 112.71428571428572 398.3571428571429 107.46428571428572Q394.92857142857144 102.21428571428572 387.6428571428571 97.92857142857143L348.85714285714283 68.57142857142857Q339.0 62.14285714285715 334.82142857142856 53.03571428571429Q330.64285714285717 43.92857142857143 331.2857142857143 34.071428571428584Q331.92857142857144 23.785714285714292 337.07142857142856 15.321428571428577Q342.2142857142857 6.857142857142861 351.5357142857143 1.9285714285714306Q360.85714285714283 -3.0 373.92857142857144 -3.0ZM411.42857142857144 -0.8571428571428612 411.2142857142857 3.642857142857139H388.92857142857144V-0.8571428571428612ZM498.0 0.0V150.0H471.85714285714283V0.0ZM554.7857142857142 141.64285714285714 558.4285714285714 150.0H497.35714285714283V141.64285714285714ZM546.6428571428571 72.0V80.14285714285715H497.35714285714283V72.0ZM556.7142857142857 0.0V8.357142857142861H497.35714285714283V0.0ZM569.7857142857142 109.28571428571428 559.0714285714286 150.0H519.0L526.7142857142857 141.64285714285714Q537.6428571428571 141.64285714285714 545.5714285714286 137.67857142857144Q553.5 133.71428571428572 558.8571428571429 126.32142857142858Q564.2142857142857 118.92857142857143 567.6428571428571 109.28571428571428ZM546.6428571428571 79.71428571428572V98.14285714285714H544.5V95.78571428571429Q544.5 89.14285714285714 540.0 84.64285714285714Q535.5 80.14285714285715 528.8571428571429 80.14285714285715V79.71428571428572ZM546.6428571428571 54.0V72.42857142857143H528.8571428571429V72.0Q535.5 71.78571428571429 540.0 67.28571428571429Q544.5 62.78571428571429 544.5 56.14285714285715V54.0ZM556.7142857142857 7.714285714285722V30.0H554.5714285714286V27.0Q554.5714285714286 18.85714285714286 549.4285714285713 13.607142857142861Q544.2857142857142 8.357142857142861 535.7142857142857 8.142857142857139V7.714285714285722ZM556.7142857142857 -3.857142857142861V2.357142857142861L530.5714285714286 0.0Q535.2857142857142 0.0 540.5357142857142 -0.6428571428571388Q545.7857142857142 -1.2857142857142776 550.2857142857142 -2.142857142857139Q554.7857142857142 -3.0 556.7142857142857 -3.857142857142861ZM472.5 134.35714285714286V150.0H455.35714285714283V147.85714285714286Q455.35714285714283 147.85714285714286 456.75 147.85714285714286Q458.1428571428571 147.85714285714286 458.1428571428571 147.85714285714286Q463.7142857142857 147.85714285714286 467.67857142857144 143.89285714285714Q471.6428571428571 139.92857142857142 471.85714285714283 134.35714285714286ZM472.5 15.642857142857139H471.85714285714283Q471.6428571428571 10.071428571428584 467.67857142857144 6.107142857142861Q463.7142857142857 2.142857142857139 458.1428571428571 2.142857142857139Q458.1428571428571 2.142857142857139 456.75 2.142857142857139Q455.35714285714283 2.142857142857139 455.35714285714283 2.142857142857139V0.0H472.5ZM671.3571428571429 0.6428571428571388V150.0H645.2142857142858V0.6428571428571388ZM724.5 -0.21428571428569398V7.928571428571445H591.8571428571429V-0.21428571428569398ZM724.5 7.285714285714306V29.785714285714292L722.3571428571429 29.571428571428584V26.785714285714292Q722.3571428571429 18.428571428571445 717.2142857142858 13.285714285714292Q712.0714285714286 8.142857142857139 703.7142857142858 7.928571428571445V7.285714285714306ZM724.5 -4.071428571428555V2.142857142857139L698.3571428571429 -0.21428571428569398Q703.0714285714286 -0.21428571428569398 708.3214285714286 -0.857142857142847Q713.5714285714286 -1.5 718.0714285714286 -2.357142857142847Q722.5714285714286 -3.214285714285694 724.5 -4.071428571428555ZM645.8571428571429 134.35714285714286V150.0H628.7142857142858V147.85714285714286Q628.7142857142858 147.85714285714286 630.1071428571429 147.85714285714286Q631.5 147.85714285714286 631.5 147.85714285714286Q637.0714285714286 147.85714285714286 641.0357142857142 143.89285714285714Q645.0 139.92857142857142 645.2142857142858 134.35714285714286ZM670.7142857142858 134.35714285714286H671.3571428571429Q671.5714285714286 139.92857142857142 675.5357142857142 143.89285714285714Q679.5 147.85714285714286 685.0714285714286 147.85714285714286Q685.0714285714286 147.85714285714286 686.4642857142858 147.85714285714286Q687.8571428571429 147.85714285714286 687.8571428571429 147.85714285714286V150.0H670.7142857142858ZM612.6428571428571 7.285714285714306V7.928571428571445Q604.2857142857143 8.142857142857139 599.1428571428571 13.285714285714292Q594.0 18.428571428571445 594.0 26.785714285714292V29.571428571428584L591.8571428571429 29.785714285714292V7.285714285714306ZM591.8571428571429 -4.071428571428555Q594.0 -3.214285714285694 598.3928571428571 -2.357142857142847Q602.7857142857143 -1.5 608.1428571428571 -0.857142857142847Q613.5 -0.21428571428569398 618.0 -0.21428571428569398L591.8571428571429 2.142857142857139ZM780.8571428571429 0.2142857142857224 824.1428571428572 79.5 800.7857142857143 84.0 750.2142857142858 0.2142857142857224ZM825.8571428571429 81.0V150.0H799.7142857142858V81.0ZM861.6428571428572 0.2142857142857224H877.0714285714287L823.9285714285714 85.28571428571429L814.0714285714287 83.14285714285715ZM852.8571428571429 15.428571428571445Q854.5714285714287 12.428571428571445 853.7142857142858 9.321428571428584Q852.8571428571429 6.214285714285722 850.6071428571429 4.178571428571431Q848.3571428571429 2.142857142857139 845.3571428571429 2.142857142857139Q845.3571428571429 2.142857142857139 844.0714285714287 2.142857142857139Q842.7857142857143 2.142857142857139 842.7857142857143 2.142857142857139V0.0H892.7142857142858V2.142857142857139H889.7142857142858Q883.0714285714287 2.142857142857139 877.1785714285716 6.0Q871.2857142857143 9.857142857142861 868.0714285714287 14.785714285714306ZM789.2142857142858 15.428571428571445 759.0000000000001 14.785714285714306Q756.0000000000001 9.857142857142861 750.2142857142858 6.0Q744.4285714285714 2.142857142857139 737.5714285714287 2.142857142857139H734.5714285714287V0.0H799.5000000000001V2.142857142857139Q799.5000000000001 2.142857142857139 798.1071428571429 2.142857142857139Q796.7142857142858 2.142857142857139 796.7142857142858 2.142857142857139Q792.0000000000001 2.142857142857139 789.5357142857144 6.535714285714292Q787.0714285714287 10.928571428571445 789.2142857142858 15.428571428571445ZM800.3571428571429 134.35714285714286V150.0H783.2142857142858V147.85714285714286Q783.2142857142858 147.85714285714286 784.5 147.85714285714286Q785.7857142857143 147.85714285714286 786.0000000000001 147.85714285714286Q791.5714285714287 147.85714285714286 795.5357142857144 143.89285714285714Q799.5000000000001 139.92857142857142 799.7142857142858 134.35714285714286ZM825.2142857142858 134.35714285714286H825.8571428571429Q825.8571428571429 139.92857142857142 829.9285714285714 143.89285714285714Q834.0 147.85714285714286 839.5714285714287 147.85714285714286Q839.5714285714287 147.85714285714286 840.8571428571429 147.85714285714286Q842.1428571428572 147.85714285714286 842.1428571428572 147.85714285714286V150.0H825.2142857142858Z" style="fill:var(--logo-bleu)"/><g transform="translate(920.36,0)"><path d="M79.83221476510067 152.01342281879195Q59.09395973154362 152.01342281879195 43.489932885906036 142.6510067114094Q27.885906040268456 133.28859060402684 19.12751677852349 116.0738255033557Q10.369127516778523 98.85906040268458 10.369127516778523 75.2013422818792Q10.369127516778523 50.939597315436245 19.379194630872483 33.67449664429531Q28.38926174496644 16.409395973154375 43.89261744966443 7.197986577181226Q59.39597315436241 -2.0134228187919234 79.02684563758389 -2.0134228187919234Q91.40939597315436 -2.0134228187919234 102.13087248322148 1.6107382550335672Q112.85234899328859 5.234899328859058 121.25838926174497 11.929530201342288Q129.66442953020135 18.62416107382552 135.0503355704698 27.78523489932887Q140.43624161073825 36.94630872483222 142.1476510067114 47.91946308724833H114.66442953020133Q112.85234899328859 41.87919463087249 109.68120805369128 37.14765100671141Q106.51006711409396 32.41610738255034 102.03020134228188 28.99328859060403Q97.5503355704698 25.570469798657726 91.86241610738256 23.80872483221477Q86.1744966442953 22.046979865771817 79.32885906040268 22.046979865771817Q67.248322147651 22.046979865771817 57.73489932885906 28.187919463087255Q48.22147651006711 34.32885906040269 42.785234899328856 46.10738255033558Q37.3489932885906 57.885906040268466 37.3489932885906 75.0Q37.3489932885906 91.91275167785236 42.785234899328856 103.74161073825503Q48.22147651006711 115.57046979865771 57.785234899328856 121.76174496644295Q67.3489932885906 127.95302013422818 79.93288590604027 127.95302013422818Q91.40939597315436 127.95302013422818 99.81543624161074 123.52348993288591Q108.2214765100671 119.09395973154363 112.80201342281879 110.93959731543625Q117.38255033557046 102.78523489932886 117.38255033557046 91.71140939597316L123.5234899328859 92.71812080536913H82.75167785234899V71.5771812080537H143.45637583892616V89.59731543624162Q143.45637583892616 108.8255033557047 135.251677852349 122.86912751677852Q127.0469798657718 136.91275167785236 112.70134228187919 144.46308724832215Q98.35570469798657 152.01342281879195 79.83221476510067 152.01342281879195ZM190.53020134228186 150.0V0.0H246.60402684563758Q263.8187919463087 0.0 275.5973154362416 6.040268456375841Q287.3758389261745 12.080536912751683 293.4161073825503 22.9026845637584Q299.45637583892614 33.724832214765115 299.45637583892614 48.02013422818793Q299.45637583892614 62.31543624161074 293.36577181208054 72.88590604026845Q287.2751677852349 83.45637583892618 275.3959731543624 89.19463087248323Q263.5167785234899 94.93288590604027 246.20134228187916 94.93288590604027H206.13422818791943V72.68456375838926H242.67785234899327Q252.8456375838926 72.68456375838926 259.2885906040268 69.81543624161074Q265.7315436241611 66.94630872483222 268.8523489932886 61.40939597315437Q271.9731543624161 55.872483221476514 271.9731543624161 48.02013422818793Q271.9731543624161 39.966442953020135 268.8523489932886 34.27852348993289Q265.7315436241611 28.59060402684564 259.23825503355704 25.570469798657726Q252.744966442953 22.550335570469812 242.47651006711408 22.550335570469812H217.40939597315435V150.0ZM274.8926174496644 150.0 238.44966442953017 81.94630872483222H267.8456375838926L304.99328859060404 150.0ZM372.9060402684563 0.0V150.0H346.02684563758385V0.0ZM474.84563758389254 150.0H436.8926174496644V126.74496644295303H473.5369127516778Q489.24161073825496 126.74496644295303 499.76174496644285 120.95637583892618Q510.2818791946308 115.16778523489933 515.6174496644295 103.64093959731544Q520.9530201342282 92.11409395973155 520.9530201342282 74.79865771812081Q520.9530201342282 57.684563758389274 515.6174496644295 46.208053691275175Q510.2818791946308 34.73154362416108 499.96308724832204 28.99328859060403Q489.64429530201335 23.255033557046985 474.24161073825496 23.255033557046985H436.08724832214756V0.0H475.8523489932885Q498.20134228187914 0.0 514.208053691275 8.959731543624159Q530.214765100671 17.919463087248317 538.8221476510066 34.73154362416108Q547.4295302013422 51.543624161073836 547.4295302013422 74.79865771812081Q547.4295302013422 98.25503355704699 538.8221476510066 115.11744966442953Q530.214765100671 131.9798657718121 513.9563758389261 140.98993288590606Q497.69798657718115 150.0 474.84563758389254 150.0ZM450.98657718120796 0.0V150.0H424.1073825503355V0.0Z" style="fill:var(--logo-or)"/></g></g></svg>
+    </a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#fiche">Area profile</a>
+      <a href="#atlas">Country atlas</a>
+      <a href="#methode">Method</a>
+      <a href="#confiance">Trust</a>
+      <a href="#pilote">Pilot</a>
+      <button class="langue installer" id="installer" type="button" hidden>Install the app</button>
+      <a class="langue" href="../" hreflang="fr" lang="fr">FR</a>
+      <a class="btn btn-plein" href="#rejoindre">Join the pilot</a>
+    </nav>
+  </div>
+</header>
+
+<main id="accueil">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Atlas of people, land and resources</p>
+        <h1 style="margin-top:16px">Know what exists in every territory. <em>And what is missing.</em></h1>
+        <p class="lead">TasetyGrid brings together, on a single map, the population, land, schools, health services, roads,
+          energy, resources and heritage of every locality. Every figure shows its source and how it was verified.</p>
+        <div class="actions">
+          <a class="btn btn-plein" href="#fiche">See an area profile</a>
+          <a class="btn btn-ligne" href="#rejoindre">Join the Cameroon pilot</a>
+        </div>
+        <div class="meta"><span>10 regions</span><span>58 divisions</span><span>374 local councils</span><span>Bilingual country, bilingual platform</span></div>
+      </div>
+      <figure class="symbole" style="margin:0">
+        <svg viewBox="0 0 512 512" role="img" aria-label="Kodya symbol: a snail-shell spiral drawn on a grid, continued by a circle with four points"><circle cx="256.0" cy="256.0" r="225.28" fill="none" style="stroke:var(--logo-ocre)" stroke-width="20.48"/>
+<clipPath id="clipHero699686"><circle cx="256.0" cy="256.0" r="215.04"/></clipPath>
+<g clip-path="url(#clipHero699686)" fill="none" style="stroke:var(--logo-bleu)" stroke-width="5.12" opacity="0.55"><rect x="288.18" y="191.63" width="10.73" height="10.73"/><rect x="298.91" y="191.63" width="10.73" height="10.73"/><rect x="288.18" y="170.18" width="21.46" height="21.46"/><rect x="256.00" y="170.18" width="32.18" height="32.18"/><rect x="256.00" y="202.36" width="53.64" height="53.64"/><rect x="309.64" y="170.18" width="85.82" height="85.82"/><rect x="256.00" y="30.72" width="139.46" height="139.46"/><rect x="30.72" y="30.72" width="225.28" height="225.28"/><rect x="30.72" y="256.00" width="364.74" height="364.74"/><rect x="395.46" y="30.72" width="590.02" height="590.02"/><rect x="30.72" y="-924.04" width="954.76" height="954.76"/></g>
+<path d="M288.18,191.63 A10.73,10.73 0 0 0 298.91,202.36 A10.73,10.73 0 0 0 309.64,191.63 A21.46,21.46 0 0 0 288.18,170.18 A32.18,32.18 0 0 0 256.00,202.36 A53.64,53.64 0 0 0 309.64,256.00 A85.82,85.82 0 0 0 395.46,170.18 A139.46,139.46 0 0 0 256.00,30.72 A225.28,225.28 0 0 0 30.72,256.00" fill="none" style="stroke:var(--logo-or)" stroke-width="20.48" stroke-linecap="round" pathLength="1" class="kodya"/>
+<circle cx="481.28" cy="256.00" r="18.43" style="fill:var(--logo-ocre)"/>
+<circle cx="256.00" cy="481.28" r="18.43" style="fill:var(--logo-ocre)"/>
+<circle cx="30.72" cy="256.00" r="18.43" style="fill:var(--logo-ocre)"/>
+<circle cx="256.00" cy="30.72" r="18.43" style="fill:var(--logo-ocre)"/>
+<circle cx="288.18" cy="191.63" r="12.29" style="fill:var(--logo-or)"/></svg>
+        <figcaption>KODYA · the shell that grows until it becomes the circle</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="questions" role="list">
+        <div role="listitem"><b>Who?</b><span>Households and population, as protected aggregates</span></div>
+        <div role="listitem"><b>What?</b><span>Buildings, facilities, infrastructure, resources</span></div>
+        <div role="listitem"><b>Whose?</b><span>Titles, concessions and permits, where the authority has issued them</span></div>
+        <div role="listitem"><b>What condition?</b><span>Capacity, working status, date last checked</span></div>
+        <div role="listitem"><b>What is missing?</b><span>Gaps calculated against official standards</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo" id="fiche">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Demo</p>
+        <h2>A profile for every locality</h2>
+        <p class="lead">Pick an example. The figures below are fictional: they show the format, not a real place.</p>
+      </div>
+      <div class="onglets" role="tablist" aria-label="Example localities">
+        <button class="onglet" role="tab" id="tab-a" aria-selected="true" aria-controls="fiche-panneau" data-ex="a">Forest-zone village</button>
+        <button class="onglet" role="tab" id="tab-b" aria-selected="false" aria-controls="fiche-panneau" data-ex="b" tabindex="-1">Peri-urban neighbourhood</button>
+      </div>
+      <div class="fiche-zone" id="fiche-panneau" role="tabpanel" aria-labelledby="tab-a" aria-live="polite">
+        <article class="fiche">
+          <div class="fiche-tete">
+            <span class="exemple">Fictional example</span>
+            <span class="nom" id="f-nom"></span>
+            <span class="loc" id="f-loc"></span>
+          </div>
+          <dl class="lignes" id="f-lignes" style="margin:0"></dl>
+          <div class="legende"><span>● verified</span><span>◐ estimated or partial</span><span>○ reported</span><span>⚠ discrepancy to check</span></div>
+        </article>
+        <div class="manque">
+          <h3>What is missing</h3>
+          <div class="score">
+            <div class="score-haut">
+              <span>Data confidence score</span>
+              <span class="score-val" id="f-score"></span>
+            </div>
+            <div class="composantes" id="f-comp"></div>
+          </div>
+          <div class="deficits" id="f-deficits"></div>
+          <p class="note">Needs are calculated from the standards set by each ministry, entered in the platform with their reference text. No standard is made up.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="atlas" class="atlas">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Country-by-country atlas</p>
+        <h2>Pick a country, see its infrastructure</h2>
+        <p class="lead">The map brings together the borders, regions, roads, rail, airports, ports and cities of the chosen country. The dashboard shows the format of results by sector.</p>
+      </div>
+      <div class="atlas-outils">
+        <label for="pays">Country</label>
+        <select id="pays" aria-describedby="atlas-etat" data-chargement="Loading the list of countries…" data-erreur="The data could not be loaded. Try again with a connection.">
+          <option value="">Loading…</option>
+        </select>
+        <p id="atlas-etat" class="note" role="status" aria-live="polite"></p>
+      </div>
+      <div class="atlas-grille">
+        <div id="atlas-carte" class="atlas-carte"></div>
+        <div id="atlas-bord"></div>
+      </div>
+      <noscript><p class="note">This section needs JavaScript.</p></noscript>
+    </div>
+  </section>
+
+
+  <section id="modules">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">The platform</p>
+        <h2>Five modules, one territorial reference</h2>
+      </div>
+      <div class="modules">
+        <div class="module"><span class="code">PEOPLE</span><h3>Population</h3><p>Housing, households and population trends, published only as aggregates.</p></div>
+        <div class="module"><span class="code">LAND</span><h3>Land</h3><p>Land use, titles, ARDFC/AJPTER certificates, concessions and protected areas.</p></div>
+        <div class="module"><span class="code">ASSETS</span><h3>Facilities</h3><p>Schools, health, roads, water, energy, telecoms, chiefdoms and heritage.</p></div>
+        <div class="module"><span class="code">RESOURCES</span><h3>Resources</h3><p>Forests, mines, quarries, water, solar and hydropower potential, economic activity.</p></div>
+        <div class="module"><span class="code">INTELLIGENCE</span><h3>Decisions</h3><p>Source matching, gaps, accessibility and investment priorities.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="methode" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Method</p>
+        <h2>Every record gains proof, one step at a time</h2>
+        <p class="lead">A field agent never becomes a legal authority. Every record keeps track of who supplied it and who validated it.</p>
+      </div>
+      <div class="niveaux">
+        <div class="niveau"><span class="num">Level 0</span><h3>Reporting</h3><p>Village chiefs, councils and citizens report what is missing or has changed.</p><span class="statut">○ Reported</span></div>
+        <div class="niveau"><span class="num">Level 1</span><h3>Imagery</h3><p>Buildings, roads, forests and water bodies detected by satellite.</p><span class="statut">◐ Detected</span></div>
+        <div class="niveau"><span class="num">Level 2</span><h3>Field</h3><p>Agents check use, condition and working status, offline if needed.</p><span class="statut">● Observed</span></div>
+        <div class="niveau"><span class="num">Level 3</span><h3>Administration</h3><p>The competent ministry validates titles, concessions, permits and licences.</p><span class="statut">● Validated</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap sentinelle">
+      <div>
+        <p class="eyebrow">The village chief, watching over the territory</p>
+        <h2 style="margin-top:14px">“Here is your territory. Tell us what is missing.”</h2>
+        <p class="lead" style="margin-top:16px">A three-button app that works offline. Reports guide where checks happen; they do not replace the competent authorities.</p>
+        <ul class="liste">
+          <li><span>Sensitive reports (land disputes, illegal extraction) go to the authority without being published.</span></li>
+          <li><span>ARDFC and AJPTER certificates issued by third-class chiefs are recorded as certificates, never as land titles.</span></li>
+          <li><span>Every village gets its area profile back.</span></li>
+        </ul>
+      </div>
+      <div class="telephone" aria-label="Preview of the village chief app">
+        <div class="ecran">
+          <span class="titre">Your territory</span>
+          <span class="sous">Try it: tap an action.</span>
+          <button type="button" id="b1" data-msg="Point placed on the map. Add a photo and a category: house, borehole, school, track…">Something is missing<small>New house, school, borehole, road…</small></button>
+          <button type="button" id="b2" data-msg="Item selected. Say what has changed: destroyed, closed, under works…">This has changed<small>Gone, closed, extended</small></button>
+          <button type="button" id="b3" data-msg="Private report, sent to the competent authority. You will be told what happens next.">Report a problem<small>Dispute, damage, hazard</small></button>
+          <p class="retour" id="retour" aria-live="polite"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="confiance" id="confiance">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Trust and sovereignty</p>
+        <h2>The country's data stays in the country</h2>
+        <p class="lead">A database linking people, land and resources must protect before it shows. TasetyGrid is designed under Law No. 2024/017 on personal data protection.</p>
+      </div>
+      <div class="engagements">
+        <div><b>The State owns it</b><p>Both the data and the hosting. Open formats and the right to take everything back are written into the contract.</p></div>
+        <div><b>Census answers stay confidential</b><p>Individual responses stay with the census institution. The atlas only receives aggregates.</p></div>
+        <div><b>No rights created</b><p>The platform records titles and concessions issued by the authority. It issues none itself.</p></div>
+        <div><b>Sacred heritage is protected</b><p>Sacred forests and ritual sites are only shown publicly with the community's consent.</p></div>
+        <div><b>Every access is logged</b><p>A tamper-proof access log, audited by an independent body.</p></div>
+        <div><b>Any record can be challenged</b><p>A person or community can challenge a record about them.</p></div>
+      </div>
+      <div class="classes" aria-label="Sensitivity classes">
+        <span>S0 · Public</span><span>S1 · Government only</span><span>S2 · Confidential</span><span>S3 · Culturally protected</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="pilote">
+    <div class="wrap pilote-grille">
+      <div>
+        <div class="section-head">
+          <p class="eyebrow">Cameroon pilot</p>
+          <h2>Start small, measure, then scale</h2>
+        </div>
+        <ol class="phases">
+          <li><span class="ph">Phase 0 · Scoping</span><h3>Sources, law and partners</h3><p>Inventory of existing data, legal review, agreements with the institutions that own each layer.</p></li>
+          <li><span class="ph">Phase 1 · National base</span><h3>The country's reference map</h3><p>Versioned administrative boundaries, settlements and buildings from imagery, import of sector registers.</p></li>
+          <li><span class="ph">Phase 2 · Field</span><h3>Three pilot councils</h3><p>One urban, one rural farming, one forest or mining council: every layer, from report to validation.</p></li>
+          <li><span class="ph">Phase 3 · Evaluation</span><h3>Cost and quality measured</h3><p>Cost per verified building, error rate, validation times, actual use in decisions.</p></li>
+          <li><span class="ph">Phase 4 · Roll-out</span><h3>In regional waves</h3><p>Imagery and registers everywhere, field checks where sources disagree.</p></li>
+          <li><span class="ph">Phase 5 · Continuous updates</span><h3>Census built in</h3><p>Results of the 4th general census (RGPH/RGAE 2026) added as soon as they are published, then updates between censuses.</p></li>
+        </ol>
+      </div>
+      <aside class="encart">
+        <h3>Grounded in current law</h3>
+        <ul>
+          <li>Law No. 2024/017 · personal data</li>
+          <li>Law No. 2020/010 · statistics</li>
+          <li>Ordinances No. 74-1 and 74-2 · land tenure and State lands</li>
+          <li>MINDCAF circular of 20 February 2026 · ARDFC and AJPTER</li>
+          <li>Law No. 2019/024 · local authorities</li>
+          <li>Law No. 2024/008 · forestry and wildlife</li>
+          <li>Law No. 2023/014 · Mining Code</li>
+          <li>Law No. 2013/003 · cultural heritage</li>
+        </ul>
+        <p>Supporting the 2020-2030 National Development Strategy and decentralisation.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="nom-sec" style="padding-top:0">
+    <div class="wrap">
+      <p class="hiero">Ta-Sety<small>tꜣ-stj · “the land of the bow”</small></p>
+      <div class="trois">
+        <div><b>The name</b><p>Ta-Sety is what ancient Egypt called Nubia. Grid is the map, the measurement, the data.</p></div>
+        <div><b>The shell</b><p>In Kongo thought, the snail shell (kodya) stands for growing life. The symbol's spiral is drawn on a grid that grows with it.</p></div>
+        <div><b>The circle</b><p>The circle and its four points echo the Kongo cosmogram: a full cycle, like the continuous updating of the territory.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="appel" id="rejoindre">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow" style="color:var(--or)">Join the pilot</p>
+        <h2 style="margin-top:14px">Let's build the atlas with the people who know the ground</h2>
+        <p>We are looking for three pilot councils and the institutions that hold the reference data. The project is at the design stage.</p>
+        <div class="contact">
+          <span class="contact-note">Contact address coming soon.</span>
+        </div>
+      </div>
+      <div class="publics">
+        <div><b>Councils</b><span>An inventory of your assets and needs</span></div>
+        <div><b>Ministries</b><span>Your sector maps, up to date and cross-checked</span></div>
+        <div><b>Chiefdoms</b><span>Your territory and heritage, documented</span></div>
+        <div><b>Partners</b><span>Evidence-based targeting of investment</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="logo"><svg viewBox="0 0 2090 512" role="img" aria-label="TasetyGrid"><circle cx="256.0" cy="256.0" r="225.28" fill="none" style="stroke:var(--logo-ocre)" stroke-width="20.48"/>
+<clipPath id="clipFoot699686"><circle cx="256.0" cy="256.0" r="215.04"/></clipPath>
+<g clip-path="url(#clipFoot699686)" fill="none" style="stroke:var(--logo-bleu)" stroke-width="5.12" opacity="0.55"><rect x="288.18" y="191.63" width="10.73" height="10.73"/><rect x="298.91" y="191.63" width="10.73" height="10.73"/><rect x="288.18" y="170.18" width="21.46" height="21.46"/><rect x="256.00" y="170.18" width="32.18" height="32.18"/><rect x="256.00" y="202.36" width="53.64" height="53.64"/><rect x="309.64" y="170.18" width="85.82" height="85.82"/><rect x="256.00" y="30.72" width="139.46" height="139.46"/><rect x="30.72" y="30.72" width="225.28" height="225.28"/><rect x="30.72" y="256.00" width="364.74" height="364.74"/><rect x="395.46" y="30.72" width="590.02" height="590.02"/><rect x="30.72" y="-924.04" width="954.76" height="954.76"/></g>
+<path d="M288.18,191.63 A10.73,10.73 0 0 0 298.91,202.36 A10.73,10.73 0 0 0 309.64,191.63 A21.46,21.46 0 0 0 288.18,170.18 A32.18,32.18 0 0 0 256.00,202.36 A53.64,53.64 0 0 0 309.64,256.00 A85.82,85.82 0 0 0 395.46,170.18 A139.46,139.46 0 0 0 256.00,30.72 A225.28,225.28 0 0 0 30.72,256.00" fill="none" style="stroke:var(--logo-or)" stroke-width="20.48" stroke-linecap="round"/>
+<circle cx="481.28" cy="256.00" r="18.43" style="fill:var(--logo-ocre)"/>
+<circle cx="256.00" cy="481.28" r="18.43" style="fill:var(--logo-ocre)"/>
+<circle cx="30.72" cy="256.00" r="18.43" style="fill:var(--logo-ocre)"/>
+<circle cx="256.00" cy="30.72" r="18.43" style="fill:var(--logo-ocre)"/>
+<circle cx="288.18" cy="191.63" r="12.29" style="fill:var(--logo-or)"/>
+<g transform="translate(572.0,181.0)"><path d="M82.92857142857143 0.6428571428571388V150.0H56.785714285714285V0.6428571428571388ZM136.07142857142856 -0.21428571428569398V7.928571428571445H3.4285714285714284V-0.21428571428569398ZM136.07142857142856 7.285714285714306V29.785714285714292L133.92857142857142 29.571428571428584V26.785714285714292Q133.92857142857142 18.428571428571445 128.78571428571428 13.285714285714292Q123.64285714285714 8.142857142857139 115.28571428571428 7.928571428571445V7.285714285714306ZM136.07142857142856 -4.071428571428555V2.142857142857139L109.92857142857142 -0.21428571428569398Q114.64285714285714 -0.21428571428569398 119.89285714285714 -0.857142857142847Q125.14285714285714 -1.5 129.64285714285714 -2.357142857142847Q134.14285714285714 -3.214285714285694 136.07142857142856 -4.071428571428555ZM57.42857142857142 134.35714285714286V150.0H40.285714285714285V147.85714285714286Q40.285714285714285 147.85714285714286 41.67857142857143 147.85714285714286Q43.07142857142857 147.85714285714286 43.07142857142857 147.85714285714286Q48.64285714285714 147.85714285714286 52.607142857142854 143.89285714285714Q56.57142857142857 139.92857142857142 56.785714285714285 134.35714285714286ZM82.28571428571428 134.35714285714286H82.92857142857143Q83.14285714285714 139.92857142857142 87.10714285714286 143.89285714285714Q91.07142857142857 147.85714285714286 96.64285714285714 147.85714285714286Q96.64285714285714 147.85714285714286 98.03571428571428 147.85714285714286Q99.42857142857142 147.85714285714286 99.42857142857142 147.85714285714286V150.0H82.28571428571428ZM24.21428571428571 7.285714285714306V7.928571428571445Q15.857142857142856 8.142857142857139 10.714285714285714 13.285714285714292Q5.571428571428571 18.428571428571445 5.571428571428571 26.785714285714292V29.571428571428584L3.4285714285714284 29.785714285714292V7.285714285714306ZM3.4285714285714284 -4.071428571428555Q5.571428571428571 -3.214285714285694 9.964285714285714 -2.357142857142847Q14.357142857142856 -1.5 19.71428571428571 -0.857142857142847Q25.07142857142857 -0.21428571428569398 29.57142857142857 -0.21428571428569398L3.4285714285714284 2.142857142857139ZM227.57142857142856 -3.857142857142861 295.2857142857143 148.71428571428572H263.57142857142856L217.5 30.42857142857143ZM181.5 134.35714285714286Q179.78571428571428 138.64285714285714 180.85714285714283 141.64285714285714Q181.92857142857142 144.64285714285714 184.5 146.25Q187.07142857142856 147.85714285714286 189.64285714285714 147.85714285714286H191.57142857142856V150.0H146.57142857142856V147.85714285714286Q146.57142857142856 147.85714285714286 147.53571428571428 147.85714285714286Q148.5 147.85714285714286 148.5 147.85714285714286Q153.42857142857142 147.85714285714286 158.67857142857142 144.75Q163.92857142857142 141.64285714285714 167.35714285714283 134.35714285714286ZM227.57142857142856 -3.857142857142861 228.6428571428571 18.64285714285714 175.28571428571428 149.35714285714286H160.7142857142857L216.0 22.285714285714292Q216.42857142857142 21.428571428571445 217.82142857142856 18.107142857142875Q219.21428571428572 14.785714285714306 221.03571428571428 10.500000000000014Q222.85714285714283 6.214285714285722 224.1428571428571 2.250000000000014Q225.42857142857142 -1.714285714285694 225.6428571428571 -3.857142857142861ZM252.6428571428571 96.42857142857143V104.57142857142858H188.14285714285714V96.42857142857143ZM258.0 134.35714285714286H288.85714285714283Q292.2857142857143 141.64285714285714 297.5357142857143 144.75Q302.7857142857143 147.85714285714286 307.71428571428567 147.85714285714286Q307.71428571428567 147.85714285714286 308.57142857142856 147.85714285714286Q309.42857142857144 147.85714285714286 309.42857142857144 147.85714285714286V150.0H247.92857142857142V147.85714285714286H249.85714285714283Q253.92857142857142 147.85714285714286 257.1428571428571 144.32142857142856Q260.35714285714283 140.78571428571428 258.0 134.35714285714286ZM373.92857142857144 -3.0Q378.0 -3.0 383.57142857142856 -2.5714285714285694Q389.1428571428571 -2.142857142857139 394.82142857142856 -1.3928571428571388Q400.5 -0.6428571428571388 405.0 0.1071428571428612Q409.5 0.8571428571428612 411.2142857142857 1.7142857142857224L409.5 28.92857142857143H407.35714285714283Q407.35714285714283 18.0 399.5357142857143 11.57142857142857Q391.7142857142857 5.142857142857139 379.2857142857143 5.142857142857139Q366.85714285714283 5.142857142857139 359.46428571428567 11.57142857142857Q352.07142857142856 18.0 351.85714285714283 27.214285714285722Q351.42857142857144 32.571428571428584 354.9642857142857 37.60714285714287Q358.5 42.64285714285715 364.5 46.92857142857143L405.85714285714283 77.57142857142857Q414.6428571428571 83.35714285714286 418.71428571428567 91.60714285714286Q422.7857142857143 99.85714285714286 422.35714285714283 110.14285714285714Q421.7142857142857 129.85714285714286 408.1071428571429 141.42857142857144Q394.5 153.0 371.1428571428571 153.0Q363.2142857142857 153.0 354.9642857142857 151.60714285714286Q346.7142857142857 150.21428571428572 339.8571428571429 147.32142857142856Q333.0 144.42857142857142 328.92857142857144 140.35714285714286Q327.64285714285717 136.07142857142858 327.8571428571429 129.96428571428572Q328.07142857142856 123.85714285714286 329.57142857142856 117.32142857142857Q331.07142857142856 110.78571428571428 333.2142857142857 106.28571428571428H335.14285714285717Q334.2857142857143 117.21428571428572 338.7857142857143 126.10714285714286Q343.2857142857143 135.0 351.96428571428567 140.03571428571428Q360.6428571428571 145.07142857142858 372.42857142857144 144.85714285714286Q385.7142857142857 144.42857142857142 393.75 137.35714285714283Q401.7857142857143 130.28571428571428 401.7857142857143 119.14285714285714Q401.7857142857143 112.71428571428572 398.3571428571429 107.46428571428572Q394.92857142857144 102.21428571428572 387.6428571428571 97.92857142857143L348.85714285714283 68.57142857142857Q339.0 62.14285714285715 334.82142857142856 53.03571428571429Q330.64285714285717 43.92857142857143 331.2857142857143 34.071428571428584Q331.92857142857144 23.785714285714292 337.07142857142856 15.321428571428577Q342.2142857142857 6.857142857142861 351.5357142857143 1.9285714285714306Q360.85714285714283 -3.0 373.92857142857144 -3.0ZM411.42857142857144 -0.8571428571428612 411.2142857142857 3.642857142857139H388.92857142857144V-0.8571428571428612ZM498.0 0.0V150.0H471.85714285714283V0.0ZM554.7857142857142 141.64285714285714 558.4285714285714 150.0H497.35714285714283V141.64285714285714ZM546.6428571428571 72.0V80.14285714285715H497.35714285714283V72.0ZM556.7142857142857 0.0V8.357142857142861H497.35714285714283V0.0ZM569.7857142857142 109.28571428571428 559.0714285714286 150.0H519.0L526.7142857142857 141.64285714285714Q537.6428571428571 141.64285714285714 545.5714285714286 137.67857142857144Q553.5 133.71428571428572 558.8571428571429 126.32142857142858Q564.2142857142857 118.92857142857143 567.6428571428571 109.28571428571428ZM546.6428571428571 79.71428571428572V98.14285714285714H544.5V95.78571428571429Q544.5 89.14285714285714 540.0 84.64285714285714Q535.5 80.14285714285715 528.8571428571429 80.14285714285715V79.71428571428572ZM546.6428571428571 54.0V72.42857142857143H528.8571428571429V72.0Q535.5 71.78571428571429 540.0 67.28571428571429Q544.5 62.78571428571429 544.5 56.14285714285715V54.0ZM556.7142857142857 7.714285714285722V30.0H554.5714285714286V27.0Q554.5714285714286 18.85714285714286 549.4285714285713 13.607142857142861Q544.2857142857142 8.357142857142861 535.7142857142857 8.142857142857139V7.714285714285722ZM556.7142857142857 -3.857142857142861V2.357142857142861L530.5714285714286 0.0Q535.2857142857142 0.0 540.5357142857142 -0.6428571428571388Q545.7857142857142 -1.2857142857142776 550.2857142857142 -2.142857142857139Q554.7857142857142 -3.0 556.7142857142857 -3.857142857142861ZM472.5 134.35714285714286V150.0H455.35714285714283V147.85714285714286Q455.35714285714283 147.85714285714286 456.75 147.85714285714286Q458.1428571428571 147.85714285714286 458.1428571428571 147.85714285714286Q463.7142857142857 147.85714285714286 467.67857142857144 143.89285714285714Q471.6428571428571 139.92857142857142 471.85714285714283 134.35714285714286ZM472.5 15.642857142857139H471.85714285714283Q471.6428571428571 10.071428571428584 467.67857142857144 6.107142857142861Q463.7142857142857 2.142857142857139 458.1428571428571 2.142857142857139Q458.1428571428571 2.142857142857139 456.75 2.142857142857139Q455.35714285714283 2.142857142857139 455.35714285714283 2.142857142857139V0.0H472.5ZM671.3571428571429 0.6428571428571388V150.0H645.2142857142858V0.6428571428571388ZM724.5 -0.21428571428569398V7.928571428571445H591.8571428571429V-0.21428571428569398ZM724.5 7.285714285714306V29.785714285714292L722.3571428571429 29.571428571428584V26.785714285714292Q722.3571428571429 18.428571428571445 717.2142857142858 13.285714285714292Q712.0714285714286 8.142857142857139 703.7142857142858 7.928571428571445V7.285714285714306ZM724.5 -4.071428571428555V2.142857142857139L698.3571428571429 -0.21428571428569398Q703.0714285714286 -0.21428571428569398 708.3214285714286 -0.857142857142847Q713.5714285714286 -1.5 718.0714285714286 -2.357142857142847Q722.5714285714286 -3.214285714285694 724.5 -4.071428571428555ZM645.8571428571429 134.35714285714286V150.0H628.7142857142858V147.85714285714286Q628.7142857142858 147.85714285714286 630.1071428571429 147.85714285714286Q631.5 147.85714285714286 631.5 147.85714285714286Q637.0714285714286 147.85714285714286 641.0357142857142 143.89285714285714Q645.0 139.92857142857142 645.2142857142858 134.35714285714286ZM670.7142857142858 134.35714285714286H671.3571428571429Q671.5714285714286 139.92857142857142 675.5357142857142 143.89285714285714Q679.5 147.85714285714286 685.0714285714286 147.85714285714286Q685.0714285714286 147.85714285714286 686.4642857142858 147.85714285714286Q687.8571428571429 147.85714285714286 687.8571428571429 147.85714285714286V150.0H670.7142857142858ZM612.6428571428571 7.285714285714306V7.928571428571445Q604.2857142857143 8.142857142857139 599.1428571428571 13.285714285714292Q594.0 18.428571428571445 594.0 26.785714285714292V29.571428571428584L591.8571428571429 29.785714285714292V7.285714285714306ZM591.8571428571429 -4.071428571428555Q594.0 -3.214285714285694 598.3928571428571 -2.357142857142847Q602.7857142857143 -1.5 608.1428571428571 -0.857142857142847Q613.5 -0.21428571428569398 618.0 -0.21428571428569398L591.8571428571429 2.142857142857139ZM780.8571428571429 0.2142857142857224 824.1428571428572 79.5 800.7857142857143 84.0 750.2142857142858 0.2142857142857224ZM825.8571428571429 81.0V150.0H799.7142857142858V81.0ZM861.6428571428572 0.2142857142857224H877.0714285714287L823.9285714285714 85.28571428571429L814.0714285714287 83.14285714285715ZM852.8571428571429 15.428571428571445Q854.5714285714287 12.428571428571445 853.7142857142858 9.321428571428584Q852.8571428571429 6.214285714285722 850.6071428571429 4.178571428571431Q848.3571428571429 2.142857142857139 845.3571428571429 2.142857142857139Q845.3571428571429 2.142857142857139 844.0714285714287 2.142857142857139Q842.7857142857143 2.142857142857139 842.7857142857143 2.142857142857139V0.0H892.7142857142858V2.142857142857139H889.7142857142858Q883.0714285714287 2.142857142857139 877.1785714285716 6.0Q871.2857142857143 9.857142857142861 868.0714285714287 14.785714285714306ZM789.2142857142858 15.428571428571445 759.0000000000001 14.785714285714306Q756.0000000000001 9.857142857142861 750.2142857142858 6.0Q744.4285714285714 2.142857142857139 737.5714285714287 2.142857142857139H734.5714285714287V0.0H799.5000000000001V2.142857142857139Q799.5000000000001 2.142857142857139 798.1071428571429 2.142857142857139Q796.7142857142858 2.142857142857139 796.7142857142858 2.142857142857139Q792.0000000000001 2.142857142857139 789.5357142857144 6.535714285714292Q787.0714285714287 10.928571428571445 789.2142857142858 15.428571428571445ZM800.3571428571429 134.35714285714286V150.0H783.2142857142858V147.85714285714286Q783.2142857142858 147.85714285714286 784.5 147.85714285714286Q785.7857142857143 147.85714285714286 786.0000000000001 147.85714285714286Q791.5714285714287 147.85714285714286 795.5357142857144 143.89285714285714Q799.5000000000001 139.92857142857142 799.7142857142858 134.35714285714286ZM825.2142857142858 134.35714285714286H825.8571428571429Q825.8571428571429 139.92857142857142 829.9285714285714 143.89285714285714Q834.0 147.85714285714286 839.5714285714287 147.85714285714286Q839.5714285714287 147.85714285714286 840.8571428571429 147.85714285714286Q842.1428571428572 147.85714285714286 842.1428571428572 147.85714285714286V150.0H825.2142857142858Z" style="fill:var(--logo-bleu)"/><g transform="translate(920.36,0)"><path d="M79.83221476510067 152.01342281879195Q59.09395973154362 152.01342281879195 43.489932885906036 142.6510067114094Q27.885906040268456 133.28859060402684 19.12751677852349 116.0738255033557Q10.369127516778523 98.85906040268458 10.369127516778523 75.2013422818792Q10.369127516778523 50.939597315436245 19.379194630872483 33.67449664429531Q28.38926174496644 16.409395973154375 43.89261744966443 7.197986577181226Q59.39597315436241 -2.0134228187919234 79.02684563758389 -2.0134228187919234Q91.40939597315436 -2.0134228187919234 102.13087248322148 1.6107382550335672Q112.85234899328859 5.234899328859058 121.25838926174497 11.929530201342288Q129.66442953020135 18.62416107382552 135.0503355704698 27.78523489932887Q140.43624161073825 36.94630872483222 142.1476510067114 47.91946308724833H114.66442953020133Q112.85234899328859 41.87919463087249 109.68120805369128 37.14765100671141Q106.51006711409396 32.41610738255034 102.03020134228188 28.99328859060403Q97.5503355704698 25.570469798657726 91.86241610738256 23.80872483221477Q86.1744966442953 22.046979865771817 79.32885906040268 22.046979865771817Q67.248322147651 22.046979865771817 57.73489932885906 28.187919463087255Q48.22147651006711 34.32885906040269 42.785234899328856 46.10738255033558Q37.3489932885906 57.885906040268466 37.3489932885906 75.0Q37.3489932885906 91.91275167785236 42.785234899328856 103.74161073825503Q48.22147651006711 115.57046979865771 57.785234899328856 121.76174496644295Q67.3489932885906 127.95302013422818 79.93288590604027 127.95302013422818Q91.40939597315436 127.95302013422818 99.81543624161074 123.52348993288591Q108.2214765100671 119.09395973154363 112.80201342281879 110.93959731543625Q117.38255033557046 102.78523489932886 117.38255033557046 91.71140939597316L123.5234899328859 92.71812080536913H82.75167785234899V71.5771812080537H143.45637583892616V89.59731543624162Q143.45637583892616 108.8255033557047 135.251677852349 122.86912751677852Q127.0469798657718 136.91275167785236 112.70134228187919 144.46308724832215Q98.35570469798657 152.01342281879195 79.83221476510067 152.01342281879195ZM190.53020134228186 150.0V0.0H246.60402684563758Q263.8187919463087 0.0 275.5973154362416 6.040268456375841Q287.3758389261745 12.080536912751683 293.4161073825503 22.9026845637584Q299.45637583892614 33.724832214765115 299.45637583892614 48.02013422818793Q299.45637583892614 62.31543624161074 293.36577181208054 72.88590604026845Q287.2751677852349 83.45637583892618 275.3959731543624 89.19463087248323Q263.5167785234899 94.93288590604027 246.20134228187916 94.93288590604027H206.13422818791943V72.68456375838926H242.67785234899327Q252.8456375838926 72.68456375838926 259.2885906040268 69.81543624161074Q265.7315436241611 66.94630872483222 268.8523489932886 61.40939597315437Q271.9731543624161 55.872483221476514 271.9731543624161 48.02013422818793Q271.9731543624161 39.966442953020135 268.8523489932886 34.27852348993289Q265.7315436241611 28.59060402684564 259.23825503355704 25.570469798657726Q252.744966442953 22.550335570469812 242.47651006711408 22.550335570469812H217.40939597315435V150.0ZM274.8926174496644 150.0 238.44966442953017 81.94630872483222H267.8456375838926L304.99328859060404 150.0ZM372.9060402684563 0.0V150.0H346.02684563758385V0.0ZM474.84563758389254 150.0H436.8926174496644V126.74496644295303H473.5369127516778Q489.24161073825496 126.74496644295303 499.76174496644285 120.95637583892618Q510.2818791946308 115.16778523489933 515.6174496644295 103.64093959731544Q520.9530201342282 92.11409395973155 520.9530201342282 74.79865771812081Q520.9530201342282 57.684563758389274 515.6174496644295 46.208053691275175Q510.2818791946308 34.73154362416108 499.96308724832204 28.99328859060403Q489.64429530201335 23.255033557046985 474.24161073825496 23.255033557046985H436.08724832214756V0.0H475.8523489932885Q498.20134228187914 0.0 514.208053691275 8.959731543624159Q530.214765100671 17.919463087248317 538.8221476510066 34.73154362416108Q547.4295302013422 51.543624161073836 547.4295302013422 74.79865771812081Q547.4295302013422 98.25503355704699 538.8221476510066 115.11744966442953Q530.214765100671 131.9798657718121 513.9563758389261 140.98993288590606Q497.69798657718115 150.0 474.84563758389254 150.0ZM450.98657718120796 0.0V150.0H424.1073825503355V0.0Z" style="fill:var(--logo-or)"/></g></g></svg></span>
+    <div class="bas">
+      <span>TasetyGrid is a project at the design stage. It is not an official service of the Cameroonian State and is not affiliated with any administration mentioned.</span>
+      <span>© 2026 TasetyGrid</span>
+    </div>
+  </div>
+</footer>
+
+
+<script src="../atlas/atlas-map.js" defer></script>
+<script src="../atlas/atlas-dashboard.js" defer></script>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function () {
+  var sel = document.getElementById("pays"), etat = document.getElementById("atlas-etat");
+  if (!sel || !window.AtlasMap || !window.AtlasDashboard) return;
+  var lang = document.documentElement.lang === "en" ? "en" : "fr";
+  var base = "../atlas/data/";
+  var CONT = { "Africa": "Afrique", "Antarctica": "Antarctique", "Asia": "Asie", "Europe": "Europe", "North America": "Amérique du Nord",
+    "Oceania": "Océanie", "Seven seas (open ocean)": "Océans", "South America": "Amérique du Sud" };
+  var bord = window.AtlasDashboard.mount(document.getElementById("atlas-bord"), { lang: lang });
+  etat.textContent = sel.getAttribute("data-chargement");
+  var carte = window.AtlasMap.mount(document.getElementById("atlas-carte"), {
+    lang: lang, dataBase: base,
+    onCountryLoaded: function (d) { bord.update(d); etat.textContent = ""; },
+    onError: function () { bord.clear(); etat.textContent = sel.getAttribute("data-erreur"); }
+  });
+  fetch(base + "index.json").then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (liste) {
+    sel.textContent = "";
+    var groupes = {}, ordre = [];
+    liste.forEach(function (p) {
+      var c = p.continent || "—";
+      if (!groupes[c]) { groupes[c] = document.createElement("optgroup"); groupes[c].label = lang === "en" ? c : (CONT[c] || c); ordre.push(c); }
+      var o = document.createElement("option");
+      o.value = p.iso3; o.textContent = (lang === "en" ? p.name_en : (p.name_fr || p.name_en));
+      groupes[c].appendChild(o);
+    });
+    ordre.sort().forEach(function (c) { sel.appendChild(groupes[c]); });
+    var depart = liste.some(function (p) { return p.iso3 === "CMR"; }) ? "CMR" : liste[0].iso3;
+    sel.value = depart; carte.setCountry(depart);
+    sel.addEventListener("change", function () { etat.textContent = sel.getAttribute("data-chargement"); carte.setCountry(sel.value); });
+  }).catch(function () { etat.textContent = sel.getAttribute("data-erreur"); });
+});
+</script>
+
+<script>
+(function () {
+  // Données d'exemple, fictives : elles illustrent le format d'une fiche.
+  var EX = {
+    a: {
+      nom: "Forest village (example)",
+      loc: "Rural council · forest zone · reference v2026.1",
+      lignes: [
+        ["Population", "≈ 1,840 people", "range 1,650 to 2,030 · 2026 estimate", 2],
+        ["Households", "426", "census", 3],
+        ["Buildings", "381 detected · 374 verified", "2025 imagery · field check", 3],
+        ["Area", "1 245 ha", "farmland 630 · forest 420 · other 195", 2],
+        ["Chiefdom", "1 third-class chiefdom", "3 heritage sites, 1 of them protected", 3],
+        ["Education", "1 primary school · 1 secondary school", "school map · field check", 3],
+        ["Health", "1 health centre, run-down", "field check, March 2026", 3],
+        ["Resources", "1 quarry ⚠ no permit found", "observed, not matched", 1],
+        ["Roads", "8.2 km · 3.1 km all-season", "field check", 2]
+      ],
+      score: 78, comp: [["Coverage", .95], ["Agreement", .80], ["Freshness", .70], ["Verification", .65]],
+      deficits: [
+        ["Health", "critique", "Critical access", "The health centre is run-down; the next one is 14 km away on a track cut off in the rainy season."],
+        ["Primary education", "alerte", "4 classrooms short", "Calculation: estimated school-age children ÷ the ministry's pupils-per-classroom standard."],
+        ["Electricity", "alerte", "17% of households", "Medium-voltage grid 6 km away; a solar mini-grid is worth studying."],
+        ["Quarry", "alerte", "Discrepancy", "Quarrying observed with no matching entry in the mining cadastre: referred for checking."]
+      ]
+    },
+    b: {
+      nom: "Peri-urban neighbourhood (example)",
+      loc: "Sub-divisional council · urban zone · reference v2026.1",
+      lignes: [
+        ["Population", "≈ 12,600 people", "range 11,400 to 13,900 · 2026 estimate", 2],
+        ["Households", "2,910", "census", 3],
+        ["Buildings", "2,284 detected · 1,240 verified", "2025 imagery · partial field check", 2],
+        ["Area", "186 ha", "residential 142 · commercial 21 · other 23", 2],
+        ["Land", "312 titles · 57 certificates", "MINDCAF · certificate register", 3],
+        ["Education", "3 primary schools · 1 high school", "school map", 3],
+        ["Health", "1 medical centre · 4 private clinics", "health map · field check", 3],
+        ["Economy", "1 market · 214 shops", "field check, aggregate count", 2],
+        ["Water", "38% connected", "household survey", 1]
+      ],
+      score: 71, comp: [["Coverage", .90], ["Agreement", .62], ["Freshness", .85], ["Verification", .48]],
+      deficits: [
+        ["Drinking water", "critique", "38% connected", "Network extension is a priority for about 1,800 households."],
+        ["Land", "alerte", "9 overlaps", "Certificates overlapping existing land titles: reported to the lands office."],
+        ["Primary education", "alerte", "Overcrowded", "Classes above the sector standard in 2 schools out of 3."],
+        ["Health", "ok", "Adequate coverage", "92% of residents within 30 minutes of a health facility."]
+      ]
+    }
+  };
+  var PT = { 3: "●", 2: "◐", 1: "○" };
+  function el(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
+
+  function afficher(k) {
+    var d = EX[k];
+    document.getElementById("f-nom").textContent = d.nom;
+    document.getElementById("f-loc").textContent = d.loc;
+    var L = document.getElementById("f-lignes"); L.textContent = "";
+    d.lignes.forEach(function (l) {
+      var row = el("div", "ligne");
+      row.appendChild(el("dt", null, l[0]));
+      var dd = el("dd", null, l[1]); dd.appendChild(el("span", "src", l[2])); row.appendChild(dd);
+      var c = el("span", "conf", PT[l[3]]); c.setAttribute("data-n", l[3]);
+      c.setAttribute("aria-label", l[3] === 3 ? "verified" : l[3] === 2 ? "estimated" : "reported");
+      row.appendChild(c); L.appendChild(row);
+    });
+    var s = document.getElementById("f-score"); s.textContent = d.score; s.appendChild(el("small", null, " / 100"));
+    var C = document.getElementById("f-comp"); C.textContent = "";
+    d.comp.forEach(function (c) {
+      var b = el("div"); b.appendChild(el("span", null, c[0] + " " + Math.round(c[1] * 100) + " %"));
+      var j = el("div", "jauge"); var i = el("i"); i.style.width = Math.round(c[1] * 100) + "%"; j.appendChild(i); b.appendChild(j); C.appendChild(b);
+    });
+    var D = document.getElementById("f-deficits"); D.textContent = "";
+    d.deficits.forEach(function (x) {
+      var b = el("div", "deficit"); b.setAttribute("data-niveau", x[1]);
+      var h = el("div", "haut"); h.appendChild(el("b", null, x[0])); h.appendChild(el("span", "pastille", x[2]));
+      b.appendChild(h); b.appendChild(el("p", null, x[3])); D.appendChild(b);
+    });
+  }
+
+  var tabs = Array.prototype.slice.call(document.querySelectorAll(".onglet"));
+  function choisir(t) {
+    tabs.forEach(function (o) { var on = o === t; o.setAttribute("aria-selected", on); o.tabIndex = on ? 0 : -1; });
+    document.getElementById("fiche-panneau").setAttribute("aria-labelledby", t.id);
+    afficher(t.getAttribute("data-ex"));
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener("click", function () { choisir(t); });
+    t.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+        var n = tabs[(i + (e.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length]; n.focus(); choisir(n);
+      }
+    });
+  });
+  afficher("a");
+
+  var boutons = Array.prototype.slice.call(document.querySelectorAll(".ecran button"));
+  boutons.forEach(function (b) {
+    b.addEventListener("click", function () {
+      boutons.forEach(function (o) { o.setAttribute("aria-pressed", o === b); });
+      document.getElementById("retour").textContent = b.getAttribute("data-msg");
+    });
+  });
+  boutons.forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
+
+  // Installation de l'application (navigateurs qui le proposent : Chrome, Edge, Android)
+  var installer = document.getElementById("installer"), invite = null;
+  window.addEventListener("beforeinstallprompt", function (e) { e.preventDefault(); invite = e; installer.hidden = false; });
+  installer.addEventListener("click", function () {
+    if (!invite) return;
+    invite.prompt();
+    invite.userChoice.finally(function () { invite = null; installer.hidden = true; });
+  });
+  window.addEventListener("appinstalled", function () { installer.hidden = true; });
+
+})();
+</script>
+
+<script>if ("serviceWorker" in navigator) { window.addEventListener("load", function () { navigator.serviceWorker.register("../sw.js", { scope: "../" }).catch(function () {}); }); }</script>
+</body>
+</html>

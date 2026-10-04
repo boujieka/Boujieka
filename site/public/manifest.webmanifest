@@ -1,0 +1,41 @@
+{
+  "name": "TasetyGrid — Atlas des personnes, des terres et des ressources",
+  "short_name": "TasetyGrid",
+  "description": "Savoir ce qui existe sur chaque territoire, et ce qui manque.",
+  "lang": "fr",
+  "dir": "ltr",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F6F0E4",
+  "theme_color": "#1D3F8F",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "English version",
+      "short_name": "English",
+      "url": "./en/",
+      "lang": "en"
+    }
+  ]
+}
