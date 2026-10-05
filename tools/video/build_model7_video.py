@@ -56,6 +56,14 @@ for name, sets in SCEN.items():
 
 # ---------------------------------------------------------------- cell rendering
 def fmt(v, nf):
+    out = fmt_en(v, nf)
+    if LANG == "fr" and isinstance(v, (int, float)) and not isinstance(v, bool):
+        # French display, as Excel shows it with French regional settings: 1 234,5 and 13,8 %
+        out = out.replace(",", "\u0001").replace(".", ",").replace("\u0001", "\u202f").replace("%", "\u202f%")
+    return out
+
+
+def fmt_en(v, nf):
     if v is None:
         return ""
     if isinstance(v, bool):
@@ -221,7 +229,7 @@ FR = {
         "<ol><li>Feuille de garde et contrôles</li><li>Tableau de bord et décision de bouclage</li><li>Point de vue du développeur et stress</li><li>Votre propre projet</li></ol>",
     "BEFORE YOU START": "AVANT DE COMMENCER", "Open the workbook": "Ouvrez le classeur",
     "<p>Keep it open next to the video. Pause whenever you want to try a step.</p>": "<p>Gardez-le ouvert à côté de la vidéo. Mettez en pause pour essayer chaque étape.</p>",
-    "Sheet: COVER": "Feuille : COVER", "Sheet: COVER, live status": "Feuille : COVER, live status", "Sheet: COVER, start here": "Feuille : COVER, start here",
+    "Sheet: COVER": "Feuille : COVER", "Sheet: COVER, live status": "Feuille : COVER, statut actuel", "Sheet: COVER, start here": "Feuille : COVER, commencer ici",
     "Sheet: 00_README": "Feuille : 00_README", "Sheet: 00_README, colour code": "Feuille : 00_README, code couleur",
     "Sheet: 00_README, units and timeline": "Feuille : 00_README, unités et chronologie", "Sheet: 00_README, two levels of gates": "Feuille : 00_README, deux niveaux de portes",
     "Sheet: 01_CONTROL_PANEL": "Feuille : 01_CONTROL_PANEL", "Section A: case and generation": "Section A : cas et production",

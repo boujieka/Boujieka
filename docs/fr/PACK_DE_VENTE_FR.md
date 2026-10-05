@@ -12,8 +12,8 @@ Livre 7, *Développement et financement de l'hydroélectricité*, et ses ressour
 
 | Produit | Contenu | Fichiers | Prix (hypothèse) |
 |---|---|---|---|
-| A. Le livre (PDF) | Livre complet, A4, 87 pages, et édition 6 × 9 pour lecture sur tablette | `LIVRE7_..._livre_complet_FR.pdf`, `Developpement_et_financement_hydroelectricite_6x9.pdf` | 39 USD ; 15 000 FCFA |
-| B. Le modèle et son manuel | MODEL 7 en français (Excel), MANUAL 7 (PDF et Word), guide vidéo (16 min) et guide audio | `MODEL7_..._FR.xlsx`, `MANUAL7_..._FR.pdf/.docx`, `MODEL7_Video_Guide_FR.mp4`, `MODEL7_Guide_audio_FR.mp3` | 89 USD ; 39 000 FCFA |
+| A. Le livre (PDF) | Livre complet, A4, 87 pages, et édition 6 × 9 pour lecture sur tablette | `LIVRE7_..._livre_complet_FR.pdf`, `LIVRE7_..._format_6x9_FR.pdf` | 39 USD ; 15 000 FCFA |
+| B. Le modèle et son manuel | MODEL 7 en français (Excel), MANUAL 7 (PDF et Word), guide vidéo (16 min) et guide audio (16 min) | `MODEL7_..._FR.xlsx`, `MANUAL7_..._FR.pdf/.docx`, `MODEL7_Video_Guide_FR.mp4`, `MODEL7_Guide_audio_FR.mp3` | 89 USD ; 39 000 FCFA |
 | C. Le pack complet | A + B + étude de cas Kasiri, outils de transaction (Word modifiable), référentiel de due diligence technique, sources | `BOOK7_Ressources_FR.zip` | 149 USD ; 65 000 FCFA |
 | D. Licence institutionnelle | Pack complet pour une équipe (5 à 20 utilisateurs) et une séance de prise en main | Sur devis, livraison par lien privé | Sur devis |
 
@@ -75,7 +75,7 @@ Le cadre de décision des comités d'investissement et de crédit pour développ
 
 | Plateforme | Produit A | Produit B | Produit C |
 |---|---|---|---|
-| Gumroad | Les 2 PDF ; cocher « e-publication » pour la TVA | Excel, manuel PDF et Word, MP4, MP3 | Le ZIP complet (environ 70 Mo) |
+| Gumroad | Les 2 PDF ; cocher « e-publication » pour la TVA | Excel, manuel PDF et Word, MP4, MP3 | Le ZIP complet (78 Mo, `deliverables/BOOK7_Ressources_FR.zip`) |
 | Chariow (5 fichiers maximum) | Les 2 PDF | Excel, manuel PDF, ZIP (MP4 + MP3 + manuel Word) | Le ZIP complet |
 | Etsy (5 fichiers de 20 Mo maximum, faits à reconfirmer) | Le PDF A4 (5,3 Mo) et le PDF 6 × 9 | Excel et manuel PDF ; la vidéo dépasse 20 Mo : la livrer par un lien privé indiqué dans un PDF « Accès aux vidéos », si les règles d'Etsy le permettent (non vérifié) | Non recommandé |
 | Vente directe | Lien de téléchargement privé et facture | Idem | Idem |

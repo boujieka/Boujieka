@@ -126,6 +126,8 @@ if FR:
     D = OUT
     shutil.copy("book7/build_fr/Developpement_et_financement_hydroelectricite.pdf",
                 f"{D}/01_Hydro_Readiness_Framework/LIVRE7_Developpement_et_financement_hydroelectricite_livre_complet_FR.pdf")
+    shutil.copy("book7/build_fr/Developpement_et_financement_hydroelectricite_6x9.pdf",
+                f"{D}/01_Hydro_Readiness_Framework/LIVRE7_Developpement_et_financement_hydroelectricite_format_6x9_FR.pdf")
     shutil.copy("model/Bankable_Hydro_Model_FR.xlsx", f"{D}/02_Bankable_Hydro_Model/MODEL7_Modele_financier_hydro_v1.0RC1_FR.xlsx")
     for f in ("MODEL7_TEST_REPORT.md", "MODEL7_GATE_AND_FORMULA_AUDIT.md"):
         shutil.copy(f"docs/{f}", f"{D}/02_Bankable_Hydro_Model/{f}")
@@ -152,7 +154,7 @@ if FR:
         shutil.copy(f, f"{D}/07_Sources_and_References/{os.path.basename(f)}")
     open(f"{D}/LISEZMOI.txt", "w", encoding="utf8").write(
         "AFRICA ENERGY FINANCE\nLIVRE 7, DÉVELOPPEMENT ET FINANCEMENT DE L'HYDROÉLECTRICITÉ : ressources d'accompagnement\n" + VERSION + "\n\n"
-        "01_Hydro_Readiness_Framework   Le livre complet (PDF) et le cadre en document autonome (PDF, Word)\n"
+        "01_Hydro_Readiness_Framework   Le livre complet (PDF A4 et format 6 x 9 pour tablette) et le cadre en document autonome (PDF, Word)\n"
         "02_Bankable_Hydro_Model        Le classeur MODEL 7 en français (il s'ouvre sur sa page de garde) et ses rapports de test (en anglais)\n"
         "03_Model_User_Manual           MANUAL 7 en français (PDF, Word), le guide vidéo en français (MP4, sous-titres) et le guide audio\n"
         "04_Kasiri_River_Case           Le cas Kasiri du chapitre 18 (PDF, Word) et ses chiffres clés (CSV)\n"
