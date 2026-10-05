@@ -33,7 +33,7 @@ KOKORO_SPEED = float(os.environ.get("KOKORO_SPEED", "0.94"))
 VOICE_DIR = "/tmp/claude-0/-home-user-Boujieka/92f87389-f945-55f4-b28c-902b8d98c6ca/scratchpad/voice"
 VOICE = os.environ.get("PIPER_VOICE", f"{VOICE_DIR}/" + ("fr_FR-siwis-medium.onnx" if LANG == "fr" else "en_GB-cori-high.onnx"))
 RECALC = os.environ.get("RECALC", "/root/.claude/skills/synced/595554f7-3334-4cb8-90b6-40da4dcb6b84_e238fe12-8a4b-4490-8c46-5bf1323948af/xlsx/scripts/recalc.py")
-MODEL = "model/Bankable_Hydro_Model.xlsx"
+MODEL = "model/Bankable_Hydro_Model_FR.xlsx" if LANG == "fr" else "model/Bankable_Hydro_Model.xlsx"  # the French video shows the French workbook
 OUT_DIR = "course/video"
 GREEN, GOLD, GOLDL, CREAM = "#0B3020", "#B07C0F", "#E0B44A", "#F7F3E8"
 os.makedirs(WORK, exist_ok=True)
@@ -297,7 +297,7 @@ SCENES = [
     (1, 0, card("VIDEO GUIDE", "How to use <em>MODEL 7</em>,<br>step by step", "Hydropower Development and Finance Model  |  Companion to Book 7"), ""),
     (1, 1, card("THE ROUTE", "From the cover<br>to your own project", "Kasiri River Hydro: 60 MW run-of-river, fictional Republic of Navaria",
                 "<ol><li>Cover and checks</li><li>Dashboard and the close decision</li><li>Developer view and stresses</li><li>Your own project</li></ol>"), ""),
-    (1, 2, card("BEFORE YOU START", "Open the workbook", "MODEL7_Bankable_Hydro_Model_v1.0RC1.xlsx",
+    (1, 2, card("BEFORE YOU START", "Open the workbook", "MODEL7_Modele_financier_hydro_v1.0RC1_FR.xlsx" if LANG == "fr" else "MODEL7_Bankable_Hydro_Model_v1.0RC1.xlsx",
                 "<p>Keep it open next to the video. Pause whenever you want to try a step.</p>"), ""),
     (2, 0, sheets_inner([LOGO + T(("base", "COVER", 8, 22, 2, 6), hl=[(10, 2, 19, 6)], maxw={2: 64})]), "Sheet: COVER"),
     (2, 1, sheets_inner([T(("base", "COVER", 23, 31, 2, 6), hl=[(24, 2, 30, 6)], maxw={2: 64, 4: 40})]), "Sheet: COVER, live status"),

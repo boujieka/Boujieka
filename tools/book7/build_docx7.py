@@ -30,6 +30,9 @@ TITLE, SUB = _A.title, _A.subtitle
 AUTHOR = "Emmanuel Boujieka Kamga"
 
 doc = Document()
+if os.environ.get("BOOK_LANG") == "fr":  # proofing language of the whole document
+    _rpr = doc.styles["Normal"].element.get_or_add_rPr()
+    _lang = OxmlElement("w:lang"); _lang.set(qn("w:val"), "fr-FR"); _rpr.append(_lang)
 sec = doc.sections[0]
 sec.page_width, sec.page_height = Mm(210), Mm(297)
 sec.left_margin = sec.right_margin = Mm(20); sec.top_margin = Mm(22); sec.bottom_margin = Mm(20)
@@ -105,23 +108,27 @@ if os.path.exists("brand/aef_logo.png"):
 p = doc.add_paragraph(); p.paragraph_format.space_before = Pt(60); add_runs(p, _A.kicker, 11, GOLD, True)
 p = doc.add_paragraph(); add_runs(p, TITLE, 28, GREEN, True); border_bottom(p, sz=18)
 p = doc.add_paragraph(); add_runs(p, SUB, 14, INK)
-p = doc.add_paragraph(); p.paragraph_format.space_before = Pt(40); add_runs(p, "AUTHOR & IDEATION", 8.5, GOLD, True)
+FR = os.environ.get("BOOK_LANG") == "fr"
+MOIS = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
+p = doc.add_paragraph(); p.paragraph_format.space_before = Pt(40); add_runs(p, "AUTEUR ET CONCEPTION" if FR else "AUTHOR & IDEATION", 8.5, GOLD, True)
 p = doc.add_paragraph(); add_runs(p, AUTHOR, 14, GREEN, True)
-p = doc.add_paragraph(); add_runs(p, f"Africa Energy Finance  |  Business & Financial Models  |  {date.today():%B %Y}", 9.5, MUTED)
+p = doc.add_paragraph(); add_runs(p, f"Africa Energy Finance  |  Business & Financial Models  |  {(MOIS[date.today().month - 1] + f' {date.today():%Y}') if FR else f'{date.today():%B %Y}'}", 9.5, MUTED)
 p = doc.add_paragraph(); add_runs(p, _A.edition, 9.5, MUTED)
 p = doc.add_paragraph(); p.paragraph_format.space_before = Pt(80)
-add_runs(p, f"© {date.today().year} {AUTHOR}. All rights reserved. Decision support material; not investment, legal, tax or accounting advice. "
-            "The default model inputs and the Kasiri River Hydro case are fictional and illustrative.", 8, MUTED)
+add_runs(p, (f"© {date.today().year} {AUTHOR}. Tous droits réservés. Outil d'aide à la décision ; ne constitue pas un conseil en investissement, "
+             "ni un conseil juridique, fiscal ou comptable. Les données par défaut du modèle et le cas Kasiri River Hydro sont fictifs et illustratifs.") if FR else
+            (f"© {date.today().year} {AUTHOR}. All rights reserved. Decision support material; not investment, legal, tax or accounting advice. "
+             "The default model inputs and the Kasiri River Hydro case are fictional and illustrative."), 8, MUTED)
 # ---- contents (Word field, updated on open) ----
 doc.add_paragraph().add_run().add_break(WD_BREAK.PAGE)
-p = doc.add_paragraph(); add_runs(p, "Contents", 18, GREEN, True)
+p = doc.add_paragraph(); add_runs(p, "Sommaire" if FR else "Contents", 18, GREEN, True)
 p = doc.add_paragraph(); r = p.add_run()
 for t, txt in (("begin", None), (None, 'TOC \\o "1-2" \\h \\z \\u'), ("separate", None)):
     if t:
         f = OxmlElement("w:fldChar"); f.set(qn("w:fldCharType"), t); r._r.append(f)
     else:
         it = OxmlElement("w:instrText"); it.set(qn("xml:space"), "preserve"); it.text = txt; r._r.append(it)
-r.add_text("Right-click and choose Update Field to build the table of contents.")
+r.add_text("Cliquez avec le bouton droit et choisissez Mettre à jour les champs pour construire le sommaire." if FR else "Right-click and choose Update Field to build the table of contents.")
 f = OxmlElement("w:fldChar"); f.set(qn("w:fldCharType"), "end"); r._r.append(f)
 upd = OxmlElement("w:updateFields"); upd.set(qn("w:val"), "true"); doc.settings.element.append(upd)
 sec.different_first_page_header_footer = True

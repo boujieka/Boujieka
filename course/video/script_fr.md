@@ -14,9 +14,9 @@ Ouvrez maintenant le classeur, et gardez-le à côté de la vidéo. Mettez la vi
 
 Le classeur s'ouvre sur la feuille de garde. En haut, vous voyez le titre et le cadre que le modèle applique : le Hydro Readiness Framework, avec huit questions, vingt-trois portes et une décision de bouclage financier.
 
-En dessous, un bloc appelé Live status donne six réponses qui se mettent à jour à chaque modification. Pour le cas par défaut, elles se lisent ainsi. La décision de bouclage financier est STOP, parce qu'une porte critique n'est pas franchie. Six portes sur vingt-trois sont franchies. L'écran de développement à neuf portes indique non bancable. L'écran budgétaire indique une faible pression budgétaire supplémentaire. Les contrôles d'intégrité du modèle indiquent tout est OK. Et le contrôle de cohérence avec le livre indique que tout passe.
+En dessous, un bloc appelé « Statut actuel » donne six réponses qui se mettent à jour à chaque modification. Pour le cas par défaut, elles se lisent ainsi. La décision de bouclage financier est STOP, parce qu'une porte critique n'est pas franchie. Six portes sur vingt-trois sont franchies. L'écran de développement à neuf portes indique non bancable. L'écran budgétaire indique une faible pression budgétaire supplémentaire. Les contrôles d'intégrité du modèle indiquent tout est OK. Et le contrôle de cohérence avec le livre indique que tout passe.
 
-En bas de la feuille de garde, les liens Start here mènent directement aux feuilles principales. Nous les utiliserons dans cet ordre.
+En bas de la feuille de garde, les liens « Commencer ici » mènent directement aux feuilles principales. Nous les utiliserons dans cet ordre.
 
 ## 03. Le Read me et le code couleur
 

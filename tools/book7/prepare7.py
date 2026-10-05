@@ -1,16 +1,21 @@
 """Assemble Book 7: substitute model numbers, build the generated tables, list sources, lint the style.
 
 python tools/book7/prepare7.py  ->  book7/build/book7_resolved.md
+BOOK_LANG=fr python tools/book7/prepare7.py  ->  book7/build_fr/book7_resolved.md (French edition from book7/src_fr: French
+number format, generated tables and source list in French, French typography with non-breaking spaces)
 """
 import csv, glob, json, os, re, sys
 from openpyxl import load_workbook
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 os.chdir(ROOT)
+FR = os.environ.get("BOOK_LANG") == "fr"
+SRC = "book7/src_fr" if FR else "book7/src"
+BUILD = "book7/build_fr" if FR else "book7/build"
 CH = ["ch00_front"] + [f"ch{i:02d}" for i in range(1, 19)] + ["ch99_annexes"]
-text = "\n\n".join(open(f"book7/src/{c}.md", encoding="utf8").read().strip() for c in CH)
-TECH = sorted(glob.glob("book7/src/tech/annex_*.md"))
-text += "\n\n" + open("book7/src/ch99b_technical_intro.md", encoding="utf8").read().strip()
+text = "\n\n".join(open(f"{SRC}/{c}.md", encoding="utf8").read().strip() for c in CH)
+TECH = sorted(glob.glob(f"{SRC}/tech/annex_*.md"))
+text += "\n\n" + open(f"{SRC}/ch99b_technical_intro.md", encoding="utf8").read().strip()
 text += "\n\n" + "\n\n".join(open(f, encoding="utf8").read().strip() for f in TECH)
 
 MAP = json.load(open("model/model_map.json"))
@@ -54,9 +59,50 @@ X["roy_y2"] = wb[s_roy].cell(r_roy, 5 + k2).value
 X["be_flow_pct"] = -SNAP["base_locked"]["be_flow_flex"]
 
 MINUS = "−"
+NNBSP, NBSP = "\u202f", "\u00a0"
+# French renderings of the workbook's text cells (labels translated for the French workbook) and of its text outputs
+TRF = {}
+for _p in sorted(glob.glob("model/fr_work/strings_*_fr.json")):
+    for _e in json.load(open(_p, encoding="utf8")):
+        if _e.get("fr"):
+            TRF[_e["en"]] = _e["fr"]
+OUTFR = {
+    "STOP: a critical gate is not met": "STOP : une porte critique n'est pas franchie",
+    "NOT READY: critical gates partly met": "NOT READY : portes critiques en partie franchies",
+    "CONDITIONAL GO: all critical gates met": "CONDITIONAL GO : toutes les portes critiques franchies",
+    "GO: evidence complete for a close decision": "GO : dossier de preuves complet pour décider du bouclage",
+    "LOW additional fiscal pressure": "LOW : faible pression budgétaire supplémentaire",
+    "MODERATE additional fiscal pressure": "MODERATE : pression budgétaire supplémentaire modérée",
+    "HIGH additional fiscal pressure — escalate to MoF / DSA team": "HIGH : forte pression budgétaire supplémentaire, à remonter au ministère des Finances",
+    "n/a: negative on the success path": "sans objet : négative sur le scénario de succès",
+    "n/a": "n.d.", "Yes": "Oui", "No": "Non",
+}
+
+
+def tr(v):
+    """French for a workbook text value; unchanged in the English edition."""
+    if not FR or not isinstance(v, str):
+        return v
+    return OUTFR.get(v, TRF.get(v, v))
 
 
 def fmt(v, f):
+    if FR:
+        return fmt_fr(v, f)
+    return fmt_en(v, f)
+
+
+def fmt_fr(v, f):
+    """French number format: decimal comma, narrow no-break space for thousands and before % (multiples keep the x)."""
+    if v is None:
+        return "n.d."
+    if isinstance(v, str):
+        return tr(v)
+    s = fmt_en(v, f).replace(",", "\u0001").replace(".", ",").replace("\u0001", NNBSP)
+    return s.replace("%", NNBSP + "%")
+
+
+def fmt_en(v, f):
     if v is None:
         return "n/a"
     if isinstance(v, str):
@@ -85,42 +131,57 @@ assert "{{" not in text, re.findall(r"\{\{[^}]*\}\}", text)[:5]
 
 # ---------------- generated tables ----------------
 ws = wb["30A_CLOSE_READINESS"]
-g = ["Table: Table 17.1. Kasiri River Hydro: financial close readiness gates",
+g = ["Table: Tableau 17.1. Kasiri River Hydro : portes de maturité pour le bouclage financier",
+     "| N° | Porte | Question | Critique | Statut |", "|---|---|---|---|---|"] if FR else [
+     "Table: Table 17.1. Kasiri River Hydro: financial close readiness gates",
      "| # | Gate | Question | Critical | Status |", "|---|---|---|---|---|"]
 r = 5
 while isinstance(ws.cell(r, 1).value, int):
-    crit = "Yes" if ws.cell(r, 4).value == "Y" else "No"
-    test = "" if ws.cell(r, 5).value != "model test" else " (model test)"
+    crit = tr("Yes" if ws.cell(r, 4).value == "Y" else "No")
+    test = "" if ws.cell(r, 5).value != "model test" else (" (test du modèle)" if FR else " (model test)")
     q = str(ws.cell(r, 8).value or "").split(" ")[0]
-    g.append(f"| {ws.cell(r, 1).value} | {ws.cell(r, 2).value} | {q} | {crit} | {ws.cell(r, 6).value}{test} |")
+    g.append(f"| {ws.cell(r, 1).value} | {tr(ws.cell(r, 2).value)} | {q} | {crit} | {ws.cell(r, 6).value}{test} |")
     r += 1
 rf = next(rr for rr in range(r, r + 30) if str(ws.cell(rr, 1).value or "").startswith("HYDRO READINESS FRAMEWORK")) + 2
-fw = ["Table: Table 17.2. Kasiri River Hydro: readiness by framework question",
+fw = ["Table: Tableau 17.2. Kasiri River Hydro : maturité par question du cadre",
+      "| Question | Doit être acceptée par | Portes | Franchies | Portes critiques non franchies |", "|---|---|---|---|---|"] if FR else [
+      "Table: Table 17.2. Kasiri River Hydro: readiness by framework question",
       "| Question | Must be accepted by | Gates | Met | Critical gates not met |", "|---|---|---|---|---|"]
 for rr in range(rf, rf + 8):
-    fw.append(f"| {ws.cell(rr, 2).value} | {ws.cell(rr, 3).value} | {ws.cell(rr, 4).value} | {ws.cell(rr, 5).value} | {ws.cell(rr, 6).value} |")
+    fw.append(f"| {tr(ws.cell(rr, 2).value)} | {tr(ws.cell(rr, 3).value)} | {ws.cell(rr, 4).value} | {ws.cell(rr, 5).value} | {ws.cell(rr, 6).value} |")
 text = text.replace("%%FRAMEWORK7", "\n".join(fw))
 wc = wb["33_CHECKS"]
-ck = ["Table: Table K.2. Integrity checks in MODEL 7 and their result for the base case", "| Check | Result |", "|---|---|"]
+ck = ["Table: Tableau K.2. Contrôles d'intégrité de MODEL 7 et leur résultat pour le cas de base", "| Contrôle | Résultat |", "|---|---|"] if FR else [
+      "Table: Table K.2. Integrity checks in MODEL 7 and their result for the base case", "| Check | Result |", "|---|---|"]
 for rr in range(4, 40):
     lab, res = wc.cell(rr, 1).value, wc.cell(rr, 3).value
     if lab and res:
-        ck.append(f"| {lab} | {res} |")
+        ck.append(f"| {tr(lab)} | {res} |")
 text = text.replace("%%CHECKS7", "\n".join(ck))
-g.append("Note: Statuses marked as model tests are computed by the model; the others are evidence statuses entered for the case.")
+g.append("Note: Les statuts marqués « test du modèle » sont calculés par le modèle ; les autres sont des statuts de preuve saisis pour le cas. MET : franchie ; PARTIAL : partielle ; NOT MET : non franchie ; NO EVIDENCE : sans preuve."
+         if FR else "Note: Statuses marked as model tests are computed by the model; the others are evidence statuses entered for the case.")
 text = text.replace("%%GATES7", "\n".join(g))
 
 ws = wb["31_CASE_STUDY"]
-c = ["Table: Table J.1. Public benchmark cases (as published; nominal, unadjusted)",
+c = ["Table: Tableau J.1. Cas de référence publics (tels que publiés ; valeurs nominales, non ajustées)",
+     "| Projet | Pays | Structure | MW | USD/kW | Calendrier | Soutien au crédit |", "|---|---|---|---|---|---|---|"] if FR else [
+     "Table: Table J.1. Public benchmark cases (as published; nominal, unadjusted)",
      "| Project | Country | Structure | MW | USD/kW | Timeline | Credit support |", "|---|---|---|---|---|---|---|"]
 r = MAP["CASE_ROW0"] + 1
 while ws.cell(r, 1).value and "FICTIONAL" not in str(ws.cell(r, 1).value):
     v = [ws.cell(r, k).value for k in range(1, 13)]
     ukw = f"{v[6]:,.0f}" if isinstance(v[6], (int, float)) else "n/a"
+    if FR:
+        ukw = ukw.replace(",", NNBSP).replace("n/a", "n.d.")
+        row = f"| {v[0]} | {tr(v[1])} | {tr(v[2])} | {v[3]:,.0f} | {ukw} | {tr(v[7])} | {tr(v[9])} |".replace(",", NNBSP)
+        c.append(row.replace("(snippet)", "(résumé de recherche)").replace("PUBLIC DATA NOT FOUND", "DONNÉE PUBLIQUE NON TROUVÉE"))
+        r += 1
+        continue
     row = f"| {v[0]} | {v[1]} | {v[2]} | {v[3]:,.0f} | {ukw} | {v[7]} | {v[9]} |"
     c.append(row.replace("(snippet)", "(search summary)").replace(" - ", ": "))
     r += 1
-c.append("Note: Sources for each row are in the research case files. Costs reported in euros are not converted (n/a). PUBLIC DATA NOT FOUND means the research found no public figure.")
+c.append("Note: Les sources de chaque ligne figurent dans les fichiers de recherche sur les cas. Les coûts publiés en euros ne sont pas convertis (n.d.). DONNÉE PUBLIQUE NON TROUVÉE signifie que la recherche n'a trouvé aucun chiffre public."
+         if FR else "Note: Sources for each row are in the research case files. Costs reported in euros are not converted (n/a). PUBLIC DATA NOT FOUND means the research found no public figure.")
 text = text.replace("%%CASES7", "\n".join(c))
 
 # ---------------- sources ----------------
@@ -141,7 +202,10 @@ for k, p in CASEFILES.items():
         m = re.match(r"^\s*(?:-\s*)?(?:\*\*S(\d+[a-z]?)\*\*|\[S(\d+[a-z]?)\])\s*(.*)$", line)
         if m:
             CS[f"{k}:S{m.group(1) or m.group(2)}"] = m.group(3).strip()
-VLAB = {"F": "Full text read", "P": "Landing or summary page read", "S": "Search summary only"}
+VLAB = {"F": "Texte intégral lu", "P": "Page d'accueil ou résumé lu", "S": "Résumé de recherche seulement"} if FR else {
+    "F": "Full text read", "P": "Landing or summary page read", "S": "Search summary only"}
+VFR = {"Research note": "Note de recherche", "Not recorded": "Non consigné", "Search summary only": "Résumé de recherche seulement",
+       "Page or document opened": "Page ou document ouvert", "Opened; see research file": "Ouvert ; voir le fichier de recherche"}
 
 
 def clean(t):
@@ -183,10 +247,20 @@ def key(cid):
     return (a, int(n.group(1)) if n else 0, n.group(2) if n else b)
 
 
+L_FR = ["Les identifiants composés de deux lettres et d'un nombre (comme HY-08) renvoient à la base de données des sources de la recherche ; les identifiants formés d'un préfixe et d'un numéro S (comme DE:S1) renvoient aux listes numérotées de sources des fichiers de recherche : A1 et A2, fichiers des cas africains ; INT, références internationales ; DE, preuves sur le développement ; LIT, ouvrages comparés dans les pages liminaires ; R1 à R4, sources ajoutées lors de l'audit des sources avant publication. Le statut de vérification indique ce que l'équipe de recherche a consulté. Les affirmations qui ne reposent que sur un résumé de recherche doivent être vérifiées sur l'original avant d'être utilisées. Les références bibliographiques sont données dans leur langue d'origine.",
+        "", "| Réf. | Source | Vérification |", "|---|---|---|"]
 L = ["Identifiers with two letters and a number (such as HY-08) refer to the research source database; identifiers with a prefix and S-number (such as DE:S1) refer to the numbered source lists of the research files: A1 and A2, African case files; INT, international benchmarks; DE, development evidence; LIT, works compared in the front matter; R1 to R4, sources added during the pre-publication source audit. Verification status records what the research team saw. Claims resting on a search summary only should be checked against the original before reliance.",
      "", "| ID | Source | Verification |", "|---|---|---|"]
+if FR:
+    L = L_FR
 for cid in sorted(cited, key=key):
     e, st = entry(cid)
+    if FR:
+        st = VFR.get(st, st)
+        e = e.replace("Benchmark table for development model defaults, development evidence file (research note). Records where no public data were found.",
+                      "Tableau de référence des valeurs par défaut du modèle de développement, fichier de preuves sur le développement (note de recherche). Indique où aucune donnée publique n'a été trouvée.")
+        e = e.replace("Competitive review of hydropower finance books, models and courses (research note).",
+                      "Revue concurrentielle des livres, modèles et formations sur le financement de l'hydroélectricité (note de recherche).")
     L.append(f"| {cid} | {e} | {st} |")
 text = text.replace("%%SOURCES7", "\n".join(L))
 
@@ -197,7 +271,7 @@ for line in text.split("\n"):
         out += ["", f"**{line[7:].strip()}**", "{: .cap}", ""]
         continue
     if line.startswith("Note: ") and out and out[-1].startswith("|"):
-        out += ["", f"*{line}*"]
+        out += ["", f"*Note : {line[6:]}*" if FR else f"*{line}*"]
         continue
     if line.startswith("|") and out and out[-1].strip() and not out[-1].startswith("|"):
         out.append("")
@@ -205,7 +279,28 @@ for line in text.split("\n"):
 text = "\n".join(out)
 text = re.sub(r"~([^~\s]+(?: [^~\s]+)*)~", r"<sub>\1</sub>", text)
 text = re.sub(r"\^([^\^\s]+)\^", r"<sup>\1</sup>", text)
-text = text.replace("](figures/", "](../src/figures/")
+text = text.replace("](figures/", f"](../{SRC.split('/')[-1]}/figures/")
+
+
+def fr_typo(t):
+    """French spacing: no-break spaces before : ; ! ? % and inside « », in numbers; singular 'million' below 2."""
+    parts = re.split(r"(```.*?```|`[^`]*`|https?://\S+|\{:[^}]*\})", t, flags=re.S)
+    for i in range(0, len(parts), 2):
+        x = parts[i]
+        x = re.sub(r"(\d) (\d{3})(?!\d)", "\\1" + NNBSP + "\\2", x)
+        x = re.sub(r"(\d) (\d{3})(?!\d)", "\\1" + NNBSP + "\\2", x)
+        x = re.sub(r"(\d) ?%", "\\1" + NNBSP + "%", x)
+        x = re.sub(r" ([;!?])", NNBSP + "\\1", x)
+        x = re.sub(r"(?<=\S) :(?=\s|$)", NBSP + ":", x, flags=re.M)
+        x = x.replace("« ", "«" + NBSP).replace(" »", NBSP + "»")
+        x = re.sub(r"(\d) (MW|GWh|MWh|kWh|kW|USD|km|m³/s|m|ans|mois|%|x)\b", "\\1" + NBSP + "\\2", x)
+        x = re.sub(r"((?<![\d,])[−-]?[01](?:,\d+)?)([\s\u00a0\u202f])millions\b", "\\1\\2million", x)
+        parts[i] = x
+    return "".join(parts)
+
+
+if FR:
+    text = fr_typo(text)
 
 # ---------------- style lint ----------------
 problems = []
@@ -219,6 +314,6 @@ for bad in ["—", "–", " -- ", "delve", "tapestry", "testament", "pivotal", "
             problems.append((bad, line[:100]))
 for p in problems[:40]:
     print("LINT:", p)
-os.makedirs("book7/build", exist_ok=True)
-open("book7/build/book7_resolved.md", "w", encoding="utf8").write(text)
-print("words:", len(re.findall(r"[A-Za-z]+", text)), "sources:", len(cited), "lint issues:", len(problems))
+os.makedirs(BUILD, exist_ok=True)
+open(f"{BUILD}/book7_resolved.md", "w", encoding="utf8").write(text)
+print("words:", len(re.findall(r"[A-Za-zÀ-ÿœŒ]+", text)), "sources:", len(cited), "lint issues:", len(problems))

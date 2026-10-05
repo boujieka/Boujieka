@@ -1,0 +1,4162 @@
+[
+ {
+  "sheet": "COVER",
+  "en": "AFRICA ENERGY FINANCE  |  BUSINESS & FINANCIAL MODELS",
+  "fr": ""
+ },
+ {
+  "sheet": "COVER",
+  "en": "MODEL 7",
+  "fr": ""
+ },
+ {
+  "sheet": "COVER",
+  "en": "HYDROPOWER DEVELOPMENT",
+  "fr": ""
+ },
+ {
+  "sheet": "COVER",
+  "en": "AND FINANCE MODEL",
+  "fr": ""
+ },
+ {
+  "sheet": "COVER",
+  "en": "From River to Financial Close",
+  "fr": ""
+ },
+ {
+  "sheet": "COVER",
+  "en": "A Developer, Lender and Government Framework for Hydropower Projects in Africa",
+  "fr": ""
+ },
+ {
+  "sheet": "COVER",
+  "en": "THE HYDRO READINESS FRAMEWORK™:  8 Questions · 23 Gates · 1 Financial Close Decision",
+  "fr": ""
+ },
+ {
+  "sheet": "COVER",
+  "en": "DEVELOPER  ·  LENDER  ·  GOVERNMENT",
+  "fr": ""
+ },
+ {
+  "sheet": "COVER",
+  "en": "Companion to Book 7, Hydropower Development and Finance, and MANUAL 7. Version 1.0 release candidate 1.",
+  "fr": ""
+ },
+ {
+  "sheet": "COVER",
+  "en": "Reference case: Kasiri River Hydro, 60 MW run-of-river IPP, fictional Republic of Navaria. All inputs are illustrative.",
+  "fr": ""
+ },
+ {
+  "sheet": "COVER",
+  "en": "LIVE STATUS",
+  "fr": ""
+ },
+ {
+  "sheet": "COVER",
+  "en": "Financial close decision (23 gates)",
+  "fr": ""
+ },
+ {
+  "sheet": "COVER",
+  "en": "Gates met",
+  "fr": ""
+ },
+ {
+  "sheet": "COVER",
+  "en": "9-gate development screen",
+  "fr": ""
+ },
+ {
+  "sheet": "COVER",
+  "en": "Fiscal screen",
+  "fr": ""
+ },
+ {
+  "sheet": "COVER",
+  "en": "Model integrity checks (33_CHECKS)",
+  "fr": ""
+ },
+ {
+  "sheet": "COVER",
+  "en": "Book consistency (35_BOOK_CHECK)",
+  "fr": ""
+ },
+ {
+  "sheet": "COVER",
+  "en": "START HERE",
+  "fr": ""
+ },
+ {
+  "sheet": "COVER",
+  "en": "What the model does, colour code, versions",
+  "fr": ""
+ },
+ {
+  "sheet": "COVER",
+  "en": "Case, structure, stresses and lender case",
+  "fr": ""
+ },
+ {
+  "sheet": "COVER",
+  "en": "Results: project, finance, developer, utility, public finance",
+  "fr": ""
+ },
+ {
+  "sheet": "COVER",
+  "en": "The 23 financial close gates and the decision",
+  "fr": ""
+ },
+ {
+  "sheet": "COVER",
+  "en": "Book 7 framework mapped to the model",
+  "fr": ""
+ },
+ {
+  "sheet": "COVER",
+  "en": "Integrity checks",
+  "fr": ""
+ },
+ {
+  "sheet": "COVER",
+  "en": "Author and ideation: Emmanuel Boujieka Kamga",
+  "fr": ""
+ },
+ {
+  "sheet": "COVER",
+  "en": "Decision-support tool; not investment, legal, tax or accounting advice. Replace every input with project data before use.",
+  "fr": ""
+ },
+ {
+  "sheet": "COVER",
+  "en": "Blue font = input; black = formula; green = link; shaded green cell = key output. No macros, no circular references.",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "MODEL 7 — Hydropower Development and Finance Model (v1.0 release candidate 1)",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "Can this project deliver bankable power WITHOUT creating unsustainable public liabilities?",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "Purpose",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "One integrated engine linking HYDRO RESOURCE → PLANT → TRANSMISSION → GRID → DEMAND → UTILITY → REGULATION → PPA → FINANCE → PPP/IPP → GOVERNMENT SUPPORT → FISCAL EXPOSURE → BANKABILITY.",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "Core philosophy",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "Technical feasibility is not financial bankability. Financial bankability is not sustainable public finance.",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "Reference project",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "Kasiri River Hydro (60 MW run-of-river IPP), Republic of Navaria, ENTIRELY FICTIONAL. Companion to Book 7, Hydropower Development and Finance. All inputs are illustrative and must be replaced with project data.",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "Users",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "Developer, investor, lender, Ministry of Finance / PPP unit, utility, DFI, transaction adviser — same engine, different read-outs (see User Manual).",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "How to use",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "1) Set case/structure/stresses on 01_CONTROL_PANEL. 2) Replace blue inputs on sheets 02-17A, 21-26. 3) Read 32_DASHBOARD and 30_BANKABILITY. 4) Check 33_CHECKS = ALL OK.",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "Colour code",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "Blue font = hard-coded input; yellow fill = key lever; black = formula; green = link to another sheet; green-shaded cell = key output.",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "Units",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "USD million nominal unless stated; energy GWh; capacity MW; real inputs in 2026 USD.",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "Timeline",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "Annual, 40 periods from model start year. Construction + concession must fit within 40 years (checked).",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "Circularity",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "None (checked with tools/model/check_cycles.py). IDC and fees are debt-funded within the gearing limit through closed-form factors; the DSRA is equity-funded; commercial debt is sculpted on a lender-case CFADS with unlevered tax. Documented simplifications.",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "Scenarios",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "Three exclusive cases (Base/Low/High) + nine combinable stress toggles + five sensitivity flexes. Full-engine snapshots: python tools/run_snapshots.py.",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "Structures",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "Five structures on 17A_STRUCTURES evaluated by the full engine (select on control panel) and by a live closed-form comparison.",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "Two levels of gates",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "Development screening: 9 bankability gates (30_BANKABILITY), weakest-link with explicit thresholds, used while deciding whether to keep developing. Financial close readiness: 23 evidence gates (30A_CLOSE_READINESS) grouped under the eight questions of the Hydro Readiness Framework of Book 7, giving STOP / NOT READY / CONDITIONAL GO / GO. 34_FRAMEWORK_MAP links the two and the book.",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "Book consistency",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "35_BOOK_CHECK compares the live model with the Kasiri figures printed in Book 7; with default inputs it should read ALL PASS.",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "Versions",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "Book 7, Model 7, Manual 7 and Case 7: v1.0 release candidate 1. Version 1.0 is fixed after the Microsoft Excel test and the open items in docs/BOOK7_V04_QA_SUMMARY.md.",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "Fiscal screening",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "26 is a PROJECT-LEVEL FISCAL EXPOSURE SCREENING. It does not replace IMF/World Bank debt sustainability analysis.",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "Limitations",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "Simplified utility model; normal-approximation P-values; proportional curtailment; annual periodicity; deterministic guarantee calls; user-judgement probabilities. Not investment, legal or tax advice.",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "Sources",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "See research/source_database.md and research/case_studies/. Benchmark placeholders are labelled; replace with verified values before use.",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "Sheet map",
+  "fr": ""
+ },
+ {
+  "sheet": "00_README",
+  "en": "COVER | 00 README | 01 Control, 01A Development | 02-07 Project, 05A Contracting | 08-10 Power system | 11-12 Offtaker/utility | 13-16 Regulation, PPA, tariff, revenue | 17-21 Finance, 17A Structures | 22-26 Public finance | 27-28 Scenarios/sensitivity | 29 Risk allocation | 30 9-gate screen, 30A 23-gate close readiness | 31 Case study | 32 Dashboard | 33 Checks | 34 Framework map | 35 Book check",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "01 CONTROL PANEL — Scenario, structure and case selection",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "Blue = input. Yellow = key lever. Every stress toggle can be combined with any other.",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "A. CASE & GENERATION SELECTION",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "Model case (1=Base, 2=Low, 3=High)",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "Case multipliers in 27_SCENARIOS",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "Generation case for cash flows (1=P50, 2=P75, 3=P90)",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "Equity / sponsor case usually P50",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "Lender sizing generation case (1=P50, 2=P75, 3=P90 one-year, 4=P90 ten-year)",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "Lenders typically size debt on a P90 (one-year) case — verify with lenders' technical adviser",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "B. TRANSACTION STRUCTURE",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "Financing / PPP structure (1-5, see 17A_STRUCTURES)",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "1 Public | 2 IPP | 3 PPP | 4 Hybrid | 5 Blended finance",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "Selected structure",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "Debt sizing mode (1=sculpted in-model, 2=locked amounts)",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "Use 2 to stress a FIXED debt package (paste base-case amounts in 18_DEBT)",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "Government budget backstop of utility PPA shortfall (1=yes, 0=no)",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "1: shortfall becomes a fiscal cost. 0: shortfall becomes a guarantee call or IPP arrears",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "Share of the shortfall the budget backstop covers",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "Remainder goes to the PPA guarantee, then to arrears",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "C. STRESS TOGGLES (1 = ON). Parameters in 27_SCENARIOS",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "Drought case",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "CAPEX overrun",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "Construction delay",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "Low demand",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "Offtaker stress",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "FX depreciation",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "High interest rate",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "Transmission delay",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "Climate trend on flows",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "D. SENSITIVITY FLEXES (applied on top of case & stresses)",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "CAPEX flex",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "Generation (flow) flex",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "PPA tariff flex",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "OPEX flex",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "Commercial interest rate flex (absolute)",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "e.g. 0.01 = +100 bps",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "E. ACTIVE SCENARIO READ-OUT",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "Active stress count",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "Project IRR (post-tax, unlevered)",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "Private equity IRR",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "Minimum DSCR (actual case)",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "Financing gap",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "USDm",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "Fiscal NPV to government (negative = net cost)",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "Consolidated fiscal NPV incl. state utility",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "Developer IRR (success path)",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "Overall bankability verdict",
+  "fr": ""
+ },
+ {
+  "sheet": "01_CONTROL_PANEL",
+  "en": "Model integrity checks",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "01A DEVELOPMENT — From site to financial close: budget, attrition and developer returns",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Development years precede the model start (financial close). Probabilities are user judgements informed by the research file; not calibrated statistics.",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "A. DEVELOPMENT STAGES (inputs)",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Stage",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Funder (typical)",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Duration (months)",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Budget (USDm, real)",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "P(success to next stage)",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "1. Site identification and reconnaissance",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Developer equity",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "2. Pre-feasibility and start of flow gauging",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Developer equity / project preparation grant",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "3. Feasibility study, ESIA, geotechnical and grid studies",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Development equity, preparation facility",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "4. Licences, water rights, land and permits",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Development equity",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "5. PPA, implementation agreement and tariff approval",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "6. Financing: lenders' advisers, legal, insurance, close",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Development equity, co-developer",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Total development budget (real)",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Development period",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "years",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Probability of reaching financial close from reconnaissance",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Development budget / plant CAPEX",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "B. DEVELOPER TERMS (inputs)",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Development premium paid at financial close (% of plant CAPEX)",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Negotiated; check against the research file before use",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Development premium",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Developer's share of private equity after financial close",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Remainder from a co-investor or fund",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Developer's discount rate for development-stage cash flows",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "High-risk capital; assumption",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Equity discount rate at financial close (construction risk)",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Assumption",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Equity discount rate at COD (operating asset)",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "C. DEVELOPMENT CASH FLOWS ON THE SUCCESS PATH (USDm nominal; columns = development years, last = year before close)",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Development year",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Spend: stage 1",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Spend: stage 2",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Spend: stage 3",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Spend: stage 4",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Spend: stage 5",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Spend: stage 6",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Total development spend",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Probability the project is still alive when the money is spent",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "D. DEVELOPER RETURNS",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Development costs reimbursed by the project at close (nominal)",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Developer's equity stake: NPV at close of its share of private equity flows at the close-stage rate",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Value received at close on the success path (reimbursement + premium + equity NPV)",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "PV at the start of development of spend on the success path",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "PV of risk-weighted spend (each stage weighted by the chance of reaching it)",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "PV at development start of value received at close",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Developer NPV if the project reaches close",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "RISK-WEIGHTED DEVELOPER NPV (expected, from reconnaissance)",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Development premium that sets the risk-weighted NPV to zero, first order (holds plant cost and equity fixed; the full-engine value is in the snapshot)",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "  as % of plant CAPEX",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Break-even probability of reaching close at the current premium (indicative: spend weights held fixed; n/a if the project loses value even on the success path)",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "D2. VALUE OF THE DEVELOPMENT POSITION AT THE START OF EACH STAGE (risk-weighted, real, 100%)",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Stage about to start",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "P(close) from here",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "PV of value at close",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "PV of remaining spend",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Risk-weighted value",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Reading: the risk-weighted value is what the whole development position is worth to a buyer with the developer's discount rate, before the stage starts. It is the starting point for pricing a co-developer's entry.",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "E. VALUATION STEP-UPS (private equity, 100%)",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Private equity contributed (nominal)",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Value of private equity at close (NPV of all equity flows at close-stage rate, plus contributions at PV)",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Value of private equity at COD (operating flows only, at COD rate, discounted to close)",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Value created at close (value at close less PV of contributions)",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "De-risking step-up from close to COD (PV terms)",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "F. DEVELOPER CASH FLOW ON THE SUCCESS PATH, WITH A SELL-DOWN AT COD",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Share of the developer's stake sold at COD",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Sale at the COD value of the operating equity (section E rate)",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Value of 100% of private equity at COD (end of construction), at the COD rate",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Sale proceeds to the developer",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Year",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Developer cash flow (USDm)",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "DEVELOPER IRR on the success path (development spend to final distribution)",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Developer cash multiple (inflows / outflows)",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Developer's peak cumulative cash at risk",
+  "fr": ""
+ },
+ {
+  "sheet": "01A_DEVELOPMENT",
+  "en": "Reading: the risk-weighted NPV answers whether a developer should start; the success-path IRR and multiple answer what the developer earns if it closes; the step-ups show where value is created between close and COD. Promotes and carried interest are not modelled.",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "02 PROJECT INPUTS — Fictional reference project: Kasiri River Hydro (60 MW private IPP)",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "All data FICTIONAL, constructed for training. Not based on any confidential project data.",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "A. PROJECT IDENTITY",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "Project name",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "Kasiri River Hydro (KRH)",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "Fictional 60 MW private IPP",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "Country",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "Republic of Navaria",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "Fictional sub-Saharan African country",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "River / basin",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "Kasiri River",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "Fictional; bimodal tropical regime, steep catchment",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "Scheme type",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "Run-of-river with small daily pondage",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "B. TIMING",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "Model start / financial close year (t=1)",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "year",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "Price base year for real inputs",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "All 'real' inputs in 2026 USD",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "Base construction period",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "IFC 2015: up to about 4 years for larger hydro; SSA small hydro observed 19-29 months [hydro_development_evidence]",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "Concession / PPA operating term",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "PPA 20 years plus an assumed 5-year extension at the same tariff (assumption)",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "C. PLANT",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "Installed capacity",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "MW",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "3 x 20 MW Francis units (fictional)",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "Number of units",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "D. MACRO (USD model with local-currency utility)",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "US CPI (USD indexation)",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "Local CPI (Navarian lira, NVL)",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "FX rate in base year",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "NVL/USD",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "Fictional",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "Base-case nominal depreciation of NVL vs USD",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "Roughly inflation differential (PPP) — assumption",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "CAPEX escalation during construction",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "Project discount rate (nominal USD) for NPV/LCOE",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "Assumption; replace with sponsor WACC",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "Government discount rate for fiscal PV",
+  "fr": ""
+ },
+ {
+  "sheet": "02_PROJECT_INPUTS",
+  "en": "Proxy: sovereign USD borrowing cost — assumption",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "03 HYDROLOGY — Flow, head, efficiency → monthly & annual energy; P50/P75/P90",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Installed vs available vs expected vs contracted energy are kept distinct (see 04_GENERATION)",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "A. PLANT HYDRAULIC PARAMETERS",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Design (rated) turbine flow",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Net rated head",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Turbine efficiency",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Assumption (not sourced)",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Generator & transformer efficiency",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Environmental flow release",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Set by ESIA / water permit",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Plant availability (planned + forced outages)",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "First operating year availability factor (commissioning ramp)",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Water density",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "kg/m3",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Physical constant",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Gravity",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "B. HYDROLOGICAL UNCERTAINTY",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Inter-annual coefficient of variation of energy",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Small, steep catchment: more variable than a large river (assumption)",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Normal z-score for P75",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Normal approximation; replace with empirical distribution if available",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Normal z-score for P90",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Length of reliable flow record",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Gauging started at pre-feasibility plus regional correlation (fictional)",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Hydrology study maturity (1=desk, 2=FS-level, 3=independent review)",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Gate 1 test",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "C. MONTHLY MEAN FLOW (long-term average, fictional bimodal regime)",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Month",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Annual",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Jan",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Feb",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Mar",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Apr",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "May",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Jun",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Jul",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Aug",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Sep",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Oct",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Nov",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Dec",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Days in month",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "days",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Mean river flow",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Usable turbine flow = MIN(MAX(Q - e-flow,0), Q design)",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Average power = MIN(rho*g*Q*H*eta/1e6, installed)",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Energy at 100% availability",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "GWh",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Expected energy (x availability)",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Spilled flow above design flow",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Methodology note: energy from long-term mean monthly flows overstates energy when flows exceed design flow in some years (Jensen's inequality). Replace with a daily/monthly simulation over the full record when available.",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "D. ANNUAL ENERGY STATISTICS",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "P50 annual energy (expected, long-term)",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "P75 annual energy",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "P90 annual energy (one-year)",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Year-to-year correlation of annual energy (persistence of dry years)",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Assumption; estimate from the flow record",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "P90 of the 10-year average energy (allowing for persistence)",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Capacity factor at P50",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Available capacity (installed x availability)",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Average output at P50",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Dry-season firm output (lowest month)",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "P90 / P50 ratio",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Check: theoretical power at design flow",
+  "fr": ""
+ },
+ {
+  "sheet": "03_HYDROLOGY",
+  "en": "Should be ≥ installed capacity",
+  "fr": ""
+ },
+ {
+  "sheet": "04_GENERATION",
+  "en": "04 GENERATION — Installed vs available vs expected vs evacuated vs delivered vs contracted",
+  "fr": ""
+ },
+ {
+  "sheet": "04_GENERATION",
+  "en": "Hydrology case, drought window and climate trend applied here",
+  "fr": ""
+ },
+ {
+  "sheet": "04_GENERATION",
+  "en": "Selected generation case energy (P50/P75/P90)",
+  "fr": ""
+ },
+ {
+  "sheet": "04_GENERATION",
+  "en": "Lender sizing case energy",
+  "fr": ""
+ },
+ {
+  "sheet": "04_GENERATION",
+  "en": "A. CAPACITY",
+  "fr": ""
+ },
+ {
+  "sheet": "04_GENERATION",
+  "en": "Available capacity (x availability)",
+  "fr": ""
+ },
+ {
+  "sheet": "04_GENERATION",
+  "en": "B. HYDROLOGY FACTORS",
+  "fr": ""
+ },
+ {
+  "sheet": "04_GENERATION",
+  "en": "Drought factor",
+  "fr": ""
+ },
+ {
+  "sheet": "04_GENERATION",
+  "en": "Climate trend factor",
+  "fr": ""
+ },
+ {
+  "sheet": "04_GENERATION",
+  "en": "Commissioning ramp factor",
+  "fr": ""
+ },
+ {
+  "sheet": "04_GENERATION",
+  "en": "C. ENERGY (GWh)",
+  "fr": ""
+ },
+ {
+  "sheet": "04_GENERATION",
+  "en": "Expected generation, P50 (reference)",
+  "fr": ""
+ },
+ {
+  "sheet": "04_GENERATION",
+  "en": "Generation — selected case",
+  "fr": ""
+ },
+ {
+  "sheet": "04_GENERATION",
+  "en": "Evacuable energy (x evacuation ratio)",
+  "fr": ""
+ },
+ {
+  "sheet": "04_GENERATION",
+  "en": "Curtailment — transmission / grid",
+  "fr": ""
+ },
+ {
+  "sheet": "04_GENERATION",
+  "en": "Delivered energy (absorbed by demand)",
+  "fr": ""
+ },
+ {
+  "sheet": "04_GENERATION",
+  "en": "Curtailment — insufficient demand",
+  "fr": ""
+ },
+ {
+  "sheet": "04_GENERATION",
+  "en": "Contracted energy (P50 reference)",
+  "fr": ""
+ },
+ {
+  "sheet": "04_GENERATION",
+  "en": "Lender-case generation",
+  "fr": ""
+ },
+ {
+  "sheet": "04_GENERATION",
+  "en": "Capacity factor (selected case)",
+  "fr": ""
+ },
+ {
+  "sheet": "05_PLANT_CAPEX",
+  "en": "05 PLANT CAPEX — Real 2026 USD, before escalation",
+  "fr": ""
+ },
+ {
+  "sheet": "05_PLANT_CAPEX",
+  "en": "Fictional cost estimate; compare with benchmark ranges (source database)",
+  "fr": ""
+ },
+ {
+  "sheet": "05_PLANT_CAPEX",
+  "en": "A. COST BREAKDOWN (real 2026 USDm)",
+  "fr": ""
+ },
+ {
+  "sheet": "05_PLANT_CAPEX",
+  "en": "Civil works (weir, intake, headrace tunnel, penstock, powerhouse)",
+  "fr": ""
+ },
+ {
+  "sheet": "05_PLANT_CAPEX",
+  "en": "Hydro-mechanical (gates, steel lining)",
+  "fr": ""
+ },
+ {
+  "sheet": "05_PLANT_CAPEX",
+  "en": "Electro-mechanical (turbines, generators, switchyard)",
+  "fr": ""
+ },
+ {
+  "sheet": "05_PLANT_CAPEX",
+  "en": "Environmental & social (RAP, livelihood, offsets)",
+  "fr": ""
+ },
+ {
+  "sheet": "05_PLANT_CAPEX",
+  "en": "Engineering, supervision, owner's engineer",
+  "fr": ""
+ },
+ {
+  "sheet": "05_PLANT_CAPEX",
+  "en": "Owner's costs during construction",
+  "fr": ""
+ },
+ {
+  "sheet": "05_PLANT_CAPEX",
+  "en": "Development costs reimbursed at financial close (from 01A_DEVELOPMENT)",
+  "fr": ""
+ },
+ {
+  "sheet": "05_PLANT_CAPEX",
+  "en": "Contractor risk premium on civil, hydro-mechanical and E&M works (from 05A_CONTRACTING)",
+  "fr": ""
+ },
+ {
+  "sheet": "05_PLANT_CAPEX",
+  "en": "Subtotal before contingency",
+  "fr": ""
+ },
+ {
+  "sheet": "05_PLANT_CAPEX",
+  "en": "Physical contingency",
+  "fr": ""
+ },
+ {
+  "sheet": "05_PLANT_CAPEX",
+  "en": "IFC 2015: median contingency 9.8% of total plant cost (5.4-12.6%)",
+  "fr": ""
+ },
+ {
+  "sheet": "05_PLANT_CAPEX",
+  "en": "Base plant CAPEX (real 2026)",
+  "fr": ""
+ },
+ {
+  "sheet": "05_PLANT_CAPEX",
+  "en": "Unit CAPEX",
+  "fr": ""
+ },
+ {
+  "sheet": "05_PLANT_CAPEX",
+  "en": "USD/kW",
+  "fr": ""
+ },
+ {
+  "sheet": "05_PLANT_CAPEX",
+  "en": "Additional cost per year of delay (claims, owner's costs, escalation)",
+  "fr": ""
+ },
+ {
+  "sheet": "05_PLANT_CAPEX",
+  "en": "% per yr",
+  "fr": ""
+ },
+ {
+  "sheet": "05_PLANT_CAPEX",
+  "en": "Feasibility maturity (1=pre-FS, 2=FS, 3=bankable FS + LTA review)",
+  "fr": ""
+ },
+ {
+  "sheet": "05_PLANT_CAPEX",
+  "en": "Gate 3 test",
+  "fr": ""
+ },
+ {
+  "sheet": "05_PLANT_CAPEX",
+  "en": "B. BENCHMARK (see research/source_database.md)",
+  "fr": ""
+ },
+ {
+  "sheet": "05_PLANT_CAPEX",
+  "en": "Benchmark unit CAPEX — central",
+  "fr": ""
+ },
+ {
+  "sheet": "05_PLANT_CAPEX",
+  "en": "IRENA RPGC 2024 Table 6.3: Africa large hydro weighted avg 2018-24 = 2,515 (2024 USD/kW); range 2,330-3,290 [HY-01, PF-11]. Price-year difference vs 2026 not adjusted",
+  "fr": ""
+ },
+ {
+  "sheet": "05_PLANT_CAPEX",
+  "en": "Unit CAPEX / benchmark",
+  "fr": ""
+ },
+ {
+  "sheet": "05A_CONTRACTING",
+  "en": "05A CONTRACTING — Who carries construction risk, and at what price",
+  "fr": ""
+ },
+ {
+  "sheet": "05A_CONTRACTING",
+  "en": "Indicative parameters for comparing structures; replace with bids. Geological risk usually stays with the owner whatever the label.",
+  "fr": ""
+ },
+ {
+  "sheet": "05A_CONTRACTING",
+  "en": "Contracting structure (1=turnkey lump-sum EPC, 2=split civil + E&M packages, 3=multi-contract, owner integrates)",
+  "fr": ""
+ },
+ {
+  "sheet": "05A_CONTRACTING",
+  "en": "Parameter",
+  "fr": ""
+ },
+ {
+  "sheet": "05A_CONTRACTING",
+  "en": "Unit",
+  "fr": ""
+ },
+ {
+  "sheet": "05A_CONTRACTING",
+  "en": "SELECTED",
+  "fr": ""
+ },
+ {
+  "sheet": "05A_CONTRACTING",
+  "en": "1 Turnkey EPC",
+  "fr": ""
+ },
+ {
+  "sheet": "05A_CONTRACTING",
+  "en": "2 Split packages",
+  "fr": ""
+ },
+ {
+  "sheet": "05A_CONTRACTING",
+  "en": "3 Multi-contract",
+  "fr": ""
+ },
+ {
+  "sheet": "05A_CONTRACTING",
+  "en": "Contractor risk premium on civil, HM and E&M prices",
+  "fr": ""
+ },
+ {
+  "sheet": "05A_CONTRACTING",
+  "en": "Share of a cost overrun borne by the owner",
+  "fr": ""
+ },
+ {
+  "sheet": "05A_CONTRACTING",
+  "en": "Share of delay cost borne by the owner (after liquidated damages)",
+  "fr": ""
+ },
+ {
+  "sheet": "05A_CONTRACTING",
+  "en": "Interface risk (qualitative, 1 low to 3 high)",
+  "fr": ""
+ },
+ {
+  "sheet": "05A_CONTRACTING",
+  "en": "Turnkey EPC buys price and date certainty at a premium, but unforeseen ground conditions are often excluded or capped; FIDIC's Emerald Book (2019) allocates subsurface risk through a geotechnical baseline report. Multi-contracting is cheaper on paper and leaves interface and overrun risk with the owner.",
+  "fr": ""
+ },
+ {
+  "sheet": "06_CONSTRUCTION",
+  "en": "06 CONSTRUCTION — Timeline master, escalation & FX indices, CAPEX phasing",
+  "fr": ""
+ },
+ {
+  "sheet": "06_CONSTRUCTION",
+  "en": "Timeline flags drive every time-series sheet",
+  "fr": ""
+ },
+ {
+  "sheet": "06_CONSTRUCTION",
+  "en": "Calendar year",
+  "fr": ""
+ },
+ {
+  "sheet": "06_CONSTRUCTION",
+  "en": "Operating year",
+  "fr": ""
+ },
+ {
+  "sheet": "06_CONSTRUCTION",
+  "en": "Effective construction period",
+  "fr": ""
+ },
+ {
+  "sheet": "06_CONSTRUCTION",
+  "en": "Commercial operation date (first full operating year)",
+  "fr": ""
+ },
+ {
+  "sheet": "06_CONSTRUCTION",
+  "en": "Plant CAPEX (real 2026), incl. case, overrun & delay costs",
+  "fr": ""
+ },
+ {
+  "sheet": "06_CONSTRUCTION",
+  "en": "TIMING FLAGS",
+  "fr": ""
+ },
+ {
+  "sheet": "06_CONSTRUCTION",
+  "en": "Period index t",
+  "fr": ""
+ },
+ {
+  "sheet": "06_CONSTRUCTION",
+  "en": "Construction flag",
+  "fr": ""
+ },
+ {
+  "sheet": "06_CONSTRUCTION",
+  "en": "flag",
+  "fr": ""
+ },
+ {
+  "sheet": "06_CONSTRUCTION",
+  "en": "Operations flag",
+  "fr": ""
+ },
+ {
+  "sheet": "06_CONSTRUCTION",
+  "en": "Last construction year flag",
+  "fr": ""
+ },
+ {
+  "sheet": "06_CONSTRUCTION",
+  "en": "INDICES",
+  "fr": ""
+ },
+ {
+  "sheet": "06_CONSTRUCTION",
+  "en": "US CPI index (2026 = 1)",
+  "fr": ""
+ },
+ {
+  "sheet": "06_CONSTRUCTION",
+  "en": "Local CPI index (2026 = 1)",
+  "fr": ""
+ },
+ {
+  "sheet": "06_CONSTRUCTION",
+  "en": "FX rate",
+  "fr": ""
+ },
+ {
+  "sheet": "06_CONSTRUCTION",
+  "en": "FX index (2026 = 1)",
+  "fr": ""
+ },
+ {
+  "sheet": "06_CONSTRUCTION",
+  "en": "CAPEX escalation index",
+  "fr": ""
+ },
+ {
+  "sheet": "06_CONSTRUCTION",
+  "en": "PLANT CAPEX PHASING (sine S-curve over effective construction period)",
+  "fr": ""
+ },
+ {
+  "sheet": "06_CONSTRUCTION",
+  "en": "CAPEX share (sums to 100%)",
+  "fr": ""
+ },
+ {
+  "sheet": "06_CONSTRUCTION",
+  "en": "Cumulative CAPEX share",
+  "fr": ""
+ },
+ {
+  "sheet": "06_CONSTRUCTION",
+  "en": "Plant CAPEX, nominal",
+  "fr": ""
+ },
+ {
+  "sheet": "06_CONSTRUCTION",
+  "en": "S-curve weight_t = sin(pi(t-0.5)/N)·sin(pi/2N) — closed form that sums exactly to 1 for any N. Replace with EPC payment schedule when available.",
+  "fr": ""
+ },
+ {
+  "sheet": "07_OPEX",
+  "en": "07 OPEX — Plant operating costs and payments to government",
+  "fr": ""
+ },
+ {
+  "sheet": "07_OPEX",
+  "en": "Real 2026 inputs escalated by US CPI",
+  "fr": ""
+ },
+ {
+  "sheet": "07_OPEX",
+  "en": "A. INPUTS",
+  "fr": ""
+ },
+ {
+  "sheet": "07_OPEX",
+  "en": "Fixed O&M (staff, maintenance contracts)",
+  "fr": ""
+ },
+ {
+  "sheet": "07_OPEX",
+  "en": "USDm/yr real",
+  "fr": ""
+ },
+ {
+  "sheet": "07_OPEX",
+  "en": "About 1.6% of CAPEX; IFC range 1-4% [hydro_development_evidence]",
+  "fr": ""
+ },
+ {
+  "sheet": "07_OPEX",
+  "en": "Variable O&M",
+  "fr": ""
+ },
+ {
+  "sheet": "07_OPEX",
+  "en": "USD/MWh real",
+  "fr": ""
+ },
+ {
+  "sheet": "07_OPEX",
+  "en": "Insurance",
+  "fr": ""
+ },
+ {
+  "sheet": "07_OPEX",
+  "en": "% of CAPEX p.a.",
+  "fr": ""
+ },
+ {
+  "sheet": "07_OPEX",
+  "en": "Major maintenance reserve contribution",
+  "fr": ""
+ },
+ {
+  "sheet": "07_OPEX",
+  "en": "Company G&A, E&S monitoring, community programmes",
+  "fr": ""
+ },
+ {
+  "sheet": "07_OPEX",
+  "en": "Water-use royalty / resource fee to government",
+  "fr": ""
+ },
+ {
+  "sheet": "07_OPEX",
+  "en": "Fiscal revenue",
+  "fr": ""
+ },
+ {
+  "sheet": "07_OPEX",
+  "en": "B. CALCULATIONS (USDm nominal)",
+  "fr": ""
+ },
+ {
+  "sheet": "07_OPEX",
+  "en": "Fixed O&M",
+  "fr": ""
+ },
+ {
+  "sheet": "07_OPEX",
+  "en": "Major maintenance reserve",
+  "fr": ""
+ },
+ {
+  "sheet": "07_OPEX",
+  "en": "G&A / E&S / community",
+  "fr": ""
+ },
+ {
+  "sheet": "07_OPEX",
+  "en": "Transmission O&M & wheeling (if project-owned)",
+  "fr": ""
+ },
+ {
+  "sheet": "07_OPEX",
+  "en": "Total OPEX",
+  "fr": ""
+ },
+ {
+  "sheet": "07_OPEX",
+  "en": "Water royalty (to government)",
+  "fr": ""
+ },
+ {
+  "sheet": "07_OPEX",
+  "en": "Water royalty — lender case",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "08 TRANSMISSION — Evacuation line, substations, reinforcement, readiness gap",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Question: can the plant evacuate the electricity it generates?",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Connection point",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Kabanga 400 kV substation (fictional)",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Line length",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "km",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Voltage",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "kV",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Line thermal / stability transfer capacity",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Confirm with load-flow study",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Line cost per km (real 2026)",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "USDm/km",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Assumption for 132 kV single circuit; EAPP 2014 lists 220 kV at 0.27-0.63 USDm(2012)/km [TX-04]",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Substations & switchyard extension",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Downstream grid reinforcement",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Fictional; from grid-impact study",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Transmission construction period",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Transmission losses to load centre",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Transmission O&M",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "% capex p.a.",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Who builds & finances transmission (1=Government/utility, 2=Project company)",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Project builds the interconnector and transfers it to the utility at COD",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Planned transmission COD relative to plant COD (years, + = late)",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Interim evacuation via existing network",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "If line not ready",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Wheeling / use-of-system charge borne by project",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "USD/MWh",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Set >0 for third-party/export sales",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Transmission financing secured (1=yes, 0=no)",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Inside the project financing package",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "B. CALCULATIONS",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Transmission CAPEX (real 2026, incl. case & overrun)",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Planned transmission COD (year)",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Actual transmission COD (year)",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Transmission readiness gap — timing",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Transmission readiness gap — capacity at plant COD",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Connection cost per kW of plant",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Transmission line in service flag",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Transmission CAPEX, nominal",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "  of which public (Government/utility)",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "  of which project company",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Transmission O&M (once in service)",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Transmission losses on delivered energy",
+  "fr": ""
+ },
+ {
+  "sheet": "08_TRANSMISSION",
+  "en": "Wheeling charges paid by project",
+  "fr": ""
+ },
+ {
+  "sheet": "09_GRID",
+  "en": "09 GRID — System size, absorption limit, project share of peak",
+  "fr": ""
+ },
+ {
+  "sheet": "09_GRID",
+  "en": "Simplified screening — not a substitute for load-flow / stability studies",
+  "fr": ""
+ },
+ {
+  "sheet": "09_GRID",
+  "en": "System peak demand (2026)",
+  "fr": ""
+ },
+ {
+  "sheet": "09_GRID",
+  "en": "Minimum load as % of peak",
+  "fr": ""
+ },
+ {
+  "sheet": "09_GRID",
+  "en": "Must-run generation at minimum load",
+  "fr": ""
+ },
+ {
+  "sheet": "09_GRID",
+  "en": "Existing baseload / run-of-river",
+  "fr": ""
+ },
+ {
+  "sheet": "09_GRID",
+  "en": "Export interconnector capacity",
+  "fr": ""
+ },
+ {
+  "sheet": "09_GRID",
+  "en": "Existing installed capacity",
+  "fr": ""
+ },
+ {
+  "sheet": "09_GRID",
+  "en": "System peak demand",
+  "fr": ""
+ },
+ {
+  "sheet": "09_GRID",
+  "en": "Grid absorption limit at minimum load",
+  "fr": ""
+ },
+ {
+  "sheet": "09_GRID",
+  "en": "Line capacity available to project",
+  "fr": ""
+ },
+ {
+  "sheet": "09_GRID",
+  "en": "Effective evacuation capacity = MIN(line, absorption)",
+  "fr": ""
+ },
+ {
+  "sheet": "09_GRID",
+  "en": "Evacuation ratio (capped at 1)",
+  "fr": ""
+ },
+ {
+  "sheet": "09_GRID",
+  "en": "Project share of system peak",
+  "fr": ""
+ },
+ {
+  "sheet": "09_GRID",
+  "en": "Reserve margin incl. project",
+  "fr": ""
+ },
+ {
+  "sheet": "09_GRID",
+  "en": "Evacuation capacity in first operating year",
+  "fr": ""
+ },
+ {
+  "sheet": "09_GRID",
+  "en": "Project share of peak in first operating year",
+  "fr": ""
+ },
+ {
+  "sheet": "09_GRID",
+  "en": "Proportional curtailment simplification: delivered = generation x MIN(1, evacuation MW / installed MW). Conservative for peaking plants with storage; replace with dispatch simulation if available.",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "10 DEMAND — Potential vs commercial vs contracted vs bankable demand",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "Segment growth by case; 'bankable' = contracted AND absorbable by creditworthy demand",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "A. SEGMENT INPUTS (base year 2026)",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "Segment",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "GWh 2026",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "Growth base",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "Growth low",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "Growth high",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "Commercial share",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "Residential",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "Commercial",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "Industrial",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "Mining",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "Productive use (agri-processing etc.)",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "Public sector",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "Fictional values. Commercial share = share of segment demand from customers able and willing to pay cost-reflective tariffs (assumption).",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "Export potential via regional power pool",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "GWh/yr",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "Potential only",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "Contracted (signed) export sales",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "Existing firm domestic supply (2026)",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "Incl. committed plants; fictional",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "Growth of other supply available to the utility (committed + planned)",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "Caps utility sales: demand above available supply is unserved",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "Displaceable existing thermal generation",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "Diesel/HFO that new hydro can displace",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "B. DEMAND PROJECTION (GWh)",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "Total domestic demand (potential, at customer meter)",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "POTENTIAL demand incl. export potential",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "COMMERCIAL demand (ability-to-pay weighted)",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "Required sent-out supply (grossed up for utility losses)",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "Other committed supply",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "Supply gap before project",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "Absorbable project energy (gap + thermal displacement + export contracts)",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "CONTRACTED demand (PPA contracted energy, P50)",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "BANKABLE demand = MIN(contracted, absorbable x commercial ratio)",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "Bankable / contracted",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "  Ratio in first 5 operating years",
+  "fr": ""
+ },
+ {
+  "sheet": "10_DEMAND",
+  "en": "Base-year (2026) domestic demand",
+  "fr": ""
+ },
+ {
+  "sheet": "11_OFFTAKER",
+  "en": "11 OFFTAKER — Offtake split, credit quality and payment security",
+  "fr": ""
+ },
+ {
+  "sheet": "11_OFFTAKER",
+  "en": "Qualitative inputs feed Gate 5",
+  "fr": ""
+ },
+ {
+  "sheet": "11_OFFTAKER",
+  "en": "Main offtaker",
+  "fr": ""
+ },
+ {
+  "sheet": "11_OFFTAKER",
+  "en": "Navaria Electricity Company (NEC) — vertically integrated, state-owned",
+  "fr": ""
+ },
+ {
+  "sheet": "11_OFFTAKER",
+  "en": "Offtaker credit standing",
+  "fr": ""
+ },
+ {
+  "sheet": "11_OFFTAKER",
+  "en": "Unrated; sovereign rated B- (fictional)",
+  "fr": ""
+ },
+ {
+  "sheet": "11_OFFTAKER",
+  "en": "Share of plant output sold to utility",
+  "fr": ""
+ },
+ {
+  "sheet": "11_OFFTAKER",
+  "en": "Share sold to mining offtaker (bilateral, USD, via wheeling)",
+  "fr": ""
+ },
+ {
+  "sheet": "11_OFFTAKER",
+  "en": "Payment security: letter of credit / escrow cover",
+  "fr": ""
+ },
+ {
+  "sheet": "11_OFFTAKER",
+  "en": "months of PPA billing",
+  "fr": ""
+ },
+ {
+  "sheet": "11_OFFTAKER",
+  "en": "Gate test; 6 months is the READY threshold (assumption)",
+  "fr": ""
+ },
+ {
+  "sheet": "11_OFFTAKER",
+  "en": "Historical utility payment delays to existing IPPs",
+  "fr": ""
+ },
+ {
+  "sheet": "11_OFFTAKER",
+  "en": "LC amount required (first full operating year)",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "12 UTILITY — Simplified utility cash model and MAXIMUM SUSTAINABLE PPA PAYMENT",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "The model does not assume the offtaker can pay; it tests it. USD equivalents of local-currency flows.",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "A. INPUTS (2026)",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Customers",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Customer growth",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Average retail tariff",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "NVL/kWh",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Equals USD 0.135/kWh at 20 NVL/USD (fictional)",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Tariff adjustment: pass-through of local inflation",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "1.0 = full indexation in base case; offtaker stress freezes tariff",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Technical losses",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "% of sent-out",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Commercial (non-technical) losses",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Collection rate",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "% of billing",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Cost of other supply (own generation + other IPPs)",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "USD/MWh 2026",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "USD-linked share of other supply cost",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Utility OPEX (T&D, retail, overheads)",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "USDm 2026",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Local-currency; 50% fixed, 50% scales with sales volume",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Government operating transfers / subsidies",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Local-currency",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Existing utility debt service",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "USDm/yr",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "USD-denominated, flat",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Opening receivables",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Annual write-off of aged receivables",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "% of stock",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Required cash coverage of new PPA payments",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Prudential buffer — assumption",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "B. ENERGY BALANCE (GWh)",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Utility demand (domestic, excl. mining load served directly by the project)",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Sent-out energy required to meet utility demand",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "  from the project (utility share, net of transmission losses)",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "  from other supply (capped at available supply)",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Energy purchased / sent-out",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Electricity sales (demand served)",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Unserved demand (load shedding)",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "C. INCOME & CASH (USDm equivalent)",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Average retail tariff (USD/MWh)",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Billed revenue",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Cash collected",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Government transfers",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Utility OPEX",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Cost of other supply",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Existing debt service",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Cash available after displaced supply, before paying the new PPA",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "MAXIMUM SUSTAINABLE PPA PAYMENT",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "PPA payment billed by project (utility share)",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "OFFTAKER PAYMENT CAPACITY GAP",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Payment capacity / PPA payment",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "  Ratio in first 10 operating years",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Pre-existing utility cash deficit (before any new PPA)",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "D. PERFORMANCE METRICS",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Utility EBITDA (excl. transfers)",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Utility EBITDA incl. government transfers",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Operating margin (EBITDA / billed)",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "PPA paid from utility own cash",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Utility cash flow after PPA paid",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Utility DSCR on existing debt",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Receivables (closing)",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Receivable days",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Cumulative unpaid PPA arrears to project",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "No-project case: purchases from other supply",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "No-project case: sales",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "No-project case: utility cash flow",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Incremental utility (SOE) cash from the project, net of new arrears",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "PPA payment as % of utility billed revenue",
+  "fr": ""
+ },
+ {
+  "sheet": "12_UTILITY",
+  "en": "Collected revenue per MWh sent-out",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "13 REGULATION — Regulatory Bankability Matrix (readiness screening, NOT legal advice)",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Status options: READY / PARTIAL / GAP / CRITICAL GAP. Fictional statuses for Navaria.",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Item",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Status",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Score (3-0)",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Evidence required / comment",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Electricity law (IPP participation permitted)",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Act in force; IPP chapter",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Generation licence",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Provisional licence; final on financial close",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Water rights / water-use permit",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Permit volume vs e-flow to be reconciled",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Concession agreement / implementation agreement",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Term sheet agreed",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "PPP legislation & PPP unit approvals",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "IPP procurement framework",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Unsolicited proposal rules unclear",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "PPA enforceability (arbitration, waiver of immunity)",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Offshore arbitration accepted in principle",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Tariff regulation (cost-reflective, pass-through)",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "No automatic pass-through of PPA costs",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Regulator independence",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Grid access / connection rules",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Grid code",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Outdated; no ancillary-service rules",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Environmental & social permits (ESIA approval)",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "ESIA approved; RAP pending",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Land rights / acquisition",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Reservoir land acquisition incomplete",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "FX convertibility",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Central bank allocation queues",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Tax regime (stability, incentives)",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Stabilisation clause available",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Repatriation of dividends & debt service",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Count: CRITICAL GAP",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Count: GAP",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Count: PARTIAL",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Count: READY",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Average readiness score (0-3)",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "E&S / SUSTAINABILITY READINESS (feeds Gate 9)",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "ESIA & lender E&S standards compliance (1=gaps, 2=in progress, 3=compliant & disclosed)",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "e.g. IFC Performance Standards / Hydropower Sustainability Standard",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Resettlement Action Plan status (1=not started, 2=approved, 3=implemented & monitored)",
+  "fr": ""
+ },
+ {
+  "sheet": "13_REGULATION",
+  "en": "Transboundary water / riparian notification (1=unresolved, 2=in progress, 3=resolved or n/a)",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "14 PPA — Two-part tariff, indexation, deemed energy, take-or-pay, termination",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "Commercial terms are fictional; structure reflects common African hydro IPP practice",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "A. TARIFF",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "Capacity / availability charge",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "USD/kW-month (2026)",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "Energy-only tariff, as in East African feed-in tariffs",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "Energy charge",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "USD/MWh (2026)",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "Negotiated (no REFiT above 20 MW). Uganda REFiT 5.0: 75-79 USD/MWh for <=20 MW; Nyamagasani 85 [hydro_development_evidence]",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "Share of capacity charge indexed to US CPI",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "Debt-service portion usually not indexed",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "Share of energy charge indexed to US CPI",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "Share of tariff denominated in local currency (NVL)",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "0% = full USD (FX risk on utility/government)",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "B. VOLUME & RISK TERMS",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "Deemed energy payable for buyer/grid curtailment (1=yes)",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "Transfers transmission & demand risk to offtaker",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "Take-or-pay floor (share of contracted P50 energy)",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "Alternative to deemed energy",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "Declared availability / contractual availability",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "<1 reduces capacity payment",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "Termination: equity compensation premium on unrecovered equity",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "Government-default / political FM termination",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "C. CONTRACT RISK MAP (qualitative)",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "Change in law",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "Compensated by offtaker; tariff adjustment",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "Natural force majeure",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "Capacity payments suspended after 180 days (fictional)",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "Political force majeure",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "Capacity payments continue; buy-out right",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "Hydrology risk",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "Borne by project (energy charge only)",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "FX convertibility & transfer",
+  "fr": ""
+ },
+ {
+  "sheet": "14_PPA",
+  "en": "Government undertaking in implementation agreement",
+  "fr": ""
+ },
+ {
+  "sheet": "15_TARIFF",
+  "en": "15 TARIFF — Escalated tariff components, blended tariff, affordability",
+  "fr": ""
+ },
+ {
+  "sheet": "15_TARIFF",
+  "en": "Currency factor on tariff (local-currency portion)",
+  "fr": ""
+ },
+ {
+  "sheet": "15_TARIFF",
+  "en": "Capacity charge (nominal)",
+  "fr": ""
+ },
+ {
+  "sheet": "15_TARIFF",
+  "en": "USD/kW-mo",
+  "fr": ""
+ },
+ {
+  "sheet": "15_TARIFF",
+  "en": "Energy charge (nominal)",
+  "fr": ""
+ },
+ {
+  "sheet": "15_TARIFF",
+  "en": "Blended PPA tariff (billed revenue / energy paid)",
+  "fr": ""
+ },
+ {
+  "sheet": "15_TARIFF",
+  "en": "Project LCOE (constant, nominal levelised)",
+  "fr": ""
+ },
+ {
+  "sheet": "15_TARIFF",
+  "en": "Utility average retail tariff",
+  "fr": ""
+ },
+ {
+  "sheet": "15_TARIFF",
+  "en": "Utility collected revenue per MWh sent-out",
+  "fr": ""
+ },
+ {
+  "sheet": "15_TARIFF",
+  "en": "Affordability headroom: collected/MWh – blended PPA tariff",
+  "fr": ""
+ },
+ {
+  "sheet": "16_REVENUE",
+  "en": "16 REVENUE — Billed vs cash revenue; offtaker exposure; unpaid amounts",
+  "fr": ""
+ },
+ {
+  "sheet": "16_REVENUE",
+  "en": "A. ENERGY PAID (GWh)",
+  "fr": ""
+ },
+ {
+  "sheet": "16_REVENUE",
+  "en": "Deemed energy (curtailment not caused by seller)",
+  "fr": ""
+ },
+ {
+  "sheet": "16_REVENUE",
+  "en": "Take-or-pay shortfall energy",
+  "fr": ""
+ },
+ {
+  "sheet": "16_REVENUE",
+  "en": "Energy paid",
+  "fr": ""
+ },
+ {
+  "sheet": "16_REVENUE",
+  "en": "B. BILLED REVENUE (USDm)",
+  "fr": ""
+ },
+ {
+  "sheet": "16_REVENUE",
+  "en": "Capacity payments",
+  "fr": ""
+ },
+ {
+  "sheet": "16_REVENUE",
+  "en": "Energy payments (delivered)",
+  "fr": ""
+ },
+ {
+  "sheet": "16_REVENUE",
+  "en": "Deemed energy & take-or-pay payments",
+  "fr": ""
+ },
+ {
+  "sheet": "16_REVENUE",
+  "en": "Total billed revenue",
+  "fr": ""
+ },
+ {
+  "sheet": "16_REVENUE",
+  "en": "  billed to utility",
+  "fr": ""
+ },
+ {
+  "sheet": "16_REVENUE",
+  "en": "  billed to utility — first full year (op yr 2)",
+  "fr": ""
+ },
+ {
+  "sheet": "16_REVENUE",
+  "en": "  billed to mining offtaker",
+  "fr": ""
+ },
+ {
+  "sheet": "16_REVENUE",
+  "en": "C. PAYMENT OF UTILITY SHORTFALL",
+  "fr": ""
+ },
+ {
+  "sheet": "16_REVENUE",
+  "en": "Covered by government budget backstop",
+  "fr": ""
+ },
+ {
+  "sheet": "16_REVENUE",
+  "en": "PPA guarantee limit (months of utility billing)",
+  "fr": ""
+ },
+ {
+  "sheet": "16_REVENUE",
+  "en": "Utility reimbursement of earlier guarantee calls",
+  "fr": ""
+ },
+ {
+  "sheet": "16_REVENUE",
+  "en": "Covered by sovereign PPA payment guarantee call (within available limit)",
+  "fr": ""
+ },
+ {
+  "sheet": "16_REVENUE",
+  "en": "Guarantee calls outstanding (not yet reimbursed)",
+  "fr": ""
+ },
+ {
+  "sheet": "16_REVENUE",
+  "en": "UNPAID (arrears to project)",
+  "fr": ""
+ },
+ {
+  "sheet": "16_REVENUE",
+  "en": "Cash revenue received by project",
+  "fr": ""
+ },
+ {
+  "sheet": "16_REVENUE",
+  "en": "D. LENDER CASE REVENUE (for debt sizing)",
+  "fr": ""
+ },
+ {
+  "sheet": "16_REVENUE",
+  "en": "Lender-case revenue",
+  "fr": ""
+ },
+ {
+  "sheet": "16_REVENUE",
+  "en": "E. REVENUE QUALITY METRICS",
+  "fr": ""
+ },
+ {
+  "sheet": "16_REVENUE",
+  "en": "Revenue certainty: fixed (capacity) share of billed revenue",
+  "fr": ""
+ },
+ {
+  "sheet": "16_REVENUE",
+  "en": "Revenue volatility: P90 vs P50 energy revenue at risk (yr 2)",
+  "fr": ""
+ },
+ {
+  "sheet": "16_REVENUE",
+  "en": "% of revenue",
+  "fr": ""
+ },
+ {
+  "sheet": "16_REVENUE",
+  "en": "Offtaker exposure: utility share of lifetime billed revenue",
+  "fr": ""
+ },
+ {
+  "sheet": "16_REVENUE",
+  "en": "Government support requirement to sustain PPA payments (lifetime, nominal)",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "17 PROJECT FINANCE — Funding base, sources & uses, debt capacity, financing gap, KPIs",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "Structure parameters from 17A_STRUCTURES",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "A. FUNDING BASE & USES (nominal USDm)",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "Plant CAPEX (nominal)",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "Transmission CAPEX funded by project",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "Project-built transmission spend falling in the construction period",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "Development premium paid to the developer at financial close",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "FUNDING BASE (CAPEX + development premium)",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "Interest during construction (debt-funded within the gearing limit through closed-form factors)",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "Upfront financing fees",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "Initial DSRA funding",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "TOTAL USES",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "B. SOURCES",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "Grants / VGF / public capital contribution",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "Government equity (structural)",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "Concessional senior debt",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "Commercial senior debt (gearing cap applied to CAPEX + debt-funded IDC and fees)",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "Residual equity required",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "  of which government (if residual provider)",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "  of which private sponsors",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "TOTAL SOURCES",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "C. DEBT CAPACITY & FINANCING GAP",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "Commercial debt capacity (DSCR-sculpted, lender case)",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "Total senior debt capacity",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "Senior debt / total uses",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "Private equity available",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "FINANCING GAP (private equity required beyond availability)",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "Government residual funding (public structure)",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "Financing gap / total uses",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "D. KEY RESULTS",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "Project IRR (post-tax, unlevered, nominal)",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "Project NPV @ discount rate",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "Private equity IRR (nominal)",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "Government equity IRR (nominal)",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "LCOE — plant (nominal levelised)",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "LCOE — delivered system cost incl. public transmission & losses",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "Minimum DSCR (actual case; 99 = no debt service)",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "Average DSCR (actual case; 99 = no debt service)",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "LLCR at COD (all tranches, weighted rate, longest tranche life)",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "PLCR at COD",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "Cumulative debt-service shortfall",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "OPEX in operating year 2",
+  "fr": ""
+ },
+ {
+  "sheet": "17_PROJECT_FINANCE",
+  "en": "Utility payment headroom per MWh (avg max sustainable payment / energy paid, op yrs 1-10)",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "17A STRUCTURES — Public / IPP / PPP / Hybrid / Blended for the SAME project",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Column C = structure selected on 01_CONTROL_PANEL; library columns E:I are inputs",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "1 Public",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "2 IPP",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "3 PPP",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "4 Hybrid",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "5 Blended",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Structure",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Public (SOE, sovereign-borrowed)",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "IPP (private BOOT)",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "PPP (SOE + private, DFI-backed)",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Hybrid (public civil works, private E&M/O&M)",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Blended finance (grants + concessional + private)",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Government equity",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "% of funding base",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Concessional debt",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Maximum total senior debt (gearing cap)",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Maximum private equity available",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Residual equity provider (1=private, 2=government)",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Share of senior debt guaranteed / counter-indemnified by sovereign",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Share of senior debt recorded as public debt",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Sovereign PPA payment guarantee (1=yes)",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Concession termination payment obligation (1=yes)",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Government FX convertibility guarantee on remittances",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "% covered",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Concessional interest rate",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Concessional grace after COD",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Concessional repayment period",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Commercial / DFI senior debt rate (all-in, fixed/swapped)",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Commercial debt repayment tenor after COD",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Target sizing DSCR",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Private equity target IRR (nominal USD)",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Check: grants + gov equity + max debt + max private equity ≥ 100%",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Distribution lock-up DSCR",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Upfront & commitment fees",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "% of senior debt",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "DSRA requirement",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "months of next-year DS",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "LIVE CLOSED-FORM STRUCTURE COMPARISON (screening; pre-tax, level real annuity, P50)",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Metric",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "WACC_s = Σ weights x costs (grants cost 0 to project; government equity at government discount rate). Required tariff = (funding base x (1-grant%) x CRF(WACC, term) + year-2 OPEX) / P50. Not a substitute for full-engine runs (snapshot below).",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Commercial debt share (assumed at gearing cap)",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Private equity share",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Government residual equity share",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Blended pre-tax cost of capital (private equity grossed up for tax)",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Cost of capital on non-grant funding",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Capital recovery factor",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Required levelised tariff (screening; capital incl. IDC and fees)",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Utility payment headroom per MWh (max sustainable payment / energy, first 10 yrs avg)",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Implied annual subsidy to close affordability gap",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Upfront public capital (gov equity + grants)",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Private equity",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Senior debt",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Indicative annual debt service (blended annuity)",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Direct public debt",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Guaranteed debt (contingent)",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "PPA guarantee exposure (12 months of payments)",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Termination exposure at COD (debt + private equity x (1+premium))",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Gross public exposure at COD. Near the funding base by construction: every dollar is public or termination-protected",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Gross public exposure / GDP",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "STRUCTURES (base case, debt sized in-model) — FULL-ENGINE SNAPSHOT (static values, generated 2026-10-04 by tools/run_snapshots.py; stresses run with the financing package LOCKED at base-case amounts and the base-case sculpted principal schedule)",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Run",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Project IRR",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Equity IRR",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Min DSCR",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "LLCR",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Financing gap USDm",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "LCOE USD/MWh",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Utility pay capacity (min yr1-10)",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Utility PPA gap USDm (life)",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "DS shortfall USDm",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Fiscal NPV USDm",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Peak contingent USDm",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Peak cash need % rev",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Consolidated fiscal NPV USDm",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Risk-weighted developer NPV USDm",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Financial close decision",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Bankability verdict",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Structure 1",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Structure 2",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Structure 3",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Structure 4",
+  "fr": ""
+ },
+ {
+  "sheet": "17A_STRUCTURES",
+  "en": "Structure 5",
+  "fr": ""
+ }
+]

@@ -71,11 +71,36 @@ BACK_AUDIENCE = ("For developers, lenders, development finance institutions, inv
                  "A companion financial model applies the method.")
 BACK_SERIES = "Book 7 of the Africa Energy Finance collection."
 GROUPS = [4, 6, 2, 1, 4, 3, 3]  # gates per framework question Q1 to Q7
+FR = os.environ.get("BOOK_LANG") == "fr"  # French edition: French texts, no barcode until a French ISBN exists
+TX = {"book": "BOOK 7", "spine": "HYDROPOWER DEVELOPMENT AND FINANCE", "inside": "Inside the book:", "series_line": "AFRICA ENERGY FINANCE  |  BOOK 7",
+      "title": (("HYDROPOWER", 0), ("DEVELOPMENT", 0), ("AND FINANCE", 1)), "sub1": "From River to Financial Close",
+      "sub2": "A Developer, Lender and Government Framework for Hydropower Projects in Africa",
+      "fw1": "THE HYDRO READINESS FRAMEWORK\u2122", "fw2": "8 Questions \u00b7 23 Gates \u00b7 1 Financial Close Decision",
+      "parties": "DEVELOPER  \u00b7  LENDER  \u00b7  GOVERNMENT"}
+if FR:
+    TX = {"book": "LIVRE 7", "spine": "DÉVELOPPEMENT ET FINANCEMENT DE L'HYDROÉLECTRICITÉ", "inside": "Dans ce livre :",
+          "series_line": "AFRICA ENERGY FINANCE  |  LIVRE 7",
+          "title": (("DÉVELOPPEMENT", 0), ("ET FINANCEMENT DE", 0), ("L'HYDROÉLECTRICITÉ", 1)), "sub1": "De la rivière au bouclage financier",
+          "sub2": "Un cadre pour les développeurs, les prêteurs et les États, appliqué aux projets hydroélectriques en Afrique",
+          "fw1": "LE HYDRO READINESS FRAMEWORK\u2122", "fw2": "8 questions \u00b7 23 portes \u00b7 1 décision de bouclage financier",
+          "parties": "DÉVELOPPEUR  \u00b7  PRÊTEUR  \u00b7  ÉTAT"}
+    BACK_LEAD = ("Faut-il poursuivre le développement de ce projet hydroélectrique, qui doit financer l'étape suivante, "
+                 "qui doit porter chaque risque, et le projet est-il vraiment prêt pour le bouclage financier\u00a0?")
+    BACK_BULLETS = ["Trois investissements dans un même actif : option de développement, contrat de construction, rente d'exploitation",
+                    "L'économie du développeur : valeur pondérée par le risque, rendement en cas de succès, entrée d'un co-développeur",
+                    "Le dimensionnement de la dette sur la rivière : P50, P90 à un an et à dix ans, sécheresses et réserves",
+                    "L'acheteur et l'État : capacité de paiement, garanties, passifs éventuels",
+                    "Le Hydro Readiness Framework : 8 questions, 23 portes de preuve, une décision de bouclage",
+                    "Un référentiel de due diligence technique et un cas complet de 60\u00a0MW, du site au bouclage"]
+    BACK_AUDIENCE = ("Pour les développeurs, les prêteurs, les institutions de financement du développement, les investisseurs "
+                     "et les décideurs publics, avec des questions pour les comités d'investissement et de crédit à la fin de chaque "
+                     "chapitre. Un modèle financier d'accompagnement applique la méthode.")
+    BACK_SERIES = "Livre 7 de la collection Africa Energy Finance."
 
 
 def wrap(c, text, font, size, width):
     lines, line = [], ""
-    for w in text.split():
+    for w in text.split(" "):  # split on plain spaces only: no-break spaces hold "60 MW" together
         t = (line + " " + w).strip()
         if c.stringWidth(t, font, size) > width and line:
             lines.append(line)
@@ -112,10 +137,11 @@ def draw(c, spine, x0_front):
     c.rect(right - bw, top - 31, bw, bh, stroke=0, fill=1)
     c.setFillColor(white)
     c.setFont("SansBold", 15)
-    c.drawCentredString(right - bw / 2, top - 31 + bh / 2 - 5.2, "BOOK 7")
+    c.drawCentredString(right - bw / 2, top - 31 + bh / 2 - 5.2, TX["book"])
     # dominant title, three lines, each as large as the width allows (capped so the three lines balance)
     y = top - 1.15 * I
-    for word, colour, cap in (("HYDROPOWER", white, 74), ("DEVELOPMENT", white, 74), ("AND FINANCE", HexColor(GOLD_LIGHT), 74)):
+    for word, gold in TX["title"]:
+        colour, cap = (HexColor(GOLD_LIGHT) if gold else white), (56 if FR else 74)
         size = min(cap, (right - left) / c.stringWidth(word, "SansBold", 1))
         c.setFont("SansBold", size)
         c.setFillColor(colour)
@@ -129,11 +155,11 @@ def draw(c, spine, x0_front):
     # subtitle in two levels
     y -= 34
     c.setFillColor(white)
-    sub = min(24, (right - left) / c.stringWidth("From River to Financial Close", "SansBold", 1))
+    sub = min(24, (right - left) / c.stringWidth(TX["sub1"], "SansBold", 1))
     c.setFont("SansBold", sub)
-    c.drawString(left, y, "From River to Financial Close")
+    c.drawString(left, y, TX["sub1"])
     y -= 26
-    for ln in wrap(c, "A Developer, Lender and Government Framework for Hydropower Projects in Africa", "Sans", 15 * min(1, TRIM_W / 7.0 + 0.08), right - left):
+    for ln in wrap(c, TX["sub2"], "Sans", 15 * min(1, TRIM_W / 7.0 + 0.08), right - left):
         c.setFont("Sans", 15 * min(1, TRIM_W / 7.0 + 0.08))
         c.drawString(left, y, ln)
         y -= 20
@@ -141,11 +167,11 @@ def draw(c, spine, x0_front):
     y -= 30
     c.setFillColor(HexColor(GOLD_LIGHT))
     c.setFont("SansBold", 12.5)
-    c.drawString(left, y, "THE HYDRO READINESS FRAMEWORK\u2122")
+    c.drawString(left, y, TX["fw1"])
     y -= 19
     c.setFillColor(white)
     c.setFont("Sans", 12.5)
-    c.drawString(left, y, "8 Questions \u00b7 23 Gates \u00b7 1 Financial Close Decision")
+    c.drawString(left, y, TX["fw2"])
     y -= 30
     K = TRIM_W / 7.0  # the gate row and the subtitle scale with the trim width (1 at 7 x 10)
     sq, gap, ggap = 0.15 * I * K, 0.045 * I * K, 0.15 * I * K
@@ -164,7 +190,7 @@ def draw(c, spine, x0_front):
     y -= 34
     c.setFillColor(HexColor(GOLD_LIGHT))
     c.setFont("SansBold", 11)
-    c.drawString(left, y, "DEVELOPER  \u00b7  LENDER  \u00b7  GOVERNMENT")
+    c.drawString(left, y, TX["parties"])
     # author at the foot
     c.setFont("SansBold", 21)
     c.setFillColor(white)
@@ -183,52 +209,56 @@ def draw(c, spine, x0_front):
     c.translate((sx + spine / 2) * I, (BLEED + TRIM_H) * I)
     c.rotate(-90)                        # reads top to bottom, as on books sold in the US and the UK
     baseline = -size * 0.36
+    # the title must end before the author's name: shrink the spine type if the title is long (French edition)
+    room = (TRIM_H - 0.45 - 1.5) * I - c.stringWidth(AUTHOR, "Sans", size * 0.85) - 0.3 * I
+    size = min(size, size * room / c.stringWidth(TX["spine"], "SansBold", size))
     c.setFillColor(HexColor(GOLD_LIGHT))
     c.setFont("SansBold", size)
-    c.drawString(0.5 * I, baseline, "BOOK 7")
+    c.drawString(0.5 * I, baseline, TX["book"])
     c.setFillColor(white)
-    c.drawString(1.5 * I, baseline, "HYDROPOWER DEVELOPMENT AND FINANCE")
+    c.drawString(1.5 * I, baseline, TX["spine"])
     c.setFont("Sans", size * 0.85)
     c.drawRightString((TRIM_H - 0.45) * I, baseline, AUTHOR)
     c.restoreState()
     spine_box = (sx + SPINE_GAP, sx + spine - SPINE_GAP, size)
 
-    # ---- back cover
+    # ---- back cover (French text runs longer: set about 8 percent smaller so it clears the barcode area)
+    BK = 0.92 if FR else 1.0
     bx = BLEED
     left = (bx + SAFE) * I
     right = (bx + TRIM_W - SAFE) * I
     y = (BLEED + TRIM_H - SAFE) * I - 6
     c.setFillColor(HexColor(GOLD_LIGHT))
-    c.setFont("SansBold", 10)
-    c.drawString(left, y, "AFRICA ENERGY FINANCE  |  BOOK 7")
-    y -= 34
+    c.setFont("SansBold", 10 * BK)
+    c.drawString(left, y, TX["series_line"])
+    y -= 34 * BK
     c.setFillColor(white)
-    for ln in wrap(c, BACK_LEAD, "SansBold", 16, right - left):
-        c.setFont("SansBold", 16)
+    for ln in wrap(c, BACK_LEAD, "SansBold", 16 * BK, right - left):
+        c.setFont("SansBold", 16 * BK)
         c.drawString(left, y, ln)
-        y -= 22
-    y -= 16
-    c.setFont("SansBold", 12.5)
+        y -= 22 * BK
+    y -= 16 * BK
+    c.setFont("SansBold", 12.5 * BK)
     c.setFillColor(HexColor(GOLD_LIGHT))
-    c.drawString(left, y, "Inside the book:")
-    y -= 24
+    c.drawString(left, y, TX["inside"])
+    y -= 24 * BK
     for b in BACK_BULLETS:
-        lines = wrap(c, b, "Sans", 12, right - left - 18)
+        lines = wrap(c, b, "Sans", 12 * BK, right - left - 18)
         c.setFillColor(HexColor(GOLD))
         c.rect(left, y + 3, 6, 6, stroke=0, fill=1)
         c.setFillColor(white)
         for ln in lines:
-            c.setFont("Sans", 12)
+            c.setFont("Sans", 12 * BK)
             c.drawString(left + 18, y, ln)
-            y -= 16.5
-        y -= 5
-    y -= 14
-    for ln in wrap(c, BACK_AUDIENCE, "Sans", 12.5, right - left):
-        c.setFont("Sans", 12.5)
+            y -= 16.5 * BK
+        y -= 5 * BK
+    y -= 14 * BK
+    for ln in wrap(c, BACK_AUDIENCE, "Sans", 12.5 * BK, right - left):
+        c.setFont("Sans", 12.5 * BK)
         c.drawString(left, y, ln)
-        y -= 18
-    y -= 12
-    c.setFont("SansItalic", 12.5)
+        y -= 18 * BK
+    y -= 12 * BK
+    c.setFont("SansItalic", 12.5 * BK)
     c.setFillColor(HexColor(GOLD_LIGHT))
     c.drawString(left, y, BACK_SERIES)
     text_bottom = y
@@ -254,7 +284,7 @@ def main():
     c.setAuthor(AUTHOR)
     x0_front = BLEED + TRIM_W + spine
     W, H, text_bottom, bc, spine_box = draw(c, spine, x0_front)
-    if not a.no_barcode:
+    if not a.no_barcode and not FR:  # the English ISBN must never appear on the French edition
         draw_barcode(c, bc[0], bc[1])
     c.showPage()
     c.save()

@@ -1,0 +1,3897 @@
+[
+ {
+  "sheet": "18_DEBT",
+  "en": "18 DEBT — Concessional & commercial tranches, DSCR sculpting, DSRA",
+  "fr": "18 DETTE — Tranches concessionnelle et commerciale, sculptage DSCR, DSRA"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "Non-circular: IDC and fees are debt-funded through closed-form factors; the DSRA is equity-funded; sizing uses an unlevered-tax lender case",
+  "fr": "Non circulaire : IDC et frais financés par la dette via des facteurs explicites ; DSRA financé par fonds propres ; dimensionnement sur un cas prêteurs à impôt hors levier"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "Locked commercial debt (debt_mode = 2)",
+  "fr": "Dette commerciale figée (debt_mode = 2)"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "Base-case debt_m (tools/run_snapshots.py sets this on scenario copies; enter base-case values here only if you switch debt_mode to 2)",
+  "fr": "debt_m du cas de base (tools/run_snapshots.py le fixe dans les copies de scénario ; saisir ici les valeurs du cas de base seulement si debt_mode passe à 2)"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "Locked concessional debt (debt_mode = 2)",
+  "fr": "Dette concessionnelle figée (debt_mode = 2)"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "Base-case debt_c",
+  "fr": "debt_c du cas de base"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "Locked grant / VGF (debt_mode = 2)",
+  "fr": "Subvention / VGF figée (debt_mode = 2)"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "Base-case s_grant",
+  "fr": "s_grant du cas de base"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "Locked government equity (debt_mode = 2)",
+  "fr": "Fonds propres de l'État figés (debt_mode = 2)"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "Base-case s_goveq",
+  "fr": "s_goveq du cas de base"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "Share of commercial debt fixed or swapped",
+  "fr": "Part de la dette commerciale à taux fixe ou swappée"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "Rate stress applies only to the unhedged share",
+  "fr": "Le stress de taux ne s'applique qu'à la part non couverte"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "Effective commercial rate",
+  "fr": "Taux commercial effectif"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "Locked commercial principal schedule by OPERATING year (debt_mode = 2; column E = op year 1, F = op year 2, ...)",
+  "fr": "Échéancier figé du principal commercial par année d'EXPLOITATION (debt_mode = 2 ; colonne E = année d'expl. 1, F = année d'expl. 2, ...)"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "Tax rate used in lender-case CFADS",
+  "fr": "Taux d'impôt du CFADS du cas prêteurs"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "IDC per USD of concessional debt (non-circular factor)",
+  "fr": "IDC par USD de dette concessionnelle (facteur non circulaire)"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "IDC per USD of commercial debt (non-circular factor)",
+  "fr": "IDC par USD de dette commerciale (facteur non circulaire)"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "A. LENDER-CASE CFADS & SCULPTING",
+  "fr": "A. CFADS DU CAS PRÊTEURS ET SCULPTAGE"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "Lender-case CFADS (unlevered tax)",
+  "fr": "CFADS du cas prêteurs (impôt hors levier)"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "Commercial loan life flag",
+  "fr": "Indic. durée prêt commercial"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "Discount factor at commercial rate (to COD)",
+  "fr": "Facteur d'actualisation au taux commercial (à la COD)"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "Weighted senior debt rate",
+  "fr": "Taux pondéré dette senior"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "Any senior tranche outstanding (loan life)",
+  "fr": "Tranche senior en cours (durée du prêt)"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "Discount factor at weighted rate",
+  "fr": "Facteur d'actualisation au taux pondéré"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "Sculpted commercial DS capacity",
+  "fr": "Capacité SD commercial sculptée"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "B. CONCESSIONAL TRANCHE",
+  "fr": "B. TRANCHE CONCESSIONNELLE"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "Opening balance",
+  "fr": "Solde d'ouverture"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "Drawdown",
+  "fr": "Tirage"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "Interest",
+  "fr": "Intérêts"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "Principal repayment",
+  "fr": "Remboursement du principal"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "Closing balance",
+  "fr": "Solde de clôture"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "Debt service (operations)",
+  "fr": "Service de la dette (exploitation)"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "C. COMMERCIAL TRANCHE",
+  "fr": "C. TRANCHE COMMERCIALE"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "Target debt service (sculpted or annuity)",
+  "fr": "Service de la dette cible (sculpté ou annuité)"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "D. TOTALS & DSRA",
+  "fr": "D. TOTAUX ET DSRA"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "Total senior debt service",
+  "fr": "Service total de la dette senior"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "Interest during construction",
+  "fr": "Intérêts intercalaires (IDC)"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "Total senior debt outstanding",
+  "fr": "Encours total de la dette senior"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "DSRA target balance",
+  "fr": "Solde cible du DSRA"
+ },
+ {
+  "sheet": "18_DEBT",
+  "en": "Initial DSRA funding (end of construction)",
+  "fr": "Dotation initiale du DSRA (fin de construction)"
+ },
+ {
+  "sheet": "19_EQUITY",
+  "en": "19 EQUITY — Contributions, distributions, returns by holder",
+  "fr": "19 FONDS PROPRES — Apports, distributions, rendements par détenteur"
+ },
+ {
+  "sheet": "19_EQUITY",
+  "en": "Total equity (government + private)",
+  "fr": "Total fonds propres (État + privé)"
+ },
+ {
+  "sheet": "19_EQUITY",
+  "en": "Government share of equity",
+  "fr": "Part de l'État dans les fonds propres"
+ },
+ {
+  "sheet": "19_EQUITY",
+  "en": "Target private equity IRR",
+  "fr": "TRI cible des fonds propres privés"
+ },
+ {
+  "sheet": "19_EQUITY",
+  "en": "Government equity IRR",
+  "fr": "TRI des fonds propres de l'État"
+ },
+ {
+  "sheet": "19_EQUITY",
+  "en": "Private equity multiple (distributions / contributions)",
+  "fr": "Multiple des fonds propres privés (distrib. / apports)"
+ },
+ {
+  "sheet": "19_EQUITY",
+  "en": "Private equity contributed",
+  "fr": "Fonds propres privés apportés"
+ },
+ {
+  "sheet": "19_EQUITY",
+  "en": "Distributions to private equity",
+  "fr": "Distributions aux fonds propres privés"
+ },
+ {
+  "sheet": "19_EQUITY",
+  "en": "Net private equity cash flow",
+  "fr": "Flux net des fonds propres privés"
+ },
+ {
+  "sheet": "19_EQUITY",
+  "en": "Dividends to government",
+  "fr": "Dividendes versés à l'État"
+ },
+ {
+  "sheet": "19_EQUITY",
+  "en": "Value of remaining private distributions at target IRR (backward recursion)",
+  "fr": "Valeur des distributions privées restantes au TRI cible (récurrence inverse)"
+ },
+ {
+  "sheet": "19_EQUITY",
+  "en": "Unrecovered private equity (for termination amount)",
+  "fr": "Fonds propres privés non récupérés (indemnité de résiliation)"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "20 CASH FLOW — Construction funding, operating waterfall, unlevered cash flow, LCOE streams",
+  "fr": "20 FLUX DE TRÉSORERIE — Financement de la construction, cascade d'exploitation, flux hors levier, flux LCOE"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "A. CONSTRUCTION FUNDING",
+  "fr": "A. FINANCEMENT DE LA CONSTRUCTION"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "Uses: CAPEX + project transmission + IDC + fees + DSRA",
+  "fr": "Emplois : CAPEX + transport du projet + IDC + frais + DSRA"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "Grants drawn",
+  "fr": "Subventions tirées"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "Senior debt drawn",
+  "fr": "Dette senior tirée"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "Equity contributions (total)",
+  "fr": "Apports en fonds propres (total)"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "  Government equity",
+  "fr": "  Fonds propres de l'État"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "  Private equity",
+  "fr": "  Fonds propres privés"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "B. OPERATING WATERFALL",
+  "fr": "B. CASCADE D'EXPLOITATION"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "Cash revenue",
+  "fr": "Recettes encaissées"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "OPEX",
+  "fr": "OPEX"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "Water royalty",
+  "fr": "Redevance sur l'eau"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "EBITDA",
+  "fr": "EBITDA"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "Tax",
+  "fr": "Impôt"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "CFADS (after any project-funded transmission spend in operations)",
+  "fr": "CFADS (après dépenses de transport financées par le projet en exploitation)"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "Senior debt service",
+  "fr": "Service de la dette senior"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "DSCR",
+  "fr": "DSCR"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "Cash after debt service before reserve movements (incl. trapped cash)",
+  "fr": "Trésorerie après service de la dette, avant mouvements de réserve (y c. trésorerie bloquée)"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "DSRA drawn to meet debt service",
+  "fr": "Tirage du DSRA pour le service de la dette"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "DSRA release of excess over target",
+  "fr": "Libération du DSRA au-delà de la cible"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "DSRA top-up from available cash",
+  "fr": "Reconstitution DSRA sur tréso. dispo."
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "DSRA actual balance",
+  "fr": "Solde réel du DSRA"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "DSRA draw + release - top-up",
+  "fr": "DSRA : tirage + libération - reconst."
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "Cash after debt service",
+  "fr": "Tréso. après service dette"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "Cash brought forward (trapped)",
+  "fr": "Trésorerie reportée (bloquée)"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "Debt-service shortfall funded by guarantor/sponsor",
+  "fr": "Insuffisance de service de dette couverte par garant/promoteur"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "Distribution test passed (1=yes)",
+  "fr": "Test de distribution réussi (1 = oui)"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "Cash available after shortfall funding",
+  "fr": "Tréso. disponible après couverture du déficit"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "Repayment of sovereign guarantee claims (ahead of distributions)",
+  "fr": "Remboursement des appels de garantie souveraine (avant distributions)"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "Distributions to equity",
+  "fr": "Distributions aux fonds propres"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "Cash carried forward",
+  "fr": "Trésorerie reportée"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "C. EQUITY CASH FLOWS",
+  "fr": "C. FLUX DES FONDS PROPRES"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "Shortfall paid by sovereign guarantee",
+  "fr": "Insuffisance payée par la garantie souveraine"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "Shortfall paid by equity (sponsor support)",
+  "fr": "Insuffisance payée par les fonds propres (soutien du promoteur)"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "Sovereign guarantee claim outstanding",
+  "fr": "Encours des appels de garantie souveraine"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "Government equity cash flow",
+  "fr": "Flux des fonds propres de l'État"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "Private equity cash flow",
+  "fr": "Flux des fonds propres privés"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "Private equity cumulative (unrecovered if negative)",
+  "fr": "Fonds propres privés cumulés (non récupérés si négatif)"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "D. UNLEVERED & LCOE STREAMS",
+  "fr": "D. FLUX HORS LEVIER ET LCOE"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "Unlevered post-tax project cash flow",
+  "fr": "Flux du projet hors levier après impôt"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "Plant cost stream (CAPEX + OPEX + royalty)",
+  "fr": "Flux de coûts de la centrale (CAPEX + OPEX + redevance)"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "Energy delivered + deemed",
+  "fr": "Énergie livrée + réputée livrée"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "System cost stream (+ public transmission CAPEX & O&M)",
+  "fr": "Flux de coûts du système (+ CAPEX et O&M du transport public)"
+ },
+ {
+  "sheet": "20_CASH_FLOW",
+  "en": "Energy delivered to load (net of transmission losses)",
+  "fr": "Énergie livrée à la charge (nette des pertes de transport)"
+ },
+ {
+  "sheet": "21_TAX",
+  "en": "21 TAX — Depreciation, interest deductibility, loss carry-forward, tax holiday",
+  "fr": "21 FISCALITÉ — Amortissement, déductibilité des intérêts, report des pertes, exonération"
+ },
+ {
+  "sheet": "21_TAX",
+  "en": "Corporate income tax rate",
+  "fr": "Taux de l'impôt sur les sociétés"
+ },
+ {
+  "sheet": "21_TAX",
+  "en": "Tax holiday (operating years)",
+  "fr": "Exonération fiscale (ans d'expl.)"
+ },
+ {
+  "sheet": "21_TAX",
+  "en": "Fiscal incentive = forgone revenue",
+  "fr": "Incitation fiscale = recettes abandonnées"
+ },
+ {
+  "sheet": "21_TAX",
+  "en": "Tax depreciation life (straight line)",
+  "fr": "Durée d'amortissement fiscal (linéaire)"
+ },
+ {
+  "sheet": "21_TAX",
+  "en": "Depreciable base (funding base + IDC + fees − grants)",
+  "fr": "Base amortissable (base de financement + IDC + frais − subventions)"
+ },
+ {
+  "sheet": "21_TAX",
+  "en": "Tax depreciation",
+  "fr": "Amortissement fiscal"
+ },
+ {
+  "sheet": "21_TAX",
+  "en": "Lender-case depreciation (excl. IDC & fees, avoids circularity)",
+  "fr": "Amortissement du cas prêteurs (hors IDC et frais, évite la circularité)"
+ },
+ {
+  "sheet": "21_TAX",
+  "en": "Interest expense (operations)",
+  "fr": "Charges d'intérêts (exploitation)"
+ },
+ {
+  "sheet": "21_TAX",
+  "en": "Taxable income before losses",
+  "fr": "Résultat imposable avant pertes"
+ },
+ {
+  "sheet": "21_TAX",
+  "en": "Losses brought forward",
+  "fr": "Pertes reportées en début"
+ },
+ {
+  "sheet": "21_TAX",
+  "en": "Losses used",
+  "fr": "Pertes imputées"
+ },
+ {
+  "sheet": "21_TAX",
+  "en": "Losses carried forward",
+  "fr": "Pertes reportées en fin"
+ },
+ {
+  "sheet": "21_TAX",
+  "en": "Corporate tax paid",
+  "fr": "Impôt sur les sociétés payé"
+ },
+ {
+  "sheet": "21_TAX",
+  "en": "Tax forgone due to holiday",
+  "fr": "Impôt abandonné (exonération)"
+ },
+ {
+  "sheet": "21_TAX",
+  "en": "Unlevered tax (for project IRR)",
+  "fr": "Impôt hors levier (pour le TRI du projet)"
+ },
+ {
+  "sheet": "22_GOVERNMENT_SUPPORT",
+  "en": "22 GOVERNMENT SUPPORT — Direct exposure (cash)",
+  "fr": "22 SOUTIEN DE L'ÉTAT — Exposition directe (trésorerie)"
+ },
+ {
+  "sheet": "22_GOVERNMENT_SUPPORT",
+  "en": "Equity, grants/VGF, transmission investment, utility support",
+  "fr": "Fonds propres, subventions/VGF, investissement de transport, soutien à la compagnie"
+ },
+ {
+  "sheet": "22_GOVERNMENT_SUPPORT",
+  "en": "Government equity contributions",
+  "fr": "Apports en fonds propres de l'État"
+ },
+ {
+  "sheet": "22_GOVERNMENT_SUPPORT",
+  "en": "Public transmission CAPEX",
+  "fr": "CAPEX du transport public"
+ },
+ {
+  "sheet": "22_GOVERNMENT_SUPPORT",
+  "en": "Public transmission O&M",
+  "fr": "O&M du transport public"
+ },
+ {
+  "sheet": "22_GOVERNMENT_SUPPORT",
+  "en": "Utility support: budget backstop of PPA shortfall",
+  "fr": "Soutien à la compagnie : garantie budgétaire de l'insuffisance du CAE"
+ },
+ {
+  "sheet": "22_GOVERNMENT_SUPPORT",
+  "en": "TOTAL DIRECT GOVERNMENT CASH EXPOSURE",
+  "fr": "EXPOSITION DIRECTE TOTALE DE L'ÉTAT (TRÉSORERIE)"
+ },
+ {
+  "sheet": "22_GOVERNMENT_SUPPORT",
+  "en": "Transmission is shown on a cash (capex) basis. If financed by a sovereign loan, the fiscal profile becomes the loan's debt service; the PV comparison is in 25_FISCAL_IMPACT.",
+  "fr": "Le transport est présenté en base trésorerie (capex). S'il est financé par un prêt souverain, le profil budgétaire devient le service de ce prêt ; la comparaison en valeur actuelle figure dans 25_FISCAL_IMPACT."
+ },
+ {
+  "sheet": "23_GUARANTEES",
+  "en": "23 GUARANTEES — Nominal exposure by instrument (maximum amount at risk each year)",
+  "fr": "23 GARANTIES — Exposition nominale par instrument (montant maximal à risque chaque année)"
+ },
+ {
+  "sheet": "23_GUARANTEES",
+  "en": "Exposures are NOT additive: see 24 for non-double-counted maximum",
+  "fr": "Les expositions ne s'ADDITIONNENT PAS : voir 24 pour le maximum sans double compte"
+ },
+ {
+  "sheet": "23_GUARANTEES",
+  "en": "PPA guarantee cap",
+  "fr": "Plafond garantie CAE"
+ },
+ {
+  "sheet": "23_GUARANTEES",
+  "en": "months of utility billing",
+  "fr": "mois de facturation de la compagnie"
+ },
+ {
+  "sheet": "23_GUARANTEES",
+  "en": "Exposure measure for the guarantee",
+  "fr": "Mesure d'exposition de la garantie"
+ },
+ {
+  "sheet": "23_GUARANTEES",
+  "en": "Minimum revenue guarantee level (0 = none)",
+  "fr": "Niveau de garantie de recettes minimales (0 = aucune)"
+ },
+ {
+  "sheet": "23_GUARANTEES",
+  "en": "% of P50 billed revenue",
+  "fr": "% des recettes P50 facturées"
+ },
+ {
+  "sheet": "23_GUARANTEES",
+  "en": "Debt guarantee / counter-indemnity exposure",
+  "fr": "Exposition garantie de dette / contre-garantie"
+ },
+ {
+  "sheet": "23_GUARANTEES",
+  "en": "PPA payment guarantee exposure",
+  "fr": "Exposition garantie de paiement du CAE"
+ },
+ {
+  "sheet": "23_GUARANTEES",
+  "en": "Termination payment exposure",
+  "fr": "Exposition indemnité de résiliation"
+ },
+ {
+  "sheet": "23_GUARANTEES",
+  "en": "FX convertibility guarantee (annual remittances covered)",
+  "fr": "Garantie de convertibilité (transferts annuels couverts)"
+ },
+ {
+  "sheet": "23_GUARANTEES",
+  "en": "Minimum revenue guarantee — deterministic call",
+  "fr": "Garantie de recettes minimales : appel déterministe"
+ },
+ {
+  "sheet": "23_GUARANTEES",
+  "en": "Project debt recorded as direct public debt",
+  "fr": "Dette du projet comptée en dette publique directe"
+ },
+ {
+  "sheet": "24_CONTINGENT_LIABILITIES",
+  "en": "24 CONTINGENT LIABILITIES — Maximum exposure, deterministic calls, user-defined expected loss",
+  "fr": "24 PASSIFS ÉVENTUELS — Exposition maximale, appels déterministes, perte attendue définie par l'utilisateur"
+ },
+ {
+  "sheet": "24_CONTINGENT_LIABILITIES",
+  "en": "Probabilities are USER JUDGEMENTS for screening, not calibrated default probabilities",
+  "fr": "Probabilités = JUGEMENTS DE L'UTILISATEUR pour le filtrage, pas des probabilités de défaut calibrées"
+ },
+ {
+  "sheet": "24_CONTINGENT_LIABILITIES",
+  "en": "Annual probability: debt guarantee called",
+  "fr": "Probabilité annuelle : appel de la garantie de dette"
+ },
+ {
+  "sheet": "24_CONTINGENT_LIABILITIES",
+  "en": "User judgement",
+  "fr": "Jugement utilisateur"
+ },
+ {
+  "sheet": "24_CONTINGENT_LIABILITIES",
+  "en": "Annual probability: PPA guarantee called",
+  "fr": "Probabilité annuelle : appel de la garantie du CAE"
+ },
+ {
+  "sheet": "24_CONTINGENT_LIABILITIES",
+  "en": "User judgement — informed by utility arrears history",
+  "fr": "Jugement de l'utilisateur, éclairé par l'historique d'arriérés de la compagnie"
+ },
+ {
+  "sheet": "24_CONTINGENT_LIABILITIES",
+  "en": "Annual probability: termination for government default / PFM",
+  "fr": "Probabilité annuelle : résiliation pour défaut de l'État / FM politique"
+ },
+ {
+  "sheet": "24_CONTINGENT_LIABILITIES",
+  "en": "Loss given call (net of recoveries)",
+  "fr": "Perte en cas d'appel (nette des recouvrements)"
+ },
+ {
+  "sheet": "24_CONTINGENT_LIABILITIES",
+  "en": "A. EXPOSURE",
+  "fr": "A. EXPOSITION"
+ },
+ {
+  "sheet": "24_CONTINGENT_LIABILITIES",
+  "en": "Maximum simultaneous exposure = MAX(termination, debt guarantee + PPA guarantee + FX cover)",
+  "fr": "Exposition simultanée maximale = MAX(résiliation, garantie de dette + garantie du CAE + couverture de change)"
+ },
+ {
+  "sheet": "24_CONTINGENT_LIABILITIES",
+  "en": "B. DETERMINISTIC CALLS IN ACTIVE SCENARIO",
+  "fr": "B. APPELS DÉTERMINISTES DU SCÉNARIO ACTIF"
+ },
+ {
+  "sheet": "24_CONTINGENT_LIABILITIES",
+  "en": "PPA guarantee calls",
+  "fr": "Appels de la garantie du CAE"
+ },
+ {
+  "sheet": "24_CONTINGENT_LIABILITIES",
+  "en": "Debt guarantee calls (DS shortfall x guaranteed share)",
+  "fr": "Appels de la garantie de dette (insuffisance SD x part garantie)"
+ },
+ {
+  "sheet": "24_CONTINGENT_LIABILITIES",
+  "en": "Minimum revenue guarantee calls",
+  "fr": "Appels de la garantie de recettes minimales"
+ },
+ {
+  "sheet": "24_CONTINGENT_LIABILITIES",
+  "en": "Total deterministic calls",
+  "fr": "Total des appels déterministes"
+ },
+ {
+  "sheet": "24_CONTINGENT_LIABILITIES",
+  "en": "C. EXPECTED LOSS (only as good as the probabilities entered)",
+  "fr": "C. PERTE ATTENDUE (fiable selon les probabilités saisies)"
+ },
+ {
+  "sheet": "24_CONTINGENT_LIABILITIES",
+  "en": "Expected annual loss",
+  "fr": "Perte annuelle attendue"
+ },
+ {
+  "sheet": "24_CONTINGENT_LIABILITIES",
+  "en": "Government discount factor",
+  "fr": "Facteur d'actualisation de l'État"
+ },
+ {
+  "sheet": "24_CONTINGENT_LIABILITIES",
+  "en": "Peak maximum contingent exposure",
+  "fr": "Pic de l'exposition éventuelle maximale"
+ },
+ {
+  "sheet": "24_CONTINGENT_LIABILITIES",
+  "en": "PV of expected loss (screening)",
+  "fr": "VA de la perte attendue (filtrage)"
+ },
+ {
+  "sheet": "24_CONTINGENT_LIABILITIES",
+  "en": "PV of deterministic calls in active scenario",
+  "fr": "VA des appels déterministes du scénario actif"
+ },
+ {
+  "sheet": "25_FISCAL_IMPACT",
+  "en": "25 FISCAL IMPACT — Annual government cash requirement and fiscal NPV",
+  "fr": "25 IMPACT BUDGÉTAIRE — Besoin de trésorerie annuel de l'État et VAN budgétaire"
+ },
+ {
+  "sheet": "25_FISCAL_IMPACT",
+  "en": "Negative = cost to government",
+  "fr": "Négatif = coût pour l'État"
+ },
+ {
+  "sheet": "25_FISCAL_IMPACT",
+  "en": "A. OUTFLOWS",
+  "fr": "A. DÉCAISSEMENTS"
+ },
+ {
+  "sheet": "25_FISCAL_IMPACT",
+  "en": "Direct support (22)",
+  "fr": "Soutien direct (22)"
+ },
+ {
+  "sheet": "25_FISCAL_IMPACT",
+  "en": "Guarantee calls in active scenario (24)",
+  "fr": "Appels de garantie du scénario actif (24)"
+ },
+ {
+  "sheet": "25_FISCAL_IMPACT",
+  "en": "B. INFLOWS",
+  "fr": "B. ENCAISSEMENTS"
+ },
+ {
+  "sheet": "25_FISCAL_IMPACT",
+  "en": "Corporate tax",
+  "fr": "Impôt sociétés"
+ },
+ {
+  "sheet": "25_FISCAL_IMPACT",
+  "en": "Dividends on government equity",
+  "fr": "Dividendes sur les fonds propres de l'État"
+ },
+ {
+  "sheet": "25_FISCAL_IMPACT",
+  "en": "Recoveries of guarantee calls (project and utility)",
+  "fr": "Recouvrements des appels de garantie (projet et compagnie)"
+ },
+ {
+  "sheet": "25_FISCAL_IMPACT",
+  "en": "NET FISCAL CASH FLOW (central government)",
+  "fr": "FLUX BUDGÉTAIRE NET (administration centrale)"
+ },
+ {
+  "sheet": "25_FISCAL_IMPACT",
+  "en": "Incremental cash of the state-owned utility (incl. new arrears as a cost)",
+  "fr": "Trésorerie incrémentale de la compagnie publique (y c. nouveaux arriérés en coût)"
+ },
+ {
+  "sheet": "25_FISCAL_IMPACT",
+  "en": "NET CONSOLIDATED PUBLIC-SECTOR CASH FLOW",
+  "fr": "FLUX NET CONSOLIDÉ DU SECTEUR PUBLIC"
+ },
+ {
+  "sheet": "25_FISCAL_IMPACT",
+  "en": "Cumulative net fiscal cash flow",
+  "fr": "Flux budgétaire net cumulé"
+ },
+ {
+  "sheet": "25_FISCAL_IMPACT",
+  "en": "Annual government cash requirement (outflows)",
+  "fr": "Besoin de trésorerie annuel de l'État (décaissements)"
+ },
+ {
+  "sheet": "25_FISCAL_IMPACT",
+  "en": "Annual cash requirement / government revenue",
+  "fr": "Besoin de trésorerie annuel / recettes publiques"
+ },
+ {
+  "sheet": "25_FISCAL_IMPACT",
+  "en": "FISCAL NPV @ government discount rate",
+  "fr": "VAN BUDGÉTAIRE @ taux d'actualisation de l'État"
+ },
+ {
+  "sheet": "25_FISCAL_IMPACT",
+  "en": "CONSOLIDATED FISCAL NPV (government + state utility)",
+  "fr": "VAN BUDGÉTAIRE CONSOLIDÉE (État + compagnie publique)"
+ },
+ {
+  "sheet": "25_FISCAL_IMPACT",
+  "en": "Fiscal NPV less PV of expected loss on remaining contingent exposure",
+  "fr": "VAN budgétaire moins VA de la perte attendue sur l'exposition éventuelle restante"
+ },
+ {
+  "sheet": "25_FISCAL_IMPACT",
+  "en": "Peak annual government cash requirement",
+  "fr": "Pic du besoin de trésorerie annuel de l'État"
+ },
+ {
+  "sheet": "25_FISCAL_IMPACT",
+  "en": "Peak annual requirement / government revenue",
+  "fr": "Pic du besoin annuel / recettes publiques"
+ },
+ {
+  "sheet": "25_FISCAL_IMPACT",
+  "en": "Maximum cumulative fiscal outlay",
+  "fr": "Décaissement budgétaire cumulé maximal"
+ },
+ {
+  "sheet": "25_FISCAL_IMPACT",
+  "en": "Tax forgone through holiday (nominal)",
+  "fr": "Impôt abandonné par exonération (nominal)"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "26 PROJECT-LEVEL FISCAL EXPOSURE SCREENING",
+  "fr": "26 FILTRAGE DE L'EXPOSITION BUDGÉTAIRE DU PROJET"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "NOT a debt sustainability analysis. Does not replace IMF/World Bank DSA. Fictional country data.",
+  "fr": "PAS une analyse de viabilité de la dette. Ne remplace pas l'AVD FMI/Banque mondiale. Données pays fictives."
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "A. COUNTRY INPUTS (fictional Navaria, 2026)",
+  "fr": "A. DONNÉES PAYS (Navaria fictive, 2026)"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "Nominal GDP",
+  "fr": "PIB nominal"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "USD bn",
+  "fr": "Md USD"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "Nominal USD GDP growth",
+  "fr": "Croissance du PIB nominal en USD"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "Government revenue (excl. grants)",
+  "fr": "Recettes publiques (hors dons)"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "% GDP",
+  "fr": "% PIB"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "Public debt",
+  "fr": "Dette publique"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "External / FX share of public debt",
+  "fr": "Part externe / en devises de la dette publique"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "Public debt service / revenue",
+  "fr": "Service de la dette publique / recettes"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "Overall fiscal balance",
+  "fr": "Solde budgétaire global"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "Latest published DSA risk of debt distress (1=low, 2=moderate, 3=high, 4=in distress)",
+  "fr": "Dernier risque de surendettement publié dans l'AVD (1 = faible, 2 = modéré, 3 = élevé, 4 = surendetté)"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "Take from latest IMF/WB DSA — fictional here",
+  "fr": "Tiré de la dernière AVD FMI/BM : fictif ici"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "B. SCREENING THRESHOLDS (user-editable, illustrative)",
+  "fr": "B. SEUILS DE FILTRAGE (modifiables, indicatifs)"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "Public debt / GDP benchmark",
+  "fr": "Référence dette publique / PIB"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "LIC-DSF PV total public debt benchmark 35/55/70% (weak/medium/strong) [FR-09]; nominal vs PV not adjusted",
+  "fr": "Référence LIC-DSF VA dette publique totale 35/55/70 % (faible/moyenne/forte) [FR-09] ; nominal vs VA non ajusté"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "Material increment in debt / GDP from one project",
+  "fr": "Hausse significative de la dette / PIB due à un projet"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "Screening convention — user-defined",
+  "fr": "Convention de filtrage (utilisateur)"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "Material contingent exposure",
+  "fr": "Exposition éventuelle significative"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "Material annual cash requirement",
+  "fr": "Besoin de trésorerie annuel significatif"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "% revenue",
+  "fr": "% recettes"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "C. PROJECTIONS",
+  "fr": "C. PROJECTIONS"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "Government revenue",
+  "fr": "Recettes publiques"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "On-budget project debt / GDP",
+  "fr": "Dette du projet inscrite au budget / PIB"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "Maximum contingent exposure / GDP",
+  "fr": "Exposition éventuelle maximale / PIB"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "Government cash requirement / revenue",
+  "fr": "Besoin de trésorerie de l'État / recettes"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "Cumulative fiscal outlay / GDP",
+  "fr": "Décaissement budgétaire cumulé / PIB"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "Utility arrears to the IPP / GDP",
+  "fr": "Arriérés de la compagnie envers le PIE / PIB"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "On-budget increment in the same year (direct debt + cumulative outlay + SOE arrears) / GDP",
+  "fr": "Hausse budgétaire la même année (dette directe + décaissement cumulé + arriérés EP) / PIB"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "D. SCREENING RESULT",
+  "fr": "D. RÉSULTAT DU FILTRAGE"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "Peak on-budget increment / GDP",
+  "fr": "Pic de la hausse budgétaire / PIB"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "Peak contingent exposure / GDP",
+  "fr": "Pic de l'exposition éventuelle / PIB"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "Peak cash requirement / revenue",
+  "fr": "Pic du besoin de trésorerie / recettes"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "% rev",
+  "fr": "% rec."
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "Public debt / GDP incl. peak project increment",
+  "fr": "Dette publique / PIB y c. pic de hausse due au projet"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "Thresholds breached (0-4; 4th = project pushes debt above benchmark)",
+  "fr": "Seuils dépassés (0-4 ; 4e = le projet porte la dette au-delà de la référence)"
+ },
+ {
+  "sheet": "26_DEBT_SUSTAINABILITY",
+  "en": "PROJECT-LEVEL FISCAL EXPOSURE SCREENING RESULT",
+  "fr": "RÉSULTAT DU FILTRAGE DE L'EXPOSITION BUDGÉTAIRE DU PROJET"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "27 SCENARIOS — Case table, stress parameters and effective levers",
+  "fr": "27 SCÉNARIOS — Table des cas, paramètres de stress et leviers effectifs"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Cases are mutually exclusive; stresses are additive toggles (01_CONTROL_PANEL). Snapshot table filled by tools/run_snapshots.py",
+  "fr": "Les cas s'excluent mutuellement ; les stress sont des options cumulables (01_CONTROL_PANEL). Table d'instantanés remplie par tools/run_snapshots.py"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Case parameter",
+  "fr": "Paramètre du cas"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Note",
+  "fr": "Note"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Hydrology (flow) factor",
+  "fr": "Facteur d'hydrologie (débit)"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Applies to all years",
+  "fr": "S'applique à toutes les années"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "CAPEX factor",
+  "fr": "Facteur CAPEX"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Demand growth adjustment (added to each segment)",
+  "fr": "Ajustement de croissance de la demande (ajouté à chaque segment)"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "pp",
+  "fr": "pp"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "OPEX factor",
+  "fr": "Facteur OPEX"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "STRESS PARAMETERS (applied only when the toggle is ON)",
+  "fr": "PARAMÈTRES DE STRESS (appliqués seulement si l'option est activée)"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Drought: flow factor during drought window",
+  "fr": "Sécheresse : facteur de débit pendant la période de sécheresse"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Kariba 2024 allocation cut ~47% (news) [CL-04]; calibrate to the basin's worst sequence",
+  "fr": "Kariba 2024 : allocation réduite d'env. 47 % (presse) [CL-04] ; calibrer sur la pire séquence du bassin"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Drought: first operating year affected",
+  "fr": "Sécheresse : 1re année d'exploitation touchée"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "op yr",
+  "fr": "an. expl."
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Drought: duration",
+  "fr": "Sécheresse : durée"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Multi-year droughts occurred at Kariba (see case library)",
+  "fr": "Kariba a connu des sécheresses pluriannuelles (voir la bibliothèque de cas)"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Ansar et al. 2014: median real overrun +27%, mean +96% [HY-08]",
+  "fr": "Ansar et al. 2014 : dépassement réel médian +27 %, moyen +96 % [HY-08]"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Ansar et al. 2014: mean schedule overrun 2.3 yrs, median 1.7 [HY-08]",
+  "fr": "Ansar et al. 2014 : retard moyen 2,3 ans, médian 1,7 [HY-08]"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Low demand: demand level factor",
+  "fr": "Demande faible : facteur de niveau"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Offtaker stress: fall in collection rate (from COD)",
+  "fr": "Stress acheteur : baisse du taux de recouvrement (dès la COD)"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Offtaker stress: cut in government transfers to utility (from COD)",
+  "fr": "Stress acheteur : baisse des transferts de l'État à la compagnie (dès la COD)"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Offtaker stress: retail tariff freeze from COD",
+  "fr": "Stress acheteur : gel du tarif de détail dès la COD"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Nominal freeze, then indexation resumes (level not recovered)",
+  "fr": "Gel nominal, puis reprise de l'indexation (niveau non rattrapé)"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "FX stress: one-off step devaluation (NVL per USD rises by)",
+  "fr": "Stress de change : dévaluation ponctuelle (hausse du NVL par USD)"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Step at plant COD, on top of trend; cf. recent large devaluations in SSA",
+  "fr": "Palier à la COD de la centrale, en plus de la tendance ; cf. fortes dévaluations récentes en ASS"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "High interest: add-on to commercial rate",
+  "fr": "Taux élevés : majoration du taux commercial"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "% abs",
+  "fr": "% abs."
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Concessional debt assumed fixed-rate",
+  "fr": "Dette concessionnelle supposée à taux fixe"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Climate trend on mean flows",
+  "fr": "Tendance climatique des débits moyens"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "% / decade",
+  "fr": "% / décennie"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Illustrative; must come from basin-specific climate study",
+  "fr": "Indicatif ; doit provenir d'une étude climatique propre au bassin"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "EFFECTIVE LEVERS USED BY THE ENGINE",
+  "fr": "LEVIERS EFFECTIFS UTILISÉS PAR LE MOTEUR"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Effective flow factor",
+  "fr": "Facteur de débit effectif"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Effective CAPEX factor (overrun borne by owner per contracting structure)",
+  "fr": "Facteur CAPEX effectif (dépassement porté par le maître d'ouvrage selon le montage contractuel)"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Effective construction delay",
+  "fr": "Retard de construction effectif"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Demand growth adjustment",
+  "fr": "Ajust. croissance demande"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Demand level factor",
+  "fr": "Facteur de niveau de demande"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Collection-rate adjustment",
+  "fr": "Ajustement du taux de recouvrement"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Government transfer factor",
+  "fr": "Facteur de transferts de l'État"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Retail tariff freeze",
+  "fr": "Gel du tarif de détail"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "FX trend depreciation",
+  "fr": "Dépréciation tendancielle"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "FX step devaluation at COD",
+  "fr": "Dévaluation ponctuelle à la COD"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Commercial rate add-on",
+  "fr": "Majoration du taux commercial"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Climate trend",
+  "fr": "Tendance climatique"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "%/decade",
+  "fr": "%/décennie"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Tariff factor",
+  "fr": "Facteur tarifaire"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "SCENARIOS — FULL-ENGINE SNAPSHOT (static values, generated 2026-10-04 by tools/run_snapshots.py; stresses run with the financing package LOCKED at base-case amounts and the base-case sculpted principal schedule)",
+  "fr": "SCÉNARIOS — INSTANTANÉ DU MOTEUR COMPLET (valeurs statiques, générées le 2026-10-04 par tools/run_snapshots.py ; stress calculés avec le financement FIGÉ aux montants du cas de base et l'échéancier sculpté du principal du cas de base)"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Base — debt sized in-model",
+  "fr": "Base : dette dimensionnée"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Base — debt locked",
+  "fr": "Base : dette figée"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Low case",
+  "fr": "Cas bas"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "High case",
+  "fr": "Cas haut"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Drought",
+  "fr": "Sécheresse"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "CAPEX overrun, reference-class mean (+96%)",
+  "fr": "Dépassement CAPEX, moyenne de la classe de référence (+96 %)"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Offtaker stress, no budget backstop (PPA guarantee called)",
+  "fr": "Stress acheteur, sans garantie budgétaire (garantie du CAE appelée)"
+ },
+ {
+  "sheet": "27_SCENARIOS",
+  "en": "Combined: overrun + delay + offtaker + FX",
+  "fr": "Combiné : dépassement + retard + acheteur + change"
+ },
+ {
+  "sheet": "28_SENSITIVITY",
+  "en": "28 SENSITIVITY — Live closed-form LCOE tornado + full-engine snapshot",
+  "fr": "28 SENSIBILITÉ — Tornade LCOE explicite en direct + instantané du moteur complet"
+ },
+ {
+  "sheet": "28_SENSITIVITY",
+  "en": "Live section recalculates instantly; snapshot section is generated by tools/run_snapshots.py",
+  "fr": "La section directe se recalcule instantanément ; la section instantané est générée par tools/run_snapshots.py"
+ },
+ {
+  "sheet": "28_SENSITIVITY",
+  "en": "A. LIVE LCOE TORNADO (screening: real annuity on plant CAPEX, P50, discount rate)",
+  "fr": "A. TORNADE LCOE EN DIRECT (filtrage : annuité réelle sur CAPEX centrale, P50, taux d'actualisation)"
+ },
+ {
+  "sheet": "28_SENSITIVITY",
+  "en": "Base capital (funding base + IDC)",
+  "fr": "Capital de base (base de financement + IDC)"
+ },
+ {
+  "sheet": "28_SENSITIVITY",
+  "en": "Screening LCOE — base",
+  "fr": "LCOE de filtrage : base"
+ },
+ {
+  "sheet": "28_SENSITIVITY",
+  "en": "Driver",
+  "fr": "Facteur"
+ },
+ {
+  "sheet": "28_SENSITIVITY",
+  "en": "Flex",
+  "fr": "Variation"
+ },
+ {
+  "sheet": "28_SENSITIVITY",
+  "en": "LCOE low",
+  "fr": "LCOE bas"
+ },
+ {
+  "sheet": "28_SENSITIVITY",
+  "en": "LCOE high",
+  "fr": "LCOE haut"
+ },
+ {
+  "sheet": "28_SENSITIVITY",
+  "en": "Swing",
+  "fr": "Écart"
+ },
+ {
+  "sheet": "28_SENSITIVITY",
+  "en": "CAPEX ±20%",
+  "fr": "CAPEX ±20 %"
+ },
+ {
+  "sheet": "28_SENSITIVITY",
+  "en": "Generation ±10%",
+  "fr": "Production ±10 %"
+ },
+ {
+  "sheet": "28_SENSITIVITY",
+  "en": "Discount rate ±2pp",
+  "fr": "Taux d'actualisation ±2 pp"
+ },
+ {
+  "sheet": "28_SENSITIVITY",
+  "en": "OPEX ±20%",
+  "fr": "OPEX ±20 %"
+ },
+ {
+  "sheet": "28_SENSITIVITY",
+  "en": "Delivered share (curtailment 0-15%)",
+  "fr": "Part livrée (écrêtement 0-15 %)"
+ },
+ {
+  "sheet": "28_SENSITIVITY",
+  "en": "Closed-form screening: ignores tax, financing structure and timing. Use full-engine snapshot for financing metrics.",
+  "fr": "Filtrage explicite : ignore l'impôt, la structure de financement et le calendrier. Utiliser l'instantané du moteur complet pour les indicateurs de financement."
+ },
+ {
+  "sheet": "28_SENSITIVITY",
+  "en": "SENSITIVITIES — FULL-ENGINE SNAPSHOT (static values, generated 2026-10-04 by tools/run_snapshots.py; stresses run with the financing package LOCKED at base-case amounts and the base-case sculpted principal schedule)",
+  "fr": "SENSIBILITÉS — INSTANTANÉ DU MOTEUR COMPLET (valeurs statiques, générées le 2026-10-04 par tools/run_snapshots.py ; stress calculés avec le financement FIGÉ aux montants du cas de base et l'échéancier sculpté du principal du cas de base)"
+ },
+ {
+  "sheet": "28_SENSITIVITY",
+  "en": "CAPEX -20%",
+  "fr": "CAPEX -20 %"
+ },
+ {
+  "sheet": "28_SENSITIVITY",
+  "en": "CAPEX +20%",
+  "fr": "CAPEX +20 %"
+ },
+ {
+  "sheet": "28_SENSITIVITY",
+  "en": "Generation -10%",
+  "fr": "Production -10 %"
+ },
+ {
+  "sheet": "28_SENSITIVITY",
+  "en": "Generation +10%",
+  "fr": "Production +10 %"
+ },
+ {
+  "sheet": "28_SENSITIVITY",
+  "en": "Tariff -10%",
+  "fr": "Tarif -10 %"
+ },
+ {
+  "sheet": "28_SENSITIVITY",
+  "en": "Tariff +10%",
+  "fr": "Tarif +10 %"
+ },
+ {
+  "sheet": "28_SENSITIVITY",
+  "en": "OPEX +20%",
+  "fr": "OPEX +20 %"
+ },
+ {
+  "sheet": "28_SENSITIVITY",
+  "en": "Commercial rate +200bp",
+  "fr": "Taux commercial +200 pb"
+ },
+ {
+  "sheet": "28_SENSITIVITY",
+  "en": "P90 generation in cash flows",
+  "fr": "Production P90 dans les flux"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "29 RISK ALLOCATION — Who bears each risk, and can it be contractually mitigated?",
+  "fr": "29 RÉPARTITION DES RISQUES — Qui porte chaque risque, et peut-il être atténué par contrat ?"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "P = primary bearer, S = shares risk, blank = none. Indicative allocation for the selected PPP/IPP structure (fictional).",
+  "fr": "P = porteur principal, S = risque partagé, vide = aucun. Répartition indicative pour la structure PPP/PIE choisie (fictive)."
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Risk",
+  "fr": "Risque"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Government",
+  "fr": "État"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Developer",
+  "fr": "Développeur"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "EPC",
+  "fr": "EPC"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Lender",
+  "fr": "Prêteur"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Utility",
+  "fr": "Compagnie"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Consumer",
+  "fr": "Consommateur"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Insurer",
+  "fr": "Assureur"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "DFI",
+  "fr": "IFD"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Contractually mitigable?",
+  "fr": "Atténuable par contrat ?"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Main instruments",
+  "fr": "Principaux instruments"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Model link",
+  "fr": "Lien modèle"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Hydrology",
+  "fr": "Hydrologie"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Partial",
+  "fr": "Partiellement"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Energy-only exposure via two-part tariff; DSRA; P90 sizing; hydrology reserve; parametric drought cover (where available)",
+  "fr": "Exposition limitée à l'énergie via un tarif binôme ; DSRA ; dimensionnement sur P90 ; réserve hydrologique ; couverture paramétrique sécheresse (si disponible)"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "03/04, st_drought",
+  "fr": "03/04, st_drought"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Construction (geology, quality)",
+  "fr": "Construction (géologie, qualité)"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Yes (largely)",
+  "fr": "Oui (largement)"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Fixed-price date-certain EPC, LDs, performance bonds, CAR insurance, geotechnical baseline report",
+  "fr": "EPC à prix et date fermes, pénalités, garanties de bonne exécution, assurance TRC, rapport géotechnique de référence"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Cost overrun",
+  "fr": "Surcoût"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Contingency, standby debt/equity, sponsor completion support; unforeseen geology often reverts to owner",
+  "fr": "Provisions pour aléas, dette/fonds propres de réserve, soutien d'achèvement du promoteur ; la géologie imprévue revient souvent au maître d'ouvrage"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "st_capex",
+  "fr": "st_capex"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Delay",
+  "fr": "Retard"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Delay LDs, DSU insurance, IDC contingency",
+  "fr": "Pénalités de retard, assurance perte d'exploitation anticipée (DSU), provision IDC"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "st_delay",
+  "fr": "st_delay"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Demand",
+  "fr": "Demande"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Take-or-pay / deemed energy shifts risk to utility → ultimately government/consumers",
+  "fr": "Take-or-pay / énergie réputée livrée : risque transféré à la compagnie → in fine à l'État/aux consommateurs"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "10, st_demand",
+  "fr": "10, st_demand"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Offtaker payment",
+  "fr": "Paiement de l'acheteur"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "LC/escrow, liquidity facility, sovereign guarantee, PRG, MIGA NHSFO, utility recovery plan",
+  "fr": "LC/séquestre, facilité de liquidité, garantie souveraine, PRG, MIGA NHSFO, plan de redressement de la compagnie"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "12, st_offtaker",
+  "fr": "12, st_offtaker"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Tariff / regulatory reset",
+  "fr": "Révision tarifaire / réglementaire"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Yes",
+  "fr": "Oui"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "PPA tariff fixed by contract; regulator approval of pass-through",
+  "fr": "Tarif du CAE fixé par contrat ; approbation de la répercussion par le régulateur"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "FX",
+  "fr": "Change"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "USD tariff (moves risk to utility), FX convertibility undertaking, local-currency debt tranche",
+  "fr": "Tarif en USD (risque transféré à la compagnie), engagement de convertibilité, tranche de dette en monnaie locale"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "st_fx",
+  "fr": "st_fx"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Interest rate",
+  "fr": "Taux d'intérêt"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Fixed-rate DFI loans, swaps, concessional fixed-rate tranches",
+  "fr": "Prêts d'IFD à taux fixe, swaps, tranches concessionnelles à taux fixe"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "st_rate",
+  "fr": "st_rate"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Political",
+  "fr": "Politique"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Yes (insurable)",
+  "fr": "Oui (assurable)"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "MIGA/ATI political risk insurance, PRG, stabilisation, arbitration",
+  "fr": "Assurance risque politique MIGA/ATI, PRG, stabilisation, arbitrage"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Regulatory / change in law",
+  "fr": "Réglementaire / changement de loi"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Change-in-law compensation in PPA/IA",
+  "fr": "Indemnisation changement de loi (CAE/convention)"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Transmission",
+  "fr": "Transport"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Interface agreement, deemed energy, parallel financing of line, transmission PPP",
+  "fr": "Accord d'interface, énergie réputée livrée, financement parallèle de la ligne, PPP de transport"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "08/09, st_trans",
+  "fr": "08/09, st_trans"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Grid stability / curtailment",
+  "fr": "Stabilité du réseau / écrêtement"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Grid code compliance, deemed energy, dispatch rules",
+  "fr": "Respect du code de réseau, énergie réputée livrée, règles de dispatching"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Environmental & social",
+  "fr": "Environnemental et social"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "ESIA/ESMP to lender standards, RAP budget, independent monitoring, e-flow covenants",
+  "fr": "EIES/PGES aux normes des prêteurs, budget PAR, suivi indépendant, engagements de débit réservé"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "13 (Gate 9)",
+  "fr": "13 (porte 9)"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Insurance; FM relief; extension of term",
+  "fr": "Assurance ; exonération FM ; prolongation"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Termination",
+  "fr": "Résiliation"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Yes (defines liability)",
+  "fr": "Oui (définit la responsabilité)"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Termination payment formulae; buy-out; step-in rights",
+  "fr": "Formules d'indemnité de résiliation ; rachat ; droits de substitution"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "23 x_term",
+  "fr": "23 x_term"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Risks where Government is primary bearer",
+  "fr": "Risques dont l'État est porteur principal"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Risks where Utility is primary bearer",
+  "fr": "Risques dont la compagnie est porteur principal"
+ },
+ {
+  "sheet": "29_RISK_ALLOCATION",
+  "en": "Allocation reflects a generic risk-matrix logic for discussion; actual allocation depends on negotiated contracts. Not legal advice.",
+  "fr": "Répartition selon une logique générique de matrice des risques, pour discussion ; la répartition réelle dépend des contrats négociés. Pas un avis juridique."
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "30 BANKABILITY — 9-GATE BANKABILITY SCREEN, development stage (weakest-link, auditable thresholds). The 23-gate financial close readiness test is on 30A.",
+  "fr": "30 BANCABILITÉ — FILTRE DE BANCABILITÉ À 9 PORTES, phase de développement (maillon faible, seuils vérifiables). Le test de bouclage à 23 portes est en 30A."
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "Score: 3 READY, 2 CONDITIONAL, 1 DEVELOPMENT GAP, 0 CRITICAL GAP. Gate status = weakest test. Thresholds are illustrative and editable.",
+  "fr": "Score : 3 READY, 2 CONDITIONAL, 1 DEVELOPMENT GAP, 0 CRITICAL GAP. Statut de la porte = test le plus faible. Seuils indicatifs et modifiables."
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "Gate / test",
+  "fr": "Porte / test"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "Direction",
+  "fr": "Sens"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "READY if",
+  "fr": "READY si"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "COND. if",
+  "fr": "COND. si"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "DEV. GAP if",
+  "fr": "DEV. GAP si"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "Score",
+  "fr": "Score"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "Source / logic",
+  "fr": "Source / logique"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "GATE 1 — RESOURCE",
+  "fr": "GATE 1 — RESSOURCE"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "   Reliable flow record (years)",
+  "fr": "   Série de débits fiable (ans)"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "   P90 / P50 energy ratio",
+  "fr": "   Ratio d'énergie P90 / P50"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "   Hydrology study maturity (1-3)",
+  "fr": "   Maturité de l'étude hydrologique (1-3)"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "GATE 2 — DEMAND",
+  "fr": "GATE 2 — DEMANDE"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "   Bankable / contracted demand, worst of op yrs 1-5",
+  "fr": "   Demande bancable / contractée, pire des an. expl. 1-5"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "   Project share of system peak at COD",
+  "fr": "   Part du projet dans la pointe du système à la COD"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "GATE 3 — CONFIGURATION",
+  "fr": "GATE 3 — CONFIGURATION"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "   Unit CAPEX / benchmark",
+  "fr": "   CAPEX unitaire / référence"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "   Capacity factor (P50)",
+  "fr": "   Facteur de charge (P50)"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "   Feasibility maturity (1-3)",
+  "fr": "   Maturité de la faisabilité (1-3)"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "GATE 4 — TRANSMISSION",
+  "fr": "GATE 4 — TRANSPORT"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "   Evacuation capacity at COD / installed",
+  "fr": "   Capacité d'évacuation à la COD / installée"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "   Transmission lag behind plant COD (years)",
+  "fr": "   Retard du transport sur la COD (ans)"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "   Transmission financing secured (1/0)",
+  "fr": "   Financement du transport acquis (1/0)"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "GATE 5 — OFFTAKER / UTILITY",
+  "fr": "GATE 5 — ACHETEUR / COMPAGNIE"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "   Utility payment capacity / PPA payment, worst of op yrs 1-10",
+  "fr": "   Capacité de paiement / paiement CAE, pire des an. expl. 1-10"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "   Utility collection rate",
+  "fr": "   Taux de recouvrement compagnie"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "   Payment security (months of billing)",
+  "fr": "   Garantie de paiement (mois de facturation)"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "GATE 6 — REGULATION / PPA",
+  "fr": "GATE 6 — RÉGLEMENTATION / CAE"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "   Regulatory items at CRITICAL GAP",
+  "fr": "   Éléments réglementaires en CRITICAL GAP"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "   Regulatory items at GAP",
+  "fr": "   Éléments réglementaires en GAP"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "   Fixed (capacity) share of revenue",
+  "fr": "   Part fixe (capacité) des recettes"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "GATE 7 — FINANCING",
+  "fr": "GATE 7 — FINANCEMENT"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "   Minimum DSCR, actual case",
+  "fr": "   DSCR minimum, cas réel"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "   Financing gap / total uses",
+  "fr": "   Besoin de financement / emplois totaux"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "   Private equity IRR vs target (n/a = met)",
+  "fr": "   TRI fonds propres privés vs cible (n/a = franchi)"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "GATE 8 — PUBLIC FINANCE",
+  "fr": "GATE 8 — FINANCES PUBLIQUES"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "   Peak annual government cash requirement / revenue",
+  "fr": "   Pic du besoin de trésorerie annuel de l'État / recettes"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "   Peak contingent exposure / GDP",
+  "fr": "   Pic de l'exposition éventuelle / PIB"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "   Peak on-budget increment / GDP (direct debt, outlays, SOE arrears)",
+  "fr": "   Pic de la hausse budgétaire / PIB (dette directe, décaissements, arriérés EP)"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "   Consolidated fiscal NPV (incl. state utility) / GDP",
+  "fr": "   VAN budgétaire consolidée (y c. compagnie publique) / PIB"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "   Country DSA risk rating (1-4)",
+  "fr": "   Note de risque AVD du pays (1-4)"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "GATE 9 — E&S / SUSTAINABILITY",
+  "fr": "GATE 9 — E&S / DURABILITÉ"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "   ESIA & lender-standard compliance (1-3)",
+  "fr": "   EIES et conformité aux normes des prêteurs (1-3)"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "   Resettlement plan status (1-3)",
+  "fr": "   État du plan de réinstallation (1-3)"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "   Transboundary / riparian issues (1-3)",
+  "fr": "   Enjeux transfrontaliers / riverains (1-3)"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "GATE SUMMARY & RANKING (tie-break: gate order)",
+  "fr": "SYNTHÈSE ET CLASSEMENT DES PORTES (départage : ordre des portes)"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "Gate",
+  "fr": "Porte"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "Rank key",
+  "fr": "Clé de rang"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "Action",
+  "fr": "Action"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "Lowest gate score",
+  "fr": "Score de porte le plus bas"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "Gates at CRITICAL GAP",
+  "fr": "Portes en CRITICAL GAP"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "Gates at DEVELOPMENT GAP",
+  "fr": "Portes en DEVELOPMENT GAP"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "OVERALL VERDICT",
+  "fr": "VERDICT GLOBAL"
+ },
+ {
+  "sheet": "30_BANKABILITY",
+  "en": "Methodology: each test maps a metric to a status using three explicit thresholds. A gate's status is its weakest test (no averaging, no hidden weights). Thresholds are illustrative screening values chosen by the model author; calibrate them to lender term sheets, IMF/WB guidance and the project's context.",
+  "fr": "Méthode : chaque test associe un indicateur à un statut via trois seuils explicites. Le statut d'une porte est celui de son test le plus faible (sans moyenne ni pondération cachée). Seuils de filtrage indicatifs choisis par l'auteur du modèle ; les calibrer sur les term sheets des prêteurs, les orientations FMI/BM et le contexte du projet."
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "30A FINANCIAL CLOSE READINESS — 23 gates, evidence first",
+  "fr": "30A MATURITÉ POUR LE BOUCLAGE FINANCIER — 23 portes, la preuve d'abord"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Status: MET / PARTIAL / NOT MET / NO EVIDENCE. Model tests are automatic. STOP if a critical gate is NOT MET or has NO EVIDENCE; CONDITIONAL GO if every critical gate is MET; GO only if all gates are MET. Not a recommendation.",
+  "fr": "Statut : MET / PARTIAL / NOT MET / NO EVIDENCE. Les tests du modèle sont automatiques. STOP si une porte critique est NOT MET ou en NO EVIDENCE ; CONDITIONAL GO si toutes les portes critiques sont MET ; GO seulement si toutes les portes sont MET. Pas une recommandation."
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Area",
+  "fr": "Domaine"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Critical",
+  "fr": "Critique"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Evidence status (input)",
+  "fr": "Statut de la preuve (saisie)"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Status used",
+  "fr": "Statut retenu"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Evidence / model test",
+  "fr": "Preuve / test du modèle"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Framework question",
+  "fr": "Question du cadre"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Must be accepted by",
+  "fr": "Doit être acceptée par"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Flow record of at least 15 years and independent hydrology review",
+  "fr": "Série de débits d'au moins 15 ans et revue hydrologique indépendante"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Resource",
+  "fr": "Ressource"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "model test",
+  "fr": "test du modèle"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Automatic: AND(rec_years>=15,hyd_study=3)",
+  "fr": "Automatique : AND(rec_years>=15,hyd_study=3)"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Q1 Technically viable",
+  "fr": "Q1 Techniquement viable"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Developer, lenders",
+  "fr": "Développeur, prêteurs"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "P90 energy confirmed by the lenders' technical adviser",
+  "fr": "Énergie P90 confirmée par le conseiller technique des prêteurs"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Evidence file (document reference to be entered)",
+  "fr": "Dossier de preuve (référence du document à saisir)"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Bankable feasibility study signed off by the lenders' technical adviser",
+  "fr": "Étude de faisabilité bancable validée par le conseiller technique des prêteurs"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Design",
+  "fr": "Conception"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Automatic: fs_level=3",
+  "fr": "Automatique : fs_level=3"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Geotechnical investigation sufficient for a baseline report",
+  "fr": "Reconnaissance géotechnique suffisante pour un rapport de référence"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "ESIA approved and compliant with lender standards",
+  "fr": "EIES approuvée et conforme aux normes des prêteurs"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Automatic: es_level=3",
+  "fr": "Automatique : es_level=3"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Q2 Developable",
+  "fr": "Q2 Développable"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Developer, state",
+  "fr": "Développeur, État"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Resettlement action plan approved and funded",
+  "fr": "Plan d'action de réinstallation approuvé et financé"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Automatic: rap_level>=2",
+  "fr": "Automatique : rap_level>=2"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Generation licence and water-use permit granted",
+  "fr": "Licence de production et permis d'utilisation de l'eau délivrés"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Permits",
+  "fr": "Permis"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Land rights secured for all project areas",
+  "fr": "Droits fonciers acquis sur toutes les emprises du projet"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "PPA signed and approved by the regulator",
+  "fr": "CAE signé et approuvé par le régulateur"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Revenue",
+  "fr": "Recettes"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Implementation or concession agreement signed",
+  "fr": "Convention de mise en œuvre ou de concession signée"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Transmission financed (model test); signed grid connection agreement to be evidenced",
+  "fr": "Transport financé (test du modèle) ; contrat de raccordement signé à justifier"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Grid",
+  "fr": "Réseau"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Automatic: tx_fin=1",
+  "fr": "Automatique : tx_fin=1"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Q3 Economic for the system",
+  "fr": "Q3 Économique pour le système"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "State",
+  "fr": "État"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Transmission in service no later than plant COD",
+  "fr": "Transport en service au plus tard à la COD de la centrale"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Automatic: tx_gap_yrs<=0",
+  "fr": "Automatique : tx_gap_yrs<=0"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "EPC contract(s) signed with fixed price, completion date and LDs",
+  "fr": "Contrat(s) EPC signé(s) à prix ferme, date d'achèvement et pénalités"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Construction",
+  "fr": "Construction"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Q6 Buildable on budget",
+  "fr": "Q6 Constructible dans le budget"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "O&M arrangements and owner's team in place",
+  "fr": "Dispositif O&M et équipe du maître d'ouvrage en place"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Operations",
+  "fr": "Exploitation"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Payment security of at least 6 months in place",
+  "fr": "Garantie de paiement d'au moins 6 mois en place"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Offtaker",
+  "fr": "Acheteur"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Automatic: lc_months>=6",
+  "fr": "Automatique : lc_months>=6"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Q7 Affordable for buyer and state",
+  "fr": "Q7 Abordable pour l'acheteur et l'État"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Offtaker payment capacity at least 1.2x the PPA bill (worst of first 10 years)",
+  "fr": "Capacité de paiement de l'acheteur d'au moins 1,2x la facture du CAE (pire des 10 premières années)"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Automatic: ut_ratio10>=1.2",
+  "fr": "Automatique : ut_ratio10>=1.2"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Financing plan fully committed (no financing gap)",
+  "fr": "Plan de financement entièrement engagé (aucun besoin non couvert)"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Finance",
+  "fr": "Financement"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Automatic: fin_gap<=0.5",
+  "fr": "Automatique : fin_gap<=0.5"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Q5 Bankable",
+  "fr": "Q5 Bancable"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Lenders",
+  "fr": "Prêteurs"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Minimum DSCR at or above the sizing target in the selected case",
+  "fr": "DSCR minimum au moins égal à la cible de dimensionnement dans le cas retenu"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Automatic: AND(debt_m+debt_c>0,kpi_min_dscr>=str_dscr)",
+  "fr": "Automatique : AND(debt_m+debt_c>0,kpi_min_dscr>=str_dscr)"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Equity IRR at or above target (model test); signed equity commitments to be evidenced",
+  "fr": "TRI des fonds propres au moins égal à la cible (test du modèle) ; engagements de fonds propres signés à justifier"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Automatic: IF(ISNUMBER(kpi_eirr),kpi_eirr>=str_hurdle,s_priv<=0)",
+  "fr": "Automatique : IF(ISNUMBER(kpi_eirr),kpi_eirr>=str_hurdle,s_priv<=0)"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Q4 Investable for the developer",
+  "fr": "Q4 Investissable pour le développeur"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Political risk cover or guarantees signed",
+  "fr": "Couverture du risque politique ou garanties signées"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Fiscal screen not HIGH (model test); finance ministry approval of support to be evidenced",
+  "fr": "Filtre budgétaire non HIGH (test du modèle) ; approbation du soutien par le ministère des Finances à justifier"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Public finance",
+  "fr": "Finances publiques"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Automatic: LEFT(sc_result,4)<>\"HIGH\"",
+  "fr": "Automatique : LEFT(sc_result,4)<>\"HIGH\""
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Insurance programme placed (construction all risks, DSU)",
+  "fr": "Programme d'assurances placé (tous risques chantier, DSU)"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Independent model audit completed",
+  "fr": "Audit indépendant du modèle réalisé"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Gates",
+  "fr": "Portes"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Critical gates NOT MET",
+  "fr": "Portes critiques NOT MET"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Critical gates with NO EVIDENCE",
+  "fr": "Portes critiques en NO EVIDENCE"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Critical gates PARTIAL",
+  "fr": "Portes critiques PARTIAL"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "FINANCIAL CLOSE DECISION",
+  "fr": "DÉCISION DE BOUCLAGE FINANCIER"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "A GO says the evidence file is complete for lenders and sponsors to decide. It is not an investment recommendation.",
+  "fr": "Un GO signifie que le dossier de preuve est complet pour que prêteurs et promoteurs décident. Ce n'est pas une recommandation d'investissement."
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "HYDRO READINESS FRAMEWORK: eight questions, 23 gates, one close decision",
+  "fr": "HYDRO READINESS FRAMEWORK : huit questions, 23 portes, une décision de bouclage"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Question",
+  "fr": "Question"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Met",
+  "fr": "Franch."
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Critical not met or no evidence",
+  "fr": "Critiques non franchies ou sans preuve"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Q8 Ready to close",
+  "fr": "Q8 Prêt pour le bouclage"
+ },
+ {
+  "sheet": "30A_CLOSE_READINESS",
+  "en": "Developer, lenders, state",
+  "fr": "Développeur, prêteurs, État"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "31 CASE STUDY — Fictional reference project vs public benchmark cases",
+  "fr": "31 ÉTUDE DE CAS — Projet de référence fictif vs cas publics de référence"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Benchmarks only from public sources (see research/). 'PUBLIC DATA NOT FOUND' where not verified.",
+  "fr": "Références issues uniquement de sources publiques (voir research/). « DONNÉES PUBLIQUES NON TROUVÉES » si non vérifié."
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Project",
+  "fr": "Projet"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Reported cost (as published)",
+  "fr": "Coût annoncé (tel que publié)"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Cost used (USDm, nominal)",
+  "fr": "Coût retenu (M USD, nominal)"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "USD/kW (nominal, unadjusted)",
+  "fr": "USD/kW (nominal, non ajusté)"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Overrun / delay",
+  "fr": "Dépassement / retard"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Credit support",
+  "fr": "Soutien au crédit"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Lesson (analyst inference)",
+  "fr": "Leçon (inférence de l'analyste)"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Source (research/ file & IDs)",
+  "fr": "Source (fichier research/ et ID)"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Nachtigal",
+  "fr": "Nachtigal"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Cameroon",
+  "fr": "Cameroun"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "IPP/PPP, IFC-led DFI debt",
+  "fr": "PIE/PPP, dette d'IFD menée par l'IFC"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "EUR 1,184m (~US$1,383m) per World Bank PAD",
+  "fr": "1 184 M EUR (~1 383 M USD) selon le PAD Banque mondiale"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "FC Nov 2018; 57-month build planned, COD 2023; 7th unit coupled 27 Feb 2025",
+  "fr": "BF nov. 2018 ; 57 mois de travaux prévus, COD 2023 ; 7e groupe couplé le 27 févr. 2025"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Full capacity ~2 yrs late; defects found by regulator (ARSEL) Aug 2023",
+  "fr": "Pleine puissance ~2 ans en retard ; défauts relevés par le régulateur (ARSEL) en août 2023"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "IBRD payment guarantee EUR 86m + loan guarantee EUR 171m (sovereign indemnity); MIGA up to EUR 224.8m; 76:24 debt:equity (PAD)",
+  "fr": "Garantie de paiement BIRD 86 M EUR + garantie de prêt 171 M EUR (contre-garantie souveraine) ; MIGA jusqu'à 224,8 M EUR ; dette/fonds propres 76:24 (PAD)"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Guarantees move payment risk to the sovereign via indemnities",
+  "fr": "Les garanties transfèrent le risque de paiement à l'État via les contre-garanties"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "africa_part2 S1-S5, S63-S64; source_database PF-11",
+  "fr": "africa_part2 S1-S5, S63-S64 ; source_database PF-11"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Bujagali",
+  "fr": "Bujagali"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Uganda",
+  "fr": "Ouganda"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "IPP + IDA PRG",
+  "fr": "PIE + PRG IDA"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "US$582m (2001 est.) → 799m (2007 est.) → 862m (2012, sponsor 'so far')",
+  "fr": "582 M USD (est. 2001) → 799 M (est. 2007) → 862 M (2012, promoteur « à ce jour »)"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "+48% vs cancelled 2001 design; not like-for-like (2001 scope incl. 100 km line)",
+  "fr": "+48 % vs projet 2001 annulé ; non comparable (périmètre 2001 avec ligne de 100 km)"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "IDA PRG US$115m with sovereign indemnity; MIGA US$115m; liquidity facility",
+  "fr": "PRG IDA 115 M USD avec contre-garantie souveraine ; MIGA 115 M USD ; facilité de liquidité"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Short tenor front-loaded tariff; 2018 refinancing cost the state a tax waiver",
+  "fr": "Maturité courte, tarif concentré au début ; refinancement 2018 payé par l'État via une exonération fiscale"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "africa_part2 S48-S53",
+  "fr": "africa_part2 S48-S53"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Bui",
+  "fr": "Bui"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Ghana",
+  "fr": "Ghana"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Public (BPA), China Exim, cocoa escrow",
+  "fr": "Public (BPA), China Exim, séquestre cacao"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "US$622m → 790m (2012 review)",
+  "fr": "622 M USD → 790 M (revue 2012)"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "COD Dec 2013",
+  "fr": "COD déc. 2013"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "+US$168m (+27%)",
+  "fr": "+168 M USD (+27 %)"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "China Exim tranches secured on cocoa export escrow",
+  "fr": "Tranches China Exim garanties par un séquestre sur exportations de cacao"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Commodity escrow can substitute for a weak offtaker; utility arrears persist",
+  "fr": "Un séquestre sur matières premières peut pallier un acheteur faible ; les arriérés de la compagnie persistent"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "africa_part1 S38-S43",
+  "fr": "africa_part1 S38-S43"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Kafue Gorge Lower",
+  "fr": "Kafue Gorge Lower"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Zambia",
+  "fr": "Zambie"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "State-owned, sovereign-guaranteed Chinese debt",
+  "fr": "Public, dette chinoise sous garantie souveraine"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "US$2.0bn incl. US$312m capitalised interest",
+  "fr": "2,0 Md USD y c. 312 M USD d'intérêts capitalisés"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Nov 2015 → full COD Mar 2023",
+  "fr": "Nov. 2015 → COD complète mars 2023"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "from US$1.48bn; ~3 yrs late",
+  "fr": "contre 1,48 Md USD ; ~3 ans de retard"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Sovereign guarantee; ZESCO arrears entered sovereign DSA",
+  "fr": "Garantie souveraine ; arriérés de ZESCO intégrés à l'AVD souveraine"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Utility liabilities migrate onto sovereign balance sheet",
+  "fr": "Les passifs de la compagnie migrent vers le bilan de l'État"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "africa_part1 S57-S60; source_database DB-03",
+  "fr": "africa_part1 S57-S60 ; source_database DB-03"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Isimba",
+  "fr": "Isimba"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Public, 85% China Exim / 15% GoU",
+  "fr": "Public, 85 % China Exim / 15 % GoU"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "US$567.7m",
+  "fr": "567,7 M USD"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Apr 2015 → Mar 2019",
+  "fr": "Avr. 2015 → mars 2019"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "~7 months late; ~700 defects reported",
+  "fr": "~7 mois de retard ; ~700 défauts signalés"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Sovereign borrower",
+  "fr": "Emprunteur souverain"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Fast state finance ≠ quality; owner's engineer matters",
+  "fr": "Financement public rapide ≠ qualité ; l'ingénieur du maître d'ouvrage compte"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "africa_part2 S34-S35 (defects reported 2021)",
+  "fr": "africa_part2 S34-S35 (défauts signalés en 2021)"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Karuma",
+  "fr": "Karuma"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "US$1.7bn",
+  "fr": "1,7 Md USD"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Contract 2013 (5 yrs) → COD Jun 2024",
+  "fr": "Contrat 2013 (5 ans) → COD juin 2024"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "~5-6 yrs late",
+  "fr": "~5-6 ans de retard"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Delay cost borne by state utility (capitalised interest)",
+  "fr": "Coût du retard porté par la compagnie publique (intérêts capitalisés)"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "africa_part2 S40-S42",
+  "fr": "africa_part2 S40-S42"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Julius Nyerere (Rufiji)",
+  "fr": "Julius Nyerere (Rufiji)"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Tanzania",
+  "fr": "Tanzanie"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "100% state budget",
+  "fr": "100 % budget de l'État"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "US$2.8-2.9bn (TZS 6.5-7.45tn)",
+  "fr": "2,8-2,9 Md USD (6,5-7,45 bn TZS)"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Construction 2019 → 2025/26 (42-month EPC)",
+  "fr": "Construction 2019 → 2025/26 (EPC de 42 mois)"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "~3 yrs late; estimate rose TZS 6.5 → 7.45tn",
+  "fr": "~3 ans de retard ; estimation passée de 6,5 → 7,45 bn TZS"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "None (budget-funded; 99.5% domestic revenue)",
+  "fr": "Aucun (financé par le budget ; 99,5 % recettes intérieures)"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Creates surplus over peak; depends on exports/demand growth",
+  "fr": "Crée un excédent sur la pointe ; dépend des exportations/de la croissance de la demande"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "africa_part2 S30-S32, S65",
+  "fr": "africa_part2 S30-S32, S65"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Rusumo Falls",
+  "fr": "Rusumo Falls"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Rwanda/Tanzania/Burundi",
+  "fr": "Rwanda/Tanzanie/Burundi"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Regional public, IDA-financed",
+  "fr": "Public régional, financé par l'IDA"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "US$468.9m project cost",
+  "fr": "Coût du projet 468,9 M USD"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Approval 2013 → COD Feb 2025",
+  "fr": "Approbation 2013 → COD févr. 2025"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "CP1 civil contract +47%; livelihood restoration/local development US$18m → ~38m",
+  "fr": "Lot génie civil CP1 +47 % ; rétablissement des moyens de subsistance/dév. local 18 M USD → ~38 M"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "IDA grants/credits; transmission parallel-financed AfDB/EU",
+  "fr": "Dons/crédits IDA ; transport cofinancé en parallèle BAD/UE"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Multi-country transmission & PPAs gate the revenue",
+  "fr": "Le transport et les CAE multipays conditionnent les recettes"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "africa_part2 S16-S18",
+  "fr": "africa_part2 S16-S18"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Mpatamanga",
+  "fr": "Mpatamanga"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Malawi",
+  "fr": "Malawi"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "PPP, storage + peaking",
+  "fr": "PPP, retenue + pointe"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "US$1.5-1.64bn (estimate)",
+  "fr": "1,5-1,64 Md USD (estimation)"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Pre-construction; 5-yr build in 35-yr PPA",
+  "fr": "Avant construction ; 5 ans de travaux dans un CAE de 35 ans"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Estimate grew from ~US$1bn (ENR, Sep 2022)",
+  "fr": "Estimation partie d'environ 1 Md USD (ENR, sept. 2022)"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "IDA PRG US$100m; MIGA US$180m; IDA grant US$350m to govt",
+  "fr": "PRG IDA 100 M USD ; MIGA 180 M USD ; don IDA de 350 M USD à l'État"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Heavy concessional layering to make tariff affordable",
+  "fr": "Fort empilement concessionnel pour rendre le tarif abordable"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "africa_part2 S26-S29",
+  "fr": "africa_part2 S26-S29"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Ruzizi III",
+  "fr": "Ruzizi III"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "DRC/Rwanda/Burundi",
+  "fr": "RDC/Rwanda/Burundi"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Regional PPP (stalled)",
+  "fr": "PPP régional (bloqué)"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "US$760m (2025; EUR 728m for 147 MW design in 2020)",
+  "fr": "760 M USD (2025 ; 728 M EUR pour la conception à 147 MW en 2020)"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Target 2030 before conflict pause",
+  "fr": "Cible 2030 avant la pause due au conflit"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "In preparation since at least 2009; no financial close",
+  "fr": "En préparation depuis au moins 2009 ; pas de bouclage financier"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "IFIs ~60% expected; EIB lead arranger",
+  "fr": "IFI ~60 % prévus ; BEI arrangeur principal"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Multi-state & conflict risk prevents close",
+  "fr": "Le risque multi-États et de conflit empêche le bouclage"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "africa_part2 S20-S25",
+  "fr": "africa_part2 S20-S25"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "GERD",
+  "fr": "GERD"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Ethiopia",
+  "fr": "Éthiopie"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "State, domestically financed",
+  "fr": "Public, financement intérieur"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "≈US$5bn (budget US$4.8bn)",
+  "fr": "≈5 Md USD (budget 4,8 Md USD)"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "2011 → inauguration Sep 2025",
+  "fr": "2011 → inauguration sept. 2025"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "~14-yr build",
+  "fr": "~14 ans de travaux"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "91% domestic (bonds, payroll, public); China Exim ~US$1bn for E&M; no MDB finance",
+  "fr": "91 % intérieur (obligations, retenues sur salaires, public) ; China Exim ~1 Md USD pour l'électromécanique ; aucun financement BMD"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Transboundary disputes; low cost/kW but very long build",
+  "fr": "Différends transfrontaliers ; coût/kW bas mais travaux très longs"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "africa_part1 S1-S6",
+  "fr": "africa_part1 S1-S6"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Gibe III",
+  "fr": "Gibe III"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "State, ICBC-financed EPC",
+  "fr": "Public, EPC financé par ICBC"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "EUR 1.47-1.55bn",
+  "fr": "1,47-1,55 Md EUR"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Inaugurated Dec 2016",
+  "fr": "Inauguré en déc. 2016"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "PUBLIC DATA NOT FOUND",
+  "fr": "DONNÉES PUBLIQUES NON TROUVÉES"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "ICBC loan after MDBs withdrew",
+  "fr": "Prêt ICBC après le retrait des BMD"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Procurement governance drives lender eligibility",
+  "fr": "La gouvernance de la passation détermine l'éligibilité aux prêteurs"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "africa_part1 S53-S55",
+  "fr": "africa_part1 S53-S55"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Nam Theun 2 (intl.)",
+  "fr": "Nam Theun 2 (intl.)"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Lao PDR",
+  "fr": "RDP lao"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Export IPP, MDB-guaranteed",
+  "fr": "PIE d'export, garanti par des BMD"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "US$1.25bn base + US$200m contingency",
+  "fr": "1,25 Md USD de base + 200 M USD de provisions"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "FC Jun 2005 → commissioned Apr 2010",
+  "fr": "BF juin 2005 → mise en service avr. 2010"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Turnkey price-capped EPC; overrun PUBLIC DATA NOT FOUND",
+  "fr": "EPC clés en main à prix plafonné ; dépassement DONNÉES PUBLIQUES NON TROUVÉES"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "IDA & ADB PRGs, MIGA (~US$186m debt covered); EGAT take-or-pay PPA",
+  "fr": "PRG IDA et BAsD, MIGA (~186 M USD de dette couverts) ; CAE take-or-pay EGAT"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Creditworthy export offtaker, not the local utility, underpinned bankability",
+  "fr": "Un acheteur export solvable, et non la compagnie locale, a fondé la bancabilité"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "international_benchmarks S9-S13, S24",
+  "fr": "international_benchmarks S9-S13, S24"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Upper Trishuli-1 (intl.)",
+  "fr": "Upper Trishuli-1 (intl.)"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Nepal",
+  "fr": "Népal"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "DFI-led domestic IPP",
+  "fr": "PIE national mené par des IFD"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "US$647.4m",
+  "fr": "647,4 M USD"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Completion slipped 2024 → Dec 2026 (scheduled)",
+  "fr": "Achèvement repoussé de 2024 → déc. 2026 (prévu)"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "~2 yrs",
+  "fr": "~2 ans"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "DFI debt ~70%",
+  "fr": "Dette d'IFD ~70 %"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Domestic-utility IPP needs layered DFI risk cover",
+  "fr": "Un PIE vendant à la compagnie nationale exige un empilement de couvertures d'IFD"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "international_benchmarks S15-S19",
+  "fr": "international_benchmarks S15-S19"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Reventazón (intl.)",
+  "fr": "Reventazón (intl.)"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Costa Rica",
+  "fr": "Costa Rica"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Utility trust & lease, project bond",
+  "fr": "Fiducie et bail compagnie, obligation"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "US$1.4bn",
+  "fr": "1,4 Md USD"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "FC Jan 2014 → inaugurated Sep 2016 (search summary)",
+  "fr": "BF janv. 2014 → inauguration sept. 2016 (résumé de recherche)"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Post-COD spillway repairs ~US$15m",
+  "fr": "Réparation évacuateur post-COD ~15 M USD"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Trust owns plant, leased to ICE; IDB A-loan, IFC, IG-rated bond, local-currency bank debt",
+  "fr": "La fiducie détient la centrale, louée à l'ICE ; prêt A BID, IFC, obligation notée IG, dette bancaire en monnaie locale"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Off-balance-sheet form, but risk remains with the state utility",
+  "fr": "Montage hors bilan, mais le risque reste à la compagnie publique"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "international_benchmarks S20-S23",
+  "fr": "international_benchmarks S20-S23"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Kasiri River Hydro (FICTIONAL reference)",
+  "fr": "Kasiri River Hydro (référence FICTIVE)"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Navaria (fictional)",
+  "fr": "Navaria (fictive)"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Model: plant CAPEX nominal",
+  "fr": "Modèle : CAPEX nominal de la centrale"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Median USD/kW of benchmark cases with USD cost (nominal, unadjusted)",
+  "fr": "USD/kW médian des cas de référence chiffrés en USD (nominal, non ajusté)"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Kasiri River Hydro / median",
+  "fr": "Kasiri River Hydro / médiane"
+ },
+ {
+  "sheet": "31_CASE_STUDY",
+  "en": "Costs are as published, in nominal currency of the year reported, with different scopes (some include IDC, transmission, resettlement). Unit costs are NOT price- or scope-adjusted and are indicative only. Full field-by-field case files (A-AD) incl. 'PUBLIC DATA NOT FOUND' entries are in research/case_studies/. EUR costs not converted (n/a).",
+  "fr": "Coûts tels que publiés, en monnaie nominale de l'année indiquée, sur des périmètres différents (certains incluent IDC, transport, réinstallation). Les coûts unitaires ne sont PAS ajustés des prix ni du périmètre et restent indicatifs. Fiches de cas complètes champ par champ (A-AD), y c. les mentions « DONNÉES PUBLIQUES NON TROUVÉES », dans research/case_studies/. Coûts en EUR non convertis (n/a)."
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "32 DASHBOARD — Can this project deliver bankable power without unsustainable public liabilities?",
+  "fr": "32 TABLEAU DE BORD — Ce projet peut-il fournir une électricité bancable sans passifs publics insoutenables ?"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "PROJECT STATUS",
+  "fr": "ÉTAT DU PROJET"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "FINANCIAL",
+  "fr": "FINANCIER"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "DEVELOPER",
+  "fr": "DÉVELOPPEUR"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Installed capacity (MW)",
+  "fr": "Puissance installée (MW)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Development budget (USDm, real)",
+  "fr": "Budget de développement (M USD, réel)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "P50 generation (GWh/yr)",
+  "fr": "Production P50 (GWh/an)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Development period (years)",
+  "fr": "Durée de développement (ans)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Capacity factor (P50)",
+  "fr": "Facteur de charge (P50)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Project NPV (USDm)",
+  "fr": "VAN du projet (M USD)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Probability of reaching close",
+  "fr": "Probabilité d'atteindre le bouclage"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Plant CAPEX real 2026 (USDm)",
+  "fr": "CAPEX centrale réel 2026 (M USD)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Minimum DSCR",
+  "fr": "DSCR minimum"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Risk-weighted developer NPV (USDm)",
+  "fr": "VAN développeur pondérée risque (M USD)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Unit CAPEX (USD/kW, base)",
+  "fr": "CAPEX unitaire (USD/kW, base)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Average DSCR",
+  "fr": "DSCR moyen"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Developer IRR, success path",
+  "fr": "TRI développeur, scénario de succès"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "COD",
+  "fr": "COD"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Developer cash multiple",
+  "fr": "Multiple tréso. développeur"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Blended PPA tariff, op yr 2 (USD/MWh)",
+  "fr": "Tarif CAE moyen pondéré, an. 2 (USD/MWh)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Senior debt capacity (USDm)",
+  "fr": "Capacité de dette senior (M USD)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Break-even development premium (% CAPEX)",
+  "fr": "Prime de dév. au point mort (% CAPEX)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "LCOE plant (USD/MWh)",
+  "fr": "LCOE centrale (USD/MWh)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Senior debt raised (USDm)",
+  "fr": "Dette senior levée (M USD)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Equity step-up close to COD (USDm)",
+  "fr": "Revalorisation bouclage-COD (M USD)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "LCOE delivered system (USD/MWh)",
+  "fr": "LCOE système livré (USD/MWh)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Financing gap (USDm)",
+  "fr": "Besoin de financement (M USD)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "POWER SYSTEM",
+  "fr": "SYSTÈME ÉLECTRIQUE"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "UTILITY",
+  "fr": "COMPAGNIE"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "23-GATE FINANCIAL CLOSE READINESS (transaction stage)",
+  "fr": "MATURITÉ POUR LE BOUCLAGE À 23 PORTES (phase de transaction)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Transmission readiness gap (years)",
+  "fr": "Retard de préparation du transport (ans)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Utility EBITDA op yr 2 (USDm)",
+  "fr": "EBITDA compagnie an. 2 (M USD)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Evacuation capacity at COD (MW)",
+  "fr": "Capacité d'évacuation à la COD (MW)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Project share of system peak at COD",
+  "fr": "Part du projet dans la pointe à la COD"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Receivable days op yr 2",
+  "fr": "Jours de créances an. 2"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Bankable/contracted demand (worst yr 1-5)",
+  "fr": "Demande bancable/contractée (pire an. 1-5)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Payment capacity / PPA (worst yr 1-10)",
+  "fr": "Capacité de paiement / CAE (pire an. 1-10)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Lifetime curtailment (GWh)",
+  "fr": "Écrêtement sur la durée de vie (GWh)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Lifetime offtaker payment gap (USDm)",
+  "fr": "Écart de paiement acheteur, durée de vie (M USD)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Deemed energy paid (GWh)",
+  "fr": "Énergie réputée livrée payée (GWh)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Unpaid arrears to IPP (USDm)",
+  "fr": "Arriérés impayés au PIE (M USD)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "PUBLIC FINANCE",
+  "fr": "FINANCES PUBLIQUES"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "9-GATE BANKABILITY SCREEN (development stage)",
+  "fr": "FILTRE DE BANCABILITÉ À 9 PORTES (phase de développement)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Government upfront contribution (USDm)",
+  "fr": "Apport initial de l'État (M USD)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Decision",
+  "fr": "Décision"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Peak contingent exposure (USDm)",
+  "fr": "Pic de l'exposition éventuelle (M USD)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "PV expected loss (USDm, user probs)",
+  "fr": "VA perte attendue (M USD, prob. utilisateur)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Fiscal NPV, central government (USDm)",
+  "fr": "VAN budgétaire, adm. centrale (M USD)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Consolidated fiscal NPV incl. utility (USDm)",
+  "fr": "VAN budgétaire consolidée y c. compagnie (M USD)"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Peak annual cash need / revenue",
+  "fr": "Pic du besoin annuel / recettes"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "Screening result",
+  "fr": "Résultat du filtrage"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "TOP 5 BANKABILITY GAPS",
+  "fr": "5 LACUNES DE BANCABILITÉ"
+ },
+ {
+  "sheet": "32_DASHBOARD",
+  "en": "TOP 5 ACTIONS BEFORE FINANCIAL CLOSE",
+  "fr": "5 PRINCIPALES ACTIONS AVANT LE BOUCLAGE FINANCIER"
+ },
+ {
+  "sheet": "33_CHECKS",
+  "en": "33 CHECKS — Model integrity",
+  "fr": "33 CONTRÔLES — Intégrité du modèle"
+ },
+ {
+  "sheet": "33_CHECKS",
+  "en": "All checks should read OK",
+  "fr": "Tous les contrôles doivent être OK"
+ },
+ {
+  "sheet": "33_CHECKS",
+  "en": "Sources = uses",
+  "fr": "Ressources = emplois"
+ },
+ {
+  "sheet": "33_CHECKS",
+  "en": "Construction funding balances every year",
+  "fr": "Financement de la construction équilibré chaque année"
+ },
+ {
+  "sheet": "33_CHECKS",
+  "en": "CAPEX phasing sums to 100%",
+  "fr": "Phasage du CAPEX totalisant 100 %"
+ },
+ {
+  "sheet": "33_CHECKS",
+  "en": "Concessional debt fully repaid by end of term",
+  "fr": "Dette concessionnelle remboursée en fin de durée"
+ },
+ {
+  "sheet": "33_CHECKS",
+  "en": "Commercial debt fully repaid by end of term",
+  "fr": "Dette commerciale remboursée en fin de durée"
+ },
+ {
+  "sheet": "33_CHECKS",
+  "en": "Concessional repayment within concession",
+  "fr": "Remboursement concessionnel dans la concession"
+ },
+ {
+  "sheet": "33_CHECKS",
+  "en": "Commercial tenor within concession",
+  "fr": "Maturité commerciale dans la concession"
+ },
+ {
+  "sheet": "33_CHECKS",
+  "en": "Timeline fits model horizon",
+  "fr": "Calendrier dans l'horizon du modèle"
+ },
+ {
+  "sheet": "33_CHECKS",
+  "en": "Energy chain: delivered ≤ generation",
+  "fr": "Chaîne énergétique : livrée ≤ production"
+ },
+ {
+  "sheet": "33_CHECKS",
+  "en": "Unpaid amounts non-negative",
+  "fr": "Montants impayés non négatifs"
+ },
+ {
+  "sheet": "33_CHECKS",
+  "en": "Commercial debt: no forced balloon in final year",
+  "fr": "Dette commerciale : pas de remboursement in fine forcé la dernière année"
+ },
+ {
+  "sheet": "33_CHECKS",
+  "en": "DSRA balance never negative",
+  "fr": "Solde du DSRA jamais négatif"
+ },
+ {
+  "sheet": "33_CHECKS",
+  "en": "Project-funded transmission fully funded (construction + CFADS)",
+  "fr": "Transport financé par le projet entièrement couvert (construction + CFADS)"
+ },
+ {
+  "sheet": "33_CHECKS",
+  "en": "Structure check",
+  "fr": "Contrôle de structure"
+ },
+ {
+  "sheet": "33_CHECKS",
+  "en": "ALL CHECKS",
+  "fr": "TOUS CONTRÔLES"
+ },
+ {
+  "sheet": "34_FRAMEWORK_MAP",
+  "en": "34 FRAMEWORK MAP — Book 7 (Hydro Readiness Framework) to MODEL 7",
+  "fr": "34 CARTE DU CADRE — Livre 7 (Hydro Readiness Framework) vers MODEL 7"
+ },
+ {
+  "sheet": "34_FRAMEWORK_MAP",
+  "en": "Each of the 23 financial close gates, its framework question, who must accept it, where the model tests it, and the book chapters. Status is live from 30A.",
+  "fr": "Pour chacune des 23 portes du bouclage financier : sa question du cadre, qui doit l'accepter, où le modèle la teste et les chapitres du livre. Statut en direct depuis 30A."
+ },
+ {
+  "sheet": "34_FRAMEWORK_MAP",
+  "en": "Model sheet(s)",
+  "fr": "Feuille(s) du modèle"
+ },
+ {
+  "sheet": "34_FRAMEWORK_MAP",
+  "en": "Metric or evidence",
+  "fr": "Indicateur ou preuve"
+ },
+ {
+  "sheet": "34_FRAMEWORK_MAP",
+  "en": "Type",
+  "fr": "Type"
+ },
+ {
+  "sheet": "34_FRAMEWORK_MAP",
+  "en": "Status (live)",
+  "fr": "Statut (direct)"
+ },
+ {
+  "sheet": "34_FRAMEWORK_MAP",
+  "en": "Book chapters",
+  "fr": "Chapitres du livre"
+ },
+ {
+  "sheet": "34_FRAMEWORK_MAP",
+  "en": "AND(rec_years>=15,hyd_study=3)",
+  "fr": "AND(rec_years>=15,hyd_study=3)"
+ },
+ {
+  "sheet": "34_FRAMEWORK_MAP",
+  "en": "Automatic",
+  "fr": "Automatique"
+ },
+ {
+  "sheet": "34_FRAMEWORK_MAP",
+  "en": "2, 3, 9, Annexes N to P",
+  "fr": "2, 3, 9, annexes N à P"
+ },
+ {
+  "sheet": "34_FRAMEWORK_MAP",
+  "en": "Evidence file: document, signatory and date",
+  "fr": "Dossier de preuve : document, signataire et date"
+ },
+ {
+  "sheet": "34_FRAMEWORK_MAP",
+  "en": "Evidence",
+  "fr": "Preuve"
+ },
+ {
+  "sheet": "34_FRAMEWORK_MAP",
+  "en": "fs_level=3",
+  "fr": "fs_level=3"
+ },
+ {
+  "sheet": "34_FRAMEWORK_MAP",
+  "en": "es_level=3",
+  "fr": "es_level=3"
+ },
+ {
+  "sheet": "34_FRAMEWORK_MAP",
+  "en": "5, 7, 8, Annex R",
+  "fr": "5, 7, 8, annexe R"
+ },
+ {
+  "sheet": "34_FRAMEWORK_MAP",
+  "en": "rap_level>=2",
+  "fr": "rap_level>=2"
+ },
+ {
+  "sheet": "34_FRAMEWORK_MAP",
+  "en": "tx_fin=1",
+  "fr": "tx_fin=1"
+ },
+ {
+  "sheet": "34_FRAMEWORK_MAP",
+  "en": "No",
+  "fr": "Non"
+ },
+ {
+  "sheet": "34_FRAMEWORK_MAP",
+  "en": "tx_gap_yrs<=0",
+  "fr": "tx_gap_yrs<=0"
+ },
+ {
+  "sheet": "34_FRAMEWORK_MAP",
+  "en": "9, 10, Annexes O and Q",
+  "fr": "9, 10, annexes O et Q"
+ },
+ {
+  "sheet": "34_FRAMEWORK_MAP",
+  "en": "lc_months>=6",
+  "fr": "lc_months>=6"
+ },
+ {
+  "sheet": "34_FRAMEWORK_MAP",
+  "en": "ut_ratio10>=1.2",
+  "fr": "ut_ratio10>=1.2"
+ },
+ {
+  "sheet": "34_FRAMEWORK_MAP",
+  "en": "fin_gap<=0.5",
+  "fr": "fin_gap<=0.5"
+ },
+ {
+  "sheet": "34_FRAMEWORK_MAP",
+  "en": "17_PROJECT_FINANCE, 17A_STRUCTURES",
+  "fr": "17_PROJECT_FINANCE, 17A_STRUCTURES"
+ },
+ {
+  "sheet": "34_FRAMEWORK_MAP",
+  "en": "AND(debt_m+debt_c>0,kpi_min_dscr>=str_dscr)",
+  "fr": "AND(debt_m+debt_c>0,kpi_min_dscr>=str_dscr)"
+ },
+ {
+  "sheet": "34_FRAMEWORK_MAP",
+  "en": "IF(ISNUMBER(kpi_eirr),kpi_eirr>=str_hurdle,s_priv<=0)",
+  "fr": "IF(ISNUMBER(kpi_eirr),kpi_eirr>=str_hurdle,s_priv<=0)"
+ },
+ {
+  "sheet": "34_FRAMEWORK_MAP",
+  "en": "LEFT(sc_result,4)<>\"HIGH\"",
+  "fr": "LEFT(sc_result,4)<>\"HIGH\""
+ },
+ {
+  "sheet": "34_FRAMEWORK_MAP",
+  "en": "THE 9-GATE SCREEN (30_BANKABILITY) AND THE FRAMEWORK QUESTIONS",
+  "fr": "LE FILTRE À 9 PORTES (30_BANKABILITY) ET LES QUESTIONS DU CADRE"
+ },
+ {
+  "sheet": "34_FRAMEWORK_MAP",
+  "en": "Screen gate",
+  "fr": "Porte du filtre"
+ },
+ {
+  "sheet": "34_FRAMEWORK_MAP",
+  "en": "Main framework question",
+  "fr": "Question principale du cadre"
+ },
+ {
+  "sheet": "34_FRAMEWORK_MAP",
+  "en": "Use the 9-gate screen during development to decide whether to keep spending; use the 23 gates at the transaction stage to decide whether the evidence file supports financial close.",
+  "fr": "Utiliser le filtre à 9 portes en développement pour décider de poursuivre les dépenses ; utiliser les 23 portes en phase de transaction pour décider si le dossier de preuve permet le bouclage financier."
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "35 BOOK CHECK — MODEL 7 against the Kasiri figures printed in Book 7",
+  "fr": "35 CONTRÔLE LIVRE — MODEL 7 face aux chiffres Kasiri imprimés dans le livre 7"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "Valid only with the default inputs (base case, IPP structure, debt sized in the model). PASS means the live value rounds to the printed figure.",
+  "fr": "Valable seulement avec les données par défaut (cas de base, structure PIE, dette dimensionnée dans le modèle). PASS signifie que la valeur en direct arrondie égale le chiffre imprimé."
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "Figure",
+  "fr": "Chiffre"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "Printed in Book 7",
+  "fr": "Imprimé dans le livre 7"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "Model (live)",
+  "fr": "Modèle (direct)"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "Tolerance",
+  "fr": "Tolérance"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "Result",
+  "fr": "Résultat"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "Where in the book",
+  "fr": "Emplacement dans le livre"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "Chapter 18, Table 18.1",
+  "fr": "Chapitre 18, tableau 18.1"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "P50 generation (GWh)",
+  "fr": "Production P50 (GWh)"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "Chapters 2, 18",
+  "fr": "Chapitres 2, 18"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "Capacity factor",
+  "fr": "Facteur de charge"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "Chapters 3, 18; Table P.2",
+  "fr": "Chapitres 3, 18 ; tableau P.2"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "P90 one-year (GWh)",
+  "fr": "P90 à un an (GWh)"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "Chapters 2, 18; Annex N",
+  "fr": "Chapitres 2, 18 ; annexe N"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "P90 ten-year (GWh)",
+  "fr": "P90 à dix ans (GWh)"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "Plant cost, real 2026 (USDm)",
+  "fr": "Coût de la centrale, réel 2026 (M USD)"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "Unit plant cost (USD/kW)",
+  "fr": "Coût unitaire centrale (USD/kW)"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "Chapters 3, 18",
+  "fr": "Chapitres 3, 18"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "Total uses (USDm)",
+  "fr": "Emplois totaux (M USD)"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "Chapters 1, 12, 18",
+  "fr": "Chapitres 1, 12, 18"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "Senior debt (USDm)",
+  "fr": "Dette senior (M USD)"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "Chapters 12, 18",
+  "fr": "Chapitres 12, 18"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "Gearing on total uses",
+  "fr": "Gearing sur emplois totaux"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "LCOE (USD/MWh)",
+  "fr": "LCOE (USD/MWh)"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "Chapter 18",
+  "fr": "Chapitre 18"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "Minimum DSCR, P50",
+  "fr": "DSCR minimum, P50"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "LLCR at COD",
+  "fr": "LLCR à la COD"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "Chapters 1, 14, 18",
+  "fr": "Chapitres 1, 14, 18"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "Probability of close from reconnaissance",
+  "fr": "Probabilité de bouclage dès la reconnaissance"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "Chapters 1, 5, 14",
+  "fr": "Chapitres 1, 5, 14"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "Value of the position at permitting (USDm)",
+  "fr": "Valeur de la position au stade des permis (M USD)"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "Chapters 6, 14, 18",
+  "fr": "Chapitres 6, 14, 18"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "Chapters 15, 18",
+  "fr": "Chapitres 15, 18"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "Consolidated fiscal NPV (USDm)",
+  "fr": "VAN budgétaire consolidée (M USD)"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "Buyer payment capacity, worst early year (x)",
+  "fr": "Capacité de paiement acheteur, pire 1re année (x)"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "Gates met (of 23)",
+  "fr": "Portes franchies (sur 23)"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "Chapters 17, 18",
+  "fr": "Chapitres 17, 18"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "BOOK CONSISTENCY",
+  "fr": "COHÉRENCE AVEC LE LIVRE"
+ },
+ {
+  "sheet": "35_BOOK_CHECK",
+  "en": "A CHECK after changing inputs is expected: the printed figures belong to the default Kasiri case. With default inputs, every line should read PASS.",
+  "fr": "Un CHECK après modification des données est normal : les chiffres imprimés correspondent au cas Kasiri par défaut. Avec les données par défaut, chaque ligne doit afficher PASS."
+ }
+]

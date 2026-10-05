@@ -46,12 +46,13 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools" / "house"))
 import publish_docs as pd  # noqa: E402
 
-BOOK = ROOT / "book7" / "build"
+FR = os.environ.get("BOOK_LANG") == "fr"  # French edition: book7/build_fr, French front matter and running heads
+BOOK = ROOT / "book7" / ("build_fr" if FR else "build")
 SRC = BOOK / "book7_resolved.md"
 FIG_PRINT = BOOK / "figures_print"
 # BOOK_TRIM=6x9 builds the 6 x 9 in edition (default 7x10); both meet the KDP minimum margins
 TRIM_TAG = os.environ.get("BOOK_TRIM", "7x10")
-OUT = BOOK / f"Hydropower_Development_and_Finance_{TRIM_TAG}.pdf"
+OUT = BOOK / (f"Developpement_et_financement_hydroelectricite_{TRIM_TAG}.pdf" if FR else f"Hydropower_Development_and_Finance_{TRIM_TAG}.pdf")
 
 # ---- page geometry (inches). KDP minimums for a paperback without bleed: outside, top and bottom at least 0.25 in;
 # inside (gutter) 0.375 in for 24 to 150 pages, 0.5 in for 151 to 300, 0.625 in for 301 to 500, 0.75 in for 501 to 700,
@@ -79,6 +80,29 @@ PARTIES = "Developer \u00b7 Lender \u00b7 Government"
 EDITION = "First edition, version 1.0 release candidate 1 (pre-publication; print proof)"
 ISBN_LINE = "ISBN-13: 979-8178961780 (paperback)"
 IMPRINT = "Independently published"  # KDP-assigned ISBN; the imprint must read exactly as registered with KDP text
+L = {"contents": "Contents", "rights": "All rights reserved", "book": "BOOK 7"}
+LANG_ATTR = "fr" if FR else "en"
+if FR:
+    TITLE = "Développement et financement de l'hydroélectricité"
+    SUBTITLE = "De la rivière au bouclage financier : un cadre pour les développeurs, les prêteurs et les États, appliqué aux projets hydroélectriques en Afrique"
+    TAGLINE = "Le Hydro Readiness Framework\u2122 : 8 questions \u00b7 23 portes \u00b7 1 décision de bouclage financier"
+    PARTIES = "Développeur \u00b7 Prêteur \u00b7 État"
+    EDITION = "Première édition française, version 1.0 (release candidate 1). Traduite de l'édition anglaise, Hydropower Development and Finance (ISBN 979-8178961780)."
+    ISBN_LINE = "ISBN de l'édition française : à attribuer avant toute impression"
+    IMPRINT = "Publié à compte d'auteur"
+    L = {"contents": "Sommaire", "rights": "Tous droits réservés", "book": "LIVRE 7"}
+
+RIGHTS_EN = """<p>&copy; {y} {a}. All rights reserved. No part of this publication may be reproduced, stored or transmitted
+  in any form without the prior written permission of the author, except for short quotations in reviews and scholarly work.</p>
+  <p>Decision support material; not investment, legal, tax or accounting advice. The default model inputs and the Kasiri
+  River Hydro case are fictional and illustrative. Hydro Readiness Framework is used as a trademark of the author; registration
+  status to be confirmed before publication.</p>"""
+RIGHTS_FR = """<p>&copy; {y} {a}. Tous droits réservés. Aucune partie de cette publication ne peut être reproduite, stockée ou transmise
+  sous quelque forme que ce soit sans l'autorisation écrite préalable de l'auteur, sauf de courtes citations dans des comptes rendus
+  et des travaux universitaires.</p>
+  <p>Outil d'aide à la décision ; ne constitue pas un conseil en investissement, ni un conseil juridique, fiscal ou comptable. Les
+  données par défaut du modèle et le cas Kasiri River Hydro sont fictifs et illustratifs. Hydro Readiness Framework est utilisé
+  comme marque de l'auteur ; son statut d'enregistrement reste à confirmer avant publication.</p>"""
 
 CSS = f"""
 @page {{ size: {TRIM_W}in {TRIM_H}in; margin: {TOP}in {SIDE}in {BOTTOM}in {SIDE}in; }}
@@ -106,7 +130,7 @@ blockquote {{ background: {SHADE2}; border-left: 3pt solid {RULE}; margin: 8pt 0
 img {{ display: block; margin: 8pt auto 4pt auto; max-width: 100%; }}
 figure {{ margin: 6pt 0 10pt 0; break-inside: avoid; page-break-inside: avoid; }}
 figcaption {{ font-size: 8.4pt; line-height: 1.35; color: {INK}; text-align: left; margin-top: 3pt; }}
-.mk {{ font-size: 1pt; color: white; }}
+.mk {{ position: absolute; font-size: 1pt; color: white; }}  /* out of the flow: a marker must never make a heading wrap */
 .titlepage {{ height: {TRIM_H - TOP - BOTTOM - 0.3}in; position: relative; break-after: page; page-break-after: always; text-align: left; }}
 .titlepage .logo {{ width: 2.3in; }}
 .titlepage .brand {{ letter-spacing: 2pt; font-weight: bold; font-size: 10pt; margin-top: 0.9in; color: {GREY}; }}
@@ -183,7 +207,7 @@ def build_html(md_text, pages=None, markers=False):
 <div class="titlepage">
   <img class="logo" src="data:image/png;base64,{_grey_logo()}">
   <div class="brand">AFRICA ENERGY FINANCE</div>
-  <div class="kicker">BOOK 7</div>
+  <div class="kicker">{L['book']}</div>
   <div class="title">{htmlmod.escape(TITLE)}</div>
   <div class="subtitle">{htmlmod.escape(SUBTITLE)}</div>
   <div class="tagline">{htmlmod.escape(TAGLINE)}</div>
@@ -194,17 +218,13 @@ def build_html(md_text, pages=None, markers=False):
 <div class="copyright"><div class="block">
   <p><b>{htmlmod.escape(TITLE)}</b><br>{htmlmod.escape(SUBTITLE)}</p>
   <p>{htmlmod.escape(EDITION)}</p>
-  <p>&copy; {year} {pd.AUTHOR}. All rights reserved. No part of this publication may be reproduced, stored or transmitted
-  in any form without the prior written permission of the author, except for short quotations in reviews and scholarly work.</p>
-  <p>Decision support material; not investment, legal, tax or accounting advice. The default model inputs and the Kasiri
-  River Hydro case are fictional and illustrative. Hydro Readiness Framework is used as a trademark of the author; registration
-  status to be confirmed before publication.</p>
+  {RIGHTS_FR.format(y=year, a=pd.AUTHOR) if FR else RIGHTS_EN.format(y=year, a=pd.AUTHOR)}
   <p>{htmlmod.escape(ISBN_LINE)}<br>{htmlmod.escape(IMPRINT)}</p>
-  <p>{pd.HOUSE}: {pd.SERIES.replace('&', '&amp;')}, Book 7</p>
+  <p>{pd.HOUSE}: {pd.SERIES.replace('&', '&amp;')}, {'Livre 7' if FR else 'Book 7'}</p>
 </div></div>
-<div class="toc"><h2>Contents</h2>{''.join(rows)}</div>
+<div class="toc"><h2>{L['contents']}</h2>{''.join(rows)}</div>
 """
-    doc = f"<html><head><meta charset='utf-8'><title>{htmlmod.escape(TITLE)}</title><style>{CSS}</style></head><body>{front}{body}</body></html>"
+    doc = f"<html lang='{LANG_ATTR}'><head><meta charset='utf-8'><title>{htmlmod.escape(TITLE)}</title><style>{CSS}</style></head><body>{front}{body}</body></html>"
     return doc, heads
 
 
@@ -284,7 +304,7 @@ def stamp(writer, blank_pages, heads, fpages):
             c.drawString(left, FOLIO_Y * 72, folio)
         if n not in openings:
             if n < first_body:
-                head = "Contents"
+                head = L["contents"]
             else:
                 head = TITLE if not recto else next(name for p, name in reversed(h1) if p <= n)
             font = "LibSansItalic"
@@ -374,7 +394,7 @@ def main():
             doc, _ = build_html(md_text, pages=fp)
             render(doc, p2)
             texts = pd.page_texts(p2)
-            norm = lambda s: re.sub(r"\s+", " ", s)
+            norm = lambda s: re.sub(r"[\s\u00a0\u202f]+", "", s)  # spaces ignored: French no-break spaces extract unevenly
             ok = all(norm(name)[:40] in norm(texts[p - 1]) for (_, _, name), p in zip(heads, raw))
             if ok:
                 break
@@ -399,7 +419,7 @@ def main():
     print(f"gutter {INSIDE} in (KDP minimum for {n} pages: {need} in); outside {OUTSIDE} in, top {TOP} in, bottom {BOTTOM} in")
     assert INSIDE >= need and min(OUTSIDE, TOP, BOTTOM, HEAD_Y, FOLIO_Y) >= 0.25
     texts = pd.page_texts(a.out)
-    norm = lambda s: re.sub(r"\s+", " ", s)
+    norm = lambda s: re.sub(r"[\s\u00a0\u202f]+", "", s)  # spaces ignored: French no-break spaces extract unevenly
     bad = [name for (_, _, name), p in zip(heads, fp) if norm(name)[:40] not in norm(texts[p - 1])]
     print("contents page numbers:", "all headings on their listed page" if not bad else f"MISMATCH {bad[:5]}")
     opens = [p for (lvl, _, _), p in zip(heads, fp) if lvl == 1]
@@ -412,7 +432,7 @@ def main():
     low = [i for i in imgs if min(i[4], i[5]) < 300]
     print(f"images: {len(imgs)}, colour spaces {sorted(set(i[1] for i in imgs))}, lowest ppi {min(min(i[4], i[5]) for i in imgs)}"
           + (f", BELOW 300: {low}" if low else ""))
-    front_ok = "All rights reserved" in texts[1] and "Contents" in texts[2] and not texts[0].count("All rights reserved")
+    front_ok = L["rights"] in texts[1] and L["contents"] in texts[2] and not texts[0].count(L["rights"])
     print("front matter: title p1, copyright p2, contents p3:", front_ok)
     figs = {Image.open(f).size: f for f in FIG_PRINT.glob("*.png")}
     same, checked = 0, 0
