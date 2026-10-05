@@ -1,0 +1,454 @@
+<title>Africa Utility Intelligence</title>
+<meta name="description" content="Benchmarking et diagnostic des sociétés d'électricité africaines à partir de leurs documents publics, chaque valeur reliée à sa source.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112..125,500..800&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one 1120px column; hero splits text / energy-to-cash cascade; equipment-nameplate cards carry provenance. */
+:root {
+  --bg: #eef0ec;          /* switchgear grey, slight green */
+  --surface: #f8f9f6;
+  --plate: #e2e6df;
+  --fg: #14211f;
+  --muted: #4d5b57;
+  --line: #c7cec7;
+  --accent: #e3a90b;      /* high-voltage warning yellow, used for marks only */
+  --accent-ink: #8a5a00;  /* readable accent for text on light */
+  --copper: #a84d24;
+  --good: #2f7a4f;
+  --warn: #a8700a;
+  --bad: #a83a2a;
+  --none: #6b7470;
+  --display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --body: "Public Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1615; --surface: #151e1c; --plate: #1c2725; --fg: #e4e9e5; --muted: #a2afaa; --line: #2c3a37;
+    --accent: #f2c230; --accent-ink: #f2c230; --copper: #e08a5b; --good: #6cc391; --warn: #e8b04a; --bad: #ec7b68; --none: #8d9894;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1615; --surface: #151e1c; --plate: #1c2725; --fg: #e4e9e5; --muted: #a2afaa; --line: #2c3a37;
+  --accent: #f2c230; --accent-ink: #f2c230; --copper: #e08a5b; --good: #6cc391; --warn: #e8b04a; --bad: #ec7b68; --none: #8d9894;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.6; padding-inline: 20px; padding-block: 0; }
+.wrap { max-width: 1120px; margin-inline: auto; }
+h1, h2, h3 { font-family: var(--display); font-stretch: 118%; line-height: 1.08; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2.2rem, 5.2vw, 3.9rem); font-weight: 800; letter-spacing: -0.01em; }
+h2 { font-size: clamp(1.6rem, 3.2vw, 2.4rem); font-weight: 750; }
+h3 { font-size: 1.12rem; font-weight: 700; font-stretch: 112%; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+.eyebrow { font-family: var(--mono); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.lede { font-size: 1.15rem; color: var(--muted); max-width: 60ch; }
+.mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+section { padding-block: clamp(56px, 8vw, 96px); border-top: 1px solid var(--line); }
+.section-head { display: grid; gap: 14px; max-width: 760px; margin-bottom: 40px; }
+
+/* header */
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); margin-inline: -20px; padding-inline: 20px; }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--display); font-weight: 750; font-stretch: 112%; font-size: 1.02rem; }
+.brand svg { flex: none; }
+nav.links { display: flex; gap: 22px; font-size: .92rem; }
+nav.links a { text-decoration: none; color: var(--muted); }
+nav.links a:hover { color: var(--fg); }
+@media (max-width: 760px) { nav.links { display: none; } }
+
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; font: 600 .95rem var(--body); text-decoration: none; border: 1.5px solid var(--fg); border-radius: 3px; cursor: pointer; background: transparent; color: var(--fg); }
+.btn.primary { background: var(--fg); color: var(--bg); }
+.btn.primary:hover { background: var(--copper); border-color: var(--copper); color: #fff; }
+.btn:not(.primary):hover { background: var(--plate); }
+.btn.small { padding: 8px 14px; font-size: .88rem; }
+
+/* hero */
+.hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 64px); align-items: center; padding-block: clamp(40px, 7vw, 88px) clamp(48px, 7vw, 80px); }
+.hero-text { display: grid; gap: 22px; min-width: 0; }
+.status { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.status::before { content: ""; width: 9px; height: 9px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent); }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+@media (max-width: 880px) { .hero { grid-template-columns: 1fr; } }
+
+/* cascade figure */
+.figure { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 22px 22px 18px; min-width: 0; }
+.figure-head { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; flex-wrap: wrap; margin-bottom: 10px; }
+.tag { font-family: var(--mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; padding: 3px 8px; border: 1px dashed var(--muted); color: var(--muted); border-radius: 2px; }
+.cascade { width: 100%; height: auto; display: block; }
+.cascade text { font-family: var(--mono); fill: var(--fg); }
+.cascade .lbl { font-size: 12px; fill: var(--muted); }
+.cascade .val { font-size: 15px; font-weight: 500; }
+.cascade .bar { fill: var(--fg); }
+.cascade .loss { fill: var(--copper); }
+.cascade .unpaid { fill: var(--accent); }
+.cascade .guide { stroke: var(--line); stroke-dasharray: 3 4; }
+@media (prefers-reduced-motion: no-preference) {
+  .cascade rect.grow { transform-box: fill-box; transform-origin: left; animation: grow .9s cubic-bezier(.2,.7,.2,1) both; }
+  .cascade rect.grow:nth-of-type(2) { animation-delay: .15s; } .cascade rect.grow:nth-of-type(3) { animation-delay: .3s; }
+  @keyframes grow { from { transform: scaleX(.02); } to { transform: scaleX(1); } }
+}
+.figure-foot { display: grid; gap: 6px; margin-top: 12px; font-size: .9rem; color: var(--muted); }
+.figure-foot strong { color: var(--fg); }
+
+/* facts row */
+.facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid var(--line); border-radius: 4px; background: var(--surface); }
+.facts div { padding: 18px 20px; display: grid; gap: 4px; border-left: 1px solid var(--line); }
+.facts div:first-child { border-left: 0; }
+.facts .n { font-family: var(--display); font-stretch: 125%; font-weight: 800; font-size: 1.9rem; font-variant-numeric: tabular-nums; }
+.facts .d { font-size: .9rem; color: var(--muted); }
+@media (max-width: 760px) { .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } .facts div:nth-child(3) { border-left: 0; } .facts div:nth-child(n+3) { border-top: 1px solid var(--line); } }
+
+/* chain */
+.chain { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: start; }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; counter-reset: s; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 14px; padding-block: 16px; border-top: 1px solid var(--line); }
+.steps li:last-child { border-bottom: 1px solid var(--line); }
+.steps li::before { content: counter(s, decimal-leading-zero); font-family: var(--mono); font-size: .85rem; color: var(--accent-ink); padding-top: 3px; }
+.steps p { color: var(--muted); font-size: .95rem; margin-top: 4px; }
+@media (max-width: 880px) { .chain { grid-template-columns: 1fr; } }
+
+/* nameplate */
+.plate { background: var(--plate); border: 1.5px solid var(--fg); border-radius: 6px; padding: 18px; position: relative; font-family: var(--mono); font-size: .86rem; display: grid; gap: 12px; min-width: 0; }
+.plate::before, .plate::after { content: ""; position: absolute; width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid var(--muted); top: 9px; }
+.plate::before { left: 9px; } .plate::after { right: 9px; }
+.plate-title { text-align: center; font-family: var(--display); font-stretch: 125%; font-weight: 750; font-size: .95rem; letter-spacing: .04em; text-transform: uppercase; border-bottom: 1.5px solid var(--fg); padding-bottom: 10px; }
+.plate dl { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 16px; margin: 0; }
+.plate dt { color: var(--muted); }
+.plate dd { margin: 0; overflow-wrap: anywhere; }
+.plate .big { font-size: 1.5rem; font-weight: 500; }
+.plate-note { font-family: var(--body); font-size: .82rem; color: var(--muted); }
+.missing { display: flex; flex-wrap: wrap; gap: 8px; }
+.missing span { font-size: .78rem; padding: 3px 8px; border: 1px solid var(--line); background: var(--surface); border-radius: 2px; }
+
+/* dimensions */
+.dims { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+.dim { background: var(--surface); padding: 20px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.dim .code { font-family: var(--mono); font-size: .75rem; color: var(--accent-ink); letter-spacing: .08em; }
+.dim p { font-size: .9rem; color: var(--muted); }
+@media (max-width: 960px) { .dims { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .dims { grid-template-columns: 1fr; } }
+.rules { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; margin-top: 48px; }
+.rules > div { display: grid; gap: 8px; align-content: start; min-width: 0; }
+.rules p { color: var(--muted); font-size: .95rem; }
+.states { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.states span { font-family: var(--mono); font-size: .76rem; padding: 3px 8px; border-radius: 2px; background: var(--plate); }
+@media (max-width: 880px) { .rules { grid-template-columns: 1fr; } }
+
+/* coverage */
+.cov-legend { display: flex; flex-wrap: wrap; gap: 18px; font-size: .88rem; color: var(--muted); margin-bottom: 18px; }
+.chip { display: inline-flex; align-items: center; gap: 7px; font-family: var(--mono); font-size: .76rem; white-space: nowrap; }
+.chip::before { content: ""; width: 10px; height: 10px; border-radius: 2px; background: currentColor; }
+.chip.c4 { color: var(--good); } .chip.c3 { color: var(--warn); } .chip.c2 { color: var(--bad); } .chip.c1 { color: var(--none); }
+.cov-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.cov-group { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 18px 20px; min-width: 0; }
+.cov-group h3 { margin-bottom: 10px; }
+.cov-group table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+.cov-group td { padding: 8px 0; border-top: 1px solid var(--line); vertical-align: top; }
+.cov-group td.c { color: var(--muted); padding-inline: 12px; font-size: .85rem; }
+.cov-group td:last-child { text-align: right; }
+.cov-note { margin-top: 22px; font-size: .9rem; color: var(--muted); max-width: 80ch; }
+@media (max-width: 880px) { .cov-groups { grid-template-columns: 1fr; } }
+
+/* audiences */
+.aud { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); }
+.aud > div { padding: 24px 24px 24px 0; border-bottom: 1px solid var(--line); display: grid; gap: 10px; align-content: start; min-width: 0; }
+.aud > div:nth-child(odd) { border-right: 1px solid var(--line); }
+.aud > div:nth-child(even) { padding-left: 24px; }
+.aud ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: .95rem; display: grid; gap: 4px; }
+@media (max-width: 760px) { .aud { grid-template-columns: 1fr; } .aud > div:nth-child(odd) { border-right: 0; } .aud > div:nth-child(even) { padding-left: 0; } }
+
+/* modules */
+.mods { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.mod { display: grid; gap: 8px; align-content: start; padding-top: 14px; border-top: 3px solid var(--fg); min-width: 0; }
+.mod p { color: var(--muted); font-size: .93rem; }
+.mod .q { font-family: var(--mono); font-size: .8rem; color: var(--accent-ink); }
+@media (max-width: 960px) { .mods { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .mods { grid-template-columns: 1fr; } }
+
+/* access form */
+.access { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 48px; align-items: start; }
+form.req { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 24px; display: grid; gap: 16px; }
+.field { display: grid; gap: 6px; }
+.field label { font-size: .86rem; font-weight: 600; }
+.field input, .field select, .field textarea { font: inherit; font-size: .95rem; padding: 10px 12px; border: 1px solid var(--line); border-radius: 3px; background: var(--bg); color: var(--fg); width: 100%; }
+.field textarea { min-height: 96px; resize: vertical; }
+.two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; }
+.form-msg { font-size: .9rem; padding: 10px 12px; border-radius: 3px; background: var(--plate); }
+.hp { position: absolute; left: -9999px; }
+@media (max-width: 880px) { .access { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .two { grid-template-columns: 1fr; } }
+
+footer { border-top: 1px solid var(--line); padding-block: 32px 48px; font-size: .86rem; color: var(--muted); display: grid; gap: 8px; }
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Africa Utility Intelligence, accueil">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+        <rect x="1" y="1" width="24" height="24" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M5 8h16M5 13h16M5 18h16" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M14 4l-4 9h5l-4 9" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round"/>
+      </svg>
+      Africa Utility Intelligence
+    </a>
+    <nav class="links" aria-label="Sections">
+      <a href="#methode">Méthode</a>
+      <a href="#couverture">Couverture</a>
+      <a href="#pour-qui">Pour qui</a>
+      <a href="#modules">Modules</a>
+    </nav>
+    <a class="btn small primary" href="#acces">Accès pilote</a>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+  <div class="hero">
+    <div class="hero-text">
+      <span class="status">Programme pilote · 2026</span>
+      <h1>Ce que les comptes des sociétés d’électricité africaines disent vraiment.</h1>
+      <p class="lede">Nous lisons les rapports annuels, les états financiers audités et les publications des régulateurs. Nous en tirons des indicateurs comparables, un diagnostic et des priorités d’action. Chaque chiffre renvoie à sa page source.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#acces">Rejoindre le pilote</a>
+        <a class="btn" href="#methode">Voir la méthode</a>
+      </div>
+    </div>
+
+    <figure class="figure" aria-labelledby="cascade-cap">
+      <div class="figure-head">
+        <span class="eyebrow">Du kWh injecté au franc encaissé</span>
+        <span class="tag">Exemple fictif</span>
+      </div>
+      <svg class="cascade" viewBox="0 0 460 248" role="img" aria-label="Exemple fictif : sur 100 GWh injectés dans le réseau de distribution, 72 sont facturés et 61 sont encaissés.">
+        <line class="guide" x1="20" y1="24" x2="20" y2="214"/>
+        <line class="guide" x1="420" y1="24" x2="420" y2="214"/>
+        <text class="lbl" x="20" y="18">0</text>
+        <text class="lbl" x="420" y="18" text-anchor="end">100 GWh</text>
+
+        <text class="lbl" x="20" y="48">Énergie injectée en distribution</text>
+        <rect class="bar grow" x="20" y="56" width="400" height="22"/>
+        <text class="val" x="20" y="98">100</text>
+
+        <text class="lbl" x="20" y="122">Énergie facturée</text>
+        <rect class="bar grow" x="20" y="130" width="288" height="22"/>
+        <rect class="loss" x="308" y="130" width="112" height="22"/>
+        <text class="val" x="20" y="172">72</text>
+        <text class="lbl" x="420" y="172" text-anchor="end">pertes 28 %</text>
+
+        <text class="lbl" x="20" y="196">Valeur encaissée</text>
+        <rect class="bar grow" x="20" y="204" width="245" height="22"/>
+        <rect class="unpaid" x="265" y="204" width="43" height="22"/>
+        <rect class="loss" x="308" y="204" width="112" height="22" opacity=".35"/>
+        <text class="val" x="20" y="236" dy="-0">61</text>
+        <text class="lbl" x="420" y="236" text-anchor="end">impayés 15 % du facturé</text>
+      </svg>
+      <figcaption class="figure-foot" id="cascade-cap">
+        <span><strong>Indice de recouvrement : 61 %.</strong> Sur 100 kWh mis sur le réseau, 61 sont payés. Le reste se perd en pertes techniques et commerciales, puis en factures impayées.</span>
+        <span>Chiffres illustratifs d’une utility fictive. Sur la plateforme, chaque barre renvoie aux documents qui la fondent.</span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="facts" role="list" aria-label="Où en est le projet">
+    <div role="listitem"><span class="n">19</span><span class="d">utilities auditées dans 11 pays</span></div>
+    <div role="listitem"><span class="n">2019–25</span><span class="d">exercices couverts par l’audit documentaire</span></div>
+    <div role="listitem"><span class="n">75</span><span class="d">indicateurs définis, formule et sources comprises</span></div>
+    <div role="listitem"><span class="n">28</span><span class="d">au cœur du score de la version pilote</span></div>
+  </div>
+
+  <section id="methode">
+    <div class="section-head">
+      <span class="eyebrow">Méthode</span>
+      <h2>Une chaîne de preuve, de la page du rapport à la recommandation.</h2>
+      <p class="lede">Un score n’a de valeur que si l’on peut remonter à ce qui le fonde. Chaque étape garde la trace de la précédente.</p>
+    </div>
+
+    <div class="chain">
+      <ol class="steps">
+        <li><div><h3>Preuve</h3><p>Rapport annuel, états financiers, rapport du régulateur, document de bailleur. Le document est archivé et daté.</p></div></li>
+        <li><div><h3>Donnée brute</h3><p>Énergie facturée en GWh, créances publiques en millions de monnaie locale. Chaque donnée porte sa page, sa méthode d’extraction et un niveau de confiance.</p></div></li>
+        <li><div><h3>Indicateur</h3><p>Formule publiée et dénominateur explicite : pertes rapportées à l’énergie injectée, recouvrement plafonné à 100 %.</p></div></li>
+        <li><div><h3>Comparaison</h3><p>Entre pairs de même périmètre (intégrée, distribution, transport, production), jamais entre tous.</p></div></li>
+        <li><div><h3>Diagnostic et action</h3><p>Causes probables, signalées comme des interprétations. Interventions classées par horizon de temps.</p></div></li>
+      </ol>
+
+      <div class="plate" aria-label="Exemple de fiche de provenance">
+        <div class="plate-title">Fiche de provenance</div>
+        <dl>
+          <dt>Utility</dt><dd>Utility X (exemple)</dd>
+          <dt>Indicateur</dt><dd>NET_distribution_losses_pct</dd>
+          <dt>Exercice</dt><dd>2024</dd>
+          <dt>Valeur</dt><dd class="big">27,4 %</dd>
+          <dt>Source</dt><dd>Rapport annuel 2024, p. 47</dd>
+          <dt>Statut</dt><dd>valeur publiée · recalcul impossible</dd>
+          <dt>Confiance</dt><dd>extraction 96 %</dd>
+        </dl>
+        <div class="missing" aria-label="États d'une donnée absente">
+          <span>Non publié</span><span>Non disponible</span><span>Non trouvé</span>
+        </div>
+        <p class="plate-note">Une donnée absente reste absente. La plateforme ne complète jamais un vide par une estimation présentée comme un fait.</p>
+      </div>
+    </div>
+
+    <div class="section-head" style="margin-top:72px">
+      <span class="eyebrow">Huit dimensions</span>
+      <h3 style="font-size:1.4rem">Ce que mesure la grille</h3>
+    </div>
+    <div class="dims">
+      <div class="dim"><span class="code">FIN</span><h3>Soutenabilité financière</h3><p>Recouvrement des coûts, marge d’EBITDA hors transferts, liquidité, dettes envers les producteurs.</p></div>
+      <div class="dim"><span class="code">GEN</span><h3>Production et offre</h3><p>Part des achats aux IPP et des importations, poids du thermique liquide et de la location d’urgence.</p></div>
+      <div class="dim"><span class="code">NET</span><h3>Réseau</h3><p>Pertes totales et de distribution, durée des coupures, heures de fourniture.</p></div>
+      <div class="dim"><span class="code">COM</span><h3>Performance commerciale</h3><p>Taux d’encaissement, indice de recouvrement, délai des créances, arriérés publics.</p></div>
+      <div class="dim"><span class="code">OPS</span><h3>Efficacité opérationnelle</h3><p>Clients par employé, charges contrôlables par kWh facturé.</p></div>
+      <div class="dim"><span class="code">GOV</span><h3>Gouvernance</h3><p>Opinion d’audit, délai de publication des comptes, transparence du rapport annuel, cadre tarifaire.</p></div>
+      <div class="dim"><span class="code">INV</span><h3>Investissement</h3><p>Capex rapporté aux amortissements, coût par raccordement, financement externe.</p></div>
+      <div class="dim"><span class="code">ACC</span><h3>Accès et clients</h3><p>Nouveaux raccordements, consommation par client, plaintes, tarif social.</p></div>
+    </div>
+
+    <div class="rules">
+      <div><h3>Deux scores, pas un classement unique</h3><p>Un score absolu, et un score comparé aux pairs de même structure, même taille et même mix de production. Comparer une société de transport et une distribution n’a pas de sens.</p></div>
+      <div><h3>La couverture est affichée</h3><p>Chaque score indique la part des indicateurs réellement disponibles. Une utility qui publie peu n’est pas classée sur des trous.</p></div>
+      <div><h3>Faits et interprétations séparés</h3><p>Chaque affirmation porte son statut.</p>
+        <div class="states"><span>fait sourcé</span><span>calcul</span><span>estimation</span><span>interprétation</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="couverture">
+    <div class="section-head">
+      <span class="eyebrow">Couverture de la version pilote</span>
+      <h2>Dix-neuf utilities, onze pays, et ce que leurs documents permettent.</h2>
+      <p class="lede">Avant de noter qui que ce soit, nous avons vérifié ce que chaque utility publie réellement pour les exercices 2019 à 2025. Le niveau ci-dessous mesure la documentation publique disponible. Ce n’est pas un jugement de performance.</p>
+    </div>
+    <div class="cov-legend">
+      <span class="chip c4">Élevée : comptes audités complets sur plusieurs années</span>
+      <span class="chip c3">Moyenne : rapports ou extraits, complétés par le régulateur</span>
+      <span class="chip c2">Limitée : surtout des sources secondaires</span>
+      <span class="chip c1">Insuffisante : rien de public trouvé</span>
+    </div>
+    <div class="cov-groups">
+      <div class="cov-group"><h3>Intégrées</h3><table>
+        <tr><td>Eskom</td><td class="c">Afrique du Sud</td><td><span class="chip c4">Élevée</span></td></tr>
+        <tr><td>Senelec</td><td class="c">Sénégal</td><td><span class="chip c4">Élevée</span></td></tr>
+        <tr><td>ZESCO</td><td class="c">Zambie</td><td><span class="chip c3">Moyenne</span></td></tr>
+        <tr><td>ENEO</td><td class="c">Cameroun</td><td><span class="chip c3">Moyenne</span></td></tr>
+        <tr><td>SONABEL</td><td class="c">Burkina Faso</td><td><span class="chip c2">Limitée</span></td></tr>
+        <tr><td>SNEL</td><td class="c">RD Congo</td><td><span class="chip c2">Limitée</span></td></tr>
+        <tr><td>E2C</td><td class="c">Congo</td><td><span class="chip c1">Insuffisante</span></td></tr>
+      </table></div>
+      <div class="cov-group"><h3>Distribution</h3><table>
+        <tr><td>Kenya Power</td><td class="c">Kenya</td><td><span class="chip c4">Élevée</span></td></tr>
+        <tr><td>Eko Electricity Distribution</td><td class="c">Nigeria</td><td><span class="chip c4">Élevée</span></td></tr>
+        <tr><td>Ikeja Electric</td><td class="c">Nigeria</td><td><span class="chip c3">Moyenne</span></td></tr>
+        <tr><td>ECG</td><td class="c">Ghana</td><td><span class="chip c3">Moyenne</span></td></tr>
+        <tr><td>CIE</td><td class="c">Côte d’Ivoire</td><td><span class="chip c3">Moyenne</span></td></tr>
+        <tr><td>CI-ENERGIES</td><td class="c">Côte d’Ivoire</td><td><span class="chip c2">Limitée</span></td></tr>
+      </table></div>
+      <div class="cov-group"><h3>Transport</h3><table>
+        <tr><td>GRIDCo</td><td class="c">Ghana</td><td><span class="chip c4">Élevée</span></td></tr>
+        <tr><td>KETRACO</td><td class="c">Kenya</td><td><span class="chip c3">Moyenne</span></td></tr>
+        <tr><td>SONATREL</td><td class="c">Cameroun</td><td><span class="chip c2">Limitée</span></td></tr>
+        <tr><td>TCN</td><td class="c">Nigeria</td><td><span class="chip c2">Limitée</span></td></tr>
+      </table></div>
+      <div class="cov-group"><h3>Production</h3><table>
+        <tr><td>KenGen</td><td class="c">Kenya</td><td><span class="chip c4">Élevée</span></td></tr>
+        <tr><td>VRA</td><td class="c">Ghana</td><td><span class="chip c2">Limitée</span></td></tr>
+      </table></div>
+    </div>
+    <p class="cov-note">Audit documentaire d’octobre 2026, en cours de validation. « Rien de public trouvé » ne signifie pas qu’un document n’existe pas : plusieurs sites bloquent l’accès automatisé. Les utilities concernées peuvent nous transmettre leurs publications pour corriger leur fiche. En Côte d’Ivoire, le secteur est analysé comme un ensemble CIE et CI-ENERGIES, car la concession répartit les comptes entre les deux.</p>
+  </section>
+
+  <section id="pour-qui">
+    <div class="section-head">
+      <span class="eyebrow">Pour qui</span>
+      <h2>Pour ceux qui financent, régulent ou dirigent une utility.</h2>
+    </div>
+    <div class="aud">
+      <div><h3>Ministères et régulateurs</h3><ul><li>Suivi des contrats de performance avec des indicateurs définis</li><li>Comparaison avec des utilities de même structure</li><li>Lecture des écarts tarifaires et des transferts de l’État</li></ul></div>
+      <div><h3>Bailleurs et institutions financières de développement</h3><ul><li>Diagnostic préparatoire d’un projet, sources à l’appui</li><li>Repérage des arriérés et des risques de liquidité</li><li>Hiérarchisation des investissements par impact</li></ul></div>
+      <div><h3>Utilities</h3><ul><li>Positionnement face aux pairs, indicateur par indicateur</li><li>Correction de leur propre fiche, documents à l’appui</li><li>Plan de redressement structuré par horizon</li></ul></div>
+      <div><h3>Investisseurs et conseils</h3><ul><li>Solidité de l’acheteur dans un contrat d’achat d’électricité</li><li>Historique des opinions d’audit et des délais de publication</li><li>Dossiers comparatifs exportables</li></ul></div>
+    </div>
+  </section>
+
+  <section id="modules">
+    <div class="section-head">
+      <span class="eyebrow">Modules en développement</span>
+      <h2>Quatre outils, une seule base de données.</h2>
+    </div>
+    <div class="mods">
+      <div class="mod"><span class="q">Que publie-t-elle ?</span><h3>Explorer</h3><p>Profil d’une utility : structure, documents, indicateurs par exercice, chacun avec sa source.</p></div>
+      <div class="mod"><span class="q">Qu’est-ce qui ne va pas ?</span><h3>Diagnostic</h3><p>Points critiques, faiblesses structurelles et forces, avec l’enchaînement des causes : pertes, recettes, trésorerie, sous-investissement.</p></div>
+      <div class="mod"><span class="q">Face à qui ?</span><h3>Benchmark</h3><p>Comparaison avec les pairs de même périmètre sur les pertes, l’encaissement, la rentabilité et la fiabilité.</p></div>
+      <div class="mod"><span class="q">Que faire ?</span><h3>Plan d’action</h3><p>Problème, cause, intervention, indicateur de suivi et calendrier, de 0 à 6 mois puis jusqu’à 5 ans.</p></div>
+    </div>
+  </section>
+
+  <section id="acces">
+    <div class="access">
+      <div class="section-head" style="margin:0">
+        <span class="eyebrow">Programme pilote</span>
+        <h2>Participer à la version pilote.</h2>
+        <p class="lede">Nous ouvrons le pilote à un petit nombre d’institutions. Vous recevrez les fiches des utilities qui vous intéressent et vos retours orienteront la méthode.</p>
+      </div>
+      <form class="req" id="access-form" name="acces-pilote" method="POST" data-netlify="true" netlify-honeypot="site_web" novalidate>
+        <input type="hidden" name="form-name" value="acces-pilote">
+        <p class="hp"><label for="site_web">Ne pas remplir</label><input id="site_web" name="site_web" tabindex="-1" autocomplete="off"></p>
+        <div class="two">
+          <div class="field"><label for="f-name">Nom</label><input id="f-name" name="nom" autocomplete="name" required></div>
+          <div class="field"><label for="f-org">Organisation</label><input id="f-org" name="organisation" autocomplete="organization" required></div>
+        </div>
+        <div class="two">
+          <div class="field"><label for="f-email">Adresse e-mail professionnelle</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="f-type">Type d’institution</label>
+            <select id="f-type" name="type">
+              <option>Ministère</option><option>Régulateur</option><option>Utility</option>
+              <option>Bailleur ou institution de développement</option><option>Investisseur</option><option>Cabinet de conseil</option><option>Autre</option>
+            </select></div>
+        </div>
+        <div class="field"><label for="f-msg">Utilities ou pays qui vous intéressent</label><textarea id="f-msg" name="message" placeholder="Par exemple : distribution au Nigeria, Senelec, comparaison CEMAC"></textarea></div>
+        <button class="btn primary" type="submit">Envoyer la demande</button>
+        <p class="form-msg" id="form-msg" role="status" hidden></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span>Africa Utility Intelligence · Information et analyse uniquement. Ni avis d’investissement, ni notation de crédit.</span>
+  <span>Sources : publications des utilities, des régulateurs et des bailleurs. Les noms des sociétés citées appartiennent à leurs détenteurs ; leur mention ne vaut pas partenariat.</span>
+</footer>
+
+<script>
+(function () {
+  var form = document.getElementById('access-form');
+  var msg = document.getElementById('form-msg');
+  function show(text) { msg.textContent = text; msg.hidden = false; }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var required = form.querySelectorAll('[required]');
+    for (var i = 0; i < required.length; i++) {
+      if (!required[i].value.trim()) { required[i].focus(); show('Merci de renseigner ' + form.querySelector('label[for="' + required[i].id + '"]').textContent.toLowerCase() + '.'); return; }
+    }
+    var email = document.getElementById('f-email');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) { email.focus(); show('Cette adresse e-mail ne semble pas valide.'); return; }
+    if (!window.AUI_FORM_LIVE) {
+      show('Aperçu : cette page ne transmet pas encore les demandes. L’inscription sera active sur le site publié.');
+      return;
+    }
+    var body = new URLSearchParams(new FormData(form)).toString();
+    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body })
+      .then(function (r) {
+        if (!r.ok) throw new Error(r.status);
+        form.reset();
+        show('Demande reçue. Nous revenons vers vous par e-mail.');
+      })
+      .catch(function () { show('La demande n’a pas pu être envoyée. Réessayez dans un instant.'); });
+  });
+})();
+</script>
