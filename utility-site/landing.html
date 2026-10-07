@@ -141,6 +141,8 @@ nav.links a:hover { color: var(--fg); }
 .cov-legend { display: flex; flex-wrap: wrap; gap: 18px; font-size: .88rem; color: var(--muted); margin-bottom: 18px; }
 .chip { display: inline-flex; align-items: center; gap: 7px; font-family: var(--mono); font-size: .76rem; white-space: nowrap; }
 .chip::before { content: ""; width: 10px; height: 10px; border-radius: 2px; background: currentColor; }
+.cov-legend .chip { white-space: normal; align-items: flex-start; }
+.cov-legend .chip::before { flex: none; margin-top: .3em; }
 .chip.c4 { color: var(--good); } .chip.c3 { color: var(--warn); } .chip.c2 { color: var(--bad); } .chip.c1 { color: var(--none); }
 .cov-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .cov-group { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 18px 20px; min-width: 0; }
