@@ -1,0 +1,180 @@
+<title>Courant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112..125,500..800&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: brand sheet, one 1040px column of specimen panels; light and dark panels shown side by side regardless of viewer theme. */
+:root {
+  --bg: #eef0ec; --surface: #f8f9f6; --fg: #14211f; --muted: #4d5b57; --line: #c7cec7;
+  --ink: #14211f; --night: #0f1615; --grid: #eef0ec; --hv: #e3a90b; --hv-night: #f2c230; --copper: #a84d24; --accent-ink: #8a5a00;
+  --display: "Archivo", "Arial Narrow", Arial, sans-serif;
+  --body: "Public Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #0f1615; --surface: #151e1c; --fg: #e4e9e5; --muted: #a2afaa; --line: #2c3a37; --accent-ink: #f2c230; color-scheme: dark; } }
+:root[data-theme="dark"] { --bg: #0f1615; --surface: #151e1c; --fg: #e4e9e5; --muted: #a2afaa; --line: #2c3a37; --accent-ink: #f2c230; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font: 16px/1.6 var(--body); padding-inline: 20px; padding-block: 40px 64px; }
+.wrap { max-width: 1040px; margin-inline: auto; display: grid; gap: 64px; }
+h1, h2, h3 { font-family: var(--display); font-stretch: 118%; margin: 0; line-height: 1.1; text-wrap: balance; }
+h1 { font-size: clamp(2.6rem, 7vw, 4.6rem); font-weight: 800; font-stretch: 125%; letter-spacing: -.01em; }
+h2 { font-size: 1.6rem; font-weight: 750; }
+h3 { font-size: 1.05rem; font-weight: 700; font-stretch: 112%; }
+p { margin: 0; }
+.eyebrow { font-family: var(--mono); font-size: .76rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.lede { font-size: 1.15rem; color: var(--muted); max-width: 62ch; }
+section { display: grid; gap: 22px; }
+.intro { display: grid; gap: 18px; }
+.meanings { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.meanings > div { padding: 18px 20px 18px 0; display: grid; gap: 6px; min-width: 0; }
+.meanings > div + div { border-left: 1px solid var(--line); padding-left: 20px; }
+.meanings .w { font-family: var(--mono); font-size: .82rem; color: var(--accent-ink); }
+.meanings p { color: var(--muted); font-size: .95rem; }
+@media (max-width: 760px) { .meanings { grid-template-columns: 1fr; } .meanings > div + div { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); } }
+
+.panel { border-radius: 6px; padding: clamp(28px, 6vw, 64px); display: grid; place-items: center; min-width: 0; }
+.panel.light { background: var(--grid); border: 1px solid #c7cec7; }
+.panel.dark { background: var(--night); border: 1px solid #2c3a37; }
+.panel .logo { height: clamp(70px, 14vw, 140px); width: 100%; display: grid; place-items: center; }
+.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.pair .panel .logo { height: clamp(34px, 6vw, 56px); }
+@media (max-width: 760px) { .pair { grid-template-columns: 1fr; } }
+
+.mark-explain { display: grid; grid-template-columns: minmax(0, 260px) minmax(0, 1fr); gap: 40px; align-items: center; }
+.mark-explain .panel { padding: 36px; }
+.mark-explain .panel .logo { height: 150px; }
+.legend { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.legend li { display: grid; grid-template-columns: 120px minmax(0, 1fr) 70px; gap: 16px; align-items: center; padding-block: 12px; border-top: 1px solid var(--line); font-size: .95rem; }
+.legend li:last-child { border-bottom: 1px solid var(--line); }
+.legend .bar { height: 14px; background: var(--fg); }
+.legend .bar.split { background: linear-gradient(90deg, var(--fg) 0 72%, transparent 72% 74%, var(--hv) 74% 100%); }
+.legend .num { font-family: var(--mono); font-variant-numeric: tabular-nums; text-align: right; }
+.legend .t { color: var(--muted); }
+@media (max-width: 760px) { .mark-explain { grid-template-columns: 1fr; } .legend li { grid-template-columns: 90px minmax(0, 1fr) 54px; } }
+
+.sizes { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 28px; }
+.sizes figure { margin: 0; display: grid; gap: 8px; justify-items: center; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+
+.swatches { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.sw { display: grid; gap: 8px; min-width: 0; }
+.sw .chip { height: 84px; border-radius: 4px; border: 1px solid var(--line); }
+.sw b { font-family: var(--display); font-stretch: 112%; font-size: .98rem; }
+.sw span { font-family: var(--mono); font-size: .78rem; color: var(--muted); }
+.sw p { font-size: .88rem; color: var(--muted); }
+@media (max-width: 760px) { .swatches { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.type { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.type > div { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 20px; padding-block: 16px; border-bottom: 1px solid var(--line); align-items: baseline; }
+.type .s1 { font-family: var(--display); font-stretch: 125%; font-weight: 800; font-size: 1.9rem; line-height: 1.1; }
+.type .s2 { font-family: var(--body); font-size: 1.05rem; }
+.type .s3 { font-family: var(--mono); font-size: .95rem; }
+@media (max-width: 760px) { .type > div { grid-template-columns: 1fr; gap: 6px; } }
+
+.rules { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 40px; }
+.rules > div { display: grid; gap: 6px; }
+.rules p { color: var(--muted); font-size: .95rem; }
+@media (max-width: 760px) { .rules { grid-template-columns: 1fr; } }
+
+.alts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.alt { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 20px; display: grid; gap: 8px; }
+.alt .n { font-family: var(--display); font-stretch: 125%; font-weight: 800; font-size: 1.5rem; }
+.alt p { color: var(--muted); font-size: .93rem; }
+@media (max-width: 760px) { .alts { grid-template-columns: 1fr; } }
+.check { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--hv); border-radius: 4px; padding: 20px 22px; display: grid; gap: 10px; }
+.check ul { margin: 0; padding-left: 18px; color: var(--muted); display: grid; gap: 4px; }
+</style>
+
+<div class="wrap">
+  <header class="intro">
+    <span class="eyebrow">Plateforme · Nom et identité · v1</span>
+    <h1>Courant</h1>
+    <p class="lede">Le nom de la plateforme d’intelligence sur les sociétés d’électricité africaines. Il s’emploie seul, ou avec la signature <strong>Africa Utility Intelligence</strong>.</p>
+    <div class="meanings">
+      <div><span class="w">le courant électrique</span><p>Ce que les utilities produisent, transportent et vendent. Le sujet même de la plateforme.</p></div>
+      <div><span class="w">être au courant</span><p>Être informé. C’est la promesse faite aux ministères, régulateurs et bailleurs.</p></div>
+      <div><span class="w">current (EN) · corrente (PT)</span><p>À jour, en anglais. Compris dans les trois langues de travail du continent.</p></div>
+    </div>
+  </header>
+
+  <section>
+    <span class="eyebrow">Logo principal</span>
+    <div class="panel light"><div class="logo">{{logo-tagline}}</div></div>
+    <div class="panel dark"><div class="logo">{{logo-tagline-dark}}</div></div>
+    <div class="pair">
+      <div class="panel light"><div class="logo">{{logo}}</div></div>
+      <div class="panel dark"><div class="logo">{{logo-dark}}</div></div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">Le symbole</span>
+    <h2>Trois barres : du kWh injecté au franc encaissé.</h2>
+    <div class="mark-explain">
+      <div class="panel light"><div class="logo">{{mark}}</div></div>
+      <div style="display:grid;gap:16px;min-width:0">
+        <p class="lede">Le symbole reprend l’indice de recouvrement, le diagnostic central de la plateforme. Le bloc jaune représente ce qui se perd entre le réseau et la facture. C’est ce que Courant rend visible.</p>
+        <ul class="legend">
+          <li><span>Injecté</span><span class="bar" style="width:100%"></span><span class="num">100</span></li>
+          <li><span>Facturé</span><span class="bar split" style="width:100%"></span><span class="num">72</span></li>
+          <li><span>Encaissé</span><span class="bar" style="width:61%"></span><span class="num">61</span></li>
+        </ul>
+        <p class="t" style="font-size:.88rem;color:var(--muted)">Proportions identiques à l’exemple fictif de la page d’accueil (pertes 28 %, encaissement 85 % du facturé).</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">Petites tailles</span>
+    <div class="sizes">
+      <figure>{{fav-64}}<figcaption>64 px</figcaption></figure>
+      <figure>{{fav-32}}<figcaption>32 px</figcaption></figure>
+      <figure>{{fav-16}}<figcaption>16 px</figcaption></figure>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">Couleurs</span>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:var(--ink)"></div><b>Encre réseau</b><span>#14211F</span><p>Texte, logo sur fond clair.</p></div>
+      <div class="sw"><div class="chip" style="background:var(--grid)"></div><b>Gris cellule</b><span>#EEF0EC</span><p>Fond principal, gris d’armoire électrique.</p></div>
+      <div class="sw"><div class="chip" style="background:var(--hv)"></div><b>Jaune haute tension</b><span>#E3A90B · nuit #F2C230</span><p>Réservé au bloc du symbole et aux repères. Jamais pour du texte sur fond clair.</p></div>
+      <div class="sw"><div class="chip" style="background:var(--copper)"></div><b>Cuivre</b><span>#A84D24</span><p>Pertes et alertes dans les graphiques.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">Typographie</span>
+    <div class="type">
+      <div><span class="eyebrow">Archivo Expanded</span><span class="s1">Titres et logotype</span></div>
+      <div><span class="eyebrow">Public Sans</span><span class="s2">Texte courant, interfaces et rapports. Lisible, sobre, d’usage institutionnel.</span></div>
+      <div><span class="eyebrow">IBM Plex Mono</span><span class="s3">NET_distribution_losses_pct · 27,4 % · p. 47</span></div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">Règles d’usage</span>
+    <div class="rules">
+      <div><h3>Zone de protection</h3><p>Autour du logo, laisser au moins la hauteur d’une barre du symbole.</p></div>
+      <div><h3>Taille minimale</h3><p>Logo avec signature : 120 px de large. Symbole seul : 16 px.</p></div>
+      <div><h3>Le bloc jaune ne bouge pas</h3><p>Pas de recoloration, pas de déplacement, pas d’autre barre en couleur.</p></div>
+      <div><h3>Pas de déformation</h3><p>Ni rotation, ni étirement, ni ombre, ni contour. Le mot reste en minuscules.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">Noms étudiés et écartés</span>
+    <div class="alts">
+      <div class="alt"><span class="n">Relevé</span><p>Relevé de compteur et relevé de compte : l’énergie mesurée et l’argent dû dans un seul mot. Écarté parce que l’accent pose problème dans les adresses web et que le mot ne se comprend pas en anglais.</p></div>
+      <div class="alt"><span class="n">Bilan</span><p>Bilan énergétique et bilan comptable. Écarté car le mot est trop générique pour être protégé comme marque.</p></div>
+    </div>
+  </section>
+
+  <section class="check">
+    <h3>À vérifier avant tout usage public</h3>
+    <ul>
+      <li>Disponibilité de la marque auprès de l’OAPI (pays francophones), de l’ARIPO (pays anglophones) et des offices nationaux du Nigeria et d’Afrique du Sud.</li>
+      <li>Nom de domaine. « courant » seul étant un mot courant, prévoir une forme composée (par exemple avec .africa ou « courant-utilities »).</li>
+      <li>Une recherche web rapide n’a trouvé aucune plateforme énergétique africaine nommée Courant. Ce n’est pas une recherche d’antériorité juridique.</li>
+    </ul>
+  </section>
+</div>

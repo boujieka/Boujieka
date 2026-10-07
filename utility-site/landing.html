@@ -1,4 +1,4 @@
-<title>Africa Utility Intelligence</title>
+<title>Courant</title>
 <meta name="description" content="Benchmarking et diagnostic des sociétés d'électricité africaines à partir de leurs documents publics, chaque valeur reliée à sa source.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,7 +56,9 @@ section { padding-block: clamp(56px, 8vw, 96px); border-top: 1px solid var(--lin
 header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); margin-inline: -20px; padding-inline: 20px; }
 .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--display); font-weight: 750; font-stretch: 112%; font-size: 1.02rem; }
-.brand svg { flex: none; }
+.brand svg { flex: none; height: 24px; width: auto; }
+.brand-tag { font-family: var(--mono); font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 400; padding-left: 10px; border-left: 1px solid var(--line); }
+@media (max-width: 560px) { .brand-tag { display: none; } }
 nav.links { display: flex; gap: 22px; font-size: .92rem; }
 nav.links a { text-decoration: none; color: var(--muted); }
 nav.links a:hover { color: var(--fg); }
@@ -88,11 +90,6 @@ nav.links a:hover { color: var(--fg); }
 .cascade .loss { fill: var(--copper); }
 .cascade .unpaid { fill: var(--accent); }
 .cascade .guide { stroke: var(--line); stroke-dasharray: 3 4; }
-@media (prefers-reduced-motion: no-preference) {
-  .cascade rect.grow { transform-box: fill-box; transform-origin: left; animation: grow .9s cubic-bezier(.2,.7,.2,1) both; }
-  .cascade rect.grow:nth-of-type(2) { animation-delay: .15s; } .cascade rect.grow:nth-of-type(3) { animation-delay: .3s; }
-  @keyframes grow { from { transform: scaleX(.02); } to { transform: scaleX(1); } }
-}
 .figure-foot { display: grid; gap: 6px; margin-top: 12px; font-size: .9rem; color: var(--muted); }
 .figure-foot strong { color: var(--fg); }
 
@@ -189,13 +186,9 @@ footer { border-top: 1px solid var(--line); padding-block: 32px 48px; font-size:
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Africa Utility Intelligence, accueil">
-      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
-        <rect x="1" y="1" width="24" height="24" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/>
-        <path d="M5 8h16M5 13h16M5 18h16" stroke="currentColor" stroke-width="1.6"/>
-        <path d="M14 4l-4 9h5l-4 9" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round"/>
-      </svg>
-      Africa Utility Intelligence
+    <a class="brand" href="#top" aria-label="Courant, accueil">
+      <svg viewBox="-40 -700 5630 740" height="24" aria-hidden="true" focusable="false"><rect x="0" y="-660" width="640" height="160" fill="currentColor"/><rect x="0" y="-410" width="461" height="160" fill="currentColor"/><rect x="479" y="-410" width="161" height="160" fill="var(--accent)"/><rect x="0" y="-160" width="390" height="160" fill="currentColor"/><path transform="translate(860 0)" fill="currentColor" d="M387.9 12Q283 12 206.1 -18.5Q129.3 -49 87.6 -110.3Q45.9 -171.6 45.9 -264Q45.9 -356.4 87.6 -417.6Q129.3 -478.8 206.1 -509.1Q283 -539.4 387.9 -539.4Q455.4 -539.4 514.5 -525.7Q573.7 -512 618.7 -484.1Q663.7 -456.2 688.8 -414.8Q713.8 -373.5 713.8 -318.7H538.5Q538.5 -349.7 518.2 -372.2Q498 -394.6 464.1 -406.5Q430.2 -418.4 387.9 -418.4Q334.8 -418.4 298.4 -400.8Q262 -383.2 243.6 -350.9Q225.2 -318.6 225.2 -274V-254Q225.2 -210 244.1 -177.4Q263 -144.8 300.8 -126.9Q338.6 -109 394.5 -109Q436.3 -109 470.4 -122.1Q504.5 -135.2 524.8 -158.2Q545.1 -181.1 545.1 -209.7H713.8Q713.8 -153.5 688.5 -111.7Q663.1 -69.8 618.6 -42.4Q574.1 -15 514.7 -1.5Q455.4 12 387.9 12Z M1136.2 12Q1031.9 12 955.1 -18.8Q878.2 -49.6 836.2 -110.9Q794.2 -172.2 794.2 -264Q794.2 -356.4 836.2 -417.6Q878.2 -478.8 955.1 -509.1Q1031.9 -539.4 1136.2 -539.4Q1240.5 -539.4 1317.4 -509.1Q1394.2 -478.8 1436.2 -417.6Q1478.2 -356.4 1478.2 -264Q1478.2 -172.2 1436.2 -110.9Q1394.2 -49.6 1317.4 -18.8Q1240.5 12 1136.2 12ZM1136.2 -109Q1189.3 -109 1225.7 -126.9Q1262.1 -144.8 1280.5 -177.4Q1298.9 -210 1298.9 -254V-274Q1298.9 -318.6 1280.5 -350.9Q1262.1 -383.2 1225.7 -400.8Q1189.3 -418.4 1136.2 -418.4Q1083.1 -418.4 1046.7 -400.8Q1010.4 -383.2 992 -350.9Q973.6 -318.6 973.6 -274V-254Q973.6 -210 992 -177.4Q1010.4 -144.8 1046.7 -126.9Q1083.1 -109 1136.2 -109Z M1804.5 12Q1691.2 12 1633.4 -42.5Q1575.7 -97 1575.7 -207.2V-527.4H1749.2V-232.4Q1749.2 -203.8 1757.3 -182.4Q1765.3 -160.9 1780.6 -147.3Q1795.8 -133.8 1818 -127.1Q1840.2 -120.5 1868.2 -120.5Q1908.9 -120.5 1942.8 -137.1Q1976.8 -153.6 1997.3 -183.2Q2017.8 -212.7 2017.8 -251.1V-527.4H2191.3V0H2051L2038.9 -88.3H2029.9Q2002.3 -51 1965.2 -29.2Q1928.1 -7.4 1886.9 2.3Q1845.7 12 1804.5 12Z M2314.5 0V-527.4H2454.8L2466.8 -437.3H2475.3Q2489.6 -468.2 2513 -491.4Q2536.5 -514.5 2567.8 -527.2Q2599.1 -539.8 2635.4 -539.8Q2655 -539.8 2673 -537.1Q2690.9 -534.4 2706.5 -528.6V-389H2623.5Q2587.2 -389 2561.6 -377.2Q2535.9 -365.3 2519.7 -345Q2503.6 -324.7 2495.8 -299.2Q2488 -273.8 2488 -245.6V0Z M2978 12Q2929.3 12 2887.4 4.7Q2845.5 -2.6 2814.1 -20.1Q2782.8 -37.6 2765.4 -67.8Q2748 -98 2748 -144.2Q2748 -207.8 2782.4 -244Q2816.7 -280.2 2879.9 -296.9Q2943.1 -313.5 3028.6 -317.9Q3114.1 -322.3 3216.2 -322.3V-339.8Q3216.2 -370.9 3200.7 -389.4Q3185.2 -408 3154.4 -416.1Q3123.7 -424.2 3076.3 -424.2Q3041.2 -424.2 3010.5 -419.2Q2979.8 -414.2 2960.8 -403.3Q2941.8 -392.3 2941.8 -373.9V-365.2H2766.7Q2765.7 -369.2 2765.4 -372.6Q2765.1 -375.9 2765.1 -380.5Q2765.1 -427.5 2801.4 -463.3Q2837.6 -499.2 2909.2 -519.3Q2980.7 -539.4 3086.5 -539.4Q3184.5 -539.4 3252.1 -522.2Q3319.7 -505 3354.7 -466.4Q3389.7 -427.8 3389.7 -362.7V-148Q3389.7 -130.3 3397.4 -119.7Q3405.1 -109 3422.8 -109H3475.5V-6.2Q3462.2 -1 3432.4 5.5Q3402.6 12 3368.1 12Q3320 12 3291.6 1.6Q3263.1 -8.8 3249.5 -26.5Q3235.9 -44.3 3230.3 -65.6H3222.3Q3193.9 -41.7 3156.3 -23.9Q3118.8 -6.2 3074 2.9Q3029.2 12 2978 12ZM3025.6 -102.8Q3050.6 -102.8 3082.8 -108.4Q3114.9 -114 3145.7 -125.6Q3176.4 -137.2 3196.3 -155.5Q3216.2 -173.7 3216.2 -199.5V-228.9Q3114.5 -228.9 3048.8 -221Q2983.2 -213.1 2951.7 -196.3Q2920.3 -179.6 2920.3 -151.5Q2920.3 -130.8 2935.7 -120.4Q2951.1 -110 2975.5 -106.4Q2999.9 -102.8 3025.6 -102.8Z M3531.5 0V-527.4H3671.8L3683.8 -439.1H3692.8Q3721 -476.4 3757.8 -498.2Q3794.6 -520 3836.1 -529.7Q3877.6 -539.4 3918.3 -539.4Q3994.3 -539.4 4045.1 -515.4Q4095.8 -491.3 4121.4 -442.7Q4147 -394 4147 -320.2V0H3973.5V-295Q3973.5 -323.6 3965.5 -345Q3957.4 -366.5 3942.2 -380.1Q3927 -393.7 3904.9 -400.3Q3882.9 -406.9 3854.6 -406.9Q3813.9 -406.9 3779.9 -390.3Q3746 -373.8 3725.5 -344.5Q3705 -315.2 3705 -276.3V0Z M4519.8 12Q4456 12 4413.4 -3.2Q4370.8 -18.3 4349.6 -55.4Q4328.3 -92.5 4328.3 -158.3V-406.4H4225.7V-527.4H4334.4L4369 -683.9H4501.8V-527.4H4648.1V-406.4H4501.8V-186.5Q4501.8 -148.7 4517.2 -128.9Q4532.5 -109 4581.6 -109H4648.1V-5.8Q4634.1 -0.8 4610.4 3.4Q4586.6 7.6 4562.1 9.8Q4537.6 12 4519.8 12Z"/></svg>
+      <span class="brand-tag">Africa Utility Intelligence</span>
     </a>
     <nav class="links" aria-label="Sections">
       <a href="#methode">Méthode</a>
@@ -231,17 +224,17 @@ footer { border-top: 1px solid var(--line); padding-block: 32px 48px; font-size:
         <text class="lbl" x="420" y="18" text-anchor="end">100 GWh</text>
 
         <text class="lbl" x="20" y="48">Énergie injectée en distribution</text>
-        <rect class="bar grow" x="20" y="56" width="400" height="22"/>
+        <rect class="bar" x="20" y="56" width="400" height="22"/>
         <text class="val" x="20" y="98">100</text>
 
         <text class="lbl" x="20" y="122">Énergie facturée</text>
-        <rect class="bar grow" x="20" y="130" width="288" height="22"/>
+        <rect class="bar" x="20" y="130" width="288" height="22"/>
         <rect class="loss" x="308" y="130" width="112" height="22"/>
         <text class="val" x="20" y="172">72</text>
         <text class="lbl" x="420" y="172" text-anchor="end">pertes 28 %</text>
 
         <text class="lbl" x="20" y="196">Valeur encaissée</text>
-        <rect class="bar grow" x="20" y="204" width="245" height="22"/>
+        <rect class="bar" x="20" y="204" width="245" height="22"/>
         <rect class="unpaid" x="265" y="204" width="43" height="22"/>
         <rect class="loss" x="308" y="204" width="112" height="22" opacity=".35"/>
         <text class="val" x="20" y="236" dy="-0">61</text>
@@ -420,7 +413,7 @@ footer { border-top: 1px solid var(--line); padding-block: 32px 48px; font-size:
 </main>
 
 <footer class="wrap">
-  <span>Africa Utility Intelligence · Information et analyse uniquement. Ni avis d’investissement, ni notation de crédit.</span>
+  <span>Courant · Africa Utility Intelligence · Information et analyse uniquement. Ni avis d’investissement, ni notation de crédit.</span>
   <span>Sources : publications des utilities, des régulateurs et des bailleurs. Les noms des sociétés citées appartiennent à leurs détenteurs ; leur mention ne vaut pas partenariat.</span>
 </footer>
 
