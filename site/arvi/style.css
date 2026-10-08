@@ -73,3 +73,21 @@ footer{border-top:1px solid var(--line);padding:24px 16px;font-size:13px;color:v
 .topnav a{color:var(--hero-gold)}
 @media (max-width:700px){.levels{grid-template-columns:minmax(0,1fr)}.card dl{grid-template-columns:minmax(0,1fr)}.card dt{margin-top:4px}}
 footer a{color:var(--teal)}
+/* Pilot dashboard */
+:root{--s1:#2a55a8;--s2:#b07a18}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--s1:#4f7fe0;--s2:#b8862a}}
+:root[data-theme="dark"]{--s1:#4f7fe0;--s2:#b8862a}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td small{color:var(--muted)}
+.conf{white-space:nowrap;font-weight:500}
+.chart{width:100%;height:auto;max-width:760px;display:block;background:var(--surface);border:1px solid var(--line);border-radius:10px;margin:8px 0 16px}
+.chart .grid{stroke:var(--line);stroke-width:1}
+.chart .base{stroke:var(--muted);stroke-width:1}
+.chart .axis{fill:var(--muted);font:12px "IBM Plex Mono",monospace}
+.chart .s1{fill:var(--s1)}.chart .s2{fill:var(--s2)}
+.chart .hit{fill:transparent}
+.chart .bar:hover path{opacity:.8}
+.legend{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px;margin-top:8px}
+.legend .sw{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.sw.s1{background:var(--s1)}.sw.s2{background:var(--s2)}
+.cta{display:inline-block;margin-top:18px;padding:10px 16px;border-radius:8px;background:var(--hero-gold);color:#0e2148;font-weight:600;text-decoration:none}

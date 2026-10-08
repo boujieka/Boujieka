@@ -1,5 +1,6 @@
-"""Build the static ARVI site: decision indicators (index) and the blueprint page (/blueprint/),
-the latter rendered from docs/arvi/ARVI_MASTER_BLUEPRINT_v1.0.md.
+"""Build the static ARVI site: decision indicators (index), the blueprint page (/blueprint/),
+rendered from docs/arvi/ARVI_MASTER_BLUEPRINT_v1.0.md, and the pilot dashboard (/pilote/), rendered
+from backend/var/arvi/indicators.json when it exists.
 
 Usage: python site/arvi/build.py   (needs the `markdown` package; writes site/arvi/dist/)
 Deploy site/arvi/dist/ to the Netlify project "arvi-africa".
@@ -8,16 +9,20 @@ Deploy site/arvi/dist/ to the Netlify project "arvi-africa".
 from __future__ import annotations
 
 import html
+import json
 import re
 import shutil
 from pathlib import Path
 
 import markdown
 
+from dashboard import render as render_dashboard
+
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE = ROOT / "docs" / "arvi" / "ARVI_MASTER_BLUEPRINT_v1.0.md"
 HERE = Path(__file__).resolve().parent
 DIST = HERE / "dist"
+INDICATORS = ROOT / "backend" / "var" / "arvi" / "indicators.json"
 
 
 def main() -> None:
@@ -45,6 +50,11 @@ def main() -> None:
     shutil.copy(HERE / "style.css", DIST / "style.css")
     shutil.copy(HERE / "netlify.toml", DIST / "netlify.toml")
     shutil.copy(SOURCE, DIST / SOURCE.name)
+    if INDICATORS.exists():
+        n = render_dashboard(json.loads(INDICATORS.read_text(encoding="utf-8")), DIST)
+        print(f"wrote {n} pilot pages")
+    else:
+        print(f"no {INDICATORS}: pilot pages skipped (run python -m app.arvi.run all in backend/)")
     print(f"wrote {DIST / 'index.html'}")
 
 
