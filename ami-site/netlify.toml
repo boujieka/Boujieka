@@ -1,0 +1,15 @@
+# Static site built locally by build.py into dist/ (no build step on Netlify).
+# Access is restricted by the edge function netlify/edge-functions/auth.ts (HTTP Basic auth,
+# password in the AMI_SITE_PASSWORD environment variable, Functions scope, never committed).
+[build]
+  publish = "dist"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Content-Security-Policy = "default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; frame-ancestors 'none'; base-uri 'self'; form-action 'none'"
