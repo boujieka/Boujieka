@@ -37,7 +37,7 @@ Livrable : **Cameroon Gold Prospectivity Map** (High / Medium / Low potential / 
   Ce point est important pour la pédagogie. Selon Oriole Resources (RNS du 22/09/2026, [S13]) :
   - **Mbe** (licence de 312 km², « principalement dans la région de l'Adamaoua ») : ressource
     JORC *Inferred* de **50,60 Mt à 1,02 g/t Au pour 1,66 Moz** ;
-  - **Bibemi** (région du Nord d'après des extraits de presse [F-e] ; licence de 177 km² [S13]) : MRE JORC 2012 de **6,96 Mt à 2,06 g/t pour
+  - **Bibemi** (région du Nord d'après EcoMatin du 03/04/2025 [F] ; licence de 177 km² [S13]) : MRE JORC 2012 de **6,96 Mt à 2,06 g/t pour
     environ 460 000 oz**, dont 100 000 oz *Indicated* ([S11]) ; la demande de permis
     d'exploitation (ELA) est toujours en cours au 22/09/2026 ([S13]).
   - Dans l'Est, l'activité est massivement artisanale et semi-mécanisée. Aucune ressource
@@ -76,7 +76,7 @@ Livrable : **Cameroon Gold Prospectivity Map** (High / Medium / Low potential / 
 | C5 | Validation : « mettre de côté une partie des occurrences » | **Correct mais insuffisant.** Les occurrences d'or sont spatialement groupées : l'analyse de Fry et des quadrats le montre à Bétaré-Oya [L7]. Un retrait aléatoire de points laisse donc des voisins proches dans l'entraînement, ce qui gonfle la performance [I]. | Retrait **par blocs spatiaux ou par districts** (voir § 6.5) et courbes de succès et de prédiction [M5]. |
 | C6 | « Ne pas confondre orpaillage alluvionnaire et gisement primaire » | **Correct, à nuancer.** Une partie de l'or exploité est **éluvial**, issu de filons proches (Batouri [L12], [L15]). La morphologie des grains permet d'estimer la distance à la source : moins de 5 km à Gamba [L22], 0–300 m ou plus de 1 000 m à Guiwa-Yangamo [L27]. | Distinguer trois classes d'occurrences : **primaire** (filon, roche en place), **éluviale/colluviale** (source proche) et **alluviale** (source à l'amont du bassin versant). Seules les deux premières servent de points d'entraînement. Les alluvions servent à construire une couche de bassins versants « en aval d'une source ». |
 | C7 | Classes « High / Medium / Low / Insufficient data » | Le cadrage ne définit pas les classes. Le risque est de confondre « faible potentiel » et « pas de données » [I]. | Calculer **deux** grandeurs par cellule : un score de prospectivité et un **indice de couverture des données**. « Insufficient data » dépend uniquement du second (§ 8). |
-| C8 | Régions aurifères implicites (Est, Adamaoua) | **Incomplet.** Des minéralisations primaires sont documentées dans le Nord : Bibemi ([S11] ; région du Nord [F-e] ; cible de télédétection [L18]), Poli [L21], Tcholliré [L20], [L23]. Des minéralisations sont aussi signalées dans le Sud (corridor Eséka–Lolodorf–Bipindi [L25]) et dans l'Ouest (Kékem, cisaillement Centre-Camerounais [L9]). | Carte nationale, avec un zoom sur district (§ 7). |
+| C8 | Régions aurifères implicites (Est, Adamaoua) | **Incomplet.** Des minéralisations primaires sont documentées dans le Nord : Bibemi ([S11] ; région du Nord [F], EcoMatin 03/04/2025 ; cible de télédétection [L18]), Poli [L21], Tcholliré [L20], [L23]. Des minéralisations sont aussi signalées dans le Sud (corridor Eséka–Lolodorf–Bipindi [L25]) et dans l'Ouest (Kékem, cisaillement Centre-Camerounais [L9]). | Carte nationale, avec un zoom sur district (§ 7). |
 | C9 | Socle de données : USGS « année de référence 2018 » | **Vérifié** pour la carte GeoPDF OFR 2024-1041 [S8]. La page de la *data release* ne mentionne pas d'année de référence, mais indique la licence **CC0 1.0** et le DOI 10.5066/P97EQWXP [S7]. | Ajouter la licence CC0 : cela règle en partie le point ouvert n° 4 pour l'USGS. |
 | C10 | Dépendance : « 02 utilise 01 » uniquement | **Incomplet [I].** Le module 02 a aussi besoin des occurrences et des projets (couches USGS, RNS des sociétés), qui relèvent en principe du module 03. Le module 02 renvoie par ailleurs vers le 01 (validation des cibles satellitaires). | Préciser que le 02 utilise le livrable du 01 **et** les couches d'occurrences de base, qu'il renvoie un retour au 01 et qu'il alimente le 03 et le 07 (§ 9). |
 
@@ -176,24 +176,24 @@ Livrable : **Cameroon Gold Prospectivity Map** (High / Medium / Low potential / 
 
 | Projet | Localisation | Opérateur / détention | Stade (date) | Ressource déclarée | Code | Source | Statut |
 |---|---|---|---|---|---|---|---|
-| **Mbe** (MB01-S + MB01-N) | Licence de 312 km², « mainly in the Adamawa Region » ; incluse dans le paquet Eastern CLP de 2 266 km² ([S12]) | Oriole Resources 50 %, BCM International 50 % ([S13]) | Exploration avancée (RNS du 22/09/2026) | **Total : 50,60 Mt à 1,02 g/t = 1,66 Moz (*Inferred*)**. MB01-S (mise à jour du 23/07/2026) : 40,10 Mt à 1,01 g/t = 1,30 Moz. MB01-N (avril 2026) : 10,50 Mt à 1,05 g/t = 360 koz. Coupure 0,40 g/t ; prix de 3 200 US$/oz ; contraintes de fosse | JORC | [S13] | [F] |
+| **Mbe** (MB01-S + MB01-N) | Licence de 312 km², « mainly in the Adamawa Region » ; incluse dans le paquet Eastern CLP de 2 266 km² au 20/05/2026 ([S12]). Au 22/09/2026, [S13] présente Mbe à part et l'Eastern CLP (Ndom, Pokor, Niambaram, Tenekou) à 1 954 km², détenu à 90 % (2 266 − 312 = 1 954) | Oriole Resources 50 %, BCM International 50 % ([S13]) | Exploration avancée (RNS du 22/09/2026) | **Total : 50,60 Mt à 1,02 g/t = 1,66 Moz (*Inferred*)**. MB01-S (mise à jour du 23/07/2026) : 40,10 Mt à 1,01 g/t = 1,30 Moz. MB01-N (avril 2026) : 10,50 Mt à 1,05 g/t = 360 koz (chiffre de [S13] ; 10,50 × 1,05 / 31,1035 donne 354 koz, l'écart vient probablement de l'arrondi de la teneur). Coupure 0,40 g/t ; prix de 3 200 US$/oz ; contraintes de fosse | JORC | [S13] | [F] |
 | Mbe, estimation initiale de MB01-S | idem | idem | Octobre 2025 | 870 koz à 1,09 g/t (*Inferred*) | JORC | [S12], [S13] | [F] (dépassé) |
-| **Bibemi** (Bakassi Zone 1) | Licence de 177 km², région du Nord ([S13] pour la surface ; région du Nord d'après des extraits [F-e]) | Oriole 50 % / BCM 50 % ([S13]) | Demande de permis d'exploitation (ELA) **en cours** au 22/09/2026 ; EIES approuvée ([S10]) | **6,96 Mt à 2,06 g/t ≈ 460 koz**, dont 100 koz *Indicated* à 2,05 g/t et 360 koz *Inferred* à 2,06 g/t. Coupure 0,40 g/t ; fosse à 2 750 US$/oz (mai 2025) | JORC 2012 ; personne compétente : R. Davies (Forge International) | [S11] | [F] |
+| **Bibemi** (Bakassi Zone 1) | Licence de 177 km², région du Nord ([S13] pour la surface ; EcoMatin du 03/04/2025 pour la région) | Oriole 50 % / BCM 50 % ([S13]) | Demande de permis d'exploitation (ELA) **en cours** au 22/09/2026 ; EIES approuvée ([S10]) | **6,96 Mt à 2,06 g/t ≈ 460 koz**, dont 100 koz *Indicated* à 2,05 g/t et 360 koz *Inferred* à 2,06 g/t. Coupure 0,40 g/t ; fosse à 2 750 US$/oz (mai 2025) | JORC 2012 ; personne compétente : R. Davies (Forge International) | [S11] | [F] |
 | Bibemi : *Exploration Target* | Bakassi Z1, Z2, Lawa Est/Ouest | idem | — | 3–5 Mt à 1,5–2,5 g/t = 145–400 koz. **Conceptuel : ne s'ajoute pas aux ressources** | JORC (Exploration Target) | [S11] | [F] |
 | Bibemi : PEA interne | idem | idem | Décembre 2025 | Mine à ciel ouvert de petite taille ; ~89 koz in situ à 2,20 g/t ; 10 koz/an sur 7 ans ; VAN après impôt de 12,8 M US$ à 3 200 US$/oz | PEA interne (moins de 20 % des ressources) | [S13], [S14] | [F] |
 
 **Points pédagogiques [I]** :
 - les deux seuls projets dotés d'une ressource conforme se trouvent hors des districts
   artisanaux les plus productifs ;
-- Mbe est passé d'une anomalie de sols à une ressource de 1,66 Moz entre 2021 et 2026
-  ([S12], [S13]). C'est un cas d'école pour l'exercice de rétro-prédiction (§ 6.5).
+- Mbe est passé d'une anomalie de sols à une ressource de 1,66 Moz entre 2022 (début de
+  l'exploration systématique selon [S12]) et 2026 ([S13]). C'est un cas d'école pour l'exercice de rétro-prédiction (§ 6.5).
 
 ### 4.2 Projets ou sites sans ressource conforme
 
 | Site | Localisation | Ce qui est documenté | Statut |
 |---|---|---|---|
 | Kambélé / permis de Batouri | Batouri, Est | Sondages d'African Aura Resources avec « visible gold in three drill holes » (article de Northern Miner, non daté, payant) [S15]. Granitoïdes aurifères datés à ~620 Ma [L11]. Site fermé depuis neuf mois selon un article de 2025 [S16] | Ressource conforme : **non trouvée** [?] ; opérateur actuel : **non vérifié** |
-| Eastern CLP : Ndom, Pokor, Niambaram, Tenekou | Contigus à Mbe (Adamaoua/Nord) | Prélèvements de roche jusqu'à 17,00 g/t (Ndom), 1,24 g/t (Pokor), 28,40 g/t (Niambaram) ; anomalie de sol PK01 à 120 ppb [S13] | Exploration précoce [F] |
+| Eastern CLP : Ndom, Pokor, Niambaram, Tenekou | Contigus à Mbe [S13] ; région : non précisée par [S13] [?] | Prélèvements de roche jusqu'à 17,00 g/t (Ndom), 1,24 g/t (Pokor), 28,40 g/t (Niambaram) ; anomalie de sol PK01 à 120 ppb [S13] | Exploration précoce [F] |
 | Bindiba | Lom, Est | Trois corps polarisables par tomographie électrique et polarisation provoquée, près d'un chantier semi-mécanisé [L33] | Recherche académique [F] |
 | Tikondi | Est | 550 sols ; Au de 1 à 2 480 ppb [L26] | Recherche académique [F] |
 | Dourou Tchaga (SW de Poli) | Nord | Filons laminés dans un cisaillement sénestre ENE–WSW (D3) [L21] | Recherche académique [F] |
@@ -202,8 +202,8 @@ Livrable : **Cameroon Gold Prospectivity Map** (High / Medium / Low potential / 
 
 | Indicateur | Valeur | Source | Statut |
 |---|---|---|---|
-| Production déclarée par SONAMINES | 353,63 kg (2021) ; **859,92 kg (2022)**, soit ~27,45 Md FCFA | ITIE, via Ecomatin (26/03/2025) [S9] | [F] (source secondaire de presse) |
-| Répartition 2022 par site | Batouri 37,3 % (332,2 kg) ; Bétaré-Oya 20,29 % ; Ngoura 15,50 % ; ensuite Kette, Meiganga, Mbotoro ; enfin Bombe, Dir, Gari-Gombo, Garoua-Boulaï, Rey-Bouba, Yokadouma | [S9] | [F] |
+| Production déclarée par SONAMINES | 353,63 kg (2021) ; **859,92 kg (2022)**, soit ~27,45 Md FCFA | ITIE, via Ecomatin (26/03/2025) [S9] ; le Rapport ITIE 2023 (eiti.org/document/25588) confirme 859,92 kg pour 2022 | [F] |
+| Répartition 2022 par site | Batouri 37,3 % (332,2 kg ; incohérence interne de la source : 37,3 % de 859,92 kg font 320,8 kg, et 332,2 kg font 38,6 %) ; Bétaré-Oya 20,29 % ; Ngoura 15,50 % ; ensuite Kette, Meiganga, Mbotoro ; enfin Bombe, Dir, Gari-Gombo, Garoua-Boulaï, Rey-Bouba, Yokadouma | [S9] | [F] |
 | Part informelle | « 90 % de la production issue des exploitations artisanales et semi-mécanisées échappe aux circuits formels » (ITIE) | [S9] | [F] |
 | Part de l'artisanal dans la production nationale | 95 % | [S1] | [F] |
 | Or remis à l'État (taxe ad valorem/synthétique) | 170,9 kg en 2023 ; 420 kg sur 2023 et le 1er semestre 2024 | [S1] | [F] |
@@ -227,7 +227,7 @@ Ces chantiers ne doivent pas servir de points d'entraînement « primaires » sa
 | **PRECASEM : cartes géologiques** | « 13 geological maps at 1/200 000 » [S2] (13,5 selon [S4]) | 1/200 000 | **Non vérifié** (pas de portail trouvé) | [F] objectif ; [?] livraison | Couverture limitée aux régions du programme (Adamaoua, Centre, Est, Littoral, Nord-Ouest, Sud-Ouest selon [S2]) |
 | **PRECASEM : géochimie** | ~18 000 échantillons **prévus** [S2] ; « interprétation en cours » (mars–avril 2018) [S4] | ? | **Non vérifié** | [F] objectif ; [?] résultats | Nombre réel, milieu échantillonné, éléments dosés et seuils de détection : inconnus |
 | **PRECASEM : géophysique aéroportée** | ~160 000 km², six régions ; seuls 40 % des 475 000 km² du pays déjà couverts auparavant [S5] | ? | **Non vérifié** | [F] annonce | Espacement des lignes, capteurs et livrables inconnus |
-| **SIGM** | « SIGM architecture proposition », serveur [S4] | — | **Non vérifié** | [F] conception ; [?] mise en ligne | Données jugées « pour la plupart obsolètes » [S1] |
+| **SIGM** | « SIGM architecture proposition », serveur [S4] | — | **Non vérifié** | [F] conception ; [?] mise en ligne | Données du « système d'information géologique et minérale » jugées « pour la plupart obsolètes » [S1] ; l'article ne nomme pas le SIGM |
 | Aéromagnétisme ancien (années 1970, coopération Canada) | Cartes isomagnétiques utilisées dans des mémoires universitaires | ? | Dépôt DICAMES (mémoires) | [F-e] | Données brutes non localisées |
 | **USGS Africa GIS** | Installations, sites d'exploration et de développement, occurrences et gisements, infrastructures [S7] | Points/lignes | **CC0 1.0** ; DOI 10.5066/P97EQWXP [S7] | [F] | Référence 2018 [S8] : n'inclut ni Mbe (découvert après 2021) ni les ressources de Bibemi publiées en 2024–2025 [I] |
 | **Littérature scientifique** (§ 12, [L*]) | Occurrences, structures, âges, géochimie locale | Locale (districts) | Articles, souvent payants | [F] | Coordonnées à numériser à partir des figures ; biais vers l'Est |
@@ -404,7 +404,7 @@ l'équipe pédagogique, à partir des seules sources publiques du § 12 [H].
 | 6 | Accès public au SIGM | — | Non vérifié |
 | 7 | Données géologiques « pour la plupart obsolètes » (étude AMDC) | [S1] | Vérifié |
 | 8 | Levé aéroporté d'environ 160 000 km² ; 40 % du territoire couvert auparavant | [S5] | Vérifié (annonce, non datée) |
-| 9 | PRECASEM = projet P122153, crédit IDA de 30 M US$ ; financement additionnel P160917 de 26,9 M US$ | [S6] ; pages World Bank vues en extrait | Titre vérifié ; montants [F-e] |
+| 9 | PRECASEM = projet P122153, crédit IDA de 30 M US$ ; financement additionnel P160917 de 26,9 M US$ | [S6] ; pages World Bank vues en extrait | Vérifié (API projets de la Banque mondiale : P122153 = 30 M US$ ; P160917 = 26,9 M US$, parent P122153) |
 | 10 | USGS Africa GIS : CC0, DOI 10.5066/P97EQWXP | [S7] | Vérifié |
 | 11 | USGS : année de référence 2018 | [S8] | Vérifié |
 | 12 | Domaines de la CAFB et chronologie de 650 à 550 Ma | [L1] | Vérifié (résumé) |
@@ -420,7 +420,7 @@ l'équipe pédagogique, à partir des seules sources publiques du § 12 [H].
 | 22 | Bibemi : 6,96 Mt à 2,06 g/t, ~460 koz (100 koz *Ind.* + 360 koz *Inf.*), JORC 2012 | [S11] | Vérifié |
 | 23 | Bibemi : demande de permis non accordée au 22/09/2026 | [S13] | Vérifié (à cette date) |
 | 24 | Bibemi : PEA à 89 koz, 2,20 g/t, 10 koz/an, 7 ans, VAN de 12,8 M US$ | [S13], [S14] | Vérifié |
-| 25 | Bibemi dans la région du Nord | Extraits Mining Weekly / Ecomatin | [F-e] |
+| 25 | Bibemi dans la région du Nord | EcoMatin (03/04/2025), page relue lors de la contre-vérification | Vérifié |
 | 26 | Kambélé : ressource conforme | — | Non trouvé |
 | 27 | SONAMINES : 859,92 kg en 2022 ; Batouri 37,3 % | [S9] | Vérifié (presse citant l'ITIE) |
 | 28 | 90 % de la production artisanale hors circuits formels | [S9] | Vérifié (presse citant l'ITIE) |
@@ -525,3 +525,34 @@ contraire. Pour les articles sans DOI confirmé, l'URL est celle de la fiche con
 - [M5] Chung & Fabbri (2003), « Validation of Spatial Prediction Models for Landslide Hazard Mapping », Natural Hazards — https://doi.org/10.1023/B:NHAZ.0000007172.62651.2b
 - [M6] Boadi, Sunder Raju, Wemegah et al. (2022), « Analysing multi-index overlay and fuzzy logic models for lode-gold prospectivity mapping in the Ahafo gold district », Ore Geology Reviews — https://doi.org/10.1016/j.oregeorev.2022.105059
 - [M7] Zhang, Agterberg, Cheng et al. (2013), Mathematical Geosciences (comparaison WofE flou et régression logistique) — https://doi.org/10.1007/s11004-013-9496-8
+
+---
+
+## Contre-vérification (2026-10-08)
+
+Revue indépendante (rapport détaillé : `verification/verif-01-03.md`). Sources rouvertes le 2026-10-08.
+
+**Confirmé** : RNS 6596V du 22/09/2026 (PDF re-téléchargé : Mbe 50,60 Mt à 1,02 g/t = 1,66 Moz,
+MB01-S 40,10 Mt à 1,01 g/t = 1,30 Moz, coupure 0,40 g/t, 3 200 US$/oz, Mbe et Bibemi à 50 %,
+Bibemi 177 km², ELA en cours, PEA 89 koz à 2,20 g/t, 10 koz/an sur 7 ans) ; RNS du 23/09/2025
+(Bibemi 6,96 Mt à 2,06 g/t ≈ 460 koz, 100 koz Ind. et 360 koz Inf., 2 750 US$/oz, JORC 2012,
+R. Davies) ; RNS du 20/05/2026 (Mbe 312 km², Adamaoua, NNE/NNW, 870 koz à 1,09 g/t) ; Share Talk
+(VAN 12,8 M US$) ; Ecofin (EIES validée) ; Ecomatin [S9] ; Financial Afrik [S1] ; Business in
+Cameroon [S2], [S3] ; PANA [S5] ; USGS [S7], [S8] ; BRGM [S4] ; 29 DOI via Crossref ; résumés de
+[L6] (≈ 310 °C, 6–9 km, orogénique mésozonal), [L11] (619 ± 2 et 624 ± 2 Ma), [L12] et [M6]
+(76 % des occurrences dans 24 % de la surface).
+
+**Modifié** :
+- Bibemi dans la région du Nord : [F-e] → [F] (EcoMatin du 03/04/2025 relu).
+- Mbe / Eastern CLP : le chiffre de 2 266 km² date du 20/05/2026 ; au 22/09/2026, l'Eastern CLP
+  fait 1 954 km² (90 %) et Mbe est présenté à part.
+- Mbe « entre 2021 et 2026 » → « entre 2022 et 2026 » ([S12] date l'exploration systématique de 2022).
+- Région « Adamaoua/Nord » des licences Eastern CLP : non sourcée → [?].
+- MB01-N : signalement de l'écart d'arrondi (354 koz calculés contre 360 koz publiés).
+- Batouri : incohérence interne de [S9] signalée (37,3 % ≠ 332,2 kg).
+- Montants Banque mondiale (30 M US$ ; 26,9 M US$) : [F-e] → Vérifié (API Banque mondiale).
+- SIGM : l'article [S1] ne nomme pas le SIGM (précision ajoutée au § 5).
+- Production 2022 de SONAMINES : recoupée par le Rapport ITIE 2023.
+
+**Non revérifié** : [L1], [L2], [L5], [L7], [L8] (DOI confirmés, résumés non relus) ; sources
+Consensus sans DOI ([L3], [L4], [L18], [L22]–[L33]).

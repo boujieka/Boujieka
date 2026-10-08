@@ -18,7 +18,8 @@
   et faciles d'accès **[F]**. En revanche, **la couche d'occurrences USGS ne permet pas de faire un
   exercice de ciblage aurifère au Cameroun**. Le calcul AMI sur la base téléchargée donne pour le
   Cameroun 9 gisements (Al, Ga, Co, Fe), 13 sites d'exploration (dont 1 seul en or) et
-  17 installations (dont 1 point générique « orpaillage, région du Nord ») **[F]**. Les occurrences
+  17 enregistrements d'installations, soit 13 installations distinctes (dont 1 point générique
+  « orpaillage, région du Nord ») **[F]**. Les occurrences
   d'or doivent venir de la littérature scientifique. Exemple : jeu de données Tcholliré,
   CC BY 4.0 **[F]**.
 - **Les cartes géologiques modernes (13,5 feuilles au 1/200 000, PRECASEM/BRGM) existent d'après
@@ -57,7 +58,7 @@
 | C8 | Zone de savane « Adamaoua, Nord » | **Confirmé**, et chiffré. Fenêtre autour de Ngaoundéré : 74 % d'arbustes et d'herbacées, 16 % d'arbres. Z1 Nord : 74 % d'arbustes et d'herbacées, 20 % d'arbres. À compléter : l'**Est septentrional** (Bétaré-Oya) est intermédiaire, avec 54 % d'arbres. | Calcul AMI, ESA WorldCover 2021 v200 |
 | C9 | « les nuages limitent les images exploitables » (au sud et à l'est) | **Vrai partout, pas seulement au sud et à l'est.** Même au Nord (Z1), aucune date à moins de 10 % de nuages de juin à septembre (2023–2024). La différence entre zones est de degré : 43 dates claires sur 146 en Z1, 28 en Z2, 24 en Z3. **La fenêtre de novembre à février est déterminante.** | Calcul AMI, catalogue STAC Earth Search (Sentinel-2 L2A) |
 | C10 | MNT « SRTM / Copernicus DEM » pour les structures | Le **Copernicus DEM est un modèle numérique de surface (DSM)** : il inclut le couvert, bâtiments compris. En forêt (Z3), il représente le toit de la canopée ; c'est un biais pour les linéaments. La version GLO30 de Google Earth Engine est remplacée par `COPERNICUS/DEM/GLO30_2024_1`. | developers.google.com (catalogue COPERNICUS_DEM_GLO30) |
-| C11 | Sentinel-1 pour l'option forestière | **Valable**, mais la constellation n'a eu qu'un seul satellite de fin 2021 à fin 2024. Sentinel-1B est en panne depuis le 23/12/2021 et sa fin de mission a été déclarée le 03/08/2022. Sentinel-1C a été lancé le 05/12/2024 (source ESA consultée seulement via les résultats de recherche). Les séries temporelles 2022–2024 sont donc moins denses. | esa.int (fin de mission S1B) ; Partiel pour S1C |
+| C11 | Sentinel-1 pour l'option forestière | **Valable**, mais la constellation n'a eu qu'un seul satellite de fin 2021 à fin 2024. Sentinel-1B est en panne depuis le 23/12/2021 et sa fin de mission a été déclarée le 03/08/2022. Sentinel-1C a été lancé le 05/12/2024 (communiqué de presse ESA n° 70–2024, consulté lors de la contre-vérification). Les séries temporelles 2022–2024 sont donc moins denses. | esa.int (fin de mission S1B ; communiqué S1C) |
 | C12 | Landsat (sous-entendu : SWIR utilisable) ; ASTER non mentionné | À ajouter : **l'archive ASTER antérieure à avril 2008** est la seule source multispectrale libre avec **6 bandes SWIR**, utile pour distinguer les argiles. Le SWIR d'ASTER est inutilisable depuis avril 2008. Les produits AST_L1T sont gratuits depuis le 01/04/2016. | earthdata.nasa.gov (ASTER SWIR Anomaly ; ASTER Data Available at No Charge) ; asterweb.jpl.nasa.gov |
 | C13 | Géophysique aéroportée (non mentionnée en 01) | Il existe **deux levés**, mais nous n'avons trouvé aucun accès public : (a) levé aéromagnétique de **1970** (Survair, coopération canadienne ; altitude 235 m, lignes N–S espacées de 750 m ; rapport Paterson, Grant & Watson 1976) ; (b) levé **PRECASEM de 2014–2015**, environ 160 000 km² dans 6 régions (contrat Geotech Airborne, 2,1 milliards de FCFA). Des chercheurs ont utilisé des données aéromagnétiques sur Tcholliré (2022, 2023). | Geophysica 2014 ; businessincameroon.com (22 et 23/01/2014) ; Crossref (gj.4513, s11600-023-01166-6) |
 
@@ -69,19 +70,19 @@
 |---|---|---|---|---|---|---|
 | **Sentinel-2 L2A** (`COPERNICUS/S2_SR_HARMONIZED`) | 13 bandes. B2, B3, B4, B8 à 10 m ; B8A, B11 (≈ 1 610 nm), B12 (≈ 2 190 nm) à 20 m. Revisite de 5 jours. Depuis le 28/03/2017. | https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR_HARMONIZED · https://dataspace.copernicus.eu | Libre. Inscription requise au Copernicus Data Space ; GEE requiert un compte. | Copernicus : « free, full and open » (Legal Notice) | Couverture L2A 2017–2018 non globale. Bande QA60 vide entre 2022-01-25 et 2024-02-28 : utiliser Cloud Score+. Seulement 2 bandes SWIR, donc pas de discrimination fine des argiles [I]. | Vérifié |
 | **Cloud Score+** (`GOOGLE/CLOUD_SCORE_PLUS/V1/S2_HARMONIZED`) | Score de clarté 0–1 à 10 m (`cs`, `cs_cdf`) | https://developers.google.com/earth-engine/datasets/catalog/GOOGLE_CLOUD_SCORE_PLUS_V1_S2_HARMONIZED | Via GEE | Voir la page du catalogue | Seuil conseillé entre 0,50 et 0,65 | Vérifié |
-| **Sentinel-1 GRD** (`COPERNICUS/S1_GRD`) | Radar en bande C. Modes IW, EW, SM. Polarisations VV+VH ou HH+HV. Pixel de 10 m. Prétraitements : bruit thermique, calibration, correction de terrain (SRTM 30), conversion en dB. Depuis le 03/10/2014. | https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S1_GRD | Libre | Copernicus Sentinel T&C | Un seul satellite du 23/12/2021 jusqu'à l'arrivée de S1C (lancé le 05/12/2024, Partiel). Distorsions géométriques en relief : ombre et repliement [I]. | Vérifié / Partiel |
+| **Sentinel-1 GRD** (`COPERNICUS/S1_GRD`) | Radar en bande C. Modes IW, EW, SM. Polarisations VV+VH ou HH+HV. Pixel de 10 m. Prétraitements : bruit thermique, calibration, correction de terrain (SRTM 30), conversion en dB. Depuis le 03/10/2014. | https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S1_GRD | Libre | Copernicus Sentinel T&C | Un seul satellite du 23/12/2021 jusqu'à l'arrivée de S1C (lancé le 05/12/2024). Distorsions géométriques en relief : ombre et repliement [I]. | Vérifié |
 | **Landsat 8/9 C2 L2** (`LANDSAT/LC09/C02/T1_L2`, LC08 équivalent) | 30 m. SR_B6 de 1,566 à 1,651 µm ; SR_B7 de 2,107 à 2,294 µm. Revisite de 16 jours par satellite. | https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC09_C02_T1_L2 · EarthExplorer (inscription USGS : Non vérifié) | Libre | **Domaine public** (crédit USGS demandé) | Résolution 30 m ; même limite SWIR que Sentinel-2 [I] | Vérifié |
-| **ASTER L1T** (archive) | VNIR 15 m, SWIR 30 m (6 bandes), TIR 90 m (résolutions : Non vérifié dans les pages consultées) | https://www.earthdata.nasa.gov/news/aster-data-available-no-charge | Gratuit depuis le 01/04/2016. Compte NASA Earthdata (Non vérifié). | NASA/METI (conditions détaillées : Non vérifié) | **SWIR inutilisable après avril 2008** (saturation, rayures). Il faut des scènes antérieures à 2008 et peu nuageuses ; leur disponibilité sur Z1, Z2 et Z3 est inconnue [?]. | Vérifié (accès + panne SWIR) |
+| **ASTER L1T** (archive) | VNIR 15 m, SWIR 30 m (6 bandes), TIR 90 m (résolutions : Non vérifié dans les pages consultées) | https://www.earthdata.nasa.gov/news/aster-data-available-no-charge | Gratuit depuis le 01/04/2016. Compte NASA Earthdata (Non vérifié). | NASA/METI (conditions détaillées : Non vérifié) | **SWIR inutilisable après avril 2008** (saturation, rayures). Le JPL signale aussi des saturations possibles sur les données SWIR de fin mai 2007 à fin janvier 2008 (asterweb.jpl.nasa.gov). Il faut des scènes antérieures à 2008 et peu nuageuses ; leur disponibilité sur Z1, Z2 et Z3 est inconnue [?]. | Vérifié (accès + panne SWIR) |
 | **Copernicus DEM GLO-30** (`COPERNICUS/DEM/GLO30`, remplacé par `GLO30_2024_1`) | Modèle de surface (DSM) à 30 m, acquisitions 2010–2015 | https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_DEM_GLO30 | Libre (sauf Arménie et Azerbaïdjan) | Licence Copernicus DEM, © DLR / Airbus | **DSM** : la canopée biaise les linéaments en forêt | Vérifié |
 | **SRTM GL1 v3** (`USGS/SRTMGL1_003`) | 1 seconde d'arc (≈ 30 m), comblé des vides, acquis en février 2000 | https://developers.google.com/earth-engine/datasets/catalog/USGS_SRTMGL1_003 | Libre | Politique JPL/NASA (« any purpose ») | Date de 2000 ; nature surface ou sol sous forêt non précisée dans la page consultée [?] | Vérifié |
 | **ESA WorldCover 2021 v200** | Occupation du sol à 10 m, 11 classes | https://developers.google.com/earth-engine/datasets/catalog/ESA_WorldCover_v200 · tuiles COG `esa-worldcover.s3.eu-central-1.amazonaws.com` | Libre | **CC BY 4.0** | Une seule année (2021) | Vérifié |
-| **USGS Africa GIS compilation** | 20 couches : installations, gisements, exploration, infrastructures | https://www.sciencebase.gov/catalog/item/607611a9d34e018b3201cbbf (DOI 10.5066/P97EQWXP) | Libre (GDB de 131,7 Mo) | **CC0 1.0** | Cameroun : 9 gisements, 13 sites d'exploration, 17 installations ; or quasi absent ; incohérences de coordonnées (C1 à C3) | Vérifié (calcul AMI) |
+| **USGS Africa GIS compilation** | 20 couches : installations, gisements, exploration, infrastructures | https://www.sciencebase.gov/catalog/item/607611a9d34e018b3201cbbf (DOI 10.5066/P97EQWXP) | Libre (GDB de 131,7 Mo) | **CC0 1.0** | Cameroun : 9 gisements, 13 sites d'exploration, 17 enregistrements d'installations (13 identifiants) ; or quasi absent ; incohérences de coordonnées (C1 à C3) | Vérifié (calcul AMI) |
 | **USGS OFR 2024-1041** | Carte GeoPDF au 1/38 504 000 | https://pubs.usgs.gov/publication/ofr20241041 | Libre | Domaine public USGS [I] | Échelle continentale ; référence 2018 | Vérifié |
 | **USGS MRDS** | Base mondiale d'indices et gisements | https://mrdata.usgs.gov/mrds/ | Libre (WFS) | Non vérifié | **Plus mise à jour systématiquement depuis 2011.** Requête WFS : environ 10 enregistrements camerounais (Al, Fe, Ti), **aucun or**. | Vérifié |
 | **Carte géologique de l'Afrique** (USGS OFR 97-470-A, Persits et al. 1997) | Géologie continentale (vecteur et PDF) | https://pubs.usgs.gov/publication/ofr97470A | Libre | Domaine public USGS [I] | Échelle non indiquée sur la page ; usage régional seulement | Vérifié |
 | **Carte géologique du Cameroun au 1/1 000 000** (Gazel, Hourcq, Nickles ; révisée en 1956) | 2 feuilles (Nord, Sud). Notice dans l'Atlas du Cameroun (IRCAM) | https://horizon.documentation.ird.fr/exl-doc/pleins_textes/2022-03/17164-17170.pdf | PDF libre (37 Mo, 82 p.) | Non vérifié | Fond topographique ancien (« croquis provisoire au 1/200 000 de l'IGN ») ; présence des planches couleur dans le PDF : Partiel | Partiel |
 | **Feuilles de reconnaissance au 1/500 000** (par ex. Ngaoundéré-O, Guiraudie 1955 ; Banyo 1952 ; Yaoundé-O 1957) | Cartes papier | https://dijitalkoleksiyonlar.kutuphane.itu.edu.tr/cdm/compoundobject/collection/itumapsAll/id/2049/rec/1 | **Métadonnées seulement** (ITÜ) | « All rights reserved » | Pas de scan public trouvé pour Z1, Z2 ou Z3 | Vérifié (notice) |
-| **Cartes PRECASEM au 1/200 000** + géochimie + SIGM | 13,5 feuilles, prospection géochimique, SIG | (aucune URL publique trouvée) | MINMIDT (procédure : Non vérifié) | Non vérifié | Une étude AMDC/UA de 2025 juge les données du SIGM « pour la plupart obsolètes » | Non vérifié (accès) |
+| **Cartes PRECASEM au 1/200 000** + géochimie + SIGM | 13,5 feuilles, prospection géochimique, SIG | (aucune URL publique trouvée) | MINMIDT (procédure : Non vérifié) | Non vérifié | Une étude AMDC/UA de 2025 juge « pour la plupart obsolètes » les données du « système d'information géologique et minérale » (l'article ne nomme ni le SIGM ni le PRECASEM) | Non vérifié (accès) |
 | **Aéromagnétisme 1970** (Survair / Paterson, Grant & Watson 1976) | Lignes N–S espacées de 750 m, altitude 235 m | (aucune URL publique) | Non vérifié | Non vérifié | Couverture de Z1, Z2 et Z3 : Non vérifié | Vérifié (existence) |
 | **Aéromagnétisme / radiométrie PRECASEM 2014–2015** | Environ 160 000 km², 6 régions | (aucune URL publique) | Non vérifié | Non vérifié | Paramètres contradictoires selon la presse (80 m ou 80–120 m ; lignes à 500 m) | Partiel |
 | **Données Tcholliré (Mendeley Data)** | Descriptions d'échantillons avec coordonnées, spectres ASD (350–2 500 nm), lames minces | https://data.mendeley.com/datasets/p99227dppc/2 | Libre | **CC BY 4.0** | Échantillonnage orienté vers les cibles, donc biaisé ; ce ne sont pas des teneurs en or | Vérifié |
@@ -94,8 +95,8 @@ Méthode de comparaison (calcul AMI, reproductible) :
 
 - **Occupation du sol** : ESA WorldCover 2021 v200, lu dans les tuiles COG publiques sur l'emprise
   de chaque zone, avec un pixel sur 10 (échantillonnage à environ 100 m).
-- **Nuages** : catalogue STAC Earth Search (`sentinel-2-l2a`), requête sur le point central de
-  chaque zone du 01/01/2023 au 31/12/2024, en retenant par date la plus faible valeur
+- **Nuages** : catalogue STAC Earth Search (`sentinel-2-l2a`), requête sur un point de
+  chaque zone (centre de l'emprise pour Z1 et Z3 ; repère de la ville de Bétaré-Oya pour Z2, voir le tableau) du 01/01/2023 au 31/12/2024, en retenant par date la plus faible valeur
   `eo:cloud_cover`.
 - **Limite de cet indicateur** : `eo:cloud_cover` est calculé sur la **tuile entière**
   (100 × 100 km). Ce n'est pas une mesure au pixel.
@@ -106,7 +107,7 @@ Méthode de comparaison (calcul AMI, reproductible) :
 | Repère | Tcholliré 8,400° N / 14,167° E (Wikipedia) | Bétaré-Oya 5,600° N / 14,083° E (Wikipedia) | Batouri 4,435° N / 14,362° E (Wikipedia) |
 | Projection de travail | UTM 33N (EPSG:32633) [I] | UTM 33N [I] | UTM 33N [I] |
 | Occupation du sol (WorldCover 2021) | Arbustes 53,5 %, herbacées 20,3 %, arbres 19,5 %, cultures 6,5 % | Arbres 53,8 %, arbustes 35,0 %, herbacées 9,6 %, eau 1,2 % | **Arbres 87,2 %**, herbacées 7,8 %, arbustes 4,1 % |
-| Dates S2 avec tuile < 10 % de nuages (2023–2024) | **43 / 146** (8 par mois de novembre à février ; 0 de juin à septembre) | 28 / 146 (de 4 à 9 par mois de novembre à février ; 0 de juin à octobre) | 24 / 146 (de 2 à 7 par mois de novembre à février ; 1 en août) |
+| Dates S2 avec tuile < 10 % de nuages (2023–2024) | **43 / 146** (8 par mois de novembre à février ; 0 de juin à septembre) | 28 / 146 (de 4 à 9 par mois de novembre à février ; 0 de juin à octobre), calculé au repère Bétaré-Oya. Au centre géométrique de l'emprise (14,10° E ; 5,625° N), on obtient 32 / 146 : l'indicateur dépend des tuiles couvrant le point | 24 / 146 (de 2 à 7 par mois de novembre à février ; 1 en août) |
 | Contexte géologique publié | Shear zone Tcholliré–Banyo. Gneiss, orthogneiss, granodiorite, métabasites, granites mylonitisés. Linéaments NE–SW/ENE–WSW, E–W, N–S. | Shear zone de Bétaré-Oya NNE–SSW, fragile-ductile. Veines quartz-sulfures dans des métasédiments, près de petits granites. Les linéaments NE–SW contrôlent l'or. | Domaine Adamaoua-Yadé. Granitoïdes aurifères d'environ 620 Ma. Or primaire sous plusieurs mètres de latérite. |
 | Occurrences documentées | Sites primaires Bougouma et Bandjoukri (veines de quartz aurifère) ; alluvions à Vaimba ; un site éluvial. Coordonnées des échantillons publiées (CC BY 4.0). Point USGS d'orpaillage du Nord situé dans l'emprise. | District aurifère (orpaillage depuis 1934 environ, semi-mécanisé depuis 2004 environ, selon l'abstract GeoJournal 2019 cité via la recherche : Partiel). Gisements « spatially clustered » (NRR 2020). Coordonnées : dans les articles payants [?]. | Prospect Kambélé. Anomalie géochimique sol (119 ppb Au dans un horizon latéritique). Coordonnées : non publiques [?]. |
 | Altérations attendues (publiées) | Kaolinite, montmorillonite, muscovite/séricite, calcite, chlorite, épidote ; altérations propylitique et phyllique | Silicification, sulfuration, séricitisation, altération potassique, hématitisation, carbonatation | Non documenté dans les sources consultées [?] |
@@ -337,17 +338,17 @@ Un autre groupe joue le rôle de critique.
 | Données USGS Africa publiées le 18/08/2021, DOI 10.5066/P97EQWXP, licence CC0 | usgs.gov/data/... ; sciencebase.gov | Vérifié |
 | Tracts non découverts : Gabon, Mauritanie ; potasse, platinoïdes, cuivre | usgs.gov/data/... (métadonnées) | Vérifié |
 | Référence 2018 (OFR 2024-1041) ; période des métadonnées 2008–2019 | pubs.usgs.gov/publication/ofr20241041 ; FGDC XML | Vérifié |
-| Cameroun dans USGS : 9 gisements, 13 sites d'exploration, 17 installations ; 1 site d'exploration aurifère | Calcul AMI sur `Africa_GIS.gdb` | Vérifié |
+| Cameroun dans USGS : 9 gisements, 13 sites d'exploration, 17 enregistrements d'installations (13 installations) ; 1 site d'exploration aurifère | Calcul AMI sur `Africa_GIS.gdb` | Vérifié |
 | Coordonnées incohérentes pour Nkamouna et Minim-Martap | Calcul AMI | Vérifié |
 | MRDS non mis à jour systématiquement depuis 2011 ; aucun or au Cameroun | mrdata.usgs.gov/mrds ; requête WFS | Vérifié |
 | Programme de cartographie lancé le 24/01/2017 : 13 cartes au 1/200 000, 18 000 échantillons, BRGM-BEIG3-GTK, 4,5 milliards de FCFA, 30 mois | businessincameroon.com (28/01/2017) | Vérifié (annonce) |
 | « 13.5 new geological 1/200 000 », SIGM, lithothèque (projet GEO4CAM) | igfmining.org (BRGM, 2018) | Vérifié |
 | 300 nouveaux sites 2014–2019 (or, zinc, terres rares, U, Ni, rutile, Mn) | businessincameroon.com (17/06/2019) | Vérifié (déclaration) |
 | Cartes PRECASEM et SIGM accessibles publiquement | — | Non vérifié |
-| Étude AMDC/UA (2025) : données du SIGM « pour la plupart obsolètes » | financialafrik.com (10/07/2025) | Vérifié (via la presse) |
+| Étude AMDC/UA (2025) : données du « système d'information géologique et minérale » « pour la plupart obsolètes » (le lien avec le SIGM du PRECASEM n'est pas établi par l'article) | financialafrik.com (10/07/2025) | Vérifié (via la presse) ; attribution au SIGM : Partiel |
 | Levé aéroporté 2014–2015, environ 160 000 km², 6 régions, Geotech, 2,1 milliards de FCFA | businessincameroon.com (22 et 23/01/2014) ; africainharlem.nyc (PANA) | Partiel (paramètres contradictoires) |
 | Aéromagnétisme 1970 : Survair, altitude 235 m, lignes N–S à 750 m ; Paterson et al. 1976 | archive.geophysica.fi (Bikoro et al. 2014) | Vérifié (source secondaire) |
-| Projet Banque mondiale P122153 ; financement additionnel P160917, clôturé le 01/12/2021 | projects.worldbank.org (P122153 : nom seulement) ; P160917 via résultat de recherche | Partiel |
+| Projet Banque mondiale P122153 ; financement additionnel P160917, clôturé le 01/12/2021 | API projets de la Banque mondiale (search.worldbank.org/api/v3/projects, consultée le 2026-10-08 : P160917, parent P122153, clôture 2021-12-01) | Vérifié |
 | Carte au 1/1 000 000 (Gazel, Hourcq, Nickles ; révisée en 1956 ; 2 feuilles) | IRD Horizon (Atlas du Cameroun) | Vérifié |
 | Feuille Ngaoundéré-O au 1/500 000 (1955), métadonnées seulement | ITÜ Library | Vérifié |
 | USGS OFR 97-470-A, géologie de l'Afrique, 1997 | pubs.usgs.gov/publication/ofr97470A | Vérifié |
@@ -356,7 +357,7 @@ Un autre groupe joue le rôle de critique.
 | Accès Copernicus gratuit avec inscription (« free, full and open ») | dataspace.copernicus.eu/terms-and-conditions | Vérifié |
 | Libellé d'attribution exact Copernicus | — | Non vérifié |
 | Sentinel-1B : anomalie le 23/12/2021, fin le 03/08/2022 | esa.int | Vérifié |
-| Sentinel-1C lancé le 05/12/2024 | esa.int (résultat de recherche ; page 403) | Partiel |
+| Sentinel-1C lancé le 05/12/2024 | esa.int, communiqué n° 70–2024 (lu par curl lors de la contre-vérification) | Vérifié |
 | Landsat C2 dans le domaine public ; bandes SWIR | Catalogue GEE LC09 | Vérifié |
 | ASTER SWIR inutilisable depuis avril 2008 ; AST_L1T gratuit depuis le 01/04/2016 | earthdata.nasa.gov ; asterweb.jpl.nasa.gov | Vérifié |
 | Copernicus DEM = DSM, licence libre, remplacé par GLO30_2024_1 | Catalogue GEE | Vérifié |
@@ -370,7 +371,7 @@ Un autre groupe joue le rôle de critique.
 | Bétaré-Oya : gisements regroupés, contrôle NE–SW | Crossref (titre) + résultat de recherche (abstract) | Partiel |
 | Bétaré-Oya : orpaillage depuis 1934 environ, semi-mécanisé depuis 2004 environ | Résultat de recherche (GeoJournal 2019) | Partiel |
 | Batouri : or sous plusieurs mètres de latérite ; 119 ppb Au | rims.gov.bw (abstract JAES 2015) | Vérifié |
-| Batouri : granitoïdes aurifères de 619–624 Ma | Résultat de recherche seulement | Non vérifié (non consulté) |
+| Batouri : granitoïdes aurifères de 619–624 Ma | Résumé d'Asaah et al. (DOI 10.1080/00206814.2014.951003) sur pure.kfupm.edu.sa : « concordant ages of 619 ± 2 and 624 ± 2 Ma » | Vérifié (résumé) |
 | Ngoura-Colomines : « vegetation constrain » ; méthodes et validation | authors.library.caltech.edu | Vérifié |
 | Borongo-Mborguene : Landsat-8, ASTER, SRTM, 5 prospects | authors.library.caltech.edu | Vérifié |
 | Ketté : ratios 4/2, 6/5 et 6/7 | Résultat de recherche (page source en 403) | Non vérifié |
@@ -402,8 +403,9 @@ Un autre groupe joue le rôle de critique.
 8. **Conditions Google Earth Engine** pour un usage dans une formation payante : non vérifiées.
    Prévoir une alternative en QGIS seul, avec téléchargement depuis le Copernicus Data Space.
 9. **Limite de cette vérification** : le quota de recherches web a été atteint pendant le
-   travail. Les points marqués « Partiel » ou « Non vérifié » ci-dessus (S1C, Ketté, granitoïdes
-   de Batouri, van der Meer 2014, P160917) restent à confirmer par consultation directe.
+   travail. Les points marqués « Partiel » ou « Non vérifié » ci-dessus (Ketté, contenu de
+   van der Meer 2014) restent à confirmer par consultation directe. S1C, les granitoïdes de
+   Batouri et P160917 ont été confirmés lors de la contre-vérification (voir la dernière section).
 
 ---
 
@@ -428,7 +430,7 @@ Un autre groupe joue le rôle de critique.
 - https://earth-search.aws.element84.com/v1/search (catalogue STAC, calcul AMI des nuages)
 - https://dataspace.copernicus.eu/terms-and-conditions
 - https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-1/Mission_ends_for_Copernicus_Sentinel-1B_satellite
-- https://www.esa.int/Newsroom/Press_Releases/Double_win_for_Europe_Sentinel-1C_and_Vega-C_take_to_the_skies (403 à la consultation ; contenu vu via les résultats de recherche)
+- https://www.esa.int/Newsroom/Press_Releases/Double_win_for_Europe_Sentinel-1C_and_Vega-C_take_to_the_skies (403 via WebFetch lors de la rédaction ; lu par curl lors de la contre-vérification du 2026-10-08)
 - https://www.earthdata.nasa.gov/data/alerts-outages/aster-swir-anomaly
 - https://www.earthdata.nasa.gov/news/aster-data-available-no-charge
 - https://asterweb.jpl.nasa.gov/swir-alert.asp
@@ -459,3 +461,35 @@ Un autre groupe joue le rôle de critique.
 - https://authors.library.caltech.edu/records/n15cn-83v72 (Borongo-Mborguene, Advances in Space Research 2024)
 - https://www.rims.gov.bw/converis/portal/detail/Publication/5379808?lang=en_GB (Batouri, J. Afr. Earth Sci. 2015)
 - https://en.wikipedia.org/wiki/Bétaré-Oya · https://en.wikipedia.org/wiki/Batouri · https://en.wikipedia.org/wiki/Tcholliré
+
+---
+
+## Contre-vérification (2026-10-08)
+
+Revue indépendante (rapport détaillé : `verification/verif-01-03.md`). Sources rouvertes le 2026-10-08.
+
+**Confirmé** : comptages USGS refaits sur `Africa_GIS.gdb` (24 classes d'entités ; Cameroun :
+9 gisements, 13 sites d'exploration dont 1 en or, 17 enregistrements d'installations) ;
+incohérences Nkamouna (≈ 138 km) et Minim-Martap (≈ 64 km) ; ScienceBase (131,74 MB, publié le
+2021-08-13) ; page usgs.gov (CC0, 18/08/2021, 20 couches) ; OFR 2024-1041 (1:38 504 000,
+référence 2018, 02/07/2024) ; catalogue GEE Sentinel-2 (28/03/2017, 5 jours, QA60 masqué du
+2022-01-25 au 2024-02-28, couverture 2017–2018 non globale), Cloud Score+ (0,50–0,65),
+Copernicus DEM (DSM, remplacé par `GLO30_2024_1`), WorldCover (10 m, 11 classes, CC BY 4.0,
+classes 50 et 80) ; ESA (S1B : anomalie 23/12/2021, fin 03/08/2022) ; NASA (AST_L1T gratuit
+depuis le 01/04/2016 ; SWIR inutilisable depuis avril 2008) ; Business in Cameroon (28/01/2017,
+23/01/2014, 17/06/2019) ; BRGM IGF 2018 (« 13.5 new geological 1/200 000 », SIGM) ; Geophysica 2014
+(levé 1970 Survair, 235 m, 750 m) ; PANA (160 000 km², 80–120 m, 500 m) ; PMC10823102 et DataCite
+(CC BY 4.0) ; 9 DOI via Crossref ; coordonnées Wikipédia ; dates claires Sentinel-2 recalculées
+(Z1 : 43/146 ; Z3 : 24/146).
+
+**Modifié** :
+- « 17 installations » → « 17 enregistrements (13 installations) » (§1, §3, §8).
+- Étude AMDC : l'article Financial Afrik ne nomme pas le SIGM ; attribution rétrogradée en Partiel.
+- Z2 : 28/146 obtenu au repère Bétaré-Oya, 32/146 au centre de l'emprise ; méthode précisée.
+- Sentinel-1C (05/12/2024) : Partiel → Vérifié (communiqué ESA lu directement).
+- P160917 (clôture 01/12/2021) : Partiel → Vérifié (API Banque mondiale).
+- Granitoïdes de Batouri (619 ± 2 et 624 ± 2 Ma) : Non vérifié → Vérifié (résumé, pure.kfupm.edu.sa).
+- ASTER : ajout de la réserve du JPL sur les saturations SWIR de mai 2007 à janvier 2008.
+
+**Non revérifié** : pourcentages WorldCover (calcul raster non refait) ; ratios de Ketté ; contenu
+de van der Meer 2014 (DOI et pagination confirmés : RSE 148:124-133).

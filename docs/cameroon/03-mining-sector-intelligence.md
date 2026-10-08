@@ -78,7 +78,7 @@ Le document visé est `docs/AFRICA_MINERAL_INSIGHTS.md` (socle de données, modu
 
 | Source | Contenu utile pour le Cameroun | URL | Accès | Licence / conditions | Date de référence (date de publication) |
 |---|---|---|---|---|---|
-| USGS — *Compilation of Geospatial Data (GIS) for the Mineral Industries and Related Infrastructure of Africa* (Padilla et al., 2021) | Géodatabase `Africa_GIS.gdb`, 24 classes d'entités. Cameroun : 17 enregistrements d'installations (13 identifiants), 9 gisements, 13 sites d'exploration, 4 enregistrements au port de Douala, 1 terminal GNL, 47 centrales, 445 segments de rail et 6 695 de routes (attribut pays), 94 lignes électriques et 3 pipelines (par intersection) | https://doi.org/10.5066/P97EQWXP ; https://www.sciencebase.gov/catalog/item/607611a9d34e018b3201cbbf | Libre, sans compte. ZIP de 138 Mo (+ données de support 490 Mo) | CC0 (page USGS) ; métadonnées « Use constraints: None » ; couches tierces sous ODbL (OSM), GADM (non commercial) et African Energy (republication autorisée) | Installations 2018 ; exploration 2004-2018 ; gisements 2009/2017 ; énergie 2018 ; routes et rails OSM 2020-04-30 (publiée le 2021-08-13 ; métadonnées mises à jour le 2026-01-09) **[ancien]** |
+| USGS — *Compilation of Geospatial Data (GIS) for the Mineral Industries and Related Infrastructure of Africa* (Padilla et al., 2021) | Géodatabase `Africa_GIS.gdb`, 24 classes d'entités. Cameroun : 17 enregistrements d'installations (13 identifiants), 9 gisements, 13 sites d'exploration, 4 enregistrements au port de Douala, 1 terminal GNL, 47 centrales, 445 segments de rail et 6 695 de routes (attribut pays), 94 lignes électriques et 3 pipelines (par intersection) | https://doi.org/10.5066/P97EQWXP ; https://www.sciencebase.gov/catalog/item/607611a9d34e018b3201cbbf | Libre, sans compte. ZIP affiché à 131,74 MB par ScienceBase (≈ 138 Mo en unités décimales) ; données de support 467,21 MB (≈ 490 Mo) | CC0 (page USGS) ; métadonnées « Use constraints: None » ; couches tierces sous ODbL (OSM), GADM (non commercial) et African Energy (republication autorisée) | Installations 2018 ; exploration 2004-2018 ; gisements 2009/2017 ; énergie 2018 ; routes et rails OSM 2020-04-30 (publiée le 2021-08-13 ; métadonnées mises à jour le 2026-01-09) **[ancien]** |
 | USGS OFR 2024-1041 (carte GeoPDF) | Représentation partielle : 12 classes d'entités, échelle 1:38 504 000 | https://pubs.usgs.gov/publication/ofr20241041 | Libre | Domaine public USGS (Non vérifié pour la carte elle-même) | Référence 2018 (publiée le 2024-07-02) |
 | Portail cadastre Landfolio (ex-Flexicadastre), MINMIDT/SDCM + Spatial Dimension | Avant fermeture : couches « Licences », « Applications », « Administration » ; titre « Cameroon EITI Compliant Mining Cadastre Map Portal » | https://portals.landfolio.com/Cameroon/en/ (aujourd'hui : page de mise hors service) | **Hors service depuis le 2025-11-03** | « Material from this website may not be republished… without prior written permission from both SDCM and Spatial Dimension » | Champ de configuration `DateUpdated` = « 6 October 2016 » (capture Internet Archive du 2025-10-11) |
 | Rapport ITIE 2023 — Cameroun (Comité ITIE, administrateur indépendant Enerteam) | Cadre légal ; cadastre (§2.3.2) ; 261 titres actifs au 31/12/2023 ; 11 permis d'exploitation (liste) ; production 2023 (or, diamant, matériaux) ; participations de l'État | https://eiti.org/documents/cameroon-2023-eiti-report (PDF : https://eiti.org/document/25588) | Libre | Non précisé dans le document (Non vérifié) | Exercice 2023 (publié en décembre 2025) |
@@ -113,8 +113,10 @@ Le document visé est `docs/AFRICA_MINERAL_INSIGHTS.md` (socle de données, modu
   d'exploitation de carrière industrielle et 29 autorisations de carrière d'intérêt public (total 261).
   Le tableau 31 présente aussi des lignes non lisibles dans l'extraction texte ; le total de 261 est
   cité dans le texte du rapport.
-- Liste des permis d'exploitation (PEMI) : CIMENCAM (PEMI 00008 Biou Sud, 10/02/2023 ; arrêté
-  2023/129 ; PEMI 00002 Figuil, 30/09/2004), G STONES (arrêté 2022/524, 29/11/2022), Cameroon Mining
+- Liste des permis d'exploitation (PEMI) : CIMENCAM (PEMI 00008 Biou Sud, arrêté 2023/128 du
+  10/02/2023 ; un second permis, arrêté 2023/129 de la même date, numéro et localisation « non
+  précisés » ; PEMI 00002 Figuil, 30/09/2004), G STONES (arrêté 2022/524, 29/11/2022 ; numéroté
+  PEMI 00009 dans l'une des deux listes du rapport, « non précisé » dans l'autre), Cameroon Mining
   Company (PEMI 00007 Mbalam, 17/08/2022), Sinosteel Cam (PEMI 00006 Lobé-Kribi, 01/07/2022), C&K
   Mining (PEMI 00005 Mobilong, 16/12/2010), Rocaglia (PEMI 00003 Bidzar et PEMI 00004 Biou Nord,
   31/05/2005), Geovic (PEMI 00001 Lomié, 11/03/2003), et la petite mine CODIAS (n° 000317, 14/09/2022).
@@ -131,7 +133,7 @@ celles de l'USGS quand elles existent (précision variable), sinon « à géocod
 
 | # | Projet / site | Substance | Région | Titulaire (selon source) | Titre (ITIE 2023, annexe 30 / liste PEMI) | Stade | Statut récent | Date info | Sources | Statut |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 1 | **Mbalam** (côté Cameroun du système Mbalam-Nabeba) | Fer | Est | « Cameroon Mining Company » (ITIE) / « Cameroon Mining Corporation » (BIC), liée au consortium Bestway Finance | PEMI 00007, 17/08/2022, 768,54 km², échéance 2042-08-16 | Construction / pré-production | Exportations annoncées pour le T1 2026, par la route jusqu'à Kribi jusqu'en 2029 (BIC 13/12/2025). Au **7/04/2026, aucune confirmation officielle** d'expédition (Afrik). Le tribunal CCI aurait accordé environ **616 M$** à Sundance/Cam Iron contre le Cameroun (Discovery Alert, 27/07/2026, source secondaire) ; BIC (25/03/2026) attendait une décision fin 2026 | 2026-07-27 | ITIE annexe 30 ; businessincameroon.com (13/12/2025, 25/03/2026) ; afrik.com (07/04/2026) ; discoveryalert.com (27/07/2026) | Fait vérifié (titre, report) ; **Inconnue** (exportation effective) ; sentence arbitrale : source secondaire, à confirmer dans l'annonce ASX de Sundance |
+| 1 | **Mbalam** (côté Cameroun du système Mbalam-Nabeba) | Fer | Est | « Cameroon Mining Company » (ITIE) / « Cameroon Mining Corporation » (BIC), liée au consortium Bestway Finance | PEMI 00007, 17/08/2022, 768,54 km², échéance 2042-08-16 | Construction / pré-production | Exportations annoncées pour le T1 2026, par la route jusqu'à Kribi jusqu'en 2029 (BIC 13/12/2025). Au **7/04/2026, aucune confirmation officielle** d'expédition (Afrik). Le tribunal CCI aurait accordé environ **616 M$** à Sundance/Cam Iron contre le Cameroun (Discovery Alert, 27/07/2026, source secondaire) ; BIC (25/03/2026) attendait une décision fin 2026 | 2026-07-27 | ITIE annexe 30 ; businessincameroon.com (13/12/2025, 25/03/2026) ; afrik.com (07/04/2026) ; discoveryalert.com (27/07/2026) | Fait vérifié (titre, report) ; **Inconnue** (exportation effective) ; sentence arbitrale : **Partiel**, confirmée par Reuters (via Engineering News, 27/07/2026) qui rapporte la déclaration de Sundance ; texte de la sentence non consulté |
 | 2 | Nabeba (Congo, transfrontalier) | Fer | Sangha (RC) | Sangha Mining Development (filiale Bestway) | Hors Cameroun | — | Le CCI a rejeté les demandes de Sundance contre le Congo ; recours à Londres (selon le résumé de recherche, non ouvert) | 2026 | afrik.com (07/04/2026) | Fait vérifié (titulaire) ; recours Londres : Non vérifié |
 | 3 | **Kribi-Lobé** | Fer (magnétite) | Sud | Sinosteel Cam SA (partenaire JiuJiang) | PEMI 00006, 01/07/2022 (ITIE). BIC (16/09/2024) indique « 1er juillet 2024 » : **discordance** ; EcoMatin (2026) confirme 2022. Superficie : 138 km² (annexe 30) contre 132 km² (EcoMatin) | Construction | **Premières exportations reportées à juillet 2027**. 120 Mds FCFA investis sur environ 420 Mds. Centrale thermique de 42 MW sur site. Ressource de 632,8 Mt à 33 % Fe ; objectif 10 Mt/an de brut, soit environ 4 Mt de concentré | 2026-03-11 | ecomatin.net (11/03/2026) ; ITIE 2023 | Fait vérifié |
 | 4 | **Bipindi-Grand Zambi** (permis « Akom II ») | Fer | Sud | G-Stones (Resources), groupe BOCOM | Arrêté 2022/524, 29/11/2022, 498,6 km² (ITIE) | Mine ouverte, pré-exportation | **Inaugurée le 22/09/2025** par le Premier ministre. 600 000 t de minerai stockées au T1 2025 ; objectif de 6 Mt/an de concentré ; réserves d'environ 150 Mt. Exportation prévue par camion vers Kribi. **Aucune exportation confirmée** dans les sources consultées | 2025-09-23 | ecomatin.net (23/09/2025) ; pak.cm (17/01/2025) ; ITIE 2023 | Fait vérifié ; Inconnue (exportation 2026) |
@@ -143,7 +145,7 @@ celles de l'USGS quand elles existent (précision variable), sinon « à géocod
 | 10 | Autres bauxites (Fongo-Tongo, Bamboutos, Foumban, Mbouda, Tibati) | Bauxite (Ga) | Ouest / Adamaoua | West Afric Exploration, Highcountry, GM International, Cameroon Golding Wrapper (permis de recherche) | 7 lignes « BAUXITE » dans l'annexe 30 | Exploration | — | 2023-12-31 | ITIE annexe 30 ; USGS gisements (Ga dans bauxite, PP 1802, 2017 **[ancien]**) | Fait vérifié |
 | 11 | **Nkamouna-Lomié** | Cobalt-nickel-manganèse | Est | **Litigieux** : permis n° 33 de Geovic (2003) **retiré par le décret n° 2025/040 du 12/02/2025** ; périmètre réattribué à SONAMINES. Geovic conteste (notice du 16/01/2026) | L'annexe 30 au 31/12/2023 liste encore GEOVIC (478 km², échéance 2028) | Relance / contentieux | Appel à partenaires de SONAMINES **infructueux (18/08/2026)** ; négociations directes. Ressources mesurées et indiquées d'environ 121 Mt à 0,23 % Co, 0,65 % Ni, 1,35 % Mn (selon BIC) | 2026-08-21 | businessincameroon.com (21/08/2026, 21/01/2026) ; sonamines.cm | Fait vérifié |
 | 12 | Autres Co-Ni (Est) | Co-Ni | Est | Technology Minerals Cameroon, Eramet Exploration (Ngato), Cameroon Mining Corporation (Messok Est) | 8 lignes « COBALT/NICKEL » (annexe 30) | Exploration | Inconnu après 2023 | 2023-12-31 | ITIE annexe 30 | Fait vérifié |
-| 13 | **Rutile d'Akonolinga** | Rutile | Centre | SONAMINES (après le retrait d'Eramet) | — | Relance | Appel à partenaires **infructueux (18/08/2026)** ; négociations directes | 2026-08-21 | businessincameroon.com (21/08/2026) ; sonamines.cm | Fait vérifié. Retrait d'Eramet en octobre 2023 et chiffres de ressources : Non vérifié (résumés non ouverts) |
+| 13 | **Rutile d'Akonolinga** | Rutile | Centre | SONAMINES (après le retrait d'Eramet) | — | Relance | Appel à partenaires **infructueux (18/08/2026)** ; négociations directes | 2026-08-21 | businessincameroon.com (21/08/2026) ; sonamines.cm | Fait vérifié. Retrait d'Eramet en octobre 2023 : Fait vérifié (businessincameroon.com, 21/08/2026). Chiffres de ressources : non repris ici |
 | 14 | Permis de rutile (Centre, Littoral, Sud) | Rutile (± zircon, ilménite) | Centre / Littoral / Sud | Eramet Sanaga Minerals, Eramet Simban Minerals, Nyong Mining, Minta Resources, Heritage Mining, Rhino Resources, BWA Resources, etc. | 50 lignes « RUTILE » dans l'annexe 30 | Exploration | Inconnu après 2023 | 2023-12-31 | ITIE annexe 30 | Fait vérifié |
 | 15 | **Colomine** (Ngoura) | Or (petite mine semi-mécanisée) | Est | Codias SA (lien avec COMINCOR selon le tableau 43 de l'ITIE) | Permis petite mine n° 000317, 14/09/2022 | Production | **Environ 54,5 kg d'or entre 02/2023 et 12/2025**, extrapolés des prélèvements de 5 % de SONAMINES | 2026-06-30 | ecomatin.net (30/06/2026) ; ITIE 2023 | Fait vérifié |
 | 16 | Mborguéné (Bétaré-Oya / Garoua-Boulaï) | Or | Est | Caminco | Permis petite mine (arrêté du 18/08/2025 selon EcoMatin) | Pré-production | — | 2025 | Résumé de recherche (ecomatin), **non ouvert** ; le tableau 43 de l'ITIE cite « CAMINCO, Code 2023 » | Partiellement vérifié |
@@ -184,8 +186,8 @@ celles de l'USGS quand elles existent (précision variable), sinon « à géocod
 | Élément | Faits | Source (date) | Statut |
 |---|---|---|---|
 | Réseau Camrail | Voie métrique (1 000 mm) d'environ 1 000 km (l'infobox et le texte divergent : 1 104 km en 1995) ; lignes Douala-Yaoundé, Yaoundé-Ngaoundéré (Transcamerounais), Douala-Kumba ; concession de 1999 ; voie appartenant à l'État, matériel roulant à Camrail | en.wikipedia.org/wiki/Camrail (tertiaire) **[ancien]** | Faible. Actionnariat actuel : **Non vérifié** |
-| Camalco / Camrail | Camalco porte sa participation de 9,1 % à 26,9 % (CFA 9,852 Mds, mai 2026) ; flotte initiale de 7 locomotives et 160 wagons ; environ 35 000 t humides/mois en phase 1 | railwaygazette.com (15/07/2026) ; résumé alcircle (capacité, non ouvert) | Fait vérifié (participation) ; capacité : Non vérifié |
-| Chemin de fer Mbalam-Kribi | Contrat de PPP sur 50 ans entre l'État et le consortium Bestway/AustSino ; double voie de **540 km côté Cameroun** et 149 km côté Congo ; contrat paraphé le 25/02/2022 ; 1re session du comité de suivi le **10/07/2025** ; conditions suspensives encore à lever | bougna.net (14/07/2025) | Fait vérifié. Début des travaux : **Inconnu** |
+| Camalco / Camrail | Camalco porte sa participation de 9,1 % à 26,9 % (CFA 9,852 Mds, mai 2026) ; flotte initiale de 7 locomotives et 160 wagons ; environ 35 000 t humides/mois en phase 1 | railwaygazette.com (15/07/2026) ; résumé alcircle (capacité, non ouvert) | Fait vérifié (participation ; capacité de 35 000 t/mois confirmée dans Railway Gazette lors de la contre-vérification) |
+| Chemin de fer Mbalam-Kribi | Contrat de PPP sur 50 ans entre l'État et le consortium Bestway/AustSino ; voie « à double sens » (formulation de la source ; double voie non établie) de **540 km côté Cameroun** et 149 km côté Congo ; contrat paraphé le 25/02/2022 ; 1re session du comité de suivi le **10/07/2025** ; conditions suspensives encore à lever | bougna.net (14/07/2025) | Fait vérifié. Début des travaux : **Inconnu** |
 | Rail USGS | 445 segments au Cameroun, issus d'OSM au 2020-04-30 | USGS **[ancien]** | Fait vérifié |
 
 ### 6.3 Énergie
@@ -309,7 +311,7 @@ avec les couches des étapes 1 à 5 déjà construites. **Hypothèse** : à prod
 | Le site national ITIE (itie.cm) est accessible | Test HTTP du 2026-10-08 : 503 | Non vérifié (indisponible) |
 | Mbalam : PEMI 00007 du 17/08/2022 attribué à Cameroon Mining Company | ITIE 2023 | Fait vérifié |
 | Mbalam a déjà exporté | Afrik (07/04/2026) : aucune confirmation | **Inconnue** |
-| Sentence CCI d'environ 616 M$ en faveur de Sundance contre le Cameroun | discoveryalert.com (27/07/2026) | Source secondaire, à confirmer |
+| Sentence CCI d'environ 616 M$ en faveur de Sundance contre le Cameroun | discoveryalert.com (27/07/2026) ; Reuters via engineeringnews.co.za (27/07/2026), d'après la déclaration de Sundance | Partiel (déclaration de la société, recoupée par Reuters ; sentence non consultée) |
 | Les exportations de Kribi-Lobé sont reportées à juillet 2027 | ecomatin.net (11/03/2026) | Fait vérifié |
 | Le permis de Lobé date du 01/07/2022 (et non de 2024) | ITIE 2023 ; EcoMatin (2026) contre BIC (2024) | Fait vérifié (discordance signalée) |
 | Grand Zambi a été inauguré le 22/09/2025 | ecomatin.net (23/09/2025) | Fait vérifié |
@@ -323,7 +325,7 @@ avec les couches des étapes 1 à 5 déjà construites. **Hypothèse** : à prod
 | PPP ferroviaire Mbalam-Kribi : 540 km côté Cameroun, comité installé le 10/07/2025 | bougna.net (14/07/2025) | Fait vérifié |
 | Première pierre du terminal minéralier de Kribi (Sinosteel) le 22/09/2025 | ecomatin.net (23/09/2025) | Fait vérifié |
 | SIGM : 18 000 échantillons et 300 sites (PRECASEM) | Non trouvé dans Financial Afrik (10/07/2025) | Non vérifié |
-| Étude AMDC : données SIGM « pour la plupart obsolètes » | financialafrik.com (10/07/2025) | Fait vérifié |
+| Étude AMDC : données du « système d'information géologique et minérale » « pour la plupart obsolètes » (l'article ne nomme pas le SIGM) | financialafrik.com (10/07/2025) | Fait vérifié (attribution au SIGM : non établie) |
 
 ---
 
@@ -395,3 +397,38 @@ Toutes consultées le **2026-10-08** ; la date entre parenthèses est la date de
 - AllAfrica / RFI (2025-12-19), or et rapport ITIE 2023 : https://fr.allafrica.com/stories/202512190205.html
 - Financial Afrik (2025-07-10), étude AMDC et SIGM : https://www.financialafrik.com/2025/07/10/au-cameroun-lurgence-dactualiser-le-potentiel-minier-pour-ameliorer-les-recettes-etude
 - Wikipédia (tertiaire) : https://en.wikipedia.org/wiki/Nachtigal_Hydroelectric_Power_Station ; https://en.wikipedia.org/wiki/Memve%27ele_Hydroelectric_Power_Station ; https://en.wikipedia.org/wiki/Kribi_Deepwater_Port ; https://en.wikipedia.org/wiki/Camrail
+
+---
+
+## Contre-vérification (2026-10-08)
+
+Revue indépendante (rapport détaillé : `verification/verif-01-03.md`). Sources rouvertes le 2026-10-08.
+
+**Confirmé** : page de mise hors service Landfolio (03/11/2025) ; comptages USGS refaits (17/13
+installations, 9 gisements, 13 exploration, 4 enregistrements au port de Douala, Kribi absent,
+FLNG typé « Refinery », 47 centrales, 445 segments de rail, 6 695 de routes avec la ventilation
+annoncée) ; distance Nkamouna ≈ 138 km ; Rapport ITIE 2023 re-téléchargé (261 titres, ventilation
+149/11/72/29, 952,77 kg d'or, 22,31 kg exportés, 3 305,78 ct, liste des PEMI, « impossibilité
+d'extraire les données sous un format ouvert ») ; EITI (suspension, décision 2024-17 du 29/02/2024,
+Exigence 1.3, score 53, validation à partir du 01/04/2027, mesure corrective 13) ; décret 2020/749
+(prc.cm, osidimbea.cm) ; capital de 10 Mds FCFA et actionnaire unique (sonamines.cm) ; CAPAM ;
+Kribi-Lobé (juillet 2027, 120/420 Mds FCFA, 42 MW, 632,8 Mt à 33 %, 132 km²) ; Grand Zambi
+(22/09/2025, 6 Mt/an, 150 Mt, 600 000 t) ; terminal minéralier (14 et 47,5 Mt/an) ; Nkamouna et
+Akonolinga (18/08/2026, décret 2025/040, 121 Mt) ; Railway Gazette (7 locomotives, 9,1 → 26,9 %,
+T4 2026, 35 000 t/mois) ; Afrik (aucune exportation confirmée au 07/04/2026) ; BIC Mbalam et
+Minim-Martap ; bougna.net (540/149 km, 25/02/2022, 10/07/2025) ; Colomine (54,5 kg) ; RFI/AllAfrica
+(15,2 t, ≈ 90 % EAU, 22,3 kg) ; Wikipédia (Nachtigal, Kribi).
+
+**Modifié** :
+- Taille du ZIP USGS : 131,74 MB affichés par ScienceBase (138 Mo correspond aux unités décimales).
+- Liste PEMI : CIMENCAM PEMI 00008 = arrêté 2023/128 (et non 2023/129, qui est un second permis
+  non numéroté) ; G STONES = PEMI 00009 dans l'une des listes.
+- Sentence CCI Sundance (≈ 616 M$) : recoupée par Reuters (https://www.engineeringnews.co.za/article/sundance-resources-says-it-has-won-616m-cameroon-arbitration-over-iron-ore-project-2026-07-27),
+  d'après la déclaration de la société → Partiel (sentence elle-même non consultée).
+- Retrait d'Eramet d'Akonolinga en octobre 2023 : Non vérifié → Fait vérifié (BIC 21/08/2026).
+- Rail Mbalam-Kribi : « double voie » → voie « à double sens » (formulation de la source).
+- Étude AMDC : l'article ne nomme pas le SIGM (§10).
+- Capacité Camalco de 35 000 t/mois : Non vérifié → Fait vérifié (Railway Gazette, 15/07/2026).
+
+**Non revérifié / inaccessible** : Geofabrik (connexion réinitialisée) ; GlobeNewswire ; capture
+Internet Archive du portail ; Discovery Alert ne cite pas de source primaire.
