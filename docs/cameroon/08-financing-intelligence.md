@@ -57,8 +57,8 @@ entrée d'un partenaire stratégique.
 2. **Risque souverain** : Moody's Caa1 stable (revue achevée en août 2026) ; S&P B-/B stable
    (confirmé le 18 septembre 2026) ; Fitch B perspective négative (24 avril 2026). Eurobond de
    janvier 2026 : 750 M USD à 10,125 %.
-3. **État actionnaire** : 10 % gratuits et non diluables, plus une option de 25 % supplémentaires
-   pour une mine industrielle (art. 47 du code minier 2023), partage de production de 2 à 15 %
+3. **État actionnaire** : 10 % gratuits et non diluables, plus une option de 25 % supplémentaires,
+   à titre onéreux, pour une mine industrielle (art. 47 du code minier 2023), partage de production de 2 à 15 %
    (art. 48), porté par la SONAMINES, qui vise publiquement 35 % (mai 2026) sans plan de
    financement publié.
 4. **Profondeur du marché local** : BVMAC à 7 sociétés cotées (mai 2026) ; banques limitées par
@@ -85,7 +85,7 @@ factuelles ; il fixe surtout une méthode. Points vérifiés, corrigés ou à co
 |---|---|---|---|
 | 1 | Chaîne `Sponsor Equity + Strategic Investor + DFI Debt + Commercial Debt + Offtake Financing (+ Blended Finance) → Financial Close` | Juste comme typologie, mais **trompeur comme description du Cameroun** : aucun précédent public de dette DFI ou ECA occidentale sur une mine camerounaise n'a été trouvé (IFC, MIGA, Proparco : rien dans les résultats ; voir §12). Les précédents réels sont la **dette bancaire locale en FCFA** et les **fonds propres d'actionnaires de contrôle**. | Ajouter deux briques : **dette bancaire locale/régionale (FCFA), avec refinancement BEAC** et **royalty / streaming**. Présenter la DFI comme une cible, pas comme la norme. |
 | 2 | « risque de change (franc CFA BEAC / dollar) » | Incomplet. Le risque principal n'est pas seulement le change : c'est la **réglementation des changes** (rétrocession de 35 %, puis 50 % en 2027 et 70 % en 2028 ; comptes en devises soumis à autorisation ; séquestre BEAC pour les fonds de réhabilitation). Elle touche directement les **comptes offshore des prêteurs** (comptes de recettes, DSRA), qui sont la norme en financement de projet. | Ajouter un sous-module « contrôle des changes et architecture des comptes ». |
-| 3 | « participation de l'État et son financement » | À préciser : l'art. 47 du code 2023 prévoit **10 % gratuits non diluables** et une option de **+25 % pour une mine industrielle** ; le texte lu ne précise pas si cette part supplémentaire est payante (Pinsent Masons ne le dit pas ; Ecomatin, 2026, parle de prises de participation « payantes »). Le DFS de Canyon renvoie à une « Section 59 » pour les 10 % : **numérotation divergente à vérifier** sur le Journal officiel. | Traiter le portage comme un **coût pour les sponsors** (modélisé en §8) et la part supplémentaire comme une inconnue de financement. |
+| 3 | « participation de l'État et son financement » | À préciser : l'art. 47 du code 2023 prévoit **10 % gratuits non diluables** et une option de **+25 % pour une mine industrielle** ; l'art. 47(4) précise que cette augmentation se fait « à titre onéreux » et « d'accord parties » (texte FAOLEX relu lors de la contre-vérification ; Ecomatin, 2026, parle aussi de prises de participation « payantes »). Le DFS de Canyon renvoie à une « Section 59 » pour les 10 % : **numérotation divergente à vérifier** sur le Journal officiel. | Traiter le portage comme un **coût pour les sponsors** (modélisé en §8) et la part supplémentaire, payante, comme un besoin de financement de l'État dont les modalités sont inconnues. |
 | 4 | « normes environnementales et sociales exigées par les prêteurs » | Juste. À compléter par une contrainte locale : le **fonds de restauration** doit être logé en **compte séquestre à la Banque centrale** (art. 192), ce qui empêche de le mettre en garantie au profit des prêteurs offshore. | Intégrer au tableau des risques (§7). |
 | 5 | Ratios : DSCR, LLCR, part de dette, TRI des fonds propres | Juste. Manquent : **PLCR**, **dimensionnement de la dette par sculptage**, **DSRA**, **lock-up de distributions**, **test d'achèvement** (completion test). | Ajoutés en §8. |
 | 6 | « Projet réel au module 08 : risques de confidentialité et de réputation. Par défaut, utiliser un projet stylisé » | Confirmé et renforcé : les deux grands projets publics sont en **contentieux ou en tension** (Mbalam : sentence CCI d'environ 616 M USD en faveur de Sundance contre le Cameroun, juillet 2026 ; Minim-Martap : tirages AFG suspendus le 24 août 2026, offre publique d'A2MP). Les utiliser comme cas « à financer » exposerait le programme à un risque de réputation. | Les garder **uniquement comme précédents** (§3). |
@@ -227,8 +227,8 @@ Moody's alourdissent le **risque d'expropriation et de rupture de contrat** per�
 
 **Faits vérifiés (texte du code via AMLA [26] ; analyse de Pinsent Masons [25])**
 - **Art. 47** : 10 % des actions **gratuites** pour l'État (petite mine et mine industrielle),
-  **non diluables** en cas d'augmentation de capital ; possibilité d'acquérir jusqu'à **25 %
-  supplémentaires** pour une mine industrielle (10 % pour une petite mine).
+  **non diluables** en cas d'augmentation de capital ; possibilité d'acquérir, **à titre onéreux** et d'accord parties, jusqu'à **25 %
+  supplémentaires** pour une mine industrielle (10 % pour une petite mine) [art. 47(4)].
 - **Art. 48** : partage de production, pris sur le produit marchand : 1-5 % pour les substances
   précieuses, **2-15 %** pour les autres substances.
 - **Art. 132** : taxe ad valorem de 3 % pour les métaux de base et autres substances, 5 % pour les
@@ -298,7 +298,7 @@ convention minière en négociation, avant la décision finale d'investissement)
 | Production | 2,0 Mt sèches la 1re année, 3,5 Mt la 2e, puis 4,5 Mt/an ; 15 ans | Hypothèse pédagogique |
 | Prix CIF Chine | 78 USD/t sèche | Prix de long terme de base du DFS [4] ; fourchette de 78-86 USD/t citée par Canyon d'après CM Group (août 2026) [2] |
 | Fret maritime | 17 USD/t → FOB 61 USD/t | DFS [4] |
-| Coût opératoire FOB (mine, rail, port) | 38,6 USD/t | DFS, tableau 2 : C1 38,56 USD/dmt [4] ; la mise en évidence du DFS donne 34,71 USD/t humide, **incohérence d'unités signalée** |
+| Coût opératoire FOB (mine, rail, port) | 38,6 USD/t | DFS, tableau 2 : C1 38,56 USD/dmt [4] ; la mise en évidence du DFS donne 34,71 USD/wmt (tonne humide) : **différence de base (humide / sèche), pas une incohérence** (rapport implicite d'environ 10 % d'humidité, inférence) |
 | Part des coûts en FCFA | 40 % | Hypothèse pédagogique |
 | EUR/USD | 1,15 (≈ 570 FCFA/USD) | Hypothèse pédagogique ; parité FCFA/EUR [28] |
 | Capex initial | 260 M USD sur 2 ans (40 % / 60 %) | Hypothèse pédagogique. Repère : 446 M USD au total pour le développement par étapes à 10 Mt/an du DFS, dont 96 M USD jusqu'à la 1re expédition [4] ; Grand-Zambi ≈ 68,7 Md FCFA pour 1,3 Mt/an de concentré [13] |
@@ -324,7 +324,7 @@ convention minière en négociation, avant la décision finale d'investissement)
 | Intérêts intercalaires (IDC) | 12,1 | Investisseur stratégique (industriel aval ou acheteur, 40 %) | 53,1 | 17,8 % | Hypothèse pédagogique |
 | Frais de financement (2,5 % de la dette) | 4,1 | État, 10 % gratuits (aucun apport en numéraire) | 0,0 | — | Art. 47 |
 | DSRA (6 mois de service senior) | 11,5 | **Dette senior DFI** en USD (prêt A/B), 9,0 %, remboursée sur les années 2 à 10 | 90,0 | 30,2 % | Hypothèse pédagogique |
-| Besoin en fonds de roulement initial | 10,0 | **Dette commerciale locale** en FCFA (≈ 20 Md FCFA), 8,0 % fixe, années 3 à 8 | 35,0 | 11,8 % | Taux et durée calés sur le précédent AFG [1] ; reste : hypothèse |
+| Besoin en fonds de roulement initial | 10,0 | **Dette commerciale locale** en FCFA (≈ 20 Md FCFA), 8,0 % fixe, années 3 à 8 | 35,0 | 11,8 % | Taux et durée calés sur le précédent AFG [2] ; reste : hypothèse |
 | | | **Préfinancement d'offtake** (négociant), 8,5 % implicite, remboursé en tonnes sur les années 3 à 5 | 25,0 | 8,4 % | Hypothèse pédagogique ; analogue : prépaiement de négoce proposé pour Baniaka [16] |
 | | | **Financement mixte (blended)** : dette subordonnée concessionnelle, 3 %, années 6 à 13 | 15,0 | 5,0 % | Hypothèse pédagogique |
 | **Total** | **297,8** | **Total** | **297,8** | 100 % | Gearing de 55,4 % |
@@ -337,7 +337,7 @@ convention minière en négociation, avant la décision finale d'investissement)
 | Investisseur stratégique | Fin de faisabilité / décision d'investissement | Fonds propres, crédibilité technique, parfois l'offtake | Siège au conseil, droits de veto, offtake prioritaire |
 | État / SONAMINES | Octroi du permis / convention | 10 % gratuits ; stabilité ; régime de change négocié | Dividendes, partage de production, représentant de la SONAMINES au conseil (analyse de cabinet citée en recherche : **NV**) |
 | DFI (prêt A/B) | Décision d'investissement → bouclage | Dette longue en USD, mobilisation de banques (B-loan), statut de créancier privilégié | Normes de performance IFC / Principes de l'Équateur, plan de gestion environnementale et sociale, plan de réinstallation, DSCR minimum ≥ 1,30-1,40 en base, DSRA, nantissements, assurance contre le risque politique |
-| Banques locales (FCFA) | Bouclage, souvent à côté de la DFI | Dette locale, coûts locaux en FCFA, refinancement BEAC (guichet B) | Sûretés locales (hypothèque du permis, art. 84), comptes domiciliés localement, garanties des sponsors (précédent AFG [1]) |
+| Banques locales (FCFA) | Bouclage, souvent à côté de la DFI | Dette locale, coûts locaux en FCFA, refinancement BEAC (guichet B) | Sûretés locales (hypothèque du permis, art. 84), comptes domiciliés localement, garanties des sponsors (précédent AFG [2]) |
 | Négociant / acheteur | Bouclage | Préfinancement remboursé en tonnes, offtake de 5 à 10 ans | Prix indexé, quantités fermes, *step-in*, sûreté sur les stocks et les créances |
 | Fonds mixtes (blended) | Bouclage | Tranche subordonnée à taux réduit, ou garantie de première perte, ou subvention d'assistance technique ou de prime d'assurance | Additionnalité, indicateurs d'impact (emploi local, contenu local de l'art. 193) |
 | Royalty / stream (option) | Pré-construction | Liquidité contre un % du chiffre d'affaires ou du métal livré | Rang senior de fait sur le chiffre d'affaires ; à arbitrer avec les prêteurs (précédent Kola [15]) |
@@ -349,7 +349,7 @@ convention minière en négociation, avant la décision finale d'investissement)
 | **MIGA** (Groupe Banque mondiale) | Expropriation, transfert / inconvertibilité, rupture de contrat, guerre et troubles civils | **Fait** : MIGA a couvert les fonds propres d'EDF et de Stoa dans Nachtigal (164,5 M EUR, rupture de contrat, jusqu'à 15 ans) [27]. Aucun précédent minier trouvé. La couverture du risque de **transfert** est très pertinente vu la rétrocession. |
 | **ATI** (African Trade Insurance Agency, aujourd'hui ATIDI) | Risque politique, risque de crédit | **Fait** : Cameroun membre depuis le 7 octobre 2021 [39]. Produits détaillés pour le Cameroun : **NV**. |
 | Assurance contre le risque politique privée (marché de Londres) | Comme MIGA, durées plus courtes | Inférence : complément ; coût élevé vu Caa1 / B- / B. |
-| Garantie d'achèvement des sponsors | Risque de construction et de démarrage | Indispensable (sensibilité « retard » en §8). Précédent AFG : garanties de Canyon et d'A2MP [1]. |
+| Garantie d'achèvement des sponsors | Risque de construction et de démarrage | Indispensable (sensibilité « retard » en §8). Précédent AFG : garanties de Canyon et d'A2MP [2]. |
 | Contrat de construction EPC à prix forfaitaire, pénalités de retard, garanties de performance | Risque de construction | Inférence : rare pour un projet de taille moyenne ; Kola a un contrat EPC avec PowerChina [14]. |
 | Couverture du prix (puts, swaps) ou plancher dans l'offtake | Risque de prix | La bauxite n'a **pas de marché à terme liquide** (inférence) : il faut un plancher contractuel avec l'acheteur. |
 | DSRA, compte de réserve de maintenance, lock-up | Liquidité | Standard. Domiciliation à négocier avec la BEAC (§4.1). |
@@ -366,7 +366,7 @@ convention minière en négociation, avant la décision finale d'investissement)
 | Prix (bauxite CIF, prime de qualité) | É | É | Fonds propres, puis prêteurs | Plancher dans l'offtake, prépaiement, sculptage, DSRA | A2MP invoque une prime en baisse et un projet « potentiellement non viable » [2] |
 | Fret maritime | M | É | Fonds propres | Contrat de fret, vente FOB plutôt que CIF | Le fret est le 2e poste du DFS (17 USD/t) [4] ; A2MP invoque la hausse des coûts logistiques [2] |
 | Logistique (rail, port, dragage) | É | É | Sponsor, opérateur ferroviaire | Accord d'accès ferroviaire avec engagements de capacité, garantie de l'État sur l'infrastructure | Canyon : dragage de Douala et transbordement encore à l'étude [2] ; Kribi sans terminal minéralier dédié [13] |
-| Construction (retard, dépassement) | É | É | Sponsor (garantie d'achèvement) | Contrat EPC forfaitaire, réserve pour imprévus, standby equity | Minim-Martap : 1re expédition prévue au S1 2026, date retirée [2] |
+| Construction (retard, dépassement) | É | É | Sponsor (garantie d'achèvement) | Contrat EPC forfaitaire, réserve pour imprévus, standby equity | Minim-Martap : 1re expédition prévue au S1 2026, puis au T3, puis au T4 2026, date retirée sans remplacement [2] |
 | Montée en cadence | M | M | Sponsor, puis prêteurs | Test d'achèvement, grâce suffisante | — |
 | Change (USD/FCFA) | M | M | Fonds propres | Dette locale limitée aux coûts en FCFA, couverture EUR/USD | Parité fixe EUR [28] |
 | Transfert et convertibilité, rétrocession | M | É | Prêteurs offshore | MIGA/ATI, convention minière (art. 40), autorisation de la BEAC | Rétrocession à 50 % en 2027, 70 % en 2028 [32] |
@@ -580,14 +580,17 @@ Prix CIF d'équilibre pour DSCR min senior = 1.3 : 75.0 USD/t
 ```
 
 Les années du DSCR sont des années d'exploitation (1 = première année de production). L'IDC est
-approximé. Les échéances sont fixées sur la date de mise en service **prévue** : un retard fait
+approximé. *Contre-vérification (2026-10-08)* : le « TRI projet » du code est calculé sur des CFADS
+après un impôt qui déduit les intérêts ; il intègre donc l'économie d'impôt liée à la dette. Recalculé
+sans dette (taux nuls), le TRI projet de base est d'environ 13,3 % au lieu de 14,5 % (inférence de
+calcul ; l'IDC disparaît aussi de la base amortissable dans ce test). Les échéances sont fixées sur la date de mise en service **prévue** : un retard fait
 tomber le service de la dette sur une année sans production.
 
 ### 8.4 Lecture des sensibilités (inférences sur hypothèses pédagogiques)
 
 1. **Le prix est le risque dominant.** Avec une marge FOB après fiscalité d'environ
-   15,7 USD/t (61 − 38,6 − 6,7), une baisse de 10 % du CIF (−7,8 USD/t) retire la moitié de
-   l'EBITDA : DSCR minimum de 0,87, LLCR de 1,22, TRI des fonds propres proche de 0. À −20 %, le
+   15,7 USD/t (61 − 38,6 − 6,7), une baisse de 10 % du CIF (−7,8 USD/t) retire environ 44 % de
+   l'EBITDA de régime (70,6 → 39,4 MUSD) : DSCR minimum de 0,87, LLCR de 1,22, TRI des fonds propres proche de 0. À −20 %, le
    projet ne couvre plus ses coûts. Le **prix CIF d'équilibre est d'environ 71,4 USD/t pour un
    DSCR de 1,0** et d'environ **75 USD/t pour 1,30**, contre 78 USD/t en base. Une structure
    bancable suppose un **plancher de prix** (offtake ou prépaiement) ou un levier plus faible.
@@ -666,7 +669,7 @@ suffisent si les livrables des modules 04 et 07 sont faibles.
 | Prêt AFG Bank Cameroon de 82 Md FCFA (≈ 140 M USD) pour la logistique de Minim-Martap, mai 2025 | [1] | Vérifié (source secondaire) |
 | Prêt AFG : 8 % fixe HT, 8 ans, sûretés et garanties de Canyon et d'A2MP | [2] | Vérifié (source secondaire) |
 | Tirages AFG suspendus le 24 août 2026 ; ≈ 75 M USD tirés au 31 juillet 2026 | [2] | Vérifié (source secondaire) |
-| Montant tiré de ≈ 57 M USD (32,5 Md FCFA) selon A2MP | Résumé de recherche (Business in Cameroon, juillet 2026), non consulté | **Non vérifié** ; contradictoire avec 75 M USD (dates différentes possibles) |
+| Montant tiré de ≈ 57 M USD (32,5 Md FCFA) selon A2MP | Bidder's Statement d'A2MP déposé à l'ASX le 12/08/2026, p. 4 (https://announcements.asx.com.au/asxpdf/20260812/pdf/072p26ylxsxxs5.pdf) | **Vérifié (primaire)** lors de la contre-vérification ; date d'arrêté non indiquée ; diverge de 75 M USD au 31/07/2026 [2] |
 | Placement de 215 M AUD (Eagle Eye, Afriland), septembre 2025 | [3] | Vérifié (source secondaire) |
 | Rejet des placements d'environ 170 M AUD par les actionnaires (mars 2026) | [2] | Vérifié (source secondaire) ; date exacte de l'assemblée (9 mars) : résumé de recherche seulement |
 | Afreximbank (FEDA) et Eagle Eye : proposition sur 44,44 % de Canyon | Titre MarketScreener [3] | **Non vérifié** |
@@ -694,7 +697,7 @@ suffisent si les livrables des modules 04 et 07 sont faibles.
 | Fitch B négative, 24 avril 2026 | [36] | Vérifié (source secondaire) |
 | Eurobonds : 750 M USD à 10,125 % (janv. 2026) ; 550 M USD à 10,75 % (2024) | [37] | Vérifié (source secondaire) |
 | TIAO à 4,50 % (juin 2026) | [38] | Vérifié (Trésor français, titre de rubrique) |
-| Code 2023 : art. 47 (10 % + 25 %), 48, 132, 149, 151, 192, 193, 83-84, 148(7) | [26] | Vérifié (texte AMLA) |
+| Code 2023 : art. 47 (10 % gratuits + 25 % à titre onéreux), 48, 132, 149, 151, 192, 193, 83-84, 148(7) | [26] ; FAOLEX | Vérifié (texte AMLA) ; art. 40, 47, 48, 149, 192 relus sur FAOLEX en contre-vérification |
 | 10 % de l'État au titre de la « Section 59 » | [4] | **Incohérence** avec l'art. 47 : à vérifier |
 | SONAMINES vise 35 % ; capital de 10 Md FCFA | [40] | Vérifié (source secondaire) |
 | BVMAC : 7 sociétés cotées, capitalisation de 1 710 Md FCFA (mai 2026) | [41] | Vérifié (source officielle de la BVMAC) |
@@ -719,7 +722,7 @@ suffisent si les livrables des modules 04 et 07 sont faibles.
 4. **Minim-Martap** : issue de l'OPA d'A2MP (clôture prévue le 21 septembre 2026), reprise ou non
    des tirages AFG, résultat du mandat de Jefferies.
 5. **Kola et Baniaka** : passage ou non à des accords contraignants ; identité des DFI de Kola.
-6. **Participation de l'État** : modalités de paiement de la part supplémentaire de 25 %, et
+6. **Participation de l'État** : modalités de paiement (prix, financement) de la part supplémentaire de 25 %, dont le caractère onéreux est fixé par l'art. 47(4), et
    numérotation (art. 47 contre « Section 59 ») ; décrets d'application de 2024 non lus.
 7. **Fiscalité** : assiette exacte de la taxe ad valorem, base juridique des « development
    levies » de 2 % du DFS, régime de TVA et de douane en construction.

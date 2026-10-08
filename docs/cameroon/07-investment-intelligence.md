@@ -28,8 +28,8 @@
 - **Constat principal [I]** : aucun projet minier industriel du pipeline n'exporte de façon
   confirmée à la date de recherche. Tous les grands projets de fer et de bauxite ont glissé d'un à
   deux ans ; les deux actifs « stratégiques » repris par l'État (Nkamouna, Akonolinga) n'ont trouvé
-  aucun partenaire conforme aux critères à l'issue des appels d'offres de 2026 [F, Sonamines
-  18/08/2026 via presse].
+  aucun partenaire conforme aux critères à l'issue des appels à manifestation d'intérêt lancés en
+  janvier 2026 [F, Sonamines 18/08/2026 via presse].
 - **Qualité des données** : seules les sociétés cotées (Canyon Resources, ASX ; Oriole Resources, AIM)
   publient des ressources selon un code reconnu (JORC 2012). Pour les projets à capitaux chinois ou
   locaux (Kribi-Lobé, Grand Zambi, Colomine, Mborguéné, Mbalam sous son titulaire actuel), les
@@ -37,7 +37,7 @@
   déclaration : ils sont classés **« non conformes / non vérifiables »**.
 - **Exemple de score [I]** : Minim-Martap arrive en tête (69/100) grâce à la qualité de sa
   déclaration de ressources, malgré un risque de financement aigu (suspension des tirages par AFG Bank
-  Cameroon le 24/08/2026). Mbalam, géologiquement le meilleur actif, est pénalisé par le titre
+  Cameroon, rendue publique le 24/08/2026). Mbalam, géologiquement le mieux documenté historiquement (données > 2 ans, note G plafonnée à 3), est pénalisé par le titre
   contesté (sentence CCI d'environ 616 M$ en faveur de Sundance, juillet 2026) et l'absence de rail.
 - **Corrections majeures au cadrage** : définitions des 7 critères à désambiguïser (Geology/Resource,
   Market/Economics, Regulation/Risk se recouvrent), ajout du statut du titre et des litiges, du
@@ -52,7 +52,7 @@
 |---|---|---|---|
 | C1 | « 10 opportunités, une fiche chacune » | Faisable, mais la qualité des données est très inégale : seuls 2 émetteurs cotés publient des ressources conformes [F]. | Parler de **pipeline de 10 opportunités documentées**, et afficher un **indice de confiance** à côté du score. Un « Top 10 » classé sans indice de confiance laisserait croire à une comparabilité qui n'existe pas. |
 | C2 | « ressources connues (avec le code de déclaration ou la mention « non conforme ») » | Principe juste mais incomplet. Trois cas réels ne rentrent pas dans ce binaire : (a) estimations **historiques** conformes à l'époque mais émises par un ancien titulaire (Mbalam/Sundance JORC 2012-2015 ; Nkamouna/Geovic NI 43-101 2011) ; (b) « réserves » annoncées par la presse ou l'administration sans code ; (c) confusion fréquente ressources / réserves. | Quatre statuts : **Conforme actuel** (code + catégorie + personne compétente + date), **Historique** (conforme à l'origine, non actualisé, titulaire différent), **Non conforme** (chiffre public sans code), **Non disponible**. Toujours préciser ressource vs réserve et la catégorie (Mesurée/Indiquée/Présumée). |
-| C3 | Fiche : « capex indicatif » | Le cadrage dit à juste titre que les capex publics sont rares. Vérifié : des montants existent pour 5 projets, mais de natures très différentes (DFS cotée, étude de faisabilité de 2011, déclaration d'entreprise à la presse, montant refusé par un comité d'investissement, budget d'une annexe à la loi de finances). | Renommer « **capex public si publié** » et qualifier la nature : *étude publiée / déclaration d'entreprise / montant gouvernemental / non publié*. Ne jamais additionner ces montants. Les 1 748 Md FCFA de l'annexe 2026-2030 (Mbalam 747, Bipindi-Grand Zambi 570, Kribi-Lobé 431) ne sont **pas** des capex de projet vérifiés [F/I]. |
+| C3 | Fiche : « capex indicatif » | Le cadrage dit à juste titre que les capex publics sont rares. Vérifié : des montants existent pour 5 projets, mais de natures très différentes (DFS cotée, étude de faisabilité de 2011, déclaration d'entreprise à la presse, montant jugé non rentable par l'ancien opérateur, budget d'une annexe à la loi de finances). | Renommer « **capex public si publié** » et qualifier la nature : *étude publiée / déclaration d'entreprise / montant gouvernemental / non publié*. Ne jamais additionner ces montants. Les 1 748 Md FCFA de l'annexe 2026-2030 (Mbalam 747, Bipindi-Grand Zambi 570, Kribi-Lobé 431) ne sont **pas** des capex de projet vérifiés [F/I]. |
 | C4 | Champs de la fiche | Manquent : **titulaire**, **statut du titre**, **litiges**, **participation de l'État**, **date de la dernière information**. Ce sont pourtant les facteurs qui discriminent le plus les projets camerounais (Mbalam, Nkamouna, Kambélé). | Ajouter ces 5 champs (fait dans les fiches ci-dessous). |
 | C5 | Score : Geology — Resource — Infrastructure — Market — Regulation — Economics — Risk | Sans définitions, trois paires se recouvrent : Geology/Resource, Market/Economics, Regulation/Risk. Risque de double comptage interne. | Définitions exclusives (section 3.2) : Geology = qualité et potentiel géologique **au-delà** de la ressource déclarée ; Resource = taille, teneur, **confiance et conformité** de la déclaration ; Market = débouché du produit ; Economics = indicateurs de **projet** publiés ; Regulation = cadre et titre ; Risk = risques résiduels non couverts ailleurs. |
 | C6 | Pas de pondérations ni d'échelle | Le cadrage impose de publier la grille avant de remplir pour le module 06 (règle « Points ouverts » n° 5), mais rien n'est fixé pour le module 07. | Échelle 0-5 à descripteurs, pondérations publiées et justifiées, test de sensibilité obligatoire (section 3). |
@@ -161,8 +161,8 @@ Reg. Il peut seulement les citer comme contexte.
 | Ressources déclarées | **Conforme actuel (JORC 2012)** : réserve de minerai ~144 Mt à 51,2 % Al₂O₃ et 1,7 % SiO₂ (DFS annoncée le 01-02/09/2025) [F, S3, S4]. Ressource : 1 027 Mt à 45,3 % Al₂O₃ (382 Mt mesurées, 597 Mt indiquées, 48 Mt présumées ; seuil 35 % Al₂O₃) [F, S2 ; ASX avril 2025]. Divergence entre annonces de 2025 sur l'inclusion de Makan/Ngaoundal [F, S2] |
 | Infrastructure | Rail Camrail jusqu'au port de Douala ; Canyon a porté sa participation dans Camrail de 9,1 % à 26,9 % en mai 2026 ; 7 locomotives livrées fin juin 2026 ; 60 des 160 wagons attendus mi-août 2026 [F, S5]. Réhabilitation de voie préfinancée par Camalco et remboursée par imputation sur redevances [F, S3] |
 | Marché | Export de bauxite (marché maritime) ; 30 % de la production de bauxite ou d'alumine à mettre à disposition de l'industrie locale aux conditions du marché [F, S6]. L'actionnaire majoritaire estime la prime produit à ~5 $/tms contre ~11 $/tms dans la DFS, et le fret de montée en cadence à 32-36 $/tms contre 17 $/tms [F, S4] |
-| Capex public | **Étude publiée** : capex Stage 1 jusqu'à la première expédition 96 M$ US ; VAN6 avant impôt 835 M$ ; TRI avant impôt 29 % (DFS septembre 2025) [F, S3]. Facilité AFG Bank Cameroon d'environ 140 M$ ; environ 57 M$ tirés selon A2MP (juillet 2026) [F, S4], environ 75 M$ selon AlCircle (septembre 2026) [F, S5] : **divergence** |
-| Risques | Suspension des tirages par AFG Bank le 24/08/2026 en attente d'une revue [F, S5] ; l'actionnaire majoritaire écrit que le projet « may be uneconomic at the current proposed pricing and volumes » [F, S4] ; offre publique contestée par le comité indépendant [F, S5] ; trésorerie de 31 M$ AU au 31/07/2026 [F, S5] |
+| Capex public | **Étude publiée** : capex Stage 1 jusqu'à la première expédition 96 M$ US ; VAN6 avant impôt 835 M$ ; TRI avant impôt 29 % (DFS septembre 2025) [F, S3]. Facilité AFG Bank Cameroon d'environ 140 M$ ; environ 57 M$ (32,5 Md FCFA) tirés selon le Bidder's Statement d'A2MP déposé le 12/08/2026 (date d'arrêté non indiquée) [F, S4], environ 75 M$ tirés au 31/07/2026 selon Business in Cameroon (26/08/2026) et AlCircle (29/09/2026) [F, S5] : **divergence** |
+| Risques | Suspension des tirages par AFG Bank le 24/08/2026 en attente d'une revue [F, S5 ; Business in Cameroon indique que Canyon l'a rendue publique dans une mise à jour du 24/08/2026] ; l'actionnaire majoritaire écrit que le projet « may be uneconomic at the current proposed pricing and volumes » [F, S4] ; offre publique contestée par le comité indépendant [F, S5] ; trésorerie de 31 M$ AU au 31/07/2026 [F, S5] |
 | Cadre réglementaire | Code minier 2023 ; 10 % gratuits pour l'État + 10 % du capital ouvert aux nationaux ; taxe ad valorem 3 % ; partage de production 5 % ; 1 % fonds minier + 1 % compte capacités ; taxe à l'export 2 % ; bonus de signature 1 Md FCFA [F, S6]. Stabilité fiscale : non mentionnée dans la source [?] |
 | Transformation | Étude de faisabilité de raffinerie d'alumine annoncée pour le T3 2026 ; aucun résultat trouvé [?, S1] |
 | Date info | 29/09/2026 (S5) ; 12/08/2026 (S4, primaire) |
@@ -213,7 +213,7 @@ Reg. Il peut seulement les citer comme contexte.
 | Infrastructure | Route vers le port achevée ; centrale thermique de 42 MW ; ~100 camions de 120 t [F, S17]. Première pierre d'un terminal minéralier confié à Sinosteel Cameroun SA le 22/09/2025 (14 Mt/an au départ, 47,5 Mt/an à terme) [F, S20] |
 | Marché | Objectif de 4 Mt/an de concentré à plus de 62 % Fe (presse, juin 2025) [F, S14] ; 10 Mt/an de minerai à 33 % selon la convention [F, S19] |
 | Capex public | **Déclaration d'entreprise** : 200 M$ investis sur un coût total de 700 M$ [F, S17] ; 431 Md FCFA dans l'annexe 2026-2030 [F, S15] |
-| Risques | Retards répétés (2025 → 2027) ; contraintes d'énergie et de logistique [F, S17] ; le ministre des Transports a contesté la faible capacité du terminal minéralier [F, S17] |
+| Risques | Retards répétés (2025 → 2027) ; contraintes d'énergie et de logistique [F, S17] ; le ministre des Transports a jugé le terminal minéralier de Sinosteel « de faible capacité » [F, S36, EcoMatin 21/09/2025 ; *contre-vérification : attribution corrigée, l'information ne figure pas dans S17*] |
 | Cadre | Convention + permis ; contestations lors de l'attribution [F, S19] |
 | Transformation | Concentration sur site [F] ; pas de pelletisation documentée [?] |
 | Date info | 11/03/2026 (S17) |
@@ -230,9 +230,9 @@ Reg. Il peut seulement les citer comme contexte.
 | Infrastructure | Transport routier sur plus de 50 km jusqu'à Kribi ; pas de terminal minéralier [F, S20] |
 | Marché | 6 Mt/an de concentré visées au départ [F, S20], mais le financement bancaire de 2026 porte sur 1,3 Mt/an [F, S21] : **incohérence** |
 | Capex public | Financement de 41,2 Md FCFA par 5 banques locales (février 2026) [F, S21]. La valorisation officielle « 20 000 Md FCFA / 33,3 Md$ » est incohérente avec le titre de presse (« 333 milliards ») : **non utilisable** [F/I, S20] ; 570 Md FCFA dans l'annexe 2026-2030 [F, S15] |
-| Risques | Retards répétés (déc. 2024 → juin 2025 → août-sept. 2025 → ?) [F, S21] ; logistique routière coûteuse [F, S20] |
+| Risques | Retards répétés : exportation attendue « depuis 2025 », toujours pas réalisée en février 2026 [F, S21] ; la séquence détaillée « déc. 2024 → juin 2025 → août-sept. 2025 » n'a pas été retrouvée dans S21 [?] ; logistique routière coûteuse [F, S20] |
 | Cadre | Permis d'exploitation Akom II ; État à 10 % [F, S20] |
-| Transformation | Aciérie de Fifinda (Groupe Bocom) lancée début septembre 2025, 300 000 t/an de fer prévues [F, S20] ; état d'avancement non vérifié [?] |
+| Transformation | Complexe sidérurgique de Fifinda (Groupe Bocom) lancé début septembre 2025, 300 000 t/an de fer prévues [F, S20] ; état d'avancement non vérifié [?] |
 | Date info | 17-18/02/2026 (S21) |
 
 ### O6 — Cobalt-nickel-manganèse de Nkamouna (Lomié, Est)
@@ -258,12 +258,12 @@ Reg. Il peut seulement les citer comme contexte.
 |---|---|
 | Minerai | Rutile (TiO₂) alluvionnaire / sables minéralisés [F] |
 | Localisation | Akonolinga, région du Centre [F, S26] |
-| Titulaire | Sonamines (reprise en mai 2025 après l'abandon d'Eramet) ; filiale camerounaise d'Eramet dissoute le 06/01/2026 [F, S23, S27] |
-| Stade | Exploration avancée / études de faisabilité négatives (Eramet, 4 ans, > 2 000 sondages, 13,6 M€ investis) [F, S27] ⚠ (oct. 2023). Appel à partenaires de 2026 **infructueux** (18/08/2026) [F, S23] |
+| Titulaire | Sonamines (actif transféré après le retrait d'Eramet annoncé le 26/10/2023 ; date de reprise non précisée par les sources relues [?]) ; filiale camerounaise d'Eramet dissoute le 06/01/2026 [F, S27] |
+| Stade | Exploration avancée / études de faisabilité négatives (Eramet, 4 ans, près de 2 000 sondages) [F, S27] ⚠ (oct. 2023) ; montant de 13,6 M€ investis non retrouvé dans l'article de Business in Cameroon [?]. Appel à manifestation d'intérêt du 09/01/2026 **infructueux** (18/08/2026) [F, S23, S26] |
 | Ressources | **Non disponible** : aucune ressource conforme publiée trouvée [?] |
 | Infrastructure | Proximité relative de Yaoundé [I] ; non vérifié [?] |
 | Marché | Rutile naturel : marché étroit mais à forte valeur [I] |
-| Capex public | **Montant refusé par un comité d'investissement** : 180 M€ (~118 Md FCFA) pour ~35 000 t/an au lieu des 100 000 t/an visées ; ~30 M€ de gains attendus sur 5-6 ans selon Eramet [F, S26, S27] |
+| Capex public | **Investissement jugé non rentable par Eramet** : ~180 M€ (> 118 Md FCFA) pour ~30 M€ de gains attendus ; ~35 000 t/an extractibles au lieu des 100 000 t/an visées [F, S26, S27]. La mention d'un refus formel par un comité d'investissement n'a pas été retrouvée [?] |
 | Risques | Faible teneur, gisement mince, gestion de l'eau et des ultrafines, risque écologique jugé « trop élevé » par Eramet [F, S27] |
 | Cadre | Disposition du Code 2023 sur les sites abandonnés [F, S23] |
 | Transformation | Non documentée [?] |
@@ -324,7 +324,7 @@ Reg. Il peut seulement les citer comme contexte.
 
 | Réf. | Objet | Statut | Motif |
 |---|---|---|---|
-| T1 | **Terminal minéralier de Kribi** (infrastructure / services) | Première pierre le 22/09/2025, confié à Sinosteel Cameroun SA, 14 Mt/an puis 47,5 Mt/an [F, S20] ; mise en service évoquée « au plus tôt 2027 » [F, presse, S36] | Dépendance commune à O3, O4, O5 : traitée dans le critère I plutôt que comme opportunité classée. Elle peut devenir une 11ᵉ fiche dans une variante « infrastructure » de l'exercice |
+| T1 | **Terminal minéralier de Kribi** (infrastructure / services) | Première pierre le 22/09/2025, confié à Sinosteel Cameroun SA, 14 Mt/an puis 47,5 Mt/an [F, S20] ; « futur terminal minéralier (2027) » selon EcoMatin du 14/05/2026 [F, presse, S36] | Dépendance commune à O3, O4, O5 : traitée dans le critère I plutôt que comme opportunité classée. Elle peut devenir une 11ᵉ fiche dans une variante « infrastructure » de l'exercice |
 | W1 | Fer de **Nkout** (Sud) | Consortium mené par Delta Resources Cameroon plc (Fomento, KIOCL, VPR Mining) ; convention et permis **non signés** ; « ~3 Gt » de potentiel sans code ; démarrage repoussé au S2 2026 [F, S37] | Liste d'attente : titre non attribué |
 | W2 | Calcaire de **Sikoum** | Appel de la Sonamines pour une étude géophysique [F, presse] | Trop amont |
 | X1 | Diamant de **Mobilong** (C&K Mining) | Permis de 2010 ; ressources revues de 736 à 416 Mct sans code ; arrêt de l'activité après ~2 140 carats exportés ; redevances impayées depuis 7 ans (ITIE 2021) [F, S38] ⚠ > 2 ans ; statut actuel **non vérifié** | **Exclu** : aucune donnée fiable récente ; à utiliser comme **contre-exemple pédagogique** (annonces de ressources non conformes) |
@@ -342,15 +342,20 @@ Reg. Il peut seulement les citer comme contexte.
 
 | Rang | Opportunité | Substance | Stade | Statut ressource | G | R | I | M | Reg | E | K | **IOS** | Poids égaux | IC (/7) |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | O1 Minim-Martap | Bauxite | Pré-production, financement suspendu | Conforme actuel | 4 | 5 | 3 | 3 | 3 | 3 | 2 | **69** | 66 | 7 |
+| 1 | O1 Minim-Martap | Bauxite | Pré-production, financement suspendu | Conforme actuel | 4 | 5 | 3 | 3 | 3 ⚠ | 3 | 2 | **69** | 66 | 6 |
 | 2= | O8 Bibemi + Mbe (Oriole/BCM) | Or | Demande de licence / exploration | Conforme actuel (surtout présumées) | 4 | 3 | 2 | 5 | 3 | 1 (ND) | 3 | **57** | 60 | 5 |
 | 2= | O9 Colomine + Mborguéné | Or | Petite mine / permis récent | Non conforme | 3 | 2 | 3 | 5 | 4 | 2 | 2 | **57** | 60 | 4 |
-| 4 | O6 Nkamouna | Co-Ni-Mn | Titre à réattribuer | Historique (NI 43-101, 2011) | 4 | 3 | 2 | 3 | 2 | 2 ⚠ | 2 | **52** | 51 | 4 |
-| 5= | O4 Kribi-Lobé | Fer | Extraction, export 2027 | Non conforme | 3 | 2 | 3 | 3 | 3 | 2 | 2 | **51** | 51 | 5 |
-| 5= | O5 Grand Zambi | Fer | Mine inaugurée, export non confirmé | Non conforme | 3 | 2 | 3 | 3 | 3 | 2 | 2 | **51** | 51 | 5 |
-| 7 | O3 Mbalam | Fer | Construction, titre contesté | Historique (JORC, ex-Sundance) | 5 | 3 ⚠ | 1 | 4 | 2 | 1 (ND) | 1 | **48** | 49 | 4 |
-| 8 | O10 Wapouzé | Calcaire/marbre | Premier forage | ND | 3 | 1 (ND) | 2 | 4 | 3 | 1 (ND) | 3 | **44** | 49 | 3 |
-| 9 | O7 Akonolinga | Rutile | Faisabilité négative ; titre Sonamines | ND | 2 | 1 (ND) | 3 | 4 | 3 | 1 | 2 | **43** | 46 | 3 |
+| 4= | O4 Kribi-Lobé | Fer | Extraction, export 2027 | Non conforme | 3 | 2 | 3 | 3 | 3 | 2 | 2 | **51** | 51 | 5 |
+| 4= | O5 Grand Zambi | Fer | Mine inaugurée, export non confirmé | Non conforme | 3 | 2 | 3 | 3 | 3 | 2 | 2 | **51** | 51 | 5 |
+| 6 | O6 Nkamouna | Co-Ni-Mn | Titre à réattribuer | Historique (NI 43-101, 2011) | 3 ⚠ | 3 | 2 | 3 | 2 | 2 ⚠ | 2 | **49** | 49 | 4 |
+| 7 | O10 Wapouzé | Calcaire/marbre | Premier forage | ND | 3 | 1 (ND) | 2 | 4 | 3 | 1 (ND) | 3 | **44** | 49 | 3 |
+| 8 | O7 Akonolinga | Rutile | Faisabilité négative ; titre Sonamines | ND | 2 | 1 (ND) | 3 | 4 | 3 | 1 | 2 | **43** | 46 | 3 |
+| 9 | O3 Mbalam | Fer | Construction, titre contesté | Historique (JORC, ex-Sundance) | 3 ⚠ | 3 ⚠ | 1 | 4 | 2 | 1 (ND) | 1 | **42** | 43 | 4 |
+
+> *Contre-vérification (2026-10-08)* : notes G d'O3 (5 → 3) et d'O6 (4 → 3) ramenées au plafond de 3
+> imposé par la règle 3.5 n° 5, car elles reposent uniquement sur des déclarations de plus de 2 ans
+> (Sundance 2012-2015 ; Geovic 2011). IC d'O1 ramené de 7 à 6 : le critère Reg repose sur la
+> convention du 30/07/2024 (S6, 19/08/2024), antérieure au 2024-10-08.
 
 ### 5.2 Transformation (classée à part, G et R sans objet, poids renormalisés)
 
@@ -361,14 +366,14 @@ Reg. Il peut seulement les citer comme contexte.
 ### 5.3 Lecture [I]
 
 - **Classement robuste en tête et en queue** : avec des poids égaux, aucun projet ne bouge de plus de
-  2 rangs. Le classement n'est donc pas « fragile » au sens de la règle 3.4.
+  2 rangs (vérifié après correction des notes G d'O3 et d'O6). Le classement n'est donc pas « fragile » au sens de la règle 3.4.
 - **L'écart vient surtout de R et de I** : Minim-Martap est le seul projet qui combine une
-  déclaration conforme récente et une voie d'évacuation existante. Mbalam a la meilleure géologie mais
-  la plus mauvaise infrastructure et le titre le plus contesté.
+  déclaration conforme récente et une voie d'évacuation existante. Mbalam a la géologie la mieux documentée historiquement, mais
+  ces données ont plus de 2 ans (G plafonnée à 3), et il cumule la plus mauvaise infrastructure et le titre le plus contesté.
 - **Effet de la règle ND** : O8 serait 2ᵉ seul (63) si une PEA publiée justifiait E = 3. La règle
   pénalise volontairement l'absence d'étude publiée.
-- **Indice de confiance** : seul O1 a 7 critères sur 7 documentés. Aucun projet à capitaux non cotés
-  n'atteint 6/7 : c'est un résultat en soi pour le module 09 (transparence).
+- **Indice de confiance** : aucun projet n'a 7 critères sur 7 documentés par des faits de moins de 2 ans ;
+  O1 atteint 6/7. Aucun projet à capitaux non cotés n'atteint 6/7 : c'est un résultat en soi pour le module 09 (transparence).
 - **Fiabilité des données** : plusieurs chiffres clés proviennent de la presse camerounaise
   (EcoMatin, Business in Cameroon, Cameroon Tribune) faute de source primaire accessible. Ils sont
   utilisables pour l'exercice mais doivent être recoupés avant tout usage professionnel.
@@ -430,9 +435,9 @@ restitution (10 %).
 | V13 | Grand Zambi : inauguration le 22/09/2025 ; État à 10 % ; 150 Mt | S20 | Vérifié (presse) ; ressource non conforme |
 | V14 | Valorisation de Grand Zambi « 20 000 Md FCFA / 33,3 Md$ » | S20 | **Incohérent, rejeté** |
 | V15 | Retrait du permis de Geovic à Nkamouna (décret du 12/02/2025) | S22 | Vérifié (presse) ; une autre source donne le 25/02/2025 : **date à confirmer** au JO |
-| V16 | Appels d'offres de la Sonamines pour Nkamouna et Akonolinga infructueux (18/08/2026) | S22, S23 | Vérifié (presse citant les communiqués) |
+| V16 | Appels à manifestation d'intérêt de la Sonamines (janvier 2026) pour Nkamouna et Akonolinga infructueux (18/08/2026) | S22, S23 | Vérifié (presse citant les communiqués) |
 | V17 | Accord Aeternum/ARM : 10 M$, 50,1 % (ou 51 %), échéance le 31/12/2026 | S22, S25 | Vérifié (presse + communiqué) ; divergence 50,1 / 51 % |
-| V18 | Eramet : sortie d'Akonolinga le 26/10/2023, 180 M€ non approuvés | S26, S27 | Vérifié (presse) ⚠ > 2 ans |
+| V18 | Eramet : sortie d'Akonolinga annoncée le 26/10/2023, ~180 M€ jugés non rentables | S26, S27 | Vérifié (presse) ⚠ > 2 ans |
 | V19 | Mbe : 1,66 Moz présumées JORC 2012 ; Bibemi 460 koz | S28 (RNS 23/07/2026) | Vérifié (primaire) |
 | V20 | EIES de Bibemi approuvée en novembre 2025 ; demande de licence de juin 2024 | S29 | Vérifié (secondaire citant une RNS) |
 | V21 | Mborguéné : permis du 18/08/2025, 5 Mt à 1,89 g/t, 2 ans pour démarrer | S31 | Vérifié (presse) ; ressource non conforme |
@@ -482,7 +487,7 @@ Primaires (sociétés cotées) :
 Secondaires (presse, guides) :
 - **S1** AlCircle, objectif de première expédition au T3 2026 : https://www.alcircle.com/news/canyon-advances-minim-martap-bauxite-project-targets-first-shipment-in-q3-2026-118188
 - **S3** MarketScreener, DFS et réserves de Minim-Martap : https://www.marketscreener.com/news/canyon-resources-limited-definitive-feasibility-study-results-and-reserves-upgrade-confirms-minim-ma-ce7c50d3dc8df127 ; https://www.marketscreener.com/news/definitive-feasibility-study-results-and-reserves-upgrade-confirms-minim-martap-as-a-tier-one-bauxit-ce7c50d3d888f322
-- **S5** AlCircle, 29/09/2026 : https://www.alcircle.com/news/canyon-resources-minim-martap-bauxite-project-faces-fresh-uncertainty-over-funding-and-first-shipment-121352
+- **S5** AlCircle, 29/09/2026 : https://www.alcircle.com/news/canyon-resources-minim-martap-bauxite-project-faces-fresh-uncertainty-over-funding-and-first-shipment-121352 ; Business in Cameroon, 26/08/2026 : https://www.businessincameroon.com/mining/2608-16611-afg-bank-funding-freeze-deepens-uncertainty-over-minim-martap-bauxite-project
 - **S6** EcoMatin, convention de Camalco (19/08/2024) : https://ecomatin.net/exploitation-de-la-bauxite-les-contours-de-la-convention-miniere-entre-la-filiale-locale-de-laustralien-canyon-resources-et-le-cameroun
 - **S7** EcoMatin, décès d'Alain Malong : https://ecomatin.net/cameroun-deces-dalain-malong-ex-directeur-general-dalucam
 - **S8** Business in Cameroon, Alucam (14/07/2026) : https://www.businessincameroon.com/public-management/1407-16457-cameroon-s-alucam-still-needs-fresh-capital-after-cfa92-5-billion-debt-cleanup
