@@ -1,235 +1,276 @@
-# AFRICA MINING INTELLIGENCE
+# AFRICA MINERAL INSIGHTS
 
-**From Satellite to Mine — From Mine Products to Market**
+**From Satellite to Minerals — From Minerals to Market**
 
-> Note de cadrage du concept (version de travail). Document de conception : il ne contient aucune
-> donnée pays vérifiée. Les exemples (Cameroun, cuivre) servent uniquement à illustrer la structure.
+> Note de cadrage du concept (version de travail, 2026-10-08). Document de conception. Les sources
+> citées ont été vérifiées à la date indiquée ; les cellules « … » des matrices sont à remplir avec
+> des données sourcées, jamais avec des estimations non signalées.
+>
+> Nom antérieur de travail : *Africa Mining Intelligence — From Satellite to Mine, From Mine Products
+> to Market*. Le nom définitif reste à arrêter (voir « Points ouverts »).
+
+## Principe
+
+Chaque composante = **un module de formation + une étude de cas pratique sur données réelles et
+publiques + un livrable d'intelligence exploitable**. Les études de cas s'enchaînent : le livrable
+de chaque module est une donnée d'entrée des modules suivants. Projet final :
+
+> *Take a mineral opportunity from satellite observation all the way to an investable, financeable
+> and value-adding national development strategy.*
+
+La formation n'est donc plus un pilier séparé : elle est intégrée dans chacune des 9 composantes.
 
 ## Description officielle
 
-Africa Mining Intelligence is a hybrid country platform combining professional training, mining and
-geospatial intelligence, mineral potential assessment, mining market intelligence, legal and
-regulatory analysis, investment intelligence, mining project finance, and strategies for maximizing
-domestic value creation from mineral resources.
+Africa Mineral Insights is a hybrid country platform that combines professional training and
+actionable mineral intelligence. Each country edition is built around nine components — geospatial
+intelligence, mineral potential, mining sector intelligence, legal and regulatory insights, mineral
+products and value chains, market and trade intelligence, investment intelligence, financing
+intelligence, and value addition and national strategy — each delivered as a practical case study
+on real, public data.
 
-Each country edition combines practical learning with a comprehensive assessment of the country's
-mineral endowment, geological and mining potential, mining value chains, market opportunities, legal
-and fiscal framework, investment environment, financing conditions, and opportunities for local
-processing, diversification and industrial development.
+The case studies are linked: each one produces an output that feeds the next, so that participants
+take a mineral opportunity from satellite observation to an investable, financeable and
+value-adding national strategy.
 
-The platform ultimately aims to answer six strategic questions:
+The platform answers six strategic questions: What does the country have? What can it develop?
+Where are the markets? What prevents greater value creation? How can projects be financed? How can
+the country capture more value from its mineral resources?
 
-1. What does the country have?
-2. What can it develop?
-3. Where are the markets?
-4. What prevents greater value creation?
-5. How can projects be financed?
-6. How can the country capture more value from its mineral resources?
+## Les 9 composantes et leurs études de cas — édition Cameroun
 
-Each country edition therefore delivers both a professional training programme and a Mining &
-Economic Intelligence Report, culminating in a practical National Mining Value Creation Strategy.
-
-Fil conducteur :
-`Satellite → Mine → Market` puis `Law → Investment → Finance → Value Creation`.
-
-## Les 9 dimensions de chaque Country Edition
-
-| # | Pilier | Verbe | Question traitée |
+| # | Composante | Étude de cas Cameroun | Livrable |
 |---|---|---|---|
-| 01 | Professional Training | Learn | Quelles compétences faut-il pour exploiter ces données ? |
-| 02 | Mineral & Mining Intelligence | Discover | Qu'est-ce que le pays possède, où, et à quel stade ? |
-| 03 | Mineral Potential Assessment | Assess | Quel est le potentiel réel par substance ? |
-| 04 | Mining Market & Value-Chain Intelligence | Understand | Où sont les marchés et les débouchés ? |
-| 05 | Mining Legal & Regulatory Intelligence | Enable | Le cadre permet-il d'explorer, investir, produire, transformer, exporter ? |
-| 06 | Mining Investment Intelligence | Invest | Quelles opportunités d'investissement ? |
-| 07 | Mining Investment & Project Finance | Finance | Comment ces projets peuvent-ils être financés ? |
-| 08 | Value Addition & Diversification | Create More Value | Comment capter davantage de valeur ? |
-| 09 | National Mining Value Strategy | Transform | Quelle feuille de route 0–15 ans ? |
+| 01 | Geo-Spatial Intelligence | From Satellite to Mineral Target | Mineral Target Map |
+| 02 | Mineral Potential | Can we identify Cameroon's next gold target? | Cameroon Gold Prospectivity Map |
+| 03 | Mining Sector Intelligence | Mapping the Cameroon Mining Ecosystem | Cameroon Mining Ecosystem Map |
+| 04 | Legal & Regulatory Insights | Is Cameroon's mining framework investment-ready? | Mining Regulatory Gap Matrix |
+| 05 | Mineral Products & Value Chains | From Cameroon Bauxite to Aluminium Value | Cameroon Mineral Value Chain Map |
+| 06 | Market & Trade Intelligence | Where should Cameroon sell its minerals? | Market Attractiveness Matrix |
+| 07 | Mineral Investment Intelligence | Build the Cameroon Mining Investment Pipeline | Top 10 Opportunities + Investment Opportunity Score |
+| 08 | Mineral Financing Intelligence | How do we finance a Cameroon mining project? | Indicative Mining Financing Structure |
+| 09 | Value Addition, Diversification & National Strategy | How can Cameroon capture more value from its minerals? | Cameroon National Mineral Value Strategy |
 
-### 01 — PROFESSIONAL TRAINING · Learn
+## Dépendances entre études de cas
 
-Formation pratique : télédétection, SIG, géologie, géochimie, exploration, prospectivité minérale,
-analyse des données minières. Module ajouté : **lecture d'un modèle financier minier et d'une étude
-de faisabilité** (lien direct avec le pilier 07).
+L'enchaînement n'est pas strictement linéaire. Les flux réels :
 
-### 02 — MINERAL & MINING INTELLIGENCE · Discover
+| Module | Utilise les livrables de |
+|---|---|
+| 02 Mineral Potential | 01 |
+| 03 Mining Ecosystem | 01, 02 |
+| 04 Legal Framework | 03 (titres, statuts, titulaires) |
+| 05 Value Chains | 03 (ressources, installations) |
+| 06 Markets | 05 (produits à chaque étape de la chaîne) |
+| 07 Investment Pipeline | 02, 03, 04, 05, 06 |
+| 08 Financing | 04, 07 |
+| 09 National Strategy | 01 à 08 |
 
-`Geology → Occurrences → Deposits → Mines → Permits → Infrastructure`, avec identification des zones
-sous-explorées et du potentiel minéral.
+Conséquence pédagogique : les modules 04, 05 et 06 peuvent être enseignés en parallèle ; 07, 08 et
+09 sont des modules de synthèse et doivent venir en fin de parcours. Il faut prévoir un **jeu de
+données de secours** par module, pour qu'un groupe dont le livrable précédent est faible puisse
+continuer.
 
-### 03 — MINERAL POTENTIAL ASSESSMENT · Assess
+## Socle de données publiques (Cameroun)
 
-Par substance : potentiel géologique, niveau de connaissance, ressources connues (en précisant le
-code de déclaration : JORC, NI 43-101, SAMREC, PERC… ou non conforme), potentiel d'exploration,
-potentiel de développement, caractère critique/stratégique, degré de maturité.
+| Source | Contenu | Utilisé en | Limites vérifiées |
+|---|---|---|---|
+| USGS — *Compilation of Geospatial Data (GIS) for the Mineral Industries and Related Infrastructure of Africa* (data release 2021 ; carte GeoPDF : Open-File Report 2024-1041) | Installations de production et de traitement, sites d'exploration et de développement, occurrences, ports d'exportation, voies ferrées, routes, centrales et lignes électriques, pipelines, terminaux GNL | 01, 03, 05, 07 | Année de référence **2018**. Les « undiscovered resource tracts » ne couvrent que le Gabon, la Mauritanie et certaines substances (potasse, platinoïdes, cuivre), pas une évaluation propre au Cameroun |
+| Cadastre minier en ligne du MINMIDT (Flexicadastre) | Titres miniers, limites, statut, titulaires | 03, 04, 07 | Annoncé comme opérationnel en 2017 ; état actuel, couverture et conditions de réutilisation à vérifier |
+| Système d'information géologique et minière (SIGM), financé par la Banque mondiale (PRECASEM) | Données géologiques et géochimiques (campagne citée : 18 000 échantillons, 300 sites) | 01, 02 | Une étude pour l'African Minerals Development Centre (UA) rapportée en 2025 juge les données en grande partie obsolètes et insuffisamment standardisées |
+| Copernicus Sentinel-2, Sentinel-1 (radar), Landsat, MNT (SRTM / Copernicus DEM) | Imagerie optique, radar, relief | 01, 02 | Couverture nuageuse et végétation dense au sud et à l'est (voir module 01) |
+| Code minier : loi n° 2023/014 du 19 décembre 2023 et décrets d'application | Cadre juridique | 04, 08 | Remplace le code de 2016 ; décrets d'application publiés progressivement depuis 2024 — inventaire à faire |
+| Statistiques commerciales (UN Comtrade et équivalents), prix publics de référence | Exportations, importations, partenaires, prix | 06 | Sous-déclaration de l'or artisanal : croiser avec les statistiques miroirs des pays importateurs |
 
-Indicateur : **Country Mineral Potential Score**.
+## Les 9 composantes en détail
 
-### 04 — MINING MARKET & VALUE-CHAIN INTELLIGENCE · Understand
+### 01 — GEO-SPATIAL INTELLIGENCE · « From Satellite to Mineral Target »
 
-`Ore → Concentrate → Intermediate → Refined Product → Industrial Product → Market`
+Les participants reçoivent une zone d'étude, avec Sentinel-2, Landsat, un MNT, la carte géologique,
+les occurrences et, si disponible, la géochimie.
 
-Marchés domestiques, africains, internationaux ; tendances de demande ; producteurs et consommateurs
-principaux ; prix ; exportations/importations ; corridors logistiques.
+`Image satellite → indices spectraux → anomalies → structures → cible minérale`
 
-### 05 — MINING LEGAL & REGULATORY INTELLIGENCE · Enable
+Livrable : **Mineral Target Map**.
 
-Question directrice : *« Does the regulatory framework make it easy, competitive and sustainable to
-explore, invest, produce, process and export? »*
+Choix de la zone d'étude (point critique) : en forêt dense et sous couvert latéritique (sud, est),
+la télédétection optique ne voit pas les altérations hydrothermales, et les nuages limitent les
+images exploitables. Deux options :
+- une zone de savane (Adamaoua, Nord) pour l'exercice spectral ;
+- ou une zone forestière en mettant l'accent sur l'analyse structurale (linéaments sur MNT et
+  radar Sentinel-1) plutôt que sur les indices spectraux.
 
-Champs analysés : Mining Code, Mining Regulations, fiscal regime, royalties, corporate taxation,
-customs regime, state participation, local content, local processing requirements, mining permits,
-exploration rights, land access, environmental requirements, social obligations, artisanal mining,
-community rights, revenue sharing, transfer pricing, repatriation of capital, stability clauses,
-dispute resolution, closure & rehabilitation, critical minerals policy.
+### 02 — MINERAL POTENTIAL · « Can we identify Cameroon's next gold target? »
 
-**Regulatory Gap Analysis** (matrice standardisée) :
+`Géologie + Géochimie + Télédétection + Structures + Occurrences connues → matrice de prospectivité`
 
-| Domaine | Situation actuelle | Benchmark Afrique | Gap | Impact | Amélioration proposée |
+Livrable : **Cameroon Gold Prospectivity Map** (High / Medium / Low potential / Insufficient data).
+
+Règles méthodologiques :
+- l'objectif est de générer des cibles d'exploration à valider, pas d'annoncer un gisement ;
+- **validation** : mettre de côté une partie des occurrences connues, construire le modèle sans
+  elles, puis vérifier qu'il les retrouve ;
+- ne pas confondre les zones d'orpaillage alluvionnaire (indices de surface) avec un potentiel de
+  gisement primaire.
+
+### 03 — MINING SECTOR INTELLIGENCE · « Mapping the Cameroon Mining Ecosystem »
+
+`Mines + projets + permis + occurrences + routes + chemins de fer + énergie + ports`
+
+Données : couches USGS Afrique + cadastre minier en ligne.
+
+Livrable : **Cameroon Mining Ecosystem Map**, avec date et source affichées pour chaque couche (les
+couches USGS reflètent 2018 ; le cadastre reflète la date d'extraction).
+
+### 04 — LEGAL & REGULATORY INSIGHTS · « Is Cameroon's mining framework investment-ready? »
+
+Texte de référence : **Code minier de 2023** (loi n° 2023/014) et ses décrets d'application, et non
+le code de 2016.
+
+Champs analysés : titres et permis, fiscalité, royalties, participation de l'État et rôle de
+l'organisme public mandaté, contenu local, environnement, communautés, transformation locale,
+exportation, stabilité fiscale, rapatriement des capitaux, fermeture et réhabilitation.
+
+Comparaison avec 3 pays africains de référence, choisis à l'avance selon un critère explicite (par
+exemple un pays de la CEMAC, un pays d'Afrique de l'Ouest, un pays réputé pour son attractivité
+minière).
+
+Livrable : **Mining Regulatory Gap Matrix**
+
+| Domaine | Cameroun | Benchmark | Gap | Impact | Réforme proposée |
 |---|---|---|---|---|---|
-| Permis d'exploration | … | … | … | Élevé | Simplification |
-| Fiscalité | … | … | … | Moyen | Ajustement |
-| Local content | … | … | … | Élevé | Renforcement |
-| Transformation locale | … | … | … | Élevé | Incitations |
-| Cadastre | … | … | … | Élevé | Digitalisation |
-| Environnement | … | … | … | Élevé | Clarification |
-| Exploitation artisanale | … | … | … | Élevé | Formalisation |
+| Permis de recherche | … | … | … | … | … |
+| Fiscalité et royalties | … | … | … | … | … |
+| Participation de l'État | … | … | … | … | … |
+| Contenu local | … | … | … | … | … |
+| Transformation locale | … | … | … | … | … |
+| Cadastre et transparence des titres | … | … | … | … | … |
+| Environnement et fermeture | … | … | … | … | … |
+| Exploitation artisanale | … | … | … | … | … |
 
-Passer de « Voici la loi » à « Voici ce que la loi permet, ce qu'elle empêche et comment
-l'améliorer ».
+Compétence visée : évaluer l'effet de la loi sur l'investissement et la création de valeur, pas
+seulement la connaître.
 
-### 06 — MINING INVESTMENT INTELLIGENCE · Invest
+### 05 — MINERAL PRODUCTS & VALUE CHAINS · « From Cameroon Bauxite to Aluminium Value »
 
-`Geology + Mining + Market + Legal + Infrastructure` → opportunités : exploration, exploitation,
-transformation, infrastructures, services miniers, équipements, énergie, logistique, recyclage,
-économie circulaire.
+Cas principal :
+`Bauxite → concassage/lavage → alumine → aluminium → semi-produits → produits industriels`
 
-Indicateur : **Mining Investment Opportunity Score** (attractivité de l'opportunité).
+Question : où se trouve la plus grande création de valeur, et quelle étape est réaliste pour le
+Cameroun ? Pour chaque étape, identifier les intrants critiques (énergie, réactifs, eau), l'échelle
+minimale et le capex indicatif sourcé. Point à documenter : l'existence d'une capacité
+d'électrolyse d'aluminium dans le pays (Edéa) et son approvisionnement en alumine, à vérifier sur
+sources primaires avant usage.
 
-### 07 — MINING INVESTMENT & PROJECT FINANCE · Finance *(nouveau pilier)*
+Mini-cas :
+`Minerai de fer → concentré → pellet → DRI → acier → produits sidérurgiques`
+(intrant clé du DRI : gaz naturel ou hydrogène ; à relier aux données énergie du module 03).
 
-Le pilier 06 répond à « **quoi** investir ? ». Le pilier 07 répond à « **comment le financer, par qui,
-à quelles conditions, et qu'est-ce qui rend le projet finançable ou non ?** ».
+Livrable : **Cameroon Mineral Value Chain Map**.
 
-Question directrice : *« Can mining and processing projects in this country raise capital, at what
-cost, from whom, and what would make them bankable? »*
+### 06 — MARKET & TRADE INTELLIGENCE · « Where should Cameroon sell its minerals? »
 
-#### 7.1 Financement par stade du cycle de vie
+Par minerai et par étape de la chaîne (livrable 05) : demande mondiale et africaine, producteurs et
+importateurs principaux, prix, croissance, concurrence, transport, ports, marchés régionaux.
 
-| Stade | Profil de risque | Sources de financement typiques |
+Livrable : **Market Attractiveness Matrix**
+
+| Marché | Demande | Prix | Distance / logistique | Concurrence | Barrières (normes, droits) | Attractivité |
+|---|---|---|---|---|---|---|
+| Cameroun | … | … | … | … | … | … |
+| CEMAC | … | … | … | … | … | … |
+| Afrique (ZLECAf) | … | … | … | … | … | … |
+| Europe | … | … | … | … | … | … |
+| Asie | … | … | … | … | … | … |
+
+Règle : publier la grille de notation (échelle, pondérations) avant de remplir la matrice.
+
+### 07 — MINERAL INVESTMENT INTELLIGENCE · « Build the Cameroon Mining Investment Pipeline »
+
+10 opportunités, une fiche chacune : minerai, localisation, niveau d'exploration, ressources connues
+(avec le code de déclaration ou la mention « non conforme »), infrastructure, marché, capex
+indicatif, risques, cadre réglementaire, potentiel de transformation.
+
+**Investment Opportunity Score** : Geology — Resource — Infrastructure — Market — Regulation —
+Economics — Risk.
+
+Livrable : **Top 10 Cameroon Mineral Investment Opportunities**.
+
+Règle : chaque chiffre porte sa source et sa date ; à défaut, la mention « estimation du
+participant » ou « non disponible ». Les capex publics sont rares : c'est une limite à afficher,
+pas à combler.
+
+### 08 — MINERAL FINANCING INTELLIGENCE · « How do we finance a Cameroon mining project? »
+
+Projet au stade pré-développement, de préférence **un projet stylisé construit à partir de données
+publiques** (voir « Points ouverts » pour le cas d'un projet réel).
+
+`Sponsor Equity + Strategic Investor + DFI Debt + Commercial Debt + Offtake Financing (+ Blended Finance) → Financial Close`
+
+Les participants déterminent : qui finance quoi, à quel stade, quel risque, quelles garanties, quel
+niveau de fonds propres, quelles conditions, quel mécanisme d'offtake, quelle structure de
+remboursement.
+
+Ajout recommandé : un **modèle financier simplifié** fourni (capex, opex, prix, production), pour
+que la structure soit testée sur les ratios utilisés par les prêteurs : ratio de couverture du
+service de la dette (DSCR), ratio de couverture sur la durée du prêt (LLCR), part de dette, TRI des
+fonds propres, sensibilité au prix et aux retards de construction. Aspects spécifiques à couvrir :
+risque de change (franc CFA BEAC / dollar), participation de l'État et son financement, normes
+environnementales et sociales exigées par les prêteurs.
+
+Livrable : **Indicative Mining Financing Structure** + tableau des risques et de leurs porteurs.
+
+### 09 — VALUE ADDITION, DIVERSIFICATION & NATIONAL STRATEGY · « How can Cameroon capture more value from its minerals? »
+
+Synthèse des 8 livrables : ressources prioritaires, chaînes de valeur prioritaires, transformations
+réalisables localement, infrastructures nécessaires, investisseurs potentiels, financements
+nécessaires, réformes réglementaires, marchés cibles.
+
+Livrable : **Cameroon National Mineral Value Strategy (proposition)**
+
+| Horizon | Phase | Contenu |
 |---|---|---|
-| Exploration greenfield | Très élevé | Fonds propres (juniors, capital-risque, placements privés), budgets publics de cartographie géologique, joint-ventures avec majors (earn-in) |
-| Exploration avancée / ressources | Élevé | Fonds propres, private equity spécialisé, royalties et streams précoces, préfinancement par offtakers stratégiques |
-| Études (PEA, PFS, DFS) | Élevé à moyen | Fonds propres, DFI (participations minoritaires), facilités de préparation de projets |
-| Construction | Moyen à élevé | Project finance (dette senior sans/avec recours limité), DFI, agences de crédit export (ECA), banques commerciales, offtake prepayment, streaming, obligations |
-| Production | Moyen | Refinancement, facilités de fonds de roulement, financement du commerce (trade finance), marchés de capitaux |
-| Transformation / industrialisation | Variable | Financement mixte (blended finance), DFI, fonds souverains, partenariats industriels, zones économiques spéciales |
-| Fermeture & réhabilitation | — | Garanties et provisions de réhabilitation (fonds de fermeture) |
+| 2027–2030 | Enable | Données, exploration, réglementation, cadastre, infrastructures, cadre de financement |
+| 2030–2035 | Develop | Mines, traitement, concentrateurs, transformation primaire, bouclage financier des projets prioritaires |
+| 2035–2040+ | Transform | Industrialisation, manufacturing, exportation de produits à plus forte valeur ajoutée |
 
-#### 7.2 Instruments analysés
+Règle : situer la proposition par rapport aux documents de stratégie existants du pays (stratégie
+nationale de développement, politiques sectorielles), et la présenter comme une proposition
+d'analystes, pas comme la stratégie de l'État.
 
-- Fonds propres : cotations (bourses minières internationales et bourses africaines), placements
-  privés, private equity, fonds souverains, prises de participation de l'État.
-- Dette : project finance, prêts corporate, obligations (y compris vertes / liées au développement
-  durable), crédits export, trade finance.
-- Financement alternatif : streaming, royalties, offtake et préfinancement, financement par les
-  équipementiers (vendor finance), leasing d'équipements.
-- Atténuation des risques : garanties de risque politique, assurances, garanties partielles de
-  crédit, couverture de change et de prix.
-- Financement public et concessionnel : institutions financières de développement, banques
-  régionales, facilités de préparation de projets, fonds climat pour les minerais de la transition.
-- Financement local : banques nationales et régionales, marchés de capitaux régionaux, fonds de
-  pension, épargne nationale ; capacité réelle du système financier local à participer.
+## Réplicabilité
 
-#### 7.3 Participation de l'État et sociétés minières nationales
+L'architecture (9 composantes, 9 cas, mêmes livrables) est reproductible pour d'autres pays (RDC,
+Guinée, Congo, Zambie, Ghana, Mali, Tanzanie…). La profondeur de chaque édition dépendra en revanche
+des données disponibles : qualité du cadastre, accessibilité des données géologiques, publication
+des contrats. Chaque édition commence donc par un **inventaire des données** qui fixe le niveau
+de détail réaliste de chaque module.
 
-- Modalités : participation gratuite (free carried), participation payante, option d'augmentation.
-- Comment l'État finance sa part (budget, dette, préfinancement sur dividendes, société nationale).
-- Risques budgétaires : passifs contingents, garanties souveraines, endettement adossé aux ressources
-  (resource-backed loans) et transparence de ces contrats.
+## Points ouverts
 
-#### 7.4 Bankability Analysis
+1. **Nom** : « Africa Mineral Insights » ou « Africa Mining Intelligence ». À arrêter, après
+   vérification de disponibilité (marque, domaine).
+2. **Formation contre intelligence** : les livrables produits par les participants ne sont pas
+   publiables tels quels. Il faut une revue par des experts avant toute diffusion ou vente, et
+   des règles claires sur la propriété intellectuelle des travaux.
+3. **Projet réel au module 08** : risques de confidentialité et de réputation. Par défaut, utiliser
+   un projet stylisé.
+4. **Conditions de réutilisation des données** : les données USGS sont en principe du domaine
+   public ; celles du cadastre et du SIGM doivent être vérifiées avant toute exploitation commerciale.
+5. **Scores composites** : publier la méthode, les pondérations et les sources ; distinguer données
+   vérifiées, estimations et jugements d'experts.
 
-Ce qui conditionne l'accès au financement :
+## Sources vérifiées (2026-10-08)
 
-- Qualité des données techniques : ressources/réserves déclarées selon un code reconnu, études de
-  faisabilité indépendantes.
-- Sécurité juridique : titre minier, stabilité fiscale, arbitrage international (lien pilier 05).
-- Normes environnementales et sociales exigées par les prêteurs (par ex. Normes de performance de la
-  SFI, Principes de l'Équateur) et consentement des communautés.
-- Infrastructures : énergie, eau, transport, accès portuaire (lien piliers 02 et 06).
-- Risques macro : change, convertibilité, rapatriement des capitaux, notation souveraine.
-- Économie du projet : capex, opex, AISC/coût cash, VAN, TRI, délai de récupération, sensibilité aux
-  prix.
+- USGS, *Compilation of Geospatial Data (GIS) for the Mineral Industries and Related Infrastructure
+  of Africa*: https://www.usgs.gov/data/compilation-geospatial-data-gis-mineral-industries-and-related-infrastructure-africa
+- USGS, Open-File Report 2024-1041 (carte GeoPDF): https://pubs.usgs.gov/publication/ofr20241041
+- Cameroon Tribune, Flexicadastre: https://www.cameroon-tribune.cm/article.html/9048/en.html/details_2
+- Financial Afrik (2025), étude sur le potentiel minier et le SIGM: https://www.financialafrik.com/2025/07/10/au-cameroun-lurgence-dactualiser-le-potentiel-minier-pour-ameliorer-les-recettes-etude
+- Loi n° 2023/014 du 19 décembre 2023 portant Code minier (UNEP LEAP): https://leap.unep.org/en/countries/cm/national-legislation/loi-ndeg-2023-014-du-19-decembre-2023-portant-code-minier
+- Texte du code (AMLA): https://www.a-mla.org/en/country/pdf/2229
 
-#### 7.5 Financing Gap Analysis
+## Avertissement
 
-Même logique que le Regulatory Gap Analysis :
-
-| Domaine | Situation actuelle | Benchmark Afrique | Gap | Impact | Amélioration proposée |
-|---|---|---|---|---|---|
-| Accès aux fonds propres d'exploration | … | … | … | … | Incitations, données géologiques publiques |
-| Dette de long terme en monnaie locale | … | … | … | … | Mobilisation des fonds de pension, garanties |
-| Couverture des risques politiques | … | … | … | … | Recours aux assureurs multilatéraux |
-| Financement de la part de l'État | … | … | … | … | Modèle de participation, transparence |
-| Financement de la transformation locale | … | … | … | … | Blended finance, zones industrielles |
-| Participation des banques locales | … | … | … | … | Syndication, renforcement des capacités |
-| Financement des PME de services miniers | … | … | … | … | Lignes de crédit dédiées, contrats d'achat |
-| Garanties de réhabilitation | … | … | … | … | Fonds de fermeture obligatoires |
-
-#### 7.6 Indicateurs
-
-- **Mining Project Bankability Score** (par projet) : maturité technique, sécurité juridique,
-  conformité E&S, infrastructures, économie du projet, risque pays.
-- **Country Mining Finance Readiness Index** (par pays) : profondeur du système financier local,
-  présence des DFI et ECA, historique de projets financés, risque de change et de convertibilité,
-  cadre de participation de l'État.
-
-#### 7.7 Livrables
-
-- Cartographie des sources de financement actives dans le pays et la région.
-- Fiches de structuration indicative pour 3 à 5 projets types (mine, concentrateur, raffinerie,
-  infrastructure partagée, services miniers).
-- Recommandations pour réduire le coût du capital (réformes, garanties, données publiques).
-
-### 08 — VALUE ADDITION & DIVERSIFICATION · Create More Value
-
-Pour chaque minerai, la meilleure stratégie de captation de valeur. Exemple cuivre :
-`Mine → Concentrate → Cathode → Wire → Cable → Electrical equipment`.
-
-Ce que le pays fait aujourd'hui ; ce qu'il pourrait faire à court, moyen et long terme — en
-précisant pour chaque étape **la viabilité de financement** (pilier 07) : une raffinerie
-techniquement possible mais non finançable n'est pas une recommandation crédible.
-
-### 09 — NATIONAL MINING VALUE STRATEGY · Transform
-
-| Horizon | Phase | Actions |
-|---|---|---|
-| 0–3 ans | Enable | Données, cadastre, réglementation, exploration, fiscalité, infrastructures critiques, **cadre de financement** (garanties, participation de l'État, préparation de projets) |
-| 3–7 ans | Develop | Mines, unités de traitement, concentrateurs, raffineries/fonderies, zones industrielles, chaînes logistiques, **bouclage financier des projets prioritaires** |
-| 7–15 ans | Transform | Transformation avancée, manufacturing, clusters industriels, intégration régionale, exportation de produits à forte valeur ajoutée, **mobilisation de l'épargne et des marchés de capitaux régionaux** |
-
-## Structure d'une Country Edition (exemple : Cameroun)
-
-**AFRICA MINING INTELLIGENCE — CAMEROON**
-
-1. TRAINING — Formation pratique
-2. MINING ATLAS — Atlas géologique et minier
-3. MINERAL POTENTIAL — Potentiel minéral
-4. MARKET INTELLIGENCE — Marchés et débouchés
-5. LEGAL & REGULATORY INTELLIGENCE — Cadre légal et réformes potentielles
-6. INVESTMENT INTELLIGENCE — Opportunités d'investissement
-7. INVESTMENT & PROJECT FINANCE — Sources, conditions et finançabilité des projets
-8. VALUE ADDITION — Transformation et création de valeur
-9. NATIONAL MINING VALUE STRATEGY — Stratégie nationale
-
-## Points de vigilance méthodologiques
-
-- **Scores composites** : publier la méthode, les pondérations et les sources de chaque score ;
-  distinguer clairement données vérifiées, estimations et jugements d'experts.
-- **Benchmarks** : définir à l'avance l'échantillon de pays de comparaison et la date des textes
-  analysés (les codes miniers changent).
-- **Recouvrement 06 / 07** : le 06 évalue l'attractivité d'une opportunité, le 07 sa finançabilité ;
-  garder des critères distincts pour éviter le double comptage dans les scores.
-- **Avertissement** : contenu d'information et d'analyse ; ne constitue ni un conseil en
-  investissement, ni un conseil juridique ou fiscal.
+Contenu d'information, de formation et d'analyse. Ne constitue ni un conseil en investissement, ni
+un conseil juridique ou fiscal.
