@@ -1,0 +1,609 @@
+<title>Le courant pour tous ?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Patrick+Hand&display=swap">
+<style>
+/* Layout: une colonne de planches carrées façon album de BD, chaque planche suivie de sa note « Ce que dit le Pacte ». */
+:root {
+  --bg: #f5efe4;
+  --fg: #1d1714;
+  --muted: #6b5d52;
+  --card: #fffaf1;
+  --line: #d9cbb6;
+  --accent: #c2410c;
+  --ink: #17110e;
+  --display: "Bricolage Grotesque", "Arial Black", system-ui, sans-serif;
+  --body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --hand: "Patrick Hand", "Comic Sans MS", "Segoe Print", cursive;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #16110e; --fg: #f1e8dc; --muted: #b3a393; --card: #211a16; --line: #3a2f28; --accent: #fb923c; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --bg: #16110e; --fg: #f1e8dc; --muted: #b3a393; --card: #211a16; --line: #3a2f28; --accent: #fb923c; color-scheme: dark; }
+
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 17px; line-height: 1.55; padding-inline: 16px; padding-block: 28px 56px; }
+.wrap { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
+header.intro { display: flex; flex-direction: column; gap: 12px; }
+.eyebrow { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+h1 { font-family: var(--display); font-weight: 800; font-size: clamp(34px, 7vw, 58px); line-height: 1.02; margin: 0; text-wrap: balance; }
+h2 { font-family: var(--display); font-weight: 800; font-size: 26px; line-height: 1.15; margin: 0; text-wrap: balance; }
+p { margin: 0; max-width: 65ch; }
+.lede { font-size: 19px; color: var(--fg); }
+.howto { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.howto div { border-top: 3px solid var(--fg); padding-top: 8px; font-size: 15px; color: var(--muted); min-width: 0; }
+.howto b { color: var(--fg); display: block; }
+figure.planche { margin: 0; display: flex; flex-direction: column; gap: 14px; }
+figure.planche svg { width: 100%; max-width: 100%; height: auto; display: block; border-radius: 4px; box-shadow: 0 1px 0 var(--line), 0 10px 30px -18px rgba(0,0,0,.45); background: #fff6e3; }
+figcaption { display: flex; flex-direction: column; gap: 6px; font-size: 15.5px; color: var(--muted); border-left: 3px solid var(--line); padding-left: 14px; }
+figcaption b { color: var(--fg); font-weight: 700; }
+figcaption .src { font-size: 13.5px; }
+section.block { display: flex; flex-direction: column; gap: 14px; background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: 22px; }
+section.block ol, section.block ul { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; max-width: 65ch; }
+.small { font-size: 14px; color: var(--muted); }
+a { color: var(--accent); }
+@media print { figure.planche { break-inside: avoid; } }
+</style>
+
+<!-- Dégradés partagés par toutes les planches -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <radialGradient id="glow"><stop offset="0" stop-color="#fff3b0" stop-opacity=".95"/><stop offset=".35" stop-color="#ffd25e" stop-opacity=".55"/><stop offset="1" stop-color="#ffb22e" stop-opacity="0"/></radialGradient>
+    <radialGradient id="sunglow"><stop offset="0" stop-color="#fff2c4"/><stop offset=".45" stop-color="#ffd27a" stop-opacity=".9"/><stop offset="1" stop-color="#ffb24a" stop-opacity="0"/></radialGradient>
+    <linearGradient id="sky-sunset" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7b2a57"/><stop offset=".45" stop-color="#e2582b"/><stop offset=".8" stop-color="#f6a531"/><stop offset="1" stop-color="#fbd16a"/></linearGradient>
+    <linearGradient id="sky-night" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0c1030"/><stop offset=".7" stop-color="#26285e"/><stop offset="1" stop-color="#4a3a72"/></linearGradient>
+    <linearGradient id="sky-dusk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b2a6b"/><stop offset=".5" stop-color="#b8487a"/><stop offset="1" stop-color="#f39a5b"/></linearGradient>
+    <linearGradient id="sky-day" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f08a24"/><stop offset=".6" stop-color="#f9c04a"/><stop offset="1" stop-color="#fde49a"/></linearGradient>
+    <linearGradient id="sky-dawn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5a8fb0"/><stop offset=".55" stop-color="#f3b07a"/><stop offset="1" stop-color="#ffe0a3"/></linearGradient>
+    <linearGradient id="sky-haze" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c9682d"/><stop offset=".6" stop-color="#e9a04c"/><stop offset="1" stop-color="#f4cf8a"/></linearGradient>
+    <linearGradient id="smoke" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#6d6460" stop-opacity=".95"/><stop offset="1" stop-color="#9c938d" stop-opacity=".25"/></linearGradient>
+  </defs>
+</svg>
+
+<div class="wrap">
+  <header class="intro">
+    <div class="eyebrow">République du Congo · Mission 300 · Horizon 2030</div>
+    <h1>Le courant pour tous&nbsp;?</h1>
+    <p class="lede">Le Pacte national énergétique raconté en 13 planches illustrées, pour que chaque citoyen sache ce que l'État a promis, à quelles dates, et comment suivre ces promesses.</p>
+    <div class="howto">
+      <div><b>Pour qui</b>Associations, groupes de femmes et de jeunes, comités de quartier, radios communautaires, enseignants.</div>
+      <div><b>Comment s'en servir</b>Projeter ou imprimer les planches lors d'une causerie, puis discuter avec les questions de la fin.</div>
+      <div><b>D'où viennent les chiffres</b>Uniquement du Pacte lui-même. Chaque planche indique la page du document.</div>
+    </div>
+  </header>
+
+  <div id="planches" class="wrap" style="gap:44px"></div>
+
+  <section class="block" id="questions">
+    <h2>Questions à poser lors de la causerie</h2>
+    <ol>
+      <li>La Stratégie d'électrification nationale et le tarif social, promis pour décembre 2025, ont-ils été adoptés&nbsp;? Où peut-on les lire&nbsp;?</li>
+      <li>Qui aura droit au tarif social, et comment le demander&nbsp;?</li>
+      <li>Quand notre quartier ou notre village sera-t-il branché&nbsp;? Par le réseau, un mini-réseau ou des kits solaires&nbsp;?</li>
+      <li>Combien coûtera le branchement pour un ménage modeste&nbsp;?</li>
+      <li>Les contrats avec les entreprises privées seront-ils publiés&nbsp;?</li>
+      <li>Les administrations de l'État ont-elles reçu des compteurs et paient-elles leurs factures&nbsp;?</li>
+      <li>Comment la société civile peut-elle rencontrer l'Unité de gestion du Pacte (UGPNE) et recevoir ses rapports de suivi&nbsp;?</li>
+    </ol>
+  </section>
+
+  <section class="block" id="sources">
+    <h2>Sources et limites</h2>
+    <p><b>Source unique&nbsp;:</b> <i>Pacte National Énergétique de la République du Congo</i> (Mission 300), version publiée par la Banque mondiale, document de 37 pages daté de septembre 2025. Les numéros de page renvoient à la numérotation imprimée du document.</p>
+    <p>Les personnages (Maman Mado, Tonton Jo, Grâce, le vieux Mbuta) sont inventés. Leurs paroles servent à poser les questions du public. Seuls les encadrés du bas et les chiffres sont tirés du Pacte.</p>
+    <p><b>Chiffres simplifiés ou contradictoires dans le document lui-même&nbsp;:</b></p>
+    <ul>
+      <li><b>Taux d'accès.</b> Le Pacte retient 31,66&nbsp;% (ménages clients réguliers d'E2C). Il signale que le suivi international ODD&nbsp;7 donne 47,5&nbsp;%. Pour le rural, le tableau 1 indique 1,01&nbsp;% et le texte de la page 14 «&nbsp;environ 10&nbsp;%&nbsp;». Les planches disent donc «&nbsp;très peu&nbsp;» pour le rural.</li>
+      <li><b>Argent.</b> Le préambule parle de «&nbsp;2,31 milliards de dollars supplémentaires, dont 1,5 milliard du privé&nbsp;». Le tableau 2 donne un total de 11,543 milliards (soit 2,31 milliards par an), dont 8,267 milliards privés. Le tableau 1 cite 1,437 milliard de capitaux privés. Les planches utilisent le tableau 2.</li>
+      <li><b>Énergies renouvelables.</b> Les engagements visent à «&nbsp;maintenir&nbsp;» 33&nbsp;% de renouvelables. Le tableau 1 affiche 72,8&nbsp;% à terme, mais sa note précise que seuls 751&nbsp;MW sont réalisables d'ici 2030. Les planches ne reprennent pas ces chiffres.</li>
+      <li><b>Dates.</b> Ce sont des engagements écrits. Ces planches ne disent pas s'ils ont été tenus&nbsp;: c'est justement ce que la société civile peut vérifier.</li>
+    </ul>
+  </section>
+</div>
+
+<script>
+(() => {
+const INK = '#17110e', PAPER = '#fffbf2', YEL = '#ffd84d', LIGHT = '#ffe48a';
+const R = Math.PI / 180;
+const W = 1000, HEAD = 84, FACT = 862;
+const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+
+/* ---------- personnages en silhouette ---------- */
+function pt(p, L, a, f) { return [p[0] + Math.sin(a * R) * L * f, p[1] + Math.cos(a * R) * L]; }
+function line(a, b, w, c = INK) { return `<line x1="${a[0].toFixed(1)}" y1="${a[1].toFixed(1)}" x2="${b[0].toFixed(1)}" y2="${b[1].toFixed(1)}" stroke="${c}" stroke-width="${w.toFixed(1)}" stroke-linecap="round"/>`; }
+function poly(pts, extra = '') { return `<polygon points="${pts.map(p => p.map(v => v.toFixed(1)).join(',')).join(' ')}" fill="${INK}" ${extra}/>`; }
+
+function person(o) {
+  const f = o.f || 1, h = o.h || 300, u = h / 100, x = o.x, y = o.y, child = !!o.child;
+  const thigh = child ? 19 : 23.5, shin = child ? 19 : 23;
+  const hipH = o.sit ? (o.sitH || (child ? 16 : 21)) : thigh + shin + 1.5;
+  const hip = [x, y - hipH * u];
+  const torsoL = child ? 24 : 31, lean = o.lean || 0;
+  const sh = [hip[0] + Math.sin(lean * R) * torsoL * u * f, hip[1] - Math.cos(lean * R) * torsoL * u];
+  const hr = (child ? 8.2 : 6.6) * u;
+  const hc = [sh[0] + f * 1.4 * u, sh[1] - hr - 3.2 * u];
+  const legW = (child ? 6.2 : 7.4) * u, armW = (child ? 4.4 : 4.8) * u;
+  const ua = child ? 14 : 17, fa = child ? 13 : 16;
+  let s = '';
+  const leg = (ang) => {
+    const k = pt(hip, thigh * u, ang[0], f), a = pt(k, shin * u, ang[1], f);
+    return line(hip, k, legW) + line(k, a, legW * .9) + line(a, [a[0] + f * 5.5 * u, a[1] + .6 * u], 3.6 * u);
+  };
+  const arm = (ang, front) => {
+    const s0 = [sh[0] + f * (front ? 1.5 : -2) * u, sh[1] + 2.5 * u];
+    const e = pt(s0, ua * u, ang[0], f), hnd = pt(e, fa * u, ang[1], f);
+    return { svg: line(s0, e, armW) + line(e, hnd, armW * .88) + `<circle cx="${hnd[0]}" cy="${hnd[1]}" r="${armW * .62}" fill="${INK}"/>`, hand: hnd, elbow: e };
+  };
+  const back = arm(o.ba || [-8, -4], false);
+  const front = arm(o.fa || [8, 4], true);
+  s += back.svg;
+  s += leg(o.bl || (o.sit ? [86, 4] : [-5, -3]));
+  s += leg(o.fl || (o.sit ? [94, 8] : [6, 2]));
+  // torse
+  const sw = (child ? 5.4 : (o.woman ? 6.4 : 8)) * u, ww = (child ? 4.6 : (o.woman ? 4.4 : 5.6)) * u, hw = (child ? 5 : (o.woman ? 7.4 : 6)) * u;
+  const wa = [sh[0] + (hip[0] - sh[0]) * .62, sh[1] + (hip[1] - sh[1]) * .62];
+  s += `<path d="M${sh[0] - sw},${sh[1] + 3 * u} Q${sh[0] - sw},${sh[1] - 1.2 * u} ${sh[0] - sw * .45},${sh[1] - 1.6 * u} L${sh[0] + sw * .45},${sh[1] - 1.6 * u} Q${sh[0] + sw},${sh[1] - 1.2 * u} ${sh[0] + sw},${sh[1] + 3 * u} Q${sh[0] + sw * .95},${wa[1] - 6 * u} ${wa[0] + ww},${wa[1]} Q${hip[0] + hw},${hip[1] - 3 * u} ${hip[0] + hw},${hip[1] + 2 * u} L${hip[0] - hw},${hip[1] + 2 * u} Q${hip[0] - hw},${hip[1] - 3 * u} ${wa[0] - ww},${wa[1]} Q${sh[0] - sw * .95},${wa[1] - 6 * u} ${sh[0] - sw},${sh[1] + 3 * u} Z" fill="${INK}" stroke="${INK}" stroke-width="${1.5 * u}" stroke-linejoin="round"/>`;
+  if (o.woman && !child) s += `<ellipse cx="${sh[0] + f * 3.2 * u}" cy="${sh[1] + 8 * u}" rx="${4.2 * u}" ry="${4.4 * u}" fill="${INK}"/>`;
+  if (o.skirt) {
+    const top = hip[1] - 5 * u, bot = o.sit ? hip[1] + 8 * u : y - (o.skirtLen || 15) * u;
+    const flare = o.sit ? 15 : 11.5;
+    s += poly(o.sit
+      ? [[hip[0] - 8 * u, top], [hip[0] + 8 * u, top], [hip[0] + f * 30 * u, bot], [hip[0] - f * 9 * u, bot]]
+      : [[hip[0] - 7.5 * u, top], [hip[0] + 7.5 * u, top], [hip[0] + flare * u, bot], [hip[0] - flare * u, bot]], `stroke="${INK}" stroke-width="${2.5 * u}" stroke-linejoin="round"`);
+  }
+  if (o.boubou) s += poly([[sh[0] - 9 * u, sh[1]], [sh[0] + 9 * u, sh[1]], [x + 15 * u, y - 10 * u], [x - 15 * u, y - 10 * u]], `stroke="${INK}" stroke-width="${3 * u}" stroke-linejoin="round"`);
+  if (o.backpack) s += `<rect x="${sh[0] - f * 14 * u - (f < 0 ? -0 : 0)}" y="${sh[1] + 2 * u}" width="${8 * u}" height="${15 * u}" rx="${2.5 * u}" fill="${INK}" transform="translate(${f > 0 ? 0 : -8 * u},0)"/>`;
+  if (o.baby) s += `<ellipse cx="${sh[0] - f * 9 * u}" cy="${sh[1] + 10 * u}" rx="${6 * u}" ry="${9 * u}" fill="${INK}"/><circle cx="${sh[0] - f * 9 * u}" cy="${sh[1] - 1 * u}" r="${4.6 * u}" fill="${INK}"/>`;
+  // cou + tête + profil
+  s += line([sh[0] + f * .6 * u, sh[1] + 1 * u], [hc[0], hc[1] + hr * .6], 4.6 * u);
+  s += `<circle cx="${hc[0]}" cy="${hc[1]}" r="${hr}" fill="${INK}"/>`;
+  s += poly([[hc[0] + f * hr * .82, hc[1] - hr * .25], [hc[0] + f * (hr + 1.9 * u), hc[1] + hr * .2], [hc[0] + f * hr * .72, hc[1] + hr * .5]]);
+  if (o.wrap) s += `<ellipse cx="${hc[0] - f * 1.4 * u}" cy="${hc[1] - hr * .62}" rx="${hr * 1.18}" ry="${hr * .78}" fill="${INK}"/><ellipse cx="${hc[0] - f * 2.6 * u}" cy="${hc[1] - hr * 1.32}" rx="${hr * .62}" ry="${hr * .5}" fill="${INK}" transform="rotate(${-f * 18} ${hc[0]} ${hc[1]})"/>`;
+  if (o.cap) s += `<path d="M${hc[0] - hr * 1.02},${hc[1] - hr * .2} A${hr * 1.05},${hr * 1.05} 0 0 1 ${hc[0] + hr * 1.02},${hc[1] - hr * .2} Z" fill="${INK}"/><ellipse cx="${hc[0] + f * hr * .95}" cy="${hc[1] - hr * .28}" rx="${hr * .95}" ry="${1.5 * u}" fill="${INK}"/>`;
+  if (o.helmet) s += `<path d="M${hc[0] - hr * 1.25},${hc[1] - hr * .05} A${hr * 1.25},${hr * 1.25} 0 0 1 ${hc[0] + hr * 1.25},${hc[1] - hr * .05} Z" fill="${INK}"/><rect x="${hc[0] - hr * 1.45}" y="${hc[1] - hr * .2}" width="${hr * 2.9}" height="${1.8 * u}" fill="${INK}"/>`;
+  if (o.puffs) s += `<circle cx="${hc[0] - hr * .7}" cy="${hc[1] - hr * .95}" r="${hr * .5}" fill="${INK}"/><circle cx="${hc[0] + hr * .5}" cy="${hc[1] - hr * 1.05}" r="${hr * .5}" fill="${INK}"/>`;
+  if (o.afro) s += `<circle cx="${hc[0] - f * hr * .15}" cy="${hc[1] - hr * .3}" r="${hr * 1.22}" fill="${INK}"/>`;
+  if (o.hat) s += `<ellipse cx="${hc[0]}" cy="${hc[1] - hr * .55}" rx="${hr * 1.9}" ry="${1.6 * u}" fill="${INK}"/><rect x="${hc[0] - hr * .9}" y="${hc[1] - hr * 1.4}" width="${hr * 1.8}" height="${hr * .9}" rx="${1.5 * u}" fill="${INK}"/>`;
+  if (o.basin) s += `<path d="M${hc[0] - 16 * u},${hc[1] - hr - 1 * u} L${hc[0] + 16 * u},${hc[1] - hr - 1 * u} L${hc[0] + 11 * u},${hc[1] - hr - 9 * u} L${hc[0] - 11 * u},${hc[1] - hr - 9 * u} Z" fill="${INK}"/><ellipse cx="${hc[0]}" cy="${hc[1] - hr - 1 * u}" rx="${16 * u}" ry="${2 * u}" fill="${INK}"/>`;
+  s += front.svg;
+  // objets tenus
+  const hd = front.hand;
+  if (o.item === 'doc') s += `<g transform="rotate(${f * -12} ${hd[0]} ${hd[1]})"><rect x="${hd[0] - 2 * u}" y="${hd[1] - 16 * u}" width="${13 * u}" height="${17 * u}" fill="${PAPER}" stroke="${INK}" stroke-width="${1.4 * u}" transform="${f < 0 ? `translate(${-9 * u},0)` : ''}"/></g>`;
+  if (o.item === 'bill') s += `<rect x="${hd[0] - (f > 0 ? 1 : 10) * u}" y="${hd[1] - 13 * u}" width="${11 * u}" height="${14 * u}" fill="${PAPER}" stroke="${INK}" stroke-width="${1.3 * u}"/><line x1="${hd[0] - (f > 0 ? -1 : 8) * u}" y1="${hd[1] - 9 * u}" x2="${hd[0] + (f > 0 ? 8 : -1) * u}" y2="${hd[1] - 9 * u}" stroke="${INK}" stroke-width="${u}"/><line x1="${hd[0] - (f > 0 ? -1 : 8) * u}" y1="${hd[1] - 6 * u}" x2="${hd[0] + (f > 0 ? 6 : -3) * u}" y2="${hd[1] - 6 * u}" stroke="${INK}" stroke-width="${u}"/>`;
+  if (o.item === 'phone') s += `<circle cx="${hd[0]}" cy="${hd[1] - 3 * u}" r="${16 * u}" fill="url(#glow)"/><rect x="${hd[0] - 2 * u}" y="${hd[1] - 7 * u}" width="${4 * u}" height="${7 * u}" rx="${.8 * u}" fill="${LIGHT}" stroke="${INK}" stroke-width="${.8 * u}"/>`;
+  if (o.item === 'lamp' || o.item === 'solarlamp') s += `<circle cx="${hd[0]}" cy="${hd[1] + 8 * u}" r="${(o.item === 'solarlamp' ? 30 : 22) * u}" fill="url(#glow)"/>` + line([hd[0], hd[1]], [hd[0], hd[1] + 3 * u], 1.2 * u) + `<rect x="${hd[0] - 3.5 * u}" y="${hd[1] + 3 * u}" width="${7 * u}" height="${9 * u}" rx="${1.5 * u}" fill="${LIGHT}" stroke="${INK}" stroke-width="${1.4 * u}"/>`;
+  if (o.item === 'cane') s += line(hd, [hd[0] + f * 4 * u, y], 2.6 * u);
+  if (o.item === 'jerrycan') s += `<rect x="${hd[0] - 6 * u}" y="${hd[1] + 1 * u}" width="${12 * u}" height="${15 * u}" rx="${2 * u}" fill="${INK}"/>`;
+  if (o.item === 'tool') s += line(hd, pt(hd, 9 * u, 150, f), 2.2 * u);
+  if (o.item === 'spoon') s += line(hd, pt(hd, 18 * u, 25, f), 1.8 * u);
+  return `<g>${s}</g>`;
+}
+
+/* ---------- décors ---------- */
+const sky = (id, y0 = HEAD, y1 = FACT) => `<rect x="0" y="${y0}" width="${W}" height="${y1 - y0}" fill="url(#sky-${id})"/>`;
+const ground = (y, y2 = y, amp = 10) => `<path d="M0,${y} C250,${y - amp} 400,${y + amp} 600,${(y + y2) / 2} S850,${y2 - amp} 1000,${y2} L1000,${FACT} L0,${FACT} Z" fill="${INK}"/>`;
+const sun = (x, y, r) => `<circle cx="${x}" cy="${y}" r="${r * 2.4}" fill="url(#sunglow)"/><circle cx="${x}" cy="${y}" r="${r}" fill="#fff0c2"/>`;
+const moon = (x, y, r) => `<circle cx="${x}" cy="${y}" r="${r}" fill="#f4ecd0"/><circle cx="${x + r * .45}" cy="${y - r * .2}" r="${r * .9}" fill="#14173d"/>`;
+function stars(n, seed, y0 = HEAD + 10, y1 = 500, x0 = 0, x1 = W) {
+  let s = '', r = seed;
+  const rnd = () => (r = (r * 9301 + 49297) % 233280) / 233280;
+  for (let i = 0; i < n; i++) s += `<circle cx="${(x0 + rnd() * (x1 - x0)).toFixed(0)}" cy="${(y0 + rnd() * (y1 - y0)).toFixed(0)}" r="${(1 + rnd() * 2.2).toFixed(1)}" fill="#fff" opacity="${(.4 + rnd() * .6).toFixed(2)}"/>`;
+  return s;
+}
+function house(x, y, w, h, o = {}) {
+  const c = o.col || INK;
+  let s = `<rect x="${x}" y="${y - h}" width="${w}" height="${h}" fill="${c}"/>`;
+  s += `<polygon points="${x - w * .12},${y - h} ${x + w / 2},${y - h - w * .42} ${x + w * 1.12},${y - h}" fill="${c}"/>`;
+  if (o.lit) s += `<circle cx="${x + w / 2}" cy="${y - h * .55}" r="${w * .75}" fill="url(#glow)"/>`;
+  const wc = o.lit ? LIGHT : (o.winColor || '#2e2a47');
+  if (o.windows !== false) { s += `<rect x="${x + w * .18}" y="${y - h * .72}" width="${w * .24}" height="${h * .3}" fill="${wc}"/><rect x="${x + w * .58}" y="${y - h * .72}" width="${w * .24}" height="${h * .3}" fill="${wc}"/>`; }
+  if (o.solar) s += `<g transform="rotate(-22 ${x + w * .7} ${y - h - w * .2})"><rect x="${x + w * .48}" y="${y - h - w * .27}" width="${w * .42}" height="${w * .14}" fill="#2b4a7a" stroke="#9fc0e8" stroke-width="2"/><line x1="${x + w * .69}" y1="${y - h - w * .27}" x2="${x + w * .69}" y2="${y - h - w * .13}" stroke="#9fc0e8" stroke-width="2"/></g>`;
+  if (o.bulb) s += `<circle cx="${x + w / 2}" cy="${y - h - 6}" r="${w * .55}" fill="url(#glow)"/>`;
+  return s;
+}
+function hut(x, y, w, h, c = INK) {
+  return `<rect x="${x}" y="${y - h}" width="${w}" height="${h}" fill="${c}"/><polygon points="${x - w * .2},${y - h + 4} ${x + w / 2},${y - h - w * .65} ${x + w * 1.2},${y - h + 4}" fill="${c}"/>`;
+}
+function pylon(x, y, h, broken = false) {
+  const w = h * .32, c = INK, sw = Math.max(2, h / 70);
+  const top = y - h, mid = y - h * .55;
+  let s = `<g ${broken ? `transform="rotate(14 ${x} ${y})"` : ''}>`;
+  s += `<line x1="${x - w / 2}" y1="${y}" x2="${x - w * .1}" y2="${top}" stroke="${c}" stroke-width="${sw * 1.6}"/><line x1="${x + w / 2}" y1="${y}" x2="${x + w * .1}" y2="${top}" stroke="${c}" stroke-width="${sw * 1.6}"/>`;
+  for (let i = 0; i < 6; i++) {
+    const t1 = i / 6, t2 = (i + 1) / 6;
+    const ya = y - h * t1, yb = y - h * t2, wa = w / 2 * (1 - t1 * .8), wb = w / 2 * (1 - t2 * .8);
+    s += `<line x1="${x - wa}" y1="${ya}" x2="${x + wb}" y2="${yb}" stroke="${c}" stroke-width="${sw}"/><line x1="${x + wa}" y1="${ya}" x2="${x - wb}" y2="${yb}" stroke="${c}" stroke-width="${sw}"/>`;
+  }
+  s += `<line x1="${x - w * .9}" y1="${mid - h * .15}" x2="${x + w * .9}" y2="${mid - h * .15}" stroke="${c}" stroke-width="${sw * 1.5}"/><line x1="${x - w * .7}" y1="${top + h * .08}" x2="${x + w * .7}" y2="${top + h * .08}" stroke="${c}" stroke-width="${sw * 1.5}"/>`;
+  return s + '</g>';
+}
+const wire = (a, b, sag = 30, w = 2) => `<path d="M${a[0]},${a[1]} Q${(a[0] + b[0]) / 2},${(a[1] + b[1]) / 2 + sag} ${b[0]},${b[1]}" fill="none" stroke="${INK}" stroke-width="${w}"/>`;
+function pylonArms(x, y, h) { const w = h * .32, ya = y - h * .55 - h * .15; return [[x - w * .9, ya], [x + w * .9, ya]]; }
+function palm(x, y, h, lean = 1) {
+  const tx = x + lean * h * .25, ty = y - h;
+  let s = `<path d="M${x - h * .035},${y} Q${x + lean * h * .05},${y - h * .55} ${tx},${ty} L${tx + h * .03},${ty + 6} Q${x + lean * h * .1},${y - h * .5} ${x + h * .04},${y} Z" fill="${INK}"/>`;
+  const fr = [[-150, .55], [-115, .6], [-75, .58], [-35, .55], [5, .5], [35, .45], [-180, .45]];
+  for (const [a, l] of fr) {
+    const L = h * l, ex = tx + Math.cos(a * R) * L, ey = ty + Math.sin(a * R) * L * .55 + L * .25;
+    const cx = tx + Math.cos(a * R) * L * .5, cy = ty + Math.sin(a * R) * L * .5 - L * .12;
+    s += `<path d="M${tx},${ty} Q${cx},${cy - L * .08} ${ex},${ey} Q${cx},${cy + L * .14} ${tx},${ty + 4}" fill="${INK}"/>`;
+  }
+  return s;
+}
+function tree(x, y, h) {
+  const r = h * .32;
+  return `<path d="M${x - h * .06},${y} C${x - h * .04},${y - h * .3} ${x - h * .02},${y - h * .45} ${x - h * .12},${y - h * .62} L${x + h * .1},${y - h * .62} C${x + h * .02},${y - h * .45} ${x + h * .05},${y - h * .3} ${x + h * .07},${y} Z" fill="${INK}"/>` +
+    [[0, -.72, 1.3], [-.55, -.62, .95], [.6, -.6, 1], [-.3, -.92, .9], [.35, -.95, .95], [-.85, -.48, .65], [.9, -.5, .7]].map(([dx, dy, k]) => `<ellipse cx="${x + dx * r * 1.4}" cy="${y + dy * h}" rx="${r * k}" ry="${r * k * .62}" fill="${INK}"/>`).join('');
+}
+function skyline(x0, x1, y, seed, lit = false, scale = 1) {
+  let s = '', x = x0, r = seed;
+  const rnd = () => (r = (r * 9301 + 49297) % 233280) / 233280;
+  while (x < x1) {
+    const w = (28 + rnd() * 46) * scale, h = (50 + rnd() * 150) * scale;
+    s += `<rect x="${x.toFixed(0)}" y="${(y - h).toFixed(0)}" width="${w.toFixed(0)}" height="${h.toFixed(0)}" fill="${INK}"/>`;
+    if (lit) for (let wy = y - h + 10 * scale; wy < y - 14 * scale; wy += 16 * scale) for (let wx = x + 6 * scale; wx < x + w - 10 * scale; wx += 13 * scale) if (rnd() > .45) s += `<rect x="${wx.toFixed(0)}" y="${wy.toFixed(0)}" width="${(6 * scale).toFixed(1)}" height="${(8 * scale).toFixed(1)}" fill="${LIGHT}"/>`;
+    x += w + 3;
+  }
+  return s;
+}
+function fire(x, y, s = 1) {
+  return `<path d="M${x - 26 * s},${y} Q${x - 30 * s},${y - 30 * s} ${x - 8 * s},${y - 52 * s} Q${x - 10 * s},${y - 26 * s} ${x + 2 * s},${y - 30 * s} Q${x + 4 * s},${y - 58 * s} ${x + 22 * s},${y - 64 * s} Q${x + 14 * s},${y - 36 * s} ${x + 28 * s},${y} Z" fill="#ff8a1e"/><path d="M${x - 12 * s},${y} Q${x - 12 * s},${y - 20 * s} ${x},${y - 32 * s} Q${x + 12 * s},${y - 18 * s} ${x + 12 * s},${y} Z" fill="#ffe27a"/>` +
+    `<ellipse cx="${x - 30 * s}" cy="${y - 4 * s}" rx="${13 * s}" ry="${10 * s}" fill="${INK}"/><ellipse cx="${x + 30 * s}" cy="${y - 4 * s}" rx="${13 * s}" ry="${10 * s}" fill="${INK}"/>`;
+}
+const pot = (x, y, s = 1) => `<path d="M${x - 38 * s},${y - 52 * s} L${x + 38 * s},${y - 52 * s} Q${x + 42 * s},${y - 8 * s} ${x},${y - 6 * s} Q${x - 42 * s},${y - 8 * s} ${x - 38 * s},${y - 52 * s} Z" fill="${INK}"/><rect x="${x - 44 * s}" y="${y - 58 * s}" width="${88 * s}" height="${8 * s}" rx="${3 * s}" fill="${INK}"/>`;
+function smoke(x, y, h, w = 1) {
+  let s = '';
+  for (let i = 0; i < 7; i++) {
+    const t = i / 6, cx = x + Math.sin(i * 1.3) * 40 * w + t * 60 * w, cy = y - t * h, r = (30 + t * 70) * w;
+    s += `<circle cx="${cx.toFixed(0)}" cy="${cy.toFixed(0)}" r="${r.toFixed(0)}" fill="#6f6661" opacity="${(.8 - t * .55).toFixed(2)}"/>`;
+  }
+  return s;
+}
+const bulb = (x, y, r = 60) => `<circle cx="${x}" cy="${y}" r="${r}" fill="url(#glow)"/><line x1="${x}" y1="${y - r * 1.4}" x2="${x}" y2="${y - 10}" stroke="${INK}" stroke-width="3"/><circle cx="${x}" cy="${y}" r="10" fill="#fff6c8" stroke="${INK}" stroke-width="3"/>`;
+const bolt = (x, y, s = 1, c = '#ffe14d') => `<polygon points="${x},${y} ${x + 18 * s},${y} ${x + 8 * s},${y + 26 * s} ${x + 22 * s},${y + 26 * s} ${x - 4 * s},${y + 64 * s} ${x + 4 * s},${y + 34 * s} ${x - 10 * s},${y + 34 * s}" fill="${c}" stroke="${INK}" stroke-width="${3 * s}" stroke-linejoin="round"/>`;
+
+/* ---------- bulles, encadrés, bandeaux ---------- */
+function bubble(x, y, lines, o = {}) {
+  const fs = o.fs || 31, lh = fs * 1.12, padX = 22, padY = 16;
+  const w = o.w || Math.max(...lines.map(l => l.length)) * fs * .45 + padX * 2;
+  const h = lines.length * lh + padY * 2 - (lh - fs) + 4;
+  const rx = 26;
+  let s = `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rx}" fill="${PAPER}" stroke="${INK}" stroke-width="5"/>`;
+  if (o.tail) {
+    const [tx, ty] = o.tail;
+    const bx = Math.min(Math.max(tx, x + rx + 20), x + w - rx - 20);
+    const below = ty > y + h, above = ty < y;
+    const by = below ? y + h - 4 : above ? y + 4 : y + h / 2;
+    const d = below || above ? [[bx - 18, by], [bx + 18, by]] : [[tx < x ? x + 4 : x + w - 4, by - 16], [tx < x ? x + 4 : x + w - 4, by + 16]];
+    const mx = (d[0][0] + d[1][0]) / 2, my = (d[0][1] + d[1][1]) / 2, dist = Math.hypot(tx - mx, ty - my), k = Math.min(1, (o.tailLen || 95) / dist);
+    const ex = mx + (tx - mx) * k, ey = my + (ty - my) * k;
+    s += `<polygon points="${d[0].join(',')} ${ex.toFixed(1)},${ey.toFixed(1)} ${d[1].join(',')}" fill="${PAPER}" stroke="${INK}" stroke-width="5" stroke-linejoin="round"/>`;
+    s += `<rect x="${x + 2.5}" y="${y + 2.5}" width="${w - 5}" height="${h - 5}" rx="${rx - 2}" fill="${PAPER}"/>`;
+  }
+  lines.forEach((l, i) => { s += `<text x="${x + w / 2}" y="${y + padY + fs * .82 + i * lh + 2}" font-family="Patrick Hand, Comic Sans MS, cursive" font-size="${fs}" fill="${INK}" text-anchor="middle">${esc(l)}</text>`; });
+  return s;
+}
+function caption(x, y, lines, o = {}) {
+  const fs = o.fs || 25, lh = fs * 1.2, pad = 14;
+  const w = o.w || Math.max(...lines.map(l => l.length)) * fs * .52 + pad * 2;
+  const h = lines.length * lh + pad * 2 - (lh - fs) + 2;
+  let s = `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${o.bg || YEL}" stroke="${INK}" stroke-width="4"/>`;
+  lines.forEach((l, i) => { s += `<text x="${x + pad}" y="${y + pad + fs * .82 + i * lh}" font-family="Atkinson Hyperlegible, Segoe UI, sans-serif" font-weight="700" font-size="${fs}" fill="${o.fg || INK}">${esc(l)}</text>`; });
+  return s;
+}
+function bigLabel(x, y, text, fs = 64, o = {}) {
+  return `<text x="${x}" y="${y}" font-family="Bricolage Grotesque, Arial Black, sans-serif" font-weight="800" font-size="${fs}" fill="${o.fill || '#fff8e6'}" stroke="${INK}" stroke-width="${o.sw ?? fs / 9}" paint-order="stroke" text-anchor="${o.anchor || 'middle'}" letter-spacing="${o.ls || 0}">${esc(text)}</text>`;
+}
+function header(n, title, fs = 38) {
+  return `<rect x="0" y="0" width="${W}" height="${HEAD}" fill="${INK}"/>` +
+    (n ? `<circle cx="52" cy="42" r="28" fill="${YEL}"/><text x="52" y="53" font-family="Bricolage Grotesque, Arial Black, sans-serif" font-weight="800" font-size="32" text-anchor="middle" fill="${INK}">${n}</text>` : '') +
+    `<text x="${n ? 98 : 36}" y="55" font-family="Bricolage Grotesque, Arial Black, sans-serif" font-weight="800" font-size="${fs}" fill="#fff8e6">${esc(title)}</text>`;
+}
+function fact(lines, src) {
+  let s = `<rect x="0" y="${FACT}" width="${W}" height="${1000 - FACT}" fill="#fff6e3"/><rect x="0" y="${FACT}" width="${W}" height="6" fill="${INK}"/>`;
+  s += `<text x="30" y="${FACT + 34}" font-family="Atkinson Hyperlegible, Segoe UI, sans-serif" font-weight="700" font-size="17" letter-spacing="2" fill="#a3360b">CE QUE DIT LE PACTE</text>`;
+  lines.forEach((l, i) => { s += `<text x="30" y="${FACT + 66 + i * 30}" font-family="Atkinson Hyperlegible, Segoe UI, sans-serif" font-size="24" fill="${INK}">${l}</text>`; });
+  s += `<text x="970" y="${FACT + 34}" font-family="Atkinson Hyperlegible, Segoe UI, sans-serif" font-size="17" fill="#6b5d52" text-anchor="end">${esc(src)}</text>`;
+  return s;
+}
+const frame = () => `<rect x="4" y="4" width="${W - 8}" height="${992}" fill="none" stroke="${INK}" stroke-width="8"/>`;
+const gutter = (x) => `<rect x="${x - 7}" y="${HEAD}" width="14" height="${FACT - HEAD}" fill="#fff6e3"/><line x1="${x - 7}" y1="${HEAD}" x2="${x - 7}" y2="${FACT}" stroke="${INK}" stroke-width="5"/><line x1="${x + 7}" y1="${HEAD}" x2="${x + 7}" y2="${FACT}" stroke="${INK}" stroke-width="5"/>`;
+const clip = (id, x, w) => `<clipPath id="${id}"><rect x="${x}" y="${HEAD}" width="${w}" height="${FACT - HEAD}"/></clipPath>`;
+const B = s => `<tspan font-weight="700">${s}</tspan>`;
+
+/* ---------- les planches ---------- */
+const P = [];
+
+// 0. Couverture
+P.push({
+  alt: "Couverture : au coucher du soleil, une famille regarde une ligne électrique qui va vers la ville.",
+  note: "<b>À lire avant de commencer.</b> En janvier 2025, la République du Congo a signé la déclaration de Dar es Salaam de l'initiative Mission&nbsp;300. Le Pacte national énergétique est sa feuille de route jusqu'en 2030.",
+  src: "Pacte, préambule, p. 1",
+  svg: () => sky('sunset', 0, FACT) + sun(690, 600, 120) +
+    skyline(560, 1000, 760, 7, false, .7) +
+    wire(pylonArms(840, 800, 380)[1], pylonArms(620, 790, 230)[1], 40, 3) + wire(pylonArms(840, 800, 380)[0], pylonArms(620, 790, 230)[0], 40, 3) +
+    wire(pylonArms(620, 790, 230)[1], pylonArms(480, 784, 140)[1], 22, 2) + wire(pylonArms(620, 790, 230)[0], pylonArms(480, 784, 140)[0], 22, 2) +
+    wire(pylonArms(840, 800, 380)[1], [1000, 500], 30, 3) + wire(pylonArms(840, 800, 380)[0], [1000, 520], 30, 3) +
+    pylon(840, 800, 380) + pylon(620, 790, 230) + pylon(480, 784, 140) +
+    ground(780, 800, 12) + palm(70, 800, 380, 1) +
+    person({ x: 160, y: 812, h: 270, f: 1, item: 'cane', fa: [30, 20], lean: 8, hat: true, boubou: true }) +
+    person({ x: 265, y: 815, h: 330, f: 1, fa: [105, 100], ba: [-6, -2], cap: false }) +
+    person({ x: 350, y: 815, h: 305, f: 1, woman: true, skirt: true, wrap: true, baby: true, fa: [20, 25] }) +
+    person({ x: 425, y: 815, h: 185, f: 1, child: true, puffs: true, fa: [150, 160], ba: [-25, -30] }) +
+    `<rect x="40" y="110" width="920" height="250" fill="${INK}" opacity=".0"/>` +
+    bigLabel(500, 205, 'LE COURANT', 112, { ls: 2 }) + bigLabel(500, 318, 'POUR TOUS ?', 112, { ls: 2, fill: YEL }) +
+    `<text x="500" y="378" font-family="Atkinson Hyperlegible, Segoe UI, sans-serif" font-weight="700" font-size="30" fill="#fff8e6" text-anchor="middle" stroke="${INK}" stroke-width="6" paint-order="stroke">Le Pacte national énergétique du Congo, en images</text>` +
+    fact([`Le Congo s'est engagé à donner à tous une énergie ${B('fiable, abordable, durable et propre')}.`, `Ces 12 planches expliquent ce qui est promis, et comment le suivre.`], 'Pacte, p. 1 et 4')
+});
+
+// 1. Le noir
+P.push({
+  alt: "La nuit dans un quartier sans courant. Maman Mado vend à la lampe, Tonton Jo se plaint, Grâce éclaire avec son téléphone.",
+  note: "<b>Le constat.</b> Le Pacte mesure l'accès en comptant les ménages clients réguliers de la société E2C : 31,66 %. À Brazzaville, 47 % des ménages ; à Pointe-Noire, 40 % ; dans le reste du pays, 12 %. Le suivi international ODD 7, cité par le Pacte, donne un chiffre plus élevé (47,5 %), car il compte aussi les branchements non déclarés.",
+  src: "Pacte, p. 7, 14 et 15 (tableau 4)",
+  svg: () => sky('night') + stars(70, 3, HEAD + 10, 560) + moon(860, 180, 42) +
+    house(20, 745, 150, 120, { col: '#2b2553' }) + house(260, 745, 120, 100, { col: '#2b2553' }) + hut(560, 745, 90, 80, '#2b2553') + house(700, 745, 140, 115, { col: '#2b2553' }) + house(880, 745, 110, 95, { col: '#2b2553' }) +
+    ground(760, 770, 6) +
+    // étal
+    `<rect x="70" y="700" width="200" height="16" fill="${INK}"/><rect x="85" y="716" width="12" height="70" fill="${INK}"/><rect x="243" y="716" width="12" height="70" fill="${INK}"/>` +
+    `<circle cx="230" cy="660" r="95" fill="url(#glow)"/><rect x="220" y="655" width="22" height="34" rx="5" fill="${LIGHT}" stroke="${INK}" stroke-width="4"/><path d="M216,655 Q231,630 246,655" fill="none" stroke="${INK}" stroke-width="4"/>` +
+    `<ellipse cx="140" cy="692" rx="34" ry="14" fill="${INK}"/><ellipse cx="185" cy="694" rx="22" ry="10" fill="${INK}"/>` +
+    person({ x: 110, y: 800, h: 250, f: 1, woman: true, skirt: true, wrap: true, sit: true, fa: [70, 40], ba: [10, 30] }) +
+    person({ x: 470, y: 805, h: 320, f: -1, fa: [165, 175], ba: [-165, -175], cap: true }) +
+    person({ x: 770, y: 805, h: 300, f: -1, woman: true, afro: true, item: 'phone', fa: [70, 140], ba: [-6, -4] }) +
+    bubble(310, 168, ["Encore coupé !", "Comment je charge", "mon téléphone ?"], { tail: [455, 470] }) +
+    bubble(40, 300, ["Moi, je vends à la", "lampe tempête", "depuis des années."], { tail: [130, 545] }) +
+    bubble(610, 270, ["Un Pacte a été signé", "pour changer ça.", "Je vous explique !"], { tail: [760, 495] }) +
+    header(1, "Ce soir encore, le noir") + caption(24, HEAD + 18, ["Brazzaville, un soir de coupure…"], { fs: 24 }) +
+    fact([`Aujourd'hui, environ ${B('1 ménage sur 3 (32 %)')} est client régulier du courant.`, `Dans les villes de l'intérieur et à la campagne, ${B('très peu')}.`], 'Pacte, p. 7 et 15')
+});
+
+// 2. C'est quoi le Pacte
+P.push({
+  alt: "Causerie sous un manguier. Grâce montre le document du Pacte à des voisins assis.",
+  note: "<b>Mission 300.</b> Lancée par la Banque mondiale et la Banque africaine de développement au sommet de Dar es Salaam (27-28 janvier 2025), elle vise à donner l'électricité à près de 300 millions d'Africains d'ici 2030. Le Congo fait partie de la deuxième vague de pays. Le Pacte s'organise en 5 piliers.",
+  src: "Pacte, préambule p. 1 ; piliers p. 4-5",
+  svg: () => sky('dusk') + sun(830, 640, 70) + ground(770, 760, 8) + tree(110, 790, 520) +
+    `<rect x="615" y="736" width="70" height="10" fill="${INK}"/><rect x="623" y="746" width="8" height="40" fill="${INK}"/><rect x="669" y="746" width="8" height="40" fill="${INK}"/>` +
+    person({ x: 780, y: 800, h: 320, f: -1, woman: true, afro: true, item: 'doc', fa: [125, 150], ba: [-10, -5] }) +
+    person({ x: 250, y: 800, h: 280, f: 1, sit: true, item: 'cane', fa: [45, 10], hat: true }) +
+    person({ x: 390, y: 800, h: 270, f: 1, woman: true, skirt: true, sit: true, wrap: true, fa: [60, 20] }) +
+    person({ x: 530, y: 805, h: 300, f: 1, fa: [20, 120], ba: [-10, -5], cap: true }) +
+    person({ x: 650, y: 800, h: 180, f: 1, child: true, sit: true, sitH: 26, puffs: true, fa: [40, 30] }) +
+    bubble(560, 108, ["Janvier 2025, à Dar es Salaam :", "le Congo signe pour", "« Mission 300 »."], { tail: [740, 470] }) +
+    bubble(470, 300, ["Le Pacte, c'est notre", "feuille de route jusqu'en 2030."], { tail: [720, 480], fs: 29 }) +
+    bubble(30, 360, ["Une feuille de route…", "avec des dates ?"], { tail: [255, 560] }) +
+    header(2, "C'est quoi, ce Pacte ?") +
+    fact([`${B('5 piliers')} : 1. centrales et lignes · 2. échanges avec les pays voisins ·`, `3. accès pour tous, cuisson propre · 4. investisseurs privés · 5. service public viable.`], 'Pacte, p. 4-5')
+});
+
+// 3. Objectif 2030 (avant / après)
+P.push({
+  alt: "Deux cases. À gauche, aujourd'hui, un enfant lit à la bougie dans un village sombre. À droite, en 2030, le village est éclairé.",
+  note: "<b>Le grand objectif.</b> Passer de 31,66 % à 81,3 % de ménages raccordés d'ici 2030 : 90 % en ville et 50 % à la campagne, en commençant par les localités de plus de 1 000 habitants. Cela représente 953 000 nouveaux branchements, soit environ 175 000 par an en ville et 16 000 par an à la campagne.",
+  src: "Pacte, p. 4 et 7 (tableau 1)",
+  svg: () => `<defs>${clip('c3a', 0, 500)}${clip('c3b', 500, 500)}</defs>` +
+    `<g clip-path="url(#c3a)">${sky('night')}${stars(30, 11, HEAD + 10, 520, 0, 500)}${hut(40, 760, 110, 95)}${house(300, 760, 150, 110)}${ground(760, 770, 4)}` +
+    `<circle cx="215" cy="700" r="60" fill="url(#glow)" opacity=".7"/><rect x="209" y="690" width="12" height="26" fill="${PAPER}" stroke="${INK}" stroke-width="3"/><path d="M215,690 q-5,-10 0,-18 q5,8 0,18" fill="#ffb02e"/>` +
+    person({ x: 170, y: 800, h: 200, f: 1, child: true, sit: true, sitH: 22, item: 'doc', fa: [80, 120] }) +
+    bigLabel(250, 200, "AUJOURD'HUI", 46) + bigLabel(250, 330, '32 %', 130, { fill: '#ffb4a2' }) + `</g>` +
+    `<g clip-path="url(#c3b)">${sky('dusk')}${hut(530, 760, 110, 95)}${house(780, 760, 150, 110, { lit: true })}${ground(760, 770, 4)}` +
+    bulb(700, 610, 110) + wire([500, 450], [1000, 470], 40, 3) +
+    person({ x: 670, y: 800, h: 200, f: 1, child: true, sit: true, sitH: 22, item: 'doc', fa: [80, 120], puffs: true }) +
+    person({ x: 900, y: 805, h: 300, f: -1, woman: true, skirt: true, wrap: true, fa: [150, 170] }) +
+    bigLabel(750, 200, 'EN 2030', 46) + bigLabel(750, 330, '81 %', 130, { fill: YEL }) + `</g>` +
+    gutter(500) + header(3, "L'objectif : 8 foyers sur 10 éclairés") +
+    caption(520, 360, ["Ville : 90 %", "Campagne : 50 %"], { fs: 26 }) +
+    fact([`Il faut ${B('953 000 nouveaux branchements')} d'ici 2030 :`, `874 000 en ville et 79 000 à la campagne.`], 'Pacte, p. 4 et 7')
+});
+
+// 4. Cuisson
+P.push({
+  alt: "Deux cases. À gauche, une femme cuisine au feu de bois dans la fumée et un enfant tousse. À droite, une femme cuisine sur un foyer propre.",
+  note: "<b>Cuisson propre.</b> En 2023, 39,6 % des ménages cuisinaient proprement (54,5 % en ville, 4,7 % à la campagne). Cible 2030 : 81,3 %, soit 672 827 ménages urbains et 160 146 ménages ruraux de plus. Le Pacte constate qu'aucune stratégie n'existait jusqu'ici et promet une Stratégie nationale de cuisson propre (décembre 2026), des exonérations de taxes pour les équipements certifiés et une campagne de sensibilisation dans les villages.",
+  src: "Pacte, p. 4, 7, 10 et 17",
+  svg: () => `<defs>${clip('c4a', 0, 500)}${clip('c4b', 500, 500)}</defs>` +
+    `<g clip-path="url(#c4a)">${sky('haze')}${ground(770, 770, 4)}` +
+    smoke(230, 640, 470, 1.15) + fire(250, 775, 1.1) + pot(250, 720, 1.05) +
+    person({ x: 120, y: 805, h: 260, f: 1, woman: true, skirt: true, wrap: true, sit: true, sitH: 14, item: 'spoon', fa: [95, 115], lean: 18 }) +
+    person({ x: 410, y: 805, h: 190, f: -1, child: true, fa: [150, 200], ba: [-30, -10], lean: 22 }) +
+    bubble(20, 120, ["Chaque jour, bois", "et charbon…", "et cette fumée !"], { tail: [120, 520] }) + `</g>` +
+    `<g clip-path="url(#c4b)">${sky('dawn')}${ground(770, 770, 4)}` +
+    `<rect x="690" y="700" width="150" height="100" fill="${INK}"/><rect x="700" y="690" width="130" height="14" fill="${INK}"/>` +
+    `<ellipse cx="765" cy="688" rx="50" ry="8" fill="#5aa9ff" opacity=".9"/><path d="M745,688 q-6,-14 0,-22 M765,688 q-6,-16 0,-26 M785,688 q-6,-14 0,-22" stroke="#7fc0ff" stroke-width="5" fill="none"/>` +
+    pot(765, 676, .95) + `<rect x="855" y="690" width="58" height="110" rx="26" fill="${INK}"/><rect x="872" y="676" width="24" height="18" fill="${INK}"/>` +
+    person({ x: 610, y: 805, h: 310, f: 1, woman: true, skirt: true, wrap: true, item: 'spoon', fa: [85, 95] }) +
+    bubble(560, 120, ["Foyer amélioré ou gaz :", "le repas sans fumée."], { tail: [640, 490] }) + `</g>` +
+    gutter(500) + header(4, "La fumée dans la cuisine") +
+    fact([`Cuisson propre : ${B('40 % des ménages')} aujourd'hui, ${B('81 % visés en 2030')}.`, `Stratégie nationale de cuisson propre promise pour ${B('décembre 2026')}.`], 'Pacte, p. 4, 7 et 10')
+});
+
+// 5. Pertes
+P.push({
+  alt: "Une ligne à haute tension relie Pointe-Noire à Brazzaville. Des éclairs s'échappent des câbles et un pylône penche. Tonton Jo porte un bidon pour son groupe électrogène.",
+  note: "<b>Le réseau fuit.</b> En 2022, 45 % de l'électricité a été perdue (pertes techniques et commerciales), deux fois la moyenne d'Afrique subsaharienne (22 %). La ligne Pointe-Noire–Brazzaville (440 km) porte presque tout le courant ; un incident sur ses pylônes en 2024 a obligé à importer de RDC. Le Pacte cite le sous-investissement et le manque d'entretien. Beaucoup de ménages dépendent de groupes électrogènes.",
+  src: "Pacte, p. 13, 14, 15 et 18",
+  svg: () => sky('haze') + sun(150, 260, 60) +
+    (() => { const ps = [[120, 640, 230], [330, 630, 200], [540, 620, 175], [740, 612, 150, true], [920, 606, 130]]; let s = '';
+      for (let i = 0; i < ps.length - 1; i++) { const a = pylonArms(...ps[i]), b = pylonArms(...ps[i + 1]); s += wire(a[0], b[0], 26, 3) + wire(a[1], b[1], 26, 3); }
+      ps.forEach(p => s += pylon(p[0], p[1], p[2], p[3])); return s; })() +
+    bolt(215, 455, .9) + bolt(440, 445, .8) + bolt(640, 430, .75) + bolt(835, 425, .7) +
+    `<path d="M0,640 C300,600 700,625 1000,600 L1000,${FACT} L0,${FACT} Z" fill="#5b2c17"/>` + ground(780, 770, 10) +
+    caption(30, 650, ["POINTE-NOIRE"], { fs: 20, bg: PAPER }) + caption(800, 630, ["BRAZZAVILLE"], { fs: 20, bg: PAPER }) +
+    // groupe électrogène
+    `<rect x="560" y="725" width="120" height="70" rx="8" fill="${INK}"/><rect x="650" y="700" width="14" height="30" fill="${INK}"/>` + smoke(660, 690, 120, .45) +
+    person({ x: 470, y: 810, h: 310, f: 1, cap: true, item: 'jerrycan', fa: [-4, 0], ba: [-10, -6] }) +
+    caption(560, HEAD + 22, ["Sur 100 kWh produits,", "45 se perdent en route."], { fs: 28 }) +
+    bubble(130, 205, ["Sans groupe électrogène,", "mon atelier s'arrête !"], { tail: [455, 495] }) +
+    header(5, "Où part le courant ?") +
+    fact([`${B('45 % de pertes')} sur le réseau en 2022 : ${B('deux fois')} la moyenne africaine (22 %).`, `En cause : manque d'investissement et d'entretien.`], 'Pacte, p. 15 et 18')
+});
+
+// 6. Forfait / compteur / État
+P.push({
+  alt: "Maman Mado montre sa facture au forfait. Un agent installe un compteur. Au fond, un bâtiment administratif.",
+  note: "<b>Payer ce qu'on consomme.</b> Plus de 40 % des clients d'E2C sont facturés au forfait ou ne paient rien, et seuls 73 % des montants facturés sont encaissés. Le Pacte promet des compteurs sur tous les sites de l'État (juin 2026), la facturation de tous les clients au compteur (décembre 2026), le paiement intégral des factures de l'État et de ses démembrements, et la publication des comptes audités de la société d'électricité (juin 2027).",
+  src: "Pacte, p. 5, 11 et 15",
+  svg: () => sky('day') + sun(880, 200, 55) +
+    // bâtiment administratif
+    `<rect x="560" y="440" width="420" height="330" fill="#3b2418"/><polygon points="540,440 770,350 1000,440" fill="#3b2418"/>` +
+    [600, 670, 740, 810, 880, 940].map(x => `<rect x="${x}" y="470" width="22" height="280" fill="#5c3a26"/>`).join('') +
+    `<rect x="760" y="250" width="6" height="100" fill="#3b2418"/><rect x="766" y="250" width="60" height="38" fill="#3b2418"/>` +
+    caption(680, 410, ["ADMINISTRATION"], { fs: 18, bg: PAPER, w: 190 }) +
+    ground(780, 790, 4) +
+    // mur + compteur
+    `<rect x="230" y="420" width="250" height="360" fill="${INK}"/><rect x="330" y="480" width="66" height="92" rx="8" fill="${PAPER}" stroke="#9c8f80" stroke-width="4"/><rect x="342" y="496" width="42" height="18" fill="${INK}"/><text x="363" y="511" font-size="14" font-family="monospace" fill="${YEL}" text-anchor="middle">0 4 2</text><circle cx="363" cy="545" r="12" fill="none" stroke="${INK}" stroke-width="4"/>` +
+    person({ x: 530, y: 815, h: 310, f: -1, helmet: true, item: 'tool', fa: [140, 120], ba: [-10, -5] }) +
+    person({ x: 120, y: 815, h: 300, f: 1, woman: true, skirt: true, wrap: true, item: 'bill', fa: [95, 160] }) +
+    bubble(20, 110, ["Je paie le même forfait,", "courant ou pas !"], { tail: [130, 510] }) +
+    bubble(420, 150, ["Avec le compteur, chacun", "paie ce qu'il consomme."], { tail: [530, 500] }) +
+    caption(640, 285, ["Et les ministères", "aussi doivent payer !"], { fs: 24, bg: PAPER }) +
+    header(6, "Forfait, compteur… et l'État aussi") +
+    fact([`Plus de ${B('40 % des clients')} : forfait ou rien à payer ; ${B('73 %')} des factures payées.`, `Promis : tous au compteur en ${B('déc. 2026')}, compteurs sur les sites de l'État en ${B('juin 2026')}.`], 'Pacte, p. 11 et 15')
+});
+
+// 7. Tarif
+P.push({
+  alt: "À gauche, une petite maison avec une ampoule ; à droite, une grande villa illuminée. Tonton Jo et Maman Mado discutent du prix.",
+  note: "<b>Le prix du courant.</b> Le tarif n'a pas changé depuis 1994 : 0,09 dollar le kWh, alors que le service coûte 0,16 dollar (56 % du coût couvert). La grille est « régressive » : celui qui consomme peu paie le kWh plus cher. Le branchement coûte environ 110 000 FCFA. Le Pacte promet un tarif social et une politique de branchement selon la capacité de payer (décembre 2025), puis une nouvelle grille qui reflète les coûts (décembre 2026). Une hausse pour une partie des clients est donc possible : c'est un point à suivre de près.",
+  src: "Pacte, p. 10, 11, 14 et 15",
+  svg: () => sky('sunset') +
+    house(60, 760, 170, 120, { bulb: false, windows: true, winColor: '#ffcf5e' }) + bulb(145, 560, 70) +
+    `<rect x="560" y="470" width="400" height="290" fill="${INK}"/><polygon points="540,470 760,380 980,470" fill="${INK}"/>` +
+    [590, 680, 770, 860].map(x => `<rect x="${x}" y="520" width="60" height="70" fill="${LIGHT}"/><rect x="${x}" y="640" width="60" height="70" fill="${LIGHT}"/>`).join('') +
+    `<circle cx="760" cy="600" r="260" fill="url(#glow)" opacity=".6"/>` + ground(770, 770, 4) +
+    person({ x: 300, y: 805, h: 310, f: 1, cap: true, fa: [110, 150], ba: [-10, -5] }) +
+    person({ x: 430, y: 805, h: 300, f: -1, woman: true, skirt: true, wrap: true, fa: [40, 90] }) +
+    caption(30, 455, ["Petite conso :", "le kWh plus cher"], { fs: 22, bg: PAPER }) + caption(640, 410, ["Gros consommateur :", "le kWh moins cher"], { fs: 22, bg: PAPER }) +
+    bubble(20, 108, ["Et pour se brancher ?", "110 000 FCFA, c'est trop !"], { tail: [290, 490] }) +
+    bubble(470, 108, ["Le Pacte promet un tarif social.", "Il faudra vérifier qui en profite."], { tail: [440, 495], fs: 29 }) +
+    header(7, "Le prix du courant") +
+    fact([`Tarif ${B('inchangé depuis 1994')}, il couvre ${B('56 %')} du coût. Pas de tarif social aujourd'hui.`, `Promis : ${B('tarif social')} (déc. 2025), ${B('nouvelle grille')} qui reflète les coûts (déc. 2026).`], 'Pacte, p. 10, 11 et 15')
+});
+
+// 8. Soleil et fleuve
+P.push({
+  alt: "Un village avec des panneaux solaires sur les toits, un barrage au bord du fleuve, le vieux Mbuta et un enfant avec une lampe solaire.",
+  note: "<b>Renouvelables.</b> Hors des villes, le Pacte suppose que 90 % des nouveaux accès viendront de kits solaires autonomes et 10 % de mini-réseaux, proportions à confirmer par la Stratégie d'électrification nationale. Les barrages existants tournent bien en dessous de leur capacité (Imboulou : 60 MW disponibles sur 120). Le Pacte promet de simplifier l'exonération de taxes sur les produits solaires de qualité (décembre 2025).",
+  src: "Pacte, p. 7, 9-10 et 13",
+  svg: () => sky('day') + sun(500, 230, 85) +
+    // barrage + fleuve
+    `<polygon points="20,560 260,560 300,720 0,720" fill="${INK}"/>` + [60, 120, 180].map(x => `<rect x="${x}" y="590" width="26" height="110" fill="#3a2a22"/>`).join('') +
+    `<path d="M0,720 L1000,700 L1000,${FACT} L0,${FACT} Z" fill="#2f6f8f"/>` + [0, 1, 2, 3].map(i => `<path d="M${40 + i * 230},${760 + i * 18} q40,-12 80,0 t80,0" stroke="#a8dcef" stroke-width="5" fill="none"/>`).join('') +
+    `<path d="M300,690 C450,672 650,676 1000,650 L1000,712 C700,730 450,725 300,722 Z" fill="${INK}"/>` +
+    hut(400, 690, 95, 85) + house(560, 685, 140, 110, { solar: true, lit: true }) + house(790, 672, 150, 115, { solar: true }) +
+    palm(960, 680, 300, -1) +
+    person({ x: 470, y: 702, h: 260, f: 1, item: 'cane', fa: [30, 15], ba: [100, 110], hat: true, lean: 6 }) +
+    person({ x: 720, y: 690, h: 170, f: -1, child: true, item: 'solarlamp', fa: [95, 140], puffs: true }) +
+    bubble(320, 110, ["Du soleil, on en a.", "Le fleuve aussi !"], { tail: [460, 400] }) +
+    bubble(650, 300, ["Ma lampe solaire", "tient toute la soirée !"], { tail: [720, 470], fs: 29 }) +
+    caption(30, 470, ["Imboulou : 60 MW", "disponibles sur 120"], { fs: 22, bg: PAPER }) +
+    header(8, "Le soleil et le fleuve") +
+    fact([`À la campagne : surtout des ${B('kits solaires (≈ 90 %)')} et des ${B('mini-réseaux (≈ 10 %)')}.`, `Ces parts restent à confirmer par la Stratégie d'électrification nationale.`], 'Pacte, p. 7')
+});
+
+// 9. Femmes, jeunes, emploi
+P.push({
+  alt: "Sous une ampoule, une couturière travaille à sa machine. Un jeune technicien casqué grimpe à un poteau. Une vendeuse propose des lampes solaires.",
+  note: "<b>Genre et emploi.</b> Le Pacte prévoit pour décembre 2026 une stratégie nationale « genre et énergie », pour l'accès des femmes à l'énergie, aux usages productifs, à l'emploi et à l'entrepreneuriat dans le secteur. Parmi les indicateurs de suivi figure le nombre d'emplois créés pour les jeunes et les femmes ; le document n'en donne pas encore de valeur de départ.",
+  src: "Pacte, p. 10 et 23",
+  svg: () => sky('dusk') + stars(18, 5, HEAD + 10, 300) +
+    // poteau + technicien
+    `<rect x="800" y="180" width="18" height="600" fill="${INK}"/><rect x="740" y="210" width="140" height="10" fill="${INK}"/>` + wire([740, 215], [500, 300], 30, 3) + wire([880, 215], [1000, 250], 20, 3) +
+    person({ x: 770, y: 540, h: 230, f: 1, helmet: true, fa: [150, 170], ba: [120, 100], fl: [60, 10], bl: [20, -20], backpack: true }) +
+    ground(780, 780, 4) +
+    // atelier couture
+    bulb(250, 330, 150) +
+    `<rect x="140" y="660" width="260" height="14" fill="${INK}"/><rect x="155" y="674" width="12" height="110" fill="${INK}"/><rect x="375" y="674" width="12" height="110" fill="${INK}"/>` +
+    `<path d="M220,660 L220,600 L330,600 Q350,600 350,620 L350,640 L330,640 L330,620 L240,620 L240,660 Z" fill="${INK}"/><rect x="326" y="640" width="6" height="18" fill="${INK}"/>` +
+    person({ x: 90, y: 810, h: 270, f: 1, woman: true, skirt: true, wrap: true, sit: true, fa: [80, 95], ba: [70, 90] }) +
+    // vendeuse lampes
+    `<rect x="470" y="720" width="160" height="12" fill="${INK}"/><rect x="480" y="732" width="10" height="56" fill="${INK}"/><rect x="610" y="732" width="10" height="56" fill="${INK}"/>` +
+    [500, 545, 590].map(x => `<circle cx="${x}" cy="705" r="30" fill="url(#glow)"/><rect x="${x - 9}" y="695" width="18" height="24" rx="4" fill="${LIGHT}" stroke="${INK}" stroke-width="3"/>`).join('') +
+    person({ x: 680, y: 810, h: 290, f: -1, woman: true, afro: true, skirt: true, skirtLen: 20, fa: [70, 90] }) +
+    bubble(20, 120, ["Avec le courant, mon atelier", "tourne même le soir."], { tail: [130, 545], fs: 29 }) +
+    bubble(420, 380, ["Installer, réparer, vendre :", "ce sont des métiers !"], { tail: [670, 505], fs: 29 }) +
+    header(9, "Femmes, jeunes et emplois") +
+    fact([`Promis pour ${B('décembre 2026')} : une stratégie « ${B('genre et énergie')} »`, `pour l'accès des femmes à l'énergie, à l'emploi et à l'entrepreneuriat.`], 'Pacte, p. 10')
+});
+
+// 10. Qui paie
+P.push({
+  alt: "Une grande balance : le plateau du privé est bien plus chargé que celui du public. Tonton Jo, Grâce et le vieux Mbuta discutent.",
+  note: "<b>Le coût.</b> Le tableau 2 du Pacte chiffre les investissements à 11,543 milliards de dollars d'ici 2030 : 71,6 % de sources privées (8,267 milliards) et 28,4 % publiques (3,276 milliards). Les centrales seraient financées à 100 % par des producteurs privés ; les lignes et réseaux de distribution par l'État ; kits solaires, mini-réseaux et cuisson propre à parts égales. Le Pacte promet des appels d'offres concurrentiels (juin 2026) et reconnaît qu'il faut plus de transparence dans l'attribution des marchés. Attention : le préambule cite d'autres montants (voir « Sources et limites »).",
+  src: "Pacte, p. 8 (tableau 2), 9 et 18",
+  svg: () => sky('sunset') + sun(150, 620, 70) +
+    // balance
+    `<rect x="492" y="300" width="16" height="430" fill="${INK}"/><polygon points="440,760 560,760 520,720 480,720" fill="${INK}"/>` +
+    `<g transform="rotate(14 500 300)"><rect x="220" y="292" width="560" height="14" rx="7" fill="${INK}"/></g>` +
+    `<line x1="257" y1="240" x2="183" y2="368" stroke="${INK}" stroke-width="4"/><line x1="257" y1="240" x2="331" y2="368" stroke="${INK}" stroke-width="4"/>` +
+    `<line x1="743" y1="360" x2="669" y2="505" stroke="${INK}" stroke-width="4"/><line x1="743" y1="360" x2="817" y2="505" stroke="${INK}" stroke-width="4"/>` +
+    `<circle cx="500" cy="300" r="16" fill="${INK}"/>` +
+    // plateaux (gauche plus bas = droite visuelle du privé)
+    `<path d="M669,505 L817,505 Q807,545 743,545 Q679,545 669,505 Z" fill="${INK}"/>` +
+    `<path d="M183,368 L331,368 Q321,408 257,408 Q193,408 183,368 Z" fill="${INK}"/>` +
+    [0, 1, 2, 3, 4, 5].map(i => `<rect x="${691 + (i % 3) * 36}" y="${470 - Math.floor(i / 3) * 34}" width="32" height="30" rx="4" fill="#f2c14e" stroke="${INK}" stroke-width="3"/>`).join('') +
+    `<rect x="259" y="336" width="32" height="30" rx="4" fill="#f2c14e" stroke="${INK}" stroke-width="3"/><rect x="223" y="336" width="32" height="30" rx="4" fill="#f2c14e" stroke="${INK}" stroke-width="3"/>` +
+    caption(180, 420, ["PUBLIC 28 %", "3,3 milliards $"], { fs: 22, bg: PAPER }) + caption(600, 556, ["PRIVÉ 72 %", "8,3 milliards $"], { fs: 22, bg: PAPER }) +
+    ground(780, 780, 6) +
+    person({ x: 110, y: 815, h: 300, f: 1, cap: true, fa: [150, 175], ba: [-10, -5] }) +
+    person({ x: 330, y: 815, h: 290, f: 1, woman: true, afro: true, fa: [70, 110], ba: [-6, -4] }) +
+    person({ x: 920, y: 815, h: 270, f: -1, item: 'cane', fa: [30, 15], hat: true, lean: 6 }) +
+    bubble(20, 108, ["11,5 milliards de dollars ?!", "Qui met cet argent ?"], { tail: [120, 500] }) +
+    bubble(560, 108, ["Alors il faut des", "contrats clairs et publics."], { tail: [915, 540] }) +
+    header(10, "Qui paie le Pacte ?") +
+    fact([`Coût estimé : ${B('11,5 milliards $')} d'ici 2030. Les centrales : ${B('100 % privé')}.`, `Lignes et réseaux de quartier : l'État. Appels d'offres concurrentiels promis (juin 2026).`], 'Pacte, p. 8 et 9')
+});
+
+// 11. Société civile
+P.push({
+  alt: "Une réunion d'association : des citoyens lèvent la main, Grâce présente un carnet de suivi.",
+  note: "<b>Le rôle de la société civile.</b> Le Pacte dit avoir été élaboré après des consultations incluant la société civile, et l'invite à « se joindre à cette aventure transformatrice ». Une Unité de gestion du Pacte (UGPNE), rattachée au ministre chargé de l'énergie, doit piloter et suivre sa mise en œuvre. Le Pacte ne précise pas comment les citoyens accéderont à ses rapports : c'est une question à poser.",
+  src: "Pacte, préambule p. 1 ; p. 5",
+  svg: () => sky('dawn') + sun(820, 560, 70) + ground(770, 770, 4) +
+    `<line x1="300" y1="${HEAD}" x2="330" y2="120" stroke="${INK}" stroke-width="4"/><line x1="700" y1="${HEAD}" x2="670" y2="120" stroke="${INK}" stroke-width="4"/><rect x="330" y="112" width="340" height="96" fill="${PAPER}" stroke="${INK}" stroke-width="5"/>` +
+    `<text x="500" y="156" font-family="Bricolage Grotesque, Arial Black, sans-serif" font-weight="800" font-size="32" fill="${INK}" text-anchor="middle">SUIVI DU PACTE</text><text x="500" y="192" font-family="Patrick Hand, cursive" font-size="28" fill="#a3360b" text-anchor="middle">réunion du quartier</text>` +
+    person({ x: 800, y: 805, h: 320, f: -1, woman: true, afro: true, item: 'doc', fa: [100, 140], ba: [-6, -4] }) +
+    person({ x: 90, y: 805, h: 300, f: 1, woman: true, skirt: true, wrap: true, fa: [160, 175] }) +
+    person({ x: 220, y: 805, h: 310, f: 1, cap: true, fa: [10, 40] }) +
+    person({ x: 340, y: 805, h: 290, f: 1, afro: true, fa: [165, 170] }) +
+    person({ x: 470, y: 805, h: 275, f: 1, item: 'cane', fa: [30, 15], hat: true, lean: 6 }) +
+    person({ x: 580, y: 805, h: 180, f: 1, child: true, puffs: true, fa: [20, 30] }) +
+    bubble(20, 240, ["Qui suit le Pacte", "au gouvernement ?"], { tail: [100, 495] }) +
+    bubble(500, 232, ["Une unité spéciale : l'UGPNE,", "auprès du ministre de l'Énergie."], { tail: [790, 470], fs: 28 }) +
+    bubble(380, 345, ["Le Pacte nous invite à participer.", "Notre rôle : suivre les promesses."], { tail: [780, 480], fs: 28 }) +
+    header(11, "Et nous, la société civile ?") +
+    fact([`Le Gouvernement invite ${B('« la société civile à se joindre »')} au Pacte.`, `Une ${B('Unité de gestion (UGPNE)')} doit suivre sa mise en œuvre.`], 'Pacte, p. 1 et 5')
+});
+
+// 12. Calendrier
+P.push({
+  alt: "Un chemin qui serpente avec des panneaux de dates, de décembre 2025 à 2030. Des citoyens marchent dessus.",
+  note: "<b>Les échéances écrites dans le Pacte.</b> Décembre 2025 : Stratégie d'électrification nationale, tarif social, branchement selon la capacité de payer, exonérations sur le solaire. Juin 2026 : cadre d'appels d'offres concurrentiels, compteurs sur les sites de l'État, plan de développement à moindre coût. Décembre 2026 : plan adopté en Conseil des ministres, Stratégie de cuisson propre, stratégie genre et énergie, nouvelle grille tarifaire, tous les clients au compteur. Juin 2027 : comptes audités de la société d'électricité. 2030 : 81 % d'accès.",
+  src: "Pacte, p. 9-11 (tableau 3)",
+  svg: () => sky('sunset') + sun(870, 300, 60) +
+    `<path d="M-20,${FACT} C200,780 50,700 300,660 S700,620 640,520 S820,420 980,400 L1000,420 C860,440 700,500 720,540 S600,680 360,700 S260,790 160,${FACT} Z" fill="#e8b46a" stroke="${INK}" stroke-width="5"/>` +
+    `<path d="M0,${FACT} L0,760 C60,770 80,800 140,${FACT} Z M1000,${FACT} L1000,600 C900,640 700,720 600,${FACT} Z" fill="${INK}"/>` +
+    [[120, 700, 'DÉC. 2025', ['Électrification', 'Tarif social']], [400, 600, 'JUIN 2026', ['Compteurs État', "Appels d'offres"]], [610, 480, 'DÉC. 2026', ['Nouveau tarif', 'Cuisson propre']], [800, 380, 'JUIN 2027', ['Comptes', 'audités']]]
+      .map(([x, y, d, l]) => `<rect x="${x - 4}" y="${y - 10}" width="8" height="90" fill="${INK}"/>` + caption(x - 92, y - 112, [d, ...l], { fs: 21, w: 184, bg: d === 'DÉC. 2025' ? YEL : PAPER })).join('') +
+    `<rect x="912" y="220" width="8" height="100" fill="${INK}"/>` + caption(856, 150, ['2030', '81 %'], { fs: 26, w: 120, bg: YEL }) +
+    person({ x: 230, y: 805, h: 190, f: 1, woman: true, skirt: true, wrap: true, fl: [22, 6], bl: [-18, -26], fa: [20, 30], ba: [-25, -10] }) +
+    person({ x: 300, y: 800, h: 175, f: 1, cap: true, fl: [22, 6], bl: [-18, -26], fa: [25, 35], ba: [-25, -10] }) +
+    person({ x: 360, y: 798, h: 110, f: 1, child: true, puffs: true, fl: [22, 6], bl: [-18, -26], fa: [20, 30], ba: [-25, -10] }) +
+    caption(24, HEAD + 18, ["Octobre 2026 : où en sont les", "promesses de décembre 2025 ?"], { fs: 26 }) +
+    header(12, "Le calendrier des promesses") +
+    fact([`Chaque date est un ${B('engagement écrit')}. Demandons des comptes, dates en main :`, `aux élus, au ministère de l'Énergie et à l'Unité de gestion du Pacte (UGPNE).`], 'Pacte, p. 9-11')
+});
+
+/* ---------- rendu ---------- */
+const host = document.getElementById('planches');
+P.forEach((p, i) => {
+  const fig = document.createElement('figure');
+  fig.className = 'planche';
+  fig.id = 'planche-' + i;
+  const titleSvg = i === 0 ? header(0, 'RÉPUBLIQUE DU CONGO · PACTE NATIONAL ÉNERGÉTIQUE · MISSION 300', 30) : '';
+  fig.innerHTML = `<svg viewBox="0 0 1000 1000" role="img" aria-label="${esc(p.alt)}" xmlns="http://www.w3.org/2000/svg">${p.svg()}${titleSvg}${frame()}</svg>` +
+    `<figcaption><span>${p.note}</span><span class="src">Source : ${esc(p.src)}</span></figcaption>`;
+  host.appendChild(fig);
+});
+})();
+</script>

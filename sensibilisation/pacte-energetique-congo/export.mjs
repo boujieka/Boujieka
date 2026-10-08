@@ -1,4 +1,4 @@
-// Exporte chaque planche en PNG (1080 px) et l'album complet en PDF.
+// Exporte chaque page de la BD en PNG (format A4, 1240 x 1754 px) et l'album en PDF A4.
 // Usage : node export.mjs   (nécessite Playwright et Chromium)
 import { readFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -15,23 +15,19 @@ mkdirSync(out, { recursive: true });
 const html = `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body>${readFileSync(path.join(dir, 'index.html'), 'utf8')}</body></html>`;
 
 const browser = await chromium.launch();
-const page = await browser.newPage({ viewport: { width: 1080, height: 1080 }, deviceScaleFactor: 1 });
+const page = await browser.newPage({ viewport: { width: 1240, height: 1754 } });
+const errors = [];
+page.on('pageerror', e => errors.push(e.message));
 await page.setContent(html, { waitUntil: 'networkidle' });
 await page.evaluate(() => document.fonts.ready);
+if (errors.length) { console.error(errors.join('\n')); process.exit(1); }
 
-// PNG : chaque planche seule, 1080 x 1080
-const n = await page.locator('figure.planche').count();
-await page.addStyleTag({ content: 'body{padding:0!important;margin:0} .wrap{max-width:none!important;gap:0!important} figure.planche{gap:0} figcaption, header.intro, section.block{display:none!important} figure.planche svg{width:1080px!important;border-radius:0!important;box-shadow:none!important}' });
-for (let i = 0; i < n; i++) {
-  await page.locator(`#planche-${i} svg`).screenshot({ path: path.join(out, `planche-${String(i).padStart(2, '0')}.png`) });
-}
+await page.addStyleTag({ content: 'body{padding:0!important;margin:0} .wrap{max-width:none!important;gap:0!important} #album{gap:0!important} header.intro, section.block{display:none!important} #album svg.page{width:1240px!important;box-shadow:none!important}' });
+const ids = await page.$$eval('svg.page', els => els.map(e => e.id));
+for (const id of ids) await page.locator(`#${id}`).screenshot({ path: path.join(out, `${id}.png`) });
 
-// PDF : une planche par page A4 avec sa note, puis questions et sources
-const pdf = await browser.newPage();
-await pdf.setContent(html, { waitUntil: 'networkidle' });
-await pdf.evaluate(() => document.fonts.ready);
-await pdf.addStyleTag({ content: '@page{size:A4;margin:12mm} body{padding:0!important;font-size:13px} .wrap{max-width:none!important} figure.planche{break-after:page} figure.planche svg{box-shadow:none!important} section.block{break-inside:avoid}' });
-await pdf.emulateMedia({ media: 'print', colorScheme: 'light' });
-await pdf.pdf({ path: path.join(out, 'pacte-energetique-congo-bd.pdf'), format: 'A4', printBackground: true });
+await page.addStyleTag({ content: '@page{size:A4;margin:0} #album svg.page{width:210mm!important;height:297mm!important;break-after:page}' });
+await page.emulateMedia({ media: 'print', colorScheme: 'light' });
+await page.pdf({ path: path.join(out, 'le-courant-pour-tous-bd.pdf'), format: 'A4', printBackground: true, margin: { top: 0, right: 0, bottom: 0, left: 0 } });
 await browser.close();
-console.log(`${n} planches exportées dans ${out}`);
+console.log(`${ids.length} pages exportées dans ${out}`);
