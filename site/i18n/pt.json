@@ -1345,5 +1345,141 @@
   "acc.st.registered": "🔵 Registado: a instituição criou o seu perfil (em breve).",
   "acc.st.pending": "🟠 Em verificação: documentos recebidos, controlo em curso (em breve).",
   "acc.st.verified": "🟢 Verificado: autorização controlada junto do regulador, com a data e quem a verificou (em breve).",
-  "acc.st.note": "Nenhum estatuto pode ser comprado: um perfil pago nunca altera o estatuto."
+  "acc.st.note": "Nenhum estatuto pode ser comprado: um perfil pago nunca altera o estatuto.",
+  "sub.eyebrow": "Assinaturas",
+  "sub.title": "Quatro planos, uma regra: os dados oficiais continuam gratuitos",
+  "sub.lede": "As instituições de origem autorizaram uma publicação gratuita. Os planos pagos previstos não venderiam, portanto, os dados: venderiam tempo poupado (alertas, gravação, exportações, API, apoio).",
+  "sub.notsold": "Nenhum plano pago está à venda hoje. É preciso primeiro o acordo escrito das instituições de origem para uso comercial e um parecer jurídico. Os preços são intervalos previstos, não ofertas.",
+  "sub.avail": "Disponível",
+  "sub.soon": "Em breve",
+  "sub.for": "Para quem",
+  "sub.price": "Preço",
+  "sub.start": "Começar gratuitamente",
+  "sub.join": "Entrar na lista de espera",
+  "sub.chosen": "Plano escolhido: {p}. Preencha o formulário abaixo.",
+  "sub.never": "Nunca vendido, em nenhum plano: um estatuto «Verificado» para um intermediário, uma classificação, uma recomendação de compra ou uma promessa de rendimento.",
+  "wl.plan": "Plano que lhe interessa",
+  "wl.plan.none": "— Ainda não decidido —",
+  "sub_tiers": [
+    {
+      "id": "free",
+      "name": "Descoberta",
+      "who": "Particulares, diáspora, estudantes, jornalistas",
+      "value": "Compreender o mercado e simular um investimento, sem pagar nada.",
+      "price": "Gratuito",
+      "features": [
+        [
+          true,
+          "Todos os leilões verificados, com o PDF de origem"
+        ],
+        [
+          true,
+          "Simulador, comparação de 5 países, objetivo de poupança"
+        ],
+        [
+          true,
+          "Relatórios trimestrais completos, resumo diário online"
+        ],
+        [
+          true,
+          "Ficheiros CSV completos"
+        ],
+        [
+          true,
+          "Procedimento de acesso por país e diretório de intermediários"
+        ],
+        [
+          true,
+          "Lista de acompanhamento neste navegador"
+        ]
+      ]
+    },
+    {
+      "id": "pro",
+      "name": "Pro",
+      "who": "Investidores particulares ativos, diáspora que investe à distância",
+      "value": "Não perder nada: ser avisado assim que um resultado ou um vencimento diga respeito aos seus países.",
+      "price": "Intervalo previsto: 29 a 49 $ por mês",
+      "features": [
+        [
+          true,
+          "Tudo o que é gratuito"
+        ],
+        [
+          false,
+          "Alertas por e-mail: novos resultados e vencimentos dos seus países"
+        ],
+        [
+          false,
+          "Resumo por e-mail filtrado pelos seus mercados"
+        ],
+        [
+          false,
+          "Lista e simulações guardadas em todos os seus dispositivos"
+        ],
+        [
+          false,
+          "Ficha PDF das suas simulações, para mostrar ao seu intermediário"
+        ]
+      ]
+    },
+    {
+      "id": "professional",
+      "name": "Profissional",
+      "who": "SGI, gestores de ativos, tesoureiros de empresa, analistas",
+      "value": "Poupar horas de introdução de dados: séries prontas, exportações filtradas e acesso por máquina.",
+      "price": "Intervalo previsto: 99 a 199 $ por mês",
+      "features": [
+        [
+          true,
+          "Tudo o que está no Pro"
+        ],
+        [
+          false,
+          "Exportações Excel filtradas (país, período, maturidade, tipo)"
+        ],
+        [
+          false,
+          "API de leitura, com quota"
+        ],
+        [
+          false,
+          "Alertas assim que o resultado oficial é publicado"
+        ],
+        [
+          false,
+          "Apoio prioritário por e-mail"
+        ]
+      ]
+    },
+    {
+      "id": "institutional",
+      "name": "Institucional",
+      "who": "Bancos, instituições de desenvolvimento, reguladores, media",
+      "value": "Integrar uma fonte rastreável nas suas próprias ferramentas e equipas.",
+      "price": "Sob orçamento",
+      "features": [
+        [
+          true,
+          "Tudo o que está no Profissional"
+        ],
+        [
+          false,
+          "Vários utilizadores, uma fatura"
+        ],
+        [
+          false,
+          "API de grande volume e compromisso de serviço"
+        ],
+        [
+          false,
+          "Integração nas suas ferramentas (marca branca)"
+        ],
+        [
+          false,
+          "Formação das equipas"
+        ]
+      ]
+    }
+  ]
 }

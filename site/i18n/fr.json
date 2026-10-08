@@ -1253,5 +1253,141 @@
   "acc.st.registered": "🔵 Inscrit : l'établissement a créé son profil (à venir).",
   "acc.st.pending": "🟠 En cours de vérification : documents reçus, contrôle en cours (à venir).",
   "acc.st.verified": "🟢 Vérifié : agrément contrôlé auprès du régulateur, avec la date et la personne qui l'a vérifié (à venir).",
-  "acc.st.note": "Aucun statut ne peut être acheté : un profil payant ne change jamais le statut."
+  "acc.st.note": "Aucun statut ne peut être acheté : un profil payant ne change jamais le statut.",
+  "sub.eyebrow": "Abonnements",
+  "sub.title": "Quatre formules, une règle : les données officielles restent gratuites",
+  "sub.lede": "Les institutions sources ont autorisé une publication gratuite. Les formules payantes envisagées ne vendraient donc pas les données : elles vendraient du temps gagné (alertes, sauvegarde, exports, API, accompagnement).",
+  "sub.notsold": "Aucune formule payante n'est en vente aujourd'hui. Il faut d'abord l'accord écrit des institutions sources pour un usage commercial et un avis juridique. Les tarifs sont des fourchettes envisagées, pas des prix.",
+  "sub.avail": "Disponible",
+  "sub.soon": "À venir",
+  "sub.for": "Pour qui",
+  "sub.price": "Tarif",
+  "sub.start": "Commencer gratuitement",
+  "sub.join": "Rejoindre la liste d'attente",
+  "sub.chosen": "Formule choisie : {p}. Complétez le formulaire ci-dessous.",
+  "sub.never": "Jamais vendu, dans aucune formule : un statut « Vérifié » pour un intermédiaire, un classement, une recommandation d'achat ou une promesse de rendement.",
+  "wl.plan": "Formule qui vous intéresse",
+  "wl.plan.none": "— Pas encore décidé —",
+  "sub_tiers": [
+    {
+      "id": "free",
+      "name": "Découverte",
+      "who": "Particuliers, diaspora, étudiants, journalistes",
+      "value": "Comprendre le marché et simuler un placement, sans rien payer.",
+      "price": "Gratuit",
+      "features": [
+        [
+          true,
+          "Toutes les adjudications vérifiées, avec le PDF source"
+        ],
+        [
+          true,
+          "Simulateur, comparaison de 5 pays, objectif d'épargne"
+        ],
+        [
+          true,
+          "Rapports trimestriels complets, brief quotidien en ligne"
+        ],
+        [
+          true,
+          "Fichiers CSV complets"
+        ],
+        [
+          true,
+          "Procédure d'accès par pays et annuaire des intermédiaires"
+        ],
+        [
+          true,
+          "Liste de suivi dans ce navigateur"
+        ]
+      ]
+    },
+    {
+      "id": "pro",
+      "name": "Pro",
+      "who": "Investisseurs particuliers actifs, diaspora qui investit à distance",
+      "value": "Ne plus rien rater : être prévenu dès qu'un résultat ou une échéance concerne vos pays.",
+      "price": "Fourchette envisagée : 29 à 49 $ par mois",
+      "features": [
+        [
+          true,
+          "Tout ce qui est gratuit"
+        ],
+        [
+          false,
+          "Alertes e-mail : nouveaux résultats et échéances de vos pays"
+        ],
+        [
+          false,
+          "Brief par e-mail filtré sur vos marchés"
+        ],
+        [
+          false,
+          "Liste de suivi et simulations sauvegardées sur tous vos appareils"
+        ],
+        [
+          false,
+          "Fiche PDF de vos simulations, à montrer à votre intermédiaire"
+        ]
+      ]
+    },
+    {
+      "id": "professional",
+      "name": "Professionnel",
+      "who": "SGI, gérants d'actifs, trésoriers d'entreprise, analystes",
+      "value": "Gagner des heures de saisie : séries prêtes à l'emploi, exports filtrés et accès machine.",
+      "price": "Fourchette envisagée : 99 à 199 $ par mois",
+      "features": [
+        [
+          true,
+          "Tout ce qui est dans Pro"
+        ],
+        [
+          false,
+          "Exports Excel filtrés (pays, période, maturité, type)"
+        ],
+        [
+          false,
+          "API en lecture, avec quota"
+        ],
+        [
+          false,
+          "Alertes dès la mise en ligne du résultat officiel"
+        ],
+        [
+          false,
+          "Support prioritaire par e-mail"
+        ]
+      ]
+    },
+    {
+      "id": "institutional",
+      "name": "Institutionnel",
+      "who": "Banques, institutions de développement, régulateurs, médias",
+      "value": "Intégrer une source traçable dans vos propres outils et équipes.",
+      "price": "Sur devis",
+      "features": [
+        [
+          true,
+          "Tout ce qui est dans Professionnel"
+        ],
+        [
+          false,
+          "Plusieurs utilisateurs, une facture"
+        ],
+        [
+          false,
+          "API à volume élevé et engagement de service"
+        ],
+        [
+          false,
+          "Intégration dans vos outils (marque blanche)"
+        ],
+        [
+          false,
+          "Formation des équipes"
+        ]
+      ]
+    }
+  ]
 }

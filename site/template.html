@@ -570,6 +570,17 @@ table.cmp td { vertical-align: top; }
 .badge-off { display: inline-block; font-size: 12px; border: 1px solid var(--line); padding: 2px 6px; border-radius: 10px; white-space: nowrap; background: var(--paper); }
 .st-legend li { margin: 4px 0; font-size: 13px; }
 .st-legend li.soon { color: var(--muted); }
+.plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; margin-top: 12px; }
+.plan { border: 1px solid var(--line); background: var(--surface); padding: 16px; display: flex; flex-direction: column; gap: 6px; }
+.plan.on { border-top: 3px solid var(--gold); }
+.plan h4 { margin: 0; font: 400 22px/1.2 var(--display, Georgia, serif); color: var(--lapis); }
+.tier-price { margin: 0; font-weight: 600; font-size: 14px; }
+.tier-value { margin: 4px 0; font-size: 15px; }
+.plan ul { margin: 4px 0 10px; padding-inline-start: 18px; font-size: 13px; flex: 1; }
+.plan li { margin: 4px 0; }
+.plan li.ok::marker { content: "✓  "; color: var(--faience-ink, green); }
+.plan li.soon { color: var(--muted); }
+.plan .btn { align-self: flex-start; }
 @media (max-width: 600px) {  /* directory as stacked cards on phones */
   #acc-dir-sub table, #acc-dir-sub tbody, #acc-dir-sub tr, #acc-dir-sub td { display: block; min-width: 0 !important; width: 100%; }
   #acc-dir-sub thead { display: none; }
@@ -972,6 +983,14 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
         <div class="offer"><h3 data-i="of.data.t"></h3><p id="of-data-p"></p><p class="offer-st" data-i="of.data.s"></p><a href="donnees/fr.html" lang="fr">Français</a> · <a href="donnees/en.html" lang="en">English</a> · <a href="donnees/echantillon.csv" download data-i="of.data.a"></a> · <a href="donnees/auctions.csv" download data-i="of.data.full"></a></div>
         <div class="offer"><h3 data-i="of.brief.t"></h3><p data-i="of.brief.p"></p><p class="offer-st" data-i="of.brief.s"></p><a href="#brief" data-i="of.brief.a"></a></div>
       </div>
+      <div class="sub" id="abonnements">
+        <span class="eyebrow" data-i="sub.eyebrow"></span>
+        <h3 data-i="sub.title"></h3>
+        <p class="lede" data-i="sub.lede"></p>
+        <p class="warnbox" data-i="sub.notsold"></p>
+        <div class="plans" id="sub-tiers"></div>
+        <p class="note" data-i="sub.never"></p>
+      </div>
       <h3 class="br-h" data-i="wl.title"></h3>
       <p class="note" data-i="wl.lede"></p>
       <form class="form wl" name="liste-attente" id="wl" method="POST" action="/merci.html" data-netlify="true" netlify-honeypot="bot-field">
@@ -980,6 +999,7 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
         <p hidden><label>bot <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
         <label><span data-i="wl.email"></span><input type="email" name="email" required autocomplete="email" maxlength="200"></label>
         <label><span data-i="wl.profile"></span><select name="profil" required><option value="" data-i="wl.choose"></option><option value="bank" data-i="wl.profile.bank"></option><option value="broker" data-i="wl.profile.broker"></option><option value="asset_manager" data-i="wl.profile.asset_manager"></option><option value="corporate_treasury" data-i="wl.profile.corporate_treasury"></option><option value="dfi" data-i="wl.profile.dfi"></option><option value="consultant_research" data-i="wl.profile.consultant_research"></option><option value="media" data-i="wl.profile.media"></option><option value="individual" data-i="wl.profile.individual"></option><option value="public_sector" data-i="wl.profile.public_sector"></option><option value="other" data-i="wl.profile.other"></option></select></label>
+        <label><span data-i="wl.plan"></span><select name="formule" id="wl-plan"><option value="" data-i="wl.plan.none"></option><option value="pro">Pro</option><option value="professionnel">Professionnel</option><option value="institutionnel">Institutionnel</option></select></label>
         <label><span data-i="wl.org"></span><input name="organisation" autocomplete="organization" maxlength="200"></label>
         <label><span data-i="wl.country"></span><input name="pays" autocomplete="country-name" maxlength="100"></label>
         <fieldset class="wide wl-int"><legend data-i="wl.interest"></legend>
@@ -1613,7 +1633,23 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
     const O = D.data_offer;
     $("of-data-p").textContent = O ? t("of.data.p", { n: nf(O.auctions, 0), k: O.countries, d: nf(O.documents, 0) }) : "";
     $("wl-lang").value = lang;
+    const TI = M("sub_tiers"), PLAN = { pro: "pro", professional: "professionnel", institutional: "institutionnel" };
+    [...$("wl-plan").options].slice(1).forEach((o) => { o.textContent = TI.find((x) => PLAN[x.id] === o.value)?.name ?? o.value; });
+    $("sub-tiers").innerHTML = TI.map((x) => `<article class="plan${x.id === "free" ? " on" : ""}">
+      <h4>${esc(x.name)}</h4><p class="tier-price">${esc(x.price)}</p>
+      <p class="note"><b>${esc(t("sub.for"))}</b> : ${esc(x.who)}</p>
+      <p class="tier-value">${esc(x.value)}</p>
+      <ul>${x.features.map(([ok, f]) => `<li class="${ok ? "ok" : "soon"}"><span class="sr">${esc(t(ok ? "sub.avail" : "sub.soon"))} : </span>${esc(f)} ${ok ? "" : `<small>(${esc(t("sub.soon"))})</small>`}</li>`).join("")}</ul>
+      ${x.id === "free" ? `<a class="btn gold" href="#comparer">${esc(t("sub.start"))}</a>` : `<button type="button" class="btn ghost" data-plan="${PLAN[x.id]}" data-plan-name="${esc(x.name)}" style="color:var(--lapis);border-color:var(--line)">${esc(t("sub.join"))}</button>`}
+    </article>`).join("");
   }
+  $("sub-tiers").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-plan]"); if (!b) return;
+    $("wl-plan").value = b.dataset.plan;
+    $("wl-status").textContent = t("sub.chosen", { p: b.dataset.planName });
+    $("wl").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+    $("wl").querySelector("input[type=email]").focus({ preventScroll: true });
+  });
   $("wl").addEventListener("submit", async (e) => {
     e.preventDefault();
     const f = e.target, st = $("wl-status");

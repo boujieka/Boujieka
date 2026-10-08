@@ -208,6 +208,9 @@ def load_i18n(buyer_keys: list[str]) -> dict:
         for key in ("glossary", "strategy_levers", "strategy_limits", "strategy_coop", "guide_steps", "ask_list"):
             if len(t[key]) != len(ref[key]):
                 raise SystemExit(f"i18n/{lang}.json: '{key}' has {len(t[key])} items, fr has {len(ref[key])}")
+        shape = lambda tiers: [(x["id"], [f[0] for f in x["features"]]) for x in tiers]  # noqa: E731
+        if shape(t["sub_tiers"]) != shape(ref["sub_tiers"]):
+            raise SystemExit(f"i18n/{lang}.json: sub_tiers ids, features or availability differ from fr")
         if [g[0] for g in t["glossary"]] != [g[0] for g in ref["glossary"]]:
             raise SystemExit(f"i18n/{lang}.json: glossary terms differ from fr")
         if lang != "fr":

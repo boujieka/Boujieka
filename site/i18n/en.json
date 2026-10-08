@@ -1345,5 +1345,141 @@
   "acc.st.registered": "🔵 Registered: the institution has created its profile (coming).",
   "acc.st.pending": "🟠 Pending: documents received, check under way (coming).",
   "acc.st.verified": "🟢 Verified: licence checked with the regulator, with the date and who checked it (coming).",
-  "acc.st.note": "No status can be bought: a paid profile never changes the status."
+  "acc.st.note": "No status can be bought: a paid profile never changes the status.",
+  "sub.eyebrow": "Subscriptions",
+  "sub.title": "Four plans, one rule: official data stays free",
+  "sub.lede": "The source institutions authorised free publication. The paid plans under consideration would therefore not sell the data: they would sell time saved (alerts, saving, exports, API, support).",
+  "sub.notsold": "No paid plan is on sale today. It first needs the source institutions' written consent to commercial use and a legal opinion. Prices are ranges under consideration, not offers.",
+  "sub.avail": "Available",
+  "sub.soon": "Coming",
+  "sub.for": "For whom",
+  "sub.price": "Price",
+  "sub.start": "Start for free",
+  "sub.join": "Join the waiting list",
+  "sub.chosen": "Plan chosen: {p}. Fill in the form below.",
+  "sub.never": "Never sold, in any plan: a “Verified” status for an intermediary, a ranking, a buy recommendation or a promised return.",
+  "wl.plan": "Plan you are interested in",
+  "wl.plan.none": "— Not decided yet —",
+  "sub_tiers": [
+    {
+      "id": "free",
+      "name": "Discovery",
+      "who": "Individuals, diaspora, students, journalists",
+      "value": "Understand the market and simulate an investment, without paying anything.",
+      "price": "Free",
+      "features": [
+        [
+          true,
+          "All verified auctions, with the source PDF"
+        ],
+        [
+          true,
+          "Simulator, 5-country comparison, savings goal"
+        ],
+        [
+          true,
+          "Full quarterly reports, daily brief online"
+        ],
+        [
+          true,
+          "Full CSV files"
+        ],
+        [
+          true,
+          "Access procedure per country and intermediaries directory"
+        ],
+        [
+          true,
+          "Watchlist in this browser"
+        ]
+      ]
+    },
+    {
+      "id": "pro",
+      "name": "Pro",
+      "who": "Active individual investors, diaspora investing from abroad",
+      "value": "Miss nothing: be told as soon as a result or a maturity concerns your countries.",
+      "price": "Range under consideration: $29 to $49 a month",
+      "features": [
+        [
+          true,
+          "Everything in the free plan"
+        ],
+        [
+          false,
+          "E-mail alerts: new results and maturities in your countries"
+        ],
+        [
+          false,
+          "E-mail brief filtered on your markets"
+        ],
+        [
+          false,
+          "Watchlist and simulations saved across your devices"
+        ],
+        [
+          false,
+          "PDF sheet of your simulations, to show your intermediary"
+        ]
+      ]
+    },
+    {
+      "id": "professional",
+      "name": "Professional",
+      "who": "Brokers (SGI), asset managers, corporate treasurers, analysts",
+      "value": "Save hours of data entry: ready-to-use series, filtered exports and machine access.",
+      "price": "Range under consideration: $99 to $199 a month",
+      "features": [
+        [
+          true,
+          "Everything in Pro"
+        ],
+        [
+          false,
+          "Filtered Excel exports (country, period, maturity, type)"
+        ],
+        [
+          false,
+          "Read-only API, with a quota"
+        ],
+        [
+          false,
+          "Alerts as soon as the official result is online"
+        ],
+        [
+          false,
+          "Priority e-mail support"
+        ]
+      ]
+    },
+    {
+      "id": "institutional",
+      "name": "Institutional",
+      "who": "Banks, development institutions, regulators, media",
+      "value": "Bring a traceable source into your own tools and teams.",
+      "price": "On quotation",
+      "features": [
+        [
+          true,
+          "Everything in Professional"
+        ],
+        [
+          false,
+          "Several users, one invoice"
+        ],
+        [
+          false,
+          "High-volume API and service commitment"
+        ],
+        [
+          false,
+          "Embedding in your tools (white label)"
+        ],
+        [
+          false,
+          "Team training"
+        ]
+      ]
+    }
+  ]
 }
