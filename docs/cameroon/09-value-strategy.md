@@ -36,7 +36,7 @@
    0,2 % du budget, par une étude pour l'AMDC dont l'année de référence n'est pas connue
    [F-presse]. Le Cameroun a officiellement exporté 22,3 kg d'or, alors que ses partenaires
    déclarent plus de 15 t d'importations [F, ITIE].
-4. **Le Cameroun est suspendu de l'ITIE depuis mars 2024.** La prochaine validation est prévue en
+4. **Le Cameroun est suspendu de l'ITIE depuis le 29 février 2024 (décision 2024-17).** La prochaine validation est prévue en
    avril 2027 [F-presse]. C'est un indicateur clé de l'horizon Enable.
 5. **La Banque mondiale n'a pas de projet minier actif au Cameroun.** Le PRECASEM (P122153 :
    30 M USD, approuvé le 15/12/2011 ; financement additionnel P160917 : 26,9 M USD) est clos depuis
@@ -64,7 +64,7 @@
 | C3 | Séquence implicitement linéaire Enable → Develop → Transform | Des projets « Develop » sont déjà en cours en 2025-2026 : fer de Kribi-Lobé (Sinosteel, premières exportations reportées à juillet 2027), fer de Bipindi-Grand Zambi, bauxite de Minim-Martap (financement suspendu le 24/08/2026) [F-presse]. Une capacité « Transform » existe déjà avec l'électrolyse d'aluminium d'Edéa (ALUCAM) [F-presse ; capacité nominale de 100 kt/an selon des listes secondaires] | Présenter les horizons comme des **priorités dominantes** qui se chevauchent, pas comme des étapes successives |
 | C4 | « Transformations réalisables localement » sans base juridique | Le Code minier 2023 impose déjà au moins 15 % de transformation locale dans les conventions (art. 40), l'export d'or affiné (art. 117(3)) et 10 % de la quote-part d'or artisanal pour les transformateurs locaux (art. 27) [F] | Partir de ces obligations et mesurer leur **application** (indicateurs, section 8) |
 | C5 | Poids du secteur (implicite) | Les chiffres « 4,2 % du PIB / 32 % des exportations » concernent **toutes les industries extractives, pétrole compris**. Pour le minier seul, l'ordre de grandeur publié est d'environ 0,63 % du PIB [F-presse] | Toujours séparer « extractif » et « minier hors hydrocarbures » |
-| C6 | Données ITIE comme source normale | Le Cameroun est **suspendu de l'ITIE** depuis mars 2024 (score de validation 53, « fairly low ») [F]. Le rapport 2023 a été publié en décembre 2025 [F-presse] | Afficher le statut ITIE et ses limites dans tout tableau de recettes |
+| C6 | Données ITIE comme source normale | Le Cameroun est **suspendu de l'ITIE** depuis le 29 février 2024 (décision 2024-17) (score de validation 53, « fairly low ») [F]. Le rapport 2023 a été publié en décembre 2025 [F-presse] | Afficher le statut ITIE et ses limites dans tout tableau de recettes |
 | C7 | Socle de données : « PRECASEM … 18 000 échantillons, 300 sites » (repris en 09 via les livrables 01-02) | « 300 nouveaux sites (2014-2019) » est confirmé par la presse (déclaration ministérielle de 2019) [F-presse]. « 18 000 échantillons » n'a **pas été vérifié** dans cette recherche [?]. Le PRECASEM est **clos** (1/12/2021) et aucun projet Banque mondiale ne lui succède [F] | Écrire « PRECASEM (clos en 2021) » et marquer « 18 000 échantillons » comme non vérifié tant que la source n'est pas produite |
 | C8 | « Cameroon National Mineral Value Strategy » | Le titre peut être confondu avec un document officiel. Un mémorandum Cameroun-UE devait servir à élaborer « la stratégie minière nationale » (communiqué conjoint rapporté le 27/05/2024) [F-presse] | Garder « (proposition) » dans le titre, ajouter un avertissement en première page et éviter toute charte graphique officielle |
 
@@ -310,7 +310,7 @@ de 6 chaînes de valeur. Il sert aux groupes dont les livrables 01-08 sont incom
 | Industries extractives : 4,2 % du PIB, 32 % des exportations, 1 035,85 milliards FCFA collectés (2023) | Business in Cameroon, 12/12/2025 | Presse |
 | Minier seul : ~0,63 % du PIB, ~5 % des exportations, moins de 0,2 % du budget | Business in Cameroon, 09/07/2025 (étude AMDC) | Presse ; année de référence inconnue |
 | Or : 22,3 kg exportés officiellement contre plus de 15 t chez les partenaires | Page pays ITIE | Vérifié |
-| Suspension ITIE (mars 2024), score de 53 | Page ITIE ; Business in Cameroon | Vérifié / Presse |
+| Suspension ITIE (29 février 2024, décision 2024-17), score de 53 | Page ITIE ; Business in Cameroon | Vérifié / Presse |
 | Prochaine validation ITIE en avril 2027 | Business in Cameroon | Presse |
 | FMI : croissance de 4,6 % à moyen terme grâce à la diversification minière | FMI, PR 26/96 | Vérifié |
 | Rentes minérales nulles (2018-2021) ; minerais et métaux à 2,2 % des exportations (2023) | API Banque mondiale | Vérifié |
