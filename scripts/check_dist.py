@@ -29,7 +29,8 @@ def main() -> int:
     p.add_argument("--dist", type=Path, default=DIST)
     a = p.parse_args()
     d, errors = a.dist, []
-    for f in ("index.html", "plateforme.html", "veille.json", "simcalc.js", "netlify.toml", "donnees/auctions.csv"):
+    for f in ("index.html", "plateforme.html", "veille.json", "simcalc.js", "netlify.toml", "donnees/auctions.csv",
+              *(f"i18n/{lang}.json" for lang in ("fr", "en", "pt", "es", "ar"))):
         if not (d / f).is_file() or (d / f).stat().st_size == 0:
             errors.append(f"missing or empty: {f}")
     if errors:
@@ -47,6 +48,8 @@ def main() -> int:
         errors.append(f"as_of differ: {dates}")
     if a.as_of and plat.get("as_of") != a.as_of:
         errors.append(f"as_of is {plat.get('as_of')}, expected {a.as_of}")
+    if "'unsafe-inline'" in (d / "netlify.toml").read_text().split("script-src", 1)[-1].split(";", 1)[0]:
+        errors.append("CSP script-src still allows 'unsafe-inline'")
     if not (plat.get("data") or {}).get("real_auctions"):
         errors.append("no verified auction in the build")
     print("\n".join(errors) if errors else f"site/dist OK: as_of {plat.get('as_of')}, {plat['data']['real_auctions']} verified auctions")

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Africa Bonds Monitor</title>
+<title>Africa Bonds Monitor · titres publics africains et sources officielles</title>
 <meta name="description" content="Veille des titres publics souverains des 54 pays africains : enchères, signaux tracés jusqu'à leur source, murs de refinancement. Données de démonstration synthétiques.">
 <meta name="robots" content="noindex">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -550,7 +550,8 @@ table.list.au { min-width: 900px; }
 .secnav a { color: var(--muted); text-decoration: none; white-space: nowrap; padding: 2px 0; border-bottom: 2px solid transparent; }
 .secnav a:hover { color: var(--lapis); }
 .secnav a[aria-current="true"] { color: var(--lapis); border-bottom-color: var(--gold); }
-.secnav .ng, .mast nav .ng { font: 600 10px/1 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--gold-ink); white-space: nowrap; align-self: center; padding-inline-start: 6px; border-inline-start: 1px solid var(--line); }
+.secnav .ng { color: var(--gold-ink); }
+.secnav .ng, .mast nav .ng { font: 600 10px/1 var(--body); letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; align-self: center; padding-inline-start: 6px; border-inline-start: 1px solid var(--line); }
 .secnav .ng:first-child { border: 0; padding: 0; }
 .secnav .ng:empty { min-height: 12px; }
 /* Compare & access */
@@ -617,6 +618,7 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
 </style>
 </head>
 <body>
+<noscript><p style="margin:0;padding:10px 16px;background:#fbf7ee;color:#1a1712;border-bottom:2px solid #c9a24a;font:14px/1.5 sans-serif">Les textes s'affichent sans JavaScript ; les chiffres, tableaux, simulateurs, filtres et autres langues en ont besoin. <a href="/donnees/fr.html">Données vérifiées (CSV)</a></p></noscript>
 <a class="skip" href="#main" data-i="ui.skip"></a>
 <div class="banner" id="banner"><div class="wrap banner-in"><div id="banner-text" class="clamp"></div><button type="button" class="banner-more" id="banner-more" aria-expanded="false" aria-controls="banner-text"></button></div></div>
 
@@ -757,17 +759,172 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
     </div>
   </section>
 
+  <section id="glossaire">
+    <div class="wrap">
+      <span class="eyebrow" data-i="gl.eyebrow"></span>
+      <h2 data-i="gl.title"></h2>
+      <p class="lede" data-i="gl.lede"></p>
+      <div class="gfilter"><input id="gq" type="search" data-ia="placeholder:gl.search;aria-label:gl.search"></div>
+      <dl class="gloss" id="gloss"></dl>
+    </div>
+  </section>
+
+  <section id="methode">
+    <div class="wrap">
+      <span class="eyebrow" data-i="m.eyebrow"></span>
+      <h2 data-i="m.title"></h2>
+      <p class="lede" data-i="m.lede"></p>
+      <div class="pipe">
+        <div class="step"><span class="n">I</span><h3 data-i="m.s1.t"></h3><p data-i="m.s1.p"></p><span class="state on" data-i="m.s1.s"></span></div>
+        <div class="step"><span class="n">II</span><h3 data-i="m.s2.t"></h3><p data-i="m.s2.p"></p><span class="state next" data-i="m.s2.s"></span></div>
+        <div class="step"><span class="n">III</span><h3 data-i="m.s3.t"></h3><p data-i="m.s3.p"></p><span class="state on" data-i="m.s3.s"></span></div>
+        <div class="step"><span class="n">IV</span><h3 data-i="m.s4.t"></h3><p data-i="m.s4.p"></p><span class="state on" data-i="m.s4.s"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sources">
+    <div class="wrap">
+      <span class="eyebrow" data-i="src.eyebrow"></span>
+      <h2><span data-i="src.title"></span><span id="src-f"></span></h2>
+      <p class="lede" id="src-lede"></p>
+      <div class="scroll" style="margin-top:20px"><table class="list" id="srcs"></table></div>
+      <details class="more"><summary id="cb-sum"></summary><div class="cb" id="cb"></div></details>
+    </div>
+  </section>
+
+  <section id="brief">
+    <div class="wrap">
+      <span class="eyebrow" data-i="br.eyebrow"></span>
+      <h2><span data-i="br.title"></span><span id="br-f"></span></h2>
+      <p class="lede" id="br-lede"></p>
+      <div class="vstats" id="br-stats"></div>
+      <div class="scroll" style="margin-top:16px"><table class="list" id="br-list" style="min-width:620px"></table></div>
+      <h3 class="br-h" data-i="br.maturing.title"></h3>
+      <ul class="br-mat" id="br-mat"></ul>
+      <p class="note"><span data-i="br.email"></span> <a href="brief/fr.html" lang="fr">Français</a> · <a href="brief/en.html" lang="en">English</a> · <a href="#offres" data-i="br.subscribe"></a></p>
+      <p class="note" data-i="br.legal"></p>
+    </div>
+  </section>
+
+  <section id="rapports">
+    <div class="wrap">
+      <span class="eyebrow" data-i="rp.eyebrow"></span>
+      <h2 data-i="rp.title"></h2>
+      <p class="lede" data-i="rp.lede"></p>
+      <div class="scroll" style="margin-top:20px"><table class="list" id="rp-list" style="min-width:560px"></table></div>
+      <p class="note" data-i="rp.full"></p>
+      <p id="rp-buy"></p>
+      <p class="note" data-i="rp.legal"></p>
+    </div>
+  </section>
+
+  <section id="veille">
+    <div class="wrap">
+      <span class="eyebrow" data-i="v.eyebrow"></span>
+      <h2><span data-i="v.title"></span><span id="v-f"></span></h2>
+      <p class="lede" id="v-lede"></p>
+      <div class="vstats" id="v-stats"></div>
+      <div class="vgrid">
+        <div class="panel"><div class="panel-h"><span class="eyebrow" data-i="v.feed"></span><span class="eyebrow" id="v-feed-n"></span></div><div class="panel-b"><ul class="feed" id="v-feed"></ul></div></div>
+        <div class="panel"><div class="panel-h"><span class="eyebrow" data-i="v.pages"></span><span class="eyebrow" id="v-run"></span></div><div class="panel-b scroll"><table class="list" id="v-pages" style="min-width:520px"></table></div></div>
+      </div>
+      <details class="more"><summary data-i="v.hist"></summary><div class="scroll"><table class="list" id="v-hist" style="min-width:520px"></table></div></details>
+    </div>
+  </section>
+
+  <section id="simulateur">
+    <div class="wrap">
+      <span class="eyebrow" data-i="sim.eyebrow"></span>
+      <h2><span data-i="sim.title"></span><span id="sim-f"></span></h2>
+      <p class="lede" data-i="sim.lede"></p>
+      <div class="simwrap">
+        <form class="form" id="sim">
+          <label class="wide"><span data-i="sim.op"></span><select id="s-op"></select></label>
+          <label class="wide"><span data-i="sim.kind"></span><select id="s-kind"><option value="bill" data-i="sim.kind.bill"></option><option value="bond" data-i="sim.kind.bond"></option></select></label>
+          <label><span><span data-i="sim.nominal"></span> <span id="s-curl"></span></span><input id="s-nom" type="number" min="0" max="1000000000000" step="any" value="10000000"></label>
+          <label><span data-i="sim.yield"></span><input id="s-yld" type="number" min="0" max="100" step="0.01" value="8"></label>
+          <label data-k="bill"><span data-i="sim.days"></span><input id="s-days" type="number" min="1" max="3650" step="1" value="182"></label>
+          <label data-k="bill"><span data-i="sim.basis"></span><select id="s-basis"><option value="360">360</option><option value="364">364</option><option value="365">365</option></select></label>
+          <label data-k="bill" class="wide"><span data-i="sim.conv"></span><select id="s-conv"><option value="yield" data-i="sim.conv.yield"></option><option value="discount" data-i="sim.conv.discount"></option></select></label>
+          <label data-k="bond"><span data-i="sim.years"></span><input id="s-years" type="number" min="1" max="40" step="1" value="3"></label>
+          <label data-k="bond"><span data-i="sim.coupon"></span><input id="s-cpn" type="number" min="0" step="0.01" value="8"></label>
+          <label><span data-i="sim.fee"></span><input id="s-fee" type="number" min="0" step="0.01" value="0"></label>
+          <label><span data-i="sim.tax"></span><input id="s-tax" type="number" min="0" max="100" step="0.5" value="0"></label>
+        </form>
+        <div class="simout" id="simout" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="comparer">
+    <div class="wrap">
+      <span class="eyebrow" data-i="cmp.eyebrow"></span>
+      <h2 data-i="cmp.title"></h2>
+      <p class="lede" data-i="cmp.lede"></p>
+      <div class="panel" style="padding:10px 14px;margin-bottom:12px"><strong data-i="cmp.watch.title"></strong> <span id="wl-list"></span> <span class="note" data-i="cmp.watch.note"></span></div>
+      <form class="form" id="cmp-form">
+        <fieldset class="wide" style="border:0;padding:0;margin:0"><legend data-i="cmp.countries" style="font-size:13px;color:var(--muted)"></legend><div class="cmp-c" id="cmp-c"></div><p class="note" id="cmp-msg" role="status"></p></fieldset>
+        <label><span data-i="cmp.amount"></span><input id="cmp-amt" type="number" min="1000" step="1000" value="1000000" inputmode="numeric"></label>
+        <label><span data-i="cmp.horizon"></span><select id="cmp-h"></select></label>
+      </form>
+      <div id="cmp-out"></div><p class="sr" role="status" id="cmp-st"></p>
+      <p class="warnbox" data-i="sim2.disclaimer"></p>
+      <p class="note" data-i="cmp.norisk"></p>
+      <div class="sub">
+        <span class="eyebrow" data-i="cmp.y3.title"></span>
+        <div class="y3"><div data-i="cmp.y3.coupon"></div><div data-i="cmp.y3.ytm"></div><div data-i="cmp.y3.total"></div></div>
+        <p class="note" data-i="cmp.y3.ex"></p>
+      </div>
+      <div class="sub">
+        <span class="eyebrow" data-i="cmp.goal.title"></span>
+        <p class="lede" data-i="cmp.goal.lede"></p>
+        <form class="form">
+          <label><span data-i="cmp.goal.capital"></span><input id="g-cap" type="number" min="0" step="any" value="2000000" inputmode="decimal"></label>
+          <label><span data-i="cmp.goal.target"></span><input id="g-tgt" type="number" min="0" step="any" value="10000000" inputmode="decimal"></label>
+          <label><span data-i="cmp.goal.years"></span><input id="g-yrs" type="number" min="1" max="40" step="1" value="5"></label>
+          <label><span data-i="cmp.goal.rate"></span><input id="g-rate" type="number" min="0" max="40" step="0.01" value="7"></label>
+          <p class="wide note" id="g-use" style="margin:0"></p>
+        </form>
+        <p id="g-out" aria-live="polite" style="font-size:17px"></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="strategie">
+    <div class="wrap">
+      <span class="eyebrow" data-i="st.eyebrow"></span>
+      <h2 data-i="st.title"></h2>
+      <p class="lede" data-i="st.lede"></p>
+      <div class="sub"><h3 data-i="st.levers"></h3><div class="levers" id="levers"></div></div>
+      <ul class="limits" id="limits"></ul>
+      <div class="sub">
+        <h3><span data-i="st.pf.title"></span> <span class="kind-tag calc" data-i="kind.calc"></span> <span class="kind-tag syn syn-only" data-i="kind.syn"></span></h3>
+        <p class="lede" data-i="st.pf.lede"></p>
+        <div class="pf">
+          <div><div class="scroll"><table id="pf-rows"></table></div><p><button type="button" class="btn ghost" id="pf-add" style="color:var(--lapis);border-color:var(--line)" data-i="st.pf.add"></button></p></div>
+          <div class="simout" id="pf-out" aria-live="polite"></div>
+        </div>
+      </div>
+      <div class="sub">
+        <h3><span data-i="st.coop"></span> <span class="kind-tag ai" data-i="kind.ai"></span></h3>
+        <p class="lede" data-i="st.coop.lede"></p>
+        <div class="coops" id="coops"></div>
+      </div>
+    </div>
+  </section>
+
   <section id="acces">
     <div class="wrap">
       <span class="eyebrow" data-i="acc.eyebrow"></span>
       <h2 data-i="acc.title"></h2>
       <p class="lede" data-i="acc.lede"></p>
-      <form class="form" onsubmit="return false" style="max-width:420px"><label><span data-i="acc.country"></span><select id="acc-c"></select></label></form>
+      <form class="form" style="max-width:420px"><label><span data-i="acc.country"></span><select id="acc-c"></select></label></form>
       <div id="acc-how" aria-live="polite"></div>
       <div class="sub" id="acc-dir-sub">
         <span class="eyebrow" data-i="acc.dir.title"></span>
         <p class="lede" data-i="acc.dir.lede"></p>
-        <form class="form" onsubmit="return false">
+        <form class="form">
           <label><span data-i="acc.country"></span><select id="acc-fc"></select></label>
           <label><span data-i="acc.dir.kind"></span><select id="acc-fk"></select></label>
           <label class="wide"><span data-i="acc.dir.q"></span><input id="acc-fq" type="search" autocomplete="off" maxlength="80"></label>
@@ -790,7 +947,7 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
 
       <div class="sub">
         <span class="eyebrow" data-i="buy.find.eyebrow"></span>
-        <form class="form" id="bfind" onsubmit="return false" style="margin-top:10px">
+        <form class="form" id="bfind" style="margin-top:10px">
           <label><span data-i="f.currency"></span><select id="b-cur"></select></label>
           <label><span data-i="f.maturity"></span><select id="b-mat"></select></label>
           <label><span data-i="f.minyield"></span><input id="b-yld" type="number" min="0" step="0.5" placeholder="8"></label>
@@ -824,64 +981,6 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
     </div>
   </section>
 
-  <section id="simulateur">
-    <div class="wrap">
-      <span class="eyebrow" data-i="sim.eyebrow"></span>
-      <h2><span data-i="sim.title"></span><span id="sim-f"></span></h2>
-      <p class="lede" data-i="sim.lede"></p>
-      <div class="simwrap">
-        <form class="form" id="sim" onsubmit="return false">
-          <label class="wide"><span data-i="sim.op"></span><select id="s-op"></select></label>
-          <label class="wide"><span data-i="sim.kind"></span><select id="s-kind"><option value="bill" data-i="sim.kind.bill"></option><option value="bond" data-i="sim.kind.bond"></option></select></label>
-          <label><span><span data-i="sim.nominal"></span> <span id="s-curl"></span></span><input id="s-nom" type="number" min="0" step="any" value="10000000"></label>
-          <label><span data-i="sim.yield"></span><input id="s-yld" type="number" step="0.01" value="8"></label>
-          <label data-k="bill"><span data-i="sim.days"></span><input id="s-days" type="number" min="1" max="3650" step="1" value="182"></label>
-          <label data-k="bill"><span data-i="sim.basis"></span><select id="s-basis"><option value="360">360</option><option value="364">364</option><option value="365">365</option></select></label>
-          <label data-k="bill" class="wide"><span data-i="sim.conv"></span><select id="s-conv"><option value="yield" data-i="sim.conv.yield"></option><option value="discount" data-i="sim.conv.discount"></option></select></label>
-          <label data-k="bond"><span data-i="sim.years"></span><input id="s-years" type="number" min="1" max="40" step="1" value="3"></label>
-          <label data-k="bond"><span data-i="sim.coupon"></span><input id="s-cpn" type="number" min="0" step="0.01" value="8"></label>
-          <label><span data-i="sim.fee"></span><input id="s-fee" type="number" min="0" step="0.01" value="0"></label>
-          <label><span data-i="sim.tax"></span><input id="s-tax" type="number" min="0" max="100" step="0.5" value="0"></label>
-        </form>
-        <div class="simout" id="simout" aria-live="polite"></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="comparer">
-    <div class="wrap">
-      <span class="eyebrow" data-i="cmp.eyebrow"></span>
-      <h2 data-i="cmp.title"></h2>
-      <p class="lede" data-i="cmp.lede"></p>
-      <div class="panel" style="padding:10px 14px;margin-bottom:12px"><strong data-i="cmp.watch.title"></strong> <span id="wl-list"></span> <span class="note" data-i="cmp.watch.note"></span></div>
-      <form class="form" id="cmp-form" onsubmit="return false">
-        <fieldset class="wide" style="border:0;padding:0;margin:0"><legend data-i="cmp.countries" style="font-size:13px;color:var(--muted)"></legend><div class="cmp-c" id="cmp-c"></div><p class="note" id="cmp-msg" role="status"></p></fieldset>
-        <label><span data-i="cmp.amount"></span><input id="cmp-amt" type="number" min="1000" step="1000" value="1000000" inputmode="numeric"></label>
-        <label><span data-i="cmp.horizon"></span><select id="cmp-h"></select></label>
-      </form>
-      <div id="cmp-out"></div><p class="sr" role="status" id="cmp-st"></p>
-      <p class="warnbox" data-i="sim2.disclaimer"></p>
-      <p class="note" data-i="cmp.norisk"></p>
-      <div class="sub">
-        <span class="eyebrow" data-i="cmp.y3.title"></span>
-        <div class="y3"><div data-i="cmp.y3.coupon"></div><div data-i="cmp.y3.ytm"></div><div data-i="cmp.y3.total"></div></div>
-        <p class="note" data-i="cmp.y3.ex"></p>
-      </div>
-      <div class="sub">
-        <span class="eyebrow" data-i="cmp.goal.title"></span>
-        <p class="lede" data-i="cmp.goal.lede"></p>
-        <form class="form" onsubmit="return false">
-          <label><span data-i="cmp.goal.capital"></span><input id="g-cap" type="number" min="0" step="any" value="2000000" inputmode="decimal"></label>
-          <label><span data-i="cmp.goal.target"></span><input id="g-tgt" type="number" min="0" step="any" value="10000000" inputmode="decimal"></label>
-          <label><span data-i="cmp.goal.years"></span><input id="g-yrs" type="number" min="1" max="40" step="1" value="5"></label>
-          <label><span data-i="cmp.goal.rate"></span><input id="g-rate" type="number" min="0" max="40" step="0.01" value="7"></label>
-          <p class="wide note" id="g-use" style="margin:0"></p>
-        </form>
-        <p id="g-out" aria-live="polite" style="font-size:17px"></p>
-      </div>
-    </div>
-  </section>
-
   <section id="parcours">
     <div class="wrap">
       <span class="eyebrow" data-i="pc.eyebrow"></span>
@@ -889,7 +988,7 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
       <p class="lede" data-i="pc.lede"></p>
       <p class="warnbox" data-i="pc.notadvice"></p>
       <div id="pc-gate"></div>
-      <form class="form pc-form" id="pc-form" onsubmit="return false">
+      <form class="form pc-form" id="pc-form">
         <fieldset class="wide"><legend data-i="pc.s1"></legend>
           <div class="pc-row">
             <label><span data-i="pc.res"></span><select id="pc-res"></select></label>
@@ -923,56 +1022,6 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
         <label class="wide chk"><input type="checkbox" name="consentement" value="oui" required><span data-i="pc.ct.consent"></span></label>
         <div class="wide"><button type="submit" class="btn gold" data-i="pc.ct.send"></button> <span id="pc-contact-st" role="status"></span></div>
       </form>
-    </div>
-  </section>
-
-
-  <section id="strategie">
-    <div class="wrap">
-      <span class="eyebrow" data-i="st.eyebrow"></span>
-      <h2 data-i="st.title"></h2>
-      <p class="lede" data-i="st.lede"></p>
-      <div class="sub"><h3 data-i="st.levers"></h3><div class="levers" id="levers"></div></div>
-      <ul class="limits" id="limits"></ul>
-      <div class="sub">
-        <h3><span data-i="st.pf.title"></span> <span class="kind-tag calc" data-i="kind.calc"></span> <span class="kind-tag syn syn-only" data-i="kind.syn"></span></h3>
-        <p class="lede" data-i="st.pf.lede"></p>
-        <div class="pf">
-          <div><div class="scroll"><table id="pf-rows"></table></div><p><button type="button" class="btn ghost" id="pf-add" style="color:var(--lapis);border-color:var(--line)" data-i="st.pf.add"></button></p></div>
-          <div class="simout" id="pf-out" aria-live="polite"></div>
-        </div>
-      </div>
-      <div class="sub">
-        <h3><span data-i="st.coop"></span> <span class="kind-tag ai" data-i="kind.ai"></span></h3>
-        <p class="lede" data-i="st.coop.lede"></p>
-        <div class="coops" id="coops"></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="brief">
-    <div class="wrap">
-      <span class="eyebrow" data-i="br.eyebrow"></span>
-      <h2><span data-i="br.title"></span><span id="br-f"></span></h2>
-      <p class="lede" id="br-lede"></p>
-      <div class="vstats" id="br-stats"></div>
-      <div class="scroll" style="margin-top:16px"><table class="list" id="br-list" style="min-width:620px"></table></div>
-      <h3 class="br-h" data-i="br.maturing.title"></h3>
-      <ul class="br-mat" id="br-mat"></ul>
-      <p class="note"><span data-i="br.email"></span> <a href="brief/fr.html" lang="fr">Français</a> · <a href="brief/en.html" lang="en">English</a> · <a href="#offres" data-i="br.subscribe"></a></p>
-      <p class="note" data-i="br.legal"></p>
-    </div>
-  </section>
-
-  <section id="rapports">
-    <div class="wrap">
-      <span class="eyebrow" data-i="rp.eyebrow"></span>
-      <h2 data-i="rp.title"></h2>
-      <p class="lede" data-i="rp.lede"></p>
-      <div class="scroll" style="margin-top:20px"><table class="list" id="rp-list" style="min-width:560px"></table></div>
-      <p class="note" data-i="rp.full"></p>
-      <p id="rp-buy"></p>
-      <p class="note" data-i="rp.legal"></p>
     </div>
   </section>
 
@@ -1053,56 +1102,6 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
     </div>
   </section>
 
-
-
-  <section id="glossaire">
-    <div class="wrap">
-      <span class="eyebrow" data-i="gl.eyebrow"></span>
-      <h2 data-i="gl.title"></h2>
-      <p class="lede" data-i="gl.lede"></p>
-      <div class="gfilter"><input id="gq" type="search" data-ia="placeholder:gl.search;aria-label:gl.search"></div>
-      <dl class="gloss" id="gloss"></dl>
-    </div>
-  </section>
-
-  <section id="methode">
-    <div class="wrap">
-      <span class="eyebrow" data-i="m.eyebrow"></span>
-      <h2 data-i="m.title"></h2>
-      <p class="lede" data-i="m.lede"></p>
-      <div class="pipe">
-        <div class="step"><span class="n">I</span><h3 data-i="m.s1.t"></h3><p data-i="m.s1.p"></p><span class="state on" data-i="m.s1.s"></span></div>
-        <div class="step"><span class="n">II</span><h3 data-i="m.s2.t"></h3><p data-i="m.s2.p"></p><span class="state next" data-i="m.s2.s"></span></div>
-        <div class="step"><span class="n">III</span><h3 data-i="m.s3.t"></h3><p data-i="m.s3.p"></p><span class="state on" data-i="m.s3.s"></span></div>
-        <div class="step"><span class="n">IV</span><h3 data-i="m.s4.t"></h3><p data-i="m.s4.p"></p><span class="state on" data-i="m.s4.s"></span></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="veille">
-    <div class="wrap">
-      <span class="eyebrow" data-i="v.eyebrow"></span>
-      <h2><span data-i="v.title"></span><span id="v-f"></span></h2>
-      <p class="lede" id="v-lede"></p>
-      <div class="vstats" id="v-stats"></div>
-      <div class="vgrid">
-        <div class="panel"><div class="panel-h"><span class="eyebrow" data-i="v.feed"></span><span class="eyebrow" id="v-feed-n"></span></div><div class="panel-b"><ul class="feed" id="v-feed"></ul></div></div>
-        <div class="panel"><div class="panel-h"><span class="eyebrow" data-i="v.pages"></span><span class="eyebrow" id="v-run"></span></div><div class="panel-b scroll"><table class="list" id="v-pages" style="min-width:520px"></table></div></div>
-      </div>
-      <details class="more"><summary data-i="v.hist"></summary><div class="scroll"><table class="list" id="v-hist" style="min-width:520px"></table></div></details>
-    </div>
-  </section>
-
-  <section id="sources">
-    <div class="wrap">
-      <span class="eyebrow" data-i="src.eyebrow"></span>
-      <h2><span data-i="src.title"></span><span id="src-f"></span></h2>
-      <p class="lede" id="src-lede"></p>
-      <div class="scroll" style="margin-top:20px"><table class="list" id="srcs"></table></div>
-      <details class="more"><summary id="cb-sum"></summary><div class="cb" id="cb"></div></details>
-    </div>
-  </section>
-
   <section id="feuille">
     <div class="wrap">
       <span class="eyebrow" data-i="r.eyebrow"></span>
@@ -1148,8 +1147,24 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
     const n = (navigator.language || "fr").slice(0, 2).toLowerCase();
     return LANGS.includes(n) ? n : "fr";
   };
-  let lang = pickLang(), L, PR, DN;
+  const WANT = pickLang();
+  let lang = "fr", L, PR, DN;
   const FR = D.i18n.fr;
+  // Only French is embedded; the other languages are fetched once, when chosen (dist/i18n/<lang>.json).
+  const I18N = { fr: FR };
+  async function loadLang(l) {
+    if (I18N[l]) return I18N[l];
+    try {
+      const r = await fetch(`i18n/${l}.json?v=${encodeURIComponent(D.i18n_v || "")}`);
+      if (!r.ok) throw new Error(String(r.status));
+      return (I18N[l] = await r.json());
+    } catch { return null; }
+  }
+  async function switchLang(l) {
+    if (!LANGS.includes(l) || !(await loadLang(l))) return false;
+    setLang(l); renderAll();
+    return true;
+  }
   // Data mode: "real" when no synthetic market data is loaded. Keys "<key>.real" then replace "<key>".
   const MODE = D.data && D.data.synthetic_auctions === 0 ? "real" : "synthetic";
   const pick = (k) => (MODE === "real" && (L[k + ".real"] ?? FR[k + ".real"]) !== undefined ? k + ".real" : k);
@@ -1162,7 +1177,7 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
   const tn = (k, n, v) => t(`${k}.${PR.select(n) === "one" ? "one" : "other"}`, { n: nf(n, 0), ...v });
   const M = (k) => { k = pick(k); return L[k] ?? FR[k]; };  // maps and lists
   function setLang(l) {
-    lang = l; L = D.i18n[l]; PR = new Intl.PluralRules(LOC[l]);
+    lang = l; L = I18N[l] || FR; PR = new Intl.PluralRules(LOC[l]);
     try { DN = new Intl.DisplayNames([LOC[l]], { type: "region" }); } catch { DN = null; }
     document.documentElement.lang = l;
     document.documentElement.dataset.mode = MODE;
@@ -1323,6 +1338,19 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
     }).join("");
     $("grid").innerHTML = head + `<tbody>${body || `<tr><td colspan="${b.length + 2}" class="empty">${esc(C ? t("mk.empty.title", { c: NAME(C) }) + ". " + t("mk.empty.short") : t("grid.empty"))}</td></tr>`}</tbody>`;
   }
+  // The engine writes its explanations in English from 4 fixed patterns; they are re-worded per
+  // language from the same numbers. Anything else stays in English, flagged as such.
+  const SX = [
+    [/^Weighted-average yield moved ([-+]?[\d.]+) bp versus the previous (\w+) auction \((\d{4}-\d{2}-\d{2})\)\.$/, (m) => t("sx.move", { bp: (Number(m[1]) > 0 ? "+" : "") + nf(m[1], 1), t: m[2], d: date(m[3]) })],
+    [/^WA yield of ([\d.]+)% is above ([\d.]+)% of the (\d+) previous (\w+) auctions in the last (\d+) days\. Higher yield is not a recommendation and usually reflects risk\.$/, (m) => t("sx.high", { y: pct(m[1], 3), p: pct(m[2], 0), n: nf(m[3], 0), t: m[4], days: nf(m[5], 0) })],
+    [/^The (\w+) auction yield is ([-+]?[\d.]+) bp above the (\w+) yield \(latest auctions of each tenor\)\.$/, (m) => t("sx.curve", { a: m[1], bp: nf(m[2], 1), b: m[3] })],
+    [/^([\d.]+)% of tracked maturities in the next 12 months fall due in (\d{4})-(\d{2}) \((\d+) securities\)\.$/, (m) => t("sx.refi", { s: pct(m[1], 1), m: new Date(Date.UTC(+m[2], +m[3] - 1, 1)).toLocaleDateString(LOC[lang], { month: "long", year: "numeric", timeZone: "UTC" }), n: nf(m[4], 0) })],
+  ];
+  function explain(o) {
+    const e = String(o.explanation ?? "");
+    if (lang !== "en") for (const [re, f] of SX) { const m = e.match(re); if (m) return `<p class="expl">${esc(f(m))}</p>`; }
+    return `<p class="expl" lang="en">${esc(e)}</p>${enNote()}`;
+  }
   function passport(o) {
     const p = o.evidence;
     const facts = p.facts.map((f) => `<li><span class="nat ${esc(f.data_nature)}">${esc(M("nature")[f.data_nature] ?? f.data_nature)}</span><span lang="en">${esc(f.label)}</span> : <strong class="num">${esc(factVal(f))}</strong>${f.auction_date ? ` · ${esc(t("grid.auction"))} ${date(f.auction_date)}` : ""}${f.source ? ` · ${esc(f.source)}` : ""}</li>`).join("");
@@ -1347,7 +1375,7 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
         <div><dt>${esc(up ? t("col.auctiondate") : t("col.date"))}</dt><dd class="num">${date(o.auction_date) ?? "—"}</dd></div>
         <div><dt title="${esc(up ? t("ref.tip") : "")}">${esc(up ? t("col.refyield") : t("col.yield"))}</dt><dd class="num"><strong>${pct(o.yield_pct) ?? t("nd")}</strong></dd></div>
       </dl>
-      <p class="expl" lang="en">${esc(o.explanation)}</p>${enNote()}
+      ${explain(o)}
       <div class="intensity">${[o.strength ? `${esc(t("strength"))} : <strong class="num">${nf(o.strength, 2)}×</strong>` : "", ...o.risk_flags.map((f) => esc(M("flag")[f] ?? f))].filter(Boolean).join(" · ")}</div>
       ${passport(o)}</article>`;
   }
@@ -1534,7 +1562,9 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
     const N = num("s-nom"), y = num("s-yld") / 100, fee = (num("s-fee") || 0) / 100, tax = (num("s-tax") || 0) / 100;
     const out = $("simout");
     const head = `<div class="tags"><span class="kind-tag calc">${esc(t("kind.calc"))}</span>${o?.is_synthetic ? ` <span class="kind-tag syn">${esc(t("kind.syn"))}</span>` : ""}</div>`;
-    if (!(N > 0) || isNaN(y) || y < 0 || fee < 0 || tax < 0 || tax > 1) { out.innerHTML = head + `<p class="warnbox">${esc(t("sim.err"))}</p>`; return; }
+    const outOfRange = [...document.querySelectorAll("#sim input[type=number]")].some((i) => !i.closest("[hidden]") && i.value !== ""
+      && ((i.min !== "" && Number(i.value) < Number(i.min)) || (i.max !== "" && Number(i.value) > Number(i.max))));
+    if (outOfRange || !(N > 0) || isNaN(y) || y < 0 || fee < 0 || tax < 0 || tax > 1) { out.innerHTML = head + `<p class="warnbox">${esc(t("sim.err"))}</p>`; return; }
     const kp = (k, v, cls = "") => `<div class="${cls}"><span>${esc(k)}</span><b>${v}</b></div>`;
     const m = (v) => money(v, cur, 0);
     let html = head + (o ? `<p class="note" style="margin:6px 0 0">${esc(t("sim.op.note", { c: NAME(o.country_iso3), d: date(o.auction_date) }))}</p>` : "");
@@ -1887,7 +1917,7 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
   $("pc-form").addEventListener("input", (e) => {
     const el = e.target;
     if (el.id === "pc-res") PC.res = el.value; else if (el.id === "pc-cur") PC.cur = el.value; else if (el.id === "pc-hz") PC.hz = el.value;
-    else if (el.id === "pc-total") PC.total = el.value;
+    else if (el.id === "pc-total") { if (Number(el.value) < 0) el.value = "0"; PC.total = el.value; }
     else if (el.dataset.pcc) { PC.c = el.checked ? [...new Set([...PC.c, el.dataset.pcc])] : PC.c.filter((c) => c !== el.dataset.pcc); if (!el.checked) delete PC.a[el.dataset.pcc]; renderPcAlloc(); }
     else if (el.dataset.pca) PC.a[el.dataset.pca] = el.value;
     if (el.id === "pc-total" || el.dataset.pca) renderPcAlloc();
@@ -2731,6 +2761,8 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
   });
 
   // ---------- Wiring
+  // Filter forms have no submit target: Enter must not reload the page (no inline handlers: strict CSP).
+  document.querySelectorAll("main form:not([name])").forEach((f) => f.addEventListener("submit", (e) => e.preventDefault()));
   function renderCountryViews() {
     renderCountryBar(); renderTape(); renderTiles(); renderProfile(); renderGrid(); renderSignals(); renderWall();
     renderMarket(); renderBvmac(); renderBrief(); renderBuyers(); renderSimOps(); computeSim(); renderVeille(); renderSources(); renderAccess();
@@ -2747,7 +2779,7 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
   }
   $("gsel").addEventListener("change", (e) => setCountry(e.target.value));
   $("gall").addEventListener("click", () => setCountry(""));
-  $("langs").addEventListener("click", (e) => { const b = e.target.closest("[data-lang]"); if (b && b.dataset.lang !== lang) { setLang(b.dataset.lang); renderAll(); } });
+  $("langs").addEventListener("click", (e) => { const b = e.target.closest("[data-lang]"); if (b && b.dataset.lang !== lang) switchLang(b.dataset.lang); });
   ["b-cur", "b-mat", "b-yld", "b-up"].forEach((id) => $(id).addEventListener("input", renderBuyerMatches));
   if (MODE === "real") $("b-up").value = "0";
   $("s-op").addEventListener("change", (e) => loadOp(e.target.value));
@@ -2814,12 +2846,13 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
     if (ty) { type = ty.dataset.t; renderSignals(); }
   });
 
-  setLang(lang);
+  setLang("fr");
   renderAll();
+  if (WANT !== "fr") switchLang(WANT);
   initAuth();
   window.addEventListener("hashchange", () => { if (/access_token=|error_description=/.test(location.hash)) initAuth(); });  // sign-in link opened in this same tab
   initNav();
-  window.__cartouche = { setCountry, setLang: (l) => { setLang(l); renderAll(); }, openSearch, ensureMarket, market: () => ({ AU, curvePoints, volData, ovPoints }) };  // used by the site checks
+  window.__cartouche = { setCountry, setLang: (l) => switchLang(l), openSearch, ensureMarket, market: () => ({ AU, curvePoints, volData, ovPoints }) };  // used by the site checks
 })();
 </script>
 </body>

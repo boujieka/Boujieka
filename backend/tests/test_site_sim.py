@@ -131,3 +131,23 @@ def test_auth_config_off_without_key(monkeypatch):
 def test_simcalc_js():
     r = subprocess.run(["node", "--test", str(SITE / "tests" / "simcalc.test.js")], capture_output=True, text=True, timeout=120)
     assert r.returncode == 0, r.stdout[-3000:] + r.stderr[-2000:]
+
+
+def test_prerender_fills_markup_but_never_scripts():
+    html = ('<h1 data-ih="a"></h1><p data-i="b"></p><span data-i="missing"></span><b data-country="SEN"></b>'
+            '<script>const x = `<p data-i="b"></p>`;</script>')
+    out = build.prerender(html, {"a": "<em>A</em>", "b": "x < y", "b.real": "réel"}, real=True, names={"SEN": "Sénégal"})
+    assert '<h1 data-ih="a"><em>A</em></h1>' in out and '<p data-i="b">réel</p>' in out
+    assert '<span data-i="missing"></span>' in out and '<b data-country="SEN">Sénégal</b>' in out
+    assert out.endswith('<script>const x = `<p data-i="b"></p>`;</script>')  # script body untouched
+    assert "x &lt; y" in build.prerender('<p data-i="b"></p>', {"b": "x < y"})
+
+
+def test_csp_hashes_cover_inline_scripts_only(tmp_path, monkeypatch):
+    import base64
+    import hashlib
+
+    monkeypatch.setattr(build, "DIST", tmp_path)
+    (tmp_path / "a.html").write_text('<script>run()</script><script src="/x.js"></script><script type="application/json">{}</script>')
+    want = "'sha256-" + base64.b64encode(hashlib.sha256(b"run()").digest()).decode() + "'"
+    assert build.inline_script_hashes() == [want]

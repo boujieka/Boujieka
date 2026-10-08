@@ -1,5 +1,5 @@
 {
-  "doc.title": "Africa Bonds Monitor",
+  "doc.title": "Africa Bonds Monitor · titres publics africains et sources officielles",
   "doc.desc": "Veille des titres publics souverains des 54 pays africains : adjudications, signaux tracés jusqu'à leur source, échéanciers de refinancement, accès des investisseurs. Données de marché de démonstration synthétiques.",
   "banner": "<strong>DONNÉES DE DÉMONSTRATION</strong> · Les chiffres de marché de ce site (taux, montants, adjudications) sont <strong>synthétiques</strong> : ils sont générés pour le développement de la plateforme, ne décrivent aucun marché réel et ne doivent servir à aucune décision d'investissement.",
   "brand.home": "Africa Bonds Monitor, accueil",
@@ -1394,5 +1394,9 @@
   "sim2.badamt": "Indiquez un montant supérieur à 0 (1 000 milliards au plus).",
   "ui.skip": "Aller au contenu",
   "nav.label2": "Sections de la page",
-  "home.fact": "Fait"
+  "home.fact": "Fait",
+  "sx.move": "Le rendement moyen pondéré a varié de {bp} pb par rapport à l'adjudication {t} précédente ({d}).",
+  "sx.high": "Le rendement moyen pondéré de {y} dépasse celui de {p} des {n} adjudications {t} précédentes des {days} derniers jours. Un rendement plus élevé n'est pas une recommandation : il reflète en général un risque.",
+  "sx.curve": "Le rendement de l'adjudication {a} dépasse de {bp} pb celui du {b} (dernières adjudications de chaque maturité).",
+  "sx.refi": "{s} des échéances suivies des 12 prochains mois tombent en {m} ({n} titres)."
 }

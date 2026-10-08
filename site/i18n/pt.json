@@ -1,5 +1,5 @@
 {
-  "doc.title": "Africa Bonds Monitor",
+  "doc.title": "Africa Bonds Monitor · títulos públicos africanos e fontes oficiais",
   "doc.desc": "Acompanhamento dos títulos de dívida pública soberana dos 54 países africanos: leilões, sinais rastreados até à fonte, calendários de refinanciamento, acesso dos investidores. Dados de mercado de demonstração sintéticos.",
   "banner": "<strong>DADOS DE DEMONSTRAÇÃO</strong> · Os valores de mercado deste site (taxas, montantes, leilões) são <strong>sintéticos</strong>: são gerados para o desenvolvimento da plataforma, não descrevem nenhum mercado real e não devem servir para nenhuma decisão de investimento.",
   "brand.home": "Africa Bonds Monitor, início",
@@ -1486,5 +1486,9 @@
   "sim2.badamt": "Indique um montante superior a 0 (no máximo 1 000 mil milhões).",
   "ui.skip": "Ir para o conteúdo",
   "nav.label2": "Secções da página",
-  "home.fact": "Facto"
+  "home.fact": "Facto",
+  "sx.move": "O rendimento médio ponderado variou {bp} pb face ao leilão {t} anterior ({d}).",
+  "sx.high": "O rendimento médio ponderado de {y} supera o de {p} dos {n} leilões {t} anteriores dos últimos {days} dias. Um rendimento mais alto não é uma recomendação: reflete em geral um risco.",
+  "sx.curve": "O rendimento do leilão {a} supera em {bp} pb o do {b} (últimos leilões de cada maturidade).",
+  "sx.refi": "{s} dos vencimentos acompanhados nos próximos 12 meses ocorrem em {m} ({n} títulos)."
 }

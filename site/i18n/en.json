@@ -1,5 +1,5 @@
 {
-  "doc.title": "Africa Bonds Monitor",
+  "doc.title": "Africa Bonds Monitor · African government securities and official sources",
   "doc.desc": "Monitoring of sovereign government securities in all 54 African countries: auctions, signals traced back to their source, refinancing schedules, investor access. Synthetic demonstration market data.",
   "banner": "<strong>DEMONSTRATION DATA</strong> · Market figures on this site (yields, amounts, auctions) are <strong>synthetic</strong>: they are generated to develop the platform, describe no real market and must not be used for any investment decision.",
   "brand.home": "Africa Bonds Monitor, home",
@@ -1486,5 +1486,9 @@
   "sim2.badamt": "Enter an amount above 0 (1,000 billion at most).",
   "ui.skip": "Skip to content",
   "nav.label2": "Page sections",
-  "home.fact": "Fact"
+  "home.fact": "Fact",
+  "sx.move": "Weighted-average yield moved {bp} bp versus the previous {t} auction ({d}).",
+  "sx.high": "WA yield of {y} is above {p} of the {n} previous {t} auctions in the last {days} days. Higher yield is not a recommendation and usually reflects risk.",
+  "sx.curve": "The {a} auction yield is {bp} bp above the {b} yield (latest auctions of each tenor).",
+  "sx.refi": "{s} of tracked maturities in the next 12 months fall due in {m} ({n} securities)."
 }

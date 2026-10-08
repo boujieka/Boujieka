@@ -245,6 +245,51 @@ def _embed(obj) -> str:
     return json.dumps(obj, ensure_ascii=False, separators=(",", ":"), allow_nan=False).replace("<", "\\u003c")
 
 
+def prerender(html: str, table: dict, real: bool = False, names: dict | None = None) -> str:
+    """Write the French strings into the static HTML (data-i text, data-ih trusted markup, data-country
+    names) so the pages read without JavaScript; the scripts then replace them per language."""
+    from html import escape
+
+    def text(key: str) -> str | None:
+        if real and isinstance(table.get(key + ".real"), str):
+            key += ".real"
+        v = table.get(key)
+        return v if isinstance(v, str) else None
+
+    def fill(m: re.Match, trusted: bool) -> str:
+        v = text(m.group(3))
+        return m.group(0) if v is None else m.group(1) + (v if trusted else escape(v, quote=False)) + m.group(4)
+
+    parts = re.split(r"(<script\b.*?</script>)", html, flags=re.S)  # never touch script bodies
+    for i in range(0, len(parts), 2):
+        parts[i] = _prerender_markup(parts[i], fill, names)
+    return "".join(parts)
+
+
+def _prerender_markup(html: str, fill, names: dict | None) -> str:
+    from html import escape
+
+    for attr, trusted in (("data-i", False), ("data-ih", True)):
+        html = re.sub(rf'(<(\w+)\b[^<>]*\s{attr}="([^"]+)"[^<>]*>)(</\2>)', lambda m, t=trusted: fill(m, t), html)
+    if names:
+        html = re.sub(r'(<(\w+)\b[^<>]*\sdata-country="([A-Z]{3})"[^<>]*>)(</\2>)',
+                      lambda m: m.group(1) + escape(names.get(m.group(3), m.group(3))) + m.group(4), html)
+    return html
+
+
+def write_i18n(tables: dict) -> str:
+    """Every language as its own file (dist/i18n/<lang>.json); the platform embeds French only and
+    fetches the others when chosen. Returns a short content version for cache busting."""
+    import hashlib
+
+    out = DIST / "i18n"
+    out.mkdir(parents=True, exist_ok=True)
+    blobs = {lang: json.dumps(t, ensure_ascii=False, separators=(",", ":"), allow_nan=False) for lang, t in tables.items()}
+    for lang, b in blobs.items():
+        (out / f"{lang}.json").write_text(b)
+    return hashlib.sha256("".join(blobs[k] for k in sorted(blobs)).encode()).hexdigest()[:12]
+
+
 def yield_points(as_of: date) -> dict:
     """For each country and horizon: the latest verified issuance auction of the last 12 months whose
     residual maturity falls in the horizon's window, with its published yield (FACT) and source.
@@ -307,7 +352,9 @@ def home_page(payload: dict) -> str:
         "sim_countries": sorted(payload["yield_points"]),
     }
     data = _embed(home)
-    return (ROOT / "home.html").read_text().replace("__MARKETS__", "\n".join(blocks)).replace("__HOME__", data)
+    page = (ROOT / "home.html").read_text().replace("__MARKETS__", "\n".join(blocks))
+    page = prerender(page, payload["i18n"]["fr"], names={k: v["name_fr"] for k, v in home["countries"].items()})
+    return page.replace("__HOME__", data)
 
 
 def bvmac_quotes(as_of: date | None = None) -> dict:
@@ -371,10 +418,26 @@ def _replace_once(text: str, old: str, new: str) -> str:
     return text.replace(old, new, 1)
 
 
+def inline_script_hashes() -> list[str]:
+    """CSP hashes of every inline executable <script> in the built pages, so the policy can drop
+    'unsafe-inline' for scripts (JSON data blocks are not executed and need none)."""
+    import base64
+    import hashlib
+
+    out = set()
+    for page in DIST.rglob("*.html"):
+        for attrs, body in re.findall(r"<script\b([^>]*)>(.*?)</script>", page.read_text(), re.S):
+            if "src=" in attrs or "application/json" in attrs:
+                continue
+            out.add("'sha256-" + base64.b64encode(hashlib.sha256(body.encode()).digest()).decode() + "'")
+    return sorted(out)
+
+
 def write_netlify(auth: dict | None) -> None:
     """netlify.toml for the deployed folder; with accounts on, the CSP lets the page reach Supabase
     and the download gate (site/edge/gate.js) is added as an edge function."""
     toml = (ROOT / "netlify.toml").read_text()
+    toml = _replace_once(toml, "script-src 'self' 'unsafe-inline';", "script-src 'self' " + " ".join(inline_script_hashes()) + ";")
     edge = DIST / "netlify"
     if edge.exists():
         shutil.rmtree(edge)
@@ -420,11 +483,18 @@ def main() -> None:
         veille = json.loads(args.veille.read_text())
         # Embed the report only; the comparison state stays in the downloadable veille.json.
         payload["veille"] = {k: v for k, v in veille.items() if k != "state"}
-    html = (ROOT / "template.html").read_text().replace("__DATA__", _embed(payload))
+    DIST.mkdir(exist_ok=True)
+    home = home_page(payload)  # needs every language (small subset); written below
+    tables = payload["i18n"]
+    payload["i18n_v"] = write_i18n(tables)
+    payload["i18n"] = {"fr": tables["fr"]}
+    real = (payload.get("data") or {}).get("synthetic_auctions") == 0
+    html = prerender((ROOT / "template.html").read_text(), tables["fr"], real=real)
+    html = html.replace("__DATA__", _embed(payload))
     DIST.mkdir(exist_ok=True)
     # The platform (all sections) lives at /plateforme.html; / is the home page (site/home.html).
     (DIST / "plateforme.html").write_text(html)
-    (DIST / "index.html").write_text(home_page(payload))
+    (DIST / "index.html").write_text(home)
     shutil.copy(ROOT.parent / "brand" / "favicon.svg", DIST / "favicon.svg")
     write_netlify(payload["auth"])
     shutil.copy(ROOT / "simcalc.js", DIST / "simcalc.js")  # simulator arithmetic shared by both pages

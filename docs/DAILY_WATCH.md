@@ -88,3 +88,15 @@ Each source runs independently, so one failure never blocks the others. The "Ing
 - `site/dist/index.html` is the home page (`site/home.html`): key figures, entry points, the newsletter per market (Netlify form `newsletter`) and links to the account.
 - The platform with all its sections is `site/dist/plateforme.html`. Old links such as `/#marche` or `/?next=…` are redirected to it by the home page.
 - Checks on the embedded data (`synthetic_auctions`, `real_auctions`) must read `plateforme.html`, not `index.html`.
+
+## Build guarantees (2026-10-08)
+
+- `scripts/check_dist.py --as-of <date>` runs at the end of `scripts/daily_run.sh` and in
+  `scripts/deploy_site.sh`. It refuses a build whose pages and `veille.json` carry different dates,
+  that has no verified auction, lacks a language file, or whose CSP still allows inline scripts.
+  Deploy only after it prints `site/dist OK`.
+- Languages: only French is embedded in `plateforme.html`; `dist/i18n/<lang>.json` is fetched when a
+  visitor picks another language. French texts are also written into the static HTML, so headings and
+  explanations read without JavaScript (figures, tables and simulators still need it).
+- CSP: `script-src` lists the SHA-256 of each inline script, computed at build time; no inline event
+  handlers (`onsubmit=` etc.) may be added to the templates.

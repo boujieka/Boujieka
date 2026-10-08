@@ -1,5 +1,5 @@
 {
-  "doc.title": "Africa Bonds Monitor",
+  "doc.title": "Africa Bonds Monitor · títulos públicos africanos y fuentes oficiales",
   "doc.desc": "Seguimiento de los títulos de deuda pública soberana de los 54 países africanos: subastas, señales trazadas hasta su fuente, calendarios de refinanciación, acceso de los inversores. Datos de mercado de demostración sintéticos.",
   "banner": "<strong>DATOS DE DEMOSTRACIÓN</strong> · Las cifras de mercado de este sitio (tipos, importes, subastas) son <strong>sintéticas</strong>: se generan para el desarrollo de la plataforma, no describen ningún mercado real y no deben servir para ninguna decisión de inversión.",
   "brand.home": "Africa Bonds Monitor, inicio",
@@ -1486,5 +1486,9 @@
   "sim2.badamt": "Indique un importe superior a 0 (como máximo 1 billón).",
   "ui.skip": "Ir al contenido",
   "nav.label2": "Secciones de la página",
-  "home.fact": "Hecho"
+  "home.fact": "Hecho",
+  "sx.move": "El rendimiento medio ponderado varió {bp} pb respecto a la subasta {t} anterior ({d}).",
+  "sx.high": "El rendimiento medio ponderado de {y} supera al de {p} de las {n} subastas {t} anteriores de los últimos {days} días. Un rendimiento más alto no es una recomendación: suele reflejar un riesgo.",
+  "sx.curve": "El rendimiento de la subasta {a} supera en {bp} pb al del {b} (últimas subastas de cada plazo).",
+  "sx.refi": "El {s} de los vencimientos seguidos en los próximos 12 meses vence en {m} ({n} títulos)."
 }
