@@ -82,3 +82,9 @@ by default (`INGEST=0` disables it):
   - Only days with a trade become observations.
 
 Each source runs independently, so one failure never blocks the others. The "Ingestion:" line reports the results under `cemac`. Never relax `beac_check` or `bvmac_check`, and never approve a held row by hand.
+
+## Site layout (since 2026-10-08)
+
+- `site/dist/index.html` is the home page (`site/home.html`): key figures, entry points, the newsletter per market (Netlify form `newsletter`) and links to the account.
+- The platform with all its sections is `site/dist/plateforme.html`. Old links such as `/#marche` or `/?next=…` are redirected to it by the home page.
+- Checks on the embedded data (`synthetic_auctions`, `real_auctions`) must read `plateforme.html`, not `index.html`.

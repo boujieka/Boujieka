@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Africa Bonds Monitor</title>
+<meta name="description" content="Africa Bonds Monitor : résultats officiels vérifiés des titres publics africains (UEMOA, CEMAC), cote BVMAC, rapports trimestriels, newsletter par marché.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
+<script>
+  // Old links to the platform (/#marche, /#compte, /?next=…) keep working: they now live on /plateforme.html.
+  (function () {
+    var h = location.hash.slice(1), q = location.search;
+    var platform = /^(carte|marche|radar|acheteurs|simulateur|parcours|strategie|brief|rapports|offres|compte|glossaire|methode|veille|sources|feuille|dealers-sub|access_token=|error_description=|[a-z]{3}$)/;
+    if ((h && platform.test(h)) || /[?&]next=/.test(q)) location.replace("/plateforme.html" + q + location.hash);
+  })();
+</script>
+<style>
+:root {
+  color-scheme: light;
+  --paper: #f6f0e2; --surface: #fffdf8; --ink: #1a1712; --muted: #5e5546; --line: #e2d8c3;
+  --lapis: #13306b; --night: #0b1c44; --gold: #c9a24a; --gold-ink: #8a6a1f; --teal: #1f7a73; --carnelian: #a8432a;
+  --display: "Marcellus", Georgia, serif; --body: "IBM Plex Sans", "IBM Plex Sans Arabic", system-ui, sans-serif; --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { color-scheme: dark; --paper: #0a1229; --surface: #111c3a; --ink: #f2ead8; --muted: #b9ae97; --line: #26345e; --lapis: #9db4ee; --gold-ink: #e0bd66; --teal: #5cc9bd; }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.6 var(--body); }
+a { color: var(--lapis); }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+.top { background: var(--night); color: #f2ead8; }
+.bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 0; }
+.brand { display: flex; align-items: center; gap: 10px; color: #f2ead8; text-decoration: none; }
+.brand svg { width: 30px; height: 44px; }
+.brand b { font: 400 20px/1 var(--display); letter-spacing: .14em; display: block; }
+.brand small { font: 600 10px/1 var(--body); letter-spacing: .3em; color: var(--gold); }
+.bar-r { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+.bar-r a.link { color: #d9cfb8; text-decoration: none; font-size: 14px; }
+.bar-r a.link:hover { color: var(--gold); }
+.langs { display: inline-flex; border: 1px solid rgba(201,162,74,.5); border-radius: 2px; overflow: hidden; }
+.langs button { background: none; border: 0; color: #d9cfb8; font: 600 12px var(--body); padding: 6px 9px; cursor: pointer; }
+.langs button[aria-pressed="true"] { background: var(--gold); color: var(--night); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 20px; border-radius: 3px; font: 600 15px/1.1 var(--body); text-decoration: none; border: 1px solid var(--gold); cursor: pointer; }
+.btn.gold { background: var(--gold); color: var(--night); }
+.btn.ghost { background: transparent; color: var(--gold); }
+.btn.line { background: transparent; color: var(--lapis); border-color: var(--line); }
+.hero { padding: clamp(28px, 6vw, 72px) 0 clamp(36px, 6vw, 64px); }
+.hero h1 { font: 400 clamp(32px, 5vw, 56px)/1.08 var(--display); margin: 10px 0 16px; max-width: 18ch; }
+.hero h1 em { font-style: normal; color: var(--gold); }
+.hero p.lede { font-size: clamp(16px, 1.6vw, 19px); color: #d9cfb8; max-width: 60ch; margin: 0 0 24px; }
+.eyebrow { font: 600 12px/1 var(--body); letter-spacing: .14em; text-transform: uppercase; color: #5cc9bd; }
+.cta { display: flex; flex-wrap: wrap; gap: 10px; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: rgba(201,162,74,.35); border: 1px solid rgba(201,162,74,.35); margin-top: 34px; }
+.stats div { background: rgba(11,28,68,.92); padding: 14px 16px; }
+.stats b { display: block; font: 600 26px/1.15 var(--mono); color: #f2ead8; }
+.stats span { font-size: 13px; color: #b9ae97; }
+section.band { padding: clamp(40px, 6vw, 72px) 0; }
+section.band.alt { background: var(--surface); border-block: 1px solid var(--line); }
+h2 { font: 400 clamp(26px, 3.4vw, 36px)/1.15 var(--display); color: var(--lapis); margin: 6px 0 10px; }
+.sub { color: var(--muted); max-width: 65ch; margin: 0 0 24px; }
+.kicker { font: 600 12px/1 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--gold-ink); }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; }
+.card { display: flex; flex-direction: column; gap: 6px; background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--gold); padding: 18px; text-decoration: none; color: var(--ink); border-radius: 2px; transition: transform .12s, box-shadow .12s; }
+.card:hover, .card:focus-visible { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.08); }
+.card .ic { font-size: 22px; }
+.card b { font: 600 17px/1.3 var(--body); color: var(--lapis); }
+.card span { font-size: 14px; color: var(--muted); }
+.card em { margin-top: auto; font-style: normal; font-size: 13px; font-weight: 600; color: var(--gold-ink); }
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; counter-reset: s; }
+.steps div { padding-inline-start: 46px; position: relative; }
+.steps div::before { counter-increment: s; content: counter(s); position: absolute; inset-inline-start: 0; top: 0; width: 34px; height: 34px; border-radius: 50%; background: var(--lapis); color: #fff; font: 600 16px/34px var(--mono); text-align: center; }
+.steps b { display: block; color: var(--lapis); }
+.steps span { font-size: 14.5px; color: var(--muted); }
+form.nl { background: var(--surface); border: 1px solid var(--line); padding: 20px; border-radius: 3px; display: grid; gap: 16px; }
+.nl fieldset { border: 1px solid var(--line); padding: 10px 14px 14px; margin: 0; min-width: 0; }
+.nl legend { font-weight: 600; color: var(--lapis); padding: 0 6px; }
+.nl .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 6px 14px; }
+.nl label.chk { display: flex; align-items: center; gap: 8px; font-size: 14.5px; cursor: pointer; }
+.nl label.chk input { width: 18px; height: 18px; accent-color: var(--lapis); }
+.nl .zone { font-weight: 700; }
+.nl .row { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.nl .row label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--muted); }
+.nl input[type=email], .nl select { font: 500 15px var(--body); padding: 10px 12px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); border-radius: 2px; }
+.nl .note, .note { font-size: 13px; color: var(--muted); }
+.ok { color: var(--teal); font-weight: 600; }
+footer { background: var(--night); color: #b9ae97; font-size: 13.5px; padding: 28px 0; }
+footer a { color: #d9cfb8; }
+.legal { max-width: 80ch; }
+[dir="rtl"] .brand b, [dir="rtl"] .langs { direction: ltr; }
+@media (max-width: 640px) { .bar-r a.link.hide-m { display: none; } .btn { width: 100%; } .cta { flex-direction: column; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="/" aria-label="Africa Bonds Monitor">
+      <svg viewBox="0 0 64 96" aria-hidden="true"><rect x="8" y="4" width="48" height="78" rx="24" fill="#13306b" stroke="#c9a24a" stroke-width="4"/><rect x="5" y="86" width="54" height="6" rx="2" fill="#c9a24a"/><circle cx="32" cy="23" r="7" fill="#c9a24a"/><path d="M17 72V60l3.5-4 3.5 4v12zM28.5 72V51l3.5-4 3.5 4v21zM40 72V42l3.5-4 3.5 4v30z" fill="#3fb2a6"/></svg>
+      <span><b>AFRICA BONDS</b><small>MONITOR</small></span>
+    </a>
+    <div class="bar-r">
+      <a class="link hide-m" href="/plateforme.html" data-i="home.nav.platform"></a>
+      <a class="link hide-m" href="#newsletter" data-i="home.nav.newsletter"></a>
+      <a class="link" href="/plateforme.html#compte" data-i="home.nav.account"></a>
+      <div class="langs" id="langs" role="group" aria-label="Langue / Language">
+        <button type="button" data-lang="fr" lang="fr">FR</button><button type="button" data-lang="en" lang="en">EN</button><button type="button" data-lang="pt" lang="pt">PT</button><button type="button" data-lang="es" lang="es">ES</button><button type="button" data-lang="ar" lang="ar">AR</button>
+      </div>
+    </div>
+  </div>
+  <div class="wrap hero">
+    <span class="eyebrow" data-i="home.eyebrow"></span>
+    <h1 data-ih="home.title"></h1>
+    <p class="lede" data-i="home.lede"></p>
+    <div class="cta">
+      <a class="btn gold" href="/plateforme.html" data-i="home.cta.explore"></a>
+      <a class="btn ghost" href="#newsletter" data-i="home.cta.newsletter"></a>
+      <a class="btn ghost" href="/plateforme.html#compte" data-i="home.cta.account"></a>
+    </div>
+    <div class="stats" id="stats"></div>
+  </div>
+</header>
+
+<main>
+  <section class="band">
+    <div class="wrap">
+      <span class="kicker" data-i="home.what.kicker"></span>
+      <h2 data-i="home.what.title"></h2>
+      <p class="sub" data-i="home.what.lede"></p>
+      <div class="cards">
+        <a class="card" href="/plateforme.html#marche"><span class="ic" aria-hidden="true">📈</span><b data-i="home.c1.t"></b><span data-i="home.c1.d"></span><em data-i="home.open"></em></a>
+        <a class="card" href="/plateforme.html#brief"><span class="ic" aria-hidden="true">🗞️</span><b data-i="home.c2.t"></b><span data-i="home.c2.d"></span><em data-i="home.open"></em></a>
+        <a class="card" href="/plateforme.html#parcours"><span class="ic" aria-hidden="true">🧭</span><b data-i="home.c3.t"></b><span data-i="home.c3.d"></span><em data-i="home.open"></em></a>
+        <a class="card" href="/plateforme.html#rapports"><span class="ic" aria-hidden="true">📄</span><b data-i="home.c4.t"></b><span data-i="home.c4.d"></span><em data-i="home.open"></em></a>
+        <a class="card" href="/plateforme.html#bvmac"><span class="ic" aria-hidden="true">🏛️</span><b data-i="home.c5.t"></b><span data-i="home.c5.d"></span><em data-i="home.open"></em></a>
+        <a class="card" href="/plateforme.html#carte"><span class="ic" aria-hidden="true">🌍</span><b data-i="home.c6.t"></b><span data-i="home.c6.d"></span><em data-i="home.open"></em></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt" id="newsletter">
+    <div class="wrap">
+      <span class="kicker" data-i="home.nl.kicker"></span>
+      <h2 data-i="home.nl.title"></h2>
+      <p class="sub" data-i="home.nl.lede"></p>
+      <form class="nl" name="newsletter" id="nl-form" method="POST" action="/merci.html" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="newsletter">
+        <input type="hidden" name="langue" id="nl-lang" value="fr">
+        <p hidden><label>bot <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <fieldset><legend data-i="home.nl.markets"></legend>
+__MARKETS__
+        </fieldset>
+        <fieldset><legend data-i="home.nl.content"></legend>
+          <div class="grid">
+            <label class="chk"><input type="checkbox" name="contenu_resultats" value="oui" checked><span data-i="home.nl.ct.results"></span></label>
+            <label class="chk"><input type="checkbox" name="contenu_cote_bvmac" value="oui"><span data-i="home.nl.ct.bvmac"></span></label>
+            <label class="chk"><input type="checkbox" name="contenu_rapports" value="oui"><span data-i="home.nl.ct.reports"></span></label>
+            <label class="chk"><input type="checkbox" name="contenu_echeances" value="oui"><span data-i="home.nl.ct.maturities"></span></label>
+          </div>
+        </fieldset>
+        <div class="row">
+          <label><span data-i="home.nl.freq"></span><select name="frequence"><option value="publication" data-i="home.nl.f.pub"></option><option value="hebdomadaire" data-i="home.nl.f.week" selected></option><option value="mensuelle" data-i="home.nl.f.month"></option></select></label>
+          <label><span data-i="home.nl.email"></span><input type="email" name="email" required autocomplete="email" maxlength="200"></label>
+        </div>
+        <label class="chk"><input type="checkbox" name="consentement" value="oui" required><span data-i="home.nl.consent"></span></label>
+        <label class="chk"><input type="checkbox" name="desinscription" value="oui"><span data-i="home.nl.unsub"></span></label>
+        <div><button class="btn gold" type="submit" data-i="home.nl.send"></button> <span id="nl-st" role="status" aria-live="polite"></span></div>
+        <p class="note" data-i="home.nl.privacy"></p>
+      </form>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <span class="kicker" data-i="home.how.kicker"></span>
+      <h2 data-i="home.how.title"></h2>
+      <div class="steps">
+        <div><b data-i="home.how.s1.t"></b><span data-i="home.how.s1.d"></span></div>
+        <div><b data-i="home.how.s2.t"></b><span data-i="home.how.s2.d"></span></div>
+        <div><b data-i="home.how.s3.t"></b><span data-i="home.how.s3.d"></span></div>
+      </div>
+      <p class="cta" style="margin-top:28px"><a class="btn gold" href="/plateforme.html" data-i="home.cta.explore"></a><a class="btn line" href="/plateforme.html#compte" data-i="home.cta.account"></a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="legal" data-i="home.legal"></p>
+    <p><a href="/plateforme.html#sources" data-i="home.f.sources"></a> · <a href="/plateforme.html#methode" data-i="home.f.method"></a> · <a href="/donnees/fr.html" data-i="home.f.data"></a> · <span id="asof"></span></p>
+  </div>
+</footer>
+
+<script id="home-data" type="application/json">__HOME__</script>
+<script>
+(function () {
+  const H = JSON.parse(document.getElementById("home-data").textContent);
+  const LANGS = ["fr", "en", "pt", "es", "ar"], LOC = { fr: "fr-FR", en: "en-GB", pt: "pt-PT", es: "es-ES", ar: "ar-u-nu-latn" };
+  const store = { get: (k) => { try { return localStorage.getItem(k); } catch { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch {} } };
+  let lang = store.get("cartouche-lang");
+  if (!LANGS.includes(lang)) { const n = (navigator.language || "fr").slice(0, 2).toLowerCase(); lang = LANGS.includes(n) ? n : "fr"; }
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const t = (k, v) => { let s = (H.i18n[lang] || {})[k] ?? H.i18n.fr[k] ?? k; if (v) for (const [a, b] of Object.entries(v)) s = s.split(`{${a}}`).join(b); return s; };
+  const nf = (v) => Number(v).toLocaleString(LOC[lang]);
+  const date = (s) => s ? new Date(s + "T00:00:00Z").toLocaleDateString(LOC[lang], { day: "2-digit", month: "long", year: "numeric", timeZone: "UTC" }) : "—";
+  function render() {
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    document.title = t("home.doc.title");
+    let dn = null; try { dn = new Intl.DisplayNames([LOC[lang]], { type: "region" }); } catch {}
+    document.querySelectorAll("[data-i]").forEach((el) => { el.textContent = t(el.dataset.i); });
+    document.querySelectorAll("[data-ih]").forEach((el) => { el.innerHTML = t(el.dataset.ih); });
+    document.querySelectorAll("[data-country]").forEach((el) => { const c = H.countries[el.dataset.country]; el.textContent = lang === "fr" ? c.name_fr : (dn && dn.of(c.iso2)) || c.name_en; });
+    document.querySelectorAll("#langs [data-lang]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+    document.getElementById("nl-lang").value = lang;
+    document.getElementById("stats").innerHTML = [
+      [nf(H.auctions), t("home.s.auctions")], [nf(H.countries_with_data), t("home.s.countries")], [nf(H.bonds), t("home.s.bonds")], [date(H.last), t("home.s.last")],
+    ].map(([v, k]) => `<div><b>${esc(v)}</b><span>${esc(k)}</span></div>`).join("");
+    document.getElementById("asof").textContent = t("home.f.asof", { d: date(H.as_of) });
+  }
+  document.getElementById("langs").addEventListener("click", (e) => { const b = e.target.closest("[data-lang]"); if (b) { lang = b.dataset.lang; store.set("cartouche-lang", lang); render(); } });
+  // Market zone boxes tick or untick their countries.
+  document.querySelectorAll("[data-zone-box]").forEach((z) => z.addEventListener("change", () => {
+    document.querySelectorAll(`[data-zone="${z.dataset.zoneBox}"]`).forEach((c) => { c.checked = z.checked; });
+  }));
+  document.getElementById("nl-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const f = e.target, st = document.getElementById("nl-st");
+    if (!f.reportValidity()) return;
+    if (!f.querySelector("[data-market]:checked") && !f.querySelector("[name=desinscription]").checked) { st.textContent = t("home.nl.pick"); return; }
+    st.textContent = t("home.nl.sending");
+    try {
+      const r = await fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams(new FormData(f)).toString() });
+      if (!r.ok) throw new Error(String(r.status));
+      const unsub = f.querySelector("[name=desinscription]").checked;
+      f.reset(); document.getElementById("nl-lang").value = lang;
+      st.className = "ok"; st.textContent = unsub ? t("home.nl.unsubbed") : t("home.nl.ok");
+    } catch { st.className = ""; st.textContent = t("home.nl.err"); }
+  });
+  render();
+})();
+</script>
+</body>
+</html>

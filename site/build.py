@@ -12,6 +12,7 @@ import argparse
 import json
 import os
 import shutil
+import unicodedata
 import sys
 from datetime import date
 from decimal import Decimal
@@ -216,6 +217,35 @@ def load_i18n(buyer_keys: list[str]) -> dict:
     return tables
 
 
+def home_page(payload: dict) -> str:
+    """Home page: key figures, entry points, newsletter per market (Netlify form) and account links.
+    The market checkboxes are written into the HTML here so that Netlify detects every field."""
+    from html import escape
+
+    zones = {"WAEMU": "UEMOA", "CEMAC": "CEMAC"}
+    by_zone: dict[str, list] = {}
+    for a in payload["africa"]:
+        if a["iso3"] in payload["data"]["real_countries"] and a["zone"] in zones:
+            by_zone.setdefault(a["zone"], []).append(a)
+    blocks = []
+    for z, label in zones.items():
+        boxes = "".join(f'<label class="chk"><input type="checkbox" name="pays_{a["iso3"]}" value="oui" data-market data-zone="{z}">'
+                        f'<span data-country="{a["iso3"]}"></span></label>' for a in sorted(by_zone.get(z, []), key=lambda a: unicodedata.normalize("NFD", a["name_fr"]).encode("ascii", "ignore").lower()))
+        blocks.append(f'<p style="margin:10px 0 6px"><label class="chk zone"><input type="checkbox" name="marche_{escape(label)}" value="oui" data-market data-zone-box="{z}">'
+                      f'<span data-i="home.nl.zone.{z}"></span></label></p><div class="grid">{boxes}</div>')
+    blocks.append('<p style="margin:12px 0 0"><label class="chk"><input type="checkbox" name="marche_autres_pays" value="oui" data-market>'
+                  '<span data-i="home.nl.zone.other"></span></label></p>')
+    used = {a["iso3"] for zs in by_zone.values() for a in zs}
+    home = {
+        "as_of": payload["as_of"], "auctions": payload["data"]["real_auctions"], "last": payload["data"]["last"],
+        "countries_with_data": len(payload["data"]["real_countries"]), "bonds": len(payload["bvmac"]["bonds"]),
+        "countries": {a["iso3"]: {"iso2": a["iso2"], "name_fr": a["name_fr"], "name_en": a["name_en"]} for a in payload["africa"] if a["iso3"] in used},
+        "i18n": {lang: {k: v for k, v in table.items() if k.startswith("home.")} for lang, table in payload["i18n"].items()},
+    }
+    data = json.dumps(home, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    return (ROOT / "home.html").read_text().replace("__MARKETS__", "\n".join(blocks)).replace("__HOME__", data)
+
+
 def bvmac_quotes() -> dict:
     """BVMAC listed bonds and their verified trade observations (FACT), from the versioned verified
     data. Only days with a trade exist: a price shown without a trade (NC) is never an observation."""
@@ -298,13 +328,15 @@ def main() -> None:
     data = json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
     html = (ROOT / "template.html").read_text().replace("__DATA__", data.replace("</", "<\\/"))
     DIST.mkdir(exist_ok=True)
-    (DIST / "index.html").write_text(html)
+    # The platform (all sections) lives at /plateforme.html; / is the home page (site/home.html).
+    (DIST / "plateforme.html").write_text(html)
+    (DIST / "index.html").write_text(home_page(payload))
     shutil.copy(ROOT.parent / "brand" / "favicon.svg", DIST / "favicon.svg")
     write_netlify(payload["auth"])
     shutil.copy(ROOT / "merci.html", DIST / "merci.html")  # waiting-list form fallback page (no JavaScript)
     if args.veille and args.veille.exists() and args.veille.resolve() != (DIST / "veille.json").resolve():
         shutil.copy(args.veille, DIST / "veille.json")
-    print(f"Built {DIST / 'index.html'} ({len(html) // 1024} KB)")
+    print(f"Built {DIST / 'plateforme.html'} ({len(html) // 1024} KB) and the home page {DIST / 'index.html'}")
 
 
 if __name__ == "__main__":

@@ -19,7 +19,7 @@ export async function allowed(token, fetcher = fetch) {
 export default async (request, context) => {
   if (await allowed(context.cookies.get(COOKIE))) return context.next();
   const url = new URL(request.url);
-  const to = new URL("/", url);
+  const to = new URL("/plateforme.html", url);
   to.searchParams.set("next", url.pathname);
   to.hash = "compte";
   return new Response(null, { status: 302, headers: { Location: to.toString(), "Cache-Control": "no-store" } });

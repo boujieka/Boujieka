@@ -131,13 +131,13 @@ th{{text-align:left;font-size:12px;color:#5e5546;border-bottom:2px solid #c9a24a
 code{{font-size:13px}}a{{color:#13306b}}.btn{{display:inline-block;background:#13306b;color:#fbf7ee;text-decoration:none;padding:9px 16px;border-radius:2px;margin:6px 8px 0 0}}.note{{color:#5e5546;font-size:13px}}.scroll{{overflow-x:auto}}</style></head>
 <body><main><div class="brand">Africa Bonds Monitor</div>
 <h1>{escape(t["title"])}</h1><p>{escape(t["lede"])}</p>
-<p><a class="btn" href="../#offres">{escape(t["waitlist"])}</a><a class="btn" href="echantillon.csv" download>{escape(t["sample"].format(n=SAMPLE))}</a><a class="btn" href="auctions.csv" download>auctions.csv</a> · <a href="{other}.html" lang="{other}">{"English" if other == "en" else "Français"}</a></p>
+<p><a class="btn" href="../plateforme.html#offres">{escape(t["waitlist"])}</a><a class="btn" href="echantillon.csv" download>{escape(t["sample"].format(n=SAMPLE))}</a><a class="btn" href="auctions.csv" download>auctions.csv</a> · <a href="{other}.html" lang="{other}">{"English" if other == "en" else "Français"}</a></p>
 <p class="note">{escape(t["free"])}</p>
 <h2>{escape(t["coverage"])}</h2><div class="scroll"><table><tr><th>{escape(t["country"])}</th><th class="r">{escape(t["n"])}</th><th>{escape(t["first"])}</th><th>{escape(t["last"])}</th></tr>{cov}</table></div>
 <p class="note">{escape(t["update"].format(d=report.fmt_date(as_of, lang)))}</p>
 <h2>{escape(t["files"])}</h2><ul><li>{escape(t["f_auctions"].format(n=len(tb["auctions"])))}</li><li>{escape(t["f_securities"].format(n=len(tb["securities"])))}</li><li>{escape(t["f_documents"].format(n=len(tb["documents"])))}</li></ul>
 <h2>{escape(t["dict"])} (auctions.csv)</h2><div class="scroll"><table>{fields}</table></div>
-<p class="note">{escape(t["legal"])}</p><p><a href="../">{escape(t["back"])}</a></p></main></body></html>"""
+<p class="note">{escape(t["legal"])}</p><p><a href="../plateforme.html">{escape(t["back"])}</a></p></main></body></html>"""
 
 
 def write(as_of: date, dist: Path, private: Path = report.PRIVATE / "data") -> dict:
