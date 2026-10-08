@@ -8,6 +8,11 @@
 > **[H]** hypothèse (à tester) · **[?]** inconnue / non vérifié.
 > Les statistiques notées « calcul AMI » ont été calculées par nous le 2026-10-08 à partir de
 > données publiques ; la méthode est décrite pour qu'on puisse les refaire.
+>
+> **Avertissement.** Contenu d'information et de formation, **pas un conseil** (ni en
+> investissement, ni juridique, ni technique pour une décision d'exploration). Une cible de
+> télédétection est une hypothèse à vérifier sur le terrain : elle ne constitue ni une ressource ni
+> une réserve.
 
 ---
 
@@ -129,6 +134,19 @@ Méthode de comparaison (calcul AMI, reproductible) :
 - Le dataset Tcholliré échantillonne des zones déjà ciblées par télédétection. Il y a donc un
   risque de circularité dans la validation.
 - L'accès terrain et la sécurité dans le Mayo-Rey ne sont pas évalués ici [?].
+
+### Zone et projection communes (modules 01, 02 et 03) [H : proposition d'harmonisation du 2026-10-08]
+
+Ce module produit les couches d'évidence reprises par les modules 02 et 03 : il doit partager leur SCR et leur district de zoom. Proposition commune, identique dans les trois modules :
+
+| Élément | Proposition commune | Justification |
+|---|---|---|
+| SCR d'échange et de stockage | WGS 84 géographique (**EPSG:4326**) | Système des sources (USGS, OSM, coordonnées des RNS) ; déjà retenu pour l'échange par le module 02 (§ 8) |
+| SCR de calcul (distances, surfaces, rasters, densités) | **WGS 84 / UTM 33N (EPSG:32633)**, pour les trois modules | Les trois zones du module 01 (13,85° à 14,55° E, § 4 du module 01) sont entièrement dans le fuseau UTM 33 (12° à 18° E) ; le module 01 l'utilise déjà. Un SCR de calcul unique évite des reprojections entre livrables et des écarts de surface d'un module à l'autre [I] |
+| Projets et ports à l'ouest de 12° E (fuseau 32 : Kribi, Douala) | Garder EPSG:32633 pour les distances du module 03 (étape 6) | Le port en eau profonde de Kribi (9,864° E, module 03 § 6.1) est à environ 5,1° du méridien central de 15° E : facteur d'échelle d'environ 1,0036, soit une erreur d'environ 0,4 % sur une distance, négligeable pour des distances au port exprimées en km [I : calcul k ≈ 0,9996 × (1 + (Δλ·cos φ)²/2)]. L'UTM 32N (EPSG:32632) n'est plus utilisé |
+| Emprise nationale | Limite ADM0 du Cameroun (couche `adm0_adm1` du module 03) | Échelle de la carte nationale du module 02 (1 km) et de la carte de l'écosystème du module 03 |
+| District commun (zoom) | **Z2 Bétaré-Oya : 13,85–14,35° E ; 5,40–5,85° N** (emprise du module 01, § 4) | Seule zone commune aux modules 01 (Z2, « recommandée en second ») et 02 (district « Bétaré-Oya / Lom », littérature la plus dense). Le module 03 y rattache Mborguéné (« Bétaré-Oya / Garoua-Boulaï ») ; son inclusion dans l'emprise reste à vérifier au géocodage [?]. Z1 Tcholliré reste la zone principale de l'exercice spectral du module 01 ; Mbe (Adamaoua) et Bibemi (Nord) restent hors district et servent à la rétro-prédiction nationale du module 02 |
+| Résolution de référence | National : 1 km ; district : 100 m (module 02 § 8) ; produits Sentinel-2 : 10-20 m (module 01) | Les rasters du module 01 sont rééchantillonnés à 100 m avant d'entrer dans le modèle de district du module 02 [H] |
 
 ---
 
@@ -280,7 +298,8 @@ Un autre groupe joue le rôle de critique.
 
 ### 6.1 Format
 
-- **GeoPackage** `AMI_CM_M01_<zone>_<groupe>_<AAAAMMJJ>.gpkg`, en EPSG:32633.
+- **GeoPackage** `AMI_CM_M01_<zone>_<groupe>_<AAAAMMJJ>.gpkg`, en EPSG:32633 (SCR de calcul commun aux
+  modules 01, 02 et 03 ; copie d'échange en EPSG:4326 : voir « Zone et projection communes », § 4).
 - Une **carte PDF** au format A3 à l'échelle 1/100 000 [H].
 - Un **fichier de métadonnées** (Markdown ou YAML).
 
@@ -493,3 +512,5 @@ depuis le 01/04/2016 ; SWIR inutilisable depuis avril 2008) ; Business in Camero
 
 **Non revérifié** : pourcentages WorldCover (calcul raster non refait) ; ratios de Ketté ; contenu
 de van der Meer 2014 (DOI et pagination confirmés : RSE 148:124-133).
+
+**Harmonisation inter-modules (2026-10-08)** : ajout de l'avertissement « information et formation, pas un conseil » (en-tête) ; ajout de la section « Zone et projection communes » (§ 4 : stockage EPSG:4326, calcul EPSG:32633, district commun Z2 Bétaré-Oya) ; § 6.1 renvoie à cette convention. Journal : `verification/harmonisation.md`.

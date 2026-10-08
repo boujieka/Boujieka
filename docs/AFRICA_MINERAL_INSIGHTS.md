@@ -109,6 +109,11 @@ limitent les images partout, y compris au Nord. Zones proposées par le module 0
 La couche USGS ne permet pas de cibler l'or au Cameroun : elle ne contient qu'un site d'exploration
 d'or.
 
+Convention commune aux modules 01, 02 et 03 :
+- stockage en WGS 84 (EPSG:4326) et calculs en UTM 33N (EPSG:32633) ;
+- district de zoom commun : **Z2 Bétaré-Oya**, la seule zone partagée par les modules 01 et 02 ;
+- Z1 reste la zone de l'exercice spectral du module 01.
+
 ### 02 — MINERAL POTENTIAL · « Can we identify Cameroon's next gold target? »
 
 `Géologie + Structures + Géochimie + Géophysique + Télédétection (savane) → modèle → carte`

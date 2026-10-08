@@ -6,6 +6,11 @@
 > (comptages par couche ci-dessous). Les informations antérieures au 2024-10-08 (plus de 2 ans) sont
 > signalées par **[ancien]**.
 >
+> **Avertissement.** Contenu d'information et de formation, **pas un conseil** (ni en
+> investissement, ni juridique, ni fiscal). Les cartes et inventaires de ce module décrivent des
+> informations publiques datées ; ils ne constituent ni une déclaration de ressources ni une
+> évaluation de projet.
+>
 > Légende des statuts : **Fait vérifié** (source consultée, citée) · **Inférence** (déduction
 > explicite à partir de faits vérifiés) · **Hypothèse** (proposition de travail à tester) ·
 > **Inconnue** / **Non vérifié** (aucune source consultée ne l'établit).
@@ -48,7 +53,10 @@
    consultées. Kribi-Lobé est reporté à juillet 2027. Pour Mbalam, la première exportation était
    annoncée pour le T1 2026 et n'était toujours pas confirmée en avril 2026. Bipindi-Grand Zambi a été
    inauguré le 22/09/2025. Nkout n'a pas de permis d'exploitation. Côté bauxite, la première expédition
-   de Minim-Martap via Douala est visée au T4 2026. À Nkamouna, le permis de Geovic a été retiré
+   de Minim-Martap via Douala, prévue initialement fin septembre 2026 puis au T4 2026, a été
+   **reportée sans nouvelle date** après la suspension des tirages de la facilité AFG Bank le
+   24/08/2026 (EcoMatin, 24/08/2026 ; AlCircle, 29/09/2026) ; aucune expédition confirmée au
+   2026-10-08. À Nkamouna, le permis de Geovic a été retiré
    (décret 2025/040), Geovic le conteste et l'appel à partenaires de SONAMINES a été déclaré
    infructueux le 18/08/2026. **Fait vérifié** (sources datées en §5).
 
@@ -70,7 +78,7 @@ Le document visé est `docs/AFRICA_MINERAL_INSIGHTS.md` (socle de données, modu
 | C8 | (module 03) ports = Douala, Kribi | La couche **ports** USGS ne contient que **Douala** (4 enregistrements de produits). Kribi n'apparaît que via le FLNG *Hilli Episeyo* dans la couche GNL. | Ajouter Kribi depuis une autre source (OSM/Wikipédia/PAK) avec sa date. | Fait vérifié |
 | C9 | « rôle de l'organisme public mandaté » (module 04) ; demande de vérifier « SONAMINES / SOCAMINES » | Le nom exact est **SONAMINES S.A.**, créée par le décret 2020/749 du 14/12/2020 (statuts : décret 2020/750). Elle assure l'achat et la commercialisation de l'or et du diamant à titre exclusif. | Utiliser « SONAMINES ». Supprimer « SOCAMINES ». | Fait vérifié |
 | C10 | (implicite) CAPAM acteur actuel | Arrêt des activités du CAPAM prévu le 16/10/2021 (décision ministérielle du 05/07/2021). La collecte de l'or au titre de l'ISML est passée à SONAMINES. | Traiter le CAPAM comme une **institution historique**. | Fait vérifié [ancien] |
-| C11 | SIGM : « campagne citée : 18 000 échantillons, 300 sites » ; étude AMDC « rapportée en 2025 » | L'article Financial Afrik du 10/07/2025 confirme l'étude AMDC (UA, financements EU-TAF/ZLECAf) et des « données jugées pour la plupart obsolètes ». Il parle d'un SIG « de 1929 à ce jour », mais **ne mentionne ni PRECASEM, ni 18 000 échantillons, ni 300 sites**. | Garder l'étude AMDC. Marquer « 18 000 échantillons / 300 sites » comme **Non vérifié** jusqu'à une source PRECASEM (relève des modules 01/02). | Fait vérifié (partiel) |
+| C11 | SIGM : « campagne citée : 18 000 échantillons, 300 sites » ; étude AMDC « rapportée en 2025 » | L'article Financial Afrik du 10/07/2025 confirme l'étude AMDC (UA, financements EU-TAF/ZLECAf) et des « données jugées pour la plupart obsolètes ». Il parle d'un SIG « de 1929 à ce jour », mais **ne mentionne ni PRECASEM, ni 18 000 échantillons, ni 300 sites**. | Garder l'étude AMDC. Reprendre la formulation vérifiée des modules 01 (C4) et 02 (C1) : « Programme PRECASEM : campagne géochimique **prévue** d'environ 18 000 échantillons (objectif annoncé en janvier 2017, Business in Cameroon du 28/01/2017) ; 300 "nouveaux sites miniers" annoncés en juin 2019 pour 2014-2019 (Business in Cameroon du 17/06/2019) ; nombre d'échantillons réellement analysés non vérifié ». Les deux chiffres ne relèvent pas d'une même campagne. | Fait vérifié (partiel) ; chiffres vérifiés dans les modules 01 et 02 |
 
 ---
 
@@ -140,7 +148,7 @@ celles de l'USGS quand elles existent (précision variable), sinon « à géocod
 | 5 | **Nkout** (près de Djoum) | Fer | Sud | Caminex (Libyan Foreign Bank) ; consortium mené par Delta Resources (Fomento, KIOCL, VPR Mining) | **Aucun permis d'exploitation** ; convention et permis en attente, dossier « à la Présidence » | Exploration avancée / négociation | Démarrage visé début 2027 ; 1 à 2 Mt/an de minerai à environ 65 % Fe ; transport par camion vers Kribi | 2026-04-06 | ecomatin.net (06/04/2026) ; USGS WMED (« Reserves Development », 2014 **[ancien]**) | Fait vérifié |
 | 6 | Ngovayang / « Ngoyang » (près d'Eséka, Bipindi) | Fer | Centre / Sud | CAMINA SA (permis de recherche Ngoyang, Ngoyang II et III, renouvelés le 23/09/2022, échéance 22/09/2024) | Permis de recherche | Exploration | Statut après septembre 2024 : **Inconnu** | 2023-12-31 | ITIE annexe 30 ; USGS WMED (2012) **[ancien]** | Fait vérifié (titre 2022) |
 | 7 | Autres permis de recherche de fer (Sud) | Fer | Sud | Prometal Mining, Stone Mining, Biltmore Stones, Perlis, AUCAM, Geocam Mining (« Bipindi Sud »), G-Mining, etc. | 17 lignes « FER » dans l'annexe 30 | Exploration | Statut après 2023 : Inconnu | 2023-12-31 | ITIE annexe 30 | Fait vérifié |
-| 8 | **Minim-Martap** | Bauxite | Adamaoua | Camalco Cameroon SA (filiale de Canyon Resources). SONAMINES dit avoir intégré « CAMALCO MINING SA » (lien entre les deux entités : **Non vérifié**) | Permis d'exploitation signé le 02/09/2024 et remis le 13/09/2024 ; convention minière de juillet 2024 | Construction | **1re expédition visée au T4 2026 via le port de Douala** ; 7 locomotives CRRC livrées fin juin 2026. Camalco porte sa part dans Camrail de 9,1 % à 26,9 % (mai 2026) | 2026-07-15 | railwaygazette.com (15/07/2026) ; globenewswire.com (11/05/2026) ; businessincameroon.com (16/09/2024) ; sonamines.cm | Fait vérifié |
+| 8 | **Minim-Martap** | Bauxite | Adamaoua | Camalco Cameroon SA (filiale de Canyon Resources). SONAMINES dit avoir intégré « CAMALCO MINING SA » (lien entre les deux entités : **Non vérifié**) | Permis d'exploitation signé le 02/09/2024 et remis le 13/09/2024 ; convention minière de juillet 2024 | Construction | **1re expédition via le port de Douala prévue initialement fin septembre 2026 (AlCircle, 18/06/2026) puis au T4 2026 (Railway Gazette, 15/07/2026) ; reportée sans nouvelle date après la suspension des tirages de la facilité AFG Bank le 24/08/2026 (EcoMatin, 24/08/2026 ; AlCircle, 29/09/2026)**. Aucune expédition confirmée au 2026-10-08. 7 locomotives CRRC livrées fin juin 2026. Camalco porte sa part dans Camrail de 9,1 % à 26,9 % (mai 2026) | 2026-09-29 | railwaygazette.com (15/07/2026) ; globenewswire.com (11/05/2026) ; businessincameroon.com (16/09/2024) ; sonamines.cm ; ecomatin.net (24/08/2026) ; alcircle.com (18/06/2026 ; 29/09/2026) | Fait vérifié (report : source secondaire, reprise des modules 05, 06 et 07) |
 | 9 | Ngaoundal / Makan | Bauxite | Adamaoua | Camalco (permis de recherche) ; MoU SONAMINES/CREC 5 annulé par le ministre | Permis de recherche (extensions de 2022) | Exploration | Non recoupé par une source ouverte | 2022 | Résumé de recherche (alcircle, rapports ASX) : **non ouvert** | **Non vérifié** |
 | 10 | Autres bauxites (Fongo-Tongo, Bamboutos, Foumban, Mbouda, Tibati) | Bauxite (Ga) | Ouest / Adamaoua | West Afric Exploration, Highcountry, GM International, Cameroon Golding Wrapper (permis de recherche) | 7 lignes « BAUXITE » dans l'annexe 30 | Exploration | — | 2023-12-31 | ITIE annexe 30 ; USGS gisements (Ga dans bauxite, PP 1802, 2017 **[ancien]**) | Fait vérifié |
 | 11 | **Nkamouna-Lomié** | Cobalt-nickel-manganèse | Est | **Litigieux** : permis n° 33 de Geovic (2003) **retiré par le décret n° 2025/040 du 12/02/2025** ; périmètre réattribué à SONAMINES. Geovic conteste (notice du 16/01/2026) | L'annexe 30 au 31/12/2023 liste encore GEOVIC (478 km², échéance 2028) | Relance / contentieux | Appel à partenaires de SONAMINES **infructueux (18/08/2026)** ; négociations directes. Ressources mesurées et indiquées d'environ 121 Mt à 0,23 % Co, 0,65 % Ni, 1,35 % Mn (selon BIC) | 2026-08-21 | businessincameroon.com (21/08/2026, 21/01/2026) ; sonamines.cm | Fait vérifié |
@@ -153,9 +161,13 @@ celles de l'USGS quand elles existent (précision variable), sinon « à géocod
 | 18 | **Mobilong** | Diamant | Est | C&K Mining | PEMI 00005, 16/12/2010, 236,25 km², échéance 2035 | Inconnu | Production industrielle : **Non vérifié**. Diamant artisanal 2023 : 3 306 ct | 2023-12-31 | ITIE 2023 ; USGS WMED (« Pre-Production », 2013 **[ancien]**) | Titre : Fait vérifié ; statut : Non vérifié |
 | 19 | Figuil / Biou Sud / Biou Nord / Bidzar | Calcaire, marbre, argile (cimenterie) | Nord | CIMENCAM (PEMI 00002, 00008 et arrêté 2023/129) ; Rocaglia (PEMI 00003, 00004) | Permis d'exploitation | Production | Production 2023 (annexe 13) : CIMENCAM 2 099 m³ d'argile ; Rocaglia 1 349 m³ de calcaire et marbre (Nord) | 2023 | ITIE 2023 ; USGS (Figuil, 2018 **[ancien]**) | Fait vérifié |
 | 20 | Cimenteries de Douala et Limbé | Ciment, clinker importé, pouzzolane | Littoral, Sud-Ouest | CIMENCAM Bonabéri (1 600 kt/an), Dangote Douala (1 500 kt), CIMAF Bonabéri (500 kt), Medcem Douala (600 kt) ; Dangote Limbé et MIRA (pouzzolane) | — | Production | Capacités de 2018 (USGS) ; capacités 2025 : **Non vérifié** | 2018 / 2023 | USGS MYB 2018 ; ITIE 2023 annexe 13 | Fait vérifié **[ancien]** |
-| 21 | Alucam, Edéa | Aluminium (électrolyse) | Littoral | Alucam (État 93,4 % selon l'USGS 2018) | — | Production (2018) | Statut et capacité actuels : **Non vérifié** | 2018 | USGS 2018 **[ancien]** | Ancien |
+| 21 | Alucam, Edéa | Aluminium (électrolyse) | Littoral | Alucam (État 93,4 % selon l'USGS 2018) | — | Production (sous-utilisée) | *Harmonisation du 2026-10-08 (modules 05, 06 et 07)* : capacité nominale de **100 kt/an** (USGS MYB 2017-18 ; ASI 2024) ; 53 675 t produites en 2025 (Chambre des comptes via Business in Cameroon, 14/07/2026) ; alumine **importée**, aucune raffinerie d'alumine au Cameroun ; importations d'alumine 2023 : 135 347 t, dont 76 655 t de Guinée (UN Comtrade) | 2026-07-14 | USGS 2018 ; modules 05 [S1], [S6], [S12] et 07 [S8] | Fait vérifié (repris des modules 05, 06 et 07) ; part de l'État : **à arbitrer** (93,4 % selon l'USGS 2018 ; autres répartitions dans le module 05) |
 | 22 | Lolodorf | Uranium | Sud | Mega Uranium (2007) | — | Exploration (2007) | Inconnu | 2007 | USGS WMED **[ancien]** | Ancien |
 | 23 | Les Mamelles (Kribi) | Fer | Sud | — | — | Gisement (OFR 2005-1294) | Inconnu | 2009 | USGS gisements **[ancien]** | Ancien |
+| 24 | **Mbe** | Or | Adamaoua (« mainly in the Adamawa Region ») | Oriole Resources 50 % / BCM International 50 % | Licence d'exploration de 312 km² (échéance non publiée) | Exploration avancée | Ressource JORC 2012 **présumée** de 50,60 Mt à 1,02 g/t = 1,66 Moz (coupure 0,40 g/t ; fosse à 3 200 US$/oz) | 2026-09-22 | RNS Oriole 6596V (22/09/2026) ; RNS Oriole (23/07/2026) — modules 02 [S13] et 07 [S28] | Fait vérifié (repris des modules 02 et 07) |
+| 25 | **Bibemi** (Bakassi Zone 1) | Or | Nord | Oriole Resources 50 % / BCM International 50 % | Licence de 177 km² ; demande de permis d'exploitation **en cours** au 22/09/2026 ; EIES validée (novembre 2025) | Demande de permis d'exploitation | Ressource JORC 2012 de 6,96 Mt à 2,06 g/t ≈ 460 koz (100 koz indiquées, 360 koz présumées ; fosse à 2 750 US$/oz, mai 2025 ; personne compétente R. Davies). PEA interne de décembre 2025 : ~89 koz in situ à 2,20 g/t, 10 koz/an sur 7 ans, VAN après impôt de 12,8 M US$ à 3 200 US$/oz | 2026-09-22 | RNS Oriole (23/09/2025 ; 22/09/2026) ; Share Talk (16/12/2025) ; Ecofin (21/11/2025) ; EcoMatin (03/04/2025, région) — module 02 [S10], [S11], [S13], [S14] ; module 07 [S28] | Fait vérifié (repris du module 02) |
+| 26 | **Wapouzé** | Calcaire / marbre (qualité cimentière) | Adamaoua | Oriole Resources | Licence convertie de l'or au calcaire en 2023, renouvelée pour 2 ans en janvier 2025 (échéance probable vers janvier 2027 : Inférence du module 07) | Exploration (premier forage) | Premier forage terminé (21 trous, 1 053,8 m), annoncé le 22/07/2026 ; > 50 % CaO selon un pXRF préliminaire ; première estimation de ressource attendue fin T3 2026, **non trouvée** au 2026-10-08 | 2026-07-22 | RNS Oriole « Completion of Maiden Drilling at Wapouzé » — module 07 [S34] | Fait vérifié (repris du module 07) |
+| 27 | **Kambélé** (Batouri) | Or | Est | Zone réservée aux artisans ; sondages historiques d'African Aura Resources (article non daté) | **Arrêté du 13/08/2025 interdisant l'exploitation industrielle** | Artisanal | Aucune ressource conforme trouvée ; site fermé depuis neuf mois selon un article de 2025 | 2025-08-13 | EcoMatin (Kambélé) — module 07 [S39] ; Northern Miner, Cameroun24 — module 02 [S15], [S16] | Fait vérifié (arrêté, repris du module 07) ; opérateur industriel actuel : Inconnue |
 
 **Contrôles qualité USGS à faire faire aux participants (Fait vérifié, extraits de la géodatabase) :**
 - **Nkamouna** a des coordonnées incompatibles entre deux couches : gisements (3,266 N ; 13,813 E) et
@@ -221,10 +233,10 @@ celles de l'USGS quand elles existent (précision variable), sinon « à géocod
 
 ## 7. Déroulé de l'étude de cas (QGIS)
 
-Durée indicative : 1 journée (6 h). Logiciel : QGIS 3.x LTR. Système de coordonnées de travail : WGS 84
-/ UTM 32N (EPSG:32632) pour les distances. Stockage dans un GeoPackage unique,
-`cmr_ecosystem_YYYYMMDD.gpkg`. **Hypothèse** : le choix de l'UTM 32N est à valider ; le Cameroun s'étend
-sur les fuseaux 32 et 33.
+Durée indicative : 1 journée (6 h). Logiciel : QGIS 3.x LTR. Système de coordonnées : stockage en
+WGS 84 (EPSG:4326), calcul des distances en WGS 84 / UTM 33N (EPSG:32633), conformément à la
+convention commune aux modules 01, 02 et 03 (voir « Zone et projection communes » ci-dessous ; l'UTM 32N
+initialement proposé est abandonné). Stockage dans un GeoPackage unique, `cmr_ecosystem_YYYYMMDD.gpkg`.
 
 | Étape | Action | Données | Résultat attendu |
 |---|---|---|---|
@@ -232,7 +244,7 @@ sur les fuseaux 32 et 33.
 | 1. Import USGS (40 min) | Ouvrir `Africa_GIS.gdb` et filtrer `"Country" = 'Cameroon'` pour les couches qui ont ce champ. Pour les autres (lignes électriques, pipelines, charbon), faire une sélection par intersection avec ADM0 Cameroon | USGS 2021 | 10 couches nettoyées ; table des effectifs à comparer au §3 |
 | 2. Audit qualité USGS (40 min) | Repérer les incohérences du §5 (Nkamouna, Mbalam, points symboliques, typage du FLNG). Créer un champ `qc_flag` | USGS | Liste d'anomalies documentée (exercice d'esprit critique) |
 | 3. Titres miniers (60 min) | Importer l'annexe 30 de l'ITIE (XLSX) et normaliser titulaire, type, substance et dates. Géocoder **le nom du permis ou de la localité** (OSM Nominatim ou GeoNames) pour créer des **points approximatifs** avec `loc_precision = "localité"`. Ajouter les 11 permis d'exploitation de la liste ITIE | ITIE 2023 (situation au 31/12/2023) | Couche `titres_2023_pts`, explicitement **non cadastrale** |
-| 4. Projets (45 min) | Créer la couche `projets_2026` à partir du tableau du §5 : stade, statut, date de l'information, URL de la source, statut de vérification | §5 | 15 à 20 points |
+| 4. Projets (45 min) | Créer la couche `projets_2026` à partir du tableau du §5 (y compris Mbe, Bibemi, Wapouzé et Kambélé, lignes 24 à 27, reprises des modules 02 et 07) : stade, statut, date de l'information, URL de la source, statut de vérification | §5 | 15 à 20 points |
 | 5. Infrastructures (60 min) | Extraire d'OSM (Geofabrik) les routes principales, le rail, les ports, les lignes et les centrales. Ajouter les points manuels (Nachtigal, terminal de Kribi, Lolabé) et le tracé **projeté** Mbalam-Kribi en pointillés, avec `statut = "projet"` | OSM 2026-10 ; §6 | Couches d'infrastructure datées |
 | 6. Analyse de proximité (45 min) | Pour chaque projet : distance au port d'export le plus proche, à la voie ferrée, à la ligne électrique et à la centrale, avec l'outil « Distance au plus proche (hub) » | Couches des étapes 4 et 5 | Table `projets_access` (km) pour le module 07 |
 | 7. Mise en page (40 min) | Mise en page A3 avec un cartouche « Source — date » **par couche**, un encadré « Limites » (cadastre fermé, USGS 2018, points approximatifs) et les crédits de licence (OSM ODbL, USGS CC0, GADM non commercial ou remplacé) | — | `Cameroon_Mining_Ecosystem_Map.pdf` |
@@ -240,6 +252,19 @@ sur les fuseaux 32 et 33.
 
 **Jeu de données de secours** (exigé par le cadrage) : un GeoPackage préparé par l'équipe pédagogique
 avec les couches des étapes 1 à 5 déjà construites. **Hypothèse** : à produire avant la session.
+
+### Zone et projection communes (modules 01, 02 et 03) [H : proposition d'harmonisation du 2026-10-08]
+
+La carte de l'écosystème importe les couches des modules 01 (occurrences, cibles) et 02 (polygones de prospectivité) : elle doit utiliser le même SCR et la même emprise de zoom. Proposition commune, identique dans les trois modules :
+
+| Élément | Proposition commune | Justification |
+|---|---|---|
+| SCR d'échange et de stockage | WGS 84 géographique (**EPSG:4326**) | Système des sources (USGS, OSM, coordonnées des RNS) ; déjà retenu pour l'échange par le module 02 (§ 8) |
+| SCR de calcul (distances, surfaces, rasters, densités) | **WGS 84 / UTM 33N (EPSG:32633)**, pour les trois modules | Les trois zones du module 01 (13,85° à 14,55° E, § 4 du module 01) sont entièrement dans le fuseau UTM 33 (12° à 18° E) ; le module 01 l'utilise déjà. Un SCR de calcul unique évite des reprojections entre livrables et des écarts de surface d'un module à l'autre [I] |
+| Projets et ports à l'ouest de 12° E (fuseau 32 : Kribi, Douala) | Garder EPSG:32633 pour les distances du module 03 (étape 6) | Le port en eau profonde de Kribi (9,864° E, module 03 § 6.1) est à environ 5,1° du méridien central de 15° E : facteur d'échelle d'environ 1,0036, soit une erreur d'environ 0,4 % sur une distance, négligeable pour des distances au port exprimées en km [I : calcul k ≈ 0,9996 × (1 + (Δλ·cos φ)²/2)]. L'UTM 32N (EPSG:32632) n'est plus utilisé |
+| Emprise nationale | Limite ADM0 du Cameroun (couche `adm0_adm1` du module 03) | Échelle de la carte nationale du module 02 (1 km) et de la carte de l'écosystème du module 03 |
+| District commun (zoom) | **Z2 Bétaré-Oya : 13,85–14,35° E ; 5,40–5,85° N** (emprise du module 01, § 4) | Seule zone commune aux modules 01 (Z2, « recommandée en second ») et 02 (district « Bétaré-Oya / Lom », littérature la plus dense). Le module 03 y rattache Mborguéné (« Bétaré-Oya / Garoua-Boulaï ») ; son inclusion dans l'emprise reste à vérifier au géocodage [?]. Z1 Tcholliré reste la zone principale de l'exercice spectral du module 01 ; Mbe (Adamaoua) et Bibemi (Nord) restent hors district et servent à la rétro-prédiction nationale du module 02 |
+| Résolution de référence | National : 1 km ; district : 100 m (module 02 § 8) ; produits Sentinel-2 : 10-20 m (module 01) | Les rasters du module 01 sont rééchantillonnés à 100 m avant d'entrer dans le modèle de district du module 02 [H] |
 
 ---
 
@@ -316,7 +341,7 @@ avec les couches des étapes 1 à 5 déjà construites. **Hypothèse** : à prod
 | Le permis de Lobé date du 01/07/2022 (et non de 2024) | ITIE 2023 ; EcoMatin (2026) contre BIC (2024) | Fait vérifié (discordance signalée) |
 | Grand Zambi a été inauguré le 22/09/2025 | ecomatin.net (23/09/2025) | Fait vérifié |
 | Nkout n'a pas de permis d'exploitation (avril 2026) | ecomatin.net (06/04/2026) | Fait vérifié |
-| Minim-Martap : permis signé le 02/09/2024 ; 1re expédition visée au T4 2026 via Douala | BIC (16/09/2024) ; Railway Gazette (15/07/2026) | Fait vérifié |
+| Minim-Martap : permis signé le 02/09/2024 ; 1re expédition prévue initialement fin septembre / T4 2026 via Douala, reportée sans nouvelle date après la suspension des tirages AFG Bank le 24/08/2026 | BIC (16/09/2024) ; AlCircle (18/06/2026) ; Railway Gazette (15/07/2026) ; EcoMatin (24/08/2026) ; AlCircle (29/09/2026) | Fait vérifié (report : source secondaire) |
 | Le permis de Nkamouna a été retiré par le décret 2025/040 du 12/02/2025 ; Geovic conteste | BIC (21/08/2026 ; 21/01/2026) | Fait vérifié |
 | Appels SONAMINES pour Nkamouna et Akonolinga infructueux le 18/08/2026 | BIC (21/08/2026) | Fait vérifié |
 | Colomine : environ 54,5 kg d'or entre 2023 et 2025 | ecomatin.net (30/06/2026) | Fait vérifié |
@@ -324,7 +349,7 @@ avec les couches des étapes 1 à 5 déjà construites. **Hypothèse** : à prod
 | Nachtigal (420 MW) entièrement en service le 18/03/2025 | Wikipédia (tertiaire) | Fait vérifié (faible) |
 | PPP ferroviaire Mbalam-Kribi : 540 km côté Cameroun, comité installé le 10/07/2025 | bougna.net (14/07/2025) | Fait vérifié |
 | Première pierre du terminal minéralier de Kribi (Sinosteel) le 22/09/2025 | ecomatin.net (23/09/2025) | Fait vérifié |
-| SIGM : 18 000 échantillons et 300 sites (PRECASEM) | Non trouvé dans Financial Afrik (10/07/2025) | Non vérifié |
+| PRECASEM : 18 000 échantillons = objectif annoncé en janvier 2017 ; 300 nouveaux sites = bilan 2014-2019 annoncé en juin 2019 (chiffres absents de Financial Afrik du 10/07/2025) | Business in Cameroon (28/01/2017 ; 17/06/2019), vérifiés dans les modules 01 et 02 | Fait vérifié (annonces) ; échantillons réellement analysés : Non vérifié |
 | Étude AMDC : données du « système d'information géologique et minérale » « pour la plupart obsolètes » (l'article ne nomme pas le SIGM) | financialafrik.com (10/07/2025) | Fait vérifié (attribution au SIGM : non établie) |
 
 ---
@@ -342,7 +367,7 @@ avec les couches des étapes 1 à 5 déjà construites. **Hypothèse** : à prod
    Sundance).
 6. Le lien juridique entre « Camalco Cameroon SA » (Canyon) et « CAMALCO MINING SA » (participation
    SONAMINES).
-7. Le statut actuel de Mobilong (diamant), d'Alucam (Edéa), des capacités cimentières 2025 et de
+7. Le statut actuel de Mobilong (diamant), l'état des cuves d'Alucam (Edéa ; capacité et production : module 05), des capacités cimentières 2025 et de
    l'actionnariat de Camrail (non recherchés faute de quota).
 8. Lom Pangar et Memve'ele : capacité et date de mise en service complète, à documenter par une source
    primaire (EDC, Eneo).
@@ -391,6 +416,16 @@ Toutes consultées le **2026-10-08** ; la date entre parenthèses est la date de
 - EcoMatin (2026-06-30), Colomine : https://ecomatin.net/cameroun-54-kg-dor-extraits-a-colomine-en-trois-ans-loin-des-objectifs-initiaux
 - Port Autonome de Kribi (2025-01-17), Grand Zambi : https://pak.cm/en/grand-zambi-iron-from-bipindi-driving-the-growth-of-the-port-of-kribi/
 - GlobeNewswire / Canyon Resources (2026-05-11), point d'avancement de Minim-Martap : https://www.globenewswire.com/news-release/2026/05/11/3291534/0/en/Minim-Martap-Project-Development-Update.html
+- AlCircle (2026-06-18), objectif de première cargaison de Minim-Martap fin septembre 2026 (cité par le module 06) : https://www.alcircle.com/news/cameroons-minim-martap-project-targets-first-bauxite-shipment-by-september-2026-119967
+- EcoMatin (2026-08-24), premières exportations de bauxite de Minim-Martap reportées sine die (cité par les modules 05 et 06) : https://ecomatin.net/cameroun-les-premieres-exportations-de-bauxite-de-minim-martap-reportees-sine-die
+- AlCircle (2026-09-29), Minim-Martap sans date de première expédition (cité par les modules 07 et 09) : https://www.alcircle.com/news/canyon-resources-minim-martap-bauxite-project-faces-fresh-uncertainty-over-funding-and-first-shipment-121352
+- Oriole Resources, RNS 6596V (2026-09-22), Mbe et Bibemi (module 02 [S13]) : https://www.directorstalkinterviews.com/wp-content/uploads/2026/09/ORR-News-1.pdf
+- Oriole Resources, Interim Results (RNS, 2025-09-23), ressource de Bibemi (module 02 [S11]) : https://www.investegate.co.uk/announcement/rns/oriole-resources--orr/interim-results/9124477
+- Oriole Resources, RNS (2026-07-23), ressource de Mbe (module 07 [S28]) : https://www.investegate.co.uk/announcement/rns/oriole-resources--orr/resources-at-mbe-increased-to-1-66m-oz-gold-/9682976
+- Oriole Resources, RNS « Completion of Maiden Drilling at Wapouzé » (module 07 [S34]) : https://www.investegate.co.uk/announcement/rns/oriole-resources--orr/completion-of-maiden-drilling-at-wapouz-/9680681
+- Share Talk (2025-12-16), PEA de Bibemi (module 02 [S14]) : https://www.share-talk.com/oriole-resources-confirms-bibemi-gold-project-potential-with-preliminary-economic-assessment/
+- Ecofin Agency (2025-11-21), EIES de Bibemi (module 02 [S10]) : https://www.ecofinagency.com/news-industry/2111-50708-oriole-eyes-mid-2026-permit-for-cameroon-s-bibemi-gold-project
+- EcoMatin, Kambélé, fin des recherches industrielles (module 07 [S39]) : https://ecomatin.net/or-de-kambele-yaounde-met-fin-aux-recherches-industrielles-et-autorise-lexploitation-artisanale
 - Railway Gazette (2026-07-15), locomotives de Camalco : https://www.railwaygazette.com/cameroon/2026/07/15/locomotives-delivered-for-cameroon-bauxite-mining-project/
 - Bougna.net (2025-07-14), comité de suivi du rail Mbalam-Kribi : https://bougna.net/2025/07/14/routes/chemin-de-fer/chemin-de-fer-mbalam-port-de-kribi-le-comite-de-suivi-tient-sa-premiere-session/
 - AllAfrica / Daba Finance (2026-02-14), plan fer 2026-2030 : https://allafrica.com/stories/202602160017.html
@@ -432,3 +467,5 @@ Minim-Martap ; bougna.net (540/149 km, 25/02/2022, 10/07/2025) ; Colomine (54,5 
 
 **Non revérifié / inaccessible** : Geofabrik (connexion réinitialisée) ; GlobeNewswire ; capture
 Internet Archive du portail ; Discovery Alert ne cite pas de source primaire.
+
+**Harmonisation inter-modules (2026-10-08)** : avertissement « pas un conseil » ajouté ; Minim-Martap : formulation commune du calendrier (prévue fin septembre / T4 2026, reportée sans nouvelle date après la suspension des tirages AFG Bank le 24/08/2026 ; EcoMatin, AlCircle) ; « 18 000 / 300 » réattribués (objectif de janvier 2017 ; bilan 2014-2019 annoncé en juin 2019) ; Mbe, Bibemi, Wapouzé et Kambélé ajoutés à l'inventaire (lignes 24-27, sources des modules 02 et 07) ; ligne Alucam alignée sur les modules 05-07 ; section « Zone et projection communes » ajoutée (§ 7, l'UTM 32N est abandonné pour EPSG:32633). Journal : `verification/harmonisation.md`.

@@ -97,7 +97,7 @@ Les corrections portent sur `docs/AFRICA_MINERAL_INSIGHTS.md` (section 04 et soc
 | C1 | « Code minier de 2023 (loi n° 2023/014) … remplace le code de 2016 » | Confirmé : l'art. 200 abroge la loi n° 2016/017 du 14 décembre 2016 | Fait vérifié | Aucune ; citer l'art. 200 |
 | C2 | « Décrets d'application publiés progressivement depuis 2024 — inventaire à faire » | Inventaire réalisé : 8 décrets signés par le Premier ministre les 18 et 19 novembre 2024 (section 3). La presse signale d'autres décrets le 25 juin 2025 et un arrêté du 9 juin 2025 sur le cadre de négociation des conventions, mais leurs textes n'ont pas été consultés | Fait vérifié (2024) / Fait rapporté (2025) | Remplacer « inventaire à faire » par la liste de la section 3 |
 | C3 | « rôle de l'organisme public mandaté » (sans nom) | La loi dit « organisme public dûment mandaté » sans le nommer (art. 3, 4). Les décrets 2024 nomment la Société Nationale des Mines (SONAMINES), créée par le décret n° 2020/749 du 14 décembre 2020. « SOCAMINES » n'est pas le bon nom | Fait vérifié | Écrire « SONAMINES (organisme public dûment mandaté au sens du code) » |
-| C4 | Cadastre en ligne (Flexicadastre) « annoncé comme opérationnel en 2017 » | L'article de Cameroon Tribune du 2 juin 2017 annonce une mise en service le 1er juillet 2017, sans URL. Le décret n° 2024/05061/PM rend les registres « libres d'accès » (art. 60(5)) et consultables « auprès du cadastre minier et éventuellement sur internet » (art. 110). Une publication en ligne n'est donc pas une obligation | Fait vérifié (textes) / Inconnue (état en ligne actuel) | Garder « à vérifier » et ajouter : « la publication en ligne n'est pas obligatoire (décret 2024/05061, art. 110) » |
+| C4 | Cadastre en ligne (Flexicadastre) « annoncé comme opérationnel en 2017 » | L'article de Cameroon Tribune du 2 juin 2017 annonce une mise en service le 1er juillet 2017, sans URL. Le décret n° 2024/05061/PM rend les registres « libres d'accès » (art. 60(5)) et consultables « auprès du cadastre minier et éventuellement sur internet » (art. 110). Une publication en ligne n'est donc pas une obligation. *Harmonisation du 2026-10-08* : le module 03 a vérifié que le portail public Landfolio (ex-Flexicadastre) du MINMIDT est **hors service depuis le 03/11/2025** (page de maintenance) ; aucun remplaçant public n'a été identifié au 2026-10-08 ; la seule situation des titres disponible est celle du 31/12/2023 (Rapport ITIE 2023, annexe 30, sans coordonnées) | Fait vérifié (textes ; fermeture du portail, module 03) | Remplacer « annoncé comme opérationnel en 2017 » par : « portail public hors service depuis le 03/11/2025 (module 03) ; la publication en ligne n'est pas obligatoire (décret 2024/05061, art. 110) » |
 | C5 | Champs de la matrice (8 lignes) | Il manque des lignes décisives pour un investisseur : stabilité, change et rapatriement, commercialisation de l'or et du diamant, gouvernance et transparence (ITIE), communautés et foncier, règlement des différends | Inférence | Ajouter ces lignes (section 6) |
 | C6 | « Règle : publier la grille de notation avant de remplir la matrice » | La matrice du cadrage n'a ni colonne de note ni échelle | Inférence | Ajouter une colonne « Note » et l'échelle proposée en section 7 |
 | C7 | Benchmark « par exemple un pays de la CEMAC, un pays d'Afrique de l'Ouest, un pays réputé pour son attractivité minière » | Le critère n'était pas opérationnel. Il est fixé en section 5 (Gabon, Côte d'Ivoire, Botswana), avec une règle de sélection vérifiable | Fait vérifié (classements Fraser rapportés par la presse) | Remplacer par les critères de la section 5 |
@@ -706,7 +706,7 @@ téléchargées depuis dgb.cm.
 | V29 | Instruction BEAC 001/GR/2026 : 50 % en 2027, 70 % en 2028, fonds RES exclus | DG Trésor (Brèves, 27 avril-1er mai 2026) ; droitmediasfinance | Rapporté (2 sources) |
 | V30 | Aucune convention de séquestre pour les fonds RES au 30 avril 2026 | DG Trésor | Rapporté |
 | V31 | Pénalités de 150 % (fonds RES ou rapatriement) | EcoMatin et une analyse citée par la recherche | Non vérifié |
-| V32 | Flexicadastre opérationnel en 2017 | Cameroon Tribune, 2 juin 2017 (annonce) | Rapporté ; état actuel inconnu |
+| V32 | Flexicadastre opérationnel en 2017 | Cameroon Tribune, 2 juin 2017 (annonce) ; page de maintenance portals.landfolio.com (module 03) | Rapporté (2017) ; portail **hors service depuis le 03/11/2025** (vérifié par le module 03) |
 | V33 | Gabon : 10 % gratuits + option payante jusqu'à 25 % | Loi 037/2018 art. 7 (JO du 24 juil. 2019) | Vérifié |
 | V34 | Gabon : redevance de 5-10 % (base) et 5-8 % (précieux) | Loi 037/2018 art. 205 | Vérifié |
 | V35 | Gabon : 20 % des recettes minières au fonds des communautés | Loi 037/2018 art. 57 | Vérifié |
@@ -737,8 +737,8 @@ téléchargées depuis dgb.cm.
 3. **Journal officiel** : conformité de la transcription AMLA de la loi à la version publiée.
 4. **Statuts de SONAMINES** (décret n° 2020/750, signalé par la presse) : gouvernance, séparation entre
    rôle commercial et rôle régalien.
-5. **Cadastre** : existence et contenu actuels d'un portail en ligne. Le budget de recherche web a été
-   épuisé avant de pouvoir le vérifier.
+5. **Cadastre** : le portail public Landfolio est hors service depuis le 03/11/2025 (vérifié par le
+   module 03). Reste inconnu : l'existence d'un système de remplacement et ses conditions d'accès.
 6. **Fiscalité de droit commun** : taux du CGI et de la loi de finances 2026 ; traités de non-double
    imposition.
 7. **CEMAC** : texte officiel des règlements de 2018 et 2021 et de l'instruction 001/GR/2026 ; régime des
@@ -784,6 +784,8 @@ téléchargées depuis dgb.cm.
   https://cameroon-tribune.cm/article.html/71281/fr.html/details_2
 - Cameroon Tribune, Flexicadastre (2 juin 2017) :
   https://www.cameroon-tribune.cm/article.html/9048/en.html/details_2
+- Landfolio, page de mise hors service du portail du Cameroun (03/11/2025 ; vérifiée par le module 03) :
+  https://portals.landfolio.com/cameroon/
 - Business in Cameroon (26 mai 2026) :
   https://www.businessincameroon.com/mining/2605-16216-cameroon-tightens-gold-mining-controls-to-boost-revenue-curb-smuggling
 - Business in Cameroon (28 juil. 2026) :
@@ -863,3 +865,4 @@ ITIE de « mars 2024 » ; la date exacte de la décision est le 29 février 2024
 **Non contre-vérifié** : autres articles des décrets (scans sans couche texte), benchmarks Gabon,
 Côte d'Ivoire, Botswana, classements Fraser, Chambers, Cameroon Tribune, HSF/Mondaq.
 
+**Harmonisation inter-modules (2026-10-08)** : cadastre aligné sur le module 03 (C4, V32, inconnue 5 : portail Landfolio hors service depuis le 03/11/2025 ; source ajoutée). Journal : `verification/harmonisation.md`.

@@ -58,9 +58,9 @@
 | C6 | Pas de pondérations ni d'échelle | Le cadrage impose de publier la grille avant de remplir pour le module 06 (règle « Points ouverts » n° 5), mais rien n'est fixé pour le module 07. | Échelle 0-5 à descripteurs, pondérations publiées et justifiées, test de sensibilité obligatoire (section 3). |
 | C7 | Relation avec le module 08 | Le cadrage ne dit pas comment éviter que le module 08 re-note ce que le module 07 a déjà noté (marché, régulation, risque). | Le 07 note l'**actif et son environnement** ; le 08 note la **capacité d'une structure de financement donnée à lever des fonds**. Le 08 reçoit le score 07 comme donnée d'entrée et ne re-note pas les critères 07 (section 3.6). |
 | C8 | Dépendances : « 07 utilise 02, 03, 04, 05, 06 » | Exact sur le principe, mais le module 02 ne produit qu'une carte de prospectivité **or** : il ne nourrit que les fiches or. Le module 05 est centré sur bauxite/aluminium et fer : rien sur cobalt, rutile ou calcaire. | Préciser que les fiches non couvertes par 02/05/06 utilisent le **jeu de données de secours** du module 07 (les fiches de ce document peuvent en tenir lieu). |
-| C9 | Socle de données : « Cadastre minier en ligne du MINMIDT (Flexicadastre) … annoncé opérationnel en 2017 » | Un guide juridique de praticiens mis à jour le 27/01/2026 (Chambers, cabinet Chazai Wamba) indique que le cadastre minier est encore « en cours d'établissement et d'opérationnalisation » [F]. Aucune URL publique fonctionnelle n'a été trouvée [?]. | Ne pas promettre aux participants une extraction directe du cadastre. Prévoir la reconstitution des titres à partir des décrets, arrêtés et presse (méthode utilisée ici). |
-| C10 | Module 05 : « capacité d'électrolyse à Edéa … à vérifier » | Vérifié : Alucam existe et produit, 53 675 t d'aluminium primaire en 2025 contre 73 759 t en 2017, selon un rapport de la Chambre des comptes présenté au Parlement en juillet 2026 et rapporté par la presse [F, source secondaire]. L'origine de l'alumine n'a pas été trouvée [?]. | Utiliser ces chiffres dans 05 et 07 en citant la source ; garder « origine de l'alumine : non vérifiée ». |
-| C11 | Code minier 2023 « décrets publiés progressivement depuis 2024 » | Confirmé : cinq décrets de novembre 2024 (n° 2024/05062/PM, 05248, 05249, 05252, 05253), selon Chambers [F, source secondaire]. Participation gratuite non diluable de l'État d'au moins 10 % dans les sociétés d'exploitation [F, même source]. | À vérifier au Journal officiel par le module 04 ; le module 07 l'utilise comme hypothèse commune à toutes les fiches. |
+| C9 | Socle de données : « Cadastre minier en ligne du MINMIDT (Flexicadastre) … annoncé opérationnel en 2017 » | Le portail public Landfolio (ex-Flexicadastre) du MINMIDT est **hors service depuis le 03/11/2025** (page de maintenance, vérifiée par le module 03) [F]. Aucun remplaçant public n'a été identifié au 08/10/2026 ; la seule situation des titres disponible est celle du 31/12/2023 (Rapport ITIE 2023, annexe 30, sans coordonnées ; module 03). Un guide de praticiens mis à jour le 27/01/2026 (Chambers) décrit le cadastre comme « en cours d'établissement et d'opérationnalisation » [F, S18]. | Ne pas promettre aux participants une extraction directe du cadastre. Prévoir la reconstitution des titres à partir des décrets, arrêtés et presse (méthode utilisée ici). |
+| C10 | Module 05 : « capacité d'électrolyse à Edéa … à vérifier » | Vérifié : Alucam existe et produit, 53 675 t d'aluminium primaire en 2025 contre 73 759 t en 2017, selon un rapport de la Chambre des comptes présenté au Parlement en juillet 2026 et rapporté par la presse [F, source secondaire]. *Harmonisation du 2026-10-08 (modules 05 et 06)* : capacité nominale de **100 kt/an** (USGS MYB 2017-18 ; ASI 2024) [F, S44, S45] ; alumine **entièrement importée**, **aucune raffinerie d'alumine au Cameroun** [F, S45, S46] ; importations d'alumine déclarées par le Cameroun en 2023 : **135 347 t, dont 76 655 t de Guinée** (UN Comtrade) [F, S46]. | Utiliser ces chiffres dans 05, 07 et 09 en citant les sources ; origine de l'alumine 2024-2025 : non publiée dans Comtrade [?]. |
+| C11 | Code minier 2023 « décrets publiés progressivement depuis 2024 » | *Harmonisation du 2026-10-08 (module 04, copies certifiées lues)* : **huit décrets d'application** signés les 18 et 19/11/2024 (n° 2024/05061/PM, 05062, 05248, 05249, 05250, 05251, 05252 et 05253) [F, module 04 §3]. Chambers n'en citait que cinq [S18]. Participation gratuite non diluable de l'État de 10 % dans les sociétés d'exploitation, plus jusqu'à 25 % à titre onéreux en mine industrielle (art. 47(4)) [F, module 04]. | Utiliser l'inventaire du module 04 (§3) ; le module 07 l'utilise comme cadre commun à toutes les fiches. |
 
 ---
 
@@ -96,6 +96,18 @@ d'investissement.
 | 2 | Faible teneur / complexité métallurgique | Chiffres non conformes publiés | Maillon critique manquant, non financé | Marché étroit ou volatil | Titre en négociation ou en cours de réattribution | Seulement un capex global déclaré | Plusieurs risques majeurs |
 | 1 | Défavorable connu | Non disponible | Infrastructure absente | Débouché incertain | Titre retiré / contesté | Non publié, ou étude négative | Litige majeur en cours |
 | 0 | Réservé aux cas rédhibitoires documentés (ex. interdiction légale) | | | | | | |
+
+**Règle de conversion module 06 → critère Market (M)** (harmonisation du 2026-10-08, identique au §9
+du module 06) : M = note d'attractivité du module 06 (échelle continue 1-5) pour le couple produit ×
+marché pertinent, **arrondie à l'entier le plus proche** (x,5 arrondi au supérieur). Une **même note pour
+un même produit sur un même marché**, quelle que soit l'opportunité. Si la clause éliminatoire du
+module 06 (Barrières = 1) a ramené le couple à « Faible », M ≤ 2. Si le couple est « Données
+insuffisantes » ou si le produit n'est pas couvert par le module 06 (cobalt, nickel, manganèse,
+rutile), M est noté sur le jeu de secours du module 07 selon la règle 3.5 et marqué « hors module 06 ».
+Les descripteurs du tableau ci-dessus servent alors seuls. Application : bauxite → Chine 3,15 → **3**
+(O1) ; fer → Chine 2,85 → **3** (O3, O4, O5) ; aluminium → UE 4,2 → **4** (O2) ; or → EAU 4,71 → **5**
+(O8, O9 ; marché de fait, le problème de l'or étant la formalisation, traitée en Reg et K) ; ciment /
+clinker → Cameroun 3,88 → **4** (O10) ; O6 et O7 : hors module 06.
 
 ### 3.4 Pondérations proposées et justification
 
@@ -141,7 +153,10 @@ proposer d'autres poids, à condition de les publier **avant** de noter.
 | E&S | Risque majeur connu (K) | Conformité aux standards des prêteurs (IFC PS, Principes de l'Équateur) |
 
 Règle : le module 08 **importe** l'IOS et l'IC comme données d'entrée, sans re-noter G, R, I, M ou
-Reg. Il peut seulement les citer comme contexte.
+Reg. Il peut seulement les citer comme contexte. En retour, le module 08 produit un **score de
+finançabilité distinct**, affiché **à côté** de l'IOS (par exemple « IOS 69 · IC 6/7 · finançabilité
+[score 08] ») ; il n'est **jamais intégré** à l'IOS ni ajouté à ses critères (harmonisation du
+2026-10-08, voir module 08 §10).
 
 ---
 
@@ -157,11 +172,11 @@ Reg. Il peut seulement les citer comme contexte.
 | Minerai | Bauxite à expédition directe (DSO) [F] |
 | Localisation | Minim-Martap, région de l'Adamaoua ; extensions Makan et Ngaoundal [F, S1, S3] |
 | Titulaire | Camalco Cameroon SA, filiale à 100 % de Canyon Resources Ltd (ASX:CAY) [F, S2]. Actionnaire majoritaire de Canyon : A2MP Investments FZCO (détenue par Eagle Eye Asset Holdings Pte Ltd et FEDA Mining Investments Ltd), 55,56 % à l'ouverture de l'offre puis 57,68 % [F, S4, S5] |
-| Stade | Développement / pré-production : convention minière signée le 30/07/2024 (durée 20 ans), permis d'exploitation délivré en 2024, essais d'extraction annoncés en 2026 [F, S5, S6]. **Calendrier de première expédition retiré sans nouvelle date** (septembre 2026) [F, S5] |
+| Stade | Développement / pré-production : convention minière signée le 30/07/2024 (durée 20 ans), permis d'exploitation délivré en 2024, essais d'extraction annoncés en 2026 [F, S5, S6]. Première expédition prévue initialement fin septembre 2026 (T3 2026) [F, S1] puis au T4 2026 [F, S41] ; **reportée sans nouvelle date après la suspension des tirages de la facilité AFG Bank le 24/08/2026** [F, S41, S5] ; aucune expédition confirmée au 08/10/2026 |
 | Ressources déclarées | **Conforme actuel (JORC 2012)** : réserve de minerai ~144 Mt à 51,2 % Al₂O₃ et 1,7 % SiO₂ (DFS annoncée le 01-02/09/2025) [F, S3, S4]. Ressource : 1 027 Mt à 45,3 % Al₂O₃ (382 Mt mesurées, 597 Mt indiquées, 48 Mt présumées ; seuil 35 % Al₂O₃) [F, S2 ; ASX avril 2025]. Divergence entre annonces de 2025 sur l'inclusion de Makan/Ngaoundal [F, S2] |
 | Infrastructure | Rail Camrail jusqu'au port de Douala ; Canyon a porté sa participation dans Camrail de 9,1 % à 26,9 % en mai 2026 ; 7 locomotives livrées fin juin 2026 ; 60 des 160 wagons attendus mi-août 2026 [F, S5]. Réhabilitation de voie préfinancée par Camalco et remboursée par imputation sur redevances [F, S3] |
-| Marché | Export de bauxite (marché maritime) ; 30 % de la production de bauxite ou d'alumine à mettre à disposition de l'industrie locale aux conditions du marché [F, S6]. L'actionnaire majoritaire estime la prime produit à ~5 $/tms contre ~11 $/tms dans la DFS, et le fret de montée en cadence à 32-36 $/tms contre 17 $/tms [F, S4] |
-| Capex public | **Étude publiée** : capex Stage 1 jusqu'à la première expédition 96 M$ US ; VAN6 avant impôt 835 M$ ; TRI avant impôt 29 % (DFS septembre 2025) [F, S3]. Facilité AFG Bank Cameroon d'environ 140 M$ ; environ 57 M$ (32,5 Md FCFA) tirés selon le Bidder's Statement d'A2MP déposé le 12/08/2026 (date d'arrêté non indiquée) [F, S4], environ 75 M$ tirés au 31/07/2026 selon Business in Cameroon (26/08/2026) et AlCircle (29/09/2026) [F, S5] : **divergence** |
+| Marché | Export de bauxite (marché maritime) ; 30 % de la production de bauxite ou d'alumine à mettre à disposition de l'industrie locale aux conditions du marché [F, S6] (**à arbitrer** : le module 05 lit 15 % dans une autre source ; le Code impose au moins 15 % (art. 40(4)) ; texte de la convention non public). L'actionnaire majoritaire estime la prime produit à ~5 $/tms contre ~11 $/tms dans la DFS, et le fret de montée en cadence à 32-36 $/tms contre 17 $/tms [F, S4] |
+| Capex public | **Étude publiée** : capex Stage 1 jusqu'à la première expédition 96 M$ US ; VAN6 avant impôt 835 M$ ; TRI avant impôt 29 % (DFS septembre 2025) [F, S3]. Facilité AFG Bank Cameroon d'environ 140 M$ ; environ 57 M$ (32,5 Md FCFA) tirés selon le Bidder's Statement d'A2MP déposé le 12/08/2026 (date d'arrêté non indiquée) [F, S4], environ 75 M$ tirés au 31/07/2026 selon Business in Cameroon (26/08/2026) et AlCircle (29/09/2026) [F, S5] : **divergence, à arbitrer** (communiqué ASX de Canyon) |
 | Risques | Suspension des tirages par AFG Bank le 24/08/2026 en attente d'une revue [F, S5 ; Business in Cameroon indique que Canyon l'a rendue publique dans une mise à jour du 24/08/2026] ; l'actionnaire majoritaire écrit que le projet « may be uneconomic at the current proposed pricing and volumes » [F, S4] ; offre publique contestée par le comité indépendant [F, S5] ; trésorerie de 31 M$ AU au 31/07/2026 [F, S5] |
 | Cadre réglementaire | Code minier 2023 ; 10 % gratuits pour l'État + 10 % du capital ouvert aux nationaux ; taxe ad valorem 3 % ; partage de production 5 % ; 1 % fonds minier + 1 % compte capacités ; taxe à l'export 2 % ; bonus de signature 1 Md FCFA [F, S6]. Stabilité fiscale : non mentionnée dans la source [?] |
 | Transformation | Étude de faisabilité de raffinerie d'alumine annoncée pour le T3 2026 ; aucun résultat trouvé [?, S1] |
@@ -173,11 +188,11 @@ Reg. Il peut seulement les citer comme contexte.
 |---|---|
 | Minerai / produit | Aluminium primaire (électrolyse) |
 | Localisation | Edéa [F, S8] |
-| Titulaire | Alucam (État actionnaire ; pourcentage exact **non vérifié** [?]). Conversion de 92,5 Md FCFA de créances de l'État en capital [F, S8] |
-| Stade | En production, sous-utilisée : 73 759 t (2017) → 53 675 t (2025) [F, S8]. Capacité nominale : non indiquée dans la source [?] |
-| Ressources | Sans objet (pas d'extraction). Origine de l'alumine : **non vérifiée** [?] |
+| Titulaire | Alucam (État majoritaire ; pourcentage exact **à arbitrer** [?] : État 79,68 %, SNI 14,32 %, AFD 5,05 % selon Ecofin (2025), État 93,3 % et AFD 5,6 % selon l'ASI, module 05). Conversion de 92,5 Md FCFA de créances de l'État en capital [F, S8] |
+| Stade | En production, sous-utilisée : 73 759 t (2017) → 53 675 t (2025) [F, S8] (série complète et exportations de lingots : module 05). **Capacité nominale : 100 kt/an** (USGS MYB 2017-18 ; ASI 2024) [F, S44, S45] |
+| Ressources | Sans objet (pas d'extraction). **Alumine importée ; aucune raffinerie d'alumine au Cameroun** [F, S45, S46]. Importations d'alumine déclarées par le Cameroun en 2023 (UN Comtrade) : 135 347 t, dont 76 655 t de Guinée [F, S46] ; origine 2024-2025 non publiée [?] |
 | Infrastructure | Dépend des barrages de Songloulou et d'Edéa ; ~13 % de la production électrique nationale, ~130 MW [F, S8] |
-| Marché | Contrat avec Proalu d'environ 2 500 t/mois et ~48 Md FCFA de chiffre d'affaires annuel (août 2024) [F, S9] |
+| Marché | Contrat avec Proalu d'environ 2 500 t/mois et ~48 Md FCFA de chiffre d'affaires annuel (août 2024) [F, S9]. Débouché export : aluminium brut → UE, note 4,2 (« Élevée ») dans le module 06, d'où M = 4 par la règle de conversion du §3.3 [I] |
 | Capex public | La Chambre des comptes recommande d'envisager une injection de 30 à 45 Md FCFA pour moderniser la fonderie, ou à défaut d'étudier l'arrêt de l'électrolyse [F, S8] |
 | Risques | Outil vieillissant ; bilan recapitalisé sans trésorerie nouvelle ; décès du DG Alain Malong le 08/08/2026 [F, S7, S8] |
 | Cadre | Processus de reprise ouvert : Eagle Eye (Singapour) pour une prise de contrôle ; Bathco (Suisse) pour 80 % (> 78 Md FCFA) ; Naxya Holding (maison mère de Proalu) pour un partenariat de 100 Md FCFA [F, S8]. **Point d'attention [I]** : Eagle Eye est aussi actionnaire de l'actionnaire majoritaire de Canyon (O1) [F, S4]. Une intégration bauxite → alumine → aluminium sous un même groupe est donc plausible, mais rien ne l'annonce [H] |
@@ -194,7 +209,7 @@ Reg. Il peut seulement les citer comme contexte.
 | Stade | Travaux lancés le 23/12/2023 ; usine livrée au T4 2024 ; usine à 30 % en décembre 2025 ; premières exportations annoncées pour le T1 2026, **non confirmées** au T2 2026 [F, S11, S13] ; aucune confirmation trouvée au 08/10/2026 [?] |
 | Ressources | **Historique (JORC)**, déclarées par l'ancien titulaire Sundance : 775,4 Mt d'hématite à 57,2 % Fe (déc. 2012) ; réserve de 517 Mt à 62,2 % Fe (mai 2015, JORC 2012, Mbalam + Nabeba) ; itabirites ~2,3 Gt à 38 % Fe pour Mbarga [F, S10] ⚠ > 2 ans. Aucune déclaration conforme du titulaire actuel trouvée [?]. Chiffre de presse « 805 Mt à 62,3 % » sans code = non conforme [F, S14] |
 | Infrastructure | Rail de 540 km au Cameroun (+149 km au Congo) vers Kribi, « en construction » selon la presse ; coût annoncé > 8 Md$ [F, S11] ; état réel d'avancement non vérifié [?]. Capacité initiale déclarée de 3,6 Mt/an, extensible à 10 Mt/an en 2027 [F, S11]. Terminal minéralier de Kribi non opérationnel (voir fiche transversale T1) |
-| Marché | Offtakes annoncés avec Baosteel, Vitol, Tsingshan, Vanomet [F, S11, source de presse] |
+| Marché | Offtakes annoncés avec Baosteel, Vitol, Tsingshan, Vanomet [F, S11, source de presse]. Note M alignée sur le couple fer → Chine du module 06 (2,85 → 3), comme Kribi-Lobé et Grand Zambi (règle de conversion, §3.3) : des offtakes annoncés par la presse ne changent pas l'attractivité du marché [I] |
 | Capex public | Investissement total annoncé ~10 Md$ (presse) [F, S11] ; 747 Md FCFA inscrits dans l'annexe 2026-2030 [F, S15]. Pas d'étude publiée par le titulaire actuel [?] |
 | Risques | **Sentence CCI d'environ 616 M$** (dommages, intérêts, frais) contre le Cameroun en faveur de Sundance/Cam Iron (Reuters, 27/07/2026) ; paiement volontaire non confirmé [F, S16]. Sundance a perdu contre le Congo (janvier 2026) [F, S16]. Projet décrit comme « stalled » par Reuters [F, S16] |
 | Cadre | Permis attribué malgré une ordonnance d'urgence CCI de mars 2022 qui interdisait de l'attribuer à un tiers [F, S16] |
@@ -277,14 +292,14 @@ Reg. Il peut seulement les citer comme contexte.
 | Localisation | Bibemi (Nord) ; Mbe, région de l'Adamaoua, licence de 312 km² [F, S28] |
 | Titulaire | Oriole Resources plc (AIM:ORR) 50 % / BCM International Ltd 50 % après earn-in (Bibemi : novembre 2025 ; Mbe : annoncé le 20/02/2026) ; accord de JV en cours de rédaction [F, S28] |
 | Stade | **Bibemi** : demande de licence d'exploitation déposée en juin 2024, EIES approuvée en novembre 2025 [F, S29]. **Mbe** : exploration (licences d'exploration, échéance non publiée) [F, S28] |
-| Ressources | **Conforme actuel (JORC 2012)**. Mbe : 1,66 Moz à 1,02 g/t, **présumées** (MB01-S 40,1 Mt à 1,01 g/t = 1,30 Moz ; MB01-N 10,5 Mt à 1,05 g/t = 0,36 Moz ; seuil 0,40 g/t, coques de fosse à 3 200 $/oz ; personne compétente R. Davies, Forge International) [F, S28]. Bibemi : 460 000 oz à 2,06 g/t (indiquées + présumées) [F, S28] |
+| Ressources | **Conforme actuel (JORC 2012)**. Mbe : 1,66 Moz à 1,02 g/t, **présumées** (MB01-S 40,1 Mt à 1,01 g/t = 1,30 Moz ; MB01-N 10,5 Mt à 1,05 g/t = 0,36 Moz ; seuil 0,40 g/t, coques de fosse à 3 200 $/oz ; personne compétente R. Davies, Forge International) [F, S28]. Bibemi : 460 000 oz à 2,06 g/t (6,96 Mt ; 100 koz indiquées et 360 koz présumées ; fosse à 2 750 $/oz, mai 2025 ; personne compétente R. Davies) [F, S28, S42] |
 | Infrastructure | Non documentée dans les sources (énergie, accès) [?] |
 | Marché | Or : marché liquide ; exclusivité de commercialisation de l'or confiée à la Sonamines [F, S30] — conséquences pour l'offtake à vérifier par le module 04 [?] |
-| Capex public | **Non publié** (pas de PEA/PFS publiée) [?, S28] |
+| Capex public | **Bibemi : PEA interne (décembre 2025)**, résumée dans le RNS du 22/09/2026 : petite mine à ciel ouvert, ~89 koz in situ à 2,20 g/t (moins de 20 % des ressources), 10 koz/an sur 7 ans, VAN après impôt de 12,8 M$ à 3 200 $/oz [F, S42, S43]. Montant du capex non repris dans les sources lues [?] ; étude non publiée en intégralité. **Mbe** : aucune étude économique [?] |
 | Risques | Junior en coentreprise ; JV non finalisée ; conditions de la convention minière en négociation [F, S28, S29] |
 | Cadre | Code 2023 ; participation de l'État au stade de l'exploitation [F, S18] |
 | Transformation | Raffinage local de l'or : non documenté [?] |
-| Date info | 23/07/2026 (S28) |
+| Date info | 22/09/2026 (S42) ; 23/07/2026 (S28) |
 
 ### O9 — Or : petites mines Codias / Caminco (Est) — Colomine + Mborguéné
 
@@ -343,37 +358,56 @@ Reg. Il peut seulement les citer comme contexte.
 | Rang | Opportunité | Substance | Stade | Statut ressource | G | R | I | M | Reg | E | K | **IOS** | Poids égaux | IC (/7) |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | 1 | O1 Minim-Martap | Bauxite | Pré-production, financement suspendu | Conforme actuel | 4 | 5 | 3 | 3 | 3 ⚠ | 3 | 2 | **69** | 66 | 6 |
-| 2= | O8 Bibemi + Mbe (Oriole/BCM) | Or | Demande de licence / exploration | Conforme actuel (surtout présumées) | 4 | 3 | 2 | 5 | 3 | 1 (ND) | 3 | **57** | 60 | 5 |
-| 2= | O9 Colomine + Mborguéné | Or | Petite mine / permis récent | Non conforme | 3 | 2 | 3 | 5 | 4 | 2 | 2 | **57** | 60 | 4 |
+| 2 | O8 Bibemi + Mbe (Oriole/BCM) | Or | Demande de licence / exploration | Conforme actuel (surtout présumées) | 4 | 3 | 2 | 5 | 3 | 3 | 3 | **63** | 66 | 6 |
+| 3 | O9 Colomine + Mborguéné | Or | Petite mine / permis récent | Non conforme | 3 | 2 | 3 | 5 | 4 | 2 | 2 | **57** | 60 | 4 |
 | 4= | O4 Kribi-Lobé | Fer | Extraction, export 2027 | Non conforme | 3 | 2 | 3 | 3 | 3 | 2 | 2 | **51** | 51 | 5 |
 | 4= | O5 Grand Zambi | Fer | Mine inaugurée, export non confirmé | Non conforme | 3 | 2 | 3 | 3 | 3 | 2 | 2 | **51** | 51 | 5 |
 | 6 | O6 Nkamouna | Co-Ni-Mn | Titre à réattribuer | Historique (NI 43-101, 2011) | 3 ⚠ | 3 | 2 | 3 | 2 | 2 ⚠ | 2 | **49** | 49 | 4 |
 | 7 | O10 Wapouzé | Calcaire/marbre | Premier forage | ND | 3 | 1 (ND) | 2 | 4 | 3 | 1 (ND) | 3 | **44** | 49 | 3 |
 | 8 | O7 Akonolinga | Rutile | Faisabilité négative ; titre Sonamines | ND | 2 | 1 (ND) | 3 | 4 | 3 | 1 | 2 | **43** | 46 | 3 |
-| 9 | O3 Mbalam | Fer | Construction, titre contesté | Historique (JORC, ex-Sundance) | 3 ⚠ | 3 ⚠ | 1 | 4 | 2 | 1 (ND) | 1 | **42** | 43 | 4 |
+| 9 | O3 Mbalam | Fer | Construction, titre contesté | Historique (JORC, ex-Sundance) | 3 ⚠ | 3 ⚠ | 1 | 3 | 2 | 1 (ND) | 1 | **40** | 40 | 4 |
 
 > *Contre-vérification (2026-10-08)* : notes G d'O3 (5 → 3) et d'O6 (4 → 3) ramenées au plafond de 3
 > imposé par la règle 3.5 n° 5, car elles reposent uniquement sur des déclarations de plus de 2 ans
 > (Sundance 2012-2015 ; Geovic 2011). IC d'O1 ramené de 7 à 6 : le critère Reg repose sur la
 > convention du 30/07/2024 (S6, 19/08/2024), antérieure au 2024-10-08.
+>
+> *Harmonisation inter-modules (2026-10-08)* — recalcul transparent :
+> - **O8** : E passe de 1 (ND) à **3** (descripteur « Scoping/PEA » du §3.3), car la PEA interne de
+>   Bibemi (décembre 2025, résumée dans le RNS du 22/09/2026 [S42] ; module 02 §4.1) était documentée
+>   dans le module 02. IOS = (4×15 + 3×20 + 2×20 + 5×10 + 3×10 + **3×15** + 3×10) / 5 = 315 / 5 = **63**
+>   (au lieu de 57) ; poids égaux : 23 / 35 = **66** (au lieu de 60). IC : 5 → **6** (E repose désormais
+>   sur un fait de moins de 2 ans). Rang : 2= → **2** seul ; O9 passe de 2= à **3**.
+> - **O3** : M passe de 4 à **3** (règle de conversion du §3.3 : fer → Chine 2,85 → 3, même note que O4
+>   et O5). IOS = (3×15 + 3×20 + 1×20 + **3×10** + 2×10 + 1×15 + 1×10) / 5 = 200 / 5 = **40** (au lieu
+>   de 42) ; poids égaux : 14 / 35 = **40** (au lieu de 43). Rang inchangé (9).
+> - Les autres notes M étaient déjà conformes à la règle (O1 3 ; O4, O5 3 ; O8, O9 5 ; O10 4) ou hors
+>   module 06 (O6, O7).
 
 ### 5.2 Transformation (classée à part, G et R sans objet, poids renormalisés)
 
 | Opportunité | I | M | Reg | E | K | **IOS** | IC |
 |---|---|---|---|---|---|---|---|
-| O2 Alucam (Edéa) | 3 | 3 | 3 | 2 | 2 | **52** | 4 |
+| O2 Alucam (Edéa) | 3 | 4 | 3 | 2 | 2 | **55** | 4 |
+
+> *Harmonisation inter-modules (2026-10-08)* : M passe de 3 à **4** (règle de conversion du §3.3 :
+> aluminium → UE 4,2 → 4). IOS = (3×20 + **4×10** + 3×10 + 2×15 + 2×10) / (5 × 65) × 100 = 180 / 325 ×
+> 100 = **55** (au lieu de 52).
 
 ### 5.3 Lecture [I]
 
 - **Classement robuste en tête et en queue** : avec des poids égaux, aucun projet ne bouge de plus de
-  2 rangs (vérifié après correction des notes G d'O3 et d'O6). Le classement n'est donc pas « fragile » au sens de la règle 3.4.
+  2 rangs (vérifié après correction des notes G d'O3 et d'O6, puis après l'harmonisation du 2026-10-08 :
+  O1 et O8 à égalité à 66, O10 remonte d'un rang). Le classement n'est donc pas « fragile » au sens de la règle 3.4.
 - **L'écart vient surtout de R et de I** : Minim-Martap est le seul projet qui combine une
   déclaration conforme récente et une voie d'évacuation existante. Mbalam a la géologie la mieux documentée historiquement, mais
   ces données ont plus de 2 ans (G plafonnée à 3), et il cumule la plus mauvaise infrastructure et le titre le plus contesté.
-- **Effet de la règle ND** : O8 serait 2ᵉ seul (63) si une PEA publiée justifiait E = 3. La règle
-  pénalise volontairement l'absence d'étude publiée.
+- **Effet de la règle ND** : avant l'harmonisation, O8 recevait E = 1 (ND) faute d'étude repérée ; la PEA
+  interne de Bibemi (décembre 2025), documentée dans le module 02, justifie E = 3 : O8 passe de 57 à 63
+  et devient 2ᵉ seul. La règle pénalise volontairement l'absence d'étude publiée : une PEA résumée dans
+  un RNS, sans publication intégrale ni capex, ne dépasse pas 3.
 - **Indice de confiance** : aucun projet n'a 7 critères sur 7 documentés par des faits de moins de 2 ans ;
-  O1 atteint 6/7. Aucun projet à capitaux non cotés n'atteint 6/7 : c'est un résultat en soi pour le module 09 (transparence).
+  O1 et O8 (deux émetteurs cotés) atteignent 6/7. Aucun projet à capitaux non cotés n'atteint 6/7 : c'est un résultat en soi pour le module 09 (transparence).
 - **Fiabilité des données** : plusieurs chiffres clés proviennent de la presse camerounaise
   (EcoMatin, Business in Cameroon, Cameroon Tribune) faute de source primaire accessible. Ils sont
   utilisables pour l'exercice mais doivent être recoupés avant tout usage professionnel.
@@ -409,7 +443,7 @@ restitution (10 %).
 
 | Vers | Ce qui est transmis | Usage |
 |---|---|---|
-| **08 Financing** | IOS + IC + fiche de 1 à 3 projets candidats. Recommandation [I] : construire le **projet stylisé** du module 08 à partir des paramètres publiés de **O1** (seul projet avec DFS, capex, VAN, TRI et dette bancaire publiés), sans nommer le projet réel, conformément au point ouvert n° 3 | Le module 08 note la structure de financement, pas l'actif (section 3.6). Les faits d'O1 (suspension AFG, désaccord sur les hypothèses de prix et de fret) sont des cas d'école de covenant et de sensibilité |
+| **08 Financing** | IOS + IC + fiche de 1 à 3 projets candidats. Recommandation [I] : construire le **projet stylisé** du module 08 à partir des paramètres publiés de **O1** (seul projet avec DFS, capex, VAN, TRI et dette bancaire publiés), sans nommer le projet réel, conformément au point ouvert n° 3 | Le module 08 note la structure de financement, pas l'actif (section 3.6). Les faits d'O1 (suspension AFG, désaccord sur les hypothèses de prix et de fret) sont des cas d'école de covenant et de sensibilité. **Retour du 08** : un score de finançabilité **distinct**, affiché à côté de l'IOS et de l'IC, jamais intégré à l'IOS (règle 3.6) |
 | **09 National Strategy** | (a) Liste des dépendances d'infrastructure communes (terminal minéralier de Kribi, rail Mbalam-Kribi, rail Camrail) ; (b) opportunités de transformation (alumine via O1, aluminium via O2, concentrés via O4/O5/O6, clinker via O10) ; (c) déficit de transparence (IC) ; (d) actifs repris par l'État sans partenaire (O6, O7) ; (e) écart d'exportation d'or (ITIE 2023) | Phases « Enable » (données, cadastre, conformité des ressources) et « Develop » (infrastructures partagées) |
 | **04 Legal** (rétroaction) | Questions précises : stabilité fiscale dans les conventions ; effet du retrait des permis (Nkamouna, 53 permis d'or retirés le 30/06/2026) ; exclusivité de la Sonamines sur l'or ; règle de mise en exploitation sous 2 ans | Alimente la Gap Matrix |
 | **05 / 06** (rétroaction) | Production d'Alucam 2017-2025 ; hypothèses de prime et de fret de la bauxite contestées (DFS contre A2MP) ; importations de clinker 2023 | Calibrage des chaînes de valeur et des marchés |
@@ -446,10 +480,13 @@ restitution (10 %).
 | V24 | Wapouzé : forage terminé, ressource attendue au T3 2026 | S34 | Vérifié (RNS) ; ressource **non trouvée** |
 | V25 | Importations de clinker en 2023 : 2,4 Mt / 87,7 Md FCFA ; Figuil 500 kt/an | S35 | Vérifié (presse) |
 | V26 | Annexe 2026-2030 : 1 748 Md FCFA (Mbalam 747 ; Grand Zambi 570 ; Kribi-Lobé 431) | S15 | Vérifié (presse citant l'annexe) ; nature (public/privé) **inconnue** |
-| V27 | Code 2023 : 10 % gratuits non diluables ; 5 décrets de novembre 2024 | S18 | Vérifié (guide de praticiens) ; texte du JO non lu |
-| V28 | Cadastre minier « opérationnel depuis 2017 » (cadrage) | S18, S40 | **Contredit / non confirmé** pour 2026 |
+| V27 | Code 2023 : 10 % gratuits non diluables (+ jusqu'à 25 % à titre onéreux en mine industrielle, art. 47(4)) ; **8 décrets** des 18 et 19/11/2024 | Module 04 (§3, copies certifiées lues) ; S18 (n'en citait que 5) | Vérifié (module 04) ; harmonisé le 2026-10-08 |
+| V28 | Cadastre minier « opérationnel depuis 2017 » (cadrage) | S18, S40 ; module 03 (page de maintenance Landfolio) | **Contredit** : portail public hors service depuis le 03/11/2025 (vérifié par le module 03) |
 | V29 | Nkout : convention et permis non signés | S37 | Vérifié (presse, déc. 2025) |
 | V30 | Statut actuel du permis de Mobilong | S38 | **Non vérifié** (dernière info : 2021) |
+| V31 | Bibemi : PEA interne de décembre 2025 (~89 koz in situ à 2,20 g/t ; 10 koz/an sur 7 ans ; VAN après impôt de 12,8 M$ à 3 200 $/oz) | S42 (RNS 22/09/2026), S43 ; module 02 §4.1 | Vérifié (module 02, contre-vérification verif-01-03) ; capex non repris |
+| V32 | Alucam : capacité nominale de 100 kt/an ; alumine importée, aucune raffinerie ; importations d'alumine 2023 de 135 347 t, dont 76 655 t de Guinée | S44, S45, S46 ; modules 05 et 06 | Vérifié (modules 05 et 06, contre-vérification verif-04-06) |
+| V33 | Minim-Martap : 1re expédition prévue fin septembre puis au T4 2026, reportée sans nouvelle date après le 24/08/2026 | S1, S41, S5 | Vérifié (presse spécialisée) ; aucune expédition confirmée au 08/10/2026 |
 
 ---
 
@@ -457,7 +494,7 @@ restitution (10 %).
 
 1. Issue de l'offre A2MP sur Canyon et décision d'AFG Bank après sa revue (O1).
 2. Résultats de l'étude de raffinerie d'alumine de Canyon (attendus au T3 2026) (O1).
-3. Origine et contrat d'approvisionnement de l'alumine d'Alucam ; part exacte de l'État (O2).
+3. Contrat d'approvisionnement de l'alumine d'Alucam et origine 2024-2025 (2023 : connue, voir O2) ; part exacte de l'État (O2, **à arbitrer**).
 4. Première cargaison effective de Mbalam, de Grand Zambi et de Kribi-Lobé : aucune confirmée.
 5. Paiement ou exécution de la sentence Sundance ; effet sur le titre de CMC (O3).
 6. Déclaration de ressources conforme d'un quelconque titulaire du fer camerounais en 2024-2026.
@@ -469,7 +506,7 @@ restitution (10 %).
 12. Calendrier réel du terminal minéralier de Kribi et du rail Mbalam-Kribi (T1).
 13. Accès public effectif au cadastre minier et au Journal officiel numérique.
 14. Clauses de stabilité fiscale effectivement accordées dans les conventions récentes.
-15. Capacité nominale d'Alucam et état des cuves.
+15. État des cuves d'Alucam (capacité nominale de 100 kt/an : vérifiée par le module 05).
 
 ---
 
@@ -518,6 +555,15 @@ Secondaires (presse, guides) :
 - **S38** EcoMatin, Mobilong (ITIE) : https://ecomatin.net/diamant-de-mobilong-letat-du-cameroun-ne-percoit-pas-la-redevance-dexploitation-depuis-7-ans ⚠
 - **S39** EcoMatin, Kambélé : https://ecomatin.net/or-de-kambele-yaounde-met-fin-aux-recherches-industrielles-et-autorise-lexploitation-artisanale
 - **S40** Trimble (Spatial Dimension), projet de cadastre minier : https://landadmin.trimble.com/projects/cameroon-mining-cadastre-system/
+
+Ajoutées lors de l'harmonisation inter-modules du 2026-10-08 (sources déjà citées et vérifiées dans
+d'autres modules) :
+- **S41** EcoMatin (24/08/2026), premières exportations de bauxite de Minim-Martap reportées sine die (module 05 [S15], module 06) : https://ecomatin.net/cameroun-les-premieres-exportations-de-bauxite-de-minim-martap-reportees-sine-die
+- **S42** Oriole Resources, Interim Results (RNS 6596V, 22/09/2026), PEA de Bibemi (module 02 [S13]) : https://www.directorstalkinterviews.com/wp-content/uploads/2026/09/ORR-News-1.pdf ; RNS du 23/09/2025 (ressource de Bibemi, module 02 [S11]) : https://www.investegate.co.uk/announcement/rns/oriole-resources--orr/interim-results/9124477
+- **S43** Share Talk (16/12/2025), PEA de Bibemi (module 02 [S14]) : https://www.share-talk.com/oriole-resources-confirms-bibemi-gold-project-potential-with-preliminary-economic-assessment/
+- **S44** USGS, *2017–2018 Minerals Yearbook — Cameroon* (module 05 [S1]) : https://pubs.usgs.gov/myb/vol3/2017-18/myb3-2017-18-cameroon.pdf
+- **S45** Aluminium Stewardship Initiative, membre ALUCAM (module 05 [S6]) : https://aluminium-stewardship.org/about-asi/members/ALUCAM
+- **S46** UN Comtrade, API publique « preview », HS 281820, importations du Cameroun en 2023 (module 05 [S12] ; module 06 §4.4) : https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=120&period=2023&cmdCode=281820&flowCode=M
 - Autres : retrait de 53 permis d'or (30/06/2026), Financial Afrik : https://www.financialafrik.com/2026/07/03/cameroun-le-gouvernement-retire-une-cinquantaine-de-permis-de-recherche-dor/
 
 **Limites de la recherche** : plusieurs pages ont été lues par extraction automatique (résumé) ou
@@ -551,3 +597,4 @@ par WebFetch le 2026-10-08 ; scores recalculés par script.
 - **Rétrogradés en [?]** : reprise d'Akonolinga par la Sonamines « en mai 2025 » ; 13,6 M€ investis par
   Eramet ; refus « par un comité d'investissement » ; séquence des reports de Grand Zambi (absente de S21).
 - **Non vérifiés ici** : S2, S3, S10, S24 (non rouverts) ; échantillon limité à ~15 affirmations.
+- **Harmonisation inter-modules (2026-10-08)** : Alucam aligné sur les modules 05-06 (100 kt/an ; alumine importée ; aucune raffinerie ; Comtrade 2023 : 135 347 t dont 76 655 t de Guinée) ; cadastre (C9, V28) et décrets (C11, V27 : 8 décrets) alignés sur les modules 03 et 04 ; Minim-Martap : formulation commune ; PEA de Bibemi intégrée (O8 : E 1 → 3, IOS 57 → 63, poids égaux 60 → 66, IC 5 → 6, rang 2) ; règle de conversion M06 → Market ajoutée (§ 3.3) et appliquée (O3 : M 4 → 3, IOS 42 → 40 ; O2 : M 3 → 4, IOS 52 → 55) ; retour du module 08 précisé (score de finançabilité distinct, § 3.6 et § 7) ; points de priorité 2 marqués « à arbitrer » ; sources S41-S46 ajoutées. Journal : `verification/harmonisation.md`.

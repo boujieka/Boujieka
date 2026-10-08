@@ -61,11 +61,11 @@
 |---|---|---|---|
 | C1 | « Situer la proposition par rapport aux documents de stratégie existants (stratégie nationale de développement, **politiques sectorielles**) » | Seule la SND30 est vérifiée comme document adopté. Aucune « politique minière » nationale adoptée n'a été trouvée. Le Plan directeur d'industrialisation (PDI), présenté en mars 2017, n'est connu que par la presse : son texte n'a pas été trouvé, et sa révision a été confiée à la CEA en 2019 [F-presse] | Écrire « SND30 + Code minier 2023 + PDI (texte non consulté) ». Ne pas citer de « politique minière » sans en produire le texte |
 | C2 | Horizon « 2035–2040+ Transform » | La SND30 couvre 2020-2030 et constitue la deuxième phase de la **Vision 2035** (« Nouveau Pays Industrialisé en 2035 ») [F]. Aucun document officiel ne couvre la période après 2030 [?] | Indiquer explicitement que les horizons Develop et Transform **dépassent tout cadre officiel existant**. Les rattacher à la Vision 2035 et à la stratégie qui succédera à la SND30 (inconnue) |
-| C3 | Séquence implicitement linéaire Enable → Develop → Transform | Des projets « Develop » sont déjà en cours en 2025-2026 : fer de Kribi-Lobé (Sinosteel, premières exportations reportées à juillet 2027), fer de Bipindi-Grand Zambi, bauxite de Minim-Martap (financement suspendu le 24/08/2026) [F-presse]. Une capacité « Transform » existe déjà avec l'électrolyse d'aluminium d'Edéa (ALUCAM) [F-presse ; capacité nominale de 100 kt/an selon des listes secondaires] | Présenter les horizons comme des **priorités dominantes** qui se chevauchent, pas comme des étapes successives |
+| C3 | Séquence implicitement linéaire Enable → Develop → Transform | Des projets « Develop » sont déjà en cours en 2025-2026 : fer de Kribi-Lobé (Sinosteel, premières exportations reportées à juillet 2027), fer de Bipindi-Grand Zambi, bauxite de Minim-Martap (financement suspendu le 24/08/2026) [F-presse]. Une capacité « Transform » existe déjà avec l'électrolyse d'aluminium d'Edéa (ALUCAM) [F : capacité nominale de 100 kt/an (USGS MYB 2017-18 ; ASI 2024), vérifiée par le module 05 ; alumine importée, aucune raffinerie d'alumine au Cameroun (modules 05 et 06)] | Présenter les horizons comme des **priorités dominantes** qui se chevauchent, pas comme des étapes successives |
 | C4 | « Transformations réalisables localement » sans base juridique | Le Code minier 2023 impose déjà au moins 15 % de transformation locale dans les conventions (art. 40), l'export d'or affiné (art. 117(3)) et 10 % de la quote-part d'or artisanal pour les transformateurs locaux (art. 27) [F] | Partir de ces obligations et mesurer leur **application** (indicateurs, section 8) |
 | C5 | Poids du secteur (implicite) | Les chiffres « 4,2 % du PIB / 32 % des exportations » concernent **toutes les industries extractives, pétrole compris**. Pour le minier seul, l'ordre de grandeur publié est d'environ 0,63 % du PIB [F-presse] | Toujours séparer « extractif » et « minier hors hydrocarbures » |
 | C6 | Données ITIE comme source normale | Le Cameroun est **suspendu de l'ITIE** depuis le 29 février 2024 (décision 2024-17) (score de validation 53, « fairly low ») [F]. Le rapport 2023 a été publié en décembre 2025 [F-presse] | Afficher le statut ITIE et ses limites dans tout tableau de recettes |
-| C7 | Socle de données : « PRECASEM … 18 000 échantillons, 300 sites » (repris en 09 via les livrables 01-02) | « 300 nouveaux sites (2014-2019) » est confirmé par la presse (déclaration ministérielle de 2019) [F-presse]. « 18 000 échantillons » n'a **pas été vérifié** dans cette recherche [?]. Le PRECASEM est **clos** (1/12/2021) et aucun projet Banque mondiale ne lui succède [F] | Écrire « PRECASEM (clos en 2021) » et marquer « 18 000 échantillons » comme non vérifié tant que la source n'est pas produite |
+| C7 | Socle de données : « PRECASEM … 18 000 échantillons, 300 sites » (repris en 09 via les livrables 01-02) | *Harmonisation du 2026-10-08 (modules 01 C4 et 02 C1)* : les deux chiffres sont vérifiés mais ne relèvent pas d'une même campagne. « 18 000 échantillons » est un **objectif** annoncé en janvier 2017 (Business in Cameroon, 28/01/2017) ; « 300 nouveaux sites » est un **bilan 2014-2019** annoncé en juin 2019 (Business in Cameroon, 17/06/2019) [F-presse]. Le nombre d'échantillons réellement analysés n'est pas vérifié [?]. Le PRECASEM est **clos** (1/12/2021) et aucun projet Banque mondiale ne lui succède [F] | Écrire « PRECASEM (clos en 2021) : campagne géochimique **prévue** d'environ 18 000 échantillons (annonce de 2017) ; 300 nouveaux sites annoncés en 2019 pour 2014-2019 » |
 | C8 | « Cameroon National Mineral Value Strategy » | Le titre peut être confondu avec un document officiel. Un mémorandum Cameroun-UE devait servir à élaborer « la stratégie minière nationale » (communiqué conjoint rapporté le 27/05/2024) [F-presse] | Garder « (proposition) » dans le titre, ajouter un avertissement en première page et éviter toute charte graphique officielle |
 
 ---
@@ -81,7 +81,7 @@
 | Évaluation à mi-parcours de la SND30 (CNSE) | Rapportée le 25/08/2026 | Aucune mention du secteur minier dans l'article | 49,6 % des besoins couverts ; investissement à 18 % du PIB (2021) contre 29 % visés, cible 2030 révisée à 23,8 % ; croissance de 3,8 % (2025) contre 8,5 % visés | [F-presse] |
 | **Plan directeur d'industrialisation (PDI)** | Présenté en mars 2017 (MINMIDT). Révision avec appui de la CEA annoncée en 2019 | Filières porteuses : agro-industrie, énergie, numérique ; transformation du bois, du coton, des minerais et des hydrocarbures ; métallurgie, sidérurgie | Industrie de 13 % à 24 % du PIB à l'horizon 2035 (selon la presse) | [F-presse] ; texte intégral non consulté [?] |
 | **Code minier, loi n° 2023/014 du 19/12/2023** | En vigueur. Abroge la loi n° 2016/017 (art. 200) | Art. 27 : 10 % minimum de la quote-part d'or et de pierres de l'État garantis aux transformateurs locaux. Art. 40 : la convention fixe la part de production dédiée à la transformation locale, **au moins 15 %**. Art. 44 : avantages pour qui construit une usine de transformation. Art. 47 : 10 % gratuits et non diluables pour l'État, plus jusqu'à 25 % à titre onéreux (mine industrielle). Art. 48 : partage de production de 1-5 % (précieux) et de 2-15 % (autres). Art. 117(3) : **or exporté sous forme affinée**. Art. 118 : agrément fusion et affinage. Art. 121-125 : contenu local, 95 % des postes non qualifiés réservés aux Camerounais, préférence aux sociétés de droit camerounais | Seuils juridiques ci-dessus (ce ne sont pas des objectifs de résultat) | [F] (PDF FAOLEX lu) |
-| Textes d'application du Code 2023 | Publication progressive. Exemple : arrêté du 15/04/2026 sur les seuils d'exportation d'échantillons | — | — | [F-presse] ; inventaire complet [?] |
+| Textes d'application du Code 2023 | **Huit décrets** signés les 18 et 19/11/2024 (n° 2024/05061/PM, 05062, 05248, 05249, 05250, 05251, 05252, 05253 ; inventaire du module 04, §3), puis textes de 2025 rapportés par la presse (arrêté du 09/06/2025 ; décrets du 25/06/2025) et arrêté du 15/04/2026 sur les seuils d'exportation d'échantillons | — | — | [F] (décrets 2024, module 04) ; [F-presse] (2025-2026) |
 | **PRECASEM**, Projet de renforcement des capacités du secteur minier (Banque mondiale) | P122153 : 30 M USD, approuvé le 15/12/2011. Financement additionnel P160917 : 26,9 M USD, approuvé le 31/03/2017. Clos le 1/12/2021 | Objectif : « improve (i) the efficiency and transparency of mining sector management and (ii) the frameworks for sustainable mining development ». Cadastre (Flexicadastre), géophysique aéroportée sur 160 000 km² (lancée en 2014), 300 nouveaux sites (2014-2019) | — | [F] (API Banque mondiale) ; résultats [F-presse] ; rapport d'achèvement (ICR) non consulté [?] |
 | Projets Banque mondiale qui succèdent au PRECASEM | Aucun trouvé (API, projets Cameroun approuvés depuis 2021) | Projet connexe : Power Sector Reform Program (P178136, 2023), pertinent pour l'énergie | — | [F] (absence constatée le 2026-10-08) |
 | Feuille de route des minéraux critiques | **Non trouvée** | Réunion ministérielle OEACP à Yaoundé (mai 2024, « Déclaration de Yaoundé ») ; communiqué conjoint Cameroun-UE avant un mémorandum pour la stratégie minière nationale. En août 2026, SONAMINES déclare infructueux les appels à manifestation d'intérêt de janvier 2026 pour Nkamouna (Co-Ni-Mn) et Akonolinga (rutile) | — | [F-presse] / [?] |
@@ -116,7 +116,7 @@
 | Or : production officielle / exportations officielles / importations déclarées par les partenaires | 953 kg / 22,3 kg / 15,2 t (essentiellement vers les Émirats) | 2023 | Rapport ITIE 2023 (presse) ; la page ITIE confirme l'écart 22,3 kg contre plus de 15 t | [F] pour l'écart ; [F-presse] pour 953 kg |
 | Or remis au Trésor par SONAMINES (impôt synthétique) | 170,9 kg ≈ 5 milliards FCFA | 2023 | Presse, citant l'ITIE et SONAMINES | [F-presse] |
 | Pertes fiscales potentielles sur l'or | ≈ 165 milliards FCFA selon l'ITIE (autres estimations : 560 et 900 milliards) | 2023 | Presse | [F-presse] ; fortes divergences méthodologiques |
-| Statut ITIE | Suspendu (« inadequate stakeholder engagement ») ; validation 2024 : 53 points ; suspension annoncée le 1/03/2024 ; prochaine validation en avril 2027 | 2024- | ITIE ; Business in Cameroon | [F] / [F-presse] (date de 2027) |
+| Statut ITIE | Suspendu (« inadequate stakeholder engagement ») par la décision 2024-17 du Conseil d'administration de l'ITIE du 29/02/2024 (annoncée le 01/03/2024) ; validation 2024 : 53 points ; prochaine validation à partir du 01/04/2027 | 2024- | ITIE ; Business in Cameroon | [F] / [F-presse] (date de 2027) |
 | Croissance projetée par le FMI | 3,3 % (2026) puis 4,6 % à moyen terme « as mining diversification materializes » | 2026 | FMI, PR 26/96 | [F] |
 | Transparence (rapport ITIE 2021) | 6 contrats et 7 licences publiés ; 6 entreprises minières déclarent leurs bénéficiaires effectifs, 54 ne déclarent rien ; licences attribuées « premier arrivé, premier servi » | 2021 | Page pays ITIE | [F] |
 
@@ -265,7 +265,7 @@ la stratégie qui succédera à la SND30 et de la Vision 2035.
 | VAM en % du PIB | 14,5 % (2017) ou 12,9 % (2016) selon la section de la SND30 | 25 % en 2030 (texte) ; 22,9 % en 2030 dans l'annexe 1 | [F] |
 | Couverture cartographique à 1/200 000 ou plus | Inconnue [?] | Progression continue (SND30 §110(v)) | [F] (non chiffrée) |
 | Capacité électrique installée | 1 650 MW (2019) | Plus de 5 000 MW en 2030 | [F] |
-| Textes d'application du Code 2023 adoptés | Inventaire à faire (module 04) | 100 % | [I] |
+| Textes d'application du Code 2023 adoptés | 8 décrets des 18-19/11/2024 (inventaire du module 04, §3) + arrêté du 15/04/2026 ; textes encore attendus listés par le module 04 | 100 % | [F] (inventaire) ; [I] (cible) |
 
 ---
 
@@ -303,7 +303,7 @@ de 6 chaînes de valeur. Il sert aux groupes dont les livrables 01-08 sont incom
 | PRECASEM : 30 M USD (2011), plus 26,9 M USD (2017), clos le 1/12/2021 | API Banque mondiale | Vérifié |
 | Aucun projet minier de la Banque mondiale ne succède au PRECASEM | API Banque mondiale (2026-10-08) | Vérifié (absence constatée) |
 | PRECASEM : 300 nouveaux sites (2014-2019) | Business in Cameroon, 17/06/2019 | Presse |
-| PRECASEM : 18 000 échantillons | — | Non vérifié |
+| PRECASEM : 18 000 échantillons = objectif annoncé en janvier 2017 (nombre réellement analysé : non vérifié) | Business in Cameroon, 28/01/2017 (vérifié dans les modules 01 et 02) | Presse (objectif) |
 | Feuille de route nationale des minéraux critiques | — | Non trouvée |
 | Mémorandum Cameroun-UE sur la stratégie minière nationale | Cameroon Tribune, 27/05/2024 (communiqué conjoint seulement) | Signature non vérifiée |
 | Industries extractives : 16,34 % des recettes, 31,15 % des exportations, 3,93 % du PIB (2021) | Page pays ITIE | Vérifié |
@@ -326,9 +326,10 @@ de 6 chaînes de valeur. Il sert aux groupes dont les livrables 01-08 sont incom
 | RDC : interdiction le 22/02/2025, quotas à partir du 16/10/2025, 87 000 t | Fastmarkets, 14/10/2025 | Presse spécialisée |
 | Kribi-Lobé : premières exportations reportées à juillet 2027 | Ecomatin, 11/03/2026 | Presse |
 | Conventions de fer : au moins 15 % du concentré transformé localement | Cameroon Tribune (revue des gisements) | Presse ; cohérent avec l'art. 40 |
-| Minim-Martap : tirages AFG Bank suspendus le 24/08/2026, plus de date de première expédition | AlCircle, 29/09/2026 | Presse spécialisée |
+| Minim-Martap : 1re expédition prévue initialement fin septembre / T4 2026, reportée sans nouvelle date après la suspension des tirages de la facilité AFG Bank le 24/08/2026 | EcoMatin, 24/08/2026 ; AlCircle, 29/09/2026 | Presse spécialisée |
 | Appels à manifestation d'intérêt Nkamouna et Akonolinga déclarés infructueux (18/08/2026) | camer.be, 20/08/2026 | Presse |
-| Capacité d'Edéa de 100 kt/an | Listes secondaires (Wikipédia, Wood Mackenzie, résumé) | Non vérifié en source primaire |
+| Capacité d'Edéa de 100 kt/an | USGS MYB 2017-18 ; ASI (module 05, contre-vérifié) | Vérifié |
+| Alumine d'Alucam importée ; aucune raffinerie d'alumine au Cameroun ; importations 2023 : 135 347 t, dont 76 655 t de Guinée | UN Comtrade (déclarant Cameroun, HS 281820) ; ASI (modules 05 et 06, contre-vérifiés) | Vérifié |
 
 ---
 
@@ -340,10 +341,11 @@ de 6 chaînes de valeur. Il sert aux groupes dont les livrables 01-08 sont incom
 3. L'existence d'une stratégie qui succédera à la SND30 après 2030.
 4. Les recettes **minières seules** (hors hydrocarbures) dans les rapports ITIE 2022 et 2023, et
    l'année de référence de l'étude AMDC (0,63 % du PIB).
-5. Les résultats formels du PRECASEM (rapport d'achèvement ICR) et l'état actuel du SIGM et du
-   cadastre.
-6. L'inventaire des décrets et arrêtés d'application du Code 2023 (renvoi au module 04).
-7. La production effective et l'approvisionnement en alumine d'ALUCAM à Edéa.
+5. Les résultats formels du PRECASEM (rapport d'achèvement ICR) et l'état actuel du SIGM ; le
+   système qui remplace le portail cadastral Landfolio, hors service depuis le 03/11/2025 (module 03).
+6. Les textes d'application adoptés après les 8 décrets de novembre 2024 (inventaire : module 04, §3).
+7. La production d'ALUCAM en tonnes pour 2023-2024 (seules des variations sont publiées, module 05) et
+   l'origine de son alumine en 2024-2025 (2023 : 135 347 t importées, dont 76 655 t de Guinée).
 8. Les conditions de la part de 15 % de concentré de fer « au marché local » : acheteur, prix,
    capacité d'absorption.
 9. Le calendrier réel de Mbalam (des sources se contredisent sur 2026 et 2027).
@@ -375,6 +377,11 @@ de 6 chaînes de valeur. Il sert aux groupes dont les livrables 01-08 sont incom
 - Ecomatin, 11/03/2026, Kribi-Lobé : https://ecomatin.net/cameroun-sinosteel-reporte-les-exportations-du-fer-de-kribi-lobe-a-2027-malgre-120-milliards-fcfa-deja-investis
 - camer.be, 20/08/2026, SONAMINES Nkamouna et Akonolinga : https://www.camer.be/94440/12:1/cameroun-sonamines-echec-des-appels-pour-les-gisements-strategiques.html
 - AlCircle, 29/09/2026, Minim-Martap : https://www.alcircle.com/news/canyon-resources-minim-martap-bauxite-project-faces-fresh-uncertainty-over-funding-and-first-shipment-121352
+- EcoMatin, 24/08/2026, premières exportations de bauxite de Minim-Martap reportées sine die (cité par les modules 05 et 06) : https://ecomatin.net/cameroun-les-premieres-exportations-de-bauxite-de-minim-martap-reportees-sine-die
+- Business in Cameroon, 28/01/2017, programme de cartographie (18 000 échantillons prévus ; modules 01 et 02) : https://www.businessincameroon.com/mining/2801-6852-cameroon-launches-new-prospection-campaign-of-mining-sites-in-six-regions-of-the-country
+- USGS, *2017–2018 Minerals Yearbook — Cameroon* (capacité d'Edéa ; module 05 [S1]) : https://pubs.usgs.gov/myb/vol3/2017-18/myb3-2017-18-cameroon.pdf
+- Aluminium Stewardship Initiative, membre ALUCAM (module 05 [S6]) : https://aluminium-stewardship.org/about-asi/members/ALUCAM
+- UN Comtrade, API « preview », HS 281820, importations du Cameroun en 2023 (modules 05 [S12] et 06) : https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=120&period=2023&cmdCode=281820&flowCode=M
 - Financial Afrik, 10/07/2025 (cité dans le cadrage) : https://www.financialafrik.com/2025/07/10/au-cameroun-lurgence-dactualiser-le-potentiel-minier-pour-ameliorer-les-recettes-etude
 
 **Cadres continentaux et régionaux**
@@ -418,3 +425,5 @@ Vérification croisée indépendante (rapport complet : `verification/verif-07-0
 - **Rétrogradé** : Zimbabwe, « assouplissement par quotas en avril 2026 » absent de la source citée → [?].
 - **À noter** : le module 08 affirmait que la part supplémentaire de 25 % n'était pas qualifiée de
   payante ; le module 09 (« à titre onéreux ») était juste. Le module 08 a été corrigé.
+
+**Harmonisation inter-modules (2026-10-08)** : Alucam (capacité 100 kt/an, alumine importée, Comtrade 2023), décrets (8 décrets, module 04), « 18 000 / 300 » (objectif 2017 / bilan 2014-2019), statut ITIE (décision 2024-17 du 29/02/2024, annoncée le 01/03/2024), cadastre (module 03) et Minim-Martap (formulation commune) alignés sur les modules qui ont vérifié ; sources ajoutées. Journal : `verification/harmonisation.md`.

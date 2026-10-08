@@ -57,8 +57,9 @@ entrée d'un partenaire stratégique.
 2. **Risque souverain** : Moody's Caa1 stable (revue achevée en août 2026) ; S&P B-/B stable
    (confirmé le 18 septembre 2026) ; Fitch B perspective négative (24 avril 2026). Eurobond de
    janvier 2026 : 750 M USD à 10,125 %.
-3. **État actionnaire** : 10 % gratuits et non diluables, plus une option de 25 % supplémentaires,
-   à titre onéreux, pour une mine industrielle (art. 47 du code minier 2023), partage de production de 2 à 15 %
+3. **État actionnaire** : 10 % gratuits et non diluables, plus la possibilité d'acquérir jusqu'à 25 %
+   supplémentaires, à titre onéreux et d'accord parties, pour une mine industrielle (art. 47(4) du code
+   minier 2023, lecture alignée sur le module 04), partage de production de 2 à 15 %
    (art. 48), porté par la SONAMINES, qui vise publiquement 35 % (mai 2026) sans plan de
    financement publié.
 4. **Profondeur du marché local** : BVMAC à 7 sociétés cotées (mai 2026) ; banques limitées par
@@ -85,12 +86,12 @@ factuelles ; il fixe surtout une méthode. Points vérifiés, corrigés ou à co
 |---|---|---|---|
 | 1 | Chaîne `Sponsor Equity + Strategic Investor + DFI Debt + Commercial Debt + Offtake Financing (+ Blended Finance) → Financial Close` | Juste comme typologie, mais **trompeur comme description du Cameroun** : aucun précédent public de dette DFI ou ECA occidentale sur une mine camerounaise n'a été trouvé (IFC, MIGA, Proparco : rien dans les résultats ; voir §12). Les précédents réels sont la **dette bancaire locale en FCFA** et les **fonds propres d'actionnaires de contrôle**. | Ajouter deux briques : **dette bancaire locale/régionale (FCFA), avec refinancement BEAC** et **royalty / streaming**. Présenter la DFI comme une cible, pas comme la norme. |
 | 2 | « risque de change (franc CFA BEAC / dollar) » | Incomplet. Le risque principal n'est pas seulement le change : c'est la **réglementation des changes** (rétrocession de 35 %, puis 50 % en 2027 et 70 % en 2028 ; comptes en devises soumis à autorisation ; séquestre BEAC pour les fonds de réhabilitation). Elle touche directement les **comptes offshore des prêteurs** (comptes de recettes, DSRA), qui sont la norme en financement de projet. | Ajouter un sous-module « contrôle des changes et architecture des comptes ». |
-| 3 | « participation de l'État et son financement » | À préciser : l'art. 47 du code 2023 prévoit **10 % gratuits non diluables** et une option de **+25 % pour une mine industrielle** ; l'art. 47(4) précise que cette augmentation se fait « à titre onéreux » et « d'accord parties » (texte FAOLEX relu lors de la contre-vérification ; Ecomatin, 2026, parle aussi de prises de participation « payantes »). Le DFS de Canyon renvoie à une « Section 59 » pour les 10 % : **numérotation divergente à vérifier** sur le Journal officiel. | Traiter le portage comme un **coût pour les sponsors** (modélisé en §8) et la part supplémentaire, payante, comme un besoin de financement de l'État dont les modalités sont inconnues. |
+| 3 | « participation de l'État et son financement » | À préciser : l'art. 47 du code 2023 prévoit **10 % gratuits non diluables** et la possibilité d'acquérir **jusqu'à 25 % supplémentaires pour une mine industrielle** (10 % pour une petite mine, lecture du module 04) ; l'art. 47(4) précise que cette augmentation se fait « à titre onéreux » et « d'accord parties » (texte FAOLEX relu lors de la contre-vérification ; Ecomatin, 2026, parle aussi de prises de participation « payantes »). Le DFS de Canyon renvoie à une « Section 59 » pour les 10 % : **numérotation divergente à vérifier** sur le Journal officiel. | Traiter le portage comme un **coût pour les sponsors** (modélisé en §8) et la part supplémentaire, payante, comme un besoin de financement de l'État dont les modalités sont inconnues. |
 | 4 | « normes environnementales et sociales exigées par les prêteurs » | Juste. À compléter par une contrainte locale : le **fonds de restauration** doit être logé en **compte séquestre à la Banque centrale** (art. 192), ce qui empêche de le mettre en garantie au profit des prêteurs offshore. | Intégrer au tableau des risques (§7). |
 | 5 | Ratios : DSCR, LLCR, part de dette, TRI des fonds propres | Juste. Manquent : **PLCR**, **dimensionnement de la dette par sculptage**, **DSRA**, **lock-up de distributions**, **test d'achèvement** (completion test). | Ajoutés en §8. |
 | 6 | « Projet réel au module 08 : risques de confidentialité et de réputation. Par défaut, utiliser un projet stylisé » | Confirmé et renforcé : les deux grands projets publics sont en **contentieux ou en tension** (Mbalam : sentence CCI d'environ 616 M USD en faveur de Sundance contre le Cameroun, juillet 2026 ; Minim-Martap : tirages AFG suspendus le 24 août 2026, offre publique d'A2MP). Les utiliser comme cas « à financer » exposerait le programme à un risque de réputation. | Les garder **uniquement comme précédents** (§3). |
 | 7 | Dépendance « 08 ← 04, 07 » | Juste, mais il faut aussi le **module 06** (prix, fret, prime de qualité) et le **module 05** (étape de transformation, qui change le profil de financement). | Ajuster le tableau des dépendances lors de la prochaine révision du cadrage (hors de ce fichier). |
-| 8 | Source citée « Code minier : loi n° 2023/014 du 19 décembre 2023 » | Confirmé par UNEP-LEAP et AMLA (texte consulté). Décrets d'application de novembre 2024 listés par l'USGS (source secondaire, non lus). | Rien à corriger. |
+| 8 | Source citée « Code minier : loi n° 2023/014 du 19 décembre 2023 » | Confirmé par UNEP-LEAP et AMLA (texte consulté). Décrets d'application : *harmonisation du 2026-10-08* — **huit décrets** signés les 18 et 19 novembre 2024 (n° 2024/05061/PM, 05062, 05248, 05249, 05250, 05251, 05252 et 05253), dont les copies certifiées ont été lues par le module 04 (§3). | Rien à corriger ; renvoyer au module 04, §3 (décrets) et §4.5 (participation de l'État). |
 
 ---
 
@@ -292,6 +293,11 @@ taille, capex, calendrier et structure de financement sont inventés.
 Stade : **pré-développement** (étude de faisabilité achevée, permis d'exploitation octroyé,
 convention minière en négociation, avant la décision finale d'investissement).
 
+**Contexte importé du module 07 (non re-noté, règle 3.6 du module 07)** : l'opportunité réelle dont
+viennent les ordres de grandeur (fiche O1 du module 07) a un Investment Opportunity Score de **69** et
+un indice de confiance de **6/7** (module 07, §5.1). Le module 08 ne re-note ni G, R, I, M ni Reg ; il
+produit un score de finançabilité distinct (§10).
+
 | Paramètre | Valeur | Statut / source |
 |---|---|---|
 | Produit | Bauxite exportée brute (DSO), qualité ≈ 51 % Al₂O₃, ≈ 1,7 % SiO₂ | Ordre de grandeur : DFS Minim-Martap [4] |
@@ -309,7 +315,7 @@ convention minière en négociation, avant la décision finale d'investissement)
 | Compte de capacités locales | 1 % du CA | Art. 193, 0,5-1 % [26] |
 | Fonds de restauration | 1 M USD/an en séquestre BEAC | Principe : art. 192 [26] ; montant : hypothèse pédagogique |
 | Impôt sur les sociétés | 33 % ; amortissement linéaire sur 10 ans ; déficits reportés | Taux : DFS [4] ; reste : hypothèse pédagogique |
-| Participation de l'État | 10 % gratuits non diluables ; option de +25 % non exercée en base | Art. 47 [26] |
+| Participation de l'État | 10 % gratuits non diluables ; option d'acquérir jusqu'à 25 % supplémentaires à titre onéreux (art. 47(4)) non exercée en base | Art. 47 [26] ; module 04 §4.5 |
 | Stabilité fiscale | Considérée comme acquise sur la durée de la dette | Art. 149 [26], à négocier |
 
 ---
@@ -366,7 +372,7 @@ convention minière en négociation, avant la décision finale d'investissement)
 | Prix (bauxite CIF, prime de qualité) | É | É | Fonds propres, puis prêteurs | Plancher dans l'offtake, prépaiement, sculptage, DSRA | A2MP invoque une prime en baisse et un projet « potentiellement non viable » [2] |
 | Fret maritime | M | É | Fonds propres | Contrat de fret, vente FOB plutôt que CIF | Le fret est le 2e poste du DFS (17 USD/t) [4] ; A2MP invoque la hausse des coûts logistiques [2] |
 | Logistique (rail, port, dragage) | É | É | Sponsor, opérateur ferroviaire | Accord d'accès ferroviaire avec engagements de capacité, garantie de l'État sur l'infrastructure | Canyon : dragage de Douala et transbordement encore à l'étude [2] ; Kribi sans terminal minéralier dédié [13] |
-| Construction (retard, dépassement) | É | É | Sponsor (garantie d'achèvement) | Contrat EPC forfaitaire, réserve pour imprévus, standby equity | Minim-Martap : 1re expédition prévue au S1 2026, puis au T3, puis au T4 2026, date retirée sans remplacement [2] |
+| Construction (retard, dépassement) | É | É | Sponsor (garantie d'achèvement) | Contrat EPC forfaitaire, réserve pour imprévus, standby equity | Minim-Martap : 1re expédition visée d'abord au S1 2026 [2], puis fin septembre (T3) et au T4 2026 ; **reportée sans nouvelle date après la suspension des tirages de la facilité AFG Bank le 24 août 2026** [2], [44], [45] ; aucune expédition confirmée au 8 octobre 2026 |
 | Montée en cadence | M | M | Sponsor, puis prêteurs | Test d'achèvement, grâce suffisante | — |
 | Change (USD/FCFA) | M | M | Fonds propres | Dette locale limitée aux coûts en FCFA, couverture EUR/USD | Parité fixe EUR [28] |
 | Transfert et convertibilité, rétrocession | M | É | Prêteurs offshore | MIGA/ATI, convention minière (art. 40), autorisation de la BEAC | Rétrocession à 50 % en 2027, 70 % en 2028 [32] |
@@ -656,8 +662,8 @@ suffisent si les livrables des modules 04 et 07 sont faibles.
 | Vers | Ce que le module 08 transmet |
 |---|---|
 | **09 National Strategy** | (i) **Besoins de financement** par type de projet (ordre de grandeur des capex, part finançable localement) ; (ii) **réformes qui débloquent le financement** : régime des comptes en devises pour le service de la dette, clarification de l'exemption pour les prêts adossés aux ressources, statut du séquestre BEAC, financement de la participation de la SONAMINES, rôle du guichet B de la BEAC ; (iii) **risque de réputation de l'État** (sentence Sundance) et son effet sur le coût du capital ; (iv) arbitrage entre exportation brute et transformation : la faible marge FOB de la bauxite brute (§8) plaide pour analyser la transformation (module 05) avec un profil de financement différent (capex plus lourd, marché de l'alumine) ; (v) phase « Enable 2027-2030 » : « cadre de financement » = les items (ii). |
-| **07 Investment Pipeline** (retour) | Un **score de finançabilité** à intégrer à l'Investment Opportunity Score : seuil de prix d'équilibre, dépendance à l'infrastructure, besoin de rehaussement. |
-| **04 Legal** (retour) | Articles du code à vérifier ou clarifier : 47 (contre « Section 59 » dans le DFS de Canyon), 48, 132, 149, 151-154, 192-193 ; décrets de 2024 ; régime des comptes dans la convention type. |
+| **07 Investment Pipeline** (retour) | Un **score de finançabilité distinct**, affiché **à côté** de l'Investment Opportunity Score et de son indice de confiance, **jamais intégré** à l'IOS (règle anti-double comptage du module 07, §3.6) : seuil de prix d'équilibre, besoin de rehaussement, structure de garanties. La dépendance à l'infrastructure reste notée par le critère I du module 07 et n'est pas re-notée ici. *(Reformulé lors de l'harmonisation du 2026-10-08 : la version précédente proposait d'intégrer ce score à l'IOS.)* |
+| **04 Legal** (retour) | Articles du code à vérifier ou clarifier : 47 (contre « Section 59 » dans le DFS de Canyon : numérotation **à arbitrer** au Journal officiel), 48, 132, 149, 151-154, 192-193 ; contenu des décrets de 2024 utile au financement (inventaire : module 04, §3) ; régime des comptes dans la convention type. |
 | **06 Markets** (retour) | Besoin d'une série de prix CIF et FOB de la bauxite et de la prime de qualité, et du fret Afrique de l'Ouest et du Centre vers la Chine, pour calibrer le cas prêteur. |
 
 ---
@@ -723,7 +729,9 @@ suffisent si les livrables des modules 04 et 07 sont faibles.
    des tirages AFG, résultat du mandat de Jefferies.
 5. **Kola et Baniaka** : passage ou non à des accords contraignants ; identité des DFI de Kola.
 6. **Participation de l'État** : modalités de paiement (prix, financement) de la part supplémentaire de 25 %, dont le caractère onéreux est fixé par l'art. 47(4), et
-   numérotation (art. 47 contre « Section 59 ») ; décrets d'application de 2024 non lus.
+   numérotation (art. 47 contre « Section 59 », **à arbitrer** au Journal officiel). Les huit décrets
+   d'application de 2024 ont été lus par le module 04 (§3) ; leurs dispositions sur le financement de la
+   participation de l'État restent à analyser.
 7. **Fiscalité** : assiette exacte de la taxe ad valorem, base juridique des « development
    levies » de 2 % du DFS, régime de TVA et de douane en construction.
 8. **Conditions de marché** des DFI et des banques en 2026 (marges, durées, commissions) : toutes
@@ -776,6 +784,8 @@ document primaire. La numérotation n'est pas continue (les numéros 6, 11, 19 e
 41. BVMAC, communiqué de Douala du 7 mai 2026 (cotation de BGFI Holding) — https://www.bvm-ac.org/?p=15795
 42. Droit Médias Finance, « CEMAC | COBAC : ce qui change pour la division des risques bancaires » (2020) — https://droitmediasfinance.com/index.php/actualites/droit-bancaire/287-cemac-cobac-ce-qui-change-pour-la-division-des-risques-bancaires
 43. Financial Afrik, « Le relèvement du capital bancaire en CEMAC : un risque majeur de consolidation », 29 déc. 2025 — https://www.financialafrik.com/2025/12/29/le-relevement-du-capital-bancaire-en-cemac-un-risque-majeur-de-consolidation/
+44. EcoMatin, « Cameroun : les premières exportations de bauxite de Minim-Martap reportées sine die », 24 août 2026 (cité par les modules 05 et 06) — https://ecomatin.net/cameroun-les-premieres-exportations-de-bauxite-de-minim-martap-reportees-sine-die
+45. AlCircle, « Canyon Resources' Minim-Martap bauxite project faces fresh uncertainty over funding and first shipment », 29 sept. 2026 (cité par les modules 07 et 09) — https://www.alcircle.com/news/canyon-resources-minim-martap-bauxite-project-faces-fresh-uncertainty-over-funding-and-first-shipment-121352
 
 ---
 
@@ -809,3 +819,5 @@ Vérification croisée indépendante (rapport complet : `verification/verif-07-0
   8 ans ; Grand-Zambi 41,2 Md FCFA, guichet B, 15/12/2025 ; Eurobond 750 M USD à 10,125 % ; BVMAC
   7 sociétés, 1 710 Md FCFA ; SONAMINES 35 % (24/05/2026) ; sentence Sundance ~616 M USD ; DFS
   (78 USD/dmt, fret 17, C1 38,56 USD/dmt, 446 M USD, 96 M USD, IS 33 %, 5 % + 2 %, « Section 59 »).
+
+**Harmonisation inter-modules (2026-10-08)** : art. 47 aligné sur le module 04 (10 % gratuits non diluables + jusqu'à 25 % à titre onéreux en mine industrielle, art. 47(4)) ; décrets : 8 décrets lus par le module 04 (au lieu de « non lus ») ; Minim-Martap : formulation commune (le « S1 2026 » est conservé car sourcé par Business in Cameroon du 26/08/2026 [2], voir verif-07-09) ; IOS et IC d'O1 importés comme contexte (§ 5) ; retour vers le module 07 reformulé en score de finançabilité distinct, non intégré à l'IOS (§ 10) ; sources [44] et [45] ajoutées. Journal : `verification/harmonisation.md`.

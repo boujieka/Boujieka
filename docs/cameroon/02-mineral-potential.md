@@ -192,7 +192,7 @@ Livrable : **Cameroon Gold Prospectivity Map** (High / Medium / Low potential / 
 
 | Site | Localisation | Ce qui est documenté | Statut |
 |---|---|---|---|
-| Kambélé / permis de Batouri | Batouri, Est | Sondages d'African Aura Resources avec « visible gold in three drill holes » (article de Northern Miner, non daté, payant) [S15]. Granitoïdes aurifères datés à ~620 Ma [L11]. Site fermé depuis neuf mois selon un article de 2025 [S16] | Ressource conforme : **non trouvée** [?] ; opérateur actuel : **non vérifié** |
+| Kambélé / permis de Batouri | Batouri, Est | Sondages d'African Aura Resources avec « visible gold in three drill holes » (article de Northern Miner, non daté, payant) [S15]. Granitoïdes aurifères datés à ~620 Ma [L11]. Site fermé depuis neuf mois selon un article de 2025 [S16]. *Harmonisation du 2026-10-08* : selon le module 07 (fiche X2, source EcoMatin [S39] du module 07), un arrêté du 13/08/2025 interdit l'exploitation industrielle et réserve la zone aux artisans | Ressource conforme : **non trouvée** [?] ; exploitation industrielle interdite depuis l'arrêté du 13/08/2025 [F, module 07] ; opérateur industriel actuel : aucun identifié |
 | Eastern CLP : Ndom, Pokor, Niambaram, Tenekou | Contigus à Mbe [S13] ; région : non précisée par [S13] [?] | Prélèvements de roche jusqu'à 17,00 g/t (Ndom), 1,24 g/t (Pokor), 28,40 g/t (Niambaram) ; anomalie de sol PK01 à 120 ppb [S13] | Exploration précoce [F] |
 | Bindiba | Lom, Est | Trois corps polarisables par tomographie électrique et polarisation provoquée, près d'un chantier semi-mécanisé [L33] | Recherche académique [F] |
 | Tikondi | Est | 550 sols ; Au de 1 à 2 480 ppb [L26] | Recherche académique [F] |
@@ -236,7 +236,7 @@ Ces chantiers ne doivent pas servir de points d'entraînement « primaires » sa
 | Sentinel-2, Landsat 8/9, ASTER | Indices d'altération (argiles, oxydes de fer) | 10–30 m | Libre | [F] (utilisés dans [L17], [L18]) | Inexploitables sous forêt dense et latérite (voir module 01) |
 | SRTM / Copernicus DEM, Sentinel-1, Radarsat | Linéaments | 30 m | Libre (Radarsat : selon licence) | [F] (utilisés dans [L17], [L25]) | Linéaments ≠ failles : il faut valider sur le terrain |
 | Gravimétrie EGM2008 | Structures profondes | Régionale | Libre | [F] ([L24], [L29]) | Résolution faible pour cibler |
-| Cadastre minier (Flexicadastre) | Titres | — | À vérifier (module 03) | [?] | Hors périmètre du module 02 |
+| Cadastre minier (Flexicadastre, renommé Landfolio) | Titres | — | **Portail public hors service depuis le 03/11/2025** ; titres disponibles : situation au 31/12/2023 (Rapport ITIE 2023, annexe 30, sans coordonnées) | [F] (vérifié par le module 03) | Hors périmètre du module 02 ; utiliser la couche `titres_2023_pts` du module 03 |
 | Archives BRGM / PNUD (avant 2000) | Prospection historique | — | **Non trouvé** | [?] | Recherche à faire auprès de la bibliothèque du BRGM et du MINMIDT |
 | Carte géologique nationale numérique | Lithologie nationale | ? | **Non vérifié** | [?] | Édition, échelle et format inconnus |
 
@@ -358,8 +358,11 @@ Durée indicative : 5 demi-journées [H].
 | 5. Validation et classement | Retrait de blocs, rétro-prédiction de Mbe et Bibemi, courbes, sensibilité ; classement en 4 classes | Carte livrable + note de 2 pages sur les cibles « à valider » |
 
 **Choix de la zone de district [H]** :
-- Bétaré-Oya / Lom : littérature la plus dense ([L6], [L7]) ;
-- ou Borongo–Mborguéné : savane, cohérente avec l'exercice spectral du module 01 ([L17]).
+- **Bétaré-Oya / Lom (district commun retenu)** : littérature la plus dense ([L6], [L7]) ; c'est aussi la
+  zone Z2 du module 01 (voir « Zone et projection communes » ci-dessous) ;
+- variante : Borongo–Mborguéné (savane, [L17]). *Harmonisation du 2026-10-08* : ce district n'est pas
+  une zone d'étude du module 01, contrairement à ce qu'indiquait la version précédente ; il ne peut
+  donc pas réutiliser directement les couches spectrales du module 01.
 
 **Jeu de secours** (exigence du cadrage) : base d'occurrences et couches préparées par
 l'équipe pédagogique, à partir des seules sources publiques du § 12 [H].
@@ -368,12 +371,25 @@ l'équipe pédagogique, à partir des seules sources publiques du § 12 [H].
 - on parle de **cibles d'exploration à valider** ;
 - on n'emploie jamais « gisement » ou « ressource » pour une zone High.
 
+### Zone et projection communes (modules 01, 02 et 03) [H : proposition d'harmonisation du 2026-10-08]
+
+La carte de prospectivité reçoit les couches du module 01 et alimente la carte de l'écosystème du module 03 : les trois livrables doivent se superposer sans reprojection ad hoc. Proposition commune, identique dans les trois modules :
+
+| Élément | Proposition commune | Justification |
+|---|---|---|
+| SCR d'échange et de stockage | WGS 84 géographique (**EPSG:4326**) | Système des sources (USGS, OSM, coordonnées des RNS) ; déjà retenu pour l'échange par le module 02 (§ 8) |
+| SCR de calcul (distances, surfaces, rasters, densités) | **WGS 84 / UTM 33N (EPSG:32633)**, pour les trois modules | Les trois zones du module 01 (13,85° à 14,55° E, § 4 du module 01) sont entièrement dans le fuseau UTM 33 (12° à 18° E) ; le module 01 l'utilise déjà. Un SCR de calcul unique évite des reprojections entre livrables et des écarts de surface d'un module à l'autre [I] |
+| Projets et ports à l'ouest de 12° E (fuseau 32 : Kribi, Douala) | Garder EPSG:32633 pour les distances du module 03 (étape 6) | Le port en eau profonde de Kribi (9,864° E, module 03 § 6.1) est à environ 5,1° du méridien central de 15° E : facteur d'échelle d'environ 1,0036, soit une erreur d'environ 0,4 % sur une distance, négligeable pour des distances au port exprimées en km [I : calcul k ≈ 0,9996 × (1 + (Δλ·cos φ)²/2)]. L'UTM 32N (EPSG:32632) n'est plus utilisé |
+| Emprise nationale | Limite ADM0 du Cameroun (couche `adm0_adm1` du module 03) | Échelle de la carte nationale du module 02 (1 km) et de la carte de l'écosystème du module 03 |
+| District commun (zoom) | **Z2 Bétaré-Oya : 13,85–14,35° E ; 5,40–5,85° N** (emprise du module 01, § 4) | Seule zone commune aux modules 01 (Z2, « recommandée en second ») et 02 (district « Bétaré-Oya / Lom », littérature la plus dense). Le module 03 y rattache Mborguéné (« Bétaré-Oya / Garoua-Boulaï ») ; son inclusion dans l'emprise reste à vérifier au géocodage [?]. Z1 Tcholliré reste la zone principale de l'exercice spectral du module 01 ; Mbe (Adamaoua) et Bibemi (Nord) restent hors district et servent à la rétro-prédiction nationale du module 02 |
+| Résolution de référence | National : 1 km ; district : 100 m (module 02 § 8) ; produits Sentinel-2 : 10-20 m (module 01) | Les rasters du module 01 sont rééchantillonnés à 100 m avant d'entrer dans le modèle de district du module 02 [H] |
+
 ## 8. Spécification du livrable : Cameroon Gold Prospectivity Map
 
 | Élément | Spécification [H sauf mention] |
 |---|---|
 | Format | GeoTIFF (score continu et classe) + GeoPackage (occurrences, cibles, couverture) + carte PDF + note méthodologique |
-| Projection | WGS 84 (EPSG:4326) pour l'échange ; calculs en UTM (le Cameroun s'étend sur les fuseaux 32N et 33N) ou dans une projection équivalente unique |
+| Projection | WGS 84 (EPSG:4326) pour l'échange ; calculs en WGS 84 / UTM 33N (EPSG:32633), SCR de calcul commun aux modules 01, 02 et 03 (voir « Zone et projection communes », § 7) |
 | Résolution | National : 1 km. District : 100 m |
 | Champs par cellule | `score` (0–1), `classe`, `couverture` (0–1), `n_couches` (nombre de couches présentes), `modele` (indexation / flou / WofE), `version`, `date` |
 | **Classes** | **High** : 5 % supérieurs de la surface couverte ET couverture ≥ 0,6. **Medium** : 15 % suivants ET couverture ≥ 0,6. **Low** : reste de la surface ET couverture ≥ 0,6. **Insufficient data** : couverture < 0,6, quel que soit le score. Seuils à ajuster sur la courbe de succès |
@@ -556,3 +572,5 @@ Cameroon [S2], [S3] ; PANA [S5] ; USGS [S7], [S8] ; BRGM [S4] ; 29 DOI via Cross
 
 **Non revérifié** : [L1], [L2], [L5], [L7], [L8] (DOI confirmés, résumés non relus) ; sources
 Consensus sans DOI ([L3], [L4], [L18], [L22]–[L33]).
+
+**Harmonisation inter-modules (2026-10-08)** : section « Zone et projection communes » ajoutée (§ 7) ; district retenu = Bétaré-Oya / Lom (Z2 du module 01), mention erronée de Borongo–Mborguéné comme zone du module 01 corrigée ; projection du livrable alignée (EPSG:4326 / EPSG:32633) ; cadastre aligné sur le module 03 (portail Landfolio hors service depuis le 03/11/2025) ; Kambélé complété par l'arrêté du 13/08/2025 (module 07, X2). Journal : `verification/harmonisation.md`.
