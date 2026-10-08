@@ -29,7 +29,7 @@ def main() -> int:
     p.add_argument("--dist", type=Path, default=DIST)
     a = p.parse_args()
     d, errors = a.dist, []
-    for f in ("index.html", "plateforme.html", "veille.json", "simcalc.js", "netlify.toml", "donnees/auctions.csv",
+    for f in ("index.html", "plateforme.html", "veille.json", "simcalc.js", "netlify.toml", "donnees/auctions.csv", "api/v1/index.json", "api/v1/yield_points.json",
               *(f"i18n/{lang}.json" for lang in ("fr", "en", "pt", "es", "ar"))):
         if not (d / f).is_file() or (d / f).stat().st_size == 0:
             errors.append(f"missing or empty: {f}")

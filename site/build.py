@@ -290,6 +290,35 @@ def write_i18n(tables: dict) -> str:
     return hashlib.sha256("".join(blobs[k] for k in sorted(blobs)).encode()).hexdigest()[:12]
 
 
+API_KEYS = ("as_of", "data", "summary", "africa", "grid", "opportunities", "walls", "market", "bvmac", "buyers",
+            "dealers", "yield_points", "cities", "brief", "reports", "data_offer", "sources", "page_scope")
+
+
+def write_api(payload: dict) -> None:
+    """Read-only JSON feed of the published (verified) data for other front-ends, e.g. the Lovable app:
+    dist/api/v1/<name>.json plus index.json. Same content as the platform page; CORS is open for GET
+    (site/netlify.toml). The licence note travels with the data: free publication, no resale."""
+    out = DIST / "api" / "v1"
+    out.mkdir(parents=True, exist_ok=True)
+    auth = json.loads((ROOT.parent / "backend" / "app" / "ingest" / "data" / "authorisations.json").read_text())
+    files = {}
+    for k in API_KEYS:
+        if k in payload:
+            (out / f"{k}.json").write_text(json.dumps(payload[k], ensure_ascii=False, separators=(",", ":"), allow_nan=False))
+            files[k] = f"{k}.json"
+    index = {
+        "as_of": payload["as_of"], "base": "https://cartouche-africa.netlify.app", "files": files, "i18n": {lang: f"/i18n/{lang}.json" for lang in LANGS},
+        "csv": {"auctions": "/donnees/auctions.csv", "securities": "/donnees/securities.csv", "documents": "/donnees/documents.csv"},
+        "rules": ["Every market value is a FACT copied from an official document (source_url); derived values are CALCULATIONs.",
+                  "Never fill, estimate or round missing values: show them as not available.",
+                  "Information only, never investment advice or a recommendation.",
+                  "XOF (WAEMU) and XAF (CEMAC) amounts are never added together."],
+        "licence": {"commercial_use": bool(auth.get("commercial_use")),
+                    "note": "Published with the source institutions' authorisation for free publication only; reselling the data is not authorised. Cite UMOA-Titres (WAEMU) and the BEAC / BVMAC (CEMAC)."},
+    }
+    (out / "index.json").write_text(json.dumps(index, ensure_ascii=False, indent=1))
+
+
 def yield_points(as_of: date) -> dict:
     """For each country and horizon: the latest verified issuance auction of the last 12 months whose
     residual maturity falls in the horizon's window, with its published yield (FACT) and source.
@@ -498,6 +527,7 @@ def main() -> None:
     (DIST / "plateforme.html").write_text(html)
     (DIST / "index.html").write_text(home)
     shutil.copy(ROOT.parent / "brand" / "favicon.svg", DIST / "favicon.svg")
+    write_api({**payload, "i18n": None})
     write_netlify(payload["auth"])
     shutil.copy(ROOT / "simcalc.js", DIST / "simcalc.js")  # simulator arithmetic shared by both pages
     shutil.copy(ROOT / "merci.html", DIST / "merci.html")  # waiting-list form fallback page (no JavaScript)
