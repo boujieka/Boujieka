@@ -1056,5 +1056,20 @@
   "ac.deleted": "Solicitud registrada: su cuenta será eliminada.",
   "ac.privacy": "Las cuentas las gestiona Supabase (servicio de autenticación); las solicitudes de eliminación pasan por Netlify, el alojamiento del sitio. Una cookie de sesión (cartouche_at) solo sirve para autorizar las descargas. Sus datos no se venden ni se comparten.",
   "rp.complete": "Edición completa",
-  "of.data.full": "Archivos completos (CSV)"
+  "of.data.full": "Archivos completos (CSV)",
+  "ui.more": "Leer más",
+  "ui.less": "Reducir",
+  "ui.menu": "Menú",
+  "qa.label": "Accesos rápidos",
+  "qa.t1": "Explorar un país",
+  "qa.d1": "Perfil, datos de mercado y fuentes de cada uno de los 54 países.",
+  "qa.t2": "Últimos resultados",
+  "qa.d2": "Las subastas de los últimos 7 días y los próximos vencimientos.",
+  "qa.t3": "Informes trimestrales",
+  "qa.d3": "Síntesis UEMOA con banderas y escudos, en PDF.",
+  "qa.t4": "Rendimientos y volúmenes",
+  "qa.d4": "Curvas, históricos y el detalle de cada subasta.",
+  "sig.showall": "Mostrar todas las señales ({n})",
+  "sig.showless": "Mostrar menos",
+  "bc.more": "Ver las condiciones de acceso"
 }

@@ -1056,5 +1056,20 @@
   "ac.deleted": "Request recorded: your account will be deleted.",
   "ac.privacy": "Accounts are managed by Supabase (authentication service); deletion requests go through Netlify, the site's host. A session cookie (cartouche_at) is used only to authorise downloads. Your data are neither sold nor shared.",
   "rp.complete": "Full edition",
-  "of.data.full": "Full files (CSV)"
+  "of.data.full": "Full files (CSV)",
+  "ui.more": "Read more",
+  "ui.less": "Show less",
+  "ui.menu": "Menu",
+  "qa.label": "Quick access",
+  "qa.t1": "Explore a country",
+  "qa.d1": "Profile, market data and sources for each of the 54 countries.",
+  "qa.t2": "Latest results",
+  "qa.d2": "Auctions of the last 7 days and upcoming maturities.",
+  "qa.t3": "Quarterly reports",
+  "qa.d3": "WAEMU reviews with flags and coats of arms, as PDF.",
+  "qa.t4": "Yields and volumes",
+  "qa.d4": "Curves, histories and every auction in detail.",
+  "sig.showall": "Show all signals ({n})",
+  "sig.showless": "Show fewer",
+  "bc.more": "See access conditions"
 }

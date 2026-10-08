@@ -1056,5 +1056,20 @@
   "ac.deleted": "Pedido registado: a sua conta será eliminada.",
   "ac.privacy": "As contas são geridas pela Supabase (serviço de autenticação); os pedidos de eliminação passam pela Netlify, o alojamento do site. Um cookie de sessão (cartouche_at) serve apenas para autorizar os descarregamentos. Os seus dados não são vendidos nem partilhados.",
   "rp.complete": "Edição completa",
-  "of.data.full": "Ficheiros completos (CSV)"
+  "of.data.full": "Ficheiros completos (CSV)",
+  "ui.more": "Ler mais",
+  "ui.less": "Reduzir",
+  "ui.menu": "Menu",
+  "qa.label": "Acessos rápidos",
+  "qa.t1": "Explorar um país",
+  "qa.d1": "Perfil, dados de mercado e fontes de cada um dos 54 países.",
+  "qa.t2": "Últimos resultados",
+  "qa.d2": "Os leilões dos últimos 7 dias e os vencimentos próximos.",
+  "qa.t3": "Relatórios trimestrais",
+  "qa.d3": "Sínteses UEMOA com bandeiras e brasões, em PDF.",
+  "qa.t4": "Rendimentos e volumes",
+  "qa.d4": "Curvas, históricos e o detalhe de cada leilão.",
+  "sig.showall": "Mostrar todos os sinais ({n})",
+  "sig.showless": "Mostrar menos",
+  "bc.more": "Ver as condições de acesso"
 }

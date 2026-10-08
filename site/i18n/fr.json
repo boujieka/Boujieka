@@ -964,5 +964,20 @@
   "ac.deleted": "Demande enregistrée : votre compte sera supprimé.",
   "ac.privacy": "Les comptes sont gérés par Supabase (service d'authentification) ; les demandes de suppression passent par Netlify, l'hébergeur du site. Un cookie de session (cartouche_at) sert uniquement à autoriser les téléchargements. Vos données ne sont ni revendues ni partagées.",
   "rp.complete": "Édition complète",
-  "of.data.full": "Fichiers complets (CSV)"
+  "of.data.full": "Fichiers complets (CSV)",
+  "ui.more": "Lire la suite",
+  "ui.less": "Réduire",
+  "ui.menu": "Menu",
+  "qa.label": "Accès rapides",
+  "qa.t1": "Explorer un pays",
+  "qa.d1": "Profil, données de marché et sources de chacun des 54 pays.",
+  "qa.t2": "Derniers résultats",
+  "qa.d2": "Les adjudications des 7 derniers jours et les échéances à venir.",
+  "qa.t3": "Rapports trimestriels",
+  "qa.d3": "Synthèses UEMOA avec drapeaux et armoiries, en PDF.",
+  "qa.t4": "Rendements et volumes",
+  "qa.d4": "Courbes, historiques et détail de chaque adjudication.",
+  "sig.showall": "Afficher tous les signaux ({n})",
+  "sig.showless": "Afficher moins",
+  "bc.more": "Voir les conditions d'accès"
 }
