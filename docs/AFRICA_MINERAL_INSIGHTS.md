@@ -377,8 +377,10 @@ niveau de détail réaliste de chaque module.
    - exportations d'or vers les EAU en 2024-2025 (absentes de Comtrade) ;
    - taux de 70 % pour les autres assujettis (instruction BEAC 003/GR/2019, non lue).
 
-   Scores du module 07 : un recalcul indépendant propose 6 corrections de notes. Application en
-   attente de validation.
+   Scores du module 07 : recalcul indépendant appliqué (6 notes corrigées). Classement : Minim-Martap 69 ;
+   Bibemi + Mbe 63 ; Kribi-Lobé 51 ; Nkamouna 49 ; Colomine + Mborguéné et Grand Zambi 48 ;
+   Wapouzé 44 ; Mbalam 40 ; Akonolinga 35. Quatre lectures de la grille restent à arbitrer (dont la note
+   de régulation de Bibemi, dont la licence d'exploitation est seulement demandée).
 7. **Homogénéité des modules** : adopter une convention unique de statuts de vérification, de
    format de sources et de dates (rapport de cohérence, section 5).
 

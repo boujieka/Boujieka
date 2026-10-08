@@ -244,7 +244,7 @@ finançabilité distinct**, affiché **à côté** de l'IOS (par exemple « IOS 
 | Ressources | « Réserves » de 150 Mt (études de faisabilité citées par la presse), **code non indiqué → non conforme** [F, S20] |
 | Infrastructure | Transport routier sur plus de 50 km jusqu'à Kribi ; pas de terminal minéralier [F, S20] |
 | Marché | Capacité annoncée variable : 6 Mt/an de concentré (gouvernement, 09/2025) [F, S20], 4 Mt/an (Premier ministre, Africa24), 2 Mt/an (entreprise, BIC 06/2025) ; le financement bancaire de 2026 porte sur 1,3 Mt/an de concentré [F, S21], seul chiffre adossé à un plan de financement (68,7 Md FCFA) |
-| Capex public | Financement de 41,2 Md FCFA par 5 banques locales (février 2026) [F, S21]. La valorisation officielle « 20 000 Md FCFA / 33,3 Md$ » est incohérente avec le titre de presse (« 333 milliards ») : **non utilisable** [F/I, S20] ; 570 Md FCFA dans l'annexe 2026-2030 [F, S15] |
+| Capex public | Aucun capex de projet publié (E = 1 (ND) au sens du §3.2). Financement de 41,2 Md FCFA par 5 banques locales (février 2026) [F, S21]. La valorisation officielle « 20 000 Md FCFA / 33,3 Md$ » est incohérente avec le titre de presse (« 333 milliards ») : **non utilisable** [F/I, S20] ; 570 Md FCFA dans l'annexe 2026-2030 [F, S15] |
 | Risques | Retards répétés : exportation attendue « depuis 2025 », toujours pas réalisée en février 2026 [F, S21] ; la séquence détaillée « déc. 2024 → juin 2025 → août-sept. 2025 » n'a pas été retrouvée dans S21 [?] ; logistique routière coûteuse [F, S20] |
 | Cadre | Permis d'exploitation Akom II ; État à 10 % [F, S20] |
 | Transformation | Complexe sidérurgique de Fifinda (Groupe Bocom) lancé début septembre 2025, 300 000 t/an de fer prévues [F, S20] ; état d'avancement non vérifié [?] |
@@ -312,7 +312,7 @@ finançabilité distinct**, affiché **à côté** de l'IOS (par exemple « IOS 
 | Ressources | **Non conformes (code non indiqué)**. Colomine : 500 000 t de minerai, 1 867,42 kg d'or (presse/MINMIDT) [F, S14]. Mborguéné : 5 Mt à 1,89 g/t ; production visée 7 554 kg sur 10 ans [F, S31] |
 | Infrastructure | Petites mines : besoin limité [I] ; non documentée [?] |
 | Marché | Or ; écart ITIE 2023 : 953 kg produits selon le rapport, 22,3 kg exportés officiellement, 15 194 kg déclarés importés par les partenaires [F, S30] |
-| Capex public | Non publié ; seul un chiffre d'affaires cible de 60 M$/an est annoncé pour Colomine [F, S14] |
+| Capex public | Non publié ; seul un chiffre d'affaires cible de 60 M$/an est annoncé pour Colomine [F, S14] (pas un indicateur E au sens du §3.2 : E = 1 (ND)) |
 | Risques | Écart entre production prévue et réalisée ; risque de retrait du permis (Mborguéné) [F, S31, S33] |
 | Cadre | Mborguéné : 10 % gratuits pour l'État, 3 % de la production, 1 % Sonamines, 4 % actionnaires locaux, 5 % ad valorem, 5 % taxe à l'export [F, S31] |
 | Transformation | Non documentée [?] |
@@ -359,13 +359,13 @@ finançabilité distinct**, affiché **à côté** de l'IOS (par exemple « IOS 
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | 1 | O1 Minim-Martap | Bauxite | Pré-production, financement suspendu | Conforme actuel | 4 | 5 | 3 | 3 | 3 ⚠ | 3 | 2 | **69** | 66 | 6 |
 | 2 | O8 Bibemi + Mbe (Oriole/BCM) | Or | Demande de licence / exploration | Conforme actuel (surtout présumées) | 4 | 3 | 2 | 5 | 3 | 3 | 3 | **63** | 66 | 6 |
-| 3 | O9 Colomine + Mborguéné | Or | Petite mine / permis récent | Non conforme | 3 | 2 | 3 | 5 | 4 | 2 | 2 | **57** | 60 | 4 |
-| 4= | O4 Kribi-Lobé | Fer | Extraction, export 2027 | Non conforme | 3 | 2 | 3 | 3 | 3 | 2 | 2 | **51** | 51 | 5 |
-| 4= | O5 Grand Zambi | Fer | Mine inaugurée, export non confirmé | Non conforme | 3 | 2 | 3 | 3 | 3 | 2 | 2 | **51** | 51 | 5 |
-| 6 | O6 Nkamouna | Co-Ni-Mn | Titre à réattribuer | Historique (NI 43-101, 2011) | 3 ⚠ | 3 | 2 | 3 | 2 | 2 ⚠ | 2 | **49** | 49 | 4 |
+| 3 | O4 Kribi-Lobé | Fer | Extraction, export 2027 | Non conforme | 3 | 2 | 3 | 3 | 3 ⚠ | 2 | 2 | **51** | 51 | 5 |
+| 4 | O6 Nkamouna | Co-Ni-Mn | Titre à réattribuer | Historique (NI 43-101, 2011) | 3 ⚠ | 3 ⚠ | 2 | 3 | 2 | 2 ⚠ | 2 | **49** | 49 | 4 |
+| 5= | O9 Colomine + Mborguéné | Or | Petite mine / permis récent | Non conforme | 3 | 2 | 2 | 5 | 3 | 1 (ND) | 2 | **48** | 51 | 4 |
+| 5= | O5 Grand Zambi | Fer | Mine inaugurée, export non confirmé | Non conforme | 3 | 2 | 3 | 3 | 3 | 1 (ND) | 2 | **48** | 49 | 5 |
 | 7 | O10 Wapouzé | Calcaire/marbre | Premier forage | ND | 3 | 1 (ND) | 2 | 4 | 3 | 1 (ND) | 3 | **44** | 49 | 3 |
-| 8 | O7 Akonolinga | Rutile | Faisabilité négative ; titre Sonamines | ND | 2 | 1 (ND) | 3 | 4 | 3 | 1 | 2 | **43** | 46 | 3 |
-| 9 | O3 Mbalam | Fer | Construction, titre contesté | Historique (JORC, ex-Sundance) | 3 ⚠ | 3 ⚠ | 1 | 3 | 2 | 1 (ND) | 1 | **40** | 40 | 4 |
+| 8 | O3 Mbalam | Fer | Construction, titre contesté | Historique (JORC, ex-Sundance) | 3 ⚠ | 3 ⚠ | 1 | 3 | 2 | 1 (ND) | 1 | **40** | 40 | 4 |
+| 9 | O7 Akonolinga | Rutile | Faisabilité négative ; titre Sonamines | ND | 2 ⚠ | 1 (ND) | 2 | 2 | 3 | 1 ⚠ | 2 | **35** | 37 | 3 |
 
 > *Contre-vérification (2026-10-08)* : notes G d'O3 (5 → 3) et d'O6 (4 → 3) ramenées au plafond de 3
 > imposé par la règle 3.5 n° 5, car elles reposent uniquement sur des déclarations de plus de 2 ans
@@ -383,6 +383,28 @@ finançabilité distinct**, affiché **à côté** de l'IOS (par exemple « IOS 
 >   de 42) ; poids égaux : 14 / 35 = **40** (au lieu de 43). Rang inchangé (9).
 > - Les autres notes M étaient déjà conformes à la règle (O1 3 ; O4, O5 3 ; O8, O9 5 ; O10 4) ou hors
 >   module 06 (O6, O7).
+>
+> *Recalcul indépendant (2026-10-08, `verification/recalcul-scores-07.md`, scénario A appliqué)* :
+> l'arithmétique publiée était exacte, mais six notes enfreignaient les règles du §3 :
+> - **O9** : E 2 → **1 (ND)** (un chiffre d'affaires cible n'est pas un indicateur E) ; I 3 → **2**
+>   (infrastructure non documentée) ; Reg 4 → **3** (titres délivrés sous conditions). IOS 57 → **48**,
+>   poids égaux 60 → 51. Rang 3 → 5=.
+> - **O5** : E 2 → **1 (ND)** (aucun capex de projet ; le financement de 41,2 Md FCFA relève du module
+>   08). IOS 51 → **48**, poids égaux 51 → 49. Rang 4= → 5=. L'IC reste à 5.
+> - **O7** : M 4 → **2** (hors module 06, « marché étroit » : descripteur 2) ; I 3 → **2** (non
+>   documentée). IOS 43 → **35**, poids égaux 46 → 37. Rang 8 → 9.
+> - Marquages ⚠ ajoutés là où les fiches les portaient : Reg d'O4 (actes de 2022), R d'O6 (2011), G
+>   et E d'O7 (Eramet 2023).
+>
+> **Points à arbitrer (scénario B, non appliqués)** :
+> - O8 Reg 3 → 2 ? La licence d'exploitation de Bibemi est seulement demandée.
+> - O7 Reg 3 → 2 ? Sa situation est identique à celle d'O6.
+> - O5 I 3 → 2 ? Il n'a pas de terminal propre.
+> - O1 E 3 → 4 ? Sa DFS a moins de 2 ans.
+> - IC d'O6 (3) et d'O7 (2, « non classable ») en lecture stricte.
+>
+> En scénario B, le classement deviendrait : O1 72 ; O8 61 ; O4 51 ; O6 49 ; O9 48 ; O5 et O10 44 ;
+> O3 40 ; O7 33.
 
 ### 5.2 Transformation (classée à part, G et R sans objet, poids renormalisés)
 
@@ -399,6 +421,9 @@ finançabilité distinct**, affiché **à côté** de l'IOS (par exemple « IOS 
 - **Classement robuste en tête et en queue** : avec des poids égaux, aucun projet ne bouge de plus de
   2 rangs (vérifié après correction des notes G d'O3 et d'O6, puis après l'harmonisation du 2026-10-08 :
   O1 et O8 à égalité à 66, O10 remonte d'un rang). Le classement n'est donc pas « fragile » au sens de la règle 3.4.
+  Après le recalcul indépendant (scénario A), à poids égaux, O9 remonte de 5= à 3= et O10 de 7 à 5=
+  (2 places au plus). Le milieu du tableau (O4, O6, O9, O5, O10, de 44 à 51) reste serré ; sans le
+  critère R, O10 passe de 7 à 4=. La tête (O1, O8) et la queue (O3, O7) sont robustes.
 - **L'écart vient surtout de R et de I** : Minim-Martap est le seul projet qui combine une
   déclaration conforme récente et une voie d'évacuation existante. Mbalam a la géologie la mieux documentée historiquement, mais
   ces données ont plus de 2 ans (G plafonnée à 3), et il cumule la plus mauvaise infrastructure et le titre le plus contesté.
@@ -599,3 +624,4 @@ par WebFetch le 2026-10-08 ; scores recalculés par script.
 - **Non vérifiés ici** : S2, S3, S10, S24 (non rouverts) ; échantillon limité à ~15 affirmations.
 - **Harmonisation inter-modules (2026-10-08)** : Alucam aligné sur les modules 05-06 (100 kt/an ; alumine importée ; aucune raffinerie ; Comtrade 2023 : 135 347 t dont 76 655 t de Guinée) ; cadastre (C9, V28) et décrets (C11, V27 : 8 décrets) alignés sur les modules 03 et 04 ; Minim-Martap : formulation commune ; PEA de Bibemi intégrée (O8 : E 1 → 3, IOS 57 → 63, poids égaux 60 → 66, IC 5 → 6, rang 2) ; règle de conversion M06 → Market ajoutée (§ 3.3) et appliquée (O3 : M 4 → 3, IOS 42 → 40 ; O2 : M 3 → 4, IOS 52 → 55) ; retour du module 08 précisé (score de finançabilité distinct, § 3.6 et § 7) ; points de priorité 2 marqués « à arbitrer » ; sources S41-S46 ajoutées. Journal : `verification/harmonisation.md`.
 - **Arbitrages priorité 2 (2026-10-08)** : corrections factuelles des fiches uniquement, **sans modification des notes, IOS, rangs ni du tableau de scores** (recalcul séparé en attente) : Minim-Martap (ressource de 1 102 Mt en vigueur, 1 027 Mt antérieure ; 45,448 Md FCFA tirés sur la facilité AFG ; offre A2MP caduque le 21/09/2026, A2MP revenue à 55,56 % ; 10 % de l'État vérifiés en primaire) (`verification/arbitrage-minim-martap.md`) ; Alucam, Grand Zambi, Nkamouna (décret du 12/02/2025 vérifié en primaire), Mborguéné et Figuil (`verification/arbitrage-projets.md`). Journal : `verification/integration-priorite2.md`.
+- **Recalcul indépendant des scores (2026-10-08)** : scénario A de `verification/recalcul-scores-07.md` appliqué sur instruction de l'utilisateur. Six notes ont été corrigées (O9 E, I, Reg ; O5 E ; O7 M, I) et des marquages ⚠ ajoutés (O4 Reg, O6 R, O7 G et E). Classement : O1 69, O8 63, O4 51, O6 49, O9 48 et O5 48 (5=), O10 44, O3 40, O7 35. Les quatre lectures du scénario B restent à arbitrer (§5.1).
