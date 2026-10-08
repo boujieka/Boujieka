@@ -83,7 +83,7 @@ T = {
                         "Soumis / retenu : somme des montants soumis divisée par la somme des montants retenus, sur les adjudications où les deux sont publiés. Ce n'est pas le taux de couverture officiel (soumis / mis en adjudication), souvent non publié par titre.",
                         "Rendement moyen pondéré : moyenne des rendements moyens pondérés publiés, pondérée par le montant retenu. Il mélange des maturités différentes : voir la ventilation par maturité résiduelle.",
                         "Variations : en % pour les montants, en points de base (pb) pour les rendements. « n.d. » : non disponible dans les données vérifiées."],
-        "legal": "Publication indépendante de Cartouche · African Bond Intelligence. Elle n'émane d'aucun État, ni de la BCEAO, ni d'UMOA-Titres, et n'est approuvée par aucun d'eux. Les drapeaux et armoiries sont reproduits uniquement pour identifier les pays. Ce document est informatif et ne constitue ni un conseil en investissement ni une recommandation.",
+        "legal": "Publication indépendante de Africa Bonds Monitor. Elle n'émane d'aucun État, ni de la BCEAO, ni d'UMOA-Titres, et n'est approuvée par aucun d'eux. Les drapeaux et armoiries sont reproduits uniquement pour identifier les pays. Ce document est informatif et ne constitue ni un conseil en investissement ni une recommandation.",
         "credits": "Crédits des emblèmes (Wikimedia Commons)", "flag": "Drapeau", "arms": "Armoiries",
         "license": "Licence", "author": "Auteur", "see_page": "voir la page Commons", "unchanged": "Reproduits sans modification, à taille réduite.",
         "lead": "Au {q}, les {k} États de l'UMOA ont levé {alloc} lors de {n} adjudications d'émission{delta}.",
@@ -123,7 +123,7 @@ T = {
                         "Bid / allotted: sum of amounts bid divided by sum of amounts allotted, over auctions where both are published. It is not the official cover ratio (bid / offered), often not published per security.",
                         "Weighted average yield: the published weighted average yields, averaged with the amount allotted as weight. It mixes maturities: see the breakdown by residual maturity.",
                         "Changes: % for amounts, basis points (bp) for yields. \"n/a\": not available in the verified data."],
-        "legal": "Independent publication by Cartouche · African Bond Intelligence. It is not issued or endorsed by any State, the BCEAO or UMOA-Titres. Flags and coats of arms are shown only to identify the countries. This document is for information only and is neither investment advice nor a recommendation.",
+        "legal": "Independent publication by Africa Bonds Monitor. It is not issued or endorsed by any State, the BCEAO or UMOA-Titres. Flags and coats of arms are shown only to identify the countries. This document is for information only and is neither investment advice nor a recommendation.",
         "credits": "Emblem credits (Wikimedia Commons)", "flag": "Flag", "arms": "Coat of arms",
         "license": "Licence", "author": "Author", "see_page": "see the Commons page", "unchanged": "Reproduced unmodified, at reduced size.",
         "lead": "In {q}, the {k} WAEMU States raised {alloc} in {n} issuance auctions{delta}.",
@@ -473,7 +473,7 @@ def notes(st: dict, t: dict) -> str:
 
 def footer(q, edition: str, lang: str) -> str:
     t = T[lang]
-    return (f'<div class="foot"><span>Cartouche · {escape(t["title"])} · {escape(ql(q, lang))} · {escape(edition)}</span>'
+    return (f'<div class="foot"><span>Africa Bonds Monitor · {escape(t["title"])} · {escape(ql(q, lang))} · {escape(edition)}</span>'
             f'<span>{escape(t["subtitle"])}</span></div>')
 
 
@@ -494,7 +494,7 @@ def render(q, rows, as_of: date, lang: str, edition: str, purchase_url: str | No
     # Cover
     flags = "".join(f'<figure>{img(c, "flag", "", embed, em, lang)}{escape(NAMES[c][lang])}</figure>' for c in countries)
     pages.append(f"""<section class="page cover">
-<div class="brand">Cartouche · African Bond Intelligence</div>
+<div class="brand">Africa Bonds Monitor</div>
 <h1>{escape(t["title"])}<br><span style="font-size:18pt">{escape(t["subtitle"])}</span></h1>
 <div class="q">{escape(ql(q, lang))}</div>
 <div>{escape(t["period"].format(a=fmt_date(start, lang), b=fmt_date(end, lang)))} · {escape(t["asof"].format(d=fmt_date(as_of, lang)))}</div>
@@ -598,7 +598,7 @@ def render(q, rows, as_of: date, lang: str, edition: str, purchase_url: str | No
         pages.append(f"""<section class="page" style="height:auto;min-height:297mm"><h2>{escape(t["sources"])} ({len(cur["docs"])})</h2>
 <div class="docs">{docs}</div></section>""")
 
-    title = f"Cartouche · {t['title']} {ql(q, lang)}"
+    title = f"Africa Bonds Monitor · {t['title']} {ql(q, lang)}"
     return (f'<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
             f'<title>{escape(title)}</title><meta name="robots" content="{"noindex" if edition == "complete" else "index"}">'
             f'<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400;600&display=swap">'
@@ -652,10 +652,10 @@ def build(as_of: date, dist: Path, pdf: bool = False, purchase_url: str | None =
             prev_html = out_root / s / f"apercu-{lang}.html"
             prev_html.write_text(render(q, rows, as_of, lang, "preview", purchase_url, em, embed=False))
             entry["preview"][lang] = f"rapports/{s}/{prev_html.name}"
-            full_html = private / s / f"cartouche-{s}-complet-{lang}.html"
+            full_html = private / s / f"africa-bonds-monitor-{s}-complet-{lang}.html"
             full_html.write_text(render(q, rows, as_of, lang, "complete", purchase_url, em, embed=True))
             if pdf:
-                pp = out_root / s / f"cartouche-{s}-apercu-{lang}.pdf"
+                pp = out_root / s / f"africa-bonds-monitor-{s}-apercu-{lang}.pdf"
                 if to_pdf(prev_html, pp):
                     entry["preview_pdf"][lang] = f"rapports/{s}/{pp.name}"
                 if to_pdf(full_html, full_html.with_suffix(".pdf")) and publish_complete:

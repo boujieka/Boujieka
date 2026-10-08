@@ -1,4 +1,6 @@
-# Cartouche · African Bond Intelligence
+# Africa Bonds Monitor
+
+*(formerly « Cartouche · African Bond Intelligence »; renamed on 2026-10-08. The site address stays https://cartouche-africa.netlify.app and internal identifiers keep the old name.)*
 
 **Africa's Sovereign Debt Opportunity Engine** — a source-first intelligence platform for African
 sovereign Treasury bills, bonds and Eurobonds.

@@ -46,7 +46,7 @@ DICT = {
         "f_documents": "documents.csv — les documents officiels sources ({n})",
         "update": "Mise à jour : quotidienne (collecte et vérification automatiques), données au {d}.",
         "free": "Gratuit : l'échantillon est libre ; les fichiers complets se téléchargent avec un compte gratuit. Publication autorisée par les institutions sources pour un usage gratuit : la revente des données n'est pas autorisée. Citez UMOA-Titres comme source.",
-        "legal": "Les données proviennent des publications d'UMOA-Titres. Cartouche n'est affiliée ni à UMOA-Titres ni à la BCEAO. Information uniquement, ni conseil ni recommandation.",
+        "legal": "Les données proviennent des publications d'UMOA-Titres. Africa Bonds Monitor n'est affiliée ni à UMOA-Titres ni à la BCEAO. Information uniquement, ni conseil ni recommandation.",
         "back": "Retour à la plateforme", "waitlist": "Être informé des mises à jour",
     },
     "en": {
@@ -60,7 +60,7 @@ DICT = {
         "f_documents": "documents.csv — the official source documents ({n})",
         "update": "Updated daily (automatic collection and verification); data as of {d}.",
         "free": "Free: the sample is open; the full files download with a free account. Publication is authorised by the source institutions for free use: reselling the data is not authorised. Cite UMOA-Titres as the source.",
-        "legal": "The data come from UMOA-Titres' publications. Cartouche is affiliated with neither UMOA-Titres nor the BCEAO. Information only, neither advice nor recommendation.",
+        "legal": "The data come from UMOA-Titres' publications. Africa Bonds Monitor is affiliated with neither UMOA-Titres nor the BCEAO. Information only, neither advice nor recommendation.",
         "back": "Back to the platform", "waitlist": "Get updates",
     },
 }
@@ -123,13 +123,13 @@ def page(t: dict, lang: str, tb: dict, as_of: date) -> str:
     fields = "".join(f"<tr><td><code>{escape(k)}</code></td><td>{escape(v[0 if lang == 'fr' else 1])}</td></tr>" for k, v in FIELDS.items())
     other = "en" if lang == "fr" else "fr"
     return f"""<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Cartouche · {escape(t["title"])}</title>
+<title>Africa Bonds Monitor · {escape(t["title"])}</title>
 <style>body{{margin:0;background:#f2ead8;color:#1a1712;font:15px/1.55 "IBM Plex Sans",Helvetica,Arial,sans-serif}}main{{max-width:880px;margin:0 auto;padding:28px 16px 48px}}
 h1,h2{{font-family:Marcellus,Georgia,serif;font-weight:400;color:#13306b}}h1{{font-size:30px;margin:6px 0}}h2{{font-size:20px;border-bottom:2px solid #c9a24a;padding-bottom:4px;margin-top:28px}}
 .brand{{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#8a6a1f}}table{{border-collapse:collapse;width:100%;font-size:14px;background:#fbf7ee}}
 th{{text-align:left;font-size:12px;color:#5e5546;border-bottom:2px solid #c9a24a;padding:6px 8px}}td{{border-bottom:1px solid #ddd2bb;padding:6px 8px;vertical-align:top}}.r{{text-align:right;font-family:Menlo,monospace}}
 code{{font-size:13px}}a{{color:#13306b}}.btn{{display:inline-block;background:#13306b;color:#fbf7ee;text-decoration:none;padding:9px 16px;border-radius:2px;margin:6px 8px 0 0}}.note{{color:#5e5546;font-size:13px}}.scroll{{overflow-x:auto}}</style></head>
-<body><main><div class="brand">Cartouche · African Bond Intelligence</div>
+<body><main><div class="brand">Africa Bonds Monitor</div>
 <h1>{escape(t["title"])}</h1><p>{escape(t["lede"])}</p>
 <p><a class="btn" href="../#offres">{escape(t["waitlist"])}</a><a class="btn" href="echantillon.csv" download>{escape(t["sample"].format(n=SAMPLE))}</a><a class="btn" href="auctions.csv" download>auctions.csv</a> · <a href="{other}.html" lang="{other}">{"English" if other == "en" else "Français"}</a></p>
 <p class="note">{escape(t["free"])}</p>
@@ -165,7 +165,7 @@ def write(as_of: date, dist: Path, private: Path = report.PRIVATE / "data") -> d
     (private / "securities.csv").write_text(_csv(tb["securities"], SECURITY_COLS))
     (private / "documents.csv").write_text(_csv(tb["documents"], DOC_COLS))
     (private / "LISEZMOI.txt").write_text(
-        f"Cartouche - donnees d'adjudications UEMOA verifiees, au {as_of.isoformat()}.\n"
+        f"Africa Bonds Monitor - donnees d'adjudications UEMOA verifiees, au {as_of.isoformat()}.\n"
         "Source : comptes rendus officiels d'UMOA-Titres (lien et SHA-256 sur chaque ligne).\n"
         "Champs : voir dictionnaire.html sur la plateforme (donnees/fr.html).\n"
         "Valeurs : publiees (FACT), jamais calculees ni completees ; champ vide = statut dans field_status.\n")

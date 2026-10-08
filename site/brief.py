@@ -67,14 +67,14 @@ T = {
            "totals": "Émissions sur 7 jours : {n} adjudications, {v} (7 jours précédents : {pn}, {pv}).",
            "maturing": "Échéances des {d} prochains jours (titres présents dans nos données)", "nomat": "Aucune.",
            "issue": "Émission", "buyback": "Rachat", "alloc": "Retenu", "sub": "Soumis", "yld": "Rendement",
-           "country": "Pays", "security": "Titre", "date": "Date", "legal": "Faits publiés par UMOA-Titres (UEMOA) et la BEAC (CEMAC), vérifiés par Cartouche ; publication autorisée. Information uniquement, ni conseil ni recommandation.",
+           "country": "Pays", "security": "Titre", "date": "Date", "legal": "Faits publiés par UMOA-Titres (UEMOA) et la BEAC (CEMAC), vérifiés par Africa Bonds Monitor ; publication autorisée. Information uniquement, ni conseil ni recommandation.",
            "site": "Voir la plateforme"},
     "en": {"title": "Auction brief", "sub": "WAEMU and CEMAC government securities · verified data",
            "period": "Results from {a} to {b}", "results": "Published results", "none": "No result over the period.",
            "totals": "Issuance over 7 days: {n} auctions, {v} (previous 7 days: {pn}, {pv}).",
            "maturing": "Maturities in the next {d} days (securities in our data)", "nomat": "None.",
            "issue": "Issue", "buyback": "Buyback", "alloc": "Allotted", "sub": "Bid", "yld": "Yield",
-           "country": "Country", "security": "Security", "date": "Date", "legal": "Facts published by UMOA-Titres (WAEMU) and the BEAC (CEMAC), verified by Cartouche; publication authorised. Information only, neither advice nor recommendation.",
+           "country": "Country", "security": "Security", "date": "Date", "legal": "Facts published by UMOA-Titres (WAEMU) and the BEAC (CEMAC), verified by Africa Bonds Monitor; publication authorised. Information only, neither advice nor recommendation.",
            "site": "Open the platform"},
 }
 
@@ -106,10 +106,10 @@ def email_html(b: dict, lang: str, site_url: str = "https://cartouche-africa.net
     table = (f'<table style="border-collapse:collapse;width:100%"><tr><th {th}>{t["date"]}</th><th {th}>{t["country"]}</th>'
              f'<th {th}>{t["security"]}</th><th {th}>{t["alloc"]}</th><th {th}>{t["yld"]}</th></tr>{rows}</table>'
              if rows else f"<p>{escape(t['none'])}</p>")
-    return f"""<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cartouche · {escape(t["title"])} · {escape(d(b["as_of"]))}</title></head>
+    return f"""<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Africa Bonds Monitor · {escape(t["title"])} · {escape(d(b["as_of"]))}</title></head>
 <body style="margin:0;background:#f2ead8;font-family:Helvetica,Arial,sans-serif;color:#1a1712">
 <div style="max-width:680px;margin:0 auto;background:#fbf7ee;padding:24px 20px">
-<div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#8a6a1f">Cartouche · African Bond Intelligence</div>
+<div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#8a6a1f">Africa Bonds Monitor</div>
 <h1 style="font-family:Georgia,serif;font-weight:400;color:#13306b;font-size:26px;margin:6px 0 2px">{escape(t["title"])} · {escape(d(b["as_of"]))}</h1>
 <div style="color:#5e5546;font-size:13px">{escape(t["sub"])} · {escape(t["period"].format(a=d(b["from"]), b=d(b["as_of"])))}</div>
 <p style="border-left:3px solid #c9a24a;padding-left:10px;font-size:14px">{escape(totals)}</p>
