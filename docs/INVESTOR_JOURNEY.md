@@ -24,3 +24,17 @@
 
 - **Account requirement:** when Supabase accounts are active, the journey requires a free account. Until then, it is open to everyone.
 - **Where choices are kept:** in the browser (`localStorage`, key `abm-parcours`). When the client is signed in, they are also saved to their Supabase user metadata (`parcours`).
+
+## Simulate, compare, access (ABM 2.0 phase 1)
+
+- Home page widget « Que pourrait rapporter votre argent ? » and platform section `#comparer`
+  (up to 5 countries, goal planner, watchlist in the browser) apply `site/simcalc.js` to
+  `yield_points` (build.py): per country and horizon, the latest verified issuance auction of the
+  last 12 months whose residual maturity falls in the horizon window. Rate = FACT with its PDF;
+  everything else = CALCULATION. CEMAC countries are absent: their recent results publish prices.
+- No risk indicator, no score, no automatic allocation: no verified source supports one, and an
+  allocation proposer would be personalised advice.
+- Section `#acces`: procedure per country (sourced buyer cards; missing fields say « Non renseigné »;
+  minimum amount is not in our sources) and a directory of the 320 listings from official lists.
+  Only the ⚪ « Liste officielle » status exists; 🔵 / 🟠 / 🟢 need the institution registry
+  (phase 2, Supabase) and a documented human verification. No status can be bought.

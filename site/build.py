@@ -217,6 +217,41 @@ def load_i18n(buyer_keys: list[str]) -> dict:
     return tables
 
 
+# Horizons offered by the simulators (years) and the residual-maturity window used for each.
+HORIZONS = {1: (0, 1.0), 3: (2.0, 4.0), 5: (4.0, 6.0), 7: (6.0, 8.5), 10: (8.5, 15.0)}
+
+
+def yield_points(as_of: date) -> dict:
+    """For each country and horizon: the latest verified issuance auction of the last 12 months whose
+    residual maturity falls in the horizon's window, with its published yield (FACT) and source.
+    The simulators apply arithmetic to these published rates; nothing is estimated."""
+    import report
+
+    data = json.loads((ROOT.parent / "backend" / "app" / "seed" / "data" / "verified_market_data.json").read_text())
+    secs = {s["isin"]: s for s in data["securities"]}
+    lo = as_of.toordinal() - 365
+    out: dict = {}
+    for r in report.load_rows():
+        if r["type"] in report.NON_ISSUANCE or r["yld"] is None or not r["alloc"] or r["residual_years"] is None:
+            continue
+        if not (lo < r["date"].toordinal() <= as_of.toordinal()):
+            continue
+        for h, (a, b) in HORIZONS.items():
+            if a < r["residual_years"] <= b:
+                cur = out.setdefault(r["country"], {}).get(str(h))
+                if cur is None or (r["date"].isoformat(), r["alloc"]) > (cur["d"], Decimal(cur["_alloc"])):
+                    sec = secs.get(r["isin"], {})
+                    out[r["country"]][str(h)] = {
+                        "y": float(r["yld"]), "d": r["date"].isoformat(), "name": r["name"], "isin": r["isin"],
+                        "instr": r["instr"], "res": round(r["residual_years"], 1), "url": r["url"],
+                        "coupon": _num(sec.get("coupon_rate")), "cur": r["currency"],
+                        "src": "BEAC" if "beac.int" in (r["url"] or "") else "UMOA-Titres", "_alloc": str(r["alloc"])}
+    for pts in out.values():
+        for v in pts.values():
+            v.pop("_alloc", None)
+    return out
+
+
 def home_page(payload: dict) -> str:
     """Home page: key figures, entry points, newsletter per market (Netlify form) and account links.
     The market checkboxes are written into the HTML here so that Netlify detects every field."""
@@ -239,8 +274,10 @@ def home_page(payload: dict) -> str:
     home = {
         "as_of": payload["as_of"], "auctions": payload["data"]["real_auctions"], "last": payload["data"]["last"],
         "countries_with_data": len(payload["data"]["real_countries"]), "bonds": len(payload["bvmac"]["bonds"]),
-        "countries": {a["iso3"]: {"iso2": a["iso2"], "name_fr": a["name_fr"], "name_en": a["name_en"]} for a in payload["africa"] if a["iso3"] in used},
-        "i18n": {lang: {k: v for k, v in table.items() if k.startswith("home.")} for lang, table in payload["i18n"].items()},
+        "countries": {a["iso3"]: {"iso2": a["iso2"], "name_fr": a["name_fr"], "name_en": a["name_en"]} for a in payload["africa"] if a["iso3"] in used | set(payload["yield_points"])},
+        "i18n": {lang: {k: v for k, v in table.items() if k.startswith("home.") or k.startswith("sim2.")} for lang, table in payload["i18n"].items()},
+        "points": payload["yield_points"],
+        "sim_countries": sorted(payload["yield_points"]),
     }
     data = json.dumps(home, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     return (ROOT / "home.html").read_text().replace("__MARKETS__", "\n".join(blocks)).replace("__HOME__", data)
@@ -321,6 +358,7 @@ def main() -> None:
     payload["data_offer"] = {k: offer[k] for k in ("auctions", "securities", "documents", "countries")}
     payload["auth"] = auth_config()
     payload["bvmac"] = bvmac_quotes()
+    payload["yield_points"] = yield_points(date.fromisoformat(args.as_of))
     if args.veille and args.veille.exists():
         veille = json.loads(args.veille.read_text())
         # Embed the report only; the comparison state stays in the downloadable veille.json.
@@ -333,6 +371,7 @@ def main() -> None:
     (DIST / "index.html").write_text(home_page(payload))
     shutil.copy(ROOT.parent / "brand" / "favicon.svg", DIST / "favicon.svg")
     write_netlify(payload["auth"])
+    shutil.copy(ROOT / "simcalc.js", DIST / "simcalc.js")  # simulator arithmetic shared by both pages
     shutil.copy(ROOT / "merci.html", DIST / "merci.html")  # waiting-list form fallback page (no JavaScript)
     if args.veille and args.veille.exists() and args.veille.resolve() != (DIST / "veille.json").resolve():
         shutil.copy(args.veille, DIST / "veille.json")

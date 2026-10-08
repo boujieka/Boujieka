@@ -87,6 +87,19 @@ form.nl { background: var(--surface); border: 1px solid var(--line); padding: 20
 .nl input[type=email], .nl select { font: 500 15px var(--body); padding: 10px 12px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); border-radius: 2px; }
 .nl .note, .note { font-size: 13px; color: var(--muted); }
 .ok { color: var(--teal); font-weight: 600; }
+.sim { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 18px; align-items: start; }
+@media (max-width: 760px) { .sim { grid-template-columns: 1fr; } }
+.sim-in { display: grid; gap: 12px; background: var(--paper); border: 1px solid var(--line); padding: 16px; border-radius: 3px; }
+.sim-in label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--muted); }
+.sim-in input, .sim-in select { font: 600 16px var(--body); padding: 10px 12px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 2px; }
+.presets { display: flex; flex-wrap: wrap; gap: 6px; }
+.presets button { font: 600 13px var(--mono); padding: 6px 10px; border: 1px solid var(--line); background: var(--surface); color: var(--lapis); border-radius: 2px; cursor: pointer; }
+.presets button[aria-pressed="true"] { background: var(--lapis); color: #fff; border-color: var(--lapis); }
+.sim-out { background: var(--paper); border: 1px solid var(--line); border-top: 3px solid var(--gold); padding: 16px 18px; border-radius: 3px; }
+.sim-big { font: 600 clamp(26px, 4vw, 38px)/1.1 var(--mono); color: var(--teal); margin: 4px 0 2px; }
+.sim-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px 16px; margin: 14px 0; }
+.sim-grid div span { display: block; font-size: 12.5px; color: var(--muted); } .sim-grid div b { font: 600 16px var(--mono); }
+.tag { font: 600 10.5px/1 var(--body); letter-spacing: .06em; text-transform: uppercase; border: 1px solid var(--line); color: var(--muted); padding: 3px 6px; border-radius: 2px; }
 footer { background: var(--night); color: #b9ae97; font-size: 13.5px; padding: 28px 0; }
 footer a { color: #d9cfb8; }
 .legal { max-width: 80ch; }
@@ -116,6 +129,7 @@ footer a { color: #d9cfb8; }
     <p class="lede" data-i="home.lede"></p>
     <div class="cta">
       <a class="btn gold" href="/plateforme.html" data-i="home.cta.explore"></a>
+      <a class="btn ghost" href="#simulateur" data-i="sim2.cta.hero"></a>
       <a class="btn ghost" href="#newsletter" data-i="home.cta.newsletter"></a>
       <a class="btn ghost" href="/plateforme.html#compte" data-i="home.cta.account"></a>
     </div>
@@ -124,6 +138,25 @@ footer a { color: #d9cfb8; }
 </header>
 
 <main>
+  <section class="band alt" id="simulateur">
+    <div class="wrap">
+      <span class="kicker" data-i="sim2.kicker"></span>
+      <h2 data-i="sim2.title"></h2>
+      <p class="sub" data-i="sim2.lede"></p>
+      <div class="sim">
+        <div class="sim-in">
+          <label><span data-i="sim2.amount"></span><input id="s-amt" type="number" min="1000" step="1000" value="1000000" inputmode="numeric"></label>
+          <div class="presets" id="s-presets"></div>
+          <label><span data-i="sim2.country"></span><select id="s-c"></select></label>
+          <label><span data-i="sim2.horizon"></span><select id="s-h"></select></label>
+        </div>
+        <div class="sim-out" id="s-out" aria-live="polite"></div>
+      </div>
+      <p class="note" data-i="sim2.disclaimer"></p>
+      <p class="cta" style="margin-top:14px"><a class="btn gold" href="/plateforme.html#comparer" data-i="sim2.cta.compare"></a><a class="btn line" href="/plateforme.html#acces" data-i="sim2.cta.access"></a></p>
+    </div>
+  </section>
+
   <section class="band">
     <div class="wrap">
       <span class="kicker" data-i="home.what.kicker"></span>
@@ -194,6 +227,7 @@ __MARKETS__
 </footer>
 
 <script id="home-data" type="application/json">__HOME__</script>
+<script src="/simcalc.js"></script>
 <script>
 (function () {
   const H = JSON.parse(document.getElementById("home-data").textContent);
@@ -239,6 +273,44 @@ __MARKETS__
       st.className = "ok"; st.textContent = unsub ? t("home.nl.unsubbed") : t("home.nl.ok");
     } catch { st.className = ""; st.textContent = t("home.nl.err"); }
   });
+  // ---------- "What could your money earn?" (published rates × arithmetic; nothing is forecast)
+  const PRESETS = [100000, 250000, 500000, 1000000, 5000000, 10000000];
+  const SIMH = [1, 3, 5, 7, 10];
+  let simC = store.get("abm-sim-c") || (H.sim_countries.includes("CIV") ? "CIV" : H.sim_countries[0]), simH = Number(store.get("abm-sim-h") || 5);
+  const cname = (c) => { const x = H.countries[c]; if (!x) return c; if (lang === "fr") return x.name_fr; try { return new Intl.DisplayNames([LOC[lang]], { type: "region" }).of(x.iso2) || x.name_en; } catch { return x.name_en; } };
+  const money = (v, cur) => `${Number(v).toLocaleString(LOC[lang], { maximumFractionDigits: 0 })} ${cur}`;
+  const pct = (v, d = 2) => `${Number(v).toLocaleString(LOC[lang], { minimumFractionDigits: d, maximumFractionDigits: d })} %`;
+  function renderSim() {
+    const amt = Math.max(0, Number(document.getElementById("s-amt").value) || 0);
+    document.getElementById("s-presets").innerHTML = PRESETS.map((v) => `<button type="button" data-amt="${v}" aria-pressed="${v === amt}">${Number(v).toLocaleString(LOC[lang])}</button>`).join("");
+    document.getElementById("s-c").innerHTML = H.sim_countries.map((c) => `<option value="${c}"${c === simC ? " selected" : ""}>${esc(cname(c))}</option>`).join("");
+    const pts = H.points[simC] || {};
+    if (!pts[String(simH)]) simH = Number(Object.keys(pts).sort((a, b) => Math.abs(a - simH) - Math.abs(b - simH))[0] || 5);
+    document.getElementById("s-h").innerHTML = SIMH.map((h) => `<option value="${h}"${h === simH ? " selected" : ""}${pts[String(h)] ? "" : " disabled"}>${esc(t("sim2.h." + h))}</option>`).join("");
+    const p = pts[String(simH)], out = document.getElementById("s-out");
+    if (!p || !amt) { out.innerHTML = `<p class="note">${esc(t("sim2.norate"))}</p>`; return; }
+    const r = SimCalc.hold(amt, p.y, p.coupon, simH), re = SimCalc.reinvested(amt, p.y, simH), sn = SimCalc.sensitivity(p.y, p.coupon, simH);
+    out.innerHTML = `<span class="tag">${esc(t("sim2.tag.calc"))}</span>
+      <p style="margin:10px 0 0">${esc(t("sim2.could", { a: money(amt, p.cur), h: t("sim2.h." + simH) }))}</p>
+      <div class="sim-big"><bdi dir="ltr">+${esc(money(r.gain, p.cur))}</bdi></div>
+      <p class="note" style="margin:0">${esc(t("sim2.total", { v: money(r.total, p.cur) }))}</p>
+      <div class="sim-grid">
+        <div><span>${esc(t("sim2.rate"))}</span><b>${pct(p.y)}</b></div>
+        ${p.coupon != null ? `<div><span>${esc(t("sim2.coupon"))}</span><b>${pct(p.coupon)}</b></div><div><span>${esc(t("sim2.price"))}</span><b>${pct(r.price)}</b></div>` : ""}
+        <div><span>${esc(t("sim2.income"))}</span><b>${esc(money(r.annual, p.cur))}</b></div>
+        <div><span>${esc(t("sim2.capital"))}</span><b>${esc(money(r.capital, p.cur))}</b></div>
+        <div><span>${esc(t("sim2.reinv"))}</span><b>${esc(money(re, p.cur))}</b></div>
+      </div>
+      ${sn ? `<p class="note">${esc(t("sim2.sens", { down: pct(Math.abs(sn.down) * 100, 1), up: pct(sn.up * 100, 1) }))}</p>` : ""}
+      <p class="note">${esc(t("sim2.source", { d: date(p.d), n: p.name, s: p.src }))} <a href="${esc(p.url)}" rel="noopener">PDF</a></p>`;
+    store.set("abm-sim-c", simC); store.set("abm-sim-h", String(simH));
+  }
+  document.getElementById("s-amt").addEventListener("input", renderSim);
+  document.getElementById("s-presets").addEventListener("click", (e) => { const b = e.target.closest("[data-amt]"); if (b) { document.getElementById("s-amt").value = b.dataset.amt; renderSim(); } });
+  document.getElementById("s-c").addEventListener("change", (e) => { simC = e.target.value; renderSim(); });
+  document.getElementById("s-h").addEventListener("change", (e) => { simH = Number(e.target.value); renderSim(); });
+  const _render = render;
+  render = function () { _render(); renderSim(); };
   render();
 })();
 </script>
