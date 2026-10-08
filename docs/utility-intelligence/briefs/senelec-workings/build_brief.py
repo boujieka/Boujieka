@@ -127,6 +127,17 @@ P['loss_pt_gwh'] = num(C['loss_point_gwh_2024'], 0)
 P['loss_pt_bn'] = bn(C['loss_point_value_2024'], 1)
 P['loss_pt_share'] = num(C['loss_point_share_gap_2024'], 1)
 P['cpe'] = num(C['cust_per_employee_2024'], 0)
+EXPORTS = {2019: 15.5, 2020: 17.10, 2021: 22.01, 2022: 191.45, 2023: 253.18, 2024: 561.89}
+EXP_SRC = {2019: sref('ar2019', 38, 'Exportations (NAWEK) 10,66 15,5'), 2020: sref('ar2020', 34, 'Exportations (NAWEC) 15,50 17,10'), 2021: sref('ar2021', 34, 'Exportations (NAWEC) 17,1 22,01'),
+           2022: sref('ar2024', 19, 'DExportation 191,45 253,18 561,89'), 2023: sref('ar2024', 19, 'DExportation 191,45 253,18 561,89'), 2024: sref('ar2024', 19, 'DExportation 191,45 253,18 561,89')}
+DOM = {y: 100 * (v('energy_billed', y) - EXPORTS[y]) / (v('energy_available', y) - EXPORTS[y]) for y in Y6}
+P['dom22'], P['dom24'] = num(DOM[2022], 1), num(DOM[2024], 1)
+P['domdelta'] = num(DOM[2022] - DOM[2024], 1)
+P['domgwh'] = num((DOM[2022] - DOM[2024]) / 100 * (v('energy_available', 2024) - EXPORTS[2024]), 0)
+GAPCRSE = {2021: 155283, 2022: 298463}
+P['ebecrse21'] = bn(v('ebe', 2021) - GAPCRSE[2021], 0); P['ebecrse22'] = bn(v('ebe', 2022) - GAPCRSE[2022], 0)
+P['comp25'] = bn(v('compensation_decided', 2025)); P['comp24d'] = bn(v('compensation_decided', 2024))
+P['res_ex_hao'] = num(34.76 - 18.59, 1)
 
 page = f'''<title>Note Senelec 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -218,20 +229,20 @@ footer {{ font-size: .82rem; color: var(--muted); border-top: 1px solid var(--li
   <section aria-labelledby="h-keys">
     <h2 id="h-keys">En bref</h2>
     <ul class="keys">
-      <li><span class="k">{P["gap25"]} Mds<small>écart 2025</small></span><p>L’écart entre le revenu maximum autorisé (RMA) et les recettes au tarif est passé de {P["gap22"]} Mds FCFA en 2022 {ref("gap",2022)} à {P["gap25"]} Mds en 2025 {ref("gap",2025)}. Les tarifs couvrent désormais {P["cov25"]} % du RMA, contre {P["cov22"]} % en 2022. {tag("c")}</p></li>
+      <li><span class="k">{P["gap25"]} Mds<small>écart 2025</small></span><p>L’écart entre le revenu maximum autorisé (RMA) et les recettes au tarif est passé de {P["gap22"]} Mds FCFA en 2022 {ref("gap",2022)} à {P["gap25"]} Mds en 2025 {ref("gap",2025)}. Les tarifs couvrent désormais {P["cov25"]} % du RMA, contre {P["cov22"]} % en 2022. {tag("c")} La compensation décidée par l’État pour 2025 (181,5 Mds) dépasse l’écart final : le surplus de 21,2 Mds sera régularisé {ref("compensation_decided",2025)}. {tag("f")}</p></li>
       <li><span class="k">{P["ebex24"]} Mds<small>EBE 2024 hors compensation</small></span><p>Sans la compensation de l’État, l’excédent brut d’exploitation aurait été négatif cinq années sur six, jusqu’à {P["ebex22"]} Mds en 2022. La compensation représentait encore {P["comp24"]} % du chiffre d’affaires en 2024. {tag("c")}</p></li>
-      <li><span class="k">+{P["admg"]} %<small>créances Administration 2024</small></span><p>Les factures impayées de l’Administration sont passées de {P["adm23"]} Mds en janvier 2024 à {P["adm24"]} Mds en décembre 2024 {ref("recv_admin",2024)}. Le taux de couverture des encaissements est tombé à {num(v("tccae",2024),2)} % {ref("tccae",2024)}. {tag("f")}</p></li>
-      <li><span class="k">≈ 19 %<small>pertes, stables depuis 2019</small></span><p>Le rendement global reste autour de 81 % de 2019 à 2024 {ref("rendement_brut",2024)}. Chaque point de pertes représente environ {P["loss_pt_gwh"]} GWh, soit {P["loss_pt_bn"]} Mds FCFA par an au prix moyen 2024. {tag("c")}</p></li>
-      <li><span class="k">2 ans<small>concession expirée</small></span><p>La concession de Senelec a expiré le 31 mars 2024. Elle est prolongée d’année en année par avis de la CRSE en attendant un nouveau contrat {sref("crse2025",29,"Avis n°07/2025")}. Les comptes 2021 et 2022 ont reçu une opinion avec réserve {sref("ar2022",64)}. {tag("f")}</p></li>
+      <li><span class="k">+{P["admg"]} %<small>créances Administration 2024</small></span><p>Les factures impayées de l’Administration sont passées de {P["adm23"]} Mds en janvier 2024 à {P["adm24"]} Mds en décembre 2024 {ref("recv_admin",2024)}. Le taux d’encaissement des grands comptes, qui incluent l’État, est passé de 98,52 % en 2022 {sref("ar2022",40,"DGC 98,52%")} à 92,91 % en 2023 {sref("ar2023",42,"DGC 92,91%")}, puis 82,14 % en 2024 {sref("ar2024",42)}. {tag("f")}</p></li>
+      <li><span class="k">+{P["domdelta"]} pt<small>pertes hors export, 2022→2024</small></span><p>Hors exportations, le rendement du réseau est passé de {P["dom22"]} % en 2022 à {P["dom24"]} % en 2024, soit environ {P["domgwh"]} GWh perdus en plus. Le rendement global publié (81 %) masque cette dégradation, car les exportations ont triplé {EXP_SRC[2024]}. Chaque point de pertes vaut environ {P["loss_pt_bn"]} Mds FCFA par an. {tag("c")}</p></li>
+      <li><span class="k">2 ans<small>concession expirée</small></span><p>La concession de Senelec a expiré le 31 mars 2024. Senelec a été autorisée à poursuivre ses activités, aux conditions de l’ancien contrat, jusqu’au 31 mars 2026 {sref("crse2025",29,"Avis n°07/2025")}. Les sources ne disent rien de la situation après cette date. Les comptes 2021 et 2022 ont reçu une opinion avec réserve {sref("ar2022",64)}. {tag("f")}</p></li>
     </ul>
   </section>
 
   <section aria-labelledby="h-gap">
     <h2 id="h-gap">1. L’écart tarifaire se résorbe depuis 2023</h2>
-    <p>Le régulateur fixe chaque année un revenu maximum autorisé (RMA) qui couvre les coûts de Senelec. L’État compense la différence entre ce revenu et les recettes au tarif en vigueur. Cet écart a culminé en 2022, année de hausse des prix du pétrole et de gel des tarifs. La CRSE attribue la baisse depuis 2023 à la hausse tarifaire de janvier 2023 (+16,72 % en moyenne) et à la baisse des prix des combustibles {sref("crse2022_23",22)} {sref("crse2025",38)}.</p>
+    <p>Le régulateur fixe chaque année un revenu maximum autorisé (RMA) qui couvre les coûts de Senelec. L’État compense la différence entre ce revenu et les recettes au tarif en vigueur. Il le fait à partir d’estimations trimestrielles, et l’écart avec le montant définitif est régularisé l’année suivante. Cet écart a culminé en 2022, année de hausse des prix du pétrole et de gel des tarifs. La CRSE attribue la baisse depuis 2023 à la hausse tarifaire de janvier 2023 (+16,72 % en moyenne) et à la baisse des prix des combustibles {sref("crse2022_23",22)} {sref("crse2025",38)}.</p>
     <figure>
       {chart1}
-      <div class="legend"><span style="--sw: var(--fg)">Recettes au tarif</span><span style="--sw: var(--gap)">Écart compensé par l’État</span></div>
+      <div class="legend"><span style="--sw: var(--fg)">Recettes au tarif</span><span style="--sw: var(--gap)">Écart (RMA − recettes au tarif)</span></div>
       <figcaption>Hauteur totale = RMA définitif. Sources : CRSE, rapports 2020-21 à 2025 {ref("rma",2020)} {ref("rma",2022)} {ref("rma",2024)} {ref("rma",2025)}. Recettes au tarif = RMA − écart. {tag("c")}</figcaption>
     </figure>
     <div class="tablewrap"><table>
@@ -241,18 +252,26 @@ footer {{ font-size: .82rem; color: var(--muted); border-top: 1px solid var(--li
         <tr><td>Recette au tarif</td>{''.join(f"<td>{num(cget('tariff_per_kwh',y))}</td>" for y in (2020,2022,2024,2025))}</tr>
         <tr><td><strong>Écart par kWh</strong></td>{''.join(f"<td><strong>{num(cget('gap_per_kwh',y))}</strong></td>" for y in (2020,2022,2024,2025))}</tr>
       </tbody></table></div>
-    <p>{tag("c")} Le coût autorisé par kWh a baissé de {P["rpk22"]} FCFA en 2022 à {P["rpk25"]} FCFA en 2025, tandis que la recette au tarif passait de {P["tpk22"]} à {P["tpk25"]} FCFA. Pour combler l’écart 2025 par le seul tarif, il faudrait relever les recettes tarifaires d’environ {P["gapshare25"]} % (écart 2025 / recettes au tarif 2025). Ventes retenues : volumes du RMA, hors exportations {ref("sales_rma_gwh",2025)}.</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Mds FCFA</th>{''.join(f"<th>{y}</th>" for y in yrs)}</tr></thead>
+      <tbody>
+        <tr><td>Écart définitif (CRSE)</td>{''.join(f"<td>{bn(v('gap',y))}</td>" for y in yrs)}</tr>
+        <tr><td>Compensation décidée par l’État</td>{''.join(f"<td>{bn(v('compensation_decided',y))}</td>" for y in yrs)}</tr>
+      </tbody></table></div>
+    <p class="meta" style="font-size:.85rem">2020 : 21,2 Mds non compensés, reportés dans le RMA 2021 {ref("compensation_decided",2020)}. 2021, 2024 et 2025 : compensation supérieure à l’écart, surplus à régulariser {ref("compensation_decided",2021)} {ref("compensation_decided",2024)} {ref("compensation_decided",2025)}. 2022 : montant versé égal à l’écart {ref("compensation_decided",2022)}. 2023 : montant versé égal à l’écart, d’après l’avant-propos du président de la CRSE {ref("compensation_decided",2023)}. {tag("f")}</p>
+    <p>{tag("c")} Le revenu autorisé par kWh a baissé de {P["rpk22"]} FCFA en 2022 à {P["rpk25"]} FCFA en 2025, tandis que la recette au tarif passait de {P["tpk22"]} à {P["tpk25"]} FCFA. Pour combler l’écart 2025 par le seul tarif, il faudrait relever les recettes tarifaires d’environ {P["gapshare25"]} % (écart 2025 / recettes au tarif 2025). Ventes retenues : volumes du RMA {ref("sales_rma_gwh",2025)}. Les exportations n’en sont exclues que depuis la période tarifaire 2023-2027 {sref("crse2022_23",20,"Traitement des exportations")} : la comparaison 2020-2022 / 2024-2025 franchit ce changement de méthode. Le RMA inclut aussi des facteurs de correction des années précédentes.</p>
+    <p>{tag("i")} Depuis 2024, la recette au tarif par kWh est stable (environ 130 FCFA). La poursuite de la baisse de l’écart vient donc du revenu autorisé, c’est-à-dire surtout du prix des combustibles. Une remontée des prix du pétrole inverserait la tendance sans hausse tarifaire.</p>
   </section>
 
   <section aria-labelledby="h-ebe">
     <h2 id="h-ebe">2. La rentabilité affichée repose sur la compensation</h2>
-    <p>Senelec comptabilise la compensation dans son chiffre d’affaires (« Écart sur RMA ») {ref("ecart_rma_booked",2024)}. Son excédent brut d’exploitation publié est donc positif chaque année. Une fois la compensation retirée, l’exploitation est déficitaire, sauf en 2020, année de prix bas des combustibles.</p>
+    <p>Senelec comptabilise la compensation dans son chiffre d’affaires (« Écart sur RMA ») {ref("ecart_rma_booked",2024)}. Son excédent brut d’exploitation publié est donc positif chaque année. Une fois la compensation retirée, l’exploitation est déficitaire, sauf en 2020, année de prix bas des combustibles. Le calcul retire la compensation comptabilisée par Senelec. Avec l’écart retenu par la CRSE, le résultat serait de {P["ebecrse21"]} Mds en 2021 et de {P["ebecrse22"]} Mds en 2022, au lieu de −41 et −222 : Senelec semble avoir comptabilisé en 2022 une partie de la compensation de 2021. {tag("c")}</p>
     <figure>
       {chart2}
       <div class="legend"><span style="--sw: var(--fg)">EBE publié</span><span style="--sw: var(--copper)">EBE hors compensation (étiqueté)</span></div>
       <figcaption>EBE publié {ref("ebe",2019)} … {ref("ebe",2024)} ; compensation comptabilisée {ref("ecart_rma_booked",2019)} … {ref("ecart_rma_booked",2024)}. {tag("c")}</figcaption>
     </figure>
-    <p>Le résultat net reste positif (34,76 Mds en 2024 {ref("net_result",2024)}), mais il inclut entre 18,6 et 19,1 Mds de résultat hors activités ordinaires (HAO) dans chaque rapport qui le détaille (2019, 2020, 2021, 2023, 2024) {sref("ar2019",42)} {sref("ar2024",44)}. {tag("i")} Un résultat HAO aussi régulier mérite d’être expliqué : il gonfle la rentabilité apparente.</p>
+    <p>Le résultat net reste positif (34,76 Mds en 2024 {ref("net_result",2024)}), mais il inclut entre 18,6 et 19,3 Mds de résultat hors activités ordinaires (HAO) dans chacun des rapports de 2019 à 2024 {sref("ar2019",42)} {sref("ar2024",44)}. Il s’agit d’une reprise de provision réglementée de 18,59 Mds par an {sref("ar2022",62,"861000 REPRISES PROVISION REGLEMENTEE 18 587 362 634")}, une écriture comptable sans effet sur la trésorerie. {tag("f")} Sans elle, le résultat net 2024 serait d’environ {P["res_ex_hao"]} Mds (calcul simple, hors effet fiscal). {tag("c")}</p>
   </section>
 
   <section aria-labelledby="h-cash">
@@ -263,26 +282,35 @@ footer {{ font-size: .82rem; color: var(--muted); border-top: 1px solid var(--li
     </figure>
     <ul>
       <li>{tag("f")} En 2024, la Délégation Grands Comptes (63 % du chiffre d’affaires encaissable) n’a encaissé que 82,14 % de ses factures {sref("ar2024",42)}. Senelec cite les créances « sensibles » : forages, foyers religieux, hôpitaux et postes de santé {sref("ar2024",43)}.</li>
-      <li>{tag("c")} Créances clients au bilan : {P["rd22"]} jours de chiffre d’affaires en 2022, {P["rd24"]} jours en 2024 {ref("recv_balance",2024)}.</li>
-      <li>{tag("c")} Actif circulant / passif circulant (hors trésorerie) : {P["cr19"]} en 2019, {P["cr24"]} en 2024 {ref("current_liab",2024)}. Le passif circulant a augmenté de 189,85 Mds en 2024, surtout du fait des fournisseurs d’exploitation {sref("ar2024",47)}.</li>
+      <li>{tag("c")} Créances clients au bilan, en jours de chiffre d’affaires (compensation comprise) : {", ".join(f"{num(cget('recv_days_ca',y),0)} en {y}" for y in Y6)} {ref("recv_balance",2022)} {ref("recv_balance",2024)}. Le niveau de 2024 reste inférieur à celui de 2019-2020, mais la hausse depuis 2022 est nette.</li>
+      <li>{tag("c")} Actif circulant / passif circulant (hors trésorerie) : {P["cr19"]} en 2019 {ref("current_liab",2019)}, {P["cr24"]} en 2024 {ref("current_liab",2024)}. Le passif circulant a augmenté de 189,85 Mds en 2024, surtout du fait des fournisseurs d’exploitation {sref("ar2024",47)}.</li>
       <li>{tag("f")} Les dettes envers les fournisseurs de combustible ont plus que doublé en 2022, de 145,0 à 328,1 Mds {sref("ar2022",55)}. La trésorerie passive a atteint 202,6 Mds fin 2023, puis 134,5 Mds fin 2024 {sref("ar2024",47)}.</li>
-      <li>{tag("i")} Lecture : la compensation est désormais versée, mais les factures publiques impayées recréent un besoin de trésorerie. Senelec le reporte sur ses fournisseurs (producteurs indépendants, combustible). C’est un cycle d’arriérés à surveiller plus que le niveau de l’écart lui-même.</li>
+      <li>{tag("f")} Le montant de compensation restant dû par l’État n’est publié que pour fin 2022 (135,8 Mds). Les « autres créances », qui le contiennent probablement, atteignent 394,8 Mds fin 2024 {sref("ar2024",47,"Les autres créances affichent un solde net de 394,80")}, soit environ 2,5 fois les créances sur l’Administration.</li>
+      <li>{tag("i")} Lecture : l’argent dû par l’État et par l’Administration pèse sur la trésorerie, que Senelec compense en partie en payant plus tard ses fournisseurs d’exploitation. Les sources ne permettent pas de mesurer les arriérés envers chaque producteur indépendant. Ce cycle mérite d’être surveillé autant que le niveau de l’écart.</li>
+      <li>Note : le taux global de couverture des encaissements publié pour 2024 (88,08 %) {ref("tccae",2024)} n’est pas cohérent avec les montants du même tableau. Il n’est donc pas utilisé ici. Le solde de janvier 2024 (84,4 Mds) ne correspond pas non plus au solde de décembre 2023 (79,1 Mds).</li>
     </ul>
   </section>
 
   <section aria-labelledby="h-loss">
-    <h2 id="h-loss">4. Les pertes ne baissent pas</h2>
-    <p>{tag("f")} Rendement brut (énergie vendue / énergie disponible) : {", ".join(f"{num(v('rendement_brut',y),2)} % en {y}" for y in Y6)} {ref("rendement_brut",2019)} {ref("rendement_brut",2024)}. Le rapport ne publie pas la part technique et la part commerciale des pertes.</p>
-    <p>{tag("c")} En 2024, l’énergie disponible était de {num(v("energy_available",2024),0)} GWh {ref("energy_available",2024)}. Un point de pertes en moins représente donc environ {P["loss_pt_gwh"]} GWh vendus en plus, soit {P["loss_pt_bn"]} Mds FCFA au prix moyen de {num(v("avg_price",2024),2)} FCFA/kWh {ref("avg_price",2024)}, environ {P["loss_pt_share"]} % de l’écart 2024. Ce calcul suppose que l’énergie récupérée serait facturée et payée au prix moyen.</p>
+    <h2 id="h-loss">4. Les pertes sur le réseau national augmentent</h2>
+    <p>{tag("f")} Rendement brut (énergie vendue / énergie disponible) : {", ".join(f"{num(v('rendement_brut',y),2)} % en {y}" for y in Y6)} {ref("rendement_brut",2019)} {ref("rendement_brut",2024)}. Ce rendement global inclut les exportations au numérateur et au dénominateur. Or elles sont passées de 15,5 GWh en 2019 à 561,9 GWh en 2024 {EXP_SRC[2019]} {EXP_SRC[2024]}.</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Rendement</th>{''.join(f"<th>{y}</th>" for y in Y6)}</tr></thead>
+      <tbody>
+        <tr><td>Publié (avec exportations)</td>{''.join(f"<td>{num(v('rendement_brut',y),1)} %</td>" for y in Y6)}</tr>
+        <tr><td><strong>Hors exportations</strong></td>{''.join(f"<td><strong>{num(DOM[y],1)} %</strong></td>" for y in Y6)}</tr>
+      </tbody></table></div>
+    <p>{tag("c")} Hors exportations = (énergie vendue − exportations) / (énergie disponible − exportations). Le rendement du transport est publié (autour de 97,5 à 98 %) : environ 2 des quelque 20 points de pertes se situent sur le réseau haute tension {sref("ar2024",34)}. La répartition entre pertes techniques et commerciales en distribution n’est pas publiée.</p>
+    <p>{tag("c")} En 2024, l’énergie disponible était de {num(v("energy_available",2024),0)} GWh {ref("energy_available",2024)}. Un point de pertes en moins représente donc environ {P["loss_pt_gwh"]} GWh vendus en plus, soit environ {P["loss_pt_bn"]} Mds FCFA au prix moyen de {num(v("avg_price",2024),2)} FCFA/kWh {ref("avg_price",2024)}, environ {P["loss_pt_share"]} % de l’écart 2024. Ce calcul suppose que l’énergie récupérée serait facturée et payée au prix moyen.</p>
   </section>
 
   <section aria-labelledby="h-risk">
     <h2 id="h-risk">5. Points de vigilance</h2>
     <ul>
-      <li>{tag("f")} <strong>Statut juridique.</strong> La concession (1999, 25 ans) a expiré le 31 mars 2024 {sref("crse2024",45)}. Les conditions préalables, à savoir un nouveau contrat avec accès des tiers et la restructuration de Senelec, n’étaient pas remplies à la fin de la période transitoire {sref("crse2025",29)}.</li>
+      <li>{tag("f")} <strong>Statut juridique.</strong> La concession (1999, 25 ans) a expiré le 31 mars 2024 {sref("crse2024",45)}. Senelec est autorisée à poursuivre ses activités, aux conditions du contrat expiré, jusqu’au 31 mars 2026. Les conditions préalables (nouveau contrat avec accès des tiers, restructuration de Senelec) n’étaient pas remplies {sref("crse2025",29)}. Les sources ne couvrent pas la période postérieure.</li>
       <li>{tag("f")} <strong>Audit.</strong> Opinion avec réserve sur 2021 et 2022 : les actifs dont la propriété a été transférée à l’État figurent toujours au bilan de Senelec {sref("ar2021",48)} {sref("ar2022",65)}. Les rapports 2023 et 2024 ne reproduisent pas l’opinion des commissaires aux comptes {sref("ar2024",6)}.</li>
-      <li>{tag("f")} <strong>Approvisionnement.</strong> La fin du contrat de location Karpowership (335 MW) pourrait créer un déficit d’environ 300 MW selon la CRSE {sref("crse2025",29)}. Achats d’énergie (combustible des producteurs indépendants et primes fixes compris) : {bn(v("energy_purchases",2024))} Mds en 2024, contre {bn(v("energy_purchases",2021))} Mds en 2021 {ref("energy_purchases",2024)}.</li>
-      <li>{tag("f")} <strong>Qualité de service.</strong> SAIDI de {num(v("saidi",2024),2)} h en 2024 selon Senelec {ref("saidi",2024)}. La norme CRSE de 1 h 30 n’est pas respectée {sref("crse2024",35)}. Le rapport CRSE 2025 indique pourtant 33 minutes pour 2024 {sref("crse2025",45)}, sans expliquer l’écart.</li>
+      <li>{tag("f")} <strong>Approvisionnement.</strong> La capacité louée à Karpowership a été portée à 335 MW en 2024 {sref("ar2024",25)}. Selon le ministre, cité par la CRSE, la fin de ce contrat pourrait créer un déficit d’environ 300 MW {sref("crse2025",29)}. Achats d’énergie (combustible des producteurs indépendants et primes fixes compris) : {bn(v("energy_purchases",2024))} Mds en 2024, contre {bn(v("energy_purchases",2021))} Mds en 2021 {ref("energy_purchases",2021)} {ref("energy_purchases",2024)}.</li>
+      <li>{tag("f")} <strong>Qualité de service.</strong> SAIDI de {num(v("saidi",2024),2)} h en 2024 selon Senelec {ref("saidi",2024)}. Pour la région de Dakar, la CRSE donne 6 h 40 pour 2024 dans son rapport 2024, norme de 1 h 30 non respectée {sref("crse2024",35)}, puis 33 minutes pour la même année dans son rapport 2025 {sref("crse2025",45)}. L’écart n’est pas expliqué.</li>
     </ul>
   </section>
 
@@ -290,8 +318,8 @@ footer {{ font-size: .82rem; color: var(--muted); border-top: 1px solid var(--li
     <h2 id="h-opt">Options à instruire</h2>
     <p>Ces options sont des pistes à évaluer, pas des recommandations. Leur coût social et leur faisabilité politique ne sont pas couverts par cette note. {tag("i")}</p>
     <div class="options">
-      <div class="opt"><h3>A. Apurer les factures de l’Administration et instaurer un paiement à date fixe</h3><p class="what">Effet direct sur la trésorerie : jusqu’à {P["adm24"]} Mds d’encours fin 2024. Cela rompt le cycle d’arriérés vers les producteurs indépendants. À instruire : budgétisation des consommations publiques, compteurs à prépaiement pour les entités publiques.</p></div>
-      <div class="opt"><h3>B. Poursuivre la convergence tarifaire, avec protection de la première tranche</h3><p class="what">L’écart 2025 équivaut à environ {P["gapshare25"]} % des recettes tarifaires. Étalé sur plusieurs années, il pourrait suivre la méthode de 2023 (hausse ciblée, première tranche domestique protégée {sref("crse2022_23",10)}). Le mécanisme de correction des coûts de production (déclenché au-delà de ±5 %) existe déjà {sref("crse2022_23",20)}.</p></div>
+      <div class="opt"><h3>A. Apurer les factures de l’Administration et instaurer un paiement à date fixe</h3><p class="what">Effet direct sur la trésorerie : jusqu’à {P["adm24"]} Mds d’encours fin 2024, plus la compensation éventuellement due. Hypothèse à vérifier : cela réduirait les retards de paiement aux fournisseurs d’exploitation. À instruire : budgétisation des consommations publiques, compteurs à prépaiement pour les entités publiques.</p></div>
+      <div class="opt"><h3>B. Poursuivre la convergence tarifaire, avec protection de la première tranche</h3><p class="what">L’écart 2025 équivaut à environ {P["gapshare25"]} % des recettes tarifaires. Étalé sur plusieurs années, il pourrait suivre la méthode de 2023 (hausse ciblée, première tranche domestique protégée {sref("crse2022_23",10)}). L’écart dépend surtout du prix des combustibles : le RMA est corrigé quand les coûts de production s’écartent de plus de 5 % des prévisions {sref("crse2022_23",20)}. Une trajectoire tarifaire doit donc prévoir des scénarios de prix du pétrole.</p></div>
       <div class="opt"><h3>C. Programme de réduction des pertes avec objectifs publiés</h3><p class="what">Environ {P["loss_pt_bn"]} Mds par point et par an. Préalable : publier la décomposition entre pertes techniques et pertes commerciales, sans laquelle l’investissement ne peut pas être ciblé.</p></div>
       <div class="opt"><h3>D. Régulariser le cadre : nouveau contrat de concession et régime des actifs</h3><p class="what">Lève la réserve d’audit récurrente et sécurise les financements à long terme. Publier l’opinion d’audit complète chaque année.</p></div>
     </div>
@@ -312,6 +340,8 @@ footer {{ font-size: .82rem; color: var(--muted); border-top: 1px solid var(--li
     <h2 id="h-lim">Fiabilité de cette note</h2>
     <ul>
       <li>{ver["values"]} valeurs extraites de 10 documents ; {ver["verified"]} ont été vérifiées automatiquement : citation exacte retrouvée dans le texte et nombre présent dans la citation. {ver["signals_verified"]} faits qualitatifs vérifiés de la même façon.</li>
+      <li>Sur 209 couples (même indicateur, même année) publiés dans deux documents, 97 diffèrent de plus de 1 %. La plupart viennent de définitions différentes (périmètre, avec ou sans exportations, montant comptable ou réglementaire). Chaque chiffre de cette note précise sa source et sa définition.</li>
+      <li>Une vérification contradictoire de la note par un agent indépendant a conduit à corriger deux messages : les pertes hors exportations augmentent, et la compensation versée diffère de l’écart.</li>
       <li>Les rapports annuels ne sont pas des états financiers complets. Les définitions varient d’une année à l’autre : le périmètre des achats d’énergie change à partir de 2021, et le taux de couverture des encaissements n’est pas cohérent avec les montants publiés à côté.</li>
       <li>Incohérences relevées dans les sources : nombre de clients 2023 (2 410 431 dans le RA 2023, 2 261 996 dans le RA 2024) ; SAIDI 2024 (6 h 40 contre 33 min) ; couverture du RMA 2023 calculée à 72,6 % contre 73,25 % imprimés par la CRSE.</li>
       <li>Les comptes 2025 de Senelec n’étaient pas publiés à la date de la note. Les données 2025 viennent de la CRSE.</li>
