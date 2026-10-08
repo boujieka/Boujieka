@@ -1158,5 +1158,15 @@
   "pc.ct.phone": "Phone (optional)",
   "pc.ct.consent": "I agree that my details and the summary of my journey are kept and passed on to a licensed partner adviser.",
   "pc.ct.send": "Send my request",
-  "pc.ct.ok": "Request recorded. Thank you."
+  "pc.ct.ok": "Request recorded. Thank you.",
+  "nav.account": "Account",
+  "ac.reg.btn": "Create an account",
+  "ac.reg.mine": "My account",
+  "ac.reg.name": "Full name",
+  "ac.reg.lede": "Create your free account in one minute: it gives you access to all the platform's information (verified data, full reports, Brief, investor journey) and keeps you informed of what's new.",
+  "ac.reg.consent": "I agree that my details (name, e-mail, profile, organisation, country) are recorded to manage my account.",
+  "ac.reg.unsub": "Delete my registration (same e-mail address)",
+  "ac.reg.send": "Create my free account",
+  "ac.reg.ok": "Account registered for {e}: welcome. All the information is available to you.",
+  "ac.reg.privacy": "Registrations are stored by the site's host (Netlify, in the United States), together with the IP address and browser type it records automatically. They are neither sold nor shared. To delete your registration, send the form again with the same address and tick \"Delete my registration\"."
 }

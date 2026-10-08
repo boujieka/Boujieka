@@ -46,3 +46,14 @@ Sign-in uses an e-mail link (magic link) and no password. Every registered user 
 select email, created_at, last_sign_in_at, raw_user_meta_data
 from auth.users order by created_at desc;
 ```
+
+## Before Supabase is configured: free registration
+
+The « Compte » tab (navigation and header button) is always visible. Until `SUPABASE_URL` and the public key are set, it shows a free registration form instead of the e-mail sign-in.
+
+- **What the form records** (Netlify form `inscription-client`): name, e-mail, profile, organisation, country, consent, a news opt-in and an unsubscribe box.
+- **What happens on submission:**
+  - the browser remembers the registration and shows « Mon compte »;
+  - nothing is gated, since there is no authentication service yet.
+- **Owner access:** registrations are listed in Netlify → Forms → `inscription-client`, with CSV export.
+- **When Supabase is configured:** the same tab switches to the e-mail-link account, and downloads and the investor journey require it.

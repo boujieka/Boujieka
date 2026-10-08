@@ -1158,5 +1158,15 @@
   "pc.ct.phone": "Teléfono (opcional)",
   "pc.ct.consent": "Acepto que mis datos y el resumen de mi recorrido se conserven y se transmitan a un asesor autorizado socio.",
   "pc.ct.send": "Enviar mi solicitud",
-  "pc.ct.ok": "Solicitud registrada. Gracias."
+  "pc.ct.ok": "Solicitud registrada. Gracias.",
+  "nav.account": "Cuenta",
+  "ac.reg.btn": "Crear una cuenta",
+  "ac.reg.mine": "Mi cuenta",
+  "ac.reg.name": "Nombre y apellidos",
+  "ac.reg.lede": "Cree su cuenta gratuita en un minuto: le da acceso a toda la información de la plataforma (datos verificados, informes completos, Resumen, recorrido del inversor) y le mantiene informado de las novedades.",
+  "ac.reg.consent": "Acepto que mis datos (nombre, correo, perfil, organización, país) se registren para la gestión de mi cuenta.",
+  "ac.reg.unsub": "Eliminar mi inscripción (mismo correo)",
+  "ac.reg.send": "Crear mi cuenta gratuita",
+  "ac.reg.ok": "Cuenta registrada para {e}: bienvenido. Toda la información está a su disposición.",
+  "ac.reg.privacy": "Las inscripciones las almacena el alojamiento del sitio (Netlify, en Estados Unidos), con la dirección IP y el tipo de navegador que registra automáticamente. No se venden ni se comparten. Para eliminar su inscripción, envíe de nuevo el formulario con la misma dirección marcando «Eliminar mi inscripción»."
 }

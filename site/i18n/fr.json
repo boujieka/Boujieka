@@ -1066,5 +1066,15 @@
   "pc.ct.phone": "Téléphone (facultatif)",
   "pc.ct.consent": "J'accepte que mes coordonnées et le résumé de mon parcours soient conservés et transmis à un conseiller agréé partenaire.",
   "pc.ct.send": "Envoyer ma demande",
-  "pc.ct.ok": "Demande enregistrée. Merci."
+  "pc.ct.ok": "Demande enregistrée. Merci.",
+  "nav.account": "Compte",
+  "ac.reg.btn": "Créer un compte",
+  "ac.reg.mine": "Mon compte",
+  "ac.reg.name": "Nom et prénom",
+  "ac.reg.lede": "Créez votre compte gratuit en une minute : il vous donne accès à toutes les informations de la plateforme (données vérifiées, rapports complets, Brief, parcours investisseur) et vous permet d'être informé des nouveautés.",
+  "ac.reg.consent": "J'accepte que mes informations (nom, e-mail, profil, organisation, pays) soient enregistrées pour la gestion de mon compte.",
+  "ac.reg.unsub": "Supprimer mon inscription (même adresse e-mail)",
+  "ac.reg.send": "Créer mon compte gratuit",
+  "ac.reg.ok": "Compte enregistré pour {e} : bienvenue. Toutes les informations vous sont accessibles.",
+  "ac.reg.privacy": "Les inscriptions sont stockées par l'hébergeur du site (Netlify, aux États-Unis), avec l'adresse IP et le type de navigateur qu'il enregistre automatiquement. Elles ne sont ni revendues ni partagées. Pour supprimer votre inscription, renvoyez le formulaire avec la même adresse en cochant « Supprimer mon inscription »."
 }

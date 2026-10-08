@@ -586,9 +586,9 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
     <button type="button" class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="mast-nav"><span aria-hidden="true">☰</span> <span data-i="ui.menu"></span></button>
     <div class="mast-r">
       <nav id="mast-nav" data-ia="aria-label:nav.label">
-        <a href="#carte" data-i="nav.map"></a><a href="#marche" data-i="nav.market"></a><a href="#radar" data-i="nav.radar"></a><a href="#acheteurs" data-i="nav.buyers"></a><a href="#simulateur" data-i="nav.sim"></a><a href="#parcours" data-i="nav.journey"></a><a href="#strategie" data-i="nav.strategy"></a><a href="#brief" data-i="nav.brief"></a><a href="#rapports" data-i="nav.reports"></a><a href="#offres" data-i="nav.offers"></a><a href="#glossaire" data-i="nav.glossary"></a><a href="#veille" data-i="nav.watch"></a><a href="#sources" data-i="nav.sources"></a>
+        <a href="#carte" data-i="nav.map"></a><a href="#marche" data-i="nav.market"></a><a href="#radar" data-i="nav.radar"></a><a href="#acheteurs" data-i="nav.buyers"></a><a href="#simulateur" data-i="nav.sim"></a><a href="#parcours" data-i="nav.journey"></a><a href="#strategie" data-i="nav.strategy"></a><a href="#brief" data-i="nav.brief"></a><a href="#rapports" data-i="nav.reports"></a><a href="#offres" data-i="nav.offers"></a><a href="#compte" data-i="nav.account"></a><a href="#glossaire" data-i="nav.glossary"></a><a href="#veille" data-i="nav.watch"></a><a href="#sources" data-i="nav.sources"></a>
       </nav>
-      <a class="acct" id="acct-btn" href="#compte" hidden></a>
+      <a class="acct" id="acct-btn" href="#compte"></a>
       <div class="langs" id="langs" role="group" data-ia="aria-label:lang.label">
         <button type="button" data-lang="fr" lang="fr" title="Français">FR</button><button type="button" data-lang="en" lang="en" title="English">EN</button><button type="button" data-lang="pt" lang="pt" title="Português">PT</button><button type="button" data-lang="es" lang="es" title="Español">ES</button><button type="button" data-lang="ar" lang="ar" title="العربية">AR</button>
       </div>
@@ -622,7 +622,7 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
     <button type="button" class="sbtn" id="sopen" aria-haspopup="dialog" aria-keyshortcuts="/" data-ia="aria-label:search.open.aria"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg><span class="sl" data-i="search.open"></span><kbd aria-hidden="true">/</kbd></button>
   </div>
   <nav class="wrap secnav" id="secnav" data-ia="aria-label:nav.label">
-    <a href="#carte" data-i="nav.map"></a><a href="#marche" data-i="nav.market"></a><a href="#radar" data-i="nav.radar"></a><a href="#acheteurs" data-i="nav.buyers"></a><a href="#simulateur" data-i="nav.sim"></a><a href="#parcours" data-i="nav.journey"></a><a href="#strategie" data-i="nav.strategy"></a><a href="#brief" data-i="nav.brief"></a><a href="#rapports" data-i="nav.reports"></a><a href="#offres" data-i="nav.offers"></a><a href="#glossaire" data-i="nav.glossary"></a><a href="#veille" data-i="nav.watch"></a><a href="#sources" data-i="nav.sources"></a>
+    <a href="#carte" data-i="nav.map"></a><a href="#marche" data-i="nav.market"></a><a href="#radar" data-i="nav.radar"></a><a href="#acheteurs" data-i="nav.buyers"></a><a href="#simulateur" data-i="nav.sim"></a><a href="#parcours" data-i="nav.journey"></a><a href="#strategie" data-i="nav.strategy"></a><a href="#brief" data-i="nav.brief"></a><a href="#rapports" data-i="nav.reports"></a><a href="#offres" data-i="nav.offers"></a><a href="#compte" data-i="nav.account"></a><a href="#glossaire" data-i="nav.glossary"></a><a href="#veille" data-i="nav.watch"></a><a href="#sources" data-i="nav.sources"></a>
   </nav>
 </div>
 
@@ -911,19 +911,34 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
     </div>
   </section>
 
-  <section id="compte" hidden>
+  <section id="compte">
     <div class="wrap">
       <span class="eyebrow" data-i="ac.eyebrow"></span>
       <h2 data-i="ac.title"></h2>
-      <p class="lede" data-i="ac.lede"></p>
+      <p class="lede" id="ac-lede"></p>
       <div id="ac-body" aria-live="polite"></div>
+      <form class="form ac-form" name="inscription-client" id="reg-form" method="POST" action="/merci.html" data-netlify="true" netlify-honeypot="bot-field" hidden>
+        <input type="hidden" name="form-name" value="inscription-client">
+        <input type="hidden" name="langue" id="reg-lang" value="fr">
+        <p hidden><label>bot <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <p class="wide ac-msg" id="reg-state" hidden></p>
+        <label><span data-i="ac.reg.name"></span><input name="nom" required autocomplete="name" maxlength="200"></label>
+        <label><span data-i="wl.email"></span><input type="email" name="email" id="reg-email" required autocomplete="email" maxlength="200"></label>
+        <label><span data-i="wl.profile"></span><select name="profil" required><option value="" data-i="wl.choose"></option><option value="bank" data-i="wl.profile.bank"></option><option value="broker" data-i="wl.profile.broker"></option><option value="asset_manager" data-i="wl.profile.asset_manager"></option><option value="corporate_treasury" data-i="wl.profile.corporate_treasury"></option><option value="dfi" data-i="wl.profile.dfi"></option><option value="consultant_research" data-i="wl.profile.consultant_research"></option><option value="media" data-i="wl.profile.media"></option><option value="individual" data-i="wl.profile.individual"></option><option value="public_sector" data-i="wl.profile.public_sector"></option><option value="other" data-i="wl.profile.other"></option></select></label>
+        <label><span data-i="wl.org"></span><input name="organisation" autocomplete="organization" maxlength="200"></label>
+        <label><span data-i="wl.country"></span><input name="pays" autocomplete="country-name" maxlength="100"></label>
+        <label class="wide chk"><input type="checkbox" name="consentement" value="oui" required><span data-i="ac.reg.consent"></span></label>
+        <label class="wide chk"><input type="checkbox" name="nouveautes" value="oui"><span data-i="ac.news"></span></label>
+        <label class="wide chk"><input type="checkbox" name="desinscription" value="oui"><span data-i="ac.reg.unsub"></span></label>
+        <div class="wide"><button class="btn gold" type="submit" data-i="ac.reg.send"></button> <span id="reg-st" role="status"></span></div>
+      </form>
       <form name="suppression-compte" id="ac-del" method="POST" action="/merci.html" data-netlify="true" netlify-honeypot="bot-field" hidden>
         <input type="hidden" name="form-name" value="suppression-compte">
         <p hidden><label>bot <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
         <input type="hidden" name="email" id="ac-del-email">
         <button type="submit" class="btn ghost" style="color:var(--carnelian);border-color:var(--line)" data-i="ac.delete"></button> <span id="ac-del-st" role="status"></span>
       </form>
-      <p class="note" data-i="ac.privacy"></p>
+      <p class="note" id="ac-privacy"></p>
     </div>
   </section>
 
@@ -1539,7 +1554,6 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
   const nextFile = () => new URLSearchParams(location.search).get("next") || "";
   async function initAuth() {
     if (!AUTH) return;
-    $("compte").hidden = false; $("acct-btn").hidden = false;
     const h = new URLSearchParams(location.hash.slice(1));
     try {
       if (h.get("access_token")) {
@@ -1561,7 +1575,17 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
     if (AC.token && nextFile()) jump(undefined, "compte");
   }
   function renderAccount() {
-    if (!AUTH) return;
+    if (!AUTH) {  // accounts not configured yet: free registration through the Netlify form
+      const reg = store.get("abm-registered");
+      $("acct-btn").textContent = reg ? t("ac.reg.mine") : t("ac.reg.btn");
+      $("ac-lede").textContent = t("ac.reg.lede"); $("ac-privacy").textContent = t("ac.reg.privacy");
+      $("ac-body").innerHTML = "";
+      $("reg-form").hidden = false; $("ac-del").hidden = true; $("reg-lang").value = lang;
+      $("reg-state").hidden = !reg; $("reg-state").textContent = reg ? t("ac.reg.ok", { e: reg }) : "";
+      return;
+    }
+    $("reg-form").hidden = true;
+    $("ac-lede").textContent = t("ac.lede"); $("ac-privacy").textContent = t("ac.privacy");
     const btn = $("acct-btn"), nf_ = nextFile(), file = nf_.split("/").pop();
     btn.textContent = AC.token ? t("ac.me") : t("ac.signin");
     $("ac-del").hidden = !AC.token;
@@ -1621,6 +1645,18 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
       AC.sent = v.email;
     } catch (err) { AC.err = String(err.message || err); }
     AC.busy = false; renderAccount();
+  });
+  $("reg-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const f = e.target, st = $("reg-st"); if (!f.reportValidity()) return;
+    $("reg-lang").value = lang; st.textContent = t("wl.sending");
+    try {
+      const r = await fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams(new FormData(f)).toString() });
+      if (!r.ok) throw new Error(String(r.status));
+      const unsub = f.querySelector("[name=desinscription]").checked;
+      store.set("abm-registered", unsub ? "" : $("reg-email").value);
+      f.reset(); st.textContent = unsub ? t("wl.ok") : ""; renderAccount();
+    } catch { st.textContent = t("wl.err"); }
   });
   $("ac-del").addEventListener("submit", async (e) => {
     e.preventDefault();

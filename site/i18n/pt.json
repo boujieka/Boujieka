@@ -1158,5 +1158,15 @@
   "pc.ct.phone": "Telefone (opcional)",
   "pc.ct.consent": "Aceito que os meus contactos e o resumo do meu percurso sejam guardados e transmitidos a um consultor autorizado parceiro.",
   "pc.ct.send": "Enviar o meu pedido",
-  "pc.ct.ok": "Pedido registado. Obrigado."
+  "pc.ct.ok": "Pedido registado. Obrigado.",
+  "nav.account": "Conta",
+  "ac.reg.btn": "Criar uma conta",
+  "ac.reg.mine": "A minha conta",
+  "ac.reg.name": "Nome completo",
+  "ac.reg.lede": "Crie a sua conta gratuita num minuto: dá-lhe acesso a todas as informações da plataforma (dados verificados, relatórios completos, Resumo, percurso do investidor) e mantém-no informado das novidades.",
+  "ac.reg.consent": "Aceito que os meus dados (nome, e-mail, perfil, organização, país) sejam registados para a gestão da minha conta.",
+  "ac.reg.unsub": "Eliminar a minha inscrição (mesmo e-mail)",
+  "ac.reg.send": "Criar a minha conta gratuita",
+  "ac.reg.ok": "Conta registada para {e}: bem-vindo. Todas as informações estão ao seu dispor.",
+  "ac.reg.privacy": "As inscrições são guardadas pelo alojamento do site (Netlify, nos Estados Unidos), com o endereço IP e o tipo de navegador que regista automaticamente. Não são vendidas nem partilhadas. Para eliminar a sua inscrição, envie de novo o formulário com o mesmo endereço e assinale «Eliminar a minha inscrição»."
 }
