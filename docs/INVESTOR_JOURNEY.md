@@ -24,4 +24,3 @@
 
 - **Account requirement:** when Supabase accounts are active, the journey requires a free account. Until then, it is open to everyone.
 - **Where choices are kept:** in the browser (`localStorage`, key `abm-parcours`). When the client is signed in, they are also saved to their Supabase user metadata (`parcours`).
-EOF
