@@ -11,12 +11,14 @@ app.watch.daily, which refreshes the data and the source watch first.
 import argparse
 import json
 import os
+import re
 import shutil
 import unicodedata
 import sys
 from datetime import date
 from decimal import Decimal
 from pathlib import Path
+from urllib.parse import urlparse
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "backend"))
 
@@ -208,6 +210,11 @@ def load_i18n(buyer_keys: list[str]) -> dict:
         for key in ("glossary", "strategy_levers", "strategy_limits", "strategy_coop", "guide_steps", "ask_list"):
             if len(t[key]) != len(ref[key]):
                 raise SystemExit(f"i18n/{lang}.json: '{key}' has {len(t[key])} items, fr has {len(ref[key])}")
+        for key, val in t.items():  # same {placeholders} as fr (Arabic singular forms may omit {n})
+            if isinstance(val, str) and isinstance(ref.get(key), str):
+                a, b = set(re.findall(r"\{(\w+)\}", val)), set(re.findall(r"\{(\w+)\}", ref[key]))
+                if not a <= b or (a != b and not key.endswith(".one")):
+                    raise SystemExit(f"i18n/{lang}.json: '{key}' placeholders {sorted(a)} differ from fr {sorted(b)}")
         shape = lambda tiers: [(x["id"], [f[0] for f in x["features"]]) for x in tiers]  # noqa: E731
         if shape(t["sub_tiers"]) != shape(ref["sub_tiers"]):
             raise SystemExit(f"i18n/{lang}.json: sub_tiers ids, features or availability differ from fr")
@@ -221,7 +228,21 @@ def load_i18n(buyer_keys: list[str]) -> dict:
 
 
 # Horizons offered by the simulators (years) and the residual-maturity window used for each.
-HORIZONS = {1: (0, 1.0), 3: (2.0, 4.0), 5: (4.0, 6.0), 7: (6.0, 8.5), 10: (8.5, 15.0)}
+HORIZONS = {1: (0.9, 1.1), 3: (2.0, 4.0), 5: (4.0, 6.0), 7: (6.0, 8.5), 10: (8.5, 15.0)}
+
+
+def _source_label(url: str | None) -> str:
+    """Institution that published the document, from its host; an unknown host is shown as is."""
+    host = (urlparse(url or "").hostname or "").lower()
+    for dom, name in (("umoatitres.org", "UMOA-Titres"), ("beac.int", "BEAC")):
+        if host == dom or host.endswith("." + dom):
+            return name
+    return host or "?"
+
+
+def _embed(obj) -> str:
+    """JSON for an inline <script> block: no NaN/Infinity, and no "<" that could close or comment the block."""
+    return json.dumps(obj, ensure_ascii=False, separators=(",", ":"), allow_nan=False).replace("<", "\\u003c")
 
 
 def yield_points(as_of: date) -> dict:
@@ -244,11 +265,14 @@ def yield_points(as_of: date) -> dict:
                 cur = out.setdefault(r["country"], {}).get(str(h))
                 if cur is None or (r["date"].isoformat(), r["alloc"]) > (cur["d"], Decimal(cur["_alloc"])):
                     sec = secs.get(r["isin"], {})
+                    if r["instr"] != "treasury_bill" and sec.get("coupon_rate") is None:
+                        continue  # a bond without its coupon cannot be priced: no point rather than a bill-like guess
                     out[r["country"]][str(h)] = {
                         "y": float(r["yld"]), "d": r["date"].isoformat(), "name": r["name"], "isin": r["isin"],
                         "instr": r["instr"], "res": round(r["residual_years"], 1), "url": r["url"],
                         "coupon": _num(sec.get("coupon_rate")), "cur": r["currency"],
-                        "src": "BEAC" if "beac.int" in (r["url"] or "") else "UMOA-Titres", "_alloc": str(r["alloc"])}
+                        "src": _source_label(r["url"]), "_alloc": str(r["alloc"])}
+    out = {c: pts for c, pts in out.items() if pts}
     for pts in out.values():
         for v in pts.values():
             v.pop("_alloc", None)
@@ -282,11 +306,11 @@ def home_page(payload: dict) -> str:
         "points": payload["yield_points"],
         "sim_countries": sorted(payload["yield_points"]),
     }
-    data = json.dumps(home, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    data = _embed(home)
     return (ROOT / "home.html").read_text().replace("__MARKETS__", "\n".join(blocks)).replace("__HOME__", data)
 
 
-def bvmac_quotes() -> dict:
+def bvmac_quotes(as_of: date | None = None) -> dict:
     """BVMAC listed bonds and their verified trade observations (FACT), from the versioned verified
     data. Only days with a trade exist: a price shown without a trade (NC) is never an observation."""
     data = json.loads((ROOT.parent / "backend" / "app" / "seed" / "data" / "verified_market_data.json").read_text())
@@ -294,7 +318,10 @@ def bvmac_quotes() -> dict:
     bonds = [s for s in data["securities"] if "BVMAC" in (s.get("listing_status") or "")]
     trades: dict[str, list] = {}
     for o in data.get("market_observations", []):
-        if o["kind"] == "secondary_market" and o["verification_status"] == "verified" and not o["is_synthetic"]:
+        # A trade without a published price or volume is skipped rather than shown as 0; nothing after as_of.
+        if (o["kind"] == "secondary_market" and o["verification_status"] == "verified" and not o["is_synthetic"]
+                and o.get("price") is not None and o.get("volume") is not None
+                and (as_of is None or o["observation_date"] <= as_of.isoformat())):
             trades.setdefault(o["isin"], []).append([o["observation_date"], _num(o["price"]), _num(o["volume"]), o["source_url"]])
     rows = []
     for b in bonds:
@@ -314,9 +341,34 @@ def auth_config() -> dict | None:
     key = os.environ.get("SUPABASE_PUBLISHABLE_KEY") or os.environ.get("SUPABASE_ANON_KEY") or ""
     if not url or not key:
         return None
-    if not url.startswith("https://") or any(c in url for c in " \"'<>") or key.startswith("sb_secret_"):
-        raise SystemExit("SUPABASE_URL must be https://..., and the key must be the public (publishable/anon) key")
+    u = urlparse(url)
+    if u.scheme != "https" or not u.hostname or u.path or u.params or u.query or u.fragment or u.username \
+            or any(c in url for c in " \"'<>;,\\"):
+        raise SystemExit("SUPABASE_URL must be exactly https://<host>")
+    if key.startswith("sb_secret_") or _jwt_role(key) not in (None, "anon"):
+        raise SystemExit("The key must be the public (publishable/anon) key, never the service key")
     return {"url": url, "key": key}
+
+
+def _jwt_role(key: str) -> str | None:
+    """Role claim of a legacy Supabase JWT key (anon or service_role); None for non-JWT keys."""
+    import base64
+
+    parts = key.split(".")
+    if not key.startswith("eyJ") or len(parts) != 3:
+        return None
+    try:
+        claims = json.loads(base64.urlsafe_b64decode(parts[1] + "=" * (-len(parts[1]) % 4)))
+    except ValueError:
+        return "unreadable"
+    return claims.get("role", "missing") if isinstance(claims, dict) else "unreadable"
+
+
+def _replace_once(text: str, old: str, new: str) -> str:
+    """Fail the build rather than silently ship a CSP or config without the change."""
+    if text.count(old) != 1:
+        raise SystemExit(f"netlify.toml: expected exactly one {old!r}")
+    return text.replace(old, new, 1)
 
 
 def write_netlify(auth: dict | None) -> None:
@@ -327,11 +379,11 @@ def write_netlify(auth: dict | None) -> None:
     if edge.exists():
         shutil.rmtree(edge)
     if auth:
-        toml = toml.replace("default-src 'self';", f"default-src 'self'; connect-src 'self' {auth['url']};", 1)
+        toml = _replace_once(toml, "default-src 'self';", f"default-src 'self'; connect-src 'self' {auth['url']};")
         (edge / "edge-functions").mkdir(parents=True)
         code = (ROOT / "edge" / "gate.js").read_text().replace("__CONFIG__", json.dumps(auth))
         (edge / "edge-functions" / "gate.js").write_text(code)
-        toml = toml.replace('  publish = "."', '  publish = "."\n  edge_functions = "netlify/edge-functions"', 1)
+        toml = _replace_once(toml, '  publish = "."', '  publish = "."\n  edge_functions = "netlify/edge-functions"')
     (DIST / "netlify.toml").write_text(toml)
 
 
@@ -357,17 +409,18 @@ def main() -> None:
     import brief
     import dataset
     payload["brief"] = brief.write(date.fromisoformat(args.as_of), DIST)
-    offer = dataset.write(date.fromisoformat(args.as_of), DIST)
-    payload["data_offer"] = {k: offer[k] for k in ("auctions", "securities", "documents", "countries")}
     payload["auth"] = auth_config()
-    payload["bvmac"] = bvmac_quotes()
+    if not payload["auth"]:
+        print("Accounts off (no SUPABASE_URL / public key): reports and CSV files are downloadable without an account")
+    offer = dataset.write(date.fromisoformat(args.as_of), DIST, gated=bool(payload["auth"]))
+    payload["data_offer"] = {k: offer[k] for k in ("auctions", "securities", "documents", "countries")}
+    payload["bvmac"] = bvmac_quotes(date.fromisoformat(args.as_of))
     payload["yield_points"] = yield_points(date.fromisoformat(args.as_of))
     if args.veille and args.veille.exists():
         veille = json.loads(args.veille.read_text())
         # Embed the report only; the comparison state stays in the downloadable veille.json.
         payload["veille"] = {k: v for k, v in veille.items() if k != "state"}
-    data = json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
-    html = (ROOT / "template.html").read_text().replace("__DATA__", data.replace("</", "<\\/"))
+    html = (ROOT / "template.html").read_text().replace("__DATA__", _embed(payload))
     DIST.mkdir(exist_ok=True)
     # The platform (all sections) lives at /plateforme.html; / is the home page (site/home.html).
     (DIST / "plateforme.html").write_text(html)

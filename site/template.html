@@ -21,7 +21,7 @@
   --muted: #5e5546;
   --line: #ddd2bb;
   --lapis: #13306b;
-  --gold-ink: #8a6a1f;
+  --gold-ink: #7a5c14;
   --faience-ink: #1f7a73;
   --carnelian: #a8432a;
   --chip-on-bg: #13306b;
@@ -104,7 +104,7 @@ section + section { border-top: 1px solid var(--line); }
 .mast nav { display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 14px; }
 .mast nav a { color: #d9cfb8; text-decoration: none; }
 .mast nav a:hover { color: var(--gold); }
-.mast nav .ng { color: var(--gold); border: 0; padding: 0; opacity: .85; }
+.mast nav .ng { color: var(--gold); border: 0; padding: 0; }
 .mast nav .ng:empty { display: none; }
 .hero-body { padding-block: clamp(20px, 3vw, 40px) clamp(28px, 4vw, 48px); display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 40px; align-items: end; }
 @media (max-width: 900px) { .hero-body { grid-template-columns: minmax(0, 1fr); } }
@@ -550,7 +550,7 @@ table.list.au { min-width: 900px; }
 .secnav a { color: var(--muted); text-decoration: none; white-space: nowrap; padding: 2px 0; border-bottom: 2px solid transparent; }
 .secnav a:hover { color: var(--lapis); }
 .secnav a[aria-current="true"] { color: var(--lapis); border-bottom-color: var(--gold); }
-.secnav .ng, #mast-nav .ng { font: 600 10px/1 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--gold-ink); white-space: nowrap; align-self: center; padding-inline-start: 6px; border-inline-start: 1px solid var(--line); }
+.secnav .ng, .mast nav .ng { font: 600 10px/1 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--gold-ink); white-space: nowrap; align-self: center; padding-inline-start: 6px; border-inline-start: 1px solid var(--line); }
 .secnav .ng:first-child { border: 0; padding: 0; }
 .secnav .ng:empty { min-height: 12px; }
 /* Compare & access */
@@ -570,6 +570,8 @@ table.cmp td { vertical-align: top; }
 .badge-off { display: inline-block; font-size: 12px; border: 1px solid var(--line); padding: 2px 6px; border-radius: 10px; white-space: nowrap; background: var(--paper); }
 .st-legend li { margin: 4px 0; font-size: 13px; }
 .st-legend li.soon { color: var(--muted); }
+.skip { position: absolute; inset-inline-start: 8px; top: -60px; z-index: 100; background: var(--lapis); color: #fff; padding: 10px 14px; }
+.skip:focus { top: 8px; }
 .plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; margin-top: 12px; }
 .plan { border: 1px solid var(--line); background: var(--surface); padding: 16px; display: flex; flex-direction: column; gap: 6px; }
 .plan.on { border-top: 3px solid var(--gold); }
@@ -615,6 +617,7 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
 </style>
 </head>
 <body>
+<a class="skip" href="#main" data-i="ui.skip"></a>
 <div class="banner" id="banner"><div class="wrap banner-in"><div id="banner-text" class="clamp"></div><button type="button" class="banner-more" id="banner-more" aria-expanded="false" aria-controls="banner-text"></button></div></div>
 
 <header class="hero">
@@ -661,7 +664,7 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
     <span class="cbar-ctx" id="gctx" aria-live="polite"></span>
     <button type="button" class="sbtn" id="sopen" aria-haspopup="dialog" aria-keyshortcuts="/" data-ia="aria-label:search.open.aria"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg><span class="sl" data-i="search.open"></span><kbd aria-hidden="true">/</kbd></button>
   </div>
-  <nav class="wrap secnav" id="secnav" data-ia="aria-label:nav.label">
+  <nav class="wrap secnav" id="secnav" data-ia="aria-label:nav.label2">
     <span class="ng" data-i="nav.g.explore"></span><a href="#carte" data-i="nav.map"></a><a href="#marche" data-i="nav.market"></a><a href="#radar" data-i="nav.radar"></a><a href="#glossaire" data-i="nav.glossary"></a><a href="#sources" data-i="nav.sources"></a><span class="ng" data-i="nav.g.monitor"></span><a href="#brief" data-i="nav.brief"></a><a href="#rapports" data-i="nav.reports"></a><a href="#veille" data-i="nav.watch"></a><span class="ng" data-i="nav.g.simulate"></span><a href="#simulateur" data-i="nav.sim"></a><a href="#comparer" data-i="nav.compare"></a><a href="#strategie" data-i="nav.strategy"></a><span class="ng" data-i="nav.g.invest"></span><a href="#acces" data-i="nav.access"></a><a href="#acheteurs" data-i="nav.buyers"></a><a href="#parcours" data-i="nav.journey"></a><a href="#offres" data-i="nav.offers"></a><span class="ng"></span><a href="#compte" data-i="nav.account"></a>
   </nav>
 </div>
@@ -680,7 +683,7 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
 
 <div class="tape" data-ia="aria-label:tape.label"><ul id="tape"></ul></div>
 
-<main>
+<main id="main" tabindex="-1">
   <section id="carte">
     <div class="wrap">
       <span class="eyebrow" data-i="map.eyebrow"></span>
@@ -723,7 +726,7 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
 
   <section id="radar">
     <div class="wrap">
-      <span class="eyebrow">Opportunity Radar</span>
+      <span class="eyebrow" data-i="radar.eyebrow"></span>
       <h2><span data-i="radar.title"></span><span id="radar-f"></span></h2>
       <p class="lede" data-ih="radar.lede"></p>
       <div class="panel" style="margin-top:22px">
@@ -856,7 +859,7 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
         <label><span data-i="cmp.amount"></span><input id="cmp-amt" type="number" min="1000" step="1000" value="1000000" inputmode="numeric"></label>
         <label><span data-i="cmp.horizon"></span><select id="cmp-h"></select></label>
       </form>
-      <div id="cmp-out" aria-live="polite"></div>
+      <div id="cmp-out"></div><p class="sr" role="status" id="cmp-st"></p>
       <p class="warnbox" data-i="sim2.disclaimer"></p>
       <p class="note" data-i="cmp.norisk"></p>
       <div class="sub">
@@ -1189,7 +1192,9 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
   const tenor = (d) => d == null ? "" : d < 365 ? (d % 7 === 0 ? t("u.weeks", { n: d / 7 }) : t("u.days", { n: d })) : t("u.years", { n: Math.round(d / 365) });
   const factVal = (f) => f.value == null ? t("na") : f.unit === "%" ? pct(f.value) : /^[A-Z]{3}$/.test(f.unit || "") ? amt(f.value, f.unit) : `${f.value}${f.unit ? " " + f.unit : ""}`;
   const enNote = () => lang === "en" ? "" : ` <small class="note" style="margin:0">${esc(t("engine.en"))}</small>`;
-  const ext = (u, label) => `<a href="${esc(u)}" dir="auto" target="_blank" rel="noopener noreferrer">${esc(label ?? u.replace(/^https?:\/\//, ""))}</a>`;
+  const safeUrl = (u) => (/^https?:\/\//i.test(String(u ?? "")) ? String(u) : "#");  // never javascript: or data: links
+  const hostOf = (u) => { try { return new URL(u).hostname; } catch { return String(u ?? ""); } };
+  const ext = (u, label) => `<a href="${esc(safeUrl(u))}" dir="auto" target="_blank" rel="noopener noreferrer">${esc(label ?? String(u ?? "").replace(/^https?:\/\//, ""))}</a>`;
 
   // ---------- Data
   const AF = Object.fromEntries(D.africa.map((a) => [a.iso3, a]));
@@ -1238,6 +1243,7 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
     $("banner-more").setAttribute("aria-expanded", String(open));
   }
   $("banner-more").addEventListener("click", () => { $("banner").classList.toggle("open"); renderBanner(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && $("mast-nav").classList.contains("open")) { $("mast-nav").classList.remove("open"); $("menu-btn").setAttribute("aria-expanded", "false"); $("menu-btn").focus(); } });
   $("menu-btn").addEventListener("click", () => {
     const open = $("mast-nav").classList.toggle("open");
     $("menu-btn").setAttribute("aria-expanded", String(open));
@@ -1301,7 +1307,7 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
   function renderGrid() {
     const b = D.grid.buckets, list = rows.filter((r) => !C || r.country_iso3 === C);
     $("radar-f").innerHTML = fbadge();
-    $("grid-title").textContent = C ? t("grid.title1", { c: NAME(C) }) : t("grid.title");
+    $("grid-title").textContent = C ? t("grid.title1", { c: NAME(C) }) : t("grid.title", { n: nf(rows.length, 0) });
     const head = `<caption class="sr">${esc(t("grid.caption"))}</caption><thead><tr><th scope="col">${esc(t("col.country"))}</th>${b.map((x) => `<th scope="col">${esc(M("bucket")[x] ?? x)}</th>`).join("")}<th scope="col" style="text-align:end">${esc(t("col.signals"))}</th></tr></thead>`;
     const body = list.map((r) => {
       const by = Object.fromEntries(r.cells.map((c) => [c.bucket, c]));
@@ -1309,8 +1315,8 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
         const c = by[k];
         if (!c) return `<td class="empty">—</td>`;
         const [bg, arrow, word] = demand(c.demand_z);
-        const zt = c.demand_z == null ? t("nd") : `z ${Number(c.demand_z) > 0 ? "+" : ""}${nf(c.demand_z, 1)}`;
-        return `<td style="background:${bg}" title="${esc(`${tenor(c.tenor_days)} · ${t("grid.auction")} ${date(c.auction_date)} · ${t("btc")} ${c.bid_to_cover ? nf(c.bid_to_cover, 2) + "×" : t("nd")} · ${word}`)}"><b>${pct(c.weighted_average_yield, 2) ?? "—"}</b><span><span aria-hidden="true">${arrow}</span> ${zt}</span></td>`;
+        const zt = c.demand_z == null ? "" : `z ${Number(c.demand_z) > 0 ? "+" : ""}${nf(c.demand_z, 1)}`;
+        return `<td style="background:${bg}" title="${esc(`${tenor(c.tenor_days)} · ${t("grid.auction")} ${date(c.auction_date)} · ${t("btc")} ${c.bid_to_cover ? nf(c.bid_to_cover, 2) + "×" : t("nd")} · ${word}`)}"><b>${pct(c.weighted_average_yield, 2) ?? "—"}</b>${zt ? `<span><span aria-hidden="true">${arrow}</span> ${zt}</span>` : ""}</td>`;
       }).join("");
       const sel = r.country_iso3 === C;
       return `<tr class="${sel ? "sel" : ""}"><th scope="row"><button type="button" data-c="${r.country_iso3}" aria-pressed="${sel}">${esc(NAME(r.country_iso3))}</button><small>${r.currency}</small></th>${cells}<td class="sig">${r.active_opportunities}</td></tr>`;
@@ -1341,8 +1347,8 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
         <div><dt>${esc(up ? t("col.auctiondate") : t("col.date"))}</dt><dd class="num">${date(o.auction_date) ?? "—"}</dd></div>
         <div><dt title="${esc(up ? t("ref.tip") : "")}">${esc(up ? t("col.refyield") : t("col.yield"))}</dt><dd class="num"><strong>${pct(o.yield_pct) ?? t("nd")}</strong></dd></div>
       </dl>
-      <p class="expl" lang="en">${esc(o.explanation)}</p>
-      <div class="intensity">${o.strength ? `${esc(t("strength"))} : <strong class="num">${nf(o.strength, 2)}×</strong> · ` : ""}${o.risk_flags.map((f) => esc(M("flag")[f] ?? f)).join(" · ")}</div>
+      <p class="expl" lang="en">${esc(o.explanation)}</p>${enNote()}
+      <div class="intensity">${[o.strength ? `${esc(t("strength"))} : <strong class="num">${nf(o.strength, 2)}×</strong>` : "", ...o.risk_flags.map((f) => esc(M("flag")[f] ?? f))].filter(Boolean).join(" · ")}</div>
       ${passport(o)}</article>`;
   }
   function renderSignals() {
@@ -1424,7 +1430,7 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
       </dl>
       <details><summary class="src" style="cursor:pointer">${esc(t("bc.quotes", { n: b.quotes.length, l: M("lang_name")[ql] }))}</summary>${b.quotes.map((q) => `<blockquote lang="${ql}">« ${esc(q)} »</blockquote>`).join("")}</details>
       </details>
-      <p class="src">${esc(t("bc.source"))} : ${b.sources.map((u) => ext(u, new URL(u).hostname)).join(t("sep"))} · ${esc(t("bc.verified", { d: date(b.last_verified) }))}${lang !== "fr" ? `<br>${esc(t("bc.translated"))}` : ""}</p>
+      <p class="src">${esc(t("bc.source"))} : ${b.sources.map((u) => ext(u, hostOf(u))).join(t("sep"))} · ${esc(t("bc.verified", { d: date(b.last_verified) }))}${lang !== "fr" ? `<br>${esc(t("bc.translated"))}` : ""}</p>
     </article>`;
   }
   function renderBuyers() {
@@ -1857,7 +1863,7 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
         ys.map(({ b, a: x }) => x ? `<tr><td>${esc(M("bucket")[b] ?? b)} · ${esc(instrLab(x.it))}</td><td class="num">${esc(yf(x.y))}</td><td class="num">${esc(date(x.d))}</td><td class="num">${esc(money(r.v * x.y / 100, cur, 0))}</td><td>${ext(x.url, "PDF")}</td></tr>`
           : `<tr><td>${esc(M("bucket")[b] ?? b)}</td><td colspan="4" class="note">${esc(t("pc.y.none"))}</td></tr>`).join("") + `</tbody></table></div><p class="note">${esc(t("pc.y.note"))}</p>`;
       const access = card ? `<dl><dt>${esc(t("bc.who"))}</dt><dd>${esc(f("eligibility"))}</dd><dt>${esc(t("bc.via"))}</dt><dd>${esc(f("primary_dealer"))}</dd><dt>${esc(t("bc.account"))}</dt><dd>${esc(f("account_requirement"))}</dd><dt>${esc(t("bc.submit"))}</dt><dd>${esc(f("submission_method"))}</dd></dl>
-        <p class="src">${esc(t("bc.source"))} : ${card.sources.map((u) => ext(u, new URL(u).hostname)).join(t("sep"))} · ${esc(t("bc.verified", { d: date(card.last_verified) }))}</p>`
+        <p class="src">${esc(t("bc.source"))} : ${card.sources.map((u) => ext(u, hostOf(u))).join(t("sep"))} · ${esc(t("bc.verified", { d: date(card.last_verified) }))}</p>`
         : `<p class="note">${esc(t("bc.none.body", { cb: a.central_bank }))}</p>`;
       const dl = [...new Set((D.dealers?.dealers || []).filter((d) => d.country_iso3 === r.c).map((d) => d.name))];
       const dealers = dl.length ? `<p>${dl.slice(0, 12).map(esc).join(" · ")}${dl.length > 12 ? " …" : ""}</p><p class="note"><a href="#dealers-sub" data-go="${r.c}" data-goto="dealers-sub">${esc(t("pc.dealers.all", { n: dl.length }))}</a></p>` : `<p class="note">${esc(t("dl.none.one", { c: NAME(r.c) }))}</p>`;
@@ -2553,6 +2559,17 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
 
   // ---------- Section links in the sticky bar, back to top
   function initNav() {
+    const secOf = (h) => { const id = (h || "").slice(1); const el = /^[a-z][\w-]*$/i.test(id) ? document.getElementById(id) : null; return el && el.closest("main") ? el : null; };
+    document.addEventListener("click", (e) => {
+      const a = e.target.closest('a[href^="#"]');
+      if (!a || mkSeen || e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey) return;
+      const el = secOf(a.getAttribute("href"));
+      if (!el) return;
+      e.preventDefault(); ensureMarket(); history.pushState(null, "", a.getAttribute("href"));
+      requestAnimationFrame(() => focusTarget(el));
+    });
+    const first = secOf(location.hash);
+    if (first) { ensureMarket(); requestAnimationFrame(() => first.scrollIntoView({ block: "start" })); }
     const links = [...document.querySelectorAll("#secnav a")];
     const secs = links.map((a) => $(a.getAttribute("href").slice(1))).filter(Boolean);
     if ("IntersectionObserver" in window) {
@@ -2585,6 +2602,7 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
   let cmpSel = readList("abm-cmp").filter((c) => YP[c]).slice(0, 5);
   if (!cmpSel.length) cmpSel = ["CIV", "SEN", "BEN"].filter((c) => YP[c]);
   let cmpH = Number(store.get("abm-cmp-h")) || 5;
+  if (!SIMH.includes(cmpH)) cmpH = 5;
   const byName = (a, b) => NAME(a).localeCompare(NAME(b), LOC[lang]);
   const watchBtn = (c) => `<button type="button" class="wbtn" data-watch="${c}" aria-pressed="${watch.includes(c)}">${esc(t(watch.includes(c) ? "cmp.watch.on" : "cmp.watch.add"))}</button>`;
   function renderWatch() {
@@ -2600,19 +2618,20 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
     computeCompare();
   }
   function computeCompare() {
-    const amtV = Math.max(0, Number($("cmp-amt").value) || 0);
+    const raw = Number($("cmp-amt").value), amtV = Number.isFinite(raw) && raw > 0 && raw <= 1e12 ? raw : 0;
     store.set("abm-cmp", JSON.stringify(cmpSel)); store.set("abm-cmp-h", String(cmpH));
-    if (!cmpSel.length || !amtV) { $("cmp-out").innerHTML = `<p class="note">${esc(t("cmp.pick"))}</p>`; renderGoalUse(); computeGoal(); return; }
+    if (!cmpSel.length || !amtV) { $("cmp-out").innerHTML = `<p class="note">${esc(t(cmpSel.length ? "sim2.badamt" : "cmp.pick"))}</p>`; $("cmp-st").textContent = ""; renderGoalUse(); computeGoal(); return; }
     const cols = cmpSel.map((c) => {
       const p = YP[c]?.[String(cmpH)];
-      if (!p) return { c, p: null };
-      return { c, p, r: SimCalc.hold(amtV, p.y, p.coupon, cmpH), re: SimCalc.reinvested(amtV, p.y, cmpH), sn: SimCalc.sensitivity(p.y, p.coupon, cmpH) };
+      const r = p && SimCalc.hold(amtV, p.y, p.coupon, cmpH);
+      if (!r) return { c, p: null };
+      return { c, p, r, re: SimCalc.reinvested(amtV, p.y, cmpH), sn: SimCalc.sensitivity(p.y, p.coupon, cmpH) };
     });
     const na = `<em class="note">${esc(t("cmp.nopoint"))}</em>`;
-    const row = (label, f, kind) => `<tr><th scope="row">${kind ? `<span class="kind-tag ${kind}">${esc(t(kind === "fact" ? "kind.fact" : "sim2.tag.calc"))}</span> ` : ""}${esc(label)}</th>${cols.map((x) => `<td class="${x.p ? "num" : ""}">${x.p ? f(x) : na}</td>`).join("")}</tr>`;
+    const row = (label, f, kind) => `<tr><th scope="row">${kind ? `<span class="kind-tag ${kind}">${esc(t(kind === "fact" ? "kind.fact" : "sim2.tag.calc"))}</span> ` : ""}${esc(label)}</th>${cols.map((x) => `<td class="${x.p ? "num" : ""}">${x.p ? `<bdi dir="ltr">${f(x)}</bdi>` : na}</td>`).join("")}</tr>`;
     $("cmp-out").innerHTML = `<div class="scroll"><table class="list cmp"><thead><tr><th></th>${cols.map((x) => `<th>${esc(NAME(x.c))}<br>${watchBtn(x.c)}</th>`).join("")}</tr></thead><tbody>` +
       row(t("cmp.r.rate"), (x) => `<strong>${pct(x.p.y, 2)}</strong>`, "fact") +
-      row(t("cmp.r.sec"), (x) => `<span style="font-family:var(--body)">${esc(x.p.name)}<br>${esc(date(x.p.d))} · ${ext(x.p.url, x.p.src)}</span>`, "fact") +
+      row(t("cmp.r.sec"), (x) => `<span style="font-family:var(--body)" dir="auto">${esc(x.p.name)}<br>${esc(date(x.p.d))} · ${ext(x.p.url, x.p.src)}</span>`, "fact") +
       row(t("cmp.r.coupon"), (x) => x.p.coupon != null ? pct(x.p.coupon, 2) : "—", "fact") +
       row(t("cmp.r.income"), (x) => esc(money(x.r.annual, x.p.cur)), "calc") +
       row(t("cmp.r.hold"), (x) => `<strong>${esc(money(x.r.total, x.p.cur))}</strong>`, "calc") +
@@ -2621,6 +2640,7 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
       row(t("cmp.r.sens"), (x) => x.sn ? `${esc(pct(x.sn.down * 100, 1))} / +${esc(pct(x.sn.up * 100, 1))}` : "—", "calc") +
       `<tr><th scope="row">${esc(t("cmp.r.how"))}</th>${cols.map((x) => `<td><a href="#acces" data-acc="${x.c}">${esc(t("sim2.cta.access"))}</a></td>`).join("")}</tr>` +
       `</tbody></table></div><p class="note">${esc(t("cmp.cur"))}</p>`;
+    $("cmp-st").textContent = cols.filter((x) => x.p).map((x) => `${NAME(x.c)} : ${money(x.r.total, x.p.cur)}`).join(" ; ");
     renderGoalUse(); computeGoal();
   }
   function renderGoalUse() {
@@ -2628,16 +2648,18 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
     $("g-use").innerHTML = opts.length ? `${esc(t("cmp.goal.use"))} ` + opts.map(([c, p]) => `<button type="button" class="wbtn" data-grate="${p.y}">${esc(NAME(c))} ${esc(pct(p.y, 2))}</button>`).join(" ") : "";
   }
   function computeGoal() {
-    const cap = Math.max(0, Number($("g-cap").value) || 0), tgt = Number($("g-tgt").value) || 0, yrs = Math.round(Number($("g-yrs").value) || 0), y = Math.max(0, Number($("g-rate").value) || 0);
-    if (tgt <= 0 || yrs < 1) { $("g-out").textContent = t("cmp.goal.bad"); return; }
-    const g = SimCalc.goal(cap, tgt, y, yrs);
+    const cap = Number($("g-cap").value || 0), tgt = Number($("g-tgt").value), yrs = Number($("g-yrs").value), y = Number($("g-rate").value);
+    const ok = Number.isFinite(cap) && cap >= 0 && cap <= 1e15 && Number.isFinite(tgt) && tgt > 0 && tgt <= 1e15
+      && Number.isInteger(yrs) && yrs >= 1 && yrs <= 40 && Number.isFinite(y) && y >= 0 && y <= 40;
+    const g = ok ? SimCalc.goal(cap, tgt, y, yrs) : null;
+    if (!g) { $("g-out").textContent = t("cmp.goal.bad"); return; }
     $("g-out").innerHTML = `<span class="kind-tag calc">${esc(t("sim2.tag.calc"))}</span> ` + esc(g.done ? t("cmp.goal.done") : t("cmp.goal.res", { m: nf(Math.ceil(g.monthly), 0), n: nf(yrs * 12, 0) }));
   }
 
   // ---------- Invest & access: official procedure per country, directory of listed intermediaries (FACT)
   const DLX = D.dealers || { sources: [], dealers: [] };
   const SRC = Object.fromEntries(DLX.sources.map((s) => [s.id, s]));
-  const DIR_STEP = 40;
+  const DIR_STEP = 15;
   let accC = store.get("abm-acc") || "", dirN = DIR_STEP;
   function renderAccess() {
     if (C) accC = C;
@@ -2666,8 +2688,8 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
     $("acc-how").innerHTML = head +
       `<div class="acc-steps">${step("acc.s.who", "eligibility")}${step("acc.s.via", "primary_dealer")}${step("acc.s.account", "account_requirement")}${step("acc.s.submit", "submission_method")}${step("acc.s.settle", "settlement_method")}<div><b>${esc(t("acc.s.fees"))}</b><br><em>${esc(t("bc.fees.na"))}</em></div></div>` +
       `<p class="note">${esc(t("acc.min"))}</p>` +
-      `<p style="display:flex;flex-wrap:wrap;gap:8px"><a class="btn gold" href="${esc(b.sources[0])}" target="_blank" rel="noopener noreferrer">${esc(t("acc.proc"))}</a>${nd ? `<a class="btn ghost" href="#acc-dir-sub" data-dirc="${accC}" style="color:var(--lapis);border-color:var(--line)">${esc(t("acc.contact"))} (${nf(nd, 0)})</a>` : ""}</p>` +
-      `<p class="src note">${esc(t("bc.source"))} : ${b.sources.map((u) => ext(u, new URL(u).hostname)).join(t("sep"))} · ${esc(t("bc.verified", { d: date(b.last_verified) }))}${lang !== "fr" ? ` · ${esc(t("bc.translated"))}` : ""}</p>`;
+      `<p style="display:flex;flex-wrap:wrap;gap:8px"><a class="btn gold" href="${esc(safeUrl(b.sources[0]))}" target="_blank" rel="noopener noreferrer">${esc(t("acc.proc"))}</a>${nd ? `<a class="btn ghost" href="#acc-dir-sub" data-dirc="${accC}" style="color:var(--lapis);border-color:var(--line)">${esc(t("acc.contact"))} (${nf(nd, 0)})</a>` : ""}</p>` +
+      `<p class="src note">${esc(t("bc.source"))} : ${b.sources.map((u) => ext(u, hostOf(u))).join(t("sep"))} · ${esc(t("bc.verified", { d: date(b.last_verified) }))}${lang !== "fr" ? ` · ${esc(t("bc.translated"))}` : ""}</p>`;
   }
   function renderDir() {
     const fc = $("acc-fc").value, fk = $("acc-fk").value, q = $("acc-fq").value.trim().toLocaleLowerCase();

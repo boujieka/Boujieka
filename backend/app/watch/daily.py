@@ -116,16 +116,21 @@ def ingest_and_approve(session, as_of: date) -> dict:
 
     last = session.scalar(select(func.max(Auction.auction_date)).where(Auction.is_synthetic.is_(False)))
     since = (last or as_of) - timedelta(days=LOOKBACK_DAYS)
-    stats = umoa.run(session, since=since)
-    session.commit()
-    report = autocheck.run(session, True, AUTO_REVIEWER, AUTO_NOTE)
-    session.commit()
-    cemac = ingest_cemac(session, as_of)
-    exported = verified.export(session)
-    return {"since": since.isoformat(), "documents_new": stats.get("documents_new"),
-            "extractions": stats.get("extractions"), "fetch_errors": stats.get("fetch_errors"),
-            "approved": report["approved"], "held": len(report["held"]),
-            "approval_errors": len(report["approve_errors"]), "cemac": cemac, "exported": exported}
+    out: dict = {"since": since.isoformat()}
+    try:  # a UMOA-Titres failure is reported and never blocks CEMAC nor the export of what is verified
+        stats = umoa.run(session, since=since)
+        session.commit()
+        report = autocheck.run(session, True, AUTO_REVIEWER, AUTO_NOTE)
+        session.commit()
+        out.update({"documents_new": stats.get("documents_new"), "extractions": stats.get("extractions"),
+                    "fetch_errors": stats.get("fetch_errors"), "approved": report["approved"],
+                    "held": len(report["held"]), "approval_errors": len(report["approve_errors"])})
+    except Exception as e:  # noqa: BLE001
+        session.rollback()
+        out["umoa_error"] = f"{type(e).__name__}: {e}"[:300]
+    out["cemac"] = ingest_cemac(session, as_of)
+    out["exported"] = verified.export(session)
+    return out
 
 
 def ingest_cemac(session, as_of: date) -> dict:
@@ -197,6 +202,12 @@ def main() -> None:
         print(f"Verified data loaded {real}; synthetic auctions added: {added}; engine {engine}")
 
         previous = load_previous(args.previous)
+        if previous is None and args.previous and args.previous.startswith(("http://", "https://")):
+            # The live copy could not be read (network, 5xx): fall back to the last local build rather than
+            # restart the history and the feed from empty.
+            previous = load_previous(str(args.out / "veille.json"))
+            print("WARNING: previous veille.json unreachable at", args.previous,
+                  "- using the local copy" if previous else "- no local copy either: history restarts")
         sources = list(session.scalars(select(Source)))
         targets = targets_from_sources(sources)
         if args.skip_watch:

@@ -15,9 +15,9 @@
   "nav.sources": "Sources",
   "lang.label": "Site language",
   "hero.eyebrow": "African sovereign debt · 54 countries",
-  "hero.title": "Every African sovereign opportunity, <em>with its evidence.</em>",
+  "hero.title": "African government securities, <em>with their official sources.</em>",
   "hero.lede": "Treasury bills and bonds of African states, tracked from official sources. A rules engine flags what moves in the primary market: upcoming auctions, unusual bid-to-cover ratios, yield moves, maturity concentrations. Every signal comes with its facts, its calculation and its rule.",
-  "hero.cta1": "Explore the Radar",
+  "hero.cta1": "See what is moving in the markets",
   "hero.cta2": "Simulate a subscription",
   "hero.keyfigures": "Key figures",
   "cbar.label": "Country",
@@ -63,10 +63,10 @@
   "p.note.other": "Official source (central bank) registered, URL to be confirmed.",
   "p.note.common": "Unverified profile. Synthetic market data; whether a regular primary auction market exists has not been verified for every country.",
   "p.go": "See {c} in the Radar",
-  "radar.title": "The Opportunity Radar",
+  "radar.title": "The market signals Radar",
   "radar.lede": "The grid compares each auction's <abbr title=\"Total bids received ÷ amount offered\">bid-to-cover ratio</abbr> with the history of its own line. This measure stays comparable across markets, unlike raw yields, whose calculation conventions differ. Each cell shows the latest weighted average yield and how far demand is from its norm (z).",
   "radar.filter": "Filter by signal type",
-  "grid.title": "Heat grid · 54 countries",
+  "grid.title": "Heat grid · {n} countries with data",
   "grid.title1": "Heat grid · {c}",
   "grid.caption": "Latest weighted average yield and demand by country and maturity",
   "grid.auction": "auction of",
@@ -1309,9 +1309,9 @@
   "cmp.goal.years": "Years",
   "cmp.goal.rate": "Yearly rate (%)",
   "cmp.goal.use": "Use the rate of:",
-  "cmp.goal.res": "To save: about {m} a month for {n} months.",
+  "cmp.goal.res": "To save: about {m} a month for {n} months (in your capital's currency).",
   "cmp.goal.done": "The starting capital is enough at this rate: no monthly saving needed.",
-  "cmp.goal.bad": "Enter a target above zero and at least 1 year.",
+  "cmp.goal.bad": "Enter a target above zero, 1 to 40 years and a rate from 0 to 40%.",
   "acc.eyebrow": "Invest & access",
   "acc.title": "How to invest, country by country",
   "acc.lede": "The platform sells no security and passes no order. It shows the official procedure and the intermediaries that the authorities publish. Simulate → understand access → go through an authorised intermediary.",
@@ -1481,5 +1481,10 @@
         ]
       ]
     }
-  ]
+  ],
+  "radar.eyebrow": "Radar · signals, not recommendations",
+  "sim2.badamt": "Enter an amount above 0 (1,000 billion at most).",
+  "ui.skip": "Skip to content",
+  "nav.label2": "Page sections",
+  "home.fact": "Fact"
 }

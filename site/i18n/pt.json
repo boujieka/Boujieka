@@ -15,9 +15,9 @@
   "nav.sources": "Fontes",
   "lang.label": "Idioma do site",
   "hero.eyebrow": "Dívida soberana africana · 54 países",
-  "hero.title": "Cada oportunidade soberana africana, <em>com a sua prova.</em>",
+  "hero.title": "Os títulos públicos africanos, <em>com as suas fontes oficiais.</em>",
   "hero.lede": "Bilhetes e obrigações do Tesouro dos Estados africanos, acompanhados a partir das fontes oficiais. Um motor de regras assinala o que se move no mercado primário: leilões próximos, rácios de cobertura invulgares, variações de rendibilidade, concentrações de vencimentos. Cada sinal é entregue com os seus factos, o seu cálculo e a sua regra.",
-  "hero.cta1": "Explorar o Radar",
+  "hero.cta1": "Ver o que se move nos mercados",
   "hero.cta2": "Simular uma subscrição",
   "hero.keyfigures": "Números-chave",
   "cbar.label": "País",
@@ -63,10 +63,10 @@
   "p.note.other": "Fonte oficial (banco central) registada, URL a confirmar.",
   "p.note.common": "Perfil não verificado. Dados de mercado sintéticos; a existência de um mercado primário regular por leilão não foi verificada para todos os países.",
   "p.go": "Ver {c} no Radar",
-  "radar.title": "O Radar de oportunidades",
+  "radar.title": "O Radar dos sinais de mercado",
   "radar.lede": "A grelha compara o <abbr title=\"Montante total das propostas ÷ montante em leilão\">rácio de cobertura</abbr> (<em>bid-to-cover</em>) de cada leilão com o histórico da sua própria linha. Esta medida mantém-se comparável entre mercados, ao contrário das rendibilidades brutas, cujas convenções de cálculo diferem. Cada casa mostra a última rendibilidade média ponderada e o desvio da procura face à sua norma (z).",
   "radar.filter": "Filtrar por tipo de sinal",
-  "grid.title": "Grelha de calor · 54 países",
+  "grid.title": "Grelha de calor · {n} países com dados",
   "grid.title1": "Grelha de calor · {c}",
   "grid.caption": "Última rendibilidade média ponderada e procura por país e maturidade",
   "grid.auction": "leilão de",
@@ -1309,9 +1309,9 @@
   "cmp.goal.years": "Anos",
   "cmp.goal.rate": "Taxa anual (%)",
   "cmp.goal.use": "Usar a taxa de:",
-  "cmp.goal.res": "A poupar: cerca de {m} por mês durante {n} meses.",
+  "cmp.goal.res": "A poupar: cerca de {m} por mês durante {n} meses (na moeda do seu capital).",
   "cmp.goal.done": "O capital inicial basta a esta taxa: nenhuma poupança mensal necessária.",
-  "cmp.goal.bad": "Indique um objetivo acima de zero e pelo menos 1 ano.",
+  "cmp.goal.bad": "Indique um objetivo acima de zero, de 1 a 40 anos e uma taxa de 0 a 40 %.",
   "acc.eyebrow": "Investir e acesso",
   "acc.title": "Como investir, país a país",
   "acc.lede": "A plataforma não vende títulos nem transmite ordens. Mostra o procedimento oficial e os intermediários que as autoridades publicam. Simular → compreender o acesso → passar por um intermediário autorizado.",
@@ -1481,5 +1481,10 @@
         ]
       ]
     }
-  ]
+  ],
+  "radar.eyebrow": "Radar · sinais, não recomendações",
+  "sim2.badamt": "Indique um montante superior a 0 (no máximo 1 000 mil milhões).",
+  "ui.skip": "Ir para o conteúdo",
+  "nav.label2": "Secções da página",
+  "home.fact": "Facto"
 }

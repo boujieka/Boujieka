@@ -37,4 +37,6 @@ alembic upgrade head
 INGEST_FLAG=""
 [ "$INGEST" = "1" ] && INGEST_FLAG="--ingest"
 python3 -m app.watch.daily --as-of "$AS_OF" --previous "$PREVIOUS" --out ../site/dist $INGEST_FLAG
+cd ..
+python3 scripts/check_dist.py --as-of "$AS_OF"  # refuse a partial or mixed build before any deploy
 echo "OK: site/dist built for $AS_OF"

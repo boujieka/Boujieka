@@ -15,9 +15,9 @@
   "nav.sources": "Sources",
   "lang.label": "Langue du site",
   "hero.eyebrow": "Dette souveraine africaine · 54 pays",
-  "hero.title": "Chaque opportunité souveraine africaine, <em>avec sa preuve.</em>",
+  "hero.title": "Les titres publics africains, <em>avec leurs sources officielles.</em>",
   "hero.lede": "Bons et obligations du Trésor des États africains, suivis depuis les sources officielles. Un moteur de règles signale ce qui bouge sur le marché primaire : adjudications à venir, taux de couverture inhabituels, variations de rendement, concentrations d'échéances. Chaque signal est livré avec ses faits, son calcul et sa règle.",
-  "hero.cta1": "Explorer le Radar",
+  "hero.cta1": "Voir ce qui bouge sur les marchés",
   "hero.cta2": "Simuler une souscription",
   "hero.keyfigures": "Chiffres clés",
   "cbar.label": "Pays",
@@ -63,10 +63,10 @@
   "p.note.other": "Source officielle (banque centrale) enregistrée, URL à confirmer.",
   "p.note.common": "Profil non vérifié. Données de marché synthétiques ; l'existence d'un marché primaire régulier par adjudication n'a pas été vérifiée pour tous les pays.",
   "p.go": "Voir {c} dans le Radar",
-  "radar.title": "Le Radar des opportunités",
+  "radar.title": "Le Radar des signaux de marché",
   "radar.lede": "La grille compare le <abbr title=\"Taux de couverture : montant total des soumissions ÷ montant mis en adjudication\">taux de couverture</abbr> (<em>bid-to-cover</em>) de chaque adjudication à l'historique de sa propre ligne. Cette mesure reste comparable d'un marché à l'autre, contrairement aux rendements bruts, dont les conventions de calcul diffèrent. Chaque case affiche le dernier rendement moyen pondéré et l'écart de la demande à sa norme (z).",
   "radar.filter": "Filtrer par type de signal",
-  "grid.title": "Grille de chaleur · 54 pays",
+  "grid.title": "Grille de chaleur · {n} pays avec données",
   "grid.title1": "Grille de chaleur · {c}",
   "grid.caption": "Dernier rendement moyen pondéré et demande par pays et par maturité",
   "grid.auction": "adjudication du",
@@ -1217,9 +1217,9 @@
   "cmp.goal.years": "Années",
   "cmp.goal.rate": "Taux annuel (%)",
   "cmp.goal.use": "Prendre le taux de :",
-  "cmp.goal.res": "À épargner : environ {m} par mois pendant {n} mois.",
+  "cmp.goal.res": "À épargner : environ {m} par mois pendant {n} mois (dans la monnaie de votre capital).",
   "cmp.goal.done": "Le capital de départ suffit à ce taux : aucune épargne mensuelle nécessaire.",
-  "cmp.goal.bad": "Indiquez un objectif supérieur à zéro et une durée d'au moins 1 an.",
+  "cmp.goal.bad": "Indiquez un objectif supérieur à zéro, une durée de 1 à 40 ans et un taux de 0 à 40 %.",
   "acc.eyebrow": "Investir & accès",
   "acc.title": "Comment investir, pays par pays",
   "acc.lede": "La plateforme ne vend aucun titre et ne transmet aucun ordre. Elle montre la procédure officielle et les intermédiaires que les autorités publient. Simuler → comprendre l'accès → passer par un intermédiaire agréé.",
@@ -1389,5 +1389,10 @@
         ]
       ]
     }
-  ]
+  ],
+  "radar.eyebrow": "Radar · des signaux, pas des recommandations",
+  "sim2.badamt": "Indiquez un montant supérieur à 0 (1 000 milliards au plus).",
+  "ui.skip": "Aller au contenu",
+  "nav.label2": "Sections de la page",
+  "home.fact": "Fait"
 }

@@ -15,9 +15,9 @@
   "nav.sources": "Fuentes",
   "lang.label": "Idioma del sitio",
   "hero.eyebrow": "Deuda soberana africana · 54 países",
-  "hero.title": "Cada oportunidad soberana africana, <em>con su prueba.</em>",
+  "hero.title": "Los títulos públicos africanos, <em>con sus fuentes oficiales.</em>",
   "hero.lede": "Letras y bonos del Tesoro de los Estados africanos, seguidos a partir de las fuentes oficiales. Un motor de reglas señala lo que se mueve en el mercado primario: subastas próximas, ratios de cobertura inusuales, variaciones de rentabilidad, concentraciones de vencimientos. Cada señal llega con sus hechos, su cálculo y su regla.",
-  "hero.cta1": "Explorar el Radar",
+  "hero.cta1": "Ver qué se mueve en los mercados",
   "hero.cta2": "Simular una suscripción",
   "hero.keyfigures": "Cifras clave",
   "cbar.label": "País",
@@ -63,10 +63,10 @@
   "p.note.other": "Fuente oficial (banco central) registrada, URL por confirmar.",
   "p.note.common": "Perfil no verificado. Datos de mercado sintéticos; no se ha verificado para todos los países la existencia de un mercado primario regular por subasta.",
   "p.go": "Ver {c} en el Radar",
-  "radar.title": "El Radar de oportunidades",
+  "radar.title": "El Radar de señales de mercado",
   "radar.lede": "La cuadrícula compara el <abbr title=\"Importe total de las pujas ÷ importe subastado\">ratio de cobertura</abbr> (<em>bid-to-cover</em>) de cada subasta con el historial de su propia línea. Esta medida sigue siendo comparable entre mercados, a diferencia de las rentabilidades brutas, cuyas convenciones de cálculo difieren. Cada casilla muestra la última rentabilidad media ponderada y la desviación de la demanda respecto a su norma (z).",
   "radar.filter": "Filtrar por tipo de señal",
-  "grid.title": "Mapa de calor · 54 países",
+  "grid.title": "Cuadrícula de calor · {n} países con datos",
   "grid.title1": "Mapa de calor · {c}",
   "grid.caption": "Última rentabilidad media ponderada y demanda por país y plazo",
   "grid.auction": "subasta del",
@@ -1309,9 +1309,9 @@
   "cmp.goal.years": "Años",
   "cmp.goal.rate": "Tipo anual (%)",
   "cmp.goal.use": "Usar el tipo de:",
-  "cmp.goal.res": "A ahorrar: alrededor de {m} al mes durante {n} meses.",
+  "cmp.goal.res": "A ahorrar: alrededor de {m} al mes durante {n} meses (en la moneda de su capital).",
   "cmp.goal.done": "El capital inicial basta a este tipo: no hace falta ahorro mensual.",
-  "cmp.goal.bad": "Indique un objetivo superior a cero y al menos 1 año.",
+  "cmp.goal.bad": "Indique un objetivo superior a cero, de 1 a 40 años y un tipo de 0 a 40 %.",
   "acc.eyebrow": "Invertir y acceso",
   "acc.title": "Cómo invertir, país por país",
   "acc.lede": "La plataforma no vende títulos ni transmite órdenes. Muestra el procedimiento oficial y los intermediarios que publican las autoridades. Simular → entender el acceso → pasar por un intermediario autorizado.",
@@ -1481,5 +1481,10 @@
         ]
       ]
     }
-  ]
+  ],
+  "radar.eyebrow": "Radar · señales, no recomendaciones",
+  "sim2.badamt": "Indique un importe superior a 0 (como máximo 1 billón).",
+  "ui.skip": "Ir al contenido",
+  "nav.label2": "Secciones de la página",
+  "home.fact": "Hecho"
 }
