@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ARVI Indicateurs de décision</title>
+<meta name="description" content="Les indicateurs ARVI utiles à la décision : la question à laquelle chacun répond, la décision qu'il éclaire, qui l'utilise, comment le lire et ce qu'il ne permet pas de conclure.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e2148'/%3E%3Cpath d='M6 24h20M9 24V15M16 24V10M23 24V6' stroke='%23c9a24a' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Marcellus&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">ARVI · Indicateurs pour la décision</div>
+    <h1>Ce qu'il faut regarder pour décider</h1>
+    <p>Six indicateurs et un niveau de confiance. Pour chacun : la question posée, la décision qu'il éclaire, qui s'en sert, comment le lire et ce qu'il ne permet pas de conclure.</p>
+    <div class="notice">Aucune valeur n'est affichée : les indicateurs seront calculés lors du pilote (phase 1). Les seuils marqués <span class="flag hyp">[HYPOTHÈSE]</span> sont provisoires et seront calibrés sur données réelles.</div>
+    <nav class="topnav" aria-label="Sections">
+      <a href="#indicateurs">Indicateurs</a><a href="#confiance">Confiance</a><a href="#decideurs">Par décideur</a><a href="#regles">Règles de lecture</a><a href="#maintenant">Décisions à prendre</a><a href="/blueprint/">Blueprint complet</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap dec">
+
+<section id="indicateurs">
+  <h2>Les six indicateurs</h2>
+  <p class="lede">Ils sont indépendants : pas de score composite, pas de classement des pays. Badges : <span class="badge b-calc">CALCUL</span> arithmétique sur des données déclarées · <span class="badge b-est">ESTIMATION</span> dépend de paramètres modélisés, toujours en fourchette.</p>
+  <div class="cards">
+
+    <article class="card">
+      <div class="id">ARVI-1 · TRADE GAP</div>
+      <h3>Écart miroir</h3>
+      <p class="q">Les exportations déclarées par le pays concordent-elles avec les importations déclarées par ses partenaires ?</p>
+      <dl>
+        <dt>Décision</dt><dd>Choisir les produits et partenaires à soumettre en priorité à une réconciliation statistique bilatérale, et cibler les contrôles de déclaration.</dd>
+        <dt>Pour</dt><dd>Douanes, institut statistique, ministère des finances, banque centrale (statistiques de balance des paiements).</dd>
+        <dt>Mesure</dt><dd><span class="badge b-calc">CALCUL</span> USD et % ; écarts positifs, négatifs et net affichés séparément.</dd>
+        <dt>Lire</dt><dd>L'écart relatif, sa persistance sur 3 ans et son niveau de confiance.</dd>
+        <dt>Limite</dt><dd>Un écart brut n'est ni une fraude ni une perte : il inclut fret, assurance, transit et décalages de calendrier.</dd>
+      </dl>
+    </article>
+
+    <article class="card">
+      <div class="id">ARVI-2 · UNIT VALUE GAP</div>
+      <h3>Écart de prix unitaire</h3>
+      <p class="q">Le prix par tonne déclaré à l'export est-il cohérent avec celui du partenaire et avec le prix de référence international ?</p>
+      <dl>
+        <dt>Décision</dt><dd>Revoir les valeurs de référence utilisées pour l'assiette des redevances ; renforcer le contrôle de la teneur (analyses des échantillons).</dd>
+        <dt>Pour</dt><dd>Ministère des mines, administration fiscale, douanes.</dd>
+        <dt>Mesure</dt><dd><span class="badge b-calc">CALCUL</span> contre le partenaire · <span class="badge b-est">ESTIMATION</span> contre le prix de référence ; USD par unité de métal contenu.</dd>
+        <dt>Lire</dt><dd>Un prix déclaré qui reste sous la bande de référence plusieurs années, alors que les quantités concordent.</dd>
+        <dt>Limite</dt><dd>Sans la teneur et la qualité, un prix bas peut simplement refléter un produit moins riche.</dd>
+      </dl>
+    </article>
+
+    <article class="card">
+      <div class="id">ARVI-3 · PROCESSING GAP</div>
+      <h3>Niveau de transformation</h3>
+      <p class="q">Quelle part des volumes quitte le pays au stade de transformation le plus bas ?</p>
+      <dl>
+        <dt>Décision</dt><dd>Repérer les filières où étudier une transformation locale ; suivre l'effet d'une mesure (quota ou interdiction d'export de produit brut, par exemple).</dd>
+        <dt>Pour</dt><dd>Ministères des mines et de l'industrie, agence de promotion des investissements.</dd>
+        <dt>Mesure</dt><dd><span class="badge b-calc">CALCUL</span> % des volumes, en métal ou produit contenu.</dd>
+        <dt>Lire</dt><dd>L'évolution dans le temps, plus que le niveau d'une seule année.</dd>
+        <dt>Limite</dt><dd>Un taux élevé ne dit pas qu'une transformation locale serait rentable : c'est le rôle d'ARVI-5 et d'une étude de faisabilité.</dd>
+      </dl>
+    </article>
+
+    <article class="card">
+      <div class="id">ARVI-4 · FISCAL CAPTURE GAP</div>
+      <h3>Enjeu fiscal</h3>
+      <p class="q">Quel ordre de grandeur de recettes publiques est associé à l'écart qui reste non expliqué ?</p>
+      <dl>
+        <dt>Décision</dt><dd>Dimensionner un audit ou une réforme : si même le haut de la fourchette reste inférieur au coût de l'action, ne pas l'engager.</dd>
+        <dt>Pour</dt><dd>Ministère des finances, administration fiscale.</dd>
+        <dt>Mesure</dt><dd><span class="badge b-est">ESTIMATION</span> USD, fourchette basse–haute.</dd>
+        <dt>Lire</dt><dd>Les redevances et droits de sortie (proportionnels à la valeur) séparément de l'impôt sur les sociétés (qui dépend des bénéfices, donc beaucoup plus incertain).</dd>
+        <dt>Limite</dt><dd>Ce ne sont pas des « recettes perdues » : c'est l'enjeu fiscal si l'écart non expliqué était confirmé.</dd>
+      </dl>
+    </article>
+
+    <article class="card">
+      <div class="id">ARVI-5 · LOCAL VALUE ADDITION GAP</div>
+      <h3>Valeur ajoutée locale possible</h3>
+      <p class="q">Quelle valeur ajoutée nette une étape de transformation supplémentaire pourrait-elle créer dans le pays ?</p>
+      <dl>
+        <dt>Décision</dt><dd>Choisir les filières à mettre en étude de faisabilité ; préparer le dialogue avec investisseurs et institutions de financement du développement.</dd>
+        <dt>Pour</dt><dd>Ministères, institutions de financement du développement, investisseurs industriels.</dd>
+        <dt>Mesure</dt><dd><span class="badge b-est">ESTIMATION</span> USD par an, fourchette, avec une note de faisabilité en trois niveaux (énergie, échelle, intrants, marché).</dd>
+        <dt>Lire</dt><dd>La fourchette avec la note de faisabilité, jamais l'une sans l'autre.</dd>
+        <dt>Limite</dt><dd>La valeur brute des produits raffinés n'est pas captable : elle inclut énergie, capital et autres matières. Seule la valeur ajoutée nette compte.</dd>
+      </dl>
+    </article>
+
+    <article class="card">
+      <div class="id">ARVI-6 · INVESTMENT EQUIVALENT</div>
+      <h3>Équivalent d'investissement</h3>
+      <p class="q">À quoi correspond cet ordre de grandeur en infrastructures (MW, km de lignes, écoles, centres de santé) ?</p>
+      <dl>
+        <dt>Décision</dt><dd>Rendre un enjeu compréhensible pour un arbitrage budgétaire ou un débat public. Ce n'est pas, à lui seul, une base de décision d'investissement.</dd>
+        <dt>Pour</dt><dd>Parlement, société civile, médias, ministères.</dd>
+        <dt>Mesure</dt><dd><span class="badge b-est">ESTIMATION</span> unités physiques, scénarios bas, central et haut ; chaque coût unitaire est sourcé.</dd>
+        <dt>Lire</dt><dd>Toujours avec le montant d'origine (ARVI-4 ou ARVI-5) et sa confiance.</dd>
+        <dt>Limite</dt><dd>Ne signifie pas que l'argent était disponible ni qu'il aurait été investi ainsi.</dd>
+      </dl>
+    </article>
+
+  </div>
+</section>
+
+<section id="confiance">
+  <h2>Niveau de confiance : ce qu'il autorise</h2>
+  <p class="lede">Chaque chiffre porte un score de 0 à 100 et ses trois principales raisons (miroir complet, quantités cohérentes, absence de transit par un hub, persistance dans le temps, recoupement avec ITIE ou production). Seuils <span class="flag hyp">[HYPOTHÈSE]</span>.</p>
+  <div class="levels">
+    <div class="lvl hi"><div class="t">🟢 Élevé · 70 et plus</div><p><b>Peut fonder une action :</b> demande de réconciliation au partenaire, revue fiscale ciblée, inscription au programme de contrôle.</p></div>
+    <div class="lvl mid"><div class="t">🟡 Moyen · 40 à 69</div><p><b>Vérifier avant d'agir :</b> obtenir des données plus fines (mensuelles, par déclaration) et l'explication du partenaire.</p></div>
+    <div class="lvl lo"><div class="t">🔴 Faible · moins de 40</div><p><b>Ne fonder aucune décision.</b> La priorité est d'améliorer les données (déclarations manquantes, codes confidentiels).</p></div>
+  </div>
+</section>
+
+<section id="decideurs">
+  <h2>Par décideur</h2>
+  <p class="lede">Quels indicateurs regarder selon la décision à prendre.</p>
+  <div class="table-scroll">
+  <table class="matrix">
+    <thead><tr><th>Décideur</th><th>Décisions éclairées</th><th>Indicateurs</th></tr></thead>
+    <tbody>
+      <tr><td>Ministère des finances, administration fiscale</td><td>Priorités de revue fiscale ; dimensionnement des audits ; révision des valeurs de référence</td><td>ARVI-4, ARVI-2, confiance</td></tr>
+      <tr><td>Douanes, institut statistique</td><td>Réconciliation bilatérale ; contrôle de la valeur et de la teneur ; qualité des déclarations</td><td>ARVI-1, ARVI-2</td></tr>
+      <tr><td>Ministères des mines et de l'industrie</td><td>Politique de transformation locale ; filières à étudier ; suivi des mesures à l'export</td><td>ARVI-3, ARVI-5, ARVI-2</td></tr>
+      <tr><td>Banque centrale</td><td>Qualité des statistiques de commerce dans la balance des paiements</td><td>ARVI-1</td></tr>
+      <tr><td>Institutions de financement, investisseurs</td><td>Sélection de projets de transformation ; due diligence pays et filière</td><td>ARVI-5 (avec note de faisabilité), ARVI-3</td></tr>
+      <tr><td>Parlement, société civile, médias</td><td>Suivi et redevabilité ; débat budgétaire</td><td>ARVI-1, ARVI-4, ARVI-6, toujours avec la confiance</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section id="regles">
+  <h2>Règles de lecture</h2>
+  <p class="lede">À respecter avant toute décision fondée sur ARVI.</p>
+  <ul class="rules">
+    <li><b>Ne pas additionner</b> l'écart miroir (ARVI-1, ARVI-4) et l'écart de transformation (ARVI-5) : ce serait compter deux fois la même tonne.</li>
+    <li><b>Un chiffre seul ne suffit pas :</b> toujours le lire avec sa fourchette et son niveau de confiance.</li>
+    <li><b>Une seule année ne suffit pas :</b> un écart qui ne persiste pas sur 3 ans est souvent un décalage de calendrier.</li>
+    <li><b>Pétrole brut et or :</b> confiance plafonnée à Moyen tant que la méthode n'est pas validée (destinations inconnues au chargement, flux informels).</li>
+    <li><b>Aucune conclusion sur une entreprise :</b> ARVI travaille au niveau pays × produit × partenaire × année.</li>
+    <li><b>Pas de classement :</b> les pays n'ont ni les mêmes ressources ni la même qualité de données.</li>
+  </ul>
+</section>
+
+<section id="maintenant">
+  <h2>Décisions à prendre maintenant</h2>
+  <p class="lede">Pour passer du blueprint aux premiers chiffres.</p>
+  <ol class="todo">
+    <li><b>Choisir le pilote</b><span>Recommandation : commencer par le cuivre (RDC) ou le bois (Congo), où la méthode miroir est la plus fiable, avant le pétrole et l'or.</span></li>
+    <li><b>Vérifier les licences des sources</b><span>UN Comtrade, CEPII BACI, cotations de prix : elles déterminent ce que l'offre payante peut revendre.</span></li>
+    <li><b>Constituer le comité méthodologique</b><span>Statistique du commerce, fiscalité extractive, économie minière : il valide chaque version de la méthode.</span></li>
+    <li><b>Fixer le budget données</b><span>Données sous licence payante éventuelles et accès aux données douanières nationales.</span></li>
+    <li><b>Trancher marque et dépôt</b><span>ARVI sous l'ombrelle Cartouche ou marque autonome ; module de ce dépôt ou dépôt séparé.</span></li>
+  </ol>
+</section>
+
+</main>
+<footer><div class="wrap">Détail des méthodes, des sources et de la base de données : <a href="/blueprint/">Master Blueprint v1.0</a>. Information et analyse uniquement ; pas un conseil en investissement. Un écart statistique n'est ni une preuve de fraude ni une perte avérée.</div></footer>
+</body>
+</html>

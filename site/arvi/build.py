@@ -1,4 +1,5 @@
-"""Build the static ARVI blueprint page from docs/arvi/ARVI_MASTER_BLUEPRINT_v1.0.md.
+"""Build the static ARVI site: decision indicators (index) and the blueprint page (/blueprint/),
+the latter rendered from docs/arvi/ARVI_MASTER_BLUEPRINT_v1.0.md.
 
 Usage: python site/arvi/build.py   (needs the `markdown` package; writes site/arvi/dist/)
 Deploy site/arvi/dist/ to the Netlify project "arvi-africa".
@@ -38,7 +39,10 @@ def main() -> None:
     if DIST.exists():
         shutil.rmtree(DIST)
     DIST.mkdir(parents=True)
-    (DIST / "index.html").write_text(page, encoding="utf-8")
+    (DIST / "blueprint").mkdir()
+    (DIST / "blueprint" / "index.html").write_text(page, encoding="utf-8")
+    shutil.copy(HERE / "decision.html", DIST / "index.html")
+    shutil.copy(HERE / "style.css", DIST / "style.css")
     shutil.copy(HERE / "netlify.toml", DIST / "netlify.toml")
     shutil.copy(SOURCE, DIST / SOURCE.name)
     print(f"wrote {DIST / 'index.html'}")
