@@ -267,6 +267,27 @@ table.list { width: 100%; border-collapse: collapse; font-size: 13px; min-width:
 details.bmore > summary { cursor: pointer; font-weight: 600; color: var(--lapis); margin: 8px 0 4px; }
 .vgrid .panel-b { max-height: 560px; overflow: auto; }
 #sources .scroll { max-height: 640px; overflow: auto; }
+/* Investor journey (#parcours): information only, the client chooses */
+.pc-form fieldset { border: 1px solid var(--line); padding: 10px 14px 14px; margin: 0; min-width: 0; }
+.pc-form legend { font: 600 14px var(--body); color: var(--lapis); padding: 0 6px; }
+.pc-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+.pc-countries { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 6px; }
+.pc-countries label, .pc-contact label.chk { flex-direction: row !important; align-items: center; gap: 6px !important; font-size: 13.5px !important; color: var(--ink) !important; }
+.pc-countries input, .pc-contact label.chk input { width: auto !important; }
+.pc-more summary { cursor: pointer; font-size: 13px; color: var(--lapis); margin-top: 10px; }
+#pc-alloc { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+.pc-sum { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 20px 0; }
+.pc-sum div { background: var(--surface); padding: 12px 14px; } .pc-sum b { display: block; font: 600 20px/1.2 var(--mono); color: var(--lapis); } .pc-sum span { font-size: 12px; color: var(--muted); }
+.pc-card { background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--gold); padding: 16px 18px; margin: 14px 0; }
+.pc-card h3 { margin: 0 0 4px; font: 400 22px/1.2 var(--display); color: var(--lapis); }
+.pc-card h4 { margin: 14px 0 6px; font-size: 14px; color: var(--ink); }
+.pc-card dl { display: grid; grid-template-columns: minmax(120px, 200px) 1fr; gap: 4px 14px; margin: 0; font-size: 13.5px; } .pc-card dt { color: var(--muted); }
+.pc-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0; }
+.pc-contact { margin-top: 18px; max-width: 760px; }
+html.pc-print body * { visibility: hidden !important; }
+html.pc-print #pc-out, html.pc-print #pc-out * { visibility: visible !important; }
+html.pc-print #pc-out { position: absolute; inset: 0 auto auto 0; width: 100%; padding: 0 12mm; }
+html.pc-print .pc-actions { display: none !important; }
 .offers { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin: 18px 0 8px; }
 .offer { background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--gold); padding: 14px 16px; }
 .offer h3 { margin: 0 0 6px; } .offer p { margin: 0 0 8px; font-size: 14px; }
@@ -565,7 +586,7 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
     <button type="button" class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="mast-nav"><span aria-hidden="true">☰</span> <span data-i="ui.menu"></span></button>
     <div class="mast-r">
       <nav id="mast-nav" data-ia="aria-label:nav.label">
-        <a href="#carte" data-i="nav.map"></a><a href="#marche" data-i="nav.market"></a><a href="#radar" data-i="nav.radar"></a><a href="#acheteurs" data-i="nav.buyers"></a><a href="#simulateur" data-i="nav.sim"></a><a href="#strategie" data-i="nav.strategy"></a><a href="#brief" data-i="nav.brief"></a><a href="#rapports" data-i="nav.reports"></a><a href="#offres" data-i="nav.offers"></a><a href="#glossaire" data-i="nav.glossary"></a><a href="#veille" data-i="nav.watch"></a><a href="#sources" data-i="nav.sources"></a>
+        <a href="#carte" data-i="nav.map"></a><a href="#marche" data-i="nav.market"></a><a href="#radar" data-i="nav.radar"></a><a href="#acheteurs" data-i="nav.buyers"></a><a href="#simulateur" data-i="nav.sim"></a><a href="#parcours" data-i="nav.journey"></a><a href="#strategie" data-i="nav.strategy"></a><a href="#brief" data-i="nav.brief"></a><a href="#rapports" data-i="nav.reports"></a><a href="#offres" data-i="nav.offers"></a><a href="#glossaire" data-i="nav.glossary"></a><a href="#veille" data-i="nav.watch"></a><a href="#sources" data-i="nav.sources"></a>
       </nav>
       <a class="acct" id="acct-btn" href="#compte" hidden></a>
       <div class="langs" id="langs" role="group" data-ia="aria-label:lang.label">
@@ -584,6 +605,7 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
         <a href="#brief"><b data-i="qa.t2"></b><span data-i="qa.d2"></span></a>
         <a href="#rapports"><b data-i="qa.t3"></b><span data-i="qa.d3"></span></a>
         <a href="#marche"><b data-i="qa.t4"></b><span data-i="qa.d4"></span></a>
+        <a href="#parcours"><b data-i="qa.t5"></b><span data-i="qa.d5"></span></a>
       </nav>
     </div>
     <div class="stele" id="stele" data-ia="aria-label:hero.keyfigures"></div>
@@ -600,7 +622,7 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
     <button type="button" class="sbtn" id="sopen" aria-haspopup="dialog" aria-keyshortcuts="/" data-ia="aria-label:search.open.aria"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg><span class="sl" data-i="search.open"></span><kbd aria-hidden="true">/</kbd></button>
   </div>
   <nav class="wrap secnav" id="secnav" data-ia="aria-label:nav.label">
-    <a href="#carte" data-i="nav.map"></a><a href="#marche" data-i="nav.market"></a><a href="#radar" data-i="nav.radar"></a><a href="#acheteurs" data-i="nav.buyers"></a><a href="#simulateur" data-i="nav.sim"></a><a href="#strategie" data-i="nav.strategy"></a><a href="#brief" data-i="nav.brief"></a><a href="#rapports" data-i="nav.reports"></a><a href="#offres" data-i="nav.offers"></a><a href="#glossaire" data-i="nav.glossary"></a><a href="#veille" data-i="nav.watch"></a><a href="#sources" data-i="nav.sources"></a>
+    <a href="#carte" data-i="nav.map"></a><a href="#marche" data-i="nav.market"></a><a href="#radar" data-i="nav.radar"></a><a href="#acheteurs" data-i="nav.buyers"></a><a href="#simulateur" data-i="nav.sim"></a><a href="#parcours" data-i="nav.journey"></a><a href="#strategie" data-i="nav.strategy"></a><a href="#brief" data-i="nav.brief"></a><a href="#rapports" data-i="nav.reports"></a><a href="#offres" data-i="nav.offers"></a><a href="#glossaire" data-i="nav.glossary"></a><a href="#veille" data-i="nav.watch"></a><a href="#sources" data-i="nav.sources"></a>
   </nav>
 </div>
 
@@ -757,6 +779,51 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
       </div>
     </div>
   </section>
+
+  <section id="parcours">
+    <div class="wrap">
+      <span class="eyebrow" data-i="pc.eyebrow"></span>
+      <h2 data-i="pc.title"></h2>
+      <p class="lede" data-i="pc.lede"></p>
+      <p class="warnbox" data-i="pc.notadvice"></p>
+      <div id="pc-gate"></div>
+      <form class="form pc-form" id="pc-form" onsubmit="return false">
+        <fieldset class="wide"><legend data-i="pc.s1"></legend>
+          <div class="pc-row">
+            <label><span data-i="pc.res"></span><select id="pc-res"></select></label>
+            <label><span data-i="pc.cur"></span><select id="pc-cur"><option>XOF</option><option>XAF</option><option>EUR</option><option>USD</option><option>GBP</option><option value="other" data-i="pc.cur.other"></option></select></label>
+            <label><span data-i="pc.hz"></span><select id="pc-hz"><option value="1" data-i="pc.hz.1"></option><option value="3" data-i="pc.hz.3"></option><option value="5" data-i="pc.hz.5"></option><option value="99" data-i="pc.hz.99"></option></select></label>
+            <label><span data-i="pc.total"></span><input id="pc-total" type="number" min="0" step="any" inputmode="decimal"></label>
+          </div>
+        </fieldset>
+        <fieldset class="wide"><legend data-i="pc.s2"></legend>
+          <p class="note" data-i="pc.s2.note"></p>
+          <div class="pc-countries" id="pc-countries"></div>
+          <details class="pc-more"><summary data-i="pc.others"></summary><div class="pc-countries" id="pc-countries2"></div></details>
+        </fieldset>
+        <fieldset class="wide"><legend data-i="pc.s3"></legend>
+          <p class="note" data-i="pc.s3.note"></p>
+          <div id="pc-alloc"></div>
+          <p><button type="button" class="btn ghost" id="pc-equal" style="color:var(--lapis);border-color:var(--line)" data-i="pc.equal"></button> <span class="note" id="pc-sum"></span></p>
+        </fieldset>
+        <div class="wide"><button type="button" class="btn gold" id="pc-go" data-i="pc.go"></button> <span class="note" id="pc-msg" role="status"></span></div>
+      </form>
+      <div id="pc-out" aria-live="polite"></div>
+      <form name="mise-en-relation" id="pc-contact" method="POST" action="/merci.html" data-netlify="true" netlify-honeypot="bot-field" hidden class="form pc-contact">
+        <input type="hidden" name="form-name" value="mise-en-relation">
+        <p hidden><label>bot <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <input type="hidden" name="parcours" id="pc-contact-sum">
+        <input type="hidden" name="langue" id="pc-contact-lang">
+        <h3 class="wide" data-i="pc.ct.title"></h3>
+        <p class="wide note" data-i="pc.ct.lede"></p>
+        <label><span data-i="wl.email"></span><input type="email" name="email" id="pc-contact-email" required autocomplete="email" maxlength="200"></label>
+        <label><span data-i="pc.ct.phone"></span><input type="tel" name="telephone" autocomplete="tel" maxlength="40"></label>
+        <label class="wide chk"><input type="checkbox" name="consentement" value="oui" required><span data-i="pc.ct.consent"></span></label>
+        <div class="wide"><button type="submit" class="btn gold" data-i="pc.ct.send"></button> <span id="pc-contact-st" role="status"></span></div>
+      </form>
+    </div>
+  </section>
+
 
   <section id="strategie">
     <div class="wrap">
@@ -1490,7 +1557,7 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
         AC.email = (await r.json()).email || "";
       }
     } catch { dropSession(); }
-    renderAccount();
+    renderAccount(); renderParcours();
     if (AC.token && nextFile()) jump(undefined, "compte");
   }
   function renderAccount() {
@@ -1535,7 +1602,7 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
     }
     if (e.target.closest("#ac-out")) {
       if (AC.token) authFetch("/auth/v1/logout", { method: "POST", headers: { Authorization: `Bearer ${AC.token}` } }).catch(() => {});
-      dropSession(); renderAccount();
+      dropSession(); renderAccount(); renderParcours();
     }
   }, true);
   document.addEventListener("submit", async (e) => {
@@ -1563,6 +1630,131 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
       if (!r.ok) throw new Error(String(r.status));
       $("ac-del-st").textContent = t("ac.deleted");
     } catch { $("ac-del-st").textContent = t("wl.err"); }
+  });
+
+  // ---------- Investor journey (#parcours). Information only: the client chooses countries and amounts;
+  // the page shows published facts (past yields, access route, accredited intermediaries) and arithmetic.
+  // Nothing is recommended, ranked or optimised.
+  const PC_KEY = "abm-parcours";
+  const PC_HZ = { "1": ["3M", "6M", "12M"], "3": ["2-3Y"], "5": ["5Y"], "99": ["7Y+"] };
+  let PC = (() => { try { return JSON.parse(store.get(PC_KEY) || "null"); } catch { return null; } })() || { res: "", cur: "XOF", hz: "3", total: "", c: [], a: {}, done: false };
+  const pcNum = (v) => { const n = Number(String(v ?? "").replace(/\s/g, "").replace(",", ".")); return Number.isFinite(n) ? n : 0; };
+  const pcCur = () => (PC.cur === "other" ? "" : PC.cur);
+  function pcSave() {
+    store.set(PC_KEY, JSON.stringify(PC));
+    if (AUTH && AC.token) authFetch("/auth/v1/user", { method: "PUT", headers: { Authorization: `Bearer ${AC.token}` }, body: JSON.stringify({ data: { parcours: { ...PC, saved_at: new Date().toISOString() } } }) }).catch(() => {});
+  }
+  function renderParcours() {
+    const gated = !!AUTH && !AC.token;
+    $("pc-gate").innerHTML = gated ? `<p class="ac-msg">${esc(t("pc.gate"))} <a href="#compte">${esc(t("ac.signin"))}</a></p>` : "";
+    $("pc-form").hidden = gated;
+    if (gated) { $("pc-out").innerHTML = ""; $("pc-contact").hidden = true; return; }
+    const byName = (a, b) => NAME(a).localeCompare(NAME(b), LOC[lang]);
+    const all = Object.keys(AF).sort(byName);
+    $("pc-res").innerHTML = `<option value="">${esc(t("wl.choose"))}</option>` + all.map((c) => `<option value="${c}"${PC.res === c ? " selected" : ""}>${esc(NAME(c))}</option>`).join("") + `<option value="OUT"${PC.res === "OUT" ? " selected" : ""}>${esc(t("pc.res.out"))}</option>`;
+    $("pc-cur").value = PC.cur; $("pc-hz").value = PC.hz; $("pc-total").value = PC.total;
+    const box = (c) => `<label><input type="checkbox" data-pcc="${c}"${PC.c.includes(c) ? " checked" : ""}> ${esc(NAME(c))}</label>`;
+    $("pc-countries").innerHTML = all.filter(HAS_MK).map(box).join("");
+    $("pc-countries2").innerHTML = all.filter((c) => !HAS_MK(c)).map(box).join("");
+    renderPcAlloc();
+    if (PC.done) renderPcResult(); else { $("pc-out").innerHTML = ""; $("pc-contact").hidden = true; }
+  }
+  function renderPcAlloc() {
+    $("pc-alloc").innerHTML = PC.c.length ? PC.c.map((c) => `<label><span>${esc(NAME(c))} (${esc(pcCur() || t("pc.cur.other"))})</span><input type="number" min="0" step="any" data-pca="${c}" value="${esc(PC.a[c] ?? "")}"></label>`).join("") : `<p class="note">${esc(t("pc.s3.none"))}</p>`;
+    const sum = PC.c.reduce((s, c) => s + pcNum(PC.a[c]), 0), tot = pcNum(PC.total);
+    $("pc-sum").textContent = PC.c.length ? t("pc.sum", { a: nf(sum, 2), b: nf(tot, 2), r: nf(tot - sum, 2) }) : "";
+  }
+  function pcFx(from, to) {
+    if (from === to) return t("pc.fx.same");
+    const peg = new Set(["XOF", "XAF", "EUR"]);
+    return peg.has(from) && peg.has(to) ? t("pc.fx.peg", { a: from, b: to }) : t("pc.fx.float", { a: from || t("pc.cur.other"), b: to });
+  }
+  function pcYields(c) {
+    const lo = ASOF_T - 365 * DAY;
+    return (PC_HZ[PC.hz] || []).map((b) => {
+      const a = AU.filter((x) => x.c === c && ISS(x) && x.y != null && x.b === b && x.t > lo && x.t <= ASOF_T).sort((x, y) => y.t - x.t)[0];
+      return { b, a };
+    });
+  }
+  function renderPcResult() {
+    const tot = pcNum(PC.total), cur = pcCur();
+    const rows = PC.c.map((c) => ({ c, v: pcNum(PC.a[c]) })).filter((r) => r.v > 0);
+    if (!rows.length) { $("pc-out").innerHTML = ""; return; }
+    const top = rows.reduce((m, r) => (r.v > m.v ? r : m), rows[0]);
+    const curs = [...new Set(rows.map((r) => AF[r.c].currency))];
+    const head = `<div class="pc-sum">
+      <div><b>${esc(money(tot, cur, 2))}</b><span>${esc(t("pc.r.total"))}</span></div>
+      <div><b>${rows.length}</b><span>${esc(t("pc.r.n"))}</span></div>
+      <div><b>${nf(top.v / tot * 100, 1)} %</b><span>${esc(t("pc.r.top", { c: NAME(top.c) }))}</span></div>
+      <div><b>${esc(curs.join(" · "))}</b><span>${esc(t("pc.r.curs"))}</span></div>
+      <div><b>${esc(t("pc.hz." + PC.hz))}</b><span>${esc(t("pc.hz"))}</span></div></div>`;
+    const cards = rows.map((r) => {
+      const a = AF[r.c], card = cardFor(r.c), tr = card && lang !== "fr" ? M("buyer_cards")[card.key] : null, f = (k) => tr?.[k] ?? card[k];
+      const ys = HAS_MK(r.c) ? pcYields(r.c) : [];
+      const ytab = !HAS_MK(r.c) ? `<p class="note">${esc(t("pc.nodata"))}</p>` :
+        `<div class="scroll"><table class="list"><thead><tr><th>${esc(t("pc.y.mat"))}</th><th class="num">${esc(t("pc.y.rate"))}</th><th>${esc(t("pc.y.date"))}</th><th class="num">${esc(t("pc.y.illus"))}</th><th></th></tr></thead><tbody>` +
+        ys.map(({ b, a: x }) => x ? `<tr><td>${esc(M("bucket")[b] ?? b)} · ${esc(instrLab(x.it))}</td><td class="num">${esc(yf(x.y))}</td><td class="num">${esc(date(x.d))}</td><td class="num">${esc(money(r.v * x.y / 100, cur, 0))}</td><td>${ext(x.url, "PDF")}</td></tr>`
+          : `<tr><td>${esc(M("bucket")[b] ?? b)}</td><td colspan="4" class="note">${esc(t("pc.y.none"))}</td></tr>`).join("") + `</tbody></table></div><p class="note">${esc(t("pc.y.note"))}</p>`;
+      const access = card ? `<dl><dt>${esc(t("bc.who"))}</dt><dd>${esc(f("eligibility"))}</dd><dt>${esc(t("bc.via"))}</dt><dd>${esc(f("primary_dealer"))}</dd><dt>${esc(t("bc.account"))}</dt><dd>${esc(f("account_requirement"))}</dd><dt>${esc(t("bc.submit"))}</dt><dd>${esc(f("submission_method"))}</dd></dl>
+        <p class="src">${esc(t("bc.source"))} : ${card.sources.map((u) => ext(u, new URL(u).hostname)).join(t("sep"))} · ${esc(t("bc.verified", { d: date(card.last_verified) }))}</p>`
+        : `<p class="note">${esc(t("bc.none.body", { cb: a.central_bank }))}</p>`;
+      const dl = [...new Set((D.dealers?.dealers || []).filter((d) => d.country_iso3 === r.c).map((d) => d.name))];
+      const dealers = dl.length ? `<p>${dl.slice(0, 12).map(esc).join(" · ")}${dl.length > 12 ? " …" : ""}</p><p class="note"><a href="#dealers-sub" data-go="${r.c}" data-goto="dealers-sub">${esc(t("pc.dealers.all", { n: dl.length }))}</a></p>` : `<p class="note">${esc(t("dl.none.one", { c: NAME(r.c) }))}</p>`;
+      return `<article class="pc-card"><h3>${esc(NAME(r.c))}</h3><p class="note" style="margin:0">${esc(a.currency)} · ${esc(M("zone")[a.zone] ?? a.zone)}</p>
+        <dl style="margin-top:10px"><dt>${esc(t("pc.r.amount"))}</dt><dd><b>${esc(money(r.v, cur, 2))}</b> (${nf(r.v / tot * 100, 1)} %)</dd><dt>${esc(t("pc.r.fx"))}</dt><dd>${esc(pcFx(PC.cur, a.currency))}</dd></dl>
+        <h4>${esc(t("pc.h.yields"))} ${tagFact()}</h4>${ytab}
+        <h4>${esc(t("pc.h.access"))}</h4>${access}
+        <h4>${esc(t("pc.h.dealers"))}</h4>${dealers}</article>`;
+    }).join("");
+    const steps = `<h3>${esc(t("pc.h.steps"))}</h3><ol class="steps">${M("guide_steps").map((x) => `<li>${esc(x)}</li>`).join("")}</ol>
+      <h4>${esc(t("buy.ask.title"))}</h4><ul>${M("ask_list").map((x) => `<li>${esc(x)}</li>`).join("")}</ul>
+      <h3>${esc(t("pc.h.risks"))}</h3><ul>${M("pc.risks").map((x) => `<li>${esc(x)}</li>`).join("")}</ul>
+      <p class="warnbox">${esc(t("pc.notadvice"))}</p>`;
+    $("pc-out").innerHTML = `<h3 style="margin-top:26px">${esc(t("pc.r.title", { d: date(D.as_of) }))}</h3>` + head + cards + steps +
+      `<div class="pc-actions"><button type="button" class="btn gold" id="pc-print">${esc(t("pc.print"))}</button><button type="button" class="btn ghost" id="pc-edit" style="color:var(--lapis);border-color:var(--line)">${esc(t("pc.edit"))}</button><a class="btn ghost" href="#pc-contact" style="color:var(--lapis);border-color:var(--line)">${esc(t("pc.ct.title"))}</a></div>`;
+    $("pc-contact").hidden = false;
+    $("pc-contact-sum").value = `${PC.res || "?"} | ${PC.cur} | ${t("pc.hz." + PC.hz)} | ${tot} | ` + rows.map((r) => `${r.c}:${r.v}`).join(", ");
+    $("pc-contact-lang").value = lang;
+    if (AC.email) $("pc-contact-email").value = AC.email;
+  }
+  $("pc-form").addEventListener("input", (e) => {
+    const el = e.target;
+    if (el.id === "pc-res") PC.res = el.value; else if (el.id === "pc-cur") PC.cur = el.value; else if (el.id === "pc-hz") PC.hz = el.value;
+    else if (el.id === "pc-total") PC.total = el.value;
+    else if (el.dataset.pcc) { PC.c = el.checked ? [...new Set([...PC.c, el.dataset.pcc])] : PC.c.filter((c) => c !== el.dataset.pcc); if (!el.checked) delete PC.a[el.dataset.pcc]; renderPcAlloc(); }
+    else if (el.dataset.pca) PC.a[el.dataset.pca] = el.value;
+    if (el.id === "pc-total" || el.dataset.pca) renderPcAlloc();
+    PC.done = false; pcSave();
+  });
+  $("pc-equal").addEventListener("click", () => {
+    const tot = pcNum(PC.total), n = PC.c.length; if (!n || !(tot > 0)) return;
+    const part = Math.floor(tot / n * 100) / 100;
+    PC.c.forEach((c, i) => { PC.a[c] = String(i === n - 1 ? Math.round((tot - part * (n - 1)) * 100) / 100 : part); });
+    pcSave(); renderPcAlloc();
+  });
+  $("pc-go").addEventListener("click", () => {
+    const tot = pcNum(PC.total), sum = PC.c.reduce((s, c) => s + pcNum(PC.a[c]), 0);
+    const err = !PC.res ? "pc.e.res" : !(tot > 0) ? "pc.e.total" : !PC.c.length ? "pc.e.countries" : Math.abs(sum - tot) > 0.005 ? "pc.e.sum" : "";
+    $("pc-msg").textContent = err ? t(err) : "";
+    if (err) return;
+    PC.done = true; pcSave(); renderPcResult(); jump(undefined, "pc-out");
+  });
+  document.addEventListener("click", (e) => {
+    if (e.target.closest("#pc-print")) {
+      document.documentElement.classList.add("pc-print");
+      window.addEventListener("afterprint", () => document.documentElement.classList.remove("pc-print"), { once: true });
+      window.print();
+    }
+    if (e.target.closest("#pc-edit")) jump(undefined, "parcours");
+  });
+  $("pc-contact").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const f = e.target; if (!f.reportValidity()) return;
+    try {
+      const r = await fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams(new FormData(f)).toString() });
+      if (!r.ok) throw new Error(String(r.status));
+      $("pc-contact-st").textContent = t("pc.ct.ok");
+    } catch { $("pc-contact-st").textContent = t("wl.err"); }
   });
 
   // ---------- BVMAC official price list (secondary market; days with a trade only)
@@ -2229,7 +2421,7 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
     renderMarket(); renderBvmac(); renderBrief(); renderBuyers(); renderSimOps(); computeSim(); renderVeille(); renderSources();
   }
   function renderAll() {
-    renderBanner(); renderStele(); renderCountryViews(); renderStrategy(); renderReports(); renderOffers(); renderAccount(); renderGlossary(); renderRoadmap();
+    renderBanner(); renderStele(); renderCountryViews(); renderStrategy(); renderReports(); renderOffers(); renderAccount(); renderParcours(); renderGlossary(); renderRoadmap();
   }
   function setCountry(iso, keepTable) {
     C = AF[iso] ? iso : ""; store.set("cartouche-country", C);
