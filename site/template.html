@@ -2481,6 +2481,12 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
       const names = [a.name_fr, a.name_en, ...dns.map((dn) => { try { return dn?.of(a.iso2); } catch { return ""; } })];
       add("country", [a.iso3, a.iso2, ...names], NAME(a.iso3), `${a.iso3} · ${M("zone")[a.zone] ?? a.zone} · ${HAS_MK(a.iso3) ? t("search.data") : t("search.ref")}`, () => jump(a.iso3, "marche"));
     });
+    // Capitals and main cities lead to their country (search aliases only, see site/cities.json).
+    Object.entries(D.cities || {}).forEach(([iso, list]) => {
+      if (!AF[iso]) return;
+      list.forEach(([fr, en, role]) => add("country", [fr, en], lang === "fr" ? fr : en,
+        t(role === "capital" ? "search.capital" : "search.city", { c: NAME(iso) }), () => jump(iso, "marche")));
+    });
     if (MK) {
       const last = new Map();
       AU.forEach((a) => { const p = last.get(a.name); if (!p || a.t > p.t) last.set(a.name, a); });

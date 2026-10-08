@@ -479,6 +479,8 @@ def main() -> None:
     payload["data_offer"] = {k: offer[k] for k in ("auctions", "securities", "documents", "countries")}
     payload["bvmac"] = bvmac_quotes(date.fromisoformat(args.as_of))
     payload["yield_points"] = yield_points(date.fromisoformat(args.as_of))
+    cities = json.loads((ROOT / "cities.json").read_text())
+    payload["cities"] = {k: v for k, v in cities.items() if not k.startswith("_")}  # search aliases only
     if args.veille and args.veille.exists():
         veille = json.loads(args.veille.read_text())
         # Embed the report only; the comparison state stays in the downloadable veille.json.

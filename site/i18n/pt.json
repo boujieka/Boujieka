@@ -826,10 +826,10 @@
   "search.open": "Pesquisar",
   "search.open.aria": "Pesquisar no site (atalho: /)",
   "search.label": "Pesquisa no site",
-  "search.ph": "País, ISIN, instituição, termo…",
+  "search.ph": "País, cidade, ISIN, instituição, termo…",
   "search.close": "Fechar",
   "search.results": "Resultados da pesquisa",
-  "search.start": "Escreva pelo menos 2 caracteres: um país (nome ou código ISO), um ISIN, um banco central, uma instituição acreditada, uma fonte, um termo do glossário ou um sinal.",
+  "search.start": "Escreva pelo menos 2 caracteres: um país (nome ou código ISO), uma cidade (capital ou grande cidade), um código ISIN, um banco central, uma instituição autorizada, uma fonte, um termo do glossário ou um sinal.",
   "search.keys": "↑ ↓ para percorrer · Enter para abrir · Esc para fechar",
   "search.empty": "Nenhum resultado para «{q}».",
   "search.count.one": "{n} resultado",
@@ -1490,5 +1490,7 @@
   "sx.move": "O rendimento médio ponderado variou {bp} pb face ao leilão {t} anterior ({d}).",
   "sx.high": "O rendimento médio ponderado de {y} supera o de {p} dos {n} leilões {t} anteriores dos últimos {days} dias. Um rendimento mais alto não é uma recomendação: reflete em geral um risco.",
   "sx.curve": "O rendimento do leilão {a} supera em {bp} pb o do {b} (últimos leilões de cada maturidade).",
-  "sx.refi": "{s} dos vencimentos acompanhados nos próximos 12 meses ocorrem em {m} ({n} títulos)."
+  "sx.refi": "{s} dos vencimentos acompanhados nos próximos 12 meses ocorrem em {m} ({n} títulos).",
+  "search.capital": "Capital · {c}",
+  "search.city": "Cidade · {c}"
 }

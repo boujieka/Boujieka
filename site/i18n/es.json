@@ -826,10 +826,10 @@
   "search.open": "Buscar",
   "search.open.aria": "Buscar en el sitio (atajo: /)",
   "search.label": "Búsqueda en el sitio",
-  "search.ph": "País, ISIN, institución, término…",
+  "search.ph": "País, ciudad, ISIN, institución, término…",
   "search.close": "Cerrar",
   "search.results": "Resultados de la búsqueda",
-  "search.start": "Escriba al menos 2 caracteres: un país (nombre o código ISO), un ISIN, un banco central, una entidad acreditada, una fuente, un término del glosario o una señal.",
+  "search.start": "Escriba al menos 2 caracteres: un país (nombre o código ISO), una ciudad (capital o gran ciudad), un código ISIN, un banco central, una entidad autorizada, una fuente, un término del glosario o una señal.",
   "search.keys": "↑ ↓ para recorrer · Intro para abrir · Esc para cerrar",
   "search.empty": "Ningún resultado para «{q}».",
   "search.count.one": "{n} resultado",
@@ -1490,5 +1490,7 @@
   "sx.move": "El rendimiento medio ponderado varió {bp} pb respecto a la subasta {t} anterior ({d}).",
   "sx.high": "El rendimiento medio ponderado de {y} supera al de {p} de las {n} subastas {t} anteriores de los últimos {days} días. Un rendimiento más alto no es una recomendación: suele reflejar un riesgo.",
   "sx.curve": "El rendimiento de la subasta {a} supera en {bp} pb al del {b} (últimas subastas de cada plazo).",
-  "sx.refi": "El {s} de los vencimientos seguidos en los próximos 12 meses vence en {m} ({n} títulos)."
+  "sx.refi": "El {s} de los vencimientos seguidos en los próximos 12 meses vence en {m} ({n} títulos).",
+  "search.capital": "Capital · {c}",
+  "search.city": "Ciudad · {c}"
 }

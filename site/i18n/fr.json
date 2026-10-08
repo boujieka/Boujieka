@@ -734,10 +734,10 @@
   "search.open": "Rechercher",
   "search.open.aria": "Rechercher dans le site (raccourci : /)",
   "search.label": "Recherche dans le site",
-  "search.ph": "Pays, ISIN, institution, terme…",
+  "search.ph": "Pays, ville, ISIN, institution, terme…",
   "search.close": "Fermer",
   "search.results": "Résultats de recherche",
-  "search.start": "Tapez au moins 2 caractères : un pays (nom ou code ISO), un code ISIN, une banque centrale, un établissement agréé, une source, un terme du glossaire ou un signal.",
+  "search.start": "Tapez au moins 2 caractères : un pays (nom ou code ISO), une ville (capitale ou grande ville), un code ISIN, une banque centrale, un établissement agréé, une source, un terme du glossaire ou un signal.",
   "search.keys": "↑ ↓ pour parcourir · Entrée pour ouvrir · Échap pour fermer",
   "search.empty": "Aucun résultat pour « {q} ».",
   "search.count.one": "{n} résultat",
@@ -1398,5 +1398,7 @@
   "sx.move": "Le rendement moyen pondéré a varié de {bp} pb par rapport à l'adjudication {t} précédente ({d}).",
   "sx.high": "Le rendement moyen pondéré de {y} dépasse celui de {p} des {n} adjudications {t} précédentes des {days} derniers jours. Un rendement plus élevé n'est pas une recommandation : il reflète en général un risque.",
   "sx.curve": "Le rendement de l'adjudication {a} dépasse de {bp} pb celui du {b} (dernières adjudications de chaque maturité).",
-  "sx.refi": "{s} des échéances suivies des 12 prochains mois tombent en {m} ({n} titres)."
+  "sx.refi": "{s} des échéances suivies des 12 prochains mois tombent en {m} ({n} titres).",
+  "search.capital": "Capitale · {c}",
+  "search.city": "Ville · {c}"
 }

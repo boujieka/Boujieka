@@ -826,10 +826,10 @@
   "search.open": "Search",
   "search.open.aria": "Search the site (shortcut: /)",
   "search.label": "Site search",
-  "search.ph": "Country, ISIN, institution, term…",
+  "search.ph": "Country, city, ISIN, institution, term…",
   "search.close": "Close",
   "search.results": "Search results",
-  "search.start": "Type at least 2 characters: a country (name or ISO code), an ISIN, a central bank, an accredited institution, a source, a glossary term or a signal.",
+  "search.start": "Type at least 2 characters: a country (name or ISO code), a city (capital or main city), an ISIN, a central bank, a licensed institution, a source, a glossary term or a signal.",
   "search.keys": "↑ ↓ to browse · Enter to open · Esc to close",
   "search.empty": "No result for “{q}”.",
   "search.count.one": "{n} result",
@@ -1490,5 +1490,7 @@
   "sx.move": "Weighted-average yield moved {bp} bp versus the previous {t} auction ({d}).",
   "sx.high": "WA yield of {y} is above {p} of the {n} previous {t} auctions in the last {days} days. Higher yield is not a recommendation and usually reflects risk.",
   "sx.curve": "The {a} auction yield is {bp} bp above the {b} yield (latest auctions of each tenor).",
-  "sx.refi": "{s} of tracked maturities in the next 12 months fall due in {m} ({n} securities)."
+  "sx.refi": "{s} of tracked maturities in the next 12 months fall due in {m} ({n} securities).",
+  "search.capital": "Capital · {c}",
+  "search.city": "City · {c}"
 }
