@@ -119,7 +119,10 @@ def test_dataset_files_keep_every_verified_row_and_the_sample_stays_small(tmp_pa
     out = dataset.write(date(2026, 10, 4), tmp_path / "dist", tmp_path / "private")
     full = list(csv.DictReader(open(tmp_path / "private" / "auctions.csv", encoding="utf-8-sig")))
     sample = list(csv.DictReader(open(tmp_path / "dist" / "donnees" / "echantillon.csv", encoding="utf-8-sig")))
-    assert len(full) == out["auctions"] == len(report.load_rows())
+    # Bounded by as_of: rows published later are not in a build for an earlier date.
+    assert len(full) == out["auctions"] == sum(1 for r in report.load_rows() if r["date"] <= date(2026, 10, 4))
+    assert all(r["auction_date"] <= "2026-10-04" for r in full)
+    assert {r["currency"] for r in full} <= {"XOF", "XAF"} and all(r["source"] for r in full)
     assert len(sample) == dataset.SAMPLE and set(sample[0]) == set(full[0])
     # Every row links to an official source document: UMOA-Titres (WAEMU) or BEAC (CEMAC).
     official = ("https://www.umoatitres.org/", "https://www.beac.int/")
