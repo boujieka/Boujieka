@@ -1,0 +1,841 @@
+{
+ "series": {
+  "ca_total": {
+   "2019": {
+    "v": 509686.148,
+    "src": "ar2019 p.51",
+    "quote": "Chiffre d’affaires HT               512 686 999 928        509 686 147 954    -3 000 851 974          -0,59%"
+   },
+   "2020": {
+    "v": 518869.96,
+    "src": "ar2020 p.45",
+    "quote": "Chiffre d’affaires HT                     509 686 147 954    518 869 963 034"
+   },
+   "2021": {
+    "v": 616408,
+    "src": "ar2021 p.54",
+    "quote": "XB    CHIFFRE D'AFFAIRES (A + B + C + D)                                                         4.16             616 408         518 870"
+   },
+   "2022": {
+    "v": 885895.693289,
+    "src": "ar2022 p.59",
+    "quote": "XB       CHIFFRE D'AFFAIRES                                                                616 407 991 020           885 895 693 289"
+   },
+   "2023": {
+    "v": 963830,
+    "src": "ar2023 p.44",
+    "quote": "Total Chiffre d’Affaires                       885,902                963,83                     77,93                   8,80%"
+   },
+   "2024": {
+    "v": 1015180,
+    "src": "ar2024 p.44",
+    "quote": "Chiffre d'affaires HT                   963,83             1 015,18"
+   }
+  },
+  "ecart_rma_booked": {
+   "2019": {
+    "v": 109570,
+    "src": "ar2019 p.43",
+    "quote": "Ecart sur RMA                        148,65              109,57               -39,08          -26,29%"
+   },
+   "2020": {
+    "v": 61453,
+    "src": "ar2020 p.38",
+    "quote": "Ecart sur RMA                                  109,57              61,453"
+   },
+   "2021": {
+    "v": 134060,
+    "src": "ar2021 p.38",
+    "quote": "Ecart sur RMA                                      61,45      134,06"
+   },
+   "2022": {
+    "v": 333245,
+    "src": "ar2022 p.59",
+    "quote": "ECART REVENU MAXIMUMU AUTORISE                                                    134 060 000 000           333 245 000 000"
+   },
+   "2023": {
+    "v": 249280,
+    "src": "ar2023 p.44",
+    "quote": "Ecart sur RMA                                  333,25                 249,28                     -83,97                  -25,20%"
+   },
+   "2024": {
+    "v": 214720,
+    "src": "ar2024 p.45",
+    "quote": "Ecart sur RMA                              249,28                214,72"
+   }
+  },
+  "ebe": {
+   "2019": {
+    "v": 51530.886,
+    "src": "ar2019 p.51",
+    "quote": "Excédent Brut d’exploitation        72 986 472 789         51 530 885 757     -21 455 587 032         -29,40%"
+   },
+   "2020": {
+    "v": 77008.61,
+    "src": "ar2020 p.45",
+    "quote": "Excédent Brut d’exploitation              51 530 885 757     77 008 610 020"
+   },
+   "2021": {
+    "v": 93484,
+    "src": "ar2021 p.54",
+    "quote": "EXCEDENT BRUT D'EXPLOITATION (XC+RK)                                                                          93 484        77 009"
+   },
+   "2022": {
+    "v": 111530.191958,
+    "src": "ar2022 p.62",
+    "quote": "XD       Excédent brut d'exploitation                                                        93 483 543 566          111 530 191 958"
+   },
+   "2023": {
+    "v": 107970,
+    "src": "ar2023 p.43",
+    "quote": "Excédent Brut Exploitation                                 111,53                       107,97                       -3,56             -3,20%"
+   },
+   "2024": {
+    "v": 115870,
+    "src": "ar2024 p.45",
+    "quote": "107,97 milliards en 2023 à 115,87 en 2024 ; soit une"
+   }
+  },
+  "net_result": {
+   "2019": {
+    "v": 17492.216,
+    "src": "ar2019 p.51",
+    "quote": "Résultats nets ®                    32 434 375 346         17 492 215 503     -14 942 159 843         -46,07%"
+   },
+   "2020": {
+    "v": 38444.16,
+    "src": "ar2020 p.46",
+    "quote": "RESULTAT NET                       17 492 215 503    38 444 155 529"
+   },
+   "2021": {
+    "v": 39102,
+    "src": "ar2021 p.54",
+    "quote": "RESULTAT NET (XG+XH+RQ+RS)                                                                                     39 102        38 444"
+   },
+   "2022": {
+    "v": 40173.153614,
+    "src": "ar2022 p.62",
+    "quote": "XI       RESULTAT NET                                                                       39 102 323 283            40 173 153 614"
+   },
+   "2023": {
+    "v": 33560,
+    "src": "ar2023 p.43",
+    "quote": "Résultats nets ®                                                40,17                      33,56                      -6,61         -16,45%"
+   },
+   "2024": {
+    "v": 34760,
+    "src": "ar2024 p.44",
+    "quote": "Résultats nets ®                         33,56              34,76"
+   }
+  },
+  "operating_result": {
+   "2019": {
+    "v": 17459.837,
+    "src": "ar2019 p.51",
+    "quote": "Résultat d’exploitation             38 050 634 457         17 459 836 911     -20 590 797 546         -54,11%"
+   },
+   "2020": {
+    "v": 32654.62,
+    "src": "ar2020 p.46",
+    "quote": "RESULTAT D’EXPLOITATION            17 459 836 911    32 654 620 568"
+   },
+   "2021": {
+    "v": 44941,
+    "src": "ar2021 p.54",
+    "quote": "RESULTAT D'EXPLOITATION (XD+TJ+ RL)                                                                           44 941        32 655"
+   },
+   "2022": {
+    "v": 49882.525506,
+    "src": "ar2022 p.62",
+    "quote": "XE       RESULTAT D'EXPLOITATION                                                             44 940 516 473           49 882 525 506"
+   },
+   "2023": {
+    "v": 43060,
+    "src": "ar2023 p.43",
+    "quote": "Résultat d'exploitation                                         49,88                      43,06                      -6,82         -13,67%"
+   },
+   "2024": {
+    "v": 41490,
+    "src": "ar2024 p.44",
+    "quote": "Résultat d'exploitation                  43,06              41,49"
+   }
+  },
+  "rma": {
+   "2020": {
+    "v": 501620,
+    "src": "crse p.20",
+    "quote": "Le RMA final en 2020 est fixé à 501,620 milliards de"
+   },
+   "2021": {
+    "v": 622890,
+    "src": "crse p.21",
+    "quote": "2021 est fixé à 622,890 milliards de FCFA pour des"
+   },
+   "2022": {
+    "v": 833696,
+    "src": "crse p.20",
+    "quote": "Le RMA final en 2022 est fixé à 833,696"
+   },
+   "2023": {
+    "v": 909637,
+    "src": "crse p.21",
+    "quote": "Le Revenu Maximum Autorisé final de Senelec en 2023 est fixé à 909,637 milliards de FCFA pour des ventes"
+   },
+   "2024": {
+    "v": 923777,
+    "src": "crse p.25",
+    "quote": "nal de Senelec à 923,777 milliards de FCFA pour des ventes de 5 455,40 GWh, hors"
+   },
+   "2025": {
+    "v": 923712,
+    "src": "crse p.37",
+    "quote": "à 923,712 milliards de FCFA pour des ventes de 5"
+   }
+  },
+  "gap": {
+   "2020": {
+    "v": 62748,
+    "src": "crse p.20",
+    "quote": "FCFA, d’où un écart de revenus de 62,748 milliards"
+   },
+   "2021": {
+    "v": 155283,
+    "src": "crse p.21",
+    "quote": "FCFA, d’où un écart de revenus de 155,283 milliards"
+   },
+   "2022": {
+    "v": 298463,
+    "src": "crse p.21",
+    "quote": "revenus qui en résulte, d’un montant de 298,463 milliards de FCFA sur l’année, a été intégralement compensé"
+   },
+   "2023": {
+    "v": 249280,
+    "src": "crse p.21",
+    "quote": "de revenus qui en résulte, d’un montant de 249 280 millions de FCFA hors taxes, est intégralement pris en"
+   },
+   "2024": {
+    "v": 214721,
+    "src": "crse p.25",
+    "quote": "écart  de revenus de 214 721"
+   },
+   "2025": {
+    "v": 160338,
+    "src": "crse p.37",
+    "quote": "de revenus de 160,338 milliards de FCFA hors TVA"
+   }
+  },
+  "sales_rma_gwh": {
+   "2020": {
+    "v": 3861.25,
+    "src": "crse p.20",
+    "quote": "FCFA pour des ventes de 3 861,25 GWh."
+   },
+   "2022": {
+    "v": 4821.96,
+    "src": "crse p.20",
+    "quote": "milliards de FCFA pour des ventes de 4821,96 GWhs."
+   },
+   "2024": {
+    "v": 5455.4,
+    "src": "crse p.34",
+    "quote": "une quantité d’énergie vendue de 5455,4 GWh, la"
+   },
+   "2025": {
+    "v": 5867.53,
+    "src": "crse p.44",
+    "quote": "Avec les ventes de 5 867,53 GWh réalisées par"
+   }
+  },
+  "compensation_decided": {
+   "2020": {
+    "v": 41525,
+    "src": "crse p.20",
+    "quote": "par le Gouvernement à hauteur de 41,525 milliards"
+   },
+   "2021": {
+    "v": 166173,
+    "src": "crse p.21",
+    "quote": "total de 166,173 milliards de FCFA décidées par le"
+   },
+   "2022": {
+    "v": 298463,
+    "src": "crse p.9",
+    "quote": "atteignait 298,463 milliards en 2022 et 249, 280"
+   },
+   "2023": {
+    "v": 249280,
+    "src": "crse p.9",
+    "quote": "atteignait 298,463 milliards en 2022 et 249, 280"
+   },
+   "2024": {
+    "v": 222629,
+    "src": "crse p.25",
+    "quote": "trimestrielles d’un montant total de 222 629 millions de FCFA hors TVA, un surplus de"
+   },
+   "2025": {
+    "v": 181527,
+    "src": "crse p.37",
+    "quote": "total de 181,527 milliards de FCFA hors TVA."
+   }
+  },
+  "energy_available": {
+   "2019": {
+    "v": 4454,
+    "src": "ar2019 p.18",
+    "quote": "ENERGIE TOTALE PRODUITE (GWh)              3 920,54   4 037,89   4 454,00    10,31%"
+   },
+   "2020": {
+    "v": 4814.54,
+    "src": "ar2020 p.17",
+    "quote": "L’énergie totale produite au cours de l’année 2020 s’élève à 4 814,54 GWh contre 4 454,00"
+   },
+   "2021": {
+    "v": 5167.47,
+    "src": "ar2021 p.17",
+    "quote": "L’énergie totale produite au cours de l’année 2021 s’élève à 5 167,47 GWh"
+   },
+   "2022": {
+    "v": 5908.32,
+    "src": "ar2022 p.14",
+    "quote": "PRODUCTION TOTALE (GWh)                        5 167,47   5 908,32"
+   },
+   "2023": {
+    "v": 6654.02,
+    "src": "ar2023 p.16",
+    "quote": "PRODUCTION BRUTE TOTALE (GWh)                  5 167,47   5 908,52   6 654,02    12,62%"
+   },
+   "2024": {
+    "v": 7465.86,
+    "src": "ar2024 p.19",
+    "quote": "ENERGIE TOTALE DISPONIBLE (GWh)                   5 908,52         6 654,02         7 465,86         12,20%"
+   }
+  },
+  "energy_billed": {
+   "2019": {
+    "v": 3613.84,
+    "src": "ar2019 p.18",
+    "quote": "VENTES D’ENERGIE (GWh)                     3 179,29   3 329,31   3 613,84    8,55%"
+   },
+   "2020": {
+    "v": 3895.36,
+    "src": "ar2020 p.34",
+    "quote": "Total                                    3 613,83                    3 895,36"
+   },
+   "2021": {
+    "v": 4191.08,
+    "src": "ar2021 p.34",
+    "quote": "L’énergie totale facturée à l’ensemble de la clientèle est de 4 191,08 GWh en 2021"
+   },
+   "2022": {
+    "v": 4862.58,
+    "src": "ar2022 p.14",
+    "quote": "VENTES D'ENERGIE (GWh)                         4 191,07   4 862,58"
+   },
+   "2023": {
+    "v": 5404.52,
+    "src": "ar2023 p.16",
+    "quote": "VENTES D’ENERGIE (GWh)                         4 191,07   4 862,58   5 404,52    11,15%"
+   },
+   "2024": {
+    "v": 6063.46,
+    "src": "ar2024 p.19",
+    "quote": "VENTES D’ÉNERGIE (GWh)                            4 862,58         5404,54          6 063,46         12,19%"
+   }
+  },
+  "rendement_brut": {
+   "2019": {
+    "v": 81.14,
+    "src": "ar2019 p.41",
+    "quote": "Rendement Brut Senelec                                    82,45%            81,14%              -1,31%"
+   },
+   "2020": {
+    "v": 80.91,
+    "src": "ar2020 p.36",
+    "quote": "Rendement Brut Senelec                      81,14%                 80,91%"
+   },
+   "2021": {
+    "v": 81.11,
+    "src": "ar2021 p.36",
+    "quote": "Rendement Brut Senelec                      80,91%                      81,11%"
+   },
+   "2022": {
+    "v": 82.3,
+    "src": "ar2022 p.39",
+    "quote": "Rendement Brut         81,11%        82,30%"
+   },
+   "2023": {
+    "v": 81.22,
+    "src": "ar2023 p.17",
+    "quote": "RENDEMENT BRUT (en %)                             81,11%            82,30%           81,22%         -1,08%"
+   },
+   "2024": {
+    "v": 81.18,
+    "src": "ar2024 p.19",
+    "quote": "RENDEMENT BRUT (en %)                             82,30%           81,22%           81,18%           -0,05%"
+   }
+  },
+  "avg_price": {
+   "2019": {
+    "v": 107.36,
+    "src": "ar2019 p.18",
+    "quote": "PRIX MOYENS DE L’ELECTRICITE (F CFA/kWh)   106,89     106,49      107,36     0,82%"
+   },
+   "2020": {
+    "v": 114.66,
+    "src": "ar2020 p.34",
+    "quote": "Total                                                          107,36            114,66"
+   },
+   "2021": {
+    "v": 111.73,
+    "src": "ar2021 p.34",
+    "quote": "Le prix moyen global du kWh est de 111,73 FCFA en 2021 contre 114,51 FCFA en 2020"
+   },
+   "2022": {
+    "v": 110.18,
+    "src": "ar2022 p.38",
+    "quote": "Le prix moyen global du kWh est de 110,18 FCFA en 2022 contre 111,73 FCFA en 2021"
+   },
+   "2023": {
+    "v": 128.72,
+    "src": "ar2023 p.17",
+    "quote": "PRIX MOYEN DE L’ELECTRICITE (F CFA/kWh)           111,73            110,18           128,72         16,83%"
+   },
+   "2024": {
+    "v": 127.23,
+    "src": "ar2024 p.19",
+    "quote": "PRIX MOYENS DE L’ÉLECTRICITÉ (F CFA/kWh)          110,18           128,72           127,23           -1,15%"
+   }
+  },
+  "tccae": {
+   "2019": {
+    "v": 92.71,
+    "src": "ar2019 p.41",
+    "quote": "Total Senelec                     386 741 827 224          100,00%     427 453 902 021          92,71%"
+   },
+   "2020": {
+    "v": 97.42,
+    "src": "ar2020 p.36",
+    "quote": "Total Senelec               411 479 959 608            100,00%     502 664 421 996          97,42%"
+   },
+   "2021": {
+    "v": 107.75,
+    "src": "ar2021 p.36",
+    "quote": "591 846 018 086          107,75%"
+   },
+   "2022": {
+    "v": 98.79,
+    "src": "ar2022 p.40",
+    "quote": "TOTAL SENELEC        465 856 445 785        100,00%          619 809 391 483                 98,79%"
+   },
+   "2023": {
+    "v": 94.65,
+    "src": "ar2023 p.42",
+    "quote": "TOTAL SENELEC           566 197 688 912               100%                       751 364 991 599                    94,65%"
+   },
+   "2024": {
+    "v": 88.08,
+    "src": "ar2024 p.42",
+    "quote": "804 575 752 220                       88,08%"
+   }
+  },
+  "recv_admin": {
+   "2019": {
+    "v": 76802.736,
+    "src": "ar2019 p.41",
+    "quote": "Total Administration      55 378 954 007             76 802 735 534        21 423 781 527        38,69%"
+   },
+   "2020": {
+    "v": 86614.7,
+    "src": "ar2020 p.36",
+    "quote": "Total Administration     64 308 407 916         86 614 696 014"
+   },
+   "2021": {
+    "v": 57480.289,
+    "src": "ar2021 p.36",
+    "quote": "92 275 421 635         57 480 288 609         -34 795 133 026           -37,71%"
+   },
+   "2022": {
+    "v": 63092.824445,
+    "src": "ar2022 p.40",
+    "quote": "Total Administration        61 409 609 289         63 092 824 445"
+   },
+   "2023": {
+    "v": 79146.026366,
+    "src": "ar2023 p.42",
+    "quote": "Total Administration         66 999 602 419                 79 146 026 366                12 146 423 947              18,13%"
+   },
+   "2024": {
+    "v": 153543.88,
+    "src": "ar2024 p.43",
+    "quote": "Total Administration      84 436 484 667       153 543 878 840"
+   }
+  },
+  "recv_commercial": {
+   "2019": {
+    "v": 132119.12,
+    "src": "ar2019 p.41",
+    "quote": "Total Senelec             115 525 604 690            132 119 120 066       16 593 515 376         14,36%"
+   },
+   "2020": {
+    "v": 171290.57,
+    "src": "ar2020 p.36",
+    "quote": "Total Senelec            122 612 262 509       171 290 567 703"
+   },
+   "2021": {
+    "v": 138060.783,
+    "src": "ar2021 p.36",
+    "quote": "Total Senelec             171 993 613 911         138 060 783 177"
+   },
+   "2022": {
+    "v": 148775.718922,
+    "src": "ar2022 p.40",
+    "quote": "Total Senelec              143 444 170 188         148 775 718 922"
+   },
+   "2023": {
+    "v": 194865.077514,
+    "src": "ar2023 p.42",
+    "quote": "Total Senelec             156 469 669 021               194 865 077 514                38 395 408 493              24,54%"
+   },
+   "2024": {
+    "v": 283640.68,
+    "src": "ar2024 p.43",
+    "quote": "Total Senelec          201 538 019 878      283 640 679 561"
+   }
+  },
+  "recv_balance": {
+   "2019": {
+    "v": 185250,
+    "src": "ar2019 p.45",
+    "quote": "Les créances nettes sur les clients se chiffrent à 185,25 milliards de F"
+   },
+   "2020": {
+    "v": 194310,
+    "src": "ar2020 p.40",
+    "quote": "créances nettes sur les clients se chiffrent à 194,31 milliards de F CFA en 2020 contre 185,26"
+   },
+   "2021": {
+    "v": 137559,
+    "src": "ar2021 p.52",
+    "quote": "Clients                                                                    3.2.8/4.4      171 134       33 575             137 559       194 313"
+   },
+   "2022": {
+    "v": 189401.383948,
+    "src": "ar2022 p.51",
+    "quote": "BI     Clients                                                                 137 558 338 658             189 401 383 948"
+   },
+   "2023": {
+    "v": 236580,
+    "src": "ar2023 p.46",
+    "quote": "les clients se chiffrent à 236,58 milliards de F CFA en"
+   },
+   "2024": {
+    "v": 324200,
+    "src": "ar2024 p.47",
+    "quote": "nettes sur les clients se chiffrent à 324,20 milliards"
+   }
+  },
+  "current_assets": {
+   "2019": {
+    "v": 468042.274,
+    "src": "ar2019 p.50",
+    "quote": "TOTAL ACTIF CIRCULANT (II)          462 621 931 920     468 042 273 860     5 420 341 940            1,17%"
+   },
+   "2020": {
+    "v": 498810.84,
+    "src": "ar2020 p.44",
+    "quote": "TOTAL ACTIF CIRCULANT (II)                468 042 273 860     498 810 838 545"
+   },
+   "2021": {
+    "v": 457120,
+    "src": "ar2021 p.52",
+    "quote": "TOTAL ACTIF CIRCULANT                                                                     504 982       47 862             457 120       498 810"
+   },
+   "2022": {
+    "v": 584810.884047,
+    "src": "ar2022 p.52",
+    "quote": "TOTAL ACTIF CIRCULANT                                                  457 120 674 486         584 810 884 047"
+   },
+   "2023": {
+    "v": 723560,
+    "src": "ar2023 p.46",
+    "quote": "Actifs Circulants                 585,05                723,56                    138,51                 23,67%"
+   },
+   "2024": {
+    "v": 793210,
+    "src": "ar2024 p.47",
+    "quote": "Actifs Circulants                    723,56              793,21"
+   }
+  },
+  "current_liab": {
+   "2019": {
+    "v": 423780.471,
+    "src": "ar2019 p.50",
+    "quote": "TOTAL PASSIF CIRCULANT (III)        307 812 235 533     423 780 470 613     115 968 235 080,00       37,67%"
+   },
+   "2020": {
+    "v": 479023.84,
+    "src": "ar2020 p.44",
+    "quote": "TOTAL PASSIF CIRCULANT(III)               423 780 470 613     479 023 838 742"
+   },
+   "2021": {
+    "v": 477525,
+    "src": "ar2021 p.53",
+    "quote": "TOTAL PASSIF CIRCULANT                                                                                      477 525                        479 024"
+   },
+   "2022": {
+    "v": 611964.432746,
+    "src": "ar2022 p.57",
+    "quote": "DP       TOTAL PASSIF CIRCULANT ( III )                                    477 525 113 235          611 964 432 746"
+   },
+   "2023": {
+    "v": 771930,
+    "src": "ar2023 p.46",
+    "quote": "Passifs Circulants                611,96                771,93                    159,97                 26,14%"
+   },
+   "2024": {
+    "v": 961780,
+    "src": "ar2024 p.47",
+    "quote": "Passifs Circulants                   771,93              961,78"
+   }
+  },
+  "st_bank_debt": {
+   "2019": {
+    "v": 507422.843,
+    "src": "ar2019 p.50",
+    "quote": "Total Dettes Financières (II)       436 379 340 361     507 422 842 955     71 043 502 594,00        16,28%"
+   },
+   "2021": {
+    "v": 105467,
+    "src": "ar2021 p.53",
+    "quote": "TOTAL TRESORERIE PASSIF                                                                                     105 467                         46 214"
+   }
+  },
+  "energy_purchases": {
+   "2021": {
+    "v": 269253,
+    "src": "ar2022 p.43",
+    "quote": "Dont achats d’énergie : Ils s’élèvent 461,483 milliards de FCFA en 2022 contre 269,253 milliards"
+   },
+   "2022": {
+    "v": 461483,
+    "src": "ar2022 p.43",
+    "quote": "Dont achats d’énergie : Ils s’élèvent 461,483 milliards de FCFA en 2022 contre 269,253 milliards"
+   },
+   "2023": {
+    "v": 489530,
+    "src": "ar2023 p.44",
+    "quote": "Achats Energie                                                   461,48                 489,53             28,05             6,08%"
+   },
+   "2024": {
+    "v": 542920,
+    "src": "ar2024 p.46",
+    "quote": "fixes : Ils s’élèvent à 542,92 milliards de FCFA en 2024"
+   }
+  },
+  "saidi": {
+   "2019": {
+    "v": 10.094,
+    "src": "ar2019 p.19",
+    "quote": "SAIDI                                          53H18mn54s 17H22mn48s 10h05mn38s      -41,92%"
+   },
+   "2020": {
+    "v": 4.836,
+    "src": "ar2020 p.15",
+    "quote": "SAIDI                                   17H22mn48s   10h05mn38s   4h50mn10s"
+   },
+   "2021": {
+    "v": 7.5875,
+    "src": "ar2021 p.15",
+    "quote": "SAIDI                                         4h50mn10s         7h35mn15s"
+   },
+   "2022": {
+    "v": 14.3367,
+    "src": "ar2022 p.33",
+    "quote": "passé de 07h 35mn 15s en 2021 à 14h 20mn 12s"
+   },
+   "2023": {
+    "v": 7.316667,
+    "src": "ar2023 p.17",
+    "quote": "SAIDI                                           7h35mn15s         14h20mn12s      07h19mn00s        -51,00%"
+   },
+   "2024": {
+    "v": 6.6728,
+    "src": "ar2024 p.19",
+    "quote": "SAIDI                                          14h20mn12s       07h19mn00s       06h40mn22s"
+   }
+  },
+  "customers": {
+   "2019": {
+    "v": 1596775,
+    "src": "ar2019 p.19",
+    "quote": "CLIENTELE (nombre)                              1 332 074    1 447 426   1 596 775   10,32%"
+   },
+   "2020": {
+    "v": 1754570,
+    "src": "ar2020 p.34",
+    "quote": "Total                                         1 596 775              1 754 570"
+   },
+   "2021": {
+    "v": 1965573,
+    "src": "ar2021 p.34",
+    "quote": "En 2021, Senelec compte 1 965 573 clients"
+   },
+   "2022": {
+    "v": 2198624,
+    "src": "ar2022 p.38",
+    "quote": "Senelec compte 2 198 624 clients soit un accroissement de 11,86% (+233 051 clients)"
+   },
+   "2024": {
+    "v": 2370925,
+    "src": "ar2024 p.19",
+    "quote": "CLIENTÈLE (nombre)                               2 198 624        2 261 996        2 370 925          4,82%"
+   }
+  },
+  "employees": {
+   "2019": {
+    "v": 3138,
+    "src": "ar2019 p.19",
+    "quote": "EFFECTIF PERSONNEL (en nombre)                      2 948      3 112       3 138     0,84%"
+   },
+   "2020": {
+    "v": 3082,
+    "src": "ar2020 p.15",
+    "quote": "EFFECTIF PERSONNEL (en nombre)            3 112        3 140        3 082"
+   },
+   "2021": {
+    "v": 3309,
+    "src": "ar2021 p.41",
+    "quote": "Le personnel permanent de Senelec au 31 Décembre 2021 est de 3 309 agents"
+   },
+   "2022": {
+    "v": 3394,
+    "src": "ar2022 p.15",
+    "quote": "EFFECTIF PERSONNEL (en nombre)                     3 309                  3 394"
+   },
+   "2023": {
+    "v": 3435,
+    "src": "ar2023 p.47",
+    "quote": "Le personnel permanent de Senelec au 31 Décembre 2023 est de 3 435 agents, soit une hausse de 1,19 % par"
+   },
+   "2024": {
+    "v": 3435,
+    "src": "ar2024 p.19",
+    "quote": "EFFECTIF PERSONNEL (en nombre)                     3 394            3 435            3 435            0,00%"
+   }
+  },
+  "cash_active": {
+   "2019": {
+    "v": 108095.301,
+    "src": "ar2019 p.50",
+    "quote": "TOTAL TRESORERIE - ACTIF (III)      49 082 696 824      108 095 301 462     59 012 604 638           120,23%"
+   },
+   "2020": {
+    "v": 58967.15,
+    "src": "ar2020 p.44",
+    "quote": "TOTAL TRESORERIE - ACTIF (III)             108 095 301 462     58 967 150 156"
+   },
+   "2021": {
+    "v": 82434,
+    "src": "ar2021 p.52",
+    "quote": "TOTAL TRESORERIE ACTIF                                                                     84 379        1 945              82 434        58 967"
+   },
+   "2022": {
+    "v": 71520.767919,
+    "src": "ar2022 p.54",
+    "quote": "BT      TOTAL TRESORERIE - ACTIF (III)                                       82 433 684 305          71 520 767 919"
+   },
+   "2023": {
+    "v": 54010,
+    "src": "ar2023 p.46",
+    "quote": "Trésorerie Active                 71,52                     54,01                 -17,51                -24,49%"
+   },
+   "2024": {
+    "v": 56270,
+    "src": "ar2024 p.47",
+    "quote": "Trésorerie Active                    54,01                56,27"
+   }
+  }
+ },
+ "computed": {
+  "ebe_excl_comp": {
+   "2019": -58039.114,
+   "2020": 15555.61,
+   "2021": -40576,
+   "2022": -221714.808042,
+   "2023": -141310,
+   "2024": -98850
+  },
+  "comp_share_ca": {
+   "2019": 21.49754322928941,
+   "2020": 11.843622629454208,
+   "2021": 21.748582107954473,
+   "2022": 37.616731012969005,
+   "2023": 25.86348214934169,
+   "2024": 21.150928899308497
+  },
+  "tariff_revenue": {
+   "2020": 438872,
+   "2021": 467607,
+   "2022": 535233,
+   "2023": 660357,
+   "2024": 709056,
+   "2025": 763374
+  },
+  "coverage": {
+   "2020": 87.49092938878036,
+   "2021": 75.07055820449838,
+   "2022": 64.20002015123019,
+   "2023": 72.59566178596518,
+   "2024": 76.75618682863939,
+   "2025": 82.64199230929121
+  },
+  "rma_per_kwh": {
+   "2020": 129.91129815474264,
+   "2022": 172.89566898107824,
+   "2024": 169.3325878945632,
+   "2025": 157.42774216748785
+  },
+  "tariff_per_kwh": {
+   "2020": 113.66060213661379,
+   "2022": 110.99905432645646,
+   "2024": 129.97323752612093,
+   "2025": 130.1014225747461
+  },
+  "gap_per_kwh": {
+   "2020": 16.250696018128846,
+   "2022": 61.89661465462177,
+   "2024": 39.35935036844228,
+   "2025": 27.32631959274175
+  },
+  "gap_vs_tariff_rev_2025": 21.00385918304789,
+  "losses_implied": {
+   "2019": 18.86,
+   "2020": 19.090000000000003,
+   "2021": 18.89,
+   "2022": 17.700000000000003,
+   "2023": 18.78,
+   "2024": 18.819999999999993
+  },
+  "loss_point_gwh_2024": 74.65859999999999,
+  "loss_point_value_2024": 9498.813677999999,
+  "loss_point_share_gap_2024": 4.42379351716879,
+  "current_ratio": {
+   "2019": 1.104445122012241,
+   "2020": 1.0413069211753636,
+   "2021": 0.9572692529186954,
+   "2022": 0.9556288776830429,
+   "2023": 0.9373388778775278,
+   "2024": 0.8247312275156481
+  },
+  "recv_days_ca": {
+   "2019": 132.66252234894955,
+   "2020": 136.687716513787,
+   "2021": 81.45422350131732,
+   "2022": 78.0357164672068,
+   "2023": 89.59225174563979,
+   "2024": 116.56356508205441
+  },
+  "admin_recv_growth_2024": 81.84542984264623,
+  "cust_per_employee_2024": 690.2256186317321
+ }
+}
