@@ -206,7 +206,7 @@ Livrable : **Cameroon Gold Prospectivity Map** (High / Medium / Low potential / 
 | Répartition 2022 par site | Batouri 37,3 % (332,2 kg ; incohérence interne de la source : 37,3 % de 859,92 kg font 320,8 kg, et 332,2 kg font 38,6 %) ; Bétaré-Oya 20,29 % ; Ngoura 15,50 % ; ensuite Kette, Meiganga, Mbotoro ; enfin Bombe, Dir, Gari-Gombo, Garoua-Boulaï, Rey-Bouba, Yokadouma | [S9] | [F] |
 | Part informelle | « 90 % de la production issue des exploitations artisanales et semi-mécanisées échappe aux circuits formels » (ITIE) | [S9] | [F] |
 | Part de l'artisanal dans la production nationale | 95 % | [S1] | [F] |
-| Or remis à l'État (taxe ad valorem/synthétique) | 170,9 kg en 2023 ; 420 kg sur 2023 et le 1er semestre 2024 | [S1] | [F] |
+| Or collecté par SONAMINES pour l'État | 304,8 kg en 2023 (ISML 269,11 kg + droit de sortie 35,73 kg) ; rétrocession de 218,5 kg en septembre 2023 (exercices antérieurs) ; presse : 170,9 kg en 2023 et 420 kg sur 2023 et le 1er semestre 2024 (non retrouvés dans l'ITIE) | Rapport ITIE 2023, p. 129-130 ; [S1] | [F] (ITIE) ; [?] (presse) |
 | Titres | 122 permis miniers industriels ; plus de 1 000 permis artisanaux et semi-mécanisés | [S1] | [F] |
 | Sociétés illégales | ~200 dans l'Est et l'Adamaoua, à plus de 95 % étrangères (Ministère des Mines, mai 2026) | Extraits Arab News / AllAfrica | [F-e] |
 | Début de la semi-mécanisation | vers 2004 dans l'Est (artisanat depuis ~1934) | Extrait de l'article [L35] | [F-e] |
@@ -574,3 +574,5 @@ Cameroon [S2], [S3] ; PANA [S5] ; USGS [S7], [S8] ; BRGM [S4] ; 29 DOI via Cross
 Consensus sans DOI ([L3], [L4], [L18], [L22]–[L33]).
 
 **Harmonisation inter-modules (2026-10-08)** : section « Zone et projection communes » ajoutée (§ 7) ; district retenu = Bétaré-Oya / Lom (Z2 du module 01), mention erronée de Borongo–Mborguéné comme zone du module 01 corrigée ; projection du livrable alignée (EPSG:4326 / EPSG:32633) ; cadastre aligné sur le module 03 (portail Landfolio hors service depuis le 03/11/2025) ; Kambélé complété par l'arrêté du 13/08/2025 (module 07, X2). Journal : `verification/harmonisation.md`.
+
+**Arbitrages priorité 2 (2026-10-08)** : Or remis à l'État : 304,8 kg collectés par SONAMINES en 2023 (ISML 269,11 kg + droit de sortie 35,73 kg) et rétrocession de 218,5 kg (ITIE 2023, p. 129-130) ; les 170,9 kg et 420 kg de la presse, non retrouvés dans l'ITIE, sont requalifiés [?] (`verification/arbitrage-or.md`). Journal : `verification/integration-priorite2.md`.

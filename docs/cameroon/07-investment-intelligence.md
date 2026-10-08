@@ -171,13 +171,13 @@ finançabilité distinct**, affiché **à côté** de l'IOS (par exemple « IOS 
 |---|---|
 | Minerai | Bauxite à expédition directe (DSO) [F] |
 | Localisation | Minim-Martap, région de l'Adamaoua ; extensions Makan et Ngaoundal [F, S1, S3] |
-| Titulaire | Camalco Cameroon SA, filiale à 100 % de Canyon Resources Ltd (ASX:CAY) [F, S2]. Actionnaire majoritaire de Canyon : A2MP Investments FZCO (détenue par Eagle Eye Asset Holdings Pte Ltd et FEDA Mining Investments Ltd), 55,56 % à l'ouverture de l'offre puis 57,68 % [F, S4, S5] |
+| Titulaire | Camalco Cameroon SA, filiale à 100 % de Canyon Resources Ltd (ASX:CAY) [F, S2]. Actionnaire majoritaire de Canyon : A2MP Investments FZCO (détenue par Eagle Eye Asset Holdings Pte Ltd et FEDA Mining Investments Ltd), 55,56 % à l'ouverture de l'offre, 57,68 % à la clôture, puis 55,56 % après la caducité de l'offre le 21/09/2026 (formulaire 604 d'A2MP, ASX, 23/09/2026) [F, S4, S5] |
 | Stade | Développement / pré-production : convention minière signée le 30/07/2024 (durée 20 ans), permis d'exploitation délivré en 2024, essais d'extraction annoncés en 2026 [F, S5, S6]. Première expédition prévue initialement fin septembre 2026 (T3 2026) [F, S1] puis au T4 2026 [F, S41] ; **reportée sans nouvelle date après la suspension des tirages de la facilité AFG Bank le 24/08/2026** [F, S41, S5] ; aucune expédition confirmée au 08/10/2026 |
-| Ressources déclarées | **Conforme actuel (JORC 2012)** : réserve de minerai ~144 Mt à 51,2 % Al₂O₃ et 1,7 % SiO₂ (DFS annoncée le 01-02/09/2025) [F, S3, S4]. Ressource : 1 027 Mt à 45,3 % Al₂O₃ (382 Mt mesurées, 597 Mt indiquées, 48 Mt présumées ; seuil 35 % Al₂O₃) [F, S2 ; ASX avril 2025]. Divergence entre annonces de 2025 sur l'inclusion de Makan/Ngaoundal [F, S2] |
+| Ressources déclarées | **Conforme actuel (JORC 2012)** : réserve de minerai ~144 Mt à 51,2 % Al₂O₃ et 1,7 % SiO₂ (DFS annoncée le 01-02/09/2025) [F, S3, S4]. Ressource (JORC 2012, au 07/2025, publiée avec la DFS) : 1 102 Mt à 45,3 % Al₂O₃ et 2,7 % SiO₂ (394 Mt mesurées, 502 Mt indiquées, 206 Mt présumées ; seuil 35 % Al₂O₃ ; Makan et Ngaoundal inclus) [F, S3 ; ASX 11/03/2026]. Elle remplace l'estimation antérieure de 1 027 Mt (382 / 597 / 48 Mt), reprise dans la présentation ASX d'avril 2025 [F, S2] ; même périmètre, Makan et Ngaoundal inclus dans les deux cas |
 | Infrastructure | Rail Camrail jusqu'au port de Douala ; Canyon a porté sa participation dans Camrail de 9,1 % à 26,9 % en mai 2026 ; 7 locomotives livrées fin juin 2026 ; 60 des 160 wagons attendus mi-août 2026 [F, S5]. Réhabilitation de voie préfinancée par Camalco et remboursée par imputation sur redevances [F, S3] |
 | Marché | Export de bauxite (marché maritime) ; 30 % de la production de bauxite ou d'alumine à mettre à disposition de l'industrie locale aux conditions du marché [F, S6] (**à arbitrer** : le module 05 lit 15 % dans une autre source ; le Code impose au moins 15 % (art. 40(4)) ; texte de la convention non public). L'actionnaire majoritaire estime la prime produit à ~5 $/tms contre ~11 $/tms dans la DFS, et le fret de montée en cadence à 32-36 $/tms contre 17 $/tms [F, S4] |
-| Capex public | **Étude publiée** : capex Stage 1 jusqu'à la première expédition 96 M$ US ; VAN6 avant impôt 835 M$ ; TRI avant impôt 29 % (DFS septembre 2025) [F, S3]. Facilité AFG Bank Cameroon d'environ 140 M$ ; environ 57 M$ (32,5 Md FCFA) tirés selon le Bidder's Statement d'A2MP déposé le 12/08/2026 (date d'arrêté non indiquée) [F, S4], environ 75 M$ tirés au 31/07/2026 selon Business in Cameroon (26/08/2026) et AlCircle (29/09/2026) [F, S5] : **divergence, à arbitrer** (communiqué ASX de Canyon) |
-| Risques | Suspension des tirages par AFG Bank le 24/08/2026 en attente d'une revue [F, S5 ; Business in Cameroon indique que Canyon l'a rendue publique dans une mise à jour du 24/08/2026] ; l'actionnaire majoritaire écrit que le projet « may be uneconomic at the current proposed pricing and volumes » [F, S4] ; offre publique contestée par le comité indépendant [F, S5] ; trésorerie de 31 M$ AU au 31/07/2026 [F, S5] |
+| Capex public | **Étude publiée** : capex Stage 1 jusqu'à la première expédition 96 M$ US ; VAN6 avant impôt 835 M$ ; TRI avant impôt 29 % (DFS septembre 2025) [F, S3]. Facilité AFG Bank Cameroon de 82 Md FCFA (environ 140 M$), 8 % HT, 8 ans : 45,448 Md FCFA (environ 75 M$) tirés au 30/06/2026, montant inchangé jusqu'à la suspension du 24/08/2026 (solde non tiré : 36,551 Md FCFA) [rapport annuel de Canyon au 30/06/2026, ASX, 30/09/2026]. Les « environ 57 M$ » du Bidder's Statement d'A2MP [F, S4] correspondent, par déduction, à la situation au 31/03/2026 (solde non tiré de 83 M$ à cette date) |
+| Risques | Suspension des tirages par AFG Bank le 24/08/2026 en attente d'une revue [F, S5 ; Business in Cameroon indique que Canyon l'a rendue publique dans une mise à jour du 24/08/2026] ; l'actionnaire majoritaire écrit que le projet « may be uneconomic at the current proposed pricing and volumes » [F, S4] ; offre publique rejetée par le comité indépendant (BDO : « neither fair nor reasonable »), devenue caduque le 21/09/2026 faute d'atteindre le seuil de 75 % [F, S5 ; ASX 23/09/2026] ; besoin de financement nouveau d'ici décembre 2026 (rapport annuel) ; trésorerie de 31 M$ AU au 31/07/2026 [F, S5] |
 | Cadre réglementaire | Code minier 2023 ; 10 % gratuits pour l'État + 10 % du capital ouvert aux nationaux ; taxe ad valorem 3 % ; partage de production 5 % ; 1 % fonds minier + 1 % compte capacités ; taxe à l'export 2 % ; bonus de signature 1 Md FCFA [F, S6]. Stabilité fiscale : non mentionnée dans la source [?] |
 | Transformation | Étude de faisabilité de raffinerie d'alumine annoncée pour le T3 2026 ; aucun résultat trouvé [?, S1] |
 | Date info | 29/09/2026 (S5) ; 12/08/2026 (S4, primaire) |
@@ -188,7 +188,7 @@ finançabilité distinct**, affiché **à côté** de l'IOS (par exemple « IOS 
 |---|---|
 | Minerai / produit | Aluminium primaire (électrolyse) |
 | Localisation | Edéa [F, S8] |
-| Titulaire | Alucam (État majoritaire ; pourcentage exact **à arbitrer** [?] : État 79,68 %, SNI 14,32 %, AFD 5,05 % selon Ecofin (2025), État 93,3 % et AFD 5,6 % selon l'ASI, module 05). Conversion de 92,5 Md FCFA de créances de l'État en capital [F, S8] |
+| Titulaire | Alucam (État majoritaire ; État 79,68 %, SNI 14,32 %, AFD 5,05 % selon Ecofin (2025), soit environ 94 % de part publique ; les 93,3-93,4 % (ASI, OSIDIMBEA) datent de la reprise des 46,7 % de Rio Tinto au 31/12/2014 (Rio Tinto, 20-F 2014) ; répartition après conversion non publiée). Conversion de 92,5 Md FCFA de créances de l'État en capital [F, S8] |
 | Stade | En production, sous-utilisée : 73 759 t (2017) → 53 675 t (2025) [F, S8] (série complète et exportations de lingots : module 05). **Capacité nominale : 100 kt/an** (USGS MYB 2017-18 ; ASI 2024) [F, S44, S45] |
 | Ressources | Sans objet (pas d'extraction). **Alumine importée ; aucune raffinerie d'alumine au Cameroun** [F, S45, S46]. Importations d'alumine déclarées par le Cameroun en 2023 (UN Comtrade) : 135 347 t, dont 76 655 t de Guinée [F, S46] ; origine 2024-2025 non publiée [?] |
 | Infrastructure | Dépend des barrages de Songloulou et d'Edéa ; ~13 % de la production électrique nationale, ~130 MW [F, S8] |
@@ -243,7 +243,7 @@ finançabilité distinct**, affiché **à côté** de l'IOS (par exemple « IOS 
 | Stade | Mine inaugurée le 22/09/2025 ; 600 000 t de minerai brut stockées ; première exportation **non confirmée** (février 2026) [F, S20, S21] |
 | Ressources | « Réserves » de 150 Mt (études de faisabilité citées par la presse), **code non indiqué → non conforme** [F, S20] |
 | Infrastructure | Transport routier sur plus de 50 km jusqu'à Kribi ; pas de terminal minéralier [F, S20] |
-| Marché | 6 Mt/an de concentré visées au départ [F, S20], mais le financement bancaire de 2026 porte sur 1,3 Mt/an [F, S21] : **incohérence** |
+| Marché | Capacité annoncée variable : 6 Mt/an de concentré (gouvernement, 09/2025) [F, S20], 4 Mt/an (Premier ministre, Africa24), 2 Mt/an (entreprise, BIC 06/2025) ; le financement bancaire de 2026 porte sur 1,3 Mt/an de concentré [F, S21], seul chiffre adossé à un plan de financement (68,7 Md FCFA) |
 | Capex public | Financement de 41,2 Md FCFA par 5 banques locales (février 2026) [F, S21]. La valorisation officielle « 20 000 Md FCFA / 33,3 Md$ » est incohérente avec le titre de presse (« 333 milliards ») : **non utilisable** [F/I, S20] ; 570 Md FCFA dans l'annexe 2026-2030 [F, S15] |
 | Risques | Retards répétés : exportation attendue « depuis 2025 », toujours pas réalisée en février 2026 [F, S21] ; la séquence détaillée « déc. 2024 → juin 2025 → août-sept. 2025 » n'a pas été retrouvée dans S21 [?] ; logistique routière coûteuse [F, S20] |
 | Cadre | Permis d'exploitation Akom II ; État à 10 % [F, S20] |
@@ -256,9 +256,9 @@ finançabilité distinct**, affiché **à côté** de l'IOS (par exemple « IOS 
 |---|---|
 | Minerai | Latérite cobalt-nickel-manganèse [F] |
 | Localisation | Nkamouna-Mada, Lomié (Haut-Nyong), Est [F, S22] |
-| Titulaire | **Aucun titre d'exploitation en vigueur trouvé.** Permis de Geovic Cameroon (2003) retiré par décret du 12/02/2025 ; zone confiée à la Sonamines ; contestation de Geovic Cameroon d'issue inconnue [F, S22] |
+| Titulaire | **Aucun titre d'exploitation en vigueur trouvé.** Permis n° 33 de Geovic Cameroon (décret 2003/077 du 11/04/2003) retiré par le décret n° 2025/040 du 12/02/2025 (texte primaire, prc.cm), périmètre reversé au domaine minier national ; zone confiée à la Sonamines ; contestation de Geovic Cameroon d'issue inconnue [F, S22] |
 | Stade | Étude de faisabilité de 2011 (non réalisée) ; appel à partenaires de la Sonamines (janvier 2026) déclaré **infructueux le 18/08/2026**, négociation directe ouverte [F, S22, S23] |
-| Ressources | **Historique (NI 43-101)** : réserves prouvées + probables de 68,1 Mt à 0,26 % Co, 0,66 % Ni, 1,48 % Mn (BFS 2011) ; ressource historique de 323 Mt à 0,21 % Co, 0,61 % Ni, 1,26 % Mn, que Aeternum dit non vérifiée selon les normes américaines actuelles [F, S22, S24] ⚠ > 2 ans. La Sonamines cite > 100 Mt de réserves et ~226 Mt sur 5 sites, sans code [F, S22] |
+| Ressources | **Historique (NI 43-101)** : réserves prouvées + probables de 68,1 Mt à 0,26 % Co, 0,66 % Ni, 1,48 % Mn (BFS 2011) ; ressource historique de 323 Mt à 0,21 % Co, 0,61 % Ni, 1,26 % Mn (= 120,6 Mt mesurées + indiquées à 0,23 % Co + 202,6 Mt présumées ; Nkamouna + Mada ; SRK, NI 43-101 du 02/06/2011), que Aeternum dit non vérifiée selon les normes américaines actuelles [F, S22, S24] ⚠ > 2 ans. La Sonamines cite > 100 Mt de réserves et ~226 Mt sur 5 sites, sans code [F, S22] |
 | Infrastructure | Site enclavé à l'Est ; pas de rail [I] ; détail non vérifié [?] |
 | Marché | Cobalt et manganèse classés comme critiques ; projet soutenu par le programme d'« advocacy » du gouvernement américain selon la communication d'ARM [F, S25] |
 | Capex public | 617 M$ (étude ancienne), que la Sonamines demande d'actualiser [F, S22] ⚠ |
@@ -306,7 +306,7 @@ finançabilité distinct**, affiché **à côté** de l'IOS (par exemple « IOS 
 | Champ | Contenu |
 |---|---|
 | Minerai | Or primaire (Colomine : mine souterraine) [F, S14, S18] |
-| Localisation | Colomine (Est) ; Mborguéné (Bétaré-Oya / Garoua-Boulaï, Est) [F, S31] |
+| Localisation | Colomine (Est) ; Mborguéné (à cheval sur Bétaré-Oya et Garoua-Boulaï, Lom-et-Djérem, Est ; localités OSM à 5,51° N 14,13° E et 5,74° N 14,27° E, dans l'emprise Z2) [F, S31] |
 | Titulaire | Codias SA (Colomine ; État à 10 %) ; Caminco SA, filiale de Codias (Mborguéné ; PDG Roger Bogne) [F, S14, S31, S32] |
 | Stade | **Colomine** : permis de 5 ans (septembre 2022), production déclarée de 16,7 kg contre 500 kg/an prévus par la convention [F, S33] ⚠ (acte de 2022). **Mborguéné** : convention de mars 2025, permis du 18/08/2025 ; mise en exploitation exigée dans les 2 ans (~août 2027) sous peine de retrait [F, S31] |
 | Ressources | **Non conformes (code non indiqué)**. Colomine : 500 000 t de minerai, 1 867,42 kg d'or (presse/MINMIDT) [F, S14]. Mborguéné : 5 Mt à 1,89 g/t ; production visée 7 554 kg sur 10 ans [F, S31] |
@@ -328,7 +328,7 @@ finançabilité distinct**, affiché **à côté** de l'IOS (par exemple « IOS 
 | Stade | Premier forage terminé (21 trous, 1 053,8 m), annoncé le 22/07/2026 ; première estimation de ressource attendue fin T3 2026, **non trouvée** au 08/10/2026 [F/?, S34] |
 | Ressources | **Non disponible** (pas encore d'estimation) |
 | Infrastructure | Non documentée [?] |
-| Marché | Substitution du clinker importé : 2,4 Mt importées en 2023 pour 87,7 Md FCFA [F, S35]. Concurrence locale : usine de clinker de Figuil (Cimencam/Cimfig), 500 000 t/an, inaugurée le 12/06/2025 ; Cimencam détient des permis de marbre (Bidzar, Biou Sud, 2023) [F, S35] |
+| Marché | Substitution du clinker importé : 2,4 Mt importées en 2023 pour 87,7 Md FCFA [F, S35]. Concurrence locale : ligne CIMFIG de Figuil (Cimencam) : 1 000 t/jour de clinker et 500 000 t/an de ciment, en service depuis mars 2024, inaugurée le 12/06/2025 ; Cimencam détient des permis de marbre (Bidzar, Biou Sud, 2023) [F, S35] |
 | Capex public | Non publié ; modèle de redevance avec un partenaire cimentier recherché [F, S34] |
 | Risques | Pas de partenaire industriel signé ; échéance de licence [F/I, S34] |
 | Cadre | Substances de carrière / mines : régime à confirmer (décret 2024/05253/PM sur les carrières) [?] |
@@ -458,8 +458,8 @@ restitution (10 %).
 | V2 | Capex Stage 1 96 M$, VAN6 835 M$, TRI 29 % (DFS de septembre 2025) | S3 | Vérifié (secondaire citant le communiqué ASX) ; DFS intégrale non lue |
 | V3 | Suspension des tirages par AFG Bank Cameroon le 24/08/2026 | S5 ; mention concordante dans la communication d’A2MP (FilingReader, 02/09/2026 : https://filingreader.com/news-wire/sydney/2026-09-02/a2mp-urges-canyon-resources-takeover-acceptance-amid-valuation-dispute) | Vérifié (secondaire) ; communiqué ASX de Canyon non lu |
 | V4 | A2MP détenue par Eagle Eye Asset Holdings et FEDA Mining Investments | S4 (primaire, ASX 12/08/2026) | Vérifié (primaire) |
-| V5 | Résultat final de l'offre A2MP (clôture le 21/09/2026) | — | **Non vérifié** |
-| V6 | Convention de Camalco du 30/07/2024, 10 % pour l'État, 30 % de la production à l'industrie locale | S6 | Vérifié (presse) |
+| V5 | Offre A2MP caduque le 21/09/2026 ; A2MP revient à 55,56 % | Annonce ASX de Canyon et formulaire 604 d'A2MP (23/09/2026) | Vérifié (primaire) |
+| V6 | Convention de Camalco du 30/07/2024 ; 10 % pour l'État (vérifié, primaire : rapport annuel de Canyon, « Section 59 ») ; 30 % de la production proposée à l'industrie locale aux prix du marché | S6 | 10 % : vérifié (primaire) ; 30 % : presse, source unique (texte de la convention non public) |
 | V7 | Production d'Alucam : 53 675 t en 2025 | S8 | Vérifié (presse citant la Chambre des comptes) |
 | V8 | Sentence CCI d'environ 616 M$ en faveur de Sundance contre le Cameroun | S16 (Reuters via Engineering News) | Vérifié (agence) ; sentence non publiée |
 | V9 | Premières exportations de Mbalam | S11, S13 | **Non vérifié** (annoncées pour le T1 2026, non confirmées) |
@@ -468,7 +468,7 @@ restitution (10 %).
 | V12 | Ressource de Kribi-Lobé 632,8 Mt à ~33 % Fe | S18, S14 | Chiffre publié, **non conforme** |
 | V13 | Grand Zambi : inauguration le 22/09/2025 ; État à 10 % ; 150 Mt | S20 | Vérifié (presse) ; ressource non conforme |
 | V14 | Valorisation de Grand Zambi « 20 000 Md FCFA / 33,3 Md$ » | S20 | **Incohérent, rejeté** |
-| V15 | Retrait du permis de Geovic à Nkamouna (décret du 12/02/2025) | S22 | Vérifié (presse) ; une autre source donne le 25/02/2025 : **date à confirmer** au JO |
+| V15 | Retrait du permis de Geovic à Nkamouna (décret n° 2025/040 du 12/02/2025) | S22 ; texte du décret (prc.cm) | **Vérifié (primaire)** ; le 25/02/2025 (avis de la Sonamines cité par BIC) n'est pas la date du décret |
 | V16 | Appels à manifestation d'intérêt de la Sonamines (janvier 2026) pour Nkamouna et Akonolinga infructueux (18/08/2026) | S22, S23 | Vérifié (presse citant les communiqués) |
 | V17 | Accord Aeternum/ARM : 10 M$, 50,1 % (ou 51 %), échéance le 31/12/2026 | S22, S25 | Vérifié (presse + communiqué) ; divergence 50,1 / 51 % |
 | V18 | Eramet : sortie d'Akonolinga annoncée le 26/10/2023, ~180 M€ jugés non rentables | S26, S27 | Vérifié (presse) ⚠ > 2 ans |
@@ -478,7 +478,7 @@ restitution (10 %).
 | V22 | Colomine : 16,7 kg produits | S33 | Vérifié (presse citant un document de programme 2026) ; année couverte incertaine |
 | V23 | ITIE 2023 : 953 kg produits, 22,3 kg exportés, 15 194 kg importés par les partenaires | S30 | Vérifié (presse) ; **rapport ITIE non consulté directement** |
 | V24 | Wapouzé : forage terminé, ressource attendue au T3 2026 | S34 | Vérifié (RNS) ; ressource **non trouvée** |
-| V25 | Importations de clinker en 2023 : 2,4 Mt / 87,7 Md FCFA ; Figuil 500 kt/an | S35 | Vérifié (presse) |
+| V25 | Importations de clinker en 2023 : 2,4 Mt / 87,7 Md FCFA ; Figuil : 1 000 t/jour de clinker, 500 kt/an de ciment | S35 | Vérifié (presse) |
 | V26 | Annexe 2026-2030 : 1 748 Md FCFA (Mbalam 747 ; Grand Zambi 570 ; Kribi-Lobé 431) | S15 | Vérifié (presse citant l'annexe) ; nature (public/privé) **inconnue** |
 | V27 | Code 2023 : 10 % gratuits non diluables (+ jusqu'à 25 % à titre onéreux en mine industrielle, art. 47(4)) ; **8 décrets** des 18 et 19/11/2024 | Module 04 (§3, copies certifiées lues) ; S18 (n'en citait que 5) | Vérifié (module 04) ; harmonisé le 2026-10-08 |
 | V28 | Cadastre minier « opérationnel depuis 2017 » (cadrage) | S18, S40 ; module 03 (page de maintenance Landfolio) | **Contredit** : portail public hors service depuis le 03/11/2025 (vérifié par le module 03) |
@@ -492,7 +492,7 @@ restitution (10 %).
 
 ## 9. Inconnues (à lever en priorité)
 
-1. Issue de l'offre A2MP sur Canyon et décision d'AFG Bank après sa revue (O1).
+1. Décision d'AFG Bank après sa revue (reprise ou non des tirages) et financement de Canyon exigé d'ici décembre 2026 (O1). L'offre A2MP est devenue caduque le 21/09/2026.
 2. Résultats de l'étude de raffinerie d'alumine de Canyon (attendus au T3 2026) (O1).
 3. Contrat d'approvisionnement de l'alumine d'Alucam et origine 2024-2025 (2023 : connue, voir O2) ; part exacte de l'État (O2, **à arbitrer**).
 4. Première cargaison effective de Mbalam, de Grand Zambi et de Kribi-Lobé : aucune confirmée.
@@ -513,7 +513,7 @@ restitution (10 %).
 ## 10. Sources (consultées le 2026-10-08)
 
 Primaires (sociétés cotées) :
-- **S2** Canyon Resources, annonces ASX (ressources 1 027 Mt), avril 2025 : https://announcements.asx.com.au/asxpdf/20250404/pdf/06hcn46wqvg6v3.pdf ; janvier 2025 : https://announcements.asx.com.au/asxpdf/20250120/pdf/06dnvz1zhmfdmb.pdf
+- **S2** Canyon Resources, présentation ASX « Analyst site visit » d'avril 2025 (ressource antérieure de 1 027 Mt, remplacée par 1 102 Mt en 09/2025) : https://announcements.asx.com.au/asxpdf/20250404/pdf/06hcn46wqvg6v3.pdf ; janvier 2025 : https://announcements.asx.com.au/asxpdf/20250120/pdf/06dnvz1zhmfdmb.pdf
 - **S4** A2MP Investments FZCO, Bidder's Statement (déposé à l'ASX le 12/08/2026) : https://announcements.asx.com.au/asxpdf/20260812/pdf/072p26ylxsxxs5.pdf
 - **S10** Sundance Resources, annonces de ressources et réserves (2011-2015) : https://sdl.live.irmau.com/irm/PDF/2994_0/JORCReserveincrease ; https://sdl.live.irmau.com/irm/PDF/207f92ec-2e58-4cd3-981a-8ea58d21940c/HighGradeOreReservesIncreasedby24 (lu via résumé de recherche ; non relu en intégralité)
 - **S24** Geovic, annonce de l'étude de faisabilité 2011 (pièce SEC) : https://sec.gov/Archives/edgar/data/1398005/000119312511161283/dex991.htm (via résumé de recherche)
@@ -598,3 +598,4 @@ par WebFetch le 2026-10-08 ; scores recalculés par script.
   Eramet ; refus « par un comité d'investissement » ; séquence des reports de Grand Zambi (absente de S21).
 - **Non vérifiés ici** : S2, S3, S10, S24 (non rouverts) ; échantillon limité à ~15 affirmations.
 - **Harmonisation inter-modules (2026-10-08)** : Alucam aligné sur les modules 05-06 (100 kt/an ; alumine importée ; aucune raffinerie ; Comtrade 2023 : 135 347 t dont 76 655 t de Guinée) ; cadastre (C9, V28) et décrets (C11, V27 : 8 décrets) alignés sur les modules 03 et 04 ; Minim-Martap : formulation commune ; PEA de Bibemi intégrée (O8 : E 1 → 3, IOS 57 → 63, poids égaux 60 → 66, IC 5 → 6, rang 2) ; règle de conversion M06 → Market ajoutée (§ 3.3) et appliquée (O3 : M 4 → 3, IOS 42 → 40 ; O2 : M 3 → 4, IOS 52 → 55) ; retour du module 08 précisé (score de finançabilité distinct, § 3.6 et § 7) ; points de priorité 2 marqués « à arbitrer » ; sources S41-S46 ajoutées. Journal : `verification/harmonisation.md`.
+- **Arbitrages priorité 2 (2026-10-08)** : corrections factuelles des fiches uniquement, **sans modification des notes, IOS, rangs ni du tableau de scores** (recalcul séparé en attente) : Minim-Martap (ressource de 1 102 Mt en vigueur, 1 027 Mt antérieure ; 45,448 Md FCFA tirés sur la facilité AFG ; offre A2MP caduque le 21/09/2026, A2MP revenue à 55,56 % ; 10 % de l'État vérifiés en primaire) (`verification/arbitrage-minim-martap.md`) ; Alucam, Grand Zambi, Nkamouna (décret du 12/02/2025 vérifié en primaire), Mborguéné et Figuil (`verification/arbitrage-projets.md`). Journal : `verification/integration-priorite2.md`.

@@ -113,7 +113,7 @@
 | Secteur minier seul : PIB / exportations / budget | ~0,63 % / ~5 % / < 0,2 % | Non précisée | Étude pour l'AMDC (UA), financée par EU-TAF, via Business in Cameroon, 09/07/2025 | [F-presse] ; année de référence [?] |
 | Rentes minérales (Banque mondiale, NY.GDP.MINR.RT.ZS) | 0,04 % (2017) ; 0 (2018-2021) | 2017-2021 | API Banque mondiale | [F]. Ne couvre pas l'or artisanal non déclaré [I] |
 | Minerais et métaux en % des exportations de marchandises (TX.VAL.MMTL.ZS.UN) | 2,2 % | 2023 | API Banque mondiale | [F]. Inclut probablement l'aluminium d'Edéa, exclut l'or non monétaire [I] |
-| Or : production officielle / exportations officielles / importations déclarées par les partenaires | 953 kg / 22,3 kg / 15,2 t (essentiellement vers les Émirats) | 2023 | Rapport ITIE 2023 (presse) ; la page ITIE confirme l'écart 22,3 kg contre plus de 15 t | [F] pour l'écart ; [F-presse] pour 953 kg |
+| Or : production officielle / exportations douanières / importations déclarées par les partenaires | 952,77 kg / 22,31 kg / 15,2 t (EAU 14,05 t ; Ouganda 1,14 t) | 2023 | Rapport ITIE 2023, tableaux 48 et 57 ; UN Comtrade (08/10/2026). Le gouvernement compte 742,3 kg d'or taxé (SONAMINES) comme « officiellement recensé » | [F] |
 | Or remis au Trésor par SONAMINES (impôt synthétique) | 170,9 kg ≈ 5 milliards FCFA | 2023 | Presse, citant l'ITIE et SONAMINES | [F-presse] |
 | Pertes fiscales potentielles sur l'or | ≈ 165 milliards FCFA selon l'ITIE (autres estimations : 560 et 900 milliards) | 2023 | Presse | [F-presse] ; fortes divergences méthodologiques |
 | Statut ITIE | Suspendu (« inadequate stakeholder engagement ») par la décision 2024-17 du Conseil d'administration de l'ITIE du 29/02/2024 (annoncée le 01/03/2024) ; validation 2024 : 53 points ; prochaine validation à partir du 01/04/2027 | 2024- | ITIE ; Business in Cameroon | [F] / [F-presse] (date de 2027) |
@@ -427,3 +427,5 @@ Vérification croisée indépendante (rapport complet : `verification/verif-07-0
   payante ; le module 09 (« à titre onéreux ») était juste. Le module 08 a été corrigé.
 
 **Harmonisation inter-modules (2026-10-08)** : Alucam (capacité 100 kt/an, alumine importée, Comtrade 2023), décrets (8 décrets, module 04), « 18 000 / 300 » (objectif 2017 / bilan 2014-2019), statut ITIE (décision 2024-17 du 29/02/2024, annoncée le 01/03/2024), cadastre (module 03) et Minim-Martap (formulation commune) alignés sur les modules qui ont vérifié ; sources ajoutées. Journal : `verification/harmonisation.md`.
+
+**Arbitrages priorité 2 (2026-10-08)** : or 2023 : 952,77 kg / 22,31 kg (douane) / 15,2 t (miroir) sourcés sur l'ITIE et Comtrade, 742,3 kg d'or taxé recensé par SONAMINES signalés (`verification/arbitrage-or.md`). Journal : `verification/integration-priorite2.md`.

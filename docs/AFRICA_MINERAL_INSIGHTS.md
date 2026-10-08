@@ -205,9 +205,13 @@ Situation vérifiée :
 - **Alumine :** il n'existe **aucune raffinerie d'alumine** dans le pays. L'alumine est entièrement
   importée : 135 347 t en 2023, dont 76 655 t de Guinée (UN Comtrade). La chaîne nationale est
   donc **discontinue**.
-- **Bauxite :** Minim-Martap a des réserves JORC 2012 de 144 Mt. La première expédition, prévue au
-  T4 2026, est **reportée sans nouvelle date** depuis la suspension des tirages de la facilité AFG
-  Bank le 24/08/2026.
+- **Bauxite (Minim-Martap) :**
+  - ressource JORC 2012 de 1 102 Mt (estimation de juillet 2025, publiée avec la DFS le
+    01/09/2025) ; réserve de 144 Mt sèches à 51,2 % Al₂O₃ ;
+  - première expédition : S1 2026 dans la DFS, puis T3 et T4 2026. Elle est **reportée sans
+    nouvelle date** depuis la suspension des tirages de la facilité AFG Bank le 24/08/2026
+    (45,4 Md FCFA tirés sur 82 Md FCFA) ;
+  - l'offre d'A2MP sur Canyon est devenue caduque le 21/09/2026 (annonces ASX).
 - **Aval :** une capacité existe déjà (laminage) et un projet de bobines et câbles est annoncé.
 
 Question pour les participants : où se trouve la plus grande création de valeur (réponse
@@ -286,9 +290,14 @@ le 24/08/2026). Le financement par une institution de développement est donc pr
 **cible**, pas comme la norme.
 
 Sous-module ajouté : **contrôle des changes et architecture des comptes**. Contenu :
-- réglementation de change CEMAC applicable au secteur extractif ;
-- obligation de rapatriement de 35 %, portée à 50 % en 2027 puis 70 % en 2028 selon l'instruction
-  BEAC 001/GR/2026. Le terme exact et les sanctions restent à arbitrer sur le texte officiel ;
+- réglementation de change CEMAC : règlement n° 02/18/CEMAC/UMAC/CM du 21/12/2018 et, pour le
+  secteur extractif, règlement n° 01/CEMAC/UMAC/CM du 23/12/2021. Ce dernier exempte l'exploration
+  et les prêts adossés aux ressources. Il soumet les comptes en devises à l'accord préalable de la
+  BEAC. Il prévoit une amende de 150 % qui ne vise que les fonds de réhabilitation ;
+- **rapatriement** des recettes d'exportation (terme officiel ; « rétrocession » désigne autre
+  chose) : 35 %, porté à 50 % au 01/01/2027 puis 70 % au 01/01/2028 par l'instruction BEAC
+  n° 001/GR/2026 du 23/04/2026. Les fonds de réhabilitation sont exclus et l'instruction ne prévoit
+  pas de sanction propre (textes officiels lus, voir `verification/arbitrage-beac.md`) ;
 - fonds de restauration en séquestre à la Banque centrale (art. 192) ;
 - participation de l'État (art. 47) et son financement.
 
@@ -352,13 +361,24 @@ niveau de détail réaliste de chaque module.
    À régler avant toute exploitation commerciale.
 5. **Scores composites** : publier la méthode, les pondérations et les sources ; distinguer données
    vérifiées, estimations et jugements d'experts.
-6. **Arbitrages nécessitant une nouvelle source** (rapport de cohérence, priorité 2) :
-   - libellé exact de l'instruction BEAC 001/GR/2026 ;
-   - séries d'exportation d'or (gouvernement contre DGD/ITIE) ;
-   - ressource de Minim-Martap (1 102 ou 1 027 Mt) et montant tiré sur la facilité AFG ;
-   - capacité de Grand Zambi ;
-   - part de l'État dans Alucam ;
-   - ressources de Nkamouna.
+6. **Arbitrages de priorité 2** : faits et sources dans `docs/cameroon/verification/arbitrage-*.md`.
+
+   Tranchés :
+   - instruction BEAC (voir module 08) ;
+   - séries d'or : les 1,897 t sur 2021-2025 sont une série hybride (douane en 2021-2022, or
+     recensé par SONAMINES en 2023-2025). La douane seule donne environ 148 kg sur 5 ans ;
+   - Minim-Martap (voir module 05) ;
+   - Alucam : 93,4 % à l'État en 2014, environ 94 % de part publique en 2025 (État + SNI) ;
+   - Nkamouna : décret n° 2025/040 du 12/02/2025, ressources NI 43-101 de 2011.
+
+   Restent ouverts :
+   - capacité de Grand Zambi (1,3 à 6 Mt/an selon la source) ;
+   - clauses de 15 % / 30 % de Minim-Martap (absentes des documents de Canyon) ;
+   - exportations d'or vers les EAU en 2024-2025 (absentes de Comtrade) ;
+   - taux de 70 % pour les autres assujettis (instruction BEAC 003/GR/2019, non lue).
+
+   Scores du module 07 : un recalcul indépendant propose 6 corrections de notes. Application en
+   attente de validation.
 7. **Homogénéité des modules** : adopter une convention unique de statuts de vérification, de
    format de sources et de dates (rapport de cohérence, section 5).
 

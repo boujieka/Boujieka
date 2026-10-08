@@ -124,7 +124,7 @@ Lecture **[I]** :
 | Clinker (SH 2523.10) | 2 411 856 t ; 145,8 M USD (Comtrade) ; 87 721 M FCFA (INS) | 2 577 294 t (+6,9 %) ; 84 867 M FCFA | Égypte 42,5 ; Espagne 21,0 ; Algérie 20,7 ; Nigeria 13,1 ; Maroc 12,6 ; Arabie saoudite 8,6 ; Turquie 7,5 ; Congo 7,3 |
 | Aluminium et ouvrages (importations) | 15 694 t ; 31 448 M FCFA (INS) | 17 679 t ; 41 412 M FCFA | — |
 
-Selon l'INS, le clinker représente 1,7 % des dépenses d'importation de 2024 **[F]**. Une usine de clinker de Cimencam (1 000 t/jour, Figuil) aurait démarré en mars 2024 **[F-sec]** (Ecomatin, via résultats de recherche).
+Selon l'INS, le clinker représente 1,7 % des dépenses d'importation de 2024 **[F]**. La ligne de clinker de CIMFIG (filiale de Cimencam) à Figuil, de 1 000 t/jour de clinker et 500 000 t/an de ciment, est en service depuis mars 2024 et a été inaugurée le 12/06/2025 **[F-sec]** (EcoMatin, 13/06/2025 ; Business in Cameroon, 13/06/2025).
 
 ### 4.5 Exportations de ciment et de tôles vers la région — 2023 (Comtrade) [F]
 
@@ -202,7 +202,7 @@ Prix : World Bank Pink Sheet (CMO Historical Data, mise à jour du 2026-10-02), 
 | 2021 | 73,0 kg (ITIE) | 39,8 kg ; 0,78 M USD | **5 602 kg ; 312,2 M USD** (ITIE : 5 600) | EAU 4 809 ; Rwanda 791 ; Turquie 2 |
 | 2022 | 47,9 kg (ITIE) | 3,45 kg ; 0,10 M USD | **4 820 kg ; 278,8 M USD** (ITIE : 4 819) | EAU 4 708 ; Rwanda 112 |
 | 2023 | **22,31 kg ; 904,14 M FCFA FOB** (DGD/ITIE) | ≈ 20 kg ; 0,67 M USD | **15 195 kg ; 951,4 M USD** (ITIE : 15 194 kg ; 951 M USD) | **EAU 14 048 kg (879,7 M USD)** ; **Ouganda 1 145 kg (71,6 M USD)** ; Pérou 1 ; Portugal 1 |
-| 2024 | ND | ND (non publié) | **≥ 9 942 kg ; 661,3 M USD (incomplet)** | Rwanda 6 746 kg (413,1 M USD) ; Ouganda 3 197 kg (248,2 M USD) ; **EAU non publiés** |
+| 2024 | 3,8 kg (douane, selon SONAMINES ; presse) ; 644,42 kg d'or taxé (SONAMINES) | ND (non publié) | **≥ 9 942 kg ; 661,3 M USD (incomplet)** | Rwanda 6 746 kg (413,1 M USD) ; Ouganda 3 197 kg (248,2 M USD) ; **EAU absents de Comtrade** (12,2 t selon les statistiques émiraties compilées par SONAMINES, non vérifié) |
 
 Sources : Comtrade, requêtes du 2026-10-08 **[F]** ; ITIE Cameroun, *Rapport ITIE 2023*, p. 145–146 et tableau 57 **[F]** ; INTERPOL 2021 **[F]**.
 
@@ -214,7 +214,7 @@ Sources : Comtrade, requêtes du 2026-10-08 **[F]** ; ITIE Cameroun, *Rapport IT
   - 22,31 kg exportés en 2023. Henza Gem's a expédié 19,96 kg vers les EAU, et Cameroun Metal 1 000 g vers les EAU. *(Contre-vérification : le tableau 57 attribue 456,61 M FCFA aux 1 000 g de Cameroun Metal, contre 379,76 M FCFA aux 19,96 kg d'Henza Gem's ; la valeur unitaire du premier lot est aberrante — erreur de quantité ou de valeur probable dans la source [I].)*
   - D'après Comtrade, 15 194 kg ont été importés par les partenaires, dont environ 92 % par les EAU et environ 8 % par l'Ouganda.
   - Sur 2020–2023, le total Comtrade est de 30 915 kg contre 175,8 kg d'exportations officielles.
-  - Environ 1 t de production artisanale formelle et environ 30 kg de production industrielle « ne figurent dans aucun flux d'exportation formel ».
+  - Environ 1 t de production artisanale formelle (952,77 kg constatés par SONAMINES) et près de 30 kg de production industrielle « ne figurent dans aucun flux d'exportation formel ». Les 30 kg sont une **estimation** de l'ITIE (1,505 kg perçus par SONAMINES à Colomine = 5 % de la production) : aucune production industrielle n'a été **déclarée** en 2023 (p. 139-140).
   - Pertes fiscales potentielles : environ **165 Mds FCFA**.
   - Facteurs cités : fiscalité (ISML 25 %, taxe à l'exportation 3,75 %, taxes locales), circuits parallèles, comptoirs non agréés. Le rapport cite aussi la saisie de 30,5 kg à l'aéroport de Yaoundé-Nsimalen en novembre 2023.
 - **INTERPOL, *Illegal Gold Mining in Central Africa*** (2021) **[F]** :
@@ -410,7 +410,7 @@ Critères d'évaluation **[H]** : traçabilité des sources, distinction F / I /
 | V22 | Exportation de fer de Grand Zambi en attente ; Kribi sans terminal minéralier dédié | Financial Afrik (février 2026), via recherche | **Vérifié (secondaire)**. Situation au 2026-10-08 **non vérifiée** |
 | V23 | Grand Zambi inaugurée le 22 septembre 2025 | Presse (via recherche) | **Vérifié (secondaire)** |
 | V24 | Alucam, unique producteur d'aluminium brut | Ecomatin (via recherche) | **Vérifié (secondaire)** |
-| V25 | Usine de clinker Cimencam à Figuil (1 000 t/jour, mars 2024) | Ecomatin (via recherche) | **Non vérifié** à la source |
+| V25 | Usine de clinker Cimencam à Figuil (1 000 t/jour, mars 2024) | EcoMatin (13/06/2025) ; BIC (13/06/2025) | **Vérifié (secondaire concordante)** ; inaugurée le 12/06/2025 |
 | V26 | Tirant d'eau du terminal polyvalent de Kribi : 16 m (2019) ; port dragué à 15 m (2025) | Presse 2019 ; Lettre du PAK (via recherche) | **Non vérifié** (sources anciennes et divergentes) |
 | V27 | Accès préférentiel UE pour le Cameroun (APE intérimaire) | — | **Non vérifié** |
 | V28 | Statut de suspension ITIE du Cameroun | eiti.org/countries/cameroon (« Suspended for inadequate stakeholder engagement ») ; décision 2024-17 du 29 février 2024 | **Vérifié** (contre-vérification) |
@@ -523,3 +523,5 @@ d'alumine : 135 kt en 2023, pas « par an » ; (5) V28 (suspension ITIE) et V18 
 INTERPOL ; SWISSAID.
 
 **Harmonisation inter-modules (2026-10-08)** : C7 et V30 supprimés (l'affirmation « sections 04 et 05 absentes du cadrage » était fausse) ; Minim-Martap : formulation commune du calendrier ; règle de conversion des notes de la matrice vers le critère « Market » du module 07 ajoutée au § 9 (arrondi à l'entier, même note pour un même produit × marché). Journal : `verification/harmonisation.md`.
+
+**Arbitrages priorité 2 (2026-10-08)** : or : 30 kg de production industrielle requalifiés en estimation de l'ITIE (aucune production industrielle déclarée en 2023) ; ligne 2024 complétée (3,8 kg en douane ; 644,42 kg d'or taxé ; EAU absents de Comtrade) (`verification/arbitrage-or.md`) ; clinker de Figuil (CIMFIG, 1 000 t/jour, en service depuis mars 2024, inauguré le 12/06/2025 ; V25 vérifié en secondaire concordante) (`verification/arbitrage-projets.md`). Journal : `verification/integration-priorite2.md`.

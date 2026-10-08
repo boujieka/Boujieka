@@ -48,10 +48,10 @@ entrée d'un partenaire stratégique.
 
 **Les quatre contraintes pays à intégrer dans toute structure** (faits vérifiés, détaillés en §4) :
 1. **Change CEMAC** : règlement n° 02/18/CEMAC/UMAC/CM du 21 décembre 2018 (en vigueur au
-   1er mars 2019) ; règlement UMAC du 23 décembre 2021 propre aux entreprises extractives ;
-   comptes en devises sur autorisation de la BEAC ; taux de rétrocession des devises des
+   1er mars 2019) ; règlement n° 01/CEMAC/UMAC/CM du 23 décembre 2021 propre aux entreprises extractives ;
+   comptes en devises sur autorisation de la BEAC ; taux de rapatriement des devises des
    extractifs de 35 %, porté à **50 % au 1er janvier 2027 et 70 % au 1er janvier 2028**
-   (instruction BEAC n° 001/GR/2026 du 23 avril 2026, source secondaire) ; **fonds de
+   (instruction BEAC n° 001/GR/2026 du 23 avril 2026, texte officiel) ; **fonds de
    réhabilitation obligatoirement logés en compte séquestre à la Banque centrale** (art. 192 du
    code minier 2023).
 2. **Risque souverain** : Moody's Caa1 stable (revue achevée en août 2026) ; S&P B-/B stable
@@ -85,8 +85,8 @@ factuelles ; il fixe surtout une méthode. Points vérifiés, corrigés ou à co
 | # | Ce que dit le cadrage | Constat | Action |
 |---|---|---|---|
 | 1 | Chaîne `Sponsor Equity + Strategic Investor + DFI Debt + Commercial Debt + Offtake Financing (+ Blended Finance) → Financial Close` | Juste comme typologie, mais **trompeur comme description du Cameroun** : aucun précédent public de dette DFI ou ECA occidentale sur une mine camerounaise n'a été trouvé (IFC, MIGA, Proparco : rien dans les résultats ; voir §12). Les précédents réels sont la **dette bancaire locale en FCFA** et les **fonds propres d'actionnaires de contrôle**. | Ajouter deux briques : **dette bancaire locale/régionale (FCFA), avec refinancement BEAC** et **royalty / streaming**. Présenter la DFI comme une cible, pas comme la norme. |
-| 2 | « risque de change (franc CFA BEAC / dollar) » | Incomplet. Le risque principal n'est pas seulement le change : c'est la **réglementation des changes** (rétrocession de 35 %, puis 50 % en 2027 et 70 % en 2028 ; comptes en devises soumis à autorisation ; séquestre BEAC pour les fonds de réhabilitation). Elle touche directement les **comptes offshore des prêteurs** (comptes de recettes, DSRA), qui sont la norme en financement de projet. | Ajouter un sous-module « contrôle des changes et architecture des comptes ». |
-| 3 | « participation de l'État et son financement » | À préciser : l'art. 47 du code 2023 prévoit **10 % gratuits non diluables** et la possibilité d'acquérir **jusqu'à 25 % supplémentaires pour une mine industrielle** (10 % pour une petite mine, lecture du module 04) ; l'art. 47(4) précise que cette augmentation se fait « à titre onéreux » et « d'accord parties » (texte FAOLEX relu lors de la contre-vérification ; Ecomatin, 2026, parle aussi de prises de participation « payantes »). Le DFS de Canyon renvoie à une « Section 59 » pour les 10 % : **numérotation divergente à vérifier** sur le Journal officiel. | Traiter le portage comme un **coût pour les sponsors** (modélisé en §8) et la part supplémentaire, payante, comme un besoin de financement de l'État dont les modalités sont inconnues. |
+| 2 | « risque de change (franc CFA BEAC / dollar) » | Incomplet. Le risque principal n'est pas seulement le change : c'est la **réglementation des changes** (rapatriement de 35 %, puis 50 % en 2027 et 70 % en 2028 ; comptes en devises soumis à autorisation ; séquestre BEAC pour les fonds de réhabilitation). Elle touche directement les **comptes offshore des prêteurs** (comptes de recettes, DSRA), qui sont la norme en financement de projet. | Ajouter un sous-module « contrôle des changes et architecture des comptes ». |
+| 3 | « participation de l'État et son financement » | À préciser : l'art. 47 du code 2023 prévoit **10 % gratuits non diluables** et la possibilité d'acquérir **jusqu'à 25 % supplémentaires pour une mine industrielle** (10 % pour une petite mine, lecture du module 04) ; l'art. 47(4) précise que cette augmentation se fait « à titre onéreux » et « d'accord parties » (texte FAOLEX relu lors de la contre-vérification ; Ecomatin, 2026, parle aussi de prises de participation « payantes »). Le DFS de Canyon renvoie à une « Section 59 » pour les 10 % : il s'agit de l'art. 59 de l'ancien code (loi n° 2016/017, abrogée par l'art. 200 du code de 2023), dont le contenu est le même (10 % gratuits ; jusqu'à 25 % d'accord parties). Il n'y a pas de contradiction avec l'art. 47. | Traiter le portage comme un **coût pour les sponsors** (modélisé en §8) et la part supplémentaire, payante, comme un besoin de financement de l'État dont les modalités sont inconnues. |
 | 4 | « normes environnementales et sociales exigées par les prêteurs » | Juste. À compléter par une contrainte locale : le **fonds de restauration** doit être logé en **compte séquestre à la Banque centrale** (art. 192), ce qui empêche de le mettre en garantie au profit des prêteurs offshore. | Intégrer au tableau des risques (§7). |
 | 5 | Ratios : DSCR, LLCR, part de dette, TRI des fonds propres | Juste. Manquent : **PLCR**, **dimensionnement de la dette par sculptage**, **DSRA**, **lock-up de distributions**, **test d'achèvement** (completion test). | Ajoutés en §8. |
 | 6 | « Projet réel au module 08 : risques de confidentialité et de réputation. Par défaut, utiliser un projet stylisé » | Confirmé et renforcé : les deux grands projets publics sont en **contentieux ou en tension** (Mbalam : sentence CCI d'environ 616 M USD en faveur de Sundance contre le Cameroun, juillet 2026 ; Minim-Martap : tirages AFG suspendus le 24 août 2026, offre publique d'A2MP). Les utiliser comme cas « à financer » exposerait le programme à un risque de réputation. | Les garder **uniquement comme précédents** (§3). |
@@ -105,12 +105,12 @@ Statuts : **V** = fait vérifié dans la source citée ; **S** = vérifié, sour
 | Projet (substance) | Qui a financé quoi | Instrument | Montant | Date | Statut | Source |
 |---|---|---|---|---|---|---|
 | Minim-Martap (bauxite), Canyon Resources / Camalco Cameroon | AFG Bank Cameroon → Camalco | Facilité de crédit (présentée ensuite comme syndiquée) pour le rail, le matériel roulant et le port ; 8 % fixe HT, 8 ans ; sûretés sur concessions, équipements, comptes projet, créances futures ; garanties de Canyon et d'A2MP | 82 Md FCFA (≈ 140 M USD) | Annoncée le 26 mai 2025 | S | [1], [2] |
-| idem | AFG Bank : **suspension des tirages** en attendant une revue du calendrier, du modèle financier et des hypothèses, plus une visite de site | Événement de crédit (pas une annulation selon l'article) | ≈ 75 M USD tirés au 31 juillet 2026 | 24 août 2026 | S | [2] |
+| idem | AFG Bank : **suspension des tirages** en attendant une revue du calendrier, du modèle financier et des hypothèses, plus une visite de site | Événement de crédit (pas une annulation selon l'article) | 45,448 Md FCFA (≈ 75 M USD) tirés au 30 juin 2026, sans tirage ultérieur ; 36,551 Md FCFA non tirés au 24 août 2026 (rapport annuel de Canyon) | 24 août 2026 | S | [2] |
 | idem | Eagle Eye Asset Holdings (actionnaire de contrôle), Afriland (Afriland Bourse & Investissement) | Placement en deux tranches + exercice d'options ; tranche 2 (100 M AUD Eagle Eye + jusqu'à 70 M AUD Afriland) soumise à l'assemblée | 215 M AUD (≈ 142 M USD) annoncés | 26 sept. 2025 | S | [3] |
 | idem | Actionnaires de Canyon | **Rejet** des placements d'environ 170 M AUD à Eagle Eye et Afriland | — | Mars 2026 | S | [2] |
 | idem | A2MP Investments (97,3 % Eagle Eye) | Offre publique à 0,05 AUD/action ; A2MP détenait 55,56 % avec ses associés | — | Lancée le 29 juillet 2026 | S | [2], [5] |
 | idem | Canyon → Jefferies | Mandat pour rechercher des financements adossés à l'offtake, des **prépaiements clients**, des partenariats et des fonds propres | — | Août 2026 | S | [2] |
-| idem | Afreximbank (via le FEDA) avec Eagle Eye | Proposition d'acquisition d'une participation supplémentaire de 44,44 % | 45,8 M AUD | Juillet ; annulation signalée le 20 sept. | **NV** (titre d'une page de MarketScreener seulement) | [3] |
+| idem | A2MP (Eagle Eye 97,3 %, FEDA/Afreximbank 2,7 %) | Même offre que la ligne précédente, enregistrée par MarketScreener comme une acquisition de 44,44 % (100 − 55,56) pour 45,8 M AUD (916,3 M d'actions × 0,05 AUD) ; offre caduque le 21 sept. 2026 | 45,8 M AUD | 29 juil.-21 sept. 2026 | **P** (ASX, 23/09/2026) | [3] |
 | Grand-Zambi (fer), G-Stones Resources (contrôlée par Dieudonné Bougne) | Afriland First Bank (chef de file) 16,5 ; BGFI Bank Cameroun 8,1 ; UBA 6,6 ; CBC 5,7 ; CCA Bank 4,1 (Md FCFA) | Prêts bancaires syndiqués refinancés par le **guichet B de la BEAC**, sous condition d'apport en fonds propres porté à 27,5 Md FCFA | 41,2 Md FCFA (≈ 74,4 M USD), soit 60 % d'un coût estimé à 68,7 Md FCFA | Approbation BEAC le 15 déc. 2025 ; articles de février 2026 | S | [12], [13] |
 | Mbalam-Nabeba (fer), Sundance / Hanlong | China Development Bank et Everbright Bank (term sheets exigés pour l'OPA de Hanlong) | Dette d'acquisition et de projet chinoise, **jamais émise** ; Pékin refuse de financer en février 2013 ; accord rompu en avril 2013 | Projet estimé à 4,6 Md USD (mine, port en eau profonde, 510 km de rail) | 2011-2013 | V pour le coût et la rupture [8] ; NV pour le rôle de CDB et d'Everbright (résumé de recherche seulement) | [8] |
 | Mbalam (fer), Cameroon Mining Company (CMC) | Permis d'exploitation attribué à CMC, jugé lié au même groupe que Sangha Mining ; financement **non publié** | — | Plan national 2026-2030 : 747 Md FCFA pour Mbalam | Permis 2022 ; premières exportations repoussées au T1 2026 (annonce de déc. 2025) | S ; financement : Inconnu | [9], [21], [24] |
@@ -155,20 +155,20 @@ Statuts : **V** = fait vérifié dans la source citée ; **S** = vérifié, sour
   du Trésor français (65 % avant 2007). La réforme de 2019 a supprimé ce dépôt pour l'UEMOA,
   **pas pour la CEMAC** [28].
 - **Règlement n° 02/18/CEMAC/UMAC/CM du 21 décembre 2018** sur la réglementation des changes,
-  entré en vigueur le 1er mars 2019 ; premières instructions d'application le 10 juin 2019 [29]
-  (source secondaire). Son **art. 183** permet à la BEAC d'ouvrir, au nom de l'État et de
+  entré en vigueur le 1er mars 2019 (art. 195) ; premières instructions d'application le 10 juin 2019 [29]
+  (texte officiel BEAC consulté). Son **art. 183** permet à la BEAC d'ouvrir, au nom de l'État et de
   l'exploitant, des comptes en devises ou en FCFA pour y domicilier les fonds de réhabilitation
   [30].
-- **Règlement UMAC du 23 décembre 2021** sur les entreprises extractives. Sa numérotation varie
-  selon les sources (« n° 01/CEMAC/UMAC/CM » dans l'instruction de 2026 ; « 01/21 » ailleurs) :
-  **Non vérifié** sur le texte officiel. Selon la presse [31] :
+- **Règlement n° 01/CEMAC/UMAC/CM du 23 décembre 2021** sur les entreprises extractives (texte
+  officiel consulté ; la forme « 01/21 » est erronée). Un règlement n° 02/CEMAC/UMAC/CM du même
+  jour rend insaisissables les comptes en devises des extractifs. Le règlement n° 01 prévoit :
   - rapatriement des avoirs en devises détenus hors CEMAC ;
-  - taux de rétrocession de **35 %** pour les extractifs, contre 70 % pour les autres agents ;
-  - **exemption** pour les recettes de la phase d'exploration et pour les contrats de **prêts
+  - taux plancher de **rapatriement** de **35 %** pour les extractifs (art. 2), relevable par instruction (art. 3). Le chiffre de 70 % « pour les autres agents » cité par la presse correspond à la rétrocession des banques à la BEAC, une notion différente ;
+  - **exemption** (art. 4) pour les recettes de la phase d'exploration et pour les contrats de **prêts
     adossés aux ressources** (resource-backed loans) ;
-  - fonds de réhabilitation constitués avant l'entrée en vigueur à transférer dans un **compte
-    séquestre à la BEAC** sous trois ans ;
-  - sanctions pouvant atteindre **150 %** des sommes non domiciliées (art. 8) ;
+  - fonds de réhabilitation constitués hors CEMAC à rapatrier sous trois ans à compter du
+    1er janvier 2022 (art. 5) ; ceux qui sont logés dans une banque de la CEMAC sont transférés à la BEAC sous 12 mois (art. 7) ; dépôt sur un **compte ouvert dans les livres de la BEAC** au nom de l'État et de l'entreprise (art. 6) ;
+  - amende de **150 %** des fonds de réhabilitation non domiciliés ou non rapatriés, plus une astreinte de 1/1000e par mois de retard (art. 8). Elle ne s'applique pas au rapatriement des recettes, qui relève des amendes du règlement n° 02/18 (art. 20) ;
   - comptes en devises **interdits par principe aux résidents** (instruction n° 005/GR/2019),
     ouverts aux extractifs **par exception et sur autorisation préalable de la BEAC**.
 - **Instructions BEAC de 2022** propres aux extractifs (importations, exportations, comptes en
@@ -177,7 +177,7 @@ Statuts : **V** = fait vérifié dans la source citée ; **S** = vérifié, sour
 - **Instruction BEAC n° 001/GR/2026 du 23 avril 2026** : taux de rapatriement des devises
   générées par les extractifs porté de 35 % à **50 % au 1er janvier 2027** puis **70 % au
   1er janvier 2028**. Les sommes affectées aux fonds de réhabilitation en sont exclues [32]
-  (source secondaire).
+  (texte officiel BEAC consulté).
 - **Fonds RES (restauration des sites)** : les chefs d'État ont réaffirmé l'application intégrale
   de la réglementation et la signature des conventions de séquestre lors du sommet extraordinaire
   de Brazzaville le 22 janvier 2026. Stock estimé à 3 000-6 000 Md FCFA, aujourd'hui logé dans
@@ -191,7 +191,7 @@ Statuts : **V** = fait vérifié dans la source citée ; **S** = vérifié, sour
 **Conséquences pour la structuration (inférences)**
 - L'architecture standard du financement de projet, avec compte de recettes offshore, cascade de
   paiements gérée par un agent offshore et DSRA offshore, entre en tension directe avec
-  l'obligation de rétrocession, qui passera à 70 % en 2028. Il faudra donc soit **négocier dans la
+  l'obligation de rapatriement, qui passera à 70 % en 2028. Il faudra donc soit **négocier dans la
   convention minière** (art. 40) un régime de comptes compatible avec la BEAC, soit obtenir une
   **autorisation BEAC** pour des comptes séquestres dédiés au service de la dette, soit structurer
   une partie de la dette comme **prêt adossé aux ressources ou prépaiement**, si l'exemption
@@ -352,7 +352,7 @@ produit un score de finançabilité distinct (§10).
 
 | Instrument | Couvre | Pertinence au Cameroun (fait ou inférence) |
 |---|---|---|
-| **MIGA** (Groupe Banque mondiale) | Expropriation, transfert / inconvertibilité, rupture de contrat, guerre et troubles civils | **Fait** : MIGA a couvert les fonds propres d'EDF et de Stoa dans Nachtigal (164,5 M EUR, rupture de contrat, jusqu'à 15 ans) [27]. Aucun précédent minier trouvé. La couverture du risque de **transfert** est très pertinente vu la rétrocession. |
+| **MIGA** (Groupe Banque mondiale) | Expropriation, transfert / inconvertibilité, rupture de contrat, guerre et troubles civils | **Fait** : MIGA a couvert les fonds propres d'EDF et de Stoa dans Nachtigal (164,5 M EUR, rupture de contrat, jusqu'à 15 ans) [27]. Aucun précédent minier trouvé. La couverture du risque de **transfert** est très pertinente vu l'obligation de rapatriement. |
 | **ATI** (African Trade Insurance Agency, aujourd'hui ATIDI) | Risque politique, risque de crédit | **Fait** : Cameroun membre depuis le 7 octobre 2021 [39]. Produits détaillés pour le Cameroun : **NV**. |
 | Assurance contre le risque politique privée (marché de Londres) | Comme MIGA, durées plus courtes | Inférence : complément ; coût élevé vu Caa1 / B- / B. |
 | Garantie d'achèvement des sponsors | Risque de construction et de démarrage | Indispensable (sensibilité « retard » en §8). Précédent AFG : garanties de Canyon et d'A2MP [2]. |
@@ -372,10 +372,10 @@ produit un score de finançabilité distinct (§10).
 | Prix (bauxite CIF, prime de qualité) | É | É | Fonds propres, puis prêteurs | Plancher dans l'offtake, prépaiement, sculptage, DSRA | A2MP invoque une prime en baisse et un projet « potentiellement non viable » [2] |
 | Fret maritime | M | É | Fonds propres | Contrat de fret, vente FOB plutôt que CIF | Le fret est le 2e poste du DFS (17 USD/t) [4] ; A2MP invoque la hausse des coûts logistiques [2] |
 | Logistique (rail, port, dragage) | É | É | Sponsor, opérateur ferroviaire | Accord d'accès ferroviaire avec engagements de capacité, garantie de l'État sur l'infrastructure | Canyon : dragage de Douala et transbordement encore à l'étude [2] ; Kribi sans terminal minéralier dédié [13] |
-| Construction (retard, dépassement) | É | É | Sponsor (garantie d'achèvement) | Contrat EPC forfaitaire, réserve pour imprévus, standby equity | Minim-Martap : 1re expédition visée d'abord au S1 2026 [2], puis fin septembre (T3) et au T4 2026 ; **reportée sans nouvelle date après la suspension des tirages de la facilité AFG Bank le 24 août 2026** [2], [44], [45] ; aucune expédition confirmée au 8 octobre 2026 |
+| Construction (retard, dépassement) | É | É | Sponsor (garantie d'achèvement) | Contrat EPC forfaitaire, réserve pour imprévus, standby equity | Minim-Martap : 1re expédition visée d'abord au S1 2026 (DFS, 09/2025) [4], puis au T3 2026 (ASX, 11/03/2026) et au T4 2026 (ASX, 26/06/2026) ; **reportée sans nouvelle date après la suspension des tirages de la facilité AFG Bank le 24 août 2026** [2], [44], [45] ; aucune expédition confirmée au 8 octobre 2026 |
 | Montée en cadence | M | M | Sponsor, puis prêteurs | Test d'achèvement, grâce suffisante | — |
 | Change (USD/FCFA) | M | M | Fonds propres | Dette locale limitée aux coûts en FCFA, couverture EUR/USD | Parité fixe EUR [28] |
-| Transfert et convertibilité, rétrocession | M | É | Prêteurs offshore | MIGA/ATI, convention minière (art. 40), autorisation de la BEAC | Rétrocession à 50 % en 2027, 70 % en 2028 [32] |
+| Transfert et convertibilité, rapatriement | M | É | Prêteurs offshore | MIGA/ATI, convention minière (art. 40), autorisation de la BEAC | Rapatriement à 50 % en 2027, 70 % en 2028 [32] |
 | Titre minier / expropriation / rupture de contrat | M | É | Tous | Convention minière avec arbitrage international, MIGA, stabilité de l'art. 149 | Sentence Sundance ≈ 616 M USD [10] ; 53 permis d'exploration aurifère annulés (juil. 2026) [38] |
 | Changement fiscal ou de participation (35 %) | M | M | Fonds propres | Stabilité de l'art. 149 (15 ans au plus), clauses de compensation | Objectif de 35 % de la SONAMINES [40] |
 | Contrepartie bancaire locale | M | M | Sponsor | Diversifier le syndicat, prévoir des engagements de *cure* | Suspension des tirages AFG [2] |
@@ -628,7 +628,7 @@ tomber le service de la dette sur une année sans production.
 | Séance | Contenu | Livrable intermédiaire |
 |---|---|---|
 | 1. Paysage du financement | Précédents du §3 ; lecture critique de deux annonces (prêt AFG, suspension des tirages) : qu'a-t-on appris sur les sûretés, la durée, les garanties ? Distinguer financement d'entreprise, financement de projet à recours limité et dette garantie par les sponsors. | Fiche « 3 leçons des précédents », chaque fait étant sourcé |
-| 2. Contraintes pays | Change BEAC (comptes, rétrocession, séquestre), notation, État actionnaire, banques locales. Exercice : dessiner l'**architecture des comptes** (onshore, offshore, séquestre BEAC) compatible avec la rétrocession de 70 % en 2028. | Schéma des comptes et liste des points à négocier dans la convention minière (art. 40) |
+| 2. Contraintes pays | Change BEAC (comptes, rapatriement, séquestre), notation, État actionnaire, banques locales. Exercice : dessiner l'**architecture des comptes** (onshore, offshore, séquestre BEAC) compatible avec le rapatriement de 70 % en 2028. | Schéma des comptes et liste des points à négocier dans la convention minière (art. 40) |
 | 3. Modèle et structure | Prise en main du modèle (§8.2) ; construction d'emplois-ressources alternatifs (avec ou sans DFI, avec royalty, avec État à 35 %). | 2 structures alternatives chiffrées |
 | 4. Cas prêteur et sensibilités | Définir un cas prêteur (par exemple CIF −10 %, coûts +5 %) ; sculpter la dette pour un DSCR de 1,35 dans ce cas ; tester un retard de 12 mois et EUR/USD à 1,30 ; calculer le PLCR. | Tableau de sensibilités et dette maximale soutenable |
 | 5. Comité de crédit simulé | Groupes : sponsor, DFI, banque locale, négociant, État/SONAMINES, assureur du risque politique. Négociation des term sheets ; vote. | **Indicative Mining Financing Structure** finale |
@@ -663,7 +663,7 @@ suffisent si les livrables des modules 04 et 07 sont faibles.
 |---|---|
 | **09 National Strategy** | (i) **Besoins de financement** par type de projet (ordre de grandeur des capex, part finançable localement) ; (ii) **réformes qui débloquent le financement** : régime des comptes en devises pour le service de la dette, clarification de l'exemption pour les prêts adossés aux ressources, statut du séquestre BEAC, financement de la participation de la SONAMINES, rôle du guichet B de la BEAC ; (iii) **risque de réputation de l'État** (sentence Sundance) et son effet sur le coût du capital ; (iv) arbitrage entre exportation brute et transformation : la faible marge FOB de la bauxite brute (§8) plaide pour analyser la transformation (module 05) avec un profil de financement différent (capex plus lourd, marché de l'alumine) ; (v) phase « Enable 2027-2030 » : « cadre de financement » = les items (ii). |
 | **07 Investment Pipeline** (retour) | Un **score de finançabilité distinct**, affiché **à côté** de l'Investment Opportunity Score et de son indice de confiance, **jamais intégré** à l'IOS (règle anti-double comptage du module 07, §3.6) : seuil de prix d'équilibre, besoin de rehaussement, structure de garanties. La dépendance à l'infrastructure reste notée par le critère I du module 07 et n'est pas re-notée ici. *(Reformulé lors de l'harmonisation du 2026-10-08 : la version précédente proposait d'intégrer ce score à l'IOS.)* |
-| **04 Legal** (retour) | Articles du code à vérifier ou clarifier : 47 (contre « Section 59 » dans le DFS de Canyon : numérotation **à arbitrer** au Journal officiel), 48, 132, 149, 151-154, 192-193 ; contenu des décrets de 2024 utile au financement (inventaire : module 04, §3) ; régime des comptes dans la convention type. |
+| **04 Legal** (retour) | Articles du code à vérifier ou clarifier : 47 (la « Section 59 » du DFS de Canyon est l'art. 59 de la loi n° 2016/017 abrogée, même contenu : arbitré), 48, 132, 149, 151-154, 192-193 ; contenu des décrets de 2024 utile au financement (inventaire : module 04, §3) ; régime des comptes dans la convention type. |
 | **06 Markets** (retour) | Besoin d'une série de prix CIF et FOB de la bauxite et de la prime de qualité, et du fret Afrique de l'Ouest et du Centre vers la Chine, pour calibrer le cas prêteur. |
 
 ---
@@ -675,10 +675,10 @@ suffisent si les livrables des modules 04 et 07 sont faibles.
 | Prêt AFG Bank Cameroon de 82 Md FCFA (≈ 140 M USD) pour la logistique de Minim-Martap, mai 2025 | [1] | Vérifié (source secondaire) |
 | Prêt AFG : 8 % fixe HT, 8 ans, sûretés et garanties de Canyon et d'A2MP | [2] | Vérifié (source secondaire) |
 | Tirages AFG suspendus le 24 août 2026 ; ≈ 75 M USD tirés au 31 juillet 2026 | [2] | Vérifié (source secondaire) |
-| Montant tiré de ≈ 57 M USD (32,5 Md FCFA) selon A2MP | Bidder's Statement d'A2MP déposé à l'ASX le 12/08/2026, p. 4 (https://announcements.asx.com.au/asxpdf/20260812/pdf/072p26ylxsxxs5.pdf) | **Vérifié (primaire)** lors de la contre-vérification ; date d'arrêté non indiquée ; diverge de 75 M USD au 31/07/2026 [2] |
+| Montant tiré de ≈ 57 M USD (32,5 Md FCFA) selon A2MP | Bidder's Statement d'A2MP du 29/07/2026, p. 4 (https://announcements.asx.com.au/asxpdf/20260812/pdf/072p26ylxsxxs5.pdf) | **Vérifié (primaire)**, mais dépassé : correspond au solde non tiré de 83 M USD au 31/03/2026 ; montant tiré au 30/06/2026 de 45,448 Md FCFA (≈ 75 M USD), d'après le rapport annuel de Canyon |
 | Placement de 215 M AUD (Eagle Eye, Afriland), septembre 2025 | [3] | Vérifié (source secondaire) |
 | Rejet des placements d'environ 170 M AUD par les actionnaires (mars 2026) | [2] | Vérifié (source secondaire) ; date exacte de l'assemblée (9 mars) : résumé de recherche seulement |
-| Afreximbank (FEDA) et Eagle Eye : proposition sur 44,44 % de Canyon | Titre MarketScreener [3] | **Non vérifié** |
+| « Proposition sur 44,44 % » = offre A2MP (Eagle Eye et FEDA, actionnaires d'A2MP) | Titre MarketScreener [3] ; Bidder's Statement ; annonce ASX du 23/09/2026 | **Vérifié** (déduction arithmétique sur sources primaires) ; pas d'opération distincte d'Afreximbank |
 | DFS Minim-Martap : VAN6 avant impôt de 835 M USD, TRI de 29 % / 22 % après impôt, capex de l'étape 1 de 96 M USD, total de 446 M USD, prix de 78 USD/dmt, fret de 17 USD | [4] | Vérifié (communiqué de la société repris par GlobeNewswire) |
 | Grand-Zambi : 41,2 Md FCFA de 5 banques, guichet B de la BEAC, approbation du 15 déc. 2025 | [12], [13] | Vérifié (sources secondaires concordantes) |
 | AustSino : prêt de « 28 milliards » de FCFA | Titre de l'article [7] | **Corrigé** : le corps de l'article donne 5 M USD ≈ **2,8 Md FCFA** |
@@ -693,10 +693,10 @@ suffisent si les livrables des modules 04 et 07 sont faibles.
 | Setrag : IFC jusqu'à 192 M EUR + Proparco jusqu'à 120 M EUR | [17] | Vérifié (conseil des sponsors) ; actionnariat Comilog 51 % / Meridiam 40 % / État 9 % : **Non vérifié** |
 | Afreximbank–Gabon : 3 Md USD (17 sept. 2025) | [18] | Vérifié (source secondaire) ; lien avec le protocole de 3,8 Md USD : **Inconnu** |
 | Parité de 655,957 ; ≥ 50 % des réserves au compte d'opérations pour la BEAC | [28] | Vérifié (source officielle) |
-| Règlement 02/18/CEMAC/UMAC/CM du 21 déc. 2018, en vigueur le 1er mars 2019 | [29] | Vérifié (source secondaire) |
+| Règlement 02/18/CEMAC/UMAC/CM du 21 déc. 2018, en vigueur le 1er mars 2019 | [29] ; texte BEAC | Vérifié (source primaire) |
 | Art. 183 du règlement de 2018 : comptes BEAC pour les fonds de réhabilitation | [30] | Vérifié (source secondaire, citation) |
-| Règlement extractif du 23 déc. 2021 ; rétrocession de 35 % ; exemption des prêts adossés aux ressources ; sanction de 150 % | [31] | Vérifié (presse) ; texte officiel : **Non vérifié** |
-| Instruction BEAC 001/GR/2026 : 50 % en 2027, 70 % en 2028 | [32] | Vérifié (source secondaire) |
+| Règlement n° 01/CEMAC/UMAC/CM du 23 déc. 2021 ; rapatriement d'au moins 35 % ; exemption des prêts adossés aux ressources ; amende de 150 % sur les fonds RES | [31] ; texte officiel (SGG Congo) | Vérifié (source primaire) |
+| Instruction BEAC 001/GR/2026 : 50 % en 2027, 70 % en 2028 | [32] ; texte BEAC | Vérifié (source primaire) |
 | Fonds RES estimés à 3 000-6 000 Md FCFA ; sommet du 22 janv. 2026 | [33] | Vérifié (source secondaire) |
 | Moody's Caa1 stable, août 2026 | [34] | Vérifié (source secondaire) |
 | S&P B-/B stable, 18 sept. 2026 | [35] | Vérifié (source secondaire, article payant) |
@@ -704,7 +704,7 @@ suffisent si les livrables des modules 04 et 07 sont faibles.
 | Eurobonds : 750 M USD à 10,125 % (janv. 2026) ; 550 M USD à 10,75 % (2024) | [37] | Vérifié (source secondaire) |
 | TIAO à 4,50 % (juin 2026) | [38] | Vérifié (Trésor français, titre de rubrique) |
 | Code 2023 : art. 47 (10 % gratuits + 25 % à titre onéreux), 48, 132, 149, 151, 192, 193, 83-84, 148(7) | [26] ; FAOLEX | Vérifié (texte AMLA) ; art. 40, 47, 48, 149, 192 relus sur FAOLEX en contre-vérification |
-| 10 % de l'État au titre de la « Section 59 » | [4] | **Incohérence** avec l'art. 47 : à vérifier |
+| 10 % de l'État au titre de la « Section 59 » | [4] ; rapport annuel de Canyon (Camalco à 90 %) | Vérifié : art. 59 de la loi n° 2016/017, équivalent de l'art. 47 du code de 2023 |
 | SONAMINES vise 35 % ; capital de 10 Md FCFA | [40] | Vérifié (source secondaire) |
 | BVMAC : 7 sociétés cotées, capitalisation de 1 710 Md FCFA (mai 2026) | [41] | Vérifié (source officielle de la BVMAC) |
 | COBAC : division des risques à 25 % des fonds propres nets (2023) | [42] | Vérifié (source secondaire) |
@@ -720,16 +720,16 @@ suffisent si les livrables des modules 04 et 07 sont faibles.
 1. **Bases de données des DFI non interrogées directement** : disclosures d'IFC, projets MIGA,
    portefeuille de la BAD, Proparco, BDEAC, Afreximbank. L'absence de précédent minier camerounais
    repose sur des recherches web. **À confirmer** sur les portails officiels.
-2. **Textes officiels de la BEAC** : numéro exact du règlement de 2021, instructions de 2022 (PDF
-   scanné illisible), instruction 001/GR/2026, portée réelle de l'exemption des prêts adossés aux
+2. **Textes officiels de la BEAC** : instructions de 2022 (PDF
+   scanné illisible), règlement n° 02/CEMAC/UMAC/CM de 2021, portée réelle de l'exemption des prêts adossés aux
    ressources, et traitement des comptes de service de la dette des prêteurs offshore.
 3. **Financement de Mbalam par CMC** : actionnariat réel, prêteurs, montants ; exportations
    effectives en 2026 ; exécution de la sentence Sundance.
-4. **Minim-Martap** : issue de l'OPA d'A2MP (clôture prévue le 21 septembre 2026), reprise ou non
-   des tirages AFG, résultat du mandat de Jefferies.
+4. **Minim-Martap** : reprise ou non des tirages AFG (l'OPA d'A2MP est devenue caduque le 21 septembre 2026),
+   résultat du mandat de Jefferies, financement exigé d'ici décembre 2026.
 5. **Kola et Baniaka** : passage ou non à des accords contraignants ; identité des DFI de Kola.
 6. **Participation de l'État** : modalités de paiement (prix, financement) de la part supplémentaire de 25 %, dont le caractère onéreux est fixé par l'art. 47(4), et
-   numérotation (art. 47 contre « Section 59 », **à arbitrer** au Journal officiel). Les huit décrets
+   numérotation : « Section 59 » = art. 59 de la loi n° 2016/017 abrogée (arbitré). Les huit décrets
    d'application de 2024 ont été lus par le module 04 (§3) ; leurs dispositions sur le financement de la
    participation de l'État restent à analyser.
 7. **Fiscalité** : assiette exacte de la taxe ad valorem, base juridique des « development
@@ -786,6 +786,10 @@ document primaire. La numérotation n'est pas continue (les numéros 6, 11, 19 e
 43. Financial Afrik, « Le relèvement du capital bancaire en CEMAC : un risque majeur de consolidation », 29 déc. 2025 — https://www.financialafrik.com/2025/12/29/le-relevement-du-capital-bancaire-en-cemac-un-risque-majeur-de-consolidation/
 44. EcoMatin, « Cameroun : les premières exportations de bauxite de Minim-Martap reportées sine die », 24 août 2026 (cité par les modules 05 et 06) — https://ecomatin.net/cameroun-les-premieres-exportations-de-bauxite-de-minim-martap-reportees-sine-die
 45. AlCircle, « Canyon Resources' Minim-Martap bauxite project faces fresh uncertainty over funding and first shipment », 29 sept. 2026 (cité par les modules 07 et 09) — https://www.alcircle.com/news/canyon-resources-minim-martap-bauxite-project-faces-fresh-uncertainty-over-funding-and-first-shipment-121352
+46. BEAC, Instruction n° 001/GR/2026 du 23 avril 2026 (texte officiel) — https://www.beac.int/wp-content/uploads/2019/07/Instruction-N°001-GR-2026.pdf
+47. BEAC, communiqué de presse du 23 avril 2026 — https://www.beac.int/wp-content/uploads/2026/04/Communiqué-de-presse_adoption-instruction-001.pdf
+48. Règlement n° 01/CEMAC/UMAC/CM du 23 décembre 2021 (texte publié par le SGG du Congo) — https://sgg.cg/txts-droit-reg/CEMAC-Reglement-2021-01-reglementation-change-industries-extractives.pdf
+49. Règlement n° 02/18/CEMAC/UMAC/CM du 21 décembre 2018 (BEAC) — https://www.beac.int/wp-content/uploads/2019/03/REGLEMENT-02_18_CEMAC_UMAC_CM-compressé.pdf
 
 ---
 
@@ -821,3 +825,5 @@ Vérification croisée indépendante (rapport complet : `verification/verif-07-0
   (78 USD/dmt, fret 17, C1 38,56 USD/dmt, 446 M USD, 96 M USD, IS 33 %, 5 % + 2 %, « Section 59 »).
 
 **Harmonisation inter-modules (2026-10-08)** : art. 47 aligné sur le module 04 (10 % gratuits non diluables + jusqu'à 25 % à titre onéreux en mine industrielle, art. 47(4)) ; décrets : 8 décrets lus par le module 04 (au lieu de « non lus ») ; Minim-Martap : formulation commune (le « S1 2026 » est conservé car sourcé par Business in Cameroon du 26/08/2026 [2], voir verif-07-09) ; IOS et IC d'O1 importés comme contexte (§ 5) ; retour vers le module 07 reformulé en score de finançabilité distinct, non intégré à l'IOS (§ 10) ; sources [44] et [45] ajoutées. Journal : `verification/harmonisation.md`.
+
+**Arbitrages priorité 2 (2026-10-08)** : change BEAC : « rétrocession » remplacée par « rapatriement », règlement n° 01/CEMAC/UMAC/CM du 23/12/2021 (forme « 01/21 » abandonnée), amende de 150 % limitée aux fonds de réhabilitation, textes officiels lus et ajoutés aux sources [46]-[49] (`verification/arbitrage-beac.md`) ; Minim-Martap : « Section 59 » = art. 59 de la loi n° 2016/017, montant tiré AFG (45,448 Md FCFA au 30/06/2026), « proposition 44,44 % » = offre A2MP, devenue caduque, « S1 2026 » daté de la DFS (`verification/arbitrage-minim-martap.md`). Journal : `verification/integration-priorite2.md`.

@@ -53,7 +53,7 @@ Conventions de statut utilisées dans tout le document :
   Validation commence le 1er avril 2027.
 - **Change (CEMAC)** : les entreprises extractives rapatrient actuellement 35 % des devises. Ce taux
   passera à 50 % au 1er janvier 2027, puis à 70 % au 1er janvier 2028 (Instruction BEAC
-  n° 001/GR/2026 du 23 avril 2026, rapportée par la DG Trésor et la presse). Les fonds de réhabilitation
+  n° 001/GR/2026 du 23 avril 2026, texte officiel BEAC consulté). Les fonds de réhabilitation
   (« fonds RES ») sont exclus de cette obligation. Au 30 avril 2026, aucune convention de compte
   séquestre n'avait été conclue.
 
@@ -123,10 +123,10 @@ Les corrections portent sur `docs/AFRICA_MINERAL_INSIGHTS.md` (section 04 et soc
 | Arrêté du Premier ministre portant organisation et fonctionnement du cadre de négociation des conventions minières | 9 juin 2025 | Organe rattaché à SONAMINES, présidé par son directeur général (application de l'art. 40(2) du code) | Cameroon Tribune (7 juil. 2025) ; EcoMatin | Fait rapporté. Numéro inconnu |
 | Décrets d'application signés le 25 juin (2025) | 25 juin 2025 (année déduite) | Selon Cameroon Tribune : critères de délivrance du permis de recherche, de l'autorisation semi-mécanisée et des permis de carrière | Cameroon Tribune | Fait rapporté. Numéros et textes inconnus |
 | Décret n° 2020/749 portant création de la Société Nationale des Mines | 14 déc. 2020 | Création de SONAMINES | Visé dans les décrets 2024/05061 et 2024/05062 ; page prc.cm | Fait vérifié (existence et intitulé) ; statuts non lus |
-| Règlement n° 02/18/CEMAC/UMAC/CM portant réglementation des changes dans la CEMAC | 21 déc. 2018 | Régime général des changes | Cité par l'Instruction BEAC 001/GR/2026 et par HSF (Mondaq) | Fait rapporté. Texte non consulté |
-| Règlement n° 01/CEMAC/UMAC/CM fixant les modalités de mise en œuvre de certaines dispositions de la réglementation des changes par les entreprises extractives résidentes | 23 déc. 2021 | Rapatriement (minimum 35 %), exemption de la phase d'exploration, comptes à l'étranger, fonds de réhabilitation | HSF / Mondaq (15 mars 2022) ; droitmediasfinance | Fait rapporté |
+| Règlement n° 02/18/CEMAC/UMAC/CM portant réglementation des changes dans la CEMAC | 21 déc. 2018 | Régime général des changes | Texte officiel (PDF BEAC) ; en vigueur le 1er mars 2019 (art. 195) | Fait vérifié (source primaire) |
+| Règlement n° 01/CEMAC/UMAC/CM portant modalités de mise en œuvre de certaines dispositions de la réglementation des changes par les entreprises extractives résidentes | 23 déc. 2021 | Rapatriement d'au moins 35 % (art. 2), relevable par instruction (art. 3) ; exemptions exploration et prêts adossés aux ressources (art. 4) ; fonds RES rapatriés intégralement et logés à la BEAC (art. 5-7) ; amende de 150 % et astreinte de 1/1000e par mois sur les fonds RES (art. 8) ; comptes en devises sur et hors CEMAC sur autorisation préalable de la BEAC (art. 10-12) | Texte officiel (SGG Congo) ; visé par les instructions BEAC 002/GR/2022 et 001/GR/2026 | Fait vérifié (source primaire) |
 | Règlement n° 02/CEMAC/UMAC/CM | 23 déc. 2021 | Selon HSF : deuxième règlement adopté le même jour pour les entreprises extractives. Selon la presse : caractère insaisissable des comptes en devises | HSF / Mondaq ; presse | Fait rapporté (objet non confirmé par le texte) |
-| Instruction BEAC n° 001/GR/2026 | 23 avril 2026 | Rapatriement extractif : 35 % → 50 % (1er janv. 2027) → 70 % (1er janv. 2028) ; fonds RES exclus | DG Trésor, *Brèves économiques Afrique centrale* (semaine du 27 avril 2026) ; droitmediasfinance | Fait rapporté (deux sources concordantes) |
+| Instruction BEAC n° 001/GR/2026 | 23 avril 2026 | Rapatriement extractif : 35 % → 50 % (1er janv. 2027) → 70 % (1er janv. 2028) ; fonds RES exclus | Texte officiel et communiqué BEAC du 23 avril 2026 ; DG Trésor ; droitmediasfinance | Fait vérifié (source primaire) |
 | Code général des impôts / loi de finances | — | Doivent reprendre les taux du code (art. 133) | Non consulté | Non vérifié |
 | Norme ITIE 2019, décision du Conseil d'administration de l'ITIE n° 2024-17 | 29 févr. 2024 | Validation du Cameroun : 53 points, suspension | eiti.org | Fait vérifié |
 
@@ -434,8 +434,8 @@ C'est un écart avec les standards de prêteurs (IFC PS7), à documenter pour le
   Source : Business in Cameroon, 26 mai 2026. Aucun texte juridique n'est cité.
 - Le 15 juillet 2026, les autorités ont présenté leurs chiffres sur l'or (Business in Cameroon,
   28 juillet 2026) :
-  - exportations officielles 2021-2025 : 1,897 t ;
-  - exportations probables estimées : 46,219 t ;
+  - exportations « officiellement recensées » 2021-2025 : 1,897 t. Série hybride : exportations douanières pour 2021-2022 (73,0 et 47,9 kg), puis or ayant acquitté les taxes auprès de la Douane et de SONAMINES pour 2023-2025 (742,3 ; 644,42 ; 389,69 kg) (Sika Finance, 28/07/2026, citant le MINMIDT). Les seules exportations douanières totalisent environ 148 kg sur la période (SONAMINES, 25/05/2026) ;
+  - importations déclarées par les pays partenaires : 46,219 t (Comtrade pour 2021-2023, statistiques émiraties compilées par SONAMINES pour 2024 : 12,2 t et 2025 : 8,4 t, provisoire) ;
   - manque à gagner fiscal estimé : 577,51 milliards FCFA.
 
 **Inférence (tension juridique à examiner) :** le code réserve à l'organisme public l'achat et la
@@ -456,16 +456,17 @@ par un juriste.
 
 **Faits rapportés (CEMAC/BEAC) :**
 
-- **Règlement n° 01/CEMAC/UMAC/CM du 23 décembre 2021** (selon HSF Kramer / Mondaq, 15 mars 2022) :
+- **Règlement n° 01/CEMAC/UMAC/CM du 23 décembre 2021** (texte officiel consulté) :
   - rapatriement d'au moins 35 % des devises des entreprises extractives ;
-  - exemption totale pour la phase d'exploration ;
+  - exemption pour la phase d'exploration et pour les prêts adossés à des ressources (art. 4) ;
   - comptes en devises onshore et offshore ouverts avec l'accord préalable de la BEAC ;
-  - comptes offshore utilisables pour rembourser des prêts.
+  - comptes offshore réservés « à la réalisation de leurs activités » (art. 12) ; leur usage pour rembourser des prêts relève de l'interprétation de HSF / Mondaq ;
+  - amende de 150 % et astreinte de 1/1000e par mois en cas de fonds RES non rapatriés ou non domiciliés (art. 8) ;
+  - règlement n° 02/CEMAC/UMAC/CM du même jour : insaisissabilité des comptes en devises des extractifs.
 
   Selon la presse, ce règlement encadre aussi la constitution des fonds de réhabilitation.
 - **Instruction BEAC n° 001/GR/2026 du 23 avril 2026** : 50 % au 1er janvier 2027, puis 70 % au
-  1er janvier 2028. Les fonds RES sont exclus. Sources : DG Trésor, semaine du 27 avril au 1er mai 2026 ;
-  droitmediasfinance.
+  1er janvier 2028. Les fonds de réhabilitation sont exclus. L'instruction a été prise en application de l'art. 3 du règlement de 2021 et vise la résolution n° 03 du Comité ministériel extraordinaire du 19 décembre 2025. Elle ne prévoit aucune sanction propre. Sources : texte et communiqué BEAC ; DG Trésor, semaine du 27 avril au 1er mai 2026.
 - **Fonds RES** :
   - les chefs d'État de la CEMAC avaient demandé de signer les conventions de compte séquestre avant le
     30 avril 2025 (EcoMatin ; Cameroon Tribune) ;
@@ -479,8 +480,8 @@ par un juriste.
 
 **Non vérifié :**
 
-- texte officiel des règlements de 2018 et 2021 ;
-- montant des pénalités (150 % évoqués par une seule source).
+- texte du règlement n° 02/CEMAC/UMAC/CM du 23 décembre 2021 (insaisissabilité) ;
+- taux de rétrocession de 70 % applicable aux banques (instruction 003/GR/2019, rapporté).
 
 ### 4.12 Stabilité, gouvernance, transparence, différends
 
@@ -664,7 +665,7 @@ téléchargées depuis dgb.cm.
 | Participation de l'État | 10 % gratuits non diluables (art. 47(2), 47(3)) ; option payante jusqu'à +25 % (art. 47(4)) : le financement de cette part doit apparaître dans la structure | Fait vérifié |
 | Partage de production | 2 à 15 % (hors précieux) à prélever sur le produit fini (art. 48) : à modéliser comme une redevance en nature | Fait vérifié (fourchette) / Hypothèse (taux à retenir) |
 | Sûretés des prêteurs | Les permis d'exploitation peuvent être gagés ou hypothéqués (art. 83, 84). En cas de réalisation, le repreneur doit être une société minière éligible et s'engager sur les 10 % de l'État (décret 05061 art. 70, 76) | Fait vérifié |
-| Change | Rapatriement de 35 % → 50 % (2027) → 70 % (2028) ; phase d'exploration exemptée ; comptes offshore avec accord BEAC (règlement 01/2021 et instruction 001/GR/2026) | Fait rapporté |
+| Change | Rapatriement de 35 % → 50 % (2027) → 70 % (2028) ; exploration et prêts adossés aux ressources exemptés ; comptes offshore avec accord BEAC (règlement n° 01/CEMAC/UMAC/CM du 23 déc. 2021 et instruction 001/GR/2026) | Fait vérifié (textes officiels) |
 | Fermeture | Contribution annuelle au fonds en séquestre BEAC (art. 192) : un besoin de trésorerie à intégrer dans le DSCR | Fait vérifié (obligation) / Inconnue (barème) |
 | Stabilité | Plafonnée à 15 ans ou au TRI de 15 % (art. 149) : à rapprocher de la maturité de la dette | Fait vérifié |
 | Normes environnementales et sociales des prêteurs | Pas de mention du CLIP dans les textes lus. Arbitrage non institutionnalisé (art. 189) | Inférence |
@@ -701,11 +702,11 @@ téléchargées depuis dgb.cm.
 | V24 | Garantie bancaire de 25 % du coût des travaux (permis de recherche) | Décret 05062 art. 61(2) | Vérifié |
 | V25 | Dépenses minimales de 600 000 FCFA/km²/an | Décret 05062 art. 54(1) | Vérifié |
 | V26 | ITIE : 53 points, suspension, prochaine Validation au 1er avril 2027 | eiti.org, décision 2024-17 (29 févr. 2024) | Vérifié |
-| V27 | Règlement 02/18/CEMAC/UMAC/CM du 21 déc. 2018 | Cité par l'Instruction 001/GR/2026 et HSF | Rapporté |
-| V28 | Règlement 01/CEMAC/UMAC/CM du 23 déc. 2021 ; minimum de 35 % ; exploration exemptée | HSF / Mondaq (15 mars 2022) | Rapporté |
-| V29 | Instruction BEAC 001/GR/2026 : 50 % en 2027, 70 % en 2028, fonds RES exclus | DG Trésor (Brèves, 27 avril-1er mai 2026) ; droitmediasfinance | Rapporté (2 sources) |
+| V27 | Règlement 02/18/CEMAC/UMAC/CM du 21 déc. 2018, en vigueur le 1er mars 2019 | Texte officiel (PDF BEAC) | Vérifié (primaire) |
+| V28 | Règlement 01/CEMAC/UMAC/CM du 23 déc. 2021 ; minimum de 35 % ; exploration et prêts adossés aux ressources exemptés | Texte officiel (SGG Congo) | Vérifié (primaire) |
+| V29 | Instruction BEAC 001/GR/2026 : 50 % en 2027, 70 % en 2028, fonds de réhabilitation exclus | Texte et communiqué BEAC du 23 avril 2026 | Vérifié (primaire) |
 | V30 | Aucune convention de séquestre pour les fonds RES au 30 avril 2026 | DG Trésor | Rapporté |
-| V31 | Pénalités de 150 % (fonds RES ou rapatriement) | EcoMatin et une analyse citée par la recherche | Non vérifié |
+| V31 | Amende de 150 % (fonds RES uniquement, pas le rapatriement des recettes) et astreinte de 1/1000e par mois | Règlement n° 01/CEMAC/UMAC/CM, art. 8 | Vérifié (primaire) |
 | V32 | Flexicadastre opérationnel en 2017 | Cameroon Tribune, 2 juin 2017 (annonce) ; page de maintenance portals.landfolio.com (module 03) | Rapporté (2017) ; portail **hors service depuis le 03/11/2025** (vérifié par le module 03) |
 | V33 | Gabon : 10 % gratuits + option payante jusqu'à 25 % | Loi 037/2018 art. 7 (JO du 24 juil. 2019) | Vérifié |
 | V34 | Gabon : redevance de 5-10 % (base) et 5-8 % (précieux) | Loi 037/2018 art. 205 | Vérifié |
@@ -715,7 +716,7 @@ téléchargées depuis dgb.cm.
 | V38 | Botswana : redevances de 10 / 5 / 3 % ; option de l'État de 15 % payante | Act 17/1999 s. 66, s. 40 | Vérifié (texte de 1999) |
 | V39 | Botswana : amendement n° 14 de 2024 (24 % citoyens, bénéficiation, fonds de réhabilitation) | ENS / Mondaq, 20 oct. 2025 | Rapporté |
 | V40 | Classements Fraser 2025 (Botswana 1er en Afrique ; Côte d'Ivoire 1re en Afrique de l'Ouest) | North Africa Post (4 mars 2026) ; Ecofin (27 févr. 2026) | Rapporté |
-| V41 | Écart sur les exportations d'or 2021-2025 (1,897 t déclarées contre 46,219 t estimées) | Business in Cameroon, 28 juil. 2026 (chiffres gouvernementaux) | Rapporté |
+| V41 | Écart sur les exportations d'or 2021-2025 (1,897 t « recensées », dont environ 148 kg en douane, contre 46,219 t déclarées par les partenaires) | Business in Cameroon et Sika Finance, 28 juil. 2026 (document MINMIDT) ; arbitrage-or.md | Rapporté ; décomposition reconstituée |
 | V42 | Seuil de 5 kg/mois et taxe de 63 MFCFA (Conseil de cabinet du 21 mai 2026) | Business in Cameroon, 26 mai 2026 | Rapporté (aucun texte juridique cité) |
 | V43 | Taux d'IS, de TVA et de retenue à la source applicables | — | Non vérifié |
 
@@ -741,7 +742,7 @@ téléchargées depuis dgb.cm.
    module 03). Reste inconnu : l'existence d'un système de remplacement et ses conditions d'accès.
 6. **Fiscalité de droit commun** : taux du CGI et de la loi de finances 2026 ; traités de non-double
    imposition.
-7. **CEMAC** : texte officiel des règlements de 2018 et 2021 et de l'instruction 001/GR/2026 ; régime des
+7. **CEMAC** : texte du règlement n° 02/CEMAC/UMAC/CM de 2021 (insaisissabilité) et des instructions de 2022 ; régime des
    comptes offshore pour les sociétés minières en exploitation ; issue des négociations sur les fonds RES
    après avril 2026.
 8. **Benchmarks** :
@@ -798,6 +799,14 @@ téléchargées depuis dgb.cm.
 
 **CEMAC / BEAC**
 
+- BEAC, Instruction n° 001/GR/2026 du 23 avril 2026 (texte officiel) :
+  https://www.beac.int/wp-content/uploads/2019/07/Instruction-N°001-GR-2026.pdf
+- BEAC, communiqué de presse du 23 avril 2026 :
+  https://www.beac.int/wp-content/uploads/2026/04/Communiqué-de-presse_adoption-instruction-001.pdf
+- Règlement n° 01/CEMAC/UMAC/CM du 23 décembre 2021 (texte publié par le SGG du Congo) :
+  https://sgg.cg/txts-droit-reg/CEMAC-Reglement-2021-01-reglementation-change-industries-extractives.pdf
+- Règlement n° 02/18/CEMAC/UMAC/CM du 21 décembre 2018 (BEAC) :
+  https://www.beac.int/wp-content/uploads/2019/03/REGLEMENT-02_18_CEMAC_UMAC_CM-compressé.pdf
 - DG Trésor, *Brèves économiques Afrique centrale*, semaine du 27 avril au 1er mai 2026 :
   https://www.tresor.economie.gouv.fr/Articles/c539b76d-639e-470e-9b79-1fb5b9fff474/files/a2db939a-5a7e-44b4-bd82-f93cd4aad192
 - Droit Médias Finance, Instruction BEAC 001/GR/2026 :
@@ -828,7 +837,7 @@ téléchargées depuis dgb.cm.
 - UNEP LEAP (fiche de la loi) ;
 - texte de la Norme ITIE 2019 ;
 - rapport Fraser lui-même ;
-- règlements CEMAC (textes officiels).
+- règlement n° 02/CEMAC/UMAC/CM du 23 décembre 2021 (insaisissabilité ; les règlements n° 02/18 et n° 01/CEMAC/UMAC/CM ont été lus, voir `verification/arbitrage-beac.md`).
 
 ---
 
@@ -852,8 +861,7 @@ décrets n° 2024/05249/PM du 19 nov. 2024 et n° 2024/05061/PM du 18 nov. 2024 
 visa du décret n° 2020/749 du 14 déc. 2020 créant la Société Nationale des Mines, art. 26 du décret
 05061 (90 jours ; prorogation de moitié ; accord tacite) ; liste des 8 décrets (DGB, 29 janv. 2025) ;
 Instruction BEAC n° 001/GR/2026 du 23 avril 2026 (35 % → 50 % au 1er janv. 2027 → 70 % au 1er janv.
-2028 ; fonds RES exclus ; aucune convention au 30 avril 2026 ; règlements 02/18 du 21 déc. 2018 et
-01/CEMAC du 23 déc. 2021 visés) selon Droit Médias Finance et la DG Trésor ; Business in Cameroon
+2028 ; fonds de réhabilitation exclus ; règlements 02/18 du 21 déc. 2018 et 01/CEMAC/UMAC/CM du 23 déc. 2021 visés ; texte BEAC lu), aucune convention au 30 avril 2026 selon la DG Trésor ; règlements 02/18 et 01/CEMAC/UMAC/CM lus sur les textes officiels ; Business in Cameroon
 (26 mai 2026 : 5 kg/mois, 63 M FCFA, > 21 ha ; 28 juillet 2026 : 1,897 t, 46,219 t, 577,51 Md FCFA,
 briefing du 15 juillet).
 
@@ -866,3 +874,5 @@ ITIE de « mars 2024 » ; la date exacte de la décision est le 29 février 2024
 Côte d'Ivoire, Botswana, classements Fraser, Chambers, Cameroon Tribune, HSF/Mondaq.
 
 **Harmonisation inter-modules (2026-10-08)** : cadastre aligné sur le module 03 (C4, V32, inconnue 5 : portail Landfolio hors service depuis le 03/11/2025 ; source ajoutée). Journal : `verification/harmonisation.md`.
+
+**Arbitrages priorité 2 (2026-10-08)** : change BEAC vérifié sur les textes officiels (instruction n° 001/GR/2026, règlements n° 02/18 et n° 01/CEMAC/UMAC/CM) : terme « rapatriement », exemption des prêts adossés aux ressources, amende de 150 % limitée aux fonds de réhabilitation, références officielles ajoutées au § 11 (`verification/arbitrage-beac.md`) ; or : 1,897 t requalifiées en série hybride (douane 2021-2022 + or taxé recensé par SONAMINES 2023-2025) et 46,219 t en importations déclarées par les partenaires (`verification/arbitrage-or.md`). Journal : `verification/integration-priorite2.md`.
