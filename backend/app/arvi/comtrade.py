@@ -199,4 +199,9 @@ def area_codes(reporters: list[dict], partners: list[dict]) -> tuple[dict[int, s
 
 
 def partner_names(partners: list[dict]) -> dict[str, str]:
-    return {p["PartnerCodeIsoAlpha3"]: p["PartnerDesc"] for p in partners if p["PartnerCode"] != 0}
+    """ISO3 -> current name; historical entries (e.g. "India (...1974)") never win."""
+    names: dict[str, str] = {}
+    for p in sorted(partners, key=lambda p: "..." not in p["PartnerDesc"]):
+        if p["PartnerCode"] != 0:
+            names[p["PartnerCodeIsoAlpha3"]] = p["PartnerDesc"]
+    return names

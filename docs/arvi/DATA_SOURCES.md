@@ -45,11 +45,14 @@ Consequences for ARVI:
 | ARVI-3 | Share of value at each processing stage, from each side's declarations. Value shares, not metal content (grades not collected). | CALCULATION |
 | ARVI-4/5/6 | Not published: need sourced fiscal, cost, grade and price parameters. | — |
 
-**Confidence** (0–100, value-weighted for a country-resource-year): mirror availability (15),
-quantity coherence (15), unit-value coherence (10), exporter reporting regularity (10), partner
-reporting regularity (10), no hub/landlocked transit (10), persistence of the gap's sign (10).
-The blueprint's two other components (share of gap explained, independent corroboration) are not
-computed yet; the score is rescaled from 80 points. Levels: high ≥ 70, medium 40–69, low < 40
+**Confidence** (0–100, value-weighted for a country-resource-year) measures how far a gap can be
+trusted as a gap between two declarations of the same goods: mirror availability (15), quantity
+coherence (15), exporter reporting regularity (10), partner reporting regularity (10), no
+hub/landlocked transit (10), persistence of the gap's sign (10). Not computed yet, score rescaled
+from 70 points: share of gap explained, independent corroboration, and unit-value coherence
+against an international reference price. The two declared unit values are deliberately not
+compared for confidence: same tonnage at very different prices is a well-measured gap (ARVI-2),
+not a data problem. Levels: high ≥ 70, medium 40–69, low < 40
 **[HYPOTHÈSE]**. A relative gap between 0 and +10 % is flagged as compatible with CIF/FOB costs
 **[HYPOTHÈSE]**; no CIF/FOB adjustment is applied to the figures.
 

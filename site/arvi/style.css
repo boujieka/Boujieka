@@ -91,3 +91,4 @@ td small{color:var(--muted)}
 .legend .sw{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
 .sw.s1{background:var(--s1)}.sw.s2{background:var(--s2)}
 .cta{display:inline-block;margin-top:18px;padding:10px 16px;border-radius:8px;background:var(--hero-gold);color:#0e2148;font-weight:600;text-decoration:none}
+table a{color:var(--teal)}

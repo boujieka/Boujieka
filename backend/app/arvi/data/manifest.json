@@ -1,0 +1,434 @@
+[
+ {
+  "url": "https://comtradeapi.un.org/files/v1/app/reference/Reporters.json",
+  "sha256": "f2a1d78949089831c1fc7714e009996887db724a8d5a43379cdc37be9449f74b",
+  "fetched_at": "2026-10-08T16:28:04+00:00",
+  "records": null
+ },
+ {
+  "url": "https://comtradeapi.un.org/files/v1/app/reference/partnerAreas.json",
+  "sha256": "2da5667693b5a7f8b203028964a431cdb46356d3a377c7369bb9736c59f03733",
+  "fetched_at": "2026-10-08T16:28:04+00:00",
+  "records": null
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=2603,7401,7402,7403,2605,282200,8105&period=2019&reporterCode=180",
+  "sha256": "7bc1d0e15476ecc5b1098e6d4e400d74a6a0b856d63b3be320c5580dea69ef01",
+  "fetched_at": "2026-10-08T16:28:49+00:00",
+  "records": 50
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=2603,7401,7402,7403,2605,282200,8105&period=2020&reporterCode=180",
+  "sha256": "9bd1ab9f0c0be09a2ab6453d1c0bec2231a0f95ac2b59b8b802b34a809ede81a",
+  "fetched_at": "2026-10-08T16:28:53+00:00",
+  "records": 54
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=2603,7401,7402,7403,2605,282200,8105&period=2021&reporterCode=180",
+  "sha256": "fe13f77d67fef139e6d8b8d1fcbd1fc8bff07a53db21c077baadb78f1986c17b",
+  "fetched_at": "2026-10-08T16:28:56+00:00",
+  "records": 50
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=2603,7401,7402,7403,2605,282200,8105&period=2022&reporterCode=180",
+  "sha256": "2f6d526c9660690675dced38392ed23670a4f98c04321f64cecd5aba13e8d113",
+  "fetched_at": "2026-10-08T16:29:03+00:00",
+  "records": 39
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=2603,7401,7402,7403,2605,282200,8105&period=2023&reporterCode=180",
+  "sha256": "9c71c9539db3e9c2281816b46913eca1e7ad0d0f39b6d2ec3f0834f522e4f659",
+  "fetched_at": "2026-10-08T16:29:11+00:00",
+  "records": 57
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=2603,7401,7402,7403,2605,282200,8105&period=2019&partnerCode=180",
+  "sha256": "abc92d980ed68b720774eefbeffc591c6f1273432a2a452d3ff3a85ec75d9804",
+  "fetched_at": "2026-10-08T16:29:19+00:00",
+  "records": 50
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=2603,7401,7402,7403,2605,282200,8105&period=2020&partnerCode=180",
+  "sha256": "7b64bf68aacfd040aad6c7741c55797e6c6cae2f69ff5b4797c3d6038846cc8f",
+  "fetched_at": "2026-10-08T16:29:22+00:00",
+  "records": 45
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=2603,7401,7402,7403,2605,282200,8105&period=2021&partnerCode=180",
+  "sha256": "8aa9fe19b3c2a72ce800a773137ee001042538728b24f0eac18d4bbe79edd50b",
+  "fetched_at": "2026-10-08T16:29:27+00:00",
+  "records": 48
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=2603,7401,7402,7403,2605,282200,8105&period=2022&partnerCode=180",
+  "sha256": "710801ce3016b55b07756d78a58999965b671ca352a4dc575a032c241001dd24",
+  "fetched_at": "2026-10-08T16:29:29+00:00",
+  "records": 48
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=2603,7401,7402,7403,2605,282200,8105&period=2023&partnerCode=180",
+  "sha256": "aee8cd30294d3c2d17370bf1a0799f137d135c30eab4027225dc119672778033",
+  "fetched_at": "2026-10-08T16:29:31+00:00",
+  "records": 57
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=2603,7401,7402,7403,2605,282200,8105&period=2019&reporterCode=894",
+  "sha256": "2521523640c4c075ddf5b0283e1e14fe0c0c84b5c039d24d2cbb3deef130f921",
+  "fetched_at": "2026-10-08T16:29:39+00:00",
+  "records": 43
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=2603,7401,7402,7403,2605,282200,8105&period=2020&reporterCode=894",
+  "sha256": "d821449a47a478970d404c3ea87c36b38e5b089c8416d418dc4949bf9449587c",
+  "fetched_at": "2026-10-08T16:29:40+00:00",
+  "records": 30
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=2603,7401,7402,7403,2605,282200,8105&period=2021&reporterCode=894",
+  "sha256": "b66590ffcb78d1a360f492c67f78427313c67142595f74f2712c4a9551b7225b",
+  "fetched_at": "2026-10-08T16:29:44+00:00",
+  "records": 40
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=2603,7401,7402,7403,2605,282200,8105&period=2022&reporterCode=894",
+  "sha256": "8efdcc1f5924fdd19e14d5bfc43b024355d2761bbc776fc7e6ad5947b601734d",
+  "fetched_at": "2026-10-08T16:29:46+00:00",
+  "records": 40
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=2603,7401,7402,7403,2605,282200,8105&period=2023&reporterCode=894",
+  "sha256": "f9ce98ab338f016e148c6805e3c384738ea00d1504f15424789241958e7e60cb",
+  "fetched_at": "2026-10-08T16:29:48+00:00",
+  "records": 38
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=2603,7401,7402,7403,2605,282200,8105&period=2019&partnerCode=894",
+  "sha256": "3ba4ec1d22fdd273369280ebfb69697cbdcd8888f923933094d6436d463bdc72",
+  "fetched_at": "2026-10-08T16:29:56+00:00",
+  "records": 61
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=2603,7401,7402,7403,2605,282200,8105&period=2020&partnerCode=894",
+  "sha256": "d7fc562b37d2d2fe0619e6e75225770ed81cd6d18220f8dc68347bb3d12c6fda",
+  "fetched_at": "2026-10-08T16:29:58+00:00",
+  "records": 50
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=2603,7401,7402,7403,2605,282200,8105&period=2021&partnerCode=894",
+  "sha256": "2643966987fd1eae4d1a3358114ddd1cb2e9623c989ad745cacf0063a8928951",
+  "fetched_at": "2026-10-08T16:30:06+00:00",
+  "records": 48
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=2603,7401,7402,7403,2605,282200,8105&period=2022&partnerCode=894",
+  "sha256": "0213429d368e4a6e2729a59380d80add27196ae495a92e4bbd726dce2c466337",
+  "fetched_at": "2026-10-08T16:30:15+00:00",
+  "records": 54
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=2603,7401,7402,7403,2605,282200,8105&period=2023&partnerCode=894",
+  "sha256": "52fa79ff8c1a37aaa2a6484e3a2e0d3083f49324f94d7439ad35ae38fee9b73c",
+  "fetched_at": "2026-10-08T16:30:25+00:00",
+  "records": 52
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=2606,281820,7601&period=2019&reporterCode=324",
+  "sha256": "bc81fed4897c354a66d10ffaaa3b2a0fb2d62a32e2cdc456be5989bef0a21e2b",
+  "fetched_at": "2026-10-08T16:30:26+00:00",
+  "records": 0
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=2606,281820,7601&period=2020&reporterCode=324",
+  "sha256": "72b391152d28e26b635fc4a01b4943ebc25a7c37e50274264c796431ea0888cb",
+  "fetched_at": "2026-10-08T16:30:29+00:00",
+  "records": 0
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=2606,281820,7601&period=2021&reporterCode=324",
+  "sha256": "4a5e638b0ee822382130b4a9684ca9529d854576b80395a0427ba188dfeadcc9",
+  "fetched_at": "2026-10-08T16:30:31+00:00",
+  "records": 0
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=2606,281820,7601&period=2022&reporterCode=324",
+  "sha256": "48f94f2dbede23c1916af170bf9eaa4f10d23f0633610c5c6ddcf9c35d37f964",
+  "fetched_at": "2026-10-08T16:30:34+00:00",
+  "records": 0
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=2606,281820,7601&period=2023&reporterCode=324",
+  "sha256": "48f94f2dbede23c1916af170bf9eaa4f10d23f0633610c5c6ddcf9c35d37f964",
+  "fetched_at": "2026-10-08T16:30:36+00:00",
+  "records": 0
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=2606,281820,7601&period=2019&partnerCode=324",
+  "sha256": "22e93102a499d8f3f0dc9bdc4db61e92af923afb0027c390b3321457d12d3dba",
+  "fetched_at": "2026-10-08T16:30:40+00:00",
+  "records": 16
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=2606,281820,7601&period=2020&partnerCode=324",
+  "sha256": "b0922a8c9aa3fcb92a3bad43d3b9e5a66e993c75a68c2a36badd0e9627b174b3",
+  "fetched_at": "2026-10-08T16:30:42+00:00",
+  "records": 20
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=2606,281820,7601&period=2021&partnerCode=324",
+  "sha256": "d271e4d95341573700eef471d6836edffa3cbf54e2e0d783340e8a93ce60f98b",
+  "fetched_at": "2026-10-08T16:30:45+00:00",
+  "records": 15
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=2606,281820,7601&period=2022&partnerCode=324",
+  "sha256": "47b74106f4de4243720f2e4f83a4f6ac76eb43d85f32d974f9d78eb577b7f3aa",
+  "fetched_at": "2026-10-08T16:30:46+00:00",
+  "records": 14
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=2606,281820,7601&period=2023&partnerCode=324",
+  "sha256": "09725d99a3913013339705124bb1edf0e9515c5181366c57ba8c6fcbc9c3afa2",
+  "fetched_at": "2026-10-08T16:30:50+00:00",
+  "records": 17
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=2602,720211,720219,720230,4403,4407,4408,4412&period=2019&reporterCode=266",
+  "sha256": "63ce2bb5ed2192ededc2d2699073c88344e47d2aa297754a3e48499b7ed1182b",
+  "fetched_at": "2026-10-08T16:30:52+00:00",
+  "records": 147
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=2602,720211,720219,720230,4403,4407,4408,4412&period=2020&reporterCode=266",
+  "sha256": "0010c78225fa5f7c1c3ae844ff175a9e2528a0c953f81ba3eb02f54b7d06e625",
+  "fetched_at": "2026-10-08T16:31:01+00:00",
+  "records": 157
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=2602,720211,720219,720230,4403,4407,4408,4412&period=2021&reporterCode=266",
+  "sha256": "e8ebfbe90082b34868c173ea3f494c7825c98b5d8f0858cf1e9e3cccb90294fa",
+  "fetched_at": "2026-10-08T16:31:02+00:00",
+  "records": 176
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=2602,720211,720219,720230,4403,4407,4408,4412&period=2022&reporterCode=266",
+  "sha256": "b73c7799f22456502018c4a9561beec8c1415c8b5b6be64c3e5374e0e24edbdb",
+  "fetched_at": "2026-10-08T16:31:10+00:00",
+  "records": 174
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=2602,720211,720219,720230,4403,4407,4408,4412&period=2023&reporterCode=266",
+  "sha256": "6a9b6826a7a4d7e09a718beba6e7bb9d7f96d5a56dd2898edd9e56cf60e7abeb",
+  "fetched_at": "2026-10-08T16:31:16+00:00",
+  "records": 165
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=2602,720211,720219,720230,4403,4407,4408,4412&period=2019&partnerCode=266",
+  "sha256": "378b4d7cb13bcfdb9e853fe0d86b76b9d0530ad57d0c837d6d6ba9dcbf6a03fc",
+  "fetched_at": "2026-10-08T16:31:18+00:00",
+  "records": 161
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=2602,720211,720219,720230,4403,4407,4408,4412&period=2020&partnerCode=266",
+  "sha256": "08ed8d300793d9b256307ec45d51c0244ab3548c519cbf7ea7ed2f2bfdd40c0a",
+  "fetched_at": "2026-10-08T16:31:31+00:00",
+  "records": 168
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=2602,720211,720219,720230,4403,4407,4408,4412&period=2021&partnerCode=266",
+  "sha256": "b8cb33d057ca0840e6d03cb2c48097e32764e3aaeba0d46ab754256ca5c42871",
+  "fetched_at": "2026-10-08T16:31:32+00:00",
+  "records": 176
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=2602,720211,720219,720230,4403,4407,4408,4412&period=2022&partnerCode=266",
+  "sha256": "924712da98b8194aab5ac8f6039f6799c26443e2d87f6866bda9ca77db9a2c05",
+  "fetched_at": "2026-10-08T16:31:36+00:00",
+  "records": 192
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=2602,720211,720219,720230,4403,4407,4408,4412&period=2023&partnerCode=266",
+  "sha256": "bcb7737ca29728ddba37ce875dcf17dbb79978b4343e32190273486a9c04336c",
+  "fetched_at": "2026-10-08T16:31:38+00:00",
+  "records": 184
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=2602,720211,720219,720230&period=2019&reporterCode=710",
+  "sha256": "7a0aaa457f300511bc4d8a4dac4c3adbfc5969247f3e0828960af9c8e6dc14c9",
+  "fetched_at": "2026-10-08T16:31:40+00:00",
+  "records": 130
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=2602,720211,720219,720230&period=2020&reporterCode=710",
+  "sha256": "1ca1e9f8db107157fa57d1ea5e2f0052ecdd0842f1f6f534b313753335c7f185",
+  "fetched_at": "2026-10-08T16:31:48+00:00",
+  "records": 129
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=2602,720211,720219,720230&period=2021&reporterCode=710",
+  "sha256": "a68276d15f02b0d1af32c3c763dfa1cf3bbd5f008155d6f07ee0396979972670",
+  "fetched_at": "2026-10-08T16:31:50+00:00",
+  "records": 136
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=2602,720211,720219,720230&period=2022&reporterCode=710",
+  "sha256": "fa1bf896e0851bc9402b570ae509ddf152d06b5cd67201105efe41a8f8459c73",
+  "fetched_at": "2026-10-08T16:31:55+00:00",
+  "records": 117
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=2602,720211,720219,720230&period=2023&reporterCode=710",
+  "sha256": "9e6bd3d4db7e8fb689d54ed640baa43a4ab751daae69d561d234a616b938e23f",
+  "fetched_at": "2026-10-08T16:31:59+00:00",
+  "records": 112
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=2602,720211,720219,720230&period=2019&partnerCode=710",
+  "sha256": "04fb8d008584c20ff1eeb48aa8d75327a4c4ded7c87949407a5157d90125afb5",
+  "fetched_at": "2026-10-08T16:32:15+00:00",
+  "records": 162
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=2602,720211,720219,720230&period=2020&partnerCode=710",
+  "sha256": "f57d192388164636e7476234d37eae38ba14f697de85e88621a09284cdc4232a",
+  "fetched_at": "2026-10-08T16:32:16+00:00",
+  "records": 152
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=2602,720211,720219,720230&period=2021&partnerCode=710",
+  "sha256": "fde51e70a05f93c5a42157ca68ce1fc95f203788db525670358b344e65df4c70",
+  "fetched_at": "2026-10-08T16:32:26+00:00",
+  "records": 172
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=2602,720211,720219,720230&period=2022&partnerCode=710",
+  "sha256": "f5a27326cb425cf4ab577d9426ff6db5bfc97665676d5b0af0a9d291e4eab029",
+  "fetched_at": "2026-10-08T16:32:34+00:00",
+  "records": 149
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=2602,720211,720219,720230&period=2023&partnerCode=710",
+  "sha256": "e1f9d1b30715624558f9652454ab33c0c9e35ef11cf73c6527ce076ee76721c0",
+  "fetched_at": "2026-10-08T16:32:36+00:00",
+  "records": 136
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=4403,4407,4408,4412&period=2019&reporterCode=120",
+  "sha256": "1355a6a6ba9b7bbe6b3d0a0e0bcb6ae8451286a84160e0a59ac141147d0463fa",
+  "fetched_at": "2026-10-08T16:32:40+00:00",
+  "records": 131
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=4403,4407,4408,4412&period=2020&reporterCode=120",
+  "sha256": "10ff58252d2b45dc25b9cd866440efd8d6a0ad0ab7d4c2ef77fced60292428b6",
+  "fetched_at": "2026-10-08T16:32:43+00:00",
+  "records": 137
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=4403,4407,4408,4412&period=2021&reporterCode=120",
+  "sha256": "3f96bbbd432daf09cdfb8e0c4bdd616fdb47aba9c7a501a514fd31176e445218",
+  "fetched_at": "2026-10-08T16:32:45+00:00",
+  "records": 124
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=4403,4407,4408,4412&period=2022&reporterCode=120",
+  "sha256": "ce7e97b9616d8202b3a15aa2823ce2e4babad0ee0a146408a7e3ed6bfd7a0cce",
+  "fetched_at": "2026-10-08T16:32:55+00:00",
+  "records": 113
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=4403,4407,4408,4412&period=2023&reporterCode=120",
+  "sha256": "8a92f983174ab9620751e879036df7c0405317e0ba745ce76a6e2c840644a790",
+  "fetched_at": "2026-10-08T16:33:31+00:00",
+  "records": 114
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=4403,4407,4408,4412&period=2019&partnerCode=120",
+  "sha256": "4ebd0877dfacf23d2730fc75e88587c2ad042c182e56c72c94a3f130d755c597",
+  "fetched_at": "2026-10-08T16:33:32+00:00",
+  "records": 165
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=4403,4407,4408,4412&period=2020&partnerCode=120",
+  "sha256": "ef5ebfe1c397be83a92526aa5d2b686b7f7822f94aba562416e41a2749d94919",
+  "fetched_at": "2026-10-08T16:33:40+00:00",
+  "records": 156
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=4403,4407,4408,4412&period=2021&partnerCode=120",
+  "sha256": "c4bb3e16b7b800296f4a436a6684e65f74ff58cc75c9f0ec4f061b543a5267f1",
+  "fetched_at": "2026-10-08T16:33:43+00:00",
+  "records": 166
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=4403,4407,4408,4412&period=2022&partnerCode=120",
+  "sha256": "c171b3dd5a5442262f188140991406672a32db5d175fe048bd7ade6d5806d0e1",
+  "fetched_at": "2026-10-08T16:33:46+00:00",
+  "records": 147
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=4403,4407,4408,4412&period=2023&partnerCode=120",
+  "sha256": "f455110ba76e05d607abfc3428eea969c6721af0ca2451ac6d155c94672dd3c4",
+  "fetched_at": "2026-10-08T16:33:57+00:00",
+  "records": 149
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=4403,4407,4408,4412&period=2019&reporterCode=178",
+  "sha256": "2adfe56f56f800026b12e07abebb866fe89920b387d0c0d0889e01d7e364c432",
+  "fetched_at": "2026-10-08T16:33:59+00:00",
+  "records": 87
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=4403,4407,4408,4412&period=2020&reporterCode=178",
+  "sha256": "ea9be20d624df82766e368420d14efe0fdba0994b361587ba62761b66c0e8f7c",
+  "fetched_at": "2026-10-08T16:34:02+00:00",
+  "records": 80
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=4403,4407,4408,4412&period=2021&reporterCode=178",
+  "sha256": "331e1ab0fbc4ac69ec6fb40965957c616856c839ad1b9a5e44fd32548373c2c5",
+  "fetched_at": "2026-10-08T16:34:05+00:00",
+  "records": 76
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=4403,4407,4408,4412&period=2022&reporterCode=178",
+  "sha256": "a35f8f522b03777fa303ce7ba3520cfcf4258dc6096a70e6b946641bcb080f58",
+  "fetched_at": "2026-10-08T16:34:13+00:00",
+  "records": 78
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=X&cmdCode=4403,4407,4408,4412&period=2023&reporterCode=178",
+  "sha256": "45cd1d08150c91d71f6aecf6d9cf8d3ec742158ce5ead4a1a5cc31d2828f0956",
+  "fetched_at": "2026-10-08T16:34:15+00:00",
+  "records": 72
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=4403,4407,4408,4412&period=2019&partnerCode=178",
+  "sha256": "b20a1cfa7db3b007ec8513159c92ee6c1cf516a0db015be0654d7f2b9a49a2e5",
+  "fetched_at": "2026-10-08T16:34:18+00:00",
+  "records": 105
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=4403,4407,4408,4412&period=2020&partnerCode=178",
+  "sha256": "7889d0419036216faacbea32cadf19d8d22fb1e710b2191c5e0e731218f6c67a",
+  "fetched_at": "2026-10-08T16:34:21+00:00",
+  "records": 94
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=4403,4407,4408,4412&period=2021&partnerCode=178",
+  "sha256": "105d4ea7c8b796b12fb17f95a3996b2bc7bc1abe27dcc288843af0fc0bf6c9c1",
+  "fetched_at": "2026-10-08T16:34:40+00:00",
+  "records": 97
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=4403,4407,4408,4412&period=2022&partnerCode=178",
+  "sha256": "6455b9d094d20624202e3557d15337ba8b46f51d4e2aa9fa3aac2afe8813ae27",
+  "fetched_at": "2026-10-08T16:34:42+00:00",
+  "records": 87
+ },
+ {
+  "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?flowCode=M&cmdCode=4403,4407,4408,4412&period=2023&partnerCode=178",
+  "sha256": "46205eb47b08ff9f29cfe7c75dc29e5bb831c48944e6a5e7fb17a6ca42a227af",
+  "fetched_at": "2026-10-08T16:34:50+00:00",
+  "records": 100
+ }
+]

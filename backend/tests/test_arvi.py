@@ -87,5 +87,13 @@ def test_mirror_cells_and_indicators():
     assert res["confidence"]["level"] in {"high", "medium", "low"}
 
 
+def test_side_without_any_declaration_is_not_declared_not_zero():
+    cells = build_cells([flow("CHN", "COD", "M", "900", kg="1000")])
+    score_cells(cells)
+    a1 = indicators(cells)[0]["arvi1"]
+    assert a1["x_total"] is None and a1["gap_total"] is None and a1["rel_gap_total"] is None
+    assert Decimal(a1["m_total"]) == 900 and Decimal(a1["import_only"]) == 900
+
+
 def test_levels():
     assert (level(70), level(69), level(40), level(39)) == ("high", "medium", "medium", "low")

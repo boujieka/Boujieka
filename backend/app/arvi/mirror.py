@@ -3,9 +3,13 @@
 A cell is (exporter r, partner p, HS code k, year t). X is what r declares exporting to p; M is
 what p declares importing from r. Amounts stay in Decimal; ratios are rounded only for display.
 
-Confidence (blueprint §8) is rule-based. Two of its nine components, "share of the gap explained"
-and "independent corroboration", need the reconciliation engine and production data, which are
-not built yet: they are left out and the score is rescaled from the 80 points that are computed.
+Confidence (blueprint §8) is rule-based and measures how far a gap can be trusted as a gap
+between two declarations of the same goods. Three of its nine components are not computed yet
+and the score is rescaled from the 70 points that are: "share of the gap explained" (needs the
+reconciliation engine), "independent corroboration" (needs production data) and "unit-value
+coherence", which the blueprint defines against an international reference price (not collected).
+Comparing the two declared unit values with each other would penalise exactly the gaps ARVI-2
+is meant to show, so it is not used as a proxy.
 Thresholds marked [HYPOTHÈSE] are provisional.
 """
 
@@ -22,7 +26,7 @@ from app.arvi.taxonomy import HUB_PARTNERS, LANDLOCKED, PILOT, RESOURCES, YEARS,
 ZERO = Decimal(0)
 # Relative gap band compatible with usual freight and insurance (CIF vs FOB). [HYPOTHÈSE]
 CIF_FOB_BAND = (Decimal("0"), Decimal("0.10"))
-COMPUTED_POINTS = 80
+COMPUTED_POINTS = 70
 LEVELS = ((70, "high"), (40, "medium"), (0, "low"))  # [HYPOTHÈSE]
 
 
@@ -163,28 +167,17 @@ def score_cells(cells: dict[tuple, Cell]) -> None:
                 why.append((3, "Quantités divergentes (10 à 25 %)"))
             else:
                 why.append((1, "Quantités très divergentes (plus de 25 %)"))
-        # 3. Unit-value coherence (10)
-        ux, um = c.uv("x"), c.uv("m")
-        if ux and um:
-            ratio = um / ux
-            if Decimal("0.95") <= ratio <= Decimal("1.25"):
-                pts += 10
-            elif Decimal("0.8") <= ratio <= Decimal("1.5"):
-                pts += 5
-                why.append((4, "Prix unitaires partiellement cohérents"))
-            else:
-                why.append((2, "Prix unitaires incohérents entre les deux déclarations"))
-        # 4. Exporter reporting regularity (10)
+        # 3. Exporter reporting regularity (10)
         ey = len(exp_years[(c.reporter, res)])
         pts += round(10 * ey / n_years)
         if ey < n_years:
             why.append((5, f"Exportateur déclarant {ey} année(s) sur {n_years}"))
-        # 5. Partner reporting regularity (10)
+        # 4. Partner reporting regularity (10)
         iy = len(imp_years[(c.reporter, c.partner, res)])
         pts += round(10 * iy / n_years)
         if iy < n_years:
             why.append((6, f"Partenaire déclarant {iy} année(s) sur {n_years}"))
-        # 6. No hub / transit (10)
+        # 5. No hub / transit (10)
         hub_pts = 10
         if c.partner in HUB_PARTNERS:
             hub_pts -= 5
@@ -193,7 +186,7 @@ def score_cells(cells: dict[tuple, Cell]) -> None:
             hub_pts -= 5
             why.append((4, "Pays enclavé : exportations en transit par un pays tiers"))
         pts += hub_pts
-        # 7. Temporal stability of the gap's sign (10)
+        # 6. Temporal stability of the gap's sign (10)
         if c.gap:
             sign = 1 if c.gap > 0 else -1
             same = signs[(c.reporter, c.partner, c.hs)].count(sign)
@@ -246,13 +239,16 @@ def indicators(cells: dict[tuple, Cell]) -> list[dict]:
             by_stage.append({"order": st.order, "stage": st.name_fr, "x": r4(vx), "m": r4(vm),
                              "share_x": r4(rel(vx, x_total)), "share_m": r4(rel(vm, m_total))})
 
+        # A side with no declaration at all is "not declared", never zero.
+        has_x, has_m = any(c.x is not None for c in cs), any(c.m is not None for c in cs)
+        both = has_x and has_m
         top = sorted(cs, key=lambda c: c.weight, reverse=True)
         out.append({
             "country": country, "resource": res_key, "year": year,
             "arvi1": {
-                "x_total": r4(x_total), "m_total": r4(m_total),
-                "gap_total": r4(m_total - x_total),
-                "rel_gap_total": r4(rel(m_total - x_total, max(m_total, x_total))),
+                "x_total": r4(x_total) if has_x else None, "m_total": r4(m_total) if has_m else None,
+                "gap_total": r4(m_total - x_total) if both else None,
+                "rel_gap_total": r4(rel(m_total - x_total, max(m_total, x_total))) if both else None,
                 "complete_positive": r4(pos), "complete_negative": r4(neg),
                 "complete_net": r4(pos + neg),
                 "export_only": r4(exp_only), "import_only": r4(imp_only),
@@ -261,8 +257,9 @@ def indicators(cells: dict[tuple, Cell]) -> list[dict]:
             },
             "arvi2": arvi2,
             "arvi3": {"lowest_stage": res.stages[0].name_fr,
-                      "lowest_share_x": by_stage[0]["share_x"],
-                      "lowest_share_m": by_stage[0]["share_m"], "by_stage": by_stage},
+                      "lowest_share_x": by_stage[0]["share_x"] if has_x else None,
+                      "lowest_share_m": by_stage[0]["share_m"] if has_m else None,
+                      "by_stage": by_stage},
             "confidence": {"score": score, "level": level(score)},
             "cells": [c.to_json() for c in top],
         })

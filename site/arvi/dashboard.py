@@ -41,12 +41,20 @@ def usd(v: str | Decimal | None) -> str:
     return f"{_fr(d, 0)} $"
 
 
+def declared(v: str | None) -> str:
+    return "<small>Non déclaré</small>" if v is None else usd(v)
+
+
 def pct(v: str | None, signed: bool = False) -> str:
     if v is None:
         return "—"
     d = Decimal(v) * 100
     s = _fr(d, 1)
     return f"{'+' if signed and d > 0 else ''}{s} %"
+
+
+def per_t(v: str | None) -> str:
+    return "—" if v is None else f"{_fr(Decimal(v), 0)} $/t"
 
 
 def tonnes(v: str | None) -> str:
@@ -85,12 +93,12 @@ def latest(results: list[dict], country: str, resource: str) -> dict | None:
 
 def chart(series: list[dict]) -> str:
     """Grouped bars per year: exports declared by the country vs partners' mirror imports."""
-    w, h, left, bottom, top = 640, 260, 64, 28, 12
+    w, h, left, bottom, top = 640, 260, 86, 28, 12
     vals = [num(r["arvi1"][k]) or Decimal(0) for r in series for k in ("x_total", "m_total")]
     vmax = max(vals) if vals and max(vals) > 0 else Decimal(1)
     # Round the axis max up to a "nice" number.
     mag = Decimal(10) ** (len(str(int(vmax))) - 1)
-    nice = next(m * mag for m in (1, 2, 2.5, 5, 10) if m * mag >= vmax)
+    nice = next(m * mag for m in (Decimal(1), Decimal(2), Decimal("2.5"), Decimal(5), Decimal(10)) if m * mag >= vmax)
     plot_h, plot_w = h - bottom - top, w - left - 8
     slot = plot_w / len(series)
     bw = min(28.0, slot * 0.32)
@@ -104,7 +112,10 @@ def chart(series: list[dict]) -> str:
         cx = left + slot * i + slot / 2
         for j, (key, cls, label) in enumerate((("x_total", "s1", "Exportations déclarées"),
                                                ("m_total", "s2", "Importations miroir"))):
-            v = num(r["arvi1"][key]) or Decimal(0)
+            raw = r["arvi1"][key]
+            if raw is None:  # not declared: no bar, never a zero
+                continue
+            v = num(raw)
             bh = float(v / nice) * plot_h
             x = cx - bw - 1 + j * (bw + 2)
             y = top + plot_h - bh
@@ -135,7 +146,7 @@ def overview(data: dict) -> str:
             rows.append(
                 f"<tr><td><a href='/pilote/{iso.lower()}-{rk}/'>{E(c['name_fr'])}</a></td>"
                 f"<td>{E(data['resources'][rk]['name_fr'])}</td><td class='n'>{r['year']}</td>"
-                f"<td class='n'>{usd(a1['x_total'])}</td><td class='n'>{usd(a1['m_total'])}</td>"
+                f"<td class='n'>{declared(a1['x_total'])}</td><td class='n'>{declared(a1['m_total'])}</td>"
                 f"<td class='n'>{usd(a1['gap_total'])}<br><small>{pct(a1['rel_gap_total'], True)}</small></td>"
                 f"<td class='n'>{pct(a1['complete_share'])}</td>"
                 f"<td class='n'>{pct(a3['lowest_share_x'])} / {pct(a3['lowest_share_m'])}</td>"
@@ -171,7 +182,7 @@ def detail(data: dict, iso: str, rk: str) -> str:
     if not series:
         return page(f"ARVI {name}", name, "ARVI · Pilote", name, "Aucune déclaration disponible.", "", meta, "/pilote/")
     yrows = "".join(
-        f"<tr><td class='n'>{r['year']}</td><td class='n'>{usd(r['arvi1']['x_total'])}</td><td class='n'>{usd(r['arvi1']['m_total'])}</td>"
+        f"<tr><td class='n'>{r['year']}</td><td class='n'>{declared(r['arvi1']['x_total'])}</td><td class='n'>{declared(r['arvi1']['m_total'])}</td>"
         f"<td class='n'>{usd(r['arvi1']['gap_total'])}</td><td class='n'>{pct(r['arvi1']['rel_gap_total'], True)}</td>"
         f"<td class='n'>{usd(r['arvi1']['complete_positive'])}</td><td class='n'>{usd(r['arvi1']['complete_negative'])}</td>"
         f"<td class='n'>{usd(r['arvi1']['export_only'])}</td><td class='n'>{usd(r['arvi1']['import_only'])}</td>"
@@ -179,8 +190,8 @@ def detail(data: dict, iso: str, rk: str) -> str:
         for r in series)
     last = series[-1]
     a2 = "".join(
-        f"<tr><td class='n'>{r['year']}</td><td>{E(u['stage'])} <small>SH {E(u['hs'])}</small></td><td class='n'>{usd(u['uv_x'])}/t</td>"
-        f"<td class='n'>{usd(u['uv_m'])}/t</td><td class='n'>{pct(str(Decimal(u['ratio']) - 1), True)}</td><td class='n'>{u['cells']}</td></tr>"
+        f"<tr><td class='n'>{r['year']}</td><td>{E(u['stage'])} <small>SH {E(u['hs'])}</small></td><td class='n'>{per_t(u['uv_x'])}</td>"
+        f"<td class='n'>{per_t(u['uv_m'])}</td><td class='n'>{pct(str(Decimal(u['ratio']) - 1), True)}</td><td class='n'>{u['cells']}</td></tr>"
         for r in series for u in r["arvi2"]) or "<tr><td colspan='6'>Aucune paire avec quantités déclarées des deux côtés.</td></tr>"
     a3 = "".join(
         f"<tr><td>{s['order']}. {E(s['stage'])}</td>" + "".join(
