@@ -14,9 +14,9 @@
 ## 1. Résumé
 
 1. **Les minerais pèsent peu dans les exportations camerounaises.** En 2023, selon UN Comtrade (données déclarées par le Cameroun), les exportations totales étaient de **4 967,5 M USD**. Les combustibles minéraux (chapitre SH 27 : pétrole brut, GNL) en représentaient **54 %**. L'aluminium brut (SH 7601) ne pesait que **90,2 M USD (1,8 %)** et l'or (SH 7108) **0,67 M USD**. Le Cameroun n'a déclaré aucune exportation significative de minerais (chapitre 26) **[F]**.
-2. **L'aluminium brut est le seul produit métallique exporté à une échelle industrielle.** 43 916 t en 2023, dont environ 94,5 % vers quatre pays de l'UE (France, Pays-Bas, Italie, Espagne) **[F]**. Les volumes sont tombés à **26 851 t en 2024 (−38,9 %)** selon l'INS **[F]**. Les intrants viennent de l'étranger : 135 347 t d'alumine importées en 2023, dont 57 % (en valeur) de Guinée **[F]**.
-3. **Statistiques de l'or : l'écart miroir est documenté, mais à nuancer.** Pour 2023, la Douane a enregistré **22,31 kg** d'or exporté. Les partenaires déclarent avoir importé **15 194 kg** (951 M USD) d'or « en provenance du Cameroun » : **14 048 kg** par les Émirats arabes unis et **1 145 kg** par l'Ouganda **[F]** (UN Comtrade, recoupé avec le rapport ITIE 2023). L'écart est d'environ **681 fois**, et non « près de 700 fois ». L'affirmation de presse « les EAU seuls > 15 t » est inexacte **[I]**. La **Suisse** ne déclare aucune importation d'or du Cameroun dans les données consultées (2020–2024) **[F]**. Pour 2024, les EAU n'ont pas encore publié leurs données dans Comtrade. Le Rwanda (6,7 t) et l'Ouganda (3,2 t) déclarent pourtant de l'or « camerounais » : l'origine déclarée est donc elle-même incertaine (transit, réattribution) **[I]**.
-4. **Bauxite et minerai de fer restent des marchés futurs.** Aucune exportation n'est enregistrée jusqu'en 2023 **[F]**. La première cargaison de bauxite de Minim-Martap (via Douala) était visée pour fin septembre 2026 ; elle n'est **pas confirmée** au 2026-10-08 **[?]**. Pour le fer (Grand Zambi, via Kribi), l'exportation était toujours attendue en février 2026, faute de terminal minéralier dédié **[F-sec]**.
+2. **L'aluminium brut est le seul produit métallique exporté à une échelle industrielle.** 43 916 t en 2023, dont environ 94,5 % **de la valeur** (88,3 % du volume) vers quatre pays de l'UE (France, Pays-Bas, Italie, Espagne) **[F]**. Les volumes sont tombés à **26 851 t en 2024 (−38,9 %)** selon l'INS **[F]**. Les intrants viennent de l'étranger : 135 347 t d'alumine importées en 2023, dont 57 % (en valeur) de Guinée **[F]**.
+3. **Statistiques de l'or : l'écart miroir est documenté, mais à nuancer.** Pour 2023, la Douane a enregistré **22,31 kg** d'or exporté. Les partenaires déclarent avoir importé **15 194 kg** (951 M USD) d'or « en provenance du Cameroun » : **14 048 kg** par les Émirats arabes unis et **1 145 kg** par l'Ouganda **[F]** (UN Comtrade, recoupé avec le rapport ITIE 2023). L'écart est d'environ **681 fois**, et non « près de 700 fois ». L'affirmation de presse selon laquelle les EAU auraient déclaré 15,2 t est inexacte (EAU : 14,05 t ; les 15,2 t sont le total de tous les déclarants) **[I]**. La **Suisse** ne déclare aucune importation d'or du Cameroun dans les données consultées (2020–2024) **[F]**. Pour 2024, les EAU n'ont pas encore publié leurs données dans Comtrade. Le Rwanda (6,7 t) et l'Ouganda (3,2 t) déclarent pourtant de l'or « camerounais » : l'origine déclarée est donc elle-même incertaine (transit, réattribution) **[I]**.
+4. **Bauxite et minerai de fer restent des marchés futurs.** Aucune exportation n'est enregistrée jusqu'en 2023 **[F]**. La première cargaison de bauxite de Minim-Martap (via Douala) était visée pour fin septembre 2026 (AlCircle, 18 juin 2026) ; les premières exportations ont depuis été **reportées sine die** (EcoMatin, 24 août 2026, après la suspension d'une facilité de 82 Md FCFA par AFG Bank Cameroun) **[F-sec]** *(corrigé à la contre-vérification ; voir module 05, [S15])*. Pour le fer (Grand Zambi, via Kribi), l'exportation était toujours attendue en février 2026, faute de terminal minéralier dédié **[F-sec]**.
 5. **Marchés régionaux.** L'Afrique a reçu **9,4 %** des recettes d'exportation en 2024 et la CEMAC **6,8 %** (INS) **[F]**. Pour l'aluminium, la demande régionale porte sur les **produits semi-finis** (tôles SH 7606, déjà exportées vers le Gabon, le Congo et la RCA), pas sur le lingot **[F/I]**. Le Nigeria importe 41,5 M USD d'aluminium brut et 117,8 M USD de tôles (2023) **[F]**. Le Cameroun a déposé son instrument de ratification de la ZLECAf le **1er décembre 2020** **[F-sec, sources concordantes]**.
 6. **Matrice.** Elle est construite **par produit × marché**. La grille (5 critères pondérés, échelle 1–5, règle d'exclusion) est publiée en §7.1 avant toute note. Résultats indicatifs : pour l'aluminium brut, **Europe et Turquie = attractivité élevée**, **Chine = moyenne**, **États-Unis, Nigeria = faible**, CEMAC = données insuffisantes. Pour l'or, la matrice montre surtout que le problème n'est pas le choix du marché mais la **formalisation**. Toutes les notes sont des **inférences**.
 
@@ -166,7 +166,7 @@ Prix : World Bank Pink Sheet (CMO Historical Data, mise à jour du 2026-10-02), 
 - **Importateurs de bauxite 2023** (Comtrade, valeur) : Chine **8,6 Md USD**, très loin devant EAU 0,68 ; Inde 0,29 ; Irlande 0,19 ; États-Unis 0,17 ; Canada 0,15 ; Espagne 0,10 ; Allemagne 0,08 **[F]**. Les **fournisseurs de la Chine** : Guinée **74,3 %**, Australie 19,6 %, Indonésie 1,5 % **[F]**.
 - **Importateurs d'alumine 2023** : Canada 1,75 Md USD ; Bahreïn 1,19 ; EAU 1,16 ; Inde 1,08 ; Chine 0,96 ; Norvège 0,95 **[F]**.
 - **Tendances** (USGS) : la Guinée a retiré en août 2025 des permis de bauxite à une filiale d'un producteur émirien et les a réattribués à une société publique **[F]**. L'Indonésie a interdit l'exportation de bauxite en 2023 **[F]**.
-- **Cameroun** : projet Minim-Martap (Canyon Resources / Camalco). Première cargaison visée « fin T3 2026, vers fin septembre », via le **port de Douala**, avec un minerai d'environ 51 % Al₂O₃ et 2 % de silice (AlCircle, 18 juin 2026) **[F-sec]**. Expédition **non confirmée** au 2026-10-08 **[?]**. Aucun acheteur nommé ; Canyon visait des accords d'offtake après les premières cargaisons **[F-sec]**.
+- **Cameroun** : projet Minim-Martap (Canyon Resources / Camalco). Première cargaison visée « fin T3 2026, vers fin septembre », via le **port de Douala**, avec un minerai d'environ 51 % Al₂O₃ et 2 % de silice (AlCircle, 18 juin 2026) **[F-sec]**. Expédition **reportée sine die** le 24 août 2026 (EcoMatin, qui situe l'objectif initial au T4 2026, en novembre) **[F-sec]**. Aucun acheteur nommé ; Canyon visait des accords d'offtake après les premières cargaisons **[F-sec]**.
 
 ### 5.3 Minerai de fer (SH 2601)
 
@@ -211,7 +211,7 @@ Sources : Comtrade, requêtes du 2026-10-08 **[F]** ; ITIE Cameroun, *Rapport IT
 ### 6.2 Ce qui est documenté (rapports d'organisations)
 
 - **ITIE Cameroun, rapport 2023** (décembre 2025) **[F]** :
-  - 22,31 kg exportés en 2023. Henza Gem's a expédié 19,96 kg vers les EAU, et Cameroun Metal 1 000 g vers les EAU.
+  - 22,31 kg exportés en 2023. Henza Gem's a expédié 19,96 kg vers les EAU, et Cameroun Metal 1 000 g vers les EAU. *(Contre-vérification : le tableau 57 attribue 456,61 M FCFA aux 1 000 g de Cameroun Metal, contre 379,76 M FCFA aux 19,96 kg d'Henza Gem's ; la valeur unitaire du premier lot est aberrante — erreur de quantité ou de valeur probable dans la source [I].)*
   - D'après Comtrade, 15 194 kg ont été importés par les partenaires, dont environ 92 % par les EAU et environ 8 % par l'Ouganda.
   - Sur 2020–2023, le total Comtrade est de 30 915 kg contre 175,8 kg d'exportations officielles.
   - Environ 1 t de production artisanale formelle et environ 30 kg de production industrielle « ne figurent dans aucun flux d'exportation formel ».
@@ -227,7 +227,7 @@ Sources : Comtrade, requêtes du 2026-10-08 **[F]** ; ITIE Cameroun, *Rapport IT
 ### 6.3 Lecture critique
 
 - **[I]** Rapport 2023 : 15 194 / 22,31 ≈ **681** (≈ 704 si l'on ne compare que les flux vers les EAU : 14 048 / 19,96). Les formules « près de 700 fois » sont des arrondis acceptables.
-- **[I] Inexactitude de presse** : « les EAU seuls ont déclaré plus de 15 t » (Business in Cameroon, 15 décembre 2025) est **faux** selon Comtrade. Les EAU ont déclaré 14,05 t et l'Ouganda 1,14 t.
+- **[I] Inexactitude de presse** : Business in Cameroon (15 décembre 2025) écrit que les EAU ont « reported imports of 15.2 tons of gold » ; c'est **faux** selon Comtrade (15,2 t = total de tous les déclarants). Les EAU ont déclaré 14,05 t et l'Ouganda 1,14 t.
 - **[I] Valeurs unitaires** :
   - EAU 2023 : ≈ 1 948 USD/oz, soit environ 100 % du prix moyen de 1 943. L'or est donc valorisé au prix plein, ce qui est compatible avec de l'or de haute pureté ou une valorisation au contenu fin.
   - Rwanda 2024 : ≈ 1 905 USD/oz, soit 80 % de la moyenne 2024 (2 388) : décote ou pureté plus faible ?
@@ -299,7 +299,7 @@ Lecture : la matrice « attractivité » ne mesure pas la valeur captée par l'�
 | Marché | Demande | Prix net | Distance / logistique | Concurrence | Barrières | Attractivité **[I]** |
 |---|---|---|---|---|---|---|
 | Cameroun (raffinerie d'alumine) | 1 (aucune raffinerie ; alumine importée) | ND | 5 | ND | 5 | 3,15 → Moyenne (basse) *théorique*. Pas de débouché sans raffinerie (module 09) |
-| Chine | 5 (8,6 Md USD) | ND | 2 (expédition par Douala visée fin septembre 2026, non confirmée) | 1 (Guinée 74,3 %) | ND | **3,15 → Moyenne (basse)** |
+| Chine | 5 (8,6 Md USD) | ND | 2 (expédition par Douala reportée sine die le 24 août 2026) | 1 (Guinée 74,3 %) | ND | **3,15 → Moyenne (basse)** |
 | EAU | 3 (0,68 Md USD) | ND | 2 | ND | ND | **Données insuffisantes** |
 | Inde | 3 (0,29 Md USD) | ND | 2 | ND | ND | **Données insuffisantes** |
 | Europe (Irlande, Espagne, Allemagne) | 3 / 3 / 2 (0,19 ; 0,10 ; 0,08 Md USD) | ND | 2 | ND | ND | **Données insuffisantes** |
@@ -377,7 +377,7 @@ Critères d'évaluation **[H]** : traçabilité des sources, distinction F / I /
 |---|---|
 | **07 Investment Pipeline** (critère « Market » de l'Investment Opportunity Score) | Note d'attractivité du meilleur couple produit × marché pour chaque opportunité. Bauxite Minim-Martap → Chine : 3,15 (Moyenne basse ; Guinée dominante). Fer Grand Zambi / Mbalam → Chine : 2,85 (Faible tant que le terminal de Kribi manque). Aluminium (Alucam) → UE : 4,2. Ciment/clinker local → Cameroun : 3,9. **Toutes [I]**. Les prix de référence (Pink Sheet, §5) alimentent l'hypothèse de prix du modèle financier (08). |
 | **08 Financing** (indirect, via 07) | Prix de référence datés, volatilité observée (aluminium 2 256 → 3 666 USD/t entre la moyenne 2023 et mai 2026 ; or 1 943 → 5 020 USD/oz entre la moyenne 2023 et février 2026). Absence d'offtake signé pour la bauxite (au 18 juin 2026) **[F-sec]**. |
-| **09 National Strategy** | (1) Intégration aval de l'aluminium : la demande régionale porte sur les tôles (CEMAC, Nigeria 117,8 M USD), pas sur le lingot. (2) Bauxite → alumine : Alucam importe 135 kt d'alumine par an de Guinée, d'Irlande, d'Australie et des États-Unis, alors qu'une bauxite nationale est en démarrage : question de la raffinerie. (3) Clinker : 2,4–2,6 Mt importées par an (substitution). (4) Or : formalisation et traçabilité (recommandations ITIE). (5) Infrastructures : terminal minéralier de Kribi, capacités de Douala. |
+| **09 National Strategy** | (1) Intégration aval de l'aluminium : la demande régionale porte sur les tôles (CEMAC, Nigeria 117,8 M USD), pas sur le lingot. (2) Bauxite → alumine : Alucam a importé 135 kt d'alumine en 2023 (64 à 159 kt/an sur 2021-2023, Comtrade) de Guinée, d'Irlande, d'Australie et des États-Unis, alors qu'une bauxite nationale est en démarrage : question de la raffinerie. (3) Clinker : 2,4–2,6 Mt importées par an (substitution). (4) Or : formalisation et traçabilité (recommandations ITIE). (5) Infrastructures : terminal minéralier de Kribi, capacités de Douala. |
 | **04 Legal** (rétroaction) | Fiscalité de l'or citée par l'ITIE (ISML 25 % ; taxe à l'exportation 3,75 %) comme incitation à la sous-déclaration. À vérifier au regard du Code minier de 2023. |
 
 ---
@@ -392,7 +392,7 @@ Critères d'évaluation **[H]** : traçabilité des sources, distinction F / I /
 | V4 | 94 % des ventes d'aluminium brut vers l'UE en 2023 | Ecomatin (INS) ; calcul Comtrade 94,5 % | **Vérifié** (par recalcul) |
 | V5 | Exportations d'or 2023 : 22,31 kg ; 904,14 M FCFA | ITIE 2023, tableau 57 | **Vérifié** |
 | V6 | Importations d'or « du Cameroun » déclarées par les partenaires en 2023 : 15,2 t ; 951 M USD | Comtrade (recalcul : 15 195 kg ; 951,4 M USD) ; ITIE 2023 | **Vérifié** |
-| V7 | « Les EAU seuls ont importé > 15 t en 2023 » | Business in Cameroon (15 décembre 2025) | **Inexact** (EAU 14,05 t ; Ouganda 1,14 t) |
+| V7 | « Les EAU ont déclaré 15,2 t d'importations d'or » | Business in Cameroon (15 décembre 2025) | **Inexact** (EAU 14,05 t ; Ouganda 1,14 t) |
 | V8 | Écart « près de 700 fois » | ITIE / presse | **Arrondi** : 681 au total ; 704 pour les EAU seuls |
 | V9 | Pertes fiscales potentielles d'environ 165 Mds FCFA | ITIE 2023 | **Vérifié** (estimation ITIE, méthode non examinée) |
 | V10 | 2017 : 4 kg déclarés contre 10,9 t déclarées par les EAU | INTERPOL 2021 | **Vérifié** |
@@ -403,17 +403,17 @@ Critères d'évaluation **[H]** : traçabilité des sources, distinction F / I /
 | V15 | Droit américain de 50 % sur l'aluminium (juin 2025) | USGS MCS 2026 (Aluminum) | **Vérifié** |
 | V16 | CBAM : aluminium, ciment, fer et acier ; régime définitif depuis le 1er janvier 2026 | Commission européenne | **Vérifié** |
 | V17 | CBAM couvre le NC 2601 12 00 (pellets) | Tulli (douanes finlandaises), via recherche | **Vérifié (secondaire)**. Annexe I non lue |
-| V18 | Ratification ZLECAf : instrument déposé le 1er décembre 2020 (33e État) | IBFD/Diacron ; CEA-ONU (via recherche) | **Vérifié (secondaire, concordant)**. Registre UA non consulté |
+| V18 | Ratification ZLECAf : instrument déposé le 1er décembre 2020 (33e État) | CEA-ONU (uneca.org/node/1533, citant le commissaire UA) ; la page Diacron ne contient plus l'information (2026-10-08) | **Vérifié** (CEA-ONU). Registre UA non consulté |
 | V19 | Part Afrique de 9,4 % et part CEMAC de 6,8 % des recettes d'exportation en 2024 | INS Commext 2024 | **Vérifié** |
 | V20 | Trafic portuaire 2024 : total 26,93 Mt ; Douala 12,92 Mt ; Kribi 10,84 Mt ; Limbé 3,16 Mt | Ecomatin (12 novembre 2025), données APN | **Vérifié (secondaire)** |
-| V21 | Première cargaison de bauxite Minim-Martap, via Douala, visée fin septembre 2026 | AlCircle (18 juin 2026) | **Vérifié (secondaire)**. Réalisation **non vérifiée** |
+| V21 | Première cargaison de bauxite Minim-Martap, via Douala, visée fin septembre 2026 | AlCircle (18 juin 2026) ; EcoMatin (24 août 2026) | **Corrigé** : exportations reportées sine die le 24 août 2026 (EcoMatin) |
 | V22 | Exportation de fer de Grand Zambi en attente ; Kribi sans terminal minéralier dédié | Financial Afrik (février 2026), via recherche | **Vérifié (secondaire)**. Situation au 2026-10-08 **non vérifiée** |
 | V23 | Grand Zambi inaugurée le 22 septembre 2025 | Presse (via recherche) | **Vérifié (secondaire)** |
 | V24 | Alucam, unique producteur d'aluminium brut | Ecomatin (via recherche) | **Vérifié (secondaire)** |
 | V25 | Usine de clinker Cimencam à Figuil (1 000 t/jour, mars 2024) | Ecomatin (via recherche) | **Non vérifié** à la source |
 | V26 | Tirant d'eau du terminal polyvalent de Kribi : 16 m (2019) ; port dragué à 15 m (2025) | Presse 2019 ; Lettre du PAK (via recherche) | **Non vérifié** (sources anciennes et divergentes) |
 | V27 | Accès préférentiel UE pour le Cameroun (APE intérimaire) | — | **Non vérifié** |
-| V28 | Statut de suspension ITIE du Cameroun | eiti.org (lecture automatique ambiguë) | **Non vérifié** |
+| V28 | Statut de suspension ITIE du Cameroun | eiti.org/countries/cameroon (« Suspended for inadequate stakeholder engagement ») ; décision 2024-17 du 29 février 2024 | **Vérifié** (contre-vérification) |
 | V29 | Chiffre SWISSAID propre au Cameroun | — | **Non vérifié** |
 | V30 | Cadrage : « 05 → 06 » (livrable 05 disponible) | Cadrage | **Incohérent** : section 05 absente du cadrage |
 
@@ -422,7 +422,7 @@ Critères d'évaluation **[H]** : traçabilité des sources, distinction F / I /
 ## 11. Inconnues
 
 1. **Données 2024 et 2025** : Comtrade (déclarant Cameroun) non publié pour 2024 ; miroir des EAU 2024 non publié. Exportations d'or 2024 et 2025 (DGD) : inconnues.
-2. **Première exportation de bauxite (Minim-Martap) et de fer (Grand Zambi)** : réalisation, volumes, acheteurs et prix au 2026-10-08 inconnus.
+2. **Première exportation de bauxite (Minim-Martap) et de fer (Grand Zambi)** : la bauxite est reportée sine die (24 août 2026) ; nouvelle date, volumes, acheteurs et prix inconnus. Fer : réalisation au 2026-10-08 inconnue.
 3. **Contrats d'offtake** (bauxite, fer) et formules de prix : non publics ou non trouvés.
 4. **Régimes d'accès** : APE UE–Cameroun pour l'aluminium, calendrier tarifaire ZLECAf du Cameroun et de la CEMAC, tarif extérieur commun CEMAC pour les produits concernés : non vérifiés.
 5. **Prix de la bauxite et de l'alumine** : pas de référence publique gratuite équivalente à la Pink Sheet (seul l'indicateur américain f.a.s. de l'USGS a été trouvé).
@@ -474,10 +474,11 @@ Toutes consultées le 2026-10-08.
 - Ecomatin, « Cameroun : les exportations d'aluminium chutent de près de 40 % en 2024 » : https://ecomatin.net/cameroun-les-exportations-daluminium-chutent-de-pres-de-40-en-2024
 - Ecomatin, « Cameroun : les importations de clinker atteignent 2,5 millions de tonnes en 2024 » : https://ecomatin.net/cameroun-les-importations-de-clinker-atteignent-25-millions-de-tonnes-7-en-2024
 - Ecomatin, « Avec 27 millions de tonnes de marchandises traitées en 2024, les ports camerounais marquent le pas » (12 novembre 2025) : https://ecomatin.net/avec-27-millions-de-tonnes-de-marchandises-traitees-en-2024-les-ports-camerounais-marquent-le-pas
+- EcoMatin, « Cameroun : les premières exportations de bauxite de Minim-Martap reportées sine die » (24 août 2026) : https://ecomatin.net/cameroun-les-premieres-exportations-de-bauxite-de-minim-martap-reportees-sine-die
 - AlCircle, « Cameroon's Minim Martap project targets first bauxite shipment by September 2026 » (18 juin 2026) : https://www.alcircle.com/news/cameroons-minim-martap-project-targets-first-bauxite-shipment-by-september-2026-119967
 - Financial Afrik, financement de Grand Zambi (18 février 2026) : https://www.financialafrik.com/2026/02/18/cameroun-75-millions-usd-a-mobiliser-par-des-banques-locales-a-la-beac-pour-lexploitation-de-fer-de-grand-zambi
 - Port autonome de Kribi, « Kribi at the heart of mining renewal » (15 novembre 2023) : https://pak.cm/en/kribi-at-the-heart-of-mining-renewal/
-- Diacron (IBFD), ratification ZLECAf (Angola, Cameroun, Lesotho, Tunisie, décembre 2020) : https://www.diacrongroup.com/en/tax-news/african-continental-free-trade-area-agreement-angola-cameroon-lesotho-and-tunisia-deposit-instrument-of-ratification/
+- Diacron (IBFD), ratification ZLECAf (Angola, Cameroun, Lesotho, Tunisie, décembre 2020) — contenu absent de la page au 2026-10-08 : https://www.diacrongroup.com/en/tax-news/african-continental-free-trade-area-agreement-angola-cameroon-lesotho-and-tunisia-deposit-instrument-of-ratification/
 - CEA-ONU : https://uneca.org/node/1533
 
 > Note : la recherche web a atteint sa limite d'appels pendant la préparation. Les points listés en §11
@@ -487,3 +488,36 @@ Toutes consultées le 2026-10-08.
 ---
 
 *Contenu d'information, de formation et d'analyse. Ne constitue ni un conseil en investissement, ni un conseil juridique ou fiscal. Les notes d'attractivité sont des inférences d'analyste fondées sur une grille publiée, non des recommandations commerciales.*
+
+---
+
+## Contre-vérification (2026-10-08)
+
+Vérification indépendante, adversariale, réalisée le 2026-10-08 (rapport :
+`docs/cameroon/verification/verif-04-06.md`). Requêtes Comtrade rejouées sur l'API publique, Pink Sheet
+mensuelle et annuelle téléchargées, rapport ITIE 2023 et INS Commext 2024 relus en PDF.
+
+**Confirmé** : total 2023 (4 967,5 M USD), chapitre 27 (2 686,0 M USD), 7108 (0,67 M USD), chapitre 26
+(104 USD) ; 7601 en 2023 par destination (90,19 M USD ; 43 916 175 kg ; toutes les lignes du §4.3) ;
+absence de données 2024 déclarées par le Cameroun ; alumine 2023 (135 347 t ; Guinée 34,3 M USD /
+76,7 kt) ; miroir or 2023 (EAU 14 048,4 kg / 879,7 M USD ; Ouganda 1 144,7 kg / 71,6 M USD ; total
+15 195 kg / 951,4 M USD) et 2024 (Rwanda 6 745,7 kg ; Ouganda 3 196,5 kg ; EAU absents) ; aucune
+importation suisse 2020-2024 ; Chine bauxite 2023 (8,6 Md USD ; Guinée 74,3 %) ; Nigeria 7601 / 7606 ;
+7606 vers Gabon, Congo, RCA ; Pink Sheet 2023-2025 et 2026 (3 283 ; 3 666 en mai ; or 4 319 et 5 020 en
+février) ; ITIE 2023 (22,31 kg ; 904,14 M FCFA ; 15 194 kg ; 30 915 kg ; 175,8 kg ; ≈ 165 Mds FCFA ;
+ISML 25 % + 3,75 % ; saisie de 30,5 kg) ; INS 2024 (26 851 t ; 31 682 M FCFA ; −38,9 % / −41,6 % ;
+9,4 % et 6,8 % ; alumine 134 119 t ; clinker 2 577 294 t) ; USGS MCS 2026 (74,0 Mt ; Chine 45,0 Mt ;
+droit section 232 porté à 50 % en juin 2025) ; ZLECAf (1er décembre 2020, 33e État, CEA-ONU). Tous les
+calculs de notes (§7) et les ratios (681, 704, valeurs unitaires, parts) ont été recalculés : exacts.
+
+**Corrigé** : (1) 94,5 % = part **en valeur** (88,3 % en volume) ; (2) première exportation de bauxite :
+**reportée sine die** le 24 août 2026 (EcoMatin), et non simplement « non confirmée » ; (3) citation
+de presse : Business in Cameroon attribue 15,2 t aux EAU (et non « > 15 t ») ; (4) importations
+d'alumine : 135 kt en 2023, pas « par an » ; (5) V28 (suspension ITIE) et V18 (ZLECAf) relevés à
+« Vérifié » sur source primaire ; la page Diacron citée ne contient plus l'information.
+
+**Signalé** : valeur unitaire aberrante d'un lot du tableau 57 de l'ITIE (Cameroun Metal).
+
+**Non contre-vérifié** : USGS bauxite, fer et or ; Tulli ; trafic portuaire ; Cimencam Figuil ;
+INTERPOL ; SWISSAID.
+

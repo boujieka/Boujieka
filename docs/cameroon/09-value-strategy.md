@@ -77,7 +77,7 @@
 | Document | Date / statut | Contenu minier pertinent | Objectifs chiffrés officiels | Statut |
 |---|---|---|---|---|
 | **SND30**, Stratégie nationale de développement 2020-2030 (MINEPAT) | 1re édition, janvier 2020. Suite du DSCE (2010-2019), deuxième phase de la Vision 2035 | §96 : 9 sous-secteurs industriels moteurs, dont Mines-Métallurgie-Sidérurgie. §110 : mettre d'abord en œuvre les « grands projets d'extraction de première génération » ; 6 orientations : (i) sécurisation des conventions minières après audit général ; (ii) soutien aux meilleures entreprises locales, sans sous-traitance globale à l'étranger ; (iii) appui aux interprofessions artisanales (or, calcaire, diamant, saphir, corindon, joaillerie) ; (iv) valorisation des matériaux de construction ; (v) poursuite de l'inventaire géologique avec des cartes à 1/200 000 ou plus ; (vi) mise à niveau des laboratoires nationaux. §163 : transport pour approvisionner les usines en matières premières « particulièrement d'origine minière » | **Aucun objectif chiffré minier.** Objectifs macro : secondaire de 28,2 % du PIB (2018) à 36,8 % (2030) ; VAM à 25 % du PIB en 2030 ; part des produits manufacturés dans les exportations de 26,25 % (2015) à 54,5 % (2030) ; capacité électrique de 1 650 MW (2019) à plus de 5 000 MW (2030) ; croissance moyenne de 8,1 %/an sur 2020-2030. Matrice d'actions (annexe 5) : « système d'information sur les ressources minières, géologiques et géochimiques » opérationnel ; textes d'application du Code minier adoptés | [F] (PDF lu) |
-| Incohérences internes de la SND30 | — | La base de la VAM est de 14,5 % (2017) dans la synthèse et de 12,9 % (2016) au chapitre 3 et en annexe. L'objectif d'exportations manufacturières est de 54,5 % (2030) dans le texte et de 60 % (2026-2029) dans la matrice d'actions | — | [F] (à signaler aux participants) |
+| Incohérences internes de la SND30 | — | La base de la VAM est de 14,5 % (2017) dans la synthèse et de 12,9 % (2016) au chapitre 3 et en annexe. La cible de VAM est de 25 % en 2030 dans le texte (§94), mais l'annexe 1 (indicateurs clés) donne 22,9 % en 2030 et 24,6 % en 2035 (ajout de la contre-vérification). L'objectif d'exportations manufacturières est de 54,5 % (2030) dans le texte et de 60 % (2026-2029) dans la matrice d'actions | — | [F] (à signaler aux participants) |
 | Évaluation à mi-parcours de la SND30 (CNSE) | Rapportée le 25/08/2026 | Aucune mention du secteur minier dans l'article | 49,6 % des besoins couverts ; investissement à 18 % du PIB (2021) contre 29 % visés, cible 2030 révisée à 23,8 % ; croissance de 3,8 % (2025) contre 8,5 % visés | [F-presse] |
 | **Plan directeur d'industrialisation (PDI)** | Présenté en mars 2017 (MINMIDT). Révision avec appui de la CEA annoncée en 2019 | Filières porteuses : agro-industrie, énergie, numérique ; transformation du bois, du coton, des minerais et des hydrocarbures ; métallurgie, sidérurgie | Industrie de 13 % à 24 % du PIB à l'horizon 2035 (selon la presse) | [F-presse] ; texte intégral non consulté [?] |
 | **Code minier, loi n° 2023/014 du 19/12/2023** | En vigueur. Abroge la loi n° 2016/017 (art. 200) | Art. 27 : 10 % minimum de la quote-part d'or et de pierres de l'État garantis aux transformateurs locaux. Art. 40 : la convention fixe la part de production dédiée à la transformation locale, **au moins 15 %**. Art. 44 : avantages pour qui construit une usine de transformation. Art. 47 : 10 % gratuits et non diluables pour l'État, plus jusqu'à 25 % à titre onéreux (mine industrielle). Art. 48 : partage de production de 1-5 % (précieux) et de 2-15 % (autres). Art. 117(3) : **or exporté sous forme affinée**. Art. 118 : agrément fusion et affinage. Art. 121-125 : contenu local, 95 % des postes non qualifiés réservés aux Camerounais, préférence aux sociétés de droit camerounais | Seuils juridiques ci-dessus (ce ne sont pas des objectifs de résultat) | [F] (PDF FAOLEX lu) |
@@ -131,7 +131,7 @@ traçabilité**, avant toute usine. Les écarts entre 4,2 % (extractif) et 0,63 
 
 | Pays | Mesure | Date | Résultats documentés | Leçon pour le Cameroun [I] | Statut |
 |---|---|---|---|---|---|
-| **Zimbabwe** (lithium) | Interdiction d'exporter le minerai brut. Interdiction des concentrés prévue en janvier 2027, puis suspension immédiate des exportations de minerais bruts et de concentrés le 25/02/2026, assouplie par des quotas en avril 2026 | Fin 2022 ; 2025 ; 2026 | Usine de sulfate de lithium de Huayou (400 M USD) achevée ; projet de Sinomine à Bikita (500 M USD) annoncé ; 1,128 Mt de concentré de spodumène exportées en 2025 (+11 %), surtout vers la Chine | Une interdiction déplace la transformation d'un cran (concentré vers sulfate), pas jusqu'à la batterie. Le calendrier dépend des investisseurs étrangers | [F] (Al Jazeera) ; date exacte de 2022 [F-presse] |
+| **Zimbabwe** (lithium) | Interdiction d'exporter le minerai brut. Interdiction des concentrés prévue en janvier 2027, puis suspension immédiate des exportations de minerais bruts et de concentrés le 25/02/2026 ; un assouplissement par quotas en avril 2026 n'est pas mentionné par la source citée [?] | Fin 2022 ; 2025 ; 2026 | Usine de sulfate de lithium de Huayou (400 M USD) achevée ; projet de Sinomine à Bikita (500 M USD) annoncé ; 1,128 Mt de concentré de spodumène exportées en 2025 (+11 %), surtout vers la Chine | Une interdiction déplace la transformation d'un cran (concentré vers sulfate), pas jusqu'à la batterie. Le calendrier dépend des investisseurs étrangers | [F] (Al Jazeera) ; date exacte de 2022 [F-presse] ; quotas d'avril 2026 [?] |
 | **Namibie** | Interdiction des exportations de minerais critiques non transformés (lithium concassé, cobalt, manganèse, graphite, terres rares), avec dérogations ministérielles | Juin 2023 | Résultats industriels non documentés dans cette recherche | — | [F-presse] ; résultats [?] |
 | **Tanzanie** (or/cuivre) | Interdiction générale d'exporter les concentrés métalliques | 3/03/2017 | Accord avec Barrick (Twiga Minerals, 24/01/2020) : levée de l'interdiction, 300 M USD de règlement, 16 % gratuits pour l'État, partage 50/50 des bénéfices économiques. **Aucune fonderie** documentée | L'interdiction a servi de **levier de négociation fiscale** plus que d'outil d'industrialisation | [F] (Barrick, formulaire 40-F, SEC) |
 | **Guinée** (bauxite et alumine) | Obligation de présenter des plans de raffinerie. Retrait de la concession de GAC (filiale d'EGA) | Août 2025 | Plus de 2 000 suppressions d'emplois ; EGA annonce un arbitrage. La raffinerie de Fria (Rusal, 650 kt/an nominal) a été relancée en 2018. Travaux de la raffinerie WCAG (1,2 Mt/an, plus de 1,2 Md USD) lancés le 12/12/2025, mise en service visée vers 2028 | Une obligation de raffinage sans énergie ni financement crée un risque contentieux. Pertinent pour Minim-Martap et Edéa | [F-presse] (mining-technology, AlCircle, AllAfrica) |
@@ -262,7 +262,7 @@ la stratégie qui succédera à la SND30 et de la Vision 2035.
 | Minier hors hydrocarbures en % du PIB | ~0,63 % (étude AMDC, année inconnue) | À fixer par les participants | [H] |
 | Minerais et métaux en % des exportations | 2,2 % (Banque mondiale, 2023) | À fixer | [H] |
 | Exportations manufacturières en % du total | 26,25 % (2015) | 54,5 % en 2030 (texte de la SND30) | [F] |
-| VAM en % du PIB | 14,5 % (2017) ou 12,9 % (2016) selon la section de la SND30 | 25 % en 2030 | [F] |
+| VAM en % du PIB | 14,5 % (2017) ou 12,9 % (2016) selon la section de la SND30 | 25 % en 2030 (texte) ; 22,9 % en 2030 dans l'annexe 1 | [F] |
 | Couverture cartographique à 1/200 000 ou plus | Inconnue [?] | Progression continue (SND30 §110(v)) | [F] (non chiffrée) |
 | Capacité électrique installée | 1 650 MW (2019) | Plus de 5 000 MW en 2030 | [F] |
 | Textes d'application du Code 2023 adoptés | Inventaire à faire (module 04) | 100 % | [I] |
@@ -397,3 +397,24 @@ de 6 chaînes de valeur. Il sert aux groupes dont les livrables 01-08 sont incom
 - Fastmarkets, 14/10/2025, RDC cobalt : https://www.fastmarkets.com/insights/cobalt-market-outlook-2025-drc-quota-system/
 - Graphic Online, GoldBod (Ghana) : https://www.graphic.com.gh/news/general-news/goldbod-now-sole-buyer-seller-assayer-and-exporter-of-all-gold-produced-by-artisanal-small-scale-in-ghana.html
 - Katadata, 28/06/2023, FMI et Indonésie : https://dinsights.katadata.co.id/read/2023/06/28/imf-asks-indonesia-to-cancel-raw-mineral-export-ban
+
+---
+
+## Contre-vérification (2026-10-08)
+
+Vérification croisée indépendante (rapport complet : `verification/verif-07-09.md`).
+
+- **Confirmés** : SND30 (PDF FAOLEX relu) : §96 neuf sous-secteurs, §110 six orientations sans objectif
+  chiffré minier, cibles 36,8 % / 25 % / 54,5 % (§94), 5 000 MW, VAM 14,5 % / 12,9 % ; Code 2023
+  (FAOLEX) : art. 40 (15 %), 47 (10 % gratuits, +25 % à titre onéreux), 48, 117(3) ; PRECASEM
+  (API Banque mondiale : P122153, 30 M USD, approuvé le 15/12/2011, clos le 01/12/2021 ; P160917,
+  26,9 M USD, 31/03/2017) ; WDI 2,2 % (2023) et rentes nulles 2018-2021 ; page ITIE (16,34 % / 31,15 % /
+  3,93 %, 22,3 kg contre plus de 15 t, 6 contrats et 7 licences, 6 et 54 entreprises, score 53) ;
+  ITIE 2023 (4,2 % / 32 %, 1 035,85 Md FCFA) ; étude AMDC (0,63 %, ~5 %, < 0,2 %, sans année) ;
+  validation ITIE d'avril 2027 ; mi-parcours SND30 (49,6 %, 18 %, 23,8 %, 3,8 % contre 8,5 %) ;
+  FMI PR 26/96 ; Zambie (Fastmarkets) ; Zimbabwe (25/02/2026) ; Guinée (retrait le 05/08/2025).
+- **Corrigé / complété** : nouvelle incohérence interne de la SND30 (cible de VAM 25 % dans le texte
+  contre 22,9 % en 2030 dans l'annexe 1).
+- **Rétrogradé** : Zimbabwe, « assouplissement par quotas en avril 2026 » absent de la source citée → [?].
+- **À noter** : le module 08 affirmait que la part supplémentaire de 25 % n'était pas qualifiée de
+  payante ; le module 09 (« à titre onéreux ») était juste. Le module 08 a été corrigé.

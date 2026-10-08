@@ -525,3 +525,29 @@ partiellement, à cause d'un paywall (Financial Afrik) ou d'un refus d'accès (M
 Le rapport ITIE 2023, la DFS de Canyon, le Journal officiel et les textes intégraux des conventions
 n'ont pas été consultés directement. Les montants en FCFA et en dollars sont ceux des sources ;
 aucune conversion n'a été faite par l'auteur.
+
+---
+
+## Contre-vérification (2026-10-08)
+
+Vérification croisée indépendante (rapport complet : `verification/verif-07-09.md`). Sources rouvertes
+par WebFetch le 2026-10-08 ; scores recalculés par script.
+
+- **Confirmés sur la source** : suspension AFG (S5, 24/08/2026 ; Business in Cameroon précise que Canyon
+  l'a rendue publique dans une mise à jour du 24/08) ; 75 M$ tirés au 31/07/2026 ; A2MP à 55,56 % puis
+  57,68 % ; A2MP détenue à 97,3 % par Eagle Eye et 2,7 % par FEDA ; ~57 M$ tirés selon A2MP ; prime
+  ~5 $/dmt contre ~11 $/dmt et fret 32-36 $/dmt (S4, relu en texte intégral) ; sentence CCI ~616 M$
+  (S16) ; Mbe 1,66 Moz présumées à 1,02 g/t et Bibemi 460 koz à 2,06 g/t (S28) ; Kribi-Lobé
+  juillet 2027, 200 M$ sur 700 M$ (S17) ; Grand Zambi inauguré le 22/09/2025, 150 Mt, 10 % État
+  (S20) ; financement de 41,2 Md FCFA et 1,3 Mt/an (S21) ; AMI de la Sonamines infructueux le
+  18/08/2026 (S22, S23) ; annexe 1 748 Md FCFA (S15) ; Alucam 73 759 t → 53 675 t (S8) ; Mborguéné
+  (S31) ; Mbalam (S11).
+- **Corrigés** : (1) notes G d'O3 et d'O6 ramenées à 3 (règle 3.5 n° 5 non appliquée) : O3 passe de
+  48 à 42 (rang 7 → 9), O6 de 52 à 49 (rang 4 → 6) ; (2) IC d'O1 de 7 à 6 (convention de 2024 > 2
+  ans) ; (3) contestation du terminal par le ministre des Transports réattribuée de S17 à S36 ;
+  (4) « au plus tôt 2027 » (T1) remplacé par « 2027 », seule mention de S36 ; (5) O1 : date
+  « juillet 2026 » des 57 M$ remplacée par la date de dépôt du Bidder's Statement ; (6) « appels
+  d'offres » remplacé par « appels à manifestation d'intérêt ».
+- **Rétrogradés en [?]** : reprise d'Akonolinga par la Sonamines « en mai 2025 » ; 13,6 M€ investis par
+  Eramet ; refus « par un comité d'investissement » ; séquence des reports de Grand Zambi (absente de S21).
+- **Non vérifiés ici** : S2, S3, S10, S24 (non rouverts) ; échantillon limité à ~15 affirmations.

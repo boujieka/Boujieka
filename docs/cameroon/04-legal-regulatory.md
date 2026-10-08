@@ -276,7 +276,10 @@ minières.
 - **Participation gratuite** de 10 %, libre de charges, non diluable, détenue par l'organisme public
   (art. 47(1) à 47(3)).
 - **Participation payante complémentaire** possible, d'accord parties : jusqu'à +10 % pour la petite mine
-  et jusqu'à +25 % pour la mine industrielle (art. 47(4)).
+  et jusqu'à +25 % pour la mine industrielle (art. 47(4)). *Contre-vérification : le texte AMLA dit « dans les proportions qui ne
+  dépassent pas dix pour cent (10 %) pour la petite mine et vingt-cinq pour cent (25 %) supplémentaires,
+  pour la mine industrielle ». Le mot « supplémentaires » n'accompagne que les 25 % : pour la petite mine,
+  la lecture « +10 % » (et non « 10 % au total ») est une interprétation à faire confirmer par un juriste.*
 - **Partage de production** (art. 4(7), 48 ; décret 05062 art. 65 à 67) :
   - part de l'État prélevée sur le produit fini : 1 à 5 % pour les substances précieuses, 2 à 15 % pour
     les autres ;
@@ -824,3 +827,39 @@ téléchargées depuis dgb.cm.
 - texte de la Norme ITIE 2019 ;
 - rapport Fraser lui-même ;
 - règlements CEMAC (textes officiels).
+
+---
+
+## Contre-vérification (2026-10-08)
+
+Vérification indépendante, adversariale, réalisée le 2026-10-08 (rapport :
+`docs/cameroon/verification/verif-04-06.md`).
+
+**Confirmé sur le texte AMLA de la loi n° 2023/014** : art. 4(3) (exclusivité or/diamant), 4(7), 11
+(six titres), 25 (ISML 25 % = 17,8 + 5 + 2,2), 26, 40(2), 40(4) (15 % minimum pour la transformation
+locale ; stabilité bornée par le retour sur investissement ; comptes en devises sur le territoire
+national), 41, 44, 47(1)-(4), 48(2) (1-5 % ; 2-15 %), 79(2)-(4), 86 (10 %), 117(3), 124, 125, 130(3)-(4),
+131(4)-(5), 132 (8 / 2 / 5 / 3 / 10 % ; 200 FCFA/m³ et /t), 134, 135, 148(7), 149(1)-(3) (TRI de 15 %,
+≤ 15 ans), 151, 188, 189, 190-193 (séquestre à la Banque Centrale, 0,5-1 % du CA HT), 194-195, 199,
+200 (abrogation de la loi n° 2016/017 du 14 décembre 2016).
+
+**Confirmé sur d'autres sources** : décision ITIE 2024-17 du **29 février 2024** (53 points ; 45 / 71,5 /
+43 ; suspension au titre de l'exigence 1.3 ; 19 exigences visées par des actions correctives, dont 2.2 à
+2.6 ; Validation au 1er avril 2027) et statut « Suspended for inadequate stakeholder engagement » ;
+décrets n° 2024/05249/PM du 19 nov. 2024 et n° 2024/05061/PM du 18 nov. 2024 (pages de garde lues),
+visa du décret n° 2020/749 du 14 déc. 2020 créant la Société Nationale des Mines, art. 26 du décret
+05061 (90 jours ; prorogation de moitié ; accord tacite) ; liste des 8 décrets (DGB, 29 janv. 2025) ;
+Instruction BEAC n° 001/GR/2026 du 23 avril 2026 (35 % → 50 % au 1er janv. 2027 → 70 % au 1er janv.
+2028 ; fonds RES exclus ; aucune convention au 30 avril 2026 ; règlements 02/18 du 21 déc. 2018 et
+01/CEMAC du 23 déc. 2021 visés) selon Droit Médias Finance et la DG Trésor ; Business in Cameroon
+(26 mai 2026 : 5 kg/mois, 63 M FCFA, > 21 ha ; 28 juillet 2026 : 1,897 t, 46,219 t, 577,51 Md FCFA,
+briefing du 15 juillet).
+
+**Nuancé** : art. 47(4) pour la petite mine (lecture « +10 % » à confirmer, voir § 4.5).
+
+**Incohérence inter-modules signalée** (hors périmètre de ce fichier) : le module 09 date la suspension
+ITIE de « mars 2024 » ; la date exacte de la décision est le 29 février 2024.
+
+**Non contre-vérifié** : autres articles des décrets (scans sans couche texte), benchmarks Gabon,
+Côte d'Ivoire, Botswana, classements Fraser, Chambers, Cameroon Tribune, HSF/Mondaq.
+

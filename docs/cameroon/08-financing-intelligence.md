@@ -782,3 +782,30 @@ document primaire. La numérotation n'est pas continue (les numéros 6, 11, 19 e
 *Avertissement : contenu d'information, de formation et d'analyse. Le projet « Bauxite-Nord » est
 fictif. Les résultats du modèle dépendent entièrement d'hypothèses pédagogiques et ne constituent
 ni une évaluation d'un projet réel, ni un conseil en investissement, juridique ou fiscal.*
+
+---
+
+## Contre-vérification (2026-10-08)
+
+Vérification croisée indépendante (rapport complet : `verification/verif-07-09.md`).
+
+- **Modèle** : code du §8.2 extrait et exécuté sous Python 3 ; la sortie du §8.3 est reproduite
+  **à l'identique** (DSCR min 1,46 ; 0,87 à prix −10 % ; prix d'équilibre 71,4 et 75,0 USD/t ; TRI des
+  fonds propres 14,0 % avec portage contre 15,6 % sans, soit −1,6 point ; capacité sculptée 220,7 MUSD).
+  Formules DSCR (CFADS / service senior), LLCR (VAN des CFADS au taux moyen pondéré / encours senior
+  à la mise en service ; la VAN du service de la dette au même taux redonne 150,1 MUSD, cohérent) et TRI
+  (bissection) jugées correctes. Réserves de méthode, sans effet sur les conclusions : le « TRI projet »
+  intègre l'économie d'impôt sur les intérêts (≈ 13,3 % sans dette contre 14,5 %) ; la DSRA est
+  dimensionnée sur la 2e année d'exploitation (23,0 MUSD) et non sur le service maximal (36,3 MUSD) ;
+  la variation de BFR est omise du CFADS ; les intérêts de l'année de retard ne sont pas déductibles.
+- **Corrigés** : art. 47(4) du code minier : les 25 % supplémentaires sont acquis « à titre onéreux »
+  (le module disait que le texte ne le précisait pas) ; 34,71 USD/wmt contre 38,56 USD/dmt : différence
+  humide / sèche, pas une incohérence ; 57 M USD tirés selon A2MP : vérifié sur le Bidder's Statement
+  (primaire) ; « retire la moitié de l'EBITDA » → environ 44 % ; calendrier de 1re expédition
+  (S1 → T3 → T4 2026, puis retiré) ; références [1] → [2] pour le taux, la durée et les garanties AFG.
+- **Confirmés** : Moody's Caa1 stable (revue achevée le 21/08/2026, comité du 13/08) ; S&P B-/B stable
+  (18/09/2026) ; Fitch B négative (24/04/2026) ; instruction BEAC n° 001/GR/2026 du 23/04/2026
+  (35 % → 50 % au 01/01/2027 → 70 % au 01/01/2028) ; prêt AFG de 82 Md FCFA (26/05/2025), 8 % HT,
+  8 ans ; Grand-Zambi 41,2 Md FCFA, guichet B, 15/12/2025 ; Eurobond 750 M USD à 10,125 % ; BVMAC
+  7 sociétés, 1 710 Md FCFA ; SONAMINES 35 % (24/05/2026) ; sentence Sundance ~616 M USD ; DFS
+  (78 USD/dmt, fret 17, C1 38,56 USD/dmt, 446 M USD, 96 M USD, IS 33 %, 5 % + 2 %, « Section 59 »).
