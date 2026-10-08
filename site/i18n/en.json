@@ -1071,5 +1071,22 @@
   "qa.d4": "Curves, histories and every auction in detail.",
   "sig.showall": "Show all signals ({n})",
   "sig.showless": "Show fewer",
-  "bc.more": "See access conditions"
+  "bc.more": "See access conditions",
+  "bv.eyebrow": "Secondary market · BVMAC",
+  "bv.title": "Official bond price list (BVMAC)",
+  "bv.lede": "{n} bonds listed on the Central African Stock Exchange (BVMAC); {k} have traded since {d}. Only days with a trade are shown: a price displayed without a trade (NC) is not a transaction.",
+  "bv.th.bond": "Bond",
+  "bv.th.issuer": "Issuer",
+  "bv.th.coupon": "Coupon",
+  "bv.th.last": "Last trade",
+  "bv.th.price": "Closing price (% of par)",
+  "bv.th.value": "Value traded",
+  "bv.th.days": "Days traded",
+  "bv.type.sovereign": "State",
+  "bv.type.supranational": "Regional institution",
+  "bv.type.corporate": "Company",
+  "bv.type.other": "Other",
+  "bv.none": "No trade recorded since January 2024",
+  "bv.hist": "History ({n} trades)",
+  "bv.note": "Source: BVMAC official price list (Bulletin officiel de la cote), published with its permission; each row links to that day's bulletin. Value traded in CFA francs (XAF), accrued coupon included. Bulletins read since January 2024; ambiguous cases are held, never guessed. No yield: it is not published."
 }

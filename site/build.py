@@ -216,6 +216,27 @@ def load_i18n(buyer_keys: list[str]) -> dict:
     return tables
 
 
+def bvmac_quotes() -> dict:
+    """BVMAC listed bonds and their verified trade observations (FACT), from the versioned verified
+    data. Only days with a trade exist: a price shown without a trade (NC) is never an observation."""
+    data = json.loads((ROOT.parent / "backend" / "app" / "seed" / "data" / "verified_market_data.json").read_text())
+    issuers = {i["name"]: i for i in data.get("issuers", [])}
+    bonds = [s for s in data["securities"] if "BVMAC" in (s.get("listing_status") or "")]
+    trades: dict[str, list] = {}
+    for o in data.get("market_observations", []):
+        if o["kind"] == "secondary_market" and o["verification_status"] == "verified" and not o["is_synthetic"]:
+            trades.setdefault(o["isin"], []).append([o["observation_date"], _num(o["price"]), _num(o["volume"]), o["source_url"]])
+    rows = []
+    for b in bonds:
+        t = sorted(trades.get(b["isin"], []), reverse=True)
+        rows.append({"isin": b["isin"], "name": b["security_name"], "code": b.get("local_code"), "country": b["country"],
+                     "issuer": b["issuer"], "issuer_type": issuers.get(b["issuer"], {}).get("issuer_type"),
+                     "coupon": _num(b["coupon_rate"]), "trades": t})
+    rows.sort(key=lambda r: (r["trades"][0][0] if r["trades"] else "", r["name"]), reverse=True)
+    first = min((o[0] for r in rows for o in r["trades"]), default=None)
+    return {"bonds": rows, "first": first, "currency": "XAF"}
+
+
 def auth_config() -> dict | None:
     """Free accounts (Supabase Auth): on only when the project URL and its public key are in the
     environment. The key is the publishable/anon key, meant to be public; never the service key."""
@@ -269,6 +290,7 @@ def main() -> None:
     offer = dataset.write(date.fromisoformat(args.as_of), DIST)
     payload["data_offer"] = {k: offer[k] for k in ("auctions", "securities", "documents", "countries")}
     payload["auth"] = auth_config()
+    payload["bvmac"] = bvmac_quotes()
     if args.veille and args.veille.exists():
         veille = json.loads(args.veille.read_text())
         # Embed the report only; the comparison state stays in the downloadable veille.json.

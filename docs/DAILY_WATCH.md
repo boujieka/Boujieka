@@ -67,3 +67,18 @@ by default (`INGEST=0` disables it):
    If a push fails, nothing is lost: the next run re-collects the same window and re-applies
    the same deterministic checks.
 5. Rows that fail stay unverified and are not published.
+
+## CEMAC (BEAC and BVMAC), daily since 2026-10-08
+
+`app.watch.daily --ingest`, which `scripts/daily_run.sh` runs by default, also collects the CEMAC sources over the same 45-day look-back window. Both are published with the institutions' written authorisation (free publication).
+
+- **BEAC: result and announcement notices.**
+  - The notices are scanned, so each one is OCR-read twice.
+  - The strict checker `app.ingest.beac_check` decides what is approved; anything uncertain is held.
+  - This part needs `tesseract-ocr`, `tesseract-ocr-fra` and `poppler-utils`. The script installs them if they are missing; if it cannot, the BEAC part is skipped that day and reported.
+- **BVMAC: official price lists (BOC).**
+  - Each list is read twice in text mode.
+  - The strict checker `app.ingest.bvmac_check` decides what is approved.
+  - Only days with a trade become observations.
+
+Each source runs independently, so one failure never blocks the others. The "Ingestion:" line reports the results under `cemac`. Never relax `beac_check` or `bvmac_check`, and never approve a held row by hand.

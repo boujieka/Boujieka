@@ -6,7 +6,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 AS_OF="${AS_OF:-$(date -u +%F)}"
-INGEST="${INGEST:-1}"  # 1: collect UMOA-Titres results and strictly auto-approve (owner's instruction, 2026-10-04)
+INGEST="${INGEST:-1}"  # 1: collect UMOA-Titres, BEAC and BVMAC results and strictly auto-approve (owner's instructions, 2026-10-04/08)
 PREVIOUS="${PREVIOUS:-https://cartouche-africa.netlify.app/veille.json}"
 export ABI_DATABASE_URL="${ABI_DATABASE_URL:-postgresql+psycopg://abi:abi@localhost:5432/abi}"
 
@@ -24,6 +24,12 @@ psql_admin "select 1 from pg_database where datname='abi'" | grep -q 1 \
 if ! command -v pdftotext >/dev/null; then
   (apt-get install -y -qq poppler-utils >/dev/null 2>&1 || (apt-get update -qq >/dev/null && apt-get install -y -qq poppler-utils >/dev/null)) \
     || echo "WARNING: pdftotext unavailable; new results will be held, not approved"
+fi
+# CEMAC: BEAC result notices are scanned PDFs and need OCR (tesseract, French) and pdftoppm.
+if ! command -v tesseract >/dev/null || ! tesseract --list-langs 2>/dev/null | grep -qx fra; then
+  (apt-get install -y -qq tesseract-ocr tesseract-ocr-fra poppler-utils >/dev/null 2>&1 \
+    || (apt-get update -qq >/dev/null && apt-get install -y -qq tesseract-ocr tesseract-ocr-fra poppler-utils >/dev/null)) \
+    || echo "WARNING: tesseract unavailable; BEAC notices are skipped today (BVMAC and UMOA continue)"
 fi
 python3 -m pip install -q -e "backend[dev]" 2>/dev/null || python3 -m pip install -q -e "backend[dev]" --break-system-packages
 cd backend

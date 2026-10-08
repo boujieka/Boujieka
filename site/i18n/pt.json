@@ -1071,5 +1071,22 @@
   "qa.d4": "Curvas, históricos e o detalhe de cada leilão.",
   "sig.showall": "Mostrar todos os sinais ({n})",
   "sig.showless": "Mostrar menos",
-  "bc.more": "Ver as condições de acesso"
+  "bc.more": "Ver as condições de acesso",
+  "bv.eyebrow": "Mercado secundário · BVMAC",
+  "bv.title": "Cotação oficial das obrigações (BVMAC)",
+  "bv.lede": "{n} obrigações cotadas na Bolsa de Valores Mobiliários da África Central; {k} foram negociadas desde {d}. Só os dias com transação são incluídos: um preço mostrado sem negociação (NC) não é uma transação.",
+  "bv.th.bond": "Obrigação",
+  "bv.th.issuer": "Emitente",
+  "bv.th.coupon": "Cupão",
+  "bv.th.last": "Última transação",
+  "bv.th.price": "Preço de fecho (% do nominal)",
+  "bv.th.value": "Valor transacionado",
+  "bv.th.days": "Dias negociados",
+  "bv.type.sovereign": "Estado",
+  "bv.type.supranational": "Instituição regional",
+  "bv.type.corporate": "Empresa",
+  "bv.type.other": "Outro",
+  "bv.none": "Nenhuma transação registada desde janeiro de 2024",
+  "bv.hist": "Histórico ({n} transações)",
+  "bv.note": "Fonte: boletim oficial de cotação da BVMAC, publicado com a sua autorização; cada linha remete para o boletim do dia. Valor transacionado em francos CFA (XAF), cupão corrido incluído. Boletins lidos desde janeiro de 2024; os casos ambíguos ficam em espera, nunca adivinhados. Sem rendimento: não é publicado."
 }

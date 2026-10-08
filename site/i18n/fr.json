@@ -979,5 +979,22 @@
   "qa.d4": "Courbes, historiques et détail de chaque adjudication.",
   "sig.showall": "Afficher tous les signaux ({n})",
   "sig.showless": "Afficher moins",
-  "bc.more": "Voir les conditions d'accès"
+  "bc.more": "Voir les conditions d'accès",
+  "bv.eyebrow": "Marché secondaire · BVMAC",
+  "bv.title": "Cote officielle des obligations (BVMAC)",
+  "bv.lede": "{n} obligations cotées à la Bourse des Valeurs Mobilières de l'Afrique Centrale ; {k} ont été échangées depuis le {d}. Seuls les jours avec une transaction sont repris : un cours affiché sans échange (NC) n'est pas une transaction.",
+  "bv.th.bond": "Obligation",
+  "bv.th.issuer": "Émetteur",
+  "bv.th.coupon": "Coupon",
+  "bv.th.last": "Dernière transaction",
+  "bv.th.price": "Cours de clôture (% du nominal)",
+  "bv.th.value": "Valeur transigée",
+  "bv.th.days": "Jours échangés",
+  "bv.type.sovereign": "État",
+  "bv.type.supranational": "Institution régionale",
+  "bv.type.corporate": "Entreprise",
+  "bv.type.other": "Autre",
+  "bv.none": "Aucune transaction relevée depuis janvier 2024",
+  "bv.hist": "Historique ({n} transactions)",
+  "bv.note": "Source : Bulletin officiel de la cote de la BVMAC, publié avec son autorisation ; chaque ligne renvoie au bulletin du jour. Valeur transigée en francs CFA (XAF), coupon couru inclus. Bulletins lus depuis janvier 2024 ; les cas ambigus sont mis en attente, jamais devinés. Pas de rendement : il n'est pas publié."
 }

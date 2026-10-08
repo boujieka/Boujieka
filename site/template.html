@@ -649,6 +649,13 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
       <h2><span data-i="mk.title"></span><span id="mk-f"></span></h2>
       <p class="lede" id="mk-lede"></p>
       <div id="mk"></div>
+      <div class="sub" id="bvmac" hidden>
+        <span class="eyebrow" data-i="bv.eyebrow"></span>
+        <h3><span data-i="bv.title"></span> <span class="kind-tag fact" data-i="kind.fact"></span></h3>
+        <p class="lede" id="bv-lede"></p>
+        <div class="scroll"><table class="list" id="bv-list" style="min-width:760px"></table></div>
+        <p class="note" data-i="bv.note"></p>
+      </div>
     </div>
   </section>
 
@@ -1558,6 +1565,29 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
     } catch { $("ac-del-st").textContent = t("wl.err"); }
   });
 
+  // ---------- BVMAC official price list (secondary market; days with a trade only)
+  function renderBvmac() {
+    const B = D.bvmac, box = $("bvmac");
+    if (!B || !B.bonds.length) { box.hidden = true; return; }
+    const list = B.bonds.filter((b) => !C || b.country === C);
+    box.hidden = !!C && !list.length;
+    if (box.hidden) return;
+    const traded = list.filter((b) => b.trades.length).length;
+    $("bv-lede").textContent = t("bv.lede", { n: list.length, k: traded, d: date(B.first) ?? "—" });
+    const typ = (x) => t("bv.type." + (x || "other"));
+    $("bv-list").innerHTML = `<thead><tr><th>${esc(t("bv.th.bond"))}</th><th>${esc(t("bv.th.issuer"))}</th><th class="num">${esc(t("bv.th.coupon"))}</th><th>${esc(t("bv.th.last"))}</th><th class="num">${esc(t("bv.th.price"))}</th><th class="num">${esc(t("bv.th.value"))}</th><th class="num">${esc(t("bv.th.days"))}</th></tr></thead><tbody>` +
+      list.map((b) => {
+        const l = b.trades[0];
+        const hist = b.trades.length > 1 ? `<details><summary class="src" style="cursor:pointer">${esc(t("bv.hist", { n: b.trades.length }))}</summary><table class="list" style="margin-top:6px">${b.trades.map((x) => `<tr><td class="num">${esc(date(x[0]))}</td><td class="num">${nf(x[1], 2)} %</td><td class="num">${esc(money(x[2], "XAF"))}</td><td>${ext(x[3], "PDF")}</td></tr>`).join("")}</table></details>` : "";
+        return `<tr><td><b>${esc(b.name)}</b><br><small class="note" style="margin:0">${esc(b.isin)}${b.code ? " · " + esc(b.code) : ""}</small>${hist}</td>` +
+          `<td>${esc(b.issuer_type === "sovereign" ? NAME(b.country) : b.issuer)}<br><small class="note" style="margin:0">${esc(typ(b.issuer_type))}${b.issuer_type === "sovereign" ? "" : " · " + esc(NAME(b.country))}</small></td>` +
+          `<td class="num">${b.coupon != null ? nf(b.coupon, 2) + " %" : esc(t("nd"))}</td>` +
+          (l ? `<td class="num">${esc(date(l[0]))}<br><small>${ext(l[3], "BOC PDF")}</small></td><td class="num">${nf(l[1], 2)} %</td><td class="num">${esc(money(l[2], "XAF"))}</td>`
+             : `<td colspan="3" class="note">${esc(t("bv.none"))}</td>`) +
+          `<td class="num">${b.trades.length}</td></tr>`;
+      }).join("") + "</tbody>";
+  }
+
   // ---------- Quarterly reports (previews are static pages built by site/report.py)
   function renderReports() {
     const R = D.reports || [];
@@ -2196,7 +2226,7 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
   // ---------- Wiring
   function renderCountryViews() {
     renderCountryBar(); renderTape(); renderTiles(); renderProfile(); renderGrid(); renderSignals(); renderWall();
-    renderMarket(); renderBrief(); renderBuyers(); renderSimOps(); computeSim(); renderVeille(); renderSources();
+    renderMarket(); renderBvmac(); renderBrief(); renderBuyers(); renderSimOps(); computeSim(); renderVeille(); renderSources();
   }
   function renderAll() {
     renderBanner(); renderStele(); renderCountryViews(); renderStrategy(); renderReports(); renderOffers(); renderAccount(); renderGlossary(); renderRoadmap();

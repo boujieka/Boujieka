@@ -119,11 +119,54 @@ def ingest_and_approve(session, as_of: date) -> dict:
     stats = umoa.run(session, since=since)
     session.commit()
     report = autocheck.run(session, True, AUTO_REVIEWER, AUTO_NOTE)
+    session.commit()
+    cemac = ingest_cemac(session, as_of)
     exported = verified.export(session)
     return {"since": since.isoformat(), "documents_new": stats.get("documents_new"),
             "extractions": stats.get("extractions"), "fetch_errors": stats.get("fetch_errors"),
             "approved": report["approved"], "held": len(report["held"]),
-            "approval_errors": len(report["approve_errors"]), "exported": exported}
+            "approval_errors": len(report["approve_errors"]), "cemac": cemac, "exported": exported}
+
+
+def ingest_cemac(session, as_of: date) -> dict:
+    """CEMAC, published with the BEAC's and the BVMAC's written authorisation (free publication):
+    - BEAC result and announcement notices of the last LOOKBACK_DAYS (scanned: double OCR, then the
+      strict checker app.ingest.beac_check; anything uncertain stays held);
+    - BVMAC official price lists of the last LOOKBACK_DAYS (text: two readings, strict checker
+      app.ingest.bvmac_check; only days with a trade become observations).
+    Each source is independent: a failure is reported and never blocks the other one or UMOA."""
+    import shutil
+    from datetime import timedelta
+
+    from app.ingest import beac, beac_check, bvmac, bvmac_check
+
+    since = as_of - timedelta(days=LOOKBACK_DAYS)
+    out: dict = {"since": since.isoformat()}
+    if shutil.which("tesseract") and shutil.which("pdftoppm"):
+        try:
+            st = beac.run(session, {"result", "announcement"}, since=since)
+            session.commit()
+            ck = beac_check.run(session, do_approve=True)
+            session.commit()
+            out["beac"] = {"selected": st.get("selected"), "new_documents": st.get("new_documents"),
+                           "fetch_errors": st.get("fetch_errors"), "checked": ck.get("checked"),
+                           "approved": ck.get("approved"), "held": ck.get("held")}
+        except Exception as e:  # noqa: BLE001 - report, never block the other sources
+            session.rollback()
+            out["beac"] = {"error": f"{type(e).__name__}: {e}"[:300]}
+    else:
+        out["beac"] = {"skipped": "tesseract/pdftoppm not installed: BEAC notices are scanned and need OCR"}
+    try:
+        st = bvmac.run(session, since=since)
+        session.commit()
+        ck = bvmac_check.run(session)
+        session.commit()
+        out["bvmac"] = {"selected": st.get("selected"), "checked": ck.get("rows_checked"),
+                        "verified": ck.get("verified"), "held": len(ck.get("held") or [])}
+    except Exception as e:  # noqa: BLE001
+        session.rollback()
+        out["bvmac"] = {"error": f"{type(e).__name__}: {e}"[:300]}
+    return out
 
 
 def main() -> None:
@@ -133,8 +176,8 @@ def main() -> None:
     parser.add_argument("--out", type=Path, default=REPO / "site" / "dist")
     parser.add_argument("--skip-watch", action="store_true", help="skip network checks (offline runs)")
     parser.add_argument("--ingest", action="store_true",
-                        help="collect new UMOA-Titres results, approve those passing the strict checker, "
-                             "and export the verified dataset (owner's instruction of 2026-10-04)")
+                        help="collect new UMOA-Titres, BEAC and BVMAC results, approve those passing the "
+                             "strict checkers, and export the verified dataset (owner's instructions of 2026-10-04/08)")
     parser.add_argument("--synthetic", action="store_true",
                         help="development only: also roll the labelled synthetic generator forward")
     args = parser.parse_args()

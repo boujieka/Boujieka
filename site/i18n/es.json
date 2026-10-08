@@ -1071,5 +1071,22 @@
   "qa.d4": "Curvas, históricos y el detalle de cada subasta.",
   "sig.showall": "Mostrar todas las señales ({n})",
   "sig.showless": "Mostrar menos",
-  "bc.more": "Ver las condiciones de acceso"
+  "bc.more": "Ver las condiciones de acceso",
+  "bv.eyebrow": "Mercado secundario · BVMAC",
+  "bv.title": "Cotización oficial de los bonos (BVMAC)",
+  "bv.lede": "{n} bonos cotizados en la Bolsa de Valores de África Central; {k} se han negociado desde el {d}. Solo se recogen los días con transacción: un precio mostrado sin negociación (NC) no es una transacción.",
+  "bv.th.bond": "Bono",
+  "bv.th.issuer": "Emisor",
+  "bv.th.coupon": "Cupón",
+  "bv.th.last": "Última transacción",
+  "bv.th.price": "Precio de cierre (% del nominal)",
+  "bv.th.value": "Valor negociado",
+  "bv.th.days": "Días negociados",
+  "bv.type.sovereign": "Estado",
+  "bv.type.supranational": "Institución regional",
+  "bv.type.corporate": "Empresa",
+  "bv.type.other": "Otro",
+  "bv.none": "Ninguna transacción registrada desde enero de 2024",
+  "bv.hist": "Histórico ({n} transacciones)",
+  "bv.note": "Fuente: boletín oficial de cotización de la BVMAC, publicado con su autorización; cada fila remite al boletín del día. Valor negociado en francos CFA (XAF), cupón corrido incluido. Boletines leídos desde enero de 2024; los casos ambiguos quedan en espera, nunca se adivinan. Sin rendimiento: no se publica."
 }
