@@ -160,7 +160,7 @@ for rg, ccs in regions.items():
     blocks.append(f'<div class="region"><span class="eyebrow">{E(rg)}</span><div class="countries">{"".join(cards)}</div></div>')
 n_notes = sum(1 for v in avail.values() if any(x[2] == 'Note de décision' for x in v[0]))
 home = f'''<section class="first"><div class="head"><span class="eyebrow">Plateforme · version pilote</span><h1>Choisissez un pays.</h1>
-<p class="lede">{len(CAT["utilities"])} sociétés d’électricité dans {len(CAT["countries"])} pays. Pour chacune, une fiche de transparence publique ; pour {n_notes} d’entre elles, une note de décision sourcée, chaque chiffre relié à la page du document officiel.</p></div>{"".join(blocks)}</section>
+<p class="lede">{len(CAT["utilities"])} sociétés d’électricité dans {len(CAT["countries"])} pays. Pour chacune, une fiche de transparence publique ; pour {n_notes} d’entre elles, une note de décision sourcée, chaque chiffre relié à la page du document officiel.</p><div class="legend-docs"><span>Couleur = documentation publique disponible :</span><span class="chip strong">élevée</span><span class="chip usable">moyenne</span><span class="chip weak">limitée</span><span class="chip not_viable">insuffisante</span></div></div>{"".join(blocks)}</section>
 <section><div class="head"><h2>Trois niveaux d’accès</h2></div><div class="tiers">
 <div><span class="tier public">Public</span><h3>Sans compte</h3><ul><li>Fiches de transparence des 19 utilities</li><li>Liens vers les documents officiels</li><li>Méthode</li></ul></div>
 <div><span class="tier registered">Inscrit</span><h3>Compte gratuit</h3><ul><li>Notes de décision complètes</li><li>Références cliquables vers chaque page source</li></ul></div>
