@@ -8,7 +8,7 @@ export const meta = {
   ],
 }
 
-// args: { ud, utility, country, decision, audience, paged_dir, example_html, lang }
+// args: { ud, utility, country, decision, audience, paged_dir, example_html, update_note?, source_note? }
 const A = args
 const RENDER = `python3 -I /home/user/Boujieka/courant/pipeline/render_brief.py ${A.ud} ${A.ud}/brief.html`
 
@@ -82,7 +82,8 @@ ${JSON.stringify(issues, null, 1)}`
 const UPDATE = A.update_note ? `\n\nUPDATE MODE: ${A.ud}/brief.json already exists and was fact-checked. Do NOT start over. ${A.update_note}\nKeep every existing V/S id valid (ids of existing values did not change; new values were appended). Revise headline, key messages, sections, options, watch list and limits wherever the new data changes the picture, and remove statements the new data makes stale.` : ''
 
 phase('Write')
-const written = await agent(WRITER + UPDATE, { label: `write:${A.utility}`, phase: 'Write' })
+const NOTE = A.source_note ? `\n\nSOURCE CAVEAT: ${A.source_note}` : ''
+const written = await agent(WRITER + NOTE + UPDATE,{ label: `write:${A.utility}`, phase: 'Write' })
 phase('Check')
 const check = await agent(CHECKER, { label: `check:${A.utility}`, phase: 'Check', schema: CHECK_SCHEMA })
 const toFix = (check?.issues || []).filter(i => i.severity !== 'minor' || true)
