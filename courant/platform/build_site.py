@@ -114,6 +114,7 @@ def kpi_cov(au):
 
 for u in CAT['utilities']:
     s = u['slug']; au = AUD[u['audit_name']]; cc = CAT['countries'][u['country']]
+    legal = re.split(r' \(|, ', au['legal_name_confirmed'])[0][:120]
     a, teaser = avail[s]
     dls = [f'''<div class="dl"><div class="what"><strong>Fiche de transparence</strong><span>Documents publiés par exercice, opinions d’audit relevées, couverture des indicateurs. C’est cette page.</span></div><span class="tier public">Public</span></div>''']
     for tier, name, label, desc in a:
@@ -127,7 +128,7 @@ for u in CAT['utilities']:
         tz = (f'<div class="teaser"><span class="eyebrow">Note de décision · question traitée</span><p><strong>{E(teaser[1])}</strong></p><p class="lede" style="font-size:.95rem">Les constats sont réservés aux comptes inscrits.</p></div>' if teaser[1] else '')
     regs = ''.join(f'<li><strong>{E(r["name"])}</strong> · <a href="{E(r["best_url"] or r["website"])}" target="_blank" rel="noopener">source</a></li>' for r in REG.get(au['country'], []))
     body = f'''<section class="first"><div class="uhead"><span class="eyebrow"><a href="../pays/{u["country"]}.html">{E(cc["name"])}</a> · {E(SCOPE.get(au["entity_scope"], au["entity_scope"]))}</span>
-<h1>{E(u["short"])}</h1><p class="lede">{E(re.split(r" \(|, ", au["legal_name_confirmed"])[0][:120])}</p>
+<h1>{E(u["short"])}</h1><p class="lede">{E(legal)}</p>
 <p><span class="chip {au["mvp_viability"]}">Documentation publique : {VIA[au["mvp_viability"]]}</span></p>
 <dl class="facts"><div><dt>Périmètre</dt><dd>{E(SCOPE.get(au["entity_scope"], au["entity_scope"]))}</dd></div><div><dt>Cadre comptable</dt><dd>{E(au["reporting_currency_and_framework"].split(";")[0][:90])}</dd></div>
 <div><dt>Clôture</dt><dd>{E(au["fiscal_year_end"][:60])}</dd></div><div><dt>Site officiel</dt><dd><a href="{E(au["website"])}" target="_blank" rel="noopener">{E(au["website"].replace("https://", "")[:40])}</a></dd></div></dl>{tz}</div></section>
