@@ -72,10 +72,11 @@ TAGS = {'fact': '<span class="tag f">fait sourcé</span>', 'calc': '<span class=
 
 def rich(t):
     t = html.escape(t, quote=False)
+    # bold first, so ** inside chip titles (source quotes) is never converted
+    t = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', t)
     t = re.sub(r'\[\[V(\d+)\]\]', lambda m: chip(V(m.group(1))) if V(m.group(1)) else '[?]', t)
     t = re.sub(r'\[\[S(\d+)\]\]', lambda m: chip(S(m.group(1))) if S(m.group(1)) else '[?]', t)
     t = re.sub(r'\[\[C:([\w-]+)\]\]', lambda m: fmt_comp(m.group(1)), t)
-    t = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', t)
     return t
 
 def tagged(p):
