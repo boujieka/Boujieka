@@ -32,7 +32,7 @@ parts = [f'''<header class="intro"><span class="eyebrow">Orientations de redress
 <h1>{html.escape(T["headline"])}</h1><p class="meta">{rich(T["scope_note"])}</p></header>''']
 if T.get('priorities'):
     rows = ''.join(f'<tr><td>{i}</td><td>{html.escape(p["lever"])}<br><span class="ws">{html.escape(p.get("workstream", ""))}</span></td><td>{rich(p["magnitude"])}</td><td>{html.escape(p["owner"])}</td><td>{html.escape(p["deadline"])}</td></tr>' for i, p in enumerate(T['priorities'], 1))
-    parts.append(f'<section><h2>Priorités classées par enjeu</h2><div class="tscroll"><table class="prio"><thead><tr><th>#</th><th>Levier</th><th>Ordre de grandeur (KES)</th><th>Décideur</th><th>Échéance</th></tr></thead><tbody>{rows}</tbody></table></div></section>')
+    parts.append(f'<section><h2>Priorités classées par enjeu</h2><div class="tscroll"><table class="prio"><thead><tr><th>#</th><th>Levier</th><th>Ordre de grandeur ({html.escape(T.get("currency", "KES"))})</th><th>Décideur</th><th>Échéance</th></tr></thead><tbody>{rows}</tbody></table></div></section>')
 parts.append('<section><h2>Diagnostic en une page</h2><ul class="keys">' + ''.join(f'<li><span class="k">{html.escape(d["label"])}</span><p>{rich(d["text"])}</p></li>' for d in T['diagnosis']) + '</ul></section>')
 parts.append('<section><h2>Enchaînement des causes</h2><ol class="chain">' + ''.join(f'<li>{rich(c)}</li>' for c in T['causal_chain']) + '</ol></section>')
 for h in ('0-6', '6-24', '24-60'):
