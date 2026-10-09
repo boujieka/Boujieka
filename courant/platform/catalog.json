@@ -1,0 +1,36 @@
+{
+ "countries": {
+  "cg": {"name": "Congo", "region": "Afrique centrale"},
+  "cd": {"name": "RD Congo", "region": "Afrique centrale"},
+  "cm": {"name": "Cameroun", "region": "Afrique centrale"},
+  "ci": {"name": "Côte d’Ivoire", "region": "Afrique de l’Ouest"},
+  "sn": {"name": "Sénégal", "region": "Afrique de l’Ouest"},
+  "bf": {"name": "Burkina Faso", "region": "Afrique de l’Ouest"},
+  "gh": {"name": "Ghana", "region": "Afrique de l’Ouest"},
+  "ng": {"name": "Nigeria", "region": "Afrique de l’Ouest"},
+  "ke": {"name": "Kenya", "region": "Afrique de l’Est"},
+  "zm": {"name": "Zambie", "region": "Afrique australe"},
+  "za": {"name": "Afrique du Sud", "region": "Afrique australe"}
+ },
+ "utilities": [
+  {"slug": "e2c", "country": "cg", "audit_name": "Energie Electrique du Congo (E2C)", "short": "E2C", "wave": 0},
+  {"slug": "snel", "country": "cd", "audit_name": "Société Nationale d'Electricité (SNEL SA)", "short": "SNEL", "wave": 0},
+  {"slug": "eneo", "country": "cm", "audit_name": "ENEO Cameroon (now SOCADEL)", "short": "ENEO", "wave": 2},
+  {"slug": "sonatrel", "country": "cm", "audit_name": "SONATREL", "short": "SONATREL", "wave": 0},
+  {"slug": "cie", "country": "ci", "audit_name": "CIE (Compagnie Ivoirienne d'Electricité)", "short": "CIE", "wave": 2},
+  {"slug": "ci-energies", "country": "ci", "audit_name": "CI-ENERGIES (Société des Energies de Côte d'Ivoire)", "short": "CI-ENERGIES", "wave": 2},
+  {"slug": "senelec", "country": "sn", "audit_name": "Senelec", "short": "Senelec", "wave": 1},
+  {"slug": "sonabel", "country": "bf", "audit_name": "SONABEL", "short": "SONABEL", "wave": 0},
+  {"slug": "gridco", "country": "gh", "audit_name": "GRIDCo (Ghana Grid Company)", "short": "GRIDCo", "wave": 1},
+  {"slug": "ecg", "country": "gh", "audit_name": "ECG (Electricity Company of Ghana)", "short": "ECG", "wave": 2},
+  {"slug": "vra", "country": "gh", "audit_name": "VRA (Volta River Authority)", "short": "VRA", "wave": 0},
+  {"slug": "kplc", "country": "ke", "audit_name": "Kenya Power (KPLC)", "short": "Kenya Power", "wave": 1},
+  {"slug": "kengen", "country": "ke", "audit_name": "KenGen", "short": "KenGen", "wave": 1},
+  {"slug": "ketraco", "country": "ke", "audit_name": "KETRACO", "short": "KETRACO", "wave": 2},
+  {"slug": "tcn", "country": "ng", "audit_name": "Transmission Company of Nigeria (TCN)", "short": "TCN", "wave": 0},
+  {"slug": "ikeja", "country": "ng", "audit_name": "Ikeja Electric", "short": "Ikeja Electric", "wave": 2},
+  {"slug": "ekedc", "country": "ng", "audit_name": "Eko Electricity Distribution (EKEDC)", "short": "Eko DisCo", "wave": 1},
+  {"slug": "zesco", "country": "zm", "audit_name": "ZESCO", "short": "ZESCO", "wave": 2},
+  {"slug": "eskom", "country": "za", "audit_name": "Eskom", "short": "Eskom", "wave": 1}
+ ]
+}

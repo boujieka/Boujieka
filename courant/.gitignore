@@ -1,0 +1,5 @@
+# Reserved content stays out of Git while the repository is public.
+data/
+platform/dist/
+platform/protected/
+platform/.netlify/

@@ -1,0 +1,22 @@
+[build]
+  # Built locally (python3 build_site.py reads ../data and ../../docs); Netlify only publishes dist/ and bundles protected/.
+  command = "echo prebuilt"
+  publish = "dist"
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+  included_files = ["protected/**"]
+
+# Protected files must never be published as static assets.
+[[redirects]]
+  from = "/protected/*"
+  to = "/index.html"
+  status = 404
+  force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
