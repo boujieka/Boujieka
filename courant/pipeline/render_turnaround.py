@@ -28,6 +28,7 @@ def rich(t):
     return re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', t)
 
 H = {'0-6': '0 à 6 mois', '6-24': '6 à 24 mois', '24-60': '2 à 5 ans'}
+errors += [f'lever "{l["title"]}": unknown horizon {l["horizon"]!r} (use {", ".join(H)})' for l in T['levers'] if l['horizon'] not in H]
 parts = [f'''<header class="intro"><span class="eyebrow">Orientations de redressement · {html.escape(T["utility"])} · {"BROUILLON, NON RELU" if T.get("status") != "approved" else "relu et approuvé"}</span>
 <h1>{html.escape(T["headline"])}</h1><p class="meta">{rich(T["scope_note"])}</p></header>''']
 if T.get('priorities'):

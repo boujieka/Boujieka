@@ -31,7 +31,7 @@ const SCHEMA = { type: 'object', properties: { issues: { type: 'array', items: {
 const CHALLENGE = `You are a skeptical reviewer for a development-finance institution, with utility-sector experience. Challenge the draft turnaround orientations for ${A.utility} (${A.country}) in ${A.ud}/turnaround.json (rendered ${A.ud}/turnaround.html), using ${A.ud}/verified.json, ${A.ud}/index.txt and sources in ${A.paged_dir}.
 Look for: claims not supported by the cited data or misread; levers that do not fit the utility's structure or legal status; missing decision-critical levers (e.g. arrears, governance, tariff path, losses, liquidity, FX, procurement); sequencing errors (things that need prerequisites); unrealistic or invented targets/costs; political naivety; generic advice. Return issues with severity, location, problem and the concrete fix.`
 
-const REVISE = (issues) => `Revise ${A.ud}/turnaround.json for ${A.utility} in light of the review below. Verify each point in the data before applying it; reject points that do not hold and say why. Keep "status": "draft". Run ${RENDER} until it succeeds. Return a change log.
+const REVISE = (issues) => `Revise ${A.ud}/turnaround.json for ${A.utility} in light of the review below. Verify each point in the data before applying it; reject points that do not hold and say why. Keep "status": "draft". Do not search the web: use only the files above; where a point needs an outside fact, say in limits that it must be checked, without asserting it. Run ${RENDER} until it succeeds. Return a change log.
 REVIEW:
 ${JSON.stringify(issues, null, 1)}`
 
