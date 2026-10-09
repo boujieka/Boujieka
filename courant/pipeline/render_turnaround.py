@@ -1,5 +1,5 @@
 """Render turnaround orientations from turnaround.json (+ verified.json, docs.json). Same citation markup as render_brief.py:
-[[V<n>]], [[S<n>]] source chips; **bold**. Fails if a citation is missing or unverified.
+[[V<n>]], [[S<n>]] source chips; **bold** (also in owner fields). Optional to_verify list renders as a boxed section. Fails if a citation is missing or unverified.
 Usage: render_turnaround.py <utility_dir> <out.html>"""
 import json, re, sys, html
 
@@ -31,8 +31,10 @@ H = {'0-6': '0 à 6 mois', '6-24': '6 à 24 mois', '24-60': '2 à 5 ans'}
 errors += [f'lever "{l["title"]}": unknown horizon {l["horizon"]!r} (use {", ".join(H)})' for l in T['levers'] if l['horizon'] not in H]
 parts = [f'''<header class="intro"><span class="eyebrow">Orientations de redressement · {html.escape(T["utility"])} · {"BROUILLON, NON RELU" if T.get("status") != "approved" else "relu et approuvé"}</span>
 <h1>{html.escape(T["headline"])}</h1><p class="meta">{rich(T["scope_note"])}</p></header>''']
+if T.get('to_verify'):
+    parts.append('<section><h2>' + html.escape(T.get('to_verify_title', 'État actuel à vérifier avant usage')) + '</h2><div class="question"><ul>' + ''.join(f'<li>{rich(x)}</li>' for x in T['to_verify']) + '</ul></div></section>')
 if T.get('priorities'):
-    rows = ''.join(f'<tr><td>{i}</td><td>{html.escape(p["lever"])}<br><span class="ws">{html.escape(p.get("workstream", ""))}</span></td><td>{rich(p["magnitude"])}</td><td>{html.escape(p["owner"])}</td><td>{html.escape(p["deadline"])}</td></tr>' for i, p in enumerate(T['priorities'], 1))
+    rows = ''.join(f'<tr><td>{i}</td><td>{html.escape(p["lever"])}<br><span class="ws">{html.escape(p.get("workstream", ""))}</span></td><td>{rich(p["magnitude"])}</td><td>{rich(p["owner"])}</td><td>{html.escape(p["deadline"])}</td></tr>' for i, p in enumerate(T['priorities'], 1))
     parts.append(f'<section><h2>Priorités classées par enjeu</h2><div class="tscroll"><table class="prio"><thead><tr><th>#</th><th>Levier</th><th>Ordre de grandeur ({html.escape(T.get("currency", "KES"))})</th><th>Décideur</th><th>Échéance</th></tr></thead><tbody>{rows}</tbody></table></div></section>')
 parts.append('<section><h2>Diagnostic en une page</h2><ul class="keys">' + ''.join(f'<li><span class="k">{html.escape(d["label"])}</span><p>{rich(d["text"])}</p></li>' for d in T['diagnosis']) + '</ul></section>')
 parts.append('<section><h2>Enchaînement des causes</h2><ol class="chain">' + ''.join(f'<li>{rich(c)}</li>' for c in T['causal_chain']) + '</ol></section>')
@@ -40,7 +42,7 @@ for h in ('0-6', '6-24', '24-60'):
     levers = [l for l in T['levers'] if l['horizon'] == h]
     if not levers: continue
     cards = ''.join(f'''<div class="opt"><h3>{html.escape(l["title"])}</h3><p>{rich(l["why"])}</p>
-<dl class="lv"><dt>Porteur</dt><dd>{html.escape(l["owner"])}</dd><dt>Indicateur de suivi</dt><dd>{rich(l["kpi"])}</dd><dt>Préalables</dt><dd>{rich(l["preconditions"])}</dd><dt>Risques</dt><dd>{rich(l["risks"])}</dd></dl></div>''' for l in levers)
+<dl class="lv"><dt>Porteur</dt><dd>{rich(l["owner"])}</dd><dt>Indicateur de suivi</dt><dd>{rich(l["kpi"])}</dd><dt>Préalables</dt><dd>{rich(l["preconditions"])}</dd><dt>Risques</dt><dd>{rich(l["risks"])}</dd></dl></div>''' for l in levers)
     parts.append(f'<section><h2>{H[h]}</h2><div class="options">{cards}</div></section>')
 parts.append('<section><h2>Ce qu’il ne faut pas faire</h2><ul>' + ''.join(f'<li>{rich(x)}</li>' for x in T['avoid']) + '</ul></section>')
 parts.append('<section class="limits"><h2>Limites</h2><ul>' + ''.join(f'<li>{rich(x)}</li>' for x in T['limits']) + '</ul></section>')
