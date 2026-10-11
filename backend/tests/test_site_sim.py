@@ -24,10 +24,11 @@ AS_OF = date(2026, 10, 8)
 
 
 def row(d, res, y="7.0", alloc="1000", typ="primary_auction", isin="X", country="SEN",
-        url="https://www.umoatitres.org/x.pdf", cur="XOF", instr="treasury_bill"):
+        url="https://www.umoatitres.org/x.pdf", cur="XOF", instr="treasury_bill",
+        conv="UMOA-Titres: rendement moyen pondéré, as published"):
     return {"country": country, "date": d, "type": typ, "isin": isin, "name": isin, "instr": instr, "maturity": None,
             "residual_years": res, "alloc": None if alloc is None else Decimal(alloc), "sub": None,
-            "yld": None if y is None else Decimal(y), "url": url, "currency": cur}
+            "yld": None if y is None else Decimal(y), "url": url, "currency": cur, "conv": conv}
 
 
 @pytest.fixture
@@ -76,17 +77,24 @@ def test_bond_without_known_coupon_gives_no_point(rows):
 
 
 def test_source_label_from_url(rows):
-    rows += [row(AS_OF, 3.0, url="https://www.beac.int/x.pdf", country="CMR", cur="XAF"),
+    rows += [row(AS_OF, 3.0, url="https://www.umoatitres.org/x.pdf", country="SEN"),
              row(AS_OF, 3.0, url="https://example.org/x.pdf", country="CIV")]
     yp = build.yield_points(AS_OF)
-    assert yp["CMR"]["3"]["src"] == "BEAC" and yp["CIV"]["3"]["src"] == "example.org"
+    assert yp["SEN"]["3"]["src"] == "UMOA-Titres" and yp["CIV"]["3"]["src"] == "example.org"
+
+
+@pytest.mark.parametrize("conv", ["BEAC: taux moyen pondéré (BTA, précompté), as published",
+                                  "BEAC: prix moyen pondéré (OTA, % du nominal), as published", ""])
+def test_discount_rates_and_prices_are_never_used_as_yields(rows, conv):
+    rows.append(row(AS_OF, 1.0, url="https://www.beac.int/x.pdf", country="CMR", cur="XAF", conv=conv))
+    assert build.yield_points(AS_OF) == {}
 
 
 def test_real_data_points_are_finite_and_sourced():
     for pts in build.yield_points(AS_OF).values():
         for p in pts.values():
             assert 0 < p["y"] < 100 and p["d"] <= AS_OF.isoformat() and p["url"].startswith("https://")
-            assert p["src"] in ("UMOA-Titres", "BEAC") and (p["instr"] == "treasury_bill" or p["coupon"] is not None)
+            assert p["src"] == "UMOA-Titres" and (p["instr"] == "treasury_bill" or p["coupon"] is not None)
 
 
 def test_embedded_json_cannot_close_the_script_block():

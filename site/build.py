@@ -141,6 +141,8 @@ def market(get, as_of: str) -> dict:
     secs: dict[int, int] = {}
     sec_rows: list[list] = []
     urls: list[str] = sorted({a["provenance"]["source_url"] or "" for a in items})
+    conventions = sorted({a["official"]["yield_convention"] or "" for a in items})
+    currencies = sorted({a["security"]["currency"] for a in items})
     prefix = os.path.commonprefix(urls)
     prefix = prefix[: prefix.rfind("/") + 1]
     url_ix = {u: i for i, u in enumerate(urls)}
@@ -168,15 +170,19 @@ def market(get, as_of: str) -> dict:
             a["auction_id"], a["auction_date"], countries.index(s["country_iso3"]), secs[s["security_id"]],
             types.index(a["auction_type"]), _num(o["amount_submitted"], 10**6), _num(o["amount_allocated"], 10**6),
             _num(o["weighted_average_yield"]), why, url_ix[a["provenance"]["source_url"] or ""], settle,
+            # Appended fields (older readers index the first 11 only): what the "yield" column holds for this
+            # row as published (a BEAC OTA row carries a price in % of par, not a yield), and its currency.
+            conventions.index(o["yield_convention"] or ""), currencies.index(s["currency"]),
         ])
     return {
         "fields": ["auction_id", "auction_date", "country", "security", "auction_type", "amount_submitted_m",
-                   "amount_allocated_m", "weighted_average_yield", "yield_status", "source_url", "settlement_offset_days"],
+                   "amount_allocated_m", "weighted_average_yield", "yield_status", "source_url", "settlement_offset_days",
+                   "yield_convention", "currency"],
         "sec_fields": ["security_name", "instrument_type", "tenor_days", "maturity_date"],
-        "amount_scale": 10**6, "countries": countries, "currency": sorted({a["security"]["currency"] for a in items}),
+        "amount_scale": 10**6, "countries": countries, "currency": currencies,
         "instr": instr, "types": types, "status": status, "url_prefix": prefix,
         "urls": [u[len(prefix):] for u in urls], "sec": sec_rows, "rows": rows,
-        "conventions": sorted({a["official"]["yield_convention"] or "" for a in items}),
+        "conventions": conventions,
         "verification": sorted({a["provenance"]["verification_status"] for a in items}),
         "sources": sorted({a["provenance"]["source"]["institution"] for a in items if a["provenance"]["source"]}),
     }
@@ -331,6 +337,10 @@ def yield_points(as_of: date) -> dict:
     out: dict = {}
     for r in report.load_rows():
         if r["type"] in report.NON_ISSUANCE or r["yld"] is None or not r["alloc"] or r["residual_years"] is None:
+            continue
+        # Only published yields: a BEAC bill row carries a discount rate (précompté) and a BEAC bond row a
+        # price, neither of which may be used as a yield in the simulators.
+        if "rendement" not in (r.get("conv") or "").casefold():
             continue
         if not (lo < r["date"].toordinal() <= as_of.toordinal()):
             continue

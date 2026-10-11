@@ -164,6 +164,7 @@ def load_rows(path: Path = DATA, zone: str | None = None) -> list[dict]:
             "residual_years": (mat - d).days / 365.25 if mat else None,
             "alloc": _dec(a["amount_allocated"]), "sub": _dec(a["amount_submitted"]),
             "yld": _dec(a["weighted_average_yield"]), "url": a["source_url"], "currency": s["currency"],
+            "conv": a.get("yield_convention") or "",
         })
     return rows
 
