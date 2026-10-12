@@ -1,0 +1,11 @@
+.venv/
+node_modules/
+.next/
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
+.env.local
+storage/
+*.sqlite3
+pgdata/
