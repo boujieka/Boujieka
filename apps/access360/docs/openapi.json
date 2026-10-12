@@ -1629,6 +1629,44 @@
      }
     }
    }
+  },
+  "/api/engine/demo-inputs": {
+   "get": {
+    "tags": [
+     "map and optimizer"
+    ],
+    "summary": "Engine Demo Inputs",
+    "operationId": "engine_demo_inputs_api_engine_demo_inputs_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/engine/input-schema": {
+   "get": {
+    "tags": [
+     "map and optimizer"
+    ],
+    "summary": "Engine Input Schema",
+    "operationId": "engine_input_schema_api_engine_input_schema_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     }
+    }
+   }
   }
  },
  "components": {

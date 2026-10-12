@@ -17,6 +17,8 @@ from sqlalchemy import select
 
 from ..config import get_settings
 from ..deps import Ctx, OrgCtx, current_user, org_ctx
+from ..engine.demo import DEMO_LABEL, demo_inputs
+from ..engine.inputs import ProjectInputs
 from ..engine.optimizer import OptionCosts, Settlement, Weights, compare, demo_settlement
 from ..models import Dataset
 from ..services.audit import audit
@@ -171,3 +173,13 @@ def optimizer_demo(ctx: Ctx = Depends(current_user)):
     s, c = demo_settlement()
     return {"label": "SYNTHETIC DEMO DATA: illustrative settlement and placeholder costs",
             "settlement": s.model_dump(), "costs": c.model_dump(), "weights": Weights().model_dump()}
+
+
+@router.get("/api/engine/demo-inputs")
+def engine_demo_inputs(ctx: Ctx = Depends(current_user)):
+    return {"label": DEMO_LABEL, "inputs": demo_inputs().model_dump(mode="json")}
+
+
+@router.get("/api/engine/input-schema")
+def engine_input_schema(ctx: Ctx = Depends(current_user)):
+    return ProjectInputs.model_json_schema()

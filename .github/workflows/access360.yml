@@ -1,0 +1,31 @@
+name: access360-backend
+on:
+  push:
+    paths: ["apps/access360/**", ".github/workflows/access360.yml"]
+  pull_request:
+    paths: ["apps/access360/**", ".github/workflows/access360.yml"]
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: access360_test
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U postgres" --health-interval 5s --health-retries 20
+    defaults:
+      run:
+        working-directory: apps/access360/backend
+    env:
+      A360_TEST_DATABASE_URL: postgresql+psycopg://access360_app:app@127.0.0.1:5432/access360_test
+      A360_TEST_DATABASE_OWNER_URL: postgresql+psycopg://postgres:postgres@127.0.0.1:5432/access360_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install -r requirements.txt
+      - run: PGPASSWORD=postgres psql -h 127.0.0.1 -U postgres -c "CREATE ROLE access360_app LOGIN PASSWORD 'app';"
+      - run: python -m pytest -q
