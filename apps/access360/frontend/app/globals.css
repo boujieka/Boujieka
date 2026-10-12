@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+/* ACCESS360 AFRICA design tokens. Light theme first. */
+:root {
+  color-scheme: light;
+  --background: #f7f8fa;
+  --surface: #ffffff;
+  --surface-muted: #f1f3f6;
+  --foreground: #0d1b2e;
+  --muted-foreground: #4f5b6b;
+  --subtle-foreground: #6b7684;
+  --border: #dfe3e9;
+  --border-strong: #c6ccd5;
+
+  --navy-950: #071427;
+  --navy-900: #0b1f3a;
+  --navy-800: #12305a;
+  --navy-700: #1b4277;
+  --navy-100: #e3eaf4;
+  --navy-50: #f0f4f9;
+
+  --emerald-700: #0a6b49;
+  --emerald-600: #0f8a5f;
+  --emerald-100: #d8f1e6;
+  --emerald-50: #ecf8f2;
+
+  --gold-700: #8a5f10;
+  --gold-500: #c8962e;
+  --gold-100: #f6ecd6;
+  --gold-50: #fbf6ea;
+
+  --danger-700: #a12b2b;
+  --danger-100: #fbe3e3;
+  --warning-700: #8a5a00;
+  --warning-100: #fdf0cf;
+
+  --primary: var(--navy-900);
+  --primary-foreground: #ffffff;
+  --accent: var(--emerald-600);
+  --ring: #2a78d6;
+
+  /* chart roles (validated categorical order from the dataviz reference palette) */
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --chart-grid: #e6e9ee;
+  --chart-axis: #6b7684;
+  --chart-ref: #a12b2b;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-foreground: var(--foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-subtle-foreground: var(--subtle-foreground);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-ring: var(--ring);
+  --color-navy-950: var(--navy-950);
+  --color-navy-900: var(--navy-900);
+  --color-navy-800: var(--navy-800);
+  --color-navy-700: var(--navy-700);
+  --color-navy-100: var(--navy-100);
+  --color-navy-50: var(--navy-50);
+  --color-emerald-700: var(--emerald-700);
+  --color-emerald-600: var(--emerald-600);
+  --color-emerald-100: var(--emerald-100);
+  --color-emerald-50: var(--emerald-50);
+  --color-gold-700: var(--gold-700);
+  --color-gold-500: var(--gold-500);
+  --color-gold-100: var(--gold-100);
+  --color-gold-50: var(--gold-50);
+  --color-danger-700: var(--danger-700);
+  --color-danger-100: var(--danger-100);
+  --color-warning-700: var(--warning-700);
+  --color-warning-100: var(--warning-100);
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+html,
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* MapLibre container must be able to size itself */
+.maplibregl-map {
+  font-family: var(--font-sans);
+}
