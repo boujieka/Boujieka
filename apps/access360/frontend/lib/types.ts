@@ -184,6 +184,7 @@ export interface SubsidyResult {
   dscr_min: number | null;
   equity_irr: number | null;
   reason: string;
+  monotone?: boolean;
 }
 
 export interface OptimizerOption {
