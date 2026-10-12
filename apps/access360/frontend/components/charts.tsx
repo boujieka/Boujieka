@@ -128,7 +128,7 @@ export function HBarsChart({ data, catKey, valKey, name, locale }: { data: Recor
       <BarChart data={data} layout="vertical" margin={{ top: 0, right: 28, bottom: 0, left: 4 }}>
         <CartesianGrid stroke={GRID} horizontal={false} />
         <XAxis type="number" {...axisProps} allowDecimals={false} />
-        <YAxis type="category" dataKey={catKey} {...axisProps} axisLine={false} width={140} />
+        <YAxis type="category" dataKey={catKey} {...axisProps} axisLine={false} width={170} />
         <Tooltip {...tooltipStyle} cursor={{ fill: "rgba(13,27,46,0.04)" }} formatter={(v) => (typeof v === "number" ? num(v, locale) : String(v))} />
         <Bar dataKey={valKey} name={name} fill={SERIES[0]} radius={[0, 4, 4, 0]} maxBarSize={18} isAnimationActive={false}>
           <LabelList dataKey={valKey} position="right" fill={INK2} fontSize={11} />

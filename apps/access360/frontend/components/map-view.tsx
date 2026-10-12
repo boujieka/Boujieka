@@ -114,6 +114,8 @@ export function MapView({
       try {
         const ml = await import("maplibre-gl");
         if (disposed || !el.current) return;
+        // the worker is served from public/maplibre (copied by scripts/copy-maplibre-worker.mjs)
+        if (!ml.getWorkerUrl()) ml.setWorkerUrl(`${window.location.origin}/maplibre/maplibre-gl-worker.mjs`);
         map = new ml.Map({
           container: el.current,
           style: style ?? PLAIN_STYLE,
@@ -269,7 +271,7 @@ export function MapView({
 
   return (
     <div className="relative w-full overflow-hidden rounded-lg border border-border bg-[#e9edf2]" style={{ height }} data-testid="map-container">
-      <div ref={el} className="absolute inset-0" aria-label="Map" role="region" />
+      <div ref={el} className="absolute inset-0 h-full w-full" style={{ position: "absolute" }} aria-label="Map" role="region" />
       {basemapFailed || fatal ? (
         <div className="pointer-events-none absolute left-3 top-3 max-w-[80%] rounded-md border border-border bg-surface/95 px-3 py-2 text-xs text-muted-foreground shadow-sm" role="status" data-testid="map-fallback">
           {t("exp2.mapFailed")}

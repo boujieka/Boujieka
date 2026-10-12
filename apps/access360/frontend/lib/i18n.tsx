@@ -265,6 +265,7 @@ const en = {
   // milestones
   "ms.title": "Milestones",
   "ms.add": "Add milestone",
+  "ms.name": "Milestone",
   "ms.category": "Category",
   "ms.due": "Due date",
   "ms.owner": "Owner",
@@ -649,6 +650,7 @@ const fr: Record<DictKey, string> = {
 
   "ms.title": "Jalons",
   "ms.add": "Ajouter un jalon",
+  "ms.name": "Jalon",
   "ms.category": "Catégorie",
   "ms.due": "Échéance",
   "ms.owner": "Responsable",

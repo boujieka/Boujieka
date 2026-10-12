@@ -83,7 +83,7 @@ export default function DashboardPage() {
       {dash.error ? <ErrorBox error={dash.error} onRetry={dash.reload} /> : null}
       {dash.data ? (
         <div className="flex flex-col gap-6">
-          <div className="grid gap-6 lg:grid-cols-2">
+          <div className="grid items-start gap-6 lg:grid-cols-2">
             <Panel agg={dash.data.real} demo={false} testId="panel-real" />
             <Panel agg={dash.data.demo} demo testId="panel-demo" />
           </div>
@@ -103,7 +103,7 @@ export default function DashboardPage() {
                       <thead>
                         <tr>
                           <Th>{t("ms.due")}</Th>
-                          <Th>{t("ms.title")}</Th>
+                          <Th>{t("ms.name")}</Th>
                           <Th>{t("common.project")}</Th>
                           <Th>{t("common.status")}</Th>
                         </tr>

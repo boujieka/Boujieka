@@ -82,8 +82,8 @@ export const USES = [
   ["financing_fees", "Financing fees", "Frais de financement"],
   ["tax_during_construction", "Tax during construction", "Impôts pendant la construction"],
   ["dsra_initial", "Initial DSRA funding", "Dotation initiale du DSRA"],
-  ["cash_at_cod", "Cash at COD", "Trésorerie à la mise en service"],
   ["uses_total", "Total uses", "Total des emplois"],
+  ["cash_at_cod", "Plus cash held at COD (sources = uses + cash)", "Plus trésorerie détenue à la mise en service (ressources = emplois + trésorerie)"],
 ] as const;
 
 export const ANNUAL_COLS = [

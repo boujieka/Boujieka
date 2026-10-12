@@ -375,3 +375,12 @@ def test_f12_residual_disposal_releases_the_deferred_grant():
     r = run_model(ProjectInputs.model_validate(p.model_dump()))
     assert r.s("deferred_grant")[-1] == pytest.approx(0.0, abs=1e-6)
     assert all_pass(r)
+
+
+def test_every_check_and_warning_has_typed_fields():
+    """Frontend report: W_REVIEW had label and passed swapped."""
+    st, checks, warns, _ = status(run_model(demo_inputs()))
+    for c in checks + warns:
+        assert isinstance(c.code, str) and isinstance(c.label, str) and isinstance(c.passed, bool) and isinstance(c.detail, str)
+    assert any(w.code == "W_REVIEW" for w in warns)
+    assert all("LCY" not in w.detail for w in warns)  # currency code of the project, not a placeholder

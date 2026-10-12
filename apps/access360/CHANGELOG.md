@@ -20,3 +20,6 @@
   * accreditation workflow; audit log; demo seed.
 * Documentation: architecture, ADR 0001, engine specification, geospatial specification, test strategy, deployment, guides, limitations, risks, roadmap.
 * CI workflow for backend tests.
+* Independent engine review (21 findings): critical and major findings fixed; 12 kinds of recomputation check; mutation tests; minor and design findings fixed or documented (docs/reviews).
+* Frontend: Next.js 16, Tailwind 4, Recharts, MapLibre 6, EN/FR; dashboard, projects (inputs, results, sensitivity, subsidy, milestones, exports), optimizer, explore, reports, administration, planned module pages; Playwright end to end test.
+* Fix: the W_REVIEW warning had its label and status fields swapped; warning texts now use the project currency code.

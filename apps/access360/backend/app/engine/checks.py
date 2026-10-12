@@ -204,7 +204,7 @@ def warnings(r: ModelResult) -> list[Check]:
     warn("W_DSCR", M["dscr_min"] is not None and M["dscr_min"] < p.financing.lockup_dscr,
          "Minimum annual DSCR is below the lock-up level", f"min DSCR {M['dscr_min']:.2f}x" if M["dscr_min"] is not None else "")
     warn("W_SUPPORT", M["equity_support_total"] > 1.0, "Equity support is needed after COD (liquidity shortfall)",
-         f"{M['equity_support_total']:,.0f} LCY in total")
+         f"{M['equity_support_total']:,.0f} {p.currency} in total")
     warn("W_UNSERVED", (M["unserved_share"] or 0) > 0.05, "More than 5% of demand is not served", f"{(M['unserved_share'] or 0):.1%}")
     warn("W_AFFORD", (M["max_bill_to_income"] or 0) > 0.10, "A customer class pays more than 10% of income (model policy threshold)",
          f"{(M['max_bill_to_income'] or 0):.1%}")
@@ -212,7 +212,7 @@ def warnings(r: ModelResult) -> list[Check]:
     warn("W_GRID", p.grid_arrival.enabled and not p.grid_arrival.regulatory_source, "Grid arrival treatment has no cited regulation")
     warn("W_GRANT", abs(M.get("capital_grant_undisbursed") or 0.0) > 1.0,
          "Part of the capital grant is never disbursed (operations end first); debt was sized on the full grant",
-         f"{M.get('capital_grant_undisbursed', 0):,.0f} LCY undisbursed")
+         f"{M.get('capital_grant_undisbursed', 0):,.0f} {p.currency} undisbursed")
     warn("W_CLOSE", M.get("closure_cover") is not None and M["closure_cover"] < 1.0,
          "At grid closure, cash and compensation do not cover the debt prepayment", f"cover {M.get('closure_cover') or 0:.2f}x")
     warn("W_PROV", p.provenance == Provenance.ILLUSTRATIVE, "Inputs are illustrative demo data", "Not for investment decisions")
@@ -232,5 +232,5 @@ def status(r: ModelResult) -> tuple[ModelStatus, list[Check], list[Check], list[
     else:
         st = ModelStatus.VALIDATED
     if r.inputs.review is None and not miss and all(c.passed for c in checks):
-        warns = warns + [Check("W_REVIEW", False, "Assumptions not yet reviewed by a named person", "Required for VALIDATED status")]
+        warns = warns + [Check("W_REVIEW", "Assumptions not yet reviewed by a named person", False, "Required for VALIDATED status")]
     return st, checks, warns, miss

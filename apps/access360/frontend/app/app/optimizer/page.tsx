@@ -197,9 +197,26 @@ export default function OptimizerPage() {
     }
   }
 
-  const scatter = (res?.options ?? [])
+  const scatter: { code: string; months: number; lcoe: number; name: string }[] = [];
+  const scatterRaw = (res?.options ?? [])
     .filter((o) => o.feasible && typeof o.lcoe === "number" && typeof o.months_to_electrify === "number")
     .map((o) => ({ code: o.code, name: o.name, months: o.months_to_electrify as number, lcoe: o.lcoe as number }));
+  // options that sit on top of each other share one direct label (e.g. "D/F/G")
+  {
+    const span = Math.max(1, ...scatterRaw.map((p) => p.lcoe));
+    const labelled: { code: string; months: number; lcoe: number; name: string }[] = [];
+    for (const p of [...scatterRaw].sort((a, b) => a.lcoe - b.lcoe)) {
+      const near = labelled.find((q) => q.months === p.months && Math.abs(q.lcoe - p.lcoe) < span * 0.04);
+      if (near) {
+        near.code = `${near.code}/${p.code}`;
+        scatter.push({ ...p, code: "" });
+      } else {
+        const q = { ...p };
+        labelled.push(q);
+        scatter.push(q);
+      }
+    }
+  }
   const byCode = (c: string | null) => res?.options.find((o) => o.code === c);
 
   return (

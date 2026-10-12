@@ -72,7 +72,7 @@ export function MilestonesTab({ project }: { project: Project }) {
               <Table>
                 <thead>
                   <tr>
-                    <Th>{t("ms.title")}</Th>
+                    <Th>{t("ms.name")}</Th>
                     <Th>{t("ms.category")}</Th>
                     <Th>{t("ms.due")}</Th>
                     <Th>{t("ms.owner")}</Th>
@@ -109,7 +109,7 @@ export function MilestonesTab({ project }: { project: Project }) {
         </CardHeader>
         <CardContent>
           <form onSubmit={add} className="flex flex-col gap-3">
-            <Field label={t("ms.title")} error={errors.title}>
+            <Field label={t("ms.name")} error={errors.title}>
               {(id, d, inv) => <Input id={id} aria-describedby={d} aria-invalid={inv} required maxLength={200} value={f.title} disabled={!canEdit} onChange={(e) => setF({ ...f, title: e.target.value })} />}
             </Field>
             <Field label={t("ms.category")} error={errors.category}>

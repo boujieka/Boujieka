@@ -34,9 +34,16 @@ export function projectCurrency(p: Project): string {
 function ChecksList({ items, kind }: { items: Check[]; kind: "checks" | "warnings" }) {
   const { t } = useI18n();
   if (!items.length) return <p className="text-sm text-muted-foreground">{t("common.none")}</p>;
+  const nPassed = items.filter((c) => c.passed === true).length;
   return (
-    <ul className="flex flex-col divide-y divide-border" data-testid={`${kind}-list`}>
-      {items.map((c, i) => {
+    <>
+    {kind === "checks" ? (
+      <p className={cn("mb-2 text-sm font-medium", nPassed === items.length ? "text-emerald-700" : "text-danger-700")} data-testid="checks-summary">
+        {nPassed} / {items.length} {t("results.passed").toLowerCase()}
+      </p>
+    ) : null}
+    <ul className="flex max-h-80 flex-col divide-y divide-border overflow-y-auto pr-1" data-testid={`${kind}-list`} tabIndex={0}>
+      {[...items].sort((a, b) => Number(a.passed === true) - Number(b.passed === true)).map((c, i) => {
         const x = checkText(c);
         return (
           <li key={`${c.code}-${i}`} className="flex items-start gap-2 py-1.5 text-sm">
@@ -61,6 +68,7 @@ function ChecksList({ items, kind }: { items: Check[]; kind: "checks" | "warning
         );
       })}
     </ul>
+    </>
   );
 }
 
@@ -68,7 +76,7 @@ export function RunView({ run, project }: { run: RunDetail; project: Project }) 
   const { t, locale } = useI18n();
   const ccy = projectCurrency(project);
   const fmtL = (v: number) => money(v, ccy, locale);
-  const years = run.annual.year ?? [];
+  const years = useMemo(() => run.annual.year ?? [], [run]);
 
   const annualRows = useMemo(
     () =>
