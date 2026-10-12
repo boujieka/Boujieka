@@ -10,9 +10,9 @@ from enum import Enum
 
 import numpy as np
 
-from .finance import npv
+from .finance import annuity_payment, npv, q_rate
 from .inputs import Provenance, missing_inputs
-from .model import ModelResult
+from .model import ModelResult, tax_with_losses
 
 REL_TOL = 1e-9  # residual allowed, as a share of the largest balance sheet total (floating point only)
 
@@ -45,7 +45,7 @@ def integrity_checks(r: ModelResult) -> list[Check]:
 
     def add(code: str, label: str, residual: float, detail: str = "", tolerance: float | None = None) -> None:
         lim = tol if tolerance is None else tolerance
-        out.append(Check(code, label, residual <= lim, detail or f"max residual {residual:.3g}"))
+        out.append(Check(code, label, bool(residual <= lim), detail or f"max residual {float(residual):.3g}"))
 
     su = r.sources_uses
     add("SU", "Sources equal uses at COD (plus cash held at COD)",
@@ -88,6 +88,108 @@ def integrity_checks(r: ModelResult) -> list[Check]:
         if v is not None:
             resid = abs(npv((1 + v) ** 0.25 - 1, cf)) / max(float(np.sum(np.abs(cf))), 1.0)
             add(code, f"NPV at the reported IRR is zero ({key})", resid, tolerance=1e-8)
+    out += recomputation_checks(r, tol)
+    return out
+
+
+def recomputation_checks(r: ModelResult, tol: float) -> list[Check]:
+    """Independent recomputation of key lines from inputs and primitive series. The roll forwards above cannot see
+    an error that keeps double entry consistent (interest at the wrong rate, tax charged twice, a doubled subsidy);
+    these checks recompute such lines another way and compare."""
+    p, S, C, T, I = r.inputs, r.series, r.C, r.T, r.internals
+    out: list[Check] = []
+    t = np.arange(T)
+    active = S["active"] > 0.5
+
+    def add(code, label, resid, lim=None):
+        lim = tol if lim is None else lim
+        out.append(Check(code, label, bool(resid <= lim), f"max residual {float(resid):.3g}"))
+
+    fx = S["fx"]
+    # interest = opening balance x quarterly rate, per tranche, in the tranche currency
+    for tr_in, tr in zip(p.financing.debt, r.tranches):
+        rf = fx if tr_in.currency == "USD" else np.ones(T)
+        open_ccy = np.concatenate([[0.0], tr["balance"][:-1] / rf[:-1]])
+        exp = open_ccy * q_rate(tr_in.rate_pa) * rf
+        add(f"R_INT:{tr_in.name}", f"Interest recomputed from opening balance and rate ({tr_in.name})", _max_abs(exp - tr["interest"]))
+        n_amort = max(int(round(tr_in.tenor_years * 4)) - tr_in.grace_quarters, 1)
+        first = C + tr_in.grace_quarters
+        maturity = C + int(round(tr_in.tenor_years * 4)) - 1
+        amort = np.nonzero(tr["principal"] > 1e-9)[0]
+        if len(amort) and not I["closes"]:
+            add(f"R_MAT:{tr_in.name}", f"Final repayment falls at the stated maturity ({tr_in.name})", float(abs(int(amort[-1]) - maturity)), 0.0)
+        if tr_in.amortisation == "annuity" and first < T and open_ccy[first] > 1e-9:
+            pay = annuity_payment(open_ccy[first], q_rate(tr_in.rate_pa), n_amort)
+            ds_ccy = (tr["interest"] + tr["principal"]) / rf
+            body = [i for i in amort if i < maturity and (not I["closes"] or i < I["t_arr"])]
+            if body:
+                add(f"R_ANN:{tr_in.name}", f"Annuity instalment recomputed from the balance at the end of grace ({tr_in.name})",
+                    float(np.max(np.abs(ds_ccy[body] - pay))), max(1e-6, 1e-9 * pay))
+    # operating lines recomputed from primitives
+    tech, opx, sub = p.technical, p.opex, p.subsidies
+    fuel = S["generated_kwh"] * tech.diesel_share * tech.diesel_cost_per_kwh * I["cost_idx"]
+    add("R_FUEL", "Fuel cost recomputed from generation, diesel share and price", _max_abs(fuel - S["fuel"]))
+    ts_on = active & ((t - C) < sub.tariff_support_years * 4)
+    ts = np.where(ts_on, S["billed_kwh"] * sub.tariff_support_per_kwh, 0.0)
+    add("R_TS", "Tariff support recomputed from billed energy and rate", _max_abs(ts - S["tariff_support"]))
+    billed = S["energy_revenue"] + S["fixed_revenue"]
+    add("R_COLL", "Collections recomputed from billing and collection efficiency",
+        _max_abs(billed * opx.collection_efficiency + S["connection_fee_revenue"] - S["collections"]))
+    ebitda = S["revenue"] + S["tariff_support"] - S["opex"] - S["bad_debt"]
+    add("R_EBITDA", "EBITDA recomputed from its lines", _max_abs(ebitda - S["ebitda"]))
+    # tax recomputed from the components of taxable income with a loss pool
+    m = p.macro
+    ebt = S["ebitda"] + S["grant_income"] - S["depreciation"] - S["interest_expense"] - S["fx_loss"] + S["disposal_gain"]
+    taxable = ebt - (0.0 if m.grant_income_taxable else S["grant_income"])
+    add("R_TAX", "Tax recomputed from taxable income and the loss pool", _max_abs(tax_with_losses(taxable, m.tax_rate) - S["tax"]))
+    add("R_NI", "Net income recomputed", _max_abs(ebt - S["tax"] - S["net_income"]))
+    # depreciation recomputed from the input lives (physical assets, before disposal)
+    dep = np.zeros(T)
+    sched = [(spend, it.asset_life_years) for it, spend in I["capex_items"]]
+    sched += [(S["battery_replacement"], tech.battery_life_years)] + list(I["item_replacements"]) + [I["fin_vintage"]]
+    for spend, life in sched:
+        n = max(int(round(life * 4)), 1)
+        for i in np.nonzero(spend > 0)[0]:
+            st = max(i + 1, C)
+            dep[st:min(st + n, T)] += spend[i] / n
+    dep = np.where(active, dep, 0.0)
+    nbv_open = np.concatenate([[0.0], S["nbv"][:-1]]) + S["asset_additions"]
+    dep = np.minimum(dep, nbv_open)
+    add("R_DEP", "Depreciation recomputed from input asset lives", _max_abs(dep - S["depreciation"]))
+    # DSRA target recomputed from the tranche schedules
+    nq = p.financing.dsra_quarters
+    ds = np.zeros(T)
+    for tr in r.tranches:
+        ds += np.where(t >= C, tr["interest"], 0.0) + tr["principal"]
+    if I["closes"]:
+        ds[I["t_arr"]] = 0.0
+    target = np.array([ds[i + 1:i + 1 + nq].sum() if nq else 0.0 for i in range(T)])
+    if I["closes"]:
+        target[I["t_arr"]:] = 0.0
+    add("R_DSRA", "DSRA recomputed from the debt schedules", _max_abs(target - S["dsra"]))
+    # lock up: no distribution in a quarter whose DSCR is below the lock up level (except the last quarter)
+    dq = S["dscr_quarter"]
+    locked = (~np.isnan(dq)) & (dq < p.financing.lockup_dscr) & (t < T - 1)
+    add("R_LOCK", "No distribution while the DSCR is below the lock up level", float(np.sum(S["distributions"][locked])))
+    # grant income recomputed: receipts deferred and released over the remaining weighted asset life
+    gi = np.zeros(T)
+    bal = 0.0
+    wq = int(round(I["w_life"] * 4))
+    for i in range(T):
+        base_g = bal + S["grant_receipts"][i] + S["rbf_receipts"][i]
+        rel = base_g / max(wq - (i - C), 1) if (i >= C and base_g > 1e-12) else 0.0
+        if (I["closes"] and i == I["t_arr"]) or (i == T - 1 and S["disposal_proceeds"][i] > 0):
+            rel = base_g
+        gi[i] = rel
+        bal = base_g - rel
+    add("R_GRANTINC", "Grant income recomputed from receipts and the weighted asset life", _max_abs(gi - S["grant_income"]))
+    # project cash flows recomputed from primitives
+    capex = S["capex"]
+    op = t >= C
+    base = np.where(t < C, -capex, 0.0) + np.where(op, S["collections"] - S["opex"] - S["replacement_capex"], 0.0) + S["disposal_proceeds"]
+    pre_tax = tax_with_losses(S["ebitda"] - S["tariff_support"] - S["unlevered_depreciation"] + S["disposal_gain"], m.tax_rate)
+    add("R_PCF", "Project cash flow before subsidy recomputed (no subsidy, no tax on subsidy)",
+        _max_abs(base - pre_tax - S["project_cf_pre_subsidy"]))
     return out
 
 
@@ -108,6 +210,11 @@ def warnings(r: ModelResult) -> list[Check]:
          f"{(M['max_bill_to_income'] or 0):.1%}")
     warn("W_IRR", M["equity_irr"] is None, "Equity IRR cannot be computed (no sign change in equity cash flows)")
     warn("W_GRID", p.grid_arrival.enabled and not p.grid_arrival.regulatory_source, "Grid arrival treatment has no cited regulation")
+    warn("W_GRANT", abs(M.get("capital_grant_undisbursed") or 0.0) > 1.0,
+         "Part of the capital grant is never disbursed (operations end first); debt was sized on the full grant",
+         f"{M.get('capital_grant_undisbursed', 0):,.0f} LCY undisbursed")
+    warn("W_CLOSE", M.get("closure_cover") is not None and M["closure_cover"] < 1.0,
+         "At grid closure, cash and compensation do not cover the debt prepayment", f"cover {M.get('closure_cover') or 0:.2f}x")
     warn("W_PROV", p.provenance == Provenance.ILLUSTRATIVE, "Inputs are illustrative demo data", "Not for investment decisions")
     return w
 

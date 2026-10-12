@@ -25,6 +25,20 @@ from .inputs import CapexCategory, ProjectInputs
 EPS = 1e-6
 
 
+def tax_with_losses(base: np.ndarray, rate: float) -> np.ndarray:
+    """Tax at `rate` on a quarterly base, with losses carried forward without limit, paid in the same quarter."""
+    out = np.zeros(len(base))
+    losses = 0.0
+    for i, x in enumerate(base):
+        if x < 0:
+            losses += -x
+        else:
+            use = min(losses, x)
+            losses -= use
+            out[i] = (x - use) * rate
+    return out
+
+
 def _add_months(d: date, months: int) -> date:
     y, m = divmod(d.month - 1 + months, 12)
     return date(d.year + y, m + 1, 1)
@@ -41,6 +55,7 @@ class ModelResult:
     annual: dict[str, list[float]] = field(default_factory=dict)
     sources_uses: dict[str, float] = field(default_factory=dict)
     tranches: list[dict] = field(default_factory=list)
+    internals: dict = field(default_factory=dict)
 
     def s(self, k: str) -> np.ndarray:
         return self.series[k]
@@ -128,17 +143,32 @@ def run_model(p: ProjectInputs, *, tariff_multiplier: float = 1.0, capital_grant
         capex_init += spend
     total_capex = float(capex_init.sum())
 
-    repl = z()
+    repl_batt = z()
     if tech.battery_kwh > 0 and tech.battery_replacement_usd_per_kwh > 0:
-        step = int(round(tech.battery_life_years * 4))
+        step = max(int(round(tech.battery_life_years * 4)), 1)
         k = 1
-        while step > 0 and C + k * step < T:
+        while C + k * step < T:
             tt = C + k * step
             if active[tt]:
                 yrs = (tt - C) / 4.0
-                repl[tt] = tech.battery_kwh * tech.battery_replacement_usd_per_kwh * (1.0 - tech.battery_cost_decline_pa) ** yrs * fx[tt]
+                repl_batt[tt] = tech.battery_kwh * tech.battery_replacement_usd_per_kwh * (1.0 - tech.battery_cost_decline_pa) ** yrs * fx[tt]
             k += 1
-    S["capex"], S["replacement_capex"] = capex_init, repl
+    item_repl: list[tuple[np.ndarray, float]] = []  # (replacement spend, life) per flagged capex item
+    for it in p.capex:
+        if not it.replace_at_end_of_life:
+            continue
+        arr = z()
+        step = max(int(round(it.asset_life_years * 4)), 1)
+        k = 1
+        while C + k * step < T:
+            tt = C + k * step
+            if active[tt]:
+                yrs = (tt - C) / 4.0
+                arr[tt] = it.amount * it.replacement_cost_share * (1.0 + it.real_price_change_pa) ** yrs * (fx[tt] if it.currency == "USD" else 1.0)
+            k += 1
+        item_repl.append((arr, it.asset_life_years))
+    repl = repl_batt + sum((a for a, _ in item_repl), z())
+    S["capex"], S["replacement_capex"], S["battery_replacement"] = capex_init, repl, repl_batt
     # maintenance reserve: each replacement is pre-funded evenly from the previous replacement (or COD)
     mra_in, mra_out = z(), z()
     if p.financing.maintenance_reserve:
@@ -195,7 +225,8 @@ def run_model(p: ProjectInputs, *, tariff_multiplier: float = 1.0, capital_grant
                     pr = min(open_ccy, pay) if amort_q < n_amort - 1 else open_ccy
             pp = 0.0
             if closes and i == t_arr:
-                pp = open_ccy - pr  # mandatory prepayment when operations end
+                pr = 0.0
+                pp = open_ccy  # mandatory prepayment of the whole balance when operations end
             bal_ccy = open_ccy + d_ccy - pr - pp
             if bal_ccy < EPS:
                 bal_ccy = 0.0
@@ -220,7 +251,8 @@ def run_model(p: ProjectInputs, *, tariff_multiplier: float = 1.0, capital_grant
         fees += fee
         draws_lcy += o_draw
         fx_loss += o_fx
-        sched_ds += io + o_pr
+        # the closure quarter's interest is paid with the prepayment and is not scheduled debt service
+        sched_ds += np.where((t == t_arr) & closes, 0.0, io) + o_pr
     S.update(debt_balance=debt_lcy_close, interest_construction=interest_cons, interest_expense=interest_op,
              principal=principal, prepayment=prepay, financing_fees=fees, debt_draws=draws_lcy, fx_loss=fx_loss,
              debt_service=sched_ds)
@@ -228,13 +260,13 @@ def run_model(p: ProjectInputs, *, tariff_multiplier: float = 1.0, capital_grant
     # ---------------------------------------------------------------- fixed assets and depreciation (by vintage)
     dep = z()
     additions = capex_init + repl + interest_cons + fees
-    vintages: list[tuple[np.ndarray, float]] = []
-    for it, spend in capex_items:
-        vintages.append((spend, it.asset_life_years))
     w_life = (sum(it.amount * (fx[0] if it.currency == "USD" else 1.0) * it.asset_life_years for it in p.capex)
               / max(sum(it.amount * (fx[0] if it.currency == "USD" else 1.0) for it in p.capex), EPS))
-    vintages.append((interest_cons + fees, w_life))
-    vintages.append((repl, tech.battery_life_years))
+    phys_vintages: list[tuple[np.ndarray, float]] = [(spend, it.asset_life_years) for it, spend in capex_items]
+    phys_vintages.append((repl_batt, tech.battery_life_years))
+    phys_vintages += item_repl
+    fin_vintage = (interest_cons + fees, w_life)
+    vintages = phys_vintages + [fin_vintage]
     for spend, life in vintages:
         n = max(int(round(life * 4)), 1)
         for i in np.nonzero(spend > 0)[0]:
@@ -296,6 +328,7 @@ def run_model(p: ProjectInputs, *, tariff_multiplier: float = 1.0, capital_grant
             disposal_proceeds[i] += proceeds
             disposal_gain[i] += proceeds - nb
             nb = 0.0
+            rel = base  # remaining deferred grant released on disposal
         defg[i] = base - rel
         grant_income[i] = rel
         nbv[i] = nb
@@ -307,39 +340,24 @@ def run_model(p: ProjectInputs, *, tariff_multiplier: float = 1.0, capital_grant
     # ---------------------------------------------------------------- tax (levered), loss carry forward
     ebt = ebitda + grant_income - dep - interest_op - fx_loss + disposal_gain
     taxable = ebt - (0.0 if m.grant_income_taxable else grant_income)
-    tax = z()
-    losses = 0.0
-    for i in range(T):
-        x = taxable[i]
-        if x < 0:
-            losses += -x
-        else:
-            use = min(losses, x)
-            losses -= use
-            tax[i] = (x - use) * m.tax_rate
+    tax = tax_with_losses(taxable, m.tax_rate)
     net_income = ebt - tax
     S.update(ebt=ebt, tax=tax, net_income=net_income)
 
     # unlevered tax for project cash flows (no interest, no FX on debt, no capitalised finance costs)
     unlev_dep = z()
-    for spend, life in vintages[:-2] + [vintages[-1]]:
+    for spend, life in phys_vintages:
         n = max(int(round(life * 4)), 1)
         for i in np.nonzero(spend > 0)[0]:
             start = max(i + 1, C)
             unlev_dep[start:min(start + n, T)] += spend[i] / n
     unlev_dep = np.where(active, unlev_dep, 0.0)
-    unlev_taxable = ebitda - unlev_dep
-    unlev_tax = z()
-    losses = 0.0
-    for i in range(T):
-        x = unlev_taxable[i]
-        if x < 0:
-            losses += -x
-        else:
-            use = min(losses, x)
-            losses -= use
-            unlev_tax[i] = (x - use) * m.tax_rate
-    S["unlevered_tax"] = unlev_tax
+    S["unlevered_depreciation"] = unlev_dep
+    # before subsidy: no tariff support, no grant income; after subsidy: both (grant income only if taxable).
+    # Disposal gains and losses (grid closure, residual value) are in both.
+    unlev_tax_pre = tax_with_losses(ebitda - tariff_support - unlev_dep + disposal_gain, m.tax_rate)
+    unlev_tax_post = tax_with_losses(ebitda - unlev_dep + disposal_gain + (grant_income if m.grant_income_taxable else 0.0), m.tax_rate)
+    S["unlevered_tax_pre_subsidy"], S["unlevered_tax_post_subsidy"] = unlev_tax_pre, unlev_tax_post
 
     # ---------------------------------------------------------------- cash waterfall
     cash_ops = collected + fee_rev + tariff_support - opex
@@ -363,7 +381,8 @@ def run_model(p: ProjectInputs, *, tariff_multiplier: float = 1.0, capital_grant
         if i < C:
             uses = capex_init[i] + interest_cons[i] + fees[i] + dsra_move + tax[i]
             sources = draws_lcy[i] + grant_cash[i]
-            need = uses - sources - cash_open
+            floor_c = fin.min_cash if i == C - 1 else 0.0  # minimum cash is funded before COD
+            need = uses - sources - cash_open + floor_c
             e = max(0.0, need)
             eq_in[i] = e
             cash[i] = cash_open + sources + e - uses
@@ -402,18 +421,23 @@ def run_model(p: ProjectInputs, *, tariff_multiplier: float = 1.0, capital_grant
     S.update(cfo=cfo, cfi=cfi, cff=cff, net_cash_flow=cfo + cfi + cff)
 
     # ---------------------------------------------------------------- project and equity cash flows
-    pre_sub = np.where(t < C, -capex_init, 0.0) + np.where(op, collected + fee_rev - opex - unlev_tax - repl, 0.0) + disposal_proceeds
-    post_sub = pre_sub + tariff_support + grant_cash + rbf
+    base_cf = np.where(t < C, -capex_init, 0.0) + np.where(op, collected + fee_rev - opex - repl, 0.0) + disposal_proceeds
+    pre_sub = base_cf - unlev_tax_pre
+    post_sub = base_cf + tariff_support + grant_cash + rbf - unlev_tax_post
     eq_cf = -(eq_in + eq_support) + dist
     S.update(project_cf_pre_subsidy=pre_sub, project_cf_post_subsidy=post_sub, equity_cf=eq_cf)
 
     res = ModelResult(inputs=p, T=T, C=C, dates=dates, series=S)
+    res.internals = {"capex_items": capex_items, "item_replacements": item_repl, "fin_vintage": fin_vintage, "w_life": w_life,
+                     "t_arr": t_arr, "closes": closes, "cost_idx": cost_idx, "tariff_idx": tariff_idx,
+                     "grant_total": grant_total}
     res.sources_uses = {
         "capex": float(capex_init.sum()),
         "interest_during_construction": float(interest_cons.sum()),
         "financing_fees": float(fees.sum()),
         "dsra_initial": float(dsra[C - 1]),
-        "uses_total": float(capex_init.sum() + interest_cons.sum() + fees.sum() + dsra[C - 1]),
+        "tax_during_construction": float(tax[:C].sum()),
+        "uses_total": float(capex_init.sum() + interest_cons.sum() + fees.sum() + dsra[C - 1] + tax[:C].sum()),
         "debt": float(draws_lcy[:C].sum()),
         "grants_in_construction": float(grant_cash[:C].sum()),
         "equity": float(eq_in[:C].sum()),
@@ -493,6 +517,16 @@ def _metrics(res: ModelResult, tranches: list[dict], per_class: list[dict], tota
     tariffs = [(c.tariff_per_kwh, c.connections_target * c.kwh_per_connection_month) for c in p.customers]
     wsum = sum(w for _, w in tariffs)
     M["avg_tariff_cod"] = sum(tf * w for tf, w in tariffs) / wsum if wsum > EPS else None
+    # grid closure: cash available in the closure quarter against the prepayment and that quarter's interest
+    I = res.internals
+    if I.get("closes"):
+        ta = I["t_arr"]
+        avail = float(S["cash"][ta - 1] + S["dsra"][ta - 1] + S["mra"][ta - 1] + S["disposal_proceeds"][ta])
+        due = float(S["prepayment"][ta] + S["interest_expense"][ta])
+        M["closure_cover"] = avail / due if due > EPS else None
+    else:
+        M["closure_cover"] = None
+    M["capital_grant_undisbursed"] = float(I["grant_total"] - S["grant_receipts"].sum())
     res.metrics = M
     res.annual = {
         "year": list(range(1, yrs + 1)),

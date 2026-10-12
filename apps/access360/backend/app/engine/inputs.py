@@ -59,6 +59,9 @@ class CapexItem(BaseModel):
     amount: float = Field(ge=0)
     currency: Literal["LCY", "USD"] = "LCY"
     asset_life_years: float = Field(gt=0)
+    replace_at_end_of_life: bool = Field(False, description="Replace the item at the end of each life within the horizon (not for storage: use the technical battery inputs)")
+    replacement_cost_share: float = Field(1.0, ge=0, le=2, description="Replacement cost as a share of the original amount")
+    real_price_change_pa: float = Field(0.0, ge=-0.5, le=0.5, description="Annual change of the replacement price in the item currency")
 
 
 class Technical(BaseModel):
@@ -74,7 +77,7 @@ class Technical(BaseModel):
     diesel_share: float = Field(0.0, ge=0, le=1, description="Share of generated energy from diesel (from the hourly study)")
     diesel_cost_per_kwh: float = Field(0.0, ge=0, description="Fuel cost per diesel kWh at COD, LCY")
     diesel_kgco2_per_kwh: float = Field(0.0, ge=0, description="Emission factor of diesel generation")
-    battery_life_years: float = Field(8.0, gt=0)
+    battery_life_years: float = Field(8.0, ge=0.25, description="Life of the battery bank; storage capex items depreciate over this life")
     battery_replacement_usd_per_kwh: float = Field(0.0, ge=0, description="Replacement cost at COD prices, USD per kWh")
     battery_cost_decline_pa: float = Field(0.0, ge=0, lt=0.5, description="Annual real decline of battery replacement cost")
 
@@ -126,7 +129,7 @@ class Financing(BaseModel):
 
 
 class GrantMilestone(BaseModel):
-    quarter: int = Field(description="Model quarter of disbursement (0 = financial close)")
+    quarter: int = Field(ge=0, description="Model quarter of disbursement (0 = financial close)")
     share: float = Field(gt=0, le=1)
 
 
@@ -189,6 +192,25 @@ class ProjectInputs(BaseModel):
     @classmethod
     def _upper(cls, v: str) -> str:
         return v.upper()
+
+    @model_validator(mode="after")
+    def _consistency(self):
+        T = self.construction_quarters + self.operating_years * 4
+        for tr in self.financing.debt:
+            if tr.tenor_years > self.operating_years:
+                raise ValueError(f"Tranche {tr.name}: tenor ({tr.tenor_years} years) longer than the operating horizon")
+            if tr.grace_quarters >= int(round(tr.tenor_years * 4)):
+                raise ValueError(f"Tranche {tr.name}: grace period must be shorter than the tenor")
+        for ms in self.subsidies.grant_milestones:
+            if ms.quarter >= T:
+                raise ValueError(f"Grant milestone at quarter {ms.quarter} is beyond the model horizon ({T} quarters)")
+        for it in self.capex:
+            if it.category == CapexCategory.STORAGE:
+                if it.replace_at_end_of_life:
+                    raise ValueError(f"{it.name}: storage is replaced through the technical battery inputs, not the item flag")
+                if abs(it.asset_life_years - self.technical.battery_life_years) > 1e-9:
+                    raise ValueError(f"{it.name}: storage life must equal the battery life ({self.technical.battery_life_years} years)")
+        return self
 
 
 def missing_inputs(p: ProjectInputs) -> list[str]:

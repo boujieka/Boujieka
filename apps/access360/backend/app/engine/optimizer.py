@@ -67,8 +67,16 @@ class OptionCosts(BaseModel):
     months_extension: float = 24
     months_minigrid: float = 12
     months_shs: float = 3
+    # tariffs by customer class (regulated or proposed), LCY per kWh; household bills are capped by affordability
+    tariff_household_per_kwh: float = Field(ge=0)
+    tariff_business_per_kwh: float = Field(ge=0)
+    tariff_productive_per_kwh: float = Field(ge=0)
+    tariff_institution_per_kwh: float = Field(ge=0)
+    tariff_anchor_per_kwh: float = Field(ge=0)
     # affordability policy (model policy threshold, not a standard)
     affordability_share_of_income: float = 0.10
+    # options leaving more than this share of demand unserved fail their gate
+    max_unserved_share: float = Field(0.2, ge=0, le=1)
 
 
 class Weights(BaseModel):
@@ -132,6 +140,18 @@ def compare(s: Settlement, c: OptionCosts, w: Weights = Weights()) -> dict:
         co2 = gen * diesel_share * c.diesel_kgco2_per_kwh / 1000
         return dict(capex=capex, opex_pa=opex, pv_cost=pv_cost, co2_t_pa=co2, sizing=dict(pv_kwp=pv_kwp, battery_kwh=batt, diesel_kw=diesel_kw))
 
+    def hh_served_kwh(code: str) -> float:
+        """Annual household kWh served by the option."""
+        if code == "E":
+            return s.households * min(s.household_kwh_month, c.shs_kwh_month_capacity) * 12
+        if code == "G":
+            hh_d = int(round(s.households * s.dispersed_household_share))
+            return (s.households - hh_d) * s.household_kwh_month * 12 + hh_d * min(s.household_kwh_month, c.shs_kwh_month_capacity) * 12
+        return e_hh
+
+    def served_hh_month(code: str) -> float:
+        return min(s.household_kwh_month, c.shs_kwh_month_capacity) if code == "E" else s.household_kwh_month
+
     for code, name in OPTIONS.items():
         gates: list[str] = []
         served = e_total
@@ -156,7 +176,7 @@ def compare(s: Settlement, c: OptionCosts, w: Weights = Weights()) -> dict:
             tier = 5 if s.grid_supply_hours >= 23 else 4 if s.grid_supply_hours >= 16 else 3 if s.grid_supply_hours >= 8 else 2
             months = c.months_densification if code == "A" else c.months_extension
         elif code in ("C", "D"):
-            res = minigrid(e_total, n, 0.0 if code == "C" else c.hybrid_diesel_share)
+            res = minigrid(e_total, n, 0.0 if code == "C" else c.hybrid_diesel_share, daytime_kwh=e_anchor * c.anchor_daytime_share)
             tier = 3 if code == "C" else 4
             months = c.months_minigrid
         elif code == "F":
@@ -182,7 +202,7 @@ def compare(s: Settlement, c: OptionCosts, w: Weights = Weights()) -> dict:
                 gates.append("No dispersed households: option G equals option D")
             hh_d = int(round(s.households * s.dispersed_household_share))
             e_core = e_total - hh_d * s.household_kwh_month * 12
-            mg = minigrid(e_core, n - hh_d, c.hybrid_diesel_share)
+            mg = minigrid(e_core, n - hh_d, c.hybrid_diesel_share, daytime_kwh=e_anchor * c.anchor_daytime_share)
             shs_capex = hh_d * c.shs_cost_per_household
             shs_pv = shs_capex + shs_capex * c.shs_om_pct_capex * af + replacement_pv(shs_capex, c.shs_life_years)
             served = e_core + hh_d * min(s.household_kwh_month, c.shs_kwh_month_capacity) * 12
@@ -191,11 +211,19 @@ def compare(s: Settlement, c: OptionCosts, w: Weights = Weights()) -> dict:
             tier = 3
             months = c.months_minigrid
         unserved = max(0.0, e_total - served)
+        if e_total > 0 and unserved / e_total > c.max_unserved_share:
+            gates.append(f"Leaves {unserved / e_total:.0%} of demand unserved (limit {c.max_unserved_share:.0%})")
         pv_energy = served * af
         lcoe = res["pv_cost"] / pv_energy if pv_energy > 0 else None
-        afford_tariff = (c.affordability_share_of_income * s.household_income_month / s.household_kwh_month
-                         if s.household_kwh_month > 0 else None)
-        pv_rev_afford = (afford_tariff or 0.0) * served * af
+        # revenue by class on the energy each class actually receives; the household tariff is capped so that the
+        # monthly bill stays within the affordability share of income
+        hh_kwh_served_month = served_hh_month(code)
+        hh_cap = (c.affordability_share_of_income * s.household_income_month / hh_kwh_served_month) if hh_kwh_served_month > 0 else 0.0
+        hh_tariff = min(c.tariff_household_per_kwh, hh_cap)
+        rev_pa = (hh_served_kwh(code) * hh_tariff
+                  + (0.0 if code == "E" else e_bus * c.tariff_business_per_kwh + e_pu * c.tariff_productive_per_kwh
+                     + e_inst * c.tariff_institution_per_kwh + e_anchor * c.tariff_anchor_per_kwh))
+        pv_rev_afford = rev_pa * af
         subsidy_pv = max(0.0, res["pv_cost"] - pv_rev_afford)
         hh_bill = (lcoe or 0.0) * min(s.household_kwh_month, c.shs_kwh_month_capacity if code == "E" else s.household_kwh_month)
         pu_served = 0.0 if code == "E" else (e_pu + e_anchor)
@@ -213,7 +241,10 @@ def compare(s: Settlement, c: OptionCosts, w: Weights = Weights()) -> dict:
     _score(out, w)
     return {"settlement": s.name, "options": out, **_recommend(out),
             "method_note": ("Screening comparison on annual energy and lifecycle cost. Not a substitute for an hourly design "
-                            "study or a least-cost electrification plan. Weights are initial design assumptions.")}
+                            "study or a least-cost electrification plan. Weights are initial design assumptions. Options that "
+                            "leave more than the configured share of demand unserved are excluded. Option F (anchor, business, "
+                            "community) has the same engineering cost as option D: its difference is the anchor offtake contract, "
+                            "which reduces demand risk but is not priced in a screening cost model.")}
 
 
 OBJECTIVES = [  # key, direction (+1 higher is better), weight attribute
@@ -233,6 +264,15 @@ def _obj_values(o: dict) -> dict:
             "co2_t_pa": o["co2_t_pa"], "productive_use_share_served": o["productive_use_share_served"] or 0.0}
 
 
+def _num(objs: dict) -> dict:
+    """Objective values for dominance tests; a missing value is treated as the worst possible."""
+    out = {}
+    for k, sign, _ in OBJECTIVES:
+        v = objs[k]
+        out[k] = v if v is not None else (-float("inf") if sign > 0 else float("inf"))
+    return out
+
+
 def _score(opts: list[dict], w: Weights) -> None:
     feas = [o for o in opts if o["feasible"] and o["lcoe"] is not None]
     for o in opts:
@@ -242,13 +282,16 @@ def _score(opts: list[dict], w: Weights) -> None:
         return
     tot_w = sum(getattr(w, a) for _, _, a in OBJECTIVES)
     for key, sign, attr in OBJECTIVES:
-        vals = [o["objectives"][key] for o in feas]
-        lo, hi = min(vals), max(vals)
+        vals = [o["objectives"][key] for o in feas if o["objectives"][key] is not None]
+        lo, hi = (min(vals), max(vals)) if vals else (0.0, 0.0)
         for o in feas:
             v = o["objectives"][key]
-            x = 0.5 if hi == lo else (v - lo) / (hi - lo)
-            if sign < 0:
-                x = 1 - x
+            if v is None:
+                x = 0.0  # a value that cannot be computed scores worst on that objective
+            else:
+                x = 0.5 if hi == lo else (v - lo) / (hi - lo)
+                if sign < 0:
+                    x = 1 - x
             o.setdefault("score_parts", {})[key] = x * getattr(w, attr) / tot_w * 100
     for o in feas:
         o["score"] = sum(o["score_parts"].values())
@@ -258,8 +301,9 @@ def _score(opts: list[dict], w: Weights) -> None:
         for q in feas:
             if q is o:
                 continue
-            better_or_eq = all((q["objectives"][k] * s >= o["objectives"][k] * s) for k, s, _ in OBJECTIVES)
-            strictly = any((q["objectives"][k] * s > o["objectives"][k] * s) for k, s, _ in OBJECTIVES)
+            qo, oo = _num(q["objectives"]), _num(o["objectives"])
+            better_or_eq = all((qo[k] * s >= oo[k] * s) for k, s, _ in OBJECTIVES)
+            strictly = any((qo[k] * s > oo[k] * s) for k, s, _ in OBJECTIVES)
             if better_or_eq and strictly:
                 dominated = True
                 break
@@ -297,6 +341,8 @@ def demo_settlement() -> tuple[Settlement, OptionCosts]:
     c = OptionCosts(discount_rate_pa=0.10, mv_line_per_km=9_000_000, lv_network_per_connection=180_000,
                     grid_connection_per_connection=60_000, grid_cost_of_supply_per_kwh=150, pv_per_kwp=480_000,
                     battery_per_kwh=180_000, diesel_per_kw=250_000, diesel_fuel_per_kwh=420,
-                    minigrid_network_per_connection=200_000, shs_cost_per_household=150_000, shs_kwh_month_capacity=6)
+                    minigrid_network_per_connection=200_000, shs_cost_per_household=150_000, shs_kwh_month_capacity=6,
+                    tariff_household_per_kwh=450, tariff_business_per_kwh=450, tariff_productive_per_kwh=400,
+                    tariff_institution_per_kwh=450, tariff_anchor_per_kwh=380)
     return s, c
 

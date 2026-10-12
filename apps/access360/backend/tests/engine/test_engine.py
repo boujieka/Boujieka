@@ -113,9 +113,11 @@ def test_usd_capex_converted_at_spend_rate():
 def test_battery_replacement_schedule_and_reserve():
     p = demo_inputs()
     r = run_model(p)
-    repl = r.s("replacement_capex")
+    repl = r.s("battery_replacement")
     idx = list(np.nonzero(repl)[0])
     assert idx == [r.C + 32, r.C + 64]  # 8 year life, 20 operating years
+    items = r.s("replacement_capex") - repl
+    assert list(np.nonzero(items)[0]) == [r.C + 40]  # genset and meters (10 years), replaced once
     t = idx[0]
     exp = 300 * 220 * (1 - 0.03) ** 8 * r.s("fx")[t]
     assert repl[t] == pytest.approx(exp)
@@ -281,4 +283,95 @@ def test_all_standard_cases_have_names_and_groups():
     names = [n for _, n, _ in standard_cases()]
     assert len(names) == len(set(names)) and len(names) >= 18
     r = run_case(demo_inputs(), standard_cases()[0][2])
+    assert all_pass(r)
+
+
+# ---------------------------------------------------------------- regressions from the independent review (F01 to F15)
+def test_f01_pre_subsidy_metrics_do_not_depend_on_tariff_support():
+    a = demo_inputs()
+    b = demo_inputs()
+    b.subsidies.tariff_support_per_kwh = 150
+    b.subsidies.tariff_support_years = 10
+    ra, rb = run_model(a), run_model(b)
+    assert np.allclose(ra.s("project_cf_pre_subsidy"), rb.s("project_cf_pre_subsidy"))
+    assert ra.metrics["viability_gap_pv"] == pytest.approx(rb.metrics["viability_gap_pv"])
+    assert rb.metrics["project_npv_post_subsidy"] > ra.metrics["project_npv_post_subsidy"]
+
+
+def test_f02_solver_finds_zero_and_interior_answers_with_irr_targets():
+    zero = minimum_capital_grant(demo_inputs(), min_dscr=None, min_equity_irr=0.01, tol=10_000)
+    assert zero["feasible"] and zero["grant"] == 0.0
+    mid = minimum_capital_grant(demo_inputs(), min_dscr=None, min_equity_irr=0.15, tol=10_000)
+    assert mid["feasible"] and 0 < mid["grant"] < 286_000_000 and mid["equity_irr"] >= 0.15
+    assert run_model(demo_inputs(), capital_grant_override=mid["grant"] - 50_000).metrics["equity_irr"] < 0.15
+
+
+def test_f03_short_life_items_are_replaced_and_depreciated_over_their_life():
+    r = run_model(demo_inputs())
+    items = r.s("replacement_capex") - r.s("battery_replacement")
+    assert items[r.C + 40] > 0 and items.sum() == pytest.approx(items[r.C + 40])
+    with pytest.raises(Exception):  # storage life must equal the battery life
+        p = demo_inputs().model_dump()
+        p["technical"]["battery_life_years"] = 12
+        ProjectInputs.model_validate(p)
+
+
+def test_f04_construction_tax_is_in_sources_and_uses():
+    p = demo_inputs()
+    p.macro.fx_depreciation_pa = -0.10  # LCY appreciation: FX gain on USD debt during construction
+    r = run_model(p)
+    assert r.sources_uses["tax_during_construction"] > 0
+    assert all_pass(r)
+
+
+def test_f05_and_f14_invalid_timings_are_rejected():
+    base = demo_inputs().model_dump()
+    for path, value in ((("subsidies", "grant_milestones", 1, "quarter"), 500), (("subsidies", "grant_milestones", 0, "quarter"), -3),
+                        (("financing", "debt", 0, "grace_quarters"), 40), (("financing", "debt", 1, "tenor_years"), 25),
+                        (("technical", "battery_life_years"), 0.1)):
+        d = demo_inputs().model_dump()
+        node = d
+        for k in path[:-1]:
+            node = node[k]
+        node[path[-1]] = value
+        with pytest.raises(Exception):
+            ProjectInputs.model_validate(d)
+    assert base  # the unchanged demo stays valid
+    ProjectInputs.model_validate(base)
+
+
+def test_f05_grant_lost_to_closure_is_reported():
+    p = demo_inputs()
+    p.subsidies.grant_milestones = [GrantMilestone(quarter=0, share=0.5), GrantMilestone(quarter=40, share=0.5)]
+    p.grid_arrival = GridArrival(enabled=True, operating_year=5, treatment="stranded", regulatory_source="unit test")
+    r = run_model(p)
+    assert r.metrics["capital_grant_undisbursed"] == pytest.approx(50_000_000)
+    st, checks, warns, _ = status(r)
+    assert "W_GRANT" in {w.code for w in warns}
+
+
+def test_f07_closure_quarter_is_not_scheduled_debt_service():
+    p = demo_inputs()
+    p.grid_arrival = GridArrival(enabled=True, operating_year=8, treatment="asset_transfer", compensation_pct_nbv=0.6,
+                                 regulatory_source="unit test")
+    r = run_model(p)
+    ta = r.C + 28
+    assert r.s("debt_service")[ta] == 0.0 and r.s("prepayment")[ta] > 0
+    assert r.metrics["dscr_min"] > 0
+    assert r.metrics["closure_cover"] is not None
+    assert all_pass(r)
+
+
+def test_f11_minimum_cash_is_funded_before_cod():
+    r = run_model(demo_inputs())
+    assert r.s("cash")[r.C - 1] == pytest.approx(5_000_000)
+    assert r.sources_uses["cash_at_cod"] == pytest.approx(5_000_000)
+
+
+def test_f12_residual_disposal_releases_the_deferred_grant():
+    p = demo_inputs()
+    p.operating_years = 15
+    p.residual_value_pct_nbv = 0.5
+    r = run_model(ProjectInputs.model_validate(p.model_dump()))
+    assert r.s("deferred_grant")[-1] == pytest.approx(0.0, abs=1e-6)
     assert all_pass(r)

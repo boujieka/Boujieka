@@ -74,9 +74,10 @@ def _fx(dpp: float):
 
 def _subsidy_delay(nq: int):
     def go(p):
+        last = p.construction_quarters + p.operating_years * 4 - 1
         for ms in p.subsidies.grant_milestones:
             if ms.quarter >= p.construction_quarters:
-                ms.quarter += nq
+                ms.quarter = min(ms.quarter + nq, last)  # never pushed beyond the horizon
         p.subsidies.rbf_verification_lag_quarters += nq
     return go
 
@@ -152,13 +153,15 @@ def tornado(rows: list[dict], metric: str = "project_npv_post_subsidy") -> list[
 
 
 def minimum_capital_grant(base: ProjectInputs, *, min_dscr: float | None = 1.3, min_equity_irr: float | None = None,
-                          max_grant: float | None = None, tol: float = 1.0) -> dict:
+                          max_grant: float | None = None, tol: float = 1.0, grid_points: int = 24) -> dict:
     """Smallest capital grant (LCY, same milestones as the base) at which the project meets the thresholds.
 
-    Bisection assumes the tests become easier as the grant rises, which holds when debt is sized net of grant or
-    equity is the residual funder. The result is checked at the end; if the maximum grant fails, the result says so.
+    Method: test zero first; scan a grid from zero to the maximum to find the first feasible grant; bisect between
+    the last infeasible and the first feasible point; then confirm the answer and report whether feasibility was
+    monotone over the grid. An equity IRR that cannot be computed because equity puts in almost nothing while
+    receiving distributions counts as meeting any IRR target.
     """
-    total_capex = sum(run_model(base).series["capex"])
+    total_capex = float(run_model(base).series["capex"].sum())
     hi = max_grant if max_grant is not None else total_capex
 
     def ok(g: float) -> tuple[bool, ModelResult]:
@@ -168,26 +171,43 @@ def minimum_capital_grant(base: ProjectInputs, *, min_dscr: float | None = 1.3, 
             no_debt = float(r.series["debt_service"].sum()) <= 1e-6
             good &= no_debt or (r.metrics["dscr_min"] is not None and r.metrics["dscr_min"] >= min_dscr)
         if min_equity_irr is not None:
-            good &= r.metrics["equity_irr"] is not None and r.metrics["equity_irr"] >= min_equity_irr
+            eirr = r.metrics["equity_irr"]
+            if eirr is None:
+                put_in = float((r.series["equity_contributions"] + r.series["equity_support"]).sum())
+                got = float(r.series["distributions"].sum())
+                good &= put_in <= max(1.0, 1e-6 * total_capex) and got > 0
+            else:
+                good &= eirr >= min_equity_irr
         return good, r
 
-    good_hi, r_hi = ok(hi)
-    if not good_hi:
-        return {"feasible": False, "grant": None, "reason": "Thresholds not met even at the maximum grant",
+    conns = sum(c.connections_target for c in base.customers)
+
+    def answer(g: float, r: ModelResult, reason: str, monotone: bool = True) -> dict:
+        return {"feasible": True, "grant": float(g), "grant_per_connection": float(g) / conns if conns else None,
+                "dscr_min": r.metrics["dscr_min"], "equity_irr": r.metrics["equity_irr"], "monotone": monotone, "reason": reason}
+
+    good0, r0 = ok(0.0)
+    if good0:
+        return answer(0.0, r0, "Thresholds met without a capital grant")
+    grid = [hi * k / grid_points for k in range(1, grid_points + 1)]
+    flags = [ok(g)[0] for g in grid]
+    if not any(flags):
+        _, r_hi = ok(hi)
+        return {"feasible": False, "grant": None, "grant_per_connection": None, "monotone": None,
+                "reason": "Thresholds not met at any grant up to the maximum",
                 "dscr_min_at_max": r_hi.metrics["dscr_min"], "equity_irr_at_max": r_hi.metrics["equity_irr"]}
-    good_lo, r_lo = ok(0.0)
-    if good_lo:
-        return {"feasible": True, "grant": 0.0, "reason": "Thresholds met without a capital grant",
-                "dscr_min": r_lo.metrics["dscr_min"], "equity_irr": r_lo.metrics["equity_irr"]}
-    lo = 0.0
-    while hi - lo > tol:
-        mid = 0.5 * (lo + hi)
+    k = flags.index(True)
+    monotone = all(flags[k:])
+    lo, up = (grid[k - 1] if k > 0 else 0.0), grid[k]
+    while up - lo > tol:
+        mid = 0.5 * (lo + up)
         if ok(mid)[0]:
-            hi = mid
+            up = mid
         else:
             lo = mid
-    good, r = ok(hi)
-    conns = sum(c.connections_target for c in base.customers)
-    return {"feasible": good, "grant": hi, "grant_per_connection": hi / conns if conns else None,
-            "dscr_min": r.metrics["dscr_min"], "equity_irr": r.metrics["equity_irr"],
-            "reason": "Smallest grant meeting the thresholds (bisection, checked)"}
+    good, r = ok(up)
+    out = answer(up, r, "Smallest grant meeting the thresholds (grid scan, bisection, checked)", monotone)
+    out["feasible"] = good
+    if not monotone:
+        out["reason"] += "; warning: feasibility is not monotone in the grant, a larger grant fails somewhere"
+    return out

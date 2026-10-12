@@ -21,4 +21,10 @@
 | L17 | Exports | Only the one-page teaser and the Excel model exist; the other 8 document types in the brief do not | | Phase 2 and 3 |
 | L18 | Product | Marketplace, data rooms, Delivery, Verify, Academy, Copilot, subscriptions and payments are not implemented | | Phases 2 to 4 |
 | L19 | Storage | Generated files are stored on the local disk | Not durable across hosts | Object storage |
-| L20 | Validation | No external model review yet; no test in Microsoft Excel of the export | | Independent review before any client relies on outputs |
+| L20 | Validation | An independent AI review was done (docs/reviews), but no human expert has reviewed the engine, and the export has not been tested in Microsoft Excel | | Human project finance review before any client relies on outputs |
+| L21 | Engine | The DSRA is never drawn to meet a shortfall: equity support is called while the reserve stays full (review F10) | The liquidity requirement is overstated by up to the DSRA balance | Draw the DSRA before equity support and refill it ahead of distributions |
+| L22 | Engine | Asset transfer compensation applies to NBV including capitalised finance costs (review F19) | May differ from the country rule | Configurable base per country rule |
+| L23 | Engine | No salvage credit for a replacement made shortly before the horizon end when the residual value is 0 (review F20) | LCOE and the revenue requirement are slightly overstated | Pro rata salvage of late replacements |
+| L24 | Engine | An unrealised FX gain on USD debt during construction is taxed in cash before COD (review F04) | Conservative; most regimes would defer it | Country tax profile |
+| L25 | Optimizer | Grid options serve 100% of demand whatever the supply hours; only the service tier changes (review F18) | Weak grids look better than they are | Unserved energy from supply hours |
+| L26 | Optimizer | Option F has the same engineering cost as option D; the value of the anchor contract is not priced (review F17) | F and D differ only by the anchor gate | Demand risk pricing |

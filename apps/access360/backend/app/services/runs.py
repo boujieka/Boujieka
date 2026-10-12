@@ -31,6 +31,8 @@ def clean(x):
         return None if not math.isfinite(f) else f
     if isinstance(x, np.integer):
         return int(x)
+    if isinstance(x, np.bool_):
+        return bool(x)
     if hasattr(x, "value") and hasattr(x, "name"):  # enums
         return x.value
     return x

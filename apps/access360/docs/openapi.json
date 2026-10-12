@@ -1752,6 +1752,28 @@
       "type": "number",
       "exclusiveMinimum": 0.0,
       "title": "Asset Life Years"
+     },
+     "replace_at_end_of_life": {
+      "type": "boolean",
+      "title": "Replace At End Of Life",
+      "description": "Replace the item at the end of each life within the horizon (not for storage: use the technical battery inputs)",
+      "default": false
+     },
+     "replacement_cost_share": {
+      "type": "number",
+      "maximum": 2.0,
+      "minimum": 0.0,
+      "title": "Replacement Cost Share",
+      "description": "Replacement cost as a share of the original amount",
+      "default": 1.0
+     },
+     "real_price_change_pa": {
+      "type": "number",
+      "maximum": 0.5,
+      "minimum": -0.5,
+      "title": "Real Price Change Pa",
+      "description": "Annual change of the replacement price in the item currency",
+      "default": 0.0
      }
     },
     "type": "object",
@@ -2120,6 +2142,7 @@
     "properties": {
      "quarter": {
       "type": "integer",
+      "minimum": 0.0,
       "title": "Quarter",
       "description": "Model quarter of disbursement (0 = financial close)"
      },
@@ -2579,10 +2602,42 @@
       "title": "Months Shs",
       "default": 3
      },
+     "tariff_household_per_kwh": {
+      "type": "number",
+      "minimum": 0.0,
+      "title": "Tariff Household Per Kwh"
+     },
+     "tariff_business_per_kwh": {
+      "type": "number",
+      "minimum": 0.0,
+      "title": "Tariff Business Per Kwh"
+     },
+     "tariff_productive_per_kwh": {
+      "type": "number",
+      "minimum": 0.0,
+      "title": "Tariff Productive Per Kwh"
+     },
+     "tariff_institution_per_kwh": {
+      "type": "number",
+      "minimum": 0.0,
+      "title": "Tariff Institution Per Kwh"
+     },
+     "tariff_anchor_per_kwh": {
+      "type": "number",
+      "minimum": 0.0,
+      "title": "Tariff Anchor Per Kwh"
+     },
      "affordability_share_of_income": {
       "type": "number",
       "title": "Affordability Share Of Income",
       "default": 0.1
+     },
+     "max_unserved_share": {
+      "type": "number",
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Max Unserved Share",
+      "default": 0.2
      }
     },
     "type": "object",
@@ -2596,7 +2651,12 @@
      "battery_per_kwh",
      "minigrid_network_per_connection",
      "shs_cost_per_household",
-     "shs_kwh_month_capacity"
+     "shs_kwh_month_capacity",
+     "tariff_household_per_kwh",
+     "tariff_business_per_kwh",
+     "tariff_productive_per_kwh",
+     "tariff_institution_per_kwh",
+     "tariff_anchor_per_kwh"
     ],
     "title": "OptionCosts",
     "description": "All costs in LCY. Values must come from quotes, programme data or cited benchmarks."
@@ -3184,8 +3244,9 @@
      },
      "battery_life_years": {
       "type": "number",
-      "exclusiveMinimum": 0.0,
+      "minimum": 0.25,
       "title": "Battery Life Years",
+      "description": "Life of the battery bank; storage capex items depreciate over this life",
       "default": 8.0
      },
      "battery_replacement_usd_per_kwh": {

@@ -66,11 +66,13 @@ This is an analytical modelling treatment and does not constitute a determinatio
 * Occurs every battery life (rounded to quarters) after COD, while the site is operating and within the horizon.
 * Cost = battery kWh × USD per kWh × (1 - real decline)^(years) × fx.
 
+**Replacement of other items.** Any capex item flagged `replace_at_end_of_life` is renewed at each end of life within the horizon. Cost = amount × replacement cost share × (1 + real price change)^(years), in the item currency, converted at the quarter's rate. Storage items are renewed through the battery inputs, and their life must equal the battery life.
+
 **Maintenance reserve.** When enabled (the default), each replacement is funded evenly from the previous replacement (or COD) up to the quarter before it. The reserve is released at the replacement, and CFADS deducts the contributions instead of the lumpy capex.
 
 **Depreciation.** Straight line by vintage:
 * initial items from COD over their life;
-* replacements from the following quarter over the battery life;
+* battery replacements from the following quarter over the battery life, and item replacements over the item life;
 * capitalised interest during construction and upfront fees over the capex weighted asset life.
 
 ## 5. Financing
@@ -97,7 +99,7 @@ This is an analytical modelling treatment and does not constitute a determinatio
 
 **Lock up.** No distribution in a quarter whose DSCR is below the lock up level, except in the final quarter.
 
-**Liquidity.** Unrestricted cash is kept at or above the minimum cash level by equity support. Equity support is reported as the liquidity requirement.
+**Liquidity.** The minimum cash balance is funded before COD as part of the uses. After COD, unrestricted cash is kept at or above it by equity support. Equity support is reported as the liquidity requirement.
 
 ## 6. Subsidies and RBF
 
@@ -118,7 +120,7 @@ The grid arrives at the start of the stated operating year. Each treatment must 
 | Treatment | Effect |
 |---|---|
 | Interconnect | Tariff and demand multipliers apply from that quarter |
-| Asset transfer | Operations stop; compensation = % of net book value; the remaining NBV is written off; debt is prepaid; the deferred grant is released |
+| Asset transfer | Operations stop; compensation = % of net book value (including capitalised finance costs, to be confirmed against the cited rule); the remaining NBV is written off; the whole debt balance is prepaid in the closure quarter, whose interest is paid with the prepayment and is excluded from scheduled debt service and DSCR; the deferred grant is released. The closure cover (cash, reserves and compensation ÷ prepayment and interest) is reported |
 | Stranded | As asset transfer, with no compensation |
 
 ## 8. Tax
@@ -127,7 +129,9 @@ The grid arrives at the start of the stated operating year. Each treatment must 
 
 **EBT** = EBITDA + grant income - depreciation - interest (operations) - FX loss + disposal gain.
 
-**Unlevered tax** (for project cash flows) uses EBITDA - depreciation, excluding capitalised finance costs, with its own loss pool.
+**Unlevered tax** (for project cash flows) excludes capitalised finance costs, and each case keeps its own loss pool:
+* **before subsidy:** EBITDA without tariff support, less depreciation, plus disposal gains;
+* **after subsidy:** EBITDA less depreciation, plus disposal gains, plus grant income when it is taxable.
 
 ## 9. Statements and reconciliations
 
@@ -158,13 +162,13 @@ Distributions are on a cash basis and are not limited to accumulated profits. Th
 | Equity IRR | IRR of -(equity + equity support) + distributions |
 | NPV | At the project discount rate, to financial close |
 | DSCR | Annual CFADS ÷ annual scheduled debt service (interest + principal, excluding prepayment), for operating years with debt service. CFADS = collections + fees + tariff support - opex - tax - replacements + reserve release - reserve contributions |
-| LLCR at COD | PV of CFADS to the last maturity at the commitment weighted debt rate ÷ debt outstanding at COD |
+| LLCR at COD | PV of CFADS to the last maturity at the commitment weighted debt rate ÷ debt outstanding at COD. The weighted rate mixes LCY and USD rates when both currencies are borrowed, and the DSRA balance is excluded |
 | Payback | Years from COD to the first quarter in which cumulative post subsidy project cash flow is non negative; reported only when it is also non negative at the horizon |
 | LCOE per kWh sold | PV(capex + replacements + opex) ÷ PV(billed kWh) |
-| Minimum revenue requirement | PV(capex + replacements + opex) ÷ PV of one LCY a year over operations |
+| Minimum revenue requirement | PV(capex + replacements + opex) ÷ PV of one LCY a year over operations: a requirement on revenue **collected**, before tax (it excludes tax, bad debt and commercial losses) |
 | Viability gap | max(0, -NPV before subsidy), in total and per connection |
 | Subsidy per connection | Nominal grant + RBF + tariff support ÷ target connections |
-| Minimum capital grant | Smallest grant meeting a minimum DSCR and/or equity IRR, by bisection on the full engine. It is checked at the end, and reported infeasible when even the maximum fails |
+| Minimum capital grant | Smallest grant meeting a minimum DSCR and/or equity IRR. The solver tests zero first, scans a grid up to the maximum, bisects between the last failing and the first passing point, confirms the answer and reports whether feasibility was monotone. An equity IRR that cannot be computed because equity puts in nothing but receives distributions counts as passing |
 
 ## 11. Integrity checks and status
 
@@ -183,6 +187,19 @@ Distributions are on a cash basis and are not limited to accumulated profits. Th
 * RBF within the cap and within verified connections × rate;
 * NPV at the reported IRR = 0.
 
+**Independent recomputation checks** (codes `R_`) recompute lines another way, from inputs and primitive series, so that an error which keeps double entry consistent is still caught:
+* interest per tranche;
+* annuity instalment and maturity date;
+* fuel, tariff support, collections and EBITDA;
+* tax with the loss pool, and net income;
+* depreciation from the input lives;
+* grant income;
+* DSRA from the debt schedules;
+* lock up;
+* project cash flow before subsidy.
+
+A mutation test plants 13 plausible formula errors in a copy of the engine, and each must be caught.
+
 **Warnings:**
 * DSCR below lock up;
 * equity support needed;
@@ -190,6 +207,8 @@ Distributions are on a cash basis and are not limited to accumulated profits. Th
 * a bill above 10% of income (a model policy threshold);
 * equity IRR not computable;
 * grid arrival without a cited rule;
+* capital grant not fully disbursed (operations end first);
+* closure cover below 1.0x;
 * illustrative inputs;
 * assumptions not reviewed.
 

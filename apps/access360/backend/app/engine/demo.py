@@ -40,9 +40,9 @@ def demo_inputs() -> ProjectInputs:
         capex=[
             CapexItem(name="PV array and inverters", category="generation", amount=150_000, currency="USD", asset_life_years=20),
             CapexItem(name="Battery bank", category="storage", amount=90_000, currency="USD", asset_life_years=8),
-            CapexItem(name="Diesel genset", category="generation", amount=20_000, currency="USD", asset_life_years=10),
+            CapexItem(name="Diesel genset", category="generation", amount=20_000, currency="USD", asset_life_years=10, replace_at_end_of_life=True),
             CapexItem(name="Distribution network", category="network", amount=120_000, currency="USD", asset_life_years=25),
-            CapexItem(name="Smart meters", category="metering", amount=45_000, currency="USD", asset_life_years=10),
+            CapexItem(name="Smart meters", category="metering", amount=45_000, currency="USD", asset_life_years=10, replace_at_end_of_life=True),
             CapexItem(name="Development and permitting", category="development", amount=30_000_000, currency="LCY", asset_life_years=20),
         ],
         opex=Opex(fixed_pa=18_000_000, per_connection_pa=6_000, insurance_pct_capex=0.01, collection_efficiency=0.93),
