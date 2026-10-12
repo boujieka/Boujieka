@@ -1,0 +1,3277 @@
+{
+ "openapi": "3.1.0",
+ "info": {
+  "title": "ACCESS360 AFRICA API",
+  "description": "Electrification investment, finance and delivery intelligence. Financial outputs come from the deterministic ACCESS FINANCE engine; nothing in this API is investment advice.",
+  "version": "0.1.0"
+ },
+ "paths": {
+  "/api/health": {
+   "get": {
+    "summary": "Health",
+    "operationId": "health_api_health_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/auth/register": {
+   "post": {
+    "tags": [
+     "auth"
+    ],
+    "summary": "Register",
+    "operationId": "register_api_auth_register_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/RegisterIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "201": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/auth/login": {
+   "post": {
+    "tags": [
+     "auth"
+    ],
+    "summary": "Login",
+    "operationId": "login_api_auth_login_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/LoginIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/auth/logout": {
+   "post": {
+    "tags": [
+     "auth"
+    ],
+    "summary": "Logout",
+    "operationId": "logout_api_auth_logout_post",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/auth/me": {
+   "get": {
+    "tags": [
+     "auth"
+    ],
+    "summary": "Me",
+    "operationId": "me_api_auth_me_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/auth/mfa/setup": {
+   "post": {
+    "tags": [
+     "auth"
+    ],
+    "summary": "Mfa Setup",
+    "operationId": "mfa_setup_api_auth_mfa_setup_post",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/auth/mfa/verify": {
+   "post": {
+    "tags": [
+     "auth"
+    ],
+    "summary": "Mfa Verify",
+    "operationId": "mfa_verify_api_auth_mfa_verify_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/TotpIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/orgs/{org_id}/members": {
+   "get": {
+    "tags": [
+     "organisations"
+    ],
+    "summary": "Members",
+    "operationId": "members_api_orgs__org_id__members_get",
+    "parameters": [
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "post": {
+    "tags": [
+     "organisations"
+    ],
+    "summary": "Add Member",
+    "operationId": "add_member_api_orgs__org_id__members_post",
+    "parameters": [
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/MemberIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/orgs/{org_id}/audit": {
+   "get": {
+    "tags": [
+     "organisations"
+    ],
+    "summary": "Audit Log",
+    "operationId": "audit_log_api_orgs__org_id__audit_get",
+    "parameters": [
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/orgs/{org_id}/dashboard": {
+   "get": {
+    "tags": [
+     "organisations"
+    ],
+    "summary": "Dashboard",
+    "operationId": "dashboard_api_orgs__org_id__dashboard_get",
+    "parameters": [
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/admin/organizations": {
+   "get": {
+    "tags": [
+     "organisations"
+    ],
+    "summary": "Admin Orgs",
+    "operationId": "admin_orgs_api_admin_organizations_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/admin/organizations/{org_id}/accreditation": {
+   "post": {
+    "tags": [
+     "organisations"
+    ],
+    "summary": "Set Accreditation",
+    "operationId": "set_accreditation_api_admin_organizations__org_id__accreditation_post",
+    "parameters": [
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/AccreditationIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/orgs/{org_id}/projects": {
+   "get": {
+    "tags": [
+     "projects"
+    ],
+    "summary": "List Projects",
+    "operationId": "list_projects_api_orgs__org_id__projects_get",
+    "parameters": [
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "post": {
+    "tags": [
+     "projects"
+    ],
+    "summary": "Create Project",
+    "operationId": "create_project_api_orgs__org_id__projects_post",
+    "parameters": [
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/ProjectIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/orgs/{org_id}/projects/{pid}": {
+   "get": {
+    "tags": [
+     "projects"
+    ],
+    "summary": "Get Project",
+    "operationId": "get_project_api_orgs__org_id__projects__pid__get",
+    "parameters": [
+     {
+      "name": "pid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Pid"
+      }
+     },
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "put": {
+    "tags": [
+     "projects"
+    ],
+    "summary": "Update Project",
+    "operationId": "update_project_api_orgs__org_id__projects__pid__put",
+    "parameters": [
+     {
+      "name": "pid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Pid"
+      }
+     },
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/ProjectIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "delete": {
+    "tags": [
+     "projects"
+    ],
+    "summary": "Delete Project",
+    "operationId": "delete_project_api_orgs__org_id__projects__pid__delete",
+    "parameters": [
+     {
+      "name": "pid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Pid"
+      }
+     },
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/orgs/{org_id}/projects/{pid}/inputs": {
+   "put": {
+    "tags": [
+     "projects"
+    ],
+    "summary": "Put Inputs",
+    "operationId": "put_inputs_api_orgs__org_id__projects__pid__inputs_put",
+    "parameters": [
+     {
+      "name": "pid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Pid"
+      }
+     },
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/ProjectInputs"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/orgs/{org_id}/projects/{pid}/runs": {
+   "post": {
+    "tags": [
+     "projects"
+    ],
+    "summary": "Create Run",
+    "operationId": "create_run_api_orgs__org_id__projects__pid__runs_post",
+    "parameters": [
+     {
+      "name": "pid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Pid"
+      }
+     },
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "responses": {
+     "201": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "get": {
+    "tags": [
+     "projects"
+    ],
+    "summary": "List Runs",
+    "operationId": "list_runs_api_orgs__org_id__projects__pid__runs_get",
+    "parameters": [
+     {
+      "name": "pid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Pid"
+      }
+     },
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/orgs/{org_id}/projects/{pid}/runs/{rid}": {
+   "get": {
+    "tags": [
+     "projects"
+    ],
+    "summary": "Get Run",
+    "operationId": "get_run_api_orgs__org_id__projects__pid__runs__rid__get",
+    "parameters": [
+     {
+      "name": "pid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Pid"
+      }
+     },
+     {
+      "name": "rid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Rid"
+      }
+     },
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/orgs/{org_id}/projects/{pid}/sensitivity": {
+   "post": {
+    "tags": [
+     "projects"
+    ],
+    "summary": "Sensitivity",
+    "operationId": "sensitivity_api_orgs__org_id__projects__pid__sensitivity_post",
+    "parameters": [
+     {
+      "name": "pid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Pid"
+      }
+     },
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/orgs/{org_id}/projects/{pid}/minimum-subsidy": {
+   "post": {
+    "tags": [
+     "projects"
+    ],
+    "summary": "Min Subsidy",
+    "operationId": "min_subsidy_api_orgs__org_id__projects__pid__minimum_subsidy_post",
+    "parameters": [
+     {
+      "name": "pid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Pid"
+      }
+     },
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/SubsidyQuery"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/orgs/{org_id}/projects/{pid}/milestones": {
+   "get": {
+    "tags": [
+     "projects"
+    ],
+    "summary": "List Milestones",
+    "operationId": "list_milestones_api_orgs__org_id__projects__pid__milestones_get",
+    "parameters": [
+     {
+      "name": "pid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Pid"
+      }
+     },
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "post": {
+    "tags": [
+     "projects"
+    ],
+    "summary": "Add Milestone",
+    "operationId": "add_milestone_api_orgs__org_id__projects__pid__milestones_post",
+    "parameters": [
+     {
+      "name": "pid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Pid"
+      }
+     },
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/MilestoneIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/orgs/{org_id}/projects/{pid}/milestones/{mid}": {
+   "put": {
+    "tags": [
+     "projects"
+    ],
+    "summary": "Update Milestone",
+    "operationId": "update_milestone_api_orgs__org_id__projects__pid__milestones__mid__put",
+    "parameters": [
+     {
+      "name": "pid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Pid"
+      }
+     },
+     {
+      "name": "mid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Mid"
+      }
+     },
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/MilestoneIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/orgs/{org_id}/projects/{pid}/runs/{rid}/export.xlsx": {
+   "get": {
+    "tags": [
+     "projects"
+    ],
+    "summary": "Export Xlsx",
+    "operationId": "export_xlsx_api_orgs__org_id__projects__pid__runs__rid__export_xlsx_get",
+    "parameters": [
+     {
+      "name": "pid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Pid"
+      }
+     },
+     {
+      "name": "rid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Rid"
+      }
+     },
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/orgs/{org_id}/projects/{pid}/runs/{rid}/teaser.pdf": {
+   "get": {
+    "tags": [
+     "projects"
+    ],
+    "summary": "Export Teaser",
+    "operationId": "export_teaser_api_orgs__org_id__projects__pid__runs__rid__teaser_pdf_get",
+    "parameters": [
+     {
+      "name": "pid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Pid"
+      }
+     },
+     {
+      "name": "rid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Rid"
+      }
+     },
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/orgs/{org_id}/documents": {
+   "get": {
+    "tags": [
+     "projects"
+    ],
+    "summary": "List Documents",
+    "operationId": "list_documents_api_orgs__org_id__documents_get",
+    "parameters": [
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/countries": {
+   "get": {
+    "tags": [
+     "map and optimizer"
+    ],
+    "summary": "Countries",
+    "operationId": "countries_api_countries_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/orgs/{org_id}/datasets": {
+   "get": {
+    "tags": [
+     "map and optimizer"
+    ],
+    "summary": "List Datasets",
+    "operationId": "list_datasets_api_orgs__org_id__datasets_get",
+    "parameters": [
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "post": {
+    "tags": [
+     "map and optimizer"
+    ],
+    "summary": "Add Dataset",
+    "operationId": "add_dataset_api_orgs__org_id__datasets_post",
+    "parameters": [
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/DatasetIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/orgs/{org_id}/datasets/{did}": {
+   "get": {
+    "tags": [
+     "map and optimizer"
+    ],
+    "summary": "Get Dataset",
+    "operationId": "get_dataset_api_orgs__org_id__datasets__did__get",
+    "parameters": [
+     {
+      "name": "did",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Did"
+      }
+     },
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/orgs/{org_id}/datasets/csv": {
+   "post": {
+    "tags": [
+     "map and optimizer"
+    ],
+    "summary": "Add Dataset Csv",
+    "description": "CSV with latitude and longitude columns (names: lat/latitude and lon/lng/longitude); other columns become\nproperties.",
+    "operationId": "add_dataset_csv_api_orgs__org_id__datasets_csv_post",
+    "parameters": [
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "multipart/form-data": {
+       "schema": {
+        "$ref": "#/components/schemas/Body_add_dataset_csv_api_orgs__org_id__datasets_csv_post"
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/optimizer/compare": {
+   "post": {
+    "tags": [
+     "map and optimizer"
+    ],
+    "summary": "Optimizer Compare",
+    "operationId": "optimizer_compare_api_optimizer_compare_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/CompareIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/optimizer/demo": {
+   "get": {
+    "tags": [
+     "map and optimizer"
+    ],
+    "summary": "Optimizer Demo",
+    "operationId": "optimizer_demo_api_optimizer_demo_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     }
+    }
+   }
+  }
+ },
+ "components": {
+  "schemas": {
+   "AccreditationIn": {
+    "properties": {
+     "status": {
+      "type": "string",
+      "enum": [
+       "pending",
+       "verified",
+       "rejected"
+      ],
+      "title": "Status"
+     },
+     "note": {
+      "type": "string",
+      "title": "Note",
+      "default": ""
+     }
+    },
+    "type": "object",
+    "required": [
+     "status"
+    ],
+    "title": "AccreditationIn"
+   },
+   "Body_add_dataset_csv_api_orgs__org_id__datasets_csv_post": {
+    "properties": {
+     "meta": {
+      "type": "string",
+      "title": "Meta"
+     },
+     "file": {
+      "type": "string",
+      "contentMediaType": "application/octet-stream",
+      "title": "File"
+     }
+    },
+    "type": "object",
+    "required": [
+     "meta",
+     "file"
+    ],
+    "title": "Body_add_dataset_csv_api_orgs__org_id__datasets_csv_post"
+   },
+   "CapexCategory": {
+    "type": "string",
+    "enum": [
+     "generation",
+     "storage",
+     "network",
+     "metering",
+     "development",
+     "other"
+    ],
+    "title": "CapexCategory"
+   },
+   "CapexItem": {
+    "properties": {
+     "name": {
+      "type": "string",
+      "title": "Name"
+     },
+     "category": {
+      "$ref": "#/components/schemas/CapexCategory"
+     },
+     "amount": {
+      "type": "number",
+      "minimum": 0.0,
+      "title": "Amount"
+     },
+     "currency": {
+      "type": "string",
+      "enum": [
+       "LCY",
+       "USD"
+      ],
+      "title": "Currency",
+      "default": "LCY"
+     },
+     "asset_life_years": {
+      "type": "number",
+      "exclusiveMinimum": 0.0,
+      "title": "Asset Life Years"
+     }
+    },
+    "type": "object",
+    "required": [
+     "name",
+     "category",
+     "amount",
+     "asset_life_years"
+    ],
+    "title": "CapexItem"
+   },
+   "CompareIn": {
+    "properties": {
+     "settlement": {
+      "$ref": "#/components/schemas/Settlement"
+     },
+     "costs": {
+      "$ref": "#/components/schemas/OptionCosts"
+     },
+     "weights": {
+      "$ref": "#/components/schemas/Weights",
+      "default": {
+       "economic_cost": 0.25,
+       "time": 0.15,
+       "service_quality": 0.15,
+       "subsidy_efficiency": 0.15,
+       "financial_sustainability": 0.15,
+       "environment": 0.05,
+       "productive_use": 0.1
+      }
+     }
+    },
+    "type": "object",
+    "required": [
+     "settlement",
+     "costs"
+    ],
+    "title": "CompareIn"
+   },
+   "CustomerCategory": {
+    "type": "string",
+    "enum": [
+     "household",
+     "commercial",
+     "industrial",
+     "agricultural",
+     "institutional",
+     "anchor"
+    ],
+    "title": "CustomerCategory"
+   },
+   "CustomerClass": {
+    "properties": {
+     "name": {
+      "type": "string",
+      "title": "Name"
+     },
+     "category": {
+      "$ref": "#/components/schemas/CustomerCategory"
+     },
+     "connections_target": {
+      "type": "integer",
+      "minimum": 0.0,
+      "title": "Connections Target",
+      "description": "Connections at the end of the ramp"
+     },
+     "start_quarter": {
+      "type": "integer",
+      "minimum": 0.0,
+      "title": "Start Quarter",
+      "description": "Operating quarter in which connections start (0 = COD quarter)",
+      "default": 0
+     },
+     "ramp_quarters": {
+      "type": "integer",
+      "minimum": 1.0,
+      "title": "Ramp Quarters",
+      "description": "Quarters to reach the target, linear",
+      "default": 4
+     },
+     "kwh_per_connection_month": {
+      "type": "number",
+      "minimum": 0.0,
+      "title": "Kwh Per Connection Month",
+      "description": "Initial consumption per active connection, kWh a month"
+     },
+     "demand_growth_pa": {
+      "type": "number",
+      "maximum": 1.0,
+      "minimum": -0.5,
+      "title": "Demand Growth Pa",
+      "description": "Annual growth of consumption per connection",
+      "default": 0.0
+     },
+     "tariff_per_kwh": {
+      "type": "number",
+      "minimum": 0.0,
+      "title": "Tariff Per Kwh",
+      "description": "Energy tariff at COD, LCY per kWh"
+     },
+     "fixed_charge_month": {
+      "type": "number",
+      "minimum": 0.0,
+      "title": "Fixed Charge Month",
+      "description": "Fixed charge per connection, LCY a month",
+      "default": 0.0
+     },
+     "connection_fee": {
+      "type": "number",
+      "minimum": 0.0,
+      "title": "Connection Fee",
+      "description": "One-off fee paid by the customer at connection, LCY",
+      "default": 0.0
+     },
+     "monthly_income": {
+      "anyOf": [
+       {
+        "type": "number",
+        "minimum": 0.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Monthly Income",
+      "description": "Typical monthly income of the class, LCY (affordability)"
+     }
+    },
+    "type": "object",
+    "required": [
+     "name",
+     "category",
+     "connections_target",
+     "kwh_per_connection_month",
+     "tariff_per_kwh"
+    ],
+    "title": "CustomerClass"
+   },
+   "DatasetIn": {
+    "properties": {
+     "title": {
+      "type": "string",
+      "maxLength": 300,
+      "minLength": 1,
+      "title": "Title"
+     },
+     "layer_type": {
+      "type": "string",
+      "enum": [
+       "settlements",
+       "grid",
+       "substations",
+       "health",
+       "schools",
+       "markets",
+       "anchors",
+       "minigrids",
+       "constraints",
+       "other"
+      ],
+      "title": "Layer Type"
+     },
+     "source_institution": {
+      "type": "string",
+      "maxLength": 300,
+      "minLength": 1,
+      "title": "Source Institution"
+     },
+     "publication_date": {
+      "type": "string",
+      "maxLength": 30,
+      "minLength": 4,
+      "title": "Publication Date"
+     },
+     "geographic_coverage": {
+      "type": "string",
+      "maxLength": 300,
+      "minLength": 1,
+      "title": "Geographic Coverage"
+     },
+     "resolution": {
+      "type": "string",
+      "maxLength": 100,
+      "minLength": 1,
+      "title": "Resolution"
+     },
+     "licence": {
+      "type": "string",
+      "maxLength": 200,
+      "minLength": 1,
+      "title": "Licence"
+     },
+     "retrieval_date": {
+      "type": "string",
+      "format": "date",
+      "title": "Retrieval Date"
+     },
+     "quality": {
+      "type": "string",
+      "enum": [
+       "verified_source",
+       "secondary",
+       "user_assumption",
+       "synthetic_demo"
+      ],
+      "title": "Quality"
+     },
+     "limitations": {
+      "type": "string",
+      "maxLength": 5000,
+      "minLength": 1,
+      "title": "Limitations"
+     },
+     "geojson": {
+      "additionalProperties": true,
+      "type": "object",
+      "title": "Geojson"
+     }
+    },
+    "type": "object",
+    "required": [
+     "title",
+     "layer_type",
+     "source_institution",
+     "publication_date",
+     "geographic_coverage",
+     "resolution",
+     "licence",
+     "retrieval_date",
+     "quality",
+     "limitations",
+     "geojson"
+    ],
+    "title": "DatasetIn"
+   },
+   "DebtTranche": {
+    "properties": {
+     "name": {
+      "type": "string",
+      "title": "Name"
+     },
+     "kind": {
+      "type": "string",
+      "enum": [
+       "senior",
+       "concessional"
+      ],
+      "title": "Kind",
+      "default": "senior"
+     },
+     "currency": {
+      "type": "string",
+      "enum": [
+       "LCY",
+       "USD"
+      ],
+      "title": "Currency",
+      "default": "LCY"
+     },
+     "share_of_capex": {
+      "type": "number",
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Share Of Capex",
+      "description": "Share of construction capex funded by this tranche"
+     },
+     "rate_pa": {
+      "type": "number",
+      "exclusiveMaximum": 1.0,
+      "minimum": 0.0,
+      "title": "Rate Pa"
+     },
+     "tenor_years": {
+      "type": "number",
+      "exclusiveMinimum": 0.0,
+      "title": "Tenor Years",
+      "description": "Years from COD to final repayment"
+     },
+     "grace_quarters": {
+      "type": "integer",
+      "minimum": 0.0,
+      "title": "Grace Quarters",
+      "description": "Interest-only quarters after COD",
+      "default": 0
+     },
+     "upfront_fee": {
+      "type": "number",
+      "exclusiveMaximum": 0.2,
+      "minimum": 0.0,
+      "title": "Upfront Fee",
+      "description": "Fee on commitment, paid at financial close",
+      "default": 0.0
+     },
+     "amortisation": {
+      "type": "string",
+      "enum": [
+       "annuity",
+       "straight_line"
+      ],
+      "title": "Amortisation",
+      "default": "annuity"
+     }
+    },
+    "type": "object",
+    "required": [
+     "name",
+     "share_of_capex",
+     "rate_pa",
+     "tenor_years"
+    ],
+    "title": "DebtTranche"
+   },
+   "Financing": {
+    "properties": {
+     "debt": {
+      "items": {
+       "$ref": "#/components/schemas/DebtTranche"
+      },
+      "type": "array",
+      "title": "Debt",
+      "default": []
+     },
+     "debt_basis": {
+      "type": "string",
+      "enum": [
+       "capex_net_of_grant",
+       "gross_capex"
+      ],
+      "title": "Debt Basis",
+      "description": "Debt is sized as a share of construction capex, before or after the capital grant",
+      "default": "capex_net_of_grant"
+     },
+     "dsra_quarters": {
+      "type": "integer",
+      "maximum": 8.0,
+      "minimum": 0.0,
+      "title": "Dsra Quarters",
+      "description": "Quarters of debt service held in reserve",
+      "default": 2
+     },
+     "maintenance_reserve": {
+      "type": "boolean",
+      "title": "Maintenance Reserve",
+      "description": "Fund battery replacements through a reserve built up evenly beforehand",
+      "default": true
+     },
+     "lockup_dscr": {
+      "type": "number",
+      "minimum": 0.0,
+      "title": "Lockup Dscr",
+      "description": "Distributions blocked when the quarter DSCR is below this",
+      "default": 1.2
+     },
+     "min_cash": {
+      "type": "number",
+      "minimum": 0.0,
+      "title": "Min Cash",
+      "description": "Minimum unrestricted cash; shortfalls are met by equity support",
+      "default": 0.0
+     }
+    },
+    "type": "object",
+    "title": "Financing"
+   },
+   "GrantMilestone": {
+    "properties": {
+     "quarter": {
+      "type": "integer",
+      "title": "Quarter",
+      "description": "Model quarter of disbursement (0 = financial close)"
+     },
+     "share": {
+      "type": "number",
+      "maximum": 1.0,
+      "exclusiveMinimum": 0.0,
+      "title": "Share"
+     }
+    },
+    "type": "object",
+    "required": [
+     "quarter",
+     "share"
+    ],
+    "title": "GrantMilestone"
+   },
+   "GridArrival": {
+    "properties": {
+     "enabled": {
+      "type": "boolean",
+      "title": "Enabled",
+      "default": false
+     },
+     "operating_year": {
+      "type": "integer",
+      "minimum": 1.0,
+      "title": "Operating Year",
+      "description": "Operating year in which the grid arrives",
+      "default": 10
+     },
+     "treatment": {
+      "type": "string",
+      "enum": [
+       "interconnect",
+       "asset_transfer",
+       "stranded"
+      ],
+      "title": "Treatment",
+      "default": "interconnect"
+     },
+     "compensation_pct_nbv": {
+      "type": "number",
+      "maximum": 2.0,
+      "minimum": 0.0,
+      "title": "Compensation Pct Nbv",
+      "description": "Compensation as a share of net book value (asset transfer)",
+      "default": 0.0
+     },
+     "tariff_factor_after": {
+      "type": "number",
+      "maximum": 2.0,
+      "minimum": 0.0,
+      "title": "Tariff Factor After",
+      "description": "Tariff multiplier after interconnection",
+      "default": 1.0
+     },
+     "demand_factor_after": {
+      "type": "number",
+      "maximum": 3.0,
+      "minimum": 0.0,
+      "title": "Demand Factor After",
+      "description": "Demand multiplier after interconnection",
+      "default": 1.0
+     },
+     "regulatory_source": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Regulatory Source",
+      "description": "Citation of the country rule applied"
+     }
+    },
+    "type": "object",
+    "title": "GridArrival",
+    "description": "Treatment if the main grid reaches the site. Must be supported by the country's verified rules."
+   },
+   "HTTPValidationError": {
+    "properties": {
+     "detail": {
+      "items": {
+       "$ref": "#/components/schemas/ValidationError"
+      },
+      "type": "array",
+      "title": "Detail"
+     }
+    },
+    "type": "object",
+    "title": "HTTPValidationError"
+   },
+   "LoginIn": {
+    "properties": {
+     "email": {
+      "type": "string",
+      "format": "email",
+      "title": "Email"
+     },
+     "password": {
+      "type": "string",
+      "title": "Password"
+     },
+     "totp": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Totp"
+     }
+    },
+    "type": "object",
+    "required": [
+     "email",
+     "password"
+    ],
+    "title": "LoginIn"
+   },
+   "Macro": {
+    "properties": {
+     "inflation_pa": {
+      "type": "number",
+      "maximum": 2.0,
+      "minimum": -0.2,
+      "title": "Inflation Pa",
+      "description": "Local inflation",
+      "default": 0.0
+     },
+     "tariff_indexation": {
+      "type": "number",
+      "maximum": 1.5,
+      "minimum": 0.0,
+      "title": "Tariff Indexation",
+      "description": "Share of inflation passed into tariffs",
+      "default": 1.0
+     },
+     "fx_lcy_per_usd": {
+      "type": "number",
+      "exclusiveMinimum": 0.0,
+      "title": "Fx Lcy Per Usd",
+      "description": "Exchange rate at financial close, LCY per USD"
+     },
+     "fx_depreciation_pa": {
+      "type": "number",
+      "maximum": 2.0,
+      "minimum": -0.5,
+      "title": "Fx Depreciation Pa",
+      "description": "Annual depreciation of LCY against USD",
+      "default": 0.0
+     },
+     "tax_rate": {
+      "type": "number",
+      "exclusiveMaximum": 1.0,
+      "minimum": 0.0,
+      "title": "Tax Rate",
+      "default": 0.0
+     },
+     "grant_income_taxable": {
+      "type": "boolean",
+      "title": "Grant Income Taxable",
+      "default": false
+     },
+     "discount_rate_pa": {
+      "type": "number",
+      "exclusiveMinimum": -0.99,
+      "title": "Discount Rate Pa",
+      "description": "Nominal discount rate for project NPV"
+     },
+     "equity_target_irr_pa": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Equity Target Irr Pa",
+      "description": "Target equity IRR used by the subsidy solver"
+     }
+    },
+    "type": "object",
+    "required": [
+     "fx_lcy_per_usd",
+     "discount_rate_pa"
+    ],
+    "title": "Macro"
+   },
+   "MemberIn": {
+    "properties": {
+     "email": {
+      "type": "string",
+      "format": "email",
+      "title": "Email"
+     },
+     "role": {
+      "type": "string",
+      "enum": [
+       "admin",
+       "analyst",
+       "viewer"
+      ],
+      "title": "Role"
+     }
+    },
+    "type": "object",
+    "required": [
+     "email",
+     "role"
+    ],
+    "title": "MemberIn"
+   },
+   "MilestoneIn": {
+    "properties": {
+     "title": {
+      "type": "string",
+      "maxLength": 200,
+      "minLength": 1,
+      "title": "Title"
+     },
+     "category": {
+      "type": "string",
+      "title": "Category",
+      "default": "other"
+     },
+     "due_date": {
+      "anyOf": [
+       {
+        "type": "string",
+        "format": "date"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Due Date"
+     },
+     "status": {
+      "type": "string",
+      "pattern": "^(open|in_progress|done|blocked)$",
+      "title": "Status",
+      "default": "open"
+     },
+     "owner_name": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Owner Name"
+     }
+    },
+    "type": "object",
+    "required": [
+     "title"
+    ],
+    "title": "MilestoneIn"
+   },
+   "Opex": {
+    "properties": {
+     "fixed_pa": {
+      "type": "number",
+      "minimum": 0.0,
+      "title": "Fixed Pa",
+      "description": "Fixed operating cost per year at COD prices, LCY",
+      "default": 0.0
+     },
+     "per_connection_pa": {
+      "type": "number",
+      "minimum": 0.0,
+      "title": "Per Connection Pa",
+      "description": "Cost per active connection per year at COD prices, LCY",
+      "default": 0.0
+     },
+     "insurance_pct_capex": {
+      "type": "number",
+      "exclusiveMaximum": 0.2,
+      "minimum": 0.0,
+      "title": "Insurance Pct Capex",
+      "description": "Annual insurance as a share of initial capex",
+      "default": 0.0
+     },
+     "collection_efficiency": {
+      "type": "number",
+      "maximum": 1.0,
+      "exclusiveMinimum": 0.0,
+      "title": "Collection Efficiency",
+      "description": "Share of billed revenue collected",
+      "default": 0.95
+     }
+    },
+    "type": "object",
+    "title": "Opex"
+   },
+   "OptionCosts": {
+    "properties": {
+     "discount_rate_pa": {
+      "type": "number",
+      "title": "Discount Rate Pa"
+     },
+     "horizon_years": {
+      "type": "integer",
+      "title": "Horizon Years",
+      "default": 20
+     },
+     "grid_densification_max_km": {
+      "type": "number",
+      "title": "Grid Densification Max Km",
+      "default": 1.0
+     },
+     "grid_extension_max_km": {
+      "type": "number",
+      "title": "Grid Extension Max Km",
+      "default": 30.0
+     },
+     "mv_line_per_km": {
+      "type": "number",
+      "title": "Mv Line Per Km"
+     },
+     "lv_network_per_connection": {
+      "type": "number",
+      "title": "Lv Network Per Connection"
+     },
+     "grid_connection_per_connection": {
+      "type": "number",
+      "title": "Grid Connection Per Connection"
+     },
+     "grid_cost_of_supply_per_kwh": {
+      "type": "number",
+      "title": "Grid Cost Of Supply Per Kwh"
+     },
+     "grid_om_pct_capex": {
+      "type": "number",
+      "title": "Grid Om Pct Capex",
+      "default": 0.02
+     },
+     "grid_kgco2_per_kwh": {
+      "type": "number",
+      "title": "Grid Kgco2 Per Kwh",
+      "default": 0.0
+     },
+     "pv_per_kwp": {
+      "type": "number",
+      "title": "Pv Per Kwp"
+     },
+     "battery_per_kwh": {
+      "type": "number",
+      "title": "Battery Per Kwh"
+     },
+     "battery_life_years": {
+      "type": "number",
+      "title": "Battery Life Years",
+      "default": 8.0
+     },
+     "diesel_per_kw": {
+      "type": "number",
+      "title": "Diesel Per Kw",
+      "default": 0.0
+     },
+     "diesel_fuel_per_kwh": {
+      "type": "number",
+      "title": "Diesel Fuel Per Kwh",
+      "default": 0.0
+     },
+     "diesel_kgco2_per_kwh": {
+      "type": "number",
+      "title": "Diesel Kgco2 Per Kwh",
+      "default": 0.8
+     },
+     "minigrid_network_per_connection": {
+      "type": "number",
+      "title": "Minigrid Network Per Connection"
+     },
+     "minigrid_om_pct_capex": {
+      "type": "number",
+      "title": "Minigrid Om Pct Capex",
+      "default": 0.03
+     },
+     "pv_yield_kwh_per_kwp_pa": {
+      "type": "number",
+      "title": "Pv Yield Kwh Per Kwp Pa",
+      "default": 1500.0
+     },
+     "network_loss": {
+      "type": "number",
+      "title": "Network Loss",
+      "default": 0.08
+     },
+     "battery_share_of_daily_energy": {
+      "type": "number",
+      "title": "Battery Share Of Daily Energy",
+      "default": 0.6
+     },
+     "battery_depth_of_discharge": {
+      "type": "number",
+      "title": "Battery Depth Of Discharge",
+      "default": 0.8
+     },
+     "anchor_daytime_share": {
+      "type": "number",
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Anchor Daytime Share",
+      "description": "Share of anchor energy used in daylight, served directly by PV (option F)",
+      "default": 0.8
+     },
+     "hybrid_diesel_share": {
+      "type": "number",
+      "title": "Hybrid Diesel Share",
+      "default": 0.15
+     },
+     "shs_cost_per_household": {
+      "type": "number",
+      "title": "Shs Cost Per Household"
+     },
+     "shs_kwh_month_capacity": {
+      "type": "number",
+      "title": "Shs Kwh Month Capacity"
+     },
+     "shs_life_years": {
+      "type": "number",
+      "title": "Shs Life Years",
+      "default": 5.0
+     },
+     "shs_om_pct_capex": {
+      "type": "number",
+      "title": "Shs Om Pct Capex",
+      "default": 0.05
+     },
+     "months_densification": {
+      "type": "number",
+      "title": "Months Densification",
+      "default": 6
+     },
+     "months_extension": {
+      "type": "number",
+      "title": "Months Extension",
+      "default": 24
+     },
+     "months_minigrid": {
+      "type": "number",
+      "title": "Months Minigrid",
+      "default": 12
+     },
+     "months_shs": {
+      "type": "number",
+      "title": "Months Shs",
+      "default": 3
+     },
+     "affordability_share_of_income": {
+      "type": "number",
+      "title": "Affordability Share Of Income",
+      "default": 0.1
+     }
+    },
+    "type": "object",
+    "required": [
+     "discount_rate_pa",
+     "mv_line_per_km",
+     "lv_network_per_connection",
+     "grid_connection_per_connection",
+     "grid_cost_of_supply_per_kwh",
+     "pv_per_kwp",
+     "battery_per_kwh",
+     "minigrid_network_per_connection",
+     "shs_cost_per_household",
+     "shs_kwh_month_capacity"
+    ],
+    "title": "OptionCosts",
+    "description": "All costs in LCY. Values must come from quotes, programme data or cited benchmarks."
+   },
+   "ProjectIn": {
+    "properties": {
+     "name": {
+      "type": "string",
+      "maxLength": 200,
+      "minLength": 1,
+      "title": "Name"
+     },
+     "country": {
+      "type": "string",
+      "maxLength": 100,
+      "minLength": 1,
+      "title": "Country"
+     },
+     "technology": {
+      "type": "string",
+      "title": "Technology",
+      "default": "solar_battery_minigrid"
+     },
+     "stage": {
+      "type": "string",
+      "title": "Stage",
+      "default": "screening"
+     },
+     "latitude": {
+      "anyOf": [
+       {
+        "type": "number",
+        "maximum": 90.0,
+        "minimum": -90.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Latitude"
+     },
+     "longitude": {
+      "anyOf": [
+       {
+        "type": "number",
+        "maximum": 180.0,
+        "minimum": -180.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Longitude"
+     },
+     "geometry": {
+      "anyOf": [
+       {
+        "additionalProperties": true,
+        "type": "object"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Geometry"
+     }
+    },
+    "type": "object",
+    "required": [
+     "name",
+     "country"
+    ],
+    "title": "ProjectIn"
+   },
+   "ProjectInputs": {
+    "properties": {
+     "project_name": {
+      "type": "string",
+      "title": "Project Name"
+     },
+     "country": {
+      "type": "string",
+      "title": "Country"
+     },
+     "currency": {
+      "type": "string",
+      "maxLength": 3,
+      "minLength": 3,
+      "title": "Currency"
+     },
+     "financial_close": {
+      "type": "string",
+      "format": "date",
+      "title": "Financial Close"
+     },
+     "construction_quarters": {
+      "type": "integer",
+      "maximum": 12.0,
+      "minimum": 1.0,
+      "title": "Construction Quarters",
+      "default": 2
+     },
+     "operating_years": {
+      "type": "integer",
+      "maximum": 30.0,
+      "minimum": 1.0,
+      "title": "Operating Years",
+      "default": 20
+     },
+     "residual_value_pct_nbv": {
+      "type": "number",
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Residual Value Pct Nbv",
+      "default": 0.0
+     },
+     "technical": {
+      "$ref": "#/components/schemas/Technical"
+     },
+     "customers": {
+      "items": {
+       "$ref": "#/components/schemas/CustomerClass"
+      },
+      "type": "array",
+      "title": "Customers"
+     },
+     "capex": {
+      "items": {
+       "$ref": "#/components/schemas/CapexItem"
+      },
+      "type": "array",
+      "title": "Capex"
+     },
+     "opex": {
+      "$ref": "#/components/schemas/Opex"
+     },
+     "macro": {
+      "$ref": "#/components/schemas/Macro"
+     },
+     "financing": {
+      "$ref": "#/components/schemas/Financing",
+      "default": {
+       "debt": [],
+       "debt_basis": "capex_net_of_grant",
+       "dsra_quarters": 2,
+       "maintenance_reserve": true,
+       "lockup_dscr": 1.2,
+       "min_cash": 0.0
+      }
+     },
+     "subsidies": {
+      "$ref": "#/components/schemas/Subsidies",
+      "default": {
+       "capital_grant": 0.0,
+       "grant_milestones": [],
+       "rbf_per_connection": 0.0,
+       "rbf_verification_lag_quarters": 2,
+       "tariff_support_per_kwh": 0.0,
+       "tariff_support_years": 0.0
+      }
+     },
+     "grid_arrival": {
+      "$ref": "#/components/schemas/GridArrival",
+      "default": {
+       "enabled": false,
+       "operating_year": 10,
+       "treatment": "interconnect",
+       "compensation_pct_nbv": 0.0,
+       "tariff_factor_after": 1.0,
+       "demand_factor_after": 1.0
+      }
+     },
+     "provenance": {
+      "$ref": "#/components/schemas/Provenance",
+      "default": "user_estimate"
+     },
+     "review": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/Review"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "description": "Human review of the assumptions; required for VALIDATED status"
+     }
+    },
+    "type": "object",
+    "required": [
+     "project_name",
+     "country",
+     "currency",
+     "financial_close",
+     "technical",
+     "customers",
+     "capex",
+     "opex",
+     "macro"
+    ],
+    "title": "ProjectInputs"
+   },
+   "Provenance": {
+    "type": "string",
+    "enum": [
+     "sourced",
+     "user_estimate",
+     "illustrative"
+    ],
+    "title": "Provenance",
+    "description": "Where an input value comes from. Shown next to every output that depends on it."
+   },
+   "RegisterIn": {
+    "properties": {
+     "email": {
+      "type": "string",
+      "format": "email",
+      "title": "Email"
+     },
+     "password": {
+      "type": "string",
+      "maxLength": 200,
+      "minLength": 12,
+      "title": "Password"
+     },
+     "full_name": {
+      "type": "string",
+      "maxLength": 200,
+      "minLength": 1,
+      "title": "Full Name"
+     },
+     "org_name": {
+      "type": "string",
+      "maxLength": 200,
+      "minLength": 1,
+      "title": "Org Name"
+     },
+     "org_kind": {
+      "type": "string",
+      "enum": [
+       "individual",
+       "developer",
+       "investor",
+       "government",
+       "accredited"
+      ],
+      "title": "Org Kind"
+     },
+     "locale": {
+      "type": "string",
+      "enum": [
+       "en",
+       "fr"
+      ],
+      "title": "Locale",
+      "default": "en"
+     },
+     "accept_terms": {
+      "type": "boolean",
+      "title": "Accept Terms"
+     }
+    },
+    "type": "object",
+    "required": [
+     "email",
+     "password",
+     "full_name",
+     "org_name",
+     "org_kind",
+     "accept_terms"
+    ],
+    "title": "RegisterIn"
+   },
+   "Review": {
+    "properties": {
+     "reviewed_by": {
+      "type": "string",
+      "title": "Reviewed By"
+     },
+     "reviewed_on": {
+      "type": "string",
+      "format": "date",
+      "title": "Reviewed On"
+     },
+     "note": {
+      "type": "string",
+      "title": "Note",
+      "default": ""
+     }
+    },
+    "type": "object",
+    "required": [
+     "reviewed_by",
+     "reviewed_on"
+    ],
+    "title": "Review"
+   },
+   "Settlement": {
+    "properties": {
+     "name": {
+      "type": "string",
+      "title": "Name"
+     },
+     "households": {
+      "type": "integer",
+      "minimum": 0.0,
+      "title": "Households"
+     },
+     "businesses": {
+      "type": "integer",
+      "minimum": 0.0,
+      "title": "Businesses",
+      "default": 0
+     },
+     "productive_users": {
+      "type": "integer",
+      "minimum": 0.0,
+      "title": "Productive Users",
+      "description": "Mills, pumps, cold rooms and similar",
+      "default": 0
+     },
+     "institutions": {
+      "type": "integer",
+      "minimum": 0.0,
+      "title": "Institutions",
+      "default": 0
+     },
+     "anchor_present": {
+      "type": "boolean",
+      "title": "Anchor Present",
+      "default": false
+     },
+     "anchor_kwh_month": {
+      "type": "number",
+      "minimum": 0.0,
+      "title": "Anchor Kwh Month",
+      "default": 0.0
+     },
+     "household_kwh_month": {
+      "type": "number",
+      "minimum": 0.0,
+      "title": "Household Kwh Month"
+     },
+     "business_kwh_month": {
+      "type": "number",
+      "minimum": 0.0,
+      "title": "Business Kwh Month",
+      "default": 0.0
+     },
+     "productive_kwh_month": {
+      "type": "number",
+      "minimum": 0.0,
+      "title": "Productive Kwh Month",
+      "default": 0.0
+     },
+     "institution_kwh_month": {
+      "type": "number",
+      "minimum": 0.0,
+      "title": "Institution Kwh Month",
+      "default": 0.0
+     },
+     "household_income_month": {
+      "type": "number",
+      "exclusiveMinimum": 0.0,
+      "title": "Household Income Month",
+      "description": "LCY"
+     },
+     "distance_to_grid_km": {
+      "anyOf": [
+       {
+        "type": "number",
+        "minimum": 0.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Distance To Grid Km",
+      "description": "None = unknown (grid options then fail their gate)"
+     },
+     "grid_has_capacity": {
+      "anyOf": [
+       {
+        "type": "boolean"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Grid Has Capacity"
+     },
+     "grid_supply_hours": {
+      "type": "number",
+      "maximum": 24.0,
+      "minimum": 0.0,
+      "title": "Grid Supply Hours",
+      "default": 12.0
+     },
+     "dispersed_household_share": {
+      "type": "number",
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Dispersed Household Share",
+      "description": "Households too far from the centre for a network",
+      "default": 0.0
+     }
+    },
+    "type": "object",
+    "required": [
+     "name",
+     "households",
+     "household_kwh_month",
+     "household_income_month"
+    ],
+    "title": "Settlement"
+   },
+   "Subsidies": {
+    "properties": {
+     "capital_grant": {
+      "type": "number",
+      "minimum": 0.0,
+      "title": "Capital Grant",
+      "description": "Capital grant, LCY",
+      "default": 0.0
+     },
+     "grant_milestones": {
+      "items": {
+       "$ref": "#/components/schemas/GrantMilestone"
+      },
+      "type": "array",
+      "title": "Grant Milestones",
+      "default": []
+     },
+     "rbf_per_connection": {
+      "type": "number",
+      "minimum": 0.0,
+      "title": "Rbf Per Connection",
+      "description": "Results based payment per verified new connection, LCY",
+      "default": 0.0
+     },
+     "rbf_verification_lag_quarters": {
+      "type": "integer",
+      "minimum": 0.0,
+      "title": "Rbf Verification Lag Quarters",
+      "description": "Quarters between connection and payment",
+      "default": 2
+     },
+     "rbf_cap": {
+      "anyOf": [
+       {
+        "type": "number",
+        "minimum": 0.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Rbf Cap",
+      "description": "Programme cap on RBF payments, LCY"
+     },
+     "tariff_support_per_kwh": {
+      "type": "number",
+      "minimum": 0.0,
+      "title": "Tariff Support Per Kwh",
+      "description": "Operating subsidy per billed kWh, LCY",
+      "default": 0.0
+     },
+     "tariff_support_years": {
+      "type": "number",
+      "minimum": 0.0,
+      "title": "Tariff Support Years",
+      "default": 0.0
+     }
+    },
+    "type": "object",
+    "title": "Subsidies"
+   },
+   "SubsidyQuery": {
+    "properties": {
+     "min_dscr": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Min Dscr",
+      "default": 1.3
+     },
+     "min_equity_irr": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Min Equity Irr"
+     },
+     "max_grant": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Max Grant"
+     }
+    },
+    "type": "object",
+    "title": "SubsidyQuery"
+   },
+   "Technical": {
+    "properties": {
+     "pv_kwp": {
+      "type": "number",
+      "minimum": 0.0,
+      "title": "Pv Kwp"
+     },
+     "battery_kwh": {
+      "type": "number",
+      "minimum": 0.0,
+      "title": "Battery Kwh"
+     },
+     "diesel_kw": {
+      "type": "number",
+      "minimum": 0.0,
+      "title": "Diesel Kw",
+      "default": 0.0
+     },
+     "network_km": {
+      "type": "number",
+      "minimum": 0.0,
+      "title": "Network Km",
+      "default": 0.0
+     },
+     "deliverable_energy_kwh_pa": {
+      "type": "number",
+      "exclusiveMinimum": 0.0,
+      "title": "Deliverable Energy Kwh Pa",
+      "description": "Energy the design can deliver at the busbar per year (from the hourly study)"
+     },
+     "technical_loss": {
+      "type": "number",
+      "exclusiveMaximum": 0.5,
+      "minimum": 0.0,
+      "title": "Technical Loss",
+      "description": "Share of generated energy lost in the network",
+      "default": 0.08
+     },
+     "commercial_loss": {
+      "type": "number",
+      "exclusiveMaximum": 0.5,
+      "minimum": 0.0,
+      "title": "Commercial Loss",
+      "description": "Share of delivered energy not billed (theft, meter faults)",
+      "default": 0.03
+     },
+     "diesel_share": {
+      "type": "number",
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Diesel Share",
+      "description": "Share of generated energy from diesel (from the hourly study)",
+      "default": 0.0
+     },
+     "diesel_cost_per_kwh": {
+      "type": "number",
+      "minimum": 0.0,
+      "title": "Diesel Cost Per Kwh",
+      "description": "Fuel cost per diesel kWh at COD, LCY",
+      "default": 0.0
+     },
+     "diesel_kgco2_per_kwh": {
+      "type": "number",
+      "minimum": 0.0,
+      "title": "Diesel Kgco2 Per Kwh",
+      "description": "Emission factor of diesel generation",
+      "default": 0.0
+     },
+     "battery_life_years": {
+      "type": "number",
+      "exclusiveMinimum": 0.0,
+      "title": "Battery Life Years",
+      "default": 8.0
+     },
+     "battery_replacement_usd_per_kwh": {
+      "type": "number",
+      "minimum": 0.0,
+      "title": "Battery Replacement Usd Per Kwh",
+      "description": "Replacement cost at COD prices, USD per kWh",
+      "default": 0.0
+     },
+     "battery_cost_decline_pa": {
+      "type": "number",
+      "exclusiveMaximum": 0.5,
+      "minimum": 0.0,
+      "title": "Battery Cost Decline Pa",
+      "description": "Annual real decline of battery replacement cost",
+      "default": 0.0
+     }
+    },
+    "type": "object",
+    "required": [
+     "pv_kwp",
+     "battery_kwh",
+     "deliverable_energy_kwh_pa"
+    ],
+    "title": "Technical",
+    "description": "Engineering inputs from the design study. The engine does not size or dispatch the system."
+   },
+   "TotpIn": {
+    "properties": {
+     "code": {
+      "type": "string",
+      "maxLength": 8,
+      "minLength": 6,
+      "title": "Code"
+     }
+    },
+    "type": "object",
+    "required": [
+     "code"
+    ],
+    "title": "TotpIn"
+   },
+   "ValidationError": {
+    "properties": {
+     "loc": {
+      "items": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "integer"
+        }
+       ]
+      },
+      "type": "array",
+      "title": "Location"
+     },
+     "msg": {
+      "type": "string",
+      "title": "Message"
+     },
+     "type": {
+      "type": "string",
+      "title": "Error Type"
+     },
+     "input": {
+      "title": "Input"
+     },
+     "ctx": {
+      "type": "object",
+      "title": "Context"
+     }
+    },
+    "type": "object",
+    "required": [
+     "loc",
+     "msg",
+     "type"
+    ],
+    "title": "ValidationError"
+   },
+   "Weights": {
+    "properties": {
+     "economic_cost": {
+      "type": "number",
+      "title": "Economic Cost",
+      "default": 0.25
+     },
+     "time": {
+      "type": "number",
+      "title": "Time",
+      "default": 0.15
+     },
+     "service_quality": {
+      "type": "number",
+      "title": "Service Quality",
+      "default": 0.15
+     },
+     "subsidy_efficiency": {
+      "type": "number",
+      "title": "Subsidy Efficiency",
+      "default": 0.15
+     },
+     "financial_sustainability": {
+      "type": "number",
+      "title": "Financial Sustainability",
+      "default": 0.15
+     },
+     "environment": {
+      "type": "number",
+      "title": "Environment",
+      "default": 0.05
+     },
+     "productive_use": {
+      "type": "number",
+      "title": "Productive Use",
+      "default": 0.1
+     }
+    },
+    "type": "object",
+    "title": "Weights",
+    "description": "Initial design weights, configurable. Not a validated scientific standard."
+   }
+  }
+ }
+}
