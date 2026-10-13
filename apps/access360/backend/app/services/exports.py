@@ -45,6 +45,37 @@ def _stamp(project, run) -> list[tuple[str, str]]:
 
 
 def model_xlsx(project, run) -> bytes:
+    """Live formula workbook (Inputs, Model, Summary) plus the run's own values and checks for audit."""
+    from openpyxl import load_workbook
+
+    from ..engine.inputs import ProjectInputs
+    from ..engine.model import run_model
+    from .formula_xlsx import build
+
+    p = ProjectInputs.model_validate(run.inputs_snapshot)
+    eng = run_model(p)  # deterministic: same inputs, same schedules (needed only for a sculpted tranche)
+    sculpt = {t["name"]: {"commitment": t["commitment"], "ds": t["interest"] + t["principal"]} for t in eng.tranches if t.get("sculpted")}
+    meta = dict(_stamp(project, run))
+    meta["Accounting"] = ACCOUNTING_NOTE
+    formula = load_workbook(io.BytesIO(build(p, meta, sculpt)))
+    values = load_workbook(io.BytesIO(_values_workbook(project, run)))
+    for ws in values.worksheets:
+        if ws.title == "Cover":
+            continue
+        tgt = formula.create_sheet("Run_" + ws.title)
+        for row in ws.iter_rows():
+            for c in row:
+                n = tgt.cell(c.row, c.column, c.value)
+                if c.has_style:
+                    n.font, n.fill, n.number_format = c.font.copy(), c.fill.copy(), c.number_format
+        for k, dim in ws.column_dimensions.items():
+            tgt.column_dimensions[k].width = dim.width
+    buf = io.BytesIO()
+    formula.save(buf)
+    return buf.getvalue()
+
+
+def _values_workbook(project, run) -> bytes:
     wb = Workbook()
     head = Font(bold=True, color="FFFFFF")
     fill = PatternFill("solid", fgColor=NAVY)

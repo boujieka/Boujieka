@@ -17,7 +17,7 @@
 | L13 | Security | TOTP secrets stored unencrypted in the database | A database leak exposes MFA seeds | Application-level encryption with a key held in a secret manager |
 | L14 | Security | Login rate limiting is in memory (per process) | Not effective across instances | Redis-backed limiter |
 | L15 | Security | No password reset by email, no session revocation list, no account deletion workflow yet | Manual handling | Phase 3 account lifecycle |
-| L16 | Exports | The Excel export contains values, not live formulas | Users cannot change inputs inside Excel | Formula workbook generator |
+| L16 | Exports | RESOLVED (milestone 2): the Excel export is a live formula model (Inputs, Model, Summary), verified against the engine after LibreOffice recalculation on 4 cases in the test suite. Exception: a sculpted tranche's debt service is written as values from the engine, because a live formula would need iteration. Not yet opened in Microsoft Excel | | Test in Microsoft Excel |
 | L17 | Exports | Only the one-page teaser and the Excel model exist; the other 8 document types in the brief do not | | Phase 2 and 3 |
 | L18 | Product | Marketplace, data rooms, Delivery, Verify, Academy, Copilot, subscriptions and payments are not implemented | | Phases 2 to 4 |
 | L19 | Storage | Generated files are stored on the local disk | Not durable across hosts | Object storage |

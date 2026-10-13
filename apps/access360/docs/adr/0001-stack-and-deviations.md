@@ -27,7 +27,7 @@ The repository previously held only the book and Excel model generators (Python)
 | Object storage | Local directory behind a single storage function | Not S3 or another object store yet | No paid cloud resource. The storage key scheme (`org_id/uuid.ext`) maps one to one onto an object store |
 | Energy system modelling | No PyPSA | The engine takes deliverable energy from the design study | Hourly dispatch belongs to the engineering study. PyPSA integration is justified only for an hourly sizing module (roadmap) |
 | Analytics libraries | NumPy only in the engine | GeoPandas, Rasterio and SciPy not used yet | Needed only when raster and vector screening arrives (Phase 2) |
-| Excel export | Values export of a run | Not a live-formula workbook | A formula workbook generator (as for MODEL 2 in this repository) is a larger task and is on the roadmap |
+| Excel export | Live formula workbook generated from the run inputs, plus the run values for audit (milestone 2) | Sculpted debt service written as values | A sculpted schedule depends on CFADS through tax (circular); the workbook avoids iterative calculation |
 | AI | Not implemented | Provider-agnostic Copilot with retrieval and citations is planned for Phase 4 | The financial engine had to be correct and tested first, as the brief requires |
 | Payments | Not implemented | Plan field only | Requires a confirmed incorporation jurisdiction and merchant eligibility |
 

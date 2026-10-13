@@ -21,7 +21,7 @@
 5. **Subsidy.** The smallest capital grant that meets a minimum DSCR and/or equity IRR. If none does, the tool says so.
 6. **Milestones.** Track feasibility, permits, tariff approval, financing, construction and commissioning.
 7. **Exports.**
-   * The Excel export holds the values of a run (inputs, metrics, sources and uses, annual and quarterly results, checks).
+   * The Excel export is a live formula model: change a blue input on the Inputs sheet and the Model and Summary sheets recalculate. The `Run_` sheets keep the values of the run for audit.
    * The one-page teaser uses only model outputs.
    * Both carry the run number, the engine version, the inputs hash and the date.
 

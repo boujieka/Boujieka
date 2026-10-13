@@ -100,8 +100,9 @@ def test_full_project_workflow(db_ready):
     x = c.get(f"/api/orgs/{oid}/projects/{pid}/runs/{rid}/export.xlsx")
     assert x.status_code == 200
     wb = load_workbook(io.BytesIO(x.content))
-    assert {"Cover", "Inputs", "Metrics", "Annual", "Quarterly", "Checks"} <= set(wb.sheetnames)
-    cover = {wb["Cover"].cell(i, 1).value: wb["Cover"].cell(i, 2).value for i in range(1, 20)}
+    assert {"Summary", "Inputs", "Model", "Run_Metrics", "Run_Annual", "Run_Quarterly", "Run_Checks"} <= set(wb.sheetnames)
+    assert str(wb["Model"]["E20"].value).startswith("=")  # live formulas, not values
+    cover = {wb["Summary"].cell(i, 1).value: wb["Summary"].cell(i, 2).value for i in range(1, 25)}
     assert cover["Model run"] == rid and cover["Inputs SHA-256"] == run["inputs_sha256"]
     p = c.get(f"/api/orgs/{oid}/projects/{pid}/runs/{rid}/teaser.pdf")
     assert p.status_code == 200 and p.content[:4] == b"%PDF"
