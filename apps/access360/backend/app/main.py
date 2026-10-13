@@ -12,7 +12,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from .config import ENGINE_VERSION, get_settings
 from .crypto import cipher
-from .routers import auth, geo, orgs, portfolio, projects
+from .routers import auth, geo, orgs, portfolio, projects, spatial
 
 log = logging.getLogger("access360")
 logging.basicConfig(level=logging.INFO, format='{"t":"%(asctime)s","level":"%(levelname)s","msg":%(message)s}')
@@ -51,5 +51,5 @@ def health():
     return {"status": "ok", "engine_version": ENGINE_VERSION}
 
 
-for r in (auth.router, orgs.router, projects.router, geo.router, portfolio.router):
+for r in (auth.router, orgs.router, projects.router, geo.router, portfolio.router, spatial.router):
     app.include_router(r)

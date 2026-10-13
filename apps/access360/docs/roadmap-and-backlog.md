@@ -50,5 +50,5 @@
 | Public reference data (Natural Earth, OWID energy, WDI access via a mirror) | Done, with manifest and hashes (part of B8) |
 | Security: MFA encryption, Redis limits, password reset and change, log out everywhere | Done, tested |
 | Acceleration Score with mandatory gates, portfolios and portfolio analysis | Done in the API; interface in progress (B6, B7) |
-| PostGIS | Not done: PostGIS is not installed in this environment; geometry stays GeoJSON |
+| PostGIS, project context and radius screening | Done, tested (migration 0004) |
 | Three-page summary, memorandum and other documents | Not started (B4, B5) |

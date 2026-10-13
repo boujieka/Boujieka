@@ -2441,6 +2441,121 @@
      }
     }
    }
+  },
+  "/api/orgs/{org_id}/projects/{pid}/context": {
+   "get": {
+    "tags": [
+     "spatial"
+    ],
+    "summary": "Project Context",
+    "operationId": "project_context_api_orgs__org_id__projects__pid__context_get",
+    "parameters": [
+     {
+      "name": "pid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Pid"
+      }
+     },
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     },
+     {
+      "name": "radius_km",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "number",
+       "maximum": 200,
+       "exclusiveMinimum": 0,
+       "default": 25,
+       "title": "Radius Km"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/orgs/{org_id}/screening": {
+   "post": {
+    "tags": [
+     "spatial"
+    ],
+    "summary": "Screening",
+    "description": "Features of visible datasets within a radius of a point, with counts and nearest distance per dataset.",
+    "operationId": "screening_api_orgs__org_id__screening_post",
+    "parameters": [
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/ScreeningIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
   }
  },
  "components": {
@@ -3936,6 +4051,57 @@
     },
     "type": "object",
     "title": "ScoreQuery"
+   },
+   "ScreeningIn": {
+    "properties": {
+     "latitude": {
+      "type": "number",
+      "maximum": 90.0,
+      "minimum": -90.0,
+      "title": "Latitude"
+     },
+     "longitude": {
+      "type": "number",
+      "maximum": 180.0,
+      "minimum": -180.0,
+      "title": "Longitude"
+     },
+     "radius_km": {
+      "type": "number",
+      "maximum": 200.0,
+      "exclusiveMinimum": 0.0,
+      "title": "Radius Km",
+      "default": 25
+     },
+     "dataset_ids": {
+      "anyOf": [
+       {
+        "items": {
+         "type": "string",
+         "format": "uuid"
+        },
+        "type": "array"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Dataset Ids"
+     },
+     "max_features": {
+      "type": "integer",
+      "maximum": 500.0,
+      "minimum": 0.0,
+      "title": "Max Features",
+      "default": 50
+     }
+    },
+    "type": "object",
+    "required": [
+     "latitude",
+     "longitude"
+    ],
+    "title": "ScreeningIn"
    },
    "Settlement": {
     "properties": {

@@ -1,7 +1,7 @@
 # Local and single-host deployment. Not a production hardening guide: see docs/deployment.md.
 services:
   db:
-    image: postgres:16
+    image: postgis/postgis:16-3.4
     environment:
       POSTGRES_DB: access360
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD}

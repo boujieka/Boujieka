@@ -25,7 +25,7 @@ Every layer, whether uploaded by a tenant or provided by the platform, carries t
 | CSV | UTF-8, with latitude and longitude columns (`lat`/`latitude`, `lon`/`lng`/`longitude`) in range. Other columns become properties |
 | Size | Limited by `A360_MAX_UPLOAD_MB` (default 20) |
 
-Shapefile, GeoPackage and raster formats (for example GeoTIFF for solar resource or night lights) are planned with the PostGIS, GeoPandas and Rasterio ingestion in Phase 2.
+Every dataset is also loaded into the PostGIS table `dataset_features` (geometries made valid, EPSG:4326, GIST index) by a database trigger. The API offers a project context (country, admin 1 region, nearest Natural Earth places, the organisation's layers within a radius) and radius screening of any visible dataset. Shapefile, GeoPackage and raster formats (for example GeoTIFF for solar resource or night lights) are not yet supported.
 
 ## 3. Rules
 
