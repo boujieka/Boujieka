@@ -1,7 +1,8 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useState, type FormEvent } from "react";
-import { ShieldCheck } from "lucide-react";
+import { KeyRound, ShieldCheck } from "lucide-react";
 import { Field } from "@/components/field";
 import { ErrorBox, Loading, PageHeader } from "@/components/page";
 import { Alert } from "@/components/ui/alert";
@@ -176,6 +177,87 @@ function Mfa() {
   );
 }
 
+function AccountSecurity() {
+  const { me, refresh } = useSession();
+  const { t } = useI18n();
+  const router = useRouter();
+  const [current, setCurrent] = useState("");
+  const [pw, setPw] = useState("");
+  const [pw2, setPw2] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [msg, setMsg] = useState<{ kind: "success" | "danger"; text: string } | null>(null);
+  if (!me) return null;
+
+  async function change(e: FormEvent) {
+    e.preventDefault();
+    setMsg(null);
+    if (pw !== pw2) {
+      setMsg({ kind: "danger", text: t("auth.passwordMismatch") });
+      return;
+    }
+    setBusy(true);
+    try {
+      await api("/api/auth/password/change", { method: "POST", body: { current_password: current, new_password: pw } });
+      setCurrent("");
+      setPw("");
+      setPw2("");
+      setMsg({ kind: "success", text: t("admin.passwordChanged") });
+    } catch (err) {
+      setMsg({ kind: "danger", text: err instanceof Error ? err.message : String(err) });
+    } finally {
+      setBusy(false);
+    }
+  }
+  async function logoutAll() {
+    setMsg(null);
+    try {
+      await api("/api/auth/logout-all", { method: "POST" });
+      await refresh();
+      router.push("/login");
+    } catch (err) {
+      setMsg({ kind: "danger", text: err instanceof Error ? err.message : String(err) });
+    }
+  }
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle className="flex items-center gap-2">
+          <KeyRound className="size-4 text-navy-700" aria-hidden /> {t("admin.account")}
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="flex flex-col gap-5">
+        <form onSubmit={change} className="flex flex-col gap-3" noValidate>
+          <div className="text-sm font-semibold text-navy-900">{t("admin.changePassword")}</div>
+          <div className="grid gap-3 sm:grid-cols-3">
+            <Field label={t("admin.currentPassword")}>
+              {(id) => <Input id={id} type="password" autoComplete="current-password" value={current} onChange={(e) => setCurrent(e.target.value)} />}
+            </Field>
+            <Field label={t("auth.newPassword")} hint={t("auth.passwordRule")}>
+              {(id, d) => <Input id={id} aria-describedby={d} type="password" autoComplete="new-password" value={pw} onChange={(e) => setPw(e.target.value)} />}
+            </Field>
+            <Field label={t("auth.confirmPassword")}>
+              {(id) => <Input id={id} type="password" autoComplete="new-password" value={pw2} onChange={(e) => setPw2(e.target.value)} />}
+            </Field>
+          </div>
+          <div>
+            <Button type="submit" disabled={busy || !current || !pw || !pw2}>
+              {busy ? t("common.saving") : t("admin.changePassword")}
+            </Button>
+          </div>
+        </form>
+        <div className="flex flex-col gap-2 border-t border-border pt-4 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-xs text-muted-foreground">{t("admin.logoutAllHelp")}</p>
+          <Button variant="outline" onClick={logoutAll}>
+            {t("admin.logoutAll")}
+          </Button>
+        </div>
+        {msg ? <Alert variant={msg.kind}>{msg.text}</Alert> : null}
+      </CardContent>
+    </Card>
+  );
+}
+
 function Audit() {
   const { org, isAdmin } = useSession();
   const { t, locale } = useI18n();
@@ -303,6 +385,7 @@ export default function AdminPage() {
         <Mfa />
       </div>
       <div className="mt-6 flex flex-col gap-6">
+        <AccountSecurity />
         <Audit />
         {me?.is_superadmin ? <Platform /> : null}
       </div>

@@ -142,6 +142,36 @@ class Dataset(Base):  # TENANT (org_id NULL = platform dataset visible to all)
     geojson: Mapped[dict] = mapped_column(JSONType)
     is_demo: Mapped[bool] = mapped_column(Boolean, default=False)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=now)
+    # provenance of platform reference datasets (NULL for tenant uploads); see app/ingest_public.py
+    source_key: Mapped[str | None] = mapped_column(String(60), nullable=True)
+    source_url: Mapped[str | None] = mapped_column(String(500), nullable=True)
+    source_version: Mapped[str | None] = mapped_column(String(300), nullable=True)
+    attribution: Mapped[str | None] = mapped_column(Text, nullable=True)
+
+
+class ReferenceSource(Base):  # platform reference data: written by the owner role only, SELECT for the app role
+    __tablename__ = "reference_sources"
+    key: Mapped[str] = mapped_column(String(60), primary_key=True)
+    kind: Mapped[str] = mapped_column(String(20))  # dataset | indicators
+    title: Mapped[str] = mapped_column(String(300))
+    source_institution: Mapped[str] = mapped_column(String(300))
+    licence: Mapped[str] = mapped_column(String(300))
+    attribution: Mapped[str] = mapped_column(Text)
+    quality: Mapped[str] = mapped_column(String(30))
+    retrieval_date: Mapped[date] = mapped_column(Date)
+    record: Mapped[dict] = mapped_column(JSONType)  # the full manifest entry (URLs, commits, SHA-256, transformations)
+    ingested_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=now)
+
+
+class CountryProfile(Base):  # platform reference data: written by the owner role only, SELECT for the app role
+    __tablename__ = "country_profiles"
+    iso3: Mapped[str] = mapped_column(String(3), primary_key=True)
+    name: Mapped[str] = mapped_column(String(100))
+    bbox: Mapped[list | None] = mapped_column(JSONType, nullable=True)  # [west, south, east, north] of the admin 0 boundary
+    indicators: Mapped[list] = mapped_column(JSONType)  # [{key, title, unit, value, year, source, source_key, ...}]
+    admin1_count: Mapped[int] = mapped_column(Integer, default=0)
+    places_count: Mapped[int] = mapped_column(Integer, default=0)
+    ingested_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=now)
 
 
 class AuditLog(Base):  # TENANT (org_id NULL for account level events)

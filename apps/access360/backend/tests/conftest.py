@@ -30,6 +30,11 @@ def db_ready(tmp_path_factory):
     os.environ["A360_JWT_SECRET"] = "test-secret-not-for-production-0123456789"
     os.environ["A360_STORAGE_DIR"] = str(tmp_path_factory.mktemp("storage"))
     os.environ["A360_LOGIN_RATE_PER_MINUTE"] = "1000"
+    os.environ["A360_REGISTER_RATE_PER_MINUTE"] = "1000"
+    os.environ["A360_MFA_RATE_PER_MINUTE"] = "1000"
+    os.environ["A360_PASSWORD_RATE_PER_MINUTE"] = "1000"
+    os.environ["A360_EMAIL_BACKEND"] = "memory"
+    os.environ.pop("A360_REDIS_URL", None)
     from sqlalchemy import create_engine, text
 
     from app.config import get_settings

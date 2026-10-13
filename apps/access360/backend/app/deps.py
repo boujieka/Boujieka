@@ -10,7 +10,7 @@ from sqlalchemy.orm import Session
 
 from .db import get_session, set_tenant
 from .models import Membership, Organization, User
-from .security import read_token
+from .security import read_token, session_valid
 
 COOKIE = "a360_session"
 ROLE_RANK = {"viewer": 0, "analyst": 1, "admin": 2, "owner": 3}
@@ -39,9 +39,15 @@ def current_user(request: Request, s: Session = Depends(get_session)) -> Ctx:
     claims = read_token(tok)
     if not claims:
         raise HTTPException(status.HTTP_401_UNAUTHORIZED, "Session expired or invalid")
-    user = s.get(User, uuid.UUID(claims["sub"]))
+    try:
+        user = s.get(User, uuid.UUID(claims["sub"]))
+    except ValueError:
+        user = None
     if not user:
         raise HTTPException(status.HTTP_401_UNAUTHORIZED, "Unknown user")
+    if not session_valid(claims, user.id, user.password_hash):
+        # password changed or "log out everywhere" used after this session was issued
+        raise HTTPException(status.HTTP_401_UNAUTHORIZED, "Session expired or invalid")
     return Ctx(user=user, mfa=bool(claims.get("mfa")), session=s)
 
 

@@ -13,36 +13,29 @@ from typing import Literal
 
 from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
 from pydantic import BaseModel, Field
-from sqlalchemy import select
+from sqlalchemy import select, text
+from sqlalchemy.orm import Session, defer
 
 from ..config import get_settings
+from ..db import get_session
 from ..deps import Ctx, OrgCtx, current_user, org_ctx
 from ..engine.demo import DEMO_LABEL, demo_inputs
 from ..engine.inputs import ProjectInputs
 from ..engine.optimizer import OptionCosts, Settlement, Weights, compare, demo_settlement
-from ..models import Dataset
+from ..models import CountryProfile, Dataset, ReferenceSource
+from ..reference import AFRICA as REF_AFRICA, AFRICA_ISO
 from ..services.audit import audit
 from ..services.runs import clean
 
 router = APIRouter(tags=["map and optimizer"])
 
-LayerType = Literal["settlements", "grid", "substations", "health", "schools", "markets", "anchors", "minigrids", "constraints", "other"]
+LayerType = Literal["boundaries", "settlements", "grid", "substations", "health", "schools", "markets", "anchors", "minigrids", "constraints", "other"]
 Quality = Literal["verified_source", "secondary", "user_assumption", "synthetic_demo"]
 GEOM_TYPES = {"Point", "MultiPoint", "LineString", "MultiLineString", "Polygon", "MultiPolygon"}
 MAX_FEATURES = 50_000
 
-# The 54 UN member states in Africa (ISO 3166-1 alpha-3), used only for the country selector.
-AFRICA = [("DZA", "Algeria"), ("AGO", "Angola"), ("BEN", "Benin"), ("BWA", "Botswana"), ("BFA", "Burkina Faso"),
-          ("BDI", "Burundi"), ("CPV", "Cabo Verde"), ("CMR", "Cameroon"), ("CAF", "Central African Republic"), ("TCD", "Chad"),
-          ("COM", "Comoros"), ("COG", "Congo"), ("COD", "Democratic Republic of the Congo"), ("CIV", "Côte d'Ivoire"),
-          ("DJI", "Djibouti"), ("EGY", "Egypt"), ("GNQ", "Equatorial Guinea"), ("ERI", "Eritrea"), ("SWZ", "Eswatini"),
-          ("ETH", "Ethiopia"), ("GAB", "Gabon"), ("GMB", "Gambia"), ("GHA", "Ghana"), ("GIN", "Guinea"), ("GNB", "Guinea-Bissau"),
-          ("KEN", "Kenya"), ("LSO", "Lesotho"), ("LBR", "Liberia"), ("LBY", "Libya"), ("MDG", "Madagascar"), ("MWI", "Malawi"),
-          ("MLI", "Mali"), ("MRT", "Mauritania"), ("MUS", "Mauritius"), ("MAR", "Morocco"), ("MOZ", "Mozambique"),
-          ("NAM", "Namibia"), ("NER", "Niger"), ("NGA", "Nigeria"), ("RWA", "Rwanda"), ("STP", "Sao Tome and Principe"),
-          ("SEN", "Senegal"), ("SYC", "Seychelles"), ("SLE", "Sierra Leone"), ("SOM", "Somalia"), ("ZAF", "South Africa"),
-          ("SSD", "South Sudan"), ("SDN", "Sudan"), ("TZA", "United Republic of Tanzania"), ("TGO", "Togo"), ("TUN", "Tunisia"),
-          ("UGA", "Uganda"), ("ZMB", "Zambia"), ("ZWE", "Zimbabwe")]
+# The 54 UN member states in Africa (ISO 3166-1 alpha-3); defined with the bundled reference data.
+AFRICA = REF_AFRICA
 
 
 class DatasetMeta(BaseModel):
@@ -81,20 +74,81 @@ def _validate_fc(fc: dict) -> int:
 def dataset_out(d: Dataset, with_geo: bool = False) -> dict:
     out = {k: getattr(d, k) for k in ("title", "layer_type", "source_institution", "publication_date", "geographic_coverage",
                                       "resolution", "licence", "quality", "limitations", "feature_count", "is_demo")}
-    out.update(id=str(d.id), retrieval_date=d.retrieval_date.isoformat(), scope="platform" if d.org_id is None else "organisation")
+    out.update(id=str(d.id), retrieval_date=d.retrieval_date.isoformat(), scope="platform" if d.org_id is None else "organisation",
+               source_key=d.source_key, source_url=d.source_url, source_version=d.source_version, attribution=d.attribution)
     if with_geo:
         out["geojson"] = d.geojson
     return out
 
 
 @router.get("/api/countries")
-def countries():
-    return [{"iso3": a, "name": n} for a, n in AFRICA]
+def countries(s: Session = Depends(get_session)):
+    """The 54 countries. `has_profile` is true when the bundled public reference data has been ingested for the
+    country; `bbox` ([west, south, east, north]) comes from the Natural Earth admin 0 boundary, or is null."""
+    profiles = {p.iso3: p.bbox for p in s.execute(select(CountryProfile.iso3, CountryProfile.bbox)).all()}
+    return [{"iso3": a, "name": n, "has_profile": a in profiles, "bbox": profiles.get(a)} for a, n in AFRICA]
+
+
+def _iso(iso3: str) -> str:
+    code = iso3.upper()
+    if code not in AFRICA_ISO:
+        raise HTTPException(404, "Country not found")
+    return code
+
+
+def _source_summary(r: ReferenceSource) -> dict:
+    rec = r.record
+    return {"key": r.key, "kind": r.kind, "title": r.title, "source_institution": r.source_institution,
+            "source_title": rec.get("source_title"), "version": rec.get("version"), "publication_date": rec.get("publication_date"),
+            "retrieval_date": r.retrieval_date.isoformat(), "licence": r.licence, "attribution": r.attribution, "quality": r.quality,
+            "limitations": rec.get("limitations"), "urls": [x.get("pinned_url") or x["url"] for x in rec.get("raw", [])]}
+
+
+@router.get("/api/countries/{iso3}/profile")
+def country_profile(iso3: str, ctx: Ctx = Depends(current_user)):
+    """Indicators of the bundled public reference data, each with its year, unit, source, licence and attribution.
+    A value that the source does not publish for the country is null (shown as "Data unavailable")."""
+    p = ctx.session.get(CountryProfile, _iso(iso3))
+    if p is None:
+        raise HTTPException(404, "Data unavailable: no public reference data loaded for this country")
+    keys = {i["source_key"] for i in p.indicators} | {"ne_admin0_africa", "ne_admin1_africa", "ne_populated_places_africa"}
+    srcs = ctx.session.execute(select(ReferenceSource).where(ReferenceSource.key.in_(keys)).order_by(ReferenceSource.key)).scalars().all()
+    return {"iso3": p.iso3, "name": p.name, "bbox": p.bbox, "indicators": p.indicators, "admin1_count": p.admin1_count,
+            "places_count": p.places_count, "sources": [_source_summary(r) for r in srcs]}
+
+
+def _platform_features(s: Session, source_key: str, iso3: str) -> dict:
+    """Features of one country from a platform dataset, filtered in PostgreSQL (jsonpath) so the full layer is not
+    loaded. Platform rows (org_id NULL) are readable by the app role without a tenant context (RLS policy)."""
+    d = s.execute(select(Dataset).options(defer(Dataset.geojson))
+                  .where(Dataset.source_key == source_key, Dataset.org_id.is_(None))).scalar_one_or_none()
+    if d is None:
+        raise HTTPException(404, "Data unavailable: the platform dataset is not loaded")
+    feats = s.execute(text("SELECT jsonb_path_query_array(geojson -> 'features', '$[*] ? (@.properties.iso3 == $c)', "
+                           "jsonb_build_object('c', CAST(:c AS text))) FROM datasets WHERE id = :id"),
+                      {"c": iso3, "id": d.id}).scalar_one()
+    return {"type": "FeatureCollection", "features": feats or [], "dataset": dataset_out(d)}
+
+
+@router.get("/api/countries/{iso3}/boundary")
+def country_boundary(iso3: str, ctx: Ctx = Depends(current_user)):
+    return _platform_features(ctx.session, "ne_admin0_africa", _iso(iso3))
+
+
+@router.get("/api/countries/{iso3}/admin1")
+def country_admin1(iso3: str, ctx: Ctx = Depends(current_user)):
+    return _platform_features(ctx.session, "ne_admin1_africa", _iso(iso3))
+
+
+@router.get("/api/countries/{iso3}/places")
+def country_places(iso3: str, ctx: Ctx = Depends(current_user)):
+    return _platform_features(ctx.session, "ne_populated_places_africa", _iso(iso3))
 
 
 @router.get("/api/orgs/{org_id}/datasets")
 def list_datasets(ctx: OrgCtx = Depends(org_ctx())):
-    rows = ctx.session.execute(select(Dataset).order_by(Dataset.created_at.desc())).scalars().all()
+    """Tenant datasets and platform datasets (org_id NULL, visible to every tenant through RLS)."""
+    rows = ctx.session.execute(select(Dataset).options(defer(Dataset.geojson)).order_by(Dataset.created_at.desc())).scalars().all()
     return [dataset_out(d) for d in rows]
 
 

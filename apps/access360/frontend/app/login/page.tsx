@@ -73,6 +73,9 @@ function LoginForm() {
       <Button type="submit" disabled={busy || !email || !password}>
         {busy ? t("common.loading") : t("auth.submitLogin")}
       </Button>
+      <Link className="text-sm font-medium text-navy-700 underline-offset-4 hover:underline" href="/forgot-password">
+        {t("auth.forgotLink")}
+      </Link>
       <p className="text-sm text-muted-foreground">
         {t("auth.noAccount")}{" "}
         <Link className="font-medium text-navy-700 underline-offset-4 hover:underline" href="/register">
