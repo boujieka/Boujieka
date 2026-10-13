@@ -5,7 +5,7 @@ debt schedules (independent of cash) -> subsidies -> tax -> cash waterfall -> st
 
 Simplifications, all documented in docs/financial-engine-spec.md:
 * the energy balance takes the deliverable energy from the hourly design study; it does not dispatch;
-* revenue is billed and collected in the same quarter; the uncollected share is a bad debt in that quarter;
+* the uncollected share of billing is a bad debt in the quarter billed; receivable and payable days delay cash;
 * interest during construction and upfront fees are paid by equity and capitalised;
 * capital grants and RBF receipts are held as deferred income and released over the weighted asset life.
 
@@ -62,6 +62,30 @@ class ModelResult:
 
 
 def run_model(p: ProjectInputs, *, tariff_multiplier: float = 1.0, capital_grant_override: float | None = None) -> ModelResult:
+    """Run the engine. With a sculpted tranche, debt service depends on CFADS, and CFADS depends on debt through
+    tax, so the run is repeated (fixed point) until the debt amount and the schedule stop moving."""
+    kw = dict(tariff_multiplier=tariff_multiplier, capital_grant_override=capital_grant_override)
+    if not any(tr.amortisation == "sculpted" for tr in p.financing.debt):
+        return _run(p, **kw)
+    r = _run(p, sculpt_cfads=None, **kw)
+    converged = False
+    it = 0
+    for it in range(1, 61):
+        prev_cf = r.series["cfads"]
+        sc = next(t for t in r.tranches if t["sculpted"])
+        other_ds = r.series["debt_service"] - (np.where(np.arange(r.T) >= r.C, sc["interest"], 0.0) + sc["principal"])
+        r = _run(p, sculpt_cfads=prev_cf, sculpt_other_ds=other_ds, **kw)
+        scale = max(float(np.max(np.abs(prev_cf))), 1.0)
+        if float(np.max(np.abs(r.series["cfads"] - prev_cf))) <= 1e-9 * scale:
+            converged = True  # the schedule was built on the CFADS it produces
+            break
+    r.metrics["sculpt_iterations"] = float(it)
+    r.metrics["sculpt_converged"] = 1.0 if converged else 0.0
+    return r
+
+
+def _run(p: ProjectInputs, *, tariff_multiplier: float = 1.0, capital_grant_override: float | None = None,
+         sculpt_cfads: np.ndarray | None = None, sculpt_other_ds: np.ndarray | None = None) -> ModelResult:
     C = p.construction_quarters
     Q = p.operating_years * 4
     T = C + Q
@@ -189,6 +213,15 @@ def run_model(p: ProjectInputs, *, tariff_multiplier: float = 1.0, capital_grant
     S.update(opex_fixed=opex_fixed, opex_per_connection=opex_var, insurance=insurance, fuel=fuel, opex=opex)
     ebitda = revenue + tariff_support - opex - bad_debt
     S["ebitda"] = ebitda
+    # working capital: receivables on collectable billing, payables on operating costs (balances at quarter end)
+    qdays = 365.0 / 4.0
+    receivables = np.where(active, collected * opx.receivable_days / qdays, 0.0)
+    payables = np.where(active, opex * opx.payable_days / qdays, 0.0)
+    d_rec = np.diff(np.concatenate([[0.0], receivables]))
+    d_pay = np.diff(np.concatenate([[0.0], payables]))
+    cash_collected = collected - d_rec
+    cash_opex = opex - d_pay
+    S.update(receivables=receivables, payables=payables, collections=cash_collected + fee_rev, cash_opex=cash_opex)
 
     # ---------------------------------------------------------------- debt schedules (independent of the cash waterfall)
     fin = p.financing
@@ -201,8 +234,25 @@ def run_model(p: ProjectInputs, *, tariff_multiplier: float = 1.0, capital_grant
     sched_ds = z()
     for tr in fin.debt:
         commit = tr.share_of_capex * debt_base
-        draw = commit * spend_share  # LCY, at the quarter's rate
         r = q_rate(tr.rate_pa)
+        sculpt_ds = None
+        sculpt_cap_binds = False
+        if tr.amortisation == "sculpted" and sculpt_cfads is not None:
+            # debt service = CFADS / target over the amortisation window; debt = its present value, capped by the share
+            first, last = C + tr.grace_quarters, C + int(round(tr.tenor_years * 4)) - 1
+            ds = np.zeros(T)
+            # total debt service = CFADS / target, so the sculpted tranche takes what the other tranches leave
+            other = sculpt_other_ds if sculpt_other_ds is not None else np.zeros(T)
+            ds[first:last + 1] = np.maximum(np.maximum(sculpt_cfads[first:last + 1], 0.0) / fin.target_dscr - other[first:last + 1], 0.0)
+            disc = (1.0 + r) ** -(np.arange(T) - first + 1.0)
+            pv = float(np.sum(ds[first:last + 1] * disc[first:last + 1]))
+            if pv > commit:
+                sculpt_cap_binds = True
+                ds *= commit / pv
+            else:
+                commit = pv
+            sculpt_ds = ds
+        draw = commit * spend_share  # LCY, at the quarter's rate
         bal_ccy = 0.0  # in tranche currency
         rate_fx = fx if tr.currency == "USD" else np.ones(T)
         n_amort = max(int(round(tr.tenor_years * 4)) - tr.grace_quarters, 1)
@@ -214,8 +264,12 @@ def run_model(p: ProjectInputs, *, tariff_multiplier: float = 1.0, capital_grant
             interest = open_ccy * r
             pr = 0.0
             amort_q = i - C - tr.grace_quarters  # 0 = first amortising quarter
-            if i >= C and amort_q >= 0 and open_ccy > EPS:
-                if tr.amortisation == "annuity":
+            if sculpt_ds is not None and i >= C and amort_q >= 0 and open_ccy > EPS:
+                maturity = C + int(round(tr.tenor_years * 4)) - 1
+                # principal may be negative when CFADS is below interest: the shortfall is capitalised
+                pr = sculpt_ds[i] - interest if i < maturity else open_ccy
+            elif i >= C and amort_q >= 0 and open_ccy > EPS:
+                if tr.amortisation in ("annuity", "sculpted"):
                     if pay is None:
                         pay = annuity_payment(open_ccy, r, n_amort)
                     pr = min(open_ccy, pay - interest) if amort_q < n_amort - 1 else open_ccy
@@ -241,7 +295,8 @@ def run_model(p: ProjectInputs, *, tariff_multiplier: float = 1.0, capital_grant
         fee = np.where(t == 0, commit * tr.upfront_fee, 0.0)
         ic = np.where(t < C, o_int, 0.0)
         io = np.where(t >= C, o_int, 0.0)
-        tranche_out.append(dict(name=tr.name, kind=tr.kind, currency=tr.currency, commitment=commit, interest=o_int,
+        tranche_out.append(dict(name=tr.name, kind=tr.kind, currency=tr.currency, commitment=commit, sculpted=tr.amortisation == "sculpted",
+                                sculpt_cap_binds=sculpt_cap_binds, sculpt_ds=sculpt_ds, interest=o_int,
                                 principal=o_pr, prepayment=o_prepay, draws=o_draw, balance=o_bal_lcy, fx_loss=o_fx, fee=fee))
         debt_lcy_close += o_bal_lcy
         interest_cons += ic
@@ -360,7 +415,7 @@ def run_model(p: ProjectInputs, *, tariff_multiplier: float = 1.0, capital_grant
     S["unlevered_tax_pre_subsidy"], S["unlevered_tax_post_subsidy"] = unlev_tax_pre, unlev_tax_post
 
     # ---------------------------------------------------------------- cash waterfall
-    cash_ops = collected + fee_rev + tariff_support - opex
+    cash_ops = cash_collected + fee_rev + tariff_support - cash_opex
     cfads = cash_ops - tax - repl + mra_out - mra_in
     S["cash_from_operations_pre_tax"] = cash_ops
     S["cfads"] = cfads
@@ -376,6 +431,7 @@ def run_model(p: ProjectInputs, *, tariff_multiplier: float = 1.0, capital_grant
     eq_in, eq_support, dist = z(), z(), z()
     cash_open, dsra_open = 0.0, 0.0
     dscr_q = np.full(T, np.nan)
+    dsra_draw = z()
     for i in range(T):
         dsra_move = dsra_target[i] - dsra_open
         if i < C:
@@ -388,21 +444,37 @@ def run_model(p: ProjectInputs, *, tariff_multiplier: float = 1.0, capital_grant
             cash[i] = cash_open + sources + e - uses
         else:
             flow = (cfads[i] + grant_cash[i] + rbf[i] + disposal_proceeds[i] + draws_lcy[i]
-                    - interest_op[i] - principal[i] - prepay[i] - dsra_move - capex_init[i])
+                    - interest_op[i] - principal[i] - prepay[i] - capex_init[i])
             pre = cash_open + flow
             floor = fin.min_cash if i < T - 1 else 0.0
+            # reserve account: released above target; refilled from cash above the floor; drawn before any equity
+            # support when cash falls below the floor (limitation L21 resolved)
+            if dsra_move <= 0:
+                new_dsra = dsra_target[i]
+                pre -= dsra_move  # release
+            else:
+                top_up = min(dsra_move, max(0.0, pre - floor))
+                new_dsra = dsra_open + top_up
+                pre -= top_up
+            if pre < floor and new_dsra > 0:
+                draw = min(new_dsra, floor - pre)
+                new_dsra -= draw
+                pre += draw
+                dsra_draw[i] = draw
+            dsra_move = new_dsra - dsra_open
             support = max(0.0, floor - pre)
             eq_support[i] = support
             avail = pre + support
             if sched_ds[i] > EPS:
                 dscr_q[i] = cfads[i] / sched_ds[i]
             lock = sched_ds[i] > EPS and dscr_q[i] < fin.lockup_dscr
-            d = 0.0 if (lock and i < T - 1) else max(0.0, avail - floor)
+            reserve_short = new_dsra < dsra_target[i] - EPS
+            d = 0.0 if ((lock or reserve_short) and i < T - 1) else max(0.0, avail - floor)
             dist[i] = d
             cash[i] = avail - d
         dsra[i] = dsra_open + dsra_move
         cash_open, dsra_open = cash[i], dsra[i]
-    S.update(cash=cash, dsra=dsra, dsra_target=dsra_target, equity_contributions=eq_in, equity_support=eq_support,
+    S.update(cash=cash, dsra=dsra, dsra_target=dsra_target, dsra_draw=dsra_draw, equity_contributions=eq_in, equity_support=eq_support,
              distributions=dist, dscr_quarter=dscr_q)
 
     # ---------------------------------------------------------------- balance sheet and cash flow statement
@@ -410,8 +482,8 @@ def run_model(p: ProjectInputs, *, tariff_multiplier: float = 1.0, capital_grant
     retained = np.cumsum(net_income) - np.cumsum(dist)
     mra = np.cumsum(mra_in - mra_out)
     S["mra"] = mra
-    assets = cash + dsra + mra + nbv
-    liabilities = debt_lcy_close + defg
+    assets = cash + dsra + mra + nbv + receivables
+    liabilities = debt_lcy_close + defg + payables
     equity = paid_in + retained
     S.update(total_assets=assets, total_liabilities=liabilities, total_equity=equity, paid_in_capital=paid_in,
              retained_earnings=retained, balance_check=assets - liabilities - equity)
@@ -421,7 +493,7 @@ def run_model(p: ProjectInputs, *, tariff_multiplier: float = 1.0, capital_grant
     S.update(cfo=cfo, cfi=cfi, cff=cff, net_cash_flow=cfo + cfi + cff)
 
     # ---------------------------------------------------------------- project and equity cash flows
-    base_cf = np.where(t < C, -capex_init, 0.0) + np.where(op, collected + fee_rev - opex - repl, 0.0) + disposal_proceeds
+    base_cf = np.where(t < C, -capex_init, 0.0) + np.where(op, cash_collected + fee_rev - cash_opex - repl, 0.0) + disposal_proceeds
     pre_sub = base_cf - unlev_tax_pre
     post_sub = base_cf + tariff_support + grant_cash + rbf - unlev_tax_post
     eq_cf = -(eq_in + eq_support) + dist

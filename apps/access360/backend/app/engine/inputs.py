@@ -87,6 +87,8 @@ class Opex(BaseModel):
     per_connection_pa: float = Field(0.0, ge=0, description="Cost per active connection per year at COD prices, LCY")
     insurance_pct_capex: float = Field(0.0, ge=0, lt=0.2, description="Annual insurance as a share of initial capex")
     collection_efficiency: float = Field(0.95, gt=0, le=1, description="Share of billed revenue collected")
+    receivable_days: float = Field(0.0, ge=0, le=91, description="Average days between billing and collection (0 = prepaid)")
+    payable_days: float = Field(0.0, ge=0, le=91, description="Average days between an operating cost and its payment")
 
 
 class Macro(BaseModel):
@@ -109,7 +111,8 @@ class DebtTranche(BaseModel):
     tenor_years: float = Field(gt=0, description="Years from COD to final repayment")
     grace_quarters: int = Field(0, ge=0, description="Interest-only quarters after COD")
     upfront_fee: float = Field(0.0, ge=0, lt=0.2, description="Fee on commitment, paid at financial close")
-    amortisation: Literal["annuity", "straight_line"] = "annuity"
+    amortisation: Literal["annuity", "straight_line", "sculpted"] = Field(
+        "annuity", description="sculpted: debt service = CFADS / target DSCR, debt sized by its present value (LCY tranches only)")
 
 
 class Financing(BaseModel):
@@ -119,12 +122,18 @@ class Financing(BaseModel):
     dsra_quarters: int = Field(2, ge=0, le=8, description="Quarters of debt service held in reserve")
     maintenance_reserve: bool = Field(True, description="Fund battery replacements through a reserve built up evenly beforehand")
     lockup_dscr: float = Field(1.2, ge=0, description="Distributions blocked when the quarter DSCR is below this")
+    target_dscr: float = Field(1.30, gt=1.0, le=5.0, description="Target DSCR for sculpted tranches")
     min_cash: float = Field(0.0, ge=0, description="Minimum unrestricted cash; shortfalls are met by equity support")
 
     @model_validator(mode="after")
     def _shares(self):
         if sum(t.share_of_capex for t in self.debt) > 1.0 + 1e-9:
             raise ValueError("Debt shares of capex add to more than 100%")
+        sculpted = [t for t in self.debt if t.amortisation == "sculpted"]
+        if len(sculpted) > 1:
+            raise ValueError("Only one tranche can be sculpted")
+        if sculpted and sculpted[0].currency != "LCY":
+            raise ValueError("Sculpting is only available for local currency tranches")
         return self
 
 

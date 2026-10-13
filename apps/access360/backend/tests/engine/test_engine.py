@@ -262,7 +262,8 @@ def test_fault_injection_is_detected(code):
     assert all_pass(r)
     FAULTS[code](r.series)
     failed = {c.code for c in integrity_checks(r) if not c.passed}
-    assert code in failed, f"planted fault {code} not detected; failed: {failed}"
+    expected = {code} | ({"R_COLL"} if code == "COLL" else set())  # collections are also recomputed independently
+    assert expected & failed, f"planted fault {code} not detected; failed: {failed}"
 
 
 def test_fault_debt_roll_forward_detected():
@@ -384,3 +385,67 @@ def test_every_check_and_warning_has_typed_fields():
         assert isinstance(c.code, str) and isinstance(c.label, str) and isinstance(c.passed, bool) and isinstance(c.detail, str)
     assert any(w.code == "W_REVIEW" for w in warns)
     assert all("LCY" not in w.detail for w in warns)  # currency code of the project, not a placeholder
+
+
+# ---------------------------------------------------------------- milestone 2: working capital, sculpting, DSRA draw
+def test_working_capital_balances_and_cash_timing():
+    p = demo_inputs()
+    p.opex.receivable_days = 30
+    p.opex.payable_days = 45
+    r = run_model(p)
+    i = r.C + 10
+    collectable = (r.s("energy_revenue")[i] + r.s("fixed_revenue")[i]) * p.opex.collection_efficiency
+    assert r.s("receivables")[i] == pytest.approx(collectable * 30 / (365 / 4))
+    assert r.s("payables")[i] == pytest.approx(r.s("opex")[i] * 45 / (365 / 4))
+    base = run_model(demo_inputs())
+    assert r.metrics["project_npv_pre_subsidy"] != pytest.approx(base.metrics["project_npv_pre_subsidy"])
+    assert all_pass(r)
+
+
+def sculpted(share=0.8, target=1.35):
+    p = demo_inputs()
+    p.financing.debt[0].amortisation = "sculpted"
+    p.financing.debt[0].share_of_capex = share
+    p.financing.debt[1].share_of_capex = 0.1
+    p.financing.target_dscr = target
+    return ProjectInputs.model_validate(p.model_dump())
+
+
+def test_sculpted_debt_meets_target_dscr_on_total_debt_service():
+    r = run_model(sculpted())
+    assert r.metrics["sculpt_converged"] == 1.0
+    assert not r.tranches[0]["sculpt_cap_binds"]
+    years = [d for d in r.annual["dscr"][1:8]]
+    assert all(abs(d - 1.35) < 1e-6 for d in years), years
+    assert all_pass(r)
+
+
+def test_sculpted_debt_capped_by_gearing_keeps_dscr_above_target():
+    r = run_model(sculpted(share=0.4))
+    assert r.tranches[0]["sculpt_cap_binds"]
+    assert r.tranches[0]["commitment"] == pytest.approx(0.4 * (r.sources_uses["capex"] - demo_inputs().subsidies.capital_grant))
+    assert min(r.annual["dscr"][1:8]) > 1.35
+    assert all_pass(r)
+
+
+def test_sculpting_rejected_for_usd_and_for_two_tranches():
+    d = demo_inputs().model_dump()
+    d["financing"]["debt"][1]["amortisation"] = "sculpted"  # USD tranche
+    with pytest.raises(Exception):
+        ProjectInputs.model_validate(d)
+    d = demo_inputs().model_dump()
+    d["financing"]["debt"][1]["currency"] = "LCY"
+    for tr in d["financing"]["debt"]:
+        tr["amortisation"] = "sculpted"
+    with pytest.raises(Exception):
+        ProjectInputs.model_validate(d)
+
+
+def test_dsra_is_drawn_before_equity_support():
+    r = run_model(demo_inputs())
+    draws = r.s("dsra_draw")
+    assert draws.sum() > 0
+    i = int(np.nonzero(draws)[0][0])
+    # in the quarter of a draw, equity support is only what the reserve could not cover
+    assert r.s("dsra")[i] == pytest.approx(0.0, abs=1e-6) or r.s("equity_support")[i] == pytest.approx(0.0, abs=1e-6)
+    assert all_pass(r)

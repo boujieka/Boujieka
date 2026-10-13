@@ -3,8 +3,8 @@
 | # | Area | Limitation | Consequence | Planned resolution |
 |---|---|---|---|---|
 | L1 | Engine | No hourly sizing or dispatch: deliverable energy and the diesel share come from the design study | Unserved energy and fuel use are only as good as that study | Optional hourly module (PyPSA or similar) in a later phase |
-| L2 | Engine | Billing and collection happen in the same quarter; no receivables, payables or inventory | Working capital is understated for post-paid customers | Receivable days and payable days inputs |
-| L3 | Engine | Debt is sized as a share of capex, not sculpted to a target DSCR | Debt capacity is not optimised | DSCR sculpting and a debt sizing solver |
+| L2 | Engine | RESOLVED (milestone 2): receivable days on collectable billing and payable days on operating costs; inventory still not modelled | | |
+| L3 | Engine | RESOLVED (milestone 2): one local currency tranche can be sculpted so that total debt service = CFADS ÷ target DSCR, sized by present value and capped by its share of capex; fixed point iteration with a convergence flag. USD tranches cannot be sculpted | | |
 | L4 | Engine | Distributions are not limited by distributable reserves | Equity cash flows can run ahead of accounting profit | Option to restrict dividends to retained earnings |
 | L5 | Engine | Capital grant and RBF accounting is a single analytical treatment (deferred income released over the weighted asset life) | Not an IFRS determination | Configurable presentation; accountant review |
 | L6 | Engine | Tax: one rate, unlimited loss carry forward, paid in the same quarter; no capital allowances | Tax timing is approximate | Country tax profiles |
@@ -21,8 +21,8 @@
 | L17 | Exports | Only the one-page teaser and the Excel model exist; the other 8 document types in the brief do not | | Phase 2 and 3 |
 | L18 | Product | Marketplace, data rooms, Delivery, Verify, Academy, Copilot, subscriptions and payments are not implemented | | Phases 2 to 4 |
 | L19 | Storage | Generated files are stored on the local disk | Not durable across hosts | Object storage |
-| L20 | Validation | An independent AI review was done (docs/reviews), but no human expert has reviewed the engine, and the export has not been tested in Microsoft Excel | | Human project finance review before any client relies on outputs |
-| L21 | Engine | The DSRA is never drawn to meet a shortfall: equity support is called while the reserve stays full (review F10) | The liquidity requirement is overstated by up to the DSRA balance | Draw the DSRA before equity support and refill it ahead of distributions |
+| L20 | Validation | An independent AI review was done and the product owner approved the MVP (docs/reviews), but no documented line by line expert review of the engine exists yet, and the export has not been tested in Microsoft Excel | | Human project finance review before any client relies on outputs |
+| L21 | Engine | RESOLVED (milestone 2): the DSRA is drawn before equity support and refilled ahead of distributions | | |
 | L22 | Engine | Asset transfer compensation applies to NBV including capitalised finance costs (review F19) | May differ from the country rule | Configurable base per country rule |
 | L23 | Engine | No salvage credit for a replacement made shortly before the horizon end when the residual value is 0 (review F20) | LCOE and the revenue requirement are slightly overstated | Pro rata salvage of late replacements |
 | L24 | Engine | An unrealised FX gain on USD debt during construction is taxed in cash before COD (review F04) | Conservative; most regimes would defer it | Country tax profile |

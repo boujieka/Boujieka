@@ -45,8 +45,10 @@ This is an analytical modelling treatment and does not constitute a determinatio
 * Connection fees are recognised and received at connection.
 
 **Collection.**
-* Collections = (energy + fixed revenue) × collection efficiency + connection fees.
-* The uncollected share is a bad debt in the same quarter, so no receivable is carried. This is a simplification.
+* Collectable billing = (energy + fixed revenue) × collection efficiency. The uncollected share is a bad debt in the quarter billed.
+* Receivables at quarter end = collectable billing × receivable days ÷ (365 ÷ 4); cash collections = collectable billing - increase in receivables + connection fees.
+* Payables at quarter end = opex × payable days ÷ (365 ÷ 4); cash opex = opex - increase in payables.
+* Both balances fall to zero when operations end, so they are collected and paid in the closure quarter. With 0 days (the default) billing is prepaid in cash.
 
 **Operating subsidy.** Tariff support = billed kWh × support per kWh, nominal, for the stated years.
 
@@ -84,7 +86,7 @@ This is an analytical modelling treatment and does not constitute a determinatio
 **Interest.** Interest = opening balance × quarterly rate. During construction it is paid by equity and capitalised (no circularity).
 
 **Repayment.** After COD plus grace quarters:
-* annuity (level debt service), or straight line;
+* annuity (level debt service), straight line, or **sculpted** (one LCY tranche at most): debt service of the sculpted tranche = max(0, CFADS ÷ target DSCR - debt service of the other tranches), and the commitment = present value of that profile at the tranche rate, capped at its share of the debt basis. When the cap binds, the profile is scaled down, so the DSCR stays above the target. CFADS depends on debt through tax, so the engine repeats the run until CFADS stops moving (relative change 1e-9, at most 60 runs) and reports `sculpt_converged`. A negative principal (CFADS below interest) capitalises the shortfall;
 * over tenor × 4 - grace quarters;
 * the final instalment clears the balance.
 
@@ -98,6 +100,8 @@ This is an analytical modelling treatment and does not constitute a determinatio
 * The target falls to zero when operations end.
 
 **Lock up.** No distribution in a quarter whose DSCR is below the lock up level, except in the final quarter.
+
+**DSRA use.** When cash falls below the minimum, the DSRA is drawn first. It is refilled from cash above the minimum before any distribution, and released when its target falls.
 
 **Liquidity.** The minimum cash balance is funded before COD as part of the uses. After COD, unrestricted cash is kept at or above it by equity support. Equity support is reported as the liquidity requirement.
 
@@ -194,7 +198,9 @@ Distributions are on a cash basis and are not limited to accumulated profits. Th
 * tax with the loss pool, and net income;
 * depreciation from the input lives;
 * grant income;
-* DSRA from the debt schedules;
+* DSRA target from the debt schedules, and the reserve below target only when cash is at the minimum;
+* receivable and payable balances;
+* sculpted debt service proportional to CFADS ÷ target (less other tranches);
 * lock up;
 * project cash flow before subsidy.
 

@@ -51,7 +51,7 @@ def integrity_checks(r: ModelResult) -> list[Check]:
     add("SU", "Sources equal uses at COD (plus cash held at COD)",
         abs(su["sources_total"] - su["uses_total"] - su["cash_at_cod"]))
     # recomputed from the components, never read from a stored difference
-    bs = (S["cash"] + S["dsra"] + S["mra"] + S["nbv"]) - (S["debt_balance"] + S["deferred_grant"]) \
+    bs = (S["cash"] + S["dsra"] + S["mra"] + S["nbv"] + S["receivables"]) - (S["debt_balance"] + S["deferred_grant"] + S["payables"]) \
         - (S["paid_in_capital"] + S["retained_earnings"])
     add("BS", "Balance sheet balances in every quarter", _max_abs(bs))
     open_cash = np.concatenate([[0.0], S["cash"][:-1]])
@@ -69,14 +69,17 @@ def integrity_checks(r: ModelResult) -> list[Check]:
     dg = S["deferred_grant"]
     odg = np.concatenate([[0.0], dg[:-1]])
     add("GRANT", "Deferred grant roll forward", _max_abs(odg + S["grant_receipts"] + S["rbf_receipts"] - S["grant_income"] - dg))
-    add("DSRA", "Reserve account equals its target", _max_abs(S["dsra"] - S["dsra_target"]))
+    add("DSRA", "Reserve account between zero and its target; full whenever a distribution is paid",
+        max(max(0.0, float(np.max(S["dsra"] - S["dsra_target"]))), max(0.0, -float(np.min(S["dsra"]))),
+            float(np.max(np.where(S["distributions"][:-1] > 0, np.abs(S["dsra"][:-1] - S["dsra_target"][:-1]), 0.0)))))
     add("MRA", "Maintenance reserve never negative and fully used at each replacement",
         max(max(0.0, -float(np.min(S["mra"]))), _max_abs(np.where(S["replacement_capex"] > 0, S["mra"], 0.0))))
     add("NEGCASH", "No negative unrestricted cash", max(0.0, -float(np.min(S["cash"]))))
     add("ENERGY", "Energy balance: supplied + unserved = demand, supplied within capacity",
         max(_max_abs(S["supplied_kwh"] + S["unserved_kwh"] - S["demand_kwh"]),
             max(0.0, float(np.max(S["supplied_kwh"] - S["capacity_customer_kwh"])))))
-    add("COLL", "Collections never exceed billing", max(0.0, float(np.max(S["collections"] - S["revenue"]))))
+    add("COLL", "Cumulative collections never exceed cumulative billing",
+        max(0.0, float(np.max(np.cumsum(S["collections"]) - np.cumsum(S["revenue"])))))
     sub = r.inputs.subsidies
     if sub.rbf_cap is not None:
         add("RBFCAP", "RBF receipts within the programme cap", max(0.0, float(S["rbf_receipts"].sum()) - sub.rbf_cap))
@@ -133,8 +136,12 @@ def recomputation_checks(r: ModelResult, tol: float) -> list[Check]:
     ts = np.where(ts_on, S["billed_kwh"] * sub.tariff_support_per_kwh, 0.0)
     add("R_TS", "Tariff support recomputed from billed energy and rate", _max_abs(ts - S["tariff_support"]))
     billed = S["energy_revenue"] + S["fixed_revenue"]
-    add("R_COLL", "Collections recomputed from billing and collection efficiency",
-        _max_abs(billed * opx.collection_efficiency + S["connection_fee_revenue"] - S["collections"]))
+    collectable = billed * opx.collection_efficiency
+    rec = np.where(active, collectable * opx.receivable_days / (365.0 / 4.0), 0.0)
+    add("R_COLL", "Collections recomputed from billing, collection efficiency and receivable days",
+        _max_abs(collectable - np.diff(np.concatenate([[0.0], rec])) + S["connection_fee_revenue"] - S["collections"]))
+    pay = np.where(active, S["opex"] * opx.payable_days / (365.0 / 4.0), 0.0)
+    add("R_WC", "Receivable and payable balances recomputed", max(_max_abs(rec - S["receivables"]), _max_abs(pay - S["payables"])))
     ebitda = S["revenue"] + S["tariff_support"] - S["opex"] - S["bad_debt"]
     add("R_EBITDA", "EBITDA recomputed from its lines", _max_abs(ebitda - S["ebitda"]))
     # tax recomputed from the components of taxable income with a loss pool
@@ -166,7 +173,23 @@ def recomputation_checks(r: ModelResult, tol: float) -> list[Check]:
     target = np.array([ds[i + 1:i + 1 + nq].sum() if nq else 0.0 for i in range(T)])
     if I["closes"]:
         target[I["t_arr"]:] = 0.0
-    add("R_DSRA", "DSRA recomputed from the debt schedules", _max_abs(target - S["dsra"]))
+    add("R_DSRA", "DSRA target recomputed from the debt schedules", _max_abs(target - S["dsra_target"]))
+    shortfall = (S["dsra"] < S["dsra_target"] - 1e-6) & (t >= C)
+    add("R_DSRADRAW", "The reserve is below target only when cash is at the minimum and nothing is distributed",
+        float(np.sum(np.where(shortfall, S["distributions"] + np.maximum(S["cash"] - p.financing.min_cash, 0.0) * (t < T - 1), 0.0))))
+    for tr_in, tr in zip(p.financing.debt, r.tranches):
+        if tr.get("sculpted") and tr.get("sculpt_ds") is not None and r.metrics.get("sculpt_converged"):
+            first, last = C + tr_in.grace_quarters, C + int(round(tr_in.tenor_years * 4)) - 2
+            ds_s = (tr["interest"] + tr["principal"])[first:last + 1]
+            other = S["debt_service"][first:last + 1] - ds_s
+            room = np.maximum(S["cfads"][first:last + 1], 0.0) / p.financing.target_dscr - other
+            # the sculpted tranche pays a constant share k <= 1 of the room left at the target DSCR
+            # (k = 1 unless its gearing cap binds), wherever that room is positive
+            mask = room > 1e-6 * max(float(np.max(np.abs(room))), 1.0)
+            ratio = ds_s[mask] / room[mask]
+            if len(ratio):
+                add(f"R_SCULPT:{tr_in.name}", f"Total debt service proportional to CFADS, DSCR at or above the target where the sculpted tranche pays ({tr_in.name})",
+                    max(float(np.max(ratio) - np.min(ratio)), max(0.0, float(np.max(ratio)) - 1.0)), 1e-4)
     # lock up: no distribution in a quarter whose DSCR is below the lock up level (except the last quarter)
     dq = S["dscr_quarter"]
     locked = (~np.isnan(dq)) & (dq < p.financing.lockup_dscr) & (t < T - 1)
@@ -186,7 +209,7 @@ def recomputation_checks(r: ModelResult, tol: float) -> list[Check]:
     # project cash flows recomputed from primitives
     capex = S["capex"]
     op = t >= C
-    base = np.where(t < C, -capex, 0.0) + np.where(op, S["collections"] - S["opex"] - S["replacement_capex"], 0.0) + S["disposal_proceeds"]
+    base = np.where(t < C, -capex, 0.0) + np.where(op, S["collections"] - S["cash_opex"] - S["replacement_capex"], 0.0) + S["disposal_proceeds"]
     pre_tax = tax_with_losses(S["ebitda"] - S["tariff_support"] - S["unlevered_depreciation"] + S["disposal_gain"], m.tax_rate)
     add("R_PCF", "Project cash flow before subsidy recomputed (no subsidy, no tax on subsidy)",
         _max_abs(base - pre_tax - S["project_cf_pre_subsidy"]))

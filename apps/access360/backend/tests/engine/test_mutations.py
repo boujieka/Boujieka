@@ -19,7 +19,7 @@ MUTANTS = {
     "tariff support double counted": ("tariff_support = np.where(ts_active, billed_kwh * sub.tariff_support_per_kwh, 0.0)",
                                       "tariff_support = np.where(ts_active, 2 * billed_kwh * sub.tariff_support_per_kwh, 0.0)"),
     "unlevered tax ignored in project CF": ("pre_sub = base_cf - unlev_tax_pre", "pre_sub = base_cf"),
-    "replacements omitted from project CF": ("collected + fee_rev - opex - repl, 0.0)", "collected + fee_rev - opex, 0.0)"),
+    "replacements omitted from project CF": ("cash_collected + fee_rev - cash_opex - repl, 0.0)", "cash_collected + fee_rev - cash_opex, 0.0)"),
     "grant released in one quarter": ("rel = base / remaining_q", "rel = base"),
     "collection forced to 100%": ("collected = billed * p.opex.collection_efficiency", "collected = billed * 1.0"),
     "fuel cost x10": ("fuel = generated * tech.diesel_share", "fuel = 10 * generated * tech.diesel_share"),
@@ -28,7 +28,7 @@ MUTANTS = {
     "CFADS excludes tax": ("cfads = cash_ops - tax - repl", "cfads = cash_ops - repl"),
     "annuity sized on 110% of balance": ("pay = annuity_payment(open_ccy, r, n_amort)", "pay = annuity_payment(open_ccy * 1.1, r, n_amort)"),
     "DSRA sized on 1 quarter": ("dsra_target[i] = sched_ds[i + 1:i + 1 + nq].sum()", "dsra_target[i] = sched_ds[i + 1:i + 2].sum()"),
-    "lock-up never applied": ("d = 0.0 if (lock and i < T - 1)", "d = 0.0 if (False and i < T - 1)"),
+    "lock-up never applied": ("d = 0.0 if ((lock or reserve_short) and i < T - 1)", "d = 0.0 if ((reserve_short) and i < T - 1)"),
 }
 
 
