@@ -11,6 +11,7 @@ import { InputsTab } from "@/components/project/inputs-form";
 import { MilestonesTab } from "@/components/project/milestones";
 import { OverviewTab } from "@/components/project/overview";
 import { ResultsTab } from "@/components/project/results";
+import { ScoreTab } from "@/components/project/score";
 import { SensitivityTab } from "@/components/project/sensitivity";
 import { SubsidyTab } from "@/components/project/subsidy";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -20,7 +21,7 @@ import { useI18n, type DictKey } from "@/lib/i18n";
 import { useSession } from "@/lib/session";
 import type { Project } from "@/lib/types";
 
-const TABS = ["overview", "inputs", "results", "sensitivity", "subsidy", "milestones", "exports"] as const;
+const TABS = ["overview", "inputs", "results", "sensitivity", "subsidy", "score", "milestones", "exports"] as const;
 type Tab = (typeof TABS)[number];
 
 function ProjectDetail() {
@@ -86,6 +87,9 @@ function ProjectDetail() {
         </TabsContent>
         <TabsContent value="subsidy">
           <SubsidyTab project={p} />
+        </TabsContent>
+        <TabsContent value="score">
+          <ScoreTab key={p.latest_run?.id ?? "none"} project={p} />
         </TabsContent>
         <TabsContent value="milestones">
           <MilestonesTab project={p} />

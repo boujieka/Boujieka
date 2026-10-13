@@ -5,6 +5,7 @@ import { useState, type FormEvent } from "react";
 import { DemoBadge, StatusBadge } from "@/components/badges";
 import { Field } from "@/components/field";
 import { Kpi } from "@/components/kpi";
+import { SiteContextCard } from "@/components/project/site-context";
 import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -157,6 +158,7 @@ export function OverviewTab({ project, onChanged }: { project: Project; onChange
           )}
         </CardContent>
       </Card>
+      <SiteContextCard key={`${project.latitude},${project.longitude}`} project={project} />
     </div>
   );
 }

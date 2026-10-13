@@ -293,3 +293,96 @@ export interface AdminOrg {
   is_demo: boolean;
   created_at: string;
 }
+
+// Phase 2: Electrification Acceleration Score and portfolios
+export type GateState = "met" | "not_met" | "unknown";
+export type Decision = "eligible" | "review_required" | "excluded";
+export const USER_GATES = ["land_rights", "permits", "technical_feasibility", "environmental_social", "regulatory"] as const;
+export type UserGate = (typeof USER_GATES)[number];
+export const CRITERIA = ["access_impact", "financial_efficiency", "readiness", "speed", "productive_use", "equity"] as const;
+export type Criterion = (typeof CRITERIA)[number];
+export type ScoreWeights = Record<Criterion, number>;
+export const DEFAULT_WEIGHTS: ScoreWeights = {
+  access_impact: 0.2,
+  financial_efficiency: 0.2,
+  readiness: 0.15,
+  speed: 0.15,
+  productive_use: 0.15,
+  equity: 0.15,
+};
+
+export interface ScorePart {
+  criterion: Criterion | string;
+  label: string;
+  weight: number;
+  raw: Json;
+  normalised: number | null;
+  points: number | null;
+  explanation: string;
+}
+
+export interface GateRow {
+  gate: string;
+  label: string;
+  state: GateState;
+}
+
+export interface ScoreCore {
+  project_id: string;
+  project_name: string;
+  score: number;
+  score_is_partial: boolean;
+  missing_criteria: string[];
+  parts: ScorePart[];
+  gates: GateRow[];
+  decision: Decision;
+  decision_explanation: string;
+  note: string;
+  sources: Record<string, string>;
+  is_demo: boolean;
+}
+
+export interface ScoreResult extends ScoreCore {
+  readiness_categories?: string[];
+}
+
+export interface PortfolioSummary {
+  id: string;
+  name: string;
+  description: string;
+  projects: number;
+  created_at: string;
+}
+
+export interface RankingRow extends ScoreCore {
+  rank: number | null;
+  country: string;
+  stage: string;
+  run_status: RunStatus | null;
+  capex_usd: number | null;
+  connections: number | null;
+  viability_gap_usd: number | null;
+  subsidy_usd: number | null;
+}
+
+export interface PortfolioTotals {
+  projects: number;
+  modelled: number;
+  capex_usd: number;
+  connections: number;
+  viability_gap_usd: number;
+  subsidy_usd: number;
+  eligible: number;
+  review_required: number;
+  excluded: number;
+}
+
+export interface PortfolioAnalysis {
+  portfolio: { id: string; name: string; description: string };
+  ranking: RankingRow[];
+  totals_real: PortfolioTotals;
+  totals_demo: PortfolioTotals;
+  weights: ScoreWeights;
+  scales: Record<string, number>;
+  note: string;
+}
