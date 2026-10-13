@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { useMemo, useState, type FormEvent } from "react";
-import { Layers, Upload } from "lucide-react";
+import { BarChart3, Layers, Upload } from "lucide-react";
 import { DemoBadge } from "@/components/badges";
 import { Field } from "@/components/field";
 import { ErrorBox, Loading, PageHeader, Unavailable } from "@/components/page";
@@ -12,18 +12,18 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input, Select, Textarea } from "@/components/ui/input";
 import { api, ApiError, orgPath } from "@/lib/api";
-import { date } from "@/lib/format";
+import { date, DASH } from "@/lib/format";
 import { useApi } from "@/lib/hooks";
 import { useI18n, type DictKey } from "@/lib/i18n";
 import { useSession } from "@/lib/session";
-import type { Country, DatasetDetail, DatasetMeta, Project } from "@/lib/types";
+import type { Country, CountryProfile, DatasetDetail, DatasetMeta, GeoJSONFeatureCollection, Project } from "@/lib/types";
 import { AFRICA_BOUNDS, type MapLayer, type MapProject } from "@/components/map-view";
 
 const MapView = dynamic(() => import("@/components/map-view").then((m) => m.MapView), { ssr: false, loading: () => <div className="h-[520px] rounded-lg border border-border bg-[#e9edf2]" data-testid="map-container" /> });
 
 // fixed categorical order; colour follows the dataset's position in the list, never its visibility
 const LAYER_COLORS = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#008300", "#6250d6", "#e34948"];
-const LAYER_TYPES = ["settlements", "grid", "substations", "health", "schools", "markets", "anchors", "minigrids", "constraints", "other"];
+const LAYER_TYPES = ["boundaries", "settlements", "grid", "substations", "health", "schools", "markets", "anchors", "minigrids", "constraints", "other"];
 const QUALITY = ["verified_source", "secondary", "user_assumption", "synthetic_demo"];
 const META_KEYS = ["title", "layer_type", "source_institution", "publication_date", "geographic_coverage", "resolution", "licence", "retrieval_date", "quality", "limitations"] as const;
 type MetaKey = (typeof META_KEYS)[number];
@@ -40,6 +40,9 @@ function MetaList({ d }: { d: DatasetMeta }) {
     ["exp2.meta.quality", d.quality.replace(/_/g, " ")],
     ["exp2.meta.limitations", d.limitations],
   ];
+  if (d.source_version) rows.push(["exp2.meta.source_version", d.source_version]);
+  if (d.source_url) rows.push(["exp2.meta.source_url", d.source_url]);
+  if (d.attribution) rows.push(["exp2.meta.attribution", d.attribution]);
   return (
     <dl className="mt-2 grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-xs">
       {rows.map(([k, v]) => (
@@ -185,6 +188,102 @@ function UploadPanel({ onDone }: { onDone: () => void }) {
   );
 }
 
+type CountryFc = GeoJSONFeatureCollection & { dataset?: DatasetMeta };
+
+// reference layer colours (fixed, distinct from the dataset palette order)
+const ADMIN0_COLOR = "#0b1f3a";
+const ADMIN1_COLOR = "#2a78d6";
+const PLACES_COLOR = "#e34948";
+
+function indicatorValue(v: number | null, locale: string): string {
+  if (v === null || !Number.isFinite(v)) return DASH;
+  return new Intl.NumberFormat(locale === "fr" ? "fr-FR" : "en-US", { maximumFractionDigits: 3 }).format(v);
+}
+
+function ProfilePanel({ iso3 }: { iso3: string }) {
+  const { t, locale } = useI18n();
+  const profile = useApi<CountryProfile>(`/api/countries/${iso3}/profile`);
+  const p = profile.data && profile.data.iso3 === iso3 ? profile.data : null;
+  return (
+    <Card data-testid="country-profile">
+      <CardHeader>
+        <CardTitle className="flex items-center gap-2">
+          <BarChart3 className="size-4 text-emerald-700" aria-hidden /> {t("exp2.profile.title")}
+          {p ? <span className="font-normal text-muted-foreground">: {p.name}</span> : null}
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="flex flex-col gap-4">
+        {profile.loading && !p ? <Loading /> : null}
+        {profile.error ? <Unavailable text={t("exp2.profile.none")} /> : null}
+        {p ? (
+          <>
+            <p className="text-xs text-muted-foreground">{t("exp2.profile.note")}</p>
+            <ul className="grid gap-3 md:grid-cols-2" data-testid="profile-indicators">
+              {p.indicators.map((i) => (
+                <li key={i.key} className="rounded-md border border-border p-3" data-testid={`indicator-${i.key}`}>
+                  <div className="text-sm font-medium">{i.title}</div>
+                  <div className="mt-1 flex flex-wrap items-baseline gap-x-2">
+                    {i.value === null ? (
+                      <Unavailable />
+                    ) : (
+                      <>
+                        <span className="text-xl font-semibold tabular-nums" title={String(i.value)} data-testid="indicator-value">
+                          {indicatorValue(i.value, locale)}
+                        </span>
+                        <span className="text-sm text-muted-foreground">{i.unit}</span>
+                      </>
+                    )}
+                  </div>
+                  <dl className="mt-2 grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5 text-xs">
+                    <dt className="text-subtle-foreground">{t("exp2.profile.year")}</dt>
+                    <dd data-testid="indicator-year">{i.year ?? t("common.dataUnavailable")}</dd>
+                    <dt className="text-subtle-foreground">{t("exp2.profile.unit")}</dt>
+                    <dd>{i.unit || DASH}</dd>
+                    <dt className="text-subtle-foreground">{t("exp2.profile.source")}</dt>
+                    <dd className="break-words">{i.source}</dd>
+                    <dt className="text-subtle-foreground">{t("exp2.profile.licence")}</dt>
+                    <dd className="break-words">{i.licence}</dd>
+                  </dl>
+                  <Badge variant="neutral" className="mt-2">
+                    {i.quality.replace(/_/g, " ")}
+                  </Badge>
+                </li>
+              ))}
+            </ul>
+            <div>
+              <div className="text-sm font-medium">{t("exp2.profile.sources")}</div>
+              <ul className="mt-2 flex flex-col gap-2 text-xs" data-testid="profile-sources">
+                {p.sources.map((s) => (
+                  <li key={s.key} className="rounded-md border border-border p-2">
+                    <div className="font-medium">{s.title}</div>
+                    <div className="text-muted-foreground">
+                      {s.source_institution}
+                      {s.version ? ` · ${s.version}` : ""}
+                    </div>
+                    <div>
+                      <span className="text-subtle-foreground">{t("exp2.profile.licence")}: </span>
+                      {s.licence}
+                    </div>
+                    <div>
+                      <span className="text-subtle-foreground">{t("exp2.profile.attribution")}: </span>
+                      {s.attribution}
+                    </div>
+                    {s.urls.map((u) => (
+                      <div key={u} className="break-all text-subtle-foreground">
+                        {u}
+                      </div>
+                    ))}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </>
+        ) : null}
+      </CardContent>
+    </Card>
+  );
+}
+
 export default function ExplorePage() {
   const { org } = useSession();
   const { t } = useI18n();
@@ -202,6 +301,16 @@ export default function ExplorePage() {
     return [...names].sort((a, b) => a.localeCompare(b));
   }, [countries.data, projects.data]);
 
+  const selected = useMemo(() => (countries.data ?? []).find((c) => c.name === country) ?? null, [countries.data, country]);
+  const iso = selected?.has_profile ? selected.iso3 : null;
+  const boundary = useApi<CountryFc>(iso ? `/api/countries/${iso}/boundary` : null);
+  const admin1 = useApi<CountryFc>(iso ? `/api/countries/${iso}/admin1` : null);
+  const places = useApi<CountryFc>(iso ? `/api/countries/${iso}/places` : null);
+  const ofCountry = (fc: CountryFc | null) => (fc && iso && fc.features.length && fc.features.every((f) => f.properties?.iso3 === iso) ? fc : null);
+  const admin1Fc = ofCountry(admin1.data);
+  const boundaryFc = ofCountry(boundary.data);
+  const placesFc = ofCountry(places.data);
+
   const mapProjects: MapProject[] = useMemo(
     () =>
       (projects.data ?? [])
@@ -212,6 +321,13 @@ export default function ExplorePage() {
 
   const fit = useMemo<[[number, number], [number, number]] | null>(() => {
     if (!country) return AFRICA_BOUNDS;
+    if (selected?.bbox) {
+      const [w, s, e, n] = selected.bbox;
+      return [
+        [w, s],
+        [e, n],
+      ];
+    }
     if (!mapProjects.length) return null;
     const lons = mapProjects.map((p) => p.lon);
     const lats = mapProjects.map((p) => p.lat);
@@ -220,10 +336,17 @@ export default function ExplorePage() {
       [Math.min(...lons) - pad, Math.min(...lats) - pad],
       [Math.max(...lons) + pad, Math.max(...lats) + pad],
     ];
-  }, [country, mapProjects]);
+  }, [country, selected, mapProjects]);
 
   const colorOf = (id: string) => LAYER_COLORS[Math.max(0, (datasets.data ?? []).findIndex((d) => d.id === id)) % LAYER_COLORS.length];
-  const layers: MapLayer[] = useMemo(() => Object.values(visible).map((d) => ({ id: d.id, color: colorOf(d.id), geojson: d.geojson })), [visible, datasets.data]); // eslint-disable-line react-hooks/exhaustive-deps
+  const layers: MapLayer[] = useMemo(() => {
+    const out: MapLayer[] = [];
+    if (admin1Fc && iso) out.push({ id: `ref-admin1-${iso}`, color: ADMIN1_COLOR, geojson: admin1Fc, fillOpacity: 0.06, lineWidth: 1 });
+    if (boundaryFc && iso) out.push({ id: `ref-admin0-${iso}`, color: ADMIN0_COLOR, geojson: boundaryFc, fillOpacity: 0, lineWidth: 2.5 });
+    if (placesFc && iso) out.push({ id: `ref-places-${iso}`, color: PLACES_COLOR, geojson: placesFc, pointRadius: 3.5 });
+    for (const d of Object.values(visible)) out.push({ id: d.id, color: colorOf(d.id), geojson: d.geojson, fillOpacity: d.layer_type === "boundaries" ? 0.06 : undefined, lineWidth: d.layer_type === "boundaries" ? 1 : undefined });
+    return out;
+  }, [visible, datasets.data, admin1Fc, boundaryFc, placesFc, iso]); // eslint-disable-line react-hooks/exhaustive-deps
 
   async function toggle(d: DatasetMeta, on: boolean) {
     if (!org) return;
@@ -248,6 +371,30 @@ export default function ExplorePage() {
   }
 
   const anyDemo = (projects.data ?? []).some((p) => p.is_demo) || (datasets.data ?? []).some((d) => d.is_demo);
+  const platformSets = (datasets.data ?? []).filter((d) => d.scope === "platform");
+  const ownSets = (datasets.data ?? []).filter((d) => d.scope !== "platform");
+
+  const datasetItem = (d: DatasetMeta) => (
+    <li key={d.id} className="rounded-md border border-border p-3" data-testid={`dataset-${d.source_key ?? d.id}`}>
+      <label className="flex items-start gap-2 text-sm font-medium">
+        <input type="checkbox" className="mt-0.5 size-4 accent-emerald-600" checked={!!visible[d.id]} disabled={loadingLayer === d.id} onChange={(e) => toggle(d, e.target.checked)} />
+        <span className="mt-1 inline-block size-2.5 shrink-0 rounded-full" style={{ background: colorOf(d.id) }} aria-hidden />
+        <span className="min-w-0 break-words">{d.title}</span>
+      </label>
+      <div className="mt-1.5 flex flex-wrap gap-1">
+        <Badge variant="navy">{d.layer_type}</Badge>
+        <Badge variant="neutral">
+          {d.feature_count} {t("exp2.features")}
+        </Badge>
+        <Badge variant="neutral">{d.scope}</Badge>
+        <DemoBadge show={d.is_demo || d.quality === "synthetic_demo"} />
+      </div>
+      <details className="mt-1">
+        <summary className="cursor-pointer text-xs text-muted-foreground">{t("exp2.meta.source_institution")}: {d.source_institution}</summary>
+        <MetaList d={d} />
+      </details>
+    </li>
+  );
 
   return (
     <>
@@ -274,12 +421,23 @@ export default function ExplorePage() {
             <span className="flex items-center gap-1.5">
               <span className="inline-block size-3 rounded-full border-2 border-gold-500 bg-navy-900" aria-hidden /> {t("exp2.projects")} ({mapProjects.length})
             </span>
+            {admin1Fc ? (
+              <span className="flex items-center gap-1.5">
+                <span className="inline-block size-3 rounded-sm border-2" style={{ borderColor: ADMIN1_COLOR }} aria-hidden /> {t("exp2.admin1")} ({admin1Fc.features.length})
+              </span>
+            ) : null}
+            {placesFc ? (
+              <span className="flex items-center gap-1.5">
+                <span className="inline-block size-3 rounded-full" style={{ background: PLACES_COLOR }} aria-hidden /> {t("exp2.settlements")} ({placesFc.features.length})
+              </span>
+            ) : null}
             {Object.values(visible).map((d) => (
               <span key={d.id} className="flex items-center gap-1.5">
                 <span className="inline-block size-3 rounded-full" style={{ background: colorOf(d.id) }} aria-hidden /> {d.title}
               </span>
             ))}
           </div>
+          {iso ? <ProfilePanel iso3={iso} /> : null}
         </div>
 
         <aside className="flex flex-col gap-4">
@@ -290,34 +448,45 @@ export default function ExplorePage() {
               </CardTitle>
             </CardHeader>
             <CardContent className="flex flex-col gap-3">
+              <div className="rounded-md border border-dashed border-border-strong p-3 text-sm" data-testid="boundary-status">
+                <div className="font-medium">{t("exp2.boundaries")}</div>
+                {!country ? <p className="mt-1 text-xs text-muted-foreground">{t("exp2.selectCountry")}</p> : null}
+                {country ? (
+                  <dl className="mt-1 grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-xs">
+                    <dt className="text-subtle-foreground">{t("exp2.admin1")}</dt>
+                    <dd data-testid="admin1-status">
+                      {admin1Fc ? `${admin1Fc.features.length} ${t("exp2.admin1Count")}` : admin1.loading ? <Loading /> : <Unavailable text={t("exp2.boundariesNa")} />}
+                    </dd>
+                    <dt className="text-subtle-foreground">{t("exp2.districts")}</dt>
+                    <dd>
+                      <Unavailable text={t("exp2.districtsNa")} />
+                    </dd>
+                    <dt className="text-subtle-foreground">{t("exp2.settlements")}</dt>
+                    <dd>{placesFc ? `${placesFc.features.length} ${t("exp2.placesCount")}` : places.loading ? <Loading /> : <Unavailable text={t("exp2.settlementsNa")} />}</dd>
+                  </dl>
+                ) : null}
+                {admin1Fc && admin1.data?.dataset ? (
+                  <p className="mt-2 text-xs text-muted-foreground">
+                    {t("exp2.boundarySource")}: {admin1.data.dataset.source_institution}, {admin1.data.dataset.publication_date}. {admin1.data.dataset.licence}
+                  </p>
+                ) : null}
+              </div>
               {datasets.loading && !datasets.data ? <Loading /> : null}
               {datasets.error ? <ErrorBox error={datasets.error} onRetry={datasets.reload} /> : null}
               {layerError ? <ErrorBox error={layerError} /> : null}
-              {datasets.data && datasets.data.length === 0 ? <p className="text-sm text-muted-foreground">{t("exp2.noDatasets")}</p> : null}
+              {platformSets.length ? (
+                <>
+                  <div className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{t("exp2.platformLayers")}</div>
+                  <ul className="flex flex-col gap-3" data-testid="platform-dataset-list">
+                    {platformSets.map(datasetItem)}
+                  </ul>
+                </>
+              ) : null}
+              <div className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{t("exp2.yourLayers")}</div>
+              {datasets.data && ownSets.length === 0 ? <p className="text-sm text-muted-foreground">{t("exp2.noDatasets")}</p> : null}
               <ul className="flex flex-col gap-3" data-testid="dataset-list">
-                {(datasets.data ?? []).map((d) => (
-                  <li key={d.id} className="rounded-md border border-border p-3">
-                    <label className="flex items-start gap-2 text-sm font-medium">
-                      <input type="checkbox" className="mt-0.5 size-4 accent-emerald-600" checked={!!visible[d.id]} disabled={loadingLayer === d.id} onChange={(e) => toggle(d, e.target.checked)} />
-                      <span className="mt-1 inline-block size-2.5 shrink-0 rounded-full" style={{ background: colorOf(d.id) }} aria-hidden />
-                      <span className="min-w-0 break-words">{d.title}</span>
-                    </label>
-                    <div className="mt-1.5 flex flex-wrap gap-1">
-                      <Badge variant="navy">{d.layer_type}</Badge>
-                      <Badge variant="neutral">
-                        {d.feature_count} {t("exp2.features")}
-                      </Badge>
-                      <Badge variant="neutral">{d.scope}</Badge>
-                      <DemoBadge show={d.is_demo || d.quality === "synthetic_demo"} />
-                    </div>
-                    <MetaList d={d} />
-                  </li>
-                ))}
+                {ownSets.map(datasetItem)}
               </ul>
-              <div className="rounded-md border border-dashed border-border-strong p-3">
-                <div className="text-sm font-medium">{t("exp2.boundaries")}</div>
-                <Unavailable text={t("exp2.boundariesNa")} />
-              </div>
             </CardContent>
           </Card>
           <Card>

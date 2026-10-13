@@ -36,7 +36,7 @@ class Settings(BaseSettings):
     smtp_port: int = 587
     smtp_user: str = ""
     smtp_password: str = ""
-    smtp_from: str = "no-reply@access360.africa"
+    smtp_from: str = ""                    # sender address on a domain the operator controls; required for smtp
     smtp_starttls: bool = True
     smtp_ssl: bool = False
     # application data key (Fernet) for field level encryption; see app/crypto.py and limitation L13

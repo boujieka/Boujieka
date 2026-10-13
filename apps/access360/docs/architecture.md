@@ -25,16 +25,18 @@ PostgreSQL 16 (row-level security on tenant tables) · local file storage for ge
 
 | Layer | Control |
 |---|---|
-| Authentication | Email and password (bcrypt, cost 12; policy: 12 or more characters, mixed case, a digit). Signed session token (HS256, 60 minutes) in an httpOnly, SameSite=Lax cookie. Bearer token accepted for API clients |
+| Authentication | Email and password (bcrypt, cost 12; policy: 12 or more characters, mixed case, a digit). Signed session token (HS256, 60 minutes, `typ=session`) in an httpOnly, SameSite=Lax cookie. Bearer token accepted for API clients |
+| Password lifecycle | `POST /api/auth/password/forgot` always answers 202 with the same body; the link is e-mailed (console backend in development, SMTP in production) and never returned. The reset token is signed with a purpose-derived key, lasts 30 minutes and is bound to a keyed fingerprint of the current password hash, so it stops working once used. `password/reset` and `password/change` apply the password policy |
+| Session revocation | Each session carries a version derived from the password hash: a password change or reset ends all earlier sessions (the changing session gets a new cookie). `POST /api/auth/logout-all` sets a per-user cut-off in Redis (in memory without Redis) that rejects every session issued before it. No new tables |
 | CSRF | Cookie-authenticated state-changing requests must carry `X-Requested-With: access360` |
-| MFA | TOTP (RFC 6238). Privileged actions (adding members, platform administration) require an MFA-verified session |
+| MFA | TOTP (RFC 6238). Privileged actions (adding members, platform administration) require an MFA-verified session. Secrets are not yet encrypted in the application: `app/crypto.py` (Fernet, key rotation) is ready but waits for a column migration (L13) |
 | Authorisation (API) | Every org-scoped route checks membership and minimum role (viewer < analyst < admin < owner). A non-member gets 404, so the API does not reveal that the organisation exists |
 | Authorisation (database) | The app connects as `access360_app`, which is not the table owner. Tenant tables have `ENABLE` and `FORCE ROW LEVEL SECURITY`, with policies on `org_id = current_setting('app.current_org')`. The context is set per transaction. With no context, queries return no rows |
 | Accreditation | Registering as an accredited organisation sets status `pending`. Only a platform administrator with an MFA session can verify or reject it |
 | Audit | `audit_logs` is append-only for the app role (UPDATE and DELETE revoked). It records registration, login, project changes, input changes, model runs, documents and accreditation |
 | Uploads | Parsed as data (JSON or CSV), size limited, validated against a GeoJSON subset, never rendered as HTML |
 | Headers | `X-Content-Type-Options`, `X-Frame-Options: DENY`, `Referrer-Policy`, and a request ID on every response |
-| Rate limit | Login: per IP and email, sliding window (in memory) |
+| Rate limit | Sliding window on login (IP and email), registration (IP), MFA verification (user), password forgot (IP and email), reset (IP) and change (user). Shared through Redis when `A360_REDIS_URL` is set (atomic Lua script, Redis clock); in memory otherwise and as the fallback if Redis fails |
 
 Tables **without** RLS (`users`, `organizations`, `memberships`) are only reached through API code paths that filter on the current user.
 

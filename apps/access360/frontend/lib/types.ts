@@ -83,6 +83,49 @@ export interface Project {
 export interface Country {
   iso3: string;
   name: string;
+  has_profile?: boolean;
+  /** [west, south, east, north] of the Natural Earth admin 0 boundary, or null */
+  bbox?: [number, number, number, number] | null;
+}
+
+export interface CountryIndicator {
+  key: string;
+  title: string;
+  unit: string;
+  description: string;
+  value: number | null;
+  year: number | null;
+  source: string;
+  source_key: string;
+  licence: string;
+  attribution: string;
+  quality: string;
+}
+
+export interface ReferenceSource {
+  key: string;
+  kind: "dataset" | "indicators";
+  title: string;
+  source_institution: string;
+  source_title: string | null;
+  version: string | null;
+  publication_date: string | null;
+  retrieval_date: string;
+  licence: string;
+  attribution: string;
+  quality: string;
+  limitations: string | null;
+  urls: string[];
+}
+
+export interface CountryProfile {
+  iso3: string;
+  name: string;
+  bbox: [number, number, number, number] | null;
+  indicators: CountryIndicator[];
+  admin1_count: number;
+  places_count: number;
+  sources: ReferenceSource[];
 }
 
 export interface Milestone {
@@ -139,6 +182,10 @@ export interface DatasetMeta {
   is_demo: boolean;
   retrieval_date: string;
   scope: "platform" | "organisation";
+  source_key?: string | null;
+  source_url?: string | null;
+  source_version?: string | null;
+  attribution?: string | null;
 }
 
 export interface GeoJSONFeatureCollection {

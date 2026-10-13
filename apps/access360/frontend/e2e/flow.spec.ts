@@ -85,5 +85,24 @@ test("register, model a project, export, switch language, optimizer and explore"
   await expect(page.getByRole("heading", { name: "Explore Africa" })).toBeVisible();
   await page.waitForTimeout(3000);
   await expect(page.getByRole("heading", { name: "Explore Africa" })).toBeVisible();
+
+  // 10. country profile and admin 1 regions from the bundled public reference data (python -m app.ingest_public)
+  await expect(page.getByTestId("platform-dataset-list")).toContainText("Natural Earth Admin 1");
+  await page.getByTestId("country-select").selectOption({ label: "Kenya" });
+  const profile = page.getByTestId("country-profile");
+  await expect(profile).toContainText("Kenya");
+  const api = await (await page.request.get("/api/countries/KEN/profile")).json();
+  const access = api.indicators.find((i: { key: string }) => i.key === "access_to_electricity");
+  const card = page.getByTestId("indicator-access_to_electricity");
+  await expect(card).toContainText("Access to electricity (% of population)");
+  await expect(card.getByTestId("indicator-year")).toHaveText(String(access.year));
+  await expect(card).toContainText("CC-BY-4.0");
+  await expect(page.getByTestId("indicator-renewables_share_elec")).toContainText("%");
+  await expect(page.getByTestId("profile-sources")).toContainText("Natural Earth");
+  await expect(page.getByTestId("admin1-status")).toContainText(`${api.admin1_count} regions`);
+  await expect(page.getByTestId("boundary-status")).toContainText("Data unavailable: upload a district boundary dataset");
+  await page.getByTestId("lang-fr").click();
+  await expect(page.getByTestId("country-profile")).toContainText("Profil pays");
+  await page.getByTestId("lang-en").click();
   expect(pageErrors, pageErrors.join("\n")).toEqual([]);
 });

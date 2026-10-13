@@ -43,6 +43,8 @@ class SmtpBackend:
         st = get_settings()
         if not st.smtp_host:
             raise RuntimeError("A360_SMTP_HOST is not set")
+        if not st.smtp_from:
+            raise RuntimeError("A360_SMTP_FROM is not set")
         msg = EmailMessage()
         msg["From"] = st.smtp_from
         msg["To"] = mail.to

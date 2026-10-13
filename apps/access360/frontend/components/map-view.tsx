@@ -2,6 +2,7 @@
 
 import "maplibre-gl/dist/maplibre-gl.css";
 import { useEffect, useRef, useState } from "react";
+import type * as maplibregl from "maplibre-gl";
 import type { GeoJSONSource, Map as MlMap, StyleSpecification } from "maplibre-gl";
 import { useI18n } from "@/lib/i18n";
 import type { GeoJSONFeatureCollection } from "@/lib/types";
@@ -31,7 +32,16 @@ export interface MapLayer {
   id: string;
   color: string;
   geojson: GeoJSONFeatureCollection;
+  /** polygon fill opacity (default 0.25); 0 draws outlines only */
+  fillOpacity?: number;
+  lineWidth?: number;
+  pointRadius?: number;
 }
+
+// GeoJSON sources report Multi* geometry types as such, so filters list both forms
+const POLY = ["in", ["geometry-type"], ["literal", ["Polygon", "MultiPolygon"]]] as unknown as maplibregl.FilterSpecification;
+const LINE = ["in", ["geometry-type"], ["literal", ["LineString", "MultiLineString", "Polygon", "MultiPolygon"]]] as unknown as maplibregl.FilterSpecification;
+const POINT = ["in", ["geometry-type"], ["literal", ["Point", "MultiPoint"]]] as unknown as maplibregl.FilterSpecification;
 
 async function loadStyle(): Promise<StyleSpecification | null> {
   const ctl = new AbortController();
@@ -234,11 +244,11 @@ export function MapView({
       try {
         map.addSource(`ds-${l.id}`, { type: "geojson", data: l.geojson as unknown as GeoJSON.FeatureCollection });
         map.addLayer(
-          { id: `ds-${l.id}-fl`, type: "fill", source: `ds-${l.id}`, filter: ["==", ["geometry-type"], "Polygon"], paint: { "fill-color": l.color, "fill-opacity": 0.25 } },
+          { id: `ds-${l.id}-fl`, type: "fill", source: `ds-${l.id}`, filter: POLY, paint: { "fill-color": l.color, "fill-opacity": l.fillOpacity ?? 0.25 } },
           "projects-circle",
         );
         map.addLayer(
-          { id: `ds-${l.id}-ln`, type: "line", source: `ds-${l.id}`, filter: ["in", ["geometry-type"], ["literal", ["LineString", "Polygon"]]], paint: { "line-color": l.color, "line-width": 2 } },
+          { id: `ds-${l.id}-ln`, type: "line", source: `ds-${l.id}`, filter: LINE, paint: { "line-color": l.color, "line-width": l.lineWidth ?? 2 } },
           "projects-circle",
         );
         map.addLayer(
@@ -246,8 +256,8 @@ export function MapView({
             id: `ds-${l.id}-pt`,
             type: "circle",
             source: `ds-${l.id}`,
-            filter: ["==", ["geometry-type"], "Point"],
-            paint: { "circle-radius": 5, "circle-color": l.color, "circle-stroke-color": "#ffffff", "circle-stroke-width": 1.5 },
+            filter: POINT,
+            paint: { "circle-radius": l.pointRadius ?? 5, "circle-color": l.color, "circle-stroke-color": "#ffffff", "circle-stroke-width": 1.5 },
           },
           "projects-circle",
         );

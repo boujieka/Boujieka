@@ -62,9 +62,9 @@ Optional variables: `E2E_BASE_URL` (default `http://127.0.0.1:3000`), `A360_JWT_
 
 ## Layout
 
-- `app/` routes: `/`, `/login`, `/register`, `/app` (dashboard), `/app/projects`, `/app/projects/new`,
+- `app/` routes: `/`, `/login`, `/register`, `/forgot-password`, `/reset-password?token=...`, `/app` (dashboard), `/app/projects`, `/app/projects/new`,
   `/app/projects/[id]?tab=overview|inputs|results|sensitivity|subsidy|milestones|exports`, `/app/optimizer`,
-  `/app/explore`, `/app/finance`, `/app/reports`, `/app/admin`, planned pages `/app/portfolio`,
+  `/app/explore`, `/app/finance`, `/app/reports`, `/app/admin` (members, MFA, account security: change password, log out everywhere), planned pages `/app/portfolio`,
   `/app/investors`, `/app/delivery`, and `/app/academy`
 - `components/ui/` hand-written shadcn-style primitives (button, card, badge, input, tabs, dropdown, table, alert)
 - `components/project/` project tabs; `components/charts.tsx` Recharts wrappers; `components/map-view.tsx` MapLibre
