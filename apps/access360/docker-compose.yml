@@ -26,6 +26,7 @@ services:
       A360_ENV: ${A360_ENV:-production}
       A360_DATABASE_URL: postgresql+psycopg://access360_app:${APP_DB_PASSWORD}@db:5432/access360
       A360_JWT_SECRET: ${A360_JWT_SECRET:?set A360_JWT_SECRET}
+      A360_DATA_KEY: ${A360_DATA_KEY:?set A360_DATA_KEY}
       A360_COOKIE_SECURE: ${A360_COOKIE_SECURE:-true}
       A360_CORS_ORIGINS: ${A360_CORS_ORIGINS:-http://localhost:3000}
     volumes:

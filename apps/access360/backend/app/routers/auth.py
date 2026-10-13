@@ -60,7 +60,16 @@ class ChangeIn(BaseModel):
 
 
 def _ip(request: Request) -> str:
-    return request.client.host if request.client else "x"
+    """Client address for per-IP limits. Behind N trusted proxies that each append to X-Forwarded-For
+    (A360_TRUSTED_PROXY_HOPS=N), the client is the N-th entry from the right; entries further left can be forged by
+    the client and are ignored. Too few entries means the request did not come through the proxy chain: use the
+    TCP peer."""
+    peer = request.client.host if request.client else "x"
+    hops = get_settings().trusted_proxy_hops
+    if hops <= 0:
+        return peer
+    chain = [p.strip() for p in request.headers.get("x-forwarded-for", "").split(",") if p.strip()]
+    return chain[-hops] if len(chain) >= hops else peer
 
 
 def _limit(key: str, per_minute: int) -> None:

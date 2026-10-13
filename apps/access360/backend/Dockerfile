@@ -9,4 +9,6 @@ COPY alembic.ini .
 RUN useradd --create-home appuser && mkdir -p /app/storage && chown appuser /app/storage
 USER appuser
 EXPOSE 8000
-CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port 8000 --proxy-headers"]
+# PORT is honoured for hosts that assign one. Migrations are a separate step (see docs/deployment.md):
+#   alembic upgrade head   (with A360_DATABASE_OWNER_URL set)
+CMD ["sh", "-c", "exec uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000} --proxy-headers"]

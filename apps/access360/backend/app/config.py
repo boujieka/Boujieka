@@ -21,6 +21,9 @@ class Settings(BaseSettings):
     jwt_minutes: int = 60
     cookie_secure: bool = False
     cors_origins: str = "http://localhost:3000"
+    # Number of reverse proxies in front of the API that append to X-Forwarded-For (for example the Netlify-hosted
+    # Next.js proxy plus the container host's load balancer = 2). 0 = use the TCP peer address. Used for per-IP limits.
+    trusted_proxy_hops: int = 0
     storage_dir: str = "storage"
     max_upload_mb: int = 20
     login_rate_per_minute: int = 10
@@ -52,6 +55,21 @@ class Settings(BaseSettings):
         self.jwt_secret = secrets.token_urlsafe(48)
         return self.jwt_secret
 
+
+    def startup_problems(self) -> list[str]:
+        """Configuration errors that must stop a production start. Empty outside production."""
+        if self.env != "production":
+            return []
+        out = []
+        if "database_url" not in self.model_fields_set:
+            out.append("A360_DATABASE_URL must be set in production (connection string of the non-owner app role)")
+        if not self.jwt_secret:
+            out.append("A360_JWT_SECRET must be set in production")
+        if not self.data_key.strip():
+            out.append("A360_DATA_KEY must be set in production")
+        if self.trusted_proxy_hops < 0:
+            out.append("A360_TRUSTED_PROXY_HOPS must be 0 or more")
+        return out
 
     def email_backend_name(self) -> str:
         if self.email_backend:

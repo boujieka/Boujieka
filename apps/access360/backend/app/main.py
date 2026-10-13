@@ -19,6 +19,12 @@ logging.basicConfig(level=logging.INFO, format='{"t":"%(asctime)s","level":"%(le
 
 @asynccontextmanager
 async def lifespan(_app):
+    st = get_settings()
+    problems = st.startup_problems()
+    if problems:
+        raise RuntimeError("ACCESS360 API refuses to start: " + "; ".join(problems))
+    if st.env == "production" and not st.cookie_secure:
+        log.warning('"A360_COOKIE_SECURE is false in production: the session cookie will also be sent over plain HTTP"')
     cipher()  # refuses to start in production without A360_DATA_KEY
     get_settings().secret()  # refuses to start in production without A360_JWT_SECRET
     yield
