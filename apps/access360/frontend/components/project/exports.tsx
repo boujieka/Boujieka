@@ -52,7 +52,13 @@ export function ExportsTab({ project }: { project: Project }) {
                     <FileText aria-hidden /> {t("exp.teaser")}
                   </a>
                 </Button>
+                <Button asChild variant="outline">
+                  <a href={`${base}/summary.pdf`} download onClick={refreshSoon} data-testid="download-summary">
+                    <FileText aria-hidden /> {t("exp.summary")}
+                  </a>
+                </Button>
               </div>
+              <p className="text-xs text-muted-foreground">{t("exp.xlsxNote")}</p>
               {run?.is_demo ? <p className="text-xs text-gold-700">{t("exp.demoNote")}</p> : null}
             </div>
           )}

@@ -20,3 +20,18 @@ Updated 12 October 2026.
 * No human expert review of the engine.
 * No Excel test of the export.
 * Phases 2 to 4 modules: portfolio score, marketplace, payments, delivery, verify, academy, copilot.
+
+## Milestone 2 (13 October 2026)
+
+| Item | State | Evidence |
+|---|---|---|
+| Engine: working capital, sculpting, DSRA draw | Done | tests/engine (test_working_capital..., test_sculpted..., test_dsra_is_drawn...) |
+| Live formula Excel export | Done | tests/engine/test_formula_xlsx.py: 4 cases recalculated in LibreOffice, 37 rows and metrics equal to the engine |
+| Public reference data | Done | docs/public-data-manifest.md; tests/api/test_public_data.py |
+| PostGIS context and screening | Done | tests/api/test_spatial.py |
+| Security hardening | Done | tests/api/test_security.py |
+| Score, gates, portfolios (API and interface) | Done | tests/api/test_portfolio.py; e2e/portfolio.spec.ts |
+| Three page summary | Done | API workflow test (3 pages) |
+| Test results | 120 backend tests passed; frontend tsc and lint clean; Playwright 2 passed (screenshots spec skipped by default) | rerun by the lead on 13 October 2026 |
+
+Not done: test in Microsoft Excel; the detailed memorandum and the other investment documents; raster layers; marketplace, payments, delivery, verify, academy, copilot.

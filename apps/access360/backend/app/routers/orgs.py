@@ -62,8 +62,10 @@ def dashboard(ctx: OrgCtx = Depends(org_ctx())):
     latest: dict[uuid.UUID, ModelRun] = {}
     for r in s.execute(select(ModelRun).order_by(ModelRun.created_at.desc())).scalars():
         latest.setdefault(r.project_id, r)
-    real = [p for p in projects if not p.is_demo]
-    demo = [p for p in projects if p.is_demo]
+    # a project counts as demo if it is flagged demo or its latest run uses illustrative (synthetic) inputs
+    is_demo = {p.id: p.is_demo or bool(latest.get(p.id) and latest[p.id].is_demo) for p in projects}
+    real = [p for p in projects if not is_demo[p.id]]
+    demo = [p for p in projects if is_demo[p.id]]
 
     def agg(ps):
         runs = [latest[p.id] for p in ps if p.id in latest]

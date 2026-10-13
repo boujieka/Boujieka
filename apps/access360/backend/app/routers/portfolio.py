@@ -103,7 +103,9 @@ def put_gates(pid: uuid.UUID, body: GatesIn, ctx: OrgCtx = Depends(org_ctx("anal
     if bad:
         raise HTTPException(422, f"Unknown or read-only gates: {', '.join(bad)} (model_checks comes from the latest model run)")
     p.gates = {**(p.gates or {}), **body.gates}
-    p.score_context = {**(p.score_context or {}), "months_to_power": body.months_to_power, "underserved_area": body.underserved_area}
+    # only the fields sent are changed, so a partial update never erases the other context values
+    upd = {k: getattr(body, k) for k in ("months_to_power", "underserved_area") if k in body.model_fields_set}
+    p.score_context = {**(p.score_context or {}), **upd}
     audit(ctx.session, "set_gates", "project", p.id, org_id=ctx.org.id, user_id=ctx.user.id, gates=body.gates)
     return {"gates": p.gates, "score_context": p.score_context}
 
@@ -181,7 +183,8 @@ def portfolio_analysis(fid: uuid.UUID, body: ScoreQuery = ScoreQuery(), ctx: Org
         si, sources = score_inputs(ctx, p)
         inputs.append(si)
         run = _latest(ctx, p.id)
-        meta[str(p.id)] = {"is_demo": p.is_demo, "country": p.country, "stage": p.stage, "sources": sources,
+        # a project whose latest run uses illustrative (synthetic) inputs is demo data, whatever the organisation
+        meta[str(p.id)] = {"is_demo": p.is_demo or bool(run and run.is_demo), "country": p.country, "stage": p.stage, "sources": sources,
                            "run_status": run.status if run else None,
                            "capex_usd": run.metrics.get("capex_total_usd") if run else None,
                            "connections": run.metrics.get("connections_target") if run else None,

@@ -114,7 +114,7 @@ def test_full_project_workflow(db_ready):
     assert {d["kind"] for d in docs} == {"model_xlsx", "teaser_pdf", "summary_pdf"}
     assert all(d["inputs_sha256"] == run["inputs_sha256"] for d in docs)
     dash = c.get(f"/api/orgs/{oid}/dashboard").json()
-    assert dash["real"]["projects"] == 1  # this org is not a demo org; the run is flagged demo by its inputs
+    assert dash["demo"]["projects"] == 1 and dash["real"]["projects"] == 0  # synthetic inputs count as demo
 
 
 def test_cross_tenant_access_blocked_at_api(db_ready):

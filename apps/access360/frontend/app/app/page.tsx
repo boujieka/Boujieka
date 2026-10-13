@@ -1,6 +1,7 @@
 "use client";
 
-import { AlertTriangle, CalendarClock, Info, XCircle } from "lucide-react";
+import Link from "next/link";
+import { AlertTriangle, ArrowRight, Briefcase, CalendarClock, Info, XCircle } from "lucide-react";
 import { DemoBadge, StatusBadge } from "@/components/badges";
 import { ChartFrame, HBarsChart } from "@/components/charts";
 import { Kpi } from "@/components/kpi";
@@ -13,7 +14,7 @@ import { date, moneyCompact, num } from "@/lib/format";
 import { useApi } from "@/lib/hooks";
 import { useI18n, type DictKey } from "@/lib/i18n";
 import { useSession } from "@/lib/session";
-import type { DashAgg, Dashboard } from "@/lib/types";
+import type { DashAgg, Dashboard, PortfolioSummary } from "@/lib/types";
 
 const STATUSES = ["validated", "warning", "failed_checks", "incomplete_inputs"] as const;
 
@@ -75,6 +76,7 @@ export default function DashboardPage() {
   const { org } = useSession();
   const { t, locale } = useI18n();
   const dash = useApi<Dashboard>(org ? orgPath(org.id, "/dashboard") : null);
+  const portfolios = useApi<PortfolioSummary[]>(org ? orgPath(org.id, "/portfolios") : null);
 
   return (
     <>
@@ -83,6 +85,22 @@ export default function DashboardPage() {
       {dash.error ? <ErrorBox error={dash.error} onRetry={dash.reload} /> : null}
       {dash.data ? (
         <div className="flex flex-col gap-6">
+          {portfolios.data && portfolios.data.length > 0 ? (
+            <Card data-testid="dash-portfolios">
+              <CardContent className="flex flex-wrap items-center justify-between gap-3 pt-4">
+                <div className="flex items-center gap-3">
+                  <Briefcase className="size-5 text-emerald-700" aria-hidden />
+                  <div>
+                    <p className="text-sm font-semibold text-navy-900">{t("pf.dashTitle")}</p>
+                    <p className="text-xs text-muted-foreground">{t("pf.dashText", { n: num(portfolios.data.length, locale) })}</p>
+                  </div>
+                </div>
+                <Link href="/app/portfolio" className="inline-flex items-center gap-1 text-sm font-medium text-navy-700 underline-offset-4 hover:underline">
+                  {t("pf.open")} <ArrowRight className="size-4" aria-hidden />
+                </Link>
+              </CardContent>
+            </Card>
+          ) : null}
           <div className="grid items-start gap-6 lg:grid-cols-2">
             <Panel agg={dash.data.real} demo={false} testId="panel-real" />
             <Panel agg={dash.data.demo} demo testId="panel-demo" />

@@ -62,7 +62,7 @@ export function ScoreBar({ score, decision, className }: { score: number; decisi
 export function GateOverrideNote() {
   const { t } = useI18n();
   return (
-    <span className="inline-flex items-center gap-1 text-xs font-medium text-danger-700" data-testid="gate-overrides">
+    <span className="inline-flex items-center gap-1 whitespace-nowrap text-xs font-medium text-danger-700" data-testid="gate-overrides">
       <ShieldAlert className="size-3.5" aria-hidden /> {t("score.gateOverrides")}
     </span>
   );
@@ -113,8 +113,10 @@ export function GatesList({ gates }: { gates: GateRow[] }) {
     <ul className="flex flex-col divide-y divide-border" data-testid="gates-list">
       {gates.map((g) => (
         <li key={g.gate} className="flex items-start justify-between gap-3 py-1.5 text-sm" data-testid={`gate-${g.gate}`}>
-          <span className="text-foreground">{t(`score.gate.${g.gate}` as DictKey)}</span>
-          <GateStateBadge state={g.state} />
+          <span className="min-w-0 text-foreground">{t(`score.gate.${g.gate}` as DictKey)}</span>
+          <span className="shrink-0">
+            <GateStateBadge state={g.state} />
+          </span>
         </li>
       ))}
     </ul>
@@ -131,7 +133,7 @@ export function SourcesList({ sources }: { sources: Record<string, string> }) {
       {keys.map((k) => (
         <div key={k} className="contents">
           <dt className="font-medium text-muted-foreground">{SOURCE_KEYS.includes(k) ? t(`score.src.${k}` as DictKey) : k}</dt>
-          <dd className="text-foreground">{sources[k]}</dd>
+          <dd className="break-words text-foreground">{sources[k]}</dd>
         </div>
       ))}
     </dl>

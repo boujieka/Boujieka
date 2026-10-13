@@ -111,7 +111,7 @@ function WeightsEditor({ draft, setDraft, onApply, onReset, busy }: { draft: Sco
 function RankingTable({ rows, onRemove, canEdit }: { rows: RankingRow[]; onRemove: (r: RankingRow) => void; canEdit: boolean }) {
   const { t, locale } = useI18n();
   const [open, setOpen] = useState<Record<string, boolean>>({});
-  const COLS = 12;
+  const COLS = 10;
   return (
     <TableWrap>
       <Table data-testid="ranking-table">
@@ -124,12 +124,10 @@ function RankingTable({ rows, onRemove, canEdit }: { rows: RankingRow[]; onRemov
             <Th>{t("common.project")}</Th>
             <Th>{t("pf.score")}</Th>
             <Th>{t("score.decision")}</Th>
-            <Th>{t("common.country")}</Th>
-            <Th>{t("common.stage")}</Th>
             <Th>{t("pf.modelStatus")}</Th>
-            <Th className="text-right">{t("pf.capex")}</Th>
-            <Th className="text-right">{t("pf.connections")}</Th>
-            <Th className="text-right">{t("pf.viabilityGap")}</Th>
+            <Th className="text-right whitespace-normal">{t("pf.capex")}</Th>
+            <Th className="text-right whitespace-normal">{t("pf.connections")}</Th>
+            <Th className="text-right whitespace-normal">{t("pf.viabilityGap")}</Th>
             <Th>
               <span className="sr-only">{t("common.actions")}</span>
             </Th>
@@ -159,10 +157,13 @@ function RankingTable({ rows, onRemove, canEdit }: { rows: RankingRow[]; onRemov
                   <Td className="whitespace-nowrap" data-testid="rank">
                     {r.rank === null ? <span className="text-xs italic text-subtle-foreground">{t("score.noRank")}</span> : <span className="text-base font-semibold tabular text-navy-900">{r.rank}</span>}
                   </Td>
-                  <Td className="min-w-48">
+                  <Td className="min-w-44">
                     <Link href={`/app/projects/${r.project_id}?tab=score`} className="font-medium text-navy-800 underline-offset-4 hover:underline">
                       {r.project_name}
                     </Link>
+                    <div className="text-xs text-muted-foreground">
+                      {r.country} · {t(`stage.${r.stage}` as DictKey)}
+                    </div>
                     {r.is_demo ? (
                       <div className="mt-1">
                         <DemoBadge />
@@ -171,7 +172,11 @@ function RankingTable({ rows, onRemove, canEdit }: { rows: RankingRow[]; onRemov
                   </Td>
                   <Td>
                     <ScoreBar score={r.score} decision={r.decision} />
-                    {r.score_is_partial ? <div className="mt-0.5 text-xs text-subtle-foreground">{t("score.partial", { n: r.missing_criteria.length })}</div> : null}
+                    {r.score_is_partial ? (
+                      <div className="mt-0.5 text-xs text-subtle-foreground" title={t("score.partial", { n: r.missing_criteria.length })}>
+                        {t("score.partialShort", { n: r.missing_criteria.length })}
+                      </div>
+                    ) : null}
                   </Td>
                   <Td>
                     <div className="flex flex-col items-start gap-1">
@@ -179,8 +184,6 @@ function RankingTable({ rows, onRemove, canEdit }: { rows: RankingRow[]; onRemov
                       {excluded ? <GateOverrideNote /> : null}
                     </div>
                   </Td>
-                  <Td className="whitespace-nowrap">{r.country}</Td>
-                  <Td className="whitespace-nowrap">{t(`stage.${r.stage}` as DictKey)}</Td>
                   <Td>
                     <StatusBadge status={r.run_status} />
                   </Td>
@@ -341,12 +344,13 @@ export default function PortfolioPage() {
           {error}
         </Alert>
       ) : null}
-      <div className="grid items-start gap-6 xl:grid-cols-[300px_minmax(0,1fr)]">
+      <div className="grid items-start gap-6 2xl:grid-cols-[300px_minmax(0,1fr)]">
         <Card>
           <CardHeader>
             <CardTitle>{t("pf.list")}</CardTitle>
           </CardHeader>
-          <CardContent className="flex flex-col gap-4">
+          <CardContent className="grid items-start gap-4 md:grid-cols-2 2xl:grid-cols-1">
+            <div className="flex min-w-0 flex-col gap-3">
             {list.loading && !list.data ? <Loading /> : null}
             {list.error ? <ErrorBox error={list.error} onRetry={list.reload} /> : null}
             {list.data && list.data.length === 0 ? <p className="text-sm text-muted-foreground">{t("pf.none")}</p> : null}
@@ -369,8 +373,9 @@ export default function PortfolioPage() {
                 ))}
               </ul>
             ) : null}
+            </div>
             {canEdit ? (
-              <form onSubmit={create} className="flex flex-col gap-3 border-t border-border pt-4" data-testid="create-portfolio">
+              <form onSubmit={create} className="flex flex-col gap-3 border-t border-border pt-4 md:border-t-0 md:border-l md:pt-0 md:pl-4 2xl:border-t 2xl:border-l-0 2xl:pt-4 2xl:pl-0" data-testid="create-portfolio">
                 <Field label={t("pf.name")} error={formErrors.name}>
                   {(id, d, inv) => <Input id={id} aria-describedby={d} aria-invalid={inv} required maxLength={200} value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />}
                 </Field>

@@ -1498,6 +1498,68 @@
     }
    }
   },
+  "/api/orgs/{org_id}/projects/{pid}/runs/{rid}/summary.pdf": {
+   "get": {
+    "tags": [
+     "projects"
+    ],
+    "summary": "Export Summary",
+    "description": "Three page project summary: project and financing, results and sensitivities, risks, readiness and sources.",
+    "operationId": "export_summary_api_orgs__org_id__projects__pid__runs__rid__summary_pdf_get",
+    "parameters": [
+     {
+      "name": "pid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Pid"
+      }
+     },
+     {
+      "name": "rid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Rid"
+      }
+     },
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
   "/api/countries": {
    "get": {
     "tags": [

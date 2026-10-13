@@ -28,8 +28,8 @@ def test_score_gates_and_portfolio_ranking(db_ready):
     first, second = an["ranking"]
     assert first["project_id"] == a and first["rank"] == 1
     assert second["decision"] == "excluded" and second["rank"] is None
-    # the demo inputs make these runs demo runs, so they are totalled as demo... but the projects are real (non demo org)
-    assert an["totals_real"]["projects"] == 2
+    # the runs use synthetic demo inputs, so both projects are totalled as demo, never as real
+    assert an["totals_demo"]["projects"] == 2 and an["totals_real"]["projects"] == 0
 
 
 def test_portfolio_is_tenant_isolated(db_ready):
@@ -43,3 +43,15 @@ def test_portfolio_is_tenant_isolated(db_ready):
     g = b.post(f"/api/orgs/{org_id(ub)}/portfolios", json={"name": "Mine"}).json()["id"]
     assert b.post(f"/api/orgs/{org_id(ub)}/portfolios/{g}/projects", json={"project_id": pid}).status_code == 404
     _ = (uuid, demo_inputs, PW)
+
+
+def test_gates_partial_update_and_project_returns_them(db_ready):
+    c = new_client()
+    u = register(c)
+    oid = org_id(u)
+    pid = make_project(c, oid)
+    c.put(f"/api/orgs/{oid}/projects/{pid}/gates", json={"gates": {"permits": "met"}, "months_to_power": 9, "underserved_area": True})
+    c.put(f"/api/orgs/{oid}/projects/{pid}/gates", json={"gates": {"land_rights": "met"}})
+    p = c.get(f"/api/orgs/{oid}/projects/{pid}").json()
+    assert p["gates"] == {"permits": "met", "land_rights": "met"}
+    assert p["score_context"] == {"months_to_power": 9, "underserved_area": True}

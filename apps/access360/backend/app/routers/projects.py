@@ -104,7 +104,7 @@ def create_project(body: ProjectIn, ctx: OrgCtx = Depends(org_ctx("analyst"))):
 @router.get("/projects/{pid}")
 def get_project(pid: uuid.UUID, ctx: OrgCtx = Depends(org_ctx())):
     p = _project(ctx, pid)
-    return {**project_out(p, _latest(ctx, pid)), "inputs": p.inputs}
+    return {**project_out(p, _latest(ctx, pid)), "inputs": p.inputs, "gates": p.gates or {}, "score_context": p.score_context or {}}
 
 
 @router.put("/projects/{pid}")

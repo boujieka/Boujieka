@@ -53,7 +53,8 @@ starts both if they are not already running (backend: seed demo + uvicorn on :80
 
 ```bash
 export PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers   # in the sandbox; elsewhere run `npx playwright install chromium` once
-npx playwright test e2e/flow.spec.ts               # register, project, demo inputs, run, sensitivity, teaser PDF, FR, optimizer, explore
+npx playwright test e2e/flow.spec.ts               # register, project, demo inputs, run, sensitivity, teaser and summary PDF, FR, optimizer, explore
+npx playwright test e2e/portfolio.spec.ts          # site context, gates, acceleration score, portfolio ranking (SCREENSHOTS=1 also writes its screenshots)
 SCREENSHOTS=1 npx playwright test e2e/screenshots.spec.ts   # writes ../docs/screenshots/*.png (demo workspace)
 ```
 
@@ -63,8 +64,8 @@ Optional variables: `E2E_BASE_URL` (default `http://127.0.0.1:3000`), `A360_JWT_
 ## Layout
 
 - `app/` routes: `/`, `/login`, `/register`, `/forgot-password`, `/reset-password?token=...`, `/app` (dashboard), `/app/projects`, `/app/projects/new`,
-  `/app/projects/[id]?tab=overview|inputs|results|sensitivity|subsidy|milestones|exports`, `/app/optimizer`,
-  `/app/explore`, `/app/finance`, `/app/reports`, `/app/admin` (members, MFA, account security: change password, log out everywhere), planned pages `/app/portfolio`,
+  `/app/projects/[id]?tab=overview|inputs|results|sensitivity|subsidy|score|milestones|exports`, `/app/optimizer`, `/app/portfolio`,
+  `/app/explore`, `/app/finance`, `/app/reports`, `/app/admin` (members, MFA, account security: change password, log out everywhere), planned pages
   `/app/investors`, `/app/delivery`, and `/app/academy`
 - `components/ui/` hand-written shadcn-style primitives (button, card, badge, input, tabs, dropdown, table, alert)
 - `components/project/` project tabs; `components/charts.tsx` Recharts wrappers; `components/map-view.tsx` MapLibre

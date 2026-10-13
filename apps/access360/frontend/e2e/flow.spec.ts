@@ -58,6 +58,11 @@ test("register, model a project, export, switch language, optimizer and explore"
   expect(pdf.status()).toBe(200);
   expect(pdf.headers()["content-type"]).toContain("application/pdf");
   expect((await pdf.body()).subarray(0, 5).toString()).toBe("%PDF-");
+  const summaryHref = await page.getByTestId("download-summary").getAttribute("href");
+  const summary = await page.request.get(summaryHref!);
+  expect(summary.status()).toBe(200);
+  expect(summary.headers()["content-type"]).toContain("application/pdf");
+  expect((await summary.body()).subarray(0, 5).toString()).toBe("%PDF-");
   const dl = page.waitForEvent("download");
   await page.getByTestId("download-teaser").click();
   expect((await dl).suggestedFilename()).toMatch(/\.pdf$/);

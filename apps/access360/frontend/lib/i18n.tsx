@@ -293,6 +293,8 @@ const en = {
   "exp.title": "Exports for the latest run",
   "exp.xlsx": "Excel model (.xlsx)",
   "exp.teaser": "One page teaser (.pdf)",
+  "exp.summary": "Project summary, three pages (.pdf)",
+  "exp.xlsxNote": "The Excel model is a live formula workbook with the sheets Summary, Inputs, Model and Run_*.",
   "exp.noRun": "Run the model first: exports are generated from a model run.",
   "exp.documents": "Generated documents",
   "exp.kind": "Document",
@@ -488,6 +490,7 @@ const en = {
   "score.src.readiness": "Readiness",
   "score.serverText": "Explanations and sources are returned by the server in English.",
   "score.gateOverrides": "Gate overrides the score",
+  "score.partialShort": "Partial: {n} criteria missing",
   "score.noRank": "Not ranked",
   "score.ptsOf": "{p} of {max} pts",
   "pf.title": "Portfolio",
@@ -530,7 +533,7 @@ const en = {
   "pf.showDetails": "Show details for {name}",
   "pf.running": "Running analysis…",
   "pf.dashTitle": "Portfolios",
-  "pf.dashText": "{n} portfolios, ranked with the Electrification Acceleration Score.",
+  "pf.dashText": "Saved portfolios: {n}. Projects are ranked with the Electrification Acceleration Score.",
   "pf.open": "Open portfolios",
 
   // site context (PostGIS)
@@ -827,6 +830,8 @@ const fr: Record<DictKey, string> = {
   "exp.title": "Exports du dernier calcul",
   "exp.xlsx": "Modèle Excel (.xlsx)",
   "exp.teaser": "Fiche d'une page (.pdf)",
+  "exp.summary": "Synthèse du projet, trois pages (.pdf)",
+  "exp.xlsxNote": "Le modèle Excel est un classeur à formules actives avec les feuilles Summary, Inputs, Model et Run_*.",
   "exp.noRun": "Lancez d'abord le modèle : les exports sont produits à partir d'un calcul.",
   "exp.documents": "Documents générés",
   "exp.kind": "Document",
@@ -1017,6 +1022,7 @@ const fr: Record<DictKey, string> = {
   "score.src.readiness": "Maturité",
   "score.serverText": "Les explications et les sources sont fournies par le serveur en anglais.",
   "score.gateOverrides": "La condition prime sur le score",
+  "score.partialShort": "Partiel : {n} critère(s) manquant(s)",
   "score.noRank": "Non classé",
   "score.ptsOf": "{p} sur {max} pts",
   "pf.title": "Portefeuille",
@@ -1059,7 +1065,7 @@ const fr: Record<DictKey, string> = {
   "pf.showDetails": "Afficher les détails de {name}",
   "pf.running": "Analyse en cours…",
   "pf.dashTitle": "Portefeuilles",
-  "pf.dashText": "{n} portefeuille(s), classés avec le score d'accélération de l'électrification.",
+  "pf.dashText": "Portefeuilles enregistrés : {n}. Les projets sont classés avec le score d'accélération de l'électrification.",
   "pf.open": "Ouvrir les portefeuilles",
 
   // site context (PostGIS)

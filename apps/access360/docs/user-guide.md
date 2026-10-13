@@ -25,7 +25,16 @@
    * The one-page teaser and the three-page project summary (project and financing; results and sensitivities; risks, readiness and sources) use only model outputs.
    * Both carry the run number, the engine version, the inputs hash and the date.
 
-## 3. Optimizer
+## 3. Portfolios and the Electrification Acceleration Score
+
+* **Score and gates tab:** set the five mandatory gates (land rights, permits, technical feasibility, environmental and social risk, regulatory restrictions). The sixth gate, model checks, is read from the latest model run and cannot be set by hand. You can also enter months to first power and whether the area is underserved.
+* **The score (0 to 100)** combines six criteria: access impact, financial and subsidy efficiency, readiness, speed, productive use and equity. Each criterion shows its points, its explanation and its source; missing data shows as "Data unavailable".
+* **Gates override the score.** A failed gate excludes the project whatever its score; an unknown gate puts it under review.
+* **Weights and scales** are initial design assumptions of the platform, not a validated standard. You can change them on the portfolio page.
+* **Portfolio page:** group projects, rank them, and read the totals. Real and synthetic demo projects are totalled separately. A project whose latest run uses illustrative inputs counts as demo.
+* **Site context** (Overview tab): country and region from Natural Earth, nearest Natural Earth places (a map selection, not a settlement inventory) and your own layers within 25 km.
+
+## 3b. Optimizer
 
 The optimizer compares options A to G for one settlement on annual energy and lifecycle cost.
 * Options that fail a technical gate are listed with the reason and never ranked.

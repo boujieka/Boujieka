@@ -10,7 +10,10 @@ import type { DocumentRow } from "@/lib/types";
 const KIND: Record<string, [string, string]> = {
   model_xlsx: ["Excel model", "Modèle Excel"],
   teaser_pdf: ["One page teaser (PDF)", "Fiche d'une page (PDF)"],
+  summary_pdf: ["Project summary (PDF)", "Synthèse du projet (PDF)"],
 };
+
+const FILE: Record<string, string> = { model_xlsx: "export.xlsx", teaser_pdf: "teaser.pdf", summary_pdf: "summary.pdf" };
 
 export function DocumentsTable({ docs, orgId, projects }: { docs: DocumentRow[]; orgId: string; projects?: Record<string, { name: string; is_demo: boolean }> }) {
   const { t, locale } = useI18n();
@@ -32,7 +35,7 @@ export function DocumentsTable({ docs, orgId, projects }: { docs: DocumentRow[];
         </thead>
         <tbody>
           {docs.map((d) => {
-            const ext = d.kind === "model_xlsx" ? "export.xlsx" : "teaser.pdf";
+            const ext = FILE[d.kind] ?? "teaser.pdf";
             const p = projects?.[d.project_id];
             return (
               <tr key={d.id}>
