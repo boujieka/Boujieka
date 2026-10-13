@@ -1,0 +1,8 @@
+# Netlify hosts the Next.js frontend only. The FastAPI + PostgreSQL/PostGIS backend runs elsewhere;
+# set BACKEND_URL (Builds + Functions scopes) to its public HTTPS URL, then redeploy.
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
