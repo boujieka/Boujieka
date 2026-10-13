@@ -22,7 +22,7 @@
 6. **Milestones.** Track feasibility, permits, tariff approval, financing, construction and commissioning.
 7. **Exports.**
    * The Excel export is a live formula model: change a blue input on the Inputs sheet and the Model and Summary sheets recalculate. The `Run_` sheets keep the values of the run for audit.
-   * The one-page teaser uses only model outputs.
+   * The one-page teaser and the three-page project summary (project and financing; results and sensitivities; risks, readiness and sources) use only model outputs.
    * Both carry the run number, the engine version, the inputs hash and the date.
 
 ## 3. Optimizer

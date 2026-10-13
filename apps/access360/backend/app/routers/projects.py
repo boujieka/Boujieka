@@ -266,3 +266,20 @@ def list_documents(ctx: OrgCtx = Depends(org_ctx())):
     rows = ctx.session.execute(select(GeneratedDocument).order_by(GeneratedDocument.created_at.desc()).limit(200)).scalars().all()
     return [{"id": str(d.id), "project_id": str(d.project_id), "run_id": str(d.run_id), "kind": d.kind, "engine_version": d.engine_version,
              "inputs_sha256": d.inputs_sha256, "file_sha256": d.file_sha256, "created_at": d.created_at.isoformat()} for d in rows]
+
+
+@router.get("/projects/{pid}/runs/{rid}/summary.pdf")
+def export_summary(pid: uuid.UUID, rid: uuid.UUID, ctx: OrgCtx = Depends(org_ctx())):
+    """Three page project summary: project and financing, results and sensitivities, risks, readiness and sources."""
+    from ..engine.inputs import ProjectInputs
+    from ..services.summary_pdf import summary_pdf
+    from .portfolio import score_inputs
+    from ..engine.score import score_project
+
+    p, r = _project(ctx, pid), _run(ctx, pid, rid)
+    sens = clean({"rows": sensitivity_table(ProjectInputs.model_validate(r.inputs_snapshot))})
+    si, _ = score_inputs(ctx, p)
+    ms = ctx.session.execute(select(Milestone).where(Milestone.project_id == pid).order_by(Milestone.due_date.nulls_last())).scalars().all()
+    data = summary_pdf(p, r, sens, score_project(si), ms)
+    _store(ctx, p, r, "summary_pdf", data, "pdf")
+    return Response(data, media_type="application/pdf", headers={"Content-Disposition": f'attachment; filename="{_fname(p, r, "pdf").replace(".pdf", "_summary.pdf")}"'})

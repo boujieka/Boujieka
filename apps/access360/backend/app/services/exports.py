@@ -157,13 +157,20 @@ def _values_workbook(project, run) -> bytes:
 def _money(x, ccy="USD"):
     if x is None:
         return "Not available"
-    if abs(x) >= 1e6:
-        return f"{ccy} {x / 1e6:,.2f}m"
-    return f"{ccy} {x:,.0f}"
+    neg = x < 0
+    v = abs(x)
+    txt = f"{ccy} {v / 1e6:,.2f}m" if v >= 1e6 else f"{ccy} {v:,.0f}"
+    return f"({txt})" if neg else txt
+
+
+def _mult(d):
+    return f"{d:.2f}x" if d >= 0 else f"({-d:.2f})x"
 
 
 def _pct(x):
-    return "Not available" if x is None else f"{x:.1%}"
+    if x is None:
+        return "Not available"
+    return f"{x:.1%}" if x >= 0 else f"({-x:.1%})"
 
 
 def teaser_pdf(project, run, milestones) -> bytes:
@@ -204,7 +211,7 @@ def teaser_pdf(project, run, milestones) -> bytes:
     ]
     if ok_outputs:
         rows += [["Expected returns", f"Project IRR {_pct(M.get('project_irr_post_subsidy'))} after subsidies ({_pct(M.get('project_irr_pre_subsidy'))} before); "
-                                      f"equity IRR {_pct(M.get('equity_irr'))}; minimum annual DSCR {M['dscr_min']:.2f}x" if M.get('dscr_min') is not None else
+                                      f"equity IRR {_pct(M.get('equity_irr'))}; minimum annual DSCR {_mult(M['dscr_min'])}" if M.get('dscr_min') is not None else
                                       f"Project IRR {_pct(M.get('project_irr_post_subsidy'))} after subsidies; equity IRR {_pct(M.get('equity_irr'))}"]]
     else:
         rows += [["Expected returns", "Not shown: the model has failed checks or incomplete inputs"]]

@@ -104,10 +104,14 @@ def test_full_project_workflow(db_ready):
     assert str(wb["Model"]["E20"].value).startswith("=")  # live formulas, not values
     cover = {wb["Summary"].cell(i, 1).value: wb["Summary"].cell(i, 2).value for i in range(1, 25)}
     assert cover["Model run"] == rid and cover["Inputs SHA-256"] == run["inputs_sha256"]
+    sm = c.get(f"/api/orgs/{oid}/projects/{pid}/runs/{rid}/summary.pdf")
+    assert sm.status_code == 200 and sm.content[:4] == b"%PDF"
+    import pypdf
+    assert len(pypdf.PdfReader(io.BytesIO(sm.content)).pages) == 3
     p = c.get(f"/api/orgs/{oid}/projects/{pid}/runs/{rid}/teaser.pdf")
     assert p.status_code == 200 and p.content[:4] == b"%PDF"
     docs = c.get(f"/api/orgs/{oid}/documents").json()
-    assert {d["kind"] for d in docs} == {"model_xlsx", "teaser_pdf"}
+    assert {d["kind"] for d in docs} == {"model_xlsx", "teaser_pdf", "summary_pdf"}
     assert all(d["inputs_sha256"] == run["inputs_sha256"] for d in docs)
     dash = c.get(f"/api/orgs/{oid}/dashboard").json()
     assert dash["real"]["projects"] == 1  # this org is not a demo org; the run is flagged demo by its inputs
