@@ -196,6 +196,144 @@
     }
    }
   },
+  "/api/auth/password/forgot": {
+   "post": {
+    "tags": [
+     "auth"
+    ],
+    "summary": "Password Forgot",
+    "description": "Same status and body whether or not the account exists; the e-mail is sent after the response.",
+    "operationId": "password_forgot_api_auth_password_forgot_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/ForgotIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "202": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/auth/password/reset": {
+   "post": {
+    "tags": [
+     "auth"
+    ],
+    "summary": "Password Reset",
+    "operationId": "password_reset_api_auth_password_reset_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/ResetIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/auth/password/change": {
+   "post": {
+    "tags": [
+     "auth"
+    ],
+    "summary": "Password Change",
+    "operationId": "password_change_api_auth_password_change_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/ChangeIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/auth/logout-all": {
+   "post": {
+    "tags": [
+     "auth"
+    ],
+    "summary": "Logout All",
+    "description": "Ends every session of this user, on every device, including this one.",
+    "operationId": "logout_all_api_auth_logout_all_post",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     }
+    }
+   }
+  },
   "/api/orgs/{org_id}/members": {
    "get": {
     "tags": [
@@ -259,7 +397,7 @@
      "content": {
       "application/json": {
        "schema": {
-        "$ref": "#/components/schemas/MemberIn"
+        "$ref": "#/components/schemas/app__routers__orgs__MemberIn"
        }
       }
      }
@@ -1366,6 +1504,7 @@
      "map and optimizer"
     ],
     "summary": "Countries",
+    "description": "The 54 countries. `has_profile` is true when the bundled public reference data has been ingested for the\ncountry; `bbox` ([west, south, east, north]) comes from the Natural Earth admin 0 boundary, or is null.",
     "operationId": "countries_api_countries_get",
     "responses": {
      "200": {
@@ -1379,12 +1518,174 @@
     }
    }
   },
+  "/api/countries/{iso3}/profile": {
+   "get": {
+    "tags": [
+     "map and optimizer"
+    ],
+    "summary": "Country Profile",
+    "description": "Indicators of the bundled public reference data, each with its year, unit, source, licence and attribution.\nA value that the source does not publish for the country is null (shown as \"Data unavailable\").",
+    "operationId": "country_profile_api_countries__iso3__profile_get",
+    "parameters": [
+     {
+      "name": "iso3",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Iso3"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/countries/{iso3}/boundary": {
+   "get": {
+    "tags": [
+     "map and optimizer"
+    ],
+    "summary": "Country Boundary",
+    "operationId": "country_boundary_api_countries__iso3__boundary_get",
+    "parameters": [
+     {
+      "name": "iso3",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Iso3"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/countries/{iso3}/admin1": {
+   "get": {
+    "tags": [
+     "map and optimizer"
+    ],
+    "summary": "Country Admin1",
+    "operationId": "country_admin1_api_countries__iso3__admin1_get",
+    "parameters": [
+     {
+      "name": "iso3",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Iso3"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/countries/{iso3}/places": {
+   "get": {
+    "tags": [
+     "map and optimizer"
+    ],
+    "summary": "Country Places",
+    "operationId": "country_places_api_countries__iso3__places_get",
+    "parameters": [
+     {
+      "name": "iso3",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Iso3"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
   "/api/orgs/{org_id}/datasets": {
    "get": {
     "tags": [
      "map and optimizer"
     ],
     "summary": "List Datasets",
+    "description": "Tenant datasets and platform datasets (org_id NULL, visible to every tenant through RLS).",
     "operationId": "list_datasets_api_orgs__org_id__datasets_get",
     "parameters": [
      {
@@ -1667,6 +1968,479 @@
      }
     }
    }
+  },
+  "/api/orgs/{org_id}/projects/{pid}/gates": {
+   "put": {
+    "tags": [
+     "portfolio and score"
+    ],
+    "summary": "Put Gates",
+    "operationId": "put_gates_api_orgs__org_id__projects__pid__gates_put",
+    "parameters": [
+     {
+      "name": "pid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Pid"
+      }
+     },
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/GatesIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/orgs/{org_id}/projects/{pid}/score": {
+   "post": {
+    "tags": [
+     "portfolio and score"
+    ],
+    "summary": "Project Score",
+    "operationId": "project_score_api_orgs__org_id__projects__pid__score_post",
+    "parameters": [
+     {
+      "name": "pid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Pid"
+      }
+     },
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/ScoreQuery",
+        "default": {
+         "weights": {
+          "access_impact": 0.2,
+          "financial_efficiency": 0.2,
+          "readiness": 0.15,
+          "speed": 0.15,
+          "productive_use": 0.15,
+          "equity": 0.15
+         },
+         "scales": {
+          "connections_high": 2000.0,
+          "subsidy_per_connection_usd_low": 0.0,
+          "subsidy_per_connection_usd_high": 1500.0,
+          "dscr_low": 1.0,
+          "dscr_high": 1.5,
+          "months_fast": 6.0,
+          "months_slow": 36.0
+         }
+        }
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/orgs/{org_id}/portfolios": {
+   "get": {
+    "tags": [
+     "portfolio and score"
+    ],
+    "summary": "List Portfolios",
+    "operationId": "list_portfolios_api_orgs__org_id__portfolios_get",
+    "parameters": [
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "post": {
+    "tags": [
+     "portfolio and score"
+    ],
+    "summary": "Create Portfolio",
+    "operationId": "create_portfolio_api_orgs__org_id__portfolios_post",
+    "parameters": [
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/PortfolioIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/orgs/{org_id}/portfolios/{fid}": {
+   "delete": {
+    "tags": [
+     "portfolio and score"
+    ],
+    "summary": "Delete Portfolio",
+    "operationId": "delete_portfolio_api_orgs__org_id__portfolios__fid__delete",
+    "parameters": [
+     {
+      "name": "fid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Fid"
+      }
+     },
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/orgs/{org_id}/portfolios/{fid}/projects": {
+   "post": {
+    "tags": [
+     "portfolio and score"
+    ],
+    "summary": "Add To Portfolio",
+    "operationId": "add_to_portfolio_api_orgs__org_id__portfolios__fid__projects_post",
+    "parameters": [
+     {
+      "name": "fid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Fid"
+      }
+     },
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/app__routers__portfolio__MemberIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/orgs/{org_id}/portfolios/{fid}/projects/{pid}": {
+   "delete": {
+    "tags": [
+     "portfolio and score"
+    ],
+    "summary": "Remove From Portfolio",
+    "operationId": "remove_from_portfolio_api_orgs__org_id__portfolios__fid__projects__pid__delete",
+    "parameters": [
+     {
+      "name": "fid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Fid"
+      }
+     },
+     {
+      "name": "pid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Pid"
+      }
+     },
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/orgs/{org_id}/portfolios/{fid}/analysis": {
+   "post": {
+    "tags": [
+     "portfolio and score"
+    ],
+    "summary": "Portfolio Analysis",
+    "description": "Ranking with the score and gates, and totals. Real and synthetic demo projects are totalled separately.",
+    "operationId": "portfolio_analysis_api_orgs__org_id__portfolios__fid__analysis_post",
+    "parameters": [
+     {
+      "name": "fid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Fid"
+      }
+     },
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/ScoreQuery",
+        "default": {
+         "weights": {
+          "access_impact": 0.2,
+          "financial_efficiency": 0.2,
+          "readiness": 0.15,
+          "speed": 0.15,
+          "productive_use": 0.15,
+          "equity": 0.15
+         },
+         "scales": {
+          "connections_high": 2000.0,
+          "subsidy_per_connection_usd_low": 0.0,
+          "subsidy_per_connection_usd_high": 1500.0,
+          "dscr_low": 1.0,
+          "dscr_high": 1.5,
+          "months_fast": 6.0,
+          "months_slow": 36.0
+         }
+        }
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
   }
  },
  "components": {
@@ -1785,6 +2559,28 @@
     ],
     "title": "CapexItem"
    },
+   "ChangeIn": {
+    "properties": {
+     "current_password": {
+      "type": "string",
+      "maxLength": 200,
+      "minLength": 1,
+      "title": "Current Password"
+     },
+     "new_password": {
+      "type": "string",
+      "maxLength": 200,
+      "minLength": 1,
+      "title": "New Password"
+     }
+    },
+    "type": "object",
+    "required": [
+     "current_password",
+     "new_password"
+    ],
+    "title": "ChangeIn"
+   },
    "CompareIn": {
     "properties": {
      "settlement": {
@@ -1794,7 +2590,7 @@
       "$ref": "#/components/schemas/OptionCosts"
      },
      "weights": {
-      "$ref": "#/components/schemas/Weights",
+      "$ref": "#/components/schemas/app__engine__optimizer__Weights",
       "default": {
        "economic_cost": 0.25,
        "time": 0.15,
@@ -1923,6 +2719,7 @@
      "layer_type": {
       "type": "string",
       "enum": [
+       "boundaries",
        "settlements",
        "grid",
        "substations",
@@ -2071,9 +2868,11 @@
       "type": "string",
       "enum": [
        "annuity",
-       "straight_line"
+       "straight_line",
+       "sculpted"
       ],
       "title": "Amortisation",
+      "description": "sculpted: debt service = CFADS / target DSCR, debt sized by its present value (LCY tranches only)",
       "default": "annuity"
      }
     },
@@ -2127,6 +2926,14 @@
       "description": "Distributions blocked when the quarter DSCR is below this",
       "default": 1.2
      },
+     "target_dscr": {
+      "type": "number",
+      "maximum": 5.0,
+      "exclusiveMinimum": 1.0,
+      "title": "Target Dscr",
+      "description": "Target DSCR for sculpted tranches",
+      "default": 1.3
+     },
      "min_cash": {
       "type": "number",
       "minimum": 0.0,
@@ -2137,6 +2944,63 @@
     },
     "type": "object",
     "title": "Financing"
+   },
+   "ForgotIn": {
+    "properties": {
+     "email": {
+      "type": "string",
+      "format": "email",
+      "title": "Email"
+     }
+    },
+    "type": "object",
+    "required": [
+     "email"
+    ],
+    "title": "ForgotIn"
+   },
+   "GatesIn": {
+    "properties": {
+     "gates": {
+      "additionalProperties": {
+       "type": "string",
+       "enum": [
+        "met",
+        "not_met",
+        "unknown"
+       ]
+      },
+      "type": "object",
+      "title": "Gates"
+     },
+     "months_to_power": {
+      "anyOf": [
+       {
+        "type": "number",
+        "maximum": 240.0,
+        "minimum": 0.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Months To Power",
+      "description": "Months from today to first power, user estimate"
+     },
+     "underserved_area": {
+      "anyOf": [
+       {
+        "type": "boolean"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Underserved Area"
+     }
+    },
+    "type": "object",
+    "title": "GatesIn"
    },
    "GrantMilestone": {
     "properties": {
@@ -2338,30 +3202,6 @@
     ],
     "title": "Macro"
    },
-   "MemberIn": {
-    "properties": {
-     "email": {
-      "type": "string",
-      "format": "email",
-      "title": "Email"
-     },
-     "role": {
-      "type": "string",
-      "enum": [
-       "admin",
-       "analyst",
-       "viewer"
-      ],
-      "title": "Role"
-     }
-    },
-    "type": "object",
-    "required": [
-     "email",
-     "role"
-    ],
-    "title": "MemberIn"
-   },
    "MilestoneIn": {
     "properties": {
      "title": {
@@ -2442,6 +3282,22 @@
       "title": "Collection Efficiency",
       "description": "Share of billed revenue collected",
       "default": 0.95
+     },
+     "receivable_days": {
+      "type": "number",
+      "maximum": 91.0,
+      "minimum": 0.0,
+      "title": "Receivable Days",
+      "description": "Average days between billing and collection (0 = prepaid)",
+      "default": 0.0
+     },
+     "payable_days": {
+      "type": "number",
+      "maximum": 91.0,
+      "minimum": 0.0,
+      "title": "Payable Days",
+      "description": "Average days between an operating cost and its payment",
+      "default": 0.0
      }
     },
     "type": "object",
@@ -2661,6 +3517,27 @@
     "title": "OptionCosts",
     "description": "All costs in LCY. Values must come from quotes, programme data or cited benchmarks."
    },
+   "PortfolioIn": {
+    "properties": {
+     "name": {
+      "type": "string",
+      "maxLength": 200,
+      "minLength": 1,
+      "title": "Name"
+     },
+     "description": {
+      "type": "string",
+      "maxLength": 2000,
+      "title": "Description",
+      "default": ""
+     }
+    },
+    "type": "object",
+    "required": [
+     "name"
+    ],
+    "title": "PortfolioIn"
+   },
    "ProjectIn": {
     "properties": {
      "name": {
@@ -2804,6 +3681,7 @@
        "dsra_quarters": 2,
        "maintenance_reserve": true,
        "lockup_dscr": 1.2,
+       "target_dscr": 1.3,
        "min_cash": 0.0
       }
      },
@@ -2930,6 +3808,28 @@
     ],
     "title": "RegisterIn"
    },
+   "ResetIn": {
+    "properties": {
+     "token": {
+      "type": "string",
+      "maxLength": 2000,
+      "minLength": 10,
+      "title": "Token"
+     },
+     "new_password": {
+      "type": "string",
+      "maxLength": 200,
+      "minLength": 1,
+      "title": "New Password"
+     }
+    },
+    "type": "object",
+    "required": [
+     "token",
+     "new_password"
+    ],
+    "title": "ResetIn"
+   },
    "Review": {
     "properties": {
      "reviewed_by": {
@@ -2953,6 +3853,89 @@
      "reviewed_on"
     ],
     "title": "Review"
+   },
+   "Scales": {
+    "properties": {
+     "connections_high": {
+      "type": "number",
+      "exclusiveMinimum": 0.0,
+      "title": "Connections High",
+      "description": "Connections scoring 1.0 on access impact",
+      "default": 2000
+     },
+     "subsidy_per_connection_usd_low": {
+      "type": "number",
+      "minimum": 0.0,
+      "title": "Subsidy Per Connection Usd Low",
+      "description": "Subsidy per connection scoring 1.0",
+      "default": 0
+     },
+     "subsidy_per_connection_usd_high": {
+      "type": "number",
+      "exclusiveMinimum": 0.0,
+      "title": "Subsidy Per Connection Usd High",
+      "description": "Subsidy per connection scoring 0.0",
+      "default": 1500
+     },
+     "dscr_low": {
+      "type": "number",
+      "title": "Dscr Low",
+      "description": "Minimum DSCR scoring 0.0",
+      "default": 1.0
+     },
+     "dscr_high": {
+      "type": "number",
+      "title": "Dscr High",
+      "description": "Minimum DSCR scoring 1.0",
+      "default": 1.5
+     },
+     "months_fast": {
+      "type": "number",
+      "exclusiveMinimum": 0.0,
+      "title": "Months Fast",
+      "description": "Months to first power scoring 1.0",
+      "default": 6
+     },
+     "months_slow": {
+      "type": "number",
+      "exclusiveMinimum": 0.0,
+      "title": "Months Slow",
+      "description": "Months to first power scoring 0.0",
+      "default": 36
+     }
+    },
+    "type": "object",
+    "title": "Scales",
+    "description": "Anchors mapping raw values to 0..1 (linear, clipped). Initial design assumptions; configurable."
+   },
+   "ScoreQuery": {
+    "properties": {
+     "weights": {
+      "$ref": "#/components/schemas/app__engine__score__Weights",
+      "default": {
+       "access_impact": 0.2,
+       "financial_efficiency": 0.2,
+       "readiness": 0.15,
+       "speed": 0.15,
+       "productive_use": 0.15,
+       "equity": 0.15
+      }
+     },
+     "scales": {
+      "$ref": "#/components/schemas/Scales",
+      "default": {
+       "connections_high": 2000.0,
+       "subsidy_per_connection_usd_low": 0.0,
+       "subsidy_per_connection_usd_high": 1500.0,
+       "dscr_low": 1.0,
+       "dscr_high": 1.5,
+       "months_fast": 6.0,
+       "months_slow": 36.0
+      }
+     }
+    },
+    "type": "object",
+    "title": "ScoreQuery"
    },
    "Settlement": {
     "properties": {
@@ -3329,7 +4312,7 @@
     ],
     "title": "ValidationError"
    },
-   "Weights": {
+   "app__engine__optimizer__Weights": {
     "properties": {
      "economic_cost": {
       "type": "number",
@@ -3370,6 +4353,81 @@
     "type": "object",
     "title": "Weights",
     "description": "Initial design weights, configurable. Not a validated scientific standard."
+   },
+   "app__engine__score__Weights": {
+    "properties": {
+     "access_impact": {
+      "type": "number",
+      "title": "Access Impact",
+      "default": 0.2
+     },
+     "financial_efficiency": {
+      "type": "number",
+      "title": "Financial Efficiency",
+      "default": 0.2
+     },
+     "readiness": {
+      "type": "number",
+      "title": "Readiness",
+      "default": 0.15
+     },
+     "speed": {
+      "type": "number",
+      "title": "Speed",
+      "default": 0.15
+     },
+     "productive_use": {
+      "type": "number",
+      "title": "Productive Use",
+      "default": 0.15
+     },
+     "equity": {
+      "type": "number",
+      "title": "Equity",
+      "default": 0.15
+     }
+    },
+    "type": "object",
+    "title": "Weights",
+    "description": "Initial design weights (sum 1). Configurable; not a validated standard."
+   },
+   "app__routers__orgs__MemberIn": {
+    "properties": {
+     "email": {
+      "type": "string",
+      "format": "email",
+      "title": "Email"
+     },
+     "role": {
+      "type": "string",
+      "enum": [
+       "admin",
+       "analyst",
+       "viewer"
+      ],
+      "title": "Role"
+     }
+    },
+    "type": "object",
+    "required": [
+     "email",
+     "role"
+    ],
+    "title": "MemberIn"
+   },
+   "app__routers__portfolio__MemberIn": {
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "format": "uuid",
+      "title": "Project Id"
+     }
+    },
+    "type": "object",
+    "required": [
+     "project_id"
+    ],
+    "title": "MemberIn"
    }
   }
  }

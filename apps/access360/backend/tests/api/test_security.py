@@ -99,14 +99,55 @@ def test_production_refuses_without_data_key(settings, monkeypatch):
         crypto.cipher()
 
 
-def test_mfa_secret_column_too_narrow_for_fernet(settings, monkeypatch):
-    """Documents why encryption is not wired yet (L13): when a migration widens the column, this test fails as a
-    reminder to wire app/crypto.py into the MFA routes."""
-    from app import crypto
+def test_mfa_secret_is_encrypted_in_the_database_and_still_works(db_ready):
+    """L13: the column is wide enough for Fernet tokens, the stored value is ciphertext, and TOTP login works."""
+    import os
+
+    from sqlalchemy import create_engine, text
+
+    from app.main import app
     from app.models import User
-    monkeypatch.setattr(settings, "data_key", Fernet.generate_key().decode())
-    assert User.__table__.c.mfa_secret.type.length == 64
-    assert len(crypto.encrypt(pyotp.random_base32())) > 64
+    from fastapi.testclient import TestClient
+    assert User.__table__.c.mfa_secret.type.length >= 255
+    c = TestClient(app)
+    c.headers.update({"x-requested-with": "access360"})
+    email = f"enc{uuid.uuid4().hex[:8]}@example.com"
+    pw = "Correct-horse-42-battery"
+    assert c.post("/api/auth/register", json={"email": email, "password": pw, "full_name": "E", "org_name": "O",
+                                              "org_kind": "developer", "accept_terms": True}).status_code == 201
+    secret = c.post("/api/auth/mfa/setup").json()["secret"]
+    assert c.post("/api/auth/mfa/verify", json={"code": pyotp.TOTP(secret).now()}).status_code == 200
+    with create_engine(os.environ["A360_DATABASE_OWNER_URL"]).connect() as conn:
+        stored = conn.execute(text("select mfa_secret from users where email = :e"), {"e": email}).scalar()
+    assert stored != secret and secret not in stored and len(stored) > 64
+    c2 = TestClient(app)
+    c2.headers.update({"x-requested-with": "access360"})
+    r = c2.post("/api/auth/login", json={"email": email, "password": pw, "totp": pyotp.TOTP(secret).now()})
+    assert r.status_code == 200 and r.json()["session_mfa"] is True
+
+
+def test_legacy_plaintext_secret_is_reencrypted_on_use(db_ready):
+    import os
+
+    from sqlalchemy import create_engine, text
+
+    from app.main import app
+    from fastapi.testclient import TestClient
+    c = TestClient(app)
+    c.headers.update({"x-requested-with": "access360"})
+    email = f"leg{uuid.uuid4().hex[:8]}@example.com"
+    pw = "Correct-horse-42-battery"
+    c.post("/api/auth/register", json={"email": email, "password": pw, "full_name": "E", "org_name": "O",
+                                       "org_kind": "developer", "accept_terms": True})
+    plain = pyotp.random_base32()
+    eng = create_engine(os.environ["A360_DATABASE_OWNER_URL"])
+    with eng.begin() as conn:
+        conn.execute(text("update users set mfa_secret = :s, mfa_enabled = true where email = :e"), {"s": plain, "e": email})
+    r = c.post("/api/auth/login", json={"email": email, "password": pw, "totp": pyotp.TOTP(plain).now()})
+    assert r.status_code == 200
+    with eng.connect() as conn:
+        stored = conn.execute(text("select mfa_secret from users where email = :e"), {"e": email}).scalar()
+    assert stored != plain and plain not in stored
 
 
 # ------------------------------------------------------------------ L14 rate limiting

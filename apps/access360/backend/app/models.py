@@ -40,7 +40,7 @@ class User(Base):
     full_name: Mapped[str] = mapped_column(String(200))
     locale: Mapped[str] = mapped_column(String(5), default="en")
     is_superadmin: Mapped[bool] = mapped_column(Boolean, default=False)
-    mfa_secret: Mapped[str | None] = mapped_column(String(64), nullable=True)
+    mfa_secret: Mapped[str | None] = mapped_column(String(255), nullable=True)  # Fernet ciphertext (app/crypto.py)
     mfa_enabled: Mapped[bool] = mapped_column(Boolean, default=False)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=now)
 
@@ -69,6 +69,8 @@ class Project(Base):  # TENANT
     inputs_version: Mapped[int] = mapped_column(Integer, default=0)
     is_demo: Mapped[bool] = mapped_column(Boolean, default=False)
     marketplace_visible: Mapped[bool] = mapped_column(Boolean, default=False)
+    gates: Mapped[dict] = mapped_column(JSONType, default=dict)  # mandatory gate states for the acceleration score
+    score_context: Mapped[dict] = mapped_column(JSONType, default=dict)  # months_to_power, underserved_area (user)
     created_by: Mapped[uuid.UUID | None] = mapped_column(UUID(as_uuid=True), nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=now)
     updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=now, onupdate=now)
@@ -186,4 +188,23 @@ class AuditLog(Base):  # TENANT (org_id NULL for account level events)
     at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=now)
 
 
-TENANT_TABLES = ("projects", "model_runs", "milestones", "generated_documents", "datasets", "audit_logs")
+TENANT_TABLES = ("projects", "model_runs", "milestones", "generated_documents", "datasets", "audit_logs", "portfolios", "portfolio_projects")
+
+
+class Portfolio(Base):  # TENANT
+    __tablename__ = "portfolios"
+    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uid)
+    org_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("organizations.id", ondelete="CASCADE"), index=True)
+    name: Mapped[str] = mapped_column(String(200))
+    description: Mapped[str] = mapped_column(Text, default="")
+    created_by: Mapped[uuid.UUID | None] = mapped_column(UUID(as_uuid=True), nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=now)
+
+
+class PortfolioProject(Base):  # TENANT
+    __tablename__ = "portfolio_projects"
+    __table_args__ = (UniqueConstraint("portfolio_id", "project_id"),)
+    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uid)
+    org_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("organizations.id", ondelete="CASCADE"), index=True)
+    portfolio_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("portfolios.id", ondelete="CASCADE"), index=True)
+    project_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("projects.id", ondelete="CASCADE"), index=True)

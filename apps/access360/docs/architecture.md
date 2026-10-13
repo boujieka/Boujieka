@@ -51,7 +51,9 @@ Tables **without** RLS (`users`, `organizations`, `memberships`) are only reache
 | model_runs | yes (RLS) | Immutable record of one engine run: inputs snapshot and SHA-256, engine version, status, checks, warnings, metrics, annual and quarterly results |
 | milestones | yes (RLS) | Basic project management |
 | generated_documents | yes (RLS) | Every export, with the run, engine version, inputs hash and file hash |
-| datasets | yes (RLS; `org_id` NULL = platform dataset, read-only) | Map layers with mandatory metadata |
+| datasets | yes (RLS; `org_id` NULL = platform dataset, read-only) | Map layers with mandatory metadata; platform rows also carry `source_key`, `source_url`, `source_version`, `attribution` |
+| reference_sources | no (SELECT only for the app role) | Provenance record of each bundled public source (URLs, commits, SHA-256, licence, attribution) |
+| country_profiles | no (SELECT only for the app role) | Per country: indicators with value, year, unit, source and licence; boundary bbox |
 | audit_logs | yes (RLS insert/read) | Audit trail |
 
 Migrations: Alembic (`backend/migrations`). Migrations run as the owner role. The app role has only DML grants.
@@ -62,7 +64,7 @@ Migrations: Alembic (`backend/migrations`). Migrations run as the owner role. Th
 |---|---|
 | ACCESS FINANCE | Engine, runs, checks, status, sensitivities, tornado, minimum subsidy, XLSX export (values), one-page teaser |
 | ACCESS OPTIMIZER | Screening comparison of options A to G, feasibility gates, weighted score, Pareto flag, least-cost and recommended option with explanation |
-| ACCESS MAP | Country list, project markers, dataset registry with mandatory metadata, GeoJSON and CSV upload. No third-party data bundled (licensing and network) |
+| ACCESS MAP | Country list, project markers, dataset registry with mandatory metadata, GeoJSON and CSV upload. Bundled public reference data (Natural Earth boundaries and places, OWID and WDI indicators), loaded by `python -m app.ingest_public`; see docs/public-data-manifest.md |
 | Project management | Projects, stages, milestones, dashboard alerts |
 | MARKETPLACE, DELIVERY, VERIFY, ACADEMY, Copilot, billing | Planned (see roadmap). Data model fields reserved: `marketplace_visible`, `plan` |
 

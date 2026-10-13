@@ -89,7 +89,9 @@ Optional variables: `E2E_BASE_URL` (default `http://127.0.0.1:3000`), `A360_JWT_
   `passed: "Assumptions not yet reviewed..."`). The UI shows the text defensively; the backend should fix the
   positional `Check(...)` call in `engine/checks.py`.
 - The dashboard alerts and milestones lists come from the API as one list (they are not figures, so nothing is summed).
-- No country boundary data is bundled: choosing a country fits the map to that country's projects only.
+- Country boundaries, admin 1 regions, populated places and the country profile come from the bundled public
+  reference data (Natural Earth, Our World in Data, World Bank WDI via a mirror; see `../docs/public-data-manifest.md`).
+  Run `python -m app.ingest_public` in the backend once, or the Explore page shows "Data unavailable".
 - Inputs field labels are bilingual; texts produced by the backend (check labels, warnings, optimizer
   explanation) are shown in English as returned.
 - Dark mode is not implemented (light theme only).

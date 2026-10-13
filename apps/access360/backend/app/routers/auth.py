@@ -15,6 +15,9 @@ from ..models import Membership, Organization, User
 from ..security import (hash_password, limiter, make_reset_token, make_token, new_totp_secret, password_problems,
                         read_reset_token, reset_token_matches, revocations, totp_ok, totp_uri, verify_password)
 from ..services import email as mailer
+from cryptography.fernet import InvalidToken
+
+from ..crypto import decrypt, encrypt
 from ..services.audit import audit
 
 router = APIRouter(prefix="/api/auth", tags=["auth"])
@@ -107,6 +110,21 @@ def register(body: RegisterIn, request: Request, resp: Response, s: Session = De
     return user_out(s, u)
 
 
+def _check_totp(u: User, code: str) -> bool:
+    """Verify a TOTP code against the encrypted secret; re-encrypt legacy plaintext or old-key ciphertext on success."""
+    if not u.mfa_secret:
+        return False
+    try:
+        plain, rewrap = decrypt(u.mfa_secret)
+    except InvalidToken:
+        return False  # no configured data key can read it (key lost or not rotated correctly)
+    if not totp_ok(plain, code):
+        return False
+    if rewrap:
+        u.mfa_secret = encrypt(plain)
+    return True
+
+
 @router.post("/login")
 def login(body: LoginIn, request: Request, resp: Response, s: Session = Depends(get_session)):
     _limit(f"login:{_ip(request)}:{body.email.lower()}", get_settings().login_rate_per_minute)
@@ -117,7 +135,7 @@ def login(body: LoginIn, request: Request, resp: Response, s: Session = Depends(
     if u.mfa_enabled:
         if not body.totp:
             raise HTTPException(401, "MFA code required", headers={"X-MFA-Required": "1"})
-        if not totp_ok(u.mfa_secret or "", body.totp):
+        if not _check_totp(u, body.totp):
             raise HTTPException(401, "MFA code not valid")
         mfa = True
     tok = make_token(u.id, mfa=mfa, password_hash=u.password_hash)
@@ -141,14 +159,15 @@ def me(ctx: Ctx = Depends(current_user)):
 def mfa_setup(ctx: Ctx = Depends(current_user)):
     if ctx.user.mfa_enabled:
         raise HTTPException(400, "MFA already enabled")
-    ctx.user.mfa_secret = new_totp_secret()
-    return {"secret": ctx.user.mfa_secret, "otpauth_uri": totp_uri(ctx.user.mfa_secret, ctx.user.email)}
+    secret = new_totp_secret()
+    ctx.user.mfa_secret = encrypt(secret)  # stored encrypted at rest (limitation L13)
+    return {"secret": secret, "otpauth_uri": totp_uri(secret, ctx.user.email)}
 
 
 @router.post("/mfa/verify")
 def mfa_verify(body: TotpIn, resp: Response, ctx: Ctx = Depends(current_user)):
     _limit(f"mfa:{ctx.user.id}", get_settings().mfa_rate_per_minute)
-    if not ctx.user.mfa_secret or not totp_ok(ctx.user.mfa_secret, body.code):
+    if not ctx.user.mfa_secret or not _check_totp(ctx.user, body.code):
         raise HTTPException(400, "Code not valid")
     ctx.user.mfa_enabled = True
     audit(ctx.session, "mfa_enabled", "user", ctx.user.id, user_id=ctx.user.id)

@@ -39,3 +39,16 @@
 | B14 | Verify: connection taxonomy and verification rules | 4 |
 | B15 | Copilot: provider-agnostic LLM layer, retrieval over approved documents, schema-validated outputs, citations, human review | 4 |
 | B16 | Academy: catalogue, enrolment, lessons, quizzes, certificates (no external accreditation claims) | 4 |
+
+## Milestone 2 status (13 October 2026)
+
+| Item | State |
+|---|---|
+| Owner review of the MVP | Recorded (docs/reviews/2026-10-13-owner-review.md) |
+| Working capital, DSCR sculpting, DSRA drawn before equity | Done, tested (B1, B2) |
+| Live formula Excel export | Done, verified against the engine after LibreOffice recalculation (B3) |
+| Public reference data (Natural Earth, OWID energy, WDI access via a mirror) | Done, with manifest and hashes (part of B8) |
+| Security: MFA encryption, Redis limits, password reset and change, log out everywhere | Done, tested |
+| Acceleration Score with mandatory gates, portfolios and portfolio analysis | Done in the API; interface in progress (B6, B7) |
+| PostGIS | Not done: PostGIS is not installed in this environment; geometry stays GeoJSON |
+| Three-page summary, memorandum and other documents | Not started (B4, B5) |

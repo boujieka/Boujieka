@@ -41,6 +41,7 @@ export A360_DATABASE_OWNER_URL=postgresql+psycopg://postgres@127.0.0.1:5433/acce
 export A360_JWT_SECRET=dev-secret-change-me-0123456789
 alembic upgrade head
 A360_DEMO_PASSWORD='Demo-password-2027' python -m app.seed demo
+python -m app.ingest_public                  # bundled public reference data (see docs/public-data-manifest.md)
 uvicorn app.main:app --port 8000            # API docs at http://127.0.0.1:8000/docs
 
 # 3. tests

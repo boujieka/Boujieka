@@ -5,16 +5,26 @@ import logging
 import time
 import uuid
 
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 
 from .config import ENGINE_VERSION, get_settings
-from .routers import auth, geo, orgs, projects
+from .crypto import cipher
+from .routers import auth, geo, orgs, portfolio, projects
 
 log = logging.getLogger("access360")
 logging.basicConfig(level=logging.INFO, format='{"t":"%(asctime)s","level":"%(levelname)s","msg":%(message)s}')
 
-app = FastAPI(title="ACCESS360 AFRICA API", version=ENGINE_VERSION,
+@asynccontextmanager
+async def lifespan(_app):
+    cipher()  # refuses to start in production without A360_DATA_KEY
+    get_settings().secret()  # refuses to start in production without A360_JWT_SECRET
+    yield
+
+
+app = FastAPI(title="ACCESS360 AFRICA API", version=ENGINE_VERSION, lifespan=lifespan,
               description="Electrification investment, finance and delivery intelligence. Financial outputs come from the "
                           "deterministic ACCESS FINANCE engine; nothing in this API is investment advice.")
 app.add_middleware(CORSMiddleware, allow_origins=[o.strip() for o in get_settings().cors_origins.split(",") if o.strip()],
@@ -41,5 +51,5 @@ def health():
     return {"status": "ok", "engine_version": ENGINE_VERSION}
 
 
-for r in (auth.router, orgs.router, projects.router, geo.router):
+for r in (auth.router, orgs.router, projects.router, geo.router, portfolio.router):
     app.include_router(r)

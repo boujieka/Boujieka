@@ -452,16 +452,16 @@ export default function ExplorePage() {
                 <div className="font-medium">{t("exp2.boundaries")}</div>
                 {!country ? <p className="mt-1 text-xs text-muted-foreground">{t("exp2.selectCountry")}</p> : null}
                 {country ? (
-                  <dl className="mt-1 grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-xs">
-                    <dt className="text-subtle-foreground">{t("exp2.admin1")}</dt>
+                  <dl className="mt-1 flex flex-col gap-0.5 text-xs">
+                    <dt className="mt-1 text-subtle-foreground">{t("exp2.admin1")}</dt>
                     <dd data-testid="admin1-status">
                       {admin1Fc ? `${admin1Fc.features.length} ${t("exp2.admin1Count")}` : admin1.loading ? <Loading /> : <Unavailable text={t("exp2.boundariesNa")} />}
                     </dd>
-                    <dt className="text-subtle-foreground">{t("exp2.districts")}</dt>
+                    <dt className="mt-1 text-subtle-foreground">{t("exp2.districts")}</dt>
                     <dd>
                       <Unavailable text={t("exp2.districtsNa")} />
                     </dd>
-                    <dt className="text-subtle-foreground">{t("exp2.settlements")}</dt>
+                    <dt className="mt-1 text-subtle-foreground">{t("exp2.settlements")}</dt>
                     <dd>{placesFc ? `${placesFc.features.length} ${t("exp2.placesCount")}` : places.loading ? <Loading /> : <Unavailable text={t("exp2.settlementsNa")} />}</dd>
                   </dl>
                 ) : null}
