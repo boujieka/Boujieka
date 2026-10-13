@@ -1,7 +1,9 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { api } from "./api";
+import { api, BackendUnavailableError, errorMessage } from "./api";
+import { useI18n } from "./i18n";
+import { useSession } from "./session";
 
 export interface Loadable<T> {
   data: T | null;
@@ -14,7 +16,9 @@ export interface Loadable<T> {
 /** GET a JSON resource; pass null to skip. */
 export function useApi<T>(path: string | null): Loadable<T> {
   const [data, setData] = useState<T | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const { t } = useI18n();
+  const { markUnavailable } = useSession();
+  const [failure, setFailure] = useState<unknown>(null);
   const [loading, setLoading] = useState<boolean>(!!path);
   const [tick, setTick] = useState(0);
 
@@ -27,10 +31,10 @@ export function useApi<T>(path: string | null): Loadable<T> {
       .then((d) => {
         if (!alive) return;
         setData(d);
-        setError(null);
+        setFailure(null);
       })
       .catch((e: unknown) => {
-        if (alive) setError(e instanceof Error ? e.message : String(e));
+        if (alive) setFailure(e);
       })
       .finally(() => {
         if (alive) setLoading(false);
@@ -40,6 +44,12 @@ export function useApi<T>(path: string | null): Loadable<T> {
     };
   }, [path, tick]);
 
+  useEffect(() => {
+    if (failure instanceof BackendUnavailableError) markUnavailable();
+  }, [failure, markUnavailable]);
+
+  // translated at render time so the unavailability notice follows the language toggle
+  const error = failure === null ? null : errorMessage(failure, t);
   const reload = useCallback(() => setTick((x) => x + 1), []);
   return { data, error, loading, reload, setData };
 }

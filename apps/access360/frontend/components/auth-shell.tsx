@@ -1,5 +1,6 @@
 "use client";
 import type { ReactNode } from "react";
+import { BackendNotice } from "@/components/backend-notice";
 import { Brand } from "@/components/brand";
 import { LangToggle } from "@/components/lang-toggle";
 import { useI18n } from "@/lib/i18n";
@@ -16,6 +17,7 @@ export function AuthShell({ title, children }: { title: string; children: ReactN
         <div className="w-full max-w-md rounded-lg border border-border bg-surface p-6 shadow-sm sm:p-8">
           <h1 className="text-xl font-semibold tracking-tight text-navy-900">{title}</h1>
           <p className="mt-1 text-xs text-muted-foreground">{t("brand.tagline")}</p>
+          <BackendNotice className="mt-6" />
           <div className="mt-6">{children}</div>
         </div>
       </main>

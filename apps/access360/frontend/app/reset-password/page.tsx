@@ -8,13 +8,15 @@ import { Field } from "@/components/field";
 import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { api } from "@/lib/api";
+import { api, isBackendUnavailable } from "@/lib/api";
 import { useI18n } from "@/lib/i18n";
+import { useSession } from "@/lib/session";
 
 const linkCls = "text-sm font-medium text-navy-700 underline-offset-4 hover:underline";
 
 function ResetForm() {
   const { t } = useI18n();
+  const { markUnavailable } = useSession();
   const token = useSearchParams().get("token") ?? "";
   const [pw, setPw] = useState("");
   const [pw2, setPw2] = useState("");
@@ -55,7 +57,8 @@ function ResetForm() {
       await api("/api/auth/password/reset", { method: "POST", body: { token, new_password: pw } });
       setDone(true);
     } catch (err) {
-      setError(err instanceof Error ? err.message : String(err));
+      if (isBackendUnavailable(err)) markUnavailable();
+      else setError(err instanceof Error ? err.message : String(err));
     } finally {
       setBusy(false);
     }

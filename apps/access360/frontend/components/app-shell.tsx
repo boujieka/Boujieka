@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
 import { Building2, ChevronDown, LogOut, Menu, User, X } from "lucide-react";
+import { BackendNotice } from "@/components/backend-notice";
 import { Brand } from "@/components/brand";
 import { DemoBadge } from "@/components/badges";
 import { LangToggle } from "@/components/lang-toggle";
@@ -110,15 +111,15 @@ function UserMenu() {
 }
 
 export function AppShell({ children }: { children: ReactNode }) {
-  const { me, loading, error, org, refresh } = useSession();
+  const { me, loading, error, unavailable, org, refresh } = useSession();
   const { t } = useI18n();
   const pathname = usePathname();
   const router = useRouter();
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    if (!loading && !me && !error) router.replace(`/login?next=${encodeURIComponent(pathname)}`);
-  }, [loading, me, error, router, pathname]);
+    if (!loading && !me && !error && !unavailable) router.replace(`/login?next=${encodeURIComponent(pathname)}`);
+  }, [loading, me, error, unavailable, router, pathname]);
 
   const active = (href: string, exact?: boolean) => (exact ? pathname === href : pathname === href || pathname.startsWith(`${href}/`));
 
@@ -198,7 +199,20 @@ export function AppShell({ children }: { children: ReactNode }) {
             <DemoBadge />
           </div>
         ) : null}
-        {loading ? <Loading /> : error ? <ErrorBox error={error} onRetry={() => void refresh()} /> : !me ? <Loading /> : !org ? <ErrorBox error="No organisation" /> : children}
+        {loading ? (
+          <Loading />
+        ) : unavailable ? (
+          <BackendNotice>
+            <div className="flex flex-wrap gap-2">
+              <Button size="sm" variant="outline" onClick={() => void refresh()}>
+                {t("common.retry")}
+              </Button>
+              <Button asChild size="sm" variant="outline">
+                <Link href="/">{t("common.backHome")}</Link>
+              </Button>
+            </div>
+          </BackendNotice>
+        ) : error ? <ErrorBox error={error} onRetry={() => void refresh()} /> : !me ? <Loading /> : !org ? <ErrorBox error="No organisation" /> : children}
       </main>
       <footer className="border-t border-border bg-surface">
         <div className="mx-auto max-w-7xl px-4 py-4 text-xs text-subtle-foreground sm:px-6">{t("home.footer")}</div>

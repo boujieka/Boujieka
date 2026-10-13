@@ -8,7 +8,7 @@ import { Field } from "@/components/field";
 import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { api, ApiError } from "@/lib/api";
+import { api, ApiError, isBackendUnavailable } from "@/lib/api";
 import { useI18n } from "@/lib/i18n";
 import { useSession } from "@/lib/session";
 
@@ -19,7 +19,7 @@ function LoginForm() {
   const router = useRouter();
   const params = useSearchParams();
   const demo = params.get("demo") === "1";
-  const { refresh } = useSession();
+  const { refresh, markUnavailable } = useSession();
   const [email, setEmail] = useState(demo ? DEMO_EMAIL : "");
   const [password, setPassword] = useState("");
   const [totp, setTotp] = useState("");
@@ -37,7 +37,9 @@ function LoginForm() {
       const next = params.get("next");
       router.push(next && next.startsWith("/app") ? next : "/app");
     } catch (err) {
-      if (err instanceof ApiError && err.status === 401 && err.headers.get("X-MFA-Required") === "1") {
+      if (isBackendUnavailable(err)) {
+        markUnavailable();
+      } else if (err instanceof ApiError && err.status === 401 && err.headers.get("X-MFA-Required") === "1") {
         setNeedTotp(true);
         setError(null);
       } else {

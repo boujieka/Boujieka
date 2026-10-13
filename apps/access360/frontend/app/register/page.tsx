@@ -8,7 +8,7 @@ import { Field } from "@/components/field";
 import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Input, Select } from "@/components/ui/input";
-import { api, ApiError } from "@/lib/api";
+import { api, ApiError, isBackendUnavailable } from "@/lib/api";
 import { useI18n, type DictKey } from "@/lib/i18n";
 import { useSession } from "@/lib/session";
 import { passwordOk } from "@/lib/utils";
@@ -19,7 +19,7 @@ type Kind = (typeof KINDS)[number];
 export default function RegisterPage() {
   const { t, locale } = useI18n();
   const router = useRouter();
-  const { refresh } = useSession();
+  const { refresh, markUnavailable } = useSession();
   const [form, setForm] = useState({ full_name: "", email: "", password: "", org_name: "", org_kind: "developer" as Kind, accept_terms: false });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [error, setError] = useState<string | null>(null);
@@ -41,6 +41,10 @@ export default function RegisterPage() {
       await refresh();
       router.push("/app");
     } catch (err) {
+      if (isBackendUnavailable(err)) {
+        markUnavailable();
+        return;
+      }
       if (err instanceof ApiError) {
         setErrors(err.fieldErrors());
       }

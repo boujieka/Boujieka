@@ -58,6 +58,9 @@ const en = {
   "common.download": "Download",
   "common.notAllowed": "Your role does not allow this action.",
   "common.optional": "optional",
+  "common.backendUnavailable":
+    "The ACCESS360 service is not connected at the moment. Sign-in, projects and models are unavailable. The public pages still work.",
+  "common.backHome": "Back to the home page",
 
   // status
   "status.validated": "Validated",
@@ -608,6 +611,9 @@ const fr: Record<DictKey, string> = {
   "common.download": "Télécharger",
   "common.notAllowed": "Votre rôle ne permet pas cette action.",
   "common.optional": "facultatif",
+  "common.backendUnavailable":
+    "Le service ACCESS360 n'est pas connecté pour le moment. La connexion, les projets et les modèles sont indisponibles. Les pages publiques restent accessibles.",
+  "common.backHome": "Retour à la page d'accueil",
 
   "status.validated": "Validé",
   "status.warning": "Avertissement",

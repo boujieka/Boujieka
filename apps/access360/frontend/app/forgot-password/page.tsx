@@ -7,11 +7,13 @@ import { Field } from "@/components/field";
 import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { api } from "@/lib/api";
+import { api, isBackendUnavailable } from "@/lib/api";
 import { useI18n } from "@/lib/i18n";
+import { useSession } from "@/lib/session";
 
 export default function ForgotPasswordPage() {
   const { t } = useI18n();
+  const { markUnavailable } = useSession();
   const [email, setEmail] = useState("");
   const [sent, setSent] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -26,7 +28,8 @@ export default function ForgotPasswordPage() {
       await api("/api/auth/password/forgot", { method: "POST", body: { email } });
       setSent(true);
     } catch (err) {
-      setError(err instanceof Error ? err.message : String(err));
+      if (isBackendUnavailable(err)) markUnavailable();
+      else setError(err instanceof Error ? err.message : String(err));
     } finally {
       setBusy(false);
     }

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { ArrowRight, BarChart3, BookOpen, Building2, Compass, Handshake, HardHat, Landmark, Map, ShieldCheck, Users } from "lucide-react";
+import { BackendNotice } from "@/components/backend-notice";
 import { Brand } from "@/components/brand";
 import { LangToggle } from "@/components/lang-toggle";
 import { Badge } from "@/components/ui/badge";
@@ -67,6 +68,7 @@ export default function HomePage() {
               <Link href="/login?demo=1">{t("home.demo")}</Link>
             </Button>
           </div>
+          <BackendNotice className="mt-8 max-w-2xl" />
         </section>
       </header>
 
