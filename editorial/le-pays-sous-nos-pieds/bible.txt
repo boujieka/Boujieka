@@ -1,0 +1,944 @@
+#! Source de la Bible V2.1 : python build_bible.py produit le PDF. Syntaxe décrite en tête de build_bible.py.
+=== COVER
+author: EMMANUEL BOUJIEKA KAMGA
+series: Le Pays / sous nos pieds
+tagline: Chroniques de nos ressources, de notre argent et de notre avenir
+volume: LA RENTRÉE DES PROMESSES
+version: Bible narrative révisée • Version 2.1 • enrichissement documentaire • 15 octobre 2026
+pitch: Une école sans assez de bancs. Un quartier où passent les richesses. Une année pour apprendre à demander des comptes sans perdre les siens.
+
+## Le pari du volume
+Douze épisodes reliés par des choix, des dettes, des erreurs et des réparations. Le bois, le pétrole, le gaz, l’or, le diamant et les carrières entrent dans l’histoire parce qu’ils bouleversent la vie des personnages.
+
+## La promesse
+Une histoire pour comprendre. Des sources pour vérifier. Une question pour agir.
+
+## Périmètre de cette version
+La V2.1 conserve intégralement le récit de la V2.0 (univers, personnages, arcs, planches, pilotes). Elle ajoute un dossier documentaire : registre de 59 sources (contre 6), ancrages documentaires par épisode, corrections de cadre juridique, registre des chiffres candidats et liste des pièces à demander. Les scènes restent fictives ; les faits publics relèvent du dossier documentaire. Ce document est une bible de développement, pas le scénario lettré complet des 48 planches.
+~ Format maintenu : 12 × 4 planches narratives + épilogue de 2 planches + 8 à 10 pages documentaires, soit 58 à 60 pages hors couverture.
+> Avertissement de vérification : les 53 sources ajoutées en V2.1 ont été repérées par recherche en ligne le 15 octobre 2026, mais leurs pages n’ont pas pu être ouvertes depuis l’environnement de travail. Elles portent la mention REPÉRÉ tant qu’un relecteur ne les a pas lues. Aucun chiffre REPÉRÉ ne va en bulle ou en encart avant lecture du document.
+
+=== PAGE
+kicker: BIBLE NARRATIVE • VOLUME 1 / CAMEROUN
+title: Ce que change la V2.1
+
+## Le récit ne bouge pas
+Aucune scène, réplique, planche ni aucun personnage de la V2.0 n’est modifié. Les ajouts se trouvent en bas de chaque épisode (« Ancrage documentaire V2.1 », « Sources V2.1 ») et dans les pages documentaires de fin.
+
+## Quatre corrections de cadre
+- Forêt : la loi n° 94/01 de 1994 n’est plus la référence. Elle est abrogée par la loi n° 2024/008 du 24 juillet 2024 portant régime des forêts et de la faune (S7, S8). Toute bulle citant « la loi forestière » renvoie désormais au texte de 2024.
+- Mines : le Code minier de 2016 est remplacé par la loi n° 2023/014 du 19 décembre 2023 (S41, S42), complétée par des décrets d’application à partir de novembre 2024 (S47, S48).
+- Gaz : l’usine flottante de liquéfaction de Kribi a quitté le Cameroun en juillet 2026 (S31). Un épisode 6 daté de 2026 ou après ne peut plus montrer d’export de GNL en cours depuis Kribi.
+- Or : le « prélèvement de 15 % » parfois attribué à la SONAMINES n’a été retrouvé dans aucun texte. Il est retiré des pistes (S40, S42).
+
+## Ce qui est ajouté
+- Un registre de 59 sources (S1 à S59), dont 53 nouvelles, classées par filière, avec type, niveau d’accès et usage permis.
+- Un ancrage documentaire et une liste de pièces à demander pour chacun des 12 épisodes.
+- Un registre des chiffres candidats aux encarts, chacun avec sa source et son statut.
+- Un relevé des divergences entre sources, ainsi que des demandes à adresser aux administrations.
+- Deux niveaux d’accès dans la charte de vérité : LU et REPÉRÉ.
+
+> Limite principale : le 15 octobre 2026, les sites officiels n’ont pas pu être ouverts depuis l’environnement de travail. Les sources nouvelles sont REPÉRÉES (titre, URL et extrait vus en résultat de recherche), pas LUES. Le passage de REPÉRÉ à LU est la première tâche de la relecture.
+
+=== PAGE
+kicker: BIBLE NARRATIVE • VOLUME 1 / CAMEROUN
+title: Ce qui fait tourner les pages
+
+## Une question incarnée
+Kalo ne réclame pas une leçon sur les ressources. Il veut pouvoir écrire sans poser son cahier sur ses genoux. Sa mère Aline veut l’aider, sans sacrifier la maison qu’elle construit depuis des années. Bello veut fabriquer les bancs ; il n’a encore ni atelier stable ni trésorerie. Joël veut qu’on respecte les règles, mais son salaire dépend des camions que l’enquête questionne.
+
+## Une échéance visible
+Au début de l’année scolaire, le recensement fictif de l’école révèle un besoin de 60 bancs. Ce nombre appartient au récit et ne décrit aucune école réelle. L’association fixe une étape à chaque trimestre ; la fête de fin d’année devient le rendez-vous où l’on devra montrer ce qui a été obtenu, ce qui manque et pourquoi.
+
+## Trois fils qui se croisent
+Le banc : fabriquer et financer un bien utile. Le cahier : apprendre à suivre l’argent et ses pièces. La confiance : savoir si les personnages peuvent encore compter les uns sur les autres après leurs erreurs. Chaque épisode fait avancer au moins deux de ces fils.
+
+## Une opposition crédible
+Le manque d’argent, les délais, la peur de perdre son travail, les intérêts commerciaux et l’emballement de la rumeur suffisent à créer le conflit. Aucun cerveau unique ne contrôle le bois, le pétrole, l’or et la mairie. Une affaire locale fictive apparaît dans les derniers épisodes, sans expliquer toutes les difficultés du pays.
+
+## Une victoire qui coûte
+Aline devra rendre ses propres comptes ; Mina corriger un reportage ; Bello reconnaître un défaut de fabrication ; Joël refuser un trajet mal documenté. Le lecteur s’attache à ceux qui risquent quelque chose pour appliquer les principes qu’ils défendent.
+
+> Le suspense ne porte pas seulement sur « où est l’argent ? », mais sur « que feront-ils lorsqu’ils auront la réponse ? »
+
+=== PAGE
+kicker: BIBLE NARRATIVE • VOLUME 1 / CAMEROUN
+title: Le fil rouge : soixante places
+
+## Ouverture
+Un banc ancien casse au moment où Kalo se penche pour écrire. Personne n’est blessé. Il termine sa phrase debout. Le même jour, un grumier s’immobilise devant l’école. L’abondance visible et le manque concret se rencontrent dans une seule image.
+
+## Premier mouvement : croire qu’il suffit de demander
+Aline pense qu’une recette forestière permettra d’acheter les bancs. Bello pense qu’il suffit de trouver du bois. Les premiers épisodes révèlent des coûts, des droits et des obligations distincts. Un prototype raté devient le banc du Parlement du poteau, puis un objet récurrent.
+
+## Deuxième mouvement : la facture arrive
+Le carburant augmente les frais de transport dans la fiction ; la cantine manque de gaz. Aline envisage de prendre dans la caisse scolaire pour régler une urgence. Mina promet une émission percutante et découvre la tentation de publier une explication trop simple. Joël commence à trouver l’enquête dangereuse pour sa réputation professionnelle.
+
+## Point de rupture : l’erreur de Mina
+À l’Est, elle publie trop vite un message qui mélange une divergence nationale sur l’or et les images d’un chantier familial fictif. Le quartier désigne Ndoumbè. Il ne s’agit d’aucune preuve contre lui. La correction rétablit les faits, mais la blessure familiale reste et traverse les épisodes suivants.
+
+## Dernier mouvement : s’appliquer la règle
+Une proposition de bancs offerts avec publicité divise les parents. Le prix des matériaux relance les soupçons. Joël reconnaît sa signature sur un bon de livraison relatif à un ouvrage fictif. Le groupe doit distinguer faute établie, anomalie et explication possible. Aline ouvre aussi son propre cahier.
+
+## Dénouement
+Une première tranche de bancs est livrée, les comptes de l’association sont publiés et une demande documentée sur la route reste en cours. Le compte à rebours se termine, le contrôle continue. Kalo obtient sa place ; tous les problèmes du quartier ne sont pas résolus.
+
+=== PAGE
+kicker: BIBLE NARRATIVE • VOLUME 1 / CAMEROUN
+title: Les personnages : désirs et failles
+
+## Aline / Mami Njangui, 42 ans
+Couturière, mère de Kalo, trésorière de l’association. Elle veut équiper l’école et finir sa maison. Elle cache que sa propre cotisation est en retard : elle a peur de perdre son autorité. Tentation : avancer une dépense depuis une caisse qui n’est pas la bonne. Elle finit par présenter ce qu’elle doit, sans se réserver d’exception. Tic : « On va noter. » Son cahier cesse d’être une arme contre les autres et devient une règle commune.
+
+## Joël / Le Tara, 38 ans
+Chauffeur, père de famille. Il veut vivre de son travail sans être traité en suspect parce qu’il conduit un camion. Il a signé un bordereau trop vite, dans la fiction locale. Il devra expliquer ce qu’il a réellement livré, sans inventer ce qu’il ignore. Son conflit avec Mina naît de l’usage des images, pas d’un refus de la vérité. Il cesse de plaisanter lorsqu’il comprend que le prix d’une règle peut être une journée sans salaire.
+
+## Mina / La Nga de la radio, 24 ans
+Apprentie journaliste. Elle veut une émission qui compte. Elle prend la rapidité pour du courage et le nombre de partages pour de la crédibilité. Une erreur lui coûte l’accès à Ndoumbè et la confiance de Joël. Elle doit corriger avec la même visibilité qu’elle a publiée. Son progrès se voit lorsqu’elle retarde volontairement une révélation incomplète. Tic qui évolue : « J’ai la source ! » devient « Voilà ce que cette source permet de dire. »
+
+## Bello / Mola Banc, 19 ans
+Apprenti menuisier. Il veut prouver qu’on peut produire ici, correctement, et en vivre. Il sous-estime séchage, quincaillerie, temps et entretien. Il accepte d’abord presque une commande sans financement ni capacité. Sa fierté se transforme lorsqu’il refait un prototype à ses frais. Il peut concourir pour les bancs ; ses amis ne peuvent pas lui attribuer automatiquement une commande publique.
+
+## Kalo / Le Tchotchoro, 9 ans
+Il veut un banc, puis comprendre ce qui fait tenir un engagement. Il peut lui aussi se tromper : il croit qu’un camion de bois peut simplement déposer quelques troncs dans la cour. Il a des amis, des devoirs et des jeux ; il n’est pas un petit économiste. Son regard mesure la distance entre les mots des adultes et ce qu’ils font.
+
+=== PAGE
+kicker: BIBLE NARRATIVE • VOLUME 1 / CAMEROUN
+title: Les alliés ne pensent pas pareil
+
+## Élise / Mama Élise, 55 ans
+Cultivatrice, tante d’Aline. Elle défend sa rivière et ses cultures ; son fils adulte envisage un emploi dans l’exploitation. Elle doit entendre son désir de salaire sans renoncer à demander des garanties. Son expertise est celle des lieux et des saisons. Elle photographie un repère de berge avant le projet : geste simple de suivi, sans prétendre établir seule une causalité environnementale.
+
+## Monsieur Dossier / Ngomna, 50 ans
+Agent communal. Il craint les accusations et se réfugie dans le vocabulaire. Il possède des documents, mais pas toutes les réponses. Il aide à lire un compte tout en refusant de promettre un transfert qu’il ne contrôle pas. Son acte courageux est modeste : consigner une demande, nommer la pièce absente et indiquer qui doit répondre. Il ne devient ni maire ni juge à la finale.
+
+## Tonton Essence et Ya Mado
+Le premier gère une station, la seconde vit de petits commerces et, dans la fiction, de ventes informelles de carburant. Ils se disputent leurs clients, partagent un souci : faire vivre leur foyer. On ne donne aucun mode opératoire de contrebande. Après un incident fictif de contenant mal identifié, Ya Mado déplace son commerce vers des repas et services ; cette transition a un coût et demande une aide concrète.
+
+## Ateba, Madame Carat et Ndoumbè
+Ateba, conducteur de moto-taxi, veut payer ses échéances et garder ses clients. Madame Carat est une professionnelle fictive de l’achat d’or : aucune réplique ne vaut communication officielle d’une institution. Elle doit écouter les contraintes de paiement et de distance. Ndoumbè, cousin orpailleur, veut vendre sans se sentir humilié par les formalités ; son refus d’être filmé devient un enjeu de consentement journalistique.
+
+## Les forces de résistance locales
+Un fournisseur fictif veut vendre vite ; un animateur du Parlement adore la rumeur ; un élu fictif promet plus vite qu’il ne documente. Chacun a un périmètre limité. Les faits potentiellement fautifs de la route appartiennent uniquement à Nkoagne. Pas de logo, de visage ou d’enseigne pouvant les attribuer à une entreprise réelle.
+~ Nkoagne reste un nom de travail : vérifier les homonymies avant dessin. Expressions locales et surnoms à valider auprès de lecteurs camerounais ; éviter d’en faire une obligation à chaque planche.
+
+=== PAGE
+kicker: BIBLE NARRATIVE • VOLUME 1 / CAMEROUN
+title: L’architecture et ses raccords
+
+## Arc 1 • Le bois et la promesse | épisodes 1 à 3
+Septembre à novembre, chronologie fictive. Le besoin est mesuré ; le prototype échoue ; le débat forestier divise une famille. Gain : une demande écrite et un premier devis réaliste. Dette dramatique : Bello doit refaire son banc.
+
+## Arc 2 • Le prix de tenir | épisodes 4 à 6
+Décembre à février. Transport, raffinage et gaz pèsent sur école et cantine. Gain : une solution provisoire d’approvisionnement et un reportage plus prudent. Perte : l’argent prévu pour les bancs ne suffit plus.
+
+## Arc 3 • Ce que les chiffres ne disent pas | épisodes 7 à 9
+Mars à avril. Voyage familial vers l’Est : raison familiale explicite, frais et durée plausibles. Mina enquête dans le cadre d’une commande de sa radio. Ndoumbè est blessé par son erreur. Le « diamant » puis une promesse minière testent les raccourcis vers l’enrichissement.
+
+## Arc 4 • Le prix des preuves | épisodes 10 à 12
+Mai à juin. Le chantier d’Aline rejoint celui de la route par le transport de matériaux, pas par une caisse secrète. Un bordereau déclenche une question vérifiable. Réunion contradictoire, comptes ouverts et première livraison clôturent l’année.
+
+## Raccords visuels et émotionnels
+Le devis de Bello transporte le sujet vers le carburant ; une livraison autorisée conduit Joël et Mina à Limbé ; la bouteille de la cantine mène au gaz ; la visite au cousin ouvre l’or ; la promesse d’argent facile précède le projet minier ; le retour au chantier ramène aux carrières.
+
+## Règle de causalité
+Chaque voyage a un motif, un coût et un retour. Chaque document répond à une question précise. Chaque cliffhanger promet une conséquence qui arrive. Aucun document ne prouve à lui seul la gestion de toutes les filières.
+
+> La même population traverse les sujets ; les ressources ne traversent pas toutes la même caisse.
+
+=== PAGE
+kicker: BOIS • LE MANQUE DEVIENT UNE ENQUÊTE
+title: 01 • Le camion et les bancs
+
+Kalo termine une dictée debout après la rupture d’un vieux banc. À la réunion, Aline annonce un besoin fictif de 60 bancs. Un grumier arrêté au ralentisseur couvre sa voix. Bello promet qu’il peut les fabriquer. Joël, venu chercher son enfant, entend déjà les chauffeurs accusés.
+
+## Planche 1 / Le banc cassé
+Six cases : cahier à hauteur de genoux, craquement, silence, enfant qui se relève, réunion des parents, camion derrière la fenêtre. Aline promet une réponse avant la prochaine réunion. La directrice demande qui paiera réellement.
+
+## Planche 2 / La richesse à portée de main
+Kalo propose de demander du bois au chauffeur. Joël montre qu’il transporte une marchandise qu’il ne possède pas. Bello transforme trop vite une grume en quantité de bancs ; Mina lui demande rendement, dimensions et devis. L’estimation reste barrée dans son carnet.
+
+## Planche 3 / La première demande
+À la mairie, Aline découvre qu’un montant annoncé ne dit ni la nature du revenu ni son affectation. Monsieur Dossier lui demande une année et un document. Ils déposent une demande ciblée sur les recettes forestières et leur éventuel lien avec la commune, selon les règles applicables.
+
+## Planche 4 / Le prix de la promesse
+Aline affiche l’objectif des bancs et les cotisations reçues. Une ligne « reste à financer » demeure énorme. Bello promet un prototype. Dernière case : son maître lui montre une planche tordue. « Commence par faire tenir deux élèves. »
+
+> Kalo : « Le camion sait où il va. Nos bancs, pas encore. »
+! À retenir. Une ressource visible ne constitue pas une caisse immédiatement disponible pour l’école.
+! Question citoyenne. Quel revenu forestier concerne cette commune, pour quelle année, selon quel document ?
+! Dossier / limites. Compte communal, source forestière et texte de répartition à obtenir. Les 60 bancs et la scène scolaire sont fictifs.
+! Ancrage documentaire V2.1. Depuis la loi n° 2024/008 du 24 juillet 2024 (S7), qui abroge la loi n° 94/01 (S8), les redevances forestières et leur grille de répartition sont renvoyées à la loi de finances. La clé valable l’année du récit se lit donc dans la loi de finances de cette année-là (S14), pas dans l’historique de presse des pourcentages (S13). L’emploi des revenus par les communes et communautés a été encadré par arrêtés conjoints (S11, S12) ; leur applicabilité après 2024 reste à confirmer. Le CGCTD (S20) ouvre aux habitants la communication des budgets et comptes : c’est le levier réel de la planche 3.
+! Sources V2.1. S7, S8, S11, S12, S13, S14, S20. À demander : compte administratif de la commune (ligne quote-part RFA), loi de finances de l’année, procès-verbaux du comité communal de gestion.
+
+=== PAGE
+kicker: BOIS • LA QUALITÉ A UN COÛT
+title: 02 • Le banc qui mentait
+
+Bello veut livrer le prototype pour convaincre les parents. Un vendeur lui offre du bois moins cher, sans pièces suffisantes pour retracer l’achat. L’offre lui permettrait de sauver sa promesse. Il est tenté ; son maître refuse de signer le devis.
+
+## Planche 1 / La bonne affaire
+Bello négocie, additionne seulement le bois et oublie les accessoires, le temps et le transport. Il annonce un prix au Parlement du poteau. Joël réclame le coût du voyage ; le sourire de Bello disparaît.
+
+## Planche 2 / Le banc penche
+Le prototype est trop haut et instable. Kalo rit puis demande s’il faut rester immobile pour écrire. Bello accuse le sol. Son maître pose un niveau : le sol n’a pas fabriqué les assemblages.
+
+## Planche 3 / Refaire sans se cacher
+À l’atelier, débit, séchage, pertes, assemblage et finition deviennent une suite de gestes. Le lecteur suit la matière ; aucune échelle de prix ne prétend prouver que transformer est toujours rentable. Bello refait le devis et reconnaît son erreur devant les parents.
+
+## Planche 4 / Le premier essai utile
+Les enfants testent une version corrigée. Le banc raté est donné au Parlement, qui le surnomme « la promesse ». Bello a gagné une chance, pas la commande. Une invitation arrive du village d’Élise : une exploitation y est discutée et son fils veut y travailler.
+
+> Bello : « Il tenait sur mon dessin. » Kalo : « On ne s’assoit pas sur ton dessin. »
+! À retenir. Créer de la valeur locale exige qualité, compétences, énergie et débouchés.
+! Question citoyenne. Quels emplois et quelle transformation locale sont observables, avec quelles données ?
+! Dossier / limites. Facture, pièces de provenance et devis de l’atelier fictif ; statistiques forestières à vérifier avant toute généralisation.
+! Ancrage documentaire V2.1. L’interdiction progressive d’exporter des grumes donne un contexte réel à la transformation locale : décision UEAC (échéance 2028, S17) et arrêté MINFOF d’avril 2026 étendant la liste des essences concernées (S18). Elle ne prouve pas qu’un atelier comme celui de Bello devient rentable. Les chiffres d’emploi trouvés sont anciens (S21) : ne pas les présenter comme actuels.
+! Sources V2.1. S15, S16, S17, S18, S21. À demander : annuaire statistique MINFOF postérieur à 2018 ; texte officiel de la décision UEAC et de l’arrêté MINFOF.
+
+=== PAGE
+kicker: FORÊT ET TERRES • UNE FAMILLE DIVISÉE
+title: 03 • La rivière et la fiche de paie
+
+Au village, Élise veut des garanties pour l’eau et les cultures. Son fils adulte souhaite le salaire annoncé par un projet fictif. Aline pense calmer tout le monde ; sa présence est interprétée comme un soutien au projet.
+
+## Planche 1 / Deux besoins légitimes
+Une maquette de route et une liste de postes attirent les jeunes. Élise montre un récipient d’eau. Son fils lui reproche de défendre un avenir qui ne lui donne pas de travail aujourd’hui. Bello, qui rêve d’atelier, ne sait plus qui applaudir.
+
+## Planche 2 / La carte ne voit pas tout
+Sur une carte simplifiée, un usage local manque. Élise et son fils indiquent ensemble le passage vers les champs. Le représentant fictif écoute mais ne peut garantir un tracé dans l’instant. Mina distingue ce qui est proposé, décidé et encore étudié.
+
+## Planche 3 / Écrire le désaccord
+Les habitants demandent les documents disponibles et un relevé de leurs observations. On montre les engagements, les échéances, les responsables et les questions non tranchées. Les droits précis ne sont pas improvisés dans une bulle : ils dépendent du dossier légal.
+
+## Planche 4 / Une photographie de départ
+Le fils accompagne sa mère au repère de berge pour une photo datée. Ils restent en désaccord sur le projet, mais acceptent de vérifier ensemble. De retour, le devis de transport des bancs a changé. Joël écrit : « Le camion boit avant les élèves. »
+
+> Élise : « Je ne te demande pas de choisir entre ton salaire et ma rivière. Je demande qu’on arrête de nous proposer ce choix. »
+! À retenir. Une concertation utile conserve les désaccords et précise les engagements vérifiables.
+! Question citoyenne. Quels engagements écrits concernent l’eau, les usages des terres et l’emploi, et qui en suit l’exécution ?
+! Dossier / limites. Scène entièrement fictive ; textes, convention et documents environnementaux du cas réel à obtenir si une illustration réelle est ajoutée.
+! Ancrage documentaire V2.1. Un promoteur doit faire réaliser à ses frais une étude ou une notice d’impact environnemental et social (décret n° 2013/0171/PM, S19) ; les articles sur la consultation et les audiences publiques restent à lire avant toute bulle. La loi forestière de 2024 demanderait aux communautés riveraines de se constituer en entité légale pour percevoir leurs quotes-parts (S7, repéré). Les analyses de la société civile (S9, S10) sont des points de vue à attribuer, pas du droit.
+! Sources V2.1. S7, S9, S10, S19, S22. À demander : articles du décret 2013/0171/PM sur la participation du public ; existence ou non d’une obligation de consentement préalable en droit camerounais.
+
+=== PAGE
+kicker: PÉTROLE • CHACUN PRÉSENTE SA FACTURE
+title: 04 • Le litre et le trajet
+
+Ateba revoit le tarif du transport scolaire dans la fiction. Aline l’accuse de profiter du carburant. À la station, Tonton Essence renvoie tout le monde vers un prix qu’il ne fixe pas. Ya Mado offre une solution moins chère et plus incertaine.
+
+## Planche 1 / La course de trop
+Aline prépare les frais de trajet, Kalo a oublié son cahier, Ateba montre son échéance de moto. Trois urgences parlent en même temps. Le tableau des bancs perd une cotisation car une famille doit payer son transport.
+
+## Planche 2 / Qui paie quoi ?
+Tonton Essence, Ateba et Joël décomposent leurs coûts sans les confondre. Une hausse du litre ne justifie pas automatiquement n’importe quelle hausse de course. Mina demande la structure officielle datée et distingue carburant acheté et recette de transport.
+
+## Planche 3 / Le litre en tranches
+Un schéma sans montant non validé sépare produit raffiné, logistique, prélèvements, marges et éventuel mécanisme de soutien. Le brut et le carburant fini sont deux objets distincts. Les effets sociaux d’un soutien sont discutés avec les contraintes des familles.
+
+## Planche 4 / Le trajet se négocie
+Les parents et Ateba cherchent un arrangement collectif provisoire. Tonton accroche « Demandez la date du prix ». Mina obtient l’accord de sa radio pour accompagner une livraison de Joël vers Limbé. Lui exige : « Tu demandes avant de filmer. »
+
+> Ateba : « Ma moto ne roule pas avec vos explications. » Aline : « Mon porte-monnaie non plus. On calcule ensemble. »
+! À retenir. Produire du brut ne fixe pas à lui seul le prix du carburant ni celui du trajet.
+! Question citoyenne. Quelle structure officielle explique le prix applicable à la date racontée ?
+! Dossier / limites. CSPH, communiqué tarifaire et documents budgétaires à obtenir. Aucun prix historique n’est présenté ici comme tarif actuel.
+! Ancrage documentaire V2.1. Deux hausses officielles encadrent la période : 1er février 2023 (super 630 → 730 F CFA/l ; gasoil 575 → 720, S24) et 3 février 2024 (super 730 → 840 ; gasoil 720 → 828, S25), gaz domestique et pétrole lampant annoncés inchangés. Un arrêté du MINCOMMERCE du 26 février 2024 relève le taxi urbain mais maintient le tarif élèves et étudiants (S26) : exemple réel de la planche 2, « une hausse du litre ne justifie pas n’importe quelle hausse de course ». Les prix sont administrés ; la CSPH publie leur structure (S23, S35).
+! Sources V2.1. S23, S24, S25, S26, S27, S28, S35. À demander : communiqués originaux des Services du Premier ministre ; structure CSPH datée du mois raconté ; arrêté MINCOMMERCE de février 2024.
+
+=== PAGE
+kicker: PÉTROLE • DERRIÈRE L’ACTIF, DES VIES
+title: 05 • La nuit qui dure
+
+À Limbé, une ancienne opératrice fictive leur montre un badge qu’elle a conservé. Mina veut raconter « la raffinerie qui dort ». La femme refuse cette formule : des gens continuent à travailler, à attendre, à vivre autour d’un outil endommagé.
+
+## Planche 1 / Le badge
+Ouverture silencieuse : le badge, des mains, un album. Le récit public de l’incendie du 31 mai 2019 est séparé des souvenirs inventés. Aucun personnage fictif n’affirme avoir vu une cause technique non établie. Joël range son téléphone.
+
+## Planche 2 / L’explication trop belle
+Un interlocuteur répète la rumeur d’une absence d’assurance. Mina prépare son titre. Elle trouve des récits de presse qui ne suffisent pas à déterminer couverture, exclusions ou indemnisation. Elle retire la conclusion ; elle garde la question.
+
+## Planche 3 / Ce qu’il faut demander
+L’opératrice explique les métiers. Le reportage distingue unités, maintenance, financement et décision de reconstruction. On ne compare pas deux estimations de réhabilitation comme si leurs périmètres étaient identiques. Raffiner localement peut avoir des avantages, sans promettre un carburant automatiquement bon marché.
+
+## Planche 4 / Le reportage sans coupable prêt à l’emploi
+Mina enregistre les faits attribuables, les limites et les questions. Joël accepte une photo du camion, pas de ses pièces personnelles. Au retour, un message d’Aline : la cantine n’a plus de gaz. L’opératrice leur confie un dessin de sa fille : un métier, pas une ruine.
+
+> L’opératrice : « Une usine, c’est aussi les gens qui savent la faire marcher. »
+! À retenir. Un événement documenté ne permet pas d’inventer sa cause ni le résultat de son assurance.
+! Question citoyenne. Quels documents publics décrivent les dommages, la couverture, les décisions et l’avancement de la réhabilitation ?
+! Dossier / limites. Sources S3 et S4 : incendie et unités touchées. Assurance et situation exacte en 2026 restent à documenter ; aucun statut actuel n’est déduit d’un ancien rapport.
+! Ancrage documentaire V2.1. Faits datés utilisables : incendie du 31 mai 2019 (S3, S29). Un plan de redémarrage aurait été adopté le 13 août 2025 avec un objectif de décembre 2027, un partenariat public-privé et un coût annoncé d’environ 700 milliards F CFA (S30). Ce sont des objectifs et des déclarations attribuées, pas des faits accomplis : aucun contrat signé n’a été trouvé au 15 octobre 2026. Ne pas mettre en concurrence le chiffrage de l’avant-projet (S4) et celui de 2025 sans périmètre commun.
+! Sources V2.1. S3, S4, S29, S30, S35. À demander : situation de la SONARA à la date de publication ; documents d’assurance et d’indemnisation accessibles.
+
+=== PAGE
+kicker: GAZ • UNE URGENCE ET DEUX CAISSES
+title: 06 • La marmite n’attend pas
+
+La bouteille vide menace le repas prévu par la cantine. Aline peut obtenir une recharge, mais l’argent disponible appartient aux bancs. Elle dit « je remettrai demain ». Son cahier reste ouvert sur deux colonnes différentes.
+
+## Planche 1 / Le feu manque
+La cuisinière annonce que le repas sera réduit si la recharge n’arrive pas. Aucun enfant n’est traité en accessoire de misère. Ya Mado propose un service de repas ; Tonton exige un contenant adapté et une recharge par circuit autorisé.
+
+## Planche 2 / Le raccourci de Bello
+Bello montre une image de méthanier : « Ils exportent notre bouteille ! » Mina distingue gaz naturel, GNL et GPL ; le butane domestique relève d’un autre circuit que l’image regardée. Une animation dessine les étapes et usages sans assimiler tous les volumes.
+
+## Planche 3 / L’argent n’a pas changé d’étiquette
+Aline demande ouvertement une décision sur le dépannage de la cantine. Les parents fixent source, plafond et justificatif d’une aide séparée. Le récit montre qu’une affectation se respecte aussi dans une petite association. Le repas est sauvé grâce à une organisation collective, pas à une recette gazière magique.
+
+## Planche 4 / Une petite solution, un grand sujet
+Ya Mado teste une activité de repas ; elle doit trouver équipement et clients. La cuisinière inscrit ses besoins. Kalo apporte la bouteille vide à la réunion. Un appel de Ndoumbè propose une visite familiale à l’Est : « Ici aussi, on dit que nous sommes riches. »
+
+> Aline : « La marmite a raison d’être pressée. Elle n’a pas le droit de changer le nom de la caisse. »
+! À retenir. Gaz naturel, GNL et GPL ne désignent pas des produits et circuits interchangeables.
+! Question citoyenne. Quels volumes alimentent quels usages, et où les données de distribution sont-elles publiées ?
+! Dossier / limites. Publications techniques et données SNH à constituer. Pas de manipulation ni de transvasement de gaz montré dans la BD.
+! Ancrage documentaire V2.1. GNL et GPL ne sont pas le même produit (S33). L’usine flottante Hilli Episeyo a liquéfié du gaz au large de Kribi de 2018 à juillet 2026 (S31) ; son départ est un fait à intégrer si le récit se déroule en 2026-2027. La presse rapporte en 2026 une tension sur le gaz domestique, avec une bouteille officiellement à 6 500 F CFA mais vendue bien plus cher au marché parallèle (S32). C’est une piste réaliste pour la planche 1, qui risque toutefois de dater l’album.
+! Sources V2.1. S31, S32, S33, S34. À demander : données SNH de production de GPL ; importations de butane ; rôle exact de l’ancienne usine flottante dans l’offre de GPL local.
+
+=== PAGE
+kicker: OR • L’ERREUR QUI BLESSE
+title: 07 • L’or et les deux cahiers
+
+Ndoumbè reçoit sa famille dans l’Est. Mina dispose d’une commande radio sur les données publiques de l’or. Elle filme une scène de pesée autorisée, puis publie un message qui rapproche imprudemment cette image d’un écart statistique national. Le quartier croit tenir un responsable.
+
+## Planche 1 / Vendre avant ce soir
+Ndoumbè compare les offres : prix, délai, déplacement et preuve de paiement. Madame Carat, professionnelle fictive, présente un circuit formel sans promettre ce que les textes ou une institution n’ont pas confirmé. Une balance paraît neutre ; les conditions de vente ne le sont pas.
+
+## Planche 2 / Deux chiffres, une fausse conclusion
+Mina lit les chiffres ITIE : 22,3 kg exportés déclarés en 2023 et plus de 15 tonnes enregistrées par les EAU en provenance du Cameroun. Elle poste une formule trop affirmative avec l’image du cousin. Son rédacteur demande : « Qu’as-tu prouvé sur cet homme ? »
+
+## Planche 3 / Le téléphone se tait
+Ndoumbè découvre les réactions et refuse de lui parler. Mina sépare origine déclarée, provenance, période, nomenclature et explications possibles. Elle reconnaît que l’écart signale un problème majeur à examiner sans localiser cette quantité sur le chantier familial.
+
+## Planche 4 / Corriger n’efface pas
+Elle corrige sur le même canal, avec une visibilité équivalente, retire l’association injustifiée et présente ses excuses au cousin. Il accepte le retrait, pas l’interview. Joël dit qu’il ne lui confiera plus rien. Sur le trajet, un vendeur propose une pierre « qui réglera tous leurs problèmes ».
+
+> Ndoumbè : « Tu voulais raconter mon travail. Tu m’as fait jouer dans ton accusation. »
+! À retenir. Une divergence commerciale nationale ne prouve rien contre une personne filmée.
+! Question citoyenne. Quelles séries, périodes et catégories expliquent l’écart, et quelles mesures de suivi sont documentées ?
+! Dossier / limites. S1 et S2. Données publiques réelles, personnages et faute journalistique fictifs. Aucun calcul de recettes perdues à partir de la seule valeur de l’écart.
+! Ancrage documentaire V2.1. Les chiffres de la planche 2 (22,3 kg contre plus de 15 t) restent ceux de l’ITIE (S2, URL canonique corrigée). Le rapport ITIE 2023 a été publié fin décembre 2025, avec Enerteam comme administrateur indépendant (S1). La comparaison miroir a des limites connues : CIF contre FOB, origine contre provenance, transit (S37). Les chiffres plus récents attribués à la SONAMINES (S39) sont des déclarations attribuées. Le « prélèvement de 15 % » n’a été retrouvé dans aucun texte : ne pas l’utiliser (S40, S42).
+! Sources V2.1. S1, S2, S36, S37, S38, S39, S40, S42, S45. À demander : PDF du rapport ITIE 2023 et pages sur l’or ; extraction Comtrade SH 7108 (déclarant EAU, partenaire Cameroun, 2023).
+
+=== PAGE
+kicker: DIAMANT • LA CHANCE A BESOIN D’ÊTRE VÉRIFIÉE
+title: 08 • Le diamant à crédit
+
+Après les disputes, Joël se laisse tenter par une pierre qui pourrait payer ses dettes et les bancs. Il ne veut pas écouter Mina. Le vendeur fictif transforme sa méfiance envers elle en argument de vente : « Les journalistes te cachent les bonnes affaires. »
+
+## Planche 1 / Un camion dans une pierre
+Joël imagine son véhicule neuf, puis la facture scolaire. Le vendeur demande une avance avant expertise. Bello s’enthousiasme : il calcule déjà l’atelier. Le lecteur comprend pourquoi l’offre les attire.
+
+## Planche 2 / Un papier ne dit pas tout
+Le vendeur montre une photocopie spectaculaire. Mina ne dit pas « faux » sans preuve. Elle relève qu’une copie sans lien établi avec l’envoi ne démontre pas la provenance de cette pierre ; un certificat Kimberley concerne les envois de diamants bruts, pas l’authenticité de tout bijou.
+
+## Planche 3 / Accepter de ne pas savoir
+Joël exige une vérification indépendante avant tout paiement. Le vendeur refuse les conditions et part. On ne tranche pas la nature de la pierre avec une astuce visuelle ou un test improvisé. Joël a évité une décision sans preuves ; il n’a pas découvert une méthode de gemmologie.
+
+## Planche 4 / La confiance à petits pas
+Joël remercie Mina pour avoir dit « je ne sais pas ». Elle ne transforme pas cette scène en reportage. De retour au quartier, une affiche promet une grande mine et des bancs sponsorisés. L’argent facile revient avec une enseigne et un microphone.
+
+> Joël : « Aujourd’hui, j’ai gardé mon argent grâce à une réponse qui ne brillait pas. »
+! À retenir. Certification d’un envoi et expertise d’une pierre répondent à des questions différentes.
+! Question citoyenne. Quelle autorité peut vérifier ce certificat, et à quel envoi de diamants bruts correspond-il ?
+! Dossier / limites. S5 et S6. Ne pas représenter Kimberley comme garantie universelle d’origine, de valeur ou de toutes les conditions sociales.
+! Ancrage documentaire V2.1. Le Cameroun participe au Processus de Kimberley depuis 2012 (S43) ; l’autorité nationale est le Secrétariat national permanent du Processus de Kimberley (SNPPK). Un certificat accompagne un envoi de diamants bruts : ce n’est ni une expertise de pierre, ni un certificat d’origine individuel (S5, S6). Un cas réel publié raconte la vérification d’un certificat scanné auprès du pays émetteur (S46) : modèle pour le geste de Joël, « on vérifie auprès de l’autorité qui l’a délivré ». Les volumes officiels camerounais sont faibles et irréguliers (S44).
+! Sources V2.1. S5, S6, S43, S44, S46. À demander : procédure nationale du SNPPK ; statistiques KP 2021-2025.
+
+=== PAGE
+kicker: MINES • UNE PROMESSE NE PAIE PAS AUJOURD’HUI
+title: 09 • Les bancs de demain
+
+Un promoteur entièrement fictif propose de financer les bancs avec les revenus futurs d’un projet « Montagne de Fer », nom de travail. Les parents veulent y croire. Bello se voit fournisseur ; Aline voit sa collecte enfin sauvée. En échange, l’école afficherait le projet comme partenaire.
+
+## Planche 1 / La photo avant le chantier
+Une cérémonie est préparée devant une maquette. Kalo demande si les bancs sont dans le camion. Le promoteur répond que tout commencera après une étape encore incertaine. Les mots « partenaire » et « financement » masquent des engagements très différents.
+
+## Planche 2 / Quel titre, quelle étape ?
+Monsieur Dossier distingue les autorisations selon leur objet. Il ne dit plus « un permis autorise seulement à chercher » : permis de recherche et titre d’exploitation ne sont pas la même chose. Études, financement et construction sont représentés comme des étapes qui peuvent échouer.
+
+## Planche 3 / Qui s’engage vraiment ?
+Mina cherche l’entité signataire et les personnes qui la contrôlent. Une adresse partagée est un indice de lien possible, pas la preuve d’un montage fautif. Elle demande qui paiera la donation, quand, et indépendamment de quelle recette future. Le promoteur ne garantit pas ce paiement.
+
+## Planche 4 / Le non qui fait mal
+Aline refuse de compter une promesse comme argent reçu. Quelques parents quittent la réunion en colère. Bello comprend qu’il n’a toujours pas de commande. À la sortie, Aline reçoit la relance du maçon de sa maison et celle d’un parent demandant son propre reçu.
+
+> Kalo : « On va s’asseoir sur les bancs ou sur la promesse ? »
+! À retenir. Identifier l’étape du projet, le signataire et le financement avant de compter une retombée.
+! Question citoyenne. Qui s’engage juridiquement, sur quelle ressource disponible, à quelle date et sous quelles conditions ?
+! Dossier / limites. Projet et offre fictifs. Cadastre, titres, publications ITIE et documents d’entreprise à examiner seulement pour un exemple réel distinct.
+! Ancrage documentaire V2.1. Le Code minier de 2023 (S42), qui remplace celui de 2016 (S41), distingue permis de reconnaissance, permis de recherche, permis d’exploitation (petite mine, mine industrielle) et autorisations artisanales. Un projet réel de fer, Grand Zambi, illustre les étapes : convention d’investissement en 2019, permis d’exploitation en 2022, financement encore en mobilisation en 2026 (S49). Pour Mbalam, les dates de convention divergent selon les sources (S50) : ne pas l’utiliser sans vérification.
+! Sources V2.1. S36, S41, S42, S49, S50, S51. À demander : numéros d’articles du Code minier 2023 ; URL actuelle du cadastre minier public.
+
+=== PAGE
+kicker: CARRIÈRES • LE SOUPÇON SE RETOURNE
+title: 10 • Le voyage des cailloux
+
+Aline doit choisir entre poursuivre le mur de sa maison et régler sa cotisation en retard. Un devis de gravier lui semble abusif. Elle réclame de la transparence à Joël ; il lui demande si elle a publié toutes les recettes des parents. La discussion devient personnelle.
+
+## Planche 1 / Les deux factures
+Le maçon réclame un acompte ; une mère réclame un reçu. Aline range une facture sous l’autre. Le lecteur voit sa gêne sans imaginer un détournement : elle a gardé ses caisses séparées, mais caché son retard personnel.
+
+## Planche 2 / La pierre et son voyage
+À la carrière fictive, Joël montre chargement, concassage éventuel, pesée, carburant, temps et facture. On distingue quantité commandée, livrée et acceptée. Aucun poste n’est annoncé comme dominant sans données. Un site proche n’implique pas un matériau prêt et gratuit.
+
+## Planche 3 / Le droit et le prix
+La bible réserve les catégories, autorités compétentes et exemptions au texte vérifié. Le dessin fait comprendre qu’autorisation, matière, extraction et service de livraison ne sont pas une seule chose. Aline obtient plusieurs devis et publie son retard de cotisation.
+
+## Planche 4 / La signature de Joël
+En rangeant ses documents, Joël reconnaît un double de bon lié à la route du quartier. Le lieu de déchargement noté diffère de son souvenir. Il n’efface rien. Dernière case : il appelle Mina, contre sa propre prudence. « Cette fois, on lit avant de parler. »
+
+> Aline : « Mon cahier était ouvert du côté des autres. »
+! À retenir. Comparer des prix exige des quantités, une qualité, une distance et un service comparables.
+! Question citoyenne. Quelles quantités ont été facturées, livrées et réceptionnées, et quelles pièces les relient ?
+! Dossier / limites. Dossier fictif de devis et bons. Les actes applicables aux carrières doivent être validés avant les bulles juridiques.
+! Ancrage documentaire V2.1. Le Code minier de 2023 consacre un titre aux carrières et en distingue quatre catégories : domestiques, artisanales, d’intérêt public, industrielles (S42). Selon un commentaire juridique, le décret n° 2024/05253/PM confierait à la commune l’autorisation des carrières artisanales à but commercial (S47). Les carrières d’intérêt public seraient exemptées de la taxe à l’extraction, sauf taxes et droits communaux (S42), ce qui conforte la règle « une exemption ne rend pas le gravier gratuit ». Un formulaire DGI indique une part communale de la taxe (S52) : sa date est inconnue, donc pas de pourcentage en bulle.
+! Sources V2.1. S42, S47, S48, S52. À demander : texte intégral du décret 2024/05253/PM ; clé de répartition en vigueur de la taxe à l’extraction (CGI).
+
+=== PAGE
+kicker: GRANULATS ET ROUTE • UNE PIÈCE NE FAIT PAS UN VERDICT
+title: 11 • Le bon et le trou
+
+La route fictive se dégrade après des travaux récents. Joël apporte son bon de livraison. Des habitants veulent immédiatement dénoncer l’entreprise. Mina connaît le prix d’une publication hâtive. Elle exige les autres pièces et une réponse contradictoire.
+
+## Planche 1 / Le nid-de-poule
+Ateba évite un trou et éclabousse le panneau du chantier. On lit montant, longueur et délai fictifs, sans les emprunter à une route réelle. Kalo mesure le trou avec son cartable, que sa mère retire aussitôt.
+
+## Planche 2 / Deux lieux, plusieurs explications
+Le bon mentionne un dépôt : cela peut correspondre à une étape régulière ou à un problème. Joël décrit ce qu’il sait, pas ce qu’on attend de lui. Le groupe demande ordre de livraison, suivi du stock, pièces de réception et quantités contractuelles.
+
+## Planche 3 / Ce qui résiste
+Une réponse explique un décalage de date ; une quantité reste sans pièce correspondante dans le dossier obtenu. Un technicien indépendant fictif distingue drainage, matériaux, exécution et entretien. Il refuse de diagnostiquer la cause du trou sur une photo. On retire les comparaisons internationales non harmonisées.
+
+## Planche 4 / Publier la bonne question
+Mina diffuse faits établis, réponse reçue, documents absents et suite demandée. Joël redoute de perdre des trajets mais signe son récit limité. Monsieur Dossier annonce une réunion avec possibilité de réponse ; Aline doit y présenter aussi les comptes scolaires.
+
+> Mina : « Le trou se voit. La cause, elle se démontre. »
+! À retenir. Une anomalie documentaire justifie un suivi ; elle ne suffit pas à établir fraude ou cause technique.
+! Question citoyenne. Qui peut produire les pièces manquantes et expliquer l’écart constaté, dans quel délai annoncé ?
+! Dossier / limites. Affaire et pièces fictives. Aucun multiplicateur de coût national, aucune accusation réelle. Retenir le standard technique et le périmètre avant toute comparaison.
+! Ancrage documentaire V2.1. L’entretien routier passe notamment par le Fonds routier (S55), avec une composante de routes communales dont les maires sont ordonnateurs (S56). Les avis et attributions de marchés se cherchent dans le Journal des marchés de l’ARMP et sur la plateforme COLEPS (S53, S54). Aucun coût de référence routier public n’a été trouvé : le retrait des « 2 à 6 fois » et « 11 millions/km » est maintenu.
+! Sources V2.1. S53, S54, S55, S56. À demander : site officiel du Fonds routier et du MINMAP ; modalités réelles d’accès citoyen au Journal des marchés et à COLEPS.
+
+=== PAGE
+kicker: TOUTES LES FILIÈRES • UNE VICTOIRE MESURABLE
+title: 12 • Les comptes sur la table
+
+La réunion finale se tient dans un cadre dont le statut est explicite : rencontre citoyenne fictive, sans inventer les pouvoirs du conseil municipal. Chaque intervenant apporte une pièce et une limite. Aline ouvre la séance par ses propres comptes, puis laisse les autres répondre.
+
+## Planche 1 / Commencer par soi
+Elle affiche cotisations, dépenses, justificatifs et solde. Elle indique son retard désormais régularisé. Les parents voient le détail de la commande réellement financée. Le tableau des ressources publiques reste séparé de la caisse scolaire.
+
+## Planche 2 / Dû, versé, reçu, dépensé
+Pour les lignes documentées, Monsieur Dossier précise montant, année, origine et pièce. Les cellules inconnues restent « non documenté ». Un retard expliqué est distingué d’un écart inexpliqué. Sur la route, les pièces manquantes font l’objet d’une demande formalisée, pas d’une condamnation.
+
+## Planche 3 / Une première livraison
+L’association achète une première tranche fictive de 20 bancs après comparaison transparente et validation de qualité. Bello produit sous la responsabilité de son atelier et selon les conditions prévues. Si l’achat devenait public, les règles applicables remplaceraient ce montage associatif. Restent 40 bancs à financer.
+
+## Planche 4 / La place de Kalo
+Les enfants s’installent. Aline n’est pas devenue riche ; Joël a refusé un trajet sans pièces ; Ndoumbè répond enfin à un appel de Mina, sans lui promettre d’interview. Sur le tableau : « 20 livrés. 40 à financer. Prochaine vérification : date fixée. » Un camion passe ; la classe continue.
+
+> Kalo : « Il reste quarante bancs. » Aline : « Oui. Maintenant, on sait lesquels. »
+! À retenir. Un résultat devient crédible quand son financement, sa réalisation et ce qui reste sont visibles.
+! Question citoyenne. Quels engagements sont exécutés, lesquels restent ouverts, et quand les vérifiera-t-on à nouveau ?
+! Dossier / limites. Tous les résultats locaux sont fictifs. Ne pas attribuer aux recettes extractives une dépense sans trace d’affectation. Aucun engagement ne vaut décision d’une institution réelle.
+! Ancrage documentaire V2.1. Le CGCTD (S20) prévoit que tout habitant peut, à ses frais, obtenir communication ou copie des budgets, comptes et procès-verbaux ; l’article exact et son texte d’application restent à identifier. L’association relève de la loi n° 90/053 (S58). Aucun texte encadrant les cotisations des APEE n’a été trouvé (S59 est un article de presse). Aucune source ne tranche la frontière entre achat associatif et commande publique : validation par un juriste avant la planche 3.
+! Sources V2.1. S20, S53, S57, S58, S59. À demander : article du CGCTD et décret d’application ; texte MINEDUB ou MINESEC sur les APEE ; avis juridique sur l’achat associatif.
+
+=== PAGE
+kicker: BIBLE NARRATIVE • VOLUME 1 / CAMEROUN
+title: Épilogue : la place d’après
+
+## Deux planches après la fête
+Élise et son fils longent une ancienne excavation fictive. Les premières cases reprennent l’angle de la photo de l’épisode 3, sans affirmer qu’il s’agit du même projet ni d’une dégradation causée par lui. Un chemin mène trop près du bord. Ils font demi-tour et signalent le danger ; aucun enfant ne descend dans le trou.
+
+## Planche A : ce qui reste
+Images lentes : des traces de camion, une eau immobile, une ancienne clôture, le panier d’Élise. Son fils, qui espère toujours un emploi, demande qui devait remettre le site en état. Elle répond qu’elle ne connaît pas encore le document. Pour une fois, elle appelle Mina avant de conclure.
+
+## Planche B : le cahier ne se ferme pas
+À l’école, la dernière page du cahier d’Aline accueille une nouvelle rubrique : « Après l’exploitation ». Kalo colle le dessin d’un arbre, d’un camion et d’un banc. Une carte sobre situe les pays voisins sans leur attribuer les mêmes lois. Les questions voyagent ; les réponses doivent être refaites pays par pays.
+
+> Élise : « On a appris à compter ce qui part. Il faut apprendre à regarder ce qui reste. »
+
+## La dernière image
+Le banc corrigé de Bello est utilisé, rayé, vivant. Sur un coin, Kalo a écrit son prénom au crayon. Le lecteur quitte une communauté qui sait un peu mieux vérifier ses propres promesses, pas un village sauvé par une révélation miracle.
+
+## Ce que la fin ferme et laisse ouvert
+Fermer : première commande, correction publique, transparence associative et reprise du dialogue familial. Laisser ouvert : bancs restants, réponse sur la route, garanties environnementales et avenir professionnel. L’ouverture au volume suivant porte sur la transmission et la réhabilitation, pas sur une copie automatique du Cameroun ailleurs.
+
+=== PAGE
+kicker: BIBLE NARRATIVE • VOLUME 1 / CAMEROUN
+title: Pilote : ouverture de l’épisode 1
+
+sub: Extrait scénarisé • Planche 1 • 6 cases • Dialogues de travail
+
+## Case 1 • Très gros plan
+Un cahier posé sur les genoux de Kalo. La ligne de sa dictée dévie. Voix de l’enseignante, hors champ : « Écrivez : demain. » Aucun commentaire documentaire.
+
+## Case 2 • Plan moyen
+Trois élèves partagent un banc ancien. Kalo se penche. Un pied cède légèrement : CRAC. Le banc s’incline sans chute grave. Kalo rattrape son cahier ; son voisin rattrape sa trousse.
+
+## Case 3 • Silence
+Kalo est debout devant le bureau. L’enseignante cale provisoirement le banc et fait changer les enfants de place. Au tableau : « Demain ». Kalo, bas : « On peut écrire aujourd’hui d’abord ? »
+
+## Case 4 • Après la classe
+Sous le manguier, Aline préside une courte réunion. La directrice tient une liste de besoins. Aline : « Soixante bancs à financer. On commence par ce qu’on a. » Bello montre un croquis : « Je peux faire. » Son maître, derrière : « Tu peux apprendre à faire. »
+
+## Case 5 • Le camion
+Un grumier ralentit à l’extérieur ; poussière et bruit. Les adultes attendent qu’il passe. Kalo regarde le chargement puis la liste. Aucun pays de destination ni volume n’est inventé sur le camion.
+
+## Case 6 • La question
+Kalo : « Le bois passe ici tous les jours. Pourquoi nos bancs ne s’arrêtent jamais ? » Aline regarde son cahier ; Joël, parent parmi les autres, regarde le chauffeur. Fin sur des visages différents, pas sur un slogan.
+~ Intention graphique : le banc et la grume occupent des diagonales similaires. L’injustice ressentie tient dans l’image ; l’explication viendra après. Le dessin évite de laisser entendre que ce chargement précis doit légalement financer cette école.
+
+=== PAGE
+kicker: BIBLE NARRATIVE • VOLUME 1 / CAMEROUN
+title: Pilote : ne pas voler la réponse
+
+sub: Extrait scénarisé • Épisode 1 / Planche 2 • 6 cases
+
+## Case 1 • Le raccourci de l’enfant
+Le camion est arrêté plus loin, chauffeur en pause dans un espace sûr. Kalo, accompagné d’Aline, l’observe à distance. Kalo : « On lui demande juste un morceau ? » Aline : « On commence par demander à qui il appartient. »
+
+## Case 2 • Le métier de Joël
+Joël rejoint les parents. « Le chauffeur transporte le bois. Il ne peut pas vous en distribuer comme des bonbons. » Bello : « Même pour une école ? » Joël : « Même pour la mienne. »
+
+## Case 3 • Le Parlement s’emballe
+Deux habitués sur le banc du manguier. Premier : « Tout est déjà vendu à l’étranger ! » Second : « Moi, je connais quelqu’un qui sait. » Mina arrive : « Son nom ? Son document ? » Le second regarde son téléphone éteint.
+
+## Case 4 • Le dessin de Bello
+Sur le cahier d’Aline, Bello dessine une grume, une flèche et des bancs. Il inscrit un nombre, hésite, barre. Mina : « Dimensions ? Pertes ? Séchage ? » Bello : « Tu veux fabriquer le banc ou l’interroger ? »
+
+## Case 5 • L’enjeu familial
+Aline referme le cahier : « Je veux qu’il tienne. Et savoir qui paie. » Joël lit une notification de son employeur : prochaine livraison tôt demain. Il ne la montre pas ; le lecteur comprend qu’il ne peut pas passer ses journées à enquêter.
+
+## Case 6 • Le rendez-vous
+Mina propose d’aider à chercher les pièces. Aline : « Demain à la mairie. » Bello : « Demain à l’atelier. » Kalo : « Demain, c’est chargé. » En arrière-plan, le tableau de classe « Demain » reste visible par la fenêtre.
+~ Le pilote complet restera à écrire case par case après validation documentaire. Ces deux planches fixent la voix, les relations et le dosage ; elles ne remplacent pas les 48 planches.
+
+=== PAGE
+kicker: BIBLE NARRATIVE • VOLUME 1 / CAMEROUN
+title: Une charte de vérité plus précise
+
+## La source ne suffit pas à donner le statut
+« Officiel » désigne une origine, pas une certitude absolue. Une entreprise peut déclarer un montant ; un audit peut le discuter. Un média peut rapporter fidèlement un communiqué, sans devenir la source primaire. Pour chaque fait : origine, nature, date, périmètre, méthode, limites et niveau de vérification.
+
+## Quatre balises lisibles
+ÉTABLI DANS LA SOURCE : ce document indique précisément ceci. DÉCLARATION ATTRIBUÉE : tel acteur affirme ceci. DIVERGENCE À EXPLIQUER : des séries comparables ou à harmoniser diffèrent. ILLUSTRATION / FICTION : calcul pédagogique ou événement inventé. Les balises comportent des mots et des formes ; la couleur seule ne suffit pas.
+
+## Une cinquième mention de travail
+À VÉRIFIER reste dans la bible et le registre de production, jamais dans une bulle finale laissant croire à un fait acquis. Une question peut demeurer ouverte dans le récit, à condition de dire ce qui manque. Toute donnée non établie est retirée ou reformulée avant lettrage.
+
+## Niveau d’accès au document (ajout V2.1)
+LU : un relecteur a ouvert le document et relevé page, tableau ou article. REPÉRÉ : le titre, l’émetteur, l’URL et un extrait ont été vus en résultat de recherche, sans lecture du document. À DEMANDER : la pièce n’est pas publique ou n’a pas été trouvée. HÉRITÉ V2.0 : la source était citée dans la V2.0 et n’a pas été recontrôlée. Seul un fait ÉTABLI DANS LA SOURCE et LU peut aller en bulle ou en encart.
+
+## Séparer les étages de l’argent
+Valeur de production, ventes, recettes d’entreprise, bénéfices, paiements fiscaux, recettes budgétaires, transferts locaux et dépenses sont des objets différents. Éviter les additions à double compte. Ni la valeur de l’or non rapproché ni un écart commercial ne donnent directement une perte fiscale.
+
+## La fiche minimale
+Identifiant de fait ; formulation exacte ; source primaire ; URL ; date de consultation ; exercice ; unité ; population couverte ; page/tableau ; statut ; limites ; extrait utile ; calcul éventuel ; épisode/case ; relecteur ; date de validation. Une phrase factuelle doit pouvoir être reliée à cette fiche sans recherche nouvelle.
+
+## Fiction et documentaire à l’écran
+Une page liminaire annonce les personnages, lieux et affaires locaux fictifs. Les documents inventés portent la mention « document du récit ». Les encarts documentaires réels ont une référence distincte. Ne jamais faire d’un agent fictif le porte-parole authentique d’une institution réelle.
+
+=== PAGE
+kicker: BIBLE NARRATIVE • VOLUME 1 / CAMEROUN
+title: Les raccourcis retirés de la bible
+
+## SONARA : une question n’est pas une conclusion
+Conserver l’incendie documenté et les effets humains fictifs. Retirer toute formulation qui suppose une absence de protection d’assurance avant vérification. Les estimations de reconstruction, de modernisation ou de financement peuvent couvrir des objets et années différents. Ne pas les mettre en concurrence sans périmètre commun.
+
+## Bois : la transformation n’est pas une formule magique
+Remplacer « exporter une grume, c’est exporter les emplois » par une explication des étapes de valeur et de leurs conditions : rendement, marché, énergie, compétences, qualité et durabilité. L’objectif reste de poser de bonnes questions sur les retombées locales, pas de présenter toute transformation comme automatiquement rentable.
+
+## Gaz : distinguer produits et procédés
+Le GNL est du gaz naturel liquéfié ; le GPL domestique relève notamment du propane et du butane. Ne pas les présenter comme trois ressources indépendantes, ni assimiler une exportation de GNL à une bouteille retirée du marché domestique.
+
+## Diamant : ce que certifie le certificat
+Kimberley porte sur le commerce international des diamants bruts et ses envois. Il ne certifie ni chaque bijou, ni sa valeur, ni l’intégralité des critères sociaux et environnementaux. Le récit ne déclare pas la pierre « verre » sans expertise.
+
+## Mines, carrières et route
+Remplacer « un permis autorise à chercher » par la distinction entre types de titres. Aucun détail sur une autorisation communale, une exonération ou une clé de partage sans texte validé. Une exemption de taxe ne rend pas extraction, concassage et transport gratuits. Retirer les coûts routiers « 2 à 6 fois » ou « 11 millions/km » tant que méthode et comparabilité manquent.
+
+## Forêt : la loi de 1994 n’est plus en vigueur (ajout V2.1)
+Ne plus écrire « selon la loi forestière de 1994 ». Ne pas figer de pourcentage de répartition de la RFA : la grille dépend de la loi de finances de l’année, et les pourcentages qui circulent dans la presse ne totalisent pas toujours 100 %.
+
+## Or : pas de taux sans texte (ajout V2.1)
+Retirer le « prélèvement de 15 % ». Les sources repérées citent d’autres taux selon les régimes et les années. Les tonnages annoncés par un acteur (SONAMINES, ministère, ONG) restent des déclarations attribuées tant que la série et la méthode ne sont pas lues.
+
+## Gaz et raffinage : les dates bougent (ajout V2.1)
+Le départ de l’usine flottante (2026) et le calendrier de redémarrage de la SONARA (objectif 2027) sont des situations qui évoluent. Toute planche datée doit être recontrôlée juste avant le bouclage.
+
+## Finale : pas de faveur pour Bello
+La qualité de son travail lui donne la capacité de présenter une offre, pas un droit à la commande. Le scénario distingue achat associatif et commande publique. La réunion citoyenne ne crée ni budget public ni pouvoir d’enquête judiciaire. Un transfert ne se devine pas ; un tableau laisse les cases inconnues ouvertes.
+
+=== PAGE
+kicker: DOSSIER DOCUMENTAIRE • REGISTRE DES SOURCES
+title: Les sources et leur portée
+
+Registre V2.1, repérage du 15 octobre 2026. Chaque entrée indique son type (PRIMAIRE : texte officiel ou institution émettrice ; INSTITUTIONNEL : organisation qui publie ses propres données ; SECONDAIRE : presse ou analyse), son niveau d’accès (voir la charte) et les épisodes qu’elle nourrit. Cette liste ne certifie aucun chiffre : elle dit où le chercher.
+~ S1 à S6 sont reprises de la V2.0. S7 à S59 sont nouvelles. Les URL sont reproduites telles que repérées ; certaines sont des copies (FAOLEX, LEAP, A-MLA) d’un texte officiel dont la version au Journal officiel reste à obtenir.
+
+sub: Transversal et ITIE
+## S1 • ITIE / Rapport ITIE 2023 du Cameroun
+tag: INSTITUTIONNEL • HÉRITÉ V2.0, URL complétée REPÉRÉE • ép. 7, 9, 12
+Publié fin décembre 2025 ; administrateur indépendant : cabinet Enerteam, désigné par le Comité ITIE-Cameroun (page MINFI). Pour tout chiffre de planche, ouvrir le PDF et relever page, tableau, unité et périmètre.
+url: https://eiti.org/fr/documents/rapport-itie-2023-du-cameroun
+url: https://eiti.org/documents/cameroon-2023-eiti-report
+url: https://minfi.gov.cm/rapport-itie-2023/
+## S36 • ITIE / Rapport ITIE 2022 du Cameroun
+tag: INSTITUTIONNEL • REPÉRÉ • ép. 5, 9
+Publié en mars 2025. Les chiffres qui en circulent (part du secteur extractif dans le PIB, production pétrolière 2022) viennent de reprises de presse : à relever dans le rapport.
+url: https://api.eiti.org/fr/documents/rapport-itie-2022-du-cameroon
+## S45 • Business in Cameroon / Pertes fiscales liées aux exportations illégales d’or
+tag: SECONDAIRE • REPÉRÉ • ép. 7
+L’article attribue au rapport ITIE 2023 une estimation de 165 milliards F CFA de pertes fiscales. C’est une déclaration attribuée : ne l’utiliser qu’après lecture de la page correspondante du rapport (S1).
+url: https://www.businessincameroon.com/mining/1512-15511-cameroon-risks-cfa165bn-in-tax-losses-from-illegal-gold-exports
+
+sub: Bois et forêt
+## S7 • Loi n° 2024/008 du 24 juillet 2024 portant régime des forêts et de la faune
+tag: PRIMAIRE • REPÉRÉ • ép. 1, 2, 3, épilogue
+Selon la fiche LEAP, elle abroge la loi n° 94/01. Les redevances et « leur grille de répartition » seraient fixées par la loi de finances. Les communautés riveraines devraient se constituer en entité légale pour percevoir leurs quotes-parts. Les numéros d’articles sont à relever.
+url: https://www.prc.cm/files/00/7c/99/ecb095ee211e9afbfae2668830985264.pdf
+url: https://leap.unep.org/en/countries/cm/national-legislation/loi-ndeg-2024-008-du-24-juillet-2024-portant-regime-des-forets-et
+## S8 • Loi n° 94/01 du 20 janvier 1994 (abrogée)
+tag: PRIMAIRE • REPÉRÉ • historique seulement
+Utile pour expliquer d’où viennent les pratiques et les mots (RFA, forêts communautaires). Ne plus la citer comme droit en vigueur.
+url: https://leap.unep.org/en/countries/cm/national-legislation/loi-no-9401-portant-regime-des-forets-de-la-faune-et-de-la-peche
+## S9 • PFBC / Analyse de la nouvelle loi forestière (décembre 2024)
+tag: SECONDAIRE (analyse société civile) • REPÉRÉ • ép. 3
+Point de vue critique sur la loi de 2024. À citer comme position attribuée.
+url: https://pfbc-cbfp.org/fileadmin/user_upload/pfbc-cbfp/Actualites/2024/2024-12/Analyse_de_la_nouvelle_loi_forestiere.pdf
+## S10 • CED / La loi forestière de 2024 au Cameroun : entre progrès réels et retards persistants
+tag: SECONDAIRE (analyse société civile) • REPÉRÉ • ép. 3
+Même usage que S9.
+url: https://cedcameroun.org/actualite/la-loi-forestiere-de-2024-au-cameroun-entre-progres-reels-et-retards-persistants/
+## S11 • Arrêté conjoint n° 0520/MINATD/MINFI/MINFOF (2010)
+tag: PRIMAIRE • REPÉRÉ • ép. 1
+Modalités d’emploi des revenus forestiers destinés aux communes et communautés. Date divergente selon les sources (28 juillet ou 3 juin 2010). Remplacé par S12.
+url: https://faolex.fao.org/docs/pdf/cmr151122.pdf
+## S12 • Arrêté conjoint n° 0000076/MINATD/MINFI/MINFOF du 26 juin 2012 et guide explicatif
+tag: PRIMAIRE • REPÉRÉ • ép. 1
+Planification, emploi et suivi des revenus forestiers et fauniques des communes et communautés riveraines ; comité communal de gestion. Sa clé est antérieure à la loi de finances 2015 et son alignement sur la loi de 2024 reste à confirmer.
+url: https://faolex.fao.org/docs/pdf/cmr218058.pdf
+url: https://oiecameroun.org/wp-content/uploads/2024/09/Arrete-conjoint-076_Guide_explicatif.pdf
+## S13 • Historique de la répartition de la RFA (presse et blogs)
+tag: SECONDAIRE • REPÉRÉ • ép. 1, contexte seulement
+Ces sources retracent : une clé 50/20/20/10 avant 2015 ; la suppression de la part des communautés par la loi de finances 2015 ; son rétablissement partiel par la loi de finances 2017. Les pourcentages rapportés ne totalisent pas toujours 100 % : ne pas les reproduire.
+url: https://bekwadi.mondoblog.org/2017/05/29/redevance-forestiere-annuelle-cameroun-ping-pong-fache-populations-riveraines-forets/
+url: https://timesnews2.info/restauration-des-10-de-la-rfa-le-cri-d-alarme-des-communautes-riveraines/
+## S14 • DGB / Projet de loi de finances 2026 et exposé des motifs
+tag: PRIMAIRE (projet) • REPÉRÉ • ép. 1
+Selon les sources, la RFA serait réduite de 25 % (35 % avec certification de gestion durable) à compter de 2026. Il faudra confirmer sur la loi promulguée, et vérifier si la réduction touche ou non les parts communales.
+url: https://www.dgb.cm/wp-content/uploads/2025/11/PROJET-DE-LOI-FINANCES-2026_FR_26112025.pdf
+url: https://www.dgb.cm/wp-content/uploads/2025/12/Expose-des-Motifs_LF-2026_fr.pdf
+## S15 • WRI et MINFOF / Atlas forestier interactif du Cameroun, version 3.0
+tag: INSTITUTIONNEL • REPÉRÉ • ép. 1, 2
+Contient les concessions, l’état des plans d’aménagement, les volumes abattus et les routes. L’existence d’une version plus récente est à vérifier.
+url: https://www.wri.org/research/interactive-forest-atlas-cameroon-atlas-forestier-interactif-du-cameroun-version-30
+## S16 • MINFOF et INS / Annuaire statistique 2018
+tag: PRIMAIRE • REPÉRÉ • ép. 2
+Dernière édition trouvée. Ses chiffres datent de 2018 et ne doivent pas être présentés comme actuels.
+url: https://ins-cameroun.cm/wp-content/uploads/2023/06/ANNUAIRE-STATISTIQUE-2018-MINFOF-FRANCAIS.pdf
+## S17 • Décision du Conseil des ministres de l’UEAC sur les grumes (23 février 2024), selon la presse
+tag: SECONDAIRE • REPÉRÉ • ép. 2
+Interdiction totale d’exporter des grumes reportée au 1er janvier 2028, avec une mise en œuvre progressive. Le texte officiel de la décision n’a pas été trouvé.
+url: https://www.investiraucameroun.com/gestion-publique/2902-20386-cemac-l-interdiction-de-l-exportation-du-bois-en-grume-renvoyee-en-2028
+## S18 • Arrêté n° 0023/MINFOF du 28 avril 2026, selon un communiqué de Greenpeace Afrique
+tag: SECONDAIRE • REPÉRÉ • ép. 2
+91 essences interdites d’exportation en grumes, dont 15 nouvelles, selon le communiqué. Le texte de l’arrêté n’a pas été vu.
+url: https://www.greenpeace.org/africa/fr/communiques-de-presse/60683/cameroun-15-nouvelles-essences-de-bois-desormais-interdites-dexportation-en-grumes-greenpeace-salue-une-avancee-et-appelle-a-des-mesures-daccompagnement-urgentes/
+## S19 • Décret n° 2013/0171/PM du 14 février 2013 (études d’impact environnemental et social)
+tag: PRIMAIRE • REPÉRÉ • ép. 3, épilogue
+L’étude ou la notice d’impact est à la charge du promoteur. Les articles sur la consultation et les audiences publiques sont à lire.
+url: https://leap.unep.org/en/countries/cm/national-legislation/decret-ndeg-20130171pm-du-14-fevrier-2013-fixant-les-modalites-de
+## S20 • Loi n° 2019/024 du 24 décembre 2019 portant Code général des collectivités territoriales décentralisées
+tag: PRIMAIRE • REPÉRÉ • ép. 1, 12
+Elle transfère des compétences aux communes. Un extrait repéré ouvre aux habitants et contribuables la communication, à leurs frais, des budgets, comptes et procès-verbaux. Le numéro d’article et le texte d’application sont à relever.
+url: https://www.minddevel.gov.cm/wp-content/uploads/2022/08/LOI_N%C2%B0_2019_024_DU_24_DECEMBRE_2019_PORTANT_CODE_GENERAL_DES_COLLECTIVITES.pdf
+## S21 • FAO, CIFOR et MINFOF / État du secteur forêts-bois du Cameroun (2015)
+tag: INSTITUTIONNEL • REPÉRÉ • ép. 2
+Synthèse la plus solide trouvée sur la transformation et l’emploi. Ses données sont anciennes.
+url: https://fao.org/fileadmin/user_upload/FLEGT/docs/Etat_Secteur_Forets_Bois_Cameroun_2015_CIFOR_MINFOF_FAOFLEGT.pdf
+## S22 • FODER / Suivi de la gestion des revenus forestiers destinés aux communautés (mai 2016)
+tag: SECONDAIRE (ONG) • REPÉRÉ • ép. 1, 3
+Retour de terrain sur l’usage des revenus forestiers par les communautés. Il est daté.
+url: https://loggingoff.info/wp-content/uploads/2017/06/Rapport_de_synthese_Suivi_de_gestion_des_revenus_forestiers_destins_aux_communautes_FODER_Mai-2016-1.pdf
+
+sub: Pétrole, raffinage et gaz
+## S3 • SONARA / Communiqué gouvernemental sur l’incident
+tag: PRIMAIRE • HÉRITÉ V2.0 • ép. 5
+Source primaire pour l’explosion et l’incendie du 31 mai 2019. Elle ne prouve ni l’absence d’assurance ni la situation actuelle.
+url: https://sonara-cm.cm/wp-content/uploads/2024/05/Communique-du-Gouvernement.pdf
+## S4 • SONARA / Démarrage de l’avant-projet sommaire de réhabilitation
+tag: PRIMAIRE • HÉRITÉ V2.0 • ép. 5
+Quatre unités principales endommagées totalement sur treize, selon la V2.0. Publication ancienne : son chiffrage ne se compare pas à S30 sans périmètre commun.
+url: https://sonara-cm.cm/demarrage-de-lavant-projet-sommaire-de-la-rehabilitation-reconstruction-de-la-sonara/
+## S23 • CSPH (Caisse de stabilisation des prix des hydrocarbures)
+tag: PRIMAIRE (site non ouvert) • REPÉRÉ via fiche tierce • ép. 4
+Le site www.csph.cm est indiqué par une fiche d’annuaire. La caisse est chargée de stabiliser les prix et de faire la péréquation. Sa structure des prix serait publiée chaque mois : aucun exemplaire n’a été trouvé.
+url: https://www.osidimbea.cm/entreprises/a-capitaux-publics/csph/
+## S24 • Hausse des prix des carburants au 1er février 2023 (presse)
+tag: SECONDAIRE rapportant un communiqué officiel • REPÉRÉ • ép. 4
+Super : 630 → 730 F CFA/l. Gasoil : 575 → 720 F CFA/l. Pétrole lampant et gaz domestique inchangés.
+url: https://www.financialafrik.com/2023/02/01/cameroun-reajustement-a-la-hausse-des-prix-des-carburants/
+## S25 • Hausse des prix des carburants au 3 février 2024 (presse)
+tag: SECONDAIRE rapportant un communiqué officiel • REPÉRÉ, recoupé par plusieurs titres • ép. 4
+Communiqué du secrétaire général des Services du Premier ministre. Super : 730 → 840 F CFA/l. Gasoil : 720 → 828 F CFA/l. Gaz domestique et pétrole lampant inchangés. Les pourcentages diffèrent selon les médias (12 à 15 %).
+url: https://www.investiraucameroun.com/energie/0302-20275-carburants-le-cameroun-procede-a-une-augmentation-de-15-des-prix-a-la-pompe-du-super-et-du-gasoil
+url: https://cameroon-tribune.cm/article.html/62982/fr.html/details_2
+## S26 • Tarifs du taxi après la hausse de 2024 (arrêté MINCOMMERCE du 26 février 2024, selon la presse)
+tag: SECONDAIRE • REPÉRÉ • ép. 4
+Taxi urbain à 350 F CFA le jour et 400 F CFA la nuit ; tarif élèves et étudiants maintenu à 300 et 350 F CFA. Aucun tarif moto-taxi ni de transport scolaire spécifique n’a été trouvé.
+url: https://www.koaci.com/article/2024/02/27/afrique/politique/cameroun-hausse-du-tarif-de-transport-urbain-periurbain-et-interurbain_176065.html
+url: https://cameroon-tribune.cm/article.html/63492/fr.html/details_2
+## S27 • FMI / Communiqué de presse n° 23/250 (29 juin 2023)
+tag: INSTITUTIONNEL • REPÉRÉ • ép. 4
+Il relie la hausse du déficit primaire non pétrolier de 2022 aux dépenses de subvention des carburants. Le montant est à lire dans le rapport pays complet.
+url: https://www.imf.org/en/News/Articles/2023/06/29/pr23250-cameroon-imf-executive-board-completes-reviews-of-ecf-and-eff-arrangements-for-cameroon
+## S28 • Montants des subventions aux carburants (presse, 2026)
+tag: SECONDAIRE • REPÉRÉ • ép. 4, contexte
+Les montants cités (2022 à 2025) se contredisent selon qu’ils viennent du FMI, de la Présidence ou de la loi de finances. Aucun chiffre ne doit être utilisé sans le rapport source.
+url: https://fr.allafrica.com/stories/202607090116.html
+url: https://oeildafrique.com/2026/10/02/cameroun-subventions-carburant-gasoil-deficit-2026/
+## S29 • Incendie de la SONARA, 31 mai 2019 (presse)
+tag: SECONDAIRE • REPÉRÉ • ép. 5
+Le communiqué gouvernemental, lu par le ministre de la Communication, signale des dégâts sur des équipements de distillation atmosphérique ; aucune victime n’est rapportée. Il complète S3.
+url: https://www.afrik.com/cameroun-incendie-a-la-sonara-le-gouvernement-se-montre-prudent-sur-les-causes
+## S30 • MINFI / « SONARA : vers une raffinerie nouvelle génération » et presse 2025-2026
+tag: PRIMAIRE et SECONDAIRE • REPÉRÉ • ép. 5
+Plan de redémarrage adopté le 13 août 2025, avec un objectif de décembre 2027 et un partenariat public-privé ; coût annoncé d’environ 700 milliards F CFA ; consultation du marché en juin 2026. Ce sont des objectifs et des déclarations. Un prélèvement de 47,8 F CFA/l depuis 2022 est cité : à confirmer sur une structure CSPH.
+url: https://minfi.gov.cm/sonara-vers-une-raffinerie-nouvelle-generation/
+url: https://www.investiraucameroun.com/gestion-publique/1808-22336-rehabilitation-de-la-sonara-un-plan-de-deux-ans-pour-accelerer-sa-restructuration-de-la-raffinerie-de-limbe
+url: https://fr.allafrica.com/stories/202607010568.html
+## S31 • Usine flottante de GNL Hilli Episeyo, Kribi (2018-2026)
+tag: SECONDAIRE (presse spécialisée) • REPÉRÉ, recoupé • ép. 6
+Premier GNL en 2018. Capacité nominale d’environ 2,4 Mt/an. Fin du contrat en juillet 2026 ; dernière cargaison le 27 juillet 2026 selon Ecomatin ; départ vers Singapour avant redéploiement en Argentine.
+url: https://lngprime.com/vessels/worlds-first-converted-flng-in-milestone-operation/2971
+url: https://ecomatin.net/kribi-le-navire-hilli-epesiyo-quitte-le-cameroun-apres-156-cargaisons-de-gaz-dechargees-en-8-ans
+url: https://www.businessincameroon.com/public-management/2407-16519-hilli-episeyo-exit-to-slow-cameroon-s-growth-to-3-2-in-2026-report-says
+## S32 • Tension sur le gaz domestique en 2026 (presse)
+tag: SECONDAIRE • REPÉRÉ • ép. 6
+Bouteille de 12,5 kg au prix officiel de 6 500 F CFA ; prix bien supérieurs au marché parallèle à Douala ; livraisons d’un distributeur suspendues ; volumes d’importation de butane cités. À recouper avec la SNH et la SCDP.
+url: https://fr.allafrica.com/stories/202609170323.html
+## S33 • Connaissance des Énergies / GPL, GNL, GNV, GNC : quelles différences ?
+tag: SECONDAIRE (pédagogique) • REPÉRÉ • ép. 6
+Le GNL est du gaz naturel, essentiellement du méthane, liquéfié vers −161 °C. Le GPL désigne le propane et le butane, liquéfiés sous faible pression. Une source pédagogique pour le schéma de la planche 2.
+url: https://www.connaissancedesenergies.org/questions-et-reponses-energies/gpl-gnl-gnv-gnc-quelles-differences
+## S34 • SNH / Rapport annuel 2023 et données d’activité du 1er trimestre 2024
+tag: PRIMAIRE • REPÉRÉ • ép. 5, 6
+Production de brut, de gaz, de GPL et de GNL par opérateur. Aucun rapport 2024 ou 2025 n’a été trouvé.
+url: https://www.snh.cm/images/publications/Rapports%20annuels/Rapport%20annuel%202023.pdf
+url: https://snh.cm/images/DONNEES_DE_LACTIVITE_Q1_2024.pdf
+## S35 • Composition du prix administré des carburants (FMI 2015, presse)
+tag: INSTITUTIONNEL et SECONDAIRE, anciens • REPÉRÉ • ép. 4, 5
+Composantes citées : marge, TVA, taxe spéciale sur les produits pétroliers, cabotage, redevances, péréquation transport, soutien de l’État. Il s’agit du schéma de la planche 3, sans montant tant qu’une structure CSPH datée n’a pas été lue.
+url: https://imf.org/external/french/pubs/ft/SCR/2015/cr15332f.pdf
+url: https://ecomatin.net/hydrocarbures-comment-sont-fixes-les-prix-des-produits-petroliers/
+
+sub: Or et diamant
+## S2 • ITIE / Cameroon’s gold gap: How EITI data is driving reforms
+tag: INSTITUTIONNEL • HÉRITÉ V2.0, URL canonique REPÉRÉE • ép. 7
+Exportations d’or enregistrées par le Cameroun en 2023 : 22,3 kg. Importations « du Cameroun » déclarées par les EAU : plus de 15 tonnes. La date de publication est à relever.
+url: https://eiti.org/impact-story/cameroons-gold-gap-how-eiti-data-driving-reforms
+url: https://eiti.org/index.php/ru/node/28573
+## S37 • Banque mondiale, WITS / Mirror Data with UN COMTRADE
+tag: INSTITUTIONNEL (méthode) • REPÉRÉ • ép. 7
+Importations en valeur CIF et exportations en FOB ; les importations sont en général mieux enregistrées. Il s’agit de la méthode de la planche 3 : origine, provenance, transit et nomenclature.
+url: https://wits.worldbank.org/wits/witshelp/content/data_retrieval/T/Intro/B2.Imports_Exports_and_Mirror.htm
+## S38 • SWISSAID / Rapport sur l’or africain non déclaré (mai 2024), selon Ecofin
+tag: SECONDAIRE • REPÉRÉ • ép. 7, contexte
+Contexte continental sur l’or importé non déclaré. Aucun chiffre propre au Cameroun n’a été trouvé, et le titre exact est à confirmer.
+url: https://ecofinagency.com/mining/3105-45574-africa-loses-billions-to-gold-smuggling-over-2012-2022-decade-swissaid-reveals-in-new-report
+## S39 • Tonnages attribués à la SONAMINES (presse, mai 2026)
+tag: SECONDAIRE rapportant une déclaration • REPÉRÉ • ép. 7
+Selon l’article, 44 t sont attribuées au Cameroun par les statistiques émiriennes sur 2021-2025, contre 148 kg déclarés. Déclaration attribuée, série non lue.
+url: https://www.capmad.com/post/cameroon-sonamines-flags-44-tonnes-of-gold-lost-to-dubai-between-2021-and-2025
+## S40 • SONAMINES / Création et rôle
+tag: SECONDAIRE (fiches et analyse juridique) • REPÉRÉ • ép. 7
+Créée par décret en décembre 2020, elle succède au CAPAM. Le Code de 2023 lui confierait le suivi de la production et de la commercialisation de l’or artisanal et semi-mécanisé. Aucun texte repéré ne mentionne un prélèvement de 15 %.
+url: https://www.osidimbea.cm/entreprises/a-capitaux-publics/sonamines/
+url: https://www.pinsentmasons.com/out-law/analysis/cameroon-new-mining-code-financing-state-powers
+## S41 • Loi n° 2016/017 du 14 décembre 2016 portant Code minier (abrogée)
+tag: PRIMAIRE • REPÉRÉ • historique
+Remplacée par S42. À citer seulement pour l’historique.
+url: https://a-mla.org/en/country/pdf/867
+## S42 • Loi n° 2023/014 du 19 décembre 2023 portant Code minier
+tag: PRIMAIRE • REPÉRÉ • ép. 7, 9, 10, épilogue
+Titres : permis de reconnaissance, autorisations d’exploitation artisanale, artisanale semi-mécanisée et des rejets miniers, permis de recherche, permis d’exploitation de la petite mine et de la mine industrielle. Un titre est consacré aux carrières, en quatre catégories. La taxe à l’extraction porte sur les carrières artisanales et industrielles ; les carrières d’intérêt public en seraient exemptées, sauf taxes et droits communaux. Les numéros d’articles sont à relever.
+url: https://sonamines.cm/wp-content/uploads/2024/01/loi-n-2023-014-du-19-decembre-2023-portant-code-minier.pdf
+url: https://www.a-mla.org/en/country/pdf/2229
+## S43 • Processus de Kimberley / Participant : Cameroun ; règlement (UE) n° 947/2012
+tag: INSTITUTIONNEL et PRIMAIRE • REPÉRÉ • ép. 8
+Entrée du Cameroun en 2012. Autorité nationale : le SNPPK, qui assure la traçabilité et l’expertise des lots avant export (selon la presse et IPIS).
+url: https://www.kimberleyprocess.com/participants/cameroon
+url: https://eur-lex.europa.eu/eli/reg/2012/947/oj
+## S44 • Processus de Kimberley / Statistiques annuelles
+tag: INSTITUTIONNEL • REPÉRÉ • ép. 8
+Les exportations officielles camerounaises de diamants bruts se comptent en milliers de carats par an, avec de fortes variations. Les valeurs sont à relever sur le site statistique officiel, pas sur un agrégateur.
+url: https://www.kimberleyprocess.com/node/179
+## S5 • Kimberley Process / FAQ
+tag: INSTITUTIONNEL • HÉRITÉ V2.0 • ép. 8
+Elle distingue le commerce des diamants bruts, les certificats et la portée du dispositif. Elle ne vaut pas expertise d’une pierre.
+url: https://www.kimberleyprocess.com/faq
+## S6 • Kimberley Process / Information for Business
+tag: INSTITUTIONNEL • HÉRITÉ V2.0 • ép. 8
+Règles générales pour les opérateurs. Les textes camerounais applicables sont à lire avant la rédaction juridique finale.
+url: https://www.kimberleyprocess.com/information-for-business
+## S46 • IDEX / Vérification d’un certificat Kimberley scanné suspect
+tag: SECONDAIRE (presse professionnelle) • REPÉRÉ • ép. 8
+Le bureau KP des EAU a vérifié auprès du pays émetteur une copie suspecte, qui s’est révélée fausse. Le cas inspire le geste de la planche 3 ; il ne concerne pas le Cameroun.
+url: https://idexonline.com/FullArticle?Id=41911
+
+sub: Mines, carrières, route et argent public local
+## S47 • Décret n° 2024/05253/PM du 19 novembre 2024 (substances de carrière) et commentaire
+tag: PRIMAIRE (non ouvert) et SECONDAIRE • REPÉRÉ • ép. 10
+Selon le commentaire, une carrière artisanale à but commercial relève d’une autorisation de la commune, réservée aux personnes physiques camerounaises, pour deux ans ; une carrière domestique relève d’une déclaration.
+url: https://www.spm.gov.cm/site/?q=fr%2Fcontent%2Fdecret-n%C2%B0-202405253pm-du-19-nov-2024-pr%C3%A9cisant-les-modalit%C3%A9s-d%E2%80%99exploitation-des-substances
+url: https://minfi.gov.cm/decrets-relatifs-au-code-minier-2024/
+url: https://www.labase-lextenso.fr/l-essentiel-droits-africains-des-affaires/2025-n1/cameroun-un-decret-pour-preciser-les-conditions-d-exploitation-des-substances-de-carrieres-DAA202u5
+## S48 • Cameroon Tribune / Nouvelles règles d’obtention des permis (1er juillet 2025)
+tag: SECONDAIRE • REPÉRÉ • ép. 9, 10
+Annonce de textes d’application de juin 2025 sur le permis de recherche et les carrières industrielles. Leurs numéros sont à trouver.
+url: https://cameroon-tribune.cm/article.html/71190/fr.html/permis-de-recherche-dexploitation-miniere-les-nouvelle-regles-dobtention
+## S49 • Projet de fer de Grand Zambi (presse économique)
+tag: SECONDAIRE • REPÉRÉ • ép. 9
+Convention d’investissement (2019), permis d’exploitation (2022), permis de recherche distinct (2024), financement bancaire en cours de mobilisation en 2026. Il sert d’exemple réel des étapes, distinct de la « Montagne de Fer » fictive.
+url: https://www.businessincameroon.com/mining/3008-13380-grand-zambi-iron-ore-g-stones-reportedly-ready-to-start-exploitation-in-the-next-few-months
+url: https://www.financialafrik.com/2026/02/18/cameroun-75-millions-usd-a-mobiliser-par-des-banques-locales-a-la-beac-pour-lexploitation-de-fer-de-grand-zambi
+## S50 • Projet de fer de Mbalam-Nabeba (presse)
+tag: SECONDAIRE • REPÉRÉ, contradictoire • ép. 9, à éviter
+Permis d’exploitation de 2022. Les dates de la convention minière divergent selon les sources.
+url: https://www.afrik.com/mbalam-nabeba-production-de-fer-lancee-exportations-retardees-en-2026-au-cameroun-congo
+url: https://ecomatin.net/fer-de-mbalam-le-chinois-cmc-signe-la-convention-miniere-pour-accelerer-le-demarrage-des-travaux
+## S51 • Cadastre minier (Banque mondiale, projet PRECASEM ; presse)
+tag: INSTITUTIONNEL et SECONDAIRE • REPÉRÉ • ép. 9
+Un cadastre minier informatisé, avec information publique, a été annoncé en 2017. L’URL actuelle du portail public n’a pas été trouvée.
+url: https://projects.banquemondiale.org/fr/projects-operations/project-detail/P122153?lang=fr
+url: https://www.cameroon-tribune.cm/article.html/9048/en.html/details_2
+## S52 • DGI / Formulaire ITS-2 (taxe à l’extraction des produits de carrière)
+tag: PRIMAIRE (date inconnue) • REPÉRÉ • ép. 10
+Il indique une répartition de la taxe entre l’État, les communes compétentes et des frais de recouvrement et de suivi. Sa validité après le Code de 2023 est inconnue : aucun pourcentage en bulle.
+url: https://www.impots.cm/sites/default/files/documents/ITS-2.pdf
+## S53 • Décret n° 2018/366 du 20 juin 2018 portant Code des marchés publics
+tag: PRIMAIRE • REPÉRÉ • ép. 11, 12
+Cadre de la commande publique ; l’ARMP publie le Journal des marchés. Il permet de distinguer, à la finale, l’achat associatif de la commande publique.
+url: https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Code_des_marches_publics_ULTIMATE.pdf
+## S54 • COLEPS et publication des marchés (presse 2025-2026)
+tag: SECONDAIRE • REPÉRÉ • ép. 11
+Publication en ligne des actes de passation sur COLEPS depuis 2025, en plus du Journal des marchés. Les portails cités n’ont pas été ouverts.
+url: https://ecomatin.net/cameroun-lattribution-des-marches-publics-en-ligne-bondit-de-221-a-1-173-contrats-en-un-an
+## S55 • Fonds routier (fiche d’annuaire)
+tag: SECONDAIRE • REPÉRÉ • ép. 11
+Créé par la loi n° 96/07 du 8 avril 1996 et réorganisé en 2025 selon la fiche. Le site officiel est à confirmer.
+url: https://www.osidimbea.cm/entreprises/a-capitaux-publics/fonds-routier/
+## S56 • Cameroon Tribune / Programme d’entretien routier 2022
+tag: SECONDAIRE • REPÉRÉ • ép. 11
+Composante « routes communales » ; les maires sont ordonnateurs des procédures du Fonds routier.
+url: https://cameroon-tribune.cm/article.html/45838/fr.html/details_2
+## S57 • Chambre des comptes et FEICOM / Convention sur la production des comptes des collectivités (2023)
+tag: INSTITUTIONNEL • REPÉRÉ • ép. 12
+Elle porte sur la production des comptes des collectivités. Elle permet à Monsieur Dossier de nommer qui contrôle quoi.
+url: https://chambredescomptes.cm/en/news/gouvernance-locale-un-partenariat-stratégique-entre-la-chambre-des-comptes-et-le-feicom
+## S58 • Loi n° 90/053 du 19 décembre 1990 relative à la liberté d’association (copie non officielle)
+tag: PRIMAIRE (copie) • REPÉRÉ • ép. 12
+Déclaration à la préfecture et administration selon les statuts. Les modifications ultérieures sont à vérifier sur la version officielle.
+url: https://www.bvm-ac.org/wp-content/uploads/2019/08/liberte_association.pdf
+## S59 • Frais APEE et gratuité scolaire (presse, 2024)
+tag: SECONDAIRE • REPÉRÉ • ép. 12, contexte
+Seul repère trouvé sur les frais APEE. Aucun texte ministériel encadrant les cotisations n’a été trouvé.
+url: https://afrique.le360.ma/societe/lecole-est-elle-gratuite-au-cameroun-en-theorie-seulement_4FQIEN262ZDWPCTVSV7RDXFPAM/
+
+=== PAGE
+kicker: DOSSIER DOCUMENTAIRE • CHIFFRES ET DIVERGENCES
+title: Registre des chiffres candidats
+
+Chaque chiffre ci-dessous est un candidat à un encart. Aucun n’est validé : il faut d’abord lire la source (statut LU), puis remplir la fiche minimale de la charte.
+
+| Id | Chiffre candidat | Source | Statut | Usage prévu
+| C1 | Super 630 → 730 F CFA/l ; gasoil 575 → 720 (1er février 2023) | S24 | REPÉRÉ | Ép. 4, page « prix du litre »
+| C2 | Super 730 → 840 F CFA/l ; gasoil 720 → 828 (3 février 2024) | S25 | REPÉRÉ, recoupé | Ép. 4, page « prix du litre »
+| C3 | Tarif taxi élèves et étudiants maintenu (février 2024) | S26 | REPÉRÉ | Ép. 4, planche 2
+| C4 | Incendie de la SONARA le 31 mai 2019 | S3, S29 | HÉRITÉ V2.0 | Ép. 5, planche 1
+| C5 | 4 unités principales sur 13 totalement endommagées | S4 | HÉRITÉ V2.0 | Ép. 5, planche 3
+| C6 | Redémarrage visé en décembre 2027 ; coût annoncé d’environ 700 Mds F CFA | S30 | REPÉRÉ, déclaration | Ép. 5, en déclaration attribuée seulement
+| C7 | Production de GNL à Kribi de 2018 à juillet 2026 | S31 | REPÉRÉ, recoupé | Ép. 6, page « gaz et usages »
+| C8 | Bouteille de gaz de 12,5 kg à 6 500 F CFA (prix officiel) | S25, S32 | REPÉRÉ | Ép. 6, planche 1
+| C9 | 22,3 kg exportés contre plus de 15 t importées par les EAU (2023) | S2 | HÉRITÉ V2.0 | Ép. 7, planche 2
+| C10 | Entrée du Cameroun au Processus de Kimberley en 2012 | S43 | REPÉRÉ | Ép. 8, page « diamant »
+| C11 | Interdiction totale d’exporter des grumes au 1er janvier 2028 (CEMAC) | S17 | REPÉRÉ | Ép. 2, page « chaîne du bois »
+| C12 | Quatre catégories de carrières | S42 | REPÉRÉ | Ép. 10, page « matériaux et coûts »
+
+## Divergences relevées
+| Sujet | Ce qui diverge | Décision V2.1
+| Répartition de la RFA | Pourcentages successifs de presse non concordants, total différent de 100 % | Aucun pourcentage ; renvoyer à la loi de finances de l’année
+| Arrêté conjoint 0520 | Date du 28 juillet ou du 3 juin 2010 | Citer le numéro seulement
+| Subventions aux carburants | Montants 2022-2023 différents selon le FMI, la Présidence et la presse | Pas de montant en encart
+| Hausse de 2024 | 12 %, 13 % ou 15 % selon les médias | Donner les prix au litre, pas le pourcentage
+| Départ du Hilli Episeyo | « Juillet » ou 4 août 2026 | Écrire « été 2026 » ou relire Golar et la SNH
+| Mbalam-Nabeba | Dates de la convention minière contradictoires | Ne pas utiliser
+| Taux sur l’or artisanal | 15 %, 25 % ou 28,75 % selon les sources et les régimes | Aucun taux
+| Poids de la bouteille | 12 ou 12,5 kg selon les articles de 2023 | 12,5 kg après lecture de S25
+
+=== PAGE
+kicker: DOSSIER DOCUMENTAIRE • DEMANDES À ADRESSER
+title: Ce qu’il reste à documenter
+
+Pour chaque pièce : qui la détient et quel épisode elle débloque. Ces demandes sont à planifier ; aucun message n’a été envoyé par cette révision.
+
+| Pièce | Détenteur probable | Ép. | Priorité
+| Compte administratif communal avec la ligne de quote-part RFA ; PV du comité de gestion des revenus forestiers | Mairie, receveur municipal | 1 | Haute
+| Clé de répartition de la RFA en vigueur l’année du récit ; effet de la réduction 2026 sur les parts communales | MINFI / DGI, FEICOM | 1 | Haute
+| Texte officiel de la loi 2024/008 et liste de ses décrets d’application | Journal officiel, MINFOF | 1-3 | Haute
+| Arrêté 0023/MINFOF (avril 2026) ; décision UEAC de février 2024 | MINFOF ; Secrétariat de la CEMAC | 2 | Moyenne
+| Articles du décret 2013/0171/PM sur la consultation du public | MINEPDED | 3 | Moyenne
+| Structure des prix CSPH du mois raconté ; communiqués originaux de 2023 et 2024 | CSPH ; Services du Premier ministre | 4 | Haute
+| Situation de la SONARA à la date de bouclage ; documents d’assurance accessibles | SONARA, MINFI | 5 | Haute
+| Production de GPL, importations de butane, rôle de l’ancienne usine flottante dans le GPL local | SNH, SCDP | 6 | Moyenne
+| PDF du rapport ITIE 2023, pages sur l’or ; extraction Comtrade SH 7108 | Secrétariat ITIE ; comtradeplus.un.org | 7 | Haute
+| Procédure nationale et statistiques 2021-2025 | SNPPK ; Processus de Kimberley | 8 | Moyenne
+| Articles du Code minier 2023 ; URL du cadastre minier | MINMIDT | 9-10 | Haute
+| Décret 2024/05253/PM ; clé de la taxe à l’extraction | Services du Premier ministre ; DGI | 10 | Moyenne
+| Accès citoyen au Journal des marchés et à COLEPS ; site du Fonds routier | ARMP, MINMAP, Fonds routier | 11 | Moyenne
+| Article du CGCTD sur la communication des documents et son décret ; texte sur les APEE ; avis sur achat associatif et commande publique | MINDDEVEL ; MINEDUB / MINESEC ; juriste | 12 | Haute
+
+## Registre des nombres du récit
+60 bancs nécessaires, 20 livrés et 40 restant à financer sont des choix scénaristiques fictifs. Leur devis est à construire avec un menuisier local ; ils ne servent pas à illustrer un montant budgétaire national. Toute révision de ces nombres doit se répercuter dans l’objectif, la commande et la finale.
+
+## Les pages documentaires prévues et leurs sources
+- Prix du litre : S23 à S28, S35.
+- Gaz et usages : S31 à S34.
+- Chaîne du bois : S7, S15 à S18, S21.
+- Lecture d’un titre minier : S42, S47 à S51.
+- Statistiques miroirs : S1, S2, S37 à S39.
+- Diamant et certification : S5, S6, S43, S44, S46.
+- Matériaux et coûts : S42, S47, S52.
+- Dû, versé, reçu, dépensé : S11 à S14, S20, S57.
+- Lexique et contacts documentaires : tableau ci-dessus.
+- Références et corrections : ce registre, mis à jour à chaque passage de REPÉRÉ à LU.
+~ Le contenu final de ces pages dépend des pièces obtenues, pas de la longueur souhaitée.
+
+=== PAGE
+kicker: BIBLE NARRATIVE • VOLUME 1 / CAMEROUN
+title: La mise en scène et la production
+
+## Un rythme qui laisse respirer
+Cible : 5 à 7 cases par planche ; 8 seulement si l’action reste limpide. Bulles généralement de 8 à 22 mots ; exceptionnellement 30. Un enjeu principal par scène, deux nombres documentaires au plus par planche. Les encarts ne dépassent pas environ un cinquième de la dernière planche. Une pleine largeur silencieuse peut porter plus qu’un schéma.
+
+## Humour et émotion
+Le banc qui penche, les panneaux de Tonton, le cahier d’Aline et le téléphone de Mina reviennent avec une fonction différente. Ne pas terminer l’épisode 7 sur un gag qui efface le tort causé au cousin. Ne pas faire rire d’un accident, de l’exploitation d’enfants ou de la précarité. Les expressions locales doivent sonner juste et rester compréhensibles.
+
+## Continuité graphique
+Vert forêt, ambre pétrole, bleu gaz, or, blanc diamant, ocre carrières. Les couleurs aident au repérage sans remplacer les légendes. Les faits publics et les pièces fictives ont des cadres distincts. Conserver les cicatrices d’objets : réparation du banc, trace sur le cahier, planche du prototype réemployée.
+
+## Pilotes et test lecteurs
+Dessiner d’abord l’épisode 1 et l’épisode 7 : l’un teste l’attachement, l’autre le suspense documentaire et l’éthique. Questions : pourquoi Aline agit-elle ? Quel risque prend Mina ? Que sait-on vraiment à la fin ? Le lecteur distingue-t-il fiction et données publiques ? A-t-il envie de lire la suite ? Éviter de tester seulement la mémorisation de chiffres.
+
+## Ordre de travail
+Valider arcs et voix ; constituer le dossier des deux pilotes ; écrire case par case ; relire avec spécialiste sectoriel et lecteurs camerounais ; réaliser le storyboard ; tester ; finaliser les bulles et sources ; relire les passages sensibles et solliciter les commentaires utiles avant publication. Ces démarches sont à planifier : aucun message n’est envoyé par cette réécriture.
+
+## Critère de validation d’un épisode
+Un désir, un obstacle, une décision, une conséquence, une idée comprise et une question vérifiable. Si le document remplace l’action, réécrire. Si le rebondissement oblige à inventer un fait public, changer le rebondissement.
+
+> Les personnages doivent nous donner envie de tourner la page ; les sources doivent nous permettre de la relire autrement.
