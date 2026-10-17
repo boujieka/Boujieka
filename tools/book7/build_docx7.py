@@ -34,9 +34,17 @@ if os.environ.get("BOOK_LANG") == "fr":  # proofing language of the whole docume
     _rpr = doc.styles["Normal"].element.get_or_add_rPr()
     _lang = OxmlElement("w:lang"); _lang.set(qn("w:val"), "fr-FR"); _rpr.append(_lang)
 sec = doc.sections[0]
-sec.page_width, sec.page_height = Mm(210), Mm(297)
-sec.left_margin = sec.right_margin = Mm(20); sec.top_margin = Mm(22); sec.bottom_margin = Mm(20)
-TEXT_W = 170
+TRIM = os.environ.get("BOOK_TRIM", "A4")  # BOOK_TRIM=6x9: KDP 6 x 9 in manuscript with mirrored margins (gutter 0.75 in)
+if TRIM == "6x9":
+    sec.page_width, sec.page_height = Mm(152.4), Mm(228.6)
+    sec.left_margin, sec.right_margin = Mm(19.05), Mm(12.7)  # inside and outside once margins are mirrored
+    sec.top_margin, sec.bottom_margin = Mm(19.05), Mm(17.8)
+    _mm = OxmlElement("w:mirrorMargins"); doc.settings.element.append(_mm)
+    TEXT_W = 120
+else:
+    sec.page_width, sec.page_height = Mm(210), Mm(297)
+    sec.left_margin = sec.right_margin = Mm(20); sec.top_margin = Mm(22); sec.bottom_margin = Mm(20)
+    TEXT_W = 170
 st = doc.styles["Normal"]; st.font.name = FONT; st.font.size = Pt(10); st.font.color.rgb = INK
 st.element.rPr.rFonts.set(qn("w:eastAsia"), FONT)
 st.paragraph_format.space_after = Pt(6); st.paragraph_format.line_spacing = 1.15
@@ -104,7 +112,7 @@ def page_number_footer(section):
 
 # ---- cover ----
 if os.path.exists("brand/aef_logo.png"):
-    doc.add_picture("brand/aef_logo.png", width=Mm(110))
+    doc.add_picture("brand/aef_logo.png", width=Mm(min(110, TEXT_W)))
 p = doc.add_paragraph(); p.paragraph_format.space_before = Pt(60); add_runs(p, _A.kicker, 11, GOLD, True)
 p = doc.add_paragraph(); add_runs(p, TITLE, 28, GREEN, True); border_bottom(p, sz=18)
 p = doc.add_paragraph(); add_runs(p, SUB, 14, INK)
@@ -160,7 +168,7 @@ while i < len(lines):
     m = re.match(r"!\[(.*)\]\((.*)\)", L)
     if m:
         path = os.path.normpath(os.path.join("book7/build", m.group(2)))
-        doc.add_picture(path, width=Mm(35 if "qr_" in path else 150)); doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
+        doc.add_picture(path, width=Mm(35 if "qr_" in path else min(150, TEXT_W))); doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
         p = doc.add_paragraph(); add_runs(p, m.group(1), 8.5, MUTED, italic=True)
         i += 1; continue
     if L.startswith("|"):
