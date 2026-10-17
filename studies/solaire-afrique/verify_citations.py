@@ -6,7 +6,8 @@ Pour chaque enregistrement : retélécharge l'URL (HTML ou PDF), normalise le te
 
     python verify_citations.py recherche/brut/*.json --out recherche/verification.json
 
-Statuts : confirmé, citation_partielle, citation_absente, valeur_absente_de_citation, inaccessible.
+Statuts : confirmé, citation_partielle, qualitatif_citation_ok, citation_absente,
+valeur_absente_de_citation (valeur dérivée, additionnée ou non citée), inaccessible.
 """
 
 from __future__ import annotations
@@ -58,8 +59,8 @@ def fetch_text(url: str, cache: dict[str, str | None]) -> str | None:
 def number_variants(v: float) -> set[str]:
     """Écritures possibles d'une valeur : unités converties (x100 pour %, k/M) et séparateurs FR/EN."""
     out = set()
-    for x in {v, v * 100, v * 1000, v / 1000, v / 1e6, v / 1e9}:
-        for d in range(0, 4):
+    for x in {v, v * 100, v * 1000, v * 1e6, v * 1e9, v / 1000, v / 1e6, v / 1e9}:
+        for d in range(0, 7):
             if abs(round(x, d) - x) > 1e-9 * max(1, abs(x)):
                 continue
             ip, _, dp = f"{x:.{d}f}".partition(".")
@@ -98,6 +99,9 @@ def check(rec: dict, cache) -> dict:
         res["mots_trouves"] = round(hit, 2)
     if found == "absente":
         res["statut"] = "citation_absente"
+    elif not isinstance(rec.get("valeur"), (int, float)):
+        # Valeur qualitative reformulée (procédure, financeurs…) : seule la citation est vérifiable.
+        res["statut"] = "qualitatif_citation_ok"
     elif not value_in_quote(rec.get("valeur"), quote_n):
         res["statut"] = "valeur_absente_de_citation"
     else:

@@ -7,6 +7,7 @@ Seules les valeurs vérifiées dans une source citée sont saisies ; tout le res
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 from openpyxl import Workbook
@@ -145,6 +146,14 @@ SOURCES = [
     ("S14", "ESMAP / Banque mondiale", "Mini Grids for Half a Billion People (2019)", 2019,
      "https://www1.villanova.edu/content/dam/villanova/engineering/energy-workshop/ESMAP%20Mini%20Grids%20-%20Executive%20Summary.pdf",
      "B", "Objectif : 0,20 USD/kWh pour les mini-réseaux solaires hybrides d'ici 2030 (projection)"),
+    ("S15", "IRENA", "Renewable Power Generation Costs in 2024 (rapport complet)", 2025,
+     "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2025/Jul/IRENA_TEC_RPGC_in_2024_2025.pdf",
+     "A", "Afrique PV : LCOE 0,074 (2024) / 0,225 (2015) USD2024/kWh, Table 3.3 p. 106 ; "
+          "coût d'installation 1 093 (2024) / 3 437 (2015) USD2024/kW, Table 3.1 p. 95 ; WACC PV 12 %, fig. 1.13 p. 41"),
+    ("S16", "IRENA", "Renewable Power Generation Costs in 2025 (rapport complet)", 2026,
+     "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_in_2025_2026.pdf",
+     "A", "Afrique PV : coût d'installation 837 (2025) / 3 520 (2015) USD2025/kW, Table 3.1 p. 62 ; "
+          "LCOE 52 (2025) / 222 (2015) USD2025/MWh, Table 3.2 p. 71"),
 ]
 
 # Observations vérifiées : (projet_id, champ, valeur, unité, type, source, note)
@@ -225,8 +234,17 @@ PROJETS_C = [
 # Repères agrégés par segment : jamais mélangés entre volets.
 REPERES = [
     ("A", "LCOE moyen pondéré PV, monde", 43, "USD/MWh", 2024, "observée (agrégat)", "S01"),
-    ("A", "Coût d'installation moyen PV, Afrique", 1093, "USD/kW", 2024, "déclarée (secondaire)", "S02"),
-    ("A", "WACC supposé par IRENA, Afrique", 0.12, "%", 2024, "hypothèse IRENA", "S01"),
+    ("A", "IRENA RPGC 2024 — LCOE moyen pondéré PV, Afrique (USD 2024)", 74, "USD/MWh", 2024, "observée (agrégat)", "S15"),
+    ("A", "IRENA RPGC 2024 — LCOE moyen pondéré PV, Afrique (USD 2024)", 225, "USD/MWh", 2015, "observée (agrégat)", "S15"),
+    ("A", "IRENA RPGC 2024 — LCOE PV Afrique, 5e percentile", 49, "USD/MWh", 2024, "observée (agrégat)", "S15"),
+    ("A", "IRENA RPGC 2024 — LCOE PV Afrique, 95e percentile", 186, "USD/MWh", 2024, "observée (agrégat)", "S15"),
+    ("A", "IRENA RPGC 2024 — coût d'installation PV, Afrique (USD 2024)", 1093, "USD/kW", 2024, "observée (agrégat)", "S15"),
+    ("A", "IRENA RPGC 2024 — coût d'installation PV, Afrique (USD 2024)", 3437, "USD/kW", 2015, "observée (agrégat)", "S15"),
+    ("A", "IRENA RPGC 2024 — WACC réel supposé, PV Afrique", 0.12, "%", 2024, "hypothèse IRENA", "S15"),
+    ("A", "IRENA RPGC 2025 — LCOE moyen pondéré PV, Afrique (USD 2025)", 52, "USD/MWh", 2025, "observée (agrégat)", "S16"),
+    ("A", "IRENA RPGC 2025 — LCOE moyen pondéré PV, Afrique (USD 2025)", 222, "USD/MWh", 2015, "observée (agrégat)", "S16"),
+    ("A", "IRENA RPGC 2025 — coût d'installation PV, Afrique (USD 2025)", 837, "USD/kW", 2025, "observée (agrégat)", "S16"),
+    ("A", "IRENA RPGC 2025 — coût d'installation PV, Afrique (USD 2025)", 3520, "USD/kW", 2015, "observée (agrégat)", "S16"),
     ("C", "LCOE mini-réseaux solaires hybrides isolés (min)", 490, "USD/MWh", 2020, "observée (étude)", "S13"),
     ("C", "LCOE mini-réseaux solaires hybrides isolés (max)", 680, "USD/MWh", 2020, "observée (étude)", "S13"),
     ("C", "Objectif LCOE mini-réseaux 2030", 200, "USD/MWh", 2030, "projection", "S14"),
@@ -330,6 +348,7 @@ def build() -> Workbook:
         ws.append(list(r))
     ws.column_dimensions["B"].width = 50
 
+    research_sheets(wb)
     synthese_sheet(wb)
     lcoe_sheet(wb)
     captive_sheet(wb)
@@ -405,6 +424,45 @@ def lcoe_sheet(wb):
         ws.column_dimensions[col].width = 16
     ws.column_dimensions["J"].width = 12
     ws.column_dimensions["K"].width = 16
+
+
+RESEARCH = Path(__file__).with_name("recherche") / "donnees.json"
+RESEARCH_COLS = ["tranche", "volet", "pays_iso3", "projet", "champ", "valeur", "unite", "type_donnee",
+                 "annee_valeur", "fiabilite", "verification", "source_organisme", "source_titre", "url",
+                 "date_source", "citation", "note"]
+
+
+def research_sheets(wb):
+    """Résultats des agents : retenus (vérifiés automatiquement) et à revoir, séparément."""
+    if not RESEARCH.exists():
+        return
+    data = json.loads(RESEARCH.read_text())
+    for title, keep, intro in (
+        ("Recherche_retenue", ("retenu", "qualitatif"),
+         "Valeurs collectées par les agents dont la citation a été retrouvée dans la source retéléchargée "
+         "(et, pour les chiffres, dont la valeur figure dans la citation). Vérification automatique, "
+         "pas une relecture humaine."),
+        ("Recherche_a_revoir", ("a_revoir",),
+         "Valeurs NON retenues : citation introuvable, valeur dérivée ou additionnée, ou source "
+         "inaccessible au contrôle. À vérifier à la main avant tout usage."),
+    ):
+        ws = wb.create_sheet(title)
+        ws["A1"] = intro
+        ws["A1"].font = NOTE
+        header(ws, ["usage"] + RESEARCH_COLS, row=2)
+        for r in data["records"]:
+            if r["usage"] in keep:
+                ws.append([r["usage"]] + [r.get(c) for c in RESEARCH_COLS])
+        ws.auto_filter.ref = f"A2:{get_column_letter(len(RESEARCH_COLS) + 1)}{ws.max_row}"
+        ws.column_dimensions["E"].width = 34
+        ws.column_dimensions["Q"].width = 80
+    ws = wb.create_sheet("Conflits_lacunes")
+    header(ws, ["type", "tranche", "description"])
+    for c in data["conflits"]:
+        ws.append(["conflit", c["tranche"], c["conflit"]])
+    for n in data["non_trouve"]:
+        ws.append(["non trouvé", n["tranche"], n["element"]])
+    ws.column_dimensions["C"].width = 120
 
 
 def synthese_sheet(wb):
@@ -558,13 +616,13 @@ def verification_sheet(wb):
         ("WACC jusqu'à 12 % en Afrique dans l'analyse IRENA 2024", "confirmé",
          "IRENA : hypothèses de WACC de 3,8 % (Europe) à 12 % (Afrique), conditions 2023", "S01"),
         ("LCOE solaire mondial 2024 : 43 USD/MWh", "confirmé", "0,043 USD/kWh", "S01;S02"),
-        ("CAPEX Afrique 2024 : 1 093 USD/kW", "corroboré (secondaire)",
-         "Cité par pv magazine d'après IRENA ; non retrouvé dans le résumé IRENA", "S02"),
-        ("LCOE Afrique 2024 : 74 USD/MWh", "non vérifié",
-         "Absent du résumé IRENA ; à contrôler dans le rapport complet ou la base IRENA", ""),
-        ("CAPEX Afrique 2015 : 3 437 USD/kW ; LCOE 2015 : 225 USD/MWh", "non vérifié",
-         "Une source secondaire citant l'édition suivante d'IRENA donne 3 520 USD/kW et 222 USD/MWh "
-         "pour 2015 : les séries historiques sont révisées d'une édition à l'autre", ""),
+        ("CAPEX Afrique 2024 : 1 093 USD/kW", "confirmé", "Rapport complet IRENA 2024, Table 3.1 p. 95", "S15"),
+        ("LCOE Afrique 2024 : 74 USD/MWh", "confirmé", "Rapport complet IRENA 2024, Table 3.3 p. 106", "S15"),
+        ("CAPEX Afrique 2015 : 3 437 USD/kW ; LCOE 2015 : 225 USD/MWh", "confirmé",
+         "Rapport complet IRENA 2024 (USD 2024). L'édition 2025 donne 3 520 USD/kW et 222 USD/MWh pour "
+         "2015 en USD 2025 : ne pas mélanger les éditions", "S15;S16"),
+        ("(nouveau) Afrique 2025 : 837 USD/kW et 52 USD/MWh", "confirmé",
+         "Rapport complet IRENA 2025, Tables 3.1 et 3.2 ; -76 % et -77 % depuis 2015", "S16"),
         ("Tableau WACC 4–14 % (43,9 à 89,3 USD/MWh)", "confirmé (calcul)",
          "Reproduit : 43,9 / 51,8 / 60,4 / 69,5 / 79,2 / 89,2 ; écarts d'arrondi ≤ 0,1", "lcoe.py"),
         ("+80 % de LCOE entre WACC 4 % et 12 %", "confirmé (calcul)", "+80,4 %", "lcoe.py"),
