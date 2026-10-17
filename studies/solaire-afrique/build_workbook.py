@@ -124,6 +124,27 @@ SOURCES = [
     ("S07", "IFC", "Scaling Solar: two PV plants bring clean energy to more than 500,000 in Senegal", 2021,
      "https://www.ifc.org/en/pressroom/2021/scaling-solar-two-pv-plants-bring-clean-energy-to-more-than-500000-in-senegal",
      "B", "Mise en service mai 2021, 60 MWac au total, Engie/Meridiam/FONSIS"),
+    ("S08", "Mining Weekly", "B2Gold approves $38m hybrid energy project for Mali mine", 2019,
+     "https://www.miningweekly.com/article/b2gold-approves-3m-hybrid-energy-project-for-mali-mine-2019-10-14",
+     "C", "Fekola : budget approuvé 38 M USD ; 13,1 Ml de fioul lourd évités par an (prévision)"),
+    ("S09", "Africa Energy Portal", "Malian gold mine powered by 30 MW/15.4 MWh solar-plus-storage", None,
+     "https://africa-energy-portal.org/news/malian-gold-mine-powered-30-mw154-mwh-solar-plus-storage",
+     "C", "Fekola : 30 MW / 15,4 MWh construits (13,5 MWh annoncés initialement)"),
+    ("S10", "Mining Weekly", "Kinross makes $55m solar investment at Tasiast", 2022,
+     "https://www.miningweekly.com/article/kinross-makes-55m-solar-investment-at-tasiast-2022-02-17",
+     "C", "Tasiast : 55 M USD, 34 MW PV, batterie 18 MW, ~20 % des besoins du site"),
+    ("S11", "Engineering News", "Tasiast solar project, Mauritania – update", 2024,
+     "https://www.engineeringnews.co.za/article/tasiastsolar-project-mauritania-update-2024-02-23",
+     "C", "Premier courant solaire en décembre 2023 ; mise en service batterie/EMS début 2024"),
+    ("S12", "Afrik 21", "DRC: Nuru connects 1.3 MW solar off-grid hybrid in Goma", 2020,
+     "https://afrik21.africa/en/drc-nuru-connects-1-3-mw-solar-off-grid-hybrid-in-goma",
+     "C", "Goma (Ndosho) : 1,3 MW, batteries, ~364 kW de groupes de secours, inauguré le 4 février 2020"),
+    ("S13", "BloombergNEF / SEforALL", "State of the Global Mini-grids Market Report 2020", 2020,
+     "https://about.bnef.com/insights/clean-energy/solar-mini-grids-set-to-play-critical-role-in-achieving-universal-electricity-access-with-right-policy-support/",
+     "B", "LCOE des mini-réseaux solaires hybrides isolés : 0,49 à 0,68 USD/kWh (6 pays étudiés)"),
+    ("S14", "ESMAP / Banque mondiale", "Mini Grids for Half a Billion People (2019)", 2019,
+     "https://www1.villanova.edu/content/dam/villanova/engineering/energy-workshop/ESMAP%20Mini%20Grids%20-%20Executive%20Summary.pdf",
+     "B", "Objectif : 0,20 USD/kWh pour les mini-réseaux solaires hybrides d'ici 2030 (projection)"),
 ]
 
 # Observations vérifiées : (projet_id, champ, valeur, unité, type, source, note)
@@ -138,6 +159,16 @@ OBSERVATIONS = [
     ("A-SEN-001", "annee_mise_en_service", 2021, "année", "déclarée", "S07", ""),
     ("A-SEN-002", "tarif", 0.0380, "EUR/kWh", "observée", "S06", ""),
     ("A-SEN-002", "annee_mise_en_service", 2021, "année", "déclarée", "S07", ""),
+    ("B-MLI-001", "puissance_mwp", 30, "MW", "déclarée", "S09", "DC/AC non précisé ; extension à 52 MW annoncée (phase II)"),
+    ("B-MLI-001", "stockage_mwh", 15.4, "MWh", "déclarée", "S09", "13,5 MWh dans l'annonce de 2019 (S08)"),
+    ("B-MLI-001", "capex_total", 38e6, "USD", "déclarée", "S08", "Budget approuvé en 2019, pas le coût final"),
+    ("B-MLI-001", "fioul_evite", 13.1e6, "l/an", "déclarée", "S08", "Prévision ; ~13 Ml rapportés pour 2024 par la presse"),
+    ("B-MRT-001", "puissance_mwp", 34, "MW", "déclarée", "S10", "DC/AC non précisé"),
+    ("B-MRT-001", "batterie_mw", 18, "MW", "déclarée", "S10", "Puissance de la batterie, pas son énergie (MWh inconnus)"),
+    ("B-MRT-001", "capex_total", 55e6, "USD", "déclarée", "S10", "Annonce de 2022, pas le coût final"),
+    ("B-MRT-001", "annee_mise_en_service", 2023, "année", "déclarée", "S11", "Premier courant solaire déc. 2023"),
+    ("C-COD-001", "puissance_mwp", 1.3, "MW", "déclarée", "S12", "DC/AC non précisé"),
+    ("C-COD-001", "annee_mise_en_service", 2020, "année", "déclarée", "S12", "Inauguration le 4 février 2020"),
 ]
 
 # Projets de la proposition. Les chiffres ne sont saisis qu'après vérification (onglet Observations).
@@ -164,6 +195,41 @@ PROJETS_A = [
     ("A-ZAF-001", "ZAF", "REIPPPP — projets PV (par fenêtre)", "Multiples", "à vérifier",
      None, None, None, None, None, None, "Appel d'offres concurrentiel", "",
      "À éclater en une ligne par projet à partir des documents du DMRE/IPP Office"),
+]
+
+
+PROJETS_B = [
+    dict(projet_id="B-MLI-001", pays_iso3="MLI", nom="Fekola (mine d'or)", developpeur="B2Gold",
+         statut="en service", puissance_mwp=30, stockage_mwh=15.4, technologie="PV + BESS + HFO",
+         capex_total=38e6, capex_devise="USD", capex_annee_prix=2019, secteur="Mines",
+         modele_commercial="Autoproduction", sources="S08;S09",
+         fiabilite_globale="C - presse spécialisée",
+         notes="CAPEX = budget approuvé, pas le coût final ; stockage 13,5 vs 15,4 MWh ; "
+               "année de mise en service à confirmer"),
+    dict(projet_id="B-MRT-001", pays_iso3="MRT", nom="Tasiast (mine d'or)", developpeur="Kinross",
+         statut="en service", annee_mise_en_service=2023, puissance_mwp=34,
+         technologie="PV + BESS (18 MW) + thermique", capex_total=55e6, capex_devise="USD",
+         capex_annee_prix=2022, secteur="Mines", modele_commercial="Autoproduction",
+         taux_couverture_solaire=0.20, sources="S10;S11",
+         fiabilite_globale="C - presse spécialisée",
+         notes="Couverture ~20 % = prévision ; CAPEX annoncé, pas le coût final"),
+]
+PROJETS_C = [
+    dict(projet_id="C-COD-001", pays_iso3="COD", nom="Goma Ndosho (métro-réseau)", developpeur="Nuru",
+         statut="en service", annee_mise_en_service=2020, puissance_mwp=1.3,
+         technologie="PV + BESS + groupes de secours (~364 kW)", operateur="Privé",
+         sources="S12", fiabilite_globale="C - presse spécialisée",
+         notes="Coût, tarif et nombre de clients non publiés dans les sources consultées"),
+]
+
+# Repères agrégés par segment : jamais mélangés entre volets.
+REPERES = [
+    ("A", "LCOE moyen pondéré PV, monde", 43, "USD/MWh", 2024, "observée (agrégat)", "S01"),
+    ("A", "Coût d'installation moyen PV, Afrique", 1093, "USD/kW", 2024, "déclarée (secondaire)", "S02"),
+    ("A", "WACC supposé par IRENA, Afrique", 0.12, "%", 2024, "hypothèse IRENA", "S01"),
+    ("C", "LCOE mini-réseaux solaires hybrides isolés (min)", 490, "USD/MWh", 2020, "observée (étude)", "S13"),
+    ("C", "LCOE mini-réseaux solaires hybrides isolés (max)", 680, "USD/MWh", 2020, "observée (étude)", "S13"),
+    ("C", "Objectif LCOE mini-réseaux 2030", 200, "USD/MWh", 2030, "projection", "S14"),
 ]
 
 
@@ -204,11 +270,15 @@ def build() -> Workbook:
         "2. Types de donnée : observée (contrat, mesure), déclarée (annonce), modélisée (calcul), non disponible.",
         "3. Ne jamais mélanger USD/kWp (DC) et USD/kWac (AC). Conserver devise et année d'origine.",
         "4. Les projets en construction ou attribués restent hors des statistiques « en service ».",
-        "5. PV+stockage et solaire thermodynamique (CSP) sont analysés à part.",
-        "6. Le LCOE est toujours calculé (Modele_LCOE), jamais saisi comme donnée observée.",
+        "5. Les trois volets sont comparés séparément : Synthese calcule chaque statistique dans un seul",
+        "   volet, et les repères agrégés (Reperes) portent leur volet. Dans le volet A, PV+stockage et",
+        "   solaire thermodynamique (CSP) sont analysés à part du PV seul.",
+        "6. Modèles : Modele_LCOE (volet A), Modele_B_captif (solaire contre diesel),",
+        "   Modele_C_minireseau (coût complet du service et subvention).",
+        "7. Le LCOE est toujours calculé, jamais saisi comme donnée observée.",
         "",
-        "État actuel : 4 projets partiellement renseignés (Zambie, Sénégal) ; les autres lignes sont des",
-        "candidats issus de la proposition, marqués « à vérifier », sans chiffres.",
+        "État actuel : volet A, 4 projets partiellement renseignés (Zambie, Sénégal) et 4 candidats « à vérifier »",
+        "sans chiffres ; volet B, 2 projets miniers (Mali, Mauritanie) ; volet C, 1 mini-réseau (RDC).",
         "Les cibles de 100 / 75 / 125 projets sont des objectifs de collecte, pas des projets identifiés.",
     ]
     for i, t in enumerate(lines, 1):
@@ -235,8 +305,11 @@ def build() -> Workbook:
                    puissance_mwac=mwac, tarif=tarif, tarif_devise=dev_t, procedure=proc,
                    sources=src, notes=note)
         ws_a.append([row.get(f) for f in fa])
-    volet_sheet(wb, "Volet_B", SPEC_B)
-    volet_sheet(wb, "Volet_C", SPEC_C)
+    for title, spec, rows in (("Volet_B", SPEC_B, PROJETS_B), ("Volet_C", SPEC_C, PROJETS_C)):
+        ws_v, fields = volet_sheet(wb, title, spec)
+        for row in rows:
+            assert set(row) <= set(fields), set(row) - set(fields)
+            ws_v.append([row.get(f) for f in fields])
 
     ws = wb.create_sheet("Observations")
     header(ws, ["projet_id", "champ", "valeur", "unité", "type_donnee", "source_id", "note"])
@@ -251,7 +324,16 @@ def build() -> Workbook:
     ws.column_dimensions["E"].width = 60
     ws.column_dimensions["G"].width = 60
 
+    ws = wb.create_sheet("Reperes")
+    header(ws, ["volet", "indicateur", "valeur", "unité", "année", "type", "source_id"])
+    for r in REPERES:
+        ws.append(list(r))
+    ws.column_dimensions["B"].width = 50
+
+    synthese_sheet(wb)
     lcoe_sheet(wb)
+    captive_sheet(wb)
+    minigrid_sheet(wb)
     verification_sheet(wb)
     return wb
 
@@ -323,6 +405,150 @@ def lcoe_sheet(wb):
         ws.column_dimensions[col].width = 16
     ws.column_dimensions["J"].width = 12
     ws.column_dimensions["K"].width = 16
+
+
+def synthese_sheet(wb):
+    ws = wb.create_sheet("Synthese")
+    ws["A1"] = "Synthèse par volet : chaque statistique est calculée à l'intérieur d'un seul volet."
+    ws["A1"].font = Font(bold=True)
+    ws["A2"] = ("Les moyennes ne portent que sur les projets « en service » renseignés. "
+                "Avec si peu de projets, elles ne sont pas représentatives.")
+    ws["A2"].font = NOTE
+    cols = ["volet", "indicateur"] + STATUTS
+    for i, c in enumerate(cols, 1):
+        cell = ws.cell(row=4, column=i, value=c)
+        cell.font, cell.fill = HEAD, HEAD_FILL
+    r = 5
+    for v in "ABC":
+        ws.cell(row=r, column=1, value=v)
+        ws.cell(row=r, column=2, value="nombre de projets")
+        for j, st in enumerate(STATUTS, 3):
+            ws.cell(row=r, column=j, value=f'=COUNTIF(Volet_{v}!F:F,"{st}")')
+        r += 1
+    r += 1
+    for i, c in enumerate(["volet", "indicateur (projets en service)", "n", "moyenne", "min", "max"], 1):
+        cell = ws.cell(row=r, column=i, value=c)
+        cell.font, cell.fill = HEAD, HEAD_FILL
+    r += 1
+    fields_all = {v: [f for f, _, _ in COMMUNS + spec] for v, spec in
+                  (("A", SPEC_A), ("B", SPEC_B), ("C", SPEC_C))}
+    metrics = [("A", "capex_usd_kwac"), ("A", "lcoe_usd_mwh"), ("A", "facteur_charge_ac"),
+               ("B", "capex_usd_kwp"), ("B", "cout_diesel_evite_usd_mwh"), ("B", "tri_projet"),
+               ("C", "capex_usd_kwp"), ("C", "tarif_client"), ("C", "subvention_usd")]
+    for v, f in metrics:
+        col = get_column_letter(fields_all[v].index(f) + 1)
+        rng, st = f"Volet_{v}!{col}2:{col}2000", f'Volet_{v}!F2:F2000,"en service"'
+        ws.append([v, f, f"=COUNTIFS({st},{rng},\"<>\")",
+                   f'=IFERROR(AVERAGEIFS({rng},{st}),"")',
+                   f'=IF(C{r}=0,"",MINIFS({rng},{st}))',
+                   f'=IF(C{r}=0,"",MAXIFS({rng},{st}))'])
+        r += 1
+    ws.column_dimensions["B"].width = 34
+    ws.column_dimensions["A"].width = 8
+
+
+def _inputs(ws, rows, start=3):
+    for i, (lab, val, unit) in enumerate(rows, start):
+        ws.cell(row=i, column=1, value=lab)
+        c = ws.cell(row=i, column=2, value=val)
+        ws.cell(row=i, column=3, value=unit)
+        if not (isinstance(val, str) and val.startswith("=")):
+            c.fill = INPUT_FILL
+        if unit.startswith("%"):
+            c.number_format = "0.0%"
+    ws.column_dimensions["A"].width = 42
+    ws.column_dimensions["C"].width = 18
+
+
+def captive_sheet(wb):
+    ws = wb.create_sheet("Modele_B_captif")
+    ws["A1"] = ("Volet B — solaire captif contre diesel/HFO, du point de vue de l'industriel. "
+                "Valeurs par défaut illustratives, à remplacer par celles du site.")
+    ws["A1"].font = Font(bold=True)
+    _inputs(ws, [
+        ("Puissance PV", 10, "MWp"),                                   # B3
+        ("CAPEX spécifique (PV + stockage éventuel)", 900, "USD/kWp"),  # B4
+        ("Production spécifique année 1", 1700, "kWh/kWp/an"),          # B5
+        ("Part de la production solaire consommée", 0.95, "% (écrêtage exclu)"),  # B6
+        ("OPEX solaire", 15, "USD/kWp/an"),                             # B7
+        ("Prix du carburant livré sur site", 1.10, "USD/l"),            # B8
+        ("Consommation spécifique du groupe", 0.27, "l/kWh"),           # B9
+        ("O&M variable du groupe", 25, "USD/MWh"),                      # B10
+        ("Indexation du prix du carburant", 0.02, "%/an"),              # B11
+        ("Dégradation PV", 0.005, "%/an"),                              # B12
+        ("Durée d'analyse", 20, "années (max 30)"),                     # B13
+        ("Taux d'actualisation de l'industriel", 0.12, "%"),            # B14
+    ])
+    ws["A16"], ws["B16"] = "CAPEX total (USD)", "=B3*1000*B4"
+    ws["A17"], ws["B17"] = "Énergie solaire utile année 1 (MWh)", "=B3*B5*B6"
+    ws["A18"], ws["B18"] = "Coût diesel évité (USD/MWh)", "=B8*B9*1000+B10"
+    ws["A19"], ws["B19"] = "OPEX solaire (USD/an)", "=B3*1000*B7"
+    ws["A20"], ws["B20"] = "Économie nette année 1 (USD)", "=B17*B18-B19"
+    ws["A21"], ws["B21"] = "Temps de retour simple (années)", '=IF(B20<=0,"jamais",B16/B20)'
+    ws["A22"], ws["B22"] = "VAN (USD)", "=NPV(B14,F5:F34)+F4"
+    ws["A23"], ws["B23"] = "TRI", '=IFERROR(IRR(F4:F34),"n.d.")'
+    ws["A24"], ws["B24"] = "LCOE solaire (USD/MWh utile)", "=(B16+SUMPRODUCT(D5:D34,H5:H34))/SUMPRODUCT(C5:C34,H5:H34)"
+    ws["B23"].number_format = "0.0%"
+    for c in ("B18", "B21", "B24"):
+        ws[c].number_format = "0.0"
+    for c in ("B16", "B20", "B22"):
+        ws[c].number_format = "#,##0"
+    for c, t in zip("EFCDGH", ["année", "flux net (USD)", "énergie utile (MWh)", "OPEX (USD)",
+                               "économie carburant (USD)", "actualisation"]):
+        ws[f"{c}3"] = t
+        ws[f"{c}3"].font = Font(bold=True)
+    ws["E4"], ws["F4"] = 0, "=-B16"
+    for k, r in enumerate(range(5, 35), 1):
+        ws[f"E{r}"] = k
+        ws[f"C{r}"] = f"=IF(E{r}<=$B$13,$B$17*(1-$B$12)^(E{r}-1),0)"
+        ws[f"D{r}"] = f"=IF(E{r}<=$B$13,$B$19,0)"
+        ws[f"G{r}"] = f"=C{r}*$B$18*(1+$B$11)^(E{r}-1)"
+        ws[f"F{r}"] = f"=G{r}-D{r}"
+        ws[f"H{r}"] = f"=1/(1+$B$14)^E{r}"
+    ws["A26"] = ("Limites : pas de coût de stockage spécifique, pas de valeur de la continuité de service "
+                 "ni d'investissement évité dans les groupes ; à ajouter projet par projet. "
+                 "Le TRI élevé obtenu par défaut n'est pas calibré : la presse évoque 3 à 7 ans de retour "
+                 "pour Fekola (PV + stockage), contre moins de 2 ans ici.")
+    ws["A26"].font = NOTE
+
+
+def minigrid_sheet(wb):
+    ws = wb.create_sheet("Modele_C_minireseau")
+    ws["A1"] = ("Volet C — coût complet du service d'un mini-réseau (production, distribution, gestion "
+                "commerciale) et subvention nécessaire. Valeurs par défaut illustratives.")
+    ws["A1"].font = Font(bold=True)
+    _inputs(ws, [
+        ("Puissance PV", 100, "kWp"),                                    # B3
+        ("CAPEX production (PV, batteries, groupe)", 2500, "USD/kWp"),   # B4
+        ("Production utile année 1", 1400, "kWh/kWp/an"),                # B5
+        ("Nombre de clients", 500, "branchements"),                      # B6
+        ("CAPEX distribution par client", 400, "USD/client"),            # B7
+        ("OPEX technique (y c. annuité de remplacement des batteries)", 60, "USD/kWp/an"),  # B8
+        ("Coût de gestion commerciale par client", 12, "USD/client/an"), # B9
+        ("Pertes et impayés", 0.15, "% de la production"),              # B10
+        ("Taux d'actualisation", 0.10, "%"),                            # B11
+        ("Durée d'analyse", 20, "années"),                              # B12
+        ("Tarif autorisé", 0.25, "USD/kWh"),                            # B13
+    ])
+    ws["A15"], ws["B15"] = "CRF", "=B11*(1+B11)^B12/((1+B11)^B12-1)"
+    ws["A16"], ws["B16"] = "Énergie vendue (MWh/an)", "=B3*B5*(1-B10)/1000"
+    ws["A17"], ws["B17"] = "Consommation par client (kWh/mois)", "=B16*1000/B6/12"
+    ws["A18"], ws["B18"] = "Coût de production (USD/MWh vendu)", "=(B3*B4*B15+B3*B8)/B16"
+    ws["A19"], ws["B19"] = "Coût de distribution (USD/MWh vendu)", "=B6*B7*B15/B16"
+    ws["A20"], ws["B20"] = "Coût commercial (USD/MWh vendu)", "=B6*B9/B16"
+    ws["A21"], ws["B21"] = "Coût complet du service (USD/MWh)", "=B18+B19+B20"
+    ws["A22"], ws["B22"] = "Subvention d'investissement nécessaire (USD)", "=MAX(0,B21-B13*1000)*B16/B15"
+    ws["A23"], ws["B23"] = "Subvention par branchement (USD)", "=B22/B6"
+    ws["A21"].font = ws["B21"].font = Font(bold=True)
+    for c in ("B15",):
+        ws[c].number_format = "0.0000"
+    for c in ("B16", "B17", "B18", "B19", "B20", "B21"):
+        ws[c].number_format = "0.0"
+    for c in ("B22", "B23"):
+        ws[c].number_format = "#,##0"
+    ws["A25"] = ("La consommation par client (B17) pèse sur le coût de distribution et le coût commercial : "
+                 "c'est le principal levier de la question économique du volet C.")
+    ws["A25"].font = NOTE
 
 
 def verification_sheet(wb):

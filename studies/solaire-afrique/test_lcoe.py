@@ -25,3 +25,37 @@ def test_zero_rate():
 def test_wacc():
     assert wacc(0.7, 0.08, 0.15) == pytest.approx(0.101)
     assert wacc(0.7, 0.08, 0.15, tax_rate=0.25) == pytest.approx(0.087)
+
+
+from lcoe import (captive_cashflows, diesel_cost_mwh, irr, minigrid_cost_of_service,
+                  minigrid_subsidy, npv, simple_payback)
+
+
+def test_irr_roundtrip():
+    flows = [-100, 30, 30, 30, 30, 30]
+    assert npv(irr(flows), flows) == pytest.approx(0, abs=1e-6)
+
+
+def test_diesel_cost():
+    # 1,2 USD/l x 0,27 l/kWh = 324 USD/MWh de carburant, + 20 USD/MWh d'O&M.
+    assert diesel_cost_mwh(1.2, 0.27, 20) == pytest.approx(344)
+
+
+def test_captive_payback_and_flows():
+    flows = captive_cashflows(1e6, 20e3, 1500, 300, 3)
+    assert flows == pytest.approx([-1e6, 430e3, 430e3, 430e3])
+    assert simple_payback(1e6, 430e3) == pytest.approx(2.3256, rel=1e-4)
+    assert simple_payback(1e6, 0) == float("inf")
+
+
+def test_minigrid_cost_decomposition_and_subsidy():
+    r, n = 0.10, 20
+    cos = minigrid_cost_of_service(400e3, 200e3, 15e3, 10e3, 250, 0.2, r, n)
+    sold = 200
+    assert cos["total"] == pytest.approx(cos["production"] + cos["distribution"] + cos["commercial"])
+    assert cos["distribution"] == pytest.approx(200e3 * crf(r, n) / sold)
+    sub = minigrid_subsidy(cos["total"], 250, sold, r, n)
+    # Avec cette subvention retirée du CAPEX, le coût complet égale le tarif.
+    after = minigrid_cost_of_service(400e3 - sub, 200e3, 15e3, 10e3, 250, 0.2, r, n)
+    assert after["total"] == pytest.approx(250)
+    assert minigrid_subsidy(100, 250, sold, r, n) == 0
