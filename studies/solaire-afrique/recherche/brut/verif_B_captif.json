@@ -1,0 +1,973 @@
+[
+ {
+  "fichier": "B_captif.json",
+  "index": 0,
+  "url_sha1": "c06264aa05",
+  "statut": "inaccessible"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 1,
+  "url_sha1": "3254d0f9f8",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 2,
+  "url_sha1": "3254d0f9f8",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 3,
+  "url_sha1": "62ebe2a29c",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 4,
+  "url_sha1": "62ebe2a29c",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 5,
+  "url_sha1": "62ebe2a29c",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 6,
+  "url_sha1": "3254d0f9f8",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 7,
+  "url_sha1": "62ebe2a29c",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 8,
+  "url_sha1": "62ebe2a29c",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 9,
+  "url_sha1": "392164b95f",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 10,
+  "url_sha1": "392164b95f",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 11,
+  "url_sha1": "eba47d113f",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 12,
+  "url_sha1": "392164b95f",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 13,
+  "url_sha1": "3254d0f9f8",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 14,
+  "url_sha1": "eba47d113f",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 15,
+  "url_sha1": "eba47d113f",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 16,
+  "url_sha1": "c06264aa05",
+  "statut": "inaccessible"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 17,
+  "url_sha1": "eba47d113f",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 18,
+  "url_sha1": "62ebe2a29c",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 19,
+  "url_sha1": "59c6fb659a",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 20,
+  "url_sha1": "63ad35e3ea",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 21,
+  "url_sha1": "59c6fb659a",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 22,
+  "url_sha1": "59c6fb659a",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 23,
+  "url_sha1": "25b8c7882e",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 24,
+  "url_sha1": "770f433d2a",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 25,
+  "url_sha1": "770f433d2a",
+  "statut": "valeur_absente_de_citation"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 26,
+  "url_sha1": "63ad35e3ea",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 27,
+  "url_sha1": "59c6fb659a",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 28,
+  "url_sha1": "59c6fb659a",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 29,
+  "url_sha1": "a097a60bd1",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 30,
+  "url_sha1": "a097a60bd1",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 31,
+  "url_sha1": "a097a60bd1",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 32,
+  "url_sha1": "a097a60bd1",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 33,
+  "url_sha1": "a097a60bd1",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 34,
+  "url_sha1": "63ad35e3ea",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 35,
+  "url_sha1": "eba47d113f",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 36,
+  "url_sha1": "a097a60bd1",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 37,
+  "url_sha1": "a097a60bd1",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 38,
+  "url_sha1": "3254d0f9f8",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 39,
+  "url_sha1": "3254d0f9f8",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 40,
+  "url_sha1": "a097a60bd1",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 41,
+  "url_sha1": "a70025b340",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 42,
+  "url_sha1": "9271f3eede",
+  "mots_trouves": 0.91,
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 43,
+  "url_sha1": "9271f3eede",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 44,
+  "url_sha1": "9271f3eede",
+  "statut": "valeur_absente_de_citation"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 45,
+  "url_sha1": "9271f3eede",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 46,
+  "url_sha1": "9271f3eede",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 47,
+  "url_sha1": "a70025b340",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 48,
+  "url_sha1": "656c3a51de",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 49,
+  "url_sha1": "4ad85f1cbd",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 50,
+  "url_sha1": "f79b8ab5fb",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 51,
+  "url_sha1": "f79b8ab5fb",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 52,
+  "url_sha1": "a70025b340",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 53,
+  "url_sha1": "a70025b340",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 54,
+  "url_sha1": "9271f3eede",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 55,
+  "url_sha1": "a70025b340",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 56,
+  "url_sha1": "8546e5f1e6",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 57,
+  "url_sha1": "cdefbd6afa",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 58,
+  "url_sha1": "cdefbd6afa",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 59,
+  "url_sha1": "8546e5f1e6",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 60,
+  "url_sha1": "8546e5f1e6",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 61,
+  "url_sha1": "8546e5f1e6",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 62,
+  "url_sha1": "cdefbd6afa",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 63,
+  "url_sha1": "8546e5f1e6",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 64,
+  "url_sha1": "960c0236cd",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 65,
+  "url_sha1": "cdefbd6afa",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 66,
+  "url_sha1": "8546e5f1e6",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 67,
+  "url_sha1": "960c0236cd",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 68,
+  "url_sha1": "cdefbd6afa",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 69,
+  "url_sha1": "cdefbd6afa",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 70,
+  "url_sha1": "cdefbd6afa",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 71,
+  "url_sha1": "8546e5f1e6",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 72,
+  "url_sha1": "0d0e4903c7",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 73,
+  "url_sha1": "1cb18ae9da",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 74,
+  "url_sha1": "ca47fa53e7",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 75,
+  "url_sha1": "ca47fa53e7",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 76,
+  "url_sha1": "ca47fa53e7",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 77,
+  "url_sha1": "ca47fa53e7",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 78,
+  "url_sha1": "1cb18ae9da",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 79,
+  "url_sha1": "dc5d86c605",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 80,
+  "url_sha1": "e18f648d54",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 81,
+  "url_sha1": "0c5b62c868",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 82,
+  "url_sha1": "e18f648d54",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 83,
+  "url_sha1": "0c5b62c868",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 84,
+  "url_sha1": "0c5b62c868",
+  "statut": "valeur_absente_de_citation"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 85,
+  "url_sha1": "0c5b62c868",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 86,
+  "url_sha1": "dc5d86c605",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 87,
+  "url_sha1": "e18f648d54",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 88,
+  "url_sha1": "dc5d86c605",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 89,
+  "url_sha1": "dc5d86c605",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 90,
+  "url_sha1": "dc5d86c605",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 91,
+  "url_sha1": "dc5d86c605",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 92,
+  "url_sha1": "de99fefbc3",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 93,
+  "url_sha1": "de99fefbc3",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 94,
+  "url_sha1": "de99fefbc3",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 95,
+  "url_sha1": "2584ab6c09",
+  "mots_trouves": 1.0,
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 96,
+  "url_sha1": "de99fefbc3",
+  "mots_trouves": 1.0,
+  "statut": "citation_partielle"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 97,
+  "url_sha1": "2584ab6c09",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 98,
+  "url_sha1": "2584ab6c09",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 99,
+  "url_sha1": "de99fefbc3",
+  "mots_trouves": 1.0,
+  "statut": "citation_partielle"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 100,
+  "url_sha1": "2584ab6c09",
+  "mots_trouves": 1.0,
+  "statut": "citation_partielle"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 101,
+  "url_sha1": "de99fefbc3",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 102,
+  "url_sha1": "2584ab6c09",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 103,
+  "url_sha1": "17aebf3ede",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 104,
+  "url_sha1": "17aebf3ede",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 105,
+  "url_sha1": "17aebf3ede",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 106,
+  "url_sha1": "963b2a7afb",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 107,
+  "url_sha1": "963b2a7afb",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 108,
+  "url_sha1": "2f0bd3e958",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 109,
+  "url_sha1": "fc77eb6131",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 110,
+  "url_sha1": "fc77eb6131",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 111,
+  "url_sha1": "cea5f7b949",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 112,
+  "url_sha1": "2f0bd3e958",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 113,
+  "url_sha1": "949c7ef735",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 114,
+  "url_sha1": "fc77eb6131",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 115,
+  "url_sha1": "949c7ef735",
+  "statut": "valeur_absente_de_citation"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 116,
+  "url_sha1": "cea5f7b949",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 117,
+  "url_sha1": "cea5f7b949",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 118,
+  "url_sha1": "2f0bd3e958",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 119,
+  "url_sha1": "0126267e94",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 120,
+  "url_sha1": "a977de609e",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 121,
+  "url_sha1": "0126267e94",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 122,
+  "url_sha1": "0126267e94",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 123,
+  "url_sha1": "a977de609e",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 124,
+  "url_sha1": "0126267e94",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 125,
+  "url_sha1": "a977de609e",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 126,
+  "url_sha1": "fe4836b79d",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 127,
+  "url_sha1": "fe4836b79d",
+  "statut": "valeur_absente_de_citation"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 128,
+  "url_sha1": "fe4836b79d",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 129,
+  "url_sha1": "fe4836b79d",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 130,
+  "url_sha1": "fe4836b79d",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 131,
+  "url_sha1": "fe4836b79d",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 132,
+  "url_sha1": "27108d2dcd",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 133,
+  "url_sha1": "27108d2dcd",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 134,
+  "url_sha1": "27108d2dcd",
+  "statut": "valeur_absente_de_citation"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 135,
+  "url_sha1": "27108d2dcd",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 136,
+  "url_sha1": "8b5439a7ed",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 137,
+  "url_sha1": "8b5439a7ed",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 138,
+  "url_sha1": "8b5439a7ed",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 139,
+  "url_sha1": "8b5439a7ed",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 140,
+  "url_sha1": "8b5439a7ed",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 141,
+  "url_sha1": "8ba3815c17",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 142,
+  "url_sha1": "8ba3815c17",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 143,
+  "url_sha1": "8ba3815c17",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 144,
+  "url_sha1": "8ba3815c17",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 145,
+  "url_sha1": "8ba3815c17",
+  "statut": "valeur_absente_de_citation"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 146,
+  "url_sha1": "7ba469e463",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 147,
+  "url_sha1": "7ba469e463",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 148,
+  "url_sha1": "7ba469e463",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 149,
+  "url_sha1": "6f78a8b7e0",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 150,
+  "url_sha1": "7ba469e463",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 151,
+  "url_sha1": "5704ece27f",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 152,
+  "url_sha1": "5704ece27f",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 153,
+  "url_sha1": "5704ece27f",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 154,
+  "url_sha1": "124bee796e",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 155,
+  "url_sha1": "124bee796e",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 156,
+  "url_sha1": "124bee796e",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 157,
+  "url_sha1": "ad24ca9ac1",
+  "statut": "qualitatif_citation_ok"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 158,
+  "url_sha1": "ad24ca9ac1",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 159,
+  "url_sha1": "313df4d023",
+  "statut": "confirmé"
+ },
+ {
+  "fichier": "B_captif.json",
+  "index": 160,
+  "url_sha1": "313df4d023",
+  "statut": "qualitatif_citation_ok"
+ }
+]

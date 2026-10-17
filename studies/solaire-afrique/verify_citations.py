@@ -6,6 +6,9 @@ Pour chaque enregistrement : retélécharge l'URL (HTML ou PDF), normalise le te
 
     python verify_citations.py recherche/brut/*.json --out recherche/verification.json
 
+Pour un tableau PDF (cellules réassemblées), la citation est acceptée si ≥ 90 % de ses mots
+figurent à moins de 400 caractères d'une occurrence de la valeur (statut citation_partielle).
+
 Statuts : confirmé, citation_partielle, qualitatif_citation_ok, citation_absente,
 valeur_absente_de_citation (valeur dérivée, additionnée ou non citée), inaccessible.
 """
@@ -22,6 +25,8 @@ import unicodedata
 from pathlib import Path
 
 UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36"
+# SEC EDGAR refuse les navigateurs anonymes et exige un agent déclaré (sec.gov/os/accessing-edgar-data).
+UA_SEC = "EtudeSolaireAfrique research contact@example.org"
 
 
 def normalize(text: str) -> str:
@@ -38,7 +43,8 @@ def fetch_text(url: str, cache: dict[str, str | None]) -> str | None:
     text = None
     with tempfile.TemporaryDirectory() as tmp:
         raw = Path(tmp) / "doc"
-        r = subprocess.run(["curl", "-sSL", "--max-time", "60", "-A", UA, "-o", str(raw), url],
+        ua = UA_SEC if "sec.gov" in url else UA
+        r = subprocess.run(["curl", "-sSL", "--fail", "--max-time", "60", "-A", ua, "-o", str(raw), url],
                            capture_output=True)
         if r.returncode == 0 and raw.exists() and raw.stat().st_size > 0:
             data = raw.read_bytes()
@@ -82,6 +88,20 @@ def value_in_quote(value, quote_n: str) -> bool:
                for v in number_variants(float(value)))
 
 
+def near_value(value: float, quote_n: str, doc_n: str, radius: int = 400) -> bool:
+    """Vrai si ≥ 90 % des mots de la citation figurent à moins de `radius` caractères d'une
+    occurrence de la valeur dans le document."""
+    words = {w for w in re.findall(r"[a-z0-9]+", quote_n) if len(w) > 2}
+    if not words:
+        return False
+    for v in number_variants(float(value)):
+        for m in re.finditer(r"(?<![\d.,])" + re.escape(v) + r"(?![\d])", doc_n):
+            window = doc_n[max(0, m.start() - radius): m.end() + radius]
+            if sum(w in window for w in words) / len(words) >= 0.9:
+                return True
+    return False
+
+
 def check(rec: dict, cache) -> dict:
     url, quote = rec.get("url", ""), rec.get("citation", "")
     text = fetch_text(url, cache) if url.startswith("http") else None
@@ -90,13 +110,19 @@ def check(rec: dict, cache) -> dict:
         res["statut"] = "inaccessible"
         return res
     doc_n, quote_n = normalize(text), normalize(quote)
-    if quote_n and quote_n in doc_n:
+    # Les citations élidées (« [...] », « ... ») sont vérifiées fragment par fragment.
+    fragments = [f.strip(" ,;") for f in re.split(r"\[\.\.\.\]|\.\.\.|…", quote_n) if f.strip(" ,;")]
+    if fragments and all(f in doc_n for f in fragments):
         found = "exacte"
     else:
         words = [w for w in re.findall(r"[a-z0-9.,%]+", quote_n) if len(w) > 2]
         hit = sum(1 for w in words if w in doc_n) / max(1, len(words))
         found = "partielle" if hit >= 0.85 else "absente"
         res["mots_trouves"] = round(hit, 2)
+    if found == "absente" and isinstance(rec.get("valeur"), (int, float)) and near_value(rec["valeur"], quote_n, doc_n):
+        # Cellules de tableau PDF réassemblées : mots de la citation regroupés autour de la valeur.
+        found = "tableau"
+        res["mode"] = "proximite_tableau"
     if found == "absente":
         res["statut"] = "citation_absente"
     elif not isinstance(rec.get("valeur"), (int, float)):

@@ -116,7 +116,7 @@ SOURCES = [
     ("S04", "pv-tech", "IFC Zambia solar auction sees record-low 6¢ price benchmark", 2016,
      "https://www.pv-tech.org/news/ifc-zambia-solar-auction-sees-record-low-6-price-benchmark",
      "C", "Tarifs 6,015 et 7,84 USc/kWh"),
-    ("S05", "BloombergNEF Climatescope", "Zambia market profile", 2022,
+    ("S05", "BloombergNEF Climatescope (via résumé de recherche, page non ouverte)", "Zambia market profile", 2022,
      "https://2022.global-climatescope.org/markets/zm/",
      "C", "Ngonye 34 MW, Bangweulu 56 MW, mise en service 2019"),
     ("S06", "IFC", "Senegal Scaling Solar PPP brief", 2021,
@@ -159,7 +159,8 @@ SOURCES = [
 # Observations vérifiées : (projet_id, champ, valeur, unité, type, source, note)
 OBSERVATIONS = [
     ("A-ZMB-001", "tarif", 0.06015, "USD/kWh", "observée", "S04", "Tarif fixe 25 ans (Neoen/First Solar)"),
-    ("A-ZMB-001", "puissance_mwac", 54, "MW", "déclarée", "S03", "S05 indique 56 MW : à réconcilier"),
+    ("A-ZMB-001", "puissance", 54, "MW", "déclarée", "S03", "DC/AC non précisé. Les 56 MW attribués à S05 viennent "
+     "d'un résumé de recherche, non confirmés ; voir Recherche_retenue : 54,3 MWp (Neoen), 47,5 MWac (UCT)"),
     ("A-ZMB-001", "annee_mise_en_service", 2019, "année", "déclarée", "S05", ""),
     ("A-ZMB-002", "tarif", 0.0784, "USD/kWh", "observée", "S04", "Enel"),
     ("A-ZMB-002", "puissance_mwac", 34, "MW", "déclarée", "S05", "AC ou DC non précisé"),
@@ -183,16 +184,18 @@ OBSERVATIONS = [
 # Projets de la proposition. Les chiffres ne sont saisis qu'après vérification (onglet Observations).
 PROJETS_A = [
     ("A-ZMB-001", "ZMB", "Bangweulu (Scaling Solar)", "Neoen / First Solar", "en service",
-     2016, 2019, None, 54, 0.06015, "USD", "Appel d'offres concurrentiel", "S03;S04;S05",
-     "Capacité 54 MW (S03) vs 56 MW (S05)"),
+     2016, 2019, 54.3, 47.5, 0.06015, "USD", "Appel d'offres concurrentiel", "S03;S04;Recherche",
+     "54,3 MWp (Neoen) / 55 MWp (IFC) ; 47,5 MWac (UCT). CAPEX 60 M USD (Neoen) ou 59 M USD (IFC). "
+     "Tarif fixe 25 ans, non indexé"),
     ("A-ZMB-002", "ZMB", "Ngonye (Scaling Solar)", "Enel", "en service",
-     2016, 2019, None, 34, 0.0784, "USD", "Appel d'offres concurrentiel", "S04;S05", ""),
+     2016, 2019, 34, 28, 0.0784, "USD", "Appel d'offres concurrentiel", "S04;Recherche",
+     "CAPEX 40 M USD (Enel) ou 45 M USD (UCT)"),
     ("A-SEN-001", "SEN", "Kael (Scaling Solar)", "Engie / Meridiam / FONSIS", "en service",
-     2018, 2021, None, None, 0.0398, "EUR", "Appel d'offres concurrentiel", "S06;S07",
-     "Une source (AE-Africa) place ce tarif à Touba : erreur probable"),
+     2018, 2021, 35, 25, 0.0398, "EUR", "Appel d'offres concurrentiel", "S06;S07;Recherche",
+     "35 MWp (IFC) / 25 MWac (MIGA) ; CAPEX 22 M EUR (IFC). AE-Africa place ce tarif à Touba : erreur probable"),
     ("A-SEN-002", "SEN", "Kahone (Scaling Solar)", "Engie / Meridiam / FONSIS", "en service",
-     2018, 2021, None, None, 0.0380, "EUR", "Appel d'offres concurrentiel", "S06;S07",
-     "Kael + Kahone = 60 MWac au total (S07)"),
+     2018, 2021, 44, 35, 0.0380, "EUR", "Appel d'offres concurrentiel", "S06;S07;Recherche",
+     "44 MWp (IFC) / 35 MWac (MIGA) ; CAPEX 26 M EUR (IFC)"),
     ("A-EGY-001", "EGY", "Benban Solar Park (32 centrales)", "Multiples", "à vérifier",
      None, None, None, None, None, None, "Tarif d'achat garanti (FiT) rounds 1 et 2", "",
      "1 465 MW et ~1,9 Md USD selon presse égyptienne ; tarif round 2 non vérifié. "
@@ -209,19 +212,22 @@ PROJETS_A = [
 
 PROJETS_B = [
     dict(projet_id="B-MLI-001", pays_iso3="MLI", nom="Fekola (mine d'or)", developpeur="B2Gold",
-         statut="en service", puissance_mwp=30, stockage_mwh=15.4, technologie="PV + BESS + HFO",
+         statut="en service", annee_mise_en_service=2021, puissance_mwp=36, puissance_mwac=30,
+         stockage_mwh=15.4, technologie="PV + BESS + HFO",
          capex_total=38e6, capex_devise="USD", capex_annee_prix=2019, secteur="Mines",
-         modele_commercial="Autoproduction", sources="S08;S09",
-         fiabilite_globale="C - presse spécialisée",
-         notes="CAPEX = budget approuvé, pas le coût final ; stockage 13,5 vs 15,4 MWh ; "
-               "année de mise en service à confirmer"),
+         modele_commercial="Autoproduction", sources="S08;S09;Recherche",
+         fiabilite_globale="A - document primaire",
+         notes="Phase 1 ; pleine capacité juillet 2021 (B2Gold). CAPEX = budget, pas le coût final ; "
+               "stockage 13,5 (MD&A T3 2019) vs 15,4 MWh (rapport annuel 2019). Extension +22 MWac / "
+               "+12,7 MWh en service en janvier 2025"),
     dict(projet_id="B-MRT-001", pays_iso3="MRT", nom="Tasiast (mine d'or)", developpeur="Kinross",
-         statut="en service", annee_mise_en_service=2023, puissance_mwp=34,
+         statut="en service", annee_mise_en_service=2023, puissance_mwac=34,
          technologie="PV + BESS (18 MW) + thermique", capex_total=55e6, capex_devise="USD",
          capex_annee_prix=2022, secteur="Mines", modele_commercial="Autoproduction",
          taux_couverture_solaire=0.20, sources="S10;S11",
          fiabilite_globale="C - presse spécialisée",
-         notes="Couverture ~20 % = prévision ; CAPEX annoncé, pas le coût final"),
+         notes="34 MWe (Kinross). Couverture 20 % prévue, 17 % mesurée en 2024 ; CAPEX = budget, "
+               "achevé « under budget » sans montant final"),
 ]
 PROJETS_C = [
     dict(projet_id="C-COD-001", pays_iso3="COD", nom="Goma Ndosho (métro-réseau)", developpeur="Nuru",
@@ -295,8 +301,9 @@ def build() -> Workbook:
         "   Modele_C_minireseau (coût complet du service et subvention).",
         "7. Le LCOE est toujours calculé, jamais saisi comme donnée observée.",
         "",
-        "État actuel : volet A, 4 projets partiellement renseignés (Zambie, Sénégal) et 4 candidats « à vérifier »",
-        "sans chiffres ; volet B, 2 projets miniers (Mali, Mauritanie) ; volet C, 1 mini-réseau (RDC).",
+        "État actuel : les onglets Volet_A/B/C contiennent les projets saisis à la main. Les 860 valeurs collectées",
+        "par 7 agents de recherche (17 octobre 2026) sont dans Recherche_retenue (vérifiées automatiquement) et",
+        "Recherche_a_revoir (non retenues) ; conflits et lacunes dans Conflits_lacunes.",
         "Les cibles de 100 / 75 / 125 projets sont des objectifs de collecte, pas des projets identifiés.",
     ]
     for i, t in enumerate(lines, 1):
@@ -432,6 +439,15 @@ RESEARCH_COLS = ["tranche", "volet", "pays_iso3", "projet", "champ", "valeur", "
                  "date_source", "citation", "note"]
 
 
+def _cell(v):
+    """Les fourchettes (listes) sont écrites « a – b » pour rester lisibles dans Excel."""
+    if isinstance(v, list):
+        return " – ".join(str(x) for x in v)
+    if isinstance(v, dict):
+        return json.dumps(v, ensure_ascii=False)
+    return v
+
+
 def research_sheets(wb):
     """Résultats des agents : retenus (vérifiés automatiquement) et à revoir, séparément."""
     if not RESEARCH.exists():
@@ -452,7 +468,7 @@ def research_sheets(wb):
         header(ws, ["usage"] + RESEARCH_COLS, row=2)
         for r in data["records"]:
             if r["usage"] in keep:
-                ws.append([r["usage"]] + [r.get(c) for c in RESEARCH_COLS])
+                ws.append([r["usage"]] + [_cell(r.get(c)) for c in RESEARCH_COLS])
         ws.auto_filter.ref = f"A2:{get_column_letter(len(RESEARCH_COLS) + 1)}{ws.max_row}"
         ws.column_dimensions["E"].width = 34
         ws.column_dimensions["Q"].width = 80

@@ -1,0 +1,258 @@
+{
+ "records": [
+  {
+   "edition": "RPGC 2024",
+   "indicateur": "LCOE moyen pondéré PV utility-scale",
+   "region_ou_pays": "Africa",
+   "annee": 2024,
+   "valeur": 0.074,
+   "unite": "USD 2024/kWh",
+   "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2025/Jul/IRENA_TEC_RPGC_in_2024_2025.pdf",
+   "page": "p. 106 (Table 3.3)",
+   "citation": "Eurasia had the highest regional LCOE reduction between 2015 and 2024, at 74%. This was followed by Africa, with 67%, signifying a drop from USD 0.225/kWh to USD 0.074/kWh.",
+   "note": "Table 3.3 : 5e percentile 0.049, 95e percentile 0.186 (2024)."
+  },
+  {
+   "edition": "RPGC 2024",
+   "indicateur": "LCOE moyen pondéré PV utility-scale",
+   "region_ou_pays": "Africa",
+   "annee": 2015,
+   "valeur": 0.225,
+   "unite": "USD 2024/kWh",
+   "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2025/Jul/IRENA_TEC_RPGC_in_2024_2025.pdf",
+   "page": "p. 106 (Table 3.3)",
+   "citation": "Table 3.3 Utility-scale solar PV's LCOE by region ... (2024 USD/kWh) Africa 0.100 0.225 0.356 0.049 0.074 0.186",
+   "note": "5e percentile 0.100, 95e percentile 0.356 (2015). Valeur 2015 exprimée en USD 2024."
+  },
+  {
+   "edition": "RPGC 2024",
+   "indicateur": "LCOE PV utility-scale 5e percentile",
+   "region_ou_pays": "Africa",
+   "annee": 2024,
+   "valeur": 0.049,
+   "unite": "USD 2024/kWh",
+   "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2025/Jul/IRENA_TEC_RPGC_in_2024_2025.pdf",
+   "page": "p. 106 (Table 3.3)",
+   "citation": "Table 3.3 Utility-scale solar PV's LCOE by region ... (2024 USD/kWh) Africa 0.100 0.225 0.356 0.049 0.074 0.186",
+   "note": ""
+  },
+  {
+   "edition": "RPGC 2024",
+   "indicateur": "LCOE PV utility-scale 95e percentile",
+   "region_ou_pays": "Africa",
+   "annee": 2024,
+   "valeur": 0.186,
+   "unite": "USD 2024/kWh",
+   "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2025/Jul/IRENA_TEC_RPGC_in_2024_2025.pdf",
+   "page": "p. 106 (Table 3.3)",
+   "citation": "Table 3.3 Utility-scale solar PV's LCOE by region ... (2024 USD/kWh) Africa 0.100 0.225 0.356 0.049 0.074 0.186",
+   "note": ""
+  },
+  {
+   "edition": "RPGC 2024",
+   "indicateur": "Coût total d'installation moyen pondéré PV utility-scale",
+   "region_ou_pays": "Africa",
+   "annee": 2024,
+   "valeur": 1093,
+   "unite": "USD 2024/kW",
+   "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2025/Jul/IRENA_TEC_RPGC_in_2024_2025.pdf",
+   "page": "p. 95 (Table 3.1 + texte)",
+   "citation": "Africa registered the second highest decrease – 68% – for the same period. The continent saw TICs fall from USD 3 437/kW to USD 1 093/kW.",
+   "note": "Table 3.1 : 5e pct 861, 95e pct 1 630 (2024)."
+  },
+  {
+   "edition": "RPGC 2024",
+   "indicateur": "Coût total d'installation moyen pondéré PV utility-scale",
+   "region_ou_pays": "Africa",
+   "annee": 2015,
+   "valeur": 3437,
+   "unite": "USD 2024/kW",
+   "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2025/Jul/IRENA_TEC_RPGC_in_2024_2025.pdf",
+   "page": "p. 95 (Table 3.1)",
+   "citation": "Table 3.1 Utility-scale solar PV costs by region ... 2015 and 2024 ... (2024 USD/kW) Africa 1 591 3 437 5 091 861 1 093 1 630",
+   "note": "5e pct 1 591, 95e pct 5 091 (2015)."
+  },
+  {
+   "edition": "RPGC 2024",
+   "indicateur": "Hypothèse WACC (réel) solaire PV, région Afrique",
+   "region_ou_pays": "Africa",
+   "annee": 2024,
+   "valeur": 12.0,
+   "unite": "%",
+   "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2025/Jul/IRENA_TEC_RPGC_in_2024_2025.pdf",
+   "page": "p. 41 (Figure 1.13) ; p. 23 (texte)",
+   "citation": "In 2024, IRENA's weighted average costs of capital (WACC) assumptions ranged from 3.8% in Europe to 12% in Africa, reflecting country risk and macroeconomic conditions prevailing in 2023.",
+   "note": "Figure 1.13 (étiquettes de données lisibles) : Afrique solaire PV 12.0 %, éolien terrestre 10.8 %. Le texte p.23 cite 12 % sans préciser la technologie ; l'attribution 12.0 = PV vient de la figure (vérifiée visuellement sur rendu de la page)."
+  },
+  {
+   "edition": "RPGC 2024",
+   "indicateur": "Hypothèse WACC éolien terrestre, Afrique (contexte)",
+   "region_ou_pays": "Africa",
+   "annee": 2024,
+   "valeur": 10.8,
+   "unite": "%",
+   "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2025/Jul/IRENA_TEC_RPGC_in_2024_2025.pdf",
+   "page": "p. 41 (Figure 1.13)",
+   "citation": "Figure 1.13 Weighted average cost of capital (WACC) for key regions, 2024 ... Africa ... 10.8 ... 12.0 (Onshore wind / Solar PV)",
+   "note": "Étiquettes de figure ; non PV, donné pour contexte."
+  },
+  {
+   "edition": "RPGC 2024",
+   "indicateur": "Facteur de charge moyen pondéré mondial PV utility-scale (pas de valeur Afrique publiée)",
+   "region_ou_pays": "Monde",
+   "annee": 2024,
+   "valeur": 17.4,
+   "unite": "%",
+   "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2025/Jul/IRENA_TEC_RPGC_in_2024_2025.pdf",
+   "page": "p. 99 (Table 3.2)",
+   "citation": "the global weighted average capacity factor for new utility-scale solar PV increased from 15% in 2010 to 17.4% in 2024.",
+   "note": "Valeur MONDIALE (AC/DC). Aucun facteur de charge régional Afrique pour le PV n'est publié dans le rapport."
+  },
+  {
+   "edition": "RPGC 2025",
+   "indicateur": "Coût total d'installation moyen pondéré PV utility-scale",
+   "region_ou_pays": "Africa",
+   "annee": 2025,
+   "valeur": 837,
+   "unite": "USD 2025/kW",
+   "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_in_2025_2026.pdf",
+   "page": "p. 62 (Table 3.1 + texte)",
+   "citation": "Between 2015 and 2025, Africa had the highest regional TIC reduction at 76%. The continent saw TICs fall from USD 3 520/kW to USD 837/kW, registering a 25% year-on-year decrease.",
+   "note": "Table 3.1 : 5e pct 593, 95e pct 1 139 (2025)."
+  },
+  {
+   "edition": "RPGC 2025",
+   "indicateur": "Coût total d'installation moyen pondéré PV utility-scale",
+   "region_ou_pays": "Africa",
+   "annee": 2015,
+   "valeur": 3520,
+   "unite": "USD 2025/kW",
+   "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_in_2025_2026.pdf",
+   "page": "p. 62 (Table 3.1)",
+   "citation": "Table 3.1 TIC ranges and weighted-averages for utility-scale solar PV projects by country/region, 2015 and 2025 ... (2025 USD/kW) Africa 1 630 3 520 5 215 593 837 1 139",
+   "note": "5e pct 1 630, 95e pct 5 215. Différent de 3 437 (édition 2024) car exprimé en USD 2025 (et base de données révisée)."
+  },
+  {
+   "edition": "RPGC 2025",
+   "indicateur": "LCOE moyen pondéré PV utility-scale",
+   "region_ou_pays": "Africa",
+   "annee": 2025,
+   "valeur": 52,
+   "unite": "USD 2025/MWh",
+   "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_in_2025_2026.pdf",
+   "page": "p. 71 (Table 3.2 + texte)",
+   "citation": "Between 2015 and 2025, Africa recorded the largest regional reduction, at 77%, with the LCOE falling from USD 222/MWh to USD 52/MWh.",
+   "note": "Table 3.2 : 5e pct 36, 95e pct 107 (2025)."
+  },
+  {
+   "edition": "RPGC 2025",
+   "indicateur": "LCOE moyen pondéré PV utility-scale",
+   "region_ou_pays": "Africa",
+   "annee": 2015,
+   "valeur": 222,
+   "unite": "USD 2025/MWh",
+   "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_in_2025_2026.pdf",
+   "page": "p. 71 (Table 3.2)",
+   "citation": "Table 3.2 LCOE ranges and weighted-averages for utility-scale solar PV projects by country/region, 2015 and 2025 ... 2025 USD/MWh Africa 103 222 365 36 52 107",
+   "note": "5e pct 103, 95e pct 365 (2015)."
+  },
+  {
+   "edition": "RPGC 2025",
+   "indicateur": "Facteur de charge moyen pondéré mondial PV utility-scale (pas de valeur Afrique publiée)",
+   "region_ou_pays": "Monde",
+   "annee": 2025,
+   "valeur": 16.5,
+   "unite": "%",
+   "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_in_2025_2026.pdf",
+   "page": "p. 68",
+   "citation": "The global weighted-average capacity factor16 for new, utility-scale solar PV increased from 15% in 2010 to 16.5% in 2025.",
+   "note": "Valeur MONDIALE. Pas de ventilation régionale Afrique pour le PV."
+  },
+  {
+   "edition": "RPGC 2025",
+   "indicateur": "Fourchette WACC réel (pas de valeur Afrique chiffrée)",
+   "region_ou_pays": "Monde",
+   "annee": 2025,
+   "valeur": null,
+   "unite": "%",
+   "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_in_2025_2026.pdf",
+   "page": "p. 29",
+   "citation": "For a standardised, fully contracted project, the real WACC ranges from around 3% in mature, deep capital markets such as the United States and Australia to above 10% in the highest-risk economies.",
+   "note": "Aucune valeur WACC régionale « Afrique » écrite. Figure 1.3 (p.30) montre une barre 'Sub-Saharan Africa' (CAPEX/O&M/financement) sans valeurs lisibles en texte."
+  }
+ ],
+ "verdicts": [
+  {
+   "affirmation": "LCOE PV utility-scale Afrique 2024 = 0,074 USD/kWh (RPGC 2024)",
+   "statut": "confirmé",
+   "detail": "Table 3.3 et texte p.106 (USD 2024)."
+  },
+  {
+   "affirmation": "LCOE PV utility-scale Afrique 2015 = 0,225 USD/kWh (RPGC 2024)",
+   "statut": "confirmé",
+   "detail": "Table 3.3 et texte p.106 (USD 2024)."
+  },
+  {
+   "affirmation": "Coût total d'installation Afrique 2024 = 1 093 USD/kW (RPGC 2024)",
+   "statut": "confirmé",
+   "detail": "Table 3.1 et texte p.95 ; baisse de 68 % vs 2015."
+  },
+  {
+   "affirmation": "Coût total d'installation Afrique 2015 = 3 437 USD/kW (RPGC 2024)",
+   "statut": "confirmé",
+   "detail": "Table 3.1 p.95 (USD 2024)."
+  },
+  {
+   "affirmation": "WACC Afrique = 12 % (RPGC 2024)",
+   "statut": "confirmé",
+   "detail": "Texte p.23 ; Figure 1.13 p.41 : 12,0 % pour le solaire PV en Afrique (10,8 % éolien terrestre). Hypothèse de modèle basée sur les conditions de 2023."
+  },
+  {
+   "affirmation": "Facteur de charge PV Afrique (RPGC 2024)",
+   "statut": "non trouvé",
+   "detail": "Seule la valeur mondiale est publiée (17,4 % en 2024, Table 3.2 p.99)."
+  },
+  {
+   "affirmation": "Coût total d'installation Afrique 2025 = 837 USD/kW (RPGC 2025)",
+   "statut": "confirmé",
+   "detail": "Table 3.1 et texte p.62 (USD 2025) ; -76 % vs 2015, -25 % sur un an."
+  },
+  {
+   "affirmation": "LCOE PV Afrique 2025 = 52 USD/MWh (RPGC 2025)",
+   "statut": "confirmé",
+   "detail": "Table 3.2 et texte p.71 (USD 2025) ; -77 % vs 2015."
+  },
+  {
+   "affirmation": "Coût total d'installation Afrique 2015 = 3 520 USD/kW (RPGC 2025)",
+   "statut": "confirmé",
+   "detail": "Table 3.1 p.62 ; exprimé en USD 2025, d'où l'écart avec 3 437 (USD 2024) de l'édition précédente."
+  },
+  {
+   "affirmation": "LCOE PV Afrique 2015 = 222 USD/MWh (RPGC 2025)",
+   "statut": "confirmé",
+   "detail": "Table 3.2 p.71 (USD 2025) ; l'édition 2024 donnait 0,225 USD/kWh (USD 2024)."
+  },
+  {
+   "affirmation": "WACC Afrique dans RPGC 2025",
+   "statut": "non trouvé",
+   "detail": "Le rapport 2025 donne seulement une fourchette mondiale (≈3 % à >10 %, p.29) ; pas de valeur Afrique écrite."
+  },
+  {
+   "affirmation": "Facteur de charge PV Afrique (RPGC 2025)",
+   "statut": "non trouvé",
+   "detail": "Seule la valeur mondiale (16,5 % en 2025, p.68)."
+  },
+  {
+   "affirmation": "Ventilation PV utility-scale par pays africain (Égypte, Afrique du Sud, Maroc...)",
+   "statut": "non trouvé",
+   "detail": "Aucune des deux éditions ne publie de TIC/LCOE PV par pays africain (les 15 marchés des Figures 3.3/3.9 de 2024 sont hors Afrique ; la Table 3.1/3.2 2025 ne liste que Brésil, Chine, Inde, États-Unis). Égypte/Afrique du Sud n'apparaissent que dans la Figure S7/1.12 (part du financement vs WACC, valeurs non écrites) et pour l'éolien terrestre en 2025. IRENASTAT (pxweb.irena.org) ne contient pas de section coûts (seulement Finance, Heat, Power Capacity and Generation)."
+  }
+ ],
+ "non_trouve": [
+  "Facteur de charge PV utility-scale Afrique (éditions 2024 et 2025)",
+  "WACC Afrique chiffré dans l'édition 2025",
+  "Données PV utility-scale par pays africain (TIC, LCOE, facteur de charge) dans les rapports ou IRENASTAT",
+  "Valeurs de la Figure S7 (2024) pour EGY/ZAF/AGO/TUN etc. : lisibles seulement graphiquement (pas de valeur écrite)",
+  "Valeurs de la Figure 1.3 (2025) Sub-Saharan Africa / MENA : graphiques sans valeurs écrites"
+ ]
+}

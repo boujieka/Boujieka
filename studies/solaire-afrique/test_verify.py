@@ -21,3 +21,12 @@ def test_value_in_quote(value, quote, expected):
 
 def test_normalize_accents_and_quotes():
     assert normalize("Énergie  “solaire”") == "energie solaire"
+
+
+def test_near_value_table_cells():
+    from verify_citations import near_value
+    doc = normalize("Highveld Solar   Infinity Power   Pele Green\n  240   420,74   90,00   Mpumalanga\n"
+                    "  Consortium   Holding SA   Energy")
+    quote = normalize("Highveld Solar Consortium Infinity Power Holding SA 240 420,74 Mpumalanga")
+    assert near_value(420.74, quote, doc)
+    assert not near_value(999, quote, doc)
