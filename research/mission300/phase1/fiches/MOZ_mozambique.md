@@ -4,7 +4,7 @@
 > Statuts : **[V]** vérifié dans le document source · **[S]** source secondaire · **[E]** estimation/inférence · **[?]** inconnu
 
 ## 0. Métadonnées
-- Cohorte / date de présentation : page BM : « **Sep 2025** » [2] [V] — donc hors 1re cohorte de janvier 2025 [E]. Le texte du pacte ne porte **ni date, ni signataire** dans la version extraite [1] [V].
+- Cohorte / date de présentation : page BM : « **Sep 2025** » [2] [V] — donc hors 1re cohorte de janvier 2025 ; probablement 2e cohorte présentée en septembre 2025 à New York (inférence à partir du rapport d'avancement du Lesotho, également daté « Sep 2025 ») [E]. Le texte du pacte ne porte **ni date, ni signataire** dans la version extraite [1] [V].
 - Document consulté : « National Energy Compact for Mozambique » (#PoweringAfrica), 34 pages, anglais : https://www.worldbank.org/content/dam/theworldbankgroupasset/document/2026/m300-energy-compacts/Mozambique-National-Energy-Compact-Mission-300.pdf [1].
 - Accès au texte intégral : **oui** [1] [V]. Aucun rapport d'avancement listé sur la page BM (oct. 2026) [2] [V].
 - Opérateur(s) : **EDM** (Electricidade de Moçambique — transport, distribution et une large part de la production) ; **HCB** (Hidroeléctrica de Cahora Bassa, 2 075 MW, concession) ; **MOTRACO** (transporteur indépendant, détenu à parts égales par EDM, EEC (Eswatini) et Eskom) ; **FUNAE** (Fonds de l'énergie, mini-réseaux) [1] [V].

@@ -4,7 +4,7 @@
 > Statuts : **[V]** vérifié dans le document source · **[S]** source secondaire · **[E]** estimation/inférence · **[?]** inconnu
 
 ## 0. Métadonnées
-- Cohorte / date de présentation : page BM : « **Sep 2025** » [2] [V]. Le pacte cite des données de juillet 2025 [1] [V] ; il ne comporte **ni date ni signataire** dans la version extraite [1] [V]. Mention « Official Use Only » en dernière page [1] [V].
+- Cohorte / date de présentation : page BM : « **Sep 2025** » [2] [V] ; probablement 2e cohorte présentée en septembre 2025 à New York (inférence à partir du rapport d'avancement du Lesotho, daté de la même façon) [E]. Le pacte cite des données de juillet 2025 [1] [V] ; il ne comporte **ni date ni signataire** dans la version extraite [1] [V]. Mention « Official Use Only » en dernière page [1] [V].
 - Document consulté : « National Energy Compact for Botswana » (#PoweringAfrica), 31 pages, anglais : https://www.worldbank.org/content/dam/theworldbankgroupasset/document/2026/m300-energy-compacts/Botswana-National-Energy-Compact-Mission-300.pdf [1].
 - Accès au texte intégral : **oui** [1] [V]. Aucun rapport d'avancement listé (oct. 2026) [2] [V].
 - Opérateur(s) : **BPC** (Botswana Power Corporation) — entreprise publique verticalement intégrée, seul opérateur T&D et **acheteur unique de fait** ; IPP via la **PEDU** (Projects Energy Development Unit, « bureau IPP » du MME) [1] [V].
