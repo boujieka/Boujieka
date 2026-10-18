@@ -68,7 +68,7 @@
 ## 6. Lecture critique
 - **Réalisme** : l'accès national (70,6 % → 85 %) est atteignable vu la petite taille du pays, mais la base est contestée par le pacte lui-même (58 % des ménages selon EDAM) ; l'électrification rurale (17,8 % → 50 %) dépend de modèles de mini-réseaux encore à choisir [E]. 100 % ENR en 2035 dépend de l'interconnexion éthiopienne (63 % de l'offre), d'où un risque géopolitique explicitement reconnu [1] [E].
 - **Tarifs** : seul pacte du lot visant une **baisse** du tarif moyen ; cible chiffrée mais **incohérente** (0,20 / 0,22 / < 0,25 USD/kWh selon les pages). La convergence vers les coûts est formulée pour les coûts d'exploitation seulement ; la baisse et la couverture des coûts ne sont conciliables que si le coût d'approvisionnement baisse fortement [E].
-- **Opérateur** : l'engagement le plus concret est l'**apurement des 330 M USD d'arriérés de l'État** (≈ 30 % du PIB énergétique ? ordre de grandeur non vérifiable) avec calendrier chiffré — à suivre de près [E].
+- **Opérateur** : l'engagement le plus concret est l'**apurement des 330 M USD d'arriérés de l'État** avec calendrier chiffré — à suivre de près [E].
 - **Risques** : dépendance à une seule ligne d'importation, qualité des données (chiffres d'accès contradictoires), capacité administrative, faiblesse de la demande (prix élevés) [E].
 - **Phase 2** : comptes et audit stratégique d'EDD, plan d'apurement des arriérés. **Phase 3** : étude de coût de service T4 2026, grille 2019 d'EDD (citée par le pacte), tarif social.
 
