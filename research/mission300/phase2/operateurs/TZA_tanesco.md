@@ -75,7 +75,7 @@
 
 ## 6. Diagnostic synthétique
 - **Financier : faible** (marge ≈ 0, liquidité < 1, tarifs gelés depuis 2016, arriérés croisés non chiffrés). **Technique : moyen** (pertes ≈ 14,6 %, recouvrement élevé grâce au prépaiement, fiabilité en nette amélioration). **Gouvernance : moyenne-faible** (comptes publiés mais tardifs, régulation tarifaire passive).
-- **Causes racines** : (1) gel tarifaire depuis avril 2016 face à des coûts en hausse (gaz, amortissement des grands projets publics comme JNHPP) ; (2) investissements massifs décidés hors logique de moindre coût (relevé par le FMI) ; (3) arriérés croisés État–TANESCO–fournisseurs.
+- **Causes racines** : (1) gel tarifaire depuis avril 2016 face à des coûts en hausse (gaz, amortissement des grands projets publics comme JNHPP) ; (2) programme d'investissement lourd dont le FMI demande qu'il soit désormais fondé sur l'analyse coûts-bénéfices et la diversification [2] — ce qui suggère qu'il ne l'était pas toujours [E] ; (3) arriérés croisés État–TANESCO–fournisseurs.
 - **Phase 3** : étude de coût de service EWURA (2026), coût unitaire par segment (génération gaz vs JNHPP), évaluation de l'effet de JNHPP sur le coût moyen.
 
 ## 7. Inconnus
