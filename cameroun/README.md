@@ -49,3 +49,23 @@ python3 cameroun/models/build_registers.py  # consolide registres de sources et 
 ## État d'avancement
 
 Voir la section en fin de fichier, mise à jour à chaque exécution.
+
+## Conduite du travail par étapes (consigne du 19/10/2026)
+
+Chaque étape se termine par une **revue** (contrôle des sources, des calculs et des doubles comptes)
+avant de passer à la suivante.
+
+| Étape | Livrable | Revue de sortie |
+|---|---|---|
+| 1. Cartographier problèmes et sources | `analyses/cartographie_problemes.md`, `registre_problemes.csv`, `sources/registre_sources.csv`, `analyses/lacunes_donnees.md` | Chaque problème a ≥ 1 source vérifiée ou est marqué « question à investiguer » |
+| 2. Approfondir les blocages, secteur par secteur | Notes de blocage (`analyses/blocages/`) | Causes distinguées des symptômes ; données primaires lues |
+| 3. Chiffrer les options, programme compatible avec les moyens | `models/` (coûts, cadre budgétaire), options A/B/C | Fourchettes, scénarios, aucun double compte, PPP chiffrés |
+| 4. Préparer les arbitrages | Fiches `decisions/` (modèle : `decisions/MODELE_fiche.md`) | Chaque fiche a responsable, échéance, indicateur de départ et cible mesurables |
+| 5. Actualiser à partir des résultats observés | Tableau de suivi `outputs/` | Écart cible/réalisé expliqué |
+
+**Critère décisif : la précision.** Une orientation générale (« améliorer la gouvernance de
+l'électricité ») n'est pas une recommandation. Elle doit devenir une fiche indiquant les grandeurs à
+mesurer (ex. pertes techniques et commerciales, taux de recouvrement, arriérés croisés), les
+responsabilités, les investissements nécessaires, les conséquences tarifaires, la protection des
+ménages et les résultats attendus. Le produit final est un **portefeuille limité** de réformes
+prioritaires, fondé sur un diagnostic national vérifiable.
