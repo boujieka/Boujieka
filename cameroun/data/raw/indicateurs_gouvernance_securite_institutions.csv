@@ -1,0 +1,71 @@
+indicateur,valeur,unite,annee_observee,perimetre,statut,source_id,localisation,remarque
+Personnes dans le besoin d'aide humanitaire,2900000,personnes,2026,"National (analyse limitée à 6 régions: EN, NO, SO, Nord, Adamaoua, Est)",estimation,GOV-001,"p.6, p.10",Projection HNRP
+Personnes dans le besoin – Extrême-Nord,1300000,personnes,2026,Région Extrême-Nord,estimation,GOV-001,p.10,
+Personnes dans le besoin – Nord-Ouest et Sud-Ouest,1200000,personnes,2026,Régions NO+SO,estimation,GOV-001,p.10,
+Personnes dans le besoin – réfugiés centrafricains et urbains,337000,personnes,2026,Réfugiés RCA + urbains,estimation,GOV-001,p.10,
+Personnes ciblées par le HNRP,1900000,personnes,2026,National,annonce,GOV-001,p.6,-10 % vs 2025
+Personnes priorisées,1100000,personnes,2026,National,annonce,GOV-001,p.6,
+Besoins financiers HNRP,319000000,USD,2026,National,annonce,GOV-001,p.6,FTS: 318 976 221 USD
+Personnes assistées en 2025 vs ciblées,1000000,personnes,2025,National,resultat,GOV-001,p.6,"sur 2,1 M ciblées"
+Financement reçu HNRP 2026,102669809,USD,2026,National,observe,GOV-002,fundingTotal API,"Au 2026-10-19; soit ~32,2 % de 318 976 221 USD (calcul)"
+Taux de financement HNRP 2026 au 31 mars,20,%,2026,National,observe,GOV-004,non lu,resume_moteur; déficit 253 M USD
+Financement reçu HRP 2025,93642388,USD,2025,National,observe,GOV-003,fundingTotal API,"~26,1 % de 359 298 328 USD (calcul)"
+PDI – Extrême-Nord,511000,personnes,2025,Région Extrême-Nord,estimation,GOV-001,p.10,"+7 % vs 2024; HCR: 510 855 (GOV-005, OIM)"
+PDI – Nord-Ouest et Sud-Ouest,334000,personnes,2024,Régions NO+SO,estimation,GOV-001,p.11,"Données 2024, pas de nouvelle évaluation; contradiction HCR 493 402 (GOV-005)"
+PDI – Nord-Ouest et Sud-Ouest (portail HCR),493402,personnes,2026,Régions NO+SO,estimation,GOV-005,widget 'IDPs in NW/SW',"Source OCHA, mise à jour portail 30/09/2026"
+Retournés – Nord-Ouest et Sud-Ouest,494000,personnes,2024,Régions NO+SO,estimation,GOV-001,p.11,
+Retournés – Extrême-Nord,296000,personnes,2025,Région Extrême-Nord,estimation,GOV-001,p.11,+44 % vs 2024
+PDI retournés (portail HCR),790842,personnes,2026,National,estimation,GOV-005,widget,Source OIM
+Personnes déplacées de force (total portail HCR),2185518,personnes,2026,National,estimation,GOV-005,widget en tête,"Inclut PDI, retournés, réfugiés, demandeurs d'asile"
+Réfugiés (tous),387048,personnes,2026,National,observe,GOV-005,widget 'All refugees',au 30/09/2026
+Demandeurs d'asile,3371,personnes,2026,National,observe,GOV-005,widget,
+Réfugiés enregistrés originaires de RCA,283485,personnes,2026,"National (Est, Adamaoua, Nord surtout)",observe,GOV-006,API origin,
+Réfugiés enregistrés originaires du Nigeria,98105,personnes,2026,National (Extrême-Nord surtout),observe,GOV-006,API origin,Contradiction: HNRP 123 000 (GOV-001 p.11)
+Réfugiés nigérians (HNRP),123000,personnes,2025,Extrême-Nord,estimation,GOV-001,p.11,dont ~82 000 à Minawao
+Réfugiés centrafricains (HNRP),281000,personnes,2025,National,observe,GOV-001,p.12,nov. 2025
+Rapatriements volontaires de réfugiés centrafricains,12202,personnes,2025,Est/Adamaoua/Nord,resultat,GOV-001,p.12,
+Écoles non fonctionnelles NO/SO,45,%,2025,Régions NO+SO,estimation,GOV-001,p.31,
+Enfants d'âge scolaire ayant besoin d'aide éducative,932791,enfants,2026,"Régions en crise (EN, NO, SO surtout)",estimation,GOV-001,p.31,
+Incidents de protection individuels enregistrés,10000,incidents,2025,Zones couvertes par le monitoring,observe,GOV-001,p.43,'plus de 10 000'; + >670 incidents communautaires
+Enlèvements documentés – Extrême-Nord,249,enlèvements,2025,Extrême-Nord,observe,GOV-001,p.43,monitoring protection (non exhaustif)
+Durée du plus long 'lockdown' des groupes armés NO/SO,5,semaines,2025,Régions NO+SO,observe,GOV-001,p.19,sept.-oct. 2025
+Personnes tuées dans la crise NO/SO depuis 2017,6500,personnes,2026,Régions NO+SO,estimation,GOV-037,corps de l'article,ICG cité par la presse; 'plus de 6 500'
+Score Paul Biya – présidentielle 12/10/2025,53.66,% suffrages exprimés,2025,National,resultat,GOV-007,tableau,Proclamation Conseil constitutionnel 27/10/2025
+Score Issa Tchiroma Bakary – présidentielle 2025,35.19,% suffrages exprimés,2025,National,resultat,GOV-007,tableau,Résultat contesté par l'intéressé
+Taux de participation présidentielle 2025,57.76,%,2025,National,estimation,GOV-012,non lu,"NON VÉRIFIÉ (resume_moteur); contradiction: 46,31 % (Hespress)"
+Électeurs inscrits présidentielle 2025,8010464,électeurs,2025,National + diaspora,observe,GOV-022,corps de l'article,Attribué à ELECAM
+Fichier électoral provisoire 2026,8238778,électeurs,2026,National + diaspora,observe,GOV-022,corps de l'article,au 31/08/2026
+Morts post-électoraux – bilan gouvernemental,16,personnes,2025,National,observe,GOV-009,corps,MINAT; victimes qualifiées d'« assaillants neutralisés»
+Morts post-électoraux – sources ONU (Reuters),48,personnes,2025,National,estimation,GOV-008,corps,non publié officiellement par l'ONU
+Morts post-électoraux – opposition,55,personnes,2025,National,estimation,GOV-008,corps,allégation de l'opposition
+Arrestations post-électorales – gouvernement,800,personnes,2025,National,observe,GOV-009,corps,'plus de 800'
+Arrestations post-électorales – collectif d'avocats,2000,personnes,2025,National,estimation,GOV-008,corps,'jusqu'à 2 000'
+Morts liés aux violations des droits humains toutes causes 2025 (30 ONG),706,personnes,2025,National,estimation,GOV-011,corps,rapport ONG non consulté directement
+Vote Congrès – révision constitutionnelle (pour),205,voix,2026,Parlement en Congrès,decision,GOV-013,corps,autres sources: 200 ou 201
+Fin du mandat prorogé des députés,2026,année (20 déc.),2026,Assemblée nationale,decision,GOV-020,corps,2e prorogation
+Fin du mandat prorogé des conseillers municipaux,2027,année (28 févr.),2026,Communes,decision,GOV-021,corps,Décret n°2026/166 du 4/05/2026
+Durée d'absence du chef de l'État (7 juin–20 août 2026),73,jours,2026,National,observe,GOV-016,non lu,resume_moteur (RFI/Xinhua)
+Taux plancher légal DGD,15,% recettes de l'État,2026,National,decision,GOV-024,§1.5.2 p.12,Loi 2019/024 art. 25 + décret 2009/248
+DGD inscrite en LF 2020,111.8,milliards FCFA,2020,National,observe,GOV-024,Graphique 2 p.21,
+DGD inscrite en LF 2024,292.7,milliards FCFA,2024,National,observe,GOV-024,Graphique 2 p.21,"Contradiction avec Chambre des comptes (127,5 Mds exécution)"
+DGD 2024 selon Chambre des comptes,127.5,milliards FCFA,2024,National,observe,GOV-025,corps,"2022: 209,3; 2023: 146,6"
+DGD en % des recettes de l'État – MINFI,14.54,%,2024,National,estimation,GOV-025,corps,méthode contestée
+DGD en % des recettes de l'État – Chambre des comptes,2.08,%,2024,National,estimation,GOV-025,corps,
+Taux d'exécution DGD investissement,81.2,%,2024,National,observe,GOV-024,§2.2.1.2 p.25,"83,8 % en 2020; 51,8 % en 2022"
+Ressources transférées aux CTD budgétisées,1106.22,milliards FCFA,2026,National,annonce,GOV-024,§3.3.1 p.51,"804,11 invest. / 302,11 fonct.; dont 771 Mds pour compétences non exercées"
+Préjudice financier de la corruption (CONAC),6.271,milliards FCFA,2025,National,observe,GOV-027,corps,"2024: 4,062; 2023: ~114"
+Préjudice financier de la corruption (CONAC),4.062,milliards FCFA,2024,National,observe,GOV-028,corps,
+Dénonciations reçues par la CONAC,8036,dénonciations,2025,National,observe,GOV-027,corps,2024: 10 520; 2023: 7 548
+IPC Transparency International – score,26,/100,2025,National,observe,GOV-029,fiche pays,inchangé vs 2024
+IPC Transparency International – rang,142,rang /182,2025,National,observe,GOV-029,fiche pays,2024: 140 (GOV-030)
+WGI Contrôle de la corruption,-1.22,"estimation (-2,5 à 2,5)",2024,National,estimation,GOV-031,GOV_WGI_CC.EST,"2014: -1,17; 2023: -1,12"
+WGI Efficacité des pouvoirs publics,-0.82,"estimation (-2,5 à 2,5)",2024,National,estimation,GOV-031,GOV_WGI_GE.EST,"2014: -0,55"
+WGI État de droit,-1.24,"estimation (-2,5 à 2,5)",2024,National,estimation,GOV-031,GOV_WGI_RL.EST,"2014: -1,06"
+WGI Voix et responsabilité,-1.23,"estimation (-2,5 à 2,5)",2024,National,estimation,GOV-031,GOV_WGI_VA.EST,"2014: -0,95"
+WGI Stabilité politique / absence de violence,-1.56,"estimation (-2,5 à 2,5)",2024,National,estimation,GOV-031,GOV_WGI_PV.EST,"2014: -0,90; 2022: -1,70"
+WGI Qualité de la réglementation,-0.81,"estimation (-2,5 à 2,5)",2024,National,estimation,GOV-031,GOV_WGI_RQ.EST,"2014: -0,83"
+WJP Rule of Law Index – score,0.36,score 0-1,2025,National,estimation,GOV-032,p.11,"rang 134/143, -0,3 %"
+Freedom in the World – score global,15,/100,2025,National,estimation,GOV-033,fiche,"DP 6/40, LC 9/60; Non libre"
+RSF Classement liberté de la presse – rang,133,rang /180,2026,National,estimation,GOV-034,fiche,"score 40,88; 2025: 131e, 42,75"
+Agents fictifs identifiés – Assemblée nationale,150,agents,2026,Assemblée nationale,observe,GOV-035,corps,audit interne avril 2026
+Agents de l'État recensés COPPE (4/07/2018),274934,agents,2018,Fonction publique,observe,GOV-036,non lu,sur cible 310 786; resume_moteur

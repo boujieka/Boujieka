@@ -1,0 +1,108 @@
+indicateur,valeur,unite,annee_observee,perimetre,statut,source_id,localisation,remarque
+"Taux de pauvreté monétaire (seuil national, nouvelle approche EHCVM)","37,7",% population,2022,national,observe,SOC-002,tableau 'Quelques indicateurs des ODD en 2022',Nouvelle série non comparable aux ECAM antérieures
+Taux de pauvreté monétaire,"21,6",% population,2022,urbain,observe,SOC-002,idem,
+Taux de pauvreté monétaire,"56,3",% population,2022,rural,observe,SOC-002,idem,
+Profondeur de la pauvreté,"13,0",%,2022,national,observe,SOC-002,idem,
+Sévérité de la pauvreté,"6,0",%,2022,national,observe,SOC-002,idem,
+Seuil national de pauvreté,813,FCFA par personne et par jour,2022,national,observe,SOC-003,p.7,= 296 691 FCFA/an
+Nombre de pauvres,"10,1",millions de personnes,2022,national,estimation,SOC-004,page web,"Population estimée 26,7 M en 2022"
+Taux de pauvreté monétaire par région d'enquête,"69,2",% population,2022,Extrême-Nord,observe,SOC-003,p.8 Figure 4,
+Taux de pauvreté monétaire par région d'enquête,"66,8",% population,2022,Nord-Ouest,observe,SOC-003,p.8 Figure 4,"Non représentatif (couverture partielle, insécurité)"
+Taux de pauvreté monétaire par région d'enquête,"61,1",% population,2022,Nord,observe,SOC-003,p.8 Figure 4,
+Taux de pauvreté monétaire par région d'enquête,"45,1",% population,2022,Adamaoua,observe,SOC-003,p.8 Figure 4,
+Taux de pauvreté monétaire par région d'enquête,"41,5",% population,2022,Est,observe,SOC-003,p.8 Figure 4,
+Taux de pauvreté monétaire par région d'enquête,"30,4",% population,2022,Ouest,observe,SOC-003,p.8 Figure 4,
+Taux de pauvreté monétaire par région d'enquête,"23,8",% population,2022,Littoral (hors Douala),observe,SOC-003,p.8 Figure 4,
+Taux de pauvreté monétaire par région d'enquête,"20,4",% population,2022,Sud-Ouest,observe,SOC-003,p.8 Figure 4,"Non représentatif (couverture partielle, insécurité)"
+Taux de pauvreté monétaire par région d'enquête,"19,1",% population,2022,Centre (hors Yaoundé),observe,SOC-003,p.8 Figure 4,
+Taux de pauvreté monétaire par région d'enquête,"14,9",% population,2022,Sud,observe,SOC-003,p.8 Figure 4,
+Taux de pauvreté monétaire par région d'enquête,"10,8",% population,2022,Yaoundé,observe,SOC-003,p.8 Figure 4,
+Taux de pauvreté monétaire par région d'enquête,"8,3",% population,2022,Douala,observe,SOC-003,p.8 Figure 4,
+Taux de pauvreté selon sexe du chef de ménage : homme,"39,0",% population,2022,ménages dirigés par un homme,observe,SOC-003,p.8,"Femmes chefs : 33,5 % (ménages plus petits)"
+Taux de pauvreté selon sexe du chef de ménage : femme,"33,5",% population,2022,ménages dirigés par une femme,observe,SOC-003,p.8,
+Taux de pauvreté (ancienne approche ECAM),"37,5",% population,2014,national,observe,SOC-001,p.2,Série 2001-2021 comparable
+"Taux de pauvreté (ancienne approche ECAM, enquête témoin)","38,6",% population,2021,national,observe,SOC-001,p.1-2,"Hausse vs 2014 ; cible SND30 30,8 % en 2030"
+Taux de pauvreté urbain (ancienne approche),"16,5",% population,2021,urbain,observe,SOC-001,p.2,"8,9 % en 2014"
+Taux de pauvreté rural (ancienne approche),"58,3",% population,2021,rural,observe,SOC-002,encadré évolution 2001-2021,"56,8 % en 2014"
+Cible SND30 taux de pauvreté,"30,8",% population,2030,national,cible,SOC-001,p.1,
+Indice de Gini (nouvelle approche),"40,1",%,2022,national,observe,SOC-002,tableau 'Inégalités en 2022',"Urbain 37,2 ; rural 37,3"
+Indice de Gini (ancienne approche),"0,43",indice 0-1,2021,national,observe,SOC-003,p.6 Figure 2,"0,44 en 2014"
+Indice de Gini (Banque mondiale),"42,2",indice 0-100,2021,national,estimation,SOC-006,SI.POV.GINI,"46,6 en 2014 ; diffère des valeurs INS (méthode/agrégat)"
+Rapport Q5/Q1 de consommation (nouvelle approche),"7,8",ratio,2022,national,observe,SOC-002,tableau 'Inégalités en 2022',"Communiqué INS : 'dix fois' (ancienne approche, 9,7 en 2021)"
+"Taux de pauvreté au seuil international 3,00 $/j (PPA 2021)","26,7",% population,2021,national,estimation,SOC-006,SI.POV.DDAY,"29,0 en 2014"
+"Taux de pauvreté au seuil international 2,15 $/j (PPA 2017)",23,% population,2021/22,national,estimation,SOC-007,p.1,
+Incidence de la pauvreté multidimensionnelle (IPM global),"43,6",% population,2018,national,estimation,SOC-008,p.2 Table A,"12,7 M personnes en 2024 (projection) ; intensité 53,2 % ; IPM 0,232"
+Population vulnérable à la pauvreté multidimensionnelle,"17,6",% population,2018,national,estimation,SOC-008,p.2 Table A,
+Pauvreté multidimensionnelle sévère,"24,6",% population,2018,national,estimation,SOC-008,p.2 Table A,
+Pauvreté multidimensionnelle (définition Banque mondiale),41,% population,2021/22,national,estimation,SOC-007,p.1,Méthode différente de l'IPM PNUD/OPHI
+"Quotient de mortalité infanto-juvénile (5q0, 5 ans avant enquête)",80,pour 1000 naissances vivantes,2018,national,observe,SOC-005,p.157,"79,6 (Annexe B, IC 72-87) ; 151 en 1998"
+Quotient de mortalité infanto-juvénile (5q0),92,pour 1000,2018,rural,observe,SOC-005,p.157,urbain 65
+Quotient de mortalité infanto-juvénile (10 ans avant enquête) par région,133,pour 1000,2009-2018,Nord,observe,SOC-005,Tableau 8.3 p.163,Sud-Ouest supprimé (<250 cas)
+Quotient de mortalité infanto-juvénile (10 ans avant enquête) par région,122,pour 1000,2009-2018,Est,observe,SOC-005,Tableau 8.3 p.163,Sud-Ouest supprimé (<250 cas)
+Quotient de mortalité infanto-juvénile (10 ans avant enquête) par région,102,pour 1000,2009-2018,Extrême-Nord,observe,SOC-005,Tableau 8.3 p.163,Sud-Ouest supprimé (<250 cas)
+Quotient de mortalité infanto-juvénile (10 ans avant enquête) par région,96,pour 1000,2009-2018,Adamaoua,observe,SOC-005,Tableau 8.3 p.163,Sud-Ouest supprimé (<250 cas)
+Quotient de mortalité infanto-juvénile (10 ans avant enquête) par région,90,pour 1000,2009-2018,Sud,observe,SOC-005,Tableau 8.3 p.163,Sud-Ouest supprimé (<250 cas)
+Quotient de mortalité infanto-juvénile (10 ans avant enquête) par région,85,pour 1000,2009-2018,Centre (hors Yaoundé),observe,SOC-005,Tableau 8.3 p.163,Sud-Ouest supprimé (<250 cas)
+Quotient de mortalité infanto-juvénile (10 ans avant enquête) par région,78,pour 1000,2009-2018,Ouest,observe,SOC-005,Tableau 8.3 p.163,Sud-Ouest supprimé (<250 cas)
+Quotient de mortalité infanto-juvénile (10 ans avant enquête) par région,57,pour 1000,2009-2018,Nord-Ouest,observe,SOC-005,Tableau 8.3 p.163,Sud-Ouest supprimé (<250 cas)
+Quotient de mortalité infanto-juvénile (10 ans avant enquête) par région,53,pour 1000,2009-2018,Yaoundé,observe,SOC-005,Tableau 8.3 p.163,Sud-Ouest supprimé (<250 cas)
+Quotient de mortalité infanto-juvénile (10 ans avant enquête) par région,50,pour 1000,2009-2018,Douala,observe,SOC-005,Tableau 8.3 p.163,Sud-Ouest supprimé (<250 cas)
+Quotient de mortalité infanto-juvénile (10 ans avant enquête) par région,40,pour 1000,2009-2018,Littoral (hors Douala),observe,SOC-005,Tableau 8.3 p.163,Sud-Ouest supprimé (<250 cas)
+Taux de mortalité des moins de 5 ans (UN IGME),"64,8",pour 1000 naissances vivantes,2024,national,estimation,SOC-006,SH.DYN.MORT,"78,9 en 2018 (même série)"
+Taux de mortalité néonatale (UN IGME),"24,8",pour 1000 naissances vivantes,2024,national,estimation,SOC-006,SH.DYN.NMRT,EDS 2018 : 28 ‰
+"Rapport de mortalité maternelle (EDS, 7 ans avant enquête)",406,décès pour 100 000 naissances vivantes,2011-2018,national,observe,SOC-005,Tableau 16.5 p.384,IC 309-504
+Ratio de mortalité maternelle (modélisé MMEIG),258,décès pour 100 000 naissances vivantes,2023,national,estimation,SOC-006,SH.STA.MMRT,UNFPA (SOC-012) le date de 2025 ; 342 en 2021
+Accouchements assistés par personnel qualifié,69,% naissances,2018,national,observe,SOC-006,SH.STA.BRTC.ZS,"UNFPA : 40 % Nord, 96 % Littoral (SOC-012 §5)"
+Enfants 12-23 mois ayant reçu tous les vaccins de base,52,%,2018,national,observe,SOC-005,p.195 ; Graph. 10.4 p.199,Nord 36 % ; Douala 74 % ; 10 % aucun vaccin
+Couverture DTC3 (WUENIC),77,% enfants 12-23 mois,2024,national,estimation,SOC-006,SH.IMM.IDPT,68 % en 2018
+Couverture rougeole 1re dose (WUENIC),71,% enfants 12-23 mois,2024,national,estimation,SOC-006,SH.IMM.MEAS,61 % en 2018
+Prévalence du paludisme (TDR) enfants 6-59 mois,24,%,2018,national,observe,SOC-005,p.267,"Rural 32 %, urbain 14 % ; 30 % en 2011"
+Incidence du paludisme,"260,5",pour 1000 population à risque,2024,national,estimation,SOC-006,SH.MLR.INCD.P3,Stagnation depuis 2017 (259)
+Choléra : cas cumulés (épidémie déclarée le 29/06/2026),2683,cas,2026 (au 12/09),"Extrême-Nord, Nord, Ouest ; 11 districts",observe,SOC-017,article,"77 décès, létalité 2,87 % ; source primaire non lue"
+Dépenses de santé à la charge directe des ménages,"67,65",% dépense courante de santé,2023,national,estimation,SOC-006,SH.XPD.OOPC.CH.ZS,"72,3 % en 2018"
+Dépense publique intérieure de santé,"14,69",% dépense courante de santé,2023,national,estimation,SOC-006,SH.XPD.GHED.CH.ZS,
+Dépense courante de santé,"4,55",% PIB,2023,national,estimation,SOC-006,SH.XPD.CHEX.GD.ZS,"79,1 USD par habitant"
+Personnes enrôlées dans la CSU,"3,9",millions,2025 (mai),national,annonce,SOC-018,article,Annonce ministérielle : 91 % de l'objectif 2025
+Retard de croissance enfants <5 ans,29,%,2018,national,observe,SOC-005,p.225,"Rural 36 %, urbain 20 % ; 32,6 % en 2011 (SOC-006)"
+Retard de croissance enfants <5 ans par région,41,%,2018,Nord,observe,SOC-005,p.226 Graph. 11.4,
+Retard de croissance enfants <5 ans par région,37,%,2018,Extrême-Nord,observe,SOC-005,p.226 Graph. 11.4,
+Retard de croissance enfants <5 ans par région,37,%,2018,Est,observe,SOC-005,p.226 Graph. 11.4,
+Retard de croissance enfants <5 ans par région,35,%,2018,Adamaoua,observe,SOC-005,p.226 Graph. 11.4,
+Retard de croissance enfants <5 ans par région,11,%,2018,Yaoundé,observe,SOC-005,p.226 Graph. 11.4,
+Retard de croissance enfants <5 ans par région,9,%,2018,Douala,observe,SOC-005,p.226 Graph. 11.4,
+Émaciation enfants <5 ans,"4,3",%,2018,national,observe,SOC-006,SH.STA.WAST.ZS,
+"Personnes en insécurité alimentaire aiguë Phase 3-5 (CH, situation courante)",3120294,personnes,2025 (oct-déc),national,estimation,SOC-009,p.3 ligne Cameroun,dont 249 306 en Phase 4
+"Personnes en insécurité alimentaire aiguë Phase 3-5 (CH, situation projetée)",2857241,personnes,2026 (juin-août),national,prevision,SOC-010,p.3 Tableau 2,"9,7 % de la population analysée ; dont 249 559 Phase 4 ; projection reconduite du cycle oct/nov 2025"
+Zones en Phase 3 (Crise) – CH projeté,9,zones sur 58 analysées,2026 (juin-août),national,prevision,SOC-010,p.3 Tableau 1,0 zone en Phase 4
+Taux net de scolarisation primaire (6-11 ans),"80,4",%,2021-2022,national,observe,SOC-002,tableau ODD,"Urbain 89,1 ; rural 72,3 ; garçons 81,2 ; filles 79,6"
+Taux net de scolarisation secondaire (12-18 ans),"51,8",%,2021-2022,national,observe,SOC-002,tableau 'Éducation',"Rural 32,4 ; urbain 65,3"
+Taux d'alphabétisation 15-24 ans,"83,3",%,2022,national,observe,SOC-002,tableau ODD,"Rural 70,8 ; femmes 79,6"
+Taux d'achèvement du primaire,"75,3",% groupe d'âge,2024,national,estimation,SOC-006,SE.PRM.CMPT.ZS,"65,0 en 2018 ; données administratives/UIS"
+Taux d'achèvement du premier cycle du secondaire,"35,0",% groupe d'âge,2023,national,estimation,SOC-006,SE.SEC.CMPT.LO.ZS,"48,3 en 2016"
+Enfants non scolarisés (âge primaire),"3,76",% âge primaire,2024,national,estimation,SOC-006,SE.PRM.UNER.ZS,"Contradiction avec ECAM5 (TNS 80,4 %) et fermetures NOSO"
+Pauvreté des apprentissages (fin de primaire),"71,9",% enfants,2019,national,estimation,SOC-006,SE.LPV.PRIM,Fondé sur PASEC 2019
+Dépense publique d'éducation,"2,84",% PIB,2023,national,estimation,SOC-006,SE.XPD.TOTL.GD.ZS,"3,06 en 2017"
+Enseignants du primaire formés,"72,3",% enseignants,2023,national,estimation,SOC-006,SE.PRM.TCAQ.ZS,"82,7 en 2022 (rupture à vérifier)"
+Écoles fermées dans le Nord-Ouest et le Sud-Ouest,41,% écoles,2025 (juin),Nord-Ouest et Sud-Ouest,estimation,SOC-021,résumé moteur,223 749 enfants hors école ; non vérifié
+Ménages ayant reçu des transferts (projet Filets sociaux adaptatifs P175363),44500,ménages,2024 (déc.),zones du projet,observe,SOC-015,§4.1,Cible 150 500 ménages en 2028
+Décaissement crédit IDA-70480 (P175363),"23,89","% du montant révisé (35,70 M USD sur 148,43)",2024 (déc.),projet,observe,SOC-015,§7.2,Engagement initial 160 M USD (approuvé 09/03/2022)
+Travailleurs actifs immatriculés à la CNPS,1658989,personnes,2025 (31 déc.),national,observe,SOC-023,article,≈15 % d'une population active estimée à ~11 M (calcul presse)
+Population avec source améliorée d'eau de boisson (saison sèche),"81,9",% population,2022,national,observe,SOC-002,tableau ODD,"Urbain 92,5 ; rural 69,6"
+Population utilisant toilettes améliorées non partagées,"47,7",% population,2022,national,observe,SOC-001,p.2,"40,4 % en 2014 ; urbain 64,5 / rural 28,2 (SOC-002)"
+Population avec au moins un service d'eau de base (JMP),"71,4",% population,2024,national,estimation,SOC-006,SH.H2O.BASW.ZS,Définition JMP différente de l'ECAM
+Population avec au moins un assainissement de base (JMP),"47,1",% population,2024,national,estimation,SOC-006,SH.STA.BASS.ZS,
+Accès à l'électricité,"60,2",% population,2022,national,observe,SOC-001,p.2,"Urbain 87,6 ; rural 28,4 ; BM : 72 % en 2024 (EG.ELC.ACCS.ZS)"
+Ménages logés en matériaux définitifs,"47,0",% ménages,2022,national,observe,SOC-002,tableau 'Logement et équipements',"Pauvres 17,4 ; non pauvres 57,6"
+Population urbaine vivant en bidonvilles,"32,7",% population urbaine,2022,urbain,estimation,SOC-006,EN.POP.SLUM.UR.ZS,"49,0 en 2010"
+Indice d'inégalité de genre (IIG),"0,558",indice,2023,national,estimation,SOC-012,§9,Rang 148
+Sièges détenus par des femmes au Parlement,"33,9",% sièges,2025,national,observe,SOC-006,SG.GEN.PARL.ZS,
+Femmes 15-49 ans ayant subi des violences conjugales,32,%,2018,national,observe,SOC-012,§9 (citant EDS 2018),39 % violence physique depuis 15 ans ; 13 % violence sexuelle
+Prévalence contraceptive moderne,"15,4",%,non précisée,national,estimation,SOC-012,§6,Besoins non satisfaits 23 %
+Taux de fécondité des adolescentes,"105,4",naissances pour 1000 femmes 15-19 ans,2024,national,estimation,SOC-006,SP.ADO.TFRT,"UNFPA : 98 ; Est 173, Nord 125, Extrême-Nord 95 (SOC-012 §8)"
+Population totale,29879337,habitants,2025,national,estimation,SOC-006,SP.POP.TOTL,Pas de recensement depuis 2005 ; 4e RGPH non réalisé (SOC-025)
+Indice synthétique de fécondité,"4,26",enfants par femme,2024,national,estimation,SOC-006,SP.DYN.TFRT.IN,"EDS 2018 : 4,8 (3 ans) / 5,1 (7 ans)"
+Population urbaine,"55,7",% population,2025,national,estimation,SOC-006,SP.URB.TOTL.IN.ZS,"Croissance urbaine 3,0 %/an"
+Personnes en situation de handicap,"6,7",% population,2022,national,observe,SOC-012,§1 (citant ECAM 2022),
+Personnes dans le besoin d'assistance humanitaire (HNRP 2026),"2,9",millions,2026,"national (EN, NO, SO, Nord, Adamaoua, Est)",estimation,SOC-011,p.1-2,"1,9 M ciblés ; ~1 M priorisés"
+Besoins financiers HNRP 2026,319,millions USD,2026,national,annonce,SOC-011,p.2,"Enveloppe priorisée 171 M USD ; financé à 19,4 % (date mars 2026)"
+Personnes déplacées internes,845000,personnes,2026,national,estimation,SOC-012,§4,790 000 retournés ; 404 000 réfugiés

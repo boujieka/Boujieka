@@ -1,0 +1,89 @@
+indicateur,valeur,unite,annee_observee,perimetre,statut,source_id,localisation,remarque
+Croissance du PIB réel,2.9,% annuel,2010,Cameroun,observe,MAC-008,NY.GDP.MKTP.KD.ZG,Arrondi 1 décimale; série WDI mise à jour 2026-10-08
+Croissance du PIB réel,3.4,% annuel,2011,Cameroun,observe,MAC-008,NY.GDP.MKTP.KD.ZG,Arrondi 1 décimale; série WDI mise à jour 2026-10-08
+Croissance du PIB réel,4.6,% annuel,2012,Cameroun,observe,MAC-008,NY.GDP.MKTP.KD.ZG,Arrondi 1 décimale; série WDI mise à jour 2026-10-08
+Croissance du PIB réel,5.0,% annuel,2013,Cameroun,observe,MAC-008,NY.GDP.MKTP.KD.ZG,Arrondi 1 décimale; série WDI mise à jour 2026-10-08
+Croissance du PIB réel,5.7,% annuel,2014,Cameroun,observe,MAC-008,NY.GDP.MKTP.KD.ZG,Arrondi 1 décimale; série WDI mise à jour 2026-10-08
+Croissance du PIB réel,5.7,% annuel,2015,Cameroun,observe,MAC-008,NY.GDP.MKTP.KD.ZG,Arrondi 1 décimale; série WDI mise à jour 2026-10-08
+Croissance du PIB réel,4.5,% annuel,2016,Cameroun,observe,MAC-008,NY.GDP.MKTP.KD.ZG,Arrondi 1 décimale; série WDI mise à jour 2026-10-08
+Croissance du PIB réel,3.5,% annuel,2017,Cameroun,observe,MAC-008,NY.GDP.MKTP.KD.ZG,Arrondi 1 décimale; série WDI mise à jour 2026-10-08
+Croissance du PIB réel,4.0,% annuel,2018,Cameroun,observe,MAC-008,NY.GDP.MKTP.KD.ZG,Arrondi 1 décimale; série WDI mise à jour 2026-10-08
+Croissance du PIB réel,3.5,% annuel,2019,Cameroun,observe,MAC-008,NY.GDP.MKTP.KD.ZG,Arrondi 1 décimale; série WDI mise à jour 2026-10-08
+Croissance du PIB réel,0.3,% annuel,2020,Cameroun,observe,MAC-008,NY.GDP.MKTP.KD.ZG,Arrondi 1 décimale; série WDI mise à jour 2026-10-08
+Croissance du PIB réel,3.3,% annuel,2021,Cameroun,observe,MAC-008,NY.GDP.MKTP.KD.ZG,Arrondi 1 décimale; série WDI mise à jour 2026-10-08
+Croissance du PIB réel,3.7,% annuel,2022,Cameroun,observe,MAC-008,NY.GDP.MKTP.KD.ZG,Arrondi 1 décimale; série WDI mise à jour 2026-10-08
+Croissance du PIB réel,3.3,% annuel,2023,Cameroun,observe,MAC-008,NY.GDP.MKTP.KD.ZG,Arrondi 1 décimale; série WDI mise à jour 2026-10-08
+Croissance du PIB réel,3.5,% annuel,2024,Cameroun,observe,MAC-008,NY.GDP.MKTP.KD.ZG,Arrondi 1 décimale; série WDI mise à jour 2026-10-08
+Croissance du PIB réel,3.2,% annuel,2025,Cameroun,estimation,MAC-008,NY.GDP.MKTP.KD.ZG,Arrondi 1 décimale; série WDI mise à jour 2026-10-08
+"Inflation (IPC, moyenne annuelle)",1.3,%,2010,Cameroun,observe,MAC-008,FP.CPI.TOTL.ZG,Arrondi 1 décimale; extrait de la série 2010-2025
+"Inflation (IPC, moyenne annuelle)",2.7,%,2015,Cameroun,observe,MAC-008,FP.CPI.TOTL.ZG,Arrondi 1 décimale; extrait de la série 2010-2025
+"Inflation (IPC, moyenne annuelle)",2.5,%,2019,Cameroun,observe,MAC-008,FP.CPI.TOTL.ZG,Arrondi 1 décimale; extrait de la série 2010-2025
+"Inflation (IPC, moyenne annuelle)",2.4,%,2020,Cameroun,observe,MAC-008,FP.CPI.TOTL.ZG,Arrondi 1 décimale; extrait de la série 2010-2025
+"Inflation (IPC, moyenne annuelle)",2.3,%,2021,Cameroun,observe,MAC-008,FP.CPI.TOTL.ZG,Arrondi 1 décimale; extrait de la série 2010-2025
+"Inflation (IPC, moyenne annuelle)",6.2,%,2022,Cameroun,observe,MAC-008,FP.CPI.TOTL.ZG,Arrondi 1 décimale; extrait de la série 2010-2025
+"Inflation (IPC, moyenne annuelle)",7.4,%,2023,Cameroun,observe,MAC-008,FP.CPI.TOTL.ZG,Arrondi 1 décimale; extrait de la série 2010-2025
+"Inflation (IPC, moyenne annuelle)",4.5,%,2024,Cameroun,observe,MAC-008,FP.CPI.TOTL.ZG,Arrondi 1 décimale; extrait de la série 2010-2025
+"Inflation (IPC, moyenne annuelle)",3.4,%,2025,Cameroun,observe,MAC-008,FP.CPI.TOTL.ZG,Arrondi 1 décimale; extrait de la série 2010-2025
+Croissance du PIB réel,3.1,%,2025,Cameroun,estimation,MAC-001,Tableau indicateurs,"FMI; diffère de la BM (3,4) et du MINFI (3,4 texte / 3,6 tableau)"
+Croissance du PIB réel,3.4,%,2025,Cameroun,estimation,MAC-007,Tableau p.2,Banque mondiale MPO oct. 2026
+Croissance du PIB réel,3.3,%,2026,Cameroun,prevision,MAC-001,Tableau indicateurs,FMI mars 2026
+Croissance du PIB réel,3.6,%,2026,Cameroun,prevision,MAC-007,Tableau p.2,BM oct. 2026
+Croissance du PIB réel,3.5,%,2026,Cameroun,prevision,MAC-009,"Ch. I, II.1 et Tab.23","MINFI juin 2026; LF 2026 tablait sur 4,3% (MAC-017)"
+Croissance du PIB pétrolier,-15.4,%,2026,Cameroun,prevision,MAC-009,"Ch. I, II.1","Après -6,9% en 2025"
+Inflation (moyenne annuelle),4.0,%,2026,Cameroun,prevision,MAC-009,Tab.23,"MINFI; FMI 2,9 (MAC-002), BM 3,2 (MAC-007), BEAC 2,8 (MAC-011)"
+Inflation en glissement annuel,3.4,%,2026-07,Cameroun,observe,MAC-007,p.2,"Après 1,9% en janvier 2026; alimentaire 7,0%, transport 23%"
+Ressources totales du budget général mobilisées,6998.6,milliards FCFA,2025,Budget de l'État,observe,MAC-009,Tab.2,"Taux de réalisation 91,3% sur LFR 7 669,0"
+Montant LFR 2025 (budget général),7669.0,milliards FCFA,2025,Budget de l'État,budget_vote,MAC-009,Tab.2-3,"LFI 2025: 7 250,8 (budget général). Presse cite 7 317,7 (LFI total) et 7 735,9 (projet LFR)"
+Recettes internes,5008.1,milliards FCFA,2025,Budget de l'État,observe,MAC-009,Tab.2,"Taux d'exécution 93,7% vs LFR"
+Recettes pétrolières,567.2,milliards FCFA,2025,Budget de l'État,observe,MAC-009,Tab.2,"-17,6% vs 2024"
+Recettes non pétrolières,4440.9,milliards FCFA,2025,Budget de l'État,observe,MAC-009,Tab.2,"+3,2% vs 2024; 94,4% de la LFR"
+Pression fiscale,12.9,% du PIB,2025,Administration centrale,observe,MAC-009,Tab.9,"13,2% en 2024; cible 14,1% en 2029"
+Dépenses en capital sur ressources propres - taux d'exécution,88.4,% de la LFR,2025,Budget de l'État,observe,MAC-009,Tab.3,
+Taux d'exécution du BIP (base ordonnancement),73.05,%,2025,BIP,observe,MAC-009,Tab.20,"FINEX: 56,9%; 2019: 96,0%"
+Solde budgétaire global (base ordonnancement),-350.2,milliards FCFA,2025,Budget de l'État,observe,MAC-009,Tab.4,"-1,0% du PIB selon Tab.4 mais -2,2% selon Tab.9 du même document"
+"Solde global (base ordo., dons compris)",-2.2,% du PIB,2025,Administration centrale,observe,MAC-009,Tab.9,"FMI: -2,3 (ordo. hors dons) / -2,4 (base caisse) (MAC-001); BM -2,2 (MAC-007)"
+Solde primaire non pétrolier,-2.6,% du PIB,2025,Administration centrale,observe,MAC-001,Communiqué,"Cible budgétaire 1,4% dépassée (FMI); MINFI Tab.9 identique -2,6"
+"Service de la dette (ordonnancé, budget)",1838.5,milliards FCFA,2025,Budget de l'État,observe,MAC-009,Tab.3,"74,9% de la LFR (2 453,7)"
+Restes à payer Trésor / dette non structurée CAA réglés,715.6,milliards FCFA,2025,Trésor,observe,MAC-009,Tab.5,Charge de trésorerie hors budget
+Paiements effectués en décembre / total annuel,37,%,2025,Trésor,observe,MAC-024,Article,1 305 sur 3 486 Mds FCFA; presse citant MINFI
+Délai moyen de paiement des prestataires,200,jours (plus de),2025,Fournisseurs de l'État,observe,MAC-024,Article,"120 j en 2023, 160 j en 2024; source DGTCFM via presse"
+Budget de l'État 2026 (total),8816.4,milliards FCFA,2026,Budget général + CAS,budget_vote,MAC-010,Art. 83,"8 683,9 budget général + 132,5 CAS; chiffres du projet; adopté selon presse"
+Recettes internes LF 2026,5687.0,milliards FCFA,2026,Budget général,budget_vote,MAC-010,Art. 88,"dont pétrolières 523,7; fiscales brutes 4 689,5"
+Dépenses budget général hors amortissement LF 2026,6210.5,milliards FCFA,2026,Budget général,budget_vote,MAC-010,Art. 88,"dont intérêts 532,5; personnel 1 626,2; capital 1 803,3"
+Déficit global LF 2026,-631.0,milliards FCFA,2026,Budget de l'État,budget_vote,MAC-010,Art. 88,"-1,7% du PIB"
+Besoin de financement total LF 2026,3104.2,milliards FCFA,2026,Trésor,budget_vote,MAC-010,Art. 89,"dont amortissement 1 870,6; RAP/dette non structurée 498,8"
+Emprunts extérieurs autres (Eurobond) prévus LF 2026,1000.0,milliards FCFA,2026,Trésor,budget_vote,MAC-010,Art. 89,
+Recettes non pétrolières réalisées fin mars 2026,1087.4,milliards FCFA,2026-T1,Budget de l'État,observe,MAC-009,Tab.6,"89,0% de l'objectif trimestriel"
+Dépenses d'investissement exécutées fin mars 2026 / LF,2.5,%,2026-T1,Budget de l'État,observe,MAC-009,Tab.7,"45,0 Mds; bascule vers PROBMIS IA"
+Objectif révisé de déficit primaire non pétrolier 2026,-2.7,% du PIB,2026,Administration centrale,prevision,MAC-009,Ch. IV I,"Contre 1,6% dans LF 2026"
+Provision subvention énergie (carburants et électricité),340,milliards FCFA,2027,Budget de l'État,prevision,MAC-009,Ch. IV II.3,"+30 Mds vs 2026; nouvelles dépenses 2026 ~0,7% PIB surtout subvention carburant"
+Subvention carburant (LF),15,milliards FCFA,2025,Budget de l'État,budget_vote,MAC-025,Article,"Presse citant DPEB 2026-2028; 1 000 (2022), 640 (2023), 263 (2024) sans source officielle précise"
+Dépenses fiscales - régime d'incitations à l'investissement privé,48.1,milliards FCFA,2025,Douanes,observe,MAC-009,Tab.11,"80,4 en 2024; APE UE 19,6 en 2025. Couverture partielle (pas d'évaluation totale)"
+Encours de la dette publique (secteur public),15235,milliards FCFA,2026-04-30,Secteur public (adm. centrale+EP+CTD),observe,MAC-009,Ch. IV I.3.1,"43,6% du PIB; inclut RAP >3 mois"
+Encours de la dette publique,15607,milliards FCFA,2026-06-30,Secteur public,observe,MAC-019,Article,CAA note du 27/07/2026 via presse
+Encours dette extérieure administration centrale,9210.0,milliards FCFA,2026-04-30,Adm. centrale,observe,MAC-009,Ch. IV I.3.1,"26,4% PIB; 51,9% multilatéral, 25,7% bilatéral, 22,4% commercial"
+Encours dette intérieure adm. centrale (hors RAP et dette flottante),4118,milliards FCFA,2026-04-30,Adm. centrale,observe,MAC-009,Ch. IV I.3.1,"11,8% du PIB"
+Passifs conditionnels explicites (surtout PPP),4895,milliards FCFA,2026-04-30,État,observe,MAC-009,Ch. IV I.3.1,"14,0% du PIB"
+Part de la dette en devises,69.1,%,2026-04-30,Adm. centrale,observe,MAC-009,Ch. IV I.3.1,"dont 38,0% hors euro"
+Dette publique,40.3,% du PIB,2025,Secteur public (définition FMI),estimation,MAC-001,Tableau indicateurs,"MINFI 43,5 (MAC-009 Tab.9); BM 43,7 (MAC-007): périmètres/PIB différents"
+Dette publique (projection DPEB),50.0,% du PIB,2027,Secteur public,prevision,MAC-009,Tab.9,"Plafond SDMT; FMI projette 38,9"
+Risque de surendettement (AVD FMI-BM),élevé,catégorie,2026,Dette publique totale,estimation,MAC-002,Communiqué,Capacité d'endettement relevée à 'moyenne' (MAC-009); notation externe détaillée non lue (CR 26/081 bloqué)
+Service de la dette prévu,8.5,% du PIB,2026,Adm. centrale,prevision,MAC-009,Tab.9,"4,8% en 2025"
+Eurobond 2033 - montant,750,millions USD,2026-01,État,observe,MAC-021,Communiqué,"Coupon 8,875%; rendement 10,125%; swap EUR ~7,79%"
+Titres publics émis sur le marché CEMAC (BTA+OTA),731.4,milliards FCFA,2026-S1,Trésor,observe,MAC-020,Article,"BTA 509,8; OTA 221,6; CAA via presse; LF prévoyait 400 en net"
+Arriérés intérieurs apurés,230.4,milliards FCFA,2025,État,observe,MAC-023,Article,"232,9 en 2024; 84,5% des 548,5 programmés; MINFI via presse"
+Stock de dette flottante (arriérés),752.1,milliards FCFA,2026-05,État,estimation,MAC-023,Article,Périmètre plan d'apurement 2024-2030 (audit 2000-2019)
+Restes à payer,926.49,milliards FCFA,2024-12-31,État,observe,MAC-024,Article,"Chambre des comptes via presse; CAA: 485,4 à fin sept. 2025 (MAC-016/024) - périmètres différents"
+Nouveaux arriérés intérieurs,2.5,% du PIB,2025,État,estimation,MAC-007,p.1,"1,8% en 2018"
+Taux d'intérêt des appels d'offres (TIAO),4.5,%,2026-07-01,CEMAC,observe,MAC-011,Annexe 1,"Baisse de 4,75%; facilité de prêt marginal 5,75%"
+Réserves de change BEAC,7248,milliards FCFA,2026-04,CEMAC,observe,MAC-011,Synthèse,"-1,6% en g.a."
+Réserves en mois d'importations,4.12,mois,2025,CEMAC,estimation,MAC-011,Annexe 4,"4,72 prévu fin 2026"
+Taux de couverture extérieure de la monnaie,65.2,%,2025,CEMAC,estimation,MAC-011,Annexe 4,"70,7% prévu fin 2026"
+Taux de créances en souffrance (banques),15.68,% crédits bruts,2026-03-31,CEMAC,observe,MAC-011,Synthèse,"17,45% un an avant"
+Taux brut de créances douteuses (banques),12.94,% crédits,2026-05,Cameroun (18 banques),observe,MAC-027,non lu,"12,29% fin 2025; 909,4 Mds; presse, à vérifier"
+SONARA - total passif circulant,701.7,milliards FCFA,2025,SONARA,observe,MAC-015,Bilan passif DP,"511,9 en 2024; dettes fiscales et sociales 477,6"
+SONARA - résultat net,-76.2,milliards FCFA,2025,SONARA,observe,MAC-015,Bilan passif CJ,"-42,0 en 2024"
+"Dette rétrocédée détenue par 4 EP (CAMTEL, CAMWATER, SONATREL, EDC)",672.3,milliards FCFA,2026-06-30,Entreprises publiques,observe,MAC-034,non lu,"Sur 845,2 Mds rétrocédés à 11 entités; CAA via presse - à vérifier"
+Compte séquestre BEAC dette SONARA,479,milliards FCFA,2025-10-31,SONARA,annonce,MAC-026,Article,"Déclaration ministérielle via presse; prélèvement 47,88 FCFA/l"
+Position extérieure globale nette,-33.0,% du PIB,2025-T4,Cameroun,observe,MAC-013,Tableau,Provisoire
+Solde courant,-4.2,% du PIB,2025,Cameroun,estimation,MAC-007,Tableau p.2,"MINFI: -3,8 (MAC-009); FMI: -5,2 (MAC-001)"

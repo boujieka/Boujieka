@@ -1,0 +1,57 @@
+indicateur,valeur,unite,annee_observee,perimetre,statut,source_id,localisation,remarque
+CDN 2021 - objectif réduction GES vs BAU 2030 (total),35,% vs BAU 2030,2030,National,cible,ENV001,p.PDF 7 et 18,"dont 12% inconditionnel, 23% conditionnel; réduction absolue 42 259 GgCO2e"
+CDN 2021 - part inconditionnelle,12,% vs BAU 2030,2030,National,cible,ENV001,p.PDF 7,14 898 GgCO2e
+CDN 2021 - part conditionnelle,23,% vs BAU 2030,2030,National,cible,ENV001,p.PDF 7,
+Emissions GES année de base (hors foresterie),34933,GgCO2e,2010,National,observé (inventaire),ENV001,p.PDF 18 fig.3,Libellé fig.: émissions hors foresterie
+Emissions GES scénario BAU 2030,119085,GgCO2e,2030,National,prévision,ENV001,p.PDF 18,+71% vs 2010
+CDN 2021 - coût total de mise en oeuvre,57640,millions USD,2021-2030,National,estimation (besoin),ENV001,p.PDF 7 et 55,"28 713 Md FCFA; atténuation 25 784,66 M USD; adaptation 31 856 M USD"
+Ressources domestiques publiques mobilisées climat 2015-2020,162.35,millions USD,2015-2020,National,observé (déclaratif),ENV001,p.PDF 55,"Ordre de grandeur sans commune mesure avec le besoin de 57,6 Md USD"
+CDN 3.0 - objectif réduction 2030,38,% vs BAU,2030,National,cible,ENV002,p.PDF 5,13% inconditionnel + 25% conditionnel; BAU 2030 = 120 538 GgCO2e (p.15) - BAU différent de la CDN 2021
+CDN 3.0 - objectif réduction 2035,41,% vs BAU,2035,National,cible,ENV002,p.PDF 4-5,"14% inconditionnel + 27% conditionnel; 63 157,46 GgCO2e"
+CDN 3.0 - coût de mise en oeuvre à 2035,40933.106,millions USD,2026-2035,National,estimation (besoin),ENV002,p.PDF 5,"22 513,208 Md FCFA"
+Part de l'agriculture (hors foresterie) dans les émissions,60.12,%,2022,National,observé (IGES en actualisation),ENV002,p.PDF 10,"37 391,87 GgCO2e; énergie 23,20%; déchets 16,41%; PIUP 0,27%"
+Bilan net émissions/absorptions,-32037.14,GgCO2e,2022,National,estimation (IGES provisoire),ENV002,p.PDF 10,"absorptions forêts -146 715,95 GgCO2e"
+Taux annuel net de déforestation,0.6,%/an,non précisé (FAO 2020),National,estimation,ENV002,p.PDF 6,"cité par la CDN 3.0; reboisement 0,1%"
+Perte de couvert arboré cumulée,2.05,millions ha,2001-2023,National,observé (télédétection),ENV007,tableau de bord,"=6,5% du couvert de 2000; confirmé 'plus de 2 Mha' par ENV008 p.1"
+Perte de forêt primaire humide cumulée,976,milliers ha,2002-2023,National,observé (télédétection),ENV007,tableau de bord,"49% de la perte totale; -5,1% de forêt primaire; resume_moteur"
+Perte de forêt naturelle,197,milliers ha,2023,National,observé (télédétection),ENV007,tableau de bord,132 Mt CO2; record selon ENV008 et ENV009 (>200 000 ha)
+Perte de couvert arboré Région du Centre,626,milliers ha,2001-2023,Région Centre,observé (télédétection),ENV007,tableau de bord,2 premières régions = 53% des pertes; resume_moteur
+Perte de forêt (alertes RADD),782797,ha,2020-2024,National,observé (alertes),ENV010,article,"~4,2% du couvert; Mighty Earth; méthode non comparable"
+Superficie forestière,20.3,millions ha,non précisé,National,estimation,ENV008,p.PDF 7,43% du territoire; FAO FRA 2025 non consulté directement
+Part estimée de la production de bois illégale,65,%,2015,National,estimation (Chatham House),ENV008,p.PDF 8,ancienne; opinions divergentes
+Exportations de produits forestiers,758.83,millions USD,2021,National,observé,ENV008,p.PDF 1,55% vers marchés réglementés (38% en 2019)
+Score de risque de légalité du bois,81.7,score,2024,National,estimation (indice),ENV008,p.PDF 1,catégorie 'Higher Risk'; APV FLEGT 2011 non entré en vigueur (p.11)
+Nombre d'aires protégées (WDPA),54,nombre,2026-10,National,observé,ENV012,profil pays,32 avec évaluation d'efficacité de gestion
+Population en zones de sécheresse,2,millions de personnes,non précisé (~2020-2022),"National (Nord, Extrême-Nord)",estimation,ENV003,communiqué,CCDR
+Perte de PIB potentielle sans adaptation,10,% du PIB,2050,National,prévision (scénario),ENV003,communiqué,CCDR
+Investissements adaptation/atténuation nécessaires,58,milliards USD,10 ans (à partir de 2022),National,estimation (besoin),ENV003,communiqué,+1 pt de croissance du PIB en 2050
+Perte de forêt 2001-2020 (CCDR),1.5,millions ha,2001-2020,National,observé,ENV003,communiqué,
+Pauvreté 2050 sans/avec réformes,15 / 3,%,2050,National,prévision (scénario),ENV003,communiqué,"+1,3 million de pauvres sans action"
+RSF FMI - montant approuvé,183.4,millions USD,2024,National,financement approuvé,ENV005,communiqué,DTS 138 M; 18 mois
+RSF FMI - décaissement 3e revue,71.1,millions USD,2025,National,annonce (sous réserve Conseil),ENV006,communiqué,"DTS 51,7 M"
+Inondations Extrême-Nord - personnes affectées (au 28/08/2024),158620,personnes,2024,Extrême-Nord,observé (provisoire),ENV013,p.1,"Mayo-Tsanaga, Mayo-Danay, Logone-et-Chari"
+Inondations Extrême-Nord - personnes affectées (au 19/09/2024),365060,personnes,2024,Extrême-Nord,observé (OCHA),ENV015,non lu,30 morts; 56 084 maisons détruites; 82 509 ha; resume_moteur
+Inondations Extrême-Nord - décès selon autorités sanitaires (au 13/09/2024),17,décès,2024,Extrême-Nord,observé,ENV014,page,60 777 ménages; 206 écoles primaires et 55 secondaires touchées
+Glissement de terrain Mbankolo - décès (bilan officiel),28,décès,2023,Yaoundé (Mbankolo),observé,ENV018,non lu,"3 disparus, 17 blessés; presse jusqu'à ~40; resume_moteur"
+Accès à un point d'eau de base - rural / urbain,56 / 82,%,non précisé (JMP 2025),National,observé (JMP),ENV019,p.1,Défécation à l'air libre rurale 10%
+Accès à un assainissement de base - rural / urbain,25 / 62,%,non précisé (JMP 2025),National,observé (JMP),ENV019,p.1,
+SND30 - croissance annuelle moyenne visée,8.1,%,2020-2030,National,cible,ENV020,p.PDF 60,"Scénario Vision modélisé ~8%; référence 5,6% (p.35)"
+SND30 - taux de pauvreté visé,<25,%,2030,National,cible,ENV020,p.PDF 60,"base 37,5% (2014); modélisation 25,1% (vision) / 30,8% (référence) p.36"
+SND30 - sous-emploi visé,<50,%,2030,National,cible,ENV020,p.PDF 60,"base 77% (2014); modélisation 50,1-55,2%"
+SND30 - capacité électrique installée visée,5000,MW,2030,National,cible,ENV020,p.PDF 27,
+Croissance du PIB réel,3.8,%,2025,National,estimation (bilan mi-parcours),ENV021,article,"vs cible 8,5% pour 2025; 0,3% en 2020"
+SND30 - écart investissements attendus/réalisés,44432,milliards FCFA,2021-2030 (trajectoire),National,estimation,ENV021,article,"besoin 88 000 Md; 49,6% réalisé (50,4% selon ENV023)"
+Taux de pauvreté,37.7,%,2022,National,observé (ECAM5 via presse),ENV022,article,"~10,1 M de pauvres; à vérifier sur INS"
+Accès à l'électricité,77.8,%,2025,National,observé (bilan mi-parcours),ENV022,article,cible 95%
+Capacité installée électrique,2280,MW,2025,National,observé (bilan mi-parcours),ENV022,article,cible intermédiaire 3 500 MW
+Service de la dette en % du budget,31.23,%,2024,National,observé,ENV021,article,"prévu 19,90%"
+BIP - taux d'exécution physique,74.56,%,2022,National,observé,ENV024,article,
+BIP - taux d'exécution physique,63.55,%,2023,National,observé,ENV024,article,"engagement 72,26%; BIP 2023 = 1 359,3 Md FCFA"
+BIP - taux d'exécution physique (9 mois),44.57,%,2024 (fin sept.),National,observé,ENV025,article,"ressources internes 42,72%; financements extérieurs 46,78%; BIP 1 604,07 Md"
+BIP - taux d'exécution physico-financière,64.88,%,2024,National,observé,ENV026,article,"Adamaoua 93,46%; Extrême-Nord 84,89%"
+PPRD NOSO - fonds mobilisés,600,milliards FCFA,2020-2025,"Nord-Ouest, Sud-Ouest","annonce (mobilisé, non décaissé)",ENV027,article,24% des 2 500 Md requis à 2030; phase relèvement 154 Md (initialement 89 Md)
+PSRDREN Extrême-Nord - fonds mobilisés,800,milliards FCFA,2023-2026,Extrême-Nord,annonce (mobilisé),ENV031,article,"exécution budget 63%; contractualisation 88%; enveloppe ~1 810 Md (ENV032, resume_moteur)"
+PLANUT - enveloppe,925,milliards FCFA,2015-2017 (prévu),National,budget annoncé,ENV029,non affiché dans l'article (resume_moteur prc.cm),"Emprunts ~565 Md + ~100 Md obligataires; 62,4 Md inscrits en 2024 pour achèvement"
+Plan triennal Spécial jeunes - enveloppe,102,milliards FCFA,2016-2018,National,budget annoncé,ENV030,non lu,"~3,2% décaissé à 2 ans selon presse (resume_moteur)"
+Autoroute Yaoundé-Douala phase I - coût initial,284,milliards FCFA,2012,Centre/Littoral,budget (contrat),ENV033,article,"+119,1 Md TTC avenant 2022; prêt Exim Chine 241,4 Md"
+Stades Olembé + Japoma - montants mobilisés,400,milliards FCFA,2015-2026,"Yaoundé, Douala",estimation (presse),ENV037,non lu,resume_moteur; non officiel
