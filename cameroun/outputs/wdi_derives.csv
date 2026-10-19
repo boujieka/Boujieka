@@ -1,0 +1,10 @@
+calcul,valeur,n_annees
+moyenne NY.GDP.MKTP.KD.ZG 2010-2019,4.28,10
+moyenne NY.GDP.MKTP.KD.ZG 2020-2025,2.9,6
+moyenne NY.GDP.PCAP.KD.ZG 2010-2019,1.31,10
+moyenne NY.GDP.PCAP.KD.ZG 2020-2025,0.22,6
+moyenne SP.POP.GROW 2010-2025,2.79,16
+moyenne FP.CPI.TOTL.ZG 2010-2019,1.86,10
+moyenne FP.CPI.TOTL.ZG 2022-2025,5.39,4
+"PIB réel par habitant, indice 2025 (2010=100)",115.4,15
+Population additionnelle 2010-2025,10211271,2
