@@ -48,7 +48,24 @@ python3 cameroun/models/build_registers.py  # consolide registres de sources et 
 
 ## État d'avancement
 
-Voir la section en fin de fichier, mise à jour à chaque exécution.
+**Exécution 1 — 19/10/2026 : étape 1 (cartographie) terminée, en attente de revue.**
+
+| Livrable | Fichier |
+|---|---|
+| Registre des sources (223, dont 77 documents primaires lus, 71 résumés de moteur à re-vérifier) | `sources/registre_sources.csv` |
+| Indicateurs sourcés (394 hors WDI + 511 observations WDI) | `data/clean/indicateurs_consolides.csv`, `data/clean/wdi_cmr.csv` |
+| Notes sectorielles (5 domaines) | `analyses/notes/` |
+| Registre des problèmes (34) et cartographie | `analyses/registre_problemes.csv`, `analyses/cartographie_problemes.md` |
+| Lacunes de données | `analyses/lacunes_donnees.md` |
+| Dix sujets prioritaires | `outputs/sujets_prioritaires.md` |
+| Note au décideur | `outputs/note_decideur_2026-10-19.md` |
+| Contrôle automatique des registres | `outputs/controle_registres.txt` |
+
+Capacités vérifiées : recherche web, téléchargement HTTP et lecture de PDF opérationnels. Accès bloqués :
+rapports pays du FMI, site de la CAA, ReliefWeb (partiellement contourné), Crisis Group.
+Les documents téléchargés sont dans `sources/documents/` : copies locales non versionnées, retrouvables par l'URL du registre.
+
+Prochaine étape : approfondir les sujets 1 à 3 (trésorerie, électricité, subventions/SONARA).
 
 ## Conduite du travail par étapes (consigne du 19/10/2026)
 

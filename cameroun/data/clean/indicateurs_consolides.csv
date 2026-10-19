@@ -1,0 +1,395 @@
+indicateur,valeur,unite,annee_observee,perimetre,statut,source_id,localisation,remarque,statut_brut,fichier
+Croissance du PIB réel,"3,5",%,2025,National,observe,ECO-02,Tableau 3 p.11,"INS provisoire; FMI (ECO-06) estime 3,1% pour 2025 (troubles post-électoraux) : contradiction",observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Croissance du PIB réel,"3,1",%,2025,National,estimation,ECO-06,Communiqué PR 26/96,"Estimation FMI, diffère de l'INS (3,5%)",estimation,indicateurs_economie_reelle_emploi_infrastructures.csv
+Croissance du PIB réel,"3,3",%,2023,National,observe,ECO-02,Tableau 3 p.11,"BM (ECO-07) et FMI (ECO-05) donnent 3,2% pour 2023 (révision)",observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Croissance du PIB réel projetée,"3,3",%,2026,National,prevision,ECO-06,Communiqué PR 26/96,>4% attendu à partir de 2028 selon FMI,prevision,indicateurs_economie_reelle_emploi_infrastructures.csv
+PIB nominal,"34474,0",milliards FCFA,2025,National,observe,ECO-02,Tableau 1 p.11,,observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Part du secteur primaire dans le PIB,"18,9",% du PIB courant,2025,National,observe,ECO-02,"Tableau 4 p.12 (calcul 6511,2/34474,0)",Calcul de l'analyste à partir des valeurs INS,observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Part du secteur secondaire dans le PIB,"22,7",% du PIB courant,2025,National,observe,ECO-02,"Tableau 4 p.12 (calcul 7814,1/34474,0)",Calcul de l'analyste,observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Part du secteur tertiaire dans le PIB,"50,6",% du PIB courant,2025,National,observe,ECO-02,"Tableau 4 p.12 (somme branches tertiaires 17454,5/34474,0)","Calcul de l'analyste; impôts nets = 7,8%",observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Part industries manufacturières (agroalimentaire + autres) dans le PIB,"13,3",% du PIB courant,2025,National,observe,ECO-02,"Tableau 4 p.12 (calcul (2505,1+2085,8)/34474,0)","BM (ECO-07) donne 13,9% pour 2024 vs 12,9% calculé INS 2024 : écart de méthode/base. Cible SND30 : 25% en 2030",observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Valeur ajoutée manufacturière,"13,9",% du PIB,2024,National,estimation,ECO-07,p.12,Cible SND30 25% du PIB en 2030,estimation,indicateurs_economie_reelle_emploi_infrastructures.csv
+Part extraction d'hydrocarbures dans le PIB,"2,3",% du PIB courant,2025,National,observe,ECO-02,"Tableau 4 p.12 (782,1/34474,0)","6,1% en 2022 (1698,0/27662,0) – effet prix et volumes",observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Croissance en volume de l'extraction d'hydrocarbures,"-6,6",%,2025,National,observe,ECO-02,Tableau 6 p.14,"-9,7% en 2024 ; BM (ECO-07) donne -8,2% pour 2024 (hydrocarbures)",observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Croissance en volume de l'agriculture,"1,1",%,2025,National,observe,ECO-02,Tableau 6 p.14,"Agriculture industrielle et d'exportation -3,1% ; vivrière +3,7%",observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Croissance de l'information et communication,"10,3",%,2025,National,observe,ECO-02,Tableau 6 p.14,,observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+PIB réel par habitant,1467,USD constants 2015,2024,National,estimation,ECO-07,p.2 et p.14,Pic de 1980 USD en 1986,estimation,indicateurs_economie_reelle_emploi_infrastructures.csv
+PIB par personne employée,13370,USD PPA constants 2021,2025,National,estimation,ECO-08,SL.GDP.PCAP.EM.KD,Estimation modélisée ; 10416 en 2010,estimation,indicateurs_economie_reelle_emploi_infrastructures.csv
+Croissance moyenne du PIB sur 5 ans vs cible SND30,"2,8 (cible 7,6)",%,2020-2024,National,estimation,ECO-07,p.14,,estimation,indicateurs_economie_reelle_emploi_infrastructures.csv
+"Taux de chômage BIT (SU1), 14 ans et plus","6,1",%,2021,National,observe,ECO-01,p.xi et p.xiv (ODD 8.5.2),"Urbain 9,4% ; rural 1,6% ; Douala 15,4% ; Yaoundé 11,7% ; femmes 7,5% ; supérieur 17,6%",observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+"Taux de chômage (traitement OIT des microdonnées), 15 ans et plus","3,3",%,2021,National,observe,ECO-09,DF_UNE_DEAP_SEX_AGE_RT,"Écart avec INS 6,1% : définitions/âges différents",observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Taux de chômage des 15-24 ans (traitement OIT),"6,4",%,2021,National,observe,ECO-09,DF_UNE_DEAP_SEX_AGE_RT AGE_Y15-24,,observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Taux de chômage total (estimation modélisée OIT),"3,6",%,2025,National,estimation,ECO-08,SL.UEM.TOTL.ZS,"Modèle OIT, pas une observation",estimation,indicateurs_economie_reelle_emploi_infrastructures.csv
+Taux combiné sous-emploi lié au temps de travail et chômage (SU2),"23,0",%,2021,National,observe,ECO-01,p.xi,"Urbain 26,7%",observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Mesure composite de sous-utilisation de la main-d'œuvre (SU4),"26,2",%,2021,National,observe,ECO-01,p.xi,"26,3% dans le policy brief INS de déc. 2024 ; urbain 30,2%, rural 20,3%, femmes 28,7%",observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Taux de sous-emploi global (indicateur SND30),"56,4",%,2021,"National, 14 ans+",observe,ECO-01,p.xiv,"Ancienne approche chap.6 : 61,4% (2021) vs 70,6% (2010) ; cible SND30 <50% en 2030",observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Part des emplois dans le secteur informel,"86,6",% de l'emploi,2021,National,observe,ECO-01,p.x,"Informel non agricole 52,0% ; agricole 34,7% ; public 8,2% ; privé formel 5,1%",observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Proportion de l'emploi informel non agricole (ODD 8.3.1),"80,2",%,2021,National,observe,ECO-01,p.xiv,"Femmes 86,2% ; rural 88,2%",observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Taux d'emploi des jeunes 15-34 ans,"39,3",%,2021,National,observe,ECO-01,p.x,"Jeunes hommes 47,2% ; jeunes femmes 31,3%",observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Taux de NEET 15-24 ans (traitement OIT),"23,2",% des jeunes,2021,National,observe,ECO-09,DF_EIP_NEET_SEX_RT,"Femmes 30,4% ; hommes 14,7%. INS (ECO-01 p.xiv, ODD 8.6.1) publie 3,6% : contradiction majeure de définition",observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Taux de participation (main-d'œuvre) 14 ans+,"54,2",%,2021,National,observe,ECO-01,p.x,"Hommes 61,4% ; femmes 47,3%",observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Taux de salarisation,"38,6",%,2021,National,observe,ECO-01,p.x,,observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Emploi vulnérable (estimation modélisée OIT),"67,6",% de l'emploi total,2025,National,estimation,ECO-08,SL.EMP.VULN.ZS,"77,3% en 2010",estimation,indicateurs_economie_reelle_emploi_infrastructures.csv
+Emploi dans l'agriculture (estimation modélisée OIT),"41,9",% de l'emploi total,2025,National,estimation,ECO-08,SL.AGR.EMPL.ZS,"55,1% en 2010",estimation,indicateurs_economie_reelle_emploi_infrastructures.csv
+"Accès des ménages à l'électricité (ODD 7.1.1, enquête EESI3)","59,1",% de la population,2021,National,observe,ECO-01,p.xiv,"Urbain 87,2% ; rural 23,3%",observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Accès à l'électricité,72,% de la population,2024,National,estimation,ECO-08,EG.ELC.ACCS.ZS,"52,8% en 2010 ; 65,4% en 2021 (écart avec EESI3 59,1%)",estimation,indicateurs_economie_reelle_emploi_infrastructures.csv
+"Accès à l'électricité, rural","42,7",% de la population rurale,2024,Rural,estimation,ECO-08,EG.ELC.ACCS.RU.ZS,26% en 2023 : saut de série non expliqué ; à traiter avec prudence,estimation,indicateurs_economie_reelle_emploi_infrastructures.csv
+"Accès à l'électricité, urbain","95,6",% de la population urbaine,2024,Urbain,estimation,ECO-08,EG.ELC.ACCS.UR.ZS,,estimation,indicateurs_economie_reelle_emploi_infrastructures.csv
+Offre d'électricité rapportée à la demande,75,% de la demande,2021,Réseau national,estimation,ECO-05,Annex III ¶1 p.38,"Croissance de l'offre <1%/an vs demande 7,5%/an 2014-2021 (KB SAP Consulting cité par FMI)",estimation,indicateurs_economie_reelle_emploi_infrastructures.csv
+Pertes de distribution,27,% de la production,2021,Réseau national,estimation,ECO-05,Annex III ¶1 p.38,"ECO-15 cite 28,5% (distribution) et 6,48% (transport) d'après étude ARSEL 2022 - non vérifié",estimation,indicateurs_economie_reelle_emploi_infrastructures.csv
+Écart entre tarif moyen et coût,"18,2",%,~2023,National,estimation,ECO-05,Annex III ¶3 p.39,D'après PAD4903 Banque mondiale 2024,estimation,indicateurs_economie_reelle_emploi_infrastructures.csv
+Besoins d'investissement électricité identifiés 2024-2028,945,millions USD,2024-2028,National,prevision,ECO-05,Annex III ¶3 p.39,"1,8% du PIB ; financements non sécurisés",prevision,indicateurs_economie_reelle_emploi_infrastructures.csv
+Capacité Nachtigal,420,MW,2025,Réseau interconnecté Sud,observe,ECO-07,Encadré 1 p.13,Pleinement opérationnel début 2025 (BM) ; 3/7 turbines mi-2024 (FMI ECO-05),observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Capacité Memve'ele et production en saison sèche,211 (≈1/6 de la capacité en saison sèche),MW,2024,Sud,estimation,ECO-07,Encadré 1 p.13,Raccordé pleinement à Yaoundé en 2023 seulement,estimation,indicateurs_economie_reelle_emploi_infrastructures.csv
+Prix d'acquisition de 51% d'ENEO auprès d'Actis,78,milliards FCFA,2025-2026,SOCADEL,observe,ECO-14,Article,"Transformée en SOCADEL par décret du 4 mai 2026 ; capital 43,9 milliards FCFA",observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Dette de SOCADEL envers SONATREL,273,milliards FCFA,2025,Secteur électrique,estimation,ECO-15,Article (attribué par l'auteur),Non vérifié dans un document primaire,estimation,indicateurs_economie_reelle_emploi_infrastructures.csv
+Arriérés envers l'opérateur de Nachtigal,70,milliards FCFA,2026,Secteur électrique,estimation,ECO-15,Article (attribué par l'auteur),Non vérifié ; ~10 Md FCFA de factures mensuelles,estimation,indicateurs_economie_reelle_emploi_infrastructures.csv
+Dette totale d'ENEO/SOCADEL reprise par l'État,≈800,milliards FCFA,2025-2026,SOCADEL,estimation,ECO-30,Résumé moteur,Chiffre de presse non sourcé ; également ECO-16,estimation,indicateurs_economie_reelle_emploi_infrastructures.csv
+Population utilisant au moins un service d'eau potable de base,"71,4",% de la population,2024,National,estimation,ECO-08,SH.H2O.BASW.ZS,"JMP ; EESI3 : 79,7% source améliorée (2021)",estimation,indicateurs_economie_reelle_emploi_infrastructures.csv
+Taux de desserte eau potable (réseau),<40,%,2025,National,annonce,ECO-27,Résumé moteur,Définition non précisée ; cible 75% (programme 2023-2027),annonce,indicateurs_economie_reelle_emploi_infrastructures.csv
+Utilisateurs d'Internet,"46,3",% de la population,2024,National,estimation,ECO-08,IT.NET.USER.ZS,"4,3% en 2010 (UIT)",estimation,indicateurs_economie_reelle_emploi_infrastructures.csv
+Linéaire routier bitumé,10576,km,2024,National (réseau total 121873 km),annonce,ECO-21,Résumé moteur,"≈8,7% du réseau ; chiffres 2023 contradictoires",annonce,indicateurs_economie_reelle_emploi_infrastructures.csv
+Trafic de marchandises Camrail,"1,53",millions de tonnes,2024,Réseau ferroviaire,observe,ECO-26,Résumé moteur,"1,8 Mt en 2014 ; Camrail déclarait ~1 Mt en 2023 (contradiction)",observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Trafic conteneurs port de Kribi,555398,EVP,2025,Port de Kribi,annonce,ECO-20,Article,"37,5% du trafic conteneurisé national (déclaration PAK)",annonce,indicateurs_economie_reelle_emploi_infrastructures.csv
+Production commercialisée de cacao,309518,tonnes,2024-2025,National,annonce,ECO-22,Résumé moteur,Recul d'environ 20% annoncé en 2025-2026,annonce,indicateurs_economie_reelle_emploi_infrastructures.csv
+Production commercialisée de café,11637,tonnes,2024-2025,National,annonce,ECO-23,Résumé moteur,≈130 000 t dans les années 1990,annonce,indicateurs_economie_reelle_emploi_infrastructures.csv
+Production de coton graine (SODECOTON),284613,tonnes,2024-2025,Nord/Extrême-Nord,annonce,ECO-24,Résumé moteur,395 000 t campagne précédente,annonce,indicateurs_economie_reelle_emploi_infrastructures.csv
+Importations de riz (quantité),869039,tonnes,2025,National,observe,ECO-03,Tableau importations p.10,"+4,5% en volume ; valeur 268,7 Md FCFA (-15,6%)",observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Importations de riz (valeur),"268,7",milliards FCFA,2025,National,observe,ECO-03,p.5,"318,5 Md FCFA en 2024",observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Importations de froment (blé) et méteil,1139403,tonnes,2025,National,observe,ECO-03,Tableau p.10,"Valeur 187,8 Md FCFA",observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Importations de poissons de mer congelés,267259,tonnes,2025,National,observe,ECO-03,Tableau p.10,"+29,1% en volume ; 230,9 Md FCFA",observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Rendement céréalier,1770,kg/ha,2024,National,estimation,ECO-08,AG.YLD.CREL.KG,FAO via WDI,estimation,indicateurs_economie_reelle_emploi_infrastructures.csv
+Déficit commercial,"2145,2",milliards FCFA,2025,National,observe,ECO-03,p.3,"1747,3 en 2024",observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Taux de couverture des importations par les exportations,"59,0",%,2025,National,observe,ECO-03,Tableau 2 p.8,"65,1% en 2024",observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Part cacao brut en fèves dans les exportations,"26,3",% des recettes d'exportation,2025,National,observe,ECO-03,p.5-6,"Cacao et dérivés : 38,5%",observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Part des exportations vers l'Afrique,"12,7",% des recettes d'exportation,2023,National,observe,ECO-04,p.1,"dont 8,1% CEMAC",observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Exportations de pétrole brut (quantité),2556,milliers de tonnes,2025,National,observe,ECO-03,Tableau 1 p.7,3571 kt en 2022,observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Exportations de GNL (quantité),1378,milliers de tonnes,2025,National,observe,ECO-03,Tableau 1 p.7,Stable depuis 2022,observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Production de pétrole brut,"23,88",millions de barils,2023,National,observe,ECO-17,Article (rapport ITIE 2023),"Pic 34,97 Mb en 2015 (ECO-18) ; ITIE 2022 : 24,95 Mb",observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Recettes du secteur extractif,"1035,85",milliards FCFA,2023,National,observe,ECO-17,Article (rapport ITIE 2023),"-7,5% vs 2022 ; hydrocarbures 95,3%",observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Production pétrolière (prévision BEAC),"3,1",millions de tonnes,2024,National,prevision,ECO-12,p.1,,prevision,indicateurs_economie_reelle_emploi_infrastructures.csv
+Délai de paiement des fournisseurs de l'État,200+,jours,2025,Administration centrale,observe,ECO-19,Article (MINFI),120 j en 2023 ; 160 j en 2024,observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Stock d'arriérés intérieurs (Chambre des comptes),"926,49",milliards FCFA,2024,Administration centrale,observe,ECO-19,Article,Périmètre différent du FMI,observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Stock d'obligations intérieures impayées (FMI),517,milliards FCFA,2024 (fin septembre),Administration centrale,observe,ECO-05,¶23,743 Md fin 2023,observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+Mobilisation des financements du PIISAH,"110 (≈7,6-8% de 1443)",milliards FCFA,2023-2025,National,observe,ECO-25,Résumé moteur,"Taux de réalisation des objectifs 13,25%",observe,indicateurs_economie_reelle_emploi_infrastructures.csv
+CDN 2021 - objectif réduction GES vs BAU 2030 (total),35,% vs BAU 2030,2030,National,cible,ENV001,p.PDF 7 et 18,"dont 12% inconditionnel, 23% conditionnel; réduction absolue 42 259 GgCO2e",cible,indicateurs_environnement_climat_strategie.csv
+CDN 2021 - part inconditionnelle,12,% vs BAU 2030,2030,National,cible,ENV001,p.PDF 7,14 898 GgCO2e,cible,indicateurs_environnement_climat_strategie.csv
+CDN 2021 - part conditionnelle,23,% vs BAU 2030,2030,National,cible,ENV001,p.PDF 7,,cible,indicateurs_environnement_climat_strategie.csv
+Emissions GES année de base (hors foresterie),34933,GgCO2e,2010,National,observe,ENV001,p.PDF 18 fig.3,Libellé fig.: émissions hors foresterie,observé (inventaire),indicateurs_environnement_climat_strategie.csv
+Emissions GES scénario BAU 2030,119085,GgCO2e,2030,National,prevision,ENV001,p.PDF 18,+71% vs 2010,prévision,indicateurs_environnement_climat_strategie.csv
+CDN 2021 - coût total de mise en oeuvre,57640,millions USD,2021-2030,National,estimation,ENV001,p.PDF 7 et 55,"28 713 Md FCFA; atténuation 25 784,66 M USD; adaptation 31 856 M USD",estimation (besoin),indicateurs_environnement_climat_strategie.csv
+Ressources domestiques publiques mobilisées climat 2015-2020,162.35,millions USD,2015-2020,National,observe,ENV001,p.PDF 55,"Ordre de grandeur sans commune mesure avec le besoin de 57,6 Md USD",observé (déclaratif),indicateurs_environnement_climat_strategie.csv
+CDN 3.0 - objectif réduction 2030,38,% vs BAU,2030,National,cible,ENV002,p.PDF 5,13% inconditionnel + 25% conditionnel; BAU 2030 = 120 538 GgCO2e (p.15) - BAU différent de la CDN 2021,cible,indicateurs_environnement_climat_strategie.csv
+CDN 3.0 - objectif réduction 2035,41,% vs BAU,2035,National,cible,ENV002,p.PDF 4-5,"14% inconditionnel + 27% conditionnel; 63 157,46 GgCO2e",cible,indicateurs_environnement_climat_strategie.csv
+CDN 3.0 - coût de mise en oeuvre à 2035,40933.106,millions USD,2026-2035,National,estimation,ENV002,p.PDF 5,"22 513,208 Md FCFA",estimation (besoin),indicateurs_environnement_climat_strategie.csv
+Part de l'agriculture (hors foresterie) dans les émissions,60.12,%,2022,National,observe,ENV002,p.PDF 10,"37 391,87 GgCO2e; énergie 23,20%; déchets 16,41%; PIUP 0,27%",observé (IGES en actualisation),indicateurs_environnement_climat_strategie.csv
+Bilan net émissions/absorptions,-32037.14,GgCO2e,2022,National,estimation,ENV002,p.PDF 10,"absorptions forêts -146 715,95 GgCO2e",estimation (IGES provisoire),indicateurs_environnement_climat_strategie.csv
+Taux annuel net de déforestation,0.6,%/an,non précisé (FAO 2020),National,estimation,ENV002,p.PDF 6,"cité par la CDN 3.0; reboisement 0,1%",estimation,indicateurs_environnement_climat_strategie.csv
+Perte de couvert arboré cumulée,2.05,millions ha,2001-2023,National,observe,ENV007,tableau de bord,"=6,5% du couvert de 2000; confirmé 'plus de 2 Mha' par ENV008 p.1",observé (télédétection),indicateurs_environnement_climat_strategie.csv
+Perte de forêt primaire humide cumulée,976,milliers ha,2002-2023,National,observe,ENV007,tableau de bord,"49% de la perte totale; -5,1% de forêt primaire; resume_moteur",observé (télédétection),indicateurs_environnement_climat_strategie.csv
+Perte de forêt naturelle,197,milliers ha,2023,National,observe,ENV007,tableau de bord,132 Mt CO2; record selon ENV008 et ENV009 (>200 000 ha),observé (télédétection),indicateurs_environnement_climat_strategie.csv
+Perte de couvert arboré Région du Centre,626,milliers ha,2001-2023,Région Centre,observe,ENV007,tableau de bord,2 premières régions = 53% des pertes; resume_moteur,observé (télédétection),indicateurs_environnement_climat_strategie.csv
+Perte de forêt (alertes RADD),782797,ha,2020-2024,National,observe,ENV010,article,"~4,2% du couvert; Mighty Earth; méthode non comparable",observé (alertes),indicateurs_environnement_climat_strategie.csv
+Superficie forestière,20.3,millions ha,non précisé,National,estimation,ENV008,p.PDF 7,43% du territoire; FAO FRA 2025 non consulté directement,estimation,indicateurs_environnement_climat_strategie.csv
+Part estimée de la production de bois illégale,65,%,2015,National,estimation,ENV008,p.PDF 8,ancienne; opinions divergentes,estimation (Chatham House),indicateurs_environnement_climat_strategie.csv
+Exportations de produits forestiers,758.83,millions USD,2021,National,observe,ENV008,p.PDF 1,55% vers marchés réglementés (38% en 2019),observé,indicateurs_environnement_climat_strategie.csv
+Score de risque de légalité du bois,81.7,score,2024,National,estimation,ENV008,p.PDF 1,catégorie 'Higher Risk'; APV FLEGT 2011 non entré en vigueur (p.11),estimation (indice),indicateurs_environnement_climat_strategie.csv
+Nombre d'aires protégées (WDPA),54,nombre,2026-10,National,observe,ENV012,profil pays,32 avec évaluation d'efficacité de gestion,observé,indicateurs_environnement_climat_strategie.csv
+Population en zones de sécheresse,2,millions de personnes,non précisé (~2020-2022),"National (Nord, Extrême-Nord)",estimation,ENV003,communiqué,CCDR,estimation,indicateurs_environnement_climat_strategie.csv
+Perte de PIB potentielle sans adaptation,10,% du PIB,2050,National,prevision,ENV003,communiqué,CCDR,prévision (scénario),indicateurs_environnement_climat_strategie.csv
+Investissements adaptation/atténuation nécessaires,58,milliards USD,10 ans (à partir de 2022),National,estimation,ENV003,communiqué,+1 pt de croissance du PIB en 2050,estimation (besoin),indicateurs_environnement_climat_strategie.csv
+Perte de forêt 2001-2020 (CCDR),1.5,millions ha,2001-2020,National,observe,ENV003,communiqué,,observé,indicateurs_environnement_climat_strategie.csv
+Pauvreté 2050 sans/avec réformes,15 / 3,%,2050,National,prevision,ENV003,communiqué,"+1,3 million de pauvres sans action",prévision (scénario),indicateurs_environnement_climat_strategie.csv
+RSF FMI - montant approuvé,183.4,millions USD,2024,National,financement_approuve,ENV005,communiqué,DTS 138 M; 18 mois,financement approuvé,indicateurs_environnement_climat_strategie.csv
+RSF FMI - décaissement 3e revue,71.1,millions USD,2025,National,annonce,ENV006,communiqué,"DTS 51,7 M",annonce (sous réserve Conseil),indicateurs_environnement_climat_strategie.csv
+Inondations Extrême-Nord - personnes affectées (au 28/08/2024),158620,personnes,2024,Extrême-Nord,observe,ENV013,p.1,"Mayo-Tsanaga, Mayo-Danay, Logone-et-Chari",observé (provisoire),indicateurs_environnement_climat_strategie.csv
+Inondations Extrême-Nord - personnes affectées (au 19/09/2024),365060,personnes,2024,Extrême-Nord,observe,ENV015,non lu,30 morts; 56 084 maisons détruites; 82 509 ha; resume_moteur,observé (OCHA),indicateurs_environnement_climat_strategie.csv
+Inondations Extrême-Nord - décès selon autorités sanitaires (au 13/09/2024),17,décès,2024,Extrême-Nord,observe,ENV014,page,60 777 ménages; 206 écoles primaires et 55 secondaires touchées,observé,indicateurs_environnement_climat_strategie.csv
+Glissement de terrain Mbankolo - décès (bilan officiel),28,décès,2023,Yaoundé (Mbankolo),observe,ENV018,non lu,"3 disparus, 17 blessés; presse jusqu'à ~40; resume_moteur",observé,indicateurs_environnement_climat_strategie.csv
+Accès à un point d'eau de base - rural / urbain,56 / 82,%,non précisé (JMP 2025),National,observe,ENV019,p.1,Défécation à l'air libre rurale 10%,observé (JMP),indicateurs_environnement_climat_strategie.csv
+Accès à un assainissement de base - rural / urbain,25 / 62,%,non précisé (JMP 2025),National,observe,ENV019,p.1,,observé (JMP),indicateurs_environnement_climat_strategie.csv
+SND30 - croissance annuelle moyenne visée,8.1,%,2020-2030,National,cible,ENV020,p.PDF 60,"Scénario Vision modélisé ~8%; référence 5,6% (p.35)",cible,indicateurs_environnement_climat_strategie.csv
+SND30 - taux de pauvreté visé,<25,%,2030,National,cible,ENV020,p.PDF 60,"base 37,5% (2014); modélisation 25,1% (vision) / 30,8% (référence) p.36",cible,indicateurs_environnement_climat_strategie.csv
+SND30 - sous-emploi visé,<50,%,2030,National,cible,ENV020,p.PDF 60,"base 77% (2014); modélisation 50,1-55,2%",cible,indicateurs_environnement_climat_strategie.csv
+SND30 - capacité électrique installée visée,5000,MW,2030,National,cible,ENV020,p.PDF 27,,cible,indicateurs_environnement_climat_strategie.csv
+Croissance du PIB réel,3.8,%,2025,National,estimation,ENV021,article,"vs cible 8,5% pour 2025; 0,3% en 2020",estimation (bilan mi-parcours),indicateurs_environnement_climat_strategie.csv
+SND30 - écart investissements attendus/réalisés,44432,milliards FCFA,2021-2030 (trajectoire),National,estimation,ENV021,article,"besoin 88 000 Md; 49,6% réalisé (50,4% selon ENV023)",estimation,indicateurs_environnement_climat_strategie.csv
+Taux de pauvreté,37.7,%,2022,National,observe,ENV022,article,"~10,1 M de pauvres; à vérifier sur INS",observé (ECAM5 via presse),indicateurs_environnement_climat_strategie.csv
+Accès à l'électricité,77.8,%,2025,National,observe,ENV022,article,cible 95%,observé (bilan mi-parcours),indicateurs_environnement_climat_strategie.csv
+Capacité installée électrique,2280,MW,2025,National,observe,ENV022,article,cible intermédiaire 3 500 MW,observé (bilan mi-parcours),indicateurs_environnement_climat_strategie.csv
+Service de la dette en % du budget,31.23,%,2024,National,observe,ENV021,article,"prévu 19,90%",observé,indicateurs_environnement_climat_strategie.csv
+BIP - taux d'exécution physique,74.56,%,2022,National,observe,ENV024,article,,observé,indicateurs_environnement_climat_strategie.csv
+BIP - taux d'exécution physique,63.55,%,2023,National,observe,ENV024,article,"engagement 72,26%; BIP 2023 = 1 359,3 Md FCFA",observé,indicateurs_environnement_climat_strategie.csv
+BIP - taux d'exécution physique (9 mois),44.57,%,2024 (fin sept.),National,observe,ENV025,article,"ressources internes 42,72%; financements extérieurs 46,78%; BIP 1 604,07 Md",observé,indicateurs_environnement_climat_strategie.csv
+BIP - taux d'exécution physico-financière,64.88,%,2024,National,observe,ENV026,article,"Adamaoua 93,46%; Extrême-Nord 84,89%",observé,indicateurs_environnement_climat_strategie.csv
+PPRD NOSO - fonds mobilisés,600,milliards FCFA,2020-2025,"Nord-Ouest, Sud-Ouest",annonce,ENV027,article,24% des 2 500 Md requis à 2030; phase relèvement 154 Md (initialement 89 Md),"annonce (mobilisé, non décaissé)",indicateurs_environnement_climat_strategie.csv
+PSRDREN Extrême-Nord - fonds mobilisés,800,milliards FCFA,2023-2026,Extrême-Nord,annonce,ENV031,article,"exécution budget 63%; contractualisation 88%; enveloppe ~1 810 Md (ENV032, resume_moteur)",annonce (mobilisé),indicateurs_environnement_climat_strategie.csv
+PLANUT - enveloppe,925,milliards FCFA,2015-2017 (prévu),National,budget_annonce,ENV029,non affiché dans l'article (resume_moteur prc.cm),"Emprunts ~565 Md + ~100 Md obligataires; 62,4 Md inscrits en 2024 pour achèvement",budget annoncé,indicateurs_environnement_climat_strategie.csv
+Plan triennal Spécial jeunes - enveloppe,102,milliards FCFA,2016-2018,National,budget_annonce,ENV030,non lu,"~3,2% décaissé à 2 ans selon presse (resume_moteur)",budget annoncé,indicateurs_environnement_climat_strategie.csv
+Autoroute Yaoundé-Douala phase I - coût initial,284,milliards FCFA,2012,Centre/Littoral,budget_annonce,ENV033,article,"+119,1 Md TTC avenant 2022; prêt Exim Chine 241,4 Md",budget (contrat),indicateurs_environnement_climat_strategie.csv
+Stades Olembé + Japoma - montants mobilisés,400,milliards FCFA,2015-2026,"Yaoundé, Douala",estimation,ENV037,non lu,resume_moteur; non officiel,estimation (presse),indicateurs_environnement_climat_strategie.csv
+Personnes dans le besoin d'aide humanitaire,2900000,personnes,2026,"National (analyse limitée à 6 régions: EN, NO, SO, Nord, Adamaoua, Est)",estimation,GOV-001,"p.6, p.10",Projection HNRP,estimation,indicateurs_gouvernance_securite_institutions.csv
+Personnes dans le besoin – Extrême-Nord,1300000,personnes,2026,Région Extrême-Nord,estimation,GOV-001,p.10,,estimation,indicateurs_gouvernance_securite_institutions.csv
+Personnes dans le besoin – Nord-Ouest et Sud-Ouest,1200000,personnes,2026,Régions NO+SO,estimation,GOV-001,p.10,,estimation,indicateurs_gouvernance_securite_institutions.csv
+Personnes dans le besoin – réfugiés centrafricains et urbains,337000,personnes,2026,Réfugiés RCA + urbains,estimation,GOV-001,p.10,,estimation,indicateurs_gouvernance_securite_institutions.csv
+Personnes ciblées par le HNRP,1900000,personnes,2026,National,annonce,GOV-001,p.6,-10 % vs 2025,annonce,indicateurs_gouvernance_securite_institutions.csv
+Personnes priorisées,1100000,personnes,2026,National,annonce,GOV-001,p.6,,annonce,indicateurs_gouvernance_securite_institutions.csv
+Besoins financiers HNRP,319000000,USD,2026,National,annonce,GOV-001,p.6,FTS: 318 976 221 USD,annonce,indicateurs_gouvernance_securite_institutions.csv
+Personnes assistées en 2025 vs ciblées,1000000,personnes,2025,National,resultat,GOV-001,p.6,"sur 2,1 M ciblées",resultat,indicateurs_gouvernance_securite_institutions.csv
+Financement reçu HNRP 2026,102669809,USD,2026,National,observe,GOV-002,fundingTotal API,"Au 2026-10-19; soit ~32,2 % de 318 976 221 USD (calcul)",observe,indicateurs_gouvernance_securite_institutions.csv
+Taux de financement HNRP 2026 au 31 mars,20,%,2026,National,observe,GOV-004,non lu,resume_moteur; déficit 253 M USD,observe,indicateurs_gouvernance_securite_institutions.csv
+Financement reçu HRP 2025,93642388,USD,2025,National,observe,GOV-003,fundingTotal API,"~26,1 % de 359 298 328 USD (calcul)",observe,indicateurs_gouvernance_securite_institutions.csv
+PDI – Extrême-Nord,511000,personnes,2025,Région Extrême-Nord,estimation,GOV-001,p.10,"+7 % vs 2024; HCR: 510 855 (GOV-005, OIM)",estimation,indicateurs_gouvernance_securite_institutions.csv
+PDI – Nord-Ouest et Sud-Ouest,334000,personnes,2024,Régions NO+SO,estimation,GOV-001,p.11,"Données 2024, pas de nouvelle évaluation; contradiction HCR 493 402 (GOV-005)",estimation,indicateurs_gouvernance_securite_institutions.csv
+PDI – Nord-Ouest et Sud-Ouest (portail HCR),493402,personnes,2026,Régions NO+SO,estimation,GOV-005,widget 'IDPs in NW/SW',"Source OCHA, mise à jour portail 30/09/2026",estimation,indicateurs_gouvernance_securite_institutions.csv
+Retournés – Nord-Ouest et Sud-Ouest,494000,personnes,2024,Régions NO+SO,estimation,GOV-001,p.11,,estimation,indicateurs_gouvernance_securite_institutions.csv
+Retournés – Extrême-Nord,296000,personnes,2025,Région Extrême-Nord,estimation,GOV-001,p.11,+44 % vs 2024,estimation,indicateurs_gouvernance_securite_institutions.csv
+PDI retournés (portail HCR),790842,personnes,2026,National,estimation,GOV-005,widget,Source OIM,estimation,indicateurs_gouvernance_securite_institutions.csv
+Personnes déplacées de force (total portail HCR),2185518,personnes,2026,National,estimation,GOV-005,widget en tête,"Inclut PDI, retournés, réfugiés, demandeurs d'asile",estimation,indicateurs_gouvernance_securite_institutions.csv
+Réfugiés (tous),387048,personnes,2026,National,observe,GOV-005,widget 'All refugees',au 30/09/2026,observe,indicateurs_gouvernance_securite_institutions.csv
+Demandeurs d'asile,3371,personnes,2026,National,observe,GOV-005,widget,,observe,indicateurs_gouvernance_securite_institutions.csv
+Réfugiés enregistrés originaires de RCA,283485,personnes,2026,"National (Est, Adamaoua, Nord surtout)",observe,GOV-006,API origin,,observe,indicateurs_gouvernance_securite_institutions.csv
+Réfugiés enregistrés originaires du Nigeria,98105,personnes,2026,National (Extrême-Nord surtout),observe,GOV-006,API origin,Contradiction: HNRP 123 000 (GOV-001 p.11),observe,indicateurs_gouvernance_securite_institutions.csv
+Réfugiés nigérians (HNRP),123000,personnes,2025,Extrême-Nord,estimation,GOV-001,p.11,dont ~82 000 à Minawao,estimation,indicateurs_gouvernance_securite_institutions.csv
+Réfugiés centrafricains (HNRP),281000,personnes,2025,National,observe,GOV-001,p.12,nov. 2025,observe,indicateurs_gouvernance_securite_institutions.csv
+Rapatriements volontaires de réfugiés centrafricains,12202,personnes,2025,Est/Adamaoua/Nord,resultat,GOV-001,p.12,,resultat,indicateurs_gouvernance_securite_institutions.csv
+Écoles non fonctionnelles NO/SO,45,%,2025,Régions NO+SO,estimation,GOV-001,p.31,,estimation,indicateurs_gouvernance_securite_institutions.csv
+Enfants d'âge scolaire ayant besoin d'aide éducative,932791,enfants,2026,"Régions en crise (EN, NO, SO surtout)",estimation,GOV-001,p.31,,estimation,indicateurs_gouvernance_securite_institutions.csv
+Incidents de protection individuels enregistrés,10000,incidents,2025,Zones couvertes par le monitoring,observe,GOV-001,p.43,'plus de 10 000'; + >670 incidents communautaires,observe,indicateurs_gouvernance_securite_institutions.csv
+Enlèvements documentés – Extrême-Nord,249,enlèvements,2025,Extrême-Nord,observe,GOV-001,p.43,monitoring protection (non exhaustif),observe,indicateurs_gouvernance_securite_institutions.csv
+Durée du plus long 'lockdown' des groupes armés NO/SO,5,semaines,2025,Régions NO+SO,observe,GOV-001,p.19,sept.-oct. 2025,observe,indicateurs_gouvernance_securite_institutions.csv
+Personnes tuées dans la crise NO/SO depuis 2017,6500,personnes,2026,Régions NO+SO,estimation,GOV-037,corps de l'article,ICG cité par la presse; 'plus de 6 500',estimation,indicateurs_gouvernance_securite_institutions.csv
+Score Paul Biya – présidentielle 12/10/2025,53.66,% suffrages exprimés,2025,National,resultat,GOV-007,tableau,Proclamation Conseil constitutionnel 27/10/2025,resultat,indicateurs_gouvernance_securite_institutions.csv
+Score Issa Tchiroma Bakary – présidentielle 2025,35.19,% suffrages exprimés,2025,National,resultat,GOV-007,tableau,Résultat contesté par l'intéressé,resultat,indicateurs_gouvernance_securite_institutions.csv
+Taux de participation présidentielle 2025,57.76,%,2025,National,estimation,GOV-012,non lu,"NON VÉRIFIÉ (resume_moteur); contradiction: 46,31 % (Hespress)",estimation,indicateurs_gouvernance_securite_institutions.csv
+Électeurs inscrits présidentielle 2025,8010464,électeurs,2025,National + diaspora,observe,GOV-022,corps de l'article,Attribué à ELECAM,observe,indicateurs_gouvernance_securite_institutions.csv
+Fichier électoral provisoire 2026,8238778,électeurs,2026,National + diaspora,observe,GOV-022,corps de l'article,au 31/08/2026,observe,indicateurs_gouvernance_securite_institutions.csv
+Morts post-électoraux – bilan gouvernemental,16,personnes,2025,National,observe,GOV-009,corps,MINAT; victimes qualifiées d'« assaillants neutralisés»,observe,indicateurs_gouvernance_securite_institutions.csv
+Morts post-électoraux – sources ONU (Reuters),48,personnes,2025,National,estimation,GOV-008,corps,non publié officiellement par l'ONU,estimation,indicateurs_gouvernance_securite_institutions.csv
+Morts post-électoraux – opposition,55,personnes,2025,National,estimation,GOV-008,corps,allégation de l'opposition,estimation,indicateurs_gouvernance_securite_institutions.csv
+Arrestations post-électorales – gouvernement,800,personnes,2025,National,observe,GOV-009,corps,'plus de 800',observe,indicateurs_gouvernance_securite_institutions.csv
+Arrestations post-électorales – collectif d'avocats,2000,personnes,2025,National,estimation,GOV-008,corps,'jusqu'à 2 000',estimation,indicateurs_gouvernance_securite_institutions.csv
+Morts liés aux violations des droits humains toutes causes 2025 (30 ONG),706,personnes,2025,National,estimation,GOV-011,corps,rapport ONG non consulté directement,estimation,indicateurs_gouvernance_securite_institutions.csv
+Vote Congrès – révision constitutionnelle (pour),205,voix,2026,Parlement en Congrès,decision,GOV-013,corps,autres sources: 200 ou 201,decision,indicateurs_gouvernance_securite_institutions.csv
+Fin du mandat prorogé des députés,2026,année (20 déc.),2026,Assemblée nationale,decision,GOV-020,corps,2e prorogation,decision,indicateurs_gouvernance_securite_institutions.csv
+Fin du mandat prorogé des conseillers municipaux,2027,année (28 févr.),2026,Communes,decision,GOV-021,corps,Décret n°2026/166 du 4/05/2026,decision,indicateurs_gouvernance_securite_institutions.csv
+Durée d'absence du chef de l'État (7 juin–20 août 2026),73,jours,2026,National,observe,GOV-016,non lu,resume_moteur (RFI/Xinhua),observe,indicateurs_gouvernance_securite_institutions.csv
+Taux plancher légal DGD,15,% recettes de l'État,2026,National,decision,GOV-024,§1.5.2 p.12,Loi 2019/024 art. 25 + décret 2009/248,decision,indicateurs_gouvernance_securite_institutions.csv
+DGD inscrite en LF 2020,111.8,milliards FCFA,2020,National,observe,GOV-024,Graphique 2 p.21,,observe,indicateurs_gouvernance_securite_institutions.csv
+DGD inscrite en LF 2024,292.7,milliards FCFA,2024,National,observe,GOV-024,Graphique 2 p.21,"Contradiction avec Chambre des comptes (127,5 Mds exécution)",observe,indicateurs_gouvernance_securite_institutions.csv
+DGD 2024 selon Chambre des comptes,127.5,milliards FCFA,2024,National,observe,GOV-025,corps,"2022: 209,3; 2023: 146,6",observe,indicateurs_gouvernance_securite_institutions.csv
+DGD en % des recettes de l'État – MINFI,14.54,%,2024,National,estimation,GOV-025,corps,méthode contestée,estimation,indicateurs_gouvernance_securite_institutions.csv
+DGD en % des recettes de l'État – Chambre des comptes,2.08,%,2024,National,estimation,GOV-025,corps,,estimation,indicateurs_gouvernance_securite_institutions.csv
+Taux d'exécution DGD investissement,81.2,%,2024,National,observe,GOV-024,§2.2.1.2 p.25,"83,8 % en 2020; 51,8 % en 2022",observe,indicateurs_gouvernance_securite_institutions.csv
+Ressources transférées aux CTD budgétisées,1106.22,milliards FCFA,2026,National,annonce,GOV-024,§3.3.1 p.51,"804,11 invest. / 302,11 fonct.; dont 771 Mds pour compétences non exercées",annonce,indicateurs_gouvernance_securite_institutions.csv
+Préjudice financier de la corruption (CONAC),6.271,milliards FCFA,2025,National,observe,GOV-027,corps,"2024: 4,062; 2023: ~114",observe,indicateurs_gouvernance_securite_institutions.csv
+Préjudice financier de la corruption (CONAC),4.062,milliards FCFA,2024,National,observe,GOV-028,corps,,observe,indicateurs_gouvernance_securite_institutions.csv
+Dénonciations reçues par la CONAC,8036,dénonciations,2025,National,observe,GOV-027,corps,2024: 10 520; 2023: 7 548,observe,indicateurs_gouvernance_securite_institutions.csv
+IPC Transparency International – score,26,/100,2025,National,observe,GOV-029,fiche pays,inchangé vs 2024,observe,indicateurs_gouvernance_securite_institutions.csv
+IPC Transparency International – rang,142,rang /182,2025,National,observe,GOV-029,fiche pays,2024: 140 (GOV-030),observe,indicateurs_gouvernance_securite_institutions.csv
+WGI Contrôle de la corruption,-1.22,"estimation (-2,5 à 2,5)",2024,National,estimation,GOV-031,GOV_WGI_CC.EST,"2014: -1,17; 2023: -1,12",estimation,indicateurs_gouvernance_securite_institutions.csv
+WGI Efficacité des pouvoirs publics,-0.82,"estimation (-2,5 à 2,5)",2024,National,estimation,GOV-031,GOV_WGI_GE.EST,"2014: -0,55",estimation,indicateurs_gouvernance_securite_institutions.csv
+WGI État de droit,-1.24,"estimation (-2,5 à 2,5)",2024,National,estimation,GOV-031,GOV_WGI_RL.EST,"2014: -1,06",estimation,indicateurs_gouvernance_securite_institutions.csv
+WGI Voix et responsabilité,-1.23,"estimation (-2,5 à 2,5)",2024,National,estimation,GOV-031,GOV_WGI_VA.EST,"2014: -0,95",estimation,indicateurs_gouvernance_securite_institutions.csv
+WGI Stabilité politique / absence de violence,-1.56,"estimation (-2,5 à 2,5)",2024,National,estimation,GOV-031,GOV_WGI_PV.EST,"2014: -0,90; 2022: -1,70",estimation,indicateurs_gouvernance_securite_institutions.csv
+WGI Qualité de la réglementation,-0.81,"estimation (-2,5 à 2,5)",2024,National,estimation,GOV-031,GOV_WGI_RQ.EST,"2014: -0,83",estimation,indicateurs_gouvernance_securite_institutions.csv
+WJP Rule of Law Index – score,0.36,score 0-1,2025,National,estimation,GOV-032,p.11,"rang 134/143, -0,3 %",estimation,indicateurs_gouvernance_securite_institutions.csv
+Freedom in the World – score global,15,/100,2025,National,estimation,GOV-033,fiche,"DP 6/40, LC 9/60; Non libre",estimation,indicateurs_gouvernance_securite_institutions.csv
+RSF Classement liberté de la presse – rang,133,rang /180,2026,National,estimation,GOV-034,fiche,"score 40,88; 2025: 131e, 42,75",estimation,indicateurs_gouvernance_securite_institutions.csv
+Agents fictifs identifiés – Assemblée nationale,150,agents,2026,Assemblée nationale,observe,GOV-035,corps,audit interne avril 2026,observe,indicateurs_gouvernance_securite_institutions.csv
+Agents de l'État recensés COPPE (4/07/2018),274934,agents,2018,Fonction publique,observe,GOV-036,non lu,sur cible 310 786; resume_moteur,observe,indicateurs_gouvernance_securite_institutions.csv
+Croissance du PIB réel,2.9,% annuel,2010,Cameroun,observe,MAC-008,NY.GDP.MKTP.KD.ZG,Arrondi 1 décimale; série WDI mise à jour 2026-10-08,observe,indicateurs_macro_finances_publiques.csv
+Croissance du PIB réel,3.4,% annuel,2011,Cameroun,observe,MAC-008,NY.GDP.MKTP.KD.ZG,Arrondi 1 décimale; série WDI mise à jour 2026-10-08,observe,indicateurs_macro_finances_publiques.csv
+Croissance du PIB réel,4.6,% annuel,2012,Cameroun,observe,MAC-008,NY.GDP.MKTP.KD.ZG,Arrondi 1 décimale; série WDI mise à jour 2026-10-08,observe,indicateurs_macro_finances_publiques.csv
+Croissance du PIB réel,5.0,% annuel,2013,Cameroun,observe,MAC-008,NY.GDP.MKTP.KD.ZG,Arrondi 1 décimale; série WDI mise à jour 2026-10-08,observe,indicateurs_macro_finances_publiques.csv
+Croissance du PIB réel,5.7,% annuel,2014,Cameroun,observe,MAC-008,NY.GDP.MKTP.KD.ZG,Arrondi 1 décimale; série WDI mise à jour 2026-10-08,observe,indicateurs_macro_finances_publiques.csv
+Croissance du PIB réel,5.7,% annuel,2015,Cameroun,observe,MAC-008,NY.GDP.MKTP.KD.ZG,Arrondi 1 décimale; série WDI mise à jour 2026-10-08,observe,indicateurs_macro_finances_publiques.csv
+Croissance du PIB réel,4.5,% annuel,2016,Cameroun,observe,MAC-008,NY.GDP.MKTP.KD.ZG,Arrondi 1 décimale; série WDI mise à jour 2026-10-08,observe,indicateurs_macro_finances_publiques.csv
+Croissance du PIB réel,3.5,% annuel,2017,Cameroun,observe,MAC-008,NY.GDP.MKTP.KD.ZG,Arrondi 1 décimale; série WDI mise à jour 2026-10-08,observe,indicateurs_macro_finances_publiques.csv
+Croissance du PIB réel,4.0,% annuel,2018,Cameroun,observe,MAC-008,NY.GDP.MKTP.KD.ZG,Arrondi 1 décimale; série WDI mise à jour 2026-10-08,observe,indicateurs_macro_finances_publiques.csv
+Croissance du PIB réel,3.5,% annuel,2019,Cameroun,observe,MAC-008,NY.GDP.MKTP.KD.ZG,Arrondi 1 décimale; série WDI mise à jour 2026-10-08,observe,indicateurs_macro_finances_publiques.csv
+Croissance du PIB réel,0.3,% annuel,2020,Cameroun,observe,MAC-008,NY.GDP.MKTP.KD.ZG,Arrondi 1 décimale; série WDI mise à jour 2026-10-08,observe,indicateurs_macro_finances_publiques.csv
+Croissance du PIB réel,3.3,% annuel,2021,Cameroun,observe,MAC-008,NY.GDP.MKTP.KD.ZG,Arrondi 1 décimale; série WDI mise à jour 2026-10-08,observe,indicateurs_macro_finances_publiques.csv
+Croissance du PIB réel,3.7,% annuel,2022,Cameroun,observe,MAC-008,NY.GDP.MKTP.KD.ZG,Arrondi 1 décimale; série WDI mise à jour 2026-10-08,observe,indicateurs_macro_finances_publiques.csv
+Croissance du PIB réel,3.3,% annuel,2023,Cameroun,observe,MAC-008,NY.GDP.MKTP.KD.ZG,Arrondi 1 décimale; série WDI mise à jour 2026-10-08,observe,indicateurs_macro_finances_publiques.csv
+Croissance du PIB réel,3.5,% annuel,2024,Cameroun,observe,MAC-008,NY.GDP.MKTP.KD.ZG,Arrondi 1 décimale; série WDI mise à jour 2026-10-08,observe,indicateurs_macro_finances_publiques.csv
+Croissance du PIB réel,3.2,% annuel,2025,Cameroun,estimation,MAC-008,NY.GDP.MKTP.KD.ZG,Arrondi 1 décimale; série WDI mise à jour 2026-10-08,estimation,indicateurs_macro_finances_publiques.csv
+"Inflation (IPC, moyenne annuelle)",1.3,%,2010,Cameroun,observe,MAC-008,FP.CPI.TOTL.ZG,Arrondi 1 décimale; extrait de la série 2010-2025,observe,indicateurs_macro_finances_publiques.csv
+"Inflation (IPC, moyenne annuelle)",2.7,%,2015,Cameroun,observe,MAC-008,FP.CPI.TOTL.ZG,Arrondi 1 décimale; extrait de la série 2010-2025,observe,indicateurs_macro_finances_publiques.csv
+"Inflation (IPC, moyenne annuelle)",2.5,%,2019,Cameroun,observe,MAC-008,FP.CPI.TOTL.ZG,Arrondi 1 décimale; extrait de la série 2010-2025,observe,indicateurs_macro_finances_publiques.csv
+"Inflation (IPC, moyenne annuelle)",2.4,%,2020,Cameroun,observe,MAC-008,FP.CPI.TOTL.ZG,Arrondi 1 décimale; extrait de la série 2010-2025,observe,indicateurs_macro_finances_publiques.csv
+"Inflation (IPC, moyenne annuelle)",2.3,%,2021,Cameroun,observe,MAC-008,FP.CPI.TOTL.ZG,Arrondi 1 décimale; extrait de la série 2010-2025,observe,indicateurs_macro_finances_publiques.csv
+"Inflation (IPC, moyenne annuelle)",6.2,%,2022,Cameroun,observe,MAC-008,FP.CPI.TOTL.ZG,Arrondi 1 décimale; extrait de la série 2010-2025,observe,indicateurs_macro_finances_publiques.csv
+"Inflation (IPC, moyenne annuelle)",7.4,%,2023,Cameroun,observe,MAC-008,FP.CPI.TOTL.ZG,Arrondi 1 décimale; extrait de la série 2010-2025,observe,indicateurs_macro_finances_publiques.csv
+"Inflation (IPC, moyenne annuelle)",4.5,%,2024,Cameroun,observe,MAC-008,FP.CPI.TOTL.ZG,Arrondi 1 décimale; extrait de la série 2010-2025,observe,indicateurs_macro_finances_publiques.csv
+"Inflation (IPC, moyenne annuelle)",3.4,%,2025,Cameroun,observe,MAC-008,FP.CPI.TOTL.ZG,Arrondi 1 décimale; extrait de la série 2010-2025,observe,indicateurs_macro_finances_publiques.csv
+Croissance du PIB réel,3.1,%,2025,Cameroun,estimation,MAC-001,Tableau indicateurs,"FMI; diffère de la BM (3,4) et du MINFI (3,4 texte / 3,6 tableau)",estimation,indicateurs_macro_finances_publiques.csv
+Croissance du PIB réel,3.4,%,2025,Cameroun,estimation,MAC-007,Tableau p.2,Banque mondiale MPO oct. 2026,estimation,indicateurs_macro_finances_publiques.csv
+Croissance du PIB réel,3.3,%,2026,Cameroun,prevision,MAC-001,Tableau indicateurs,FMI mars 2026,prevision,indicateurs_macro_finances_publiques.csv
+Croissance du PIB réel,3.6,%,2026,Cameroun,prevision,MAC-007,Tableau p.2,BM oct. 2026,prevision,indicateurs_macro_finances_publiques.csv
+Croissance du PIB réel,3.5,%,2026,Cameroun,prevision,MAC-009,"Ch. I, II.1 et Tab.23","MINFI juin 2026; LF 2026 tablait sur 4,3% (MAC-017)",prevision,indicateurs_macro_finances_publiques.csv
+Croissance du PIB pétrolier,-15.4,%,2026,Cameroun,prevision,MAC-009,"Ch. I, II.1","Après -6,9% en 2025",prevision,indicateurs_macro_finances_publiques.csv
+Inflation (moyenne annuelle),4.0,%,2026,Cameroun,prevision,MAC-009,Tab.23,"MINFI; FMI 2,9 (MAC-002), BM 3,2 (MAC-007), BEAC 2,8 (MAC-011)",prevision,indicateurs_macro_finances_publiques.csv
+Inflation en glissement annuel,3.4,%,2026-07,Cameroun,observe,MAC-007,p.2,"Après 1,9% en janvier 2026; alimentaire 7,0%, transport 23%",observe,indicateurs_macro_finances_publiques.csv
+Ressources totales du budget général mobilisées,6998.6,milliards FCFA,2025,Budget de l'État,observe,MAC-009,Tab.2,"Taux de réalisation 91,3% sur LFR 7 669,0",observe,indicateurs_macro_finances_publiques.csv
+Montant LFR 2025 (budget général),7669.0,milliards FCFA,2025,Budget de l'État,budget_vote,MAC-009,Tab.2-3,"LFI 2025: 7 250,8 (budget général). Presse cite 7 317,7 (LFI total) et 7 735,9 (projet LFR)",budget_vote,indicateurs_macro_finances_publiques.csv
+Recettes internes,5008.1,milliards FCFA,2025,Budget de l'État,observe,MAC-009,Tab.2,"Taux d'exécution 93,7% vs LFR",observe,indicateurs_macro_finances_publiques.csv
+Recettes pétrolières,567.2,milliards FCFA,2025,Budget de l'État,observe,MAC-009,Tab.2,"-17,6% vs 2024",observe,indicateurs_macro_finances_publiques.csv
+Recettes non pétrolières,4440.9,milliards FCFA,2025,Budget de l'État,observe,MAC-009,Tab.2,"+3,2% vs 2024; 94,4% de la LFR",observe,indicateurs_macro_finances_publiques.csv
+Pression fiscale,12.9,% du PIB,2025,Administration centrale,observe,MAC-009,Tab.9,"13,2% en 2024; cible 14,1% en 2029",observe,indicateurs_macro_finances_publiques.csv
+Dépenses en capital sur ressources propres - taux d'exécution,88.4,% de la LFR,2025,Budget de l'État,observe,MAC-009,Tab.3,,observe,indicateurs_macro_finances_publiques.csv
+Taux d'exécution du BIP (base ordonnancement),73.05,%,2025,BIP,observe,MAC-009,Tab.20,"FINEX: 56,9%; 2019: 96,0%",observe,indicateurs_macro_finances_publiques.csv
+Solde budgétaire global (base ordonnancement),-350.2,milliards FCFA,2025,Budget de l'État,observe,MAC-009,Tab.4,"-1,0% du PIB selon Tab.4 mais -2,2% selon Tab.9 du même document",observe,indicateurs_macro_finances_publiques.csv
+"Solde global (base ordo., dons compris)",-2.2,% du PIB,2025,Administration centrale,observe,MAC-009,Tab.9,"FMI: -2,3 (ordo. hors dons) / -2,4 (base caisse) (MAC-001); BM -2,2 (MAC-007)",observe,indicateurs_macro_finances_publiques.csv
+Solde primaire non pétrolier,-2.6,% du PIB,2025,Administration centrale,observe,MAC-001,Communiqué,"Cible budgétaire 1,4% dépassée (FMI); MINFI Tab.9 identique -2,6",observe,indicateurs_macro_finances_publiques.csv
+"Service de la dette (ordonnancé, budget)",1838.5,milliards FCFA,2025,Budget de l'État,observe,MAC-009,Tab.3,"74,9% de la LFR (2 453,7)",observe,indicateurs_macro_finances_publiques.csv
+Restes à payer Trésor / dette non structurée CAA réglés,715.6,milliards FCFA,2025,Trésor,observe,MAC-009,Tab.5,Charge de trésorerie hors budget,observe,indicateurs_macro_finances_publiques.csv
+Paiements effectués en décembre / total annuel,37,%,2025,Trésor,observe,MAC-024,Article,1 305 sur 3 486 Mds FCFA; presse citant MINFI,observe,indicateurs_macro_finances_publiques.csv
+Délai moyen de paiement des prestataires,200,jours (plus de),2025,Fournisseurs de l'État,observe,MAC-024,Article,"120 j en 2023, 160 j en 2024; source DGTCFM via presse",observe,indicateurs_macro_finances_publiques.csv
+Budget de l'État 2026 (total),8816.4,milliards FCFA,2026,Budget général + CAS,budget_vote,MAC-010,Art. 83,"8 683,9 budget général + 132,5 CAS; chiffres du projet; adopté selon presse",budget_vote,indicateurs_macro_finances_publiques.csv
+Recettes internes LF 2026,5687.0,milliards FCFA,2026,Budget général,budget_vote,MAC-010,Art. 88,"dont pétrolières 523,7; fiscales brutes 4 689,5",budget_vote,indicateurs_macro_finances_publiques.csv
+Dépenses budget général hors amortissement LF 2026,6210.5,milliards FCFA,2026,Budget général,budget_vote,MAC-010,Art. 88,"dont intérêts 532,5; personnel 1 626,2; capital 1 803,3",budget_vote,indicateurs_macro_finances_publiques.csv
+Déficit global LF 2026,-631.0,milliards FCFA,2026,Budget de l'État,budget_vote,MAC-010,Art. 88,"-1,7% du PIB",budget_vote,indicateurs_macro_finances_publiques.csv
+Besoin de financement total LF 2026,3104.2,milliards FCFA,2026,Trésor,budget_vote,MAC-010,Art. 89,"dont amortissement 1 870,6; RAP/dette non structurée 498,8",budget_vote,indicateurs_macro_finances_publiques.csv
+Emprunts extérieurs autres (Eurobond) prévus LF 2026,1000.0,milliards FCFA,2026,Trésor,budget_vote,MAC-010,Art. 89,,budget_vote,indicateurs_macro_finances_publiques.csv
+Recettes non pétrolières réalisées fin mars 2026,1087.4,milliards FCFA,2026-T1,Budget de l'État,observe,MAC-009,Tab.6,"89,0% de l'objectif trimestriel",observe,indicateurs_macro_finances_publiques.csv
+Dépenses d'investissement exécutées fin mars 2026 / LF,2.5,%,2026-T1,Budget de l'État,observe,MAC-009,Tab.7,"45,0 Mds; bascule vers PROBMIS IA",observe,indicateurs_macro_finances_publiques.csv
+Objectif révisé de déficit primaire non pétrolier 2026,-2.7,% du PIB,2026,Administration centrale,prevision,MAC-009,Ch. IV I,"Contre 1,6% dans LF 2026",prevision,indicateurs_macro_finances_publiques.csv
+Provision subvention énergie (carburants et électricité),340,milliards FCFA,2027,Budget de l'État,prevision,MAC-009,Ch. IV II.3,"+30 Mds vs 2026; nouvelles dépenses 2026 ~0,7% PIB surtout subvention carburant",prevision,indicateurs_macro_finances_publiques.csv
+Subvention carburant (LF),15,milliards FCFA,2025,Budget de l'État,budget_vote,MAC-025,Article,"Presse citant DPEB 2026-2028; 1 000 (2022), 640 (2023), 263 (2024) sans source officielle précise",budget_vote,indicateurs_macro_finances_publiques.csv
+Dépenses fiscales - régime d'incitations à l'investissement privé,48.1,milliards FCFA,2025,Douanes,observe,MAC-009,Tab.11,"80,4 en 2024; APE UE 19,6 en 2025. Couverture partielle (pas d'évaluation totale)",observe,indicateurs_macro_finances_publiques.csv
+Encours de la dette publique (secteur public),15235,milliards FCFA,2026-04-30,Secteur public (adm. centrale+EP+CTD),observe,MAC-009,Ch. IV I.3.1,"43,6% du PIB; inclut RAP >3 mois",observe,indicateurs_macro_finances_publiques.csv
+Encours de la dette publique,15607,milliards FCFA,2026-06-30,Secteur public,observe,MAC-019,Article,CAA note du 27/07/2026 via presse,observe,indicateurs_macro_finances_publiques.csv
+Encours dette extérieure administration centrale,9210.0,milliards FCFA,2026-04-30,Adm. centrale,observe,MAC-009,Ch. IV I.3.1,"26,4% PIB; 51,9% multilatéral, 25,7% bilatéral, 22,4% commercial",observe,indicateurs_macro_finances_publiques.csv
+Encours dette intérieure adm. centrale (hors RAP et dette flottante),4118,milliards FCFA,2026-04-30,Adm. centrale,observe,MAC-009,Ch. IV I.3.1,"11,8% du PIB",observe,indicateurs_macro_finances_publiques.csv
+Passifs conditionnels explicites (surtout PPP),4895,milliards FCFA,2026-04-30,État,observe,MAC-009,Ch. IV I.3.1,"14,0% du PIB",observe,indicateurs_macro_finances_publiques.csv
+Part de la dette en devises,69.1,%,2026-04-30,Adm. centrale,observe,MAC-009,Ch. IV I.3.1,"dont 38,0% hors euro",observe,indicateurs_macro_finances_publiques.csv
+Dette publique,40.3,% du PIB,2025,Secteur public (définition FMI),estimation,MAC-001,Tableau indicateurs,"MINFI 43,5 (MAC-009 Tab.9); BM 43,7 (MAC-007): périmètres/PIB différents",estimation,indicateurs_macro_finances_publiques.csv
+Dette publique (projection DPEB),50.0,% du PIB,2027,Secteur public,prevision,MAC-009,Tab.9,"Plafond SDMT; FMI projette 38,9",prevision,indicateurs_macro_finances_publiques.csv
+Risque de surendettement (AVD FMI-BM),élevé,catégorie,2026,Dette publique totale,estimation,MAC-002,Communiqué,Capacité d'endettement relevée à 'moyenne' (MAC-009); notation externe détaillée non lue (CR 26/081 bloqué),estimation,indicateurs_macro_finances_publiques.csv
+Service de la dette prévu,8.5,% du PIB,2026,Adm. centrale,prevision,MAC-009,Tab.9,"4,8% en 2025",prevision,indicateurs_macro_finances_publiques.csv
+Eurobond 2033 - montant,750,millions USD,2026-01,État,observe,MAC-021,Communiqué,"Coupon 8,875%; rendement 10,125%; swap EUR ~7,79%",observe,indicateurs_macro_finances_publiques.csv
+Titres publics émis sur le marché CEMAC (BTA+OTA),731.4,milliards FCFA,2026-S1,Trésor,observe,MAC-020,Article,"BTA 509,8; OTA 221,6; CAA via presse; LF prévoyait 400 en net",observe,indicateurs_macro_finances_publiques.csv
+Arriérés intérieurs apurés,230.4,milliards FCFA,2025,État,observe,MAC-023,Article,"232,9 en 2024; 84,5% des 548,5 programmés; MINFI via presse",observe,indicateurs_macro_finances_publiques.csv
+Stock de dette flottante (arriérés),752.1,milliards FCFA,2026-05,État,estimation,MAC-023,Article,Périmètre plan d'apurement 2024-2030 (audit 2000-2019),estimation,indicateurs_macro_finances_publiques.csv
+Restes à payer,926.49,milliards FCFA,2024-12-31,État,observe,MAC-024,Article,"Chambre des comptes via presse; CAA: 485,4 à fin sept. 2025 (MAC-016/024) - périmètres différents",observe,indicateurs_macro_finances_publiques.csv
+Nouveaux arriérés intérieurs,2.5,% du PIB,2025,État,estimation,MAC-007,p.1,"1,8% en 2018",estimation,indicateurs_macro_finances_publiques.csv
+Taux d'intérêt des appels d'offres (TIAO),4.5,%,2026-07-01,CEMAC,observe,MAC-011,Annexe 1,"Baisse de 4,75%; facilité de prêt marginal 5,75%",observe,indicateurs_macro_finances_publiques.csv
+Réserves de change BEAC,7248,milliards FCFA,2026-04,CEMAC,observe,MAC-011,Synthèse,"-1,6% en g.a.",observe,indicateurs_macro_finances_publiques.csv
+Réserves en mois d'importations,4.12,mois,2025,CEMAC,estimation,MAC-011,Annexe 4,"4,72 prévu fin 2026",estimation,indicateurs_macro_finances_publiques.csv
+Taux de couverture extérieure de la monnaie,65.2,%,2025,CEMAC,estimation,MAC-011,Annexe 4,"70,7% prévu fin 2026",estimation,indicateurs_macro_finances_publiques.csv
+Taux de créances en souffrance (banques),15.68,% crédits bruts,2026-03-31,CEMAC,observe,MAC-011,Synthèse,"17,45% un an avant",observe,indicateurs_macro_finances_publiques.csv
+Taux brut de créances douteuses (banques),12.94,% crédits,2026-05,Cameroun (18 banques),observe,MAC-027,non lu,"12,29% fin 2025; 909,4 Mds; presse, à vérifier",observe,indicateurs_macro_finances_publiques.csv
+SONARA - total passif circulant,701.7,milliards FCFA,2025,SONARA,observe,MAC-015,Bilan passif DP,"511,9 en 2024; dettes fiscales et sociales 477,6",observe,indicateurs_macro_finances_publiques.csv
+SONARA - résultat net,-76.2,milliards FCFA,2025,SONARA,observe,MAC-015,Bilan passif CJ,"-42,0 en 2024",observe,indicateurs_macro_finances_publiques.csv
+"Dette rétrocédée détenue par 4 EP (CAMTEL, CAMWATER, SONATREL, EDC)",672.3,milliards FCFA,2026-06-30,Entreprises publiques,observe,MAC-034,non lu,"Sur 845,2 Mds rétrocédés à 11 entités; CAA via presse - à vérifier",observe,indicateurs_macro_finances_publiques.csv
+Compte séquestre BEAC dette SONARA,479,milliards FCFA,2025-10-31,SONARA,annonce,MAC-026,Article,"Déclaration ministérielle via presse; prélèvement 47,88 FCFA/l",annonce,indicateurs_macro_finances_publiques.csv
+Position extérieure globale nette,-33.0,% du PIB,2025-T4,Cameroun,observe,MAC-013,Tableau,Provisoire,observe,indicateurs_macro_finances_publiques.csv
+Solde courant,-4.2,% du PIB,2025,Cameroun,estimation,MAC-007,Tableau p.2,"MINFI: -3,8 (MAC-009); FMI: -5,2 (MAC-001)",estimation,indicateurs_macro_finances_publiques.csv
+"Taux de pauvreté monétaire (seuil national, nouvelle approche EHCVM)","37,7",% population,2022,national,observe,SOC-002,tableau 'Quelques indicateurs des ODD en 2022',Nouvelle série non comparable aux ECAM antérieures,observe,indicateurs_social_pauvrete_sante_education.csv
+Taux de pauvreté monétaire,"21,6",% population,2022,urbain,observe,SOC-002,idem,,observe,indicateurs_social_pauvrete_sante_education.csv
+Taux de pauvreté monétaire,"56,3",% population,2022,rural,observe,SOC-002,idem,,observe,indicateurs_social_pauvrete_sante_education.csv
+Profondeur de la pauvreté,"13,0",%,2022,national,observe,SOC-002,idem,,observe,indicateurs_social_pauvrete_sante_education.csv
+Sévérité de la pauvreté,"6,0",%,2022,national,observe,SOC-002,idem,,observe,indicateurs_social_pauvrete_sante_education.csv
+Seuil national de pauvreté,813,FCFA par personne et par jour,2022,national,observe,SOC-003,p.7,= 296 691 FCFA/an,observe,indicateurs_social_pauvrete_sante_education.csv
+Nombre de pauvres,"10,1",millions de personnes,2022,national,estimation,SOC-004,page web,"Population estimée 26,7 M en 2022",estimation,indicateurs_social_pauvrete_sante_education.csv
+Taux de pauvreté monétaire par région d'enquête,"69,2",% population,2022,Extrême-Nord,observe,SOC-003,p.8 Figure 4,,observe,indicateurs_social_pauvrete_sante_education.csv
+Taux de pauvreté monétaire par région d'enquête,"66,8",% population,2022,Nord-Ouest,observe,SOC-003,p.8 Figure 4,"Non représentatif (couverture partielle, insécurité)",observe,indicateurs_social_pauvrete_sante_education.csv
+Taux de pauvreté monétaire par région d'enquête,"61,1",% population,2022,Nord,observe,SOC-003,p.8 Figure 4,,observe,indicateurs_social_pauvrete_sante_education.csv
+Taux de pauvreté monétaire par région d'enquête,"45,1",% population,2022,Adamaoua,observe,SOC-003,p.8 Figure 4,,observe,indicateurs_social_pauvrete_sante_education.csv
+Taux de pauvreté monétaire par région d'enquête,"41,5",% population,2022,Est,observe,SOC-003,p.8 Figure 4,,observe,indicateurs_social_pauvrete_sante_education.csv
+Taux de pauvreté monétaire par région d'enquête,"30,4",% population,2022,Ouest,observe,SOC-003,p.8 Figure 4,,observe,indicateurs_social_pauvrete_sante_education.csv
+Taux de pauvreté monétaire par région d'enquête,"23,8",% population,2022,Littoral (hors Douala),observe,SOC-003,p.8 Figure 4,,observe,indicateurs_social_pauvrete_sante_education.csv
+Taux de pauvreté monétaire par région d'enquête,"20,4",% population,2022,Sud-Ouest,observe,SOC-003,p.8 Figure 4,"Non représentatif (couverture partielle, insécurité)",observe,indicateurs_social_pauvrete_sante_education.csv
+Taux de pauvreté monétaire par région d'enquête,"19,1",% population,2022,Centre (hors Yaoundé),observe,SOC-003,p.8 Figure 4,,observe,indicateurs_social_pauvrete_sante_education.csv
+Taux de pauvreté monétaire par région d'enquête,"14,9",% population,2022,Sud,observe,SOC-003,p.8 Figure 4,,observe,indicateurs_social_pauvrete_sante_education.csv
+Taux de pauvreté monétaire par région d'enquête,"10,8",% population,2022,Yaoundé,observe,SOC-003,p.8 Figure 4,,observe,indicateurs_social_pauvrete_sante_education.csv
+Taux de pauvreté monétaire par région d'enquête,"8,3",% population,2022,Douala,observe,SOC-003,p.8 Figure 4,,observe,indicateurs_social_pauvrete_sante_education.csv
+Taux de pauvreté selon sexe du chef de ménage : homme,"39,0",% population,2022,ménages dirigés par un homme,observe,SOC-003,p.8,"Femmes chefs : 33,5 % (ménages plus petits)",observe,indicateurs_social_pauvrete_sante_education.csv
+Taux de pauvreté selon sexe du chef de ménage : femme,"33,5",% population,2022,ménages dirigés par une femme,observe,SOC-003,p.8,,observe,indicateurs_social_pauvrete_sante_education.csv
+Taux de pauvreté (ancienne approche ECAM),"37,5",% population,2014,national,observe,SOC-001,p.2,Série 2001-2021 comparable,observe,indicateurs_social_pauvrete_sante_education.csv
+"Taux de pauvreté (ancienne approche ECAM, enquête témoin)","38,6",% population,2021,national,observe,SOC-001,p.1-2,"Hausse vs 2014 ; cible SND30 30,8 % en 2030",observe,indicateurs_social_pauvrete_sante_education.csv
+Taux de pauvreté urbain (ancienne approche),"16,5",% population,2021,urbain,observe,SOC-001,p.2,"8,9 % en 2014",observe,indicateurs_social_pauvrete_sante_education.csv
+Taux de pauvreté rural (ancienne approche),"58,3",% population,2021,rural,observe,SOC-002,encadré évolution 2001-2021,"56,8 % en 2014",observe,indicateurs_social_pauvrete_sante_education.csv
+Cible SND30 taux de pauvreté,"30,8",% population,2030,national,cible,SOC-001,p.1,,cible,indicateurs_social_pauvrete_sante_education.csv
+Indice de Gini (nouvelle approche),"40,1",%,2022,national,observe,SOC-002,tableau 'Inégalités en 2022',"Urbain 37,2 ; rural 37,3",observe,indicateurs_social_pauvrete_sante_education.csv
+Indice de Gini (ancienne approche),"0,43",indice 0-1,2021,national,observe,SOC-003,p.6 Figure 2,"0,44 en 2014",observe,indicateurs_social_pauvrete_sante_education.csv
+Indice de Gini (Banque mondiale),"42,2",indice 0-100,2021,national,estimation,SOC-006,SI.POV.GINI,"46,6 en 2014 ; diffère des valeurs INS (méthode/agrégat)",estimation,indicateurs_social_pauvrete_sante_education.csv
+Rapport Q5/Q1 de consommation (nouvelle approche),"7,8",ratio,2022,national,observe,SOC-002,tableau 'Inégalités en 2022',"Communiqué INS : 'dix fois' (ancienne approche, 9,7 en 2021)",observe,indicateurs_social_pauvrete_sante_education.csv
+"Taux de pauvreté au seuil international 3,00 $/j (PPA 2021)","26,7",% population,2021,national,estimation,SOC-006,SI.POV.DDAY,"29,0 en 2014",estimation,indicateurs_social_pauvrete_sante_education.csv
+"Taux de pauvreté au seuil international 2,15 $/j (PPA 2017)",23,% population,2021/22,national,estimation,SOC-007,p.1,,estimation,indicateurs_social_pauvrete_sante_education.csv
+Incidence de la pauvreté multidimensionnelle (IPM global),"43,6",% population,2018,national,estimation,SOC-008,p.2 Table A,"12,7 M personnes en 2024 (projection) ; intensité 53,2 % ; IPM 0,232",estimation,indicateurs_social_pauvrete_sante_education.csv
+Population vulnérable à la pauvreté multidimensionnelle,"17,6",% population,2018,national,estimation,SOC-008,p.2 Table A,,estimation,indicateurs_social_pauvrete_sante_education.csv
+Pauvreté multidimensionnelle sévère,"24,6",% population,2018,national,estimation,SOC-008,p.2 Table A,,estimation,indicateurs_social_pauvrete_sante_education.csv
+Pauvreté multidimensionnelle (définition Banque mondiale),41,% population,2021/22,national,estimation,SOC-007,p.1,Méthode différente de l'IPM PNUD/OPHI,estimation,indicateurs_social_pauvrete_sante_education.csv
+"Quotient de mortalité infanto-juvénile (5q0, 5 ans avant enquête)",80,pour 1000 naissances vivantes,2018,national,observe,SOC-005,p.157,"79,6 (Annexe B, IC 72-87) ; 151 en 1998",observe,indicateurs_social_pauvrete_sante_education.csv
+Quotient de mortalité infanto-juvénile (5q0),92,pour 1000,2018,rural,observe,SOC-005,p.157,urbain 65,observe,indicateurs_social_pauvrete_sante_education.csv
+Quotient de mortalité infanto-juvénile (10 ans avant enquête) par région,133,pour 1000,2009-2018,Nord,observe,SOC-005,Tableau 8.3 p.163,Sud-Ouest supprimé (<250 cas),observe,indicateurs_social_pauvrete_sante_education.csv
+Quotient de mortalité infanto-juvénile (10 ans avant enquête) par région,122,pour 1000,2009-2018,Est,observe,SOC-005,Tableau 8.3 p.163,Sud-Ouest supprimé (<250 cas),observe,indicateurs_social_pauvrete_sante_education.csv
+Quotient de mortalité infanto-juvénile (10 ans avant enquête) par région,102,pour 1000,2009-2018,Extrême-Nord,observe,SOC-005,Tableau 8.3 p.163,Sud-Ouest supprimé (<250 cas),observe,indicateurs_social_pauvrete_sante_education.csv
+Quotient de mortalité infanto-juvénile (10 ans avant enquête) par région,96,pour 1000,2009-2018,Adamaoua,observe,SOC-005,Tableau 8.3 p.163,Sud-Ouest supprimé (<250 cas),observe,indicateurs_social_pauvrete_sante_education.csv
+Quotient de mortalité infanto-juvénile (10 ans avant enquête) par région,90,pour 1000,2009-2018,Sud,observe,SOC-005,Tableau 8.3 p.163,Sud-Ouest supprimé (<250 cas),observe,indicateurs_social_pauvrete_sante_education.csv
+Quotient de mortalité infanto-juvénile (10 ans avant enquête) par région,85,pour 1000,2009-2018,Centre (hors Yaoundé),observe,SOC-005,Tableau 8.3 p.163,Sud-Ouest supprimé (<250 cas),observe,indicateurs_social_pauvrete_sante_education.csv
+Quotient de mortalité infanto-juvénile (10 ans avant enquête) par région,78,pour 1000,2009-2018,Ouest,observe,SOC-005,Tableau 8.3 p.163,Sud-Ouest supprimé (<250 cas),observe,indicateurs_social_pauvrete_sante_education.csv
+Quotient de mortalité infanto-juvénile (10 ans avant enquête) par région,57,pour 1000,2009-2018,Nord-Ouest,observe,SOC-005,Tableau 8.3 p.163,Sud-Ouest supprimé (<250 cas),observe,indicateurs_social_pauvrete_sante_education.csv
+Quotient de mortalité infanto-juvénile (10 ans avant enquête) par région,53,pour 1000,2009-2018,Yaoundé,observe,SOC-005,Tableau 8.3 p.163,Sud-Ouest supprimé (<250 cas),observe,indicateurs_social_pauvrete_sante_education.csv
+Quotient de mortalité infanto-juvénile (10 ans avant enquête) par région,50,pour 1000,2009-2018,Douala,observe,SOC-005,Tableau 8.3 p.163,Sud-Ouest supprimé (<250 cas),observe,indicateurs_social_pauvrete_sante_education.csv
+Quotient de mortalité infanto-juvénile (10 ans avant enquête) par région,40,pour 1000,2009-2018,Littoral (hors Douala),observe,SOC-005,Tableau 8.3 p.163,Sud-Ouest supprimé (<250 cas),observe,indicateurs_social_pauvrete_sante_education.csv
+Taux de mortalité des moins de 5 ans (UN IGME),"64,8",pour 1000 naissances vivantes,2024,national,estimation,SOC-006,SH.DYN.MORT,"78,9 en 2018 (même série)",estimation,indicateurs_social_pauvrete_sante_education.csv
+Taux de mortalité néonatale (UN IGME),"24,8",pour 1000 naissances vivantes,2024,national,estimation,SOC-006,SH.DYN.NMRT,EDS 2018 : 28 ‰,estimation,indicateurs_social_pauvrete_sante_education.csv
+"Rapport de mortalité maternelle (EDS, 7 ans avant enquête)",406,décès pour 100 000 naissances vivantes,2011-2018,national,observe,SOC-005,Tableau 16.5 p.384,IC 309-504,observe,indicateurs_social_pauvrete_sante_education.csv
+Ratio de mortalité maternelle (modélisé MMEIG),258,décès pour 100 000 naissances vivantes,2023,national,estimation,SOC-006,SH.STA.MMRT,UNFPA (SOC-012) le date de 2025 ; 342 en 2021,estimation,indicateurs_social_pauvrete_sante_education.csv
+Accouchements assistés par personnel qualifié,69,% naissances,2018,national,observe,SOC-006,SH.STA.BRTC.ZS,"UNFPA : 40 % Nord, 96 % Littoral (SOC-012 §5)",observe,indicateurs_social_pauvrete_sante_education.csv
+Enfants 12-23 mois ayant reçu tous les vaccins de base,52,%,2018,national,observe,SOC-005,p.195 ; Graph. 10.4 p.199,Nord 36 % ; Douala 74 % ; 10 % aucun vaccin,observe,indicateurs_social_pauvrete_sante_education.csv
+Couverture DTC3 (WUENIC),77,% enfants 12-23 mois,2024,national,estimation,SOC-006,SH.IMM.IDPT,68 % en 2018,estimation,indicateurs_social_pauvrete_sante_education.csv
+Couverture rougeole 1re dose (WUENIC),71,% enfants 12-23 mois,2024,national,estimation,SOC-006,SH.IMM.MEAS,61 % en 2018,estimation,indicateurs_social_pauvrete_sante_education.csv
+Prévalence du paludisme (TDR) enfants 6-59 mois,24,%,2018,national,observe,SOC-005,p.267,"Rural 32 %, urbain 14 % ; 30 % en 2011",observe,indicateurs_social_pauvrete_sante_education.csv
+Incidence du paludisme,"260,5",pour 1000 population à risque,2024,national,estimation,SOC-006,SH.MLR.INCD.P3,Stagnation depuis 2017 (259),estimation,indicateurs_social_pauvrete_sante_education.csv
+Choléra : cas cumulés (épidémie déclarée le 29/06/2026),2683,cas,2026 (au 12/09),"Extrême-Nord, Nord, Ouest ; 11 districts",observe,SOC-017,article,"77 décès, létalité 2,87 % ; source primaire non lue",observe,indicateurs_social_pauvrete_sante_education.csv
+Dépenses de santé à la charge directe des ménages,"67,65",% dépense courante de santé,2023,national,estimation,SOC-006,SH.XPD.OOPC.CH.ZS,"72,3 % en 2018",estimation,indicateurs_social_pauvrete_sante_education.csv
+Dépense publique intérieure de santé,"14,69",% dépense courante de santé,2023,national,estimation,SOC-006,SH.XPD.GHED.CH.ZS,,estimation,indicateurs_social_pauvrete_sante_education.csv
+Dépense courante de santé,"4,55",% PIB,2023,national,estimation,SOC-006,SH.XPD.CHEX.GD.ZS,"79,1 USD par habitant",estimation,indicateurs_social_pauvrete_sante_education.csv
+Personnes enrôlées dans la CSU,"3,9",millions,2025 (mai),national,annonce,SOC-018,article,Annonce ministérielle : 91 % de l'objectif 2025,annonce,indicateurs_social_pauvrete_sante_education.csv
+Retard de croissance enfants <5 ans,29,%,2018,national,observe,SOC-005,p.225,"Rural 36 %, urbain 20 % ; 32,6 % en 2011 (SOC-006)",observe,indicateurs_social_pauvrete_sante_education.csv
+Retard de croissance enfants <5 ans par région,41,%,2018,Nord,observe,SOC-005,p.226 Graph. 11.4,,observe,indicateurs_social_pauvrete_sante_education.csv
+Retard de croissance enfants <5 ans par région,37,%,2018,Extrême-Nord,observe,SOC-005,p.226 Graph. 11.4,,observe,indicateurs_social_pauvrete_sante_education.csv
+Retard de croissance enfants <5 ans par région,37,%,2018,Est,observe,SOC-005,p.226 Graph. 11.4,,observe,indicateurs_social_pauvrete_sante_education.csv
+Retard de croissance enfants <5 ans par région,35,%,2018,Adamaoua,observe,SOC-005,p.226 Graph. 11.4,,observe,indicateurs_social_pauvrete_sante_education.csv
+Retard de croissance enfants <5 ans par région,11,%,2018,Yaoundé,observe,SOC-005,p.226 Graph. 11.4,,observe,indicateurs_social_pauvrete_sante_education.csv
+Retard de croissance enfants <5 ans par région,9,%,2018,Douala,observe,SOC-005,p.226 Graph. 11.4,,observe,indicateurs_social_pauvrete_sante_education.csv
+Émaciation enfants <5 ans,"4,3",%,2018,national,observe,SOC-006,SH.STA.WAST.ZS,,observe,indicateurs_social_pauvrete_sante_education.csv
+"Personnes en insécurité alimentaire aiguë Phase 3-5 (CH, situation courante)",3120294,personnes,2025 (oct-déc),national,estimation,SOC-009,p.3 ligne Cameroun,dont 249 306 en Phase 4,estimation,indicateurs_social_pauvrete_sante_education.csv
+"Personnes en insécurité alimentaire aiguë Phase 3-5 (CH, situation projetée)",2857241,personnes,2026 (juin-août),national,prevision,SOC-010,p.3 Tableau 2,"9,7 % de la population analysée ; dont 249 559 Phase 4 ; projection reconduite du cycle oct/nov 2025",prevision,indicateurs_social_pauvrete_sante_education.csv
+Zones en Phase 3 (Crise) – CH projeté,9,zones sur 58 analysées,2026 (juin-août),national,prevision,SOC-010,p.3 Tableau 1,0 zone en Phase 4,prevision,indicateurs_social_pauvrete_sante_education.csv
+Taux net de scolarisation primaire (6-11 ans),"80,4",%,2021-2022,national,observe,SOC-002,tableau ODD,"Urbain 89,1 ; rural 72,3 ; garçons 81,2 ; filles 79,6",observe,indicateurs_social_pauvrete_sante_education.csv
+Taux net de scolarisation secondaire (12-18 ans),"51,8",%,2021-2022,national,observe,SOC-002,tableau 'Éducation',"Rural 32,4 ; urbain 65,3",observe,indicateurs_social_pauvrete_sante_education.csv
+Taux d'alphabétisation 15-24 ans,"83,3",%,2022,national,observe,SOC-002,tableau ODD,"Rural 70,8 ; femmes 79,6",observe,indicateurs_social_pauvrete_sante_education.csv
+Taux d'achèvement du primaire,"75,3",% groupe d'âge,2024,national,estimation,SOC-006,SE.PRM.CMPT.ZS,"65,0 en 2018 ; données administratives/UIS",estimation,indicateurs_social_pauvrete_sante_education.csv
+Taux d'achèvement du premier cycle du secondaire,"35,0",% groupe d'âge,2023,national,estimation,SOC-006,SE.SEC.CMPT.LO.ZS,"48,3 en 2016",estimation,indicateurs_social_pauvrete_sante_education.csv
+Enfants non scolarisés (âge primaire),"3,76",% âge primaire,2024,national,estimation,SOC-006,SE.PRM.UNER.ZS,"Contradiction avec ECAM5 (TNS 80,4 %) et fermetures NOSO",estimation,indicateurs_social_pauvrete_sante_education.csv
+Pauvreté des apprentissages (fin de primaire),"71,9",% enfants,2019,national,estimation,SOC-006,SE.LPV.PRIM,Fondé sur PASEC 2019,estimation,indicateurs_social_pauvrete_sante_education.csv
+Dépense publique d'éducation,"2,84",% PIB,2023,national,estimation,SOC-006,SE.XPD.TOTL.GD.ZS,"3,06 en 2017",estimation,indicateurs_social_pauvrete_sante_education.csv
+Enseignants du primaire formés,"72,3",% enseignants,2023,national,estimation,SOC-006,SE.PRM.TCAQ.ZS,"82,7 en 2022 (rupture à vérifier)",estimation,indicateurs_social_pauvrete_sante_education.csv
+Écoles fermées dans le Nord-Ouest et le Sud-Ouest,41,% écoles,2025 (juin),Nord-Ouest et Sud-Ouest,estimation,SOC-021,résumé moteur,223 749 enfants hors école ; non vérifié,estimation,indicateurs_social_pauvrete_sante_education.csv
+Ménages ayant reçu des transferts (projet Filets sociaux adaptatifs P175363),44500,ménages,2024 (déc.),zones du projet,observe,SOC-015,§4.1,Cible 150 500 ménages en 2028,observe,indicateurs_social_pauvrete_sante_education.csv
+Décaissement crédit IDA-70480 (P175363),"23,89","% du montant révisé (35,70 M USD sur 148,43)",2024 (déc.),projet,observe,SOC-015,§7.2,Engagement initial 160 M USD (approuvé 09/03/2022),observe,indicateurs_social_pauvrete_sante_education.csv
+Travailleurs actifs immatriculés à la CNPS,1658989,personnes,2025 (31 déc.),national,observe,SOC-023,article,≈15 % d'une population active estimée à ~11 M (calcul presse),observe,indicateurs_social_pauvrete_sante_education.csv
+Population avec source améliorée d'eau de boisson (saison sèche),"81,9",% population,2022,national,observe,SOC-002,tableau ODD,"Urbain 92,5 ; rural 69,6",observe,indicateurs_social_pauvrete_sante_education.csv
+Population utilisant toilettes améliorées non partagées,"47,7",% population,2022,national,observe,SOC-001,p.2,"40,4 % en 2014 ; urbain 64,5 / rural 28,2 (SOC-002)",observe,indicateurs_social_pauvrete_sante_education.csv
+Population avec au moins un service d'eau de base (JMP),"71,4",% population,2024,national,estimation,SOC-006,SH.H2O.BASW.ZS,Définition JMP différente de l'ECAM,estimation,indicateurs_social_pauvrete_sante_education.csv
+Population avec au moins un assainissement de base (JMP),"47,1",% population,2024,national,estimation,SOC-006,SH.STA.BASS.ZS,,estimation,indicateurs_social_pauvrete_sante_education.csv
+Accès à l'électricité,"60,2",% population,2022,national,observe,SOC-001,p.2,"Urbain 87,6 ; rural 28,4 ; BM : 72 % en 2024 (EG.ELC.ACCS.ZS)",observe,indicateurs_social_pauvrete_sante_education.csv
+Ménages logés en matériaux définitifs,"47,0",% ménages,2022,national,observe,SOC-002,tableau 'Logement et équipements',"Pauvres 17,4 ; non pauvres 57,6",observe,indicateurs_social_pauvrete_sante_education.csv
+Population urbaine vivant en bidonvilles,"32,7",% population urbaine,2022,urbain,estimation,SOC-006,EN.POP.SLUM.UR.ZS,"49,0 en 2010",estimation,indicateurs_social_pauvrete_sante_education.csv
+Indice d'inégalité de genre (IIG),"0,558",indice,2023,national,estimation,SOC-012,§9,Rang 148,estimation,indicateurs_social_pauvrete_sante_education.csv
+Sièges détenus par des femmes au Parlement,"33,9",% sièges,2025,national,observe,SOC-006,SG.GEN.PARL.ZS,,observe,indicateurs_social_pauvrete_sante_education.csv
+Femmes 15-49 ans ayant subi des violences conjugales,32,%,2018,national,observe,SOC-012,§9 (citant EDS 2018),39 % violence physique depuis 15 ans ; 13 % violence sexuelle,observe,indicateurs_social_pauvrete_sante_education.csv
+Prévalence contraceptive moderne,"15,4",%,non précisée,national,estimation,SOC-012,§6,Besoins non satisfaits 23 %,estimation,indicateurs_social_pauvrete_sante_education.csv
+Taux de fécondité des adolescentes,"105,4",naissances pour 1000 femmes 15-19 ans,2024,national,estimation,SOC-006,SP.ADO.TFRT,"UNFPA : 98 ; Est 173, Nord 125, Extrême-Nord 95 (SOC-012 §8)",estimation,indicateurs_social_pauvrete_sante_education.csv
+Population totale,29879337,habitants,2025,national,estimation,SOC-006,SP.POP.TOTL,Pas de recensement depuis 2005 ; 4e RGPH non réalisé (SOC-025),estimation,indicateurs_social_pauvrete_sante_education.csv
+Indice synthétique de fécondité,"4,26",enfants par femme,2024,national,estimation,SOC-006,SP.DYN.TFRT.IN,"EDS 2018 : 4,8 (3 ans) / 5,1 (7 ans)",estimation,indicateurs_social_pauvrete_sante_education.csv
+Population urbaine,"55,7",% population,2025,national,estimation,SOC-006,SP.URB.TOTL.IN.ZS,"Croissance urbaine 3,0 %/an",estimation,indicateurs_social_pauvrete_sante_education.csv
+Personnes en situation de handicap,"6,7",% population,2022,national,observe,SOC-012,§1 (citant ECAM 2022),,observe,indicateurs_social_pauvrete_sante_education.csv
+Personnes dans le besoin d'assistance humanitaire (HNRP 2026),"2,9",millions,2026,"national (EN, NO, SO, Nord, Adamaoua, Est)",estimation,SOC-011,p.1-2,"1,9 M ciblés ; ~1 M priorisés",estimation,indicateurs_social_pauvrete_sante_education.csv
+Besoins financiers HNRP 2026,319,millions USD,2026,national,annonce,SOC-011,p.2,"Enveloppe priorisée 171 M USD ; financé à 19,4 % (date mars 2026)",annonce,indicateurs_social_pauvrete_sante_education.csv
+Personnes déplacées internes,845000,personnes,2026,national,estimation,SOC-012,§4,790 000 retournés ; 404 000 réfugiés,estimation,indicateurs_social_pauvrete_sante_education.csv

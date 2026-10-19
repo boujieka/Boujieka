@@ -16,6 +16,22 @@ IND_COLS = ["indicateur", "valeur", "unite", "annee_observee", "perimetre", "sta
             "localisation", "remarque"]
 
 
+STATUS_MAP = [  # (préfixe du statut brut, statut normalisé) ; l'ordre compte
+    ("observ", "observe"), ("estimation", "estimation"), ("prévision", "prevision"), ("prevision", "prevision"),
+    ("cible", "cible"), ("budget_vote", "budget_vote"), ("budget", "budget_annonce"),
+    ("financement approuvé", "financement_approuve"), ("annonce", "annonce"),
+    ("resultat", "resultat"), ("résultat", "resultat"), ("decision", "decision"), ("décision", "decision"),
+]
+
+
+def normalize_status(raw):
+    s = raw.strip().lower()
+    for prefix, norm in STATUS_MAP:
+        if s.startswith(prefix):
+            return norm
+    return "a_classer"
+
+
 def read(path):
     with open(path, newline="", encoding="utf-8") as f:
         return list(csv.DictReader(f))
@@ -70,14 +86,24 @@ def main():
     for p in sorted((ROOT / "data/raw").glob("indicateurs_*.csv")):
         for r in read(p):
             r["fichier"] = p.name
+            r["statut_brut"] = r.get("statut", "")
+            r["statut"] = normalize_status(r["statut_brut"])
             inds.append(r)
             for sid in (r.get("source_id") or "").replace(";", " ").split():
                 if sid not in ids:
                     issues.append(f"{p.name}: source_id inconnu '{sid}' pour « {r.get('indicateur')} »")
     with open(ROOT / "data/clean/indicateurs_consolides.csv", "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=IND_COLS + ["fichier"], extrasaction="ignore")
+        w = csv.DictWriter(f, fieldnames=IND_COLS + ["statut_brut", "fichier"], extrasaction="ignore")
         w.writeheader()
         w.writerows(inds)
+
+    # Références du registre des problèmes
+    prob = ROOT / "analyses/registre_problemes.csv"
+    if prob.exists():
+        for r in read(prob):
+            for sid in r["sources"].replace(";", " ").split():
+                if not sid.startswith("WDI") and sid not in ids:
+                    issues.append(f"registre_problemes {r['id']}: source_id inconnu '{sid}'")
 
     acc = collections.Counter(r.get("niveau_acces", "") for r in sources)
     typ = collections.Counter(r.get("type_source", "") for r in sources)

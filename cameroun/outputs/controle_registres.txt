@@ -1,0 +1,9 @@
+Sources : 223
+  par niveau d'accès : {'lu_document': 77, 'lu_page_web': 75, 'resume_moteur': 71}
+  par type : {'nationale_officielle': 25, 'internationale': 84, 'independante': 20, 'presse': 92, 'recherche': 2}
+Indicateurs (hors WDI) : 394
+  par statut : {'observe': 221, 'estimation': 110, 'prevision': 17, 'annonce': 16, 'cible': 10, 'financement_approuve': 1, 'budget_annonce': 3, 'resultat': 4, 'decision': 4, 'budget_vote': 8}
+Anomalies : 3
+  - même URL dans plusieurs entrées (à fusionner ?) : https://www.imf.org/en/news/articles/2026/03/30/pr-26096-cameroon-imf-executive-board-concludes-2026-article-iv-consultation -> ['ECO-06', 'MAC-001']
+  - même URL dans plusieurs entrées (à fusionner ?) : https://www.financialafrik.com/2026/02/26/cameroun-les-retards-de-paiement-depassent-200-jours-en-2025/ -> ['ECO-19', 'MAC-024']
+  - même URL dans plusieurs entrées (à fusionner ?) : https://reliefweb.int/report/cameroon/cameroon-humanitarian-update-march-2026 -> ['GOV-004', 'SOC-029']
