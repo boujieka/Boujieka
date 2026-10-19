@@ -1,0 +1,74 @@
+indicateur,valeur,unite,annee_observee,perimetre,statut,source_id,localisation,remarque
+Croissance du PIB réel,"3,5",%,2025,National,observe,ECO-02,Tableau 3 p.11,"INS provisoire; FMI (ECO-06) estime 3,1% pour 2025 (troubles post-électoraux) : contradiction"
+Croissance du PIB réel,"3,1",%,2025,National,estimation,ECO-06,Communiqué PR 26/96,"Estimation FMI, diffère de l'INS (3,5%)"
+Croissance du PIB réel,"3,3",%,2023,National,observe,ECO-02,Tableau 3 p.11,"BM (ECO-07) et FMI (ECO-05) donnent 3,2% pour 2023 (révision)"
+Croissance du PIB réel projetée,"3,3",%,2026,National,prevision,ECO-06,Communiqué PR 26/96,>4% attendu à partir de 2028 selon FMI
+PIB nominal,"34474,0",milliards FCFA,2025,National,observe,ECO-02,Tableau 1 p.11,
+Part du secteur primaire dans le PIB,"18,9",% du PIB courant,2025,National,observe,ECO-02,"Tableau 4 p.12 (calcul 6511,2/34474,0)",Calcul de l'analyste à partir des valeurs INS
+Part du secteur secondaire dans le PIB,"22,7",% du PIB courant,2025,National,observe,ECO-02,"Tableau 4 p.12 (calcul 7814,1/34474,0)",Calcul de l'analyste
+Part du secteur tertiaire dans le PIB,"50,6",% du PIB courant,2025,National,observe,ECO-02,"Tableau 4 p.12 (somme branches tertiaires 17454,5/34474,0)","Calcul de l'analyste; impôts nets = 7,8%"
+Part industries manufacturières (agroalimentaire + autres) dans le PIB,"13,3",% du PIB courant,2025,National,observe,ECO-02,"Tableau 4 p.12 (calcul (2505,1+2085,8)/34474,0)","BM (ECO-07) donne 13,9% pour 2024 vs 12,9% calculé INS 2024 : écart de méthode/base. Cible SND30 : 25% en 2030"
+Valeur ajoutée manufacturière,"13,9",% du PIB,2024,National,estimation,ECO-07,p.12,Cible SND30 25% du PIB en 2030
+Part extraction d'hydrocarbures dans le PIB,"2,3",% du PIB courant,2025,National,observe,ECO-02,"Tableau 4 p.12 (782,1/34474,0)","6,1% en 2022 (1698,0/27662,0) – effet prix et volumes"
+Croissance en volume de l'extraction d'hydrocarbures,"-6,6",%,2025,National,observe,ECO-02,Tableau 6 p.14,"-9,7% en 2024 ; BM (ECO-07) donne -8,2% pour 2024 (hydrocarbures)"
+Croissance en volume de l'agriculture,"1,1",%,2025,National,observe,ECO-02,Tableau 6 p.14,"Agriculture industrielle et d'exportation -3,1% ; vivrière +3,7%"
+Croissance de l'information et communication,"10,3",%,2025,National,observe,ECO-02,Tableau 6 p.14,
+PIB réel par habitant,1467,USD constants 2015,2024,National,estimation,ECO-07,p.2 et p.14,Pic de 1980 USD en 1986
+PIB par personne employée,13370,USD PPA constants 2021,2025,National,estimation,ECO-08,SL.GDP.PCAP.EM.KD,Estimation modélisée ; 10416 en 2010
+Croissance moyenne du PIB sur 5 ans vs cible SND30,"2,8 (cible 7,6)",%,2020-2024,National,estimation,ECO-07,p.14,
+"Taux de chômage BIT (SU1), 14 ans et plus","6,1",%,2021,National,observe,ECO-01,p.xi et p.xiv (ODD 8.5.2),"Urbain 9,4% ; rural 1,6% ; Douala 15,4% ; Yaoundé 11,7% ; femmes 7,5% ; supérieur 17,6%"
+"Taux de chômage (traitement OIT des microdonnées), 15 ans et plus","3,3",%,2021,National,observe,ECO-09,DF_UNE_DEAP_SEX_AGE_RT,"Écart avec INS 6,1% : définitions/âges différents"
+Taux de chômage des 15-24 ans (traitement OIT),"6,4",%,2021,National,observe,ECO-09,DF_UNE_DEAP_SEX_AGE_RT AGE_Y15-24,
+Taux de chômage total (estimation modélisée OIT),"3,6",%,2025,National,estimation,ECO-08,SL.UEM.TOTL.ZS,"Modèle OIT, pas une observation"
+Taux combiné sous-emploi lié au temps de travail et chômage (SU2),"23,0",%,2021,National,observe,ECO-01,p.xi,"Urbain 26,7%"
+Mesure composite de sous-utilisation de la main-d'œuvre (SU4),"26,2",%,2021,National,observe,ECO-01,p.xi,"26,3% dans le policy brief INS de déc. 2024 ; urbain 30,2%, rural 20,3%, femmes 28,7%"
+Taux de sous-emploi global (indicateur SND30),"56,4",%,2021,"National, 14 ans+",observe,ECO-01,p.xiv,"Ancienne approche chap.6 : 61,4% (2021) vs 70,6% (2010) ; cible SND30 <50% en 2030"
+Part des emplois dans le secteur informel,"86,6",% de l'emploi,2021,National,observe,ECO-01,p.x,"Informel non agricole 52,0% ; agricole 34,7% ; public 8,2% ; privé formel 5,1%"
+Proportion de l'emploi informel non agricole (ODD 8.3.1),"80,2",%,2021,National,observe,ECO-01,p.xiv,"Femmes 86,2% ; rural 88,2%"
+Taux d'emploi des jeunes 15-34 ans,"39,3",%,2021,National,observe,ECO-01,p.x,"Jeunes hommes 47,2% ; jeunes femmes 31,3%"
+Taux de NEET 15-24 ans (traitement OIT),"23,2",% des jeunes,2021,National,observe,ECO-09,DF_EIP_NEET_SEX_RT,"Femmes 30,4% ; hommes 14,7%. INS (ECO-01 p.xiv, ODD 8.6.1) publie 3,6% : contradiction majeure de définition"
+Taux de participation (main-d'œuvre) 14 ans+,"54,2",%,2021,National,observe,ECO-01,p.x,"Hommes 61,4% ; femmes 47,3%"
+Taux de salarisation,"38,6",%,2021,National,observe,ECO-01,p.x,
+Emploi vulnérable (estimation modélisée OIT),"67,6",% de l'emploi total,2025,National,estimation,ECO-08,SL.EMP.VULN.ZS,"77,3% en 2010"
+Emploi dans l'agriculture (estimation modélisée OIT),"41,9",% de l'emploi total,2025,National,estimation,ECO-08,SL.AGR.EMPL.ZS,"55,1% en 2010"
+"Accès des ménages à l'électricité (ODD 7.1.1, enquête EESI3)","59,1",% de la population,2021,National,observe,ECO-01,p.xiv,"Urbain 87,2% ; rural 23,3%"
+Accès à l'électricité,72,% de la population,2024,National,estimation,ECO-08,EG.ELC.ACCS.ZS,"52,8% en 2010 ; 65,4% en 2021 (écart avec EESI3 59,1%)"
+"Accès à l'électricité, rural","42,7",% de la population rurale,2024,Rural,estimation,ECO-08,EG.ELC.ACCS.RU.ZS,26% en 2023 : saut de série non expliqué ; à traiter avec prudence
+"Accès à l'électricité, urbain","95,6",% de la population urbaine,2024,Urbain,estimation,ECO-08,EG.ELC.ACCS.UR.ZS,
+Offre d'électricité rapportée à la demande,75,% de la demande,2021,Réseau national,estimation,ECO-05,Annex III ¶1 p.38,"Croissance de l'offre <1%/an vs demande 7,5%/an 2014-2021 (KB SAP Consulting cité par FMI)"
+Pertes de distribution,27,% de la production,2021,Réseau national,estimation,ECO-05,Annex III ¶1 p.38,"ECO-15 cite 28,5% (distribution) et 6,48% (transport) d'après étude ARSEL 2022 - non vérifié"
+Écart entre tarif moyen et coût,"18,2",%,~2023,National,estimation,ECO-05,Annex III ¶3 p.39,D'après PAD4903 Banque mondiale 2024
+Besoins d'investissement électricité identifiés 2024-2028,945,millions USD,2024-2028,National,prevision,ECO-05,Annex III ¶3 p.39,"1,8% du PIB ; financements non sécurisés"
+Capacité Nachtigal,420,MW,2025,Réseau interconnecté Sud,observe,ECO-07,Encadré 1 p.13,Pleinement opérationnel début 2025 (BM) ; 3/7 turbines mi-2024 (FMI ECO-05)
+Capacité Memve'ele et production en saison sèche,211 (≈1/6 de la capacité en saison sèche),MW,2024,Sud,estimation,ECO-07,Encadré 1 p.13,Raccordé pleinement à Yaoundé en 2023 seulement
+Prix d'acquisition de 51% d'ENEO auprès d'Actis,78,milliards FCFA,2025-2026,SOCADEL,observe,ECO-14,Article,"Transformée en SOCADEL par décret du 4 mai 2026 ; capital 43,9 milliards FCFA"
+Dette de SOCADEL envers SONATREL,273,milliards FCFA,2025,Secteur électrique,estimation,ECO-15,Article (attribué par l'auteur),Non vérifié dans un document primaire
+Arriérés envers l'opérateur de Nachtigal,70,milliards FCFA,2026,Secteur électrique,estimation,ECO-15,Article (attribué par l'auteur),Non vérifié ; ~10 Md FCFA de factures mensuelles
+Dette totale d'ENEO/SOCADEL reprise par l'État,≈800,milliards FCFA,2025-2026,SOCADEL,estimation,ECO-30,Résumé moteur,Chiffre de presse non sourcé ; également ECO-16
+Population utilisant au moins un service d'eau potable de base,"71,4",% de la population,2024,National,estimation,ECO-08,SH.H2O.BASW.ZS,"JMP ; EESI3 : 79,7% source améliorée (2021)"
+Taux de desserte eau potable (réseau),<40,%,2025,National,annonce,ECO-27,Résumé moteur,Définition non précisée ; cible 75% (programme 2023-2027)
+Utilisateurs d'Internet,"46,3",% de la population,2024,National,estimation,ECO-08,IT.NET.USER.ZS,"4,3% en 2010 (UIT)"
+Linéaire routier bitumé,10576,km,2024,National (réseau total 121873 km),annonce,ECO-21,Résumé moteur,"≈8,7% du réseau ; chiffres 2023 contradictoires"
+Trafic de marchandises Camrail,"1,53",millions de tonnes,2024,Réseau ferroviaire,observe,ECO-26,Résumé moteur,"1,8 Mt en 2014 ; Camrail déclarait ~1 Mt en 2023 (contradiction)"
+Trafic conteneurs port de Kribi,555398,EVP,2025,Port de Kribi,annonce,ECO-20,Article,"37,5% du trafic conteneurisé national (déclaration PAK)"
+Production commercialisée de cacao,309518,tonnes,2024-2025,National,annonce,ECO-22,Résumé moteur,Recul d'environ 20% annoncé en 2025-2026
+Production commercialisée de café,11637,tonnes,2024-2025,National,annonce,ECO-23,Résumé moteur,≈130 000 t dans les années 1990
+Production de coton graine (SODECOTON),284613,tonnes,2024-2025,Nord/Extrême-Nord,annonce,ECO-24,Résumé moteur,395 000 t campagne précédente
+Importations de riz (quantité),869039,tonnes,2025,National,observe,ECO-03,Tableau importations p.10,"+4,5% en volume ; valeur 268,7 Md FCFA (-15,6%)"
+Importations de riz (valeur),"268,7",milliards FCFA,2025,National,observe,ECO-03,p.5,"318,5 Md FCFA en 2024"
+Importations de froment (blé) et méteil,1139403,tonnes,2025,National,observe,ECO-03,Tableau p.10,"Valeur 187,8 Md FCFA"
+Importations de poissons de mer congelés,267259,tonnes,2025,National,observe,ECO-03,Tableau p.10,"+29,1% en volume ; 230,9 Md FCFA"
+Rendement céréalier,1770,kg/ha,2024,National,estimation,ECO-08,AG.YLD.CREL.KG,FAO via WDI
+Déficit commercial,"2145,2",milliards FCFA,2025,National,observe,ECO-03,p.3,"1747,3 en 2024"
+Taux de couverture des importations par les exportations,"59,0",%,2025,National,observe,ECO-03,Tableau 2 p.8,"65,1% en 2024"
+Part cacao brut en fèves dans les exportations,"26,3",% des recettes d'exportation,2025,National,observe,ECO-03,p.5-6,"Cacao et dérivés : 38,5%"
+Part des exportations vers l'Afrique,"12,7",% des recettes d'exportation,2023,National,observe,ECO-04,p.1,"dont 8,1% CEMAC"
+Exportations de pétrole brut (quantité),2556,milliers de tonnes,2025,National,observe,ECO-03,Tableau 1 p.7,3571 kt en 2022
+Exportations de GNL (quantité),1378,milliers de tonnes,2025,National,observe,ECO-03,Tableau 1 p.7,Stable depuis 2022
+Production de pétrole brut,"23,88",millions de barils,2023,National,observe,ECO-17,Article (rapport ITIE 2023),"Pic 34,97 Mb en 2015 (ECO-18) ; ITIE 2022 : 24,95 Mb"
+Recettes du secteur extractif,"1035,85",milliards FCFA,2023,National,observe,ECO-17,Article (rapport ITIE 2023),"-7,5% vs 2022 ; hydrocarbures 95,3%"
+Production pétrolière (prévision BEAC),"3,1",millions de tonnes,2024,National,prevision,ECO-12,p.1,
+Délai de paiement des fournisseurs de l'État,200+,jours,2025,Administration centrale,observe,ECO-19,Article (MINFI),120 j en 2023 ; 160 j en 2024
+Stock d'arriérés intérieurs (Chambre des comptes),"926,49",milliards FCFA,2024,Administration centrale,observe,ECO-19,Article,Périmètre différent du FMI
+Stock d'obligations intérieures impayées (FMI),517,milliards FCFA,2024 (fin septembre),Administration centrale,observe,ECO-05,¶23,743 Md fin 2023
+Mobilisation des financements du PIISAH,"110 (≈7,6-8% de 1443)",milliards FCFA,2023-2025,National,observe,ECO-25,Résumé moteur,"Taux de réalisation des objectifs 13,25%"

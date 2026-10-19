@@ -164,7 +164,7 @@ Statut : selon la presse, le texte a été adopté le 30/11/2025 et promulgué l
 - Réserves en mois d'importations : 4,12 (2025e) ; prévision de 4,72 fin 2026, sous l'hypothèse d'un baril à 87,2 $ (MAC-011).
 - Couverture extérieure de la monnaie : 65,2 % (2025e) et 70,7 % prévu fin 2026 (MAC-011).
 - Le FMI signale un « affaiblissement supplémentaire des réserves CEMAC » comme facteur d'incertitude (MAC-001).
-- Taux de la BEAC : TIAO relevé de 4,50 à 4,75 % en mars 2025 (Annexe 1), puis abaissé à 4,50 % le 29/06/2026, en vigueur le 01/07/2026. Facilité marginale de prêt à 5,75 %. Réserves obligatoires à 6,50 % (vue) et 4,00 % (terme) (MAC-011). Le maintien de septembre 2026 n'est connu que par résumé moteur.
+- Taux de la BEAC : TIAO relevé de 4,50 à 4,75 %. L'Annexe 1 date la hausse du « 25 mars 2025 », mais l'Annexe 2 du même rapport indique un TIAO de 4,50 % d'avril à novembre 2025 et de 4,75 % à partir de décembre 2025. Cette incohérence interne n'est pas résolue. Le TIAO a ensuite été abaissé à 4,50 % le 29/06/2026, en vigueur le 01/07/2026. Facilité marginale de prêt à 5,75 %. Réserves obligatoires à 6,50 % (vue) et 4,00 % (terme) (MAC-011). Le maintien de septembre 2026 n'est connu que par résumé moteur.
 - Créances en souffrance des banques CEMAC : 15,68 % des crédits bruts au 31/03/2026, contre 17,45 % un an plus tôt (MAC-011).
 - Banques camerounaises : 12,94 % à fin mai 2026 contre 12,29 % fin 2025, soit 909,4 Mds (presse, MAC-027, résumé moteur, à vérifier auprès de la COBAC).
 
