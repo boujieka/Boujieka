@@ -19,7 +19,7 @@ national du 19/10/2026. Les références entre crochets renvoient au registre de
 2. **Il contient des erreurs factuelles qui le rendent contestable en l'état.**
    - Les **taux de pauvreté des neuf régions qu'il cite sont tous faux** au regard de l'ECAM5 de l'INS.
    - Le tonnage de riz importé est faux.
-   - Les 703,5 Mds FCFA de restes à payer n'ont pas de source retrouvée.
+   - Les 703,5 Mds FCFA d'arriérés sont une estimation provisoire de fin avril 2026, reprise à fin juin (vérification du 20/10).
    - D'autres chiffres doivent être nuancés.
    Un document destiné au chef de l'État ne peut pas circuler avec ces erreurs.
 3. **Son cadrage chiffré n'est pas cohérent.**
@@ -72,7 +72,7 @@ Chaque point a été vérifié le 20/10/2026. Le détail figure dans `verificati
 | Pauvreté par région : Nord 48,5 %, Adamaoua 41,2 %, Est 39,4 %, Centre 17,9 %, Littoral 15,2 %, Sud 22,4 %, Ouest 28,7 %, Nord-Ouest 57,8 %, Sud-Ouest 38,6 % | **Faux (les 9 valeurs)** | ECAM5 2022 (INS, brochure p. 8) : Extrême-Nord 69,2 ; Nord-Ouest 66,8 ; Nord 61,1 ; Adamaoua 45,1 ; Est 41,5 ; Ouest 30,4 ; Littoral hors Douala 23,8 ; Sud-Ouest 20,4 (non représentatif) ; Centre hors Yaoundé 19,1 ; Sud 14,9 ; Yaoundé 10,8 ; Douala 8,3 [VPL-25] |
 | Sous-emploi « supérieur à 65 % » | Faux | 56,4 % (EESI3 2021, nouvelle approche) ou 61,4 % (ancienne approche) [VPL-26] |
 | Riz importé en 2024 : 648 000 t | Faux | 831 337 t pour 318,6 Mds FCFA. Le chiffre de 648 048 t est la hausse des quantités totales importées [VPL-23] |
-| Restes à payer : 703,5 Mds FCFA fin juin 2026 | Non sourcé | Aucune source retrouvée. Derniers chiffres : 1 026,3 Mds fin 2025, dont 44,1 % à plus de 3 mois, selon la CAA via la presse. Obtenir la note CAA n° 06/2026 [VPL-12] |
+| Restes à payer : 703,5 Mds FCFA fin juin 2026 | Partiel (vérification finale) | Estimation provisoire de fin avril 2026, reprise dans la note CAA de fin juin selon la presse. Le stock total de restes à payer était de 1 026,3 Mds fin mars 2026, dont 452,5 Mds de plus de 3 mois [VFF-001, VFF-004] |
 | Coût d'importation du gasoil de 975 FCFA/l associé au soutien de septembre | Période erronée | 975 FCFA/l correspond à la structure d'octobre ; septembre : 860,10 FCFA/l. Les 57 Mds de septembre sont confirmés [VPL-03 à 05] |
 | « 3 % seulement des subventions retracées » (Chambre des comptes) | Douteux | Ce chiffre ne figure que dans un titre de presse au sens ambigu. Le rendement de 2,92 % est confirmé [VPL-06, 07] |
 | Glencore : 7 Mds FCFA (11 M USD), 2007-2018 | Imprécis | Le SFO retient 10,5 M EUR (13,7 M USD) versés entre 2012 et 2015 à des agents de la SNH et de la SONARA. La période 2007-2018 couvre l'ensemble des pays [VPL-13] |
@@ -123,7 +123,7 @@ Calculs reproductibles : `models/coherence_plan.py`.
 ## 5. Ce qui manque au Plan
 
 - **Électricité.** Le Plan traite ENEO comme une entreprise publique parmi d'autres. Il n'y a pas de
-  fiche sur les pertes (≈27 % en distribution [ECO-05]), le recouvrement, l'écart tarif-coût (18,2 %),
+  fiche sur les pertes (≈30 % [VFF-015]), le recouvrement (72 à 77,5 %), l'écart tarif-coût (le tarif couvre ≈80 % du coût),
   le contrat Nachtigal (paiement garanti même si l'énergie n'est pas utilisée), la ligne Nachtigal–Douala
   ou la protection des petits consommateurs.
 - **Paix et sécurité.** Rien de substantiel sur le Nord-Ouest, le Sud-Ouest et l'Extrême-Nord, alors
@@ -132,8 +132,9 @@ Calculs reproductibles : `models/coherence_plan.py`.
   de financement.
 - **Base juridique et autorité compétente.** Plusieurs mesures sont attribuées au « Chef de l'État par
   décret » alors que la loi désigne d'autres autorités :
-  - les directeurs généraux d'**entreprises publiques** sont nommés par le **conseil d'administration**
-    (loi 2017/011, art. 70) ; ceux des **établissements publics** par décret (loi 2017/010, art. 35) ;
+  - les directeurs généraux d'**établissements publics** sont nommés par décret (loi 2017/010, art. 35). Pour les
+    **entreprises publiques**, la loi confie la nomination au **conseil d'administration** (loi 2017/011, art. 70),
+    mais la pratique du décret existe (CAMTEL, par exemple) : point à trancher ;
   - les recettes et dépenses nouvelles exigent une **loi de finances** (Parlement) ;
   - la monnaie et les changes relèvent de la **CEMAC**.
 - **Contexte institutionnel.**
@@ -252,7 +253,7 @@ délais se comptent en années et les montants sont incertains. Toute somme réc
   - blé : 1 139 403 t ;
   - poisson congelé : 267 259 t.
 - Production nationale, selon des chiffres de presse à confirmer :
-  - riz : environ 140 000 t d'offre ;
+  - riz : environ 140 000 t d'offre selon la presse, mais 410 000 t de paddy en 2024 selon le MINFI (sources incompatibles, vérification finale) ;
   - poisson : environ 198 000 t sur neuf mois de 2025 ;
   - blé : quasi nulle.
 - **Un arrêt immédiat provoquerait pénuries et flambée des prix**, d'abord pour les ménages urbains
@@ -273,7 +274,7 @@ délais se comptent en années et les montants sont incertains. Toute somme réc
 - **Réduction des importations par paliers** une fois les seuils de production atteints et vérifiés.
 - **Stock alimentaire de sécurité.**
 - **Indicateur :** part de la production nationale dans la consommation de riz. Départ estimé environ
-  14 % (à vérifier) ; cible à 3 ans de 30 % (proposée, à calibrer).
+  14 à 30 % selon les sources (à établir) ; cible à 3 ans de +15 points (proposée, à calibrer).
 
 ### 6.6 Réformer l'éducation et la santé
 
@@ -428,7 +429,7 @@ données manquantes. Les autorités compétentes doivent être vérifiées dans 
 | 3 | **Électricité** | Audit des pertes et des dettes croisées ; achèvement de l'évacuation de Nachtigal ; trajectoire tarifaire avec tarif social pour les petites consommations ; contrats de performance SOCADEL/SONATREL | MINEE, ARSEL, CA SOCADEL, MINFI | Pertes de distribution : ≈27 % → 18 % (proposée) ; écart tarif-coût : 18,2 % → < 5 % ; heures de coupure : à mesurer |
 | 4 | **Gouvernance publique et redevabilité** | Application de la loi 2017 aux dirigeants ; audits publiés ; cellule de recouvrement des avoirs ; suites CAN et Covid ; sortie de la liste grise du GAFI | Président, CA, Chambre des comptes, Justice, ANIF | Dirigeants dans les délais légaux : à établir → 100 % ; dossiers Covid jugés : 0/12 → 12/12 instruits |
 | 5 | **Recettes et ressources naturelles** | Revue des dépenses fiscales ; règle de gestion des recettes extractives et fonds de stabilisation ; renégociation et publication des conventions minières ; traçabilité de l'or | MINFI, MINMIDT, Parlement | Pression fiscale non pétrolière : 12,9 % (2025) → 14,5 % du PIB (proposée) |
-| 6 | **Souveraineté alimentaire programmée** | Investissements riz, poisson et maïs ; protection douanière légale ; achats publics locaux ; stock de sécurité | MINADER, MINEPIA, MINCOMMERCE | Part locale du riz : ≈14 % (à vérifier) → 30 % (proposée) |
+| 6 | **Souveraineté alimentaire programmée** | Investissements riz, poisson et maïs ; protection douanière légale ; achats publics locaux ; stock de sécurité | MINADER, MINEPIA, MINCOMMERCE | Part locale du riz : 14 à 30 % selon les sources (à établir) → +15 points (proposée) |
 | 7 | **Capital humain** | Apurement de la dette due aux enseignants et statut ; financement de la CSU par accises ; gratuité maternelle et infantile ; évaluation des apprentissages | MINESEC, MINEDUB, MINSANTE, MINFI, Parlement | Paiements directs de santé : 67,7 % → 55 % (proposée) ; délai d'intégration des enseignants : à mesurer → 0 mois |
 | 8 | **Paix et territoires** | Processus de paix Nord-Ouest/Sud-Ouest (forum, commission vérité-justice-réconciliation, DDR) ; plan Extrême-Nord ; trajectoire de la DGD vers le plancher légal de 15 %, avec audits ; exploitation du RGPH4 ; mémoire nationale | Président, Parlement, MINDDEVEL, CTD | DGD/recettes : 2,08 % (2024, selon la Chambre des comptes) → 15 % ou modification de la loi ; personnes dans le besoin : 2,9 M → en baisse |
 

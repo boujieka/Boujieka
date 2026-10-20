@@ -37,6 +37,11 @@ for (const raw of lines) {
   const line = raw.replace(/\s+$/, "");
   if (!line.trim()) { inNumbered = false; para = null; continue; }
   let m;
+  if (/^-{3,}$/.test(line.trim())) { // séparateur horizontal
+    children.push(new Paragraph({ spacing: { after: 120 }, border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: "999999", space: 1 } }, children: [] }));
+    para = null;
+    continue;
+  }
   if (line.startsWith("|")) {
     const cells = line.split("|").slice(1, -1).map((c) => c.trim());
     if (cells.every((c) => /^:?-+:?$/.test(c))) continue; // ligne de séparation

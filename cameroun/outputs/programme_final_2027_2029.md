@@ -217,8 +217,10 @@ tarif social de −15, puis −20, puis −20 Mds.
      art. 70) et intérims.
    - Publication de la liste des mandats et de leurs échéances.
    - Recrutement par appel public et cabinet indépendant, avec une liste restreinte de trois candidats.
-     Le choix revient au conseil d'administration pour les entreprises publiques et à un décret pour les
-     établissements publics.
+     Pour les établissements publics, la nomination se fait par décret présidentiel (loi 2017/010, art. 35).
+     Pour les entreprises publiques, la loi 2017/011 (art. 70) confie la nomination au conseil
+     d'administration, mais des directeurs généraux ont été nommés par décret dans la pratique (CAMTEL,
+     par exemple). **L'autorité compétente doit être confirmée entité par entité** (VPL-27, VFJ).
    - Déclaration de patrimoine, contrat de performance publié, audit de passation à chaque départ.
 2. **Audits flash publiés** des 15 entités au risque budgétaire le plus élevé : SONARA, SOCADEL,
    SONATREL, CAMWATER, CAMTEL, SNH, CAMAIR-CO, ports, entre autres.
@@ -286,7 +288,7 @@ Justice, TCS, ANIF. Parlement pour les lois.
    - poisson : aquaculture et pêche artisanale ;
    - maïs et manioc : farines locales incorporées au pain.
 2. Protection progressive compatible avec les engagements :
-   - droits de douane dans la limite des taux consolidés ;
+   - droits de douane relevés par paliers dans la limite des taux consolidés à l'OMC (50 à 80 %, environ 80 % pour les produits agricoles). Taux appliqués actuels : riz de grande consommation 5 %, blé 10 %, poisson congelé 20 %. Taux du nouveau tarif commun CEEAC-CEMAC (2026) à confirmer (VFJ) ;
    - clauses de sauvegarde de l'APE avec l'UE.
 3. Achats publics locaux : cantines, armée, hôpitaux.
 4. **Réduction des importations par paliers**, déclenchée lorsque la production vérifiée atteint les seuils.
@@ -300,8 +302,8 @@ Justice, TCS, ANIF. Parlement pour les lois.
 
 | Indicateur | Départ | Cible à 3 ans |
 |---|---|---|
-| Part locale dans la consommation de riz | ≈14 % (estimation à vérifier) | 30 % (proposée) |
-| Importations de poisson | 267 259 t (2025) | −25 % (proposée) |
+| Part locale dans la consommation de riz | À établir : 14 % à 30 % selon les sources (paddy 410 000 t en 2024 selon le MINFI ; importations 869 039 t en 2025) | +15 points (proposée) |
+| Importations de poisson | 267 259 t (2025) ; production nationale 254 000 t (2024, MINFI) | −25 % (proposée) |
 
 ### Chantier 7 — Capital humain : éducation et santé
 
@@ -471,4 +473,33 @@ La question monétaire fera l'objet d'une étude indépendante, menée avec les 
 
 ## 10. Vérifications complémentaires du 20/10/2026
 
-Voir la section ajoutée après réception des vérifications finales.
+Le détail figure dans `analyses/verification_finale_finances.md` et `analyses/verification_finale_juridique.md`.
+
+**Confirmé**
+- Loi de finances 2026 (loi n° 2025/012 du 17/12/2025) : 8 816,4 Mds, déficit de 631 Mds.
+- Masse salariale de 1 626,2 Mds pour 401 460 agents (fin 2025) ; SMIG de 60 000 FCFA (décret de mars 2023).
+- Analyse de viabilité de la dette FMI-BM : risque élevé, extérieur et global.
+- Prix à la pompe inchangés depuis février 2024 : super 840, gasoil 828, pétrole lampant 350 FCFA/l.
+- Constats de la Chambre des comptes sur le Fonds Covid ; 12 dossiers transmis, aucune décision
+  judiciaire retrouvée.
+- Sentence CIRDI du 04/09/2026 ; montant connu seulement par la presse : 78,5 M€ plus intérêts.
+- Transferts aux collectivités 2024 : 127,554 Mds, soit 2,08 % des recettes (Chambre des comptes, p. 41).
+- 68 entreprises publiques et 85 établissements publics (31/12/2022).
+- Déplacés internes au 30/09/2026 : 493 402 (Nord-Ouest et Sud-Ouest) et 510 855 (Extrême-Nord).
+- Plan humanitaire financé à 32,2 %.
+- Nouveau président du Conseil constitutionnel nommé par décret du 16/10/2026.
+
+**Non trouvé au 20/10/2026**
+- Nomination d'un vice-président.
+- Convocation du corps électoral pour les législatives et municipales.
+- Nouveau gouvernement.
+- Nouveau programme FMI.
+- Loi de finances rectificative 2026.
+- Texte de la sentence CIRDI.
+- Cadre Harmonisé d'octobre-novembre 2026.
+
+**Points à trancher avant tout acte**
+- Autorité de nomination des directeurs généraux d'entreprises publiques : texte de la loi ou pratique
+  du décret.
+- Taux du nouveau tarif commun CEEAC-CEMAC.
+- Production nationale de riz usiné, les sources étant incompatibles.

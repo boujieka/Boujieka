@@ -53,7 +53,7 @@ MESURES = [
      "Hypothèse ; à calibrer avec les syndicats et la CSPH"),
     (3, "Réduction du soutien budgétaire au secteur électrique (tarif, pertes, recouvrement)",
      {"central": [0, 40, 80], "defavorable": [0, 20, 40], "favorable": [20, 60, 120]},
-     "Écart tarif/coût 18,2 % (ECO-05) ; montant du soutien actuel à confirmer (VFF)"),
+     "Tarif ≈80 % du coût, 83,46 vs 105,46 FCFA/kWh (VFF-015) ; montant du soutien actuel à confirmer"),
     (3, "Tarif social pour les petites consommations d'électricité",
      {"central": [-15, -20, -20], "defavorable": [-15, -20, -20], "favorable": [-10, -15, -15]},
      "Hypothèse : protection des ménages sous un seuil de consommation"),

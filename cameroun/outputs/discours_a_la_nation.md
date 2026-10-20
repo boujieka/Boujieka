@@ -9,7 +9,9 @@ adapter.*
 ---
 
 Camerounaises, Camerounais,
+
 Mes chers compatriotes de l'intérieur et de la diaspora,
+
 Filles et fils de ce pays que le monde appelle l'Afrique en miniature,
 
 Je m'adresse à vous ce soir avec gravité et avec espoir.
@@ -357,7 +359,7 @@ Nous allons faire mieux : **remplacer les importations par notre production, pal
   commerciaux.
 - **Stock de sécurité.** Un stock alimentaire nous protégera des chocs.
 
-**Notre objectif :** doubler en trois ans la part du riz camerounais dans notre consommation.
+**Notre objectif :** que la part du riz camerounais dans nos assiettes progresse de quinze points en trois ans, mesurée et publiée chaque année.
 
 ## X. Huitième chantier : l'école et la santé de nos enfants
 
@@ -395,7 +397,7 @@ atteindre ce plancher légal. Chaque franc transféré sera conditionné à des 
 l'argent arrive au puits, au dispensaire et à la salle de classe, pas dans des poches.
 
 **Nous allons enfin nous compter.** Le quatrième recensement général de la population vient d'être
-réalisé, vingt ans après le précédent. Ses résultats seront publiés début 2027, avec la qualité de
+réalisé, plus de vingt ans après le précédent. Ses résultats seront publiés début 2027, avec la qualité de
 couverture de chaque département et une vérification indépendante. Grâce à eux, nous saurons où
 construire les écoles, où affecter les médecins et qui doit recevoir l'aide sociale. Un pays qui ne se
 connaît pas ne peut pas se gouverner.
@@ -534,6 +536,7 @@ pour eux, et avec vous tous, que nous allons nous mettre au travail.
 Dès demain matin.
 
 Vive la République !
+
 Vive le Cameroun, terre de promesse et de gloire !
 
 Je vous remercie.
@@ -550,5 +553,7 @@ Je vous remercie.
   - *la commission vérité.*
 - *Certaines mesures exigent une loi et donc un vote du Parlement : confiscation, accises, Journée des
   héros, double nationalité, Fonds Ouandié.*
-- *La nomination des directeurs généraux d'entreprises publiques relève de leur conseil d'administration
-  (loi 2017/011).*
+- *Autorité de nomination des directeurs généraux d'entreprises publiques :*
+  - *la loi 2017/011 (art. 70) la confie au conseil d'administration ;*
+  - *dans la pratique, des nominations ont été faites par décret ;*
+  - *faire trancher ce point par le Secrétariat général avant l'annonce.*

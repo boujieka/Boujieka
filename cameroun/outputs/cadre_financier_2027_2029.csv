@@ -2,7 +2,7 @@ scenario,chantier,mesure,2027,2028,2029,base
 central,2,Économie sur les subventions carburants,202,432,576,Rythme 2026 ≈ 48 Mds/mois (VPL-03) × part supprimée par paliers trimestriels
 central,2,Transferts monétaires ciblés (25 000 FCFA/mois/ménage),-45,-75,-90,150 000 → 250 000 → 300 000 ménages ; montant unitaire du Plan stratégique
 central,2,Tarif transporteur et compensation transport public,-30,-20,-10,Hypothèse ; à calibrer avec les syndicats et la CSPH
-central,3,"Réduction du soutien budgétaire au secteur électrique (tarif, pertes, recouvrement)",0,40,80,"Écart tarif/coût 18,2 % (ECO-05) ; montant du soutien actuel à confirmer (VFF)"
+central,3,"Réduction du soutien budgétaire au secteur électrique (tarif, pertes, recouvrement)",0,40,80,"Tarif ≈80 % du coût, 83,46 vs 105,46 FCFA/kWh (VFF-015) ; montant du soutien actuel à confirmer"
 central,3,Tarif social pour les petites consommations d'électricité,-15,-20,-20,Hypothèse : protection des ménages sous un seuil de consommation
 central,4,"Audits, appels à candidatures, cellule de recouvrement des avoirs",-8,-6,-6,Hypothèse de coût de fonctionnement
 central,4,Fin des subventions d'exploitation sans contrepartie aux entreprises publiques,30,80,120,Plan stratégique : 120 Mds/an à terme (non vérifié) ; montée progressive
@@ -20,7 +20,7 @@ central,F,Titrisation d'arriérés certifiés (opération de trésorerie),150,15
 defavorable,2,Économie sur les subventions carburants,144,360,540,Rythme 2026 ≈ 48 Mds/mois (VPL-03) × part supprimée par paliers trimestriels
 defavorable,2,Transferts monétaires ciblés (25 000 FCFA/mois/ménage),-45,-75,-90,150 000 → 250 000 → 300 000 ménages ; montant unitaire du Plan stratégique
 defavorable,2,Tarif transporteur et compensation transport public,-40,-30,-20,Hypothèse ; à calibrer avec les syndicats et la CSPH
-defavorable,3,"Réduction du soutien budgétaire au secteur électrique (tarif, pertes, recouvrement)",0,20,40,"Écart tarif/coût 18,2 % (ECO-05) ; montant du soutien actuel à confirmer (VFF)"
+defavorable,3,"Réduction du soutien budgétaire au secteur électrique (tarif, pertes, recouvrement)",0,20,40,"Tarif ≈80 % du coût, 83,46 vs 105,46 FCFA/kWh (VFF-015) ; montant du soutien actuel à confirmer"
 defavorable,3,Tarif social pour les petites consommations d'électricité,-15,-20,-20,Hypothèse : protection des ménages sous un seuil de consommation
 defavorable,4,"Audits, appels à candidatures, cellule de recouvrement des avoirs",-8,-6,-6,Hypothèse de coût de fonctionnement
 defavorable,4,Fin des subventions d'exploitation sans contrepartie aux entreprises publiques,10,40,60,Plan stratégique : 120 Mds/an à terme (non vérifié) ; montée progressive
@@ -38,7 +38,7 @@ defavorable,F,Titrisation d'arriérés certifiés (opération de trésorerie),10
 favorable,2,Économie sur les subventions carburants,200,360,400,Rythme 2026 ≈ 48 Mds/mois (VPL-03) × part supprimée par paliers trimestriels
 favorable,2,Transferts monétaires ciblés (25 000 FCFA/mois/ménage),-45,-75,-90,150 000 → 250 000 → 300 000 ménages ; montant unitaire du Plan stratégique
 favorable,2,Tarif transporteur et compensation transport public,-25,-15,0,Hypothèse ; à calibrer avec les syndicats et la CSPH
-favorable,3,"Réduction du soutien budgétaire au secteur électrique (tarif, pertes, recouvrement)",20,60,120,"Écart tarif/coût 18,2 % (ECO-05) ; montant du soutien actuel à confirmer (VFF)"
+favorable,3,"Réduction du soutien budgétaire au secteur électrique (tarif, pertes, recouvrement)",20,60,120,"Tarif ≈80 % du coût, 83,46 vs 105,46 FCFA/kWh (VFF-015) ; montant du soutien actuel à confirmer"
 favorable,3,Tarif social pour les petites consommations d'électricité,-10,-15,-15,Hypothèse : protection des ménages sous un seuil de consommation
 favorable,4,"Audits, appels à candidatures, cellule de recouvrement des avoirs",-8,-6,-6,Hypothèse de coût de fonctionnement
 favorable,4,Fin des subventions d'exploitation sans contrepartie aux entreprises publiques,50,100,120,Plan stratégique : 120 Mds/an à terme (non vérifié) ; montée progressive

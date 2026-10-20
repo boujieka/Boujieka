@@ -67,6 +67,20 @@ Les documents téléchargés sont dans `sources/documents/` : copies locales non
 
 Prochaine étape : approfondir les sujets 1 à 3 (trésorerie, électricité, subventions/SONARA).
 
+**Exécution 2 — 20/10/2026 : analyse critique des documents programmatiques soumis, arbitrages acceptés, version finale.**
+
+| Livrable | Fichier |
+|---|---|
+| Analyse critique des trois documents (Plan stratégique, Programme politique, Livre) | `outputs/analyse_critique_plan_2026-10-20.md` / `.docx` |
+| Programme final 2027-2029 (8 chantiers, 100 jours, cadre financier) | `outputs/programme_final_2027_2029.md` / `.docx` |
+| Discours à la Nation (≈5 100 mots, 35-45 min) | `outputs/discours_a_la_nation.md` / `.docx` |
+| Cadre financier reproductible (3 scénarios) | `models/cadre_financier_2027_2029.py` → `outputs/cadre_financier_*.csv` |
+| Contrôles de cohérence des documents soumis | `models/coherence_plan.py` → `outputs/coherence_plan.csv` |
+| Vérifications | `analyses/verification_plan_strategique.md`, `analyses/verification_finale_finances.md`, `analyses/verification_finale_juridique.md`, `analyses/notes/propositions_utilisateur_recherche.md` |
+
+Correctif : le RGPH4 a été collecté en 2026 (résultats début 2027) ; les livrables du 19/10 ont été corrigés.
+Les documents Word sont produits par `node models/md_to_docx.js <entrée.md> <sortie.docx> [titre]`.
+
 ## Conduite du travail par étapes (consigne du 19/10/2026)
 
 Chaque étape se termine par une **revue** (contrôle des sources, des calculs et des doubles comptes)

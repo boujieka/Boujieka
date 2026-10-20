@@ -1,15 +1,29 @@
-Sources : 325
-  par niveau d'accès : {'lu_document': 94, 'lu_page_web': 124, 'resume_moteur': 107}
-  par type : {'nationale_officielle': 40, 'internationale': 100, 'independante': 22, 'presse': 139, 'recherche': 2, 'juridique': 13, 'ong': 9}
+Sources : 403
+  par niveau d'accès : {'lu_document': 117, 'lu_page_web': 167, 'resume_moteur': 119}
+  par type : {'nationale_officielle': 58, 'internationale': 114, 'independante': 22, 'presse': 175, 'recherche': 2, 'juridique': 13, 'ong': 9, 'secondaire': 1, 'regionale_officielle': 2, 'academique': 1, 'fact_check': 1, 'mixte': 1, 'ong_internationale': 3, 'presse_specialisee': 1}
 Indicateurs (hors WDI) : 394
   par statut : {'observe': 221, 'estimation': 110, 'prevision': 17, 'annonce': 16, 'cible': 10, 'financement_approuve': 1, 'budget_annonce': 3, 'resultat': 4, 'decision': 4, 'budget_vote': 8}
-Anomalies : 9
+Anomalies : 23
   - même URL dans plusieurs entrées (à fusionner ?) : https://ins-cameroun.cm/wp-content/uploads/2025/07/EESI3_Rapport-principal_Emploi_VF.pdf -> ['ECO-01', 'VPL-26']
   - même URL dans plusieurs entrées (à fusionner ?) : https://ins-cameroun.cm/wp-content/uploads/2026/04/Note-sur-le-commerce-exterieur-en-2025-version-provisoire_FR.pdf -> ['ECO-03', 'PRP-63']
-  - même URL dans plusieurs entrées (à fusionner ?) : https://www.imf.org/en/news/articles/2026/03/30/pr-26096-cameroon-imf-executive-board-concludes-2026-article-iv-consultation -> ['ECO-06', 'MAC-001']
+  - même URL dans plusieurs entrées (à fusionner ?) : https://www.imf.org/en/news/articles/2026/03/30/pr-26096-cameroon-imf-executive-board-concludes-2026-article-iv-consultation -> ['ECO-06', 'MAC-001', 'VFF-023']
   - même URL dans plusieurs entrées (à fusionner ?) : https://www.financialafrik.com/2026/02/26/cameroun-les-retards-de-paiement-depassent-200-jours-en-2025/ -> ['ECO-19', 'MAC-024']
+  - même URL dans plusieurs entrées (à fusionner ?) : https://api.hpc.tools/v1/public/fts/flow?planId=1498 -> ['GOV-002', 'VFJ-41']
   - même URL dans plusieurs entrées (à fusionner ?) : https://reliefweb.int/report/cameroon/cameroon-humanitarian-update-march-2026 -> ['GOV-004', 'SOC-029']
+  - même URL dans plusieurs entrées (à fusionner ?) : https://data.unhcr.org/en/country/cmr -> ['GOV-005', 'VFJ-40']
+  - même URL dans plusieurs entrées (à fusionner ?) : https://africacheck.org/fr/fact-checks/meta-programme-fact-checks/paul-biya-nomme-son-fils-vice-president-du-cameroun -> ['GOV-017', 'VFJ-26']
+  - même URL dans plusieurs entrées (à fusionner ?) : https://www.koaci.com/article/2026/03/25/cameroun/politique/cameroun-le-mandat-des-deputes-prolonge-une-nouvelle-fois-jusquau-20-decembre-2026_195322.html -> ['GOV-020', 'VFJ-24']
+  - même URL dans plusieurs entrées (à fusionner ?) : https://www.dgb.cm/wp-content/uploads/2025/12/DOCUMENTS-ANNEXES-RELATIF-A-LA-DECENTRALISATION-LF-2026_fr.pdf -> ['GOV-024', 'VFJ-35']
   - même URL dans plusieurs entrées (à fusionner ?) : https://ecomatin.net/tribunal-criminel-special-au-cameroun-letat-recupere-13-milliards-de-fcfa-au-titre-des-condamnations-et-corps-du-delit -> ['GOV-041', 'PRP-27']
-  - même URL dans plusieurs entrées (à fusionner ?) : https://www.financialafrik.com/2026/07/29/cameroun-pres-de-27-milliards-usd-de-dette-publique-a-fin-juin-2026/ -> ['MAC-019', 'VPL-11']
+  - même URL dans plusieurs entrées (à fusionner ?) : https://ideas.repec.org/p/imf/imfscr/2026-081.html -> ['MAC-005', 'VFF-024']
+  - même URL dans plusieurs entrées (à fusionner ?) : https://www.dgb.cm/wp-content/uploads/2025/11/PROJET-DE-LOI-FINANCES-2026_FR_26112025.pdf -> ['MAC-010', 'VFJ-10']
+  - même URL dans plusieurs entrées (à fusionner ?) : https://www.financialafrik.com/2026/07/29/cameroun-pres-de-27-milliards-usd-de-dette-publique-a-fin-juin-2026/ -> ['MAC-019', 'VFF-005', 'VPL-11']
+  - même URL dans plusieurs entrées (à fusionner ?) : https://faolex.fao.org/docs/pdf/cmr202713.pdf -> ['PRP-26', 'VFJ-21']
+  - même URL dans plusieurs entrées (à fusionner ?) : https://www.businessincameroon.com/construction/1009-16715-cameroon-faces-cfa53-5-billion-olembe-stadium-bill-after-losing-piccini-arbitration -> ['PRP-31', 'VFJ-02']
+  - même URL dans plusieurs entrées (à fusionner ?) : https://www.diplomatie.gouv.fr/fr/presse-et-ressources/decouvrir-et-informer/actualites/travaux-de-la-commission-mixte-franco-camerounaise-pluridisciplinaire -> ['PRP-57', 'VFJ-37']
   - même URL dans plusieurs entrées (à fusionner ?) : https://ins-cameroun.cm/wp-content/uploads/2025/07/Depliant-Ecam-5-Fr.pdf -> ['SOC-002', 'VPL-24']
   - même URL dans plusieurs entrées (à fusionner ?) : https://ins-cameroun.cm/wp-content/uploads/2025/07/Brochure-Ecam-5-En-2.pdf -> ['SOC-003', 'VPL-25']
+  - même URL dans plusieurs entrées (à fusionner ?) : https://caa.cm/wp-content/uploads/2026/05/Conjoncture-Mensuelle-de-la-Dette-Publique_du-Cameroun-N%C2%B003_Mars-2026_du-150526_trfin.pdf -> ['VFF-004', 'VPL-12']
+  - même URL dans plusieurs entrées (à fusionner ?) : https://www.investiraucameroun.com/energie/1410-23965-carburants-motaze-chiffre-a-57-milliards-de-fcfa-le-soutien-aux-prix-en-septembre-2026 -> ['VFF-011', 'VPL-03']
+  - même URL dans plusieurs entrées (à fusionner ?) : https://www.investiraucameroun.com/finance/0707-23584-entreprises-publiques-les-participations-de-l-etat-jugees-tres-peu-rentables-par-la-chambre-des-comptes-rapport -> ['VFF-030', 'VPL-06']
+  - même URL dans plusieurs entrées (à fusionner ?) : https://www.financialafrik.com/2026/07/06/cameroun-pour-2024-la-chambre-des-comptes-retrace-seulement-3-des-subventions-aux-entreprises-publiques/ -> ['VFF-031', 'VPL-07']
