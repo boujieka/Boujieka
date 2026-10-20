@@ -1,0 +1,55 @@
+scenario,chantier,mesure,2027,2028,2029,base
+central,2,Économie sur les subventions carburants,202,432,576,Rythme 2026 ≈ 48 Mds/mois (VPL-03) × part supprimée par paliers trimestriels
+central,2,Transferts monétaires ciblés (25 000 FCFA/mois/ménage),-45,-75,-90,150 000 → 250 000 → 300 000 ménages ; montant unitaire du Plan stratégique
+central,2,Tarif transporteur et compensation transport public,-30,-20,-10,Hypothèse ; à calibrer avec les syndicats et la CSPH
+central,3,"Réduction du soutien budgétaire au secteur électrique (tarif, pertes, recouvrement)",0,40,80,"Écart tarif/coût 18,2 % (ECO-05) ; montant du soutien actuel à confirmer (VFF)"
+central,3,Tarif social pour les petites consommations d'électricité,-15,-20,-20,Hypothèse : protection des ménages sous un seuil de consommation
+central,4,"Audits, appels à candidatures, cellule de recouvrement des avoirs",-8,-6,-6,Hypothèse de coût de fonctionnement
+central,4,Fin des subventions d'exploitation sans contrepartie aux entreprises publiques,30,80,120,Plan stratégique : 120 Mds/an à terme (non vérifié) ; montée progressive
+central,5,"Rationalisation des dépenses fiscales (loi de 2013, TVA)",80,150,200,Plan : 200-250 Mds/an de dépenses fiscales (non vérifié) ; MAC-009 Tab. 11 partiel
+central,5,"Administration fiscale numérique, cadastre, foncier (en % du PIB)",39,84,135,Gain en points de PIB ; hypothèse
+central,6,"Investissements souveraineté alimentaire (riz, poisson, maïs)",-40,-60,-60,Hypothèse ; redéploiement partiel du PIISAH (ECO-25)
+central,7,Apurement de la dette due aux enseignants,-40,-35,-30,"105 Mds restants en juin 2023 selon l'État (VPL-22), à actualiser"
+central,7,"Accises dédiées à la CSU (tabac, alcool, boissons sucrées)",40,60,70,Hypothèse ; recette affectée
+central,7,"Dépenses CSU (gratuité maternelle et infantile, paiement des formations sanitaires)",-40,-60,-70,"Égales aux accises dédiées en central (neutralité) ; en défavorable, l'écart pèse sur le solde"
+central,8,Hausse nette de la DGD (au-delà des transferts de crédits sectoriels),-50,-100,-150,"Trajectoire vers le plancher légal ; DGD 2024 = 127,5 Mds selon la Chambre des comptes (GOV-025)"
+central,8,Reconstruction NO/SO et Extrême-Nord (part budget national),-60,-80,-80,Hypothèse ; s'ajoute aux financements des partenaires
+central,8,"Statistique (exploitation RGPH4, enquête emploi, ECAM6) et mémoire nationale",-12,-10,-8,Hypothèse
+central,F,"Appuis budgétaires FMI, Banque mondiale, BAD",300,300,300,DPEB 2027-2029 : 300 Mds en 2027 conditionnés à un programme (MAC-009)
+central,F,Titrisation d'arriérés certifiés (opération de trésorerie),150,150,0,Les RAP de plus de 3 mois sont déjà dans l'encours de la dette (MAC-009) : effet neutre sur la dette
+defavorable,2,Économie sur les subventions carburants,144,360,540,Rythme 2026 ≈ 48 Mds/mois (VPL-03) × part supprimée par paliers trimestriels
+defavorable,2,Transferts monétaires ciblés (25 000 FCFA/mois/ménage),-45,-75,-90,150 000 → 250 000 → 300 000 ménages ; montant unitaire du Plan stratégique
+defavorable,2,Tarif transporteur et compensation transport public,-40,-30,-20,Hypothèse ; à calibrer avec les syndicats et la CSPH
+defavorable,3,"Réduction du soutien budgétaire au secteur électrique (tarif, pertes, recouvrement)",0,20,40,"Écart tarif/coût 18,2 % (ECO-05) ; montant du soutien actuel à confirmer (VFF)"
+defavorable,3,Tarif social pour les petites consommations d'électricité,-15,-20,-20,Hypothèse : protection des ménages sous un seuil de consommation
+defavorable,4,"Audits, appels à candidatures, cellule de recouvrement des avoirs",-8,-6,-6,Hypothèse de coût de fonctionnement
+defavorable,4,Fin des subventions d'exploitation sans contrepartie aux entreprises publiques,10,40,60,Plan stratégique : 120 Mds/an à terme (non vérifié) ; montée progressive
+defavorable,5,"Rationalisation des dépenses fiscales (loi de 2013, TVA)",40,80,120,Plan : 200-250 Mds/an de dépenses fiscales (non vérifié) ; MAC-009 Tab. 11 partiel
+defavorable,5,"Administration fiscale numérique, cadastre, foncier (en % du PIB)",0,40,63,Gain en points de PIB ; hypothèse
+defavorable,6,"Investissements souveraineté alimentaire (riz, poisson, maïs)",-30,-40,-40,Hypothèse ; redéploiement partiel du PIISAH (ECO-25)
+defavorable,7,Apurement de la dette due aux enseignants,-40,-35,-30,"105 Mds restants en juin 2023 selon l'État (VPL-22), à actualiser"
+defavorable,7,"Accises dédiées à la CSU (tabac, alcool, boissons sucrées)",25,40,50,Hypothèse ; recette affectée
+defavorable,7,"Dépenses CSU (gratuité maternelle et infantile, paiement des formations sanitaires)",-40,-60,-70,"Égales aux accises dédiées en central (neutralité) ; en défavorable, l'écart pèse sur le solde"
+defavorable,8,Hausse nette de la DGD (au-delà des transferts de crédits sectoriels),-30,-60,-90,"Trajectoire vers le plancher légal ; DGD 2024 = 127,5 Mds selon la Chambre des comptes (GOV-025)"
+defavorable,8,Reconstruction NO/SO et Extrême-Nord (part budget national),-50,-60,-60,Hypothèse ; s'ajoute aux financements des partenaires
+defavorable,8,"Statistique (exploitation RGPH4, enquête emploi, ECAM6) et mémoire nationale",-12,-10,-8,Hypothèse
+defavorable,F,"Appuis budgétaires FMI, Banque mondiale, BAD",0,0,0,DPEB 2027-2029 : 300 Mds en 2027 conditionnés à un programme (MAC-009)
+defavorable,F,Titrisation d'arriérés certifiés (opération de trésorerie),100,100,0,Les RAP de plus de 3 mois sont déjà dans l'encours de la dette (MAC-009) : effet neutre sur la dette
+favorable,2,Économie sur les subventions carburants,200,360,400,Rythme 2026 ≈ 48 Mds/mois (VPL-03) × part supprimée par paliers trimestriels
+favorable,2,Transferts monétaires ciblés (25 000 FCFA/mois/ménage),-45,-75,-90,150 000 → 250 000 → 300 000 ménages ; montant unitaire du Plan stratégique
+favorable,2,Tarif transporteur et compensation transport public,-25,-15,0,Hypothèse ; à calibrer avec les syndicats et la CSPH
+favorable,3,"Réduction du soutien budgétaire au secteur électrique (tarif, pertes, recouvrement)",20,60,120,"Écart tarif/coût 18,2 % (ECO-05) ; montant du soutien actuel à confirmer (VFF)"
+favorable,3,Tarif social pour les petites consommations d'électricité,-10,-15,-15,Hypothèse : protection des ménages sous un seuil de consommation
+favorable,4,"Audits, appels à candidatures, cellule de recouvrement des avoirs",-8,-6,-6,Hypothèse de coût de fonctionnement
+favorable,4,Fin des subventions d'exploitation sans contrepartie aux entreprises publiques,50,100,120,Plan stratégique : 120 Mds/an à terme (non vérifié) ; montée progressive
+favorable,5,"Rationalisation des dépenses fiscales (loi de 2013, TVA)",100,200,250,Plan : 200-250 Mds/an de dépenses fiscales (non vérifié) ; MAC-009 Tab. 11 partiel
+favorable,5,"Administration fiscale numérique, cadastre, foncier (en % du PIB)",61,132,239,Gain en points de PIB ; hypothèse
+favorable,6,"Investissements souveraineté alimentaire (riz, poisson, maïs)",-50,-70,-70,Hypothèse ; redéploiement partiel du PIISAH (ECO-25)
+favorable,7,Apurement de la dette due aux enseignants,-40,-35,-30,"105 Mds restants en juin 2023 selon l'État (VPL-22), à actualiser"
+favorable,7,"Accises dédiées à la CSU (tabac, alcool, boissons sucrées)",50,70,90,Hypothèse ; recette affectée
+favorable,7,"Dépenses CSU (gratuité maternelle et infantile, paiement des formations sanitaires)",-40,-60,-70,"Égales aux accises dédiées en central (neutralité) ; en défavorable, l'écart pèse sur le solde"
+favorable,8,Hausse nette de la DGD (au-delà des transferts de crédits sectoriels),-60,-120,-180,"Trajectoire vers le plancher légal ; DGD 2024 = 127,5 Mds selon la Chambre des comptes (GOV-025)"
+favorable,8,Reconstruction NO/SO et Extrême-Nord (part budget national),-60,-90,-100,Hypothèse ; s'ajoute aux financements des partenaires
+favorable,8,"Statistique (exploitation RGPH4, enquête emploi, ECAM6) et mémoire nationale",-12,-10,-8,Hypothèse
+favorable,F,"Appuis budgétaires FMI, Banque mondiale, BAD",450,450,450,DPEB 2027-2029 : 300 Mds en 2027 conditionnés à un programme (MAC-009)
+favorable,F,Titrisation d'arriérés certifiés (opération de trésorerie),200,100,0,Les RAP de plus de 3 mois sont déjà dans l'encours de la dette (MAC-009) : effet neutre sur la dette

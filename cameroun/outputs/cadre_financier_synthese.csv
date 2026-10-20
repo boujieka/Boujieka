@@ -1,0 +1,10 @@
+scenario,annee,pib_nominal_hyp,effet_net_programme_sur_solde,effet_en_pct_pib,apurement_cash_arrieres,ressources_de_financement,solde_tresorerie_programme
+central,2027,39322,51,0.13,150,450,351
+central,2028,41996,380,0.9,150,450,680
+central,2029,44851,657,1.46,150,300,807
+defavorable,2027,38008,-91,-0.24,100,100,-91
+defavorable,2028,39908,184,0.46,100,100,184
+defavorable,2029,41903,439,1.05,100,0,339
+favorable,2027,40584,131,0.32,200,650,581
+favorable,2028,44033,426,0.97,200,550,776
+favorable,2029,47776,650,1.36,150,450,950
