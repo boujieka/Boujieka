@@ -44,7 +44,8 @@ la reconstruction des régions en crise.
 | Pauvreté par région | Extrême-Nord 69,2 ; Nord-Ouest 66,8 ; Nord 61,1 ; Adamaoua 45,1 ; Est 41,5 ; Ouest 30,4 ; Littoral hors Douala 23,8 ; Sud-Ouest 20,4* ; Centre hors Yaoundé 19,1 ; Sud 14,9 ; Yaoundé 10,8 ; Douala 8,3 (%) | 2022 | ECAM5, brochure p. 8 (VPL-25). *Nord-Ouest et Sud-Ouest non représentatifs |
 | Emplois informels | 86,6 % ; privé formel 5,1 % ; sous-emploi 56,4 % | 2021 | EESI3, INS (ECO-01) |
 | Dette publique | 15 607 Mds FCFA, 44,2 % du PIB | 30/06/2026 | CAA via presse (VPL-10) |
-| Risque de surendettement | « Élevé » | Mars 2026 | FMI (MAC-001) |
+| Arriérés de la dette publique (estimation provisoire) | 703,5 Mds FCFA | Fin avril 2026, repris fin juin | CAA via presse (VFF-001) |
+| Risque de surendettement | « Élevé » (extérieur et global) ; dette jugée soutenable ; deux seuils de service de la dette dépassés | Mars 2026 | Analyse de viabilité FMI-BM, CR 26/081 (VFF-022) |
 | Note souveraine | B- (Fitch), perspective stable | 16/10/2026 | VPL-01 |
 | Rendement Eurobond 2033 | 10,65 % | 19/10/2026 | VPL-01, VPL-02 |
 | Service de la dette | 4,8 % → 8,5 % du PIB | 2025 → 2026 | DPEB, MINFI (MAC-009) |
@@ -52,7 +53,7 @@ la reconstruction des régions en crise.
 | Soutien aux prix des carburants | 57 Mds FCFA en un mois | Septembre 2026 | Ministre des Finances (VPL-03) |
 | Rendement des participations publiques | 55,85 Mds de dividendes pour 1 911 Mds investis (2,92 %) | 2024 | Chambre des comptes via presse (VPL-06) |
 | Exécution de l'investissement public | 73 % (57 % sur financements extérieurs) | 2025 | MAC-009 |
-| Électricité | Pertes de distribution ≈27 % ; tarif 18,2 % sous le coût ; accès rural 23,3 % (2021) | 2021-2024 | ECO-05, ECO-01 |
+| Électricité | Pertes ≈30 % (Banque mondiale, 2026 ; 29 % selon le MINEE) ; recouvrement 72 à 77,5 % ; tarif moyen 83,46 FCFA/kWh pour un coût de 105,46 (≈80 % du coût) ; accès rural 23,3 % (2021) | 2021-2025 | VFF-015, VFF-017, ECO-01 |
 | Importations alimentaires | Riz 869 039 t ; blé 1 139 403 t ; poisson congelé 267 259 t | 2025 | INS (ECO-03) |
 | Paiements directs de santé | 67,7 % de la dépense courante de santé | 2023 | OMS-GHED (SOC-006) |
 | Personnes dans le besoin humanitaire | 2,9 millions ; plan financé à ≈32 % | 2026 | OCHA (GOV-001, GOV-002) |
@@ -166,6 +167,14 @@ transferts ne sont pas versés ; concertation avec les syndicats de transport d�
 **Objectif.** Livrer l'électricité produite, réduire les pertes et assainir les finances du secteur sans
 pénaliser les petits consommateurs.
 
+**Ce que l'on sait déjà** (VFF-015 à 021) :
+- pertes d'environ 30 % ;
+- recouvrement de 72 % (Banque mondiale) à 77,5 % (MINEE) ;
+- tarif moyen couvrant environ 80 % du coût ;
+- dette fournisseurs de la SOCADEL de 639,6 Mds (11/2025), dont 273 Mds dus à la SONATREL ;
+- impayés de l'État envers le producteur de Nachtigal proches de 70 Mds ;
+- ligne 400 kV d'évacuation annoncée pour novembre 2026, raccordement 225 kV vers Douala début 2027.
+
 **Grandeurs à mesurer dès les 100 premiers jours**, par un audit indépendant commandé par l'ARSEL :
 - pertes techniques et commerciales par réseau ;
 - taux de recouvrement par catégorie de clients, administrations comprises ;
@@ -176,7 +185,7 @@ pénaliser les petits consommateurs.
 
 **Décisions**
 1. Compensation certifiée des dettes croisées, l'État payant d'abord ses propres factures.
-2. Achèvement prioritaire de l'évacuation de Nachtigal vers Douala et de la maintenance du réseau.
+2. Mise en service de la ligne 400 kV (annoncée pour novembre 2026) et du raccordement 225 kV vers Douala (début 2027) ; maintenance du réseau.
 3. Contrats de performance SOCADEL et SONATREL (pertes, recouvrement, coupures).
 4. Trajectoire tarifaire pluriannuelle publiée, avec un **tarif social** pour les petites consommations.
 5. Électrification rurale décentralisée (solaire) dans le cadre du compact énergie et du programme
@@ -194,8 +203,9 @@ tarif social de −15, puis −20, puis −20 Mds.
 
 | Indicateur | Départ | Cible à 3 ans |
 |---|---|---|
-| Pertes de distribution | ≈27 % | 18 % (proposée) |
-| Écart entre tarif et coût | 18,2 % | Moins de 5 % |
+| Pertes | ≈30 % | 20 % (proposée) |
+| Couverture du coût par le tarif | ≈80 % | Au moins 95 % |
+| Recouvrement des factures | 72 à 77,5 % | 95 % (proposée) |
 | Coupures | À mesurer | −50 % (proposée) |
 | Accès rural | 23,3 % (2021) | +15 points (proposée) |
 
