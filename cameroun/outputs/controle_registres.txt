@@ -1,9 +1,15 @@
-Sources : 223
-  par niveau d'accès : {'lu_document': 77, 'lu_page_web': 75, 'resume_moteur': 71}
-  par type : {'nationale_officielle': 25, 'internationale': 84, 'independante': 20, 'presse': 92, 'recherche': 2}
+Sources : 325
+  par niveau d'accès : {'lu_document': 94, 'lu_page_web': 124, 'resume_moteur': 107}
+  par type : {'nationale_officielle': 40, 'internationale': 100, 'independante': 22, 'presse': 139, 'recherche': 2, 'juridique': 13, 'ong': 9}
 Indicateurs (hors WDI) : 394
   par statut : {'observe': 221, 'estimation': 110, 'prevision': 17, 'annonce': 16, 'cible': 10, 'financement_approuve': 1, 'budget_annonce': 3, 'resultat': 4, 'decision': 4, 'budget_vote': 8}
-Anomalies : 3
+Anomalies : 9
+  - même URL dans plusieurs entrées (à fusionner ?) : https://ins-cameroun.cm/wp-content/uploads/2025/07/EESI3_Rapport-principal_Emploi_VF.pdf -> ['ECO-01', 'VPL-26']
+  - même URL dans plusieurs entrées (à fusionner ?) : https://ins-cameroun.cm/wp-content/uploads/2026/04/Note-sur-le-commerce-exterieur-en-2025-version-provisoire_FR.pdf -> ['ECO-03', 'PRP-63']
   - même URL dans plusieurs entrées (à fusionner ?) : https://www.imf.org/en/news/articles/2026/03/30/pr-26096-cameroon-imf-executive-board-concludes-2026-article-iv-consultation -> ['ECO-06', 'MAC-001']
   - même URL dans plusieurs entrées (à fusionner ?) : https://www.financialafrik.com/2026/02/26/cameroun-les-retards-de-paiement-depassent-200-jours-en-2025/ -> ['ECO-19', 'MAC-024']
   - même URL dans plusieurs entrées (à fusionner ?) : https://reliefweb.int/report/cameroon/cameroon-humanitarian-update-march-2026 -> ['GOV-004', 'SOC-029']
+  - même URL dans plusieurs entrées (à fusionner ?) : https://ecomatin.net/tribunal-criminel-special-au-cameroun-letat-recupere-13-milliards-de-fcfa-au-titre-des-condamnations-et-corps-du-delit -> ['GOV-041', 'PRP-27']
+  - même URL dans plusieurs entrées (à fusionner ?) : https://www.financialafrik.com/2026/07/29/cameroun-pres-de-27-milliards-usd-de-dette-publique-a-fin-juin-2026/ -> ['MAC-019', 'VPL-11']
+  - même URL dans plusieurs entrées (à fusionner ?) : https://ins-cameroun.cm/wp-content/uploads/2025/07/Depliant-Ecam-5-Fr.pdf -> ['SOC-002', 'VPL-24']
+  - même URL dans plusieurs entrées (à fusionner ?) : https://ins-cameroun.cm/wp-content/uploads/2025/07/Brochure-Ecam-5-En-2.pdf -> ['SOC-003', 'VPL-25']

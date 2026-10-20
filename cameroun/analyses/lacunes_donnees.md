@@ -7,7 +7,7 @@ recommandation chiffrée ; **B** = fragilise un diagnostic ; **C** = complément
 
 | # | Lacune | Effet | Conséquence |
 |---|---|---|---|
-| L1 | Aucun recensement depuis 2005 (4e RGPH non réalisé) | A | Tous les taux (scolarisation, couverture, pauvreté en effectifs) reposent sur des projections |
+| L1 | Résultats du 4e RGPH non encore publiés (collecte 24/04–15/09/2026, résultats attendus début 2027 ; couverture < 50 % dans le Wouri et le Mfoundi en 1re phase selon la presse). *Correctif du 20/10/2026 : la version du 19/10 indiquait à tort que le RGPH4 n'avait pas été réalisé.* | A | Jusqu'à publication, tous les taux reposent sur des projections depuis 2005 ; la qualité de couverture devra être vérifiée (enquête post-censitaire) |
 | L2 | Pas de mesure de la pauvreté après 2022 (ECAM6 en préparation, non vérifié) ; NO/SO non représentatifs | A | Impossible de mesurer l'effet des chocs 2023-2026 |
 | L3 | Dernière EDS en 2018 ; MICS7 collectée mais non publiée | B | Santé et nutrition décrites avec des données de 8 ans |
 | L4 | Dernière enquête emploi en 2021 (EESI3) ; NEET INS/OIT incompatibles | B | Emploi des jeunes non suivi |

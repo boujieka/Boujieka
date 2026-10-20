@@ -33,7 +33,7 @@ Le détail figure dans `analyses/registre_problemes.csv` (34 problèmes).
 
 ## 2. Incertitudes qui comptent pour la décision
 
-- **Données anciennes.** Il n'y a pas eu de recensement depuis 2005. Les données de santé et de nutrition
+- **Données anciennes.** Le dernier recensement exploité date de 2005 ; le 4e recensement a été collecté entre avril et septembre 2026, avec des résultats attendus début 2027 (*correctif du 20/10/2026*). Les données de santé et de nutrition
   datent de 2018, celles de l'emploi de 2021. L'effet des chocs de 2023 à 2026 sur les ménages n'est **pas mesuré**.
 - **Chiffres incompatibles sur des sujets décisifs.** Le stock d'arriérés de l'État est estimé à 485, 752 ou
   926 Mds FCFA selon la source. Les ratios dette/PIB divergent de 3 à 5 points. Les transferts aux

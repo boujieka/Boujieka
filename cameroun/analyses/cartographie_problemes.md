@@ -109,7 +109,7 @@ P28 décentralisation ──[H]──► P11 eau, P18, services locaux
 3. **Sécurité dans le NO/SO et l'Extrême-Nord (P22, P23).** Elle conditionne les résultats sociaux dans
    les régions les plus pauvres.
 4. **Système statistique (P20).** Sans mesure fiable, aucune cible de réforme n'est vérifiable.
-   Le dernier recensement date de 2005.
+   Le dernier recensement exploité date de 2005 ; les résultats du RGPH4 (collecté en 2026) sont attendus début 2027.
 5. **Capacité d'exécution et redevabilité (P05, P34, P29).** Les plans annoncés (SND30, PLANUT, PPRD,
    PSRDREN, PIISAH) n'ont pas de bilan audité.
 
