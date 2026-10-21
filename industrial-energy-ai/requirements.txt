@@ -1,0 +1,20 @@
+# Industrial Energy AI Africa - MVP V1
+# Versions below are the ones the test suite was executed with (Python 3.13.16).
+# Lower bounds are the minimum we expect to work; upper bounds guard against major API changes.
+numpy>=2.0,<3
+pandas>=2.2,<4
+scipy>=1.13,<2
+PuLP>=2.8,<3            # 2.x API (PuLP 4 is a breaking rewrite)
+highspy>=1.7,<2          # HiGHS LP/MILP solver used through PuLP (open source, MIT)
+pydantic>=2.7,<3
+SQLAlchemy>=2.0,<3
+numpy-financial>=1.0,<2
+streamlit>=1.40,<2
+plotly>=5.20,<8
+openpyxl>=3.1,<4
+python-docx>=1.1,<2
+reportlab>=4.0,<6
+matplotlib>=3.8,<4       # static charts embedded in PDF/Word reports
+pypdf>=4.0,<7            # text extraction from uploaded PDF bills
+openai>=1.40,<4          # optional; only used when AI is enabled AND the user authorises external transfer
+pytest>=8.0,<10

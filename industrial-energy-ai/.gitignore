@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+# Secrets
+.env
+# Local data (database, uploads, generated reports)
+data/*.db
+data/*.db-journal
+data/uploads/*
+!data/uploads/.gitkeep
+data/reports/*
+!data/reports/.gitkeep
+# Streamlit
+.streamlit/secrets.toml
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
