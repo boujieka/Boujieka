@@ -1400,5 +1400,7 @@
   "sx.curve": "Le rendement de l'adjudication {a} dépasse de {bp} pb celui du {b} (dernières adjudications de chaque maturité).",
   "sx.refi": "{s} des échéances suivies des 12 prochains mois tombent en {m} ({n} titres).",
   "search.capital": "Capitale · {c}",
-  "search.city": "Ville · {c}"
+  "search.city": "Ville · {c}",
+  "rp.cemac.t": "État des lieux CEMAC",
+  "rp.cemac": "toutes les adjudications BEAC vérifiées ({n}) et les {b} obligations cotées à la BVMAC, avec les limites de couverture. Les taux des BTA sont précomptés et les OTA publiées en prix : ce ne sont pas des rendements."
 }

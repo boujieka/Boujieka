@@ -813,6 +813,7 @@ html[lang="ar"] body :not(.brand, .brand *, .langs, .langs *) { letter-spacing: 
       <h2 data-i="rp.title"></h2>
       <p class="lede" data-i="rp.lede"></p>
       <div class="scroll" style="margin-top:20px"><table class="list" id="rp-list" style="min-width:560px"></table></div>
+      <p id="rp-cemac" class="box-cemac"></p>
       <p class="note" data-i="rp.full"></p>
       <p id="rp-buy"></p>
       <p class="note" data-i="rp.legal"></p>
@@ -1979,6 +1980,9 @@ ${esc(t("sim.f.net"))} = ${esc(t("sim.f.int"))} − ${esc(t("sim.f.fees"))} − 
 
   // ---------- Quarterly reports (previews are static pages built by site/report.py)
   function renderReports() {
+    const CR = D.cemac_report;
+    $("rp-cemac").innerHTML = CR && Object.keys(CR.html || {}).length ? `<b>${esc(t("rp.cemac.t"))}</b> · ${esc(t("rp.cemac", { n: nf(CR.auctions, 0), b: nf(CR.bonds, 0) }))}<br>` +
+      ["fr", "en"].filter((l) => CR.html[l]).map((l) => `<a href="${esc(CR.html[l])}" lang="${l}">${esc(t("rp.read." + l))}</a>${CR.pdf && CR.pdf[l] ? ` · <a href="${esc(CR.pdf[l])}" lang="${l}">${esc(t("rp.pdf"))}</a>` : ""}`).join(" · ") : "";
     const R = D.reports || [];
     if (!R.length) { $("rp-list").innerHTML = `<tr><td>${esc(t("rp.none"))}</td></tr>`; $("rp-buy").innerHTML = ""; return; }
     const flag = (c) => `<img src="rapports/emblems/${c.toLowerCase()}-flag.svg" alt="${esc(NAME(c))}" title="${esc(NAME(c))}">`;

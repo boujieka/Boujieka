@@ -1492,5 +1492,7 @@
   "sx.curve": "O rendimento do leilão {a} supera em {bp} pb o do {b} (últimos leilões de cada maturidade).",
   "sx.refi": "{s} dos vencimentos acompanhados nos próximos 12 meses ocorrem em {m} ({n} títulos).",
   "search.capital": "Capital · {c}",
-  "search.city": "Cidade · {c}"
+  "search.city": "Cidade · {c}",
+  "rp.cemac.t": "Ponto de situação CEMAC",
+  "rp.cemac": "todos os leilões BEAC verificados ({n}) e as {b} obrigações cotadas na BVMAC, com os limites de cobertura. As taxas dos BTA são descontadas e as OTA são publicadas como preços: não são rendimentos."
 }

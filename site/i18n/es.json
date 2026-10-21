@@ -1492,5 +1492,7 @@
   "sx.curve": "El rendimiento de la subasta {a} supera en {bp} pb al del {b} (últimas subastas de cada plazo).",
   "sx.refi": "El {s} de los vencimientos seguidos en los próximos 12 meses vence en {m} ({n} títulos).",
   "search.capital": "Capital · {c}",
-  "search.city": "Ciudad · {c}"
+  "search.city": "Ciudad · {c}",
+  "rp.cemac.t": "Situación CEMAC",
+  "rp.cemac": "todas las subastas BEAC verificadas ({n}) y los {b} bonos cotizados en la BVMAC, con los límites de cobertura. Los tipos de los BTA son descontados y las OTA se publican como precios: no son rendimientos."
 }

@@ -1492,5 +1492,7 @@
   "sx.curve": "The {a} auction yield is {bp} bp above the {b} yield (latest auctions of each tenor).",
   "sx.refi": "{s} of tracked maturities in the next 12 months fall due in {m} ({n} securities).",
   "search.capital": "Capital · {c}",
-  "search.city": "City · {c}"
+  "search.city": "City · {c}",
+  "rp.cemac.t": "CEMAC state of play",
+  "rp.cemac": "all verified BEAC auctions ({n}) and the {b} bonds listed on the BVMAC, with the coverage limits. BTA rates are discount rates and OTA are published as prices: they are not yields."
 }

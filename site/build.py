@@ -297,7 +297,7 @@ def write_i18n(tables: dict) -> str:
 
 
 API_KEYS = ("as_of", "data", "summary", "africa", "grid", "opportunities", "walls", "market", "bvmac", "buyers",
-            "dealers", "yield_points", "cities", "brief", "reports", "data_offer", "sources", "page_scope")
+            "dealers", "yield_points", "cities", "brief", "reports", "cemac_report", "data_offer", "sources", "page_scope")
 
 
 def write_api(payload: dict) -> None:
@@ -506,6 +506,8 @@ def main() -> None:
         print("CARTOUCHE_REPORT_PURCHASE_URL ignored: authorisations cover free publication only")
         purchase = None
     payload["reports"] = report.build(date.fromisoformat(args.as_of), DIST, pdf=args.pdf, purchase_url=purchase)
+    import cemac_report  # after report.build, which resets dist/rapports
+    payload["cemac_report"] = cemac_report.write(date.fromisoformat(args.as_of), DIST, pdf=args.pdf)
     payload["reports_purchase_url"] = purchase
     # Daily auction brief (section "Brief" + e-mail-ready pages) and the data offer (dictionary, sample).
     import brief

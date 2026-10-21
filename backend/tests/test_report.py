@@ -129,3 +129,17 @@ def test_dataset_files_keep_every_verified_row_and_the_sample_stays_small(tmp_pa
     assert all(r["source_url"].startswith(official) and len(r["document_sha256"]) == 64 for r in full)
     published = list(csv.DictReader(open(tmp_path / "dist" / "donnees" / "auctions.csv", encoding="utf-8-sig")))
     assert published == full  # free publication: the deployed full file equals the private copy
+
+
+def test_cemac_state_of_play_keeps_published_measures_and_states_coverage(tmp_path):
+    cr = _load("cemac_report")
+    d = cr.load(date(2026, 10, 11))
+    beac = [r for r in report.load_rows(zone="CEMAC") if r["date"] <= date(2026, 10, 11) and r["type"] not in report.NON_ISSUANCE]
+    assert len(d["rows"]) == len(beac) and all(r["currency"] == "XAF" for r in d["rows"])
+    assert all("beac.int" in (r["url"] or "") for r in d["rows"])
+    # Values are copied as published, never turned into yields.
+    assert all(("précompté" in r["conv"]) == (r["instr"] == "treasury_bill") for r in d["rows"] if r["conv"])
+    html = cr.render(d, date(2026, 10, 11), "fr", {}, embed=False)
+    assert "pas un rendement" in html and "minimums" in html and "<script" not in html
+    out = cr.write(date(2026, 10, 11), tmp_path)
+    assert out["auctions"] == len(d["rows"]) and (tmp_path / out["html"]["en"]).exists()
