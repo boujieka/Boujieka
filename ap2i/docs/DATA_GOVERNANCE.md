@@ -25,7 +25,9 @@ transactions keep their source transaction key; agreements keep the source field
 * **Statuses**: World Bank Active/Closed/Dropped/Pipeline; IATI 1–6 → pipeline/active/completed/closed/
   cancelled/suspended. Original wording kept as an observation.
 * **Instruments**: World Bank lending instrument; IATI finance type (110 grant, 4xx loans, 5xx equity, 1100
-  guarantee).
+  guarantee). World Bank operations whose loan types are all guarantees (`loantypedesc`) are classified as
+  guarantees: no disbursement rate is computed and no low-disbursement alert is raised, because a guarantee
+  disburses only if it is called (e.g. P157734 Nachtigal, P110177).
 * **Additional Financing**: an official parent link (World Bank `parentprojid`, IATI `related-activity type=1`)
   makes the record a financing agreement of the parent master project.
 * **Zero amounts**: a published `0` on a dropped/pipeline World Bank operation means "no commitment" and is

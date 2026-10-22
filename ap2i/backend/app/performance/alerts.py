@@ -92,6 +92,8 @@ def evaluate_project(db: Session, p: Project, thr: dict, today: date) -> list[Fi
     if active and elapsed is not None:
         max_r, min_e = thr[("LOW_DISBURSEMENT", "max_disbursement_ratio")], thr[("LOW_DISBURSEMENT", "min_elapsed_ratio")]
         for a, pos in positions:
+            if pos.is_guarantee:
+                continue  # guarantees are not disbursed unless called
             r = ratio(pos.disbursed, pos.committed)
             if r is None or elapsed < min_e or r > max_r:
                 continue
@@ -180,7 +182,7 @@ def evaluate_project(db: Session, p: Project, thr: dict, today: date) -> list[Fi
                                  "Confirm the full financing plan with the executing agency.", "cost and commitments", srcs))
     # PHYS_FIN_GAP
     if p.physical_progress_pct is not None:
-        rates = [ratio(pos.disbursed, pos.committed) for _, pos in positions]
+        rates = [ratio(pos.disbursed, pos.committed) for _, pos in positions if not pos.is_guarantee]
         rates = [r for r in rates if r is not None]
         if len(rates) == 1:
             gap_pts = p.physical_progress_pct - rates[0] * 100
@@ -223,7 +225,7 @@ def evaluate_project(db: Session, p: Project, thr: dict, today: date) -> list[Fi
                              "No implementation information dated within the threshold is available for this active project.",
                              "Request the latest implementation progress report.", "source update dates", srcs))
     # NO_DISBURSEMENT_DATA
-    if active and positions and all(pos.disbursed is None for _, pos in positions):
+    if active and positions and all(pos.disbursed is None and not pos.is_guarantee for _, pos in positions):
         f.append(Finding("NO_DISBURSEMENT_DATA", "information", "No disbursement figure published", "any disbursement figure",
                          "None of the imported sources publishes disbursements for this active project.",
                          "Request disbursement data from the financing partner or the executing agency.", "financing records", srcs))

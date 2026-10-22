@@ -1,7 +1,7 @@
 """Command line: python -m app.cli <command>
 
   seed                      load reference data (54 countries, sectors, donors, connectors, roles, plans)
-  sync <connector> [...]    run connectors now (real sources)
+  sync <connector> [...]    run connectors now (real sources); --reprocess re-applies mappings to unchanged records
   post-sync                 recompute alerts, data quality and portfolio snapshots
   rates                     refresh historical exchange rates (World Bank WDI, IMF)
   dispatch                  run due scheduled syncs once (what Celery beat does)
@@ -36,8 +36,9 @@ def main(argv: list[str]) -> int:
             print(seed_reference(db))
         elif cmd == "sync":
             from app.tasks.jobs import sync_connector
-            for key in args:
-                print(sync_connector(key, "manual"))
+            reprocess = "--reprocess" in args
+            for key in [a for a in args if not a.startswith("--")]:
+                print(sync_connector(key, "manual", reprocess=reprocess))
         elif cmd == "post-sync":
             from app.tasks.jobs import post_sync
             print(post_sync())

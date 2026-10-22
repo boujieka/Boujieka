@@ -83,3 +83,30 @@ def test_snapshots_are_reproducible_and_never_deleted(loaded):
     assert s3[0].id != s1[0].id and s3[0].is_current
     old = db.get(m.AnnualFinancialSnapshot, s1[0].id)
     assert old is not None and old.is_current is False
+
+
+def test_guarantee_has_no_disbursement_rate_or_low_disbursement_alert(db):
+    import json
+    from datetime import date as d
+
+    from conftest import FIXTURES, mock_client
+
+    from app.connectors.worldbank import WorldBankProjectsConnector
+    from app.ingestion.pipeline import run_sync
+    from app.performance.alerts import run_alerts
+
+    data = json.loads((FIXTURES / "wb_projects_synthetic.json").read_text())
+    p = data["projects"]["P900001"]
+    p["loantypedesc"] = ["IBRD Guarantees", "IBRD Guarantee Facility"]
+    p["disbursement"], p["available"] = ["0.00"], ["100.00"]
+    c = WorldBankProjectsConnector(client=mock_client({"https://search.worldbank.org": (200, json.dumps(data).encode(), "application/json")}))
+    c.min_interval_seconds = 0
+    run_sync(db, "worldbank_projects", connector=c, force=True)
+    agr = db.scalar(select(m.FinancingAgreement).where(m.FinancingAgreement.source_identifier == "P900001"))
+    assert agr.instrument.code == "GUARANTEE"
+    proj = db.get(m.Project, agr.project_id)
+    ind = [i for i in project_financials(db, proj)["indicators"] if i["code"] == "disbursement_rate" and "P900001" in i["label"]][0]
+    assert ind["value"] is None and "Guarantee" in ind["limitations"][0]
+    run_alerts(db, today=d(2026, 6, 1))
+    rules = set(db.scalars(select(m.ProjectAlert.rule_code).where(m.ProjectAlert.project_id == proj.id, m.ProjectAlert.is_active.is_(True))))
+    assert "LOW_DISBURSEMENT" not in rules

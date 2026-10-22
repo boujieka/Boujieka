@@ -166,6 +166,11 @@ class WorldBankProjectsConnector(Connector):
         grant = parse_decimal(p.get("grantamt"))
         if grant and totalamt and grant == totalamt:
             instrument_code = "GRANT"
+        loan_types = sorted({str(x) for x in (p.get("loantypedesc") or []) if x})
+        if loan_types and all("guarantee" in x.lower() for x in loan_types):
+            # A guarantee is not disbursed unless it is called: disbursement rates do not apply.
+            instrument_code = "GUARANTEE"
+            instrument_label = f"{instrument_label or ''} — {', '.join(loan_types)}".strip(" —")
 
         parent = _first(p.get("parentprojid"))
         agreement = NormalizedAgreement(

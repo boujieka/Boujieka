@@ -69,6 +69,7 @@ class AgreementPosition:
     undisbursed: Decimal | None
     expenditure: Decimal | None
     source_record_ids: list[int]
+    is_guarantee: bool = False
 
 
 def agreement_position(db: Session, agr: FinancingAgreement) -> AgreementPosition:
@@ -110,8 +111,9 @@ def agreement_position(db: Session, agr: FinancingAgreement) -> AgreementPositio
     if undisbursed is None and committed is not None and disbursed is not None:
         undisbursed = committed - disbursed
     expenditure = sum((f.amount for f in exp_flows), Decimal(0)) if exp_flows else None
+    is_guarantee = bool(agr.instrument and agr.instrument.code == "GUARANTEE")
     return AgreementPosition(agr.id, agr.partner.short_name if agr.partner else None, agr.source_identifier, currency,
-                             committed, basis, cancelled, disbursed, d_basis, d_asof, undisbursed, expenditure, srcs)
+                             committed, basis, cancelled, disbursed, d_basis, d_asof, undisbursed, expenditure, srcs, is_guarantee)
 
 
 def project_financials(db: Session, project: Project, today: date | None = None) -> dict:
@@ -132,6 +134,13 @@ def project_financials(db: Session, project: Project, today: date | None = None)
     indicators: list[Indicator] = []
     # Disbursement rate per agreement (same currency by construction)
     for p in positions:
+        if p.is_guarantee:
+            indicators.append(Indicator(
+                code="disbursement_rate", label=f"Disbursement rate — {p.partner or ''} {p.source_identifier}".strip(),
+                value=None, unit="ratio", formula="not applicable",
+                limitations=["Guarantee: amounts are disbursed only if the guarantee is called; a disbursement rate "
+                             "is not meaningful."]))
+            continue
         missing = []
         if p.committed is None:
             missing.append("commitment amount")
@@ -222,7 +231,7 @@ def project_financials(db: Session, project: Project, today: date | None = None)
     latest = db.scalar(select(ImplementationProgress).where(ImplementationProgress.project_id == project.id)
                        .order_by(ImplementationProgress.report_date.desc()))
     phys = project.physical_progress_pct if project.physical_progress_pct is not None else (latest.physical_progress_pct if latest else None)
-    fin_rates = [ratio(p.disbursed, p.committed) for p in positions]
+    fin_rates = [ratio(p.disbursed, p.committed) for p in positions if not p.is_guarantee]
     fin_rates = [r for r in fin_rates if r is not None]
     fin_pct = None
     if len(fin_rates) == 1:

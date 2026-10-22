@@ -20,7 +20,7 @@ from dataclasses import dataclass, field
 from datetime import date, datetime, timezone
 from decimal import Decimal
 
-from sqlalchemy import func, select
+from sqlalchemy import delete, func, select
 from sqlalchemy.orm import Session
 
 from app.config import get_settings
@@ -423,6 +423,8 @@ class Pipeline:
             src.processing_note = "; ".join(i.message for i in issues if i.severity == "error")
             return "review"
         project, link_type, rule, created = self.resolve_project(rec, src, tenant_id)
+        # Observations are derived from this record: re-deriving replaces them (the record itself is unchanged).
+        self.db.execute(delete(SourceObservation).where(SourceObservation.source_record_id == src.id))
         is_primary = created or self.db.scalar(select(ProjectSourceLink).where(
             ProjectSourceLink.project_id == project.id, ProjectSourceLink.link_type == "primary",
             ProjectSourceLink.source_record_id.in_(select(SourceRecord.id).where(
@@ -481,7 +483,9 @@ def _match_region(name: str, regions) -> int | None:
 
 
 def run_sync(db: Session, connector_key: str, trigger: str = "manual", params: SyncParams | None = None,
-             connector: Connector | None = None, tenant_id: int | None = None, force: bool = False) -> SyncRun:
+             connector: Connector | None = None, tenant_id: int | None = None, force: bool = False,
+             reprocess: bool = False) -> SyncRun:
+    """reprocess=True re-applies normalization to unchanged records (use after a mapping fix)."""
     row = db.scalar(select(SourceConnector).where(SourceConnector.key == connector_key))
     if row is None:
         raise ConnectorError(f"Connector {connector_key} is not registered (run the reference seed)")
@@ -514,7 +518,7 @@ def run_sync(db: Session, connector_key: str, trigger: str = "manual", params: S
                 st.failed += 1
                 st.errors.append({"record": raw.source_identifier, "stage": "store", "error": str(exc)[:500]})
                 continue
-            if not is_new and src.processing_status in ("imported", "skipped"):
+            if not is_new and src.processing_status in ("imported", "skipped") and not reprocess:
                 st.unchanged += 1
                 continue
             st.new += int(is_new)

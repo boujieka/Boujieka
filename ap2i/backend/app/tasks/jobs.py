@@ -34,14 +34,14 @@ def _unlock(db, key: str) -> None:
         db.execute(text("SELECT pg_advisory_unlock(:k)"), {"k": zlib.crc32(key.encode())})
 
 
-def sync_connector(key: str, trigger: str = "manual") -> dict:
+def sync_connector(key: str, trigger: str = "manual", reprocess: bool = False) -> dict:
     from app.ingestion.pipeline import run_sync
 
     with SessionLocal() as db:
         if not _lock(db, f"sync:{key}"):
             return {"connector": key, "status": "skipped", "reason": "another run is in progress"}
         try:
-            run = run_sync(db, key, trigger=trigger, force=trigger != "scheduled")
+            run = run_sync(db, key, trigger=trigger, force=trigger != "scheduled", reprocess=reprocess)
             result = {"connector": key, "run_id": run.id, "status": run.status, "imported": run.records_imported,
                       "retrieved": run.records_retrieved, "failed": run.records_failed}
         finally:
