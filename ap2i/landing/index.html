@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AP²I — Africa Public Project Intelligence</title>
+<meta name="description" content="Intelligence sur les projets d'investissement public en Afrique, à partir des sources officielles des bailleurs, avec traçabilité complète. Premier déploiement : Cameroun.">
+<link rel="icon" href="img/ap2i-logo.png">
+<style>
+:root{--navy:#082B50;--navy2:#0d3a69;--green:#087F5B;--gold:#D9A323;--ink:#1c2733;--muted:#5b6774;--bg:#f5f7fa;--card:#fff;--line:#dde3ea}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+a{color:var(--green)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+header.top{background:var(--navy);color:#fff}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:14px;padding-bottom:14px}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:700}
+.brand img{width:36px;height:36px;border-radius:6px;background:#fff;padding:2px}
+.brand small{display:block;font-weight:400;font-size:.75rem;opacity:.8}
+nav.top a{color:#fff;opacity:.85;text-decoration:none;margin-left:18px;font-size:.92rem}
+nav.top a:hover{opacity:1}
+.hero{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:64px 0 72px}
+.hero .wrap{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center}
+.hero img.logo{width:170px;height:170px;border-radius:14px;background:#fff;padding:6px}
+.kicker{color:var(--gold);text-transform:uppercase;letter-spacing:.12em;font-weight:700;font-size:.82rem;margin:0}
+.hero h1{font-size:2.6rem;line-height:1.15;margin:.4rem 0 .8rem}
+.hero p.lead{font-size:1.12rem;max-width:640px;opacity:.9;margin:0 0 1.4rem}
+.btn{display:inline-block;padding:.7rem 1.15rem;border-radius:8px;font-weight:600;text-decoration:none;margin:0 .5rem .5rem 0}
+.btn.gold{background:var(--gold);color:var(--navy)}
+.btn.ghost{border:1.5px solid rgba(255,255,255,.7);color:#fff}
+section{padding:56px 0}
+h2{color:var(--navy);font-size:1.7rem;margin:0 0 .4rem}
+.sub{color:var(--muted);margin:0 0 1.8rem;max-width:760px}
+.notice{background:#fff8e6;border:1px solid #f0d58a;border-radius:10px;padding:16px 18px;margin-top:-28px;position:relative}
+.notice strong{color:#7a5600}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px}
+.kpi b{display:block;font-size:2rem;color:var(--navy);font-variant-numeric:tabular-nums}
+.kpi span{color:var(--muted);font-size:.9rem}
+.asof{color:var(--muted);font-size:.85rem;margin-top:12px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px}
+.card h3{margin:.1rem 0 .5rem;color:var(--navy)}
+.card.b1{border-top:4px solid var(--navy)}.card.b2{border-top:4px solid var(--green)}.card.b3{border-top:4px solid var(--gold)}
+.natures{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.tag{font-size:.82rem;padding:4px 10px;border-radius:999px;background:#e8eef5;color:var(--navy)}
+.tag.ok{background:#e1f3ec;color:var(--green)}.tag.warn{background:#fff1d1;color:#7a5600}.tag.no{background:#eceff3;color:#5b6774}
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+figure img{display:block;width:100%;height:280px;object-fit:cover;object-position:top}
+figcaption{padding:12px 14px;font-size:.9rem;color:var(--muted)}
+figcaption b{color:var(--ink)}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:.93rem}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#eef2f7;color:var(--navy);font-weight:600}
+tr:last-child td{border-bottom:0}
+.alt{background:#fff}
+ul.limits{margin:0;padding-left:1.2rem}ul.limits li{margin:.35rem 0}
+footer{background:var(--navy);color:#fff;padding:28px 0;font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer em{color:var(--gold);font-style:normal}
+@media (max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}.grid3,.shots{grid-template-columns:1fr}nav.top{display:none}}
+@media (max-width:640px){.hero .wrap{grid-template-columns:1fr}.hero img.logo{width:110px;height:110px}.hero h1{font-size:1.9rem}.wrap{padding:0 16px}th,td{padding:8px 10px}.tablewrap{overflow-x:auto}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="img/ap2i-logo.png" alt=""><span>AP²I<small>Africa Public Project Intelligence</small></span></a>
+    <nav class="top" aria-label="Sections">
+      <a href="#chiffres">Chiffres</a><a href="#piliers">Piliers</a><a href="#provenance">Provenance</a><a href="#sources">Sources</a><a href="#apercu">Aperçu</a><a href="#limites">Limites</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <img class="logo" src="img/ap2i-logo.png" alt="Logo AP²I">
+    <div>
+      <p class="kicker">AP²I — Africa Public Project Intelligence</p>
+      <h1>Chaque projet. Chaque dollar. Chaque impact.</h1>
+      <p class="lead">AP²I suit les projets d'investissement public à partir des sources officielles des partenaires financiers, avec la provenance de chaque chiffre. Premier déploiement&nbsp;: Cameroun. Architecture prévue pour les 54 pays africains.</p>
+      <a class="btn gold" href="#apercu">Voir la plateforme</a>
+      <a class="btn ghost" href="#provenance">Notre méthode</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="notice" role="note"><strong>Couverture des données.</strong> AP²I ne présente que les données des sources connectées et des documents officiels importés. Elle ne représente pas le portefeuille national complet d'investissement public&nbsp;: aucune donnée budgétaire nationale (projets financés par l'État) n'est encore intégrée.</div>
+</div>
+
+<section id="chiffres">
+  <div class="wrap">
+    <h2>Ce que la base contient aujourd'hui</h2>
+    <p class="sub">Chiffres issus de la base AP²I, tels qu'importés depuis les sources officielles. Seul le Cameroun dispose à ce jour de projets importés.</p>
+    <div class="kpis">
+      <div class="kpi"><b>483</b><span>projets documentés (Cameroun)</span></div>
+      <div class="kpi"><b>9</b><span>connecteurs opérationnels</span></div>
+      <div class="kpi"><b>4&nbsp;656</b><span>documents catalogués</span></div>
+      <div class="kpi"><b>238</b><span>alertes actives fondées sur des règles</span></div>
+      <div class="kpi"><b>54</b><span>pays de référence (1 avec données)</span></div>
+    </div>
+    <p class="asof">Instantané du 22 octobre 2026. Ces chiffres évoluent à chaque synchronisation.</p>
+  </div>
+</section>
+
+<section id="piliers" class="alt">
+  <div class="wrap">
+    <h2>Trois piliers</h2>
+    <p class="sub">Du suivi financier au redressement des projets en difficulté, chaque étape s'appuie sur des éléments probants.</p>
+    <div class="grid3">
+      <div class="card b1"><h3>Investment Intelligence</h3><p>Portefeuilles par pays, secteur et partenaire&nbsp;; engagements et décaissements dans leur devise d'origine, avec équivalents USD documentés (taux annuels officiels Banque mondiale et FMI).</p></div>
+      <div class="card b2"><h3>Performance Intelligence</h3><p>Signaux d'alerte fondés sur des règles publiées&nbsp;: décaissement faible, retards, prolongations, notations insatisfaisantes dans les rapports de supervision, statut opérationnel non vérifié.</p></div>
+      <div class="card b3"><h3>Project Rescue</h3><p>Plans de redressement fondés sur les constats, validés par des humains et suivis action par action.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="provenance">
+  <div class="wrap">
+    <h2>Aucun chiffre sans source</h2>
+    <p class="sub">Chaque valeur conserve son enregistrement source (empreinte SHA-256), sa date de publication et sa nature. Une donnée absente reste « non disponible »&nbsp;: elle n'est jamais affichée comme zéro, ni estimée en silence.</p>
+    <div class="grid3">
+      <div class="card"><h3>Publiée, vérifiée, calculée</h3><p>Les données distinguent ce qui est publié officiellement, vérifié, calculé, estimé, généré par IA ou manquant.</p>
+        <div class="natures"><span class="tag ok">Officiellement publié</span><span class="tag ok">Vérifié</span><span class="tag">Calculé</span><span class="tag warn">Estimé</span><span class="tag warn">Généré par IA</span><span class="tag no">Manquant</span></div></div>
+      <div class="card"><h3>Rapports lus, pas devinés</h3><p>Les rapports de supervision (ISR) et d'achèvement (ICR) de la Banque mondiale et les notes de revue IDEV de la BAD sont analysés&nbsp;: notations, dates de clôture, indicateurs de résultats. Une cellule ambiguë est écartée, jamais devinée.</p></div>
+      <div class="card"><h3>Validation humaine</h3><p>Un avancement physique cité dans un récit (« 92&nbsp;% d'achèvement ») reste un candidat jusqu'à validation par un relecteur. Les doublons probables entre bailleurs ne sont jamais fusionnés automatiquement.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="sources" class="alt">
+  <div class="wrap">
+    <h2>Sources connectées</h2>
+    <p class="sub">Accès publics officiels uniquement. Les protections anti-robots ne sont pas contournées.</p>
+    <div class="tablewrap">
+    <table>
+      <thead><tr><th>Partenaire</th><th>Source</th><th>Contenu</th></tr></thead>
+      <tbody>
+        <tr><td>Banque mondiale</td><td>API Projects &amp; Operations&nbsp;; Documents &amp; Reports&nbsp;; publication IATI (44000)</td><td>Projets, montants, transactions datées, rapports ISR / ICR / revues IEG</td></tr>
+        <tr><td>Banque africaine de développement</td><td>Publication IATI (XM-DAC-46002)&nbsp;; dépôt evrd.afdb.org</td><td>Activités et transactions (en UC)&nbsp;; rapports d'achèvement et notes de revue IDEV</td></tr>
+        <tr><td>Agence française de développement</td><td>Publication IATI (FR-3)</td><td>Projets et financements</td></tr>
+        <tr><td>Union européenne (DG INTPA)</td><td>Publication IATI (XI-IATI-EC_INTPA)</td><td>Activités et transactions</td></tr>
+        <tr><td>Banque européenne d'investissement</td><td>Publication IATI (XM-DAC-918-3)</td><td>Activités et transactions</td></tr>
+        <tr><td>FIDA</td><td>Publication IATI (XM-DAC-41108)</td><td>Activités et transactions</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+<section id="apercu">
+  <div class="wrap">
+    <h2>Aperçu de la plateforme</h2>
+    <p class="sub">Captures de l'application AP²I sur les données réelles du Cameroun (octobre 2026).</p>
+    <div class="shots">
+      <figure><img src="img/africa.webp" alt="Carte de l'Afrique avec le Cameroun mis en évidence et la fiche pays"><figcaption><b>Vue Afrique.</b> 54 pays de référence&nbsp;; un pays sans données apparaît en gris, jamais à zéro.</figcaption></figure>
+      <figure><img src="img/cameroun.webp" alt="Tableau de bord Cameroun : statuts, alertes, secteurs"><figcaption><b>Tableau de bord pays.</b> Statuts, alertes, secteurs, partenaires et portefeuilles annuels 2011–2026.</figcaption></figure>
+      <figure><img src="img/projet.webp" alt="Fiche projet avec financements et supervision"><figcaption><b>Fiche projet.</b> Financements par devise, supervision, indicateurs de résultats et sources.</figcaption></figure>
+      <figure><img src="img/performance.webp" alt="Tableau des alertes de performance"><figcaption><b>Performance.</b> Alertes fondées sur des règles publiées, avec leur justification.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="limites" class="alt">
+  <div class="wrap">
+    <h2>Limites connues</h2>
+    <p class="sub">Nous les publions plutôt que de les masquer.</p>
+    <ul class="limits">
+      <li>Pas encore de données budgétaires nationales (aucune source lisible par machine identifiée pour le Cameroun).</li>
+      <li>Avancement physique, contrats et statut opérationnel des ouvrages ne sont pas publiés par les sources connectées&nbsp;: ces champs restent vides tant qu'un document officiel ne les fournit pas.</li>
+      <li>La plupart des documents de la BAD sur www.afdb.org sont protégés contre les robots&nbsp;: ils sont catalogués, non téléchargés.</li>
+      <li>Bailleurs sans publication IATI pour le Cameroun (BID, JICA, fonds arabes…)&nbsp;: import manuel uniquement.</li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><strong>AP²I — Africa Public Project Intelligence</strong><br><em>Chaque projet. Chaque dollar. Chaque impact.</em></div>
+    <div>Données&nbsp;: publications officielles des partenaires financiers (API Banque mondiale, IATI, dépôts de documents).<br>Taux de change&nbsp;: Banque mondiale (WDI) et FMI.</div>
+  </div>
+</footer>
+</body>
+</html>
