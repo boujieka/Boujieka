@@ -29,6 +29,8 @@ from app.db import get_db
 from app.ingestion.pipeline import run_sync
 from app.models import (
     AIAssessment,
+    DataValidation,
+    Document,
     BudgetAllocation,
     Country,
     Notification,
@@ -338,6 +340,64 @@ async def upload_budget(request: Request, file: UploadFile = File(...), principa
     audit(db, request, "upload.budget_lines", principal, detail={"rows": n})
     db.commit()
     return {"imported": n, "errors": []}
+
+
+@router.post("/uploads/documents")
+async def upload_document(request: Request, file: UploadFile = File(...), project: str = Form(...), source_url: str = Form(...),
+                          title: str | None = Form(None), doc_type: str | None = Form(None), published_date: str | None = Form(None),
+                          principal: Principal = Depends(require("data:contribute")), db: Session = Depends(get_db)):
+    """Attach an official PDF to a project (e.g. an AfDB EER/IPR downloaded from www.afdb.org by a person).
+
+    The text is extracted and scanned for prompt-injection patterns. AfDB completion reports and IDEV review notes
+    are parsed; other documents are stored as searchable text only (no parser for their template)."""
+    import hashlib
+
+    from app.connectors.afdb_documents import parse_afdb_report
+    from app.ingestion.afdb_documents_sync import apply_report, pdf_text, store_text
+
+    content = await file.read()
+    if len(content) > get_settings().upload_max_bytes:
+        raise HTTPException(413, "File too large")
+    if not (file.filename or "").lower().endswith(".pdf") or not content.startswith(b"%PDF"):
+        raise HTTPException(415, "Only PDF files are accepted")
+    if not source_url.startswith(("https://", "http://")):
+        raise HTTPException(422, "source_url must be the official URL of the document")
+    p = visible_project_or_404(db, project, principal)
+    try:
+        text = pdf_text(content)
+    except ValueError as exc:
+        raise HTTPException(422, str(exc)) from None
+    except Exception:  # noqa: BLE001 — malformed PDF
+        raise HTTPException(422, "The PDF could not be read") from None
+    conn = db.scalar(select(SourceConnector).where(SourceConnector.key == "manual_upload"))
+    sha = hashlib.sha256(content).hexdigest()
+    if db.scalar(select(SourceRecord).where(SourceRecord.connector_id == conn.id, SourceRecord.payload_sha256 == sha)):
+        raise HTTPException(409, "This document has already been uploaded")
+    from app.connectors.base import parse_date
+
+    src = SourceRecord(connector_id=conn.id, source_identifier=f"upload-doc:{sha[:16]}", record_type="uploaded_document",
+                       country_iso3=p.country.iso3 if p.country else None,
+                       payload={"filename": file.filename, "source_url": source_url, "uploaded_by": principal.user.email, "bytes": len(content)},
+                       payload_sha256=sha, source_url=source_url, processing_status="imported", tenant_id=p.tenant_id)
+    db.add(src)
+    db.flush()
+    doc = Document(project_id=p.id, tenant_id=p.tenant_id, title=(title or file.filename or "Uploaded document")[:2000], doc_type=doc_type,
+                   url=source_url, published_date=parse_date(published_date), size_bytes=len(content), source_record_id=src.id)
+    db.add(doc)
+    db.flush()
+    store_text(db, doc, text, src)
+    rep = parse_afdb_report(text, file.filename or "")
+    parsed = rep.kind != "other"
+    if parsed:
+        apply_report(db, p, doc, src, rep)
+    else:
+        db.add(DataValidation(source_record_id=src.id, project_id=p.id, rule="document_partially_extracted", severity="info",
+                              message="No parser for this document template: text stored for reading and search only."))
+    audit(db, request, "upload.document", principal, "document", doc.id, {"project": p.ap2i_id, "parsed": parsed})
+    db.commit()
+    return {"document_id": doc.id, "characters": len(text), "injection_flags": doc.injection_flags, "parsed_as": rep.kind if parsed else None,
+            "dates": {k: v.isoformat() for k, v in rep.dates.items()} if parsed else {},
+            "ratings": rep.ratings if parsed else {}, "notes": rep.notes if parsed else ["text stored only"]}
 
 
 @router.get("/budget")

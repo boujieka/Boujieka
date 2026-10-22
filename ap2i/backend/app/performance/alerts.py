@@ -230,8 +230,7 @@ def evaluate_project(db: Session, p: Project, thr: dict, today: date) -> list[Fi
                              "Request the latest implementation progress report.", "source update dates", srcs))
     # UNSATISFACTORY_RATING — latest supervision report (e.g. World Bank ISR) only, as rated by the financier
     latest = db.scalar(select(ImplementationProgress).where(ImplementationProgress.project_id == p.id,
-                                                            ImplementationProgress.rating.is_not(None),
-                                                            ~ImplementationProgress.rating.like("ICR%"))
+                                                            ImplementationProgress.rating.like("%IP=%"))
                        .order_by(ImplementationProgress.report_date.desc()))
     if latest is not None and active:
         parts = dict(x.split("=", 1) for x in latest.rating.split("|") if "=" in x)

@@ -514,10 +514,15 @@ def run_sync(db: Session, connector_key: str, trigger: str = "manual", params: S
     fatal: str | None = None
     try:
         if getattr(connector, "custom_run", False):
-            from app.ingestion.wb_documents_sync import run_wb_documents
-
             params.reprocess = params.reprocess or reprocess
-            run_wb_documents(db, connector, row, run, params, st)
+            if connector.key == "afdb_documents":
+                from app.ingestion.afdb_documents_sync import run_afdb_documents
+
+                run_afdb_documents(db, connector, row, run, params, st)
+            else:
+                from app.ingestion.wb_documents_sync import run_wb_documents
+
+                run_wb_documents(db, connector, row, run, params, st)
             raise _CustomDone
         for raw in connector.fetch(params):
             st.retrieved += 1

@@ -51,6 +51,27 @@ Three ISR layouts exist (pre-2015 columnar tables, 2015–2024 blocks, post-2024
 indicator names): those values are reported as "not extractable from text", not guessed. Reading them would need
 PDF table extraction (not implemented).
 
+### 2.2 AfDB completion reports and IDEV review notes (`afdb_documents`)
+Source: the document links AfDB publishes in its own IATI activities (1,030 links for Cameroon).
+* **evrd.afdb.org** (AfDB Independent Development Evaluation repository) serves PDFs directly: 33 links, of which
+  31 PDFs (2 are Excel files, not parsed) — completion reports (PR…) and IDEV review notes of completion reports
+  (PN…, "Note de revue de RAP").
+* **www.afdb.org, mapafrica.afdb.org, idev.afdb.org** answer with an anti-bot challenge (HTTP 403 "Just a
+  moment…"). **AP²I does not circumvent it.** 988 links — including the EER/IPR supervision reports — are therefore
+  catalogued but not downloaded. A person can download them from the AfDB website and attach them through
+  Admin → Uploads → "Attach an official document (PDF)" (`POST /api/v1/uploads/documents`).
+
+Extracted (officially reported): approval, signature, effectiveness, original and revised closing dates, report
+date, cancelled amount (UA), and — in IDEV review notes — the 1–4 ratings (development objective, Bank, borrower,
+other stakeholders, outcomes) as given by the completion report and as validated by IDEV. A rating is kept only
+when both numbers are present. Not extracted: the financing-sources table (misread too often on the real corpus),
+completion reports' own rating tables (templates vary), and anything from EER/IPR (no sample could be retrieved to
+build a parser; uploaded EER/IPR are stored as text).
+
+**Run of 2026-10-22:** 31 documents parsed, 0 failures; 16 projects received completion data (64 dates), 12 have
+IDEV ratings (12 of 19 review notes; the 7 others use an older template). Verified by hand against the PDF text:
+Lom-Pangar (development objective 1/4) and two other ratings.
+
 ### IATI access method — important
 The **official IATI Datastore API** (`https://api.iatistandard.org/datastore`) requires a free subscription key
 (header `Ocp-Apim-Subscription-Key`). None was available in this build (HTTP 401 without key). The connector

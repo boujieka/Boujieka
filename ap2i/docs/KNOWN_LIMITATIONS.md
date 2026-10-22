@@ -24,12 +24,16 @@
 * IATI data was retrieved via the Code for IATI mirror; the official IATI Datastore path needs a subscription
   key and is untested.
 * Direct AfDB portal and AFD open-data API were unreachable from the build environment (blocked).
+* AfDB documents on www.afdb.org (incl. EER/IPR supervision reports) are behind an anti-bot challenge that AP²I
+  does not circumvent: 988 of 1,030 AfDB document links are catalogued only. Only the 31 PDFs on evrd.afdb.org are
+  parsed automatically; other AfDB reports must be attached manually (PDF upload). There is no EER/IPR parser.
 * Tier-2/3 donors without IATI publication for Cameroon (IsDB, KfW, JICA, GEF, GCF, BADEA, SFD, Kuwait Fund,
   ADFD) have no automated connector.
 
 ## Product
-* Document processing: World Bank ISR/ICR texts are downloaded and parsed (plain-text renditions). Other
-  donors' documents (AfDB, AFD) are stored as links only; no PDF/DOCX extraction pipeline exists yet. RAG/semantic search over
+* Document processing: World Bank ISR/ICR texts are downloaded and parsed (plain-text renditions). AfDB
+  completion reports and IDEV review notes from evrd.afdb.org are parsed (PDF text layer); uploaded PDFs are stored
+  as text. AFD documents are stored as links only. RAG/semantic search over
   documents is not implemented; the assistant uses structured database retrieval only.
 * The assistant understands a fixed set of question types (list, low disbursement, compare commitments,
   completed-not-operational, annual commitments, recovery plan). Other questions fall back to a project list.

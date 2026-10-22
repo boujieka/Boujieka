@@ -1,4 +1,4 @@
-import { UploadForm } from "@/components/admin/forms";
+import { DocumentUploadForm, UploadForm } from "@/components/admin/forms";
 import { PageHeader } from "@/components/page-header";
 import { Card, CardBody, CardHeader } from "@/components/ui/card";
 import { getI18n } from "@/i18n/server";
@@ -22,6 +22,7 @@ export default async function UploadsPage() {
       <div className="grid gap-4 lg:grid-cols-2">
         <Card><CardHeader title={d.admin.uploadProjects} /><CardBody><UploadForm kind="projects" />{t.ok ? cols(t.data.projects) : null}</CardBody></Card>
         <Card><CardHeader title={d.admin.uploadBudget} /><CardBody><UploadForm kind="budget-lines" />{t.ok ? cols(t.data.budget_lines) : null}</CardBody></Card>
+        <Card className="lg:col-span-2"><CardHeader title={d.admin.uploadDocument} /><CardBody><DocumentUploadForm /></CardBody></Card>
       </div>
     </div>
   );

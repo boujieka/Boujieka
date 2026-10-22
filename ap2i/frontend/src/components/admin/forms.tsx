@@ -125,6 +125,45 @@ export function UploadForm({ kind }: { kind: "projects" | "budget-lines" }) {
   );
 }
 
+export function DocumentUploadForm() {
+  const { d } = useI18n();
+  const [file, setFile] = useState<File | null>(null);
+  const [project, setProject] = useState("");
+  const [url, setUrl] = useState("");
+  const [title, setTitle] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [res, setRes] = useState<{ ok: boolean; text: string } | null>(null);
+  return (
+    <form className="space-y-3" onSubmit={async (e) => {
+      e.preventDefault();
+      if (!file) return;
+      setBusy(true);
+      const fd = new FormData();
+      fd.append("file", file);
+      fd.append("project", project.trim());
+      fd.append("source_url", url.trim());
+      if (title.trim()) fd.append("title", title.trim());
+      const r = await fetch("/api/proxy/uploads/documents", { method: "POST", body: fd });
+      const body = await r.json().catch(() => null);
+      setBusy(false);
+      if (!r.ok) {
+        setRes({ ok: false, text: `HTTP ${r.status}: ${typeof body?.detail === "string" ? body.detail : JSON.stringify(body?.detail ?? body)}` });
+      } else {
+        const ratings = body?.ratings && Object.keys(body.ratings).length ? ` · ${JSON.stringify(body.ratings)}` : "";
+        setRes({ ok: true, text: `#${body.document_id} · ${body.characters} car. · ${d.admin.parsedAs}: ${body.parsed_as ?? d.admin.textOnly}${ratings}` });
+      }
+    }}>
+      <p className="text-xs text-muted">{d.admin.uploadDocumentIntro}</p>
+      <Field label={d.admin.projectRef} htmlFor="doc-project"><Input id="doc-project" required placeholder="AP2I-CMR-…" value={project} onChange={(e) => setProject(e.target.value)} /></Field>
+      <Field label={d.admin.sourceUrl} htmlFor="doc-url"><Input id="doc-url" type="url" required placeholder="https://www.afdb.org/…" value={url} onChange={(e) => setUrl(e.target.value)} /></Field>
+      <Field label={d.admin.docTitle} htmlFor="doc-title"><Input id="doc-title" value={title} onChange={(e) => setTitle(e.target.value)} /></Field>
+      <Field label={d.admin.file} htmlFor="doc-file"><Input id="doc-file" type="file" accept=".pdf,application/pdf" required onChange={(e) => setFile(e.target.files?.[0] ?? null)} /></Field>
+      <Button type="submit" disabled={busy || !file}>{busy ? d.common.loading : d.admin.upload}</Button>
+      {res ? <Alert tone={res.ok ? "success" : "danger"}>{res.text}</Alert> : null}
+    </form>
+  );
+}
+
 export function SettingForm({ group, initial }: { group: string; initial: unknown }) {
   const { d } = useI18n();
   const router = useRouter();
