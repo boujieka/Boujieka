@@ -28,6 +28,7 @@ from __future__ import annotations
 
 import hashlib
 from collections.abc import Iterator
+from datetime import date
 from decimal import Decimal
 
 from lxml import etree
@@ -210,6 +211,14 @@ class IATIConnector(Connector):
 
         status_code = a.find("activity-status").get("code") if a.find("activity-status") is not None else None
         dates = {d.get("type"): parse_date(d.get("iso-date")) for d in a.findall("activity-date")}
+        today = date.today()
+        for actual, planned in (("2", "1"), ("4", "3")):
+            if dates.get(actual) and dates[actual] > today:
+                warnings.append(f"Activity date type {actual} (actual) {dates[actual]} is in the future: treated as planned, not actual")
+                dates.setdefault(planned, dates[actual])
+                if dates.get(planned) is None:
+                    dates[planned] = dates[actual]
+                dates[actual] = None
 
         # Sector: highest percentage among DAC vocabularies (1 = 5-digit, 2 = 3-digit).
         sector_code = None

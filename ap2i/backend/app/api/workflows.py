@@ -98,7 +98,9 @@ def rescue_create(body: PlanIn, request: Request, principal: Principal = Depends
 @router.get("/rescue/plans")
 def rescue_list(principal: Principal = Depends(require_feature("project_rescue")), db: Session = Depends(get_db)):
     plans = db.scalars(select(RecoveryPlan).where(tenant_filter(RecoveryPlan, principal)).order_by(RecoveryPlan.updated_at.desc())).all()
-    return [{"id": pl.id, "title": pl.title, "status": pl.status, "project_id": pl.project_id, "updated_at": j(pl.updated_at),
+    refs = dict(db.execute(select(Project.id, Project.ap2i_id).where(Project.id.in_([pl.project_id for pl in plans]))).all()) if plans else {}
+    return [{"id": pl.id, "title": pl.title, "status": pl.status, "project_id": pl.project_id,
+             "project_ap2i_id": refs.get(pl.project_id), "updated_at": j(pl.updated_at),
              "summary": plan_summary(pl)} for pl in plans]
 
 

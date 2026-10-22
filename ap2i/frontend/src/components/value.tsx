@@ -6,7 +6,7 @@ import { useI18n } from "./i18n-provider";
 /** The single place where a missing value is rendered: always the "Not available" label, never 0. */
 export function NA() {
   const { d } = useI18n();
-  return <span className="text-muted italic">{d.common.na}</span>;
+  return <span className="whitespace-nowrap text-muted italic">{d.common.na}</span>;
 }
 
 export function V({ value }: { value: React.ReactNode | null | undefined }) {

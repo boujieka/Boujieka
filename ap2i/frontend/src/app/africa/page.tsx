@@ -57,7 +57,7 @@ export default async function AfricaPage({ searchParams }: { searchParams: SP })
                 </TR>
               </THead>
               <TBody>
-                {ov.data.countries.map((c) => (
+                {[...ov.data.countries].sort((a, b) => (locale === "fr" ? a.name_fr.localeCompare(b.name_fr, "fr") : a.name_en.localeCompare(b.name_en, "en"))).map((c) => (
                   <TR key={c.iso3} className={c.has_data ? "" : "text-muted"}>
                     <TD className="whitespace-nowrap">
                       <Link className="link" href={`/countries/${c.iso3}`}>{locale === "fr" ? c.name_fr : c.name_en}</Link>

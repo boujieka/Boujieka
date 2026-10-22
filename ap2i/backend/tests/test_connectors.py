@@ -84,3 +84,23 @@ def test_connector_http_retry_then_error():
     finally:
         base.time.sleep = orig
     assert calls["n"] == 2
+
+
+def test_placeholder_and_future_actual_dates_are_not_facts():
+    from datetime import date, timedelta
+
+    from lxml import etree
+
+    from app.connectors.base import RawRecord
+
+    assert parse_date("1900-01-01") is None and parse_date("1/1/1900 12:00:00 AM") is None
+    future = (date.today() + timedelta(days=400)).isoformat()
+    xml = (f'<iati-activity default-currency="USD"><iati-identifier>TEST-FUT-1</iati-identifier>'
+           f'<title><narrative>SYNTHETIC future dates</narrative></title><recipient-country code="CM"/>'
+           f'<activity-date iso-date="2020-01-01" type="2"/><activity-date iso-date="{future}" type="4"/></iati-activity>')
+    from app.connectors.iati import IATIConnector
+
+    rec = IATIConnector().normalize(RawRecord("TEST-FUT-1", "iati_activity", "CMR", {}, None, raw_text=xml, payload_format="xml"))
+    assert rec.actual_end_date is None and rec.planned_end_date.isoformat() == future
+    assert any("in the future" in w for w in rec.warnings)
+    assert etree is not None

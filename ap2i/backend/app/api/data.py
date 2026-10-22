@@ -110,6 +110,13 @@ def partners(db: Session = Depends(get_db)):
     return out
 
 
+@router.get("/roles")
+def roles(db: Session = Depends(get_db)):
+    from app.models import RoleDef
+
+    return [row(r, ["code", "name_en", "name_fr", "permissions"]) for r in db.scalars(select(RoleDef).order_by(RoleDef.id))]
+
+
 @router.get("/instruments")
 def instruments(db: Session = Depends(get_db)):
     return [row(i, ["code", "name_en", "name_fr"]) for i in db.scalars(select(FinancingInstrument))]
@@ -156,8 +163,9 @@ def africa_overview(year: int | None = None, sector: str | None = None, partner:
         entry = {"iso3": c.iso3, "iso2": c.iso2, "iso_numeric": c.iso_numeric, "name_en": c.name_en, "name_fr": c.name_fr,
                  "is_active": c.is_active, "has_data": bool(items)}
         if not items:
-            entry.update({k: None for k in ("documented_projects", "commitments_usd", "commitments_by_currency", "disbursements_usd",
-                                            "under_implementation", "completed", "operational", "requiring_attention", "last_update")})
+            entry.update({k: None for k in ("documented_projects", "commitments_usd", "commitments_by_currency", "disbursements_by_currency",
+                                            "under_implementation", "completed", "operational", "operational_unknown",
+                                            "requiring_attention", "last_update", "commitments_usd_note")})
             entry["data_coverage"] = "No project records imported"
         else:
             commits: dict[str, Decimal] = defaultdict(Decimal)
@@ -203,7 +211,9 @@ def _project_filter_query(db: Session, principal: Principal, country: str | None
     stmt = select(Project).where(Project.merged_into_id.is_(None), tenant_filter(Project, principal))
     if country:
         stmt = stmt.where(Project.country_id == _country(db, country).id)
-    if sector:
+    if sector == "UNCLASSIFIED":
+        stmt = stmt.where(Project.sector_id.is_(None))
+    elif sector:
         stmt = stmt.join(Sector, Sector.id == Project.sector_id).where(Sector.code == sector)
     if status:
         stmt = stmt.where(Project.status.in_(status.split(",")))
@@ -633,7 +643,7 @@ def methodology():
 @router.get("/explorer/transactions")
 def explorer_transactions(country: str | None = None, flow: str = Query("disbursement", pattern="^(commitment|disbursement|expenditure)$"),
                           partner: str | None = None, year: int | None = None, currency: str | None = None,
-                          limit: int = Query(200, le=2000), offset: int = 0,
+                          project: str | None = None, limit: int = Query(200, le=2000), offset: int = 0,
                           principal: Principal = Depends(get_principal), db: Session = Depends(get_db)):
     model = FinancingCommitment if flow == "commitment" else Disbursement
     q = (select(model, FinancingAgreement, Project).join(FinancingAgreement, FinancingAgreement.id == model.agreement_id)
@@ -649,6 +659,8 @@ def explorer_transactions(country: str | None = None, flow: str = Query("disburs
         q = q.where(model.value_date >= date(year, 1, 1), model.value_date <= date(year, 12, 31))
     if currency:
         q = q.where(model.currency == currency.upper())
+    if project:
+        q = q.where(Project.id == int(project)) if project.isdigit() else q.where(Project.ap2i_id == project)
     total = db.scalar(select(func.count()).select_from(q.subquery()))
     items = []
     for m, a, p in db.execute(q.order_by(model.value_date.desc().nulls_last(), model.id).offset(offset).limit(limit)).all():

@@ -18,39 +18,43 @@
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
 }
 
-html {
-  -webkit-text-size-adjust: 100%;
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  body {
+    background: var(--color-gray-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+  
+  :focus-visible {
+    outline: 3px solid var(--color-gold);
+    outline-offset: 2px;
+  }
+  
+  a {
+    color: inherit;
+  }
 }
 
-body {
-  background: var(--color-gray-bg);
-  color: var(--color-ink);
-  font-family: var(--font-sans);
-  overflow-x: hidden;
-}
-
-:focus-visible {
-  outline: 3px solid var(--color-gold);
-  outline-offset: 2px;
-}
-
-a {
-  color: inherit;
-}
-
-.link {
-  color: var(--color-emerald);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-.link:hover {
-  color: var(--color-navy);
-}
-
-.maplibregl-canvas:focus-visible {
-  outline: 3px solid var(--color-gold);
-}
-
-.break-anywhere {
-  overflow-wrap: anywhere;
+@layer components {
+  .link {
+    color: var(--color-emerald);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .link:hover {
+    color: var(--color-navy);
+  }
+  
+  .maplibregl-canvas:focus-visible {
+    outline: 3px solid var(--color-gold);
+  }
+  
+  .break-anywhere {
+    overflow-wrap: anywhere;
+  }
 }

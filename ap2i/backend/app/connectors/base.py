@@ -211,8 +211,19 @@ class Connector:
 
 # --- small parsing helpers shared by connectors ------------------------------------------------
 
+NULL_DATE_SENTINELS = {date(1900, 1, 1), date(1899, 12, 30), date(1, 1, 1)}
+
+
 def parse_date(value: Any) -> date | None:
-    """Parse the date formats seen in sources. Unparseable -> None (missing), never a guess."""
+    """Parse the date formats seen in sources. Unparseable -> None (missing), never a guess.
+
+    Placeholder dates used by some sources for "no date" (e.g. 1900-01-01) are treated as missing.
+    """
+    d = _parse_date(value)
+    return None if d in NULL_DATE_SENTINELS else d
+
+
+def _parse_date(value: Any) -> date | None:
     if value in (None, "", "null"):
         return None
     s = str(value).strip()

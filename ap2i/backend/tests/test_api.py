@@ -140,3 +140,13 @@ def test_admin_manual_sync_endpoint_logs_failure(client, db, monkeypatch):
     assert r["status"] == "failed"
     runs = client.get("/api/v1/admin/sync-runs", headers=h).json()
     assert runs[0]["status"] == "failed"
+
+
+def test_small_api_additions(loaded, client):
+    assert {r["code"] for r in client.get("/api/v1/roles").json()} >= {"registered_user", "ap2i_super_admin"}
+    pid = client.get("/api/v1/projects", params={"q": "electrification"}).json()["items"][0]["ap2i_id"]
+    t = client.get("/api/v1/explorer/transactions", params={"flow": "disbursement", "project": pid}).json()
+    assert t["total"] >= 1 and all(i["project"]["ap2i_id"] == pid for i in t["items"])
+    ov = client.get("/api/v1/africa/overview").json()["countries"]
+    assert set(next(c for c in ov if c["iso3"] == "SEN")) == set(next(c for c in ov if c["iso3"] == "CMR"))
+    assert client.get("/api/v1/projects", params={"sector": "UNCLASSIFIED"}).status_code == 200

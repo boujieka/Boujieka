@@ -24,7 +24,23 @@ function Cell({ k, v }: { k: string; v: unknown }) {
     const e = currencyEntries(v as Record<string, string>);
     return e.length ? <ul>{e.map(([c, x]) => <li key={c} className="whitespace-nowrap tabular-nums">{fmtAmount(x, c, locale)}</li>)}</ul> : <span className="italic text-muted">{d.common.na}</span>;
   }
-  if (typeof v === "object") return <code className="text-xs break-anywhere">{JSON.stringify(v)}</code>;
+  if (Array.isArray(v)) return v.length ? <ul className="space-y-0.5">{v.map((x, i) => <li key={i}><Cell k={k} v={x} /></li>)}</ul> : <span className="text-muted">—</span>;
+  if (typeof v === "object") {
+    const o = v as Record<string, unknown>;
+    const cur = typeof o.currency === "string" ? o.currency : null;
+    return (
+      <span className="text-xs">
+        {Object.entries(o).filter(([kk]) => kk !== "currency").map(([kk, vv]) => (
+          <span key={kk} className="mr-2 inline-block">
+            <span className="text-muted">{kk}:</span>{" "}
+            {cur && ["committed", "disbursed", "amount", "value"].includes(kk) && (typeof vv === "string" || typeof vv === "number")
+              ? <span className="tabular-nums">{fmtAmount(vv, cur, locale) ?? d.common.na}</span>
+              : vv === null || vv === undefined ? <span className="italic text-muted">{d.common.na}</span> : String(typeof vv === "object" ? JSON.stringify(vv) : vv)}
+          </span>
+        ))}
+      </span>
+    );
+  }
   return <span className="break-anywhere">{String(v)}</span>;
 }
 

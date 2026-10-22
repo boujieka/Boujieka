@@ -57,9 +57,12 @@ def post_sync(country_iso3s: list[str] | None = None) -> dict:
     from app.performance.alerts import run_alerts
     from app.performance.quality import assess_all
 
+    from app.ingestion.corrections import apply_corrections
+
     s = get_settings()
     out = {}
     with SessionLocal() as db:
+        out["corrections"] = apply_corrections(db)
         for iso3 in country_iso3s or s.active_countries:
             c = db.scalar(select(Country).where(Country.iso3 == iso3))
             if c is None:

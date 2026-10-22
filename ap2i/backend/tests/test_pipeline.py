@@ -112,3 +112,20 @@ def test_missing_values_stay_null(loaded):
     assert p.status == "dropped" and p.original_estimated_cost is None and p.physical_progress_pct is None
     agr = p.agreements[0]
     assert agr.amount_original is None and agr.reported_cumulative_disbursed is None
+
+
+def test_corrections_clear_future_actual_dates(db):
+    from datetime import date
+
+    from app.ingestion.corrections import apply_corrections
+
+    cid = db.scalar(select(m.Country.id).where(m.Country.iso3 == "CMR"))
+    p = m.Project(ap2i_id="AP2I-CMR-OTHER-990100", country_id=cid, title="SYNTHETIC", status="active",
+                  actual_completion_date=date(2030, 6, 30))
+    db.add(p)
+    db.commit()
+    out = apply_corrections(db, today=date(2026, 1, 1))
+    assert out["future_actual_dates_cleared"] == 1
+    db.refresh(p)
+    assert p.actual_completion_date is None and p.original_completion_date == date(2030, 6, 30)
+    assert db.scalar(select(m.DataValidation).where(m.DataValidation.rule == "future_actual_date"))
