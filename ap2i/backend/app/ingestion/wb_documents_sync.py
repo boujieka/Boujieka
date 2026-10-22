@@ -14,7 +14,7 @@ import json
 from datetime import date
 from decimal import Decimal
 
-from sqlalchemy import select
+from sqlalchemy import delete, select
 from sqlalchemy.orm import Session
 
 from app.assistant.safety import scan_for_injection
@@ -81,7 +81,7 @@ def run_wb_documents(db: Session, connector: WorldBankDocumentsConnector, connec
             stats.retrieved += 1
             try:
                 with db.begin_nested():
-                    outcome = _store_document(db, connector, connector_row, run, project, pid, d, since, stats)
+                    outcome = _store_document(db, connector, connector_row, run, project, pid, d, since, stats, params.reprocess)
                 if outcome and outcome[0] == ISR and outcome[1] is not None:
                     if latest_isr is None or outcome[1] >= latest_isr[0]:
                         latest_isr = (outcome[1], outcome[2])
@@ -96,7 +96,7 @@ def run_wb_documents(db: Session, connector: WorldBankDocumentsConnector, connec
         db.commit()
 
 
-def _store_document(db, connector, connector_row, run, project: Project, pid: str, d: dict, since: int, stats):
+def _store_document(db, connector, connector_row, run, project: Project, pid: str, d: dict, since: int, stats, reprocess=False):
     doc_id = str(d.get("id"))
     docty = " ".join((d.get("docty") or "").split())
     title = " ".join((d.get("display_title") or docty or "World Bank document").split())
@@ -125,6 +125,11 @@ def _store_document(db, connector, connector_row, run, project: Project, pid: st
     if docty not in PARSED_TYPES or not d.get("txturl") or (docdt and docdt.year < since):
         stats.unchanged += 0
         return None
+    if doc.extracted_text and reprocess:
+        rep = parse_isr(doc.extracted_text, docdt) if docty == ISR else parse_icr(doc.extracted_text, docty, docdt)
+        _apply(db, project, doc, src, rep, docty, docdt, stats)
+        stats.imported += 1
+        return docty, docdt, rep
     if doc.extracted_text:
         stats.unchanged += 1
         rep = parse_isr(doc.extracted_text, docdt) if docty == ISR else None  # local re-parse, no download
@@ -155,15 +160,24 @@ def _obs(db, src, project_id, field, source_field, value=None, numeric=None, vda
 
 
 def _apply(db: Session, project: Project, doc: Document, src: SourceRecord, rep, docty: str, docdt: date | None, stats) -> None:
+    # Re-applying a report replaces what was derived from it (observations, notes); reviewer decisions are kept.
+    db.execute(delete(SourceObservation).where(SourceObservation.source_record_id == src.id,
+                                               SourceObservation.verification_status != "verified",
+                                               SourceObservation.verification_status != "rejected"))
+    db.execute(delete(DataValidation).where(DataValidation.source_record_id == src.id,
+                                            DataValidation.rule.in_(("document_partially_extracted", "physical_progress_candidate"))))
     rating = _rating_string(rep.ratings, docty)
     fin_pct = None
     if docty == ISR and len(rep.loans) == 1 and rep.loans[0]["pct_disbursed"] is not None:
         fin_pct = rep.loans[0]["pct_disbursed"]
-    if docdt and not db.scalar(select(ImplementationProgress).where(ImplementationProgress.project_id == project.id,
-                                                                   ImplementationProgress.document_id == doc.id)):
-        db.add(ImplementationProgress(project_id=project.id, report_date=docdt, physical_progress_pct=None, financial_progress_pct=fin_pct,
-                                      narrative=rep.narrative, rating=rating, document_id=doc.id, source_record_id=src.id,
-                                      data_nature="officially_reported", verification_status="unverified"))
+    if docdt:
+        ip = db.scalar(select(ImplementationProgress).where(ImplementationProgress.project_id == project.id,
+                                                            ImplementationProgress.document_id == doc.id))
+        if ip is None:
+            ip = ImplementationProgress(project_id=project.id, report_date=docdt, document_id=doc.id, source_record_id=src.id,
+                                        data_nature="officially_reported", verification_status="unverified")
+            db.add(ip)
+        ip.financial_progress_pct, ip.narrative, ip.rating = fin_pct, rep.narrative, rating
     sf = f"{docty} {rep.sequence or ''}".strip()
     for key, v in rep.ratings.items():
         _obs(db, src, project.id, f"wb_rating_{key}", sf, json.dumps(v), rdate=docdt)
@@ -193,14 +207,18 @@ def _apply(db: Session, project: Project, doc: Document, src: SourceRecord, rep,
         ri.baseline_date, ri.target_date = ind.get("baseline_date"), ind.get("target_date")
         for which in ("previous", "current"):
             val, when = ind[which], ind.get(f"{which}_date")
-            if when is None:
-                continue
+            if when is None or val in (None, ""):
+                continue  # a date without a value is not an observation
             num = to_decimal_value(val)
             exists = db.scalar(select(ResultsObservation).where(ResultsObservation.indicator_id == ri.id, ResultsObservation.period_end == when))
             if exists is None:
                 db.add(ResultsObservation(indicator_id=ri.id, value=num, value_text=None if num is not None else val, period_end=when,
                                           source_record_id=src.id, data_nature="officially_reported"))
+    reviewed = {o.value_text for o in db.scalars(select(SourceObservation).where(
+        SourceObservation.source_record_id == src.id, SourceObservation.field == "physical_progress_candidate"))}
     for c in rep.progress_candidates:
+        if c["sentence"] in reviewed:
+            continue  # already decided by a reviewer
         _obs(db, src, project.id, "physical_progress_candidate", f"{sf} narrative", c["sentence"], numeric=c["value"], vdate=docdt,
              rdate=docdt, verification="needs_review")
         db.add(DataValidation(source_record_id=src.id, project_id=project.id, rule="physical_progress_candidate", severity="info",

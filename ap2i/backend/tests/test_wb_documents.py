@@ -69,3 +69,28 @@ def test_documents_sync_persists_and_never_infers_progress(loaded, client):
     # idempotent re-run: no new documents parsed
     run2 = run_sync(db, "worldbank_documents", connector=docs_connector(), force=True)
     assert run2.records_imported == 0 and run2.records_new == 0
+
+
+def test_layout_variants():
+    pad = " " * 25
+    columnar = "\n".join([
+        pad + "Indicator Name                                    Core Unit of Measure                      Baseline                         Current                          End Target",
+        pad + "SYNTHETIC rural communities with                          Number               Value        0.00                             88448.00                         50000.00",
+        pad + "land management plans                                                          Date         01-Mar-2008                      01-Mar-2012                      01-Mar-2012",
+        pad + "SYNTHETIC people with water access                        Text                 Value        0                                                                 50000",
+        pad + "                                                                               Date         04-Oct-2004                      19-May-2010                      30-Nov-2009",
+    ])
+    r = parse_isr(columnar)
+    assert len(r.indicators) == 2
+    a, b = r.indicators
+    assert a["name"].startswith("SYNTHETIC rural communities with land management plans")
+    assert (a["baseline"], a["current"], a["target"]) == ("0.00", "88448.00", "50000.00")
+    assert b["current"] is None and b["target"] == "50000"  # an empty cell is not shifted
+    ctl = " Progress towards achievement of PDO          \u0080Moderately Satisfactory        \u0080Moderately Unsatisfactory\r\n"
+    assert parse_isr(ctl).ratings["pdo"]["current"] == "Moderately Unsatisfactory"
+    icr = "KEY RATINGS\n\n     Outcome                                         Bank Performance                           M&E Quality\n" \
+          "    Satisfactory                                     Satisfactory                               Substantial\n"
+    from app.connectors.wb_documents import ICR
+
+    assert parse_icr(icr, ICR).ratings == {"outcome": {"icr": "Satisfactory"}, "bank_performance": {"icr": "Satisfactory"},
+                                           "me_quality": {"icr": "Substantial"}}

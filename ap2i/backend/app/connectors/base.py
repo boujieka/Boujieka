@@ -35,6 +35,7 @@ class SyncParams:
     date_to: date | None = None
     incremental: bool = True
     limit: int | None = None  # cap for tests / manual sampling
+    reprocess: bool = False  # re-apply parsing/mappings to records already stored
     cursor: dict = field(default_factory=dict)
 
 

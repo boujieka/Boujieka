@@ -64,6 +64,7 @@ def _clean(text: str) -> str:
 
 def _normalize(text: str) -> str:
     text = text.replace("\r\n", "\n").replace("\r", "\n")
+    text = re.sub(r"[\u0080-\u009f\u00a0\u2007\u202f]", " ", text)  # C1 controls and non-breaking spaces  # C1 control characters left by some PDF-to-text conversions
     return re.sub(r"[\ue000-\uf8ff]", " ", text)  # private-use glyphs (checkbox/bullet fonts)
 
 
@@ -180,6 +181,8 @@ def parse_isr(text: str, report_date: date | None = None) -> ParsedReport:
         if dates and len(dates) == 4:
             ind.update({"baseline_date": dates[0], "previous_date": dates[1], "current_date": dates[2], "target_date": dates[3]})
         r.indicators.append(ind)
+    if not r.indicators:
+        r.indicators = _columnar_indicators(lines)
     if not r.indicators and re.search(r"Indicator Name", t):
         r.notes.append("Results table present but its values are not in the text rendition (post-2024 ISR layout); not extracted.")
 
@@ -190,6 +193,42 @@ def parse_isr(text: str, report_date: date | None = None) -> ParsedReport:
             if pct is not None and pct <= 100:
                 r.progress_candidates.append({"value": pct, "sentence": _clean(mm.group(1))[:500]})
     return r
+
+
+def _columnar_indicators(lines: list[str]) -> list[dict]:
+    """Pre-2015 ISR layout: 'Indicator Name  Core Unit of Measure  Baseline  Current  End Target' with values read by
+    column position, so that an empty cell (e.g. no current value) is never shifted into another column."""
+    out: list[dict] = []
+    hdr = re.compile(r"Indicator Name\s+(?:Core\s+)?Unit of Measure\s+Baseline\s+Current\s+End Target")
+    i = 0
+    while i < len(lines):
+        h = lines[i]
+        if not hdr.search(h):
+            i += 1
+            continue
+        unit_col = h.index("Unit of Measure") - (5 if "Core Unit" in h else 0)
+        b, c, t = h.index("Baseline"), h.index("Current"), h.index("End Target")
+        cuts = [(b - 4, c - 4), (c - 4, t - 4), (t - 4, None)]
+        cur: dict | None = None
+        i += 1
+        while i < len(lines) and not hdr.search(lines[i]) and not re.search(r"Data on Financial Performance|Disbursements \(by loan\)", lines[i]):
+            ln = lines[i]
+            if re.search(r"\bValue\b", ln[unit_col - 2: b + 2] if len(ln) > unit_col else ""):
+                vpos = ln.index("Value", max(0, unit_col - 2))
+                cur = {"name": ln[:unit_col].strip(), "unit": ln[unit_col:vpos].strip() or None,
+                       "baseline": ln[cuts[0][0]:cuts[0][1]].strip() or None, "previous": None,
+                       "current": ln[cuts[1][0]:cuts[1][1]].strip() or None, "target": ln[cuts[2][0]:].strip() or None}
+                out.append(cur)
+            elif cur is not None and re.search(r"\bDate\b", ln[unit_col - 2: b + 2] if len(ln) > unit_col else ""):
+                cur["baseline_date"] = wb_date(ln[cuts[0][0]:cuts[0][1]].strip())
+                cur["current_date"] = wb_date(ln[cuts[1][0]:cuts[1][1]].strip())
+                cur["target_date"] = wb_date(ln[cuts[2][0]:].strip())
+                cur["name"] = _clean(cur["name"] + " " + ln[:unit_col].strip())
+            elif cur is not None and ln[:unit_col].strip() and not re.match(r"\s*(Comments|Public Disclosure|Intermediate Results|Project Development)", ln):
+                if "current_date" in cur or "baseline_date" in cur:
+                    cur["name"] = _clean(cur["name"] + " " + ln[:unit_col].strip())
+            i += 1
+    return [x for x in out if x["name"]]
 
 
 def parse_icr(text: str, doc_type: str, report_date: date | None = None) -> ParsedReport:
@@ -207,6 +246,24 @@ def parse_icr(text: str, doc_type: str, report_date: date | None = None) -> Pars
             else:
                 r.ratings[key] = {"icr": vals[0]}
             break
+    if not r.ratings:
+        # Newer ICRs: a "KEY RATINGS" block with labels on one line and values on the next.
+        lines = t.splitlines()
+        keymap = {"Outcome": "outcome", "Bank Performance": "bank_performance", "M&E Quality": "me_quality",
+                  "Risk to Development Outcome": "risk_to_do", "Borrower Performance": "borrower_performance"}
+        for n, ln in enumerate(lines):
+            if not re.search(r"KEY RATINGS", ln, re.I):
+                continue
+            nonempty = [x for x in lines[n + 1:n + 20] if x.strip()]
+            for a, bline in zip(nonempty, nonempty[1:]):
+                labels, values = _cols(a), _cols(bline)
+                if labels and len(labels) == len(values) and all(lab in keymap for lab in labels) \
+                        and all(re.fullmatch(RATING_WORDS, v) for v in values):
+                    for lab, val in zip(labels, values):
+                        r.ratings[keymap[lab]] = {"icr": val}
+                    break
+            if r.ratings:
+                break
     if not r.ratings:
         r.notes.append("No ratings recognised in the text rendition.")
     return r
