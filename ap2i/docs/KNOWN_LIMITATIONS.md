@@ -9,8 +9,10 @@
   the connected sources: these fields are empty for imported projects (they can be filled through the upload
   workflow from official reports). Alerts that need them do not fire.
 * World Bank supervision reports: results-table values of the post-2024 ISR layout are not in the text
-  rendition and are not extracted (PDF table extraction not implemented). Ratings, dates, narrative and the
-  disbursement table are extracted. ISRs before 2011 are catalogued but not parsed (configurable).
+  rendition; they are read from the PDF by word position. That reader was built on the 2024–2025 template: a row
+  whose words do not fit the columns is dropped (not guessed), "Month/Year" baseline/target dates are kept without
+  a day (date left empty), and an "actual" dated after its report is not stored (flagged). A different future
+  template would need a parser update. ISRs before 2011 are catalogued but not parsed (configurable).
 * Physical progress comes only from reviewer-validated candidates (narrative percentages) or uploaded official
   documents; it is empty until a reviewer acts.
 * World Bank disbursements are cumulative to date (US$ millions, 2 decimals); they are not split by year.

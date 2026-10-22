@@ -19,7 +19,17 @@ from sqlalchemy.orm import Session
 
 from app.assistant.safety import scan_for_injection
 from app.connectors.base import ConnectorError, SyncParams, parse_date
-from app.connectors.wb_documents import ICR, ICRR, ISR, PARSED_TYPES, WorldBankDocumentsConnector, parse_icr, parse_isr, to_decimal_value
+from app.connectors.wb_documents import (
+    ICR,
+    ICRR,
+    ISR,
+    PARSED_TYPES,
+    WorldBankDocumentsConnector,
+    parse_icr,
+    parse_isr,
+    parse_isr_pdf_results,
+    to_decimal_value,
+)
 from app.models import (
     Country,
     DataValidation,
@@ -35,6 +45,8 @@ from app.models import (
 )
 
 MAX_TEXT = 1_000_000
+TEXT_TABLE_MISSING = "Results table present but its values are not in the text rendition"
+PDF_CACHE_FIELD = "isr_pdf_results"  # parsed PDF table kept as provenance, so the PDF is not downloaded again
 log = logging.getLogger("ap2i.wb_documents")
 
 
@@ -125,14 +137,23 @@ def _store_document(db, connector, connector_row, run, project: Project, pid: st
     if docty not in PARSED_TYPES or not d.get("txturl") or (docdt and docdt.year < since):
         stats.unchanged += 0
         return None
+    pdf_tables = (connector_row.config or {}).get("read_pdf_tables", True)
     if doc.extracted_text and reprocess:
         rep = parse_isr(doc.extracted_text, docdt) if docty == ISR else parse_icr(doc.extracted_text, docty, docdt)
+        if pdf_tables:
+            _pdf_results(db, connector, src, d, rep, project)
         _apply(db, project, doc, src, rep, docty, docdt, stats)
         stats.imported += 1
         return docty, docdt, rep
     if doc.extracted_text:
-        stats.unchanged += 1
         rep = parse_isr(doc.extracted_text, docdt) if docty == ISR else None  # local re-parse, no download
+        if rep is not None and pdf_tables and _needs_pdf(rep) and _cached_pdf_results(db, src) is None:
+            # stored before PDF tables were read: read the table once now
+            _pdf_results(db, connector, src, d, rep, project)
+            _apply(db, project, doc, src, rep, docty, docdt, stats)
+            stats.imported += 1
+        else:
+            stats.unchanged += 1
         return docty, docdt, rep
     text = connector.text(d["txturl"])[:MAX_TEXT]
     doc.extracted_text = text
@@ -145,11 +166,63 @@ def _store_document(db, connector, connector_row, run, project: Project, pid: st
                               message=f"Document text contains instruction-like patterns {doc.injection_flags}; treated as data only"))
     if docty == ISR:
         rep = parse_isr(text, docdt)
+        if pdf_tables:
+            _pdf_results(db, connector, src, d, rep, project)
     else:
         rep = parse_icr(text, docty, docdt)
     _apply(db, project, doc, src, rep, docty, docdt, stats)
     stats.imported += 1
     return docty, docdt, rep
+
+
+def _needs_pdf(rep) -> bool:
+    return not rep.indicators and any(n.startswith(TEXT_TABLE_MISSING) for n in rep.notes)
+
+
+def _cached_pdf_results(db, src) -> list[dict] | None:
+    o = db.scalar(select(SourceObservation).where(SourceObservation.source_record_id == src.id,
+                                                  SourceObservation.field == PDF_CACHE_FIELD))
+    return None if o is None else json.loads(o.value_text or "{}").get("indicators")
+
+
+def _pdf_results(db, connector, src, d: dict, rep, project) -> None:
+    """Post-2024 ISR: read the results table from the PDF when the text rendition has no values."""
+    if not _needs_pdf(rep):
+        return
+    cached = _cached_pdf_results(db, src)
+    if cached is None:
+        if not d.get("pdfurl"):
+            return
+        try:
+            content = connector.pdf(d["pdfurl"])
+            found = parse_isr_pdf_results(content)
+        except Exception as exc:  # noqa: BLE001 — the text-parsed facts are still applied
+            rep.notes.append(f"Results table not in the text rendition and the PDF could not be read ({type(exc).__name__}); "
+                             "not extracted.")
+            return
+        for ind in found:
+            for k, v in list(ind.items()):
+                if isinstance(v, date):
+                    ind[k] = v.isoformat()
+        db.add(SourceObservation(source_record_id=src.id, project_id=project.id, field=PDF_CACHE_FIELD,
+                                 source_field=f"PDF results table, sha256 {hashlib.sha256(content).hexdigest()}",
+                                 value_text=json.dumps({"pdf_url": d["pdfurl"], "method": "pymupdf word positions",
+                                                        "indicators": found}), verification_status="unverified"))
+        db.flush()
+        cached = found
+    inds = []
+    for ind in cached:
+        ind = dict(ind)
+        for k, v in ind.items():
+            if k.endswith("_date") and isinstance(v, str):
+                ind[k] = date.fromisoformat(v)
+        inds.append(ind)
+    rep.notes = [n for n in rep.notes if not n.startswith(TEXT_TABLE_MISSING)]
+    if inds:
+        rep.indicators = inds
+        rep.notes.append(f"Results table read from the PDF by word position ({len(inds)} indicators; post-2024 ISR layout).")
+    else:
+        rep.notes.append("Results table present but neither the text rendition nor the PDF table could be read; not extracted.")
 
 
 def _obs(db, src, project_id, field, source_field, value=None, numeric=None, vdate=None, currency=None, rdate=None,
@@ -162,10 +235,12 @@ def _obs(db, src, project_id, field, source_field, value=None, numeric=None, vda
 def _apply(db: Session, project: Project, doc: Document, src: SourceRecord, rep, docty: str, docdt: date | None, stats) -> None:
     # Re-applying a report replaces what was derived from it (observations, notes); reviewer decisions are kept.
     db.execute(delete(SourceObservation).where(SourceObservation.source_record_id == src.id,
+                                               SourceObservation.field != PDF_CACHE_FIELD,
                                                SourceObservation.verification_status != "verified",
                                                SourceObservation.verification_status != "rejected"))
     db.execute(delete(DataValidation).where(DataValidation.source_record_id == src.id,
-                                            DataValidation.rule.in_(("document_partially_extracted", "physical_progress_candidate"))))
+                                            DataValidation.rule.in_(("document_partially_extracted", "physical_progress_candidate",
+                                                                     "result_date_after_report"))))
     rating = _rating_string(rep.ratings, docty)
     fin_pct = None
     if docty == ISR and len(rep.loans) == 1 and rep.loans[0]["pct_disbursed"] is not None:
@@ -198,7 +273,8 @@ def _apply(db: Session, project: Project, doc: Document, src: SourceRecord, rep,
     for ind in rep.indicators:
         ri = db.scalar(select(ResultsIndicator).where(ResultsIndicator.project_id == project.id, ResultsIndicator.name == ind["name"][:5000]))
         if ri is None:
-            ri = ResultsIndicator(project_id=project.id, name=ind["name"][:5000], unit=ind.get("unit"), measure="as reported",
+            ri = ResultsIndicator(project_id=project.id, name=ind["name"][:5000], unit=(ind.get("unit") or None) and ind["unit"][:60],
+                                  measure="as reported",
                                   source_record_id=src.id)
             db.add(ri)
             db.flush()
@@ -209,6 +285,12 @@ def _apply(db: Session, project: Project, doc: Document, src: SourceRecord, rep,
             val, when = ind[which], ind.get(f"{which}_date")
             if when is None or val in (None, ""):
                 continue  # a date without a value is not an observation
+            if docdt and when > docdt:
+                # an "actual" dated after the report itself is a typo in the source: not stored as a time point
+                db.add(DataValidation(source_record_id=src.id, project_id=project.id, rule="result_date_after_report",
+                                      severity="warning", message=f"{ind['name'][:200]}: {which} value {val} dated "
+                                      f"{when.isoformat()}, after the report date {docdt.isoformat()}; not stored"))
+                continue
             num = to_decimal_value(val)
             exists = db.scalar(select(ResultsObservation).where(ResultsObservation.indicator_id == ri.id, ResultsObservation.period_end == when))
             if exists is None:

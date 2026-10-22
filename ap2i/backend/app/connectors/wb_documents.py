@@ -2,15 +2,15 @@
 
 Source: World Bank Documents & Reports API (public, no key)
   https://search.worldbank.org/api/v2/wds?format=json&proid=P157734
-Each document has a PDF and a plain-text rendition (`txturl`); AP²I parses the text rendition.
+Each document has a PDF and a plain-text rendition (`txturl`); AP²I parses the text rendition, and reads the
+results table from the PDF itself when the text rendition does not contain its values (post-2024 ISRs).
 Terms: World Bank Terms of Use for Datasets / documents (public disclosure); attribution kept.
 
 What is extracted (officially reported, as written in the report):
   * ISR: report date, sequence number, ratings (Progress towards PDO, Overall Implementation Progress,
     Overall Risk — previous and current), "Implementation Status and Key Decisions" narrative, original and
     revised closing dates, per-loan disbursement table (original, revised, cancelled, disbursed, undisbursed,
-    % disbursed), results indicators with baseline / previous / current / end-target values and dates
-    (older ISR layout only — see below).
+    % disbursed), results indicators with baseline / previous / current / end-target values and dates.
   * ICR: ratings by the ICR (outcome, risk to development outcome, Bank and borrower performance).
   * ICR Review (IEG): the same ratings as validated by IEG.
 What is NOT inferred:
@@ -18,7 +18,9 @@ What is NOT inferred:
     CANDIDATE observations (verification_status=needs_review); a Data Reviewer must confirm them before they
     become the project's physical progress.
   * Results tables of the post-2024 ISR layout: their values are not in the text rendition (only the indicator
-    names are). They are reported as "not extractable from text" rather than guessed.
+    names are). They are read from the PDF by word position (`parse_isr_pdf_results`); a row whose words do not
+    fit the table's columns is dropped, never guessed. "Month/Year" dates (e.g. "Jun/2020") have no day: the date
+    is left empty rather than given an invented day.
 """
 
 from __future__ import annotations
@@ -29,7 +31,7 @@ from dataclasses import dataclass, field
 from datetime import date, datetime
 from decimal import Decimal
 
-from app.connectors.base import Connector, RawRecord, SyncParams, parse_decimal
+from app.connectors.base import Connector, ConnectorError, RawRecord, SyncParams, parse_decimal
 
 ISR = "Implementation Status and Results Report"
 ICR = "Implementation Completion and Results Report"
@@ -293,6 +295,12 @@ class WorldBankDocumentsConnector(Connector):
     def text(self, url: str) -> str:
         return self.get(url.replace("http://", "https://", 1)).content.decode("utf-8", errors="replace")
 
+    def pdf(self, url: str) -> bytes:
+        content = self.get(url.replace("http://", "https://", 1)).content
+        if not content.startswith(b"%PDF"):
+            raise ConnectorError(f"not a PDF: {url}")
+        return content
+
     def fetch(self, params: SyncParams) -> Iterator[RawRecord]:  # pragma: no cover - custom run
         return iter(())
 
@@ -306,3 +314,123 @@ def to_decimal_value(v: str | None) -> Decimal | None:
     s = v.strip().replace(",", "")
     m = re.fullmatch(r"-?\d+(?:\.\d+)?", s.rstrip("%"))
     return Decimal(m.group(0)) if m else None
+
+
+# --- Post-2024 ISR layout: results tables read from the PDF by word position ----------------------------------
+# Since ~2024 the text rendition of an ISR contains the indicator names but not the table values. The PDF has them:
+#   header      Baseline | Actual (Previous) | Actual (Current) | Closing Period
+#   sub-header  Value Month/Year | Value Date | Value Date | Value Month/Year
+#   value row   one line of numbers/dates in those 8 sub-columns (empty cells simply have no word)
+#   name        in the left column, on the value row and/or the lines just below it; "Comments on achieving targets"
+#               and the comment text sit in the middle/right columns of the same lines.
+# Each word is assigned to the nearest sub-column; a word whose kind (value vs date) does not match its column, or two
+# words in one cell, make the whole row rejected rather than guessed.
+
+VALUE_TOKEN = re.compile(r"^(?:-?[\d,]+(?:\.\d+)?%?|\d{2}-[A-Z][a-z]{2}-\d{4}|[A-Z][a-z]{2}/\d{4}|Yes|No|N/A)$")
+FULL_DATE = re.compile(r"^\d{2}-[A-Z][a-z]{2}-\d{4}$")
+MONTH_YEAR = re.compile(r"^[A-Z][a-z]{2}/\d{4}$")
+SLOTS = ["baseline", "previous", "current", "target"]
+SUBHEAD = ("Value", "Date", "Month/Year")
+
+
+def _rows(words, tol: float = 3.0) -> list[list]:
+    rows: list[list] = []
+    for w in sorted(words, key=lambda w: (w[1], w[0])):
+        if rows and abs(rows[-1][0][1] - w[1]) <= tol:
+            rows[-1].append(w)
+        else:
+            rows.append([w])
+    return [sorted(r, key=lambda w: w[0]) for r in rows]
+
+
+def _subheader_columns(row) -> list[tuple[float, str, str]] | None:
+    """(x-center, slot, 'value'|'date') for the sub-columns of a 'Value / Date / Month/Year' header row."""
+    if len(row) < 6 or any(w[4] not in SUBHEAD for w in row):
+        return None
+    if len(row) == 8:
+        slots = SLOTS
+    elif len(row) == 6:
+        slots = ["baseline", "current", "target"]  # layout without an "Actual (Previous)" column
+    else:
+        return None
+    cols = [((w[0] + w[2]) / 2, slots[i // 2], "value" if w[4] == "Value" else "date") for i, w in enumerate(row)]
+    if any(c[2] != ("value" if i % 2 == 0 else "date") for i, c in enumerate(cols)):
+        return None
+    return cols
+
+
+def _table_words(page) -> list:
+    """Words of the page body, without page furniture (running header, footer) and bold section titles."""
+    skip = []
+    for b in page.get_text("dict")["blocks"]:
+        for ln in b.get("lines", []):
+            for sp in ln["spans"]:
+                # bold = section / page titles; small = footer; top band = running header (project name)
+                if sp["flags"] & 16 or sp["size"] < 9 or sp["bbox"][3] < 65:
+                    skip.append(sp["bbox"])
+    out = []
+    for w in page.get_text("words"):
+        cx, cy = (w[0] + w[2]) / 2, (w[1] + w[3]) / 2
+        if not any(x0 <= cx <= x1 and y0 <= cy <= y1 for x0, y0, x1, y1 in skip):
+            out.append(w)
+    return out
+
+
+def parse_isr_pdf_results(pdf: bytes) -> list[dict]:
+    import pymupdf
+
+    found: list[dict] = []
+    cols = None
+    current: dict | None = None
+    with pymupdf.open(stream=pdf, filetype="pdf") as doc:
+        for page in doc:
+            if current is not None and current["name"]:
+                current = None  # a complete name never continues on the next page; an empty one may
+            for row in _rows(_table_words(page)):
+                texts = [w[4] for w in row]
+                sub = _subheader_columns(row)
+                if sub:
+                    cols, current = sub, None
+                    continue
+                if "Baseline" in texts or ("Indicator" in texts and "Name" in texts):
+                    current = None
+                    continue
+                if not cols:
+                    continue
+                # name column ends left of the baseline values (which start ~35pt left of the "Value" header centre)
+                name_limit = min(c[0] for c in cols) - 38
+                left = [w for w in row if w[0] < name_limit]
+                right = [w for w in row if w[0] >= name_limit]
+                if right and all(VALUE_TOKEN.match(w[4]) for w in right) and (len(right) >= 2 or left):
+                    cells: dict[str, dict[str, str]] = {}
+                    ok = True
+                    for w in right:
+                        cx = (w[0] + w[2]) / 2
+                        _, slot, kind = min(cols, key=lambda c: abs(c[0] - cx))
+                        is_date = bool(FULL_DATE.match(w[4]) or MONTH_YEAR.match(w[4]))
+                        if (kind == "date") != is_date or kind in cells.get(slot, {}):
+                            ok = False  # token does not fit its column: reject the row, never guess
+                            break
+                        cells.setdefault(slot, {})[kind] = w[4]
+                    current = {"name": [], "cells": cells, "ok": ok}
+                    found.append(current)
+                if current is not None and left:
+                    current["name"].append(" ".join(w[4] for w in left))
+    out = []
+    for r in found:
+        name = _clean(" ".join(r["name"]))
+        if not r["ok"] or not name:
+            continue
+        um = re.search(r"\(([^()]*(?:\([^()]*\))?[^()]*)\)\s*$", name)
+        ind = {"name": name[: um.start()].strip() if um else name, "unit": um.group(1) if um else None}
+        for slot in SLOTS:
+            c = r["cells"].get(slot, {})
+            ind[slot] = c.get("value")
+            d = c.get("date")
+            # "Jun/2020" has no day: the date is left empty (no day invented) and the period kept as text
+            ind[f"{slot}_date"] = wb_date(d) if d and FULL_DATE.match(d) else None
+            if d and MONTH_YEAR.match(d):
+                ind[f"{slot}_period"] = d
+        if any(ind[s] is not None for s in SLOTS):
+            out.append(ind)
+    return out
