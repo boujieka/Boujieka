@@ -35,8 +35,6 @@ export function OperationalBadge({ value }: { value: string | null | undefined }
   return <Badge tone={tone}>{label(d.operationalStatus, value)}</Badge>;
 }
 
-export const LEVEL_ORDER = ["critical_attention", "high_attention", "watch", "information"];
-export const LEVEL_COLOR: Record<string, string> = { critical_attention: "#a4262c", high_attention: "#d9a323", watch: "#0d3a69", information: "#8a96a3" };
 
 export function LevelBadge({ value }: { value: string | null | undefined }) {
   const { d } = useI18n();

@@ -109,7 +109,7 @@ export const fr = {
   },
   coverage: {
     title: "Couverture des données",
-    text: "La couverture d'AP²I est limitée aux sources connectées (Banque mondiale, BAD via IATI, AFD via IATI) et aux documents officiels importés. Elle ne représente pas le portefeuille national complet d'investissement public.",
+    text: "La couverture d'AP²I est limitée aux sources connectées (voir l'état des connecteurs sur la page Qualité des données) et aux documents officiels importés. Elle ne représente pas le portefeuille national complet d'investissement public.",
     short: "Sources connectées uniquement — pas le portefeuille national complet.",
   },
   natures: {
@@ -719,7 +719,7 @@ export const fr = {
   },
   footer: {
     rights: "AP²I — Africa Public Project Intelligence",
-    dataFrom: "Données : Banque mondiale, Banque africaine de développement (IATI), Agence française de développement (IATI).",
+    dataFrom: "Données : publications officielles des partenaires financiers (API Banque mondiale, IATI) — voir la liste des connecteurs.",
     mapCredit: "Frontières : Natural Earth (domaine public) via world-atlas.",
   },
 };

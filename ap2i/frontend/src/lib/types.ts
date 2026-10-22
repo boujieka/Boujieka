@@ -225,6 +225,7 @@ export interface Portfolio {
   last_year: number;
   methodology_version: string;
   projects_in_scope: number;
+  has_data?: boolean;
   years: PortfolioYear[];
   coverage_note: string;
 }

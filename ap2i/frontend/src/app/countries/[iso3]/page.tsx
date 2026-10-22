@@ -31,7 +31,7 @@ export default async function CountryPage({ params }: { params: Promise<{ iso3: 
   const c = detail.data;
   const name = locale === "fr" ? c.name_fr : c.name_en;
   const hasData = dash.ok && dash.data.documented_projects > 0;
-  const pf = hasData ? await apiGet<Portfolio>(`/countries/${iso3}/portfolio?year_from=2011&year_to=2026`) : null;
+  const pf = dash.ok ? await apiGet<Portfolio>(`/countries/${iso3}/portfolio?year_from=2011&year_to=2026`) : null;
   const years: SlimYear[] = pf?.ok
     ? pf.data.years.map((y) => ({
         year: y.year, approved: y.counts.approved, active: y.counts.active, completed: y.counts.completed, undated: y.counts.undated_projects_excluded ?? null,
@@ -51,7 +51,7 @@ export default async function CountryPage({ params }: { params: Promise<{ iso3: 
       <CoverageNotice d={d} apiText={dash.ok ? dash.data.coverage_warning : null} />
 
       {!dash.ok ? <ErrorState d={d} status={dash.status} message={dash.error} /> : !hasData ? (
-        <Alert tone="info" title={d.countries.noRecords}><p>{d.countries.noRecordsText}</p></Alert>
+        <Alert tone="info" title={d.countries.noRecords}><p>{d.countries.noRecordsText}</p>{pf?.ok && pf.data.coverage_note ? <p className="mt-1 text-xs">API: “{pf.data.coverage_note}”</p> : null}</Alert>
       ) : (
         <>
           <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
@@ -126,7 +126,7 @@ export default async function CountryPage({ params }: { params: Promise<{ iso3: 
 
           <Card>
             <CardHeader title={d.countries.annualTitle} description={pf?.ok ? pf.data.coverage_note : undefined} />
-            <CardBody>{pf && !pf.ok ? <ErrorState d={d} status={pf.status} message={pf.error} /> : <AnnualPortfolio iso3={iso3} years={years} />}</CardBody>
+            <CardBody>{pf && !pf.ok ? <ErrorState d={d} status={pf.status} message={pf.error} /> : pf?.ok && (pf.data.has_data === false || years.length === 0) ? <Alert tone="info" title={d.countries.noRecords}><p>{pf.data.coverage_note}</p></Alert> : <AnnualPortfolio iso3={iso3} years={years} />}</CardBody>
           </Card>
         </>
       )}

@@ -111,7 +111,7 @@ export const en: Dict = {
   },
   coverage: {
     title: "Data coverage",
-    text: "AP²I coverage is limited to connected sources (World Bank, AfDB via IATI, AFD via IATI) and imported official documents. It is not the complete national public investment portfolio.",
+    text: "AP²I coverage is limited to connected sources (see connector status on the Data quality page) and imported official documents. It is not the complete national public investment portfolio.",
     short: "Connected sources only — not the complete national portfolio.",
   },
   natures: {
@@ -721,7 +721,7 @@ export const en: Dict = {
   },
   footer: {
     rights: "AP²I — Africa Public Project Intelligence",
-    dataFrom: "Data: World Bank, African Development Bank (IATI), Agence française de développement (IATI).",
+    dataFrom: "Data: official publications of financing partners (World Bank API, IATI) — see the connector list.",
     mapCredit: "Boundaries: Natural Earth (public domain) via world-atlas.",
   },
 };

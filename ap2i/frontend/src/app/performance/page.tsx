@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { LEVEL_COLOR, LEVEL_ORDER, LevelBadge, ReviewBadge } from "@/components/badges";
+import { LevelBadge, ReviewBadge } from "@/components/badges";
+import { LEVEL_COLOR, LEVEL_ORDER } from "@/lib/levels";
 import { AlertReview } from "@/components/alert-review";
 import { CoverageNotice } from "@/components/coverage";
 import { FilterBar, one, type SP } from "@/components/filter-bar";

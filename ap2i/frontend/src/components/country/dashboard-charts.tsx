@@ -2,7 +2,7 @@
 
 import { Chart } from "@/components/charts/echart";
 import { ChartLinks } from "@/components/charts/chart-links";
-import { LEVEL_COLOR, LEVEL_ORDER } from "@/components/badges";
+import { LEVEL_COLOR, LEVEL_ORDER } from "@/lib/levels";
 import { label } from "@/i18n";
 import { fmtNumber } from "@/lib/format";
 import type { Dashboard } from "@/lib/types";
