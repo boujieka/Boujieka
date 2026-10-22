@@ -45,6 +45,18 @@ jobs:
       - run: npm run build
       - run: npm audit --audit-level=high
 
+  portal:
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: ap2i/portal } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "22", cache: npm, cache-dependency-path: ap2i/portal/package-lock.json }
+      - run: npm ci
+      - run: npm test  # the real-data reconciliation test is skipped when no snapshot is present
+      - run: npm run build
+      - run: npm audit --audit-level=high
+
   docker:
     runs-on: ubuntu-latest
     needs: [backend, frontend]

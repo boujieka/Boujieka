@@ -39,6 +39,10 @@
   ADFD) have no automated connector.
 
 ## Product
+* Public portal (ap2i-africa.netlify.app, `portal/`): a read-only snapshot of the public records exported from the
+  database (date shown on every page), because Netlify cannot run the Python backend or PostgreSQL. It reconciles with
+  the portfolio engine at export time but does not update by itself; accounts, organisation-private data and official
+  Project Rescue plans exist only in the full application, which is not publicly hosted yet.
 * Document processing: World Bank ISR/ICR texts are downloaded and parsed (plain-text renditions). AfDB
   completion reports and IDEV review notes from evrd.afdb.org are parsed (PDF text layer); uploaded PDFs are stored
   as text. AFD documents are stored as links only. RAG/semantic search over

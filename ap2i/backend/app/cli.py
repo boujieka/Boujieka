@@ -10,6 +10,8 @@
   check-country-sources     check reachability of country-specific official sources
   connector-report          print the connector status report (markdown)
   migrate-mvp <db_url>      migrate an AP²I MVP v0.1 database (SQLite/PostgreSQL URL) and print the report
+  export-public-snapshot <outdir> [ISO3 ...]
+                            write the public read-only data snapshot used by the static portal
 """
 
 from __future__ import annotations
@@ -72,6 +74,12 @@ def main(argv: list[str]) -> int:
                 db.add(UserRole(user_id=u.id, role_id=role.id))
             db.commit()
             print(f"Super administrator ready: {email}")
+        elif cmd == "export-public-snapshot":
+            # offline, in-process API calls: the per-client request limit does not apply to this export
+            os.environ["AP2I_RATE_LIMIT_PER_MINUTE"] = "1000000"
+            get_settings.cache_clear()
+            from app.publish.snapshot import export_public_snapshot
+            print(export_public_snapshot(db, args[0], args[1:] or None))
         elif cmd == "activate-countries":
             from app.reference.seed import sync_active_countries
             print(sync_active_countries(db))
