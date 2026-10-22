@@ -216,9 +216,16 @@ def compute_portfolio(db: Session, country_iso3: str, first_year: int, last_year
     partner_names = {p.id: p.short_name for p in db.scalars(select(FinancingPartner))}
     sector_names = {s.id: s.name_en for s in db.scalars(select(Sector))}
     fx = FX(db)
+    if not projects:
+        # No imported records: say so instead of showing a portfolio of zeros.
+        return {"country": country.iso3, "first_year": first_year, "last_year": last_year, "has_data": False,
+                "methodology_version": METHODOLOGY_VERSION, "projects_in_scope": 0,
+                "filters": {"sector_id": sector_id, "partner_id": partner_id, "tenant_id": tenant_id}, "years": [],
+                "coverage_note": "No project records have been imported for this selection. This is absence of data, "
+                                 "not absence of investment."}
     years = [compute_year(db, country, y, projects, fx, partner_names, sector_names) for y in range(first_year, last_year + 1)]
     return {
-        "country": country.iso3, "first_year": first_year, "last_year": last_year,
+        "country": country.iso3, "first_year": first_year, "last_year": last_year, "has_data": True,
         "methodology_version": METHODOLOGY_VERSION, "projects_in_scope": len(projects),
         "filters": {"sector_id": sector_id, "partner_id": partner_id, "tenant_id": tenant_id},
         "years": years,

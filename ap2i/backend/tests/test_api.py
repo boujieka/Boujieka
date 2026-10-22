@@ -65,6 +65,8 @@ def test_portfolio_and_dashboards(loaded, client):
     fin = client.get("/api/v1/financing/summary", params={"country": "CMR"}).json()
     assert "USD" in fin["totals_by_currency"] and "EUR" in fin["totals_by_currency"]
     assert client.get("/api/v1/countries/CMR/portfolio", params={"year_from": 2020, "year_to": 2000}).status_code == 422
+    sen = client.get("/api/v1/countries/SEN/portfolio").json()
+    assert sen["has_data"] is False and sen["years"] == []  # no data is not a portfolio of zeros
 
 
 def test_alerts_endpoint_and_review(loaded, client, db):
