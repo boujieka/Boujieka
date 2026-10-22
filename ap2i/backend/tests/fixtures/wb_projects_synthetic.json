@@ -1,0 +1,16 @@
+{"rows": 3, "os": "0", "page": "1", "total": "3", "projects": {
+ "P900001": {"id": "P900001", "project_name": "SYNTHETIC Rural Electrification Project", "status": "Active",
+   "boardapprovaldate": "2018-03-15T00:00:00Z", "closingdate": "12/31/2025 12:00:00 AM", "countrycode": ["CM"],
+   "countryshortname": "Cameroon", "totalamt": "100,000,000", "idacommamt": "100,000,000", "ibrdcommamt": "0",
+   "curr_total_commitment": "100", "lendinginstr": "Investment Project Financing", "impagency": "SYNTHETIC Ministry of Energy",
+   "pdo": "SYNTHETIC objective: increase access to electricity.", "mjsector_namecode": [{"name": "Energy and Extractives", "code": "LX"}],
+   "sector": [{"Name": "Energy Transmission and Distribution"}], "commitment": ["100.00"], "disbursement": ["10.00"], "available": ["90.00"],
+   "url": "https://example.test/P900001", "proj_last_upd_date": "2024-01-10T00:00:00Z", "supplementprojectflg": "N"},
+ "P900002": {"id": "P900002", "project_name": "SYNTHETIC Additional Financing for Rural Electrification", "status": "Active",
+   "boardapprovaldate": "2021-06-01T00:00:00Z", "closingdate": "12/31/2025 12:00:00 AM", "countrycode": ["CM"],
+   "totalamt": "50,000,000", "curr_total_commitment": "50", "parentprojid": ["P900001"], "supplementprojectflg": "Y",
+   "mjsector_namecode": [{"name": "Energy and Extractives", "code": "LX"}], "url": "https://example.test/P900002"},
+ "P900003": {"id": "P900003", "project_name": "SYNTHETIC Dropped Road Project", "status": "Dropped", "countrycode": ["CM"],
+   "totalamt": "0", "curr_total_commitment": "0", "mjsector_namecode": [{"name": "Transportation", "code": "TX"}],
+   "url": "https://example.test/P900003"}
+}}

@@ -1,0 +1,78 @@
+# AP²I — local / single-host deployment. Secrets come from .env (copy .env.example); never commit .env.
+#   docker compose up --build
+#   docker compose exec api python -m app.cli create-admin you@example.org
+name: ap2i
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    environment:
+      POSTGRES_DB: ap2i
+      POSTGRES_USER: ap2i
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ap2i -d ap2i"]
+      interval: 5s
+      retries: 20
+
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--save", "", "--appendonly", "no"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      retries: 20
+
+  api:
+    build: { context: ., dockerfile: backend/Dockerfile }
+    env_file: .env
+    environment:
+      AP2I_DATABASE_URL: postgresql+psycopg://ap2i:${POSTGRES_PASSWORD}@db:5432/ap2i
+      AP2I_REDIS_URL: redis://redis:6379/0
+      AP2I_DOCUMENT_STORE_DIR: /srv/ap2i/backend/var/documents
+    command: >
+      sh -c "alembic upgrade head && python -m app.cli seed && python -m app.cli activate-countries &&
+             uvicorn app.main:app --host 0.0.0.0 --port 8000 --no-server-header --proxy-headers"
+    volumes: [docstore:/srv/ap2i/backend/var]
+    ports: ["8000:8000"]
+    depends_on:
+      db: { condition: service_healthy }
+      redis: { condition: service_healthy }
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request;urllib.request.urlopen('http://127.0.0.1:8000/api/v1/health')"]
+      interval: 10s
+      retries: 30
+
+  worker:
+    build: { context: ., dockerfile: backend/Dockerfile }
+    env_file: .env
+    environment:
+      AP2I_DATABASE_URL: postgresql+psycopg://ap2i:${POSTGRES_PASSWORD}@db:5432/ap2i
+      AP2I_REDIS_URL: redis://redis:6379/0
+      AP2I_DOCUMENT_STORE_DIR: /srv/ap2i/backend/var/documents
+    command: ["celery", "-A", "app.tasks.celery_app", "worker", "-l", "info", "--concurrency", "2"]
+    volumes: [docstore:/srv/ap2i/backend/var]
+    depends_on:
+      api: { condition: service_healthy }
+
+  beat:
+    build: { context: ., dockerfile: backend/Dockerfile }
+    env_file: .env
+    environment:
+      AP2I_DATABASE_URL: postgresql+psycopg://ap2i:${POSTGRES_PASSWORD}@db:5432/ap2i
+      AP2I_REDIS_URL: redis://redis:6379/0
+    command: ["celery", "-A", "app.tasks.celery_app", "beat", "-l", "info", "--schedule", "/tmp/celerybeat-schedule"]
+    depends_on:
+      api: { condition: service_healthy }
+
+  web:
+    build: { context: ./frontend }
+    environment:
+      AP2I_API_URL: http://api:8000/api/v1
+    ports: ["3000:3000"]
+    depends_on:
+      api: { condition: service_healthy }
+
+volumes:
+  pgdata:
+  docstore:

@@ -1,0 +1,54 @@
+name: AP2I CI
+on:
+  push:
+    paths: ["ap2i/**", ".github/workflows/ap2i-ci.yml"]
+  pull_request:
+    paths: ["ap2i/**", ".github/workflows/ap2i-ci.yml"]
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgis/postgis:16-3.4
+        env: { POSTGRES_USER: ap2i, POSTGRES_PASSWORD: ap2i, POSTGRES_DB: ap2i_test }
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U ap2i" --health-interval 5s --health-retries 20
+    defaults: { run: { working-directory: ap2i/backend } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -e ".[dev]" pip-audit
+      - name: Create migration-test database
+        run: PGPASSWORD=ap2i psql -h localhost -U ap2i -d ap2i_test -c "CREATE DATABASE ap2i_migr"
+      - name: Unit and API tests (synthetic fixtures, no network)
+        env:
+          AP2I_TEST_DATABASE_URL: postgresql+psycopg://ap2i:ap2i@localhost:5432/ap2i_test
+          AP2I_MIGRATION_TEST_DATABASE_URL: postgresql+psycopg://ap2i:ap2i@localhost:5432/ap2i_migr
+        run: pytest
+      - name: Dependency vulnerability audit
+        run: pip-audit --progress-spinner off || (echo "::warning::pip-audit reported vulnerabilities" && exit 1)
+
+  frontend:
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: ap2i/frontend } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "22", cache: npm, cache-dependency-path: ap2i/frontend/package-lock.json }
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+      - run: npm audit --audit-level=high
+
+  docker:
+    runs-on: ubuntu-latest
+    needs: [backend, frontend]
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -f ap2i/backend/Dockerfile ap2i
+      - run: docker build ap2i/frontend

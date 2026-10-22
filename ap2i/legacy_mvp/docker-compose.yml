@@ -1,0 +1,20 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: ap2i
+      POSTGRES_USER: ap2i
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql+psycopg://ap2i:${POSTGRES_PASSWORD}@db:5432/ap2i
+      AP2I_ADMIN_KEY: ${AP2I_ADMIN_KEY:?Set AP2I_ADMIN_KEY}
+    depends_on:
+      - db
+volumes:
+  pgdata:

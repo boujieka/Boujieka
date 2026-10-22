@@ -1,0 +1,11 @@
+.env
+backend/var/
+var/
+**/__pycache__/
+**/.pytest_cache/
+*.egg-info/
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/next-env.d.ts
+*.tsbuildinfo
