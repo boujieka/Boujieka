@@ -28,7 +28,8 @@ _COMPILED = [(re.compile(p, re.IGNORECASE), name) for p, name in PATTERNS]
 def scan_for_injection(text: str | None) -> list[str]:
     if not text:
         return []
-    return sorted({name for rx, name in _COMPILED if rx.search(text)})
+    flat = re.sub(r"\s+", " ", text)  # phrases split across lines or columns still match
+    return sorted({name for rx, name in _COMPILED if rx.search(flat)})
 
 
 def wrap_untrusted(label: str, text: str, max_chars: int = 6000) -> str:

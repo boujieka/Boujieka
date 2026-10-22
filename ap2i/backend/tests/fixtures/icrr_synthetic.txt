@@ -1,0 +1,5 @@
+SYNTHETIC ICR Review
+Ratings                                   ICR                                IEG
+Outcome                                   Satisfactory                       Moderately Satisfactory             ---
+Risk to Development Outcome               Substantial                        Substantial                         ---
+Bank Performance                          Satisfactory                       Moderately Satisfactory             ---

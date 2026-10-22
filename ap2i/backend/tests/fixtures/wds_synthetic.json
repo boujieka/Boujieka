@@ -1,0 +1,11 @@
+{"rows": 3, "total": 3, "documents": {
+ "D1": {"id": "90000001", "docty": "Implementation Status and Results Report", "docdt": "2024-06-15T00:00:00Z",
+        "display_title": "SYNTHETIC Disclosable Version of the ISR", "lang": "English",
+        "pdfurl": "https://documents.example.test/isr.pdf", "txturl": "https://documents.example.test/isr.txt"},
+ "D2": {"id": "90000002", "docty": "Implementation Completion Report Review", "docdt": "2024-01-10T00:00:00Z",
+        "display_title": "SYNTHETIC ICR Review", "lang": "English",
+        "pdfurl": "https://documents.example.test/icrr.pdf", "txturl": "https://documents.example.test/icrr.txt"},
+ "D3": {"id": "90000003", "docty": "Project Appraisal Document", "docdt": "2018-02-01T00:00:00Z",
+        "display_title": "SYNTHETIC PAD", "lang": "English", "pdfurl": "https://documents.example.test/pad.pdf"},
+ "facets": {}
+}}

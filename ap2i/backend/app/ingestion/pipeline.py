@@ -63,6 +63,10 @@ KNOWN_CURRENCIES = {"XAF", "XOF", "USD", "EUR", "GBP", "XDR", "JPY", "CHF", "CNY
 COMMITMENT_PRECEDENCE = {"iati_activity": 2, "wb_project": 1, "upload_project_row": 3}
 
 
+class _CustomDone(Exception):
+    """Internal signal: a custom-run connector has finished its own processing."""
+
+
 def utcnow() -> datetime:
     return datetime.now(timezone.utc)
 
@@ -436,7 +440,7 @@ class Pipeline:
         resolution.register_identifier(self.db, project.id, scheme, src.source_identifier, src.id)
         if rule != "official_parent_link":
             for eq in rec.equivalent_identifiers:
-                resolution.register_identifier(self.db, project.id, "wb" if eq.startswith("P") else scheme, eq, src.id)
+                resolution.register_identifier(self.db, project.id, "wb" if re.fullmatch(r"P\d{6}", eq) else "iati", eq, src.id)
         if not self.db.scalar(select(ProjectSourceLink).where(ProjectSourceLink.project_id == project.id,
                                                               ProjectSourceLink.source_record_id == src.id)):
             self.db.add(ProjectSourceLink(project_id=project.id, source_record_id=src.id,
@@ -509,6 +513,11 @@ def run_sync(db: Session, connector_key: str, trigger: str = "manual", params: S
     staged: list[tuple[NormalizedRecord, SourceRecord]] = []
     fatal: str | None = None
     try:
+        if getattr(connector, "custom_run", False):
+            from app.ingestion.wb_documents_sync import run_wb_documents
+
+            run_wb_documents(db, connector, row, run, params, st)
+            raise _CustomDone
         for raw in connector.fetch(params):
             st.retrieved += 1
             try:
@@ -535,6 +544,8 @@ def run_sync(db: Session, connector_key: str, trigger: str = "manual", params: S
                 continue
             staged.append((norm, src))
         db.commit()
+    except _CustomDone:
+        pass
     except ConnectorError as exc:
         fatal = str(exc)
     except Exception as exc:  # noqa: BLE001

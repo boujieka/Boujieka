@@ -162,7 +162,7 @@ class ImplementationProgress(Base):
     physical_progress_pct: Mapped[Decimal | None] = mapped_column(Pct)
     financial_progress_pct: Mapped[Decimal | None] = mapped_column(Pct)
     narrative: Mapped[str | None] = mapped_column(Text)
-    rating: Mapped[str | None] = mapped_column(String(60))
+    rating: Mapped[str | None] = mapped_column(Text)
     document_id: Mapped[int | None] = mapped_column(ForeignKey("documents.id"))
     source_record_id: Mapped[int | None] = mapped_column(ForeignKey("source_records.id"))
     data_nature: Mapped[str] = mapped_column(String(30), default="officially_reported")

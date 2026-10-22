@@ -370,8 +370,14 @@ def project_detail(ref: str, principal: Principal = Depends(get_principal), db: 
         results.append({**row(ind, ["name", "unit", "measure", "baseline_value", "target_value", "target_date"]),
                         "observations": [row(o, ["value", "value_text", "period_end", "data_nature"]) for o in obs]})
     d["results"] = results
-    d["implementation_progress"] = [row(x, ["report_date", "physical_progress_pct", "financial_progress_pct", "narrative", "rating"])
-                                    for x in db.scalars(select(ImplementationProgress).where(ImplementationProgress.project_id == p.id))]
+    d["implementation_progress"] = []
+    for x in db.scalars(select(ImplementationProgress).where(ImplementationProgress.project_id == p.id)
+                        .order_by(ImplementationProgress.report_date.desc())):
+        doc = db.get(Document, x.document_id) if x.document_id else None
+        d["implementation_progress"].append({
+            **row(x, ["report_date", "physical_progress_pct", "financial_progress_pct", "narrative", "rating", "data_nature",
+                      "verification_status", "source_record_id"]),
+            "document": {"id": doc.id, "title": doc.title, "doc_type": doc.doc_type, "url": doc.url} if doc else None})
     dqa = db.scalar(select(DataQualityAssessment).where(DataQualityAssessment.project_id == p.id, DataQualityAssessment.is_current.is_(True)))
     d["data_quality"] = row(dqa, ["completeness", "timeliness", "traceability", "consistency", "source_reliability", "duplicate_risk",
                                   "missing_fields", "assessed_at"]) if dqa else None

@@ -17,6 +17,7 @@ from app.connectors.iati import (
     WorldBankIATIConnector,
 )
 from app.connectors.manual import ManualUploadConnector
+from app.connectors.wb_documents import WorldBankDocumentsConnector
 from app.connectors.worldbank import WorldBankProjectsConnector
 
 
@@ -67,12 +68,12 @@ NO_CONNECTOR = [
 ]
 
 CONNECTORS: dict[str, type[Connector]] = {}
-for _cls in [WorldBankProjectsConnector, WorldBankIATIConnector, AfDBIATIConnector, AFDIATIConnector,
+for _cls in [WorldBankProjectsConnector, WorldBankDocumentsConnector, WorldBankIATIConnector, AfDBIATIConnector, AFDIATIConnector,
              IATIConnector, *TIER2_3_IATI, ManualUploadConnector, AfDBPortalProbe, AFDOpenDataProbe, *NO_CONNECTOR]:
     CONNECTORS[_cls.key] = _cls
 
 # Connectors enabled by default for the initial Cameroon deployment (Tier 1).
-DEFAULT_ENABLED = {"worldbank_projects", "worldbank_iati", "afdb_iati", "afd_iati"}
+DEFAULT_ENABLED = {"worldbank_projects", "worldbank_documents", "worldbank_iati", "afdb_iati", "afd_iati"}
 
 
 def get_connector(key: str, config: dict | None = None) -> Connector:

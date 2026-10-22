@@ -26,6 +26,11 @@ from app.db import SessionLocal
 
 
 def main(argv: list[str]) -> int:
+    import logging
+
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s %(message)s")
+    for noisy in ("httpx", "httpcore"):
+        logging.getLogger(noisy).setLevel(logging.WARNING)
     if not argv or argv[0] in ("-h", "--help"):
         print(__doc__)
         return 0

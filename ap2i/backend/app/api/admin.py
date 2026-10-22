@@ -267,6 +267,45 @@ def reverse(merge_id: int, request: Request, principal: Principal = Depends(REVI
     return {"id": mg.id, "reversed_at": j(mg.reversed_at)}
 
 
+class CandidateDecision(BaseModel):
+    decision: str = Field(pattern="^(accept|reject)$")
+    note: str | None = Field(None, max_length=2000)
+
+
+@router.get("/progress-candidates")
+def progress_candidates(status: str = "needs_review", principal: Principal = Depends(REVIEW), db: Session = Depends(get_db)):
+    """Physical-progress percentages found in report narratives, awaiting human validation."""
+    from app.models import SourceObservation
+
+    q = select(SourceObservation, Project).join(Project, Project.id == SourceObservation.project_id).where(
+        SourceObservation.field == "physical_progress_candidate", SourceObservation.verification_status == status)
+    return [{**row(o, ["id", "value_numeric", "value_text", "value_date", "source_field", "source_record_id", "verification_status"]),
+             "project": {"id": p.id, "ap2i_id": p.ap2i_id, "title": p.title, "physical_progress_pct": j(p.physical_progress_pct)}}
+            for o, p in db.execute(q.order_by(SourceObservation.value_date.desc()))]
+
+
+@router.post("/progress-candidates/{obs_id}")
+def decide_candidate(obs_id: int, body: CandidateDecision, request: Request, principal: Principal = Depends(REVIEW),
+                     db: Session = Depends(get_db)):
+    from app.models import SourceObservation
+
+    o = db.get(SourceObservation, obs_id)
+    if o is None or o.field != "physical_progress_candidate" or o.verification_status != "needs_review":
+        raise HTTPException(404, "Pending candidate not found")
+    p = db.get(Project, o.project_id)
+    if body.decision == "accept":
+        newer = p.physical_progress_date and o.value_date and p.physical_progress_date > o.value_date
+        if not newer:
+            p.physical_progress_pct, p.physical_progress_date = o.value_numeric, o.value_date
+        o.verification_status, o.data_nature = "verified", "verified"
+    else:
+        o.verification_status = "rejected"
+    o.correction_note = body.note
+    audit(db, request, "review.progress_candidate", principal, "observation", o.id, body.model_dump())
+    db.commit()
+    return {"id": o.id, "verification_status": o.verification_status, "project_physical_progress_pct": j(p.physical_progress_pct)}
+
+
 class AlertReview(BaseModel):
     review_status: str = Field(pattern="^(open|acknowledged|confirmed|dismissed|resolved)$")
     note: str | None = Field(None, max_length=2000)

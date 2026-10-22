@@ -160,7 +160,8 @@ def project_financials(db: Session, project: Project, today: date | None = None)
         ))
     # Elapsed implementation time
     start = project.implementation_start_date or project.original_approval_date
-    end = project.revised_completion_date or project.original_completion_date
+    closings = [a.closing_date_current for a in agreements if a.closing_date_current]
+    end = project.revised_completion_date or project.original_completion_date or (max(closings) if closings else None)
     elapsed = None
     if start and end and end > start:
         elapsed = ratio(Decimal((min(today, end) - start).days), Decimal((end - start).days))

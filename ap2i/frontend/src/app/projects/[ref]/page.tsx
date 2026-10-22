@@ -218,6 +218,29 @@ export default async function ProjectPage({ params }: { params: Promise<{ ref: s
         </Table>
       </Card>
 
+      <Card id="supervision">
+        <CardHeader title={d.project.supervision} />
+        <CardBody className="space-y-3 text-sm">
+          <p className="text-muted">{d.project.supervisionIntro}</p>
+          {p.development_results ? <p><span className="font-semibold text-navy">{d.project.developmentResults} : </span>{p.development_results}</p> : null}
+          {p.implementation_progress.length ? (
+            <ul className="space-y-3">{p.implementation_progress.map((x, i) => (
+              <li key={i} className="rounded border border-line p-3">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="font-semibold"><DateV value={x.report_date} /></span>
+                  {x.document ? (x.document.url ? <a className="link text-xs" href={x.document.url} target="_blank" rel="noopener noreferrer">{x.document.doc_type ?? x.document.title}</a> : <span className="text-xs">{x.document.doc_type}</span>) : null}
+                  <NatureBadge value={x.data_nature} />
+                  <SrcLink id={x.source_record_id} />
+                </div>
+                {x.rating ? <div className="mt-1 flex flex-wrap gap-1 text-xs"><span className="text-muted">{d.project.ratings} :</span>{x.rating.split("|").map((r) => <Badge key={r} tone="outline">{r.replace("=", " : ")}</Badge>)}</div> : null}
+                {x.financial_progress_pct !== null ? <div className="mt-1 text-xs"><span className="text-muted">{d.project.disbursedPct} : </span><Num value={x.financial_progress_pct} digits={2} /> %</div> : null}
+                {x.narrative ? <details className="mt-1"><summary className="cursor-pointer text-xs text-muted">{x.narrative.slice(0, 160)}{x.narrative.length > 160 ? "…" : ""}</summary><p className="mt-1 whitespace-pre-line text-xs">{x.narrative}</p></details> : null}
+              </li>))}
+            </ul>
+          ) : <p className="text-muted">{d.project.noSupervision}</p>}
+        </CardBody>
+      </Card>
+
       <Card>
         <CardHeader title={d.project.results} />
         {p.results.length ? (

@@ -191,7 +191,11 @@ export interface ProjectDetail extends ProjectSummary {
   status_history: { status: string; previous_status: string | null; effective_date: string | null; recorded_at: string | null; note: string | null; source_record_id: number | null }[];
   alerts: Alert[];
   results: { name: string; unit: string | null; measure: string | null; baseline_value: string | null; target_value: string | null; target_date: string | null; observations: { value: string | null; value_text: string | null; period_end: string | null; data_nature: string | null }[] }[];
-  implementation_progress: { report_date: string | null; physical_progress_pct: string | null; financial_progress_pct: string | null; narrative: string | null; rating: string | null }[];
+  implementation_progress: {
+    report_date: string | null; physical_progress_pct: string | null; financial_progress_pct: string | null; narrative: string | null;
+    rating: string | null; data_nature: string; verification_status: string; source_record_id: number | null;
+    document: { id: number; title: string; doc_type: string | null; url: string | null } | null;
+  }[];
   data_quality: { completeness: number | null; timeliness: number | null; traceability: number | null; consistency: number | null; source_reliability: number | null; duplicate_risk: number | null; missing_fields: string[]; assessed_at: string | null } | null;
   validation_issues: { rule: string; severity: string; message: string; status: string }[];
   pending_match_candidates: number;

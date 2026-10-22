@@ -14,7 +14,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   const org = hasPermission(me, "admin:organization");
   const items: [string, string, boolean][] = [
     ["/admin/connectors", d.admin.connectors, true], ["/admin/sync-runs", d.admin.syncRuns, true], ["/admin/review", d.admin.review, true],
-    ["/admin/matches", d.admin.matches, true], ["/admin/uploads", d.admin.uploads, hasPermission(me, "data:contribute")], ["/admin/users", d.admin.users, org],
+    ["/admin/matches", d.admin.matches, true], ["/admin/progress", d.admin.progress, true], ["/admin/uploads", d.admin.uploads, hasPermission(me, "data:contribute")], ["/admin/users", d.admin.users, org],
     ["/admin/organizations", d.admin.organizations, all], ["/admin/subscriptions", d.admin.subscriptions, all], ["/admin/audit", d.admin.audit, all],
     ["/admin/system", d.admin.system, all], ["/admin/settings", d.admin.settings, all],
   ];

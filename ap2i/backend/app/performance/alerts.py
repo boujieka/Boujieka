@@ -45,7 +45,11 @@ RULES: dict[str, dict] = {
     "OPERATIONAL_STATUS_UNVERIFIED": {"label": "Completed infrastructure with unverified operational status", "indicator": "operational_status"},
     "MISSING_PROGRESS_REPORT": {"label": "No recent implementation information", "indicator": "months_since_last_source_update"},
     "NO_DISBURSEMENT_DATA": {"label": "Disbursement information not published", "indicator": "disbursed_amount"},
+    "UNSATISFACTORY_RATING": {"label": "Unsatisfactory supervision rating in the latest report",
+                              "indicator": "supervision_rating"},
 }
+UNSAT = {"Moderately Unsatisfactory": "high_attention", "Unsatisfactory": "critical_attention",
+         "Highly Unsatisfactory": "critical_attention"}
 
 
 @dataclass
@@ -224,6 +228,24 @@ def evaluate_project(db: Session, p: Project, thr: dict, today: date) -> list[Fi
                              f"Latest dated source update: {latest.isoformat() if latest else 'none'}", f"≤ {max_age} months",
                              "No implementation information dated within the threshold is available for this active project.",
                              "Request the latest implementation progress report.", "source update dates", srcs))
+    # UNSATISFACTORY_RATING — latest supervision report (e.g. World Bank ISR) only, as rated by the financier
+    latest = db.scalar(select(ImplementationProgress).where(ImplementationProgress.project_id == p.id,
+                                                            ImplementationProgress.rating.is_not(None),
+                                                            ~ImplementationProgress.rating.like("ICR%"))
+                       .order_by(ImplementationProgress.report_date.desc()))
+    if latest is not None and active:
+        parts = dict(x.split("=", 1) for x in latest.rating.split("|") if "=" in x)
+        bad = {k: v for k, v in parts.items() if k in ("PDO", "IP") and v in UNSAT}
+        if bad:
+            level = "critical_attention" if "critical_attention" in {UNSAT[v] for v in bad.values()} else "high_attention"
+            f.append(Finding("UNSATISFACTORY_RATING", level,
+                             "; ".join(f"{k} rating: {v}" for k, v in bad.items()) + f" (report of {latest.report_date.isoformat()})",
+                             "Moderately Satisfactory or better",
+                             "The financier's own supervision report rates progress below satisfactory. The report's narrative "
+                             "describes the issues identified by the supervision team.",
+                             "Read the cited supervision report and check the agreed actions and their deadlines.",
+                             "supervision report (rating as published)",
+                             [latest.source_record_id] if latest.source_record_id else srcs))
     # NO_DISBURSEMENT_DATA
     if active and positions and all(pos.disbursed is None and not pos.is_guarantee for _, pos in positions):
         f.append(Finding("NO_DISBURSEMENT_DATA", "information", "No disbursement figure published", "any disbursement figure",

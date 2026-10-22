@@ -179,6 +179,7 @@ class Connector:
                 return resp
             except (httpx.HTTPError,) as exc:  # network error or retryable status
                 last_exc = exc
+                log.warning("%s: attempt %d/%d failed for %s: %s", self.key, attempt, self.max_attempts, url, exc)
                 status = getattr(getattr(exc, "response", None), "status_code", None)
                 if status is not None and status not in (429, 500, 502, 503, 504):
                     break

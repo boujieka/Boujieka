@@ -218,7 +218,7 @@ class WorldBankProjectsConnector(Connector):
             status_label=status_label,
             executing_agency=_text(p.get("impagency")),
             approval_date=approval,
-            planned_end_date=closing,
+            planned_end_date=None,  # `closingdate` is the CURRENT closing date: kept on the agreement, not as original
             original_cost=None,  # lendprojectcost is the Bank-financed cost, not total project cost
             agreements=[agreement],
             equivalent_identifiers=[f"44000-{pid}"],
@@ -233,6 +233,8 @@ class WorldBankProjectsConnector(Connector):
             if amt is not None:
                 rec.observations.append((f"financing_plan:{fname}", "fincrname/fincr_curr_amt", f"{amt} {fcur}"))
         rec.observations.append(("wb_status", "status", status_label))
+        if closing:
+            rec.observations.append(("current_closing_date", "closingdate", closing))
         if p.get("supplementprojectflg") == "Y":
             rec.observations.append(("wb_supplemental_financing", "supplementprojectflg", "Y"))
         if p.get("borrower"):

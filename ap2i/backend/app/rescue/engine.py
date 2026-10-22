@@ -106,6 +106,14 @@ PLAYBOOK: dict[str, tuple[str, str, str, str, str | None]] = {
         "Date of latest progress report.",
         None,
     ),
+    "UNSATISFACTORY_RATING": (
+        "The latest supervision report rates progress below satisfactory.",
+        "Review the issues and agreed actions in the cited supervision report with the executing agency; turn each agreed "
+        "action into a tracked corrective action with a responsible institution and a date.",
+        "Supervision rating back to Moderately Satisfactory or better.",
+        "PDO and IP ratings in the next supervision report.",
+        "Access to the supervision report and the aide-memoire of the last mission.",
+    ),
     "NO_DISBURSEMENT_DATA": (
         "Disbursement information is not published.",
         "Request disbursement data (cumulative and by year) from the financing partner or executing agency.",

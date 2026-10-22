@@ -8,6 +8,11 @@
 * Physical progress, operational status, contracts, contract amendments and beneficiaries are not published by
   the connected sources: these fields are empty for imported projects (they can be filled through the upload
   workflow from official reports). Alerts that need them do not fire.
+* World Bank supervision reports: results-table values of the post-2024 ISR layout are not in the text
+  rendition and are not extracted (PDF table extraction not implemented). Ratings, dates, narrative and the
+  disbursement table are extracted. ISRs before 2011 are catalogued but not parsed (configurable).
+* Physical progress comes only from reviewer-validated candidates (narrative percentages) or uploaded official
+  documents; it is empty until a reviewer acts.
 * World Bank disbursements are cumulative to date (US$ millions, 2 decimals); they are not split by year.
   Annual disbursements for World Bank projects come only from the 46 activities in the World Bank IATI file.
 * AfDB amounts are in SDR (XDR); USD equivalents depend on IMF annual averages; 2026 rates (EUR, XDR) are not
@@ -23,8 +28,8 @@
   ADFD) have no automated connector.
 
 ## Product
-* Document processing (PyMuPDF, pdfplumber, python-docx) is a dependency but no PDF/DOCX extraction pipeline
-  is implemented; document links are stored, documents are not downloaded or parsed. RAG/semantic search over
+* Document processing: World Bank ISR/ICR texts are downloaded and parsed (plain-text renditions). Other
+  donors' documents (AfDB, AFD) are stored as links only; no PDF/DOCX extraction pipeline exists yet. RAG/semantic search over
   documents is not implemented; the assistant uses structured database retrieval only.
 * The assistant understands a fixed set of question types (list, low disbursement, compare commitments,
   completed-not-operational, annual commitments, recovery plan). Other questions fall back to a project list.

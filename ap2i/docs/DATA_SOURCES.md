@@ -16,6 +16,7 @@ sample validation → automated tests (synthetic fixtures, no network) → live 
 | Connector | Source & access | Verified on real data | Status |
 |---|---|---|---|
 | `worldbank_projects` | World Bank Projects & Operations search API, public JSON, no key: `https://search.worldbank.org/api/v2/projects?format=json&countrycode_exact=CM` | 159 Cameroon projects retrieved and imported (run 2026-10-22). Fields used: id, name, status, board approval date, current closing date, `totalamt` (IBRD+IDA commitment, US$), `commitment`/`disbursement`/`available` (US$ millions, cumulative, 54 projects), `parentprojid` (17 Additional Financing links), implementing agency, PDO, abstract, major sector, lending instrument, financing plan lines. | **Operational** |
+| `worldbank_documents` | World Bank Documents & Reports API (`search.worldbank.org/api/v2/wds?proid=…`), public, no key; plain-text renditions of each report | See §2.1 | See §2.1 |
 | `worldbank_iati` | World Bank IATI publication (reporting-org `44000`) via the Code for IATI datastore mirror | 46 activities; dated commitment and disbursement transactions; matched deterministically to the Projects API records (`44000-Pxxxxxx` ↔ `Pxxxxxx`). | **Operational** |
 | `afdb_iati` | African Development Bank IATI publication (reporting-org `XM-DAC-46002`) | 105 activities, amounts in XDR (SDR / units of account), bilingual titles, transactions types 2/3/5/6. | **Operational** |
 | `afd_iati` | AFD IATI publication (reporting-org `FR-3`) | 306 activities = 128 project-level parents (no transactions) + financing-level children; French titles preserved. | **Operational** |
@@ -23,6 +24,27 @@ sample validation → automated tests (synthetic fixtures, no network) → live 
 | `afdb_portal` | AfDB projects portal / MapAfrica (direct) | `projectsportal.afdb.org` unreachable from this environment (proxy CONNECT 502); no documented public API identified. | **Blocked** — AfDB data comes from `afdb_iati`; the portal remains a manual-import source |
 | `afd_opendata` | `opendata.afd.fr` (Opendatasoft) | Connection reset from this environment; `afd.fr` returned HTTP 503 (maintenance) on 2026-10-22. | **Blocked** — AFD data comes from `afd_iati` |
 | `manual_upload` | Documented official-data import workflow (CSV/XLSX built from official documents) | Covered by tests; row-level validation; every row must cite `source_url` + `reporting_date`. | Manual workflow |
+
+### 2.1 World Bank supervision and completion reports (`worldbank_documents`)
+For every World Bank project of the active countries, the connector lists all disclosed documents (catalogued
+as project documents with type, date and link) and parses the text rendition of:
+* **ISR — Implementation Status and Results Reports** (from 2011, configurable `since_year`): ratings
+  (progress towards the development objective, implementation progress, overall risk — previous and current),
+  the "Implementation Status and Key Decisions" narrative, original and revised closing dates, the per-loan
+  disbursement table (original, revised, cancelled, disbursed, undisbursed, % disbursed) and results indicators
+  (baseline, previous, current, end target, with dates).
+* **ICR — Implementation Completion and Results Reports** and **ICR Reviews by IEG**: outcome, risk to development
+  outcome, Bank and borrower performance ratings (ICR and IEG).
+
+Mapping: one `implementation_progress` row per report (rating, narrative, % disbursed when the report has a single
+financing), `results_indicators` / `results_observations`, `documents` (with extracted text and prompt-injection
+flags), and the original/revised closing dates of the project. **Physical progress is never set automatically**:
+percentages quoted in narratives (e.g. "92% completion") are stored as candidates and must be validated by a Data
+Reviewer (Admin → Physical progress to validate).
+
+Two ISR layouts exist. Since about 2024, the results tables' values are absent from the text rendition (only
+indicator names): those values are reported as "not extractable from text", not guessed. Reading them would need
+PDF table extraction (not implemented).
 
 ### IATI access method — important
 The **official IATI Datastore API** (`https://api.iatistandard.org/datastore`) requires a free subscription key

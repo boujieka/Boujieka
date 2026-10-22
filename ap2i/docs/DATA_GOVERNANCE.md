@@ -56,6 +56,12 @@ reversed by an authorised reviewer.
 Source records are never edited: a changed source creates a new version. Reviewer corrections are new
 observations that point to the observation they supersede. Annual snapshots are superseded, not overwritten.
 
+## 7b. Facts extracted from reports
+Ratings, dates, disbursement tables and indicator values parsed from World Bank reports are labelled
+`officially_reported` and linked to the document and its source record. Free-text statements (e.g. a completion
+percentage in a narrative) are never turned into structured facts automatically: they become candidates with
+`verification_status=needs_review` until a Data Reviewer accepts or rejects them.
+
 ## 8. Alerts and AI
 Alerts are signals for verification and say so; they never assert fraud or corruption. The assistant answers
 from database records only; optional AI narration must pass a numeric grounding check, and imported text is
