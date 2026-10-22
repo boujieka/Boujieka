@@ -197,40 +197,76 @@ def parse_isr(text: str, report_date: date | None = None) -> ParsedReport:
     return r
 
 
+def _cells(ln: str, start: int, starts: list[int]) -> list[str | None] | None:
+    """Values of a Value/Date row of the pre-2015 layout, one per column (baseline, current, end target).
+
+    The text rendition does not keep a fixed column grid: the same table has rows shifted by up to ~15 characters.
+    Header positions are used only when every token starts at a header column (±3); otherwise a row with exactly
+    three tokens is read in order; any other row is ambiguous and returns None (dropped, never guessed)."""
+    toks = [(m.start() + start, m.group()) for m in re.finditer(r"\S+(?: \S+)*", ln[start:])]
+    if not toks:
+        return [None, None, None]
+    out: list[str | None] = [None, None, None]
+    if all(any(abs(pos - c) <= 3 for c in starts) for pos, _ in toks):
+        for pos, tok in toks:
+            k = min(range(3), key=lambda i: abs(starts[i] - pos))
+            if out[k] is not None:
+                return None
+            out[k] = tok
+        return out
+    if len(toks) == 3:
+        return [t for _, t in toks]
+    return None
+
+
 def _columnar_indicators(lines: list[str]) -> list[dict]:
-    """Pre-2015 ISR layout: 'Indicator Name  Core Unit of Measure  Baseline  Current  End Target' with values read by
-    column position, so that an empty cell (e.g. no current value) is never shifted into another column."""
+    """Pre-2015 ISR layout: 'Indicator Name  Core Unit of Measure  Baseline  Current  End Target', then per indicator
+    a 'Value' row and a 'Date' row. Name and unit are read from the text before 'Value' (split on wide gaps)."""
     out: list[dict] = []
     hdr = re.compile(r"Indicator Name\s+(?:Core\s+)?Unit of Measure\s+Baseline\s+Current\s+End Target")
+    end = re.compile(r"Data on Financial Performance|Disbursements \(by loan\)")
+    furniture = re.compile(r"^\s*(Comments|Public Disclosure|Intermediate Results|Project Development|The World Bank|Report No)")
     i = 0
     while i < len(lines):
         h = lines[i]
         if not hdr.search(h):
             i += 1
             continue
-        unit_col = h.index("Unit of Measure") - (5 if "Core Unit" in h else 0)
-        b, c, t = h.index("Baseline"), h.index("Current"), h.index("End Target")
-        cuts = [(b - 4, c - 4), (c - 4, t - 4), (t - 4, None)]
+        starts = [h.index("Baseline"), h.index("Current"), h.index("End Target")]
         cur: dict | None = None
         i += 1
-        while i < len(lines) and not hdr.search(lines[i]) and not re.search(r"Data on Financial Performance|Disbursements \(by loan\)", lines[i]):
+        while i < len(lines) and not hdr.search(lines[i]) and not end.search(lines[i]):
             ln = lines[i]
-            if re.search(r"\bValue\b", ln[unit_col - 2: b + 2] if len(ln) > unit_col else ""):
-                vpos = ln.index("Value", max(0, unit_col - 2))
-                cur = {"name": ln[:unit_col].strip(), "unit": ln[unit_col:vpos].strip() or None,
-                       "baseline": ln[cuts[0][0]:cuts[0][1]].strip() or None, "previous": None,
-                       "current": ln[cuts[1][0]:cuts[1][1]].strip() or None, "target": ln[cuts[2][0]:].strip() or None}
+            vm = re.search(r"\s{2,}Value\s{2,}|\s{2,}Value$", ln)
+            dm = re.search(r"\s{2,}Date\s{2,}|\s{2,}Date$", ln)
+            if vm and cur is not None and cur.get("_pending"):
+                cur = None  # previous indicator had no Date row
+            if vm:
+                head = [x for x in re.split(r"\s{2,}", ln[: vm.start()].strip()) if x]
+                unit = head[-1] if len(head) >= 2 else None
+                name = " ".join(head[:-1] if len(head) >= 2 else head)
+                vals = _cells(ln, vm.end(), starts)
+                cur = {"name": name, "unit": unit, "previous": None, "_ok": vals is not None, "_pending": True}
+                cur.update(dict(zip(("baseline", "current", "target"), vals or [None, None, None])))
                 out.append(cur)
-            elif cur is not None and re.search(r"\bDate\b", ln[unit_col - 2: b + 2] if len(ln) > unit_col else ""):
-                cur["baseline_date"] = wb_date(ln[cuts[0][0]:cuts[0][1]].strip())
-                cur["current_date"] = wb_date(ln[cuts[1][0]:cuts[1][1]].strip())
-                cur["target_date"] = wb_date(ln[cuts[2][0]:].strip())
-                cur["name"] = _clean(cur["name"] + " " + ln[:unit_col].strip())
-            elif cur is not None and ln[:unit_col].strip() and not re.match(r"\s*(Comments|Public Disclosure|Intermediate Results|Project Development)", ln):
-                if "current_date" in cur or "baseline_date" in cur:
-                    cur["name"] = _clean(cur["name"] + " " + ln[:unit_col].strip())
+            elif dm and cur is not None and cur.get("_pending"):
+                ds = _cells(ln, dm.end(), starts)
+                if ds is None:
+                    cur["_ok"] = False
+                else:
+                    for k, v in zip(("baseline_date", "current_date", "target_date"), ds):
+                        cur[k] = wb_date(v)
+                cont = ln[: dm.start()].strip()
+                if cont:
+                    cur["name"] = _clean(cur["name"] + " " + cont)
+                cur["_pending"] = False
+            elif cur is not None and not cur.get("_pending") and ln.strip() and not furniture.match(ln):
+                # wrapped indicator name: text in the name column only (comments sit further right)
+                left = re.split(r"\s{2,}", ln.strip())[0] if len(ln) - len(ln.lstrip()) < starts[0] - 40 else ""
+                if left and "current_date" in cur and len(re.split(r"\s{2,}", ln.strip())) == 1 and len(ln.rstrip()) < starts[0] - 20:
+                    cur["name"] = _clean(cur["name"] + " " + left)
             i += 1
-    return [x for x in out if x["name"]]
+    return [{k: v for k, v in x.items() if not k.startswith("_")} for x in out if x["name"] and x["_ok"]]
 
 
 def parse_icr(text: str, doc_type: str, report_date: date | None = None) -> ParsedReport:
@@ -384,8 +420,8 @@ def parse_isr_pdf_results(pdf: bytes) -> list[dict]:
     current: dict | None = None
     with pymupdf.open(stream=pdf, filetype="pdf") as doc:
         for page in doc:
-            if current is not None and current["name"]:
-                current = None  # a complete name never continues on the next page; an empty one may
+            if current is not None and current["name"] and current["name"][-1].rstrip().endswith(")"):
+                current = None  # names end with their unit "(...)": a complete name does not continue on the next page
             for row in _rows(_table_words(page)):
                 texts = [w[4] for w in row]
                 sub = _subheader_columns(row)

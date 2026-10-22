@@ -141,6 +141,14 @@ def synthetic_isr_pdf() -> bytes:
     p2 = doc.new_page(width=792, height=612)
     put(p2, 87, 40, "SYNTHETIC Project (P900002)", size=10)
     put(p2, 68, 89, "SYNTHETIC stations installed (Number)")
+    put(p2, 194, 120, "Comments on")
+    for x, t in ((187, "2.00"), (273, "Jun/2020"), (621, "4.00"), (706, "Sep/2027")):
+        put(p2, x, 300, t)
+    put(p2, 42, 315, "SYNTHETIC long name")
+    put(p2, 22, 551, "Mar 04, 2025   Page 2 of 3", size=8)
+    p3 = doc.new_page(width=792, height=612)
+    put(p3, 87, 40, "SYNTHETIC Project (P900002)", size=10)
+    put(p3, 42, 89, "to the next page (Number)")
     out = doc.tobytes()
     doc.close()
     return out
@@ -151,7 +159,8 @@ def test_parse_isr_pdf_results():
 
     r = parse_isr_pdf_results(synthetic_isr_pdf())
     by = {i["name"]: i for i in r}
-    assert set(by) == {"SYNTHETIC direct beneficiaries", "SYNTHETIC area irrigated", "SYNTHETIC stations installed"}
+    assert set(by) == {"SYNTHETIC direct beneficiaries", "SYNTHETIC area irrigated", "SYNTHETIC stations installed",
+                       "SYNTHETIC long name to the next page"}
     a = by["SYNTHETIC direct beneficiaries"]
     assert (a["unit"], a["baseline"], a["previous"], a["current"], a["target"]) == ("Number", "0.00", None, None, "26,000.00")
     assert a["baseline_date"] is None and a["baseline_period"] == "Jun/2020"  # no day invented
@@ -190,8 +199,8 @@ def test_isr_pdf_table_is_read_when_text_has_no_values(loaded):
     assert not db.scalars(select(m.ResultsObservation).where(m.ResultsObservation.indicator_id == st.id)).all()
     # (the mocked WDS returns this document for every project, so validations are checked without a project filter)
     msgs = dict(db.execute(select(m.DataValidation.rule, m.DataValidation.message)).all())
-    assert "after the report date 2025-03-04" in msgs["result_date_after_report"]
-    assert "read from the PDF by word position (3 indicators" in msgs["document_partially_extracted"]
+    assert "days after the report date 2025-03-04" in msgs["result_date_after_report"]
+    assert "read from the PDF by word position (4 indicators" in msgs["document_partially_extracted"]
     cache = db.scalar(select(m.SourceObservation).where(m.SourceObservation.field == "isr_pdf_results"))
     assert cache is not None and cache.source_field.startswith("PDF results table, sha256 ")
     # second run: the PDF is not downloaded again

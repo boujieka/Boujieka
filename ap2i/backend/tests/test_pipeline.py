@@ -129,3 +129,12 @@ def test_corrections_clear_future_actual_dates(db):
     db.refresh(p)
     assert p.actual_completion_date is None and p.original_completion_date == date(2030, 6, 30)
     assert db.scalar(select(m.DataValidation).where(m.DataValidation.rule == "future_actual_date"))
+    ind = m.ResultsIndicator(project_id=p.id, name="SYNTHETIC indicator")
+    db.add(ind)
+    db.flush()
+    obs = m.ResultsObservation(indicator_id=ind.id, value=5, period_end=date(2029, 6, 29))
+    db.add(obs)
+    db.commit()
+    out = apply_corrections(db, today=date(2026, 1, 1))
+    db.refresh(obs)
+    assert out["future_result_dates_cleared"] == 1 and obs.period_end is None and obs.value == 5

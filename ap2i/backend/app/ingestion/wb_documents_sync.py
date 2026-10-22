@@ -46,6 +46,8 @@ from app.models import (
 
 MAX_TEXT = 1_000_000
 TEXT_TABLE_MISSING = "Results table present but its values are not in the text rendition"
+# the catalogue date (WDS `docdt`) can precede the data date printed in the report by a few days
+REPORT_DATE_TOLERANCE_DAYS = 60
 PDF_CACHE_FIELD = "isr_pdf_results"  # parsed PDF table kept as provenance, so the PDF is not downloaded again
 log = logging.getLogger("ap2i.wb_documents")
 
@@ -222,7 +224,8 @@ def _pdf_results(db, connector, src, d: dict, rep, project) -> None:
         rep.indicators = inds
         rep.notes.append(f"Results table read from the PDF by word position ({len(inds)} indicators; post-2024 ISR layout).")
     else:
-        rep.notes.append("Results table present but neither the text rendition nor the PDF table could be read; not extracted.")
+        rep.notes.append("Results table present but no value row of the post-2024 layout was found in the PDF (table without "
+                         "values, or another layout such as PBC tables); not extracted.")
 
 
 def _obs(db, src, project_id, field, source_field, value=None, numeric=None, vdate=None, currency=None, rdate=None,
@@ -285,11 +288,11 @@ def _apply(db: Session, project: Project, doc: Document, src: SourceRecord, rep,
             val, when = ind[which], ind.get(f"{which}_date")
             if when is None or val in (None, ""):
                 continue  # a date without a value is not an observation
-            if docdt and when > docdt:
-                # an "actual" dated after the report itself is a typo in the source: not stored as a time point
+            if docdt and (when - docdt).days > REPORT_DATE_TOLERANCE_DAYS:
+                # an "actual" dated well after the report itself is a source typo or a misread cell: not stored
                 db.add(DataValidation(source_record_id=src.id, project_id=project.id, rule="result_date_after_report",
                                       severity="warning", message=f"{ind['name'][:200]}: {which} value {val} dated "
-                                      f"{when.isoformat()}, after the report date {docdt.isoformat()}; not stored"))
+                                      f"{when.isoformat()}, more than {REPORT_DATE_TOLERANCE_DAYS} days after the report date {docdt.isoformat()}; not stored"))
                 continue
             num = to_decimal_value(val)
             exists = db.scalar(select(ResultsObservation).where(ResultsObservation.indicator_id == ri.id, ResultsObservation.period_end == when))

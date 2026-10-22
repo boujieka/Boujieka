@@ -413,10 +413,14 @@ class Pipeline:
                 self.db.add(ind)
                 self.db.flush()
             if r.get("actual") is not None:
+                # IATI dates an actual by the end of its reporting period; a period still open (ending after today)
+                # does not say when the value was measured, so no date is stored rather than a future one
+                pe = r.get("actual_date")
+                pe = pe if pe is None or pe <= date.today() else None
                 if not self.db.scalar(select(ResultsObservation).where(
                         ResultsObservation.indicator_id == ind.id, ResultsObservation.value == r["actual"],
-                        ResultsObservation.period_end == r.get("actual_date"))):
-                    self.db.add(ResultsObservation(indicator_id=ind.id, value=r["actual"], period_end=r.get("actual_date"),
+                        ResultsObservation.period_end.is_(None) if pe is None else ResultsObservation.period_end == pe)):
+                    self.db.add(ResultsObservation(indicator_id=ind.id, value=r["actual"], period_end=pe,
                                                    source_record_id=src.id))
 
     # -- one record ---------------------------------------------------------------------------------

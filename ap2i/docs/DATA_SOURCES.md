@@ -55,7 +55,22 @@ month-year); empty cells stay empty; a row whose tokens do not fit their column 
 the running header and the footer are ignored. The parsed table is kept as provenance (`source_observations`,
 field `isr_pdf_results`, with the PDF's SHA-256 and URL) so the PDF is not downloaded again. "Month/Year" dates
 have no day and are stored as empty dates. An actual value dated after its own report (source typo) is not stored
-and is flagged (`result_date_after_report`).
+and is flagged (`result_date_after_report`) when it is more than 60 days after the catalogue date.
+
+**PDF table run of 2026-10-22:** of the 44 ISRs whose text rendition had no table values, 32 had a PDF link
+(the other 12 are 2011–2013 reports without a PDF link in the catalogue). 24 PDFs gave 783 indicator rows
+(14 projects) and 475 dated results observations; 8 gave none — 6 are 2020-template ISRs whose PDO/intermediate
+tables contain comments but no values (their Performance-Based Conditions tables use another layout and are not
+read), 1 is a 2011 ISR and 1 a 2023 development-policy document of another template. Verified by hand against the PDF
+words: Bénoué valley (P166072, ISR of 2025-03-04, e.g. "Total area irrigated": baseline 1,000, previous and
+current 0.00 on 05-Apr-2024, target 14,000) and the Mora–Dabanga–Kousseri road indicator (P178207).
+
+**Correction made in the same run (pre-2015 layout):** the plain-text tables of 2011–2014 ISRs do not keep a fixed
+column grid (rows of one table are shifted by up to ~15 characters). The earlier parser cut cells at the header
+positions, which moved values to the wrong column on shifted rows (e.g. an end target read as the current value)
+and cut units ("Numbe"/"r"). Cells are now taken by header position only when every token is aligned with a header
+column; otherwise a row with exactly three tokens is read in order, and any other row is dropped. All results
+derived from World Bank reports were recomputed: 6,506 observations, 1,159 indicators.
 
 ### 2.2 AfDB completion reports and IDEV review notes (`afdb_documents`)
 Source: the document links AfDB publishes in its own IATI activities (1,030 links for Cameroon).

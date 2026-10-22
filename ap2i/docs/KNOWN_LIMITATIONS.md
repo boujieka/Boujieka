@@ -12,7 +12,13 @@
   rendition; they are read from the PDF by word position. That reader was built on the 2024–2025 template: a row
   whose words do not fit the columns is dropped (not guessed), "Month/Year" baseline/target dates are kept without
   a day (date left empty), and an "actual" dated after its report is not stored (flagged). A different future
-  template would need a parser update. ISRs before 2011 are catalogued but not parsed (configurable).
+  template would need a parser update. Performance-Based Conditions (PBC) tables are not read. The same indicator
+  can appear under two names when its unit suffix differs between ISR layouts (not merged automatically). Pre-2015
+  text-layout rows whose cells cannot be placed without ambiguity are dropped. ISRs before 2011 are catalogued but
+  not parsed (configurable).
+* IATI results "actual" values are dated by the end of their reporting period; when that period is still open
+  (ends after today) the value is kept without a date (578 values on 2026-10-22), since the measurement date is
+  not given.
 * Physical progress comes only from reviewer-validated candidates (narrative percentages) or uploaded official
   documents; it is empty until a reviewer acts.
 * World Bank disbursements are cumulative to date (US$ millions, 2 decimals); they are not split by year.

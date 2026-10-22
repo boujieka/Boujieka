@@ -9,7 +9,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.connectors.base import NULL_DATE_SENTINELS
-from app.models import DataValidation, FinancingAgreement, Project, ResultsObservation, SourceObservation
+from app.models import DataValidation, FinancingAgreement, Project, ResultsIndicator, ResultsObservation, SourceObservation
 
 
 def apply_corrections(db: Session, today: date | None = None) -> dict:
@@ -42,6 +42,19 @@ def apply_corrections(db: Session, today: date | None = None) -> dict:
                                       "cleared (kept as the financing's current closing date)"))
         p.original_completion_date = None
         out["wb_current_closing_cleared"] += 1
+    # An observed (actual) result cannot be dated in the future: IATI dates it by the end of a still-open period.
+    out["future_result_dates_cleared"] = 0
+    future = db.execute(select(ResultsObservation, ResultsIndicator.project_id).join(
+        ResultsIndicator, ResultsIndicator.id == ResultsObservation.indicator_id).where(ResultsObservation.period_end > today)).all()
+    per_project: dict[int, int] = {}
+    for o, pid in future:
+        o.period_end = None
+        per_project[pid] = per_project.get(pid, 0) + 1
+        out["future_result_dates_cleared"] += 1
+    for pid, n in per_project.items():
+        db.add(DataValidation(project_id=pid, rule="future_result_date", severity="info",
+                              message=f"{n} results value(s) were dated by the end of a reporting period after {today}; the value "
+                                      "is kept without a date (measurement date not given by the source)"))
     for o in db.scalars(select(ResultsObservation).where(ResultsObservation.period_end.in_(NULL_DATE_SENTINELS))):
         o.period_end = None
         out["placeholder_dates_cleared"] += 1
