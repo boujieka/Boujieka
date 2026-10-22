@@ -42,7 +42,12 @@ flags), and the original/revised closing dates of the project. **Physical progre
 percentages quoted in narratives (e.g. "92% completion") are stored as candidates and must be validated by a Data
 Reviewer (Admin → Physical progress to validate).
 
-Two ISR layouts exist. Since about 2024, the results tables' values are absent from the text rendition (only
+**Run of 2026-10-22 (Cameroon):** 3,213 documents listed for 161 World Bank identifiers, of which 490 reports
+from 2011 onwards were parsed (435 ISRs, 27 ICRs, 28 ICR Reviews) for 49 projects; 0 failures. Ratings recognised
+in 430/435 ISRs and 51/55 ICR/ICR Reviews; 5,806 results observations; 48 reports flagged as partially extracted;
+5 physical-progress candidates awaiting review. 6 active projects have an unsatisfactory rating in their latest ISR.
+
+Three ISR layouts exist (pre-2015 columnar tables, 2015–2024 blocks, post-2024). Since about 2024, the results tables' values are absent from the text rendition (only
 indicator names): those values are reported as "not extractable from text", not guessed. Reading them would need
 PDF table extraction (not implemented).
 
