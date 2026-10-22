@@ -1,0 +1,272 @@
+[
+ {
+  "iso_numeric": "012",
+  "iso3": "DZA",
+  "name_en": "Algeria"
+ },
+ {
+  "iso_numeric": "024",
+  "iso3": "AGO",
+  "name_en": "Angola"
+ },
+ {
+  "iso_numeric": "204",
+  "iso3": "BEN",
+  "name_en": "Benin"
+ },
+ {
+  "iso_numeric": "072",
+  "iso3": "BWA",
+  "name_en": "Botswana"
+ },
+ {
+  "iso_numeric": "854",
+  "iso3": "BFA",
+  "name_en": "Burkina Faso"
+ },
+ {
+  "iso_numeric": "108",
+  "iso3": "BDI",
+  "name_en": "Burundi"
+ },
+ {
+  "iso_numeric": "132",
+  "iso3": "CPV",
+  "name_en": "Cabo Verde"
+ },
+ {
+  "iso_numeric": "120",
+  "iso3": "CMR",
+  "name_en": "Cameroon"
+ },
+ {
+  "iso_numeric": "140",
+  "iso3": "CAF",
+  "name_en": "Central African Republic"
+ },
+ {
+  "iso_numeric": "148",
+  "iso3": "TCD",
+  "name_en": "Chad"
+ },
+ {
+  "iso_numeric": "174",
+  "iso3": "COM",
+  "name_en": "Comoros"
+ },
+ {
+  "iso_numeric": "384",
+  "iso3": "CIV",
+  "name_en": "Côte d'Ivoire"
+ },
+ {
+  "iso_numeric": "180",
+  "iso3": "COD",
+  "name_en": "Democratic Republic of the Congo"
+ },
+ {
+  "iso_numeric": "262",
+  "iso3": "DJI",
+  "name_en": "Djibouti"
+ },
+ {
+  "iso_numeric": "818",
+  "iso3": "EGY",
+  "name_en": "Egypt"
+ },
+ {
+  "iso_numeric": "226",
+  "iso3": "GNQ",
+  "name_en": "Equatorial Guinea"
+ },
+ {
+  "iso_numeric": "232",
+  "iso3": "ERI",
+  "name_en": "Eritrea"
+ },
+ {
+  "iso_numeric": "748",
+  "iso3": "SWZ",
+  "name_en": "Eswatini"
+ },
+ {
+  "iso_numeric": "231",
+  "iso3": "ETH",
+  "name_en": "Ethiopia"
+ },
+ {
+  "iso_numeric": "266",
+  "iso3": "GAB",
+  "name_en": "Gabon"
+ },
+ {
+  "iso_numeric": "270",
+  "iso3": "GMB",
+  "name_en": "Gambia"
+ },
+ {
+  "iso_numeric": "288",
+  "iso3": "GHA",
+  "name_en": "Ghana"
+ },
+ {
+  "iso_numeric": "324",
+  "iso3": "GIN",
+  "name_en": "Guinea"
+ },
+ {
+  "iso_numeric": "624",
+  "iso3": "GNB",
+  "name_en": "Guinea-Bissau"
+ },
+ {
+  "iso_numeric": "404",
+  "iso3": "KEN",
+  "name_en": "Kenya"
+ },
+ {
+  "iso_numeric": "426",
+  "iso3": "LSO",
+  "name_en": "Lesotho"
+ },
+ {
+  "iso_numeric": "430",
+  "iso3": "LBR",
+  "name_en": "Liberia"
+ },
+ {
+  "iso_numeric": "434",
+  "iso3": "LBY",
+  "name_en": "Libya"
+ },
+ {
+  "iso_numeric": "450",
+  "iso3": "MDG",
+  "name_en": "Madagascar"
+ },
+ {
+  "iso_numeric": "454",
+  "iso3": "MWI",
+  "name_en": "Malawi"
+ },
+ {
+  "iso_numeric": "466",
+  "iso3": "MLI",
+  "name_en": "Mali"
+ },
+ {
+  "iso_numeric": "478",
+  "iso3": "MRT",
+  "name_en": "Mauritania"
+ },
+ {
+  "iso_numeric": "480",
+  "iso3": "MUS",
+  "name_en": "Mauritius"
+ },
+ {
+  "iso_numeric": "504",
+  "iso3": "MAR",
+  "name_en": "Morocco"
+ },
+ {
+  "iso_numeric": "508",
+  "iso3": "MOZ",
+  "name_en": "Mozambique"
+ },
+ {
+  "iso_numeric": "516",
+  "iso3": "NAM",
+  "name_en": "Namibia"
+ },
+ {
+  "iso_numeric": "562",
+  "iso3": "NER",
+  "name_en": "Niger"
+ },
+ {
+  "iso_numeric": "566",
+  "iso3": "NGA",
+  "name_en": "Nigeria"
+ },
+ {
+  "iso_numeric": "178",
+  "iso3": "COG",
+  "name_en": "Republic of the Congo"
+ },
+ {
+  "iso_numeric": "646",
+  "iso3": "RWA",
+  "name_en": "Rwanda"
+ },
+ {
+  "iso_numeric": "686",
+  "iso3": "SEN",
+  "name_en": "Senegal"
+ },
+ {
+  "iso_numeric": "690",
+  "iso3": "SYC",
+  "name_en": "Seychelles"
+ },
+ {
+  "iso_numeric": "694",
+  "iso3": "SLE",
+  "name_en": "Sierra Leone"
+ },
+ {
+  "iso_numeric": "706",
+  "iso3": "SOM",
+  "name_en": "Somalia"
+ },
+ {
+  "iso_numeric": "710",
+  "iso3": "ZAF",
+  "name_en": "South Africa"
+ },
+ {
+  "iso_numeric": "728",
+  "iso3": "SSD",
+  "name_en": "South Sudan"
+ },
+ {
+  "iso_numeric": "729",
+  "iso3": "SDN",
+  "name_en": "Sudan"
+ },
+ {
+  "iso_numeric": "678",
+  "iso3": "STP",
+  "name_en": "São Tomé and Príncipe"
+ },
+ {
+  "iso_numeric": "834",
+  "iso3": "TZA",
+  "name_en": "Tanzania"
+ },
+ {
+  "iso_numeric": "768",
+  "iso3": "TGO",
+  "name_en": "Togo"
+ },
+ {
+  "iso_numeric": "788",
+  "iso3": "TUN",
+  "name_en": "Tunisia"
+ },
+ {
+  "iso_numeric": "800",
+  "iso3": "UGA",
+  "name_en": "Uganda"
+ },
+ {
+  "iso_numeric": "894",
+  "iso3": "ZMB",
+  "name_en": "Zambia"
+ },
+ {
+  "iso_numeric": "716",
+  "iso3": "ZWE",
+  "name_en": "Zimbabwe"
+ }
+]
