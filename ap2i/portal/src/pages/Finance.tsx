@@ -197,7 +197,7 @@ export function Finance({ route }: { route: Route }) {
           { key: "c", label: t("chart.commitments"), align: "right", value: (a) => (a.committed === null ? null : Number(a.committed)),
             render: (a) => (a.committed === null ? (a.committed_basis?.startsWith("not counted") ? t("profile.notCounted") : null) : fmtAmount(Number(a.committed), locale, a.currency ?? "")) },
           { key: "usd", label: t("col.usd"), align: "right", value: (a) => (a.committed_usd === null ? null : Number(a.committed_usd)), render: (a) => fmtAmount(a.committed_usd === null ? null : Number(a.committed_usd), locale, "USD") },
-          { key: "d", label: t("col.disbursed"), align: "right", value: (a) => (a.disbursed === null ? null : Number(a.disbursed)), render: (a) => fmtAmount(a.disbursed === null ? null : Number(a.disbursed), locale, a.currency ?? "") },
+          { key: "d", label: t("col.disbursed"), align: "right", value: (a) => (a.disbursed === null ? null : Number(a.disbursed)), render: (a) => (a.is_guarantee ? t("fin.guarantee") : a.disbursed === null ? t("fin.notPublished") : fmtAmount(Number(a.disbursed), locale, a.currency ?? "")) },
           { key: "u", label: t("col.undisbursed"), align: "right", value: (a) => (a.undisbursed === null ? null : Number(a.undisbursed)),
             render: (a) => (a.undisbursed === null ? null : <span title={Number(a.undisbursed) < 0 ? t("profile.overDisbursed") : undefined}>{fmtAmount(Number(a.undisbursed), locale, a.currency ?? "")}{Number(a.undisbursed) < 0 ? " ⚠" : ""}</span>) },
           { key: "basis", label: t("col.basis"), value: (a) => a.disbursed_basis,

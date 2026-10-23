@@ -266,7 +266,14 @@ class Pipeline:
                 project.sector_id = sector.id
         if rec.sector_label:
             self.observe(src, project.id, "sector_source_label", "sector", rec.sector_label)
-        if is_primary and rec.status and rec.status != project.status:
+        documented = (project.status_source or "").startswith("Documentary evidence")
+        if is_primary and rec.status and rec.status != project.status and documented:
+            # a status established from a cited official document (documentary research) is not reverted by a feed that
+            # still reports the older status; the disagreement is recorded for review
+            self.db.add(DataValidation(source_record_id=src.id, project_id=project.id, rule="status_differs_from_documented",
+                                       severity="info", message=f"{self.row.key} reports '{rec.status_label}' while the documented "
+                                       f"status is '{project.status}' ({project.status_source})"[:2000]))
+        elif is_primary and rec.status and rec.status != project.status:
             self.db.add(ProjectStatusHistory(project_id=project.id, status=rec.status, previous_status=project.status,
                                              effective_date=None, source_record_id=src.id,
                                              note=f"Status reported by {self.row.key}: {rec.status_label}"))

@@ -213,3 +213,5 @@ dialog.modal-b::backdrop { background: rgba(8,43,80,.45); }
 .dl dd { min-width: 0; overflow-wrap: anywhere; }
 [data-testid="publisher-todo"] { white-space: normal; max-width: 100%; }
 main h1:focus { outline: none; box-shadow: none; }
+.evidence { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.evidence blockquote { margin: 4px 0; padding: 4px 10px; border-left: 3px solid var(--line); color: var(--ink); font-size: .86rem; font-style: italic; }

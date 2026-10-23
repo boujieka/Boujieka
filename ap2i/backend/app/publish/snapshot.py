@@ -122,6 +122,7 @@ def build_tables(db: Session, projects: list[Project]) -> dict:
             "locations": [{"lat": loc.latitude, "lon": loc.longitude, "precision": loc.precision, "place": loc.place_name}
                           for loc in p.locations if loc.latitude is not None and loc.longitude is not None],
             "last_source_update": p.last_source_update_at,
+            "commissioning": p.commissioning_date, "status_source": p.status_source,
         })
         for a in p.agreements:
             pos = agreement_position(db, a)

@@ -353,6 +353,18 @@ def project_detail(ref: str, principal: Principal = Depends(get_principal), db: 
                              "source_identifier": sr.source_identifier, "url": sr.source_url, "retrieved_at": j(sr.retrieved_at),
                              "source_last_updated": sr.source_last_updated, "link_type": lk.link_type, "match_rule": lk.match_rule,
                              "is_latest": sr.is_latest})
+    # cited facts from public sources (documentary research): public, with URL, publisher and verbatim quote
+    d["documented_evidence"] = []
+    for o, sr in db.execute(select(SourceObservation, SourceRecord).join(SourceRecord, SourceRecord.id == SourceObservation.source_record_id)
+                            .join(SourceConnector, SourceConnector.id == SourceRecord.connector_id)
+                            .where(SourceObservation.project_id == p.id, SourceConnector.key == "documentary_research")
+                            .order_by(SourceObservation.reporting_date.desc().nulls_last())):
+        pl = sr.payload or {}
+        d["documented_evidence"].append({"field": o.field.removeprefix("evidence_"), "value": o.value_text, "currency": o.currency,
+                                         "as_of": j(o.reporting_date), "source_url": sr.source_url, "publisher": pl.get("source_publisher"),
+                                         "source_type": pl.get("source_type"), "published": pl.get("published"), "quote": pl.get("quote"),
+                                         "agreement": pl.get("agreement"), "data_nature": o.data_nature,
+                                         "verification_status": o.verification_status, "retrieved_at": pl.get("retrieved_at")})
     d["documents"] = [row(x, ["id", "title", "doc_type", "url", "language", "published_date"]) for x in
                       db.scalars(select(Document).where(Document.project_id == p.id).order_by(Document.published_date.desc().nulls_last()))]
     d["locations"] = [{**row(x, ["place_name", "latitude", "longitude", "precision"]),

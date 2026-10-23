@@ -95,7 +95,10 @@ export function Project({ route }: { route: Route }) {
                     <td>{fmtDate(a.approval, locale)}</td>
                     <td className="r" title={a.committed_basis ?? ""}>{fmtAmount(a.committed === null ? null : Number(a.committed), locale, a.currency ?? "")}</td>
                     <td className="r" title={a.committed_usd_note ?? ""}>{a.committed_usd === null ? <span className="na">{a.committed === null ? (a.committed_basis?.startsWith("not counted") ? t("profile.notCounted") : "—") : t("common.notConverted")}</span> : fmtAmount(Number(a.committed_usd), locale, "USD")}</td>
-                    <td className="r" title={`${a.disbursed_basis ?? ""} ${a.disbursed_as_of ?? ""}`}>{fmtAmount(a.disbursed === null ? null : Number(a.disbursed), locale, a.currency ?? "")}</td>
+                    <td className="r" title={`${a.disbursed_basis ?? ""} ${a.disbursed_as_of ?? ""}`}>{a.is_guarantee
+                      ? <span className="small">{t("fin.guarantee")}</span>
+                      : a.disbursed === null ? <span className="na small">{t("fin.notPublished")}</span>
+                      : fmtAmount(Number(a.disbursed), locale, a.currency ?? "")}</td>
                     <td className="r">{fmtAmount(a.undisbursed === null ? null : Number(a.undisbursed), locale, a.currency ?? "")}</td>
                     <td>{src?.url ? <ExternalLink href={src.url}>{src.connector}</ExternalLink> : "—"}</td>
                     <td>{tx.length > 0 && <button className="btn xs ghost" onClick={() => setOpenAgr(openAgr === a.id ? null : a.id)} aria-expanded={openAgr === a.id}>{tx.length} tx</button>}</td>
@@ -137,13 +140,30 @@ export function Project({ route }: { route: Route }) {
         </Card>
         <Card title={`${t("profile.operational")} · ${t("profile.amendments")} · ${t("profile.milestones")}`}>
           <dl className="fields">
-            <Field label={t("profile.operational")}>{t(`op.${d.operational_status}`)}</Field>
+            <Field label={t("profile.operational")}>{t(`op.${d.operational_status}`)}{d.commissioning_date ? ` — ${t("op.commissioned", { d: fmtDate(d.commissioning_date, locale) })}` : ""}
+              {d.status_source && d.operational_status !== "unknown" ? <div className="small muted">{t("op.source")} : {d.status_source}</div> : null}</Field>
             <Field label={t("profile.amendments")}>{t("profile.amendmentsNA")}</Field>
             <Field label={t("profile.milestones")}>{(d.status_history ?? []).length ? (d.status_history as any[]).map((h) => `${fmtDate(h.effective_date ?? h.recorded_at, locale)} — ${h.status}${h.note ? ` (${h.note})` : ""}`).join(" · ") : null}</Field>
             <Field label={t("profile.expected")}>{d.expected_beneficiaries ?? d.development_results}</Field>
           </dl>
         </Card>
       </div>
+
+      {(d.documented_evidence ?? []).length > 0 && (
+        <Card title={t("ev.title")} note={t("ev.note")} id="evidence">
+          <ul className="evidence">
+            {(d.documented_evidence as any[]).map((e, i) => (
+              <li key={i}>
+                <b>{t(`ev.field.${e.field}`)}</b> : {e.value}{e.currency ? ` ${e.currency}` : ""}{e.as_of ? ` (${fmtDate(e.as_of, locale)})` : ""}
+                {e.agreement ? <span className="mono small muted"> · {e.agreement}</span> : null}{" "}
+                <Badge tone={e.data_nature === "officially_reported" ? "green" : "gold"}>{e.data_nature === "officially_reported" ? t("ev.official") : t("ev.secondary")}</Badge>
+                <blockquote lang="en">« {e.quote} »</blockquote>
+                <span className="small"><ExternalLink href={e.source_url}>{e.publisher}</ExternalLink>{e.published ? ` — ${fmtDate(e.published, locale)}` : ""}</span>
+              </li>
+            ))}
+          </ul>
+        </Card>
+      )}
 
       <Card title={t("profile.observed")}>
         {(d.results ?? []).length ? (

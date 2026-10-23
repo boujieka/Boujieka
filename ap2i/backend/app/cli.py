@@ -10,6 +10,9 @@
   check-country-sources     check reachability of country-specific official sources
   connector-report          print the connector status report (markdown)
   migrate-mvp <db_url>      migrate an AP²I MVP v0.1 database (SQLite/PostgreSQL URL) and print the report
+  import-evidence <file.json ...> [--dry-run]
+                            import cited documentary evidence (see app/ingestion/evidence.py)
+  apply-groups <groups.json>  merge co-financier records of one asset (high-confidence, cited groups)
   export-public-snapshot <outdir> [ISO3 ...]
                             write the public read-only data snapshot used by the static portal
 """
@@ -74,6 +77,24 @@ def main(argv: list[str]) -> int:
                 db.add(UserRole(user_id=u.id, role_id=role.id))
             db.commit()
             print(f"Super administrator ready: {email}")
+        elif cmd == "import-evidence":
+            import json as _json
+
+            from app.ingestion.evidence import import_evidence
+            records = [r for f in args if not f.startswith("--") for r in _json.load(open(f, encoding="utf-8"))]
+            res = import_evidence(db, records, apply="--dry-run" not in args)
+            if "--dry-run" in args:
+                db.rollback()
+            else:
+                db.commit()
+            print(_json.dumps(res, ensure_ascii=False, indent=1, default=str))
+        elif cmd == "apply-groups":
+            import json as _json
+
+            from app.ingestion.evidence import apply_groups
+            res = apply_groups(db, _json.load(open(args[0], encoding="utf-8")))
+            db.commit()
+            print(_json.dumps(res, ensure_ascii=False, indent=1))
         elif cmd == "export-public-snapshot":
             # offline, in-process API calls: the per-client request limit does not apply to this export
             os.environ["AP2I_RATE_LIMIT_PER_MINUTE"] = "1000000"

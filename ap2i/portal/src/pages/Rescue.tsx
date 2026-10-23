@@ -123,7 +123,7 @@ function RescueProject({ refId, names }: { refId: string; names: ReturnType<type
           <dl className="dl">
             {agreements.map((a) => (
               <div key={a.id}><dt>{a.source_identifier} ({names.partner(a.partner)})</dt>
-                <dd>{fmtAmount(a.committed === null ? null : Number(a.committed), locale, a.currency ?? "")} → {t("col.disbursed")} {fmtAmount(a.disbursed === null ? null : Number(a.disbursed), locale, a.currency ?? "")}{a.disbursed_as_of ? ` (${fmtDate(a.disbursed_as_of, locale)})` : ""}</dd></div>
+                <dd>{fmtAmount(a.committed === null ? null : Number(a.committed), locale, a.currency ?? "")} → {t("col.disbursed")} {a.is_guarantee ? t("fin.guarantee") : a.disbursed === null ? t("fin.notPublished") : fmtAmount(Number(a.disbursed), locale, a.currency ?? "")}{a.disbursed_as_of ? ` (${fmtDate(a.disbursed_as_of, locale)})` : ""}</dd></div>
             ))}
             <div><dt>{t("col.undisbursed")}</dt><dd>{currencyLines(undisb, locale)}</dd></div>
           </dl>

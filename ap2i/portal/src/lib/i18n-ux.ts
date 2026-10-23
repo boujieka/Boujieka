@@ -73,6 +73,14 @@ export const uxFR: Record<string, string> = {
   "g.completeness": "Complétude", "g.completenessD": "Part des champs clés renseignés par les sources pour un projet.",
   "g.finalisation": "Finalisation / achevé", "g.finalisationD": "Statut IATI 3 : le projet est en phase de finalisation (pas forcément clôturé ni opérationnel).",
   "g.alert": "Alerte", "g.alertD": "Signal calculé par une règle publiée, à vérifier ; ce n'est ni un constat d'échec ni une accusation.",
+  "g.guarantee": "Garantie", "g.guaranteeD": "Engagement du bailleur à payer à la place de l'emprunteur en cas de défaut : elle n'est pas décaissée, sauf si elle est appelée. Un décaissement nul est donc normal.",
+  "ev.title": "Informations documentées (sources publiques citées)", "ev.note": "Faits relevés dans des pages et documents publics, avec la citation exacte. Les sources officielles (bailleur, opérateur, État) mettent à jour la fiche ; la presse est affichée pour information, à vérifier.",
+  "ev.field.operational_status": "Statut opérationnel", "ev.field.commissioning_date": "Mise en service", "ev.field.physical_progress_pct": "Avancement physique",
+  "ev.field.project_status": "Statut du projet", "ev.field.disbursed_amount": "Montant décaissé", "ev.field.disbursement_pct": "Taux de décaissement",
+  "ev.field.closing_date": "Date de clôture", "ev.field.completion_date": "Date d'achèvement", "ev.field.other": "Autre information",
+  "ev.official": "Source officielle", "ev.secondary": "Source secondaire (à vérifier)", "ev.quote": "Citation",
+  "fin.guarantee": "Garantie : pas de décaissement sauf appel", "fin.notPublished": "Non publié par la source",
+  "op.commissioned": "Mis en service le {d}", "op.source": "Source du statut",
 };
 
 export const uxEN: Record<string, string> = {
@@ -146,6 +154,14 @@ export const uxEN: Record<string, string> = {
   "g.completeness": "Completeness", "g.completenessD": "Share of key fields that the sources fill in for a project.",
   "g.finalisation": "Finalisation / completed", "g.finalisationD": "IATI status 3: the project is being finalised (not necessarily closed or operational).",
   "g.alert": "Alert", "g.alertD": "Signal computed by a published rule, to verify; it is neither a finding of failure nor an accusation.",
+  "g.guarantee": "Guarantee", "g.guaranteeD": "Commitment of the lender to pay in place of the borrower in case of default: it is not disbursed unless it is called. A zero disbursement is therefore normal.",
+  "ev.title": "Documented information (cited public sources)", "ev.note": "Facts found in public pages and documents, with the exact quote. Official sources (donor, operator, government) update the record; press is shown for information, to verify.",
+  "ev.field.operational_status": "Operational status", "ev.field.commissioning_date": "Commissioning", "ev.field.physical_progress_pct": "Physical progress",
+  "ev.field.project_status": "Project status", "ev.field.disbursed_amount": "Disbursed amount", "ev.field.disbursement_pct": "Disbursement rate",
+  "ev.field.closing_date": "Closing date", "ev.field.completion_date": "Completion date", "ev.field.other": "Other information",
+  "ev.official": "Official source", "ev.secondary": "Secondary source (to verify)", "ev.quote": "Quote",
+  "fin.guarantee": "Guarantee: no disbursement unless called", "fin.notPublished": "Not published by the source",
+  "op.commissioned": "Commissioned on {d}", "op.source": "Status source",
 };
 
-export const GLOSSARY = ["commitment", "disbursement", "usdEq", "xdr", "isr", "pdo", "completeness", "finalisation", "alert"];
+export const GLOSSARY = ["commitment", "disbursement", "guarantee", "usdEq", "xdr", "isr", "pdo", "completeness", "finalisation", "alert"];

@@ -34,6 +34,8 @@ export interface ProjectRow {
   dq: { completeness: number; traceability: number; timeliness: number | null } | null;
   locations: { lat: string; lon: string; precision: string | null; place: string | null }[];
   last_source_update: string | null;
+  commissioning?: string | null;
+  status_source?: string | null;
 }
 
 export interface AgreementRow {
