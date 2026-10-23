@@ -537,7 +537,7 @@ def main() -> None:
     DIST.mkdir(exist_ok=True)
     # The platform (all sections) lives at /plateforme.html; / is the home page (site/home.html).
     (DIST / "plateforme.html").write_text(html)
-    (DIST / "index.html").write_text(home)
+    (DIST / "accueil-classique.html").write_text(home)  # the earlier home, all 5 languages; / is site/v2.py's home
     shutil.copy(ROOT.parent / "brand" / "favicon.svg", DIST / "favicon.svg")
     write_api({**payload, "i18n": None})
     import v2  # redesigned pages under /nouveau/ (Accueil, Marchés, Pays, Titre)
@@ -547,7 +547,7 @@ def main() -> None:
     shutil.copy(ROOT / "merci.html", DIST / "merci.html")  # waiting-list form fallback page (no JavaScript)
     if args.veille and args.veille.exists() and args.veille.resolve() != (DIST / "veille.json").resolve():
         shutil.copy(args.veille, DIST / "veille.json")
-    print(f"Built {DIST / 'plateforme.html'} ({len(html) // 1024} KB) and the home page {DIST / 'index.html'}")
+    print(f"Built {DIST / 'plateforme.html'} ({len(html) // 1024} KB) and the classic home page {DIST / 'accueil-classique.html'}")
 
 
 if __name__ == "__main__":

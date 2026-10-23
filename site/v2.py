@@ -22,6 +22,7 @@ import report
 ROOT = Path(__file__).resolve().parent
 DIST = ROOT / "dist"
 OUT = "nouveau"
+AS_OF = [""]  # set by write(), read by shell()
 
 COUNTRIES = {  # iso: (name, zone, currency, source)
     "BEN": ("Bénin", "UEMOA", "XOF", "UMOA-Titres"), "BFA": ("Burkina Faso", "UEMOA", "XOF", "UMOA-Titres"),
@@ -104,6 +105,7 @@ def shell(title: str, body: str, active: str = "", depth: int = 1, scripts: str 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{escape(title)} — Africa Bonds Monitor</title>
 <meta name="description" content="Adjudications UEMOA et CEMAC, cote BVMAC : chaque chiffre relié à son document officiel. Information uniquement.">
+<meta name="abm:as-of" content="{AS_OF[0]}">
 <link rel="icon" href="{up}favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&amp;display=swap">
@@ -114,12 +116,12 @@ def shell(title: str, body: str, active: str = "", depth: int = 1, scripts: str 
 <a class="skip" href="#contenu">Aller au contenu</a>
 <header class="top">
 <div class="wrap top-in">
-<a class="brand" href="{up}{OUT}/"><span class="mark" aria-hidden="true">A</span><span>Africa Bonds Monitor</span></a>
+<a class="brand" href="{up or "./"}"><span class="mark" aria-hidden="true">A</span><span>Africa Bonds Monitor</span></a>
 <nav class="nav" aria-label="Navigation principale">{links}
 <details class="more"><summary>Plus</summary><div class="more-menu">
 <a href="{up}plateforme.html#rapports">Rapports</a><a href="{up}plateforme.html#simulateur">Simulateur</a>
 <a href="{up}plateforme.html#brief">Brief du jour</a><a href="{up}plateforme.html#offres">Pilote institutionnel</a>
-<a href="{up}plateforme.html">Plateforme complète (version actuelle)</a></div></details>
+<a href="{up}plateforme.html">Plateforme complète</a><a href="{up}accueil-classique.html" lang="en">Other languages: EN · PT · ES · AR</a></div></details>
 </nav>
 </div>
 </header>
@@ -128,7 +130,7 @@ def shell(title: str, body: str, active: str = "", depth: int = 1, scripts: str 
 </main>
 <footer class="foot"><div class="wrap foot-in">
 <p>Information uniquement — aucun conseil en investissement. Africa Bonds Monitor n'est affilié à aucune institution source (UMOA-Titres, BEAC, BVMAC). Données publiées avec l'autorisation de publication gratuite des sources ; la revente n'est pas autorisée.</p>
-<p><a href="{up}plateforme.html#methode">Méthode</a> · <a href="{up}plateforme.html#sources">Sources</a> · <a href="{up}api/v1/index.json">API JSON</a> · <a href="{up}donnees/fr.html">Données CSV</a></p>
+<p><a href="{up}accueil-classique.html">Accueil classique (FR, EN, PT, ES, AR)</a> · <a href="{up}plateforme.html#methode">Méthode</a> · <a href="{up}plateforme.html#sources">Sources</a> · <a href="{up}api/v1/index.json">API JSON</a> · <a href="{up}donnees/fr.html">Données CSV</a></p>
 </div></footer>
 </body>
 </html>
@@ -188,7 +190,9 @@ def build_data(as_of: date, tb: dict, bvmac: dict, yield_points: dict) -> dict:
             "rows": rows, "secs": secs, "urls": urls, "bvmac": bvmac["bonds"], "yield_points": yield_points}
 
 
-def home(d: dict, bvmac: dict) -> str:
+def home(d: dict, bvmac: dict, root: bool = False) -> str:
+    """The home page; root=True renders it for / (the site's home), else for /nouveau/."""
+    base, up = ("nouveau/", "") if root else ("", "../")
     rows = d["rows"]
     n = len(rows)
     isos = sorted({r[1] for r in rows})
@@ -198,10 +202,10 @@ def home(d: dict, bvmac: dict) -> str:
             (str(len(isos)), f"pays avec résultats ({n_uemoa} UEMOA, {len(isos) - n_uemoa} CEMAC)"),
             (str(len(bvmac["bonds"])), "obligations cotées à la BVMAC"),
             (fr_date(d["as_of"], short=False), "date des données")]
-    kp = "".join(f'<a class="kpi" href="marches.html"><span class="kv">{v}{badge("FAIT")}</span><span class="kl">{escape(l)}</span></a>' for v, l in kpis)
+    kp = "".join(f'<a class="kpi" href="{base}marches.html"><span class="kv">{v}{badge("FAIT")}</span><span class="kl">{escape(l)}</span></a>' for v, l in kpis)
     latest = "".join(
-        f'<tr><td class="mono">{fr_date(r[0])}</td><td><a href="pays/{r[1]}.html">{escape(COUNTRIES[r[1]][0])}</a></td>'
-        f'<td><a href="titre.html?isin={r[3]}">{escape(instr_label(d["secs"].get(r[3], ["", ""])[1], COUNTRIES[r[1]][1]))}</a>'
+        f'<tr><td class="mono">{fr_date(r[0])}</td><td><a href="{base}pays/{r[1]}.html">{escape(COUNTRIES[r[1]][0])}</a></td>'
+        f'<td><a href="{base}titre.html?isin={r[3]}">{escape(instr_label(d["secs"].get(r[3], ["", ""])[1], COUNTRIES[r[1]][1]))}</a>'
         f'{" · rachat" if r[4] else ""}</td>'
         f'<td class="num">{"non publié" if r[8] is None else fr_num(r[8]) + " %"}<br><span class="kind">{KIND_LABEL[r[9]]}</span></td>'
         f'<td class="num">{md(r[7], r[2])}</td>'
@@ -212,17 +216,17 @@ def home(d: dict, bvmac: dict) -> str:
 <p class="eyebrow">UEMOA · CEMAC · BVMAC — sources officielles</p>
 <h1>Adjudications UEMOA et CEMAC, cote BVMAC — chaque chiffre relié à son document officiel.</h1>
 <p class="lede">Pour les trésoreries, la gestion actif-passif et la gestion d'actifs : coûts d'émission des États, échéances connues, rendements du marché primaire. Information uniquement, sans recommandation.</p>
-<div class="ctas"><a class="btn btn-gold" href="marches.html">Ouvrir les marchés →</a><a class="btn btn-ghost" href="../plateforme.html#offres">Rejoindre le pilote institutionnel</a></div>
+<div class="ctas"><a class="btn btn-gold" href="{base}marches.html">Ouvrir les marchés →</a><a class="btn btn-ghost" href="{up}plateforme.html#offres">Rejoindre le pilote institutionnel</a></div>
 </div></section>
 <section class="wrap" aria-label="Indicateurs"><div class="kpis">{kp}</div>
 <p class="small">Indicateurs calculés à chaque mise à jour à partir des données vérifiées — aucun chiffre saisi à la main.</p></section>
-<section class="wrap block"><div class="row-head"><h2>Dernières adjudications</h2><a href="marches.html">Voir toutes les adjudications →</a></div>
+<section class="wrap block"><div class="row-head"><h2>Dernières adjudications</h2><a href="{base}marches.html">Voir toutes les adjudications →</a></div>
 <div class="table-box"><table><thead><tr><th scope="col">Date</th><th scope="col">Pays</th><th scope="col">Instrument</th><th scope="col" class="num">Valeur publiée</th><th scope="col" class="num">Montant retenu</th><th scope="col">Source</th></tr></thead>
 <tbody>{latest}</tbody></table></div></section>
 <section class="wrap block"><h2>Ce que la plateforme apporte à votre métier</h2><div class="cards3">
-<div class="card"><h3>Trésorerie</h3><p>Suivre le coût d'emprunt des États adjudication par adjudication, avec le document officiel de chaque résultat.</p><a href="marches.html">Adjudications par pays →</a></div>
-<div class="card"><h3>Gestion actif-passif</h3><p>Repérer les échéances connues et les maturités émises, pays par pays, sans confondre titres observés et encours total.</p><a href="pays/CIV.html">Échéances par pays →</a></div>
-<div class="card"><h3>Gestion d'actifs</h3><p>Comparer les rendements publiés du marché primaire UEMOA par maturité ; prix et taux précomptés CEMAC présentés à part.</p><a href="pays/SEN.html">Rendements publiés →</a></div>
+<div class="card"><h3>Trésorerie</h3><p>Suivre le coût d'emprunt des États adjudication par adjudication, avec le document officiel de chaque résultat.</p><a href="{base}marches.html">Adjudications par pays →</a></div>
+<div class="card"><h3>Gestion actif-passif</h3><p>Repérer les échéances connues et les maturités émises, pays par pays, sans confondre titres observés et encours total.</p><a href="{base}pays/CIV.html">Échéances par pays →</a></div>
+<div class="card"><h3>Gestion d'actifs</h3><p>Comparer les rendements publiés du marché primaire UEMOA par maturité ; prix et taux précomptés CEMAC présentés à part.</p><a href="{base}pays/SEN.html">Rendements publiés →</a></div>
 </div></section>
 <section class="wrap block"><div class="card trust">
 <div><h3>Sources officielles</h3><p>UMOA-Titres (UEMOA), BEAC et BVMAC (CEMAC). Chaque valeur renvoie au PDF publié et à son empreinte SHA-256.</p></div>
@@ -232,10 +236,10 @@ def home(d: dict, bvmac: dict) -> str:
 <section class="wrap block"><div class="pilot">
 <div><p class="eyebrow">Programme pilote institutionnel</p><h2>Trois mois gratuits pour une dizaine d'institutions de l'UEMOA et de la CEMAC.</h2>
 <p>La plateforme complète, un rapport sur mesure et un point mensuel. En retour : deux entretiens. Sans engagement d'achat. Les données officielles restent gratuites.</p></div>
-<a class="btn btn-gold" href="../plateforme.html#offres">Demander à rejoindre le pilote</a></div></section>
-<section class="wrap block"><h2>Pays couverts</h2><div class="chips">{"".join(f'<a class="chip" href="pays/{i}.html">{escape(COUNTRIES[i][0])} <span>{COUNTRIES[i][1]}</span></a>' for i in isos)}</div></section>
+<a class="btn btn-gold" href="{up}plateforme.html#offres">Demander à rejoindre le pilote</a></div></section>
+<section class="wrap block"><h2>Pays couverts</h2><div class="chips">{"".join(f'<a class="chip" href="{base}pays/{i}.html">{escape(COUNTRIES[i][0])} <span>{COUNTRIES[i][1]}</span></a>' for i in isos)}</div></section>
 """
-    return shell("Accueil", body, depth=1)
+    return shell("Accueil", body, depth=0 if root else 1, scripts='<script src="nouveau/legacy.js"></script>' if root else "")
 
 
 COMPLETENESS = [(5, "Montant offert"), (6, "Montant soumis"), (7, "Montant retenu"), (8, "Valeur publiée (rendement, prix ou taux)"),
@@ -306,7 +310,7 @@ def country_page(iso: str, d: dict, as_of: date) -> str:
               "Communiqués de résultats publiés par la BEAC, lus automatiquement (OCR si nécessaire) et vérifiés. Les valeurs sont des prix (OTA) ou des taux précomptés (BTA), affichés tels que publiés.")
     body = f"""
 <div class="wrap page">
-<p class="crumbs"><a href="../">Accueil</a> / <a href="../marches.html">Marchés</a> / {escape(name)}</p>
+<p class="crumbs"><a href="../../">Accueil</a> / <a href="../marches.html">Marchés</a> / {escape(name)}</p>
 <div class="row-head"><div><h1>{escape(name)}</h1><p class="sub">{zone} · monnaie {cur} · source {source}</p></div>
 <a class="btn btn-line" href="../marches.html?pays={iso}">Toutes les adjudications du pays</a></div>
 <div class="kpis kpis-in">{kpis}</div>
@@ -328,6 +332,7 @@ def country_page(iso: str, d: dict, as_of: date) -> str:
 def write(as_of: date, dist: Path, bvmac: dict, yield_points: dict) -> dict:
     tb = dataset.tables(as_of)
     d = build_data(as_of, tb, bvmac, yield_points)
+    AS_OF[0] = as_of.isoformat()
     out = dist / OUT
     if out.exists():
         shutil.rmtree(out)
@@ -335,7 +340,9 @@ def write(as_of: date, dist: Path, bvmac: dict, yield_points: dict) -> dict:
     (out / "data.json").write_text(json.dumps(d, ensure_ascii=False, separators=(",", ":"), allow_nan=False))
     shutil.copy(ROOT / "nouveau" / "app.css", out / "app.css")
     shutil.copy(ROOT / "nouveau" / "app.js", out / "app.js")
+    shutil.copy(ROOT / "nouveau" / "legacy.js", out / "legacy.js")
     (out / "index.html").write_text(home(d, bvmac))
+    (dist / "index.html").write_text(home(d, bvmac, root=True))  # the site's home page
     isos = sorted({r[1] for r in d["rows"]})
     for iso in isos:
         (out / "pays" / f"{iso}.html").write_text(country_page(iso, d, as_of))

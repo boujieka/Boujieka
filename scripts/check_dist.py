@@ -29,7 +29,7 @@ def main() -> int:
     p.add_argument("--dist", type=Path, default=DIST)
     a = p.parse_args()
     d, errors = a.dist, []
-    for f in ("index.html", "plateforme.html", "veille.json", "simcalc.js", "netlify.toml", "donnees/auctions.csv", "api/v1/index.json", "api/v1/yield_points.json", "nouveau/index.html", "nouveau/marches.html", "nouveau/titre.html", "nouveau/data.json", "nouveau/app.js",
+    for f in ("index.html", "accueil-classique.html", "plateforme.html", "veille.json", "simcalc.js", "netlify.toml", "donnees/auctions.csv", "api/v1/index.json", "api/v1/yield_points.json", "nouveau/index.html", "nouveau/marches.html", "nouveau/titre.html", "nouveau/data.json", "nouveau/app.js",
               *(f"i18n/{lang}.json" for lang in ("fr", "en", "pt", "es", "ar"))):
         if not (d / f).is_file() or (d / f).stat().st_size == 0:
             errors.append(f"missing or empty: {f}")
@@ -38,12 +38,14 @@ def main() -> int:
         return 1
     try:
         plat = embedded(d / "plateforme.html", "data")
-        home = embedded(d / "index.html", "home-data")
+        home = embedded(d / "accueil-classique.html", "home-data")
+        m = re.search(r'<meta name="abm:as-of" content="([0-9-]+)">', (d / "index.html").read_text())
         veille = json.loads((d / "veille.json").read_text())
     except ValueError as e:
         print(f"unreadable build: {e}")
         return 1
-    dates = {"plateforme.html": plat.get("as_of"), "index.html": home.get("as_of"), "veille.json": veille.get("as_of")}
+    dates = {"plateforme.html": plat.get("as_of"), "accueil-classique.html": home.get("as_of"), "index.html": m.group(1) if m else None,
+             "veille.json": veille.get("as_of")}
     if len(set(dates.values())) != 1:
         errors.append(f"as_of differ: {dates}")
     if a.as_of and plat.get("as_of") != a.as_of:

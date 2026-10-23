@@ -169,7 +169,7 @@
       }));
       app.textContent = '';
       app.appendChild(h('div', null,
-        h('p', { class: 'crumbs' }, h('a', { href: './', text: 'Accueil' }), ' / Marchés'),
+        h('p', { class: 'crumbs' }, h('a', { href: '../', text: 'Accueil' }), ' / Marchés'),
         h('div', { class: 'row-head' },
           h('div', null, h('h1', { text: 'Adjudications vérifiées' }), h('p', { class: 'sub', text: 'Données au ' + frDate(d.as_of, true) + ' · ' + frInt(all.length) + ' adjudications, chacune reliée à son document officiel' })),
           h('div', { class: 'ctas' }, h('button', { type: 'button', class: 'btn btn-line', style: 'background:#fff;cursor:pointer', text: 'Exporter la sélection (CSV, avec sources)', onclick: function () { csv(list); } }),
@@ -302,7 +302,7 @@
         h('p', { class: 'small', text: 'Seuls les jours avec une transaction sont repris : un cours affiché sans échange (NC) n’est pas une transaction. Valeur transigée en francs CFA (XAF), coupon couru inclus, telle qu’imprimée. La BVMAC ne publie pas de rendement ; aucun n’est calculé.' })));
     }
 
-    app.appendChild(h('p', { class: 'crumbs' }, h('a', { href: './', text: 'Accueil' }), ' / ', h('a', { href: 'marches.html', text: 'Marchés' }), ' / ',
+    app.appendChild(h('p', { class: 'crumbs' }, h('a', { href: '../', text: 'Accueil' }), ' / ', h('a', { href: 'marches.html', text: 'Marchés' }), ' / ',
       h('a', { href: 'pays/' + iso + '.html', text: c[0] }), ' / ' + isin));
     app.appendChild(h('div', { class: 'row-head' },
       h('div', null, h('p', { class: 'eyebrow', style: 'color:#4A5568', text: s ? instrLabel(s[1], zone) : 'Obligation cotée à la BVMAC' }),

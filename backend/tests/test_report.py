@@ -2,6 +2,7 @@
 
 import importlib.util
 import json
+import re
 from datetime import date
 from decimal import Decimal
 from pathlib import Path
@@ -165,3 +166,7 @@ def test_redesigned_pages_copy_published_values_and_never_mix_currencies(tmp_pat
     home = (tmp_path / "nouveau" / "index.html").read_text()
     assert "<script" not in home and "$" not in home  # no inline script (CSP) and no price
     assert '<script src="app.js" defer></script>' in (tmp_path / "nouveau" / "marches.html").read_text()
+    root = (tmp_path / "index.html").read_text()  # the site's home: same page, links resolved from /
+    assert 'href="nouveau/marches.html"' in root and 'href="nouveau/pays/CIV.html"' in root and 'content="2026-10-11"' in root
+    assert all(h.startswith(("nouveau/", "plateforme.html", "accueil-classique.html", "donnees/", "api/", "favicon", "./", "#", "https://"))
+               for h in re.findall(r'href="([^"]*)"', root))
