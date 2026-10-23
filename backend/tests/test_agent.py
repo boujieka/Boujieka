@@ -221,3 +221,11 @@ def test_agent_endpoint_requires_a_key_and_only_takes_text_history(client, analy
         assert [m["role"] for m in model.requests[0]["messages"]] == ["user", "assistant", "user"]
     finally:
         client.app.dependency_overrides.pop(get_agent, None)
+
+
+def test_unknown_convention_is_never_a_yield():
+    from app.agent.tools import _value_kind
+    assert _value_kind("UMOA-Titres: rendement moyen pondéré, as published") == "yield_percent"
+    assert _value_kind("BEAC: prix moyen pondéré (OTA, % du nominal), as published") == "price_percent_of_par"
+    assert _value_kind("BEAC: taux moyen pondéré (BTA, précompté), as published") == "discount_rate_percent"
+    assert _value_kind("taux marginal") == "unknown"

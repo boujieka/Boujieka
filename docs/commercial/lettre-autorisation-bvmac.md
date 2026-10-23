@@ -17,7 +17,7 @@ la Bourse des Valeurs Mobilières de l'Afrique Centrale (BVMAC)
 
 Monsieur le Directeur Général / Madame la Directrice Générale,
 
-Par votre courrier cité en référence, vous avez autorisé Africa Bonds Monitor à publier gratuitement les bulletins officiels de la cote, publiés sur votre site. Nous vous en remercions. Cette autorisation est appliquée strictement : la plateforme (https://cartouche-africa.netlify.app) est gratuite, cite la source de chaque chiffre et n'a jamais revendu vos données.
+Par votre courrier cité en référence, vous avez autorisé Africa Bonds Monitor à publier gratuitement les bulletins officiels de la cote, publiés sur votre site. Nous vous en remercions. Cette autorisation est appliquée strictement : la plateforme (https://cartouche-africa.netlify.app et https://africa-bond-compass.lovable.app) est gratuite, cite la source de chaque chiffre et n'a jamais revendu vos données.
 
 **Ce que nous publions aujourd'hui à partir de vos documents**
 

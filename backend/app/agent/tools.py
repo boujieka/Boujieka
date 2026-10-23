@@ -84,7 +84,9 @@ def _value_kind(convention: str) -> str:
         return "price_percent_of_par"
     if "précompté" in c or "precompte" in c:
         return "discount_rate_percent"
-    return "yield_percent"
+    if "rendement" in c or "yield" in c:
+        return "yield_percent"
+    return "unknown"  # a new convention is never presented as a yield
 
 
 def _market_rows(f: dict) -> list[dict]:
