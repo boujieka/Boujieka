@@ -1,0 +1,5 @@
+# Phase 0 audit tooling (static analysis only; no macro is ever executed)
+openpyxl==3.1.5
+oletools==0.60.2
+pcodedmp==1.2.6
+networkx==3.7

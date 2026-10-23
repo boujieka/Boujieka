@@ -1,0 +1,8 @@
+# Source documents are kept locally only: redistribution rights are not verified
+# (see reference/MANIFEST.md). Never commit them to this public repository.
+reference/*
+!reference/MANIFEST.md
+.venv/
+__pycache__/
+*.pyc
+work/

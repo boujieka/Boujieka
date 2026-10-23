@@ -1,0 +1,308 @@
+{
+  "_comment": "Outputs recorded for every reference scenario. Scalars are single cells; series are annual rows read over the timeline columns J..BZ (2023..2091).",
+  "scalars": {
+    "project_irr": [
+      "Dashboard!E36",
+      "Project IRR (XIRR, incl. grant)",
+      "%"
+    ],
+    "payback_years": [
+      "Dashboard!G36",
+      "Payback period (operations years)",
+      "years"
+    ],
+    "senior_debt": [
+      "Dashboard!E41",
+      "Senior debt drawn",
+      "model currency"
+    ],
+    "grant": [
+      "Dashboard!E42",
+      "Grant to AssetCo",
+      "model currency"
+    ],
+    "owner_equity": [
+      "Dashboard!E43",
+      "Owner equity",
+      "model currency"
+    ],
+    "total_funding": [
+      "Dashboard!E44",
+      "Total funding requirement",
+      "model currency"
+    ],
+    "grid_investments": [
+      "Dashboard!E50",
+      "Uses: grid investments",
+      "model currency"
+    ],
+    "idc": [
+      "Dashboard!E51",
+      "Uses: interest during construction",
+      "model currency"
+    ],
+    "financing_fees": [
+      "Dashboard!E52",
+      "Uses: financing fees",
+      "model currency"
+    ],
+    "dsra_opening": [
+      "Dashboard!E53",
+      "Uses: DSRA opening balance",
+      "model currency"
+    ],
+    "mmra_opening": [
+      "Dashboard!E54",
+      "Uses: MMRA opening balance",
+      "model currency"
+    ],
+    "mean_monthly_arpu": [
+      "Dashboard!K34",
+      "Mean monthly ARPU",
+      "model currency/month"
+    ],
+    "mean_monthly_consumption": [
+      "Dashboard!K35",
+      "Mean monthly consumption",
+      "kWh/month"
+    ],
+    "avg_tariff_time_weighted": [
+      "Dashboard!K36",
+      "Average tariff (time weighted)",
+      "model currency/kWh"
+    ],
+    "people_served": [
+      "Dashboard!K39",
+      "Number of people served",
+      "people"
+    ],
+    "project_xnpv_wacc": [
+      "Model!E376",
+      "Project XNPV at WACC (cash flow incl. grid purchases)",
+      "model currency"
+    ],
+    "project_xnpv_ex_purchases": [
+      "Model!E392",
+      "Project XNPV ex. grid purchases, incl. grant",
+      "model currency"
+    ],
+    "npv_per_connection": [
+      "Model!E394",
+      "NPV per connection",
+      "model currency"
+    ],
+    "equity_irr_incl_grant": [
+      "Model!E413",
+      "AssetCo equity XIRR incl. grant",
+      "%"
+    ],
+    "equity_irr_excl_grant": [
+      "Model!E418",
+      "AssetCo equity XIRR excl. grant",
+      "%"
+    ],
+    "owner_irr_incl_grant": [
+      "Model!E436",
+      "Owner XIRR incl. grant",
+      "%"
+    ],
+    "owner_irr_excl_grant": [
+      "Model!E441",
+      "Owner XIRR excl. grant",
+      "%"
+    ],
+    "dscr_capacity": [
+      "Inputs!E300",
+      "Debt capacity under DSCR sculpting (calculated)",
+      "model currency"
+    ],
+    "dsra_initial_calc": [
+      "Inputs!E371",
+      "DSRA initial funding (calculated)",
+      "model currency"
+    ],
+    "check_balance_sheet": [
+      "Dashboard!K42",
+      "Check: balance sheet balances (0 = OK)",
+      "flag"
+    ],
+    "check_equity_required": [
+      "Dashboard!K43",
+      "Check: equity required (0 = OK)",
+      "flag"
+    ],
+    "check_senior_repaid": [
+      "Dashboard!K44",
+      "Check: senior debt fully repaid (0 = OK)",
+      "flag"
+    ],
+    "check_funding_optimised": [
+      "Dashboard!K45",
+      "Check: funding requirement optimised (0 = OK)",
+      "flag"
+    ],
+    "check_senior_sized": [
+      "Dashboard!K46",
+      "Check: senior debt sized (0 = OK)",
+      "flag"
+    ],
+    "check_refi_repaid": [
+      "Dashboard!K47",
+      "Check: refinanced debt fully repaid (0 = OK)",
+      "flag"
+    ],
+    "check_refi_sized": [
+      "Dashboard!K48",
+      "Check: refinanced debt sized (0 = OK)",
+      "flag"
+    ],
+    "check_no_additional_equity": [
+      "Dashboard!K49",
+      "Check: additional equity not required (0 = OK)",
+      "flag"
+    ],
+    "check_no_equity_injection": [
+      "Dashboard!K50",
+      "Check: equity injection not required (0 = OK)",
+      "flag"
+    ],
+    "check_grids_built": [
+      "Dashboard!K51",
+      "Check: total grids = grids constructed (0 = OK)",
+      "flag"
+    ],
+    "check_mmra_end": [
+      "Dashboard!K52",
+      "Check: MMRA end balance = minimum balance (0 = OK)",
+      "flag"
+    ],
+    "check_dsra_funded": [
+      "Dashboard!K53",
+      "Check: DSRA correctly funded from the beginning (0 = OK)",
+      "flag"
+    ],
+    "check_global": [
+      "Dashboard!K55",
+      "Check: global (0 = OK)",
+      "flag"
+    ]
+  },
+  "pasted_values": {
+    "funding_pasted": "Inputs!G292",
+    "dscr_pasted": "Inputs!G300",
+    "refi_pasted": "Inputs!G344",
+    "dsra_pasted": "Inputs!E372"
+  },
+  "series": {
+    "operational_grids": [
+      "Model",
+      23,
+      "Operational grids at year end"
+    ],
+    "consumption_kwh": [
+      "Model",
+      60,
+      "Customer consumption (kWh/year)"
+    ],
+    "revenue": [
+      "Model",
+      87,
+      "Revenue (FX and inflation adjusted)"
+    ],
+    "total_opex": [
+      "Model",
+      132,
+      "Total opex"
+    ],
+    "diesel_cost": [
+      "Model",
+      124,
+      "Diesel cost"
+    ],
+    "ebitda": [
+      "FinStat",
+      14,
+      "EBITDA"
+    ],
+    "depreciation": [
+      "FinStat",
+      16,
+      "Accounting depreciation"
+    ],
+    "ebt": [
+      "FinStat",
+      23,
+      "EBT"
+    ],
+    "npat": [
+      "FinStat",
+      28,
+      "Net profit after tax"
+    ],
+    "tax_paid": [
+      "Model",
+      287,
+      "Tax paid (cash)"
+    ],
+    "ongoing_capex": [
+      "Model",
+      276,
+      "Ongoing capex incl. VAT"
+    ],
+    "cfads": [
+      "Model",
+      291,
+      "Cash flow available for debt service"
+    ],
+    "senior_interest": [
+      "Model",
+      305,
+      "Senior debt interest (cash)"
+    ],
+    "senior_principal": [
+      "Model",
+      306,
+      "Senior debt principal (cash)"
+    ],
+    "senior_debt_closing": [
+      "Debt",
+      34,
+      "Senior debt balance c/f"
+    ],
+    "refi_debt_closing": [
+      "Debt",
+      77,
+      "Refinanced debt balance c/f"
+    ],
+    "dsra_closing": [
+      "Debt",
+      198,
+      "DSRA balance c/f"
+    ],
+    "mmra_closing": [
+      "Debt",
+      121,
+      "MMRA balance c/f"
+    ],
+    "distributions_net": [
+      "Model",
+      405,
+      "Distributions net of WHT"
+    ],
+    "project_cash_flow": [
+      "Model",
+      365,
+      "Project cash flow"
+    ],
+    "cash_closing": [
+      "FinStat",
+      135,
+      "Cash balance c/f"
+    ],
+    "bs_check": [
+      "FinStat",
+      67,
+      "Balance sheet check (0 = OK)"
+    ]
+  }
+}

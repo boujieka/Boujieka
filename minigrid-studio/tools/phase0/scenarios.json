@@ -1,0 +1,10 @@
+{
+  "_comment": "Reference scenarios (see docs/reference_scenarios.md). 'set' overwrites input cells of the published workbook before the macro procedure is replayed.",
+  "scenarios": [
+    {"id": "S1_base", "title": "Published base case (USD, gearing sizing, DSRA and MMRA on, no refinancing)", "set": {}},
+    {"id": "S2_dscr_sizing", "title": "Senior debt sized on DSCR instead of gearing", "set": {"Inputs!E302": "DSCR"}},
+    {"id": "S3_local_currency", "title": "Model run in local currency (Currency case 2)", "set": {"Currency!F18": 2}},
+    {"id": "S4_refinancing", "title": "Senior debt refinanced in year 5 of tenor", "set": {"Inputs!G336": 1}},
+    {"id": "S5_phased_stress", "title": "Portfolio built over 3 years (40/30/30), tariff -20 %, plateau consumption case", "set": {"Inputs!I135": 0.4, "Inputs!J135": 0.3, "Inputs!K135": 0.3, "Inputs!G170": -0.2, "Inputs!E432": 1}}
+  ]
+}

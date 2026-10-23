@@ -1,0 +1,1024 @@
+row_id,sheet,row,label,unit,precedent_rows,dependent_rows
+Currency!2,Currency,2,,,Names!8 [Model Name],0
+Currency!14,Currency,14,Exchange rate,LCY/USD,Currency!11 [Effective date];Inputs!401 [Local Currency per USD];Inputs!402 [Local],22
+Currency!18,Currency,18,Selected scenario,Selection,Currency!23 [Selection],33
+Currency!20,Currency,20,VAT expense,,Inputs!222 [VAT],15
+Currency!28,Currency,28,MMRA starting balance,MMRA starting balance,Currency!14 [Exchange rate];Currency!18 [Selected scenario],1
+Currency!29,Currency,29,All-in cost of debt,All-in cost of debt,Currency!18 [Selected scenario],2
+Currency!33,Currency,33,Capex (net of grant),Capex (net of grant),Currency!14 [Exchange rate];Currency!18 [Selected scenario];Currency!20 [VAT expense];Inputs!224 [VAT category : Capex],2
+Currency!34,Currency,34,Grant,Grant,Currency!14 [Exchange rate];Currency!18 [Selected scenario],1
+Currency!35,Currency,35,Lithium Ion Battery cost,Lithium Ion Battery cost,Currency!14 [Exchange rate];Currency!18 [Selected scenario];Currency!20 [VAT expense];Inputs!224 [VAT category : Capex],1
+Currency!36,Currency,36,Transfer fee cost,Transfer fee cost,Currency!14 [Exchange rate];Currency!18 [Selected scenario];Currency!20 [VAT expense];Inputs!224 [VAT category : Capex],1
+Currency!39,Currency,39,Fixed Opex fee per grid,Fixed Opex fee per grid,Currency!14 [Exchange rate];Currency!16 [Base exchange rate];Currency!18 [Selected scenario];Currency!20 [VAT expense];Inputs!225 [VAT category : Opex],1
+Currency!40,Currency,40,Diesel price per litre,Diesel price per litre,Currency!14 [Exchange rate];Currency!18 [Selected scenario],1
+Currency!44,Currency,44,PV pricing,PV pricing,Currency!14 [Exchange rate];Currency!18 [Selected scenario];Currency!20 [VAT expense];Inputs!224 [VAT category : Capex],2
+Currency!45,Currency,45,Racking and container costs of battery,Racking and container costs of battery,Currency!14 [Exchange rate];Currency!18 [Selected scenario];Currency!20 [VAT expense];Inputs!224 [VAT category : Capex],2
+Currency!46,Currency,46,Lithium ion battery installation costs,Lithium ion battery installation costs,Currency!14 [Exchange rate];Currency!16 [Base exchange rate];Currency!18 [Selected scenario];Currency!20 [VAT expense];Inputs!224 [VAT category : Capex],1
+Currency!47,Currency,47,Battery unit replacement cost in 2023,Battery unit replacement cost in 2023,Currency!14 [Exchange rate];Currency!18 [Selected scenario];Currency!20 [VAT expense];Inputs!224 [VAT category : Capex],1
+Currency!48,Currency,48,Inverter price per inverter W - 2020,Inverter price per inverter W - 2020,Currency!14 [Exchange rate];Currency!18 [Selected scenario];Currency!20 [VAT expense];Inputs!224 [VAT category : Capex],2
+Currency!49,Currency,49,Mini-grid expansion racking,Mini-grid expansion racking,Currency!14 [Exchange rate];Currency!18 [Selected scenario];Currency!20 [VAT expense];Inputs!224 [VAT category : Capex],1
+Currency!50,Currency,50,"Mini-grid expansion logistics, labour, other","Mini-grid expansion logistics, labour, other",Currency!14 [Exchange rate];Currency!16 [Base exchange rate];Currency!18 [Selected scenario];Currency!20 [VAT expense];Inputs!224 [VAT category : Capex],1
+Currency!51,Currency,51,BNEF battery cost forecast - 2030,BNEF battery cost forecast - 2030,Currency!14 [Exchange rate];Currency!18 [Selected scenario];Currency!20 [VAT expense];Inputs!224 [VAT category : Capex],1
+Currency!52,Currency,52,Inverter cost forecast - 2030,Inverter cost forecast - 2030,Currency!14 [Exchange rate];Currency!18 [Selected scenario];Currency!20 [VAT expense];Inputs!224 [VAT category : Capex],1
+Currency!55,Currency,55,Monthly Fixed Opex fee per customer,Monthly Fixed Opex fee per customer,Currency!14 [Exchange rate];Currency!16 [Base exchange rate];Currency!18 [Selected scenario];Currency!20 [VAT expense];Inputs!225 [VAT category : Opex],1
+Currency!56,Currency,56,"Administrative, accounting, and professional costs","Administrative, accounting, and professional costs",Currency!14 [Exchange rate];Currency!18 [Selected scenario];Currency!20 [VAT expense];Inputs!225 [VAT category : Opex],1
+Currency!59,Currency,59,Tariff,Tariff,Currency!14 [Exchange rate];Currency!16 [Base exchange rate];Currency!18 [Selected scenario],1
+Currency!60,Currency,60,Grid arrival tariff,Grid arrival tariff,Currency!14 [Exchange rate];Currency!16 [Base exchange rate];Currency!18 [Selected scenario],1
+Currency!63,Currency,63,AMT threshold (Alternative Minimum Tax),AMT threshold (Alternative Minimum Tax),Currency!14 [Exchange rate];Currency!16 [Base exchange rate];Currency!18 [Selected scenario],1
+Currency!64,Currency,64,Senior debt sizing - rounding,Senior debt sizing - rounding,Currency!18 [Selected scenario],2
+Currency!67,Currency,67,Equity Injection not Required Check - Cap (1% of capex net of grant),Equity Injection not Required Check - Cap (1% of capex net of grant),Currency!14 [Exchange rate];Currency!18 [Selected scenario];Currency!33 [Capex (net of grant)];Portfolio!13 [Number of grids];Portfolio!14 [Number of connections per grid],1
+Portfolio!2,Portfolio,2,,,Names!8 [Model Name],0
+Portfolio!8,Portfolio,8,,,,0
+Portfolio!9,Portfolio,9,Included?,,,22
+Portfolio!10,Portfolio,10,Country,,,0
+Portfolio!13,Portfolio,13,Number of grids,Num#,Portfolio!9 [Included?],7
+Portfolio!14,Portfolio,14,Number of connections per grid,Num#,Portfolio!9 [Included?];Portfolio!13 [Number of grids],5
+Portfolio!15,Portfolio,15,Total connections,#num,Portfolio!9 [Included?];Portfolio!13 [Number of grids];Portfolio!14 [Number of connections per grid],16
+Portfolio!16,Portfolio,16,Generating capacity per grid,kWp/grid,Portfolio!9 [Included?];Portfolio!13 [Number of grids],2
+Portfolio!18,Portfolio,18,Number of people per connection,people per connection,Portfolio!9 [Included?];Portfolio!15 [Total connections],2
+Portfolio!19,Portfolio,19,Number of people served,Num#,Portfolio!9 [Included?];Portfolio!13 [Number of grids];Portfolio!14 [Number of connections per grid];Portfolio!18 [Number of people per connection],0
+Portfolio!22,Portfolio,22,Baseline average consumption,kWh/month,Portfolio!9 [Included?];Portfolio!15 [Total connections],3
+Portfolio!23,Portfolio,23,5 year peak under plateau case,kWh/month,Portfolio!9 [Included?];Portfolio!15 [Total connections],1
+Portfolio!26,Portfolio,26,Average tariff on baseline consumption,$/kWh,Currency!59 [Tariff];Portfolio!9 [Included?];Portfolio!15 [Total connections],1
+Portfolio!29,Portfolio,29,Capex (net of grant),$/connection,Currency!33 [Capex (net of grant)];Portfolio!9 [Included?];Portfolio!15 [Total connections],2
+Portfolio!30,Portfolio,30,Transfer fee cost,$/connection,Currency!36 [Transfer fee cost];Portfolio!9 [Included?];Portfolio!15 [Total connections],1
+Portfolio!31,Portfolio,31,Total purchase price,$/connection,Portfolio!9 [Included?];Portfolio!15 [Total connections];Portfolio!29 [Capex (net of grant)];Portfolio!30 [Transfer fee cost],2
+Portfolio!32,Portfolio,32,Total purchase price,$,Portfolio!9 [Included?];Portfolio!15 [Total connections];Portfolio!29 [Capex (net of grant)],0
+Portfolio!34,Portfolio,34,Grant,$/connection,Currency!34 [Grant];Portfolio!9 [Included?];Portfolio!15 [Total connections],2
+Portfolio!35,Portfolio,35,Total Capex,$/connection,Portfolio!9 [Included?];Portfolio!15 [Total connections];Portfolio!31 [Total purchase price];Portfolio!34 [Grant],2
+Portfolio!37,Portfolio,37,Capacity per connection,W/connection,Portfolio!9 [Included?];Portfolio!14 [Number of connections per grid];Portfolio!15 [Total connections];Portfolio!16 [Generating capacity per grid];Names!17 [Thousand],0
+Portfolio!40,Portfolio,40,Expansion module size,kW,Portfolio!9 [Included?];Portfolio!15 [Total connections],1
+Portfolio!41,Portfolio,41,Battery cost,$/kWh,Currency!35 [Lithium Ion Battery cost];Portfolio!9 [Included?];Portfolio!15 [Total connections],2
+Portfolio!44,Portfolio,44,Fixed Opex fee per grid,$/grid/yr,Currency!39 [Fixed Opex fee per grid];Portfolio!9 [Included?];Portfolio!13 [Number of grids],2
+Portfolio!45,Portfolio,45,Fixed Opex fee per customer,$/connection/month,Currency!55 [Monthly Fixed Opex fee per customer];Portfolio!9 [Included?];Portfolio!15 [Total connections],2
+Portfolio!46,Portfolio,46,Opex fee ratchet (% of revenue above P50 forecast),%,Portfolio!9 [Included?];Portfolio!15 [Total connections];Inputs!174 [Opex fee ratchet (% of revenue above P50],1
+Portfolio!47,Portfolio,47,Diesel,$/litre,Currency!40 [Diesel price per litre];Portfolio!9 [Included?];Portfolio!15 [Total connections],1
+Inputs!2,Inputs,2,,,Names!8 [Model Name],0
+Inputs!10,Inputs,10,Duration,Yr(s),Inputs!136 [Incremental],3
+Inputs!11,Inputs,11,End,Date,Inputs!9 [Start];Inputs!10 [Duration];Names!13 [Months per Year],8
+Inputs!17,Inputs,17,Start,Date,Inputs!9 [Start];Inputs!14 [Duration];Names!13 [Months per Year],5
+Inputs!19,Inputs,19,End,Date,Inputs!11 [End];Inputs!18 [Lifetime of grid];Names!13 [Months per Year],4
+Inputs!24,Inputs,24,Number of grids,Num#,Portfolio!13 [Number of grids],3
+Inputs!25,Inputs,25,Total connections,Num#,Inputs!24 [Number of grids];Inputs!30 [Number of connections],4
+Inputs!26,Inputs,26,Number of people per connection,people per connection,Portfolio!18 [Number of people per connection],1
+Inputs!27,Inputs,27,Number of people served,Num#,Inputs!25 [Total connections];Inputs!26 [Number of people per connection],1
+Inputs!30,Inputs,30,Number of connections,Num#/grid,Portfolio!14 [Number of connections per grid],13
+Inputs!31,Inputs,31,Total Capex,$/connection,Portfolio!35 [Total Capex];Dashboard!9 [Generating capacity per grid],3
+Inputs!32,Inputs,32,Price per W,$/W,Inputs!33 [Grid purchase price];Inputs!38 [Generating capacity];Names!17 [Thousand],0
+Inputs!33,Inputs,33,Grid purchase price,$,Inputs!30 [Number of connections];Inputs!31 [Total Capex],1
+Inputs!38,Inputs,38,Generating capacity,kWp,Dashboard!9 [Generating capacity per grid],6
+Inputs!40,Inputs,40,Generation output - daily per kWp,kWh/kWp/day,Inputs!39 [Generation output - annual per kWp];Names!12 [Days in Year],0
+Inputs!41,Inputs,41,Daily output,kWh/day,Inputs!38 [Generating capacity];Inputs!39 [Generation output - annual per kWp];Names!12 [Days in Year],2
+Inputs!42,Inputs,42,Monthly output,kWh/month,Inputs!43 [Annual output];Names!13 [Months per Year],1
+Inputs!43,Inputs,43,Annual output,kWh/year,Inputs!38 [Generating capacity];Inputs!39 [Generation output - annual per kWp],2
+Inputs!45,Inputs,45,PV pricing,$/W,Currency!44 [PV pricing],2
+Inputs!46,Inputs,46,Initial PV capex,$,Inputs!38 [Generating capacity];Inputs!45 [PV pricing];Names!17 [Thousand],1
+Inputs!47,Inputs,47,$/connection,$/connection,Inputs!30 [Number of connections];Inputs!46 [Initial PV capex],0
+Inputs!57,Inputs,57,Storage required,kWh,Inputs!41 [Daily output];Inputs!56 [Night time battery usage as % of PV dail],2
+Inputs!59,Inputs,59,Battery required,kWh,Inputs!57 [Storage required];Inputs!58 [Regular battery discharge limit],3
+Inputs!60,Inputs,60,Initial battery capex,$,Inputs!59 [Battery required];Inputs!63 [Battery unit cost],1
+Inputs!61,Inputs,61,$/connection,$/connection,Inputs!30 [Number of connections];Inputs!60 [Initial battery capex],0
+Inputs!63,Inputs,63,Battery unit cost,$/kWh,Portfolio!41 [Battery cost],4
+Inputs!64,Inputs,64,Racking and container costs of battery,$/kWh,Currency!45 [Racking and container costs of battery],1
+Inputs!65,Inputs,65,Battery unit replacement cost,$/kWh,Inputs!63 [Battery unit cost];Inputs!64 [Racking and container costs of battery],0
+Inputs!67,Inputs,67,Battery replacement cost,$,Inputs!59 [Battery required];Inputs!63 [Battery unit cost],0
+Inputs!69,Inputs,69,Battery unit cost,$/kWh,Portfolio!41 [Battery cost],1
+Inputs!70,Inputs,70,Battery replacement cost,$,Currency!45 [Racking and container costs of battery],0
+Inputs!71,Inputs,71,Installation costs,$/kWh,Currency!46 [Lithium ion battery installation costs],1
+Inputs!75,Inputs,75,Price,$/inverter W,Currency!48 [Inverter price per inverter W - 2020],1
+Inputs!76,Inputs,76,Capacity,kVA,Inputs!38 [Generating capacity];Inputs!74 [Sizing],1
+Inputs!86,Inputs,86,Price per litre,$/litre,Portfolio!47 [Diesel],1
+Inputs!99,Inputs,99,Max Diesel Use as % of Gross Solar Production,%,Dashboard!15 [],2
+Inputs!106,Inputs,106,Panels,kW,Portfolio!40 [Expansion module size],9
+Inputs!107,Inputs,107,Daily output,kWh/day,Inputs!39 [Generation output - annual per kWp];Inputs!41 [Daily output];Inputs!106 [Panels];Names!12 [Days in Year],1
+Inputs!108,Inputs,108,Monthly output,kWh/month,Inputs!42 [Monthly output];Inputs!109 [Annual output];Names!13 [Months per Year],0
+Inputs!109,Inputs,109,Annual output,kWh/year,Inputs!39 [Generation output - annual per kWp];Inputs!43 [Annual output];Inputs!106 [Panels],3
+Inputs!111,Inputs,111,Storage required,kWh,Inputs!56 [Night time battery usage as % of PV dail];Inputs!57 [Storage required];Inputs!107 [Daily output],1
+Inputs!112,Inputs,112,Lithium Ion Battery required,kWh,Inputs!58 [Regular battery discharge limit];Inputs!111 [Storage required],3
+Inputs!114,Inputs,114,Capacity required,kVA,Inputs!74 [Sizing];Inputs!106 [Panels],3
+Inputs!117,Inputs,117,PV,$,Inputs!45 [PV pricing];Inputs!105 [PV];Inputs!106 [Panels];Names!17 [Thousand],1
+Inputs!118,Inputs,118,Battery,$,Inputs!63 [Battery unit cost];Inputs!110 [Battery];Inputs!112 [Lithium Ion Battery required],2
+Inputs!119,Inputs,119,Inverter,$,Inputs!75 [Price];Inputs!113 [Inverter];Inputs!114 [Capacity required];Names!17 [Thousand],1
+Inputs!120,Inputs,120,Racking,$,Currency!49 [Mini-grid expansion racking],1
+Inputs!121,Inputs,121,"Logistics, labour, and other",$,"Currency!50 [Mini-grid expansion logistics, labour, o]",2
+Inputs!122,Inputs,122,Total,$,"Inputs!30 [Number of connections];Inputs!31 [Total Capex];Inputs!117 [PV];Inputs!118 [Battery];Inputs!119 [Inverter];Inputs!120 [Racking];Inputs!121 [Logistics, labour, and other]",1
+Inputs!128,Inputs,128,Initial,$/connection,Portfolio!31 [Total purchase price],2
+Inputs!129,Inputs,129,$/grid,$/grid,Inputs!30 [Number of connections];Inputs!128 [Initial],2
+Inputs!131,Inputs,131,Total Capex and Depreciable Asset,$/connection,Portfolio!35 [Total Capex],1
+Inputs!132,Inputs,132,$/grid,$/grid,Inputs!30 [Number of connections];Inputs!131 [Total Capex and Depreciable Asset],1
+Inputs!134,Inputs,134,Build Profile,,,1
+Inputs!135,Inputs,135,,,,1
+Inputs!136,Inputs,136,Incremental,Num#,Inputs!135 [];Inputs!141 [Portfolio remaining];Dashboard!7 [Number of grids],11
+Inputs!137,Inputs,137,Total Purchase Price,$,Inputs!129 [$/grid];Inputs!136 [Incremental],0
+Inputs!138,Inputs,138,Actual Capex and Depreciable Asset,$,Inputs!132 [$/grid];Inputs!136 [Incremental],0
+Inputs!140,Inputs,140,Total at year end,Num#,Inputs!136 [Incremental],2
+Inputs!141,Inputs,141,Portfolio remaining,Num#,Inputs!24 [Number of grids];Inputs!136 [Incremental];Inputs!140 [Total at year end],2
+Inputs!143,Inputs,143,Connections,Num#,Inputs!30 [Number of connections];Inputs!136 [Incremental],0
+Inputs!148,Inputs,148,Year of Operations by Grid,,,2
+Inputs!149,Inputs,149,% baseline revenue,% baseline revenue,Inputs!136 [Incremental],1
+Inputs!150,Inputs,150,% baseline revenue,% baseline revenue,Inputs!136 [Incremental],1
+Inputs!151,Inputs,151,% baseline revenue,% baseline revenue,Inputs!136 [Incremental],1
+Inputs!152,Inputs,152,% baseline revenue,% baseline revenue,Inputs!136 [Incremental],1
+Inputs!154,Inputs,154,100% Revenue Generating Grids,#Num,Inputs!149 [% baseline revenue];Inputs!150 [% baseline revenue];Inputs!151 [% baseline revenue];Inputs!152 [% baseline revenue],2
+Inputs!156,Inputs,156,100% Revenue Generating Grids Flag,Flag,Inputs!140 [Total at year end];Inputs!154 [100% Revenue Generating Grids],1
+Inputs!157,Inputs,157,End of ramp-up period for portfolio,Year,Inputs!148 [Year of Operations by Grid];Inputs!156 [100% Revenue Generating Grids Flag],1
+Inputs!162,Inputs,162,Average consumption,Wh/day,Inputs!164 [Average consumption];Names!12 [Days in Year];Names!17 [Thousand],0
+Inputs!163,Inputs,163,Average consumption,kWh/month,Portfolio!22 [Baseline average consumption],3
+Inputs!164,Inputs,164,Average consumption,kWh/year,Inputs!163 [Average consumption];Names!13 [Months per Year],2
+Inputs!166,Inputs,166,Annual growth,%,,1
+Inputs!170,Inputs,170,Average,$/kWh,Portfolio!26 [Average tariff on baseline consumption],2
+Inputs!173,Inputs,173,Fixed Opex fee per grid,$/grid/yr,Portfolio!44 [Fixed Opex fee per grid];Dashboard!18 [],2
+Inputs!174,Inputs,174,Opex fee ratchet (% of revenue above P50 forecast),%,Dashboard!20 [Senior debt],3
+Inputs!176,Inputs,176,Fixed Opex fee per customer,$/connection/month,Portfolio!45 [Fixed Opex fee per customer];Model!103 [Fixed Opex fee per customer (nominal)],2
+Inputs!179,Inputs,179,"Administrative, accounting and professional costs",$,"Currency!56 [Administrative, accounting, and professi]",1
+Inputs!192,Inputs,192,Calendar Year,,Inputs!6 [Model Start Date],1
+Inputs!193,Inputs,193,Forecast,$/watt,Inputs!194 [2023 PV module pricing],1
+Inputs!194,Inputs,194,2023 PV module pricing,$/watt,Currency!44 [PV pricing],1
+Inputs!198,Inputs,198,Calendar Year,,Inputs!6 [Model Start Date],2
+Inputs!199,Inputs,199,AssetCo Forecast,$/kWh,Inputs!202 [Battery unit replacement cost in 2023],1
+Inputs!200,Inputs,200,BNEF New Energy Outlook 2018 forecast for Lithium-Ion batteries,$/kWh,Currency!51 [BNEF battery cost forecast - 2030];Inputs!198 [Calendar Year];Inputs!202 [Battery unit replacement cost in 2023],1
+Inputs!201,Inputs,201,Selected,$,Inputs!199 [AssetCo Forecast];Inputs!200 [BNEF New Energy Outlook 2018 forecast fo],1
+Inputs!202,Inputs,202,Battery unit replacement cost in 2023,$/kWh,Currency!47 [Battery unit replacement cost in 2023],2
+Inputs!205,Inputs,205,Calendar Year,,Inputs!6 [Model Start Date],2
+Inputs!206,Inputs,206,Cost forecast,$/inverter watt,Currency!52 [Inverter cost forecast - 2030];Inputs!205 [Calendar Year];Inputs!207 [2020 Inverter price];Inputs!208 [Reference Year],1
+Inputs!207,Inputs,207,2020 Inverter price,$/inverter watt,Currency!48 [Inverter price per inverter W - 2020],1
+Inputs!231,Inputs,231,Alternative Minimum Tax Threshold,$,Currency!63 [AMT threshold (Alternative Minimum Tax)],1
+Inputs!239,Inputs,239,Straight line depreciation,% p.a.,Inputs!238 [Asset life],1
+Inputs!242,Inputs,242,Asset life,Yrs,Inputs!187 [Battery],2
+Inputs!243,Inputs,243,Straight line depreciation,% p.a.,Inputs!242 [Asset life],1
+Inputs!246,Inputs,246,Asset life,Yrs,Inputs!238 [Asset life],2
+Inputs!247,Inputs,247,Straight line depreciation,% p.a.,Inputs!246 [Asset life],1
+Inputs!252,Inputs,252,Straight line depreciation,% p.a.,Inputs!251 [Asset life],1
+Inputs!256,Inputs,256,Straight line depreciation,% p.a.,Inputs!255 [Asset life],1
+Inputs!259,Inputs,259,Asset life,Yrs,Inputs!251 [Asset life],2
+Inputs!260,Inputs,260,Straight line depreciation,% p.a.,Inputs!259 [Asset life],1
+Inputs!270,Inputs,270,Grant to AssetCo,$,Portfolio!34 [Grant];Inputs!25 [Total connections],4
+Inputs!276,Inputs,276,Funding required net of senior debt,$,Inputs!292 [Funding required];Inputs!304 [Applied Debt Limit],1
+Inputs!277,Inputs,277,"Initial Equity (net of Grant, First Loss)",$,Inputs!270 [Grant to AssetCo];Inputs!276 [Funding required net of senior debt],1
+Inputs!279,Inputs,279,Owner Equity,$,"Inputs!277 [Initial Equity (net of Grant, First Loss]",3
+Inputs!280,Inputs,280,Additional Equity,$,Model!210 [Additional equity],0
+Inputs!283,Inputs,283,Owner,%,Inputs!284 [Developer],1
+Inputs!288,Inputs,288,Developer,%,Inputs!287 [Owner],0
+Inputs!292,Inputs,292,Funding required,$,Currency!64 [Senior debt sizing - rounding];Model!204 [Total],5
+Inputs!296,Inputs,296,Gearing Ratio,%,,6
+Inputs!297,Inputs,297,Limit,$,Inputs!292 [Funding required];Inputs!296 [Gearing Ratio],1
+Inputs!300,Inputs,300,Limit,,Currency!64 [Senior debt sizing - rounding];Inputs!304 [Applied Debt Limit];Inputs!336 [Year of senior debt tenor to refinance];Debt!60 [Max principal repayment],2
+Inputs!304,Inputs,304,Applied Debt Limit,$,Inputs!297 [Limit];Inputs!300 [Limit];Inputs!302 [Debt Sizing Method],10
+Inputs!305,Inputs,305,Senior Debt,$,Model!246 [Drawdown],2
+Inputs!310,Inputs,310,Fixed All-in (Base + Margin),% p.a.,Inputs!315 [Fixed All-in (Base + Margin)],1
+Inputs!313,Inputs,313,Period,,,2
+Inputs!314,Inputs,314,Margin on top of Floating,% p.a.,,3
+Inputs!315,Inputs,315,Fixed All-in (Base + Margin),% p.a.,Currency!29 [All-in cost of debt],3
+Inputs!321,Inputs,321,Commitment Fee,% p.a.,Inputs!314 [Margin on top of Floating];Inputs!320 [Commitment Fee],0
+Inputs!325,Inputs,325,Tenor,Yr(s),Inputs!324 [Start of repayment];Model!4 [Period Start];Model!14 [Operations year];Names!13 [Months per Year],5
+Inputs!326,Inputs,326,Grace Period,Yr(s),Inputs!325 [Tenor];Names!13 [Months per Year],2
+Inputs!332,Inputs,332,Drawdown,,Inputs!296 [Gearing Ratio];Inputs!304 [Applied Debt Limit],1
+Inputs!340,Inputs,340,Gearing Ratio,%,,1
+Inputs!341,Inputs,341,Limit,$,Inputs!292 [Funding required];Inputs!340 [Gearing Ratio],1
+Inputs!344,Inputs,344,Limit,,Inputs!348 [Applied Debt Limit];Debt!102 [Max principal repayment],2
+Inputs!348,Inputs,348,Applied Debt Limit,$,Inputs!336 [Year of senior debt tenor to refinance];Inputs!341 [Limit];Inputs!344 [Limit];Inputs!346 [Debt Sizing Method],2
+Inputs!349,Inputs,349,Refi Senior Debt,$,Model!246 [Drawdown],0
+Inputs!353,Inputs,353,Period,,,2
+Inputs!354,Inputs,354,Margin on top of Floating,% p.a.,,3
+Inputs!355,Inputs,355,Fixed All-in (Base + Margin),% p.a.,Currency!29 [All-in cost of debt],1
+Inputs!361,Inputs,361,Commitment Fee,% p.a.,Inputs!354 [Margin on top of Floating];Inputs!360 [Commitment Fee],0
+Inputs!364,Inputs,364,Tenor,Yr(s),Inputs!325 [Tenor];Debt!66 [Start of period to refi];Names!13 [Months per Year],1
+Inputs!367,Inputs,367,Target DSCR,x,Inputs!329 [Target DSCR],1
+Inputs!371,Inputs,371,Initial funding,$,Debt!169 [Initial funding],1
+Inputs!373,Inputs,373,,,Inputs!371 [Initial funding];Inputs!372 [Initial funding (pasted)],1
+Inputs!375,Inputs,375,year,year,Inputs!374 [Debt service provision];Names!13 [Months per Year],1
+Inputs!378,Inputs,378,Middle date in Construction Period,,Inputs!9 [Start];Inputs!11 [End],0
+Inputs!380,Inputs,380,Start date,Date,Inputs!17 [Start],1
+Inputs!386,Inputs,386,Opening Minimum balance of MMRA,$,Currency!28 [MMRA starting balance],4
+Inputs!393,Inputs,393,FX rates,,Inputs!6 [Model Start Date],5
+Inputs!394,Inputs,394,Local currency selected,USD to LCY/USD,Inputs!402 [Local];Inputs!403 [USD to LCY],1
+Inputs!397,Inputs,397,Normalised to start of model,,Currency!11 [Effective date];Inputs!393 [FX rates];Inputs!394 [Local currency selected],1
+Inputs!398,Inputs,398,Naira depreciation against USD,,Inputs!393 [FX rates];Inputs!397 [Normalised to start of model],2
+Inputs!399,Inputs,399,USD appreciation against Naira,,Inputs!398 [Naira depreciation against USD],1
+Inputs!401,Inputs,401,Local Currency per USD,,Inputs!393 [FX rates],3
+Inputs!402,Inputs,402,Local,Local,Currency!16 [Base exchange rate];Inputs!401 [Local Currency per USD];Inputs!403 [USD to LCY],4
+Inputs!403,Inputs,403,USD to LCY,Local,Inputs!402 [Local],3
+Inputs!413,Inputs,413,Operations year,,,1
+Inputs!414,Inputs,414,Average consumption per connection,kWh/month,Portfolio!22 [Baseline average consumption];Portfolio!23 [5 year peak under plateau case];Inputs!413 [Operations year],5
+Inputs!415,Inputs,415,kWh/year,kWh/year,Inputs!414 [Average consumption per connection];Names!13 [Months per Year],0
+Inputs!416,Inputs,416,Plateau flag,,Inputs!414 [Average consumption per connection],1
+Inputs!419,Inputs,419,Operations year,,,1
+Inputs!420,Inputs,420,Growth index,Index,Inputs!166 [Annual growth];Inputs!419 [Operations year],1
+Inputs!421,Inputs,421,Average consumption per connection,kWh/month,Inputs!163 [Average consumption];Inputs!420 [Growth index],1
+Inputs!424,Inputs,424,Operations year,,,0
+Inputs!425,Inputs,425,Growth index,Index,Inputs!416 [Plateau flag],1
+Inputs!426,Inputs,426,Average consumption per connection,kWh/month,Inputs!414 [Average consumption per connection];Inputs!425 [Growth index],1
+Inputs!428,Inputs,428,Plateau,kWh/month,Inputs!414 [Average consumption per connection],1
+Inputs!429,Inputs,429,Escalation,kWh/month,Inputs!421 [Average consumption per connection],1
+Inputs!430,Inputs,430,Plateau + Income Growth,kWh/month,Inputs!426 [Average consumption per connection],1
+Inputs!432,Inputs,432,Selected Case,,,2
+Inputs!433,Inputs,433,Average consumption per connection,kWh/month,Inputs!428 [Plateau];Inputs!429 [Escalation];Inputs!430 [Plateau + Income Growth];Inputs!432 [Selected Case],2
+Inputs!434,Inputs,434,kWh/year,kWh/year,Inputs!433 [Average consumption per connection];Names!13 [Months per Year],0
+Inputs!439,Inputs,439,Grid arrival,,Inputs!11 [End];Inputs!438 [Years of operation before arrival];Names!13 [Months per Year],1
+Inputs!441,Inputs,441,Tariff,$/kWh,Currency!60 [Grid arrival tariff],1
+Model!2,Model,2,,,Names!8 [Model Name],0
+Model!3,Model,3,,,Model!19 [AssetCo lifetime],0
+Model!4,Model,4,Period Start,Date,Model!5 [Period End],12
+Model!5,Model,5,Period End,Date,Inputs!6 [Model Start Date];Model!4 [Period Start];Names!13 [Months per Year],15
+Model!6,Model,6,Construction,"[1,0]",Inputs!9 [Start];Inputs!11 [End];Model!4 [Period Start];Model!5 [Period End],10
+Model!7,Model,7,Operations,"[1,0]",Inputs!17 [Start];Inputs!19 [End];Model!4 [Period Start];Model!5 [Period End],62
+Model!10,Model,10,Days in a period,Num#,Model!4 [Period Start];Model!5 [Period End],0
+Model!11,Model,11,Calendar year,Num#,Model!4 [Period Start],6
+Model!13,Model,13,Construction year,Num#,Model!6 [Construction],2
+Model!14,Model,14,Operations year,Num#,Model!7 [Operations],11
+Model!15,Model,15,Inflation,Index,Inputs!391 [Local currency inflation],1
+Model!16,Model,16,Naira depreciation against USD,Index,Inputs!393 [FX rates];Inputs!398 [Naira depreciation against USD];Model!11 [Calendar year],6
+Model!17,Model,17,USD appreciation against Naira,Index,Inputs!393 [FX rates];Inputs!399 [USD appreciation against Naira];Model!11 [Calendar year],3
+Model!18,Model,18,AssetCo live flag,Flag,Model!4 [Period Start];Model!5 [Period End];Model!6 [Construction];Model!7 [Operations],6
+Model!19,Model,19,AssetCo lifetime,Flag,Model!18 [AssetCo live flag],4
+Model!20,Model,20,Last year of construction flag,,Inputs!10 [Duration];Model!13 [Construction year],0
+Model!23,Model,23,Operational Grids year end,Num#,Model!185 [Balance c/f],8
+Model!24,Model,24,Operational Grids ramp-up,Num#,Inputs!148 [Year of Operations by Grid];Inputs!154 [100% Revenue Generating Grids];Model!14 [Operations year],1
+Model!25,Model,25,Fully Operational Grids over lifetime,Num#,Inputs!157 [End of ramp-up period for portfolio];Model!23 [Operational Grids year end];Model!24 [Operational Grids ramp-up],2
+Model!26,Model,26,Fully Operational Connections,Num#,Inputs!30 [Number of connections];Model!25 [Fully Operational Grids over lifetime],3
+Model!27,Model,27,Operational Connections,Num#,Inputs!30 [Number of connections];Model!23 [Operational Grids year end],1
+Model!30,Model,30,PV system size,kW,Model!589 [PV system size];Model!590 [Start of period],1
+Model!31,Model,31,Number of modules,#Num,Inputs!106 [Panels];Model!30 [PV system size],2
+Model!32,Model,32,,,Model!603 [],0
+Model!33,Model,33,Gross Production,kWh,Model!604 [Generation output];Model!608 [Net Production],3
+Model!37,Model,37,Power Unit Self-Consumption,kWh,Inputs!50 [Power Unit Self-Consumption];Model!7 [Operations];Model!31 [Number of modules];Names!12 [Days in Year],4
+Model!39,Model,39,Variable,,Inputs!51 [Meter self-consumption],0
+Model!40,Model,40,Meters,kWh,Inputs!51 [Meter self-consumption];Model!7 [Operations];Model!26 [Fully Operational Connections];Names!12 [Days in Year],1
+Model!41,Model,41,Meters Consumption distribution losses,kWh,Model!40 [Meters],3
+Model!43,Model,43,Customer Consumption distribution losses,kWh,Inputs!52 [Distribution losses];Model!60 [Total],4
+Model!45,Model,45,Total distribution losses,kWh,Model!37 [Power Unit Self-Consumption];Model!41 [Meters Consumption distribution losses];Model!43 [Customer Consumption distribution losses],3
+Model!46,Model,46,Proportion of Gross Production,%,Model!33 [Gross Production];Model!45 [Total distribution losses],0
+Model!48,Model,48,Net Production,kWh,Model!33 [Gross Production];Model!45 [Total distribution losses],2
+Model!49,Model,49,Net production per module,kWh,Model!31 [Number of modules];Model!48 [Net Production],1
+Model!52,Model,52,Consumption,kWh/month,Inputs!432 [Selected Case];Inputs!433 [Average consumption per connection];Model!14 [Operations year],3
+Model!56,Model,56,Energy consumption,kWh/month,Inputs!163 [Average consumption];Model!52 [Consumption],2
+Model!57,Model,57,Energy consumption,kWh/year,Inputs!164 [Average consumption];Model!56 [Energy consumption];Names!13 [Months per Year],1
+Model!59,Model,59,Fully Operational Connections,#Num,Model!26 [Fully Operational Connections],1
+Model!60,Model,60,Total,kWh/year,Model!57 [Energy consumption];Model!59 [Fully Operational Connections],6
+Model!63,Model,63,Tariff,$/kWh,Inputs!170 [Average];Model!7 [Operations];Model!67 [Tariff (FX and Inflation adjusted)],3
+Model!65,Model,65,Naira depreciation against selected currency,Index,Currency!18 [Selected scenario];Model!7 [Operations];Model!16 [Naira depreciation against USD],3
+Model!66,Model,66,Normalised for Inflation,Index,Model!7 [Operations];Model!83 [Inflation index],3
+Model!67,Model,67,Tariff (FX and Inflation adjusted),$/kWh,Model!63 [Tariff];Model!65 [Naira depreciation against selected curr];Model!66 [Normalised for Inflation],2
+Model!69,Model,69,Total,$/kWh,Model!63 [Tariff];Model!64 [];Model!65 [Naira depreciation against selected curr];Model!66 [Normalised for Inflation];Model!67 [Tariff (FX and Inflation adjusted)];Model!68 [Subsidy],2
+Model!72,Model,72,Pre-grid Flag,,Model!7 [Operations];Model!73 [Post-grid Flag],1
+Model!73,Model,73,Post-grid Flag,Flag,Inputs!438 [Years of operation before arrival];Inputs!439 [Grid arrival];Model!4 [Period Start];Model!7 [Operations],2
+Model!75,Model,75,Tariff applied,$/kWh,Inputs!441 [Tariff];Model!65 [Naira depreciation against selected curr];Model!66 [Normalised for Inflation];Model!69 [Total];Model!72 [Pre-grid Flag];Model!73 [Post-grid Flag],1
+Model!77,Model,77,Revenue (Consumption x Tariff Driven),,Model!60 [Total];Model!75 [Tariff applied],3
+Model!79,Model,79,Number of Operational Connections,#Num,Model!26 [Fully Operational Connections],4
+Model!80,Model,80,ARPU (real),$/month,Model!77 [Revenue (Consumption x Tariff Driven)];Model!79 [Number of Operational Connections];Names!13 [Months per Year],1
+Model!83,Model,83,Inflation index,Index,Model!15 [Inflation],8
+Model!84,Model,84,Naira depreciation against USD,Index,Model!16 [Naira depreciation against USD],2
+Model!85,Model,85,Inflation x FX adjustment,Index,Model!83 [Inflation index];Model!84 [Naira depreciation against USD],0
+Model!87,Model,87,Revenue (FX and Inflation adjusted),$,Model!77 [Revenue (Consumption x Tariff Driven)],11
+Model!89,Model,89,ARPU (FX and inflation adjusted),$/year,Model!79 [Number of Operational Connections];Model!87 [Revenue (FX and Inflation adjusted)],2
+Model!90,Model,90,ARPU (FX and inflation adjusted),$/month,Model!89 [ARPU (FX and inflation adjusted)];Names!13 [Months per Year],4
+Model!92,Model,92,Revenue per grid,$/year,Inputs!30 [Number of connections];Model!89 [ARPU (FX and inflation adjusted)],0
+Model!97,Model,97,Fixed Opex fee per grid,$/grid/yr,Inputs!173 [Fixed Opex fee per grid];Model!7 [Operations],1
+Model!98,Model,98,Naira depreciation against selected currency,Index,Currency!18 [Selected scenario];Model!7 [Operations];Model!16 [Naira depreciation against USD],1
+Model!99,Model,99,Normalised for Inflation,Index,Model!7 [Operations];Model!83 [Inflation index],1
+Model!100,Model,100,Fixed Opex fee per grid (FX adjusted),$/grid/yr,Model!97 [Fixed Opex fee per grid];Model!98 [Naira depreciation against selected curr];Model!99 [Normalised for Inflation],1
+Model!101,Model,101,Fixed Opex fee,$/year,Model!100 [Fixed Opex fee per grid (FX adjusted)];Model!185 [Balance c/f],1
+Model!103,Model,103,Fixed Opex fee per customer (nominal),$/connection/month,Inputs!175 [Operations Year Threshold];Inputs!176 [Fixed Opex fee per customer];Model!7 [Operations];Model!14 [Operations year],2
+Model!104,Model,104,Naira depreciation against selected currency,Index,Currency!18 [Selected scenario];Model!7 [Operations];Model!16 [Naira depreciation against USD],1
+Model!105,Model,105,Normalised for Inflation,Index,Model!7 [Operations];Model!83 [Inflation index],1
+Model!106,Model,106,Fixed Opex fee per customer (FX and Inflation adjusted),$/connection/month,Model!103 [Fixed Opex fee per customer (nominal)];Model!104 [Naira depreciation against selected curr];Model!105 [Normalised for Inflation],1
+Model!107,Model,107,Customer Opex fee,$/year,Model!7 [Operations];Model!79 [Number of Operational Connections];Model!106 [Fixed Opex fee per customer (FX and Infl];Names!13 [Months per Year],1
+Model!109,Model,109,Total Opex fee,$/year,Model!101 [Fixed Opex fee];Model!107 [Customer Opex fee],1
+Model!112,Model,112,ARPU (FX and inflation adjusted),$/month,Model!90 [ARPU (FX and inflation adjusted)],1
+Model!113,Model,113,P50 ARPU Forecast (FX and Inflation adjusted),$/month,Model!52 [Consumption];Model!69 [Total];Model!90 [ARPU (FX and inflation adjusted)],1
+Model!114,Model,114,ARPU above Ratchet threshold,$/month,Model!112 [ARPU (FX and inflation adjusted)];Model!113 [P50 ARPU Forecast (FX and Inflation adju],1
+Model!116,Model,116,Revenue above Ratchet threshold,$/year,Model!79 [Number of Operational Connections];Model!114 [ARPU above Ratchet threshold];Names!13 [Months per Year],1
+Model!117,Model,117,Variable Ratchet Fee,$/year,Inputs!174 [Opex fee ratchet (% of revenue above P50];Model!111 [Variable Ratchet Fee];Model!116 [Revenue above Ratchet threshold],1
+Model!119,Model,119,Variable fee total,$/year,Model!117 [Variable Ratchet Fee],1
+Model!121,Model,121,Total Operating Fee exc. Diesel,$/year,Model!109 [Total Opex fee];Model!119 [Variable fee total],4
+Model!122,Model,122,Per site,$/year,Model!23 [Operational Grids year end];Model!121 [Total Operating Fee exc. Diesel],0
+Model!124,Model,124,Diesel,$/year,Model!707 [Portfolio],3
+Model!125,Model,125,Per site,$/year,Model!23 [Operational Grids year end];Model!124 [Diesel],0
+Model!127,Model,127,"Administrative, accounting and professional costs",$/year,"Inputs!179 [Administrative, accounting and professio];Model!6 [Construction];Model!7 [Operations]",1
+Model!128,Model,128,USD appreciation against selected currency,Index,Currency!18 [Selected scenario];Model!7 [Operations];Model!17 [USD appreciation against Naira],1
+Model!129,Model,129,Normalised for Inflation,Index,Model!7 [Operations];Model!83 [Inflation index],1
+Model!130,Model,130,"Administrative, accounting and professional costs (FX and inflation adjusted)",$/year,"Model!127 [Administrative, accounting and professio];Model!128 [USD appreciation against selected curren];Model!129 [Normalised for Inflation]",2
+Model!132,Model,132,Total Opex,$/year,"Model!121 [Total Operating Fee exc. Diesel];Model!124 [Diesel];Model!130 [Administrative, accounting and professio]",7
+Model!135,Model,135,Trade debtors target balance,,Inputs!182 [Receivable days];Model!87 [Revenue (FX and Inflation adjusted)];Model!155 [VAT on revenues];Names!12 [Days in Year],1
+Model!137,Model,137,Trade debtor balance b/f,$,Model!140 [Trade debtor balance c/f],3
+Model!138,Model,138,Revenue accrued,$,Model!87 [Revenue (FX and Inflation adjusted)];Model!155 [VAT on revenues],2
+Model!139,Model,139,Revenue received,$,Model!7 [Operations];Model!135 [Trade debtors target balance];Model!137 [Trade debtor balance b/f];Model!138 [Revenue accrued],1
+Model!140,Model,140,Trade debtor balance c/f,$,Model!137 [Trade debtor balance b/f];Model!138 [Revenue accrued];Model!139 [Revenue received],3
+Model!142,Model,142,Trade creditors target balance,,Inputs!183 [Payables days];Model!132 [Total Opex];Model!156 [Recoverable VAT on opex];Names!12 [Days in Year],1
+Model!144,Model,144,Trade creditor balance b/f,$,Model!147 [Trade creditor balance c/f],3
+Model!145,Model,145,Opex accrued,$,Model!132 [Total Opex];Model!156 [Recoverable VAT on opex],2
+Model!146,Model,146,Opex paid,$,Model!7 [Operations];Model!142 [Trade creditors target balance];Model!144 [Trade creditor balance b/f];Model!145 [Opex accrued],1
+Model!147,Model,147,Trade creditor balance c/f,$,Model!144 [Trade creditor balance b/f];Model!145 [Opex accrued];Model!146 [Opex paid],3
+Model!150,Model,150,Working capital adjustments,$/year,Model!137 [Trade debtor balance b/f];Model!140 [Trade debtor balance c/f];Model!144 [Trade creditor balance b/f];Model!147 [Trade creditor balance c/f],3
+Model!152,Model,152,VAT,,Inputs!222 [VAT],4
+Model!153,Model,153,Recoverable VAT on initial capex,$,Inputs!224 [VAT category : Capex];Model!152 [VAT];Model!191 [Grid Purchases],2
+Model!154,Model,154,Recoverable VAT on ongoing capex,$,Inputs!224 [VAT category : Capex];Model!152 [VAT];Model!271 [Replacement Capex];Model!274 [Capex for expansion],2
+Model!155,Model,155,VAT on revenues,$,Model!87 [Revenue (FX and Inflation adjusted)];Model!152 [VAT],7
+Model!156,Model,156,Recoverable VAT on opex,$,Inputs!225 [VAT category : Opex];Model!132 [Total Opex];Model!152 [VAT],7
+Model!158,Model,158,Excess VAT (payable) / receivable,$,Model!155 [VAT on revenues];Model!156 [Recoverable VAT on opex],4
+Model!160,Model,160,VAT target balance - refund,$,Inputs!227 [VAT receivable / payable term];Model!7 [Operations];Model!158 [Excess VAT (payable) / receivable];Model!164 [VAT receivable / (payable) balance b/f];Names!12 [Days in Year],1
+Model!161,Model,161,VAT target balance,$,Model!7 [Operations];Model!158 [Excess VAT (payable) / receivable];Model!160 [VAT target balance - refund];Model!164 [VAT receivable / (payable) balance b/f];Model!165 [Recoverable VAT on capex],1
+Model!162,Model,162,VAT received from / (paid to) govt.,$,Model!7 [Operations];Model!158 [Excess VAT (payable) / receivable];Model!161 [VAT target balance];Model!164 [VAT receivable / (payable) balance b/f];Model!165 [Recoverable VAT on capex];Model!166 [Excess VAT (payable) / receivable],5
+Model!164,Model,164,VAT receivable / (payable) balance b/f,$,Model!168 [VAT receivable / (payable) balance c/f],4
+Model!165,Model,165,Recoverable VAT on capex,$,Model!153 [Recoverable VAT on initial capex];Model!154 [Recoverable VAT on ongoing capex],3
+Model!166,Model,166,Excess VAT (payable) / receivable,$,Model!158 [Excess VAT (payable) / receivable],2
+Model!167,Model,167,VAT received from / (paid to) govt.,$,Model!162 [VAT received from / (paid to) govt.],1
+Model!168,Model,168,VAT receivable / (payable) balance c/f,$,Model!164 [VAT receivable / (payable) balance b/f];Model!165 [Recoverable VAT on capex];Model!166 [Excess VAT (payable) / receivable];Model!167 [VAT received from / (paid to) govt.],2
+Model!170,Model,170,Operating cash flows,$,Model!87 [Revenue (FX and Inflation adjusted)];Model!132 [Total Opex];Model!150 [Working capital adjustments];Model!155 [VAT on revenues];Model!156 [Recoverable VAT on opex];Model!162 [VAT received from / (paid to) govt.],2
+Model!171,Model,171,EBITDA Margin,,Model!87 [Revenue (FX and Inflation adjusted)];Model!170 [Operating cash flows],0
+Model!175,Model,175,Construction year,Num#,Model!13 [Construction year],1
+Model!176,Model,176,Incremental grids at year end,Num#,Inputs!134 [Build Profile];Inputs!136 [Incremental];Model!175 [Construction year],4
+Model!179,Model,179,Incremental grids at year end,Num#,Model!176 [Incremental grids at year end],1
+Model!182,Model,182,Balance b/f,Num#,Model!185 [Balance c/f],1
+Model!183,Model,183,Constructed,Num#,Model!179 [Incremental grids at year end],4
+Model!184,Model,184,Retired,Num#,Model!185 [Balance c/f];Model!188 [Grids in service],1
+Model!185,Model,185,Balance c/f,Num#,Model!182 [Balance b/f];Model!183 [Constructed];Model!184 [Retired],4
+Model!187,Model,187,Periods to look back,Num#,Inputs!18 [Lifetime of grid];Model!19 [AssetCo lifetime],1
+Model!188,Model,188,Grids in service,Num#,Model!183 [Constructed];Model!187 [Periods to look back],1
+Model!191,Model,191,Grid Purchases,$,Inputs!129 [$/grid];Model!183 [Constructed],4
+Model!192,Model,192,Financing Fees,$,Model!201 [Financing fees],1
+Model!193,Model,193,Asset base on Capex basis,$,Model!191 [Grid Purchases];Model!192 [Financing Fees],1
+Model!196,Model,196,Grid Purchases Flag,Flag,Model!183 [Constructed],3
+Model!199,Model,199,Grid Purchases incl. VAT,$,Model!153 [Recoverable VAT on initial capex];Model!191 [Grid Purchases],4
+Model!200,Model,200,Interest during construction,$,Model!255 [Interest],3
+Model!201,Model,201,Financing fees,$,Model!258 [Financing fees],4
+Model!202,Model,202,DSRA opening balance,$,Debt!194 [Initial funding],3
+Model!203,Model,203,MMRA opening balance,$,Debt!125 [Funding at construction end],3
+Model!204,Model,204,Total,$,Model!199 [Grid Purchases incl. VAT];Model!200 [Interest during construction];Model!201 [Financing fees];Model!202 [DSRA opening balance];Model!203 [MMRA opening balance],5
+Model!207,Model,207,Grant to AssetCo,$,Model!215 [Grant to AssetCo],2
+Model!208,Model,208,Owner Equity,$,Model!219 [Owner Equity],3
+Model!209,Model,209,Senior Debt,$,Model!223 [Senior Debt],2
+Model!210,Model,210,Additional equity,$,Model!226 [Additional equity],5
+Model!211,Model,211,Total,$,Model!207 [Grant to AssetCo];Model!208 [Owner Equity];Model!209 [Senior Debt];Model!210 [Additional equity],1
+Model!215,Model,215,Grant to AssetCo,$,Inputs!270 [Grant to AssetCo];Inputs!272 [Drawdown rate];Model!204 [Total];Model!234 [Undrawn amount @ start of period],8
+Model!216,Model,216,Funding required after grant,$,Model!204 [Total];Model!215 [Grant to AssetCo],2
+Model!219,Model,219,Owner Equity,$,Inputs!279 [Owner Equity];Model!216 [Funding required after grant];Model!223 [Senior Debt];Model!242 [Undrawn amount @ start of period],4
+Model!220,Model,220,Funding required after equity,$,Model!216 [Funding required after grant];Model!219 [Owner Equity],2
+Model!223,Model,223,Senior Debt,$,Inputs!305 [Senior Debt];Inputs!332 [Drawdown];Model!220 [Funding required after equity];Model!251 [Undrawn amount @ start of period],4
+Model!224,Model,224,Funding required after senior debt,,Model!220 [Funding required after equity];Model!223 [Senior Debt],2
+Model!226,Model,226,Additional equity,$,Model!224 [Funding required after senior debt],3
+Model!227,Model,227,Shortfall,,Model!224 [Funding required after senior debt];Model!226 [Additional equity],0
+Model!230,Model,230,Balance b/f,$,Model!232 [Balance c/f],2
+Model!231,Model,231,Drawdowns,$,Model!215 [Grant to AssetCo],3
+Model!232,Model,232,Balance c/f,$,Model!230 [Balance b/f];Model!231 [Drawdowns],1
+Model!234,Model,234,Undrawn amount @ start of period,$,Inputs!270 [Grant to AssetCo];Model!196 [Grid Purchases Flag];Model!230 [Balance b/f],1
+Model!235,Model,235,Number of connections,#Num,Inputs!30 [Number of connections];Model!23 [Operational Grids year end],0
+Model!238,Model,238,Balance b/f,$,Model!240 [Balance c/f],2
+Model!239,Model,239,Drawdowns,$,Model!219 [Owner Equity],1
+Model!240,Model,240,Balance c/f,$,Model!238 [Balance b/f];Model!239 [Drawdowns],1
+Model!242,Model,242,Undrawn amount @ start of period,$,Inputs!279 [Owner Equity];Model!196 [Grid Purchases Flag];Model!238 [Balance b/f],1
+Model!245,Model,245,Balance b/f,$,Model!249 [Balance c/f],3
+Model!246,Model,246,Drawdown,$,Model!223 [Senior Debt],4
+Model!247,Model,247,Principal repayment,$,Inputs!11 [End];Debt!32 [Principal repayment],1
+Model!248,Model,248,Refi take out,$,Debt!33 [Refi take out],1
+Model!249,Model,249,Balance c/f,$,Model!245 [Balance b/f];Model!246 [Drawdown];Model!247 [Principal repayment];Model!248 [Refi take out],2
+Model!251,Model,251,Undrawn amount @ start of period,$,Inputs!304 [Applied Debt Limit];Model!196 [Grid Purchases Flag];Model!245 [Balance b/f],1
+Model!254,Model,254,Interest rate,%,Inputs!310 [Fixed All-in (Base + Margin)];Model!6 [Construction],1
+Model!255,Model,255,Interest,$,Model!245 [Balance b/f];Model!254 [Interest rate],3
+Model!256,Model,256,Start of Debt Flag,,Inputs!325 [Tenor];Model!4 [Period Start],1
+Model!258,Model,258,Financing fees,$,Inputs!304 [Applied Debt Limit];Inputs!319 [Arrangement Fee];Model!256 [Start of Debt Flag],1
+Model!262,Model,262,Operating cash flows,$,Model!170 [Operating cash flows],1
+Model!264,Model,264,Cash flow after initial funding,$,Model!204 [Total];Model!211 [Total];Model!262 [Operating cash flows],1
+Model!265,Model,265,Cash flow after funding,$,Model!264 [Cash flow after initial funding],4
+Model!269,Model,269,Capex for replacement batteries,$,Model!749 [Total cost replacement batteries],2
+Model!270,Model,270,Capex for replacement inverters,$,Model!776 [Replacement Inverters],1
+Model!271,Model,271,Replacement Capex,$,Model!269 [Capex for replacement batteries];Model!270 [Capex for replacement inverters],5
+Model!274,Model,274,Capex for expansion,$,Model!649 [Additional Capex],4
+Model!276,Model,276,Ongoing Capex incl. VAT,$,Model!154 [Recoverable VAT on ongoing capex];Model!271 [Replacement Capex];Model!274 [Capex for expansion],4
+Model!278,Model,278,Cash flow after ongoing Capex,$,Model!265 [Cash flow after funding];Model!276 [Ongoing Capex incl. VAT],2
+Model!281,Model,281,Equity injection required,$,Currency!67 [Equity Injection not Required Check - Ca];Model!278 [Cash flow after ongoing Capex];Model!285 [Corporate income tax];Model!368 [IRR period flag],7
+Model!282,Model,282,Cash flow after equity injection,$,Model!278 [Cash flow after ongoing Capex];Model!281 [Equity injection required],1
+Model!284,Model,284,Alternative minimum tax (AMT),$,Model!506 [AMT Payable],1
+Model!285,Model,285,Corporate income tax,$,Model!481 [Corporate Income Tax Paid],5
+Model!287,Model,287,Tax paid,$,Model!284 [Alternative minimum tax (AMT)];Model!285 [Corporate income tax],2
+Model!288,Model,288,Cash flow after tax paid,$,Model!282 [Cash flow after equity injection];Model!287 [Tax paid],1
+Model!290,Model,290,Release of MMRA minimum balance at end of debt period,$,Debt!120 [Release of MMRA minimum balance at end o],2
+Model!291,Model,291,Cash flow available for debt service (CFADS),$,Model!288 [Cash flow after tax paid];Model!290 [Release of MMRA minimum balance at end o],4
+Model!296,Model,296,Interest earned on DSRA,$,Debt!204 [Interest income],2
+Model!297,Model,297,CFADS after interest on DSRA,$,Model!291 [Cash flow available for debt service (CF];Model!296 [Interest earned on DSRA],2
+Model!300,Model,300,DSRA drawn down,$,Debt!176 [Release],2
+Model!301,Model,301,CFADS after DSRA drawdown,$,Model!297 [CFADS after interest on DSRA];Model!300 [DSRA drawn down],2
+Model!305,Model,305,Interest,$,Debt!48 [Interest],2
+Model!306,Model,306,Principal,$,Debt!32 [Principal repayment],2
+Model!307,Model,307,Total,$,Model!305 [Interest];Model!306 [Principal],2
+Model!310,Model,310,Interest,$,Debt!90 [Interest during operations],2
+Model!311,Model,311,Principal,$,Debt!76 [Principal repayment],2
+Model!312,Model,312,Total,$,Model!310 [Interest];Model!311 [Principal],1
+Model!314,Model,314,Cashflow available after debt service,$,Model!301 [CFADS after DSRA drawdown];Model!307 [Total];Model!312 [Total],3
+Model!317,Model,317,DSRA funding,$,Debt!196 [Target: funding to meet],2
+Model!318,Model,318,DSRA release,$,Debt!197 [Target: release to meet],2
+Model!319,Model,319,Cash flow available after DSRA,$,Model!314 [Cashflow available after debt service];Model!317 [DSRA funding];Model!318 [DSRA release],2
+Model!322,Model,322,Early repayment of senior debt,$,Debt!33 [Refi take out],2
+Model!323,Model,323,Refinance debt,$,Debt!75 [Initial drawdown],2
+Model!324,Model,324,Net cash change from refi,$,Model!322 [Early repayment of senior debt];Model!323 [Refinance debt],1
+Model!326,Model,326,Cash flow available after refinancing,$,Model!319 [Cash flow available after DSRA];Model!324 [Net cash change from refi],2
+Model!329,Model,329,MMRA: release,$,Debt!111 [MMRA: release],4
+Model!330,Model,330,Cash flow available for MMRA funding,$,Model!326 [Cash flow available after refinancing];Model!329 [MMRA: release],2
+Model!332,Model,332,MMRA: funding,$,Debt!112 [MMRA: funding],3
+Model!333,Model,333,Cash flow available after MMRA funding,$,Model!330 [Cash flow available for MMRA funding];Model!332 [MMRA: funding],3
+Model!335,Model,335,Equity injection required,$,Model!281 [Equity injection required];Model!333 [Cash flow available after MMRA funding];Model!368 [IRR period flag],5
+Model!336,Model,336,Cash flow post equity injection,$,Model!333 [Cash flow available after MMRA funding];Model!335 [Equity injection required],2
+Model!337,Model,337,,,Model!281 [Equity injection required];Model!335 [Equity injection required],1
+Model!341,Model,341,Exit flag,"[1,0]",Inputs!448 [Exit year];Model!7 [Operations];Model!14 [Operations year],2
+Model!342,Model,342,Post-sale flag,"[1,0]",Model!7 [Operations];Model!14 [Operations year];Model!341 [Exit flag],1
+Model!344,Model,344,Equity distribution post MMRA funding,$,Model!336 [Cash flow post equity injection],3
+Model!345,Model,345,Exit valuation,$,Inputs!446 [Weighted Average Cost of Capital (WACC)];Inputs!447 [NPV look forward years];Model!344 [Equity distribution post MMRA funding],1
+Model!346,Model,346,Exit sale price,$,Model!341 [Exit flag];Model!345 [Exit valuation],2
+Model!347,Model,347,Cash flow available for distributions after sale,$,Model!342 [Post-sale flag];Model!344 [Equity distribution post MMRA funding];Model!346 [Exit sale price],3
+Model!349,Model,349,Dividends WHT,,Inputs!233 [Dividends Withholding tax (WHT)];Model!347 [Cash flow available for distributions af],4
+Model!352,Model,352,Cash balance b/f,$,Model!354 [Cash balance c/f],1
+Model!353,Model,353,Net cash flow,$,Model!347 [Cash flow available for distributions af];Model!349 [Dividends WHT];Model!405 [Distributions net of WHT],1
+Model!354,Model,354,Cash balance c/f,$,Model!352 [Cash balance b/f];Model!353 [Net cash flow],1
+Model!358,Model,358,Uses - Grid purchases,$,Model!199 [Grid Purchases incl. VAT],2
+Model!359,Model,359,Grant to AssetCo,$,Model!215 [Grant to AssetCo];Model!231 [Drawdowns],1
+Model!360,Model,360,Revenue,$,Model!87 [Revenue (FX and Inflation adjusted)];Model!155 [VAT on revenues],1
+Model!361,Model,361,Operating Costs,$,Model!132 [Total Opex];Model!156 [Recoverable VAT on opex],1
+Model!362,Model,362,Working Capital Adjustments,$,Model!150 [Working capital adjustments],1
+Model!363,Model,363,Ongoing Capex,$,Model!276 [Ongoing Capex incl. VAT],1
+Model!364,Model,364,Tax,$,Model!162 [VAT received from / (paid to) govt.];Model!285 [Corporate income tax],1
+Model!365,Model,365,Project Cash Flow,$,Model!358 [Uses - Grid purchases];Model!359 [Grant to AssetCo];Model!360 [Revenue];Model!361 [Operating Costs];Model!362 [Working Capital Adjustments];Model!363 [Ongoing Capex];Model!364 [Tax],2
+Model!367,Model,367,Operations year,Num#,Model!14 [Operations year],0
+Model!368,Model,368,IRR period flag,,Inputs!267 [IRR period];Model!7 [Operations];Model!18 [AssetCo live flag];Model!408 [Operations year],3
+Model!369,Model,369,Cash flow over IRR period,,Model!365 [Project Cash Flow];Model!368 [IRR period flag],2
+Model!370,Model,370,IRR currency conversion,Model currency/USD,Currency!18 [Selected scenario];Inputs!401 [Local Currency per USD];Inputs!402 [Local];Model!11 [Calendar year],1
+Model!371,Model,371,Cash flow over IRR period (currency converted),USD,Model!369 [Cash flow over IRR period];Model!370 [IRR currency conversion];Names!19 [Very Small Number],2
+Model!372,Model,372,Rolling IRR,,Model!371 [Cash flow over IRR period (currency conv];Names!19 [Very Small Number],1
+Model!375,Model,375,XIRR,%,Model!5 [Period End];Model!371 [Cash flow over IRR period (currency conv],1
+Model!376,Model,376,XNPV,$,Model!5 [Period End];Model!369 [Cash flow over IRR period];Model!391 [WACC],0
+Model!377,Model,377,Post payback period flag,Flag,Model!7 [Operations];Model!372 [Rolling IRR],1
+Model!378,Model,378,Payback period flag,Flag,Model!7 [Operations];Model!377 [Post payback period flag],1
+Model!381,Model,381,Project Cash Flow,$,Model!365 [Project Cash Flow],1
+Model!382,Model,382,Add back Grid Purchases,$,Model!358 [Uses - Grid purchases],1
+Model!383,Model,383,Grant to AssetCo,$,Model!215 [Grant to AssetCo];Model!231 [Drawdowns],1
+Model!384,Model,384,"Project Cash flow ex. Grid purchases, inc. Grant",$,Model!381 [Project Cash Flow];Model!382 [Add back Grid Purchases];Model!383 [Grant to AssetCo],1
+Model!386,Model,386,Operations year,Num#,Model!14 [Operations year],0
+Model!387,Model,387,IRR period flag,Flag,Inputs!267 [IRR period];Model!18 [AssetCo live flag];Model!408 [Operations year],1
+Model!388,Model,388,Cash flow over IRR period,$,"Model!384 [Project Cash flow ex. Grid purchases, in];Model!387 [IRR period flag];Names!19 [Very Small Number]",1
+Model!391,Model,391,WACC,%,Inputs!266 [WACC target],2
+Model!392,Model,392,XNPV,$,Model!5 [Period End];Model!388 [Cash flow over IRR period];Model!391 [WACC],1
+Model!393,Model,393,Total connections,Num#,Inputs!25 [Total connections],1
+Model!394,Model,394,NPV per connection,Num#,Inputs!25 [Total connections];Model!392 [XNPV];Model!393 [Total connections],0
+Model!397,Model,397,Owner Equity,$,Model!219 [Owner Equity],2
+Model!398,Model,398,,,,1
+Model!399,Model,399,Additional equity,$,Model!226 [Additional equity],2
+Model!400,Model,400,Equity injection required,$,Model!281 [Equity injection required];Model!335 [Equity injection required],3
+Model!402,Model,402,Equity invested,,Model!397 [Owner Equity];Model!398 [];Model!399 [Additional equity];Model!400 [Equity injection required],1
+Model!403,Model,403,$,$,,1
+Model!404,Model,404,,,,1
+Model!405,Model,405,Distributions net of WHT,$,Model!347 [Cash flow available for distributions af];Model!349 [Dividends WHT],6
+Model!406,Model,406,Total,$,Model!402 [Equity invested];Model!403 [$];Model!404 [];Model!405 [Distributions net of WHT];Names!19 [Very Small Number],1
+Model!408,Model,408,Operations year,Num#,Model!14 [Operations year],3
+Model!409,Model,409,IRR period flag,Flag,Inputs!267 [IRR period];Model!7 [Operations];Model!18 [AssetCo live flag];Model!408 [Operations year],1
+Model!410,Model,410,Cash flow over IRR period,$,Model!406 [Total];Model!409 [IRR period flag];Names!19 [Very Small Number],2
+Model!413,Model,413,XIRR,%,Model!5 [Period End];Model!410 [Cash flow over IRR period],0
+Model!416,Model,416,Grant to AssetCo,,Model!215 [Grant to AssetCo],1
+Model!417,Model,417,Cash flow over IRR period,$,Model!410 [Cash flow over IRR period];Model!416 [Grant to AssetCo];Names!19 [Very Small Number],1
+Model!418,Model,418,XIRR,%,Model!5 [Period End];Model!417 [Cash flow over IRR period],0
+Model!422,Model,422,Owner Equity,%,Inputs!287 [Owner];Model!397 [Owner Equity],1
+Model!423,Model,423,Additional equity,%,Inputs!287 [Owner];Model!399 [Additional equity],1
+Model!424,Model,424,Equity injection required,%,Inputs!287 [Owner];Model!400 [Equity injection required],1
+Model!426,Model,426,Owner equity,$,Model!422 [Owner Equity];Model!423 [Additional equity];Model!424 [Equity injection required],1
+Model!427,Model,427,Distributions to Owner,%,Inputs!283 [Owner];Model!405 [Distributions net of WHT],1
+Model!428,Model,428,Total,$,Model!426 [Owner equity];Model!427 [Distributions to Owner];Names!19 [Very Small Number],2
+Model!429,Model,429,Rolling IRR,%,Model!428 [Total],0
+Model!431,Model,431,Operations year,Num#,Model!14 [Operations year],1
+Model!432,Model,432,IRR period flag,Flag,Inputs!267 [IRR period];Model!7 [Operations];Model!18 [AssetCo live flag];Model!431 [Operations year],1
+Model!433,Model,433,Cash flow over IRR period,$,Model!428 [Total];Model!432 [IRR period flag];Names!19 [Very Small Number],2
+Model!436,Model,436,XIRR,%,Model!5 [Period End];Model!433 [Cash flow over IRR period],0
+Model!439,Model,439,Grant to AssetCo,$,Model!215 [Grant to AssetCo],1
+Model!440,Model,440,Cash flow over IRR period,$,Model!433 [Cash flow over IRR period];Model!439 [Grant to AssetCo];Names!19 [Very Small Number],1
+Model!441,Model,441,XIRR,%,Model!5 [Period End];Model!440 [Cash flow over IRR period],0
+Model!444,Model,444,OpCo fee,,Model!121 [Total Operating Fee exc. Diesel],1
+Model!445,Model,445,AssetCo cash flows share,,Inputs!284 [Developer];Model!405 [Distributions net of WHT],1
+Model!446,Model,446,Total,,Model!444 [OpCo fee];Model!445 [AssetCo cash flows share],0
+Model!449,Model,449,Balance b/f,$,Model!454 [Balance c/f],1
+Model!450,Model,450,Initial Equity,$,Model!208 [Owner Equity],1
+Model!451,Model,451,Additional Initial Equity,$,Model!210 [Additional equity],1
+Model!452,Model,452,Equity injections,$,Model!281 [Equity injection required];Model!335 [Equity injection required],1
+Model!453,Model,453,Grant to AssetCo,,Model!215 [Grant to AssetCo],1
+Model!454,Model,454,Balance c/f,$,Model!449 [Balance b/f];Model!450 [Initial Equity];Model!451 [Additional Initial Equity];Model!452 [Equity injections];Model!453 [Grant to AssetCo],2
+Model!458,Model,458,Tax Holiday Flag,"[1,0]",Inputs!217 [Years of tax holiday (if any)];Model!7 [Operations];Model!14 [Operations year],2
+Model!461,Model,461,EBT,,FinStat!23 [EBT],1
+Model!462,Model,462,Net Taxable Income,,Model!461 [EBT],1
+Model!464,Model,464,Tax Payable,,Inputs!215 [Corporate tax rate];Model!462 [Net Taxable Income],2
+Model!468,Model,468,EBT,,FinStat!23 [EBT],1
+Model!469,Model,469,Add back: Accounting Depreciation,,Model!545 [Depreciation],1
+Model!470,Model,470,EBT + Accounting Depreciation,,Model!468 [EBT];Model!469 [Add back: Accounting Depreciation],2
+Model!472,Model,472,Tax Depreciation,,Model!582 [Depreciation],1
+Model!473,Model,473,Capital Allowance Limit,,Inputs!262 [Capital Allowance limit];Model!470 [EBT + Accounting Depreciation],1
+Model!474,Model,474,Deduct: Min Tax Depreciation vs. Capital Allowance Limit,,Model!472 [Tax Depreciation];Model!473 [Capital Allowance Limit],1
+Model!476,Model,476,Taxable Income pre-NOLs,,Model!470 [EBT + Accounting Depreciation];Model!474 [Deduct: Min Tax Depreciation vs. Capital],3
+Model!478,Model,478,Less: Tax losses,,Model!487 [Utilised],1
+Model!479,Model,479,Net Taxable Income,,Model!476 [Taxable Income pre-NOLs];Model!478 [Less: Tax losses],1
+Model!481,Model,481,Corporate Income Tax Paid,,Inputs!215 [Corporate tax rate];Model!458 [Tax Holiday Flag];Model!479 [Net Taxable Income],4
+Model!484,Model,484,Balance b/f,,Model!488 [Balance c/f];Model!491 [NOLs allowed],2
+Model!485,Model,485,Generated,,Model!476 [Taxable Income pre-NOLs],2
+Model!486,Model,486,Expired,,Model!488 [Balance c/f];Model!491 [NOLs allowed],1
+Model!487,Model,487,Utilised,,Model!476 [Taxable Income pre-NOLs];Model!484 [Balance b/f],2
+Model!488,Model,488,Balance c/f,,Model!484 [Balance b/f];Model!485 [Generated];Model!486 [Expired];Model!487 [Utilised],3
+Model!490,Model,490,Periods to look back,,Inputs!219 [Net Operating Losses Carry Forward];Model!7 [Operations],1
+Model!491,Model,491,NOLs allowed,,Model!485 [Generated];Model!490 [Periods to look back],2
+Model!493,Model,493,NOLs Tax Asset,,Model!481 [Corporate Income Tax Paid];Model!488 [Balance c/f],0
+Model!496,Model,496,Balance b/f,,Model!499 [Balance c/f],1
+Model!497,Model,497,Tax Payable,,Model!464 [Tax Payable],1
+Model!498,Model,498,Tax Paid,,Model!481 [Corporate Income Tax Paid],1
+Model!499,Model,499,Balance c/f,,Model!496 [Balance b/f];Model!497 [Tax Payable];Model!498 [Tax Paid],2
+Model!502,Model,502,AMT Flag,,Inputs!231 [Alternative Minimum Tax Threshold];Model!7 [Operations];Model!481 [Corporate Income Tax Paid],1
+Model!505,Model,505,Annual Revenue,,Model!87 [Revenue (FX and Inflation adjusted)],1
+Model!506,Model,506,AMT Payable,,Inputs!230 [Minimum payable tax];Model!458 [Tax Holiday Flag];Model!502 [AMT Flag];Model!505 [Annual Revenue],2
+Model!509,Model,509,AssetCo live flag,,Model!18 [AssetCo live flag],0
+Model!510,Model,510,AssetCo lifetime,,Model!19 [AssetCo lifetime],6
+Model!513,Model,513,Initial Capex Items,,Inputs!237 [Initial Capex Items],0
+Model!514,Model,514,Balance b/f,,Model!517 [Balance c/f],2
+Model!515,Model,515,Additions: During Construction,,Model!193 [Asset base on Capex basis],3
+Model!516,Model,516,Depreciation,,Inputs!239 [Straight line depreciation];Model!520 [Capex to be Depreciated],2
+Model!517,Model,517,Balance c/f,,Model!514 [Balance b/f];Model!515 [Additions: During Construction];Model!516 [Depreciation],1
+Model!519,Model,519,Periods to look back,,Inputs!238 [Asset life];Model!510 [AssetCo lifetime],1
+Model!520,Model,520,Capex to be Depreciated,,Model!515 [Additions: During Construction];Model!519 [Periods to look back],1
+Model!522,Model,522,Replacement Capex Items,,Inputs!241 [Replacement Capex Items],0
+Model!523,Model,523,Balance b/f,,Model!526 [Balance c/f],2
+Model!524,Model,524,Additions: During Operations,,Model!271 [Replacement Capex];Model!274 [Capex for expansion],3
+Model!525,Model,525,Depreciation,,Inputs!243 [Straight line depreciation];Model!529 [Capex to be Depreciated],2
+Model!526,Model,526,Balance c/f,,Model!523 [Balance b/f];Model!524 [Additions: During Operations];Model!525 [Depreciation],1
+Model!528,Model,528,Periods to look back,,Inputs!242 [Asset life];Model!510 [AssetCo lifetime],1
+Model!529,Model,529,Capex to be Depreciated,,Model!524 [Additions: During Operations];Model!528 [Periods to look back],1
+Model!531,Model,531,Interest during construction,,Inputs!245 [Interest during construction],0
+Model!532,Model,532,Balance b/f,,Model!535 [Balance c/f],2
+Model!533,Model,533,Additions: During Construction,,Model!540 [Interest during construction (senior deb],3
+Model!534,Model,534,Depreciation,,Inputs!247 [Straight line depreciation];Model!538 [To be Depreciated],2
+Model!535,Model,535,Balance c/f,,Model!532 [Balance b/f];Model!533 [Additions: During Construction];Model!534 [Depreciation],1
+Model!537,Model,537,Periods to look back,,Inputs!246 [Asset life];Model!510 [AssetCo lifetime],1
+Model!538,Model,538,To be Depreciated,,Model!533 [Additions: During Construction];Model!537 [Periods to look back],1
+Model!540,Model,540,Interest during construction (senior debt),,Model!255 [Interest],1
+Model!543,Model,543,Balance b/f,,Model!514 [Balance b/f];Model!523 [Balance b/f];Model!532 [Balance b/f],1
+Model!544,Model,544,Additions,,Model!515 [Additions: During Construction];Model!524 [Additions: During Operations];Model!533 [Additions: During Construction],1
+Model!545,Model,545,Depreciation,,Model!516 [Depreciation];Model!525 [Depreciation];Model!534 [Depreciation],3
+Model!546,Model,546,Balance c/f,,Model!543 [Balance b/f];Model!544 [Additions];Model!545 [Depreciation],1
+Model!550,Model,550,Initial Capex Items,,Inputs!250 [Initial Capex Items],0
+Model!551,Model,551,Balance b/f,,Model!554 [Balance c/f],2
+Model!552,Model,552,Additions: During Construction,,Model!191 [Grid Purchases],3
+Model!553,Model,553,Depreciation,,Inputs!252 [Straight line depreciation];Model!557 [Capex to be Depreciated],2
+Model!554,Model,554,Balance c/f,,Model!551 [Balance b/f];Model!552 [Additions: During Construction];Model!553 [Depreciation],1
+Model!556,Model,556,Periods to look back,,Inputs!251 [Asset life];Model!510 [AssetCo lifetime],1
+Model!557,Model,557,Capex to be Depreciated,,Model!552 [Additions: During Construction];Model!556 [Periods to look back],1
+Model!559,Model,559,Replacement Capex Items,,Inputs!254 [Replacement Capex Items],0
+Model!560,Model,560,Balance b/f,,Model!563 [Balance c/f],2
+Model!561,Model,561,Additions: During Operations,,Model!271 [Replacement Capex];Model!274 [Capex for expansion],3
+Model!562,Model,562,Depreciation,,Inputs!256 [Straight line depreciation];Model!566 [Capex to be Depreciated],2
+Model!563,Model,563,Balance c/f,,Model!560 [Balance b/f];Model!561 [Additions: During Operations];Model!562 [Depreciation],1
+Model!565,Model,565,Periods to look back,,Inputs!255 [Asset life];Model!510 [AssetCo lifetime],1
+Model!566,Model,566,Capex to be Depreciated,,Model!561 [Additions: During Operations];Model!565 [Periods to look back],1
+Model!568,Model,568,Interest during construction,,Inputs!258 [Interest during construction],0
+Model!569,Model,569,Balance b/f,,Model!572 [Balance c/f],2
+Model!570,Model,570,Additions: During Construction,,Model!577 [Interest during construction (senior deb],3
+Model!571,Model,571,Depreciation,,Inputs!260 [Straight line depreciation];Model!575 [To be Depreciated],2
+Model!572,Model,572,Balance c/f,,Model!569 [Balance b/f];Model!570 [Additions: During Construction];Model!571 [Depreciation],1
+Model!574,Model,574,Periods to look back,,Inputs!259 [Asset life];Model!510 [AssetCo lifetime],1
+Model!575,Model,575,To be Depreciated,,Model!570 [Additions: During Construction];Model!574 [Periods to look back],1
+Model!577,Model,577,Interest during construction (senior debt),,Model!255 [Interest],1
+Model!580,Model,580,Balance b/f,,Model!551 [Balance b/f];Model!560 [Balance b/f];Model!569 [Balance b/f],1
+Model!581,Model,581,Capex Additions,,Model!552 [Additions: During Construction];Model!561 [Additions: During Operations];Model!570 [Additions: During Construction],1
+Model!582,Model,582,Depreciation,,Model!553 [Depreciation];Model!562 [Depreciation];Model!571 [Depreciation],2
+Model!583,Model,583,Balance c/f,,Model!580 [Balance b/f];Model!581 [Capex Additions];Model!582 [Depreciation],0
+Model!587,Model,587,AssetCo lifetime,,Model!19 [AssetCo lifetime],1
+Model!590,Model,590,Start of period,kW,Model!595 [End of period],4
+Model!591,Model,591,Initial,kW,Inputs!38 [Generating capacity];Model!176 [Incremental grids at year end],3
+Model!592,Model,592,Additions (expansion),kW,Model!623 [Additional Capacity added],2
+Model!593,Model,593,Additions (replacement),kW,,2
+Model!594,Model,594,Retirements,kW,Model!600 [Retirements],1
+Model!595,Model,595,End of period,kW,Model!590 [Start of period];Model!591 [Initial];Model!592 [Additions (expansion)];Model!593 [Additions (replacement)];Model!594 [Retirements],2
+Model!598,Model,598,Periods to look back,,Inputs!18 [Lifetime of grid];Model!587 [AssetCo lifetime],1
+Model!599,Model,599,PV capacity within lifetime,kW,Model!591 [Initial];Model!592 [Additions (expansion)];Model!593 [Additions (replacement)];Model!598 [Periods to look back],1
+Model!600,Model,600,Retirements,kW,Model!7 [Operations];Model!595 [End of period];Model!599 [PV capacity within lifetime],1
+Model!604,Model,604,Generation output,,Inputs!39 [Generation output - annual per kWp];Model!7 [Operations];Model!590 [Start of period],2
+Model!606,Model,606,Expansion period post-Construction?,,Model!6 [Construction];Model!7 [Operations],1
+Model!608,Model,608,Net Production,kWh,Model!48 [Net Production],4
+Model!609,Model,609,Diesel Production,kWh,Model!698 [Total Production],3
+Model!610,Model,610,Consumption (next period),kWh,Model!7 [Operations];Model!60 [Total],1
+Model!611,Model,611,Generation surplus / (deficit),kWh,Model!608 [Net Production];Model!609 [Diesel Production];Model!610 [Consumption (next period)],1
+Model!613,Model,613,Additional output required,kWh,Model!606 [Expansion period post-Construction?];Model!611 [Generation surplus / (deficit)],1
+Model!614,Model,614,Modular units required,Num#,Inputs!109 [Annual output];Model!613 [Additional output required],1
+Model!616,Model,616,Diesel production over threshold per site,,Model!712 [Diesel Production above threshold],1
+Model!617,Model,617,Diesel production over threshold aggregated,kWh,Model!7 [Operations];Model!23 [Operational Grids year end];Model!616 [Diesel production over threshold per sit];Model!698 [Total Production],1
+Model!618,Model,618,Net production per module,kWh,Model!49 [Net production per module],1
+Model!619,Model,619,Modular units required,Num#,Model!617 [Diesel production over threshold aggrega];Model!618 [Net production per module],1
+Model!621,Model,621,Modular units required,Num#,Model!614 [Modular units required];Model!619 [Modular units required],4
+Model!623,Model,623,Additional Capacity added,kW,Inputs!106 [Panels];Model!621 [Modular units required],1
+Model!626,Model,626,Unit PV cost,$/W,Inputs!192 [Calendar Year];Inputs!193 [Forecast];Model!7 [Operations];Model!11 [Calendar year],1
+Model!627,Model,627,Unit battery cost,$/kWh,Model!7 [Operations];Model!731 [Unit battery cost],1
+Model!628,Model,628,Unit inverter replacement cost,$/inverter W,Model!7 [Operations];Model!775 [Unit Inverter replacement cost],1
+Model!630,Model,630,USD appreciation against selected currency,Index,Currency!18 [Selected scenario];Model!7 [Operations];Model!17 [USD appreciation against Naira],5
+Model!633,Model,633,Naira depreciation against selected currency,Index,Currency!18 [Selected scenario];Model!7 [Operations];Model!16 [Naira depreciation against USD],1
+Model!634,Model,634,Normalised for Inflation,Index,Model!7 [Operations];Model!83 [Inflation index],1
+Model!637,Model,637,Unit PV cost (FX adjusted),$/W,Model!626 [Unit PV cost];Model!630 [USD appreciation against selected curren],1
+Model!638,Model,638,Unit battery cost (FX adjusted),$/kWh,Model!627 [Unit battery cost];Model!630 [USD appreciation against selected curren],1
+Model!639,Model,639,Unit inverter replacement cost (FX adjusted),$/inverter W,Model!628 [Unit inverter replacement cost];Model!630 [USD appreciation against selected curren],1
+Model!642,Model,642,PV,$,Inputs!106 [Panels];Model!637 [Unit PV cost (FX adjusted)];Names!17 [Thousand],1
+Model!643,Model,643,Battery,$,Inputs!112 [Lithium Ion Battery required];Model!638 [Unit battery cost (FX adjusted)],1
+Model!644,Model,644,Inverter,$,Inputs!114 [Capacity required];Model!639 [Unit inverter replacement cost (FX adjus];Names!17 [Thousand],1
+Model!646,Model,646,"Logistics, labour, and other",$,"Inputs!121 [Logistics, labour, and other];Model!7 [Operations];Model!633 [Naira depreciation against selected curr];Model!634 [Normalised for Inflation]",1
+Model!647,Model,647,Total,$,"Model!642 [PV];Model!643 [Battery];Model!644 [Inverter];Model!645 [Racking];Model!646 [Logistics, labour, and other]",1
+Model!649,Model,649,Additional Capex,$,Model!621 [Modular units required];Model!647 [Total],1
+Model!652,Model,652,Net Production,kWh,Model!608 [Net Production],1
+Model!653,Model,653,Diesel Production,kWh,Model!609 [Diesel Production],1
+Model!654,Model,654,Consumption,kWh,Model!60 [Total],1
+Model!655,Model,655,Generation surplus / (deficit),kWh,Model!652 [Net Production];Model!653 [Diesel Production];Model!654 [Consumption],1
+Model!657,Model,657,Check,,Model!655 [Generation surplus / (deficit)],0
+Model!661,Model,661,Gross Production,kWh,Model!604 [Generation output],3
+Model!662,Model,662,Number of sites,#num,Model!25 [Fully Operational Grids over lifetime],6
+Model!663,Model,663,Per site,kWh/site,Model!661 [Gross Production];Model!662 [Number of sites],2
+Model!666,Model,666,Power Unit Self-Consumption,kWh,Model!37 [Power Unit Self-Consumption],1
+Model!667,Model,667,Meters Consumption distribution losses,kWh,Model!41 [Meters Consumption distribution losses],1
+Model!668,Model,668,Customer Consumption distribution losses,kWh,Model!43 [Customer Consumption distribution losses],1
+Model!669,Model,669,Customer Consumption,kWh,Model!60 [Total],2
+Model!670,Model,670,Total,kWh,Model!666 [Power Unit Self-Consumption];Model!667 [Meters Consumption distribution losses];Model!668 [Customer Consumption distribution losses];Model!669 [Customer Consumption],3
+Model!672,Model,672,Site losses,kWh,Model!669 [Customer Consumption];Model!670 [Total],1
+Model!673,Model,673,Site losses as % of Gross Production,%,Model!661 [Gross Production];Model!672 [Site losses],0
+Model!675,Model,675,Number of modules,#num,Model!7 [Operations];Model!590 [Start of period];Model!591 [Initial],1
+Model!676,Model,676,Per Module,kWh/module,Model!670 [Total];Model!675 [Number of modules],0
+Model!677,Model,677,Per Site,kWh/site,Model!662 [Number of sites];Model!670 [Total],3
+Model!680,Model,680,Ratio,%,Model!663 [Per site];Model!677 [Per Site],1
+Model!684,Model,684,Threshold flag,,Inputs!92 [Threshold];Model!7 [Operations];Model!680 [Ratio],2
+Model!685,Model,685,Threshold,kWh,Model!663 [Per site];Model!684 [Threshold flag],2
+Model!686,Model,686,Gross Consumption over Threshold,kWh,Model!677 [Per Site];Model!684 [Threshold flag];Model!685 [Threshold],1
+Model!688,Model,688,Below threshold,kWh,Inputs!95 [Below threshold];Model!677 [Per Site];Model!685 [Threshold],1
+Model!689,Model,689,Above threshold,kWh,Inputs!96 [Above threshold];Model!686 [Gross Consumption over Threshold],1
+Model!691,Model,691,Total Production,kWh,Model!688 [Below threshold];Model!689 [Above threshold],3
+Model!693,Model,693,Diesel fuel consumption,litre,Inputs!82 [40kW generator];Model!691 [Total Production],3
+Model!695,Model,695,Diesel run time,hours,Inputs!89 [Usage];Model!693 [Diesel fuel consumption],1
+Model!698,Model,698,Total Production,kWh,Model!662 [Number of sites];Model!691 [Total Production],2
+Model!699,Model,699,Diesel fuel consumption,litre,Model!662 [Number of sites];Model!693 [Diesel fuel consumption],0
+Model!700,Model,700,Diesel run time,hours,Model!662 [Number of sites];Model!695 [Diesel run time],0
+Model!703,Model,703,Per site,,Inputs!86 [Price per litre];Model!693 [Diesel fuel consumption];Model!706 [Per site (FX adjusted)],1
+Model!705,Model,705,USD appreciation against selected currency,Index,Currency!18 [Selected scenario];Model!7 [Operations];Model!17 [USD appreciation against Naira],1
+Model!706,Model,706,Per site (FX adjusted),$,Model!703 [Per site];Model!705 [USD appreciation against selected curren],2
+Model!707,Model,707,Portfolio,$,Model!662 [Number of sites];Model!706 [Per site (FX adjusted)],1
+Model!710,Model,710,Gross Solar Production per site,kWh,Model!7 [Operations];Model!23 [Operational Grids year end];Model!33 [Gross Production],1
+Model!711,Model,711,Optimal kWh of diesel per site,kWh,Inputs!99 [Max Diesel Use as % of Gross Solar Produ];Model!710 [Gross Solar Production per site],1
+Model!712,Model,712,Diesel Production above threshold,,Model!691 [Total Production];Model!711 [Optimal kWh of diesel per site],1
+Model!715,Model,715,AssetCo live flag,,Model!4 [Period Start];Model!5 [Period End];Model!6 [Construction];Model!7 [Operations],3
+Model!716,Model,716,AssetCo lifetime,,Model!715 [AssetCo live flag],4
+Model!717,Model,717,Number of grids added,,Model!176 [Incremental grids at year end],2
+Model!718,Model,718,Replacement window,,Inputs!189 [Number of years to stop replacing before];Model!715 [AssetCo live flag];Model!716 [AssetCo lifetime],3
+Model!721,Model,721,Modular units required,Num#,Model!621 [Modular units required],1
+Model!722,Model,722,Battery capacity added,kWh,Inputs!112 [Lithium Ion Battery required];Model!721 [Modular units required],1
+Model!725,Model,725,Periods to look back,,Inputs!187 [Battery];Model!716 [AssetCo lifetime],1
+Model!726,Model,726,Battery capacity within lifetime,kWh,Model!725 [Periods to look back];Model!743 [Initial];Model!744 [Additions (expansion)];Model!745 [Additions (replacement)],2
+Model!727,Model,727,Retirements,kWh,Model!7 [Operations];Model!726 [Battery capacity within lifetime];Model!747 [End of period],1
+Model!728,Model,728,Additions,kWh,Model!7 [Operations];Model!718 [Replacement window];Model!726 [Battery capacity within lifetime];Model!747 [End of period],3
+Model!729,Model,729,Initial,kWh,Model!6 [Construction];Model!717 [Number of grids added];Model!743 [Initial],0
+Model!731,Model,731,Unit battery cost,$/kWh,Inputs!198 [Calendar Year];Inputs!201 [Selected];Model!11 [Calendar year],2
+Model!734,Model,734,Naira depreciation against selected currency,Index,Currency!18 [Selected scenario];Model!7 [Operations];Model!16 [Naira depreciation against USD],1
+Model!735,Model,735,Normalised for Inflation,Index,Model!7 [Operations];Model!83 [Inflation index],1
+Model!737,Model,737,Replacement Batteries,$,Model!630 [USD appreciation against selected curren];Model!728 [Additions];Model!731 [Unit battery cost],2
+Model!738,Model,738,Labour and logistics,$,Inputs!71 [Installation costs];Model!728 [Additions];Model!734 [Naira depreciation against selected curr];Model!735 [Normalised for Inflation],2
+Model!739,Model,739,Total,$,Model!737 [Replacement Batteries];Model!738 [Labour and logistics],0
+Model!742,Model,742,Start of period,kWh,Model!747 [End of period],2
+Model!743,Model,743,Initial,kWh,Inputs!59 [Battery required];Model!6 [Construction];Model!717 [Number of grids added],4
+Model!744,Model,744,Additions (expansion),kWh,Model!722 [Battery capacity added],3
+Model!745,Model,745,Additions (replacement),kWh,Model!7 [Operations];Model!728 [Additions],3
+Model!746,Model,746,Retirements,kWh,Model!7 [Operations];Model!727 [Retirements],1
+Model!747,Model,747,End of period,kWh,Model!742 [Start of period];Model!743 [Initial];Model!744 [Additions (expansion)];Model!745 [Additions (replacement)];Model!746 [Retirements],4
+Model!749,Model,749,Total cost replacement batteries,$,Model!737 [Replacement Batteries];Model!738 [Labour and logistics],1
+Model!752,Model,752,AssetCo live flag,Flag,Model!4 [Period Start];Model!5 [Period End];Model!6 [Construction];Model!7 [Operations],2
+Model!753,Model,753,AssetCo lifetime,Num#,Model!752 [AssetCo live flag],0
+Model!754,Model,754,Number of grids added,Num#,Model!176 [Incremental grids at year end],1
+Model!755,Model,755,Replacement window,Flag,Inputs!189 [Number of years to stop replacing before];Model!715 [AssetCo live flag];Model!716 [AssetCo lifetime];Model!718 [Replacement window];Model!752 [AssetCo live flag],0
+Model!758,Model,758,Start of period,kVA,Model!763 [End of period],1
+Model!759,Model,759,Initial,kVA,Inputs!76 [Capacity];Model!6 [Construction];Model!754 [Number of grids added],2
+Model!760,Model,760,Additions (expansion),kVA,Model!766 [Inverter capacity added],2
+Model!761,Model,761,Additions (replacement),kVA,Model!7 [Operations];Model!772 [Additions],2
+Model!762,Model,762,Retirements,kVA,Model!7 [Operations];Model!771 [Retirements],1
+Model!763,Model,763,End of period,kVA,Model!758 [Start of period];Model!759 [Initial];Model!760 [Additions (expansion)];Model!761 [Additions (replacement)];Model!762 [Retirements],3
+Model!765,Model,765,Modular units required,Num#,Model!621 [Modular units required],1
+Model!766,Model,766,Inverter capacity added,kVA,Inputs!114 [Capacity required];Model!765 [Modular units required],1
+Model!769,Model,769,Periods to look back,,Inputs!188 [Inverter life];Model!716 [AssetCo lifetime],1
+Model!770,Model,770,Inverter capacity within lifetime,kVA,Model!759 [Initial];Model!760 [Additions (expansion)];Model!761 [Additions (replacement)];Model!769 [Periods to look back],2
+Model!771,Model,771,Retirements,kVA,Model!7 [Operations];Model!763 [End of period];Model!770 [Inverter capacity within lifetime],1
+Model!772,Model,772,Additions,kVA,Model!7 [Operations];Model!718 [Replacement window];Model!763 [End of period];Model!770 [Inverter capacity within lifetime],2
+Model!775,Model,775,Unit Inverter replacement cost,$/Watt,Inputs!205 [Calendar Year];Inputs!206 [Cost forecast];Model!11 [Calendar year],2
+Model!776,Model,776,Replacement Inverters,$,Model!630 [USD appreciation against selected curren];Model!772 [Additions];Model!775 [Unit Inverter replacement cost];Names!17 [Thousand],1
+Debt!2,Debt,2,,,Names!8 [Model Name],0
+Debt!3,Debt,3,,,Debt!17 [AssetCo lifetime],0
+Debt!4,Debt,4,Period Start,Date,Debt!5 [Period End],11
+Debt!5,Debt,5,Period End,Date,Inputs!6 [Model Start Date];Debt!4 [Period Start];Names!13 [Months per Year],10
+Debt!6,Debt,6,Construction,"[1,0]",Inputs!9 [Start];Inputs!11 [End];Debt!4 [Period Start];Debt!5 [Period End],2
+Debt!7,Debt,7,Operations,"[1,0]",Inputs!17 [Start];Inputs!19 [End];Debt!4 [Period Start];Debt!5 [Period End],2
+Debt!10,Debt,10,Days in a period,Num#,Debt!4 [Period Start];Debt!5 [Period End],0
+Debt!11,Debt,11,Calendar year,Num#,Debt!4 [Period Start],2
+Debt!13,Debt,13,Construction year,Num#,Debt!6 [Construction],0
+Debt!14,Debt,14,Operations year,Num#,Debt!7 [Operations],1
+Debt!16,Debt,16,AssetCo live flag,,Debt!4 [Period Start];Debt!5 [Period End];Debt!6 [Construction];Debt!7 [Operations],1
+Debt!17,Debt,17,AssetCo lifetime,,Debt!16 [AssetCo live flag],1
+Debt!21,Debt,21,Tenor,"[1,0]",Inputs!296 [Gearing Ratio];Inputs!304 [Applied Debt Limit];Inputs!325 [Tenor];Debt!4 [Period Start];Debt!5 [Period End],8
+Debt!22,Debt,22,Grace period,"[1,0]",Inputs!296 [Gearing Ratio];Inputs!304 [Applied Debt Limit];Inputs!326 [Grace Period];Debt!4 [Period Start];Debt!5 [Period End],1
+Debt!23,Debt,23,Repayment flag,"[1,0]",Debt!21 [Tenor];Debt!22 [Grace period],4
+Debt!24,Debt,24,Remaining periods,Num#,Debt!23 [Repayment flag],1
+Debt!25,Debt,25,Year in senior debt tenor,Num#,Debt!21 [Tenor],2
+Debt!26,Debt,26,Refi flag,"[1,0]",Debt!65 [Refi flag],1
+Debt!27,Debt,27,Refi tenor flag,"[1,0]",Debt!68 [Tenor],1
+Debt!30,Debt,30,Balance b/f,,Debt!34 [Balance c/f],4
+Debt!31,Debt,31,Drawdown,,Model!246 [Drawdown],4
+Debt!32,Debt,32,Principal repayment,,Debt!23 [Repayment flag];Debt!24 [Remaining periods];Debt!27 [Refi tenor flag];Debt!30 [Balance b/f];Debt!60 [Max principal repayment],6
+Debt!33,Debt,33,Refi take out,,Debt!26 [Refi flag];Debt!30 [Balance b/f];Debt!31 [Drawdown];Debt!32 [Principal repayment],4
+Debt!34,Debt,34,Balance c/f,,Debt!30 [Balance b/f];Debt!31 [Drawdown];Debt!32 [Principal repayment];Debt!33 [Refi take out],1
+Debt!35,Debt,35,,,Debt!31 [Drawdown];Debt!32 [Principal repayment];Debt!33 [Refi take out],1
+Debt!38,Debt,38,Base rate,% p.a.,Inputs!406 [Calendar Year];Inputs!407 [Base Rate];Debt!11 [Calendar year];Debt!21 [Tenor],1
+Debt!39,Debt,39,Margin,% p.a.,Inputs!313 [Period];Inputs!314 [Margin on top of Floating];Debt!21 [Tenor];Debt!25 [Year in senior debt tenor],1
+Debt!40,Debt,40,All-in rate,% p.a.,Inputs!314 [Margin on top of Floating];Debt!38 [Base rate];Debt!39 [Margin],1
+Debt!43,Debt,43,All-in rate,% p.a.,Inputs!313 [Period];Inputs!315 [Fixed All-in (Base + Margin)];Debt!21 [Tenor],1
+Debt!45,Debt,45,Selected interest rate,% p.a.,Inputs!316 [Choice];Debt!40 [All-in rate];Debt!43 [All-in rate],1
+Debt!48,Debt,48,Interest,$,Debt!30 [Balance b/f];Debt!31 [Drawdown];Debt!45 [Selected interest rate],4
+Debt!52,Debt,52,Calculate?,"[1,0]",Debt!23 [Repayment flag],3
+Debt!54,Debt,54,CFADS,$,Model!291 [Cash flow available for debt service (CF],1
+Debt!55,Debt,55,Qualifying CFADS,$,Debt!23 [Repayment flag];Debt!54 [CFADS],1
+Debt!56,Debt,56,DSCR,x,Inputs!329 [Target DSCR];Debt!52 [Calculate?],1
+Debt!58,Debt,58,Max debt service,$,Debt!52 [Calculate?];Debt!55 [Qualifying CFADS];Debt!56 [DSCR],1
+Debt!59,Debt,59,Less Interest,$,Debt!48 [Interest];Debt!52 [Calculate?],1
+Debt!60,Debt,60,Max principal repayment,$,Debt!58 [Max debt service];Debt!59 [Less Interest],2
+Debt!65,Debt,65,Refi flag,Num#,Inputs!336 [Year of senior debt tenor to refinance];Debt!25 [Year in senior debt tenor],2
+Debt!66,Debt,66,Start of period to refi,Date,Debt!4 [Period Start];Debt!65 [Refi flag],1
+Debt!68,Debt,68,Tenor,"[1,0]",Inputs!364 [Tenor];Debt!4 [Period Start];Debt!5 [Period End],6
+Debt!69,Debt,69,Repayment flag,"[1,0]",Debt!68 [Tenor],4
+Debt!70,Debt,70,Remaining periods,Num#,Debt!69 [Repayment flag],0
+Debt!71,Debt,71,Year in refi debt tenor,Num#,Debt!69 [Repayment flag],2
+Debt!74,Debt,74,Balance b/f,,Debt!77 [Balance c/f],3
+Debt!75,Debt,75,Initial drawdown,,Inputs!348 [Applied Debt Limit];Debt!5 [Period End];Debt!68 [Tenor],3
+Debt!76,Debt,76,Principal repayment,,Debt!74 [Balance b/f];Debt!102 [Max principal repayment],3
+Debt!77,Debt,77,Balance c/f,,Debt!74 [Balance b/f];Debt!75 [Initial drawdown];Debt!76 [Principal repayment],2
+Debt!78,Debt,78,,,Debt!75 [Initial drawdown];Debt!76 [Principal repayment],1
+Debt!81,Debt,81,Base rate,% p.a.,Inputs!406 [Calendar Year];Inputs!407 [Base Rate];Debt!11 [Calendar year];Debt!68 [Tenor],1
+Debt!82,Debt,82,Margin,% p.a.,Inputs!353 [Period];Inputs!354 [Margin on top of Floating];Debt!68 [Tenor];Debt!71 [Year in refi debt tenor],1
+Debt!83,Debt,83,All-in rate,% p.a.,Inputs!354 [Margin on top of Floating];Debt!81 [Base rate];Debt!82 [Margin],1
+Debt!86,Debt,86,All-in rate,% p.a.,Inputs!353 [Period];Inputs!355 [Fixed All-in (Base + Margin)];Debt!68 [Tenor];Debt!71 [Year in refi debt tenor],1
+Debt!88,Debt,88,Selected interest rate,% p.a.,Inputs!356 [Choice];Debt!83 [All-in rate];Debt!86 [All-in rate],1
+Debt!90,Debt,90,Interest during operations,$,Debt!74 [Balance b/f];Debt!88 [Selected interest rate],3
+Debt!94,Debt,94,Calculate?,"[1,0]",Debt!69 [Repayment flag],3
+Debt!96,Debt,96,CFADS,$,Model!291 [Cash flow available for debt service (CF],1
+Debt!97,Debt,97,Qualifying CFADS,$,Debt!69 [Repayment flag];Debt!96 [CFADS],1
+Debt!98,Debt,98,DSCR,x,Inputs!367 [Target DSCR];Debt!94 [Calculate?],1
+Debt!100,Debt,100,Max debt service,$,Debt!94 [Calculate?];Debt!97 [Qualifying CFADS];Debt!98 [DSCR],1
+Debt!101,Debt,101,Less Interest,$,Debt!90 [Interest during operations];Debt!94 [Calculate?],1
+Debt!102,Debt,102,Max principal repayment,$,Debt!100 [Max debt service];Debt!101 [Less Interest],2
+Debt!107,Debt,107,Is the MMRA active?,,Inputs!385 [Target MMRA Balance - years of future Ca];Debt!21 [Tenor],2
+Debt!108,Debt,108,Last year of MMRA,,Debt!107 [Is the MMRA active?],1
+Debt!111,Debt,111,MMRA: release,$,Debt!117 [Release to meet shortfall];Debt!119 [Target: release of excess],1
+Debt!112,Debt,112,MMRA: funding,$,Debt!118 [Target: funding to meet],1
+Debt!115,Debt,115,Balance b/f,$,Debt!121 [Balance c/f],5
+Debt!116,Debt,116,Funding at construction end,$,Debt!125 [Funding at construction end],4
+Debt!117,Debt,117,Release to meet shortfall,$,Debt!133 [Release to cash flow],4
+Debt!118,Debt,118,Target: funding to meet,$,Debt!145 [Funding from cash flow],3
+Debt!119,Debt,119,Target: release of excess,$,Debt!150 [Excess cash released],3
+Debt!120,Debt,120,Release of MMRA minimum balance at end of debt period,$,Debt!152 [Release of minimum balance at end of MMR],4
+Debt!121,Debt,121,Balance c/f,$,Debt!115 [Balance b/f];Debt!116 [Funding at construction end];Debt!117 [Release to meet shortfall];Debt!118 [Target: funding to meet];Debt!119 [Target: release of excess];Debt!120 [Release of MMRA minimum balance at end o],2
+Debt!122,Debt,122,,,Debt!115 [Balance b/f];Debt!116 [Funding at construction end];Debt!117 [Release to meet shortfall];Debt!118 [Target: funding to meet];Debt!119 [Target: release of excess];Debt!120 [Release of MMRA minimum balance at end o],1
+Debt!124,Debt,124,Flag,,Inputs!10 [Duration];Inputs!296 [Gearing Ratio];Inputs!304 [Applied Debt Limit];Debt!14 [Operations year],1
+Debt!125,Debt,125,Funding at construction end,$,Inputs!386 [Opening Minimum balance of MMRA];Debt!116 [Funding at construction end];Debt!124 [Flag],2
+Debt!128,Debt,128,Cash flow after funding,$,Model!265 [Cash flow after funding],1
+Debt!129,Debt,129,Replacement Capex,$,Model!271 [Replacement Capex],2
+Debt!130,Debt,130,Shortfall,$,Debt!128 [Cash flow after funding];Debt!129 [Replacement Capex],1
+Debt!132,Debt,132,Available in MMRA,$,Debt!115 [Balance b/f],1
+Debt!133,Debt,133,Release to cash flow,$,Debt!130 [Shortfall];Debt!132 [Available in MMRA],1
+Debt!136,Debt,136,Capex for replacement batteries,$,Model!269 [Capex for replacement batteries],1
+Debt!138,Debt,138,,,Inputs!384 [],0
+Debt!139,Debt,139,Minimum MMRA balance,$,Inputs!385 [Target MMRA Balance - years of future Ca];Inputs!386 [Opening Minimum balance of MMRA];Debt!21 [Tenor],2
+Debt!140,Debt,140,Look forward MMRA balance,$,Inputs!385 [Target MMRA Balance - years of future Ca];Debt!136 [Capex for replacement batteries];Debt!139 [Minimum MMRA balance],1
+Debt!142,Debt,142,Target MMRA balance,$,Debt!107 [Is the MMRA active?];Debt!139 [Minimum MMRA balance];Debt!140 [Look forward MMRA balance],3
+Debt!143,Debt,143,Funding required for target,$,Debt!115 [Balance b/f];Debt!142 [Target MMRA balance],1
+Debt!144,Debt,144,Cash flow available for MMRA funding,$,Model!330 [Cash flow available for MMRA funding],1
+Debt!145,Debt,145,Funding from cash flow,,Debt!143 [Funding required for target];Debt!144 [Cash flow available for MMRA funding],1
+Debt!148,Debt,148,Balance after shortfall met,$,Debt!115 [Balance b/f];Debt!116 [Funding at construction end];Debt!117 [Release to meet shortfall],2
+Debt!149,Debt,149,Release flag,,Debt!142 [Target MMRA balance];Debt!148 [Balance after shortfall met],1
+Debt!150,Debt,150,Excess cash released,$,Debt!142 [Target MMRA balance];Debt!148 [Balance after shortfall met];Debt!149 [Release flag],1
+Debt!152,Debt,152,Release of minimum balance at end of MMRA,$,Inputs!386 [Opening Minimum balance of MMRA];Debt!108 [Last year of MMRA],1
+Debt!157,Debt,157,Is the DSRA active?,,Inputs!370 [Is a DSRA used?];Debt!21 [Tenor],3
+Debt!160,Debt,160,Principal,$,Debt!32 [Principal repayment],1
+Debt!161,Debt,161,Interest,$,Debt!48 [Interest],1
+Debt!162,Debt,162,Total,$,Debt!160 [Principal];Debt!161 [Interest],2
+Debt!165,Debt,165,Target balance,$,Inputs!375 [year];Debt!157 [Is the DSRA active?];Debt!162 [Total],3
+Debt!168,Debt,168,Flag,"[1,0]",Inputs!296 [Gearing Ratio];Inputs!304 [Applied Debt Limit];Inputs!380 [Start date];Debt!4 [Period Start];Debt!5 [Period End],2
+Debt!169,Debt,169,Initial funding,$,Debt!165 [Target balance];Debt!168 [Flag],1
+Debt!172,Debt,172,CFADS after interest on DSRA,$,Model!297 [CFADS after interest on DSRA],1
+Debt!173,Debt,173,Debt service obligation,$,Debt!162 [Total],1
+Debt!174,Debt,174,Shortfall,$,Debt!172 [CFADS after interest on DSRA];Debt!173 [Debt service obligation],2
+Debt!175,Debt,175,Amount available in DSRA,$,Debt!174 [Shortfall];Debt!193 [Balance b/f];Debt!194 [Initial funding],1
+Debt!176,Debt,176,Release,$,Debt!174 [Shortfall];Debt!175 [Amount available in DSRA],2
+Debt!179,Debt,179,Target balance,$,Debt!165 [Target balance],2
+Debt!180,Debt,180,Actual balance,$,Debt!157 [Is the DSRA active?];Debt!193 [Balance b/f];Debt!194 [Initial funding];Debt!195 [Release to meet shortfall];Debt!196 [Target: funding to meet],2
+Debt!181,Debt,181,Release,$,Debt!179 [Target balance];Debt!180 [Actual balance],1
+Debt!184,Debt,184,Target balance,$,Debt!165 [Target balance],1
+Debt!185,Debt,185,Actual balance,$,Debt!193 [Balance b/f];Debt!194 [Initial funding],1
+Debt!186,Debt,186,Requirement,$,Debt!184 [Target balance];Debt!185 [Actual balance],2
+Debt!187,Debt,187,Cash available to fund,$,Debt!186 [Requirement];Debt!190 [Cashflow available for DSRA funding],1
+Debt!188,Debt,188,Funding applied,$,Debt!186 [Requirement];Debt!187 [Cash available to fund],1
+Debt!190,Debt,190,Cashflow available for DSRA funding,$,Model!314 [Cashflow available after debt service],1
+Debt!193,Debt,193,Balance b/f,$,Debt!198 [Balance c/f],5
+Debt!194,Debt,194,Initial funding,$,Inputs!372 [Initial funding (pasted)];Debt!168 [Flag],5
+Debt!195,Debt,195,Release to meet shortfall,$,Debt!176 [Release],3
+Debt!196,Debt,196,Target: funding to meet,$,Debt!188 [Funding applied],4
+Debt!197,Debt,197,Target: release to meet,$,Debt!181 [Release],3
+Debt!198,Debt,198,Balance c/f,$,Debt!193 [Balance b/f];Debt!194 [Initial funding];Debt!195 [Release to meet shortfall];Debt!196 [Target: funding to meet];Debt!197 [Target: release to meet],2
+Debt!200,Debt,200,DSRA balance less than target,"[1,0]",Debt!179 [Target balance];Debt!180 [Actual balance],0
+Debt!203,Debt,203,Interest rate,% p.a.,Inputs!377 [Deposit interest rate];Debt!157 [Is the DSRA active?],1
+Debt!204,Debt,204,Interest income,$,Debt!193 [Balance b/f];Debt!203 [Interest rate],1
+Dashboard!2,Dashboard,2,,,Names!8 [Model Name],0
+Dashboard!7,Dashboard,7,Number of grids,Num#,Inputs!24 [Number of grids];Inputs!128 [Initial],1
+Dashboard!8,Dashboard,8,Number of connections per grid,Num#,Inputs!30 [Number of connections];Inputs!284 [Developer],0
+Dashboard!9,Dashboard,9,Generating capacity per grid,kWp/grid,Portfolio!16 [Generating capacity per grid];Inputs!31 [Total Capex],2
+Dashboard!10,Dashboard,10,Lifetime,years,Inputs!18 [Lifetime of grid],0
+Dashboard!12,Dashboard,12,Consumption,,Inputs!187 [Battery],0
+Dashboard!13,Dashboard,13,Baseline average consumption,kWh/month,Portfolio!22 [Baseline average consumption];Inputs!106 [Panels],2
+Dashboard!14,Dashboard,14,5 year peak under plateau case,kWh/month,Inputs!69 [Battery unit cost];Inputs!414 [Average consumption per connection],0
+Dashboard!15,Dashboard,15,,,Inputs!99 [Max Diesel Use as % of Gross Solar Produ],2
+Dashboard!17,Dashboard,17,Average tariff on baseline consumption,$/kWh,Inputs!170 [Average];Dashboard!13 [Baseline average consumption],1
+Dashboard!18,Dashboard,18,,,Portfolio!44 [Fixed Opex fee per grid];Inputs!173 [Fixed Opex fee per grid],1
+Dashboard!19,Dashboard,19,Debt,,Portfolio!45 [Fixed Opex fee per customer];Inputs!176 [Fixed Opex fee per customer],0
+Dashboard!20,Dashboard,20,Senior debt,,Portfolio!46 [Opex fee ratchet (% of revenue above P50];Inputs!174 [Opex fee ratchet (% of revenue above P50],1
+Dashboard!21,Dashboard,21,All-in cost of debt,%,Inputs!315 [Fixed All-in (Base + Margin)],0
+Dashboard!22,Dashboard,22,Tenor,years,Inputs!304 [Applied Debt Limit];Inputs!325 [Tenor],0
+Dashboard!23,Dashboard,23,Target DSCR,x,Inputs!215 [Corporate tax rate];Inputs!329 [Target DSCR],0
+Dashboard!24,Dashboard,24,Grace period,years,Inputs!219 [Net Operating Losses Carry Forward];Inputs!326 [Grace Period],0
+Dashboard!25,Dashboard,25,DSRA,months,Inputs!370 [Is a DSRA used?];Inputs!374 [Debt service provision],0
+Dashboard!27,Dashboard,27,Target MMRA Balance - years of future battery Capex,years,Inputs!385 [Target MMRA Balance - years of future Ca];Inputs!391 [Local currency inflation],0
+Dashboard!28,Dashboard,28,MMRA starting balance,$,Inputs!385 [Target MMRA Balance - years of future Ca];Inputs!386 [Opening Minimum balance of MMRA];Inputs!403 [USD to LCY],0
+Dashboard!34,Dashboard,34,IRR period,years,Inputs!267 [IRR period];Model!90 [ARPU (FX and inflation adjusted)],0
+Dashboard!35,Dashboard,35,,,Model!56 [Energy consumption],0
+Dashboard!36,Dashboard,36,Project IRR,%,Model!63 [Tariff];Model!375 [XIRR];Model!378 [Payback period flag],0
+Dashboard!37,Dashboard,37,,,Dashboard!13 [Baseline average consumption];Dashboard!17 [Average tariff on baseline consumption],0
+Dashboard!39,Dashboard,39,Funding,,Inputs!27 [Number of people served],0
+Dashboard!41,Dashboard,41,Senior Debt,$,Inputs!305 [Senior Debt];Dashboard!44 [Total],2
+Dashboard!42,Dashboard,42,Grant to AssetCo,$,Inputs!270 [Grant to AssetCo];Dashboard!44 [Total];FinStat!69 [Combined],3
+Dashboard!43,Dashboard,43,Owner Equity,$,Inputs!279 [Owner Equity];Dashboard!44 [Total],4
+Dashboard!44,Dashboard,44,Total,$,Inputs!292 [Funding required];Debt!35 [];Dashboard!41 [Senior Debt];Dashboard!42 [Grant to AssetCo];Dashboard!43 [Owner Equity],6
+Dashboard!45,Dashboard,45,,,Inputs!292 [Funding required];Dashboard!41 [Senior Debt];Dashboard!42 [Grant to AssetCo];Dashboard!43 [Owner Equity];Dashboard!44 [Total],1
+Dashboard!46,Dashboard,46,,,Inputs!300 [Limit],1
+Dashboard!47,Dashboard,47,Total capital,$,Debt!78 [];Dashboard!44 [Total],1
+Dashboard!48,Dashboard,48,,,Inputs!344 [Limit],1
+Dashboard!49,Dashboard,49,Uses,,Model!210 [Additional equity],1
+Dashboard!50,Dashboard,50,Grid investments,$,Model!199 [Grid Purchases incl. VAT];Model!337 [],2
+Dashboard!51,Dashboard,51,Interest during construction,$,Inputs!141 [Portfolio remaining];Model!200 [Interest during construction],2
+Dashboard!52,Dashboard,52,Financing fees,$,Model!201 [Financing fees];Debt!122 [],2
+Dashboard!53,Dashboard,53,DSRA opening balance,$,Inputs!373 [];Model!202 [DSRA opening balance],2
+Dashboard!54,Dashboard,54,MMRA opening balance,$,Model!203 [MMRA opening balance],1
+Dashboard!55,Dashboard,55,Total,$,Model!204 [Total];Dashboard!42 [Grant to AssetCo];Dashboard!43 [Owner Equity];Dashboard!44 [Total];Dashboard!45 [];Dashboard!46 [];Dashboard!47 [Total capital];Dashboard!48 [];Dashboard!49 [Uses];Dashboard!50 [Grid investments];Dashboard!51 [Interest during construction];Dashboard!52 [Financing fees];Dashboard!53 [DSRA opening balance],1
+Dashboard!56,Dashboard,56,,,Dashboard!50 [Grid investments];Dashboard!51 [Interest during construction];Dashboard!52 [Financing fees];Dashboard!53 [DSRA opening balance];Dashboard!54 [MMRA opening balance];Dashboard!55 [Total],0
+FinStat!2,FinStat,2,,,Names!8 [Model Name],0
+FinStat!4,FinStat,4,Period Start,Date,Model!4 [Period Start],2
+FinStat!5,FinStat,5,Period End,Date,Model!5 [Period End],2
+FinStat!7,FinStat,7,Construction,"[1,0]",Inputs!9 [Start];Inputs!11 [End];FinStat!4 [Period Start];FinStat!5 [Period End],0
+FinStat!8,FinStat,8,Operations,"[1,0]",Inputs!17 [Start];Inputs!19 [End];FinStat!4 [Period Start];FinStat!5 [Period End],0
+FinStat!12,FinStat,12,Revenue,$,Model!87 [Revenue (FX and Inflation adjusted)],2
+FinStat!13,FinStat,13,OPEX,$,Model!132 [Total Opex],1
+FinStat!14,FinStat,14,EBITDA,$,FinStat!12 [Revenue];FinStat!13 [OPEX],1
+FinStat!16,FinStat,16,Depreciation,$,Model!545 [Depreciation],1
+FinStat!17,FinStat,17,EBIT / Operating Profit,$,FinStat!14 [EBITDA];FinStat!16 [Depreciation],2
+FinStat!18,FinStat,18,Operating Margin,%,FinStat!12 [Revenue];FinStat!17 [EBIT / Operating Profit],0
+FinStat!20,FinStat,20,Interest Payable on Senior Debt,$,Debt!48 [Interest],1
+FinStat!21,FinStat,21,Interest Payable on Refinanced Senior Debt,$,Debt!90 [Interest during operations],1
+FinStat!22,FinStat,22,Interest income,$,,1
+FinStat!23,FinStat,23,EBT,$,FinStat!17 [EBIT / Operating Profit];FinStat!20 [Interest Payable on Senior Debt];FinStat!21 [Interest Payable on Refinanced Senior De];FinStat!22 [Interest income],3
+FinStat!25,FinStat,25,Income Tax Payable,$,Model!464 [Tax Payable],1
+FinStat!26,FinStat,26,Alternative Minimum Tax Payable,$,Model!506 [AMT Payable],1
+FinStat!28,FinStat,28,Net Profit After Tax (NPAT),$,FinStat!23 [EBT];FinStat!25 [Income Tax Payable];FinStat!26 [Alternative Minimum Tax Payable],1
+FinStat!30,FinStat,30,Dividends WHT,$,Model!349 [Dividends WHT],1
+FinStat!31,FinStat,31,Distributions net of WHT,$,Model!405 [Distributions net of WHT],1
+FinStat!32,FinStat,32,Retained Earnings,$,FinStat!28 [Net Profit After Tax (NPAT)];FinStat!30 [Dividends WHT];FinStat!31 [Distributions net of WHT],1
+FinStat!34,FinStat,34,Retained Earnings b/f,$,FinStat!35 [Retained Earnings c/f],1
+FinStat!35,FinStat,35,Retained Earnings c/f,$,FinStat!32 [Retained Earnings];FinStat!34 [Retained Earnings b/f],2
+FinStat!39,FinStat,39,Cash,$,FinStat!135 [Cash balance c/f],1
+FinStat!40,FinStat,40,Trade Debtors  / Receivables,$,Model!140 [Trade debtor balance c/f],1
+FinStat!41,FinStat,41,VAT receivable / (payable),$,Model!168 [VAT receivable / (payable) balance c/f],1
+FinStat!42,FinStat,42,MMRA/c,$,Debt!121 [Balance c/f],1
+FinStat!43,FinStat,43,DSRA/c,$,Debt!198 [Balance c/f],1
+FinStat!44,FinStat,44,Total,$,FinStat!39 [Cash];FinStat!40 [Trade Debtors  / Receivables];FinStat!41 [VAT receivable / (payable)];FinStat!42 [MMRA/c];FinStat!43 [DSRA/c],1
+FinStat!48,FinStat,48,Long Term,$,Model!546 [Balance c/f],1
+FinStat!50,FinStat,50,Total,$,FinStat!47 [Short Term];FinStat!48 [Long Term];FinStat!49 [Financing Costs],1
+FinStat!53,FinStat,53,Deferred tax liability,$,Model!499 [Balance c/f],1
+FinStat!54,FinStat,54,Trade Creditors / Payables,$,Model!147 [Trade creditor balance c/f],1
+FinStat!55,FinStat,55,Senior debt,$,Model!249 [Balance c/f],1
+FinStat!57,FinStat,57,Refinanced senior debt repayment facility,$,Debt!77 [Balance c/f],1
+FinStat!58,FinStat,58,Total,$,FinStat!53 [Deferred tax liability];FinStat!54 [Trade Creditors / Payables];FinStat!55 [Senior debt];FinStat!56 [Senior debt repayment facility];FinStat!57 [Refinanced senior debt repayment facilit],1
+FinStat!60,FinStat,60,Net Assets,$,FinStat!44 [Total];FinStat!50 [Total];FinStat!58 [Total],1
+FinStat!63,FinStat,63,Share Capital,$,Model!454 [Balance c/f],1
+FinStat!64,FinStat,64,Retained Earnings,$,FinStat!35 [Retained Earnings c/f],1
+FinStat!65,FinStat,65,Total,$,FinStat!63 [Share Capital];FinStat!64 [Retained Earnings],1
+FinStat!67,FinStat,67,Balance Sheet Check 1,,FinStat!60 [Net Assets];FinStat!65 [Total],2
+FinStat!68,FinStat,68,Balance Sheet Check 2,,FinStat!67 [Balance Sheet Check 1],1
+FinStat!69,FinStat,69,Combined,,FinStat!67 [Balance Sheet Check 1];FinStat!68 [Balance Sheet Check 2],1
+FinStat!73,FinStat,73,Revenue incl. VAT,$,Model!87 [Revenue (FX and Inflation adjusted)];Model!155 [VAT on revenues],1
+FinStat!74,FinStat,74,Opex incl. VAT,$,Model!132 [Total Opex];Model!156 [Recoverable VAT on opex],1
+FinStat!75,FinStat,75,Working capital adjustments,$,Model!150 [Working capital adjustments],1
+FinStat!76,FinStat,76,VAT received from / (paid to) govt.,$,Model!162 [VAT received from / (paid to) govt.],1
+FinStat!77,FinStat,77,Operating cash flows,$,FinStat!73 [Revenue incl. VAT];FinStat!74 [Opex incl. VAT];FinStat!75 [Working capital adjustments];FinStat!76 [VAT received from / (paid to) govt.],1
+FinStat!79,FinStat,79,Grid Purchases incl. VAT,$,Model!199 [Grid Purchases incl. VAT],1
+FinStat!80,FinStat,80,"Pre-tax, pre-financing cash flow",$,FinStat!77 [Operating cash flows];FinStat!79 [Grid Purchases incl. VAT],1
+FinStat!82,FinStat,82,Tax paid,$,Model!287 [Tax paid],1
+FinStat!83,FinStat,83,"Post-tax, pre-financing cash flow",$,"FinStat!80 [Pre-tax, pre-financing cash flow];FinStat!82 [Tax paid]",1
+FinStat!85,FinStat,85,Interest during construction,$,Model!200 [Interest during construction],1
+FinStat!86,FinStat,86,Financing fees,$,Model!201 [Financing fees],1
+FinStat!87,FinStat,87,DSRA initial funding,$,Model!202 [DSRA opening balance],1
+FinStat!88,FinStat,88,MMRA initial funding,$,Model!203 [MMRA opening balance],1
+FinStat!89,FinStat,89,Grant to AssetCo,$,Model!207 [Grant to AssetCo],1
+FinStat!90,FinStat,90,Owner Equity,$,Model!208 [Owner Equity],1
+FinStat!91,FinStat,91,Senior Debt,$,Model!209 [Senior Debt],1
+FinStat!92,FinStat,92,Additional equity,$,Model!210 [Additional equity],1
+FinStat!93,FinStat,93,Cash flow after funding,$,"Model!265 [Cash flow after funding];FinStat!83 [Post-tax, pre-financing cash flow];FinStat!85 [Interest during construction];FinStat!86 [Financing fees];FinStat!87 [DSRA initial funding];FinStat!88 [MMRA initial funding];FinStat!89 [Grant to AssetCo];FinStat!90 [Owner Equity];FinStat!91 [Senior Debt];FinStat!92 [Additional equity]",1
+FinStat!95,FinStat,95,Ongoing Capex incl. VAT,$,Model!276 [Ongoing Capex incl. VAT],1
+FinStat!96,FinStat,96,Cash flow after ongoing Capex,$,FinStat!93 [Cash flow after funding];FinStat!95 [Ongoing Capex incl. VAT],1
+FinStat!98,FinStat,98,Additional equity injection,$,Model!281 [Equity injection required],1
+FinStat!99,FinStat,99,Release of MMRA minimum balance at end of debt period,$,Model!290 [Release of MMRA minimum balance at end o],1
+FinStat!100,FinStat,100,Cash flow available for debt service (CFADS),$,Model!291 [Cash flow available for debt service (CF];FinStat!96 [Cash flow after ongoing Capex];FinStat!98 [Additional equity injection];FinStat!99 [Release of MMRA minimum balance at end o],1
+FinStat!102,FinStat,102,Interest earned on DSRA,$,Model!296 [Interest earned on DSRA],1
+FinStat!103,FinStat,103,DSRA drawn down,$,Model!300 [DSRA drawn down],1
+FinStat!104,FinStat,104,CFADS after DSRA drawdown,$,Model!301 [CFADS after DSRA drawdown];FinStat!100 [Cash flow available for debt service (CF];FinStat!102 [Interest earned on DSRA];FinStat!103 [DSRA drawn down],1
+FinStat!106,FinStat,106,Senior debt interest,$,Model!305 [Interest],1
+FinStat!107,FinStat,107,Senior debt principal repayment,$,Model!306 [Principal],1
+FinStat!109,FinStat,109,Refi debt interest,$,Model!310 [Interest],1
+FinStat!110,FinStat,110,Refi debt principal repayment,$,Model!311 [Principal],1
+FinStat!112,FinStat,112,Cashflow available after debt service,$,Model!314 [Cashflow available after debt service];FinStat!104 [CFADS after DSRA drawdown];FinStat!106 [Senior debt interest];FinStat!107 [Senior debt principal repayment];FinStat!109 [Refi debt interest];FinStat!110 [Refi debt principal repayment],1
+FinStat!114,FinStat,114,DSRA funding,$,Model!317 [DSRA funding],1
+FinStat!115,FinStat,115,DSRA release,$,Model!318 [DSRA release],1
+FinStat!116,FinStat,116,Cash flow available after DSRA,$,Model!319 [Cash flow available after DSRA];FinStat!112 [Cashflow available after debt service];FinStat!114 [DSRA funding];FinStat!115 [DSRA release],1
+FinStat!118,FinStat,118,Early repayment of senior debt,$,Model!322 [Early repayment of senior debt],1
+FinStat!119,FinStat,119,Refinance debt,$,Model!323 [Refinance debt],1
+FinStat!120,FinStat,120,Cash flow available after refinancing,$,Model!326 [Cash flow available after refinancing];FinStat!116 [Cash flow available after DSRA];FinStat!118 [Early repayment of senior debt];FinStat!119 [Refinance debt],1
+FinStat!122,FinStat,122,MMRA: release,$,Model!329 [MMRA: release],1
+FinStat!123,FinStat,123,MMRA: funding,$,Model!332 [MMRA: funding],1
+FinStat!124,FinStat,124,Cash flow available after MMRA funding,$,Model!333 [Cash flow available after MMRA funding];FinStat!120 [Cash flow available after refinancing];FinStat!122 [MMRA: release];FinStat!123 [MMRA: funding],1
+FinStat!126,FinStat,126,Equity injection required,$,Model!335 [Equity injection required],1
+FinStat!127,FinStat,127,Cash flow post equity injection,$,Model!336 [Cash flow post equity injection];FinStat!124 [Cash flow available after MMRA funding];FinStat!126 [Equity injection required],1
+FinStat!129,FinStat,129,Exit sale price,$,Model!346 [Exit sale price],1
+FinStat!130,FinStat,130,Dividends WHT,$,Model!349 [Dividends WHT],1
+FinStat!131,FinStat,131,Distributions net of WHT,$,Model!405 [Distributions net of WHT],1
+FinStat!132,FinStat,132,Net cash flows,$,FinStat!127 [Cash flow post equity injection];FinStat!129 [Exit sale price];FinStat!130 [Dividends WHT];FinStat!131 [Distributions net of WHT],1
+FinStat!134,FinStat,134,Cash balance b/f,$,FinStat!135 [Cash balance c/f],1
+FinStat!135,FinStat,135,Cash balance c/f,$,FinStat!132 [Net cash flows];FinStat!134 [Cash balance b/f],2
+Graph sheet!2,Graph sheet,2,,,Names!8 [Model Name],0
+Graph sheet!4,Graph sheet,4,Period Start,Date,Graph sheet!5 [Period End],5
+Graph sheet!5,Graph sheet,5,Period End,Date,Inputs!6 [Model Start Date];Graph sheet!4 [Period Start];Names!13 [Months per Year],6
+Graph sheet!6,Graph sheet,6,Construction,"[1,0]",Inputs!9 [Start];Inputs!11 [End];Graph sheet!4 [Period Start];Graph sheet!5 [Period End],1
+Graph sheet!7,Graph sheet,7,Operations,"[1,0]",Inputs!17 [Start];Inputs!19 [End];Graph sheet!4 [Period Start];Graph sheet!5 [Period End],3
+Graph sheet!10,Graph sheet,10,Days in a period,Num#,Graph sheet!4 [Period Start];Graph sheet!5 [Period End],0
+Graph sheet!11,Graph sheet,11,Calendar year,Num#,Graph sheet!4 [Period Start],0
+Graph sheet!13,Graph sheet,13,Construction year,Num#,Graph sheet!6 [Construction],1
+Graph sheet!14,Graph sheet,14,Operations year,Num#,Graph sheet!7 [Operations],1
+Graph sheet!18,Graph sheet,18,Opex,$,"Model!121 [Total Operating Fee exc. Diesel];Model!130 [Administrative, accounting and professio];Model!156 [Recoverable VAT on opex]",1
+Graph sheet!19,Graph sheet,19,Diesel,$,Model!124 [Diesel],1
+Graph sheet!20,Graph sheet,20,Ongoing Capex,$,Model!276 [Ongoing Capex incl. VAT];Model!329 [MMRA: release],1
+Graph sheet!21,Graph sheet,21,Tax,$,Model!162 [VAT received from / (paid to) govt.];Model!285 [Corporate income tax],1
+Graph sheet!22,Graph sheet,22,Senior debt service,$,Model!307 [Total];Debt!195 [Release to meet shortfall];Debt!197 [Target: release to meet],1
+Graph sheet!23,Graph sheet,23,DSRA,$,Debt!196 [Target: funding to meet],1
+Graph sheet!24,Graph sheet,24,MMRA funding,$,Model!332 [MMRA: funding],1
+Graph sheet!25,Graph sheet,25,Distributions,$,Model!344 [Equity distribution post MMRA funding];Model!400 [Equity injection required];Debt!120 [Release of MMRA minimum balance at end o],1
+Graph sheet!27,Graph sheet,27,Total,$,Graph sheet!18 [Opex];Graph sheet!19 [Diesel];Graph sheet!20 [Ongoing Capex];Graph sheet!21 [Tax];Graph sheet!22 [Senior debt service];Graph sheet!23 [DSRA];Graph sheet!24 [MMRA funding];Graph sheet!25 [Distributions],1
+Graph sheet!28,Graph sheet,28,Revenue,$,Model!87 [Revenue (FX and Inflation adjusted)];Model!155 [VAT on revenues],1
+Graph sheet!29,Graph sheet,29,Delta,$,Graph sheet!27 [Total];Graph sheet!28 [Revenue],0
+Graph sheet!32,Graph sheet,32,Net Production,kWh,Model!608 [Net Production],0
+Graph sheet!33,Graph sheet,33,Diesel Production,kWh,Model!609 [Diesel Production],1
+Graph sheet!34,Graph sheet,34,Consumption,kWh,Model!60 [Total],0
+Graph sheet!36,Graph sheet,36,Number of connections,#,Model!27 [Operational Connections],0
+Graph sheet!39,Graph sheet,39,Start of period,kWh,Model!742 [Start of period],0
+Graph sheet!40,Graph sheet,40,Initial,kWh,Model!743 [Initial],1
+Graph sheet!41,Graph sheet,41,New (expansion),kWh,Model!744 [Additions (expansion)],1
+Graph sheet!42,Graph sheet,42,New (replacement),kWh,Model!745 [Additions (replacement)],1
+Graph sheet!43,Graph sheet,43,Existing,kWh,Graph sheet!40 [Initial];Graph sheet!41 [New (expansion)];Graph sheet!42 [New (replacement)];Graph sheet!45 [End of Period],0
+Graph sheet!45,Graph sheet,45,End of Period,kWh,Model!747 [End of period],1
+Graph sheet!48,Graph sheet,48,Revenues,,Model!77 [Revenue (Consumption x Tariff Driven)],0
+Graph sheet!52,Graph sheet,52,Corporate income tax,$,Model!285 [Corporate income tax],0
+Graph sheet!57,Graph sheet,57,Commercial Equity invested,,Dashboard!43 [Owner Equity],0
+Graph sheet!60,Graph sheet,60,ARPU (real),$/month,Model!80 [ARPU (real)],1
+Graph sheet!61,Graph sheet,61,Inflation index,Index,Model!83 [Inflation index],1
+Graph sheet!62,Graph sheet,62,ARPU (nominal),Index,Model!84 [Naira depreciation against USD];Graph sheet!60 [ARPU (real)];Graph sheet!61 [Inflation index],0
+Graph sheet!64,Graph sheet,64,ARPU (FX and inflation adjusted),$/month,Model!90 [ARPU (FX and inflation adjusted)],0
+Graph sheet!67,Graph sheet,67,Panels,kW,Inputs!106 [Panels],0
+Graph sheet!68,Graph sheet,68,Annual output,kWh/year,Inputs!109 [Annual output];Graph sheet!7 [Operations],1
+Graph sheet!69,Graph sheet,69,Power Unit Self-Consumption,kWh,Model!37 [Power Unit Self-Consumption];Graph sheet!7 [Operations];Names!12 [Days in Year],1
+Graph sheet!70,Graph sheet,70,Output from Power Unit,kWh,Graph sheet!68 [Annual output];Graph sheet!69 [Power Unit Self-Consumption],2
+Graph sheet!72,Graph sheet,72,Customer Consumption distribution losses,kWh,Model!43 [Customer Consumption distribution losses];Graph sheet!70 [Output from Power Unit],1
+Graph sheet!73,Graph sheet,73,Output deliver to customers,kWh,Graph sheet!70 [Output from Power Unit];Graph sheet!72 [Customer Consumption distribution losses],1
+Graph sheet!76,Graph sheet,76,Discounted annual output,kWh,Graph sheet!5 [Period End];Graph sheet!73 [Output deliver to customers],2
+Graph sheet!78,Graph sheet,78,Initial Capex,$,Inputs!122 [Total];Graph sheet!13 [Construction year],1
+Graph sheet!80,Graph sheet,80,Battery replacement,,Inputs!187 [Battery];Graph sheet!14 [Operations year],1
+Graph sheet!81,Graph sheet,81,,,Graph sheet!80 [Battery replacement],1
+Graph sheet!82,Graph sheet,82,Cost,,Inputs!118 [Battery];Graph sheet!81 [],1
+Graph sheet!83,Graph sheet,83,Total cost,,Graph sheet!5 [Period End];Graph sheet!76 [Discounted annual output];Graph sheet!78 [Initial Capex];Graph sheet!82 [Cost],1
+Graph sheet!86,Graph sheet,86,LCOE,,Graph sheet!76 [Discounted annual output];Graph sheet!83 [Total cost],0
+Graph sheet!89,Graph sheet,89,Power Unit Self-Consumption,kWh,Model!37 [Power Unit Self-Consumption],1
+Graph sheet!90,Graph sheet,90,Meters Self-Consumption,kWh,Model!41 [Meters Consumption distribution losses],1
+Graph sheet!91,Graph sheet,91,Customer Consumption Distribution losses,kWh,Model!43 [Customer Consumption distribution losses],1
+Graph sheet!92,Graph sheet,92,Total distribution losses,kWh,Model!45 [Total distribution losses],0
+Graph sheet!94,Graph sheet,94,Number of grids,,Model!23 [Operational Grids year end],3
+Graph sheet!97,Graph sheet,97,Power Unit Self-Consumption,kWh,Graph sheet!89 [Power Unit Self-Consumption];Graph sheet!94 [Number of grids];Names!13 [Months per Year],1
+Graph sheet!98,Graph sheet,98,Meters Self-Consumption,kWh,Graph sheet!90 [Meters Self-Consumption];Graph sheet!94 [Number of grids];Names!13 [Months per Year],1
+Graph sheet!99,Graph sheet,99,Customer Consumption Distribution losses,kWh,Graph sheet!91 [Customer Consumption Distribution losses];Graph sheet!94 [Number of grids];Names!13 [Months per Year],1
+Graph sheet!100,Graph sheet,100,Consumption,kWh,Model!52 [Consumption];Graph sheet!97 [Power Unit Self-Consumption];Graph sheet!98 [Meters Self-Consumption];Graph sheet!99 [Customer Consumption Distribution losses],0
+Graph sheet!102,Graph sheet,102,Ongoing Capex,,Debt!129 [Replacement Capex],0
+Graph sheet!103,Graph sheet,103,Cash flow after funding,,Model!265 [Cash flow after funding],0
+Graph sheet!104,Graph sheet,104,Equity injection,,Model!281 [Equity injection required],0
+Graph sheet!106,Graph sheet,106,MMRA: release,,Model!329 [MMRA: release],0
+Graph sheet!139,Graph sheet,139,Diesel generation,kWh,Graph sheet!33 [Diesel Production],2
+Graph sheet!140,Graph sheet,140,Gross production,kWh,Model!661 [Gross Production],1
+Graph sheet!141,Graph sheet,141,Total generation,kWh,Graph sheet!139 [Diesel generation];Graph sheet!140 [Gross production],1
+Graph sheet!142,Graph sheet,142,Diesel share,%,Dashboard!15 [];Graph sheet!139 [Diesel generation];Graph sheet!141 [Total generation],0
+Key!2,Key,2,,,Names!8 [Model Name],0
+Names!19,Names,19,Very Small Number,Num#,,9
