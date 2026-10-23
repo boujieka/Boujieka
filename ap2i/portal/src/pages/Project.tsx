@@ -7,7 +7,7 @@ import { fmtAmount, fmtDate, fmtNum, fmtPct } from "../lib/format";
 import { href, type Route } from "../lib/router";
 import { Card, Empty, ErrorState, ExternalLink, Field, LevelBadge, Loading, NA, PageHead, Badge } from "../components/ui";
 import { DataTable } from "../components/DataTable";
-import { ProjectSummary } from "../components/ProjectSummary";
+import { ProjectHero, ProjectSide } from "../components/ProjectHero";
 import { markViewed } from "../lib/follow";
 import type { AlertItem } from "../lib/types";
 
@@ -24,6 +24,7 @@ export function Project({ route }: { route: Route }) {
   const row = s.projects.find((p) => p.ref === ref);
   const { data, error, loading, retry } = useAsync<Detail>(() => (safeRef(ref) && row ? fetchJSON<Detail>(`p/${encodeURIComponent(ref)}.json`) : Promise.reject(new Error("not found"))), [ref]);
   const [allDocs, setAllDocs] = useState(false);
+  const [allEv, setAllEv] = useState(false);
   const [openAgr, setOpenAgr] = useState<number | null>(null);
   const agreements = useMemo(() => s.agreements.filter((a) => a.project === row?.id), [s, row]);
   const back = href("/projects", route.filters);
@@ -42,48 +43,31 @@ export function Project({ route }: { route: Route }) {
   return (
     <div className="profile">
       <a href={back} className="small">{t("profile.back")}</a>
-      <PageHead title={d.title} subtitle={<><span className="mono">{d.ap2i_id}</span> · {names.country(d.country)} · {names.sector(d.sector?.code ?? null)}</>}>
-        <Badge>{t(`status.${d.status}`)}</Badge>
-        <Badge tone="gray">{d.verification_status}</Badge>
-      </PageHead>
-      <ProjectSummary p={row} agreements={agreements} />
+      <div className="proj-layout">
+      <div className="proj-main">
+      <ProjectHero p={row} d={d} agreements={agreements} />
 
-      <div className="grid-2">
-        <Card title={t("profile.identification")}>
+      <Card title={locale === "fr" ? "À propos du projet" : "About the project"}>
+        {d.objectives && <p className="pre">{d.objectives}</p>}
+        {d.description && <details open={!d.objectives}><summary>{t("profile.description")}</summary><p className="pre">{d.description}</p></details>}
+        <details><summary>{t("profile.identification")}</summary>
           <dl className="fields">
-            <Field label={t("col.ref")}>{d.ap2i_id}</Field>
-            <Field label={t("profile.identifiers")}>{(d.identifiers ?? []).map((x: any) => `${x.scheme}: ${x.identifier}`).join(" · ")}</Field>
+            <Field label={t("profile.identifiers")}><ul className="idlist">{(d.identifiers ?? []).map((x: any) => <li key={`${x.scheme}-${x.identifier}`}><span className="muted small">{x.scheme}</span> <span className="mono">{x.identifier}</span></li>)}</ul></Field>
             <Field label={t("col.status")}>{t(`status.${d.status}`)} {d.status_source ? <span className="muted small">({d.status_source})</span> : null}</Field>
             <Field label={t("profile.agency")}>{d.executing_agency}</Field>
             <Field label={t("profile.ministry")}>{d.supervising_ministry}</Field>
             <Field label={t("col.region")}>{d.region ? (locale === "fr" ? d.region.name_fr : d.region.name_en) : null}</Field>
-            <Field label={t("col.approval")}>{d.original_approval_date ? fmtDate(d.original_approval_date, locale) : null}</Field>
-            <Field label={t("profile.dates")}>{[["start", d.implementation_start_date], ["end", d.original_completion_date], ["revised", d.revised_completion_date], ["actual", d.actual_completion_date]]
-              .filter(([, v]) => v).map(([k, v]) => `${t(`profile.date.${k}`)} : ${fmtDate(v, locale)}`).join(" · ") || null}</Field>
-          </dl>
-          {d.description && <details><summary>{t("profile.description")}</summary><p className="pre">{d.description}</p></details>}
-          {d.objectives && <details open><summary>{t("profile.objectives")}</summary><p className="pre">{d.objectives}</p></details>}
-        </Card>
-
-        <Card title={t("profile.financing")} note={t("money.note")}>
-          <dl className="fields">
-            {Object.entries(d.financials?.totals_by_currency ?? {}).map(([cur, v]: [string, any]) => (
-              <Field key={cur} label={cur}>{`${t("chart.commitments")} ${fmtAmount(v.committed === null ? null : Number(v.committed), locale, cur)} · ${t("col.disbursed")} ${fmtAmount(v.disbursed === null ? null : Number(v.disbursed), locale, cur)}`}</Field>
-            ))}
-            {ind("disbursement_rate").map((x: any) => (
-              <Field key={x.label} label={`${t("ind.disbursement_rate")} — ${x.label.split("—")[1]?.trim() ?? ""}`}>{x.value === null ? <><NA /> <span className="muted small">{(x.missing_inputs ?? []).join(", ") || x.formula}</span></> : `${fmtPct(Number(x.value), locale, 1)} (${t("common.calculated")})`}</Field>
-            ))}
+            <Field label={t("finance.costs")}>{d.original_estimated_cost ? `${fmtAmount(Number(d.original_estimated_cost), locale, d.cost_currency)} → ${d.revised_estimated_cost ? fmtAmount(Number(d.revised_estimated_cost), locale, d.cost_currency) : "—"}` : null}</Field>
             {["elapsed_time_ratio", "schedule_slippage_days", "cost_overrun", "financing_gap"].flatMap((c) => ind(c)).map((x: any) => (
               <Field key={x.code} label={t(`ind.${x.code}`)}>{x.value === null ? <><NA /> <span className="muted small" lang="en">{(x.missing_inputs ?? []).join(", ")}</span></> : x.unit === "ratio" ? fmtPct(Number(x.value), locale, 1) : `${fmtNum(Number(x.value), locale)} ${x.unit === "days" ? t("profile.days") : x.unit}`}</Field>
             ))}
-            {agreements.some((a) => a.disbursed !== null && a.committed !== null && Number(a.disbursed) > Number(a.committed) && !a.is_guarantee) &&
-              <Field label="⚠">{t("profile.overDisbursed")}</Field>}
-            <Field label={t("finance.costs")}>{d.original_estimated_cost ? `${fmtAmount(Number(d.original_estimated_cost), locale, d.cost_currency)} → ${d.revised_estimated_cost ? fmtAmount(Number(d.revised_estimated_cost), locale, d.cost_currency) : "—"}` : null}</Field>
           </dl>
-        </Card>
-      </div>
+        </details>
+      </Card>
 
-      <Card title={t("profile.agreements")}>
+      <Card title={t("profile.agreements")} note={t("money.note")}>
+        <details><summary>{locale === "fr" ? `Détail des ${agreements.length} accords et de leurs transactions` : `Details of the ${agreements.length} agreements and their transactions`}</summary>
+        {agreements.some((a) => a.disbursed !== null && a.committed !== null && Number(a.disbursed) > Number(a.committed) && !a.is_guarantee) && <p className="small">⚠ {t("profile.overDisbursed")}</p>}
         <div className="table-wrap">
           <table>
             <thead><tr><th>{t("col.agreement")}</th><th>{t("col.partners")}</th><th>{t("col.instrument")}</th><th>{t("col.approval")}</th>
@@ -126,6 +110,7 @@ export function Project({ route }: { route: Route }) {
             </tbody>
           </table>
         </div>
+        </details>
       </Card>
 
       <div className="grid-2">
@@ -157,7 +142,7 @@ export function Project({ route }: { route: Route }) {
       {(d.documented_evidence ?? []).length > 0 && (
         <Card title={t("ev.title")} note={t("ev.note")} id="evidence">
           <ul className="evidence">
-            {(d.documented_evidence as any[]).map((e, i) => (
+            {(allEv ? d.documented_evidence as any[] : (d.documented_evidence as any[]).slice(0, 6)).map((e, i) => (
               <li key={i}>
                 <b>{t(`ev.field.${e.field}`)}</b> : {e.value}{e.currency ? ` ${e.currency}` : ""}{e.as_of ? ` (${fmtDate(e.as_of, locale)})` : ""}
                 {e.agreement ? <span className="mono small muted"> · {e.agreement}</span> : null}{" "}
@@ -167,6 +152,7 @@ export function Project({ route }: { route: Route }) {
               </li>
             ))}
           </ul>
+          {(d.documented_evidence as any[]).length > 6 && !allEv && <button className="btn xs ghost" onClick={() => setAllEv(true)}>{t("profile.showAll", { n: (d.documented_evidence as any[]).length })}</button>}
         </Card>
       )}
 
@@ -198,7 +184,7 @@ export function Project({ route }: { route: Route }) {
       </Card>
 
       <div className="grid-2">
-        <Card title={`${t("profile.documents")} (${docs.length})`}>
+        <Card title={`${t("profile.documents")} (${docs.length})`} id="docs">
           <ul className="doclist">
             {(allDocs ? docs : docs.slice(0, 12)).map((x) => (
               <li key={x.id}><ExternalLink href={x.url}>{x.title}</ExternalLink> <span className="small muted">{x.doc_type ?? ""} · {fmtDate(x.published_date, locale)}</span></li>
@@ -207,16 +193,21 @@ export function Project({ route }: { route: Route }) {
           {docs.length > 12 && !allDocs && <button className="btn xs ghost" onClick={() => setAllDocs(true)}>{t("profile.showAll", { n: docs.length })}</button>}
         </Card>
         <Card title={t("profile.sources")}>
+          <details><summary className="small">{locale === "fr" ? `${(d.sources ?? []).length} enregistrements sources` : `${(d.sources ?? []).length} source records`}</summary>
           <ul className="doclist">
             {(d.sources ?? []).map((x: any) => (
               <li key={x.record_id}><ExternalLink href={x.url}>{x.connector_name}</ExternalLink> <span className="small muted">{x.source_identifier} · {x.link_type} · retrieved {fmtDate(x.retrieved_at, locale)} · source updated {fmtDate(x.source_last_updated, locale)}</span></li>
             ))}
           </ul>
+          </details>
           {d.data_quality && <p className="small">{t("profile.dq")} : completeness {fmtPct(d.data_quality.completeness, locale)} · traceability {fmtPct(d.data_quality.traceability, locale)} · missing: {(d.data_quality.missing_fields ?? []).join(", ") || "—"}</p>}
           {(d.validation_issues ?? []).length > 0 && <details><summary className="small">{(d.validation_issues as any[]).length} validation notes</summary>
             <ul className="small">{(d.validation_issues as any[]).slice(0, 30).map((v, i) => <li key={i}>[{v.severity}] {v.message}</li>)}</ul></details>}
           {d.observations_note && <p className="small muted">{t("profile.observationsNote")} <a href="#/plans">{t("nav.plans")} →</a></p>}
         </Card>
+      </div>
+      </div>
+      <ProjectSide p={row} d={d} />
       </div>
     </div>
   );

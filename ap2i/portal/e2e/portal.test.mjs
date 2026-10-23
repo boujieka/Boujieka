@@ -256,6 +256,23 @@ describe("AP²I portal", () => {
     assert.ok((await p.$$(".mine li a")).length >= 2); // followed + recently viewed
   });
 
+  it("project page: who finances what, guarantee and unpublished disbursements are labelled, never shown as 0 or 100 %", async () => {
+    for (const width of [1366, 375]) {
+      const p = await page(width);
+      await p.goto(BASE + "#/project/AP2I-CMR-ENERGY-000014");
+      await p.waitForSelector(".facts");
+      const lenders = await p.innerText("table.lenders");
+      assert.match(lenders, /Guarantee|Garantie/);
+      assert.match(lenders, /Not published|Non publié/);
+      const disb = await p.innerText(".facts .fact:nth-child(2)");
+      assert.doesNotMatch(disb, /100\s?%/); // only one lender publishes: no project-wide rate
+      assert.ok((await p.$$(".tl-list li")).length >= 3);
+      const w = await p.evaluate(() => document.documentElement.scrollWidth);
+      assert.ok(w <= width, `scrollWidth ${w}`);
+      assert.deepEqual(p.errors, []);
+    }
+  });
+
   it("mobile: every module renders without horizontal scrolling", async () => {
     const p = await page(375);
     for (const path of ["", "africa", "country/CMR", "projects", "finance", "performance", "rescue", "data", "about", "plans", "contact", "legal/data"]) {
