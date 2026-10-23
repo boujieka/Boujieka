@@ -215,3 +215,23 @@ dialog.modal-b::backdrop { background: rgba(8,43,80,.45); }
 main h1:focus { outline: none; box-shadow: none; }
 .evidence { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
 .evidence blockquote { margin: 4px 0; padding: 4px 10px; border-left: 3px solid var(--line); color: var(--ink); font-size: .86rem; font-style: italic; }
+
+/* --- consumer experience (Oct 2026) --- */
+.gsearch { position: relative; flex: 1; max-width: 460px; }
+.gsearch input { width: 100%; padding: .4rem .6rem; }
+.gsearch-list { position: absolute; z-index: 60; top: calc(100% + 4px); left: 0; right: 0; background: #fff; border: 1px solid var(--line);
+  border-radius: 8px; box-shadow: 0 8px 24px rgba(8,43,80,.15); list-style: none; margin: 0; padding: 4px; max-height: 70vh; overflow: auto; }
+.gsearch-list li { padding: 7px 9px; border-radius: 6px; cursor: pointer; display: flex; flex-direction: column; gap: 2px; }
+.gsearch-list li.on { background: #eef3f8; }
+.gsearch-list li .badge { align-self: flex-start; }
+.summary { border-left: 4px solid var(--green); }
+.summary-top { display: flex; justify-content: space-between; gap: 12px; padding: 12px 14px 0; flex-wrap: wrap; }
+.summary-text { margin: 0; max-width: 900px; font-size: .98rem; line-height: 1.55; }
+.summary-actions { display: flex; gap: 6px; flex-wrap: wrap; align-items: flex-start; }
+.summary-kpis { padding: 12px 14px; margin: 0; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.summary-kpis .kpi { background: #f7f9fb; }
+.linklike { all: unset; color: var(--green); cursor: pointer; text-decoration: underline; }
+.mine h3 { margin: 0 0 6px; text-transform: uppercase; letter-spacing: .03em; }
+@media (max-width: 860px) { .gsearch { max-width: none; } .topbar-r .muted { display: none; } }
+@media print { .summary-actions, .gsearch { display: none !important; } .summary { border-left: none; } }
+.kpi-v.small-v { font-size: 1rem; line-height: 1.35; }

@@ -3,7 +3,8 @@ import { useSnap, useSelection } from "../lib/context";
 import { commitmentsOf, maxLevel } from "../lib/agg";
 import { currencyLines, fmtAmount, fmtDate, fmtNum } from "../lib/format";
 import { href } from "../lib/router";
-import { Kpi } from "../components/ui";
+import { Kpi, LevelBadge } from "../components/ui";
+import { useFollowed } from "../lib/follow";
 
 const MODULES = ["africa", "country", "projects", "finance", "performance", "rescue", "data"] as const;
 const PATHS: Record<string, string> = { africa: "/africa", country: "/country/CMR", projects: "/projects", finance: "/finance",
@@ -16,6 +17,9 @@ export function Home() {
   const c = commitmentsOf(sel.agreements);
   const withData = s.ref.countries.filter((x) => x.documented_projects > 0).length;
   const attention = s.projects.filter((p) => { const l = maxLevel(p); return l === "critical_attention" || l === "high_attention"; }).length;
+  const { followed, recent } = useFollowed();
+  const byRef = new Map(s.projects.map((p) => [p.ref, p]));
+  const mine = (refs: string[]) => refs.map((r) => byRef.get(r)).filter((p): p is NonNullable<typeof p> => !!p);
   const notConv = s.agreements.filter((a) => a.committed !== null && a.committed_usd === null).length;
   const tasks = [
     { k: "task1", to: href("/projects", { alert: "attention" }, { sort: "alerts" }) },
@@ -51,6 +55,27 @@ export function Home() {
           </a>
         ))}
       </div>
+
+      {(followed.length > 0 || recent.length > 0) && (
+        <section className="card">
+          <header className="card-h"><h2 className="card-t">{t("home.followTitle")}</h2></header>
+          <div className="card-b grid-2 mine">
+            {[["home.followed", mine(followed)], ["home.recent", mine(recent)]].map(([k, list]) => (
+              <div key={k as string}>
+                <h3 className="small muted">{t(k as string)}</h3>
+                {(list as typeof s.projects).length ? (
+                  <ul className="ranked">
+                    {(list as typeof s.projects).slice(0, 6).map((p) => {
+                      const l = maxLevel(p);
+                      return <li key={p.id}><a href={`#/project/${encodeURIComponent(p.ref)}`}>{l && <LevelBadge level={l} />} <b>{p.title}</b></a></li>;
+                    })}
+                  </ul>
+                ) : <p className="small muted">{t("home.followHint")}</p>}
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       <div className="kpis">
         <Kpi label={t("kpi.projects")} value={fmtNum(s.meta.counts.projects, locale)} href="#/projects" />

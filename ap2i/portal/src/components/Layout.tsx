@@ -4,6 +4,7 @@ import { useSnap } from "../lib/context";
 import { fmtDate } from "../lib/format";
 import { href, type Route } from "../lib/router";
 import { withoutYears } from "../lib/filters";
+import { GlobalSearch } from "./GlobalSearch";
 
 // Inline icons (stroke = currentColor): consistent rendering on every platform, unlike text glyphs.
 const ICONS: Record<string, string> = {
@@ -72,7 +73,8 @@ export function Layout({ route, children }: { route: Route; children: ReactNode 
       <div className="main-col">
         <header className="topbar">
           <button className="btn xs ghost menu-btn" onClick={() => setOpen((o) => !o)} aria-expanded={open} aria-label={t("nav.menu")}>☰</button>
-          <span className="topbar-title">AP²I<span className="hide-sm"> — <em>{t("app.name")}</em></span></span>
+          <span className="topbar-title">AP²I</span>
+          <GlobalSearch />
           <span className="topbar-r">
             <span className="muted small hide-sm">{t("snapshot.latestSource")} : {fmtDate(s.meta.latest_source_update, locale)}</span>
             <a className="btn xs gold hide-xs" href="#/contact" data-testid="cta-demo">{t("nav.contact")}</a>

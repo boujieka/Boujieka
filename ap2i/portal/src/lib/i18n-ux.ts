@@ -81,6 +81,12 @@ export const uxFR: Record<string, string> = {
   "ev.official": "Source officielle", "ev.secondary": "Source secondaire (à vérifier)", "ev.quote": "Citation",
   "fin.guarantee": "Garantie : pas de décaissement sauf appel", "fin.notPublished": "Non publié par la source",
   "op.commissioned": "Mis en service le {d}", "op.source": "Source du statut",
+  "search.placeholder": "Rechercher un projet, un identifiant…",
+  "sum.title": "En bref", "sum.generated": "résumé établi automatiquement à partir des données ci-dessous", "sum.follow": "Suivre", "sum.following": "Suivi",
+  "sum.print": "Imprimer / PDF", "sum.committed": "Engagé (éq. USD)", "sum.disbursed": "Décaissement", "sum.schedule": "Calendrier",
+  "sum.seeAlerts": "voir les alertes",
+  "home.followTitle": "Vos projets", "home.followed": "Projets suivis", "home.recent": "Consultés récemment",
+  "home.followHint": "Cliquez sur « ☆ Suivre » dans une fiche projet pour la retrouver ici (enregistré dans ce navigateur uniquement).",
 };
 
 export const uxEN: Record<string, string> = {
@@ -162,6 +168,12 @@ export const uxEN: Record<string, string> = {
   "ev.official": "Official source", "ev.secondary": "Secondary source (to verify)", "ev.quote": "Quote",
   "fin.guarantee": "Guarantee: no disbursement unless called", "fin.notPublished": "Not published by the source",
   "op.commissioned": "Commissioned on {d}", "op.source": "Status source",
+  "search.placeholder": "Search a project, an identifier…",
+  "sum.title": "At a glance", "sum.generated": "summary generated automatically from the data below", "sum.follow": "Follow", "sum.following": "Following",
+  "sum.print": "Print / PDF", "sum.committed": "Committed (USD eq.)", "sum.disbursed": "Disbursement", "sum.schedule": "Schedule",
+  "sum.seeAlerts": "see alerts",
+  "home.followTitle": "Your projects", "home.followed": "Followed projects", "home.recent": "Recently viewed",
+  "home.followHint": "Click “☆ Follow” on a project page to find it here (stored in this browser only).",
 };
 
 export const GLOSSARY = ["commitment", "disbursement", "guarantee", "usdEq", "xdr", "isr", "pdo", "completeness", "finalisation", "alert"];

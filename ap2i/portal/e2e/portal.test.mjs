@@ -239,6 +239,23 @@ describe("AP²I portal", () => {
     assert.ok((await p.$$('[id="c3"] .chart-data tbody tr')).length > 3);
   });
 
+  it("global search opens a project; follow and recently viewed appear on the home page", async () => {
+    const p = await page();
+    await p.goto(BASE + "#/");
+    await ready(p);
+    await p.fill('[data-testid="global-search"]', "Nachtigal");
+    await p.waitForSelector("#gsearch-list li[role=option]");
+    await p.keyboard.press("Enter");
+    await p.waitForFunction(() => location.hash.startsWith("#/project/"));
+    await p.waitForSelector(".summary-text");
+    assert.match(await p.innerText(".summary-text"), /Nachtigal|financ/i);
+    await p.click('[data-testid="follow"]');
+    await p.goto(BASE + "#/");
+    await ready(p);
+    await p.waitForSelector(".mine li a");
+    assert.ok((await p.$$(".mine li a")).length >= 2); // followed + recently viewed
+  });
+
   it("mobile: every module renders without horizontal scrolling", async () => {
     const p = await page(375);
     for (const path of ["", "africa", "country/CMR", "projects", "finance", "performance", "rescue", "data", "about", "plans", "contact", "legal/data"]) {

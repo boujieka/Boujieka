@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useI18n } from "../lib/i18n";
 import { useNames, useSnap } from "../lib/context";
 import { fetchJSON, useAsync } from "../lib/data";
@@ -7,6 +7,8 @@ import { fmtAmount, fmtDate, fmtNum, fmtPct } from "../lib/format";
 import { href, type Route } from "../lib/router";
 import { Card, Empty, ErrorState, ExternalLink, Field, LevelBadge, Loading, NA, PageHead, Badge } from "../components/ui";
 import { DataTable } from "../components/DataTable";
+import { ProjectSummary } from "../components/ProjectSummary";
+import { markViewed } from "../lib/follow";
 import type { AlertItem } from "../lib/types";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -25,6 +27,9 @@ export function Project({ route }: { route: Route }) {
   const [openAgr, setOpenAgr] = useState<number | null>(null);
   const agreements = useMemo(() => s.agreements.filter((a) => a.project === row?.id), [s, row]);
   const back = href("/projects", route.filters);
+  useEffect(() => {
+    if (row) markViewed(row.ref);
+  }, [row]);
 
   if (!row) return <div><PageHead title={ref} /><Empty>{t("profile.notFound")}</Empty><a href={back}>{t("profile.back")}</a></div>;
   if (loading) return <Loading />;
@@ -40,8 +45,8 @@ export function Project({ route }: { route: Route }) {
       <PageHead title={d.title} subtitle={<><span className="mono">{d.ap2i_id}</span> · {names.country(d.country)} · {names.sector(d.sector?.code ?? null)}</>}>
         <Badge>{t(`status.${d.status}`)}</Badge>
         <Badge tone="gray">{d.verification_status}</Badge>
-        {alerts.length > 0 && <a href="#alerts" className="btn xs gold">{alerts.length} {t("col.alerts")}</a>}
       </PageHead>
+      <ProjectSummary p={row} agreements={agreements} />
 
       <div className="grid-2">
         <Card title={t("profile.identification")}>
