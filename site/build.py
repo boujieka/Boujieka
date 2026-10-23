@@ -540,6 +540,8 @@ def main() -> None:
     (DIST / "index.html").write_text(home)
     shutil.copy(ROOT.parent / "brand" / "favicon.svg", DIST / "favicon.svg")
     write_api({**payload, "i18n": None})
+    import v2  # redesigned pages under /nouveau/ (Accueil, Marchés, Pays, Titre)
+    v2.write(date.fromisoformat(args.as_of), DIST, payload["bvmac"], payload["yield_points"])
     write_netlify(payload["auth"])
     shutil.copy(ROOT / "simcalc.js", DIST / "simcalc.js")  # simulator arithmetic shared by both pages
     shutil.copy(ROOT / "merci.html", DIST / "merci.html")  # waiting-list form fallback page (no JavaScript)

@@ -143,3 +143,25 @@ def test_cemac_state_of_play_keeps_published_measures_and_states_coverage(tmp_pa
     assert "pas un rendement" in html and "minimums" in html and "<script" not in html
     out = cr.write(date(2026, 10, 11), tmp_path)
     assert out["auctions"] == len(d["rows"]) and (tmp_path / out["html"]["en"]).exists()
+
+
+def test_redesigned_pages_copy_published_values_and_never_mix_currencies(tmp_path):
+    v2 = _load("v2")
+    build = _load("build")
+    as_of = date(2026, 10, 11)
+    assert v2.kind("UMOA-Titres: rendement moyen pondéré, as published") == "rendement"
+    assert v2.kind("BEAC: prix moyen pondéré (OTA, % du nominal), as published") == "prix"
+    assert v2.kind("BEAC: taux moyen pondéré (BTA, précompté), as published") == "précompté"
+    assert v2.kind("taux marginal") == "inconnu"  # an unknown convention is never a yield
+    out = v2.write(as_of, tmp_path, build.bvmac_quotes(as_of), build.yield_points(as_of))
+    d = json.loads((tmp_path / "nouveau" / "data.json").read_text())
+    assert out["auctions"] == len(d["rows"]) and all(r[0] <= "2026-10-11" for r in d["rows"])
+    # Each row keeps its zone's currency; a BEAC price is copied from the published average price.
+    assert all((r[2] == "XOF") == (d["countries"][r[1]][1] == "UEMOA") for r in d["rows"])
+    assert all(r[9] in ("prix", "précompté") for r in d["rows"] if r[2] == "XAF")
+    for iso in {r[1] for r in d["rows"]}:
+        html = (tmp_path / "nouveau" / "pays" / f"{iso}.html").read_text()
+        assert "<script" not in html and ("XAF" in html) != ("XOF" in html.split("<main", 1)[1].split("</main>", 1)[0])
+    home = (tmp_path / "nouveau" / "index.html").read_text()
+    assert "<script" not in home and "$" not in home  # no inline script (CSP) and no price
+    assert '<script src="app.js" defer></script>' in (tmp_path / "nouveau" / "marches.html").read_text()
