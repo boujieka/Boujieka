@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<!--HEAD-->
+<title>Diagnostic express — ENERVIA</title>
+<meta name="description" content="Votre coût énergétique réel en 2 minutes. Calcul dans votre navigateur, rien n'est envoyé sans votre accord.">
+</head>
+<body class="has-bar">
+<!--HEADER-->
+<main id="main">
+  <section style="padding-top:40px">
+    <div class="container">
+      <div class="print-only">
+        <img src="/assets/enervia-logo.png" alt="ENERVIA" width="95" height="60">
+        <h1 style="font-family:var(--serif)" data-i18n="d.print.title">ENERVIA — Diagnostic énergétique express</h1>
+        <p class="hint"><span id="print-date"></span> · <span data-i18n="d.print.note">Estimation préliminaire basée sur les chiffres déclarés par l'utilisateur. Ce n'est pas une étude de faisabilité.</span></p>
+      </div>
+      <div class="section-head no-print">
+        <p class="eyebrow" data-i18n="d.eyebrow">Diagnostic express gratuit</p>
+        <h1 style="font-family:var(--serif);font-size:clamp(28px,4vw,42px);line-height:1.1;margin:0 0 10px" data-i18n="d.title">Votre coût énergétique réel en 2 minutes</h1>
+        <p data-i18n="d.lead">Trois étapes courtes. Rien n'est enregistré ni envoyé tant que vous ne le décidez pas.</p>
+      </div>
+
+      <div class="wizard-wrap">
+        <div class="wizard-main panel">
+          <div class="wizard-steps no-print">
+            <p class="step-label"><span data-i18n="d.step">Étape</span> <span id="step-no">1</span> <span data-i18n="d.of">sur</span> 3</p>
+            <div class="progress" aria-hidden="true"><span class="on"></span><span></span><span></span></div>
+          </div>
+
+          <!-- Étape 1 -->
+          <div id="step1" class="no-print">
+            <h2 data-i18n="d.s1">Votre site</h2>
+            <div class="field">
+              <label for="sector" data-i18n="d.sector">Secteur industriel</label>
+              <select id="sector" required>
+                <option value="" data-i18n="d.choose">— Choisir —</option>
+                <option value="forest" data-i18n="sec.forest">Forêt &amp; transformation du bois</option>
+                <option value="cement" data-i18n="sec.cement">Ciment &amp; industrie lourde</option>
+                <option value="mining" data-i18n="sec.mining">Mines</option>
+                <option value="agro" data-i18n="sec.agro">Agro-industrie</option>
+                <option value="manuf" data-i18n="sec.manuf">Industrie manufacturière</option>
+                <option value="cold" data-i18n="sec.cold">Froid &amp; logistique</option>
+                <option value="hotel" data-i18n="sec.hotel">Hôtellerie &amp; commerce</option>
+                <option value="zone" data-i18n="sec.zone">Zone industrielle / économique spéciale</option>
+                <option value="other" data-i18n="sec.other">Autre</option>
+              </select>
+            </div>
+            <div class="row-2">
+              <div class="field">
+                <label for="country" data-i18n="d.country">Pays</label>
+                <select id="country" required>
+                  <option value="" data-i18n="d.choose">— Choisir —</option>
+                  <option value="CG">Congo</option><option value="CM">Cameroun</option><option value="GA">Gabon</option>
+                  <option value="CD">RD Congo</option><option value="CF">Centrafrique</option><option value="TD">Tchad</option>
+                  <option value="GQ">Guinée équatoriale</option><option value="CI">Côte d'Ivoire</option><option value="SN">Sénégal</option>
+                  <option value="other" data-i18n="c.other">Autre</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="currency" data-i18n="d.currency">Devise</label>
+                <select id="currency"><option value="XAF">XAF</option><option value="XOF">XOF</option><option value="EUR">EUR</option><option value="USD">USD</option></select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="city" data-i18n="d.city">Ville / localité (facultatif)</label>
+              <input type="text" id="city" autocomplete="address-level2">
+            </div>
+            <p class="error" id="err1" role="alert"></p>
+            <div class="actions"><span></span><button class="btn btn-teal" type="button" id="next1" data-i18n="d.next">Continuer</button></div>
+          </div>
+
+          <!-- Étape 2 -->
+          <div id="step2" class="hidden no-print">
+            <h2 data-i18n="d.s2">Votre énergie</h2>
+            <div class="field">
+              <span class="label" data-i18n="d.supply">Comment votre site est-il alimenté ?</span>
+              <div class="choices" role="radiogroup">
+                <label class="choice"><input type="radio" name="supply" value="grid"><strong data-i18n="d.grid">Réseau seul</strong><small data-i18n="d.gridS">Électricité de la société nationale</small></label>
+                <label class="choice"><input type="radio" name="supply" value="diesel"><strong data-i18n="d.diesel">Groupes seuls</strong><small data-i18n="d.dieselS">Pas de raccordement réseau</small></label>
+                <label class="choice"><input type="radio" name="supply" value="both"><strong data-i18n="d.both">Réseau + groupes</strong><small data-i18n="d.bothS">Groupes en secours ou en complément</small></label>
+              </div>
+            </div>
+
+            <div id="grid-block" class="block hidden">
+              <h3 data-i18n="d.gridTitle">Facture d'électricité</h3>
+              <div class="seg" data-key="gridMode"><button type="button" class="on" data-val="amount" aria-pressed="true" data-i18n="d.byAmount">Je connais le montant</button><button type="button" data-val="kwh" aria-pressed="false" data-i18n="d.byKwh">Je connais les kWh</button></div>
+              <div class="seg" data-key="gridPeriod" style="margin-left:6px"><button type="button" class="on" data-val="month" aria-pressed="true" data-i18n="d.perMonth">par mois</button><button type="button" data-val="year" aria-pressed="false" data-i18n="d.perYear">par an</button></div>
+              <div id="grid-amount-fields">
+                <div class="field"><label for="grid_amount"><span data-i18n="d.gridAmount">Montant de la facture</span> (<span data-unit="cur">XAF</span>)</label><input type="text" inputmode="decimal" class="num" id="grid_amount" placeholder="25 000 000"></div>
+                <div class="field"><label for="grid_kwh_opt" data-i18n="d.gridKwhOpt">Consommation en kWh (facultatif, pour le coût par kWh)</label><input type="text" inputmode="decimal" class="num" id="grid_kwh_opt"></div>
+              </div>
+              <div id="grid-kwh-fields" class="hidden">
+                <div class="row-2">
+                  <div class="field"><label for="grid_kwh" data-i18n="d.gridKwh">Consommation (kWh)</label><input type="text" inputmode="decimal" class="num" id="grid_kwh"></div>
+                  <div class="field"><label for="grid_tariff"><span data-i18n="d.tariff">Tarif moyen</span> (<span data-unit="curkwh">XAF/kWh</span>)</label><input type="text" inputmode="decimal" class="num" id="grid_tariff"></div>
+                </div>
+              </div>
+            </div>
+
+            <div id="diesel-block" class="block hidden">
+              <h3 data-i18n="d.dieselTitle">Groupes électrogènes (gasoil)</h3>
+              <div class="seg" data-key="dieselMode"><button type="button" class="on" data-val="litres" aria-pressed="true" data-i18n="d.byLitres">Je connais les litres</button><button type="button" data-val="spend" aria-pressed="false" data-i18n="d.bySpend">Je connais la dépense</button></div>
+              <div class="seg" data-key="dieselPeriod" style="margin-left:6px"><button type="button" class="on" data-val="month" aria-pressed="true" data-i18n="d.perMonth">par mois</button><button type="button" data-val="year" aria-pressed="false" data-i18n="d.perYear">par an</button></div>
+              <div id="diesel-litres-fields"><div class="field"><label for="diesel_litres" data-i18n="d.litres">Gasoil consommé (litres)</label><input type="text" inputmode="decimal" class="num" id="diesel_litres" placeholder="35 000"></div></div>
+              <div id="diesel-spend-fields" class="hidden"><div class="field"><label for="diesel_spend"><span data-i18n="d.spend">Dépense en gasoil</span> (<span data-unit="cur">XAF</span>)</label><input type="text" inputmode="decimal" class="num" id="diesel_spend"></div></div>
+              <div class="field"><label for="diesel_price"><span id="price-label">Prix livré par litre</span> (<span data-unit="curl">XAF/L</span>)</label><input type="text" inputmode="decimal" class="num" id="diesel_price"></div>
+              <div class="field">
+                <label for="kwh_per_l"><span data-i18n="d.eff">Rendement des groupes (kWh par litre)</span> <span class="badge" data-i18n="d.est">estimé</span></label>
+                <input type="text" inputmode="decimal" class="num" id="kwh_per_l" value="3,5">
+                <p class="hint" data-i18n="d.effHint">Valeur type 3,5 kWh/L pré-remplie — remplacez-la par les données de vos groupes si vous les connaissez.</p>
+              </div>
+            </div>
+
+            <div class="field hidden" id="prov-field">
+              <span class="label" data-i18n="d.prov">Ces chiffres viennent-ils de vos factures ou relevés ?</span>
+              <div class="choices">
+                <label class="choice"><input type="radio" name="prov" value="yes"><strong data-i18n="d.provYes">Oui</strong></label>
+                <label class="choice"><input type="radio" name="prov" value="part"><strong data-i18n="d.provPart">En partie</strong></label>
+                <label class="choice"><input type="radio" name="prov" value="no"><strong data-i18n="d.provNo">Estimation</strong></label>
+              </div>
+            </div>
+            <p class="error" id="err2" role="alert"></p>
+            <div class="actions"><button class="btn btn-light" type="button" id="back2" data-i18n="d.back">Retour</button><button class="btn btn-teal" type="button" id="next2" data-i18n="d.see">Voir mon résultat</button></div>
+          </div>
+
+          <!-- Étape 3 -->
+          <div id="step3" class="hidden">
+            <h2 class="no-print" data-i18n="d.s3">Votre résultat</h2>
+            <p class="notice no-print" data-i18n="d.next1">Ce qu'apporte une étude complète : potentiel solaire à votre emplacement exact, scénarios heure par heure, investissement et retour, options de financement.</p>
+            <div class="no-print">
+              <h3 style="margin-top:24px" data-i18n="d.leadTitle">Recevez votre diagnostic et parlez à un expert</h3>
+              <p class="hint" data-i18n="d.leadLead">Nous vous contacterons pour revoir vos chiffres et les solutions à étudier.</p>
+              <form id="lead-form" name="diagnostic" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/merci.html">
+                <input type="hidden" name="form-name" value="diagnostic">
+                <p class="hidden"><label>Ne pas remplir <input name="bot-field"></label></p>
+                <textarea class="hidden" name="summary" id="lead-summary" aria-hidden="true" tabindex="-1"></textarea>
+                <div class="row-2">
+                  <div class="field"><label for="l-name" data-i18n="d.name">Nom et prénom</label><input type="text" id="l-name" name="name" required autocomplete="name"></div>
+                  <div class="field"><label for="l-company" data-i18n="d.company">Entreprise</label><input type="text" id="l-company" name="company" required autocomplete="organization"></div>
+                  <div class="field"><label for="l-email" data-i18n="d.email">E-mail professionnel</label><input type="email" id="l-email" name="email" required autocomplete="email"></div>
+                  <div class="field"><label for="l-phone" data-i18n="d.phone">Téléphone / WhatsApp (facultatif)</label><input type="tel" id="l-phone" name="phone" autocomplete="tel"></div>
+                </div>
+                <label style="display:flex;gap:10px;align-items:flex-start;font-size:14px"><input type="checkbox" name="consent" value="oui" required style="margin-top:4px"><span data-i18n="d.consent">J'accepte qu'ENERVIA me contacte au sujet de ce diagnostic. Mes données ne sont pas revendues.</span></label>
+                <p class="error" id="lead-err" role="alert"></p>
+                <div class="actions"><button class="btn btn-light" type="button" id="back3" data-i18n="d.back">Retour</button><button class="btn btn-primary" type="submit" data-i18n="d.send">Envoyer mon diagnostic</button></div>
+              </form>
+              <div id="lead-ok" class="form-ok hidden" role="status" data-i18n="d.sent">Merci — votre diagnostic a été envoyé. Nous revenons vers vous rapidement.</div>
+              <div class="actions" style="justify-content:flex-start">
+                <button class="btn btn-outline" type="button" id="print-btn" data-i18n="d.print">Imprimer / enregistrer en PDF</button>
+                <a class="btn btn-ghost" data-platform="/auth" href="https://enervia-energy-journey.lovable.app/auth" data-i18n="d.save">Enregistrer dans la plateforme</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="panel result-card" aria-live="polite">
+          <h2 style="font-size:20px" data-i18n="d.rTitle">Votre situation énergétique de référence</h2>
+          <div id="result-body"></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+<div class="mobile-bar no-print"><span data-i18n="d.rTotal">Coût de l'énergie par an</span><b id="mobile-total">—</b></div>
+<!--FOOTER-->
+<script src="/assets/diagnostic-core.js"></script>
+<!--SCRIPTS-->
+<script src="/assets/diag-ui.js"></script>
+</body>
+</html>

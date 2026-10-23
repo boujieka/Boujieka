@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<!--HEAD-->
+<title>Contact — ENERVIA</title>
+</head>
+<body>
+<!--HEADER-->
+<main id="main">
+  <section style="padding-top:48px">
+    <div class="container" style="max-width:760px">
+      <p class="eyebrow" style="color:var(--teal-2)" data-i18n="ct.eyebrow">Contact</p>
+      <h1 style="font-family:var(--serif);font-size:clamp(28px,4vw,42px);line-height:1.1;margin:0 0 10px" data-i18n="ct.title">Parler à un expert ENERVIA</h1>
+      <p style="color:var(--muted)" data-i18n="ct.lead">Décrivez votre site et votre objectif. Nous répondons par e-mail ou WhatsApp.</p>
+      <form class="panel" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/merci.html">
+        <input type="hidden" name="form-name" value="contact">
+        <p class="hidden"><label>Ne pas remplir <input name="bot-field"></label></p>
+        <div class="row-2">
+          <div class="field"><label for="c-name" data-i18n="d.name">Nom et prénom</label><input type="text" id="c-name" name="name" required autocomplete="name"></div>
+          <div class="field"><label for="c-company" data-i18n="d.company">Entreprise</label><input type="text" id="c-company" name="company" required autocomplete="organization"></div>
+          <div class="field"><label for="c-email" data-i18n="d.email">E-mail professionnel</label><input type="email" id="c-email" name="email" required autocomplete="email"></div>
+          <div class="field"><label for="c-phone" data-i18n="d.phone">Téléphone / WhatsApp (facultatif)</label><input type="tel" id="c-phone" name="phone" autocomplete="tel"></div>
+        </div>
+        <div class="field">
+          <label for="c-need" data-i18n="ct.need">Votre besoin</label>
+          <select id="c-need" name="need">
+            <option data-i18n="ct.n1">Réduire mes coûts énergétiques</option>
+            <option data-i18n="ct.n2">Projet solaire / batterie</option>
+            <option data-i18n="ct.n3">Financer un projet énergétique</option>
+            <option data-i18n="ct.n4">Plan énergétique de zone industrielle</option>
+            <option data-i18n="ct.n5">Autre</option>
+          </select>
+        </div>
+        <div class="field"><label for="c-msg" data-i18n="ct.msg">Message</label><textarea id="c-msg" name="message" rows="5"></textarea></div>
+        <label style="display:flex;gap:10px;align-items:flex-start;font-size:14px"><input type="checkbox" name="consent" value="oui" required style="margin-top:4px"><span data-i18n="d.consent">J'accepte qu'ENERVIA me contacte au sujet de ce diagnostic. Mes données ne sont pas revendues.</span></label>
+        <div class="actions"><span></span><button class="btn btn-primary" type="submit" data-i18n="ct.send">Envoyer</button></div>
+      </form>
+      <p style="margin-top:20px;color:var(--muted)"><span data-i18n="ct.alt">Vous préférez commencer seul ?</span> <a href="/diagnostic.html" data-i18n="cta.diag">Diagnostic gratuit</a></p>
+    </div>
+  </section>
+</main>
+<!--FOOTER-->
+<!--SCRIPTS-->
+</body>
+</html>
