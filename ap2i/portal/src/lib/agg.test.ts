@@ -60,6 +60,10 @@ describe("indicators", () => {
     expect(disbursementRate([agr({ disbursed: "25" }), agr({ id: 2, currency: "EUR", disbursed: "1" })]).reason).toBe("multiple_currencies");
     expect(disbursementRate([agr({ disbursed: "25", is_guarantee: true })]).value).toBeNull();
     expect(disbursementRate([agr({})]).value).toBeNull(); // disbursed missing: not computed
+    const part = disbursementRate([agr({ disbursed: "100" }), agr({ id: 2 })]); // one lender publishes, the other not
+    expect(part.value).toBeNull();
+    expect(part.reason).toBe("partial_publication");
+    expect(part.partial).toEqual({ value: 1, published: 1, total: 2 });
   });
   it("elapsed share uses start (or approval) and current end; missing dates give null", () => {
     expect(elapsedRatio(proj({ start: "2020-01-01", current_end: "2022-01-01" }), new Date("2021-01-01"))).toBeCloseTo(0.5, 2);

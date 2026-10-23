@@ -113,7 +113,8 @@ function RescueProject({ refId, names }: { refId: string; names: ReturnType<type
           <p className="small muted">{names.sector(p.sector)} · {t(`status.${p.status}`)} · {p.partners.map((c) => names.partner(c)).join(", ")}</p>
           <dl className="dl">
             <div><dt>{t("col.alerts")}</dt><dd>{alerts.length ? alerts.map((a) => <span key={a.alert_id}><LevelBadge level={a.level} /> </span>) : t("level.none")}</dd></div>
-            <div><dt>{t("col.rate")}</dt><dd>{rate.value === null ? <NA /> : fmtPct(rate.value, locale)}</dd></div>
+            <div><dt>{t("col.rate")}</dt><dd>{rate.value !== null ? fmtPct(rate.value, locale)
+              : rate.partial ? t("fin.partial", { p: fmtPct(rate.partial.value, locale), n: String(rate.partial.published), t: String(rate.partial.total) }) : <NA />}</dd></div>
             <div><dt>{locale === "fr" ? "Temps écoulé" : "Time elapsed"}</dt><dd>{elapsed === null ? <NA /> : fmtPct(elapsed, locale)}</dd></div>
             <div><dt>{locale === "fr" ? "Glissement de la fin" : "End-date slippage"}</dt><dd>{slip === null ? <NA /> : `${slip} j`}</dd></div>
             <div><dt>{t("profile.physical")}</dt><dd>{p.physical_progress === null ? <NA /> : `${p.physical_progress} %`}</dd></div>

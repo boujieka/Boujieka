@@ -100,6 +100,8 @@ def validate(r: dict) -> str | None:
         return "source_url is not an http(s) URL"
     if len(str(r["quote"]).strip()) < 8:
         return "quote too short"
+    if r.get("currency") and not re.match(r"^[A-Z]{3}$", str(r["currency"])):
+        return "currency is not an ISO 4217 code (state amounts in units, e.g. 53270000 USD, not 'USD million')"
     return None
 
 
@@ -117,6 +119,8 @@ def import_evidence(db: Session, records: list[dict], apply: bool = True, today:
     conn = _connector(db)
     out = {"records": len(records), "stored": 0, "already_stored": 0, "rejected": 0, "applied": 0, "review": 0,
            "rejections": [], "applied_changes": []}
+    # oldest first, so that the most recent dated fact is the one left on the project
+    records = sorted(records, key=lambda r: str(r.get("as_of") or r.get("published") or ""))
     for r in records:
         reason = validate(r)
         p = _project(db, r.get("ap2i_id"))
@@ -157,7 +161,11 @@ def import_evidence(db: Session, records: list[dict], apply: bool = True, today:
             out["review"] += 1
             continue
         if apply:
-            change = _apply(db, p, r, src, value, as_of, num, vdate, today)
+            # a record of a co-financier merged into this project describes that donor's agreement or component, not the
+            # whole asset: its status is kept as evidence only
+            merged = p.ap2i_id != r.get("ap2i_id")
+            change = None if merged and r["field"] in ("project_status", "completion_date", "operational_status") else \
+                _apply(db, p, r, src, value, as_of, num, vdate, today)
             if change:
                 out["applied"] += 1
                 out["applied_changes"].append({"project": p.ap2i_id, "change": change, "source": r["source_url"]})
@@ -187,7 +195,8 @@ def _apply(db: Session, p: Project, r: dict, src: SourceRecord, value, as_of, nu
             return f"physical_progress_pct -> {num}% (as of {as_of.isoformat()})"
     elif f == "project_status":
         v = STATUS_WORDS.get(str(value).strip().lower())
-        if v and v != p.status:
+        # evidence never reopens a closed project (a donor page left "ongoing" is often stale) nor relabels closed/completed
+        if v and v != p.status and p.status not in ("completed", "closed"):
             db.add(ProjectStatusHistory(project_id=p.id, status=v, previous_status=p.status, effective_date=as_of,
                                         source_record_id=src.id, note=f"Documentary evidence: {who}"[:2000]))
             old, p.status = p.status, v

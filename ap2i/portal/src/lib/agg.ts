@@ -106,13 +106,20 @@ export function usdByProject(agreements: AgreementRow[]): Map<number, number | n
 
 /** Disbursement rate of a project: only when all its non-guarantee agreements with both figures share one
  * currency (same rule as the backend indicator: disbursed / net commitment, same currency). */
-export function disbursementRate(agreements: AgreementRow[]): { value: number | null; reason: string | null } {
-  const usable = agreements.filter((a) => !a.is_guarantee && a.committed !== null && a.disbursed !== null && a.currency && Number(a.committed) > 0);
+export type Rate = { value: number | null; reason: string | null; partial?: { value: number; published: number; total: number } };
+
+/** Disbursed / committed over the non-guarantee agreements. When only some lenders publish their disbursements (e.g. a
+ * co-financed plant where the AfDB and EIB publish none), no project rate is given: the rate of the published agreements
+ * is returned apart (`partial`) so that it is never read as the rate of the whole project. */
+export function disbursementRate(agreements: AgreementRow[]): Rate {
+  const eligible = agreements.filter((a) => !a.is_guarantee && a.committed !== null && Number(a.committed) > 0);
+  const usable = eligible.filter((a) => a.disbursed !== null && a.currency);
   if (!usable.length) return { value: null, reason: "missing_inputs" };
   const curs = new Set(usable.map((a) => a.currency));
   if (curs.size > 1) return { value: null, reason: "multiple_currencies" };
   const c = usable.reduce((s, a) => s + Number(a.committed), 0);
   const d = usable.reduce((s, a) => s + Number(a.disbursed), 0);
+  if (usable.length < eligible.length) return { value: null, reason: "partial_publication", partial: { value: d / c, published: usable.length, total: eligible.length } };
   return { value: d / c, reason: null };
 }
 

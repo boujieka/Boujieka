@@ -35,6 +35,15 @@
 * AfDB documents on www.afdb.org (incl. EER/IPR supervision reports) are behind an anti-bot challenge that AP²I
   does not circumvent: 988 of 1,030 AfDB document links are catalogued only. Only the 31 PDFs on evrd.afdb.org are
   parsed automatically; other AfDB reports must be attached manually (PDF upload). There is no EER/IPR parser.
+* **Disbursements not published for some lenders.** The AfDB publishes no IATI disbursement for its non-sovereign
+  (private-sector) loans (e.g. Nachtigal), and the EIB publishes commitments only. A project financed this way shows
+  "non publié", not 0 %, even when the asset is operating: an operating plant does not imply a fully disbursed loan,
+  and the amount is never inferred. Authorised channels to fill it: AfDB MapAfrica / project officer, CAA (Caisse
+  autonome d'amortissement) debt data, MINEPAT, the operator (e.g. NHPC) — via the upload workflow.
+* EU INTPA leaves most contracts at IATI status "Implementation" after their actual end date; AP²I does not close a
+  project on that basis alone (evaluation pages are stored as documentary evidence).
+* IFAD supervision/completion reports (operations.ifad.org) and EU evaluation PDFs were unreachable or rate-limited
+  during the October 2026 research pass; only their web summaries are cited.
 * Tier-2/3 donors without IATI publication for Cameroon (IsDB, KfW, JICA, GEF, GCF, BADEA, SFD, Kuwait Fund,
   ADFD) have no automated connector.
 

@@ -42,6 +42,7 @@ export function ProjectSummary({ p, agreements }: { p: ProjectRow; agreements: A
 
   const disbText = allGuarantees ? t("fin.guarantee")
     : rate.value !== null ? `${fmtPct(rate.value, locale)} ${fr ? "décaissé" : "disbursed"}`
+    : rate.partial ? t("fin.partial", { p: fmtPct(rate.partial.value, locale), n: String(rate.partial.published), t: String(rate.partial.total) })
     : t("fin.notPublished");
   const sentence = fr
     ? `Projet ${t(`status.${p.status}`).toLowerCase()} du secteur « ${names.sector(p.sector)} », financé par ${partners}` +
@@ -82,7 +83,7 @@ export function ProjectSummary({ p, agreements }: { p: ProjectRow; agreements: A
       <div className="kpis summary-kpis">
         <div className="kpi"><span className="kpi-l">{t("sum.committed")}<Help text={t("kpi.commitmentsHelp")} /></span>
           <b className="kpi-v">{fmtAmount(money.usd, locale, "USD")}</b><span className="kpi-s">{currencyLines(money.byCurrency, locale)}</span></div>
-        <div className="kpi"><span className="kpi-l">{t("sum.disbursed")}</span>
+        <div className="kpi"><span className="kpi-l">{t("sum.disbursed")}{rate.partial ? <Help text={t("fin.partialHelp")} /> : null}</span>
           <b className="kpi-v small-v">{disbText}</b>
           {rate.value === null && !allGuarantees && rate.reason === "multiple_currencies" ? <span className="kpi-s">{fr ? "plusieurs devises : voir les accords" : "several currencies: see agreements"}</span> : null}</div>
         <div className="kpi"><span className="kpi-l">{t("sum.schedule")}</span>

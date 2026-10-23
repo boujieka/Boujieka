@@ -162,6 +162,27 @@ Candidate official sources (MINFI, MINEPAT, ARMP, Chambre des Comptes, INS) are 
   does not come back through the agreement amount.
 * Effect on the Cameroon total of commitments (agreement positions, USD eq.): US$ 17.95 bn → US$ 16.39 bn.
 
+## 5c. Documentary evidence and co-financing groups (October 2026 research pass)
+
+* **Documentary evidence** (`connector documentary_research`, `python -m app.cli import-evidence <files> [--dry-run]`):
+  facts quoted verbatim from public sources (donor press releases and project pages, evaluation summaries, operator or
+  government communiqués, press). Each fact is stored as a source record + observation with its URL, publisher,
+  publication date and quote, and shown on the project page ("Informations documentées").
+  * Only **official** sources (donor, operator, government) with **high/medium** confidence update a project field
+    (operational status, commissioning date, physical progress, status, completion date, published cumulative
+    disbursement when no transaction is published). **Press** is stored as `needs_review` and never changes a field.
+  * A status set from evidence is not reverted by a later sync; a differing source status raises
+    `status_differs_from_documented` instead.
+  * Records derived from IATI (codeforiati / d-portal URLs) are **not** imported as evidence: they repeat data the
+    IATI connector already loads.
+* **Co-financing groups** (`python -m app.cli apply-groups <groups.json>`): records of one physical asset financed by
+  several donors are merged (reversible merge of entity resolution) only for high-confidence groups with cited evidence:
+  Nachtigal (WB guarantee, AfDB loan and risk participation, AFD, EIB), Lom Pangar, Kribi, Ring Road phase III, SDA.
+  Bélabo–Ngaoundéré and rural electrification are **not** merged: the same EU grant is published both by the EU and by
+  the EIB (double-counting risk until one of the two is excluded by a reviewer).
+* **A guarantee is not disbursed.** The World Bank instrument on Nachtigal (P157734) is an IBRD guarantee: 0 disbursed is
+  the correct value, not a gap; the portal labels it "Garantie — pas de décaissement".
+
 ## 6. What a source does NOT provide (never inferred)
 
 * World Bank Projects API: no dated disbursement series by transaction type (the per-year `amount` arrays are

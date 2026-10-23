@@ -67,3 +67,21 @@ def test_groups_merge_high_confidence_only(db):
     db.refresh(b)
     assert out["merged"] == 1 and b.merged_into_id == a.id
     assert db.scalar(select(m.FinancingAgreement.project_id).where(m.FinancingAgreement.source_identifier == "SYN-LOAN-1")) == a.id
+
+
+def test_evidence_never_reopens_and_merged_member_status_is_kept_only(db):
+    a, b, _ = _setup(db)
+    official = dict(source_type="donor_official", source_publisher="SYNTHETIC bank")
+    # a stale "ongoing" donor page does not reopen a completed project
+    out = import_evidence(db, [rec(ap2i_id=b.ap2i_id, field="project_status", value="ongoing", **official)], today=date(2026, 10, 23))
+    db.refresh(b)
+    assert out["applied"] == 0 and b.status == "completed"
+    # after a co-financing merge, a member's own status/operational facts describe its loan or component: stored, not applied
+    apply_groups(db, [{"group_name": "SYN plant", "members": [a.ap2i_id, b.ap2i_id], "lead_member": a.ap2i_id,
+                       "evidence": [{"source_url": "https://example.org/c", "quote": "SYNTHETIC"}], "confidence": "high"}])
+    out = import_evidence(db, [rec(ap2i_id=b.ap2i_id, value="not_operational", as_of="2019-01-01", **official),
+                               rec(ap2i_id=b.ap2i_id, field="project_status", value="completed", **official),
+                               rec(ap2i_id=a.ap2i_id, as_of="2026-08-30")], today=date(2026, 10, 23))
+    db.commit()
+    db.refresh(a)
+    assert out["stored"] == 3 and a.status == "active" and a.operational_status == "operational"

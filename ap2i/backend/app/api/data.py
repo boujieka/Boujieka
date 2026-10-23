@@ -355,11 +355,17 @@ def project_detail(ref: str, principal: Principal = Depends(get_principal), db: 
                              "is_latest": sr.is_latest})
     # cited facts from public sources (documentary research): public, with URL, publisher and verbatim quote
     d["documented_evidence"] = []
+    seen_evidence: set[tuple] = set()
     for o, sr in db.execute(select(SourceObservation, SourceRecord).join(SourceRecord, SourceRecord.id == SourceObservation.source_record_id)
                             .join(SourceConnector, SourceConnector.id == SourceRecord.connector_id)
                             .where(SourceObservation.project_id == p.id, SourceConnector.key == "documentary_research")
                             .order_by(SourceObservation.reporting_date.desc().nulls_last())):
         pl = sr.payload or {}
+        # the same fact cited for several co-financier records of one asset is shown once
+        key = (o.field, o.value_text, sr.source_url, pl.get("quote"))
+        if key in seen_evidence:
+            continue
+        seen_evidence.add(key)
         d["documented_evidence"].append({"field": o.field.removeprefix("evidence_"), "value": o.value_text, "currency": o.currency,
                                          "as_of": j(o.reporting_date), "source_url": sr.source_url, "publisher": pl.get("source_publisher"),
                                          "source_type": pl.get("source_type"), "published": pl.get("published"), "quote": pl.get("quote"),

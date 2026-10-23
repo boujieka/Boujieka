@@ -82,7 +82,7 @@ def main(argv: list[str]) -> int:
 
             from app.ingestion.evidence import import_evidence
             records = [r for f in args if not f.startswith("--") for r in _json.load(open(f, encoding="utf-8"))]
-            res = import_evidence(db, records, apply="--dry-run" not in args)
+            res = import_evidence(db, records)  # a dry run applies, reports, then rolls back
             if "--dry-run" in args:
                 db.rollback()
             else:
