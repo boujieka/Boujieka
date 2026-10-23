@@ -11,7 +11,7 @@ export interface Filters {
   status?: string[];
   region?: string;
   q?: string;
-  alert?: AlertLevel | "any";
+  alert?: AlertLevel | "any" | "attention"; // attention = critical or high
   minusd?: number;
   dq?: number; // minimum completeness score (0–1)
 }
@@ -42,7 +42,7 @@ export function parseFilters(qs: URLSearchParams): Filters {
   const q = qs.get("q");
   f.q = q ? q.slice(0, 100) : undefined;
   const al = qs.get("alert");
-  f.alert = al === "any" || LEVELS.includes(al as AlertLevel) ? (al as Filters["alert"]) : undefined;
+  f.alert = al === "any" || al === "attention" || LEVELS.includes(al as AlertLevel) ? (al as Filters["alert"]) : undefined;
   f.minusd = num("minusd", 0, 1e13);
   f.dq = num("dq", 0, 1);
   for (const k of KEYS) if (f[k] === undefined) delete f[k];
@@ -76,7 +76,9 @@ export function filterProjects(projects: ProjectRow[], f: Filters, usdByProject?
     if (f.region && p.region !== f.region) return false;
     if (f.alert) {
       const lv = LEVELS.filter((l) => (p.alerts[l] ?? 0) > 0);
-      if (f.alert === "any" ? !lv.length : !lv.includes(f.alert)) return false;
+      const ok = f.alert === "any" ? lv.length > 0
+        : f.alert === "attention" ? lv.includes("critical_attention") || lv.includes("high_attention") : lv.includes(f.alert);
+      if (!ok) return false;
     }
     if (f.dq !== undefined && (p.dq === null || p.dq.completeness < f.dq)) return false;
     if (f.minusd !== undefined) {

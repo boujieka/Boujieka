@@ -1,4 +1,4 @@
-import type { EChartsOption } from "echarts";
+import type { EChartsCoreOption as EChartsOption } from "echarts/core";
 import type { Money } from "./agg";
 import { escapeHtml, fmtAmount, fmtNum, moneyTooltip, type Locale } from "./format";
 
@@ -13,21 +13,23 @@ export function hbar(names: string[], values: (number | null)[], locale: Locale,
       return opts.tooltip ? opts.tooltip(i) : `${escapeHtml(names[i])}<br/>${opts.money ? fmtAmount(values[i], locale, "USD") : fmtNum(values[i], locale)}`;
     } },
     xAxis: { type: "value", axisLabel: opts.money ? axisLabel(locale) : undefined },
-    yAxis: { type: "category", data: names, inverse: true, axisLabel: { width: 150, overflow: "truncate" } },
+    yAxis: { type: "category", data: names, inverse: true, axisLabel: { width: 210, overflow: "truncate" } },
     series: [{ type: "bar", name: opts.seriesName, data: values, barMaxWidth: 22 }],
   };
 }
 
-export function moneyLine(years: number[], series: { name: string; data: Money[] }[], locale: Locale, t: (k: string) => string, type: "line" | "bar" = "line"): EChartsOption {
+export function moneyLine(years: number[], series: { name: string; data: Money[] }[], locale: Locale, t: (k: string) => string, type: "line" | "bar" = "line",
+  flags?: { partial: boolean; incomplete: boolean }[]): EChartsOption {
+  const label = (y: number, i: number) => `${y}${flags?.[i]?.partial ? "*" : ""}${flags?.[i]?.incomplete ? "†" : ""}`;
   return {
     grid,
     legend: { top: 0 },
     tooltip: { trigger: "axis", formatter: (ps: unknown) => {
       const arr = ps as { seriesIndex: number; dataIndex: number; seriesName: string }[];
       const y = years[arr[0]?.dataIndex ?? 0];
-      return `<b>${y}</b><br/>` + arr.map((p) => `<u>${escapeHtml(p.seriesName)}</u><br/>${moneyTooltip(series[p.seriesIndex].data[p.dataIndex], locale, t)}`).join("<br/>");
+      return `<b>${label(y, arr[0]?.dataIndex ?? 0)}</b><br/>` + arr.map((p) => `<u>${escapeHtml(p.seriesName)}</u><br/>${moneyTooltip(series[p.seriesIndex].data[p.dataIndex], locale, t)}`).join("<br/>");
     } },
-    xAxis: { type: "category", data: years.map(String) },
+    xAxis: { type: "category", data: years.map(label) },
     yAxis: { type: "value", axisLabel: axisLabel(locale) },
     series: series.map((s) => ({
       type, name: s.name, smooth: false, barMaxWidth: 26,

@@ -5,11 +5,20 @@ from __future__ import annotations
 
 from datetime import date
 
-from sqlalchemy import select
+from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from app.connectors.base import NULL_DATE_SENTINELS
-from app.models import DataValidation, FinancingAgreement, Project, ResultsIndicator, ResultsObservation, SourceObservation
+from app.models import (
+    DataValidation,
+    Disbursement,
+    FinancingAgreement,
+    FinancingCommitment,
+    Project,
+    ResultsIndicator,
+    ResultsObservation,
+    SourceObservation,
+)
 
 
 def apply_corrections(db: Session, today: date | None = None) -> dict:
@@ -58,5 +67,70 @@ def apply_corrections(db: Session, today: date | None = None) -> dict:
     for o in db.scalars(select(ResultsObservation).where(ResultsObservation.period_end.in_(NULL_DATE_SENTINELS))):
         o.period_end = None
         out["placeholder_dates_cleared"] += 1
+    out.update(dedupe_identical_transactions(db))
+    out.update(eu_decision_vs_contract(db))
     db.commit()
+    return out
+
+
+DUP_NOTE = "Identical repeat of transaction #{keep} in the source file (same date, amount and currency); counted once"
+
+
+def dedupe_identical_transactions(db: Session) -> dict:
+    """Some publishers repeat the same transaction several times in one file, with only the reference changed (e.g. one
+    EIB loan of EUR 50M published as 17 identical EUR 50M commitments on the same date; AfDB quarterly totals published
+    three times). Identical counted rows of one agreement (same kind, date, amount, currency) are counted once; the
+    repeats stay stored with `is_counted=False` and a note, and a DataValidation is recorded for review."""
+    out = {"duplicate_commitments_not_counted": 0, "duplicate_flows_not_counted": 0}
+    # the commitment "type" is not part of the key: the importer labels the first commitment of an agreement "original"
+    # and the following ones "additional", so identical repeats would otherwise differ by that label only
+    for model, key_cols, label in ((FinancingCommitment, (), "duplicate_commitments_not_counted"),
+                                   (Disbursement, (Disbursement.flow_type,), "duplicate_flows_not_counted")):
+        groups = db.execute(select(model.agreement_id, *key_cols, model.value_date, model.amount, model.currency,
+                                   func.min(model.id), func.count()).where(model.is_counted.is_(True), model.value_date.is_not(None))
+                            .group_by(model.agreement_id, *key_cols, model.value_date, model.amount, model.currency)
+                            .having(func.count() > 1)).all()
+        for g in groups:
+            agreement_id, value_date, amount, currency, keep = g[0], g[-5], g[-4], g[-3], g[-2]
+            rows = db.scalars(select(model).where(model.agreement_id == agreement_id, model.is_counted.is_(True),
+                                                  model.value_date == value_date, model.amount == amount, model.currency == currency,
+                                                  *(c == g[1 + i] for i, c in enumerate(key_cols)), model.id != keep)).all()
+            for r in rows:
+                r.is_counted = False
+                r.counting_note = DUP_NOTE.format(keep=keep)
+                out[label] += 1
+            agr = db.get(FinancingAgreement, agreement_id)
+            db.add(DataValidation(project_id=agr.project_id, source_record_id=agr.source_record_id, rule="duplicate_transaction",
+                                  severity="warning", message=f"{agr.source_identifier}: {len(rows) + 1} identical transactions "
+                                  f"({value_date}, {amount} {currency}) in the source; counted once"))
+    return out
+
+
+EU_DECISION = r"^XI-IATI-EC_INTPA-.*-ACT-"
+
+
+def eu_decision_vs_contract(db: Session) -> dict:
+    """EU (DG INTPA) publishes a financing decision (`…-ACT-…`) and the contracts that implement it (`…-PC/PCC-…`). When
+    both are attached to one project, counting both commitments double-counts the same money: the contracts (legal
+    commitments, which also carry the disbursements) are counted, the decision envelope is not."""
+    out = {"eu_decision_commitments_not_counted": 0}
+    decisions = db.scalars(select(FinancingAgreement).where(FinancingAgreement.source_identifier.op("~")(EU_DECISION))).all()
+    for d in decisions:
+        contracts = db.scalars(select(FinancingAgreement.id).where(
+            FinancingAgreement.project_id == d.project_id, FinancingAgreement.id != d.id,
+            FinancingAgreement.source_identifier.like("XI-IATI-EC_INTPA-%"),
+            ~FinancingAgreement.source_identifier.op("~")(EU_DECISION))).all()
+        if not contracts or not db.scalar(select(func.count(FinancingCommitment.id)).where(
+                FinancingCommitment.agreement_id.in_(contracts), FinancingCommitment.is_counted.is_(True))):
+            continue
+        rows = db.scalars(select(FinancingCommitment).where(FinancingCommitment.agreement_id == d.id,
+                                                            FinancingCommitment.is_counted.is_(True))).all()
+        for r in rows:
+            r.is_counted = False
+            r.counting_note = "EU financing decision envelope: the implementing contracts of the same project are counted instead"
+            out["eu_decision_commitments_not_counted"] += 1
+        if rows:
+            db.add(DataValidation(project_id=d.project_id, source_record_id=d.source_record_id, rule="eu_decision_not_counted",
+                                  severity="info", message=f"{d.source_identifier}: decision-level commitment not counted; "
+                                  f"{len(contracts)} contract(s) of the same project counted"))
     return out

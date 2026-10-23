@@ -66,6 +66,13 @@ Chromium path: `CHROMIUM_PATH` (default `/opt/pw-browsers/chromium-1194/chrome-l
 **If a deploy is wrong:** a failed Netlify deploy never goes live (the previous one stays). For a bad published
 deploy, fix forward: rebuild from the previous good commit (or previous snapshot) and deploy it again.
 
+## Commercial pages and before going live
+
+`src/lib/site.ts` holds the publisher identity (`SITE.publisher`) and `contactFormEnabled`. While the publisher is not
+set, the legal pages show a visible "to be completed" notice and the demo-request form (Netlify Forms, `#/contact`) is
+disabled: fill in the legal entity, country and contact address, have the terms / privacy texts validated, then enable
+the form. Plans (`#/plans`) mirror `backend/app/reference/catalog.py` (prices on request).
+
 ## Moving to live data later
 
 When the FastAPI backend is hosted (any container host with PostgreSQL), either deploy the Next.js application on

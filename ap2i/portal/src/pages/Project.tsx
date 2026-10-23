@@ -54,7 +54,7 @@ export function Project({ route }: { route: Route }) {
             <Field label={t("col.region")}>{d.region ? (locale === "fr" ? d.region.name_fr : d.region.name_en) : null}</Field>
             <Field label={t("col.approval")}>{d.original_approval_date ? fmtDate(d.original_approval_date, locale) : null}</Field>
             <Field label={t("profile.dates")}>{[["start", d.implementation_start_date], ["end", d.original_completion_date], ["revised", d.revised_completion_date], ["actual", d.actual_completion_date]]
-              .map(([k, v]) => `${k}: ${fmtDate(v, locale)}`).join(" · ")}</Field>
+              .filter(([, v]) => v).map(([k, v]) => `${t(`profile.date.${k}`)} : ${fmtDate(v, locale)}`).join(" · ") || null}</Field>
           </dl>
           {d.description && <details><summary>{t("profile.description")}</summary><p className="pre">{d.description}</p></details>}
           {d.objectives && <details open><summary>{t("profile.objectives")}</summary><p className="pre">{d.objectives}</p></details>}
@@ -66,11 +66,13 @@ export function Project({ route }: { route: Route }) {
               <Field key={cur} label={cur}>{`${t("chart.commitments")} ${fmtAmount(v.committed === null ? null : Number(v.committed), locale, cur)} · ${t("col.disbursed")} ${fmtAmount(v.disbursed === null ? null : Number(v.disbursed), locale, cur)}`}</Field>
             ))}
             {ind("disbursement_rate").map((x: any) => (
-              <Field key={x.label} label={x.label}>{x.value === null ? <><NA /> <span className="muted small">{(x.missing_inputs ?? []).join(", ") || x.formula}</span></> : `${fmtPct(Number(x.value), locale, 1)} (${t("common.calculated")})`}</Field>
+              <Field key={x.label} label={`${t("ind.disbursement_rate")} — ${x.label.split("—")[1]?.trim() ?? ""}`}>{x.value === null ? <><NA /> <span className="muted small">{(x.missing_inputs ?? []).join(", ") || x.formula}</span></> : `${fmtPct(Number(x.value), locale, 1)} (${t("common.calculated")})`}</Field>
             ))}
             {["elapsed_time_ratio", "schedule_slippage_days", "cost_overrun", "financing_gap"].flatMap((c) => ind(c)).map((x: any) => (
-              <Field key={x.code} label={x.label}>{x.value === null ? <><NA /> <span className="muted small">{(x.missing_inputs ?? []).join(", ")}</span></> : x.unit === "ratio" ? fmtPct(Number(x.value), locale, 1) : `${fmtNum(Number(x.value), locale)} ${x.unit}`}</Field>
+              <Field key={x.code} label={t(`ind.${x.code}`)}>{x.value === null ? <><NA /> <span className="muted small" lang="en">{(x.missing_inputs ?? []).join(", ")}</span></> : x.unit === "ratio" ? fmtPct(Number(x.value), locale, 1) : `${fmtNum(Number(x.value), locale)} ${x.unit === "days" ? t("profile.days") : x.unit}`}</Field>
             ))}
+            {agreements.some((a) => a.disbursed !== null && a.committed !== null && Number(a.disbursed) > Number(a.committed) && !a.is_guarantee) &&
+              <Field label="⚠">{t("profile.overDisbursed")}</Field>}
             <Field label={t("finance.costs")}>{d.original_estimated_cost ? `${fmtAmount(Number(d.original_estimated_cost), locale, d.cost_currency)} → ${d.revised_estimated_cost ? fmtAmount(Number(d.revised_estimated_cost), locale, d.cost_currency) : "—"}` : null}</Field>
           </dl>
         </Card>
@@ -92,7 +94,7 @@ export function Project({ route }: { route: Route }) {
                     <td>{a.instrument ? names.instrument(a.instrument) : a.instrument_label ?? "—"}</td>
                     <td>{fmtDate(a.approval, locale)}</td>
                     <td className="r" title={a.committed_basis ?? ""}>{fmtAmount(a.committed === null ? null : Number(a.committed), locale, a.currency ?? "")}</td>
-                    <td className="r" title={a.committed_usd_note ?? ""}>{a.committed_usd === null ? <span className="na">{a.committed === null ? "—" : t("common.notConverted")}</span> : fmtAmount(Number(a.committed_usd), locale, "USD")}</td>
+                    <td className="r" title={a.committed_usd_note ?? ""}>{a.committed_usd === null ? <span className="na">{a.committed === null ? (a.committed_basis?.startsWith("not counted") ? t("profile.notCounted") : "—") : t("common.notConverted")}</span> : fmtAmount(Number(a.committed_usd), locale, "USD")}</td>
                     <td className="r" title={`${a.disbursed_basis ?? ""} ${a.disbursed_as_of ?? ""}`}>{fmtAmount(a.disbursed === null ? null : Number(a.disbursed), locale, a.currency ?? "")}</td>
                     <td className="r">{fmtAmount(a.undisbursed === null ? null : Number(a.undisbursed), locale, a.currency ?? "")}</td>
                     <td>{src?.url ? <ExternalLink href={src.url}>{src.connector}</ExternalLink> : "—"}</td>
@@ -147,13 +149,13 @@ export function Project({ route }: { route: Route }) {
         {(d.results ?? []).length ? (
           <DataTable rows={d.results as any[]} rowKey={(r) => r.name + r.unit} pageSize={10} exportName={`ap2i_${d.ap2i_id}_results`} provenance={[d.ap2i_id, s.meta.scope]}
             columns={[
-              { key: "name", label: t("col.title"), value: (r) => r.name },
-              { key: "unit", label: "Unit", value: (r) => r.unit },
-              { key: "b", label: t("profile.baseline"), align: "right", value: (r) => r.baseline_value },
-              { key: "tg", label: t("profile.target"), align: "right", value: (r) => r.target_value },
+              { key: "name", label: t("col.title"), minWidth: "30ch", value: (r) => r.name },
+              { key: "unit", label: t("profile.unit"), value: (r) => r.unit },
+              { key: "b", label: t("profile.baseline"), align: "right", value: (r) => (r.baseline_value === null ? null : Number(r.baseline_value)), render: (r) => (r.baseline_value === null ? null : fmtNum(Number(r.baseline_value), locale, 2)) },
+              { key: "tg", label: t("profile.target"), align: "right", value: (r) => (r.target_value === null ? null : Number(r.target_value)), render: (r) => (r.target_value === null ? null : fmtNum(Number(r.target_value), locale, 2)) },
               { key: "l", label: t("profile.latest"), align: "right", value: (r) => {
                 const obs = (r.observations as any[]).filter((o) => o.period_end).sort((a, b) => (a.period_end < b.period_end ? 1 : -1));
-                return obs[0] ? `${obs[0].value ?? obs[0].value_text} (${obs[0].period_end})` : null; } },
+                return obs[0] ? `${obs[0].value !== null ? fmtNum(Number(obs[0].value), locale, 2) : obs[0].value_text} (${fmtDate(obs[0].period_end, locale)})` : null; } },
             ]} />
         ) : <NA />}
       </Card>
@@ -188,7 +190,7 @@ export function Project({ route }: { route: Route }) {
           {d.data_quality && <p className="small">{t("profile.dq")} : completeness {fmtPct(d.data_quality.completeness, locale)} · traceability {fmtPct(d.data_quality.traceability, locale)} · missing: {(d.data_quality.missing_fields ?? []).join(", ") || "—"}</p>}
           {(d.validation_issues ?? []).length > 0 && <details><summary className="small">{(d.validation_issues as any[]).length} validation notes</summary>
             <ul className="small">{(d.validation_issues as any[]).slice(0, 30).map((v, i) => <li key={i}>[{v.severity}] {v.message}</li>)}</ul></details>}
-          {d.observations_note && <p className="small muted">{d.observations_note}</p>}
+          {d.observations_note && <p className="small muted">{t("profile.observationsNote")} <a href="#/plans">{t("nav.plans")} →</a></p>}
         </Card>
       </div>
     </div>

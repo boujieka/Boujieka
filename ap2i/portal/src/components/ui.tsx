@@ -9,7 +9,7 @@ export function Card({ title, actions, children, note, id, className = "" }: {
     <section className={`card ${className}`} id={id} aria-label={typeof title === "string" ? title : undefined}>
       {(title || actions) && (
         <header className="card-h">
-          {title && <h3>{title}</h3>}
+          {title && <h2 className="card-t">{title}</h2>}
           {actions && <div className="card-actions">{actions}</div>}
         </header>
       )}
@@ -19,15 +19,24 @@ export function Card({ title, actions, children, note, id, className = "" }: {
   );
 }
 
-export function Kpi({ label, value, sub, href }: { label: string; value: ReactNode; sub?: ReactNode; href?: string }) {
+export function Kpi({ label, value, sub, href, help }: { label: string; value: ReactNode; sub?: ReactNode; href?: string; help?: string }) {
   const body = (
     <>
-      <span className="kpi-l">{label}</span>
+      <span className="kpi-l">{label}{help && <Help text={help} />}</span>
       <b className="kpi-v">{value}</b>
       {sub && <span className="kpi-s">{sub}</span>}
     </>
   );
   return href ? <a className="kpi" href={href}>{body}</a> : <div className="kpi">{body}</div>;
+}
+
+/** Small "(?)" with an accessible explanation (tooltip on hover/focus, read by screen readers). */
+export function Help({ text }: { text: string }) {
+  return (
+    <span className="help" tabIndex={0} role="note" aria-label={text} onClick={(e) => e.preventDefault()}>
+      ?<span className="help-tip" aria-hidden>{text}</span>
+    </span>
+  );
 }
 
 export function PageHead({ title, subtitle, children }: { title: string; subtitle?: ReactNode; children?: ReactNode }) {
@@ -62,7 +71,7 @@ export function ErrorState({ error, retry }: { error: string; retry?: () => void
   const { t } = useI18n();
   return (
     <div className="state err" role="alert">
-      <b>{t("common.error")}</b> <span className="muted">{error}</span>
+      <b>{t("common.error")}</b> <span className="muted">{/fetch|network|load failed/i.test(error) ? t("common.offline") : error}</span>
       {retry && <button className="btn sm" onClick={retry}>{t("common.retry")}</button>}
     </div>
   );

@@ -9,6 +9,9 @@ export interface Column<T> {
   render?: (row: T) => ReactNode;
   align?: "right";
   width?: string;
+  minWidth?: string; // e.g. "26ch" for titles: avoids letter-by-letter wrapping
+  exportValue?: (row: T) => Cell; // human-readable value in CSV/Excel (default: value)
+  exportable?: boolean; // false for UI-only columns (checkboxes)
 }
 
 /** Sortable, paginated table with CSV / Excel export of ALL rows of the current selection. */
@@ -34,8 +37,9 @@ export function DataTable<T>({ rows, columns, pageSize = 25, exportName, provena
   const p = Math.min(page, pages - 1);
   const visible = sorted.slice(p * pageSize, (p + 1) * pageSize);
   const exp = (kind: "csv" | "xlsx") => {
-    const header = columns.map((c) => c.label);
-    const data = sorted.map((r) => columns.map((c) => c.value(r)));
+    const cols = columns.filter((c) => c.exportable !== false);
+    const header = cols.map((c) => c.label);
+    const data = sorted.map((r) => cols.map((c) => (c.exportValue ?? c.value)(r)));
     if (kind === "csv") downloadCSV(exportName ?? "ap2i", header, data, provenance ?? []);
     else void downloadXLSX(exportName ?? "ap2i", header, data, provenance ?? []);
   };
@@ -49,11 +53,11 @@ export function DataTable<T>({ rows, columns, pageSize = 25, exportName, provena
         </div>
       )}
       <div className="table-wrap">
-        <table>
+        <table className="dt-table">
           <thead>
             <tr>
               {columns.map((c) => (
-                <th key={c.key} style={{ width: c.width }} className={c.align === "right" ? "r" : undefined}
+                <th key={c.key} scope="col" style={{ width: c.width, minWidth: c.minWidth }} className={c.align === "right" ? "r" : undefined}
                   aria-sort={sort?.key === c.key ? (sort.dir === 1 ? "ascending" : "descending") : "none"}>
                   <button className="th-btn" onClick={() => { setSort({ key: c.key, dir: sort?.key === c.key ? (-sort.dir as 1 | -1) : 1 }); setPage(0); }}>
                     {c.label}{sort?.key === c.key ? (sort.dir === 1 ? " ▲" : " ▼") : ""}
@@ -67,7 +71,7 @@ export function DataTable<T>({ rows, columns, pageSize = 25, exportName, provena
               <tr key={rowKey(r)}>
                 {columns.map((c) => {
                   const v = c.render ? c.render(r) : c.value(r);
-                  return <td key={c.key} className={c.align === "right" ? "r" : undefined}>{v === null || v === undefined || v === "" ? <span className="na">—</span> : v}</td>;
+                  return <td key={c.key} data-label={c.label} style={{ minWidth: c.minWidth }} className={c.align === "right" ? "r" : undefined}>{v === null || v === undefined || v === "" ? <span className="na">—</span> : v}</td>;
                 })}
               </tr>
             ))}

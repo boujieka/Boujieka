@@ -4,12 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>AP²I — Africa Public Project Intelligence</title>
-    <meta name="description" content="Portail interactif AP²I : projets d'investissement public en Afrique à partir des sources officielles des bailleurs, avec la provenance de chaque chiffre." />
-    <link rel="icon" href="/ap2i-logo.png" />
+    <meta name="description" content="AP²I : suivi indépendant et traçable des projets d'investissement public financés par les bailleurs au Cameroun — engagements, décaissements, retards et signaux d'alerte, chaque chiffre relié à sa source. / Independent, source-traceable tracking of donor-financed public investment projects." />
+    <link rel="canonical" href="https://ap2i-africa.netlify.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AP²I" />
+    <meta property="og:title" content="AP²I — Africa Public Project Intelligence" />
+    <meta property="og:description" content="Suivi traçable des projets d'investissement public financés par les bailleurs au Cameroun : engagements, décaissements, retards, alertes." />
+    <meta property="og:url" content="https://ap2i-africa.netlify.app/" />
+    <meta property="og:image" content="https://ap2i-africa.netlify.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:locale:alternate" content="en_GB" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#082B50" />
+    <link rel="icon" href="/ap2i-logo-72.png" />
+    <link rel="preload" href="/data/meta.json" as="fetch" crossorigin />
+    <link rel="preload" href="/data/ref.json" as="fetch" crossorigin />
+    <link rel="preload" href="/data/projects.json" as="fetch" crossorigin />
   </head>
   <body>
     <div id="root"></div>
-    <noscript>AP²I nécessite JavaScript pour afficher les tableaux de bord interactifs.</noscript>
+    <noscript>AP²I nécessite JavaScript pour afficher les tableaux de bord interactifs. / AP²I needs JavaScript to display the interactive dashboards.</noscript>
+    <!-- Netlify Forms detection (the real form is rendered by the app at #/contact) -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input name="bot-field" /><input name="name" /><input name="organisation" />
+      <input type="email" name="email" /><select name="segment"></select>
+      <textarea name="message"></textarea><input type="checkbox" name="consent" />
+      <input name="plan" />
+    </form>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -66,7 +66,9 @@ describe("indicators", () => {
     expect(elapsedRatio(proj({ current_end: null }), new Date())).toBeNull();
   });
   it("completion year: actual date, else closing date for closed projects only", () => {
-    expect(completionYear(proj({ actual_end: "2019-06-30" }))).toEqual({ year: 2019, basis: "actual" });
+    expect(completionYear(proj({ status: "closed", actual_end: "2019-06-30" }))).toEqual({ year: 2019, basis: "actual" });
+    expect(completionYear(proj({ status: "active", actual_end: "2019-06-30" }))).toBeNull(); // active: never a completion
+    expect(completionYear(proj({ status: "closed", actual_end: "2019-06-30", planned_end: "2019-06-30" }))).toEqual({ year: 2019, basis: "closing_date" });
     expect(completionYear(proj({ status: "closed", portfolio_end: "2018-12-31" }))).toEqual({ year: 2018, basis: "closing_date" });
     expect(completionYear(proj({ status: "active", portfolio_end: "2018-12-31" }))).toBeNull();
   });

@@ -18,6 +18,7 @@ export function useRoute(): Route {
   const [route, setRoute] = useState(() => parseHash(window.location.hash));
   useEffect(() => {
     const on = () => {
+      if (window.location.hash && !window.location.hash.startsWith("#/")) return; // in-page anchor, not a route
       setRoute(parseHash(window.location.hash));
     };
     window.addEventListener("hashchange", on);

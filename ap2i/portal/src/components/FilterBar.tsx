@@ -18,12 +18,13 @@ function readSaved(): SavedView[] {
   }
 }
 
-export function FilterBar({ route, undated }: { route: Route; undated?: number }) {
+export function FilterBar({ route, undated, hide = [] }: { route: Route; undated?: number; hide?: (keyof Filters)[] }) {
   const { t, locale } = useI18n();
   const s = useSnap();
   const names = useNames(locale);
   const f = route.filters;
   const [more, setMore] = useState(false);
+  const [open, setOpen] = useState(false); // mobile: filters collapsed behind a button
   const [q, setQ] = useState(f.q ?? "");
   const [copied, setCopied] = useState(false);
   const [saved, setSaved] = useState<SavedView[]>(readSaved);
@@ -53,7 +54,20 @@ export function FilterBar({ route, undated }: { route: Route; undated?: number }
     for (let y = s.meta.years[1]; y >= 2000; y--) ys.push(y);
     return ys;
   }, [s]);
-  const active = Object.keys(f).length;
+  const active = Object.keys(f).filter((k) => !hide.includes(k as keyof Filters)).length;
+  const partnerOpts = useMemo(() => s.ref.partners.filter((p) => s.projects.some((x) => x.partners.includes(p.code))), [s]);
+  const instrumentOpts = useMemo(() => s.ref.instruments.filter((i) => s.agreements.some((a) => a.instrument === i.code)), [s]);
+  const chips: { k: keyof Filters; label: string }[] = [];
+  if (f.y0 || f.y1) chips.push({ k: "y0", label: `${f.y0 ?? "…"}–${f.y1 ?? "…"}` });
+  if (f.sector) chips.push({ k: "sector", label: names.sector(f.sector === "UNCLASSIFIED" ? null : f.sector) });
+  if (f.partner) chips.push({ k: "partner", label: names.partner(f.partner) });
+  if (f.status) chips.push({ k: "status", label: f.status.map((x) => t(`status.${x}`)).join(", ") });
+  if (f.alert) chips.push({ k: "alert", label: f.alert === "any" ? t("filters.any") : f.alert === "attention" ? t("kpi.attention") : t(`level.${f.alert}`) });
+  if (f.q) chips.push({ k: "q", label: `« ${f.q} »` });
+  if (f.instrument) chips.push({ k: "instrument", label: names.instrument(f.instrument) });
+  if (f.region) chips.push({ k: "region", label: f.region });
+  if (f.minusd) chips.push({ k: "minusd", label: `≥ ${new Intl.NumberFormat(locale).format(f.minusd)} USD` });
+  if (f.dq) chips.push({ k: "dq", label: `≥ ${f.dq * 100} %` });
 
   const share = async () => {
     try {
@@ -75,15 +89,24 @@ export function FilterBar({ route, undated }: { route: Route; undated?: number }
   };
 
   return (
-    <form className="filterbar" role="search" aria-label={t("filters.title")} onSubmit={(e) => e.preventDefault()}>
+    <form className={`filterbar ${open ? "open" : ""}`} role="search" aria-label={t("filters.title")} onSubmit={(e) => e.preventDefault()}>
+      <div className="fb-mobile">
+        <button type="button" className="btn xs" onClick={() => setOpen((o) => !o)} aria-expanded={open} data-testid="f-toggle">
+          {t("common.filters")}{active ? ` (${active})` : ""}
+        </button>
+        {chips.filter((c) => !hide.includes(c.k)).map((c) => (
+          <button key={c.k} type="button" className="chip" onClick={() => set(c.k === "y0" ? { y0: undefined, y1: undefined } : { [c.k]: undefined })}
+            aria-label={`${t("filters.reset")} : ${c.label}`}>{c.label} ×</button>
+        ))}
+      </div>
       <div className="fb-row">
-        <label>
+        {!hide.includes("country") && <label>
           <span>{t("filters.country")}</span>
           <select value={f.country ?? ""} onChange={(e) => set({ country: e.target.value || undefined, region: undefined })} data-testid="f-country">
             <option value="">{t("filters.all")}</option>
             {countries.map((c) => <option key={c.iso3} value={c.iso3}>{names.country(c.iso3)}</option>)}
           </select>
-        </label>
+        </label>}
         <label className="yr">
           <span>{t("filters.years")}</span>
           <span className="yr-pair">
@@ -109,7 +132,7 @@ export function FilterBar({ route, undated }: { route: Route; undated?: number }
           <span>{t("filters.partner")}</span>
           <select value={f.partner ?? ""} onChange={(e) => set({ partner: e.target.value || undefined })} data-testid="f-partner">
             <option value="">{t("filters.all")}</option>
-            {s.ref.partners.filter((p) => s.projects.some((x) => x.partners.includes(p.code))).map((p) => <option key={p.code} value={p.code}>{p.short_name}</option>)}
+            {partnerOpts.map((p) => <option key={p.code} value={p.code}>{p.short_name}</option>)}
           </select>
         </label>
         <label>
@@ -117,6 +140,14 @@ export function FilterBar({ route, undated }: { route: Route; undated?: number }
           <select value={f.status?.[0] ?? ""} onChange={(e) => set({ status: e.target.value ? [e.target.value] : undefined })} data-testid="f-status">
             <option value="">{t("filters.all")}</option>
             {STATUSES.map((x) => <option key={x} value={x}>{t(`status.${x}`)}</option>)}
+          </select>
+        </label>
+          <label>
+          <span>{t("filters.alert")}</span>
+          <select value={f.alert ?? ""} onChange={(e) => set({ alert: (e.target.value || undefined) as Filters["alert"] })} data-testid="f-alert">
+            <option value="">{t("filters.all")}</option>
+            <option value="any">{t("filters.any")}</option>
+            {LEVELS.map((l) => <option key={l} value={l}>{t(`level.${l}`)}</option>)}
           </select>
         </label>
         <label className="grow">
@@ -130,7 +161,7 @@ export function FilterBar({ route, undated }: { route: Route; undated?: number }
             <span>{t("filters.instrument")}</span>
             <select value={f.instrument ?? ""} onChange={(e) => set({ instrument: e.target.value || undefined })}>
               <option value="">{t("filters.all")}</option>
-              {s.ref.instruments.filter((i) => s.agreements.some((a) => a.instrument === i.code)).map((i) => <option key={i.code} value={i.code}>{names.instrument(i.code)}</option>)}
+              {instrumentOpts.map((i) => <option key={i.code} value={i.code}>{names.instrument(i.code)}</option>)}
             </select>
           </label>
           <label>
@@ -140,14 +171,7 @@ export function FilterBar({ route, undated }: { route: Route; undated?: number }
               {regions.map((r) => <option key={r} value={r}>{r}</option>)}
             </select>
           </label>
-          <label>
-            <span>{t("filters.alert")}</span>
-            <select value={f.alert ?? ""} onChange={(e) => set({ alert: (e.target.value || undefined) as Filters["alert"] })} data-testid="f-alert">
-              <option value="">{t("filters.all")}</option>
-              <option value="any">{t("filters.any")}</option>
-              {LEVELS.map((l) => <option key={l} value={l}>{t(`level.${l}`)}</option>)}
-            </select>
-          </label>
+
           <label>
             <span>{t("filters.minusd")}</span>
             <select value={f.minusd ?? ""} onChange={(e) => set({ minusd: e.target.value ? Number(e.target.value) : undefined })}>

@@ -150,6 +150,18 @@ Candidate official sources (MINFI, MINEPAT, ARMP, Chambre des Comptes, INS) are 
 (`country_data_sources`); reachability is checked with `python -m app.cli check-country-sources`.
 **No Cameroon budget data has been imported**: AP²I does not yet show government-funded investment.
 
+## 5b. Counting rules added after the October 2026 data audit
+
+* **Identical repeats in a source file are counted once.** Some publishers repeat the same transaction in one file with
+  only the reference changed (EIB loan XM-DAC-918-3-20150526-85142: 17 identical EUR 50M commitments for a EUR 50M loan;
+  AfDB quarterly disbursement totals published two or three times). Rows of one agreement with the same date, amount and
+  currency (and flow type for disbursements) are counted once; the repeats stay stored with `is_counted = false` and a
+  note, and a `duplicate_transaction` validation is recorded (run of 2026-10-23: 19 commitments and 70 disbursements).
+* **EU decision vs contracts.** When a project has both an EU financing decision (`…-ACT-…`) and the contracts that
+  implement it, only the contracts are counted (34 decision commitments on 24 projects); the decision's headline amount
+  does not come back through the agreement amount.
+* Effect on the Cameroon total of commitments (agreement positions, USD eq.): US$ 17.95 bn → US$ 16.39 bn.
+
 ## 6. What a source does NOT provide (never inferred)
 
 * World Bank Projects API: no dated disbursement series by transaction type (the per-year `amount` arrays are

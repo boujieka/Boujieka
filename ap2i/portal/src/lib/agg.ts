@@ -136,9 +136,21 @@ export function maxLevel(p: ProjectRow) {
   return null;
 }
 
+/** Completion year of a closed/completed project. Active projects are never counted, even when the source publishes an
+ * "actual" end date (some publishers fill it with the planned date); an actual date equal to the planned one is
+ * treated as the proxy, not as an observed completion. */
 export function completionYear(p: ProjectRow): { year: number; basis: "actual" | "closing_date" } | null {
-  if (p.actual_end) return { year: year(p.actual_end)!, basis: "actual" };
-  if ((p.status === "completed" || p.status === "closed") && p.portfolio_end)
-    return { year: year(p.portfolio_end)!, basis: "closing_date" };
-  return null;
+  if (p.status !== "completed" && p.status !== "closed") return null;
+  if (p.actual_end && p.actual_end !== p.planned_end) return { year: year(p.actual_end)!, basis: "actual" };
+  const end = p.actual_end ?? p.portfolio_end;
+  return end ? { year: year(end)!, basis: "closing_date" } : null;
+}
+
+/** Year flags for annual charts: the current (partial) year and years with unconverted amounts. */
+export function yearFlags(years: number[], series: Money[][], generatedAt: string) {
+  const current = Number(generatedAt.slice(0, 4));
+  return years.map((y, i) => ({
+    partial: y === current,
+    incomplete: series.some((s) => Object.keys(s[i]?.unconverted ?? {}).length > 0),
+  }));
 }

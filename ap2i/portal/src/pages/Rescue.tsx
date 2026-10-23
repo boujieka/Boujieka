@@ -28,19 +28,42 @@ export function Rescue({ route }: { route: Route }) {
   const names = useNames(locale);
   const ref = route.path[1];
   const [onlyAlerts, setOnlyAlerts] = useState(true);
-  const candidates = useMemo(() => s.projects.filter((p) => !onlyAlerts || maxLevel(p) !== null)
-    .sort((a, b) => (["critical_attention", "high_attention", "watch", "information"].indexOf(maxLevel(a) ?? "z") - ["critical_attention", "high_attention", "watch", "information"].indexOf(maxLevel(b) ?? "z")) || a.ref.localeCompare(b.ref)), [s, onlyAlerts]);
+  const [sector, setSector] = useState("");
+  const candidates = useMemo(() => s.projects.filter((p) => (!onlyAlerts || maxLevel(p) !== null) && (!sector || p.sector === sector))
+    .sort((a, b) => (["critical_attention", "high_attention", "watch", "information"].indexOf(maxLevel(a) ?? "z") - ["critical_attention", "high_attention", "watch", "information"].indexOf(maxLevel(b) ?? "z")) || a.ref.localeCompare(b.ref)), [s, onlyAlerts, sector]);
   const p = s.projects.find((x) => x.ref === ref);
   return (
     <div>
       <PageHead title={t("rescue.title")} subtitle={t("rescue.noAI")}>
         <label className="inline"><input type="checkbox" checked={onlyAlerts} onChange={(e) => setOnlyAlerts(e.target.checked)} /> {t("rescue.onlyAlerts")}</label>
+        <select aria-label={t("filters.sector")} value={sector} onChange={(e) => setSector(e.target.value)}>
+          <option value="">{t("rescue.allSectors")}</option>
+          {s.ref.sectors.filter((x) => s.projects.some((p) => p.sector === x.code)).map((x) => <option key={x.code} value={x.code}>{names.sector(x.code)}</option>)}
+        </select>
         <select aria-label={t("rescue.select")} value={ref ?? ""} onChange={(e) => go(`/rescue/${e.target.value}`, {})} data-testid="rescue-select">
           <option value="">{t("rescue.select")}…</option>
           {candidates.map((x) => <option key={x.id} value={x.ref}>{x.ref} — {x.title.slice(0, 70)}</option>)}
         </select>
       </PageHead>
-      {!p ? <Empty>{t("rescue.empty")}</Empty> : <RescueProject key={p.ref} refId={p.ref} names={names} />}
+      {!p ? (
+        <Card title={t("rescue.topTitle")} note={t("rescue.topHint")}>
+          {candidates.length ? (
+            <ol className="ranked">
+              {candidates.slice(0, 15).map((x) => {
+                const l = maxLevel(x);
+                return (
+                  <li key={x.id}>
+                    <a href={`#/rescue/${encodeURIComponent(x.ref)}`} data-testid="rescue-top">
+                      {l && <LevelBadge level={l} />} <b>{x.title}</b>
+                      <span className="small muted"> — {names.sector(x.sector)} · {x.partners.map((c) => names.partner(c)).join(", ")} · <span className="mono">{x.ref}</span></span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ol>
+          ) : <Empty>{t("rescue.empty")}</Empty>}
+        </Card>
+      ) : <RescueProject key={p.ref} refId={p.ref} names={names} />}
     </div>
   );
 }

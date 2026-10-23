@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import type { EChartsOption } from "echarts";
+import type { EChartsCoreOption as EChartsOption } from "echarts/core";
 import { useI18n } from "../lib/i18n";
 import { useNames, useSelection, useSnap } from "../lib/context";
 import { year } from "../lib/filters";
@@ -20,7 +20,9 @@ export function DataExplorer({ route }: { route: Route }) {
   const s = useSnap();
   const names = useNames(locale);
   const f = route.filters;
-  const sel = useSelection(f);
+  const selProjects = useSelection(f);
+  // transaction measures use the transaction year (like the annual charts), not the projects' approval year
+  const selTx = useSelection({ ...f, y0: undefined, y1: undefined });
   const pick = <T extends string>(k: string, all: readonly T[], d: T | ""): T | "" => ((all as readonly string[]).includes(route.qs.get(k) ?? "") ? (route.qs.get(k) as T) : d);
   let measure = pick("measure", MEASURES, "projects") as Measure;
   let dim = pick("dim", DIMS, "sector") as Dim;
@@ -33,8 +35,16 @@ export function DataExplorer({ route }: { route: Route }) {
   const setQ = (patch: Record<string, string>) => go("/data", f, { measure, dim, col, ...patch });
   const projById = useMemo(() => new Map(s.projects.map((p) => [p.id, p])), [s]);
 
+  const sel = measure === "txCommit" || measure === "txDisb" ? selTx : selProjects;
   const label = (d: Dim, k: string) => {
-    if (k === "—") return "—";
+    if (k === "—") {
+      // a missing category gets an explicit label: "—" is reserved for "no observation" in the cells
+      if (d === "sector") return names.sector(null);
+      if (d === "partner") return names.partner(null);
+      if (d === "instrument") return names.instrument(null);
+      if (d === "approvalYear" || d === "txYear") return locale === "fr" ? "Sans date" : "Undated";
+      return t("data.unclassified");
+    }
     switch (d) {
       case "country": return names.country(k);
       case "sector": return names.sector(k);

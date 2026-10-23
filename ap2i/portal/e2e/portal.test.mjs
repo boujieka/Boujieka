@@ -138,7 +138,7 @@ describe("AP²I portal", () => {
     await ready(p);
     const rows = await p.$$('[data-testid="alerts-table"] tbody tr');
     assert.ok(rows.length >= 1);
-    await p.click('[data-testid="alerts-table"] tbody tr:first-child td:nth-child(3) a');
+    await p.click('[data-testid="alerts-table"] tbody tr:first-child td:nth-child(2) a');
     await p.waitForSelector("#alerts");
     assert.match(await p.innerText("#alerts"), /Evidence|Éléments probants/);
   });
@@ -147,8 +147,7 @@ describe("AP²I portal", () => {
     const p = await page();
     await p.goto(BASE + "#/rescue");
     await ready(p);
-    const ref = await p.$eval('[data-testid="rescue-select"] option:nth-child(2)', (o) => o.value);
-    await p.selectOption('[data-testid="rescue-select"]', ref);
+    await p.click('[data-testid="rescue-top"] >> nth=0'); // ranked list of projects to review first
     await p.waitForSelector('[data-testid="rescue-action"]');
     await p.fill('[data-testid="rescue-action"]', "Verify the disbursement schedule with the executing agency");
     await p.click('[data-testid="rescue-add"]');
@@ -180,15 +179,69 @@ describe("AP²I portal", () => {
     const p = await page();
     await p.route("**/data/projects.json", (r) => r.fulfill({ status: 500, body: "x" }));
     await p.goto(BASE + "#/");
-    await p.waitForSelector("text=/could not be loaded|n'ont pas pu/");
+    await p.waitForSelector("text=/could not be loaded|n'ont pas pu|Connection unavailable|Connexion indisponible/");
     await p.unroute("**/data/projects.json");
     await p.click("text=/Retry|Réessayer/");
     await ready(p);
   });
 
+  it("home leads to the projects in trouble, most severe first", async () => {
+    const p = await page();
+    await p.goto(BASE + "#/");
+    await ready(p);
+    await p.click('[data-testid="home-task1"]');
+    await p.waitForFunction(() => location.hash.includes("alert=attention"));
+    const first = await p.innerText('[data-testid="projects-table"] tbody tr:first-child');
+    assert.match(first, /Critical attention|Attention critique/);
+  });
+
+  it("skip link focuses the content without leaving the page", async () => {
+    const p = await page();
+    await p.goto(BASE + "#/finance");
+    await ready(p);
+    await p.keyboard.press("Tab");
+    await p.keyboard.press("Enter");
+    await p.waitForTimeout(300);
+    assert.equal(await p.evaluate(() => location.hash), "#/finance");
+    assert.equal(await p.evaluate(() => document.activeElement?.id), "main");
+  });
+
+  it("compare dialog is modal and closes with Escape", async () => {
+    const p = await page();
+    await p.goto(BASE + "#/projects?view=table");
+    await ready(p);
+    for (const i of [1, 2]) await p.click(`[data-testid="projects-table"] tbody tr:nth-child(${i}) input[type=checkbox]`);
+    await p.click("text=/Compare \\(2\\)|Comparer \\(2\\)/");
+    await p.waitForSelector("dialog[open]");
+    assert.equal(await p.evaluate(() => !!document.activeElement?.closest("dialog")), true);
+    await p.keyboard.press("Escape");
+    await p.waitForFunction(() => !document.querySelector("dialog[open]"));
+  });
+
+  it("commercial and legal pages render; the contact form stays closed until the publisher is set", async () => {
+    const p = await page();
+    for (const path of ["plans", "legal/terms", "legal/privacy", "legal/data"]) {
+      await p.goto(BASE + "#/" + path);
+      await ready(p);
+      assert.doesNotMatch(await p.innerText("main"), /\bcom\.[a-z]/); // no untranslated key
+    }
+    await p.goto(BASE + "#/contact");
+    await ready(p);
+    assert.equal(await p.$eval("main fieldset", (f) => f.disabled), true);
+    assert.deepEqual(p.errors, []);
+  });
+
+  it("chart data is available as a table (accessibility)", async () => {
+    const p = await page();
+    await p.goto(BASE + "#/country/CMR");
+    await ready(p);
+    await p.click('[id="c3"] summary');
+    assert.ok((await p.$$('[id="c3"] .chart-data tbody tr')).length > 3);
+  });
+
   it("mobile: every module renders without horizontal scrolling", async () => {
     const p = await page(375);
-    for (const path of ["", "africa", "country/CMR", "projects", "finance", "performance", "rescue", "data", "about"]) {
+    for (const path of ["", "africa", "country/CMR", "projects", "finance", "performance", "rescue", "data", "about", "plans", "contact", "legal/data"]) {
       await p.goto(BASE + "#/" + path);
       await ready(p);
       await p.waitForTimeout(400);

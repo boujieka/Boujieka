@@ -88,8 +88,15 @@ def agreement_position(db: Session, agr: FinancingAgreement) -> AgreementPositio
         cancelled = -sum((c.amount for c in same_cur_commits if c.amount < 0), Decimal(0))
         basis = "sum of counted commitment transactions (net of cancellations)"
     elif agr.amount_original is not None:
-        committed = agr.amount_original
-        basis = agr.amount_label
+        excluded = db.scalar(select(FinancingCommitment.counting_note).where(
+            FinancingCommitment.agreement_id == agr.id, FinancingCommitment.is_counted.is_(False)).limit(1))
+        if excluded and not commits:
+            # every commitment of this agreement was deliberately left out (e.g. EU decision envelope whose contracts
+            # are counted): its headline amount must not come back through the fallback
+            basis = f"not counted — {excluded}"
+        else:
+            committed = agr.amount_original
+            basis = agr.amount_label
     if agr.reported_current_commitment is not None and currency == "USD" and agr.reported_cumulative_label:
         committed = agr.reported_current_commitment
         basis = "current commitment as published (" + agr.reported_cumulative_label + ")"

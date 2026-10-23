@@ -1,9 +1,9 @@
 import { useMemo } from "react";
-import type { EChartsOption } from "echarts";
+import type { EChartsCoreOption as EChartsOption } from "echarts/core";
 import { useI18n } from "../lib/i18n";
 import { useNames, useSelection, useSnap } from "../lib/context";
 import { annual, commitmentsOf, moneyBy, type Money } from "../lib/agg";
-import { currencyLines, escapeHtml, fmtAmount, fmtPct, moneyTooltip } from "../lib/format";
+import { currencyLines, escapeHtml, fmtAmount, fmtDate, fmtPct, moneyTooltip } from "../lib/format";
 import { go, href, type Route } from "../lib/router";
 import { hbar, stacked } from "../lib/charts";
 import type { Filters } from "../lib/filters";
@@ -97,11 +97,13 @@ export function Finance({ route }: { route: Route }) {
   };
 
   // Cumulative execution (dated disbursements / dated commitments), per currency-consistent USD equivalents
-  const cAll = annual(s.flows, selAll.agreementIds, "commitment", 1990, y1);
-  const dAll = annual(s.flows, selAll.agreementIds, "disbursement", 1990, y1);
+  // cumulative from the first dated transaction (not from an arbitrary year)
+  const firstYear = Math.min(y0, ...s.flows.year.filter((y): y is number => y !== null));
+  const cAll = annual(s.flows, selAll.agreementIds, "commitment", firstYear, y1);
+  const dAll = annual(s.flows, selAll.agreementIds, "disbursement", firstYear, y1);
   let cc = 0, cd = 0;
   const cum = years.map(() => [0, 0]);
-  for (let y = 1990; y <= y1; y++) {
+  for (let y = firstYear; y <= y1; y++) {
     cc += cAll.years[y].usd ?? 0;
     cd += dAll.years[y].usd ?? 0;
     if (y >= y0) cum[y - y0] = [Math.round(cc), Math.round(cd)];
@@ -130,10 +132,10 @@ export function Finance({ route }: { route: Route }) {
       <PageHead title={t("finance.title")} subtitle={t("money.note")} />
       <FilterBar route={route} undated={sel.undatedExcluded} />
       <div className="kpis">
-        <Kpi label={t("kpi.commitments")} value={fmtAmount(total.usd, locale, "USD")} sub={<>{currencyLines(total.byCurrency, locale)}{Object.keys(total.unconverted).length ? <> · {t("common.notConverted")}: {currencyLines(total.unconverted, locale)}</> : null}</>} />
+        <Kpi label={t("kpi.commitmentsAll")} help={t("kpi.commitmentsHelp")} value={fmtAmount(total.usd, locale, "USD")} sub={<>{currencyLines(total.byCurrency, locale)}{Object.keys(total.unconverted).length ? <> · {t("common.notConverted")}: {currencyLines(total.unconverted, locale)}</> : null}</>} />
         <Kpi label={t("kpi.agreements")} value={sel.agreements.length} />
         <Kpi label={t("finance.undisbursed")} value={<span className="small-v">{currencyLines(undisb, locale)}</span>} />
-        <Kpi label={t("finance.additional")} value={additional.length} />
+        <Kpi label={t("finance.linked")} value={additional.length} />
       </div>
       <div className="grid-2">
         <EChart id="f1" title={t("finance.byYearPartner")} provenance={prov} option={stacked(years, cByP, locale)}
@@ -162,20 +164,20 @@ export function Finance({ route }: { route: Route }) {
       </nav>
       <EChart id="f6" title={t("finance.treemap")} provenance={prov} option={treemap} height={420} onClick={onTree}
         data={{ header: ["node", "usd_equivalent"], rows: tree.map((x) => [x.name, x.value]) }} />
-      <EChart id="f7" title={t("finance.execution")} provenance={prov} option={execOpt}
+      <EChart id="f7" title={t("finance.execution")} provenance={prov} option={execOpt} note={t("finance.execNote")}
         data={{ header: ["year", "cumulative_dated_commitments_usd", "cumulative_dated_disbursements_usd"], rows: years.map((y, i) => [y, ...cum[i]]) }} />
       <div className="grid-2">
         <Card title={t("finance.costs")}>
           {costRows.length ? (
             <DataTable rows={costRows} rowKey={(p) => p.id} exportName="ap2i_costs" provenance={prov} columns={[
               { key: "ref", label: t("col.ref"), value: (p) => p.ref, render: (p) => <a href={href(`/project/${p.ref}`, f)}>{p.ref}</a> },
-              { key: "o", label: "Original", align: "right", value: (p) => Number(p.original_cost), render: (p) => fmtAmount(Number(p.original_cost), locale, p.cost_currency ?? "") },
-              { key: "r", label: "Revised", align: "right", value: (p) => Number(p.revised_cost), render: (p) => fmtAmount(Number(p.revised_cost), locale, p.cost_currency ?? "") },
+              { key: "o", label: t("finance.original"), align: "right", value: (p) => Number(p.original_cost), render: (p) => fmtAmount(Number(p.original_cost), locale, p.cost_currency ?? "") },
+              { key: "r", label: t("finance.revised"), align: "right", value: (p) => Number(p.revised_cost), render: (p) => fmtAmount(Number(p.revised_cost), locale, p.cost_currency ?? "") },
               { key: "d", label: "Δ", align: "right", value: (p) => Number(p.revised_cost) / Number(p.original_cost) - 1, render: (p) => fmtPct(Number(p.revised_cost) / Number(p.original_cost) - 1, locale, 1) },
             ]} />
           ) : <p className="muted">{t("finance.costsNA")}</p>}
         </Card>
-        <Card title={t("finance.additional")} note={t("finance.additionalNote")}>
+        <Card title={t("finance.linked")} note={t("finance.linkedNote")}>
           <DataTable rows={additional} rowKey={(a) => a.id} pageSize={10} exportName="ap2i_additional_financing" provenance={prov} columns={[
             { key: "id", label: t("col.agreement"), value: (a) => a.source_identifier },
             { key: "parent", label: "Parent", value: (a) => a.parent },
@@ -187,16 +189,19 @@ export function Finance({ route }: { route: Route }) {
       <Card title={t("finance.table")}>
         <DataTable rows={sel.agreements} rowKey={(a) => a.id} exportName="ap2i_agreements" provenance={prov} columns={[
           { key: "id", label: t("col.agreement"), value: (a) => a.source_identifier },
-          { key: "p", label: t("col.ref"), value: (a) => projById.get(a.project)?.ref ?? null, render: (a) => <a href={href(`/project/${projById.get(a.project)?.ref}`, f)}>{projById.get(a.project)?.ref}</a> },
+          { key: "p", label: t("col.ref"), minWidth: "17ch", value: (a) => projById.get(a.project)?.ref ?? null, render: (a) => <a className="mono" href={href(`/project/${projById.get(a.project)?.ref}`, f)}>{projById.get(a.project)?.ref}</a> },
           { key: "partner", label: t("col.partners"), value: (a) => names.partner(a.partner) },
           { key: "instr", label: t("col.instrument"), value: (a) => (a.instrument ? names.instrument(a.instrument) : a.instrument_label) },
-          { key: "appr", label: t("col.approval"), value: (a) => a.approval },
+          { key: "appr", label: t("col.approval"), value: (a) => a.approval, render: (a) => fmtDate(a.approval, locale) },
           { key: "cur", label: t("col.currency"), value: (a) => a.currency },
-          { key: "c", label: t("chart.commitments"), align: "right", value: (a) => (a.committed === null ? null : Number(a.committed)) },
+          { key: "c", label: t("chart.commitments"), align: "right", value: (a) => (a.committed === null ? null : Number(a.committed)),
+            render: (a) => (a.committed === null ? (a.committed_basis?.startsWith("not counted") ? t("profile.notCounted") : null) : fmtAmount(Number(a.committed), locale, a.currency ?? "")) },
           { key: "usd", label: t("col.usd"), align: "right", value: (a) => (a.committed_usd === null ? null : Number(a.committed_usd)), render: (a) => fmtAmount(a.committed_usd === null ? null : Number(a.committed_usd), locale, "USD") },
-          { key: "d", label: t("col.disbursed"), align: "right", value: (a) => (a.disbursed === null ? null : Number(a.disbursed)) },
-          { key: "u", label: t("col.undisbursed"), align: "right", value: (a) => (a.undisbursed === null ? null : Number(a.undisbursed)) },
-          { key: "basis", label: t("col.basis"), value: (a) => a.disbursed_basis },
+          { key: "d", label: t("col.disbursed"), align: "right", value: (a) => (a.disbursed === null ? null : Number(a.disbursed)), render: (a) => fmtAmount(a.disbursed === null ? null : Number(a.disbursed), locale, a.currency ?? "") },
+          { key: "u", label: t("col.undisbursed"), align: "right", value: (a) => (a.undisbursed === null ? null : Number(a.undisbursed)),
+            render: (a) => (a.undisbursed === null ? null : <span title={Number(a.undisbursed) < 0 ? t("profile.overDisbursed") : undefined}>{fmtAmount(Number(a.undisbursed), locale, a.currency ?? "")}{Number(a.undisbursed) < 0 ? " ⚠" : ""}</span>) },
+          { key: "basis", label: t("col.basis"), value: (a) => a.disbursed_basis,
+            render: (a) => (a.disbursed_basis ? <span title={a.disbursed_basis}>{a.disbursed_basis.startsWith("sum of dated") ? t("finance.basis.tx") : t("finance.basis.api")}{a.disbursed_as_of ? ` (${fmtDate(a.disbursed_as_of, locale)})` : ""}</span> : null) },
         ]} />
       </Card>
     </div>

@@ -138,3 +138,38 @@ def test_corrections_clear_future_actual_dates(db):
     out = apply_corrections(db, today=date(2026, 1, 1))
     db.refresh(obs)
     assert out["future_result_dates_cleared"] == 1 and obs.period_end is None and obs.value == 5
+
+
+def test_corrections_identical_repeats_and_eu_decision(db):
+    from datetime import date
+    from decimal import Decimal
+
+    from app.finance.indicators import agreement_position
+    from app.ingestion.corrections import apply_corrections
+
+    cid = db.scalar(select(m.Country.id).where(m.Country.iso3 == "CMR"))
+    p = m.Project(ap2i_id="AP2I-CMR-OTHER-990200", country_id=cid, title="SYNTHETIC", status="active")
+    q = m.Project(ap2i_id="AP2I-CMR-OTHER-990201", country_id=cid, title="SYNTHETIC EU", status="active")
+    db.add_all([p, q])
+    db.flush()
+    loan = m.FinancingAgreement(project_id=p.id, source_identifier="SYN-LOAN", currency="EUR", amount_original=Decimal(50))
+    dec = m.FinancingAgreement(project_id=q.id, source_identifier="XI-IATI-EC_INTPA-2016-ACT-D-1", currency="EUR", amount_original=Decimal(30))
+    con = m.FinancingAgreement(project_id=q.id, source_identifier="XI-IATI-EC_INTPA-2016-PCC-1", currency="EUR", amount_original=Decimal(30))
+    db.add_all([loan, dec, con])
+    db.flush()
+    for i in range(3):  # the same commitment published three times (the importer labels repeats "additional")
+        db.add(m.FinancingCommitment(agreement_id=loan.id, commitment_type="original" if i == 0 else "additional", amount=Decimal(50), currency="EUR",
+                                     value_date=date(2018, 11, 8), transaction_key=f"k{i}"))
+    db.add(m.Disbursement(agreement_id=loan.id, amount=Decimal(5), currency="EUR", value_date=date(2019, 1, 1), transaction_key="d1"))
+    db.add(m.Disbursement(agreement_id=loan.id, amount=Decimal(5), currency="EUR", value_date=date(2019, 2, 1), transaction_key="d2"))
+    for a in (dec, con):
+        db.add(m.FinancingCommitment(agreement_id=a.id, commitment_type="original", amount=Decimal(30), currency="EUR",
+                                     value_date=date(2016, 5, 1), transaction_key="c"))
+    db.commit()
+    out = apply_corrections(db, today=date(2026, 1, 1))
+    assert out["duplicate_commitments_not_counted"] == 2 and out["duplicate_flows_not_counted"] == 0
+    assert out["eu_decision_commitments_not_counted"] == 1
+    assert agreement_position(db, loan).committed == Decimal(50)
+    assert agreement_position(db, dec).committed is None  # the envelope does not come back through amount_original
+    assert agreement_position(db, con).committed == Decimal(30)
+    assert apply_corrections(db, today=date(2026, 1, 1))["duplicate_commitments_not_counted"] == 0  # idempotent

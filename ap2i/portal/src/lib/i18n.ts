@@ -1,5 +1,6 @@
 import { createContext, useContext } from "react";
 import type { Locale } from "./format";
+import { uxEN, uxFR } from "./i18n-ux";
 
 type Dict = Record<string, string>;
 
@@ -247,7 +248,7 @@ const en: Dict = {
   "precision.exact": "exact", "precision.approx": "approximate", "precision.unknown": "not stated",
 };
 
-export const DICTS: Record<Locale, Dict> = { fr, en };
+export const DICTS: Record<Locale, Dict> = { fr: { ...fr, ...uxFR }, en: { ...en, ...uxEN } };
 
 export function translate(locale: Locale, key: string, vars?: Record<string, string | number>): string {
   let s = DICTS[locale][key] ?? DICTS.en[key] ?? key;

@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useI18n } from "../lib/i18n";
 import { useNames, useSelection, useSnap } from "../lib/context";
 import { disbursementRate, maxLevel } from "../lib/agg";
@@ -12,6 +12,9 @@ import type { AgreementRow, ProjectRow } from "../lib/types";
 
 const LEVEL_COLOR = { critical_attention: "#B42318", high_attention: "#D9A323", watch: "#4C78A8", information: "#087F5B" } as const;
 
+const SEV_ORDER = ["critical_attention", "high_attention", "watch", "information"];
+const sev = (p: ProjectRow) => { const l = maxLevel(p); return l ? SEV_ORDER.indexOf(l) : 9; };
+
 export function precisionOf(p: string | null): Marker["precision"] {
   if (!p) return "unknown";
   if (/exactness 1\b|exact/i.test(p)) return "exact";
@@ -24,7 +27,11 @@ export function Projects({ route }: { route: Route }) {
   const names = useNames(locale);
   const f = route.filters;
   const sel = useSelection(f);
-  const view = (["table", "cards", "map"] as const).find((v) => v === route.qs.get("view")) ?? "table";
+  // phones get the card view by default (12-column tables do not fit a 390px screen)
+  const view = (["table", "cards", "map"] as const).find((v) => v === route.qs.get("view")) ??
+    (typeof window !== "undefined" && window.matchMedia?.("(max-width: 700px)").matches ? "cards" : "table");
+  const sortKey = route.qs.get("sort") === "alerts" || f.alert ? "alerts" : "ref";
+  const dialogRef = useRef<HTMLDialogElement>(null);
   const [compare, setCompare] = useState<string[]>([]);
   const [showCompare, setShowCompare] = useState(false);
   const agrByProject = useMemo(() => {
@@ -36,20 +43,20 @@ export function Projects({ route }: { route: Route }) {
   const toggle = (ref: string) => setCompare((c) => (c.includes(ref) ? c.filter((x) => x !== ref) : c.length >= 4 ? c : [...c, ref]));
 
   const columns: Column<ProjectRow>[] = [
-    { key: "cmp", label: "✓", width: "2rem", value: () => null, render: (p) => (
+    { key: "cmp", label: "✓", width: "2rem", exportable: false, value: () => null, render: (p) => (
       <input type="checkbox" aria-label={`${t("projects.compare")} ${p.ref}`} checked={compare.includes(p.ref)} onChange={() => toggle(p.ref)} />) },
-    { key: "ref", label: t("col.ref"), value: (p) => p.ref, render: (p) => <a href={href(`/project/${p.ref}`, f)} className="mono">{p.ref}</a> },
-    { key: "title", label: t("col.title"), value: (p) => p.title, render: (p) => <a href={href(`/project/${p.ref}`, f)}>{p.title}</a> },
+    { key: "ref", label: t("col.ref"), minWidth: "17ch", value: (p) => p.ref, render: (p) => <a href={href(`/project/${p.ref}`, f)} className="mono">{p.ref}</a> },
+    { key: "title", label: t("col.title"), minWidth: "28ch", value: (p) => p.title, render: (p) => <a href={href(`/project/${p.ref}`, f)}>{p.title}</a> },
     { key: "sector", label: t("col.sector"), value: (p) => names.sector(p.sector) },
     { key: "status", label: t("col.status"), value: (p) => t(`status.${p.status}`) },
     { key: "partners", label: t("col.partners"), value: (p) => p.partners.map((c) => names.partner(c)).join(", ") },
     { key: "approval", label: t("col.approval"), value: (p) => p.approval, render: (p) => fmtDate(p.approval, locale) },
     { key: "end", label: t("col.end"), value: (p) => p.current_end, render: (p) => fmtDate(p.current_end, locale) },
     { key: "usd", label: t("col.committed"), align: "right", value: (p) => sel.usd.get(p.id) ?? null, render: (p) => fmtAmount(sel.usd.get(p.id) ?? null, locale, "USD") },
-    { key: "rate", label: t("col.rate"), align: "right", value: (p) => rate(p), render: (p) => fmtPct(rate(p), locale) },
-    { key: "alerts", label: t("col.alerts"), value: (p) => { const l = maxLevel(p); return l ? ["critical_attention", "high_attention", "watch", "information"].indexOf(l) : null; },
+    { key: "rate", label: t("col.rate"), align: "right", value: (p) => rate(p), exportValue: (p) => { const r = rate(p); return r === null ? null : Math.round(r * 1000) / 1000; }, render: (p) => fmtPct(rate(p), locale) },
+    { key: "alerts", label: t("col.alerts"), exportValue: (p) => { const l = maxLevel(p); return l ? t(`level.${l}`) : ""; }, value: (p) => { const l = maxLevel(p); return l ? ["critical_attention", "high_attention", "watch", "information"].indexOf(l) : null; },
       render: (p) => { const l = maxLevel(p); return l ? <LevelBadge level={l} /> : null; } },
-    { key: "dq", label: t("col.dq"), align: "right", value: (p) => p.dq?.completeness ?? null, render: (p) => fmtPct(p.dq?.completeness ?? null, locale) },
+    { key: "dq", label: t("col.dq"), align: "right", value: (p) => p.dq?.completeness ?? null, exportValue: (p) => p.dq?.completeness ?? null, render: (p) => fmtPct(p.dq?.completeness ?? null, locale) },
   ];
   const provenance = [s.meta.scope, `snapshot ${s.meta.generated_at}`, `filters: ${window.location.hash}`,
     "committed_usd: sum of agreement commitments converted at the approval-year rate; blank = not convertible"];
@@ -64,6 +71,12 @@ export function Projects({ route }: { route: Route }) {
     return out;
   }, [sel.projects]);
   const noCoords = sel.projects.filter((p) => !p.locations.length).length;
+  useEffect(() => {
+    const d = dialogRef.current;
+    if (!d) return;
+    if (showCompare && !d.open) d.showModal(); // focus trap, Escape and inert background come with the native dialog
+    if (!showCompare && d.open) d.close();
+  }, [showCompare]);
   const cmp = compare.map((r) => s.projects.find((p) => p.ref === r)!).filter(Boolean);
 
   return (
@@ -80,11 +93,11 @@ export function Projects({ route }: { route: Route }) {
       {!sel.projects.length ? <Empty /> : view === "table" ? (
         <Card>
           <DataTable rows={sel.projects} columns={columns} rowKey={(p) => p.id} exportName="ap2i_projects" provenance={provenance} caption={t("common.projects")}
-            initialSort={{ key: "ref", dir: 1 }} testId="projects-table" />
+            initialSort={{ key: sortKey, dir: 1 }} testId="projects-table" />
         </Card>
       ) : view === "cards" ? (
         <div className="cards">
-          {sel.projects.slice(0, 120).map((p) => {
+          {(sortKey === "alerts" ? [...sel.projects].sort((a, b) => sev(a) - sev(b)) : sel.projects).slice(0, 120).map((p) => {
             const l = maxLevel(p);
             return (
               <a key={p.id} className="pcard" href={href(`/project/${p.ref}`, f)}>
@@ -107,10 +120,10 @@ export function Projects({ route }: { route: Route }) {
           </div>
         </Card>
       )}
-      {showCompare && cmp.length >= 2 && (
-        <div className="modal" role="dialog" aria-modal="true" aria-label={t("projects.compare")}>
-          <div className="modal-b">
-            <header className="card-h"><h3>{t("projects.compare")}</h3><button className="btn xs ghost" onClick={() => setShowCompare(false)}>{t("common.close")}</button></header>
+      <dialog ref={dialogRef} className="modal-b" aria-labelledby="cmp-title" onClose={() => setShowCompare(false)}>
+        {showCompare && cmp.length >= 2 && (
+          <div>
+            <header className="card-h"><h2 id="cmp-title" className="card-t">{t("projects.compare")}</h2><button className="btn xs ghost" onClick={() => dialogRef.current?.close()} autoFocus>{t("common.close")}</button></header>
             <div className="table-wrap">
               <table className="cmp">
                 <tbody>
@@ -135,8 +148,8 @@ export function Projects({ route }: { route: Route }) {
               </table>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </dialog>
       {compare.length > 0 && !showCompare && <div className="cmp-bar"><Badge tone="gold">{compare.length}/4</Badge> {t("projects.compareHint")}</div>}
     </div>
   );

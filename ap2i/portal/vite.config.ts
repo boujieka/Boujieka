@@ -6,9 +6,6 @@ export default defineConfig({
   worker: { format: "es" },
   build: {
     chunkSizeWarningLimit: 1500,
-    rollupOptions: {
-      output: { manualChunks: { echarts: ["echarts"], maplibre: ["maplibre-gl"] } },
-    },
   },
   test: { environment: "node", include: ["src/**/*.test.ts"] },
 });

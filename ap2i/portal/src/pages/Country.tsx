@@ -1,8 +1,8 @@
 import { useMemo } from "react";
-import type { EChartsOption } from "echarts";
+import type { EChartsCoreOption as EChartsOption } from "echarts/core";
 import { useI18n } from "../lib/i18n";
 import { useNames, useSelection, useSnap } from "../lib/context";
-import { annual, commitmentsOf, completionYear, countBy, disbursedByCurrency, maxLevel, moneyBy, type Money } from "../lib/agg";
+import { annual, commitmentsOf, completionYear, countBy, disbursedByCurrency, maxLevel, moneyBy, yearFlags, type Money } from "../lib/agg";
 import { currencyLines, escapeHtml, fmtAmount, fmtDate, fmtNum, fmtPct, moneyTooltip } from "../lib/format";
 import { go, href, type Route } from "../lib/router";
 import { donut, hbar, moneyLine } from "../lib/charts";
@@ -16,8 +16,8 @@ export function Country({ route }: { route: Route }) {
   const s = useSnap();
   const names = useNames(locale);
   const iso3 = (route.path[1] ?? "CMR").toUpperCase();
-  const f: Filters = { ...route.filters, country: iso3 };
-  const fNoYears: Filters = { ...f, y0: undefined, y1: undefined };
+  const f: Filters = useMemo(() => ({ ...route.filters, country: iso3 }), [route.filters, iso3]);
+  const fNoYears: Filters = useMemo(() => ({ ...f, y0: undefined, y1: undefined }), [f]);
   const sel = useSelection(f);
   const selAll = useSelection(fNoYears); // annual series: transaction years over all projects matching the other filters
   const country = s.ref.countries.find((c) => c.iso3 === iso3);
@@ -40,10 +40,19 @@ export function Country({ route }: { route: Route }) {
   const ps = sel.projects;
   const money = commitmentsOf(sel.agreements);
   const unconvertedN = sel.agreements.filter((a) => a.committed !== null && a.committed_usd === null).length;
-  const attention = ps.filter((p) => { const l = maxLevel(p); return l === "critical_attention" || l === "high_attention"; }).length;
+  const attentionPs = ps.filter((p) => { const l = maxLevel(p); return l === "critical_attention" || l === "high_attention"; });
+  const attention = attentionPs.length;
+  // of which: flagged only because the closing date has passed while the source still says "active"
+  const seriousRules = new Map<number, Set<string>>();
+  for (const a of s.alerts.items) if (a.level === "critical_attention" || a.level === "high_attention")
+    seriousRules.set(a.project.id, (seriousRules.get(a.project.id) ?? new Set()).add(a.rule_code));
+  const stale = attentionPs.filter((p) => { const r = seriousRules.get(p.id); return r && r.size === 1 && r.has("CLOSING_DATE_PASSED"); }).length;
   const lastSync = s.africa.countries.find((x) => x.iso3 === iso3)?.last_update ?? null;
   const cYears = years.map((y) => series.c.years[y]);
   const dYears = years.map((y) => series.d.years[y]);
+  const flags = yearFlags(years, [cYears, dYears], s.meta.generated_at);
+  const flagNote = [flags.some((x) => x.partial) ? t("chart.partialYear", { y: s.meta.generated_at.slice(0, 4), d: fmtDate(s.meta.generated_at, locale) }) : "",
+    flags.some((x) => x.incomplete) ? t("chart.incompleteYear") : ""].filter(Boolean).join(" ");
 
   // Chart data -------------------------------------------------------------------------------------
   const bySector = countBy(ps, (p) => p.sector ?? "UNCLASSIFIED");
@@ -82,7 +91,7 @@ export function Country({ route }: { route: Route }) {
     currencyLines(m[i].byCurrency, "en"), currencyLines(m[i].unconverted, "en"), m[i].n]);
   const moneyHeader = ["year", "measure", "usd_equivalent", "by_currency", "not_converted", "transactions"];
 
-  const c8: EChartsOption = moneyLine(years, [{ name: t("chart.commitments"), data: cYears }, { name: t("chart.disbursements"), data: dYears }], locale, t, "bar");
+  const c8: EChartsOption = moneyLine(years, [{ name: t("chart.commitments"), data: cYears }, { name: t("chart.disbursements"), data: dYears }], locale, t, "bar", flags);
   const c9: EChartsOption = {
     grid: { left: 8, right: 16, top: 36, bottom: 8, containLabel: true }, legend: { top: 0 }, tooltip: { trigger: "axis" },
     xAxis: { type: "category", data: years.map(String) }, yAxis: { type: "value", minInterval: 1 },
@@ -94,31 +103,33 @@ export function Country({ route }: { route: Route }) {
 
   return (
     <div>
-      <PageHead title={`${t("country.title")} — ${names.country(iso3)}`} subtitle={`${iso3} · ${country.region} · ${country.currency}`}>
+      <PageHead title={`${t("country.title")} — ${names.country(iso3)}`} subtitle={`${iso3} · ${names.region(country.region)} · ${country.currency}`}>
         <select aria-label={t("country.choose")} value={iso3} onChange={(e) => go(`/country/${e.target.value}`, route.filters)}>
           {s.ref.countries.map((c) => <option key={c.iso3} value={c.iso3}>{names.country(c.iso3)}{c.documented_projects ? "" : " —"}</option>)}
         </select>
       </PageHead>
-      <FilterBar route={route} undated={sel.undatedExcluded} />
+      <FilterBar route={route} undated={sel.undatedExcluded} hide={["country"]} />
       <div className="kpis">
         <Kpi label={t("kpi.projects")} value={fmtNum(ps.length, locale)} href={href("/projects", f)} />
-        <Kpi label={t("kpi.commitments")} value={fmtAmount(money.usd, locale, "USD")} sub={t("kpi.commitmentsNote", { n: unconvertedN })} href={href("/finance", f)} />
-        <Kpi label={t("kpi.disbursed")} value={<span className="small-v">{currencyLines(disbursedByCurrency(sel.agreements), locale)}</span>} />
+        <Kpi label={t("kpi.commitmentsAll")} value={fmtAmount(money.usd, locale, "USD")} help={t("kpi.commitmentsHelp")}
+          sub={unconvertedN ? t("kpi.notConvertedAmounts", { amounts: currencyLines(money.unconverted, locale) }) : undefined} href={href("/finance", f)} />
+        <Kpi label={t("kpi.disbursed")} help={t("kpi.disbursedHelp")} value={<span className="small-v">{currencyLines(disbursedByCurrency(sel.agreements), locale)}</span>} />
         <Kpi label={t("kpi.active")} value={fmtNum(ps.filter((p) => p.status === "active").length, locale)} href={href("/projects", { ...f, status: ["active"] })} />
-        <Kpi label={t("kpi.attention")} value={fmtNum(attention, locale)} href={href("/performance", f)} />
+        <Kpi label={t("kpi.attention")} value={fmtNum(attention, locale)} help={t("kpi.attentionHelp")}
+          sub={stale ? t("attention.stale", { n: stale }) : undefined} href={href("/projects", { ...f, alert: "attention" }, { sort: "alerts" })} />
         <Kpi label={t("kpi.lastSync")} value={<span className="small-v">{fmtDate(lastSync, locale)}</span>} />
       </div>
       <p className="muted small">{t("chart.clickHint")} {t("money.note")}</p>
       <div className="grid-2">
         <EChart id="c1" title={t("chart.c1")} provenance={prov}
-          option={moneyLine(years, [{ name: t("chart.commitments"), data: cYears }], locale, t)}
+          option={moneyLine(years, [{ name: t("chart.commitments"), data: cYears }], locale, t, "line", flags)}
           data={{ header: moneyHeader, rows: moneyRows(cYears, "commitment") }}
           onClick={(p) => toProjects({ y0: years[p.dataIndex], y1: years[p.dataIndex] })}
-          note={series.c.undated ? t("chart.undated", { n: series.c.undated }) : undefined} />
+          note={[series.c.undated ? t("chart.undated", { n: series.c.undated }) : "", flagNote].filter(Boolean).join(" ") || undefined} />
         <EChart id="c2" title={t("chart.c2")} provenance={prov}
-          option={moneyLine(years, [{ name: t("chart.disbursements"), data: dYears }], locale, t)}
+          option={moneyLine(years, [{ name: t("chart.disbursements"), data: dYears }], locale, t, "line", flags)}
           data={{ header: moneyHeader, rows: moneyRows(dYears, "disbursement") }}
-          note={series.d.undated ? t("chart.undated", { n: series.d.undated }) : undefined} />
+          note={[series.d.undated ? t("chart.undated", { n: series.d.undated }) : "", flagNote].filter(Boolean).join(" ") || undefined} />
         <EChart id="c3" title={t("chart.c3")} provenance={prov}
           option={hbar(sectorCodes.map((c) => names.sector(c === "UNCLASSIFIED" ? null : c)), [...bySector.values()], locale, { seriesName: t("common.projects") })}
           data={{ header: ["sector_code", "sector", "projects"], rows: sectorCodes.map((c) => [c, names.sector(c === "UNCLASSIFIED" ? null : c), bySector.get(c)!]) }}
@@ -141,11 +152,11 @@ export function Country({ route }: { route: Route }) {
         <EChart id="c7" title={t("chart.c7")} provenance={prov}
           option={hbar(byLevel.map((x) => t(`level.${x.l}`)), byLevel.map((x) => x.n), locale, { seriesName: t("common.projects") })}
           data={{ header: ["highest_alert_level", "projects"], rows: byLevel.map((x) => [x.l, x.n]) }}
-          onClick={(p) => toProjects({ alert: byLevel[p.dataIndex].l })} />
-        <EChart id="c8" title={t("chart.c8")} provenance={prov} option={c8}
+          onClick={(p) => toProjects({ alert: byLevel[p.dataIndex].l })} note={t("attention.def")} />
+        <EChart id="c8" title={t("chart.c8")} provenance={prov} option={c8} note={flagNote || undefined}
           data={{ header: moneyHeader, rows: [...moneyRows(cYears, "commitment"), ...moneyRows(dYears, "disbursement")] }}
           onClick={(p) => toProjects({ y0: years[p.dataIndex], y1: years[p.dataIndex] })} />
-        <EChart id="c9" title={t("chart.c9")} provenance={prov} option={c9}
+        <EChart id="c9" title={t("chart.c9")} provenance={prov} option={c9} note={t("chart.c9note")}
           data={{ header: ["year", "completed_actual_date", "closed_closing_date_proxy"], rows: years.map((y) => [y, compl[y].actual, compl[y].proxy]) }} />
         <EChart id="c10" title={t("chart.c10")} provenance={prov}
           option={hbar(missing.map(([k]) => fieldLabel(k)), missing.map(([, n]) => n), locale, { seriesName: t("chart.missing"),
