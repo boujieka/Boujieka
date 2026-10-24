@@ -79,6 +79,10 @@ SERIES = {  # name: (source row, unit, label)
     "net_assets": ("FinStat!60", "currency", "Net assets"),
     "equity": ("FinStat!65", "currency", "Equity"),
     "balance_check": ("FinStat!67", "currency", "Balance sheet check (0 = OK)"),
+    # inputs of the return formulas, exported so a spreadsheet can recompute them
+    "period_end": ("Model!5", "date", "Period end date (Excel serial number)"),
+    "npv_cash_flow": ("Model!369", "currency", "Project cash flow for the NPV (Model!E376)"),
+    "irr_cash_flow": ("Model!371", "currency", "Project cash flow for the IRR (Model!E375)"),
 }
 
 CHECKS = {
@@ -144,6 +148,8 @@ def _derived(a: Assumptions, L: Ledger) -> tuple[dict, dict]:
     repaying = [t for t in range(T) if v["Debt!23"][t] == 1 and ds[t] > 1e-9]
     grace = [t for t in range(T) if v["Debt!22"][t] == 1 and ds[t] > 1e-9]
     kp, se = {}, {}
+    se["debt_service"] = Series(ds, "currency", "Senior + refinanced debt service (positive)",
+                                "-(Model!305 + 306 + 310 + 311)", True)
     se["dscr"] = Series(dscr, "x", "DSCR = CFADS / (senior + refinanced debt service)", "Model!291 / Model!305:311", True)
     vals = [dscr[t] for t in repaying]
     kp["min_dscr_repayment"] = Indicator(min(vals) if vals else None, "x", "Minimum DSCR over repayment years",

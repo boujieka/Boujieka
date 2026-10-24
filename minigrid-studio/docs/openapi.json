@@ -1231,6 +1231,207 @@
     }
    }
   },
+  "/api/v1/runs/{run_id}/export.xlsx": {
+   "get": {
+    "tags": [
+     "exports"
+    ],
+    "summary": "Export Xlsx",
+    "description": "Studio workbook: engine values with their workbook source, and live Excel formulas that recompute\nthe accounting identities, DSCR, project IRR (XIRR) and NPV (XNPV) next to a gap column.",
+    "operationId": "export_xlsx_api_v1_runs__run_id__export_xlsx_get",
+    "parameters": [
+     {
+      "name": "run_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Run Id"
+      }
+     },
+     {
+      "name": "lang",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "enum": [
+        "fr",
+        "en"
+       ],
+       "type": "string",
+       "default": "fr",
+       "title": "Lang"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/runs/{run_id}/report.pdf": {
+   "get": {
+    "tags": [
+     "exports"
+    ],
+    "summary": "Export Pdf",
+    "description": "PDF report: status, alerts, indicators with sources, charts, annual summary, checks, assumptions, lots.",
+    "operationId": "export_pdf_api_v1_runs__run_id__report_pdf_get",
+    "parameters": [
+     {
+      "name": "run_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Run Id"
+      }
+     },
+     {
+      "name": "lang",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "enum": [
+        "fr",
+        "en"
+       ],
+       "type": "string",
+       "default": "fr",
+       "title": "Lang"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/runs/{run_id}/export-crossboundary": {
+   "post": {
+    "tags": [
+     "exports"
+    ],
+    "summary": "Export Crossboundary",
+    "description": "Fill YOUR copy of the CrossBoundary workbook with this run's assumptions and pasted values. The template\nis not stored; only input cells are rewritten, formulas, charts and macros are kept; Excel recalculates on\nopening. Variant runs are refused: the workbook does not implement the engine options.",
+    "operationId": "export_crossboundary_api_v1_runs__run_id__export_crossboundary_post",
+    "parameters": [
+     {
+      "name": "run_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Run Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "multipart/form-data": {
+       "schema": {
+        "$ref": "#/components/schemas/Body_export_crossboundary_api_v1_runs__run_id__export_crossboundary_post"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/compare": {
+   "post": {
+    "tags": [
+     "exports"
+    ],
+    "summary": "Compare",
+    "description": "Indicators, key series and differing assumptions of 2 to 4 runs (the first is the base).",
+    "operationId": "compare_api_v1_compare_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/CompareIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
   "/api/v1/engine/info": {
    "get": {
     "tags": [
@@ -1276,6 +1477,68 @@
     ],
     "summary": "Assumption Schema",
     "operationId": "assumption_schema_api_v1_engine_assumption_schema_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/engine/labels": {
+   "get": {
+    "tags": [
+     "engine"
+    ],
+    "summary": "Get Labels",
+    "description": "FR/EN labels of groups, fields, indicators, series, checks and units, plus the rules that give the\nFrench form of engine messages (Python regex syntax; replacement groups written \\1).",
+    "operationId": "get_labels_api_v1_engine_labels_get",
+    "parameters": [
+     {
+      "name": "lang",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "string",
+       "default": "fr",
+       "title": "Lang"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/engine/fields": {
+   "get": {
+    "tags": [
+     "engine"
+    ],
+    "summary": "Get Fields",
+    "description": "Editable assumptions with their group, FR/EN labels, unit, workbook cell and note.",
+    "operationId": "get_fields_api_v1_engine_fields_get",
     "responses": {
      "200": {
       "description": "Successful Response",
@@ -1430,6 +1693,20 @@
     ],
     "title": "AuditOut"
    },
+   "Body_export_crossboundary_api_v1_runs__run_id__export_crossboundary_post": {
+    "properties": {
+     "template": {
+      "type": "string",
+      "contentMediaType": "application/octet-stream",
+      "title": "Template"
+     }
+    },
+    "type": "object",
+    "required": [
+     "template"
+    ],
+    "title": "Body_export_crossboundary_api_v1_runs__run_id__export_crossboundary_post"
+   },
    "Body_import_xlsm_api_v1_projects__project_id__versions_import_xlsm_post": {
     "properties": {
      "file": {
@@ -1449,6 +1726,33 @@
      "file"
     ],
     "title": "Body_import_xlsm_api_v1_projects__project_id__versions_import_xlsm_post"
+   },
+   "CompareIn": {
+    "properties": {
+     "run_ids": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "maxItems": 4,
+      "minItems": 2,
+      "title": "Run Ids"
+     },
+     "lang": {
+      "type": "string",
+      "enum": [
+       "fr",
+       "en"
+      ],
+      "title": "Lang",
+      "default": "fr"
+     }
+    },
+    "type": "object",
+    "required": [
+     "run_ids"
+    ],
+    "title": "CompareIn"
    },
    "HTTPValidationError": {
     "properties": {

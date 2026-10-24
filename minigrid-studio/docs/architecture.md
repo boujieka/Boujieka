@@ -1,4 +1,4 @@
-# Architecture — Mini-Grid Financial Model Studio (Phase 1)
+# Architecture — Mini-Grid Financial Model Studio (Phases 1–2)
 
 ```
                  ┌───────────────────────────── backend (Python 3.11+, FastAPI) ─────────────────────────────┐
@@ -84,7 +84,21 @@ Consequence: projects are archived, never hard-deleted.
   encrypted storage, TLS-terminating proxy); they are not implemented in the application.
 * No generative AI and no paid API are called by Phase 1.
 
-## Not in Phase 1
+## Web interface and exports (Phase 2)
 
-Bilingual interface beyond the skeleton, Excel export with live formulas, PDF reports,
-Contract Studio, Learning Academy, Investment Studio, ESG and Capital Connect (Phases 2–5).
+* `frontend/`: React/TypeScript, no UI framework; hash routes (`#/projects`, `#/versions/<id>`, `#/runs/<id>`,
+  `#/compare`, `#/admin`, `#/invite/<token>`); FR/EN switch; labels of fields, indicators, series, checks and units
+  come from `GET /engine/labels` (single source shared with the exports, `app/exports/labels.py`). Charts are plain
+  SVG (one axis, validated colour palette, hover/keyboard tooltip, direct labels, data table).
+* `app/exports/xlsx_studio.py`: engine values with their workbook source, plus live Excel formulas recomputing
+  identities, DSCR, XIRR and XNPV next to a gap column.
+* `app/exports/crossboundary.py`: fills the user's own copy of the CrossBoundary workbook by editing only input cells
+  in the sheet XML (formulas, charts and VBA untouched; `fullCalcOnLoad`; calcChain dropped). Refuses rather than
+  guesses when a formula would have to change. The uploaded template is never stored.
+* `app/exports/pdf_report.py`: reportlab report (FR/EN).
+* `POST /compare`: indicators, key series and differing assumptions of 2 to 4 runs.
+
+## Not yet built
+
+DOCX reports, charts inside the Excel export, more than 6 lots, Contract Studio, Learning Academy,
+Investment Studio, ESG and Capital Connect (Phases 3–5).

@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from .api import auth, engine, orgs, projects, scenarios
+from .api import auth, engine, exports, orgs, projects, scenarios
 from .config import get_settings
 from .engine import ENGINE_VERSION
 
@@ -24,7 +24,7 @@ if settings.cors_origins:
 async def security_headers(request, call_next):
     # request-size guard (Content-Length based; also enforce a limit at the reverse proxy)
     length = request.headers.get("content-length")
-    limit = (settings.max_upload_mb * 1024 + 512) * 1024 if request.url.path.endswith("/import-xlsm") \
+    limit = (settings.max_upload_mb * 1024 + 512) * 1024 if request.url.path.endswith(("/import-xlsm", "/export-crossboundary")) \
         else settings.max_json_body_kb * 1024
     if length and length.isdigit() and int(length) > limit:
         from fastapi.responses import JSONResponse
@@ -39,7 +39,7 @@ async def security_headers(request, call_next):
     return resp
 
 
-for r in (auth.router, orgs.router, projects.router, scenarios.router, engine.router):
+for r in (auth.router, orgs.router, projects.router, scenarios.router, exports.router, engine.router):
     app.include_router(r, prefix="/api/v1")
 
 

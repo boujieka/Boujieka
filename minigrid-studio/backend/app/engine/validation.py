@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from .assumptions import Assumptions
+from .assumptions import LOT_COLUMNS, Assumptions
 
 
 @dataclass
@@ -16,8 +16,9 @@ class Issue:
 
 def validate(a: Assumptions) -> list[Issue]:
     out: list[Issue] = []
-    if not 1 <= len(a.lots) <= 50:
-        out.append(Issue("error", "lots", "Between 1 and 50 lots are supported."))
+    if not 1 <= len(a.lots) <= len(LOT_COLUMNS):
+        out.append(Issue("error", "lots", f"Between 1 and {len(LOT_COLUMNS)} lots are supported "
+                                          "(the workbook format has 6 lot columns, E to J)."))
         return out
     inc = [l for l in a.lots if l.included == 1]
     if not inc or sum(l.grids for l in inc) <= 0:

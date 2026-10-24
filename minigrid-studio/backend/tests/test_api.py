@@ -303,6 +303,62 @@ def test_large_body_rejected(client, world):
     assert r.status_code == 413
 
 
+# --- Phase 2: exports, comparison, lots ---------------------------------------------------------
+
+def test_exports_compare_and_lots(client, world):
+    an = world["analyst"]
+    v1 = client.post(f"/api/v1/projects/{world['project']}/versions", headers=an,
+                     json={"scenario": "p2", "template": "demo_fictitious"}).json()
+    lots = client.get(f"/api/v1/versions/{v1['id']}", headers=an).json()["assumptions"]["lots"]
+    new = lots[:2] + [{**lots[0], "name": "Lot X", "grids": 5}]
+    v2 = client.post(f"/api/v1/versions/{v1['id']}/revise", headers=an,
+                     json={"changes": {"lots": new, "debt.target_dscr": 1.3}})
+    assert v2.status_code == 201, v2.text
+    v2 = v2.json()
+    assert client.get(f"/api/v1/versions/{v2['id']}", headers=an).json()["assumptions"]["lots"][2]["name"] == "Lot X"
+    for bad in ([], lots * 3, [{**lots[0], "grids": "many"}], [{**lots[0], "evil": 1}]):
+        r = client.post(f"/api/v1/versions/{v1['id']}/revise", headers=an, json={"changes": {"lots": bad}})
+        assert r.status_code == 422, (bad, r.text)
+    r1 = client.post(f"/api/v1/versions/{v1['id']}/runs", headers=an, json={}).json()
+    r2 = client.post(f"/api/v1/versions/{v2['id']}/runs", headers=an, json={}).json()
+    x = client.get(f"/api/v1/runs/{r1['id']}/export.xlsx?lang=en", headers=an)
+    assert x.status_code == 200 and x.content[:2] == b"PK"
+    pdf = client.get(f"/api/v1/runs/{r1['id']}/report.pdf?lang=fr", headers=an)
+    assert pdf.status_code == 200 and pdf.content.startswith(b"%PDF")
+    assert client.get(f"/api/v1/runs/{r1['id']}/report.pdf?lang=de", headers=an).status_code == 422
+    c = client.post("/api/v1/compare", headers=an, json={"run_ids": [r1["id"], r2["id"]], "lang": "fr"})
+    assert c.status_code == 200, c.text
+    c = c.json()
+    assert c["kpis"]["project_irr"]["deltas"][0] == 0
+    assert c["kpis"]["grids"]["deltas"][1] != 0
+    assert {d["path"] for d in c["assumption_diffs"]} >= {"debt.target_dscr", "lots.2.name"}
+    # another organisation can neither export nor compare these runs
+    assert client.get(f"/api/v1/runs/{r1['id']}/export.xlsx", headers=world["b_h"]).status_code == 404
+    assert client.post("/api/v1/compare", headers=world["b_h"],
+                       json={"run_ids": [r1["id"], r2["id"]]}).status_code == 404
+    # investors: draft versions stay invisible
+    assert client.get(f"/api/v1/runs/{r1['id']}/report.pdf", headers=world["investor"]).status_code == 404
+    # CrossBoundary export: refuses a non-workbook upload and variant runs
+    r = client.post(f"/api/v1/runs/{r1['id']}/export-crossboundary", headers=an,
+                    files={"template": ("x.txt", b"hello")})
+    assert r.status_code == 415
+    v3 = client.post(f"/api/v1/versions/{v1['id']}/revise", headers=an,
+                     json={"changes": {}, "options": {"cap_principal_at_balance": True}}).json()
+    r3 = client.post(f"/api/v1/versions/{v3['id']}/runs", headers=an, json={}).json()
+    r = client.post(f"/api/v1/runs/{r3['id']}/export-crossboundary", headers=an,
+                    files={"template": ("m.xlsm", b"PK\x03\x04" + b"0" * 50)})
+    assert r.status_code == 422 and "reconciled-engine" in r.text
+    log = {e["action"] for e in client.get(f"/api/v1/orgs/{world['a_org']}/audit", headers=world["a_h"]).json()}
+    assert {"run.export_xlsx", "run.export_pdf"} <= log
+
+
+def test_labels_and_fields_endpoints(client, world):
+    fr = client.get("/api/v1/engine/labels?lang=fr").json()
+    assert fr["groups"]["debt"] == "Dette senior" and fr["kpis"]["project_irr"].startswith("TRI")
+    fields = client.get("/api/v1/engine/fields", headers=world["analyst"]).json()
+    assert any(f["path"] == "debt.target_dscr" and f["cell"] for f in fields)
+
+
 def test_alembic_round_trip(client):
     """Downgrade to base and upgrade again on the test database (runs last)."""
     from alembic import command

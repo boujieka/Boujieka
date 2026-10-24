@@ -60,6 +60,9 @@ def parse_options(d: dict | None) -> EngineOptions:
 
 def apply_changes(base: dict, changes: dict) -> dict:
     """Changes keyed by dotted path ("debt.sizing_method") or workbook cell ("Inputs!E302")."""
+    if "lots" in changes:   # whole lot table replaced (add, remove or reorder lots)
+        base = {**base, "lots": _parse_lots(changes["lots"])}
+        changes = {k: v for k, v in changes.items() if k != "lots"}
     a = from_dict(base)
     paths = cell_paths()
     for key, value in changes.items():
@@ -69,6 +72,36 @@ def apply_changes(base: dict, changes: dict) -> dict:
         except (AttributeError, IndexError, ValueError, TypeError) as exc:
             raise HTTPException(422, f"cannot set {key!r}: {exc}") from exc
     return to_dict(a)
+
+
+def _parse_lots(lots) -> list[dict]:
+    import dataclasses
+    from ..engine.assumptions import LOT_COLUMNS, Lot
+    if not isinstance(lots, list) or not 1 <= len(lots) <= len(LOT_COLUMNS):
+        raise HTTPException(422, f"lots must be a list of 1 to {len(LOT_COLUMNS)} lots")
+    fields = {f.name: f for f in dataclasses.fields(Lot)}
+    out = []
+    for i, lot in enumerate(lots):
+        if not isinstance(lot, dict) or set(lot) - set(fields):
+            raise HTTPException(422, f"lots.{i}: unknown fields {sorted(set(lot) - set(fields)) if isinstance(lot, dict) else ''}")
+        clean = {}
+        for name, f in fields.items():
+            v = lot.get(name)
+            required = f.default is dataclasses.MISSING
+            if v is None:
+                if required:
+                    raise HTTPException(422, f"lots.{i}.{name} is required")
+                clean[name] = None
+            elif name in ("name", "country"):
+                if not isinstance(v, str) or len(v) > 100:
+                    raise HTTPException(422, f"lots.{i}.{name} must be text (100 characters at most)")
+                clean[name] = v
+            elif isinstance(v, bool) or not isinstance(v, (int, float)):
+                raise HTTPException(422, f"lots.{i}.{name} must be a number")
+            else:
+                clean[name] = v
+        out.append(clean)
+    return out
 
 
 def create_version(db: Session, *, project: Project, scenario: str, assumptions: dict, options: dict,

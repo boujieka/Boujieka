@@ -68,3 +68,59 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm run build
+
+  # Drives the real interface in Chromium against the API, PostgreSQL and the Vite dev server.
+  e2e:
+    runs-on: ubuntu-24.04
+    needs: [backend, frontend]
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: mgs
+          POSTGRES_PASSWORD: mgs
+          POSTGRES_DB: mgs
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U mgs" --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      MGS_DATABASE_URL: postgresql+psycopg://mgs:mgs@localhost:5432/mgs
+      MGS_DEMO_ADMIN_EMAIL: admin@example.org
+      MGS_DEMO_ADMIN_PASSWORD: ci demo passphrase
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: minigrid-studio/backend/pyproject.toml
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: minigrid-studio/frontend/package-lock.json
+      - name: API with a seeded fictitious demo
+        working-directory: minigrid-studio/backend
+        run: |
+          pip install -e .
+          alembic upgrade head
+          python -m app.demo.seed
+          nohup uvicorn app.main:app --port 8000 > /tmp/api.log 2>&1 &
+      - name: Web interface
+        working-directory: minigrid-studio/frontend
+        run: |
+          npm ci
+          npm install --no-save playwright@1.63.0
+          npx playwright install --with-deps chromium
+          nohup npx vite --port 5173 --strictPort > /tmp/vite.log 2>&1 &
+          for i in $(seq 1 60); do curl -sf localhost:5173 >/dev/null && curl -sf localhost:8000/health >/dev/null && break; sleep 1; done
+      - name: End-to-end smoke test
+        working-directory: minigrid-studio/frontend
+        env:
+          BASE: http://localhost:5173
+          ADMIN_EMAIL: admin@example.org
+          ADMIN_PASSWORD: ci demo passphrase
+          SHOTS: /tmp/shots
+        run: node e2e/smoke.mjs
+      - if: failure()
+        run: tail -50 /tmp/api.log /tmp/vite.log

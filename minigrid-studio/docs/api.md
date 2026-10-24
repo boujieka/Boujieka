@@ -34,9 +34,15 @@ explorer is served at `/docs` when the API runs with `MGS_EXPOSE_DOCS=true`.
 | GET | `/api/v1/versions/{version_id}/runs` | List Runs | admin, analyste, réviseur ; investisseur : versions approuvées seulement |
 | GET | `/api/v1/runs/{run_id}` | Get Run | admin, analyste, réviseur ; investisseur : versions approuvées seulement |
 | GET | `/api/v1/runs/{run_id}/series.csv` | Annual series with their unit and workbook source row, one column per year. | admin, analyste, réviseur ; investisseur : versions approuvées seulement |
+| GET | `/api/v1/runs/{run_id}/export.xlsx` | Studio workbook: engine values with their workbook source, and live Excel formulas that recompute the accounting identities, DSCR, project IRR (XIRR) and… | admin, analyste, réviseur ; investisseur : versions approuvées seulement |
+| GET | `/api/v1/runs/{run_id}/report.pdf` | PDF report: status, alerts, indicators with sources, charts, annual summary, checks, assumptions, lots. | admin, analyste, réviseur ; investisseur : versions approuvées seulement |
+| POST | `/api/v1/runs/{run_id}/export-crossboundary` | Fill YOUR copy of the CrossBoundary workbook with this run's assumptions and pasted values. The template is not stored; only input cells are rewritten,… | admin, analyste, réviseur ; investisseur : versions approuvées seulement |
+| POST | `/api/v1/compare` | Indicators, key series and differing assumptions of 2 to 4 runs (the first is the base). | admin, analyste, réviseur ; investisseur : versions approuvées seulement (chaque calcul) |
 | GET | `/api/v1/engine/info` | Info | public |
 | GET | `/api/v1/engine/options` | Options | public |
 | GET | `/api/v1/engine/assumption-schema` | Assumption Schema | tout utilisateur connecté |
+| GET | `/api/v1/engine/labels` | FR/EN labels of groups, fields, indicators, series, checks and units, plus the rules that give the French form of engine messages (Python regex syntax;… | public |
+| GET | `/api/v1/engine/fields` | Editable assumptions with their group, FR/EN labels, unit, workbook cell and note. | tout utilisateur connecté |
 | GET | `/api/v1/engine/templates` | Templates | public |
 | GET | `/health` | Health | public |
 
@@ -57,3 +63,12 @@ La documentation interactive `/docs` n'est servie que si `MGS_EXPOSE_DOCS=true`.
    `checks`, `failed_checks`, `warnings`, `solver`, `pasted_values`. Each KPI and series names its workbook source.
 5. `POST /versions/{id}/revise` to change assumptions (new immutable version), `submit`, then a reviewer `review`s.
 6. `GET /runs/{id}/series.csv` exports the annual series with unit and source row.
+7. `GET /runs/{id}/export.xlsx?lang=fr|en`: Studio workbook (engine values with their workbook source, live Excel
+   formulas that recompute the identities, DSCR, XIRR and XNPV next to a gap column).
+   `GET /runs/{id}/report.pdf?lang=fr|en`: PDF report.
+   `POST /runs/{id}/export-crossboundary` (multipart `template`): your copy of the CrossBoundary workbook, returned
+   with the scenario written into its input cells and the engine's 4 pasted values; refused (422) for variant runs or
+   when the template cannot take the scenario without changing formulas (the list of problems is returned).
+8. `POST /compare` `{"run_ids": [...2 to 4...], "lang": "fr"}`: indicators with differences to the first run,
+   key annual series, and the assumptions that differ.
+9. `POST /versions/{id}/revise` accepts `"lots": [...]` in `changes` to replace the whole lot table (1 to 6 lots).
