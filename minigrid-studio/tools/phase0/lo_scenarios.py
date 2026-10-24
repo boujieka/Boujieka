@@ -12,7 +12,10 @@ and the macros (Module1.Debt_Sizing, Module2.Refi_Debt_Sizing,
 Module7.DSRA_resize_3) are re-implemented below from their audited source.
 
 Usage (system python3 with the LibreOffice UNO bridge):
-    python3 tools/phase0/lo_scenarios.py WORKBOOK.xlsm scenarios.json OUT_DIR
+    python3 tools/phase0/lo_scenarios.py WORKBOOK.xlsm scenarios.json OUT_DIR [--dump-cells]
+
+--dump-cells also writes <id>_cells.json with every formula cell's value
+("Sheet!row,col" -> value), used by the engine's cell-by-cell reconciliation.
 """
 import json
 import os
@@ -56,7 +59,7 @@ def pv(name, value):
 class Office:
     def __init__(self, workdir):
         self.port = 2100 + os.getpid() % 1000
-        profile = uno.systemPathToFileUrl(os.path.join(workdir, f"lo-profile-{self.port}"))
+        profile = uno.systemPathToFileUrl(os.path.abspath(os.path.join(workdir, f"lo-profile-{self.port}")))
         self.proc = subprocess.Popen([
             "soffice", "--headless", "--invisible", "--nologo", "--norestore",
             f"--accept=socket,host=127.0.0.1,port={self.port};urp;",
@@ -188,8 +191,25 @@ def extract(b, spec):
     return out
 
 
+def dump_cells(doc):
+    res = {}
+    for i in range(doc.Sheets.Count):
+        sh = doc.Sheets.getByIndex(i)
+        cur = sh.createCursor()
+        cur.gotoEndOfUsedArea(False)
+        addr = cur.getRangeAddress()
+        rng = sh.getCellRangeByPosition(0, 0, addr.EndColumn, addr.EndRow)
+        forms, data = rng.getFormulaArray(), rng.getDataArray()
+        for r, row in enumerate(forms):
+            for c, f in enumerate(row):
+                if isinstance(f, str) and f.startswith("="):
+                    res[f"{sh.Name}!{r + 1},{c + 1}"] = data[r][c]
+    return res
+
+
 def main():
     workbook, scenarios_path, out_dir = sys.argv[1:4]
+    want_cells = "--dump-cells" in sys.argv[4:]
     spec = json.load(open(os.path.join(HERE, "outputs_spec.json")))
     scenarios = json.load(open(scenarios_path))["scenarios"]
     os.makedirs(out_dir, exist_ok=True)
@@ -220,6 +240,8 @@ def main():
                 **out,
             }
             json.dump(result, open(os.path.join(out_dir, f"{sc['id']}_libreoffice.json"), "w"), indent=1)
+            if want_cells:
+                json.dump(dump_cells(doc), open(os.path.join(out_dir, f"{sc['id']}_cells.json"), "w"))
             print(sc["id"], status, "IRR", result["scalars"]["project_irr"])
             doc.close(True)
     finally:
