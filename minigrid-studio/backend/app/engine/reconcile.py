@@ -118,7 +118,7 @@ def reconcile(L: Ledger, value_of, sheets=("Model", "Debt", "FinStat"), rel=1e-9
         sh, addr = key.split("!")
         col = "".join(c for c in addr if c.isalpha())
         row = "".join(c for c in addr if c.isdigit())
-        if not row or not col or isinstance(val, bool) and key.endswith("pending"):
+        if not row or not col or key in skip_rows:
             continue
         cmp(key, key, value_of(sh, int(row), CI(col)), val)
     return rep

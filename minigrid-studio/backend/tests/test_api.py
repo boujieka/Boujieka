@@ -49,13 +49,19 @@ def _signup(client, org):
     return h, org_id, email
 
 
+def _invite(client, admin_h, org_id, email, role):
+    r = client.post(f"/api/v1/orgs/{org_id}/invitations", headers=admin_h, json={"email": email, "role": role})
+    assert r.status_code == 201, r.text
+    return r.json()["token"]
+
+
 def _member(client, admin_h, org_id, role):
     email = f"{role}-{uuid.uuid4().hex[:6]}@example.org"
-    r = client.post(f"/api/v1/orgs/{org_id}/members", headers=admin_h,
-                    json={"email": email, "name": role, "password": PW, "role": role})
-    assert r.status_code == 201, r.text
-    tok = client.post("/api/v1/auth/login", json={"email": email, "password": PW}).json()["access_token"]
-    return {"Authorization": f"Bearer {tok}"}, r.json()["user_id"]
+    token = _invite(client, admin_h, org_id, email, role)
+    r = client.post("/api/v1/auth/accept-invitation", json={"token": token, "name": role, "password": PW})
+    assert r.status_code == 200, r.text
+    h = {"Authorization": f"Bearer {r.json()['access_token']}"}
+    return h, client.get("/api/v1/auth/me", headers=h).json()["id"]
 
 
 @pytest.fixture(scope="module")
@@ -109,8 +115,8 @@ def test_roles(client, world):
                        json={"org_id": world["a_org"], "name": "x"}).status_code == 403
     assert client.post("/api/v1/projects", headers=world["reviewer"],
                        json={"org_id": world["a_org"], "name": "x"}).status_code == 403
-    assert client.post(f"/api/v1/orgs/{world['a_org']}/members", headers=world["analyst"],
-                       json={"email": "z@example.org", "name": "z", "password": PW, "role": "admin"}).status_code == 403
+    assert client.post(f"/api/v1/orgs/{world['a_org']}/invitations", headers=world["analyst"],
+                       json={"email": "z@example.org", "role": "admin"}).status_code == 403
 
 
 def test_versions_runs_review_workflow(client, world):
@@ -200,7 +206,7 @@ def test_database_guarantees(client, world):
 def test_audit_log_and_logout(client, world):
     log = client.get(f"/api/v1/orgs/{world['a_org']}/audit", headers=world["a_h"]).json()
     actions = {e["action"] for e in log}
-    assert {"project.create", "version.create", "run.create", "member.add"} <= actions
+    assert {"project.create", "version.create", "run.create", "invitation.create", "invitation.accept"} <= actions
     h, _, _ = _signup(client, "Org C")
     assert client.post("/api/v1/auth/logout", headers=h).status_code == 204
     assert client.get("/api/v1/auth/me", headers=h).status_code == 401
@@ -210,3 +216,104 @@ def test_login_rate_limited(client):
     codes = [client.post("/api/v1/auth/login", json={"email": "brute@example.org", "password": "x" * 12}).status_code
              for _ in range(7)]
     assert 429 in codes
+
+
+# --- regression tests for the security review findings -------------------------------------
+
+def test_invitation_cannot_take_over_existing_account(client, world):
+    victim_h, _, victim_email = _signup(client, "Victim Org")
+    token = _invite(client, world["a_h"], world["a_org"], victim_email, "analyst")
+    # without the victim's own session, the invitation cannot be used, and the password is untouched
+    r = client.post("/api/v1/auth/accept-invitation", json={"token": token, "name": "x", "password": "attacker password 1"})
+    assert r.status_code == 401
+    assert client.post("/api/v1/auth/login", json={"email": victim_email, "password": "attacker password 1"}).status_code == 401
+    assert client.post("/api/v1/auth/login", json={"email": victim_email, "password": PW}).status_code == 200
+    # the victim, signed in, may accept; the token is single use
+    assert client.post("/api/v1/auth/accept-invitation", headers=victim_h, json={"token": token}).status_code == 200
+    assert client.post("/api/v1/auth/accept-invitation", headers=victim_h, json={"token": token}).status_code == 400
+
+
+def test_dunder_and_unknown_paths_rejected(client, world):
+    base = client.post(f"/api/v1/projects/{world['project']}/versions", headers=world["analyst"],
+                       json={"scenario": "paths", "template": "demo_fictitious"}).json()
+    for path in ("__class__", "lots.0.__dict__", "_private", "currency", "nonexistent.field"):
+        r = client.post(f"/api/v1/versions/{base['id']}/revise", headers=world["analyst"],
+                        json={"changes": {path: 1}})
+        assert r.status_code == 422, (path, r.status_code, r.text)
+
+
+def test_only_admin_changes_restriction_and_removal_revokes(client, world):
+    p = client.post("/api/v1/projects", headers=world["analyst"],
+                    json={"org_id": world["a_org"], "name": "Restricted", "restricted": True}).json()
+    assert client.patch(f"/api/v1/projects/{p['id']}", headers=world["analyst"],
+                        json={"restricted": False}).status_code == 403
+    assert client.patch(f"/api/v1/projects/{p['id']}", headers=world["a_h"],
+                        json={"restricted": False}).status_code == 200
+    h, uid = _member(client, world["a_h"], world["a_org"], "analyst")
+    assert client.get("/api/v1/auth/me", headers=h).status_code == 200
+    assert client.delete(f"/api/v1/orgs/{world['a_org']}/members/{uid}", headers=world["a_h"]).status_code == 204
+    assert client.get("/api/v1/auth/me", headers=h).status_code == 401
+
+
+def test_submitter_cannot_review(client, world):
+    # the reviewer cannot create versions, so use a second analyst as author and an admin as submitter
+    author, _ = _member(client, world["a_h"], world["a_org"], "analyst")
+    v = client.post(f"/api/v1/projects/{world['project']}/versions", headers=author,
+                    json={"scenario": "eyes", "template": "demo_fictitious"}).json()
+    assert client.post(f"/api/v1/versions/{v['id']}/runs", headers=author, json={}).status_code == 201
+    assert client.post(f"/api/v1/versions/{v['id']}/submit", headers=world["a_h"]).status_code == 200
+    r = client.post(f"/api/v1/versions/{v['id']}/review", headers=world["a_h"], json={"decision": "approve"})
+    assert r.status_code == 403
+    assert client.post(f"/api/v1/versions/{v['id']}/review", headers=world["reviewer"],
+                       json={"decision": "approve"}).status_code == 200
+
+
+def test_zip_bomb_and_bad_scenario_rejected(client, world):
+    import io
+    import zipfile
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as z:
+        z.writestr("xl/workbook.xml", b"0" * (80 * 1024 * 1024))
+    url = f"/api/v1/projects/{world['project']}/versions/import-xlsm"
+    r = client.post(url, headers=world["analyst"], files={"file": ("bomb.xlsx", buf.getvalue())})
+    assert r.status_code == 413, r.text
+    r = client.post(url, headers=world["analyst"], data={"scenario": "<script>"},
+                    files={"file": ("x.xlsx", b"PK\x03\x04" + b"0" * 100)})
+    assert r.status_code == 422
+
+
+def test_database_guarantees_v2(client, world):
+    from sqlalchemy import create_engine, text
+    from sqlalchemy.exc import DBAPIError
+    eng = create_engine(DB_URL)
+    with eng.connect() as c:
+        for stmt in ("TRUNCATE audit_events", "UPDATE calculation_runs SET error = 'x'",
+                     "DELETE FROM calculation_runs", "DELETE FROM scenario_versions",
+                     "UPDATE scenario_versions SET changes = '{}'::jsonb",
+                     "UPDATE scenario_versions SET status = 'draft' WHERE status = 'approved'"):
+            with pytest.raises(DBAPIError):
+                c.execute(text(stmt))
+            c.rollback()
+    eng.dispose()
+
+
+def test_large_body_rejected(client, world):
+    r = client.post(f"/api/v1/projects/{world['project']}/versions", headers={**world["analyst"],
+                    "Content-Type": "application/json"}, content=b"{" + b" " * (3 * 1024 * 1024) + b"}")
+    assert r.status_code == 413
+
+
+def test_alembic_round_trip(client):
+    """Downgrade to base and upgrade again on the test database (runs last)."""
+    from alembic import command
+    from alembic.config import Config
+    cfg = Config(os.path.join(os.path.dirname(__file__), "..", "alembic.ini"))
+    cfg.set_main_option("script_location", os.path.join(os.path.dirname(__file__), "..", "alembic"))
+    from sqlalchemy import create_engine, text
+    eng = create_engine(DB_URL)
+    with eng.begin() as c:   # data rows would block the downgrade's DROP TABLE order otherwise
+        c.execute(text("DROP SCHEMA public CASCADE; CREATE SCHEMA public"))
+    eng.dispose()
+    command.upgrade(cfg, "head")
+    command.downgrade(cfg, "base")
+    command.upgrade(cfg, "head")

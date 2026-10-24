@@ -12,7 +12,7 @@ Chaque scénario active un chemin de calcul distinct du classeur. La définition
 | **S4_refinancing** | `Inputs!G336 = 1` (refinancement en 5ᵉ année de maturité) | Refinancement, macro `Refi_Debt_Sizing` | **Non, à produire** | Provisoires |
 | **S5_phased_stress** | Construction sur 3 ans `Inputs!I135:K135 = 0,4 / 0,3 / 0,3` ; tarif −20 % `Inputs!G170 = −0,2` ; cas de consommation 1 (plateau) `Inputs!E432 = 1` | Achats étalés, tirages successifs, extension, diesel, pertes fiscales, injection de fonds propres | **Non, à produire** | Provisoires |
 
-Fonctions **sans scénario** à ce stade : arrivée du réseau national, valeur de sortie, BFR, TVA non nulle, taux variable, lots désactivés, ordre de tirage « Equity first ». Elles ne pourront pas être publiées comme validées (protocole, étape F) tant qu'un scénario Excel ne les couvre pas.
+Fonctions sans scénario **Excel** à ce stade : arrivée du réseau national, valeur de sortie, BFR, TVA non nulle, taux variable, lots désactivés, ordre de tirage « Equity first ». Depuis le 24/10/2026, 10 scénarios fonctionnels (`tools/phase0/feature_scenarios.json`) les couvrent sous **LibreOffice** (contrôle, pas étalon), sauf les lots désactivés. Elles ne pourront pas être publiées comme validées (protocole, étape F) tant qu'un scénario Excel ne les couvre pas.
 
 ## 2. Procédure de calcul des valeurs étalons sous Excel (environnement maîtrisé)
 
@@ -61,7 +61,7 @@ Les résultats sont dans `reference_values/provisional_libreoffice/`. Ils serven
 | Drapeaux, contrôles, compteurs, délai de récupération | Égalité exacte | Valeurs discrètes. |
 | Valeurs dépendant des macros (dette, financement, DSRA) | 0,1 % **à valeurs collées identiques**. En résolution exacte : écart documenté, jusqu'à 0,34 % observé sur la capacité DSCR. | Tolérance de convergence des macros : ±50 000 unités, asymétrique. |
 
-`tools/phase0/compare_outputs.py` applique les trois premières lignes.
+`tools/phase0/compare_outputs.py` applique une version simplifiée : égalité exacte pour les contrôles (`check_*`, `bs_check`) ; 1×10⁻⁴ absolu pour les TRI et le tarif moyen ; 0,1 % relatif pour tout le reste, y compris le délai de récupération, les compteurs et les autres ratios. Les tests du moteur (`reconcile.close`) sont plus stricts : max(10⁻⁹ relatif, 10⁻⁶ absolu).
 
 ## 5. Ratios dérivés sans équivalent Excel
 
@@ -71,3 +71,33 @@ Le DSCR annuel effectif (CFADS ÷ service de la dette senior) **n'est pas calcul
 - 1,47 en 2035 (dernière échéance).
 
 Ces valeurs ne peuvent être « rapprochées » d'Excel. Seules leurs composantes, CFADS et service de la dette, le sont.
+
+## 6. Pont Microsoft Excel (outil prêt, non exécuté)
+
+`tools/excel_benchmark/` automatise la procédure de la section 2 avec xlwings. À lancer sur un poste Windows ou macOS
+avec Excel de bureau et Python 3.10+ :
+
+```bash
+pip install xlwings==0.33.3
+python tools/excel_benchmark/run_excel_benchmarks.py CHEMIN/CrossBoundary-Access-Open-Source-Model-1.0-October-2023.xlsm \
+       tools/phase0/scenarios.json SORTIE/
+# facultatif : mêmes étapes avec tools/phase0/feature_scenarios.json
+```
+
+Le script copie le classeur (l'original n'est jamais modifié), vérifie son SHA-256, saisit les cellules du scénario,
+lance les macros auditées `Debt_Sizing`, `Refi_Debt_Sizing` (si le refinancement est actif) et `DSRA_resize_3`
+jusqu'à ce que `Inputs!N292`, `N300`, `N344` et `E373` valent 0 (25 tours au plus), puis écrit pour chaque scénario
+`<id>_excel_cells.json`, `<id>_excel_meta.json` et la copie calculée `<id>_excel.xlsx`. Excel n'exécute les macros que
+si la copie est approuvée (emplacement approuvé du Centre de gestion de la confidentialité, ou accord à l'invite).
+
+Puis, sur une machine où le backend est installé :
+
+```bash
+cd minigrid-studio/backend
+.venv/bin/python ../tools/excel_benchmark/compare_with_engine.py SORTIE/                    # rapport d'écarts
+.venv/bin/python ../tools/excel_benchmark/compare_with_engine.py SORTIE/ --write-reference  # écrit reference_values/excel/
+```
+
+Seuls les fichiers `reference_values/excel/<id>_excel.json` (valeurs, pas le classeur) sont à verser au dépôt, avec
+une entrée dans `reference_values/LOG.md`. L'outil de comparaison a été essayé sur des exports LibreOffice mis au
+même format : seuls les écarts LibreOffice connus apparaissent. Il n'a **pas** encore tourné sur des valeurs Excel.

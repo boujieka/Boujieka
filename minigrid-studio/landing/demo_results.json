@@ -1,0 +1,233 @@
+{
+ "engine_version": "1.0.0",
+ "status": "reconciled-engine",
+ "years": [
+  2023,
+  2024,
+  2025,
+  2026,
+  2027,
+  2028,
+  2029,
+  2030,
+  2031,
+  2032,
+  2033,
+  2034,
+  2035,
+  2036,
+  2037,
+  2038,
+  2039,
+  2040,
+  2041,
+  2042,
+  2043
+ ],
+ "kpis": {
+  "project_irr": {
+   "value": 0.0810894011459096,
+   "unit": "%",
+   "source": "Model!E375"
+  },
+  "payback_years": {
+   "value": 12,
+   "unit": "years",
+   "source": "Model!I378"
+  },
+  "equity_irr_incl_grant": {
+   "value": 0.04928312113884735,
+   "unit": "%",
+   "source": "Model!E413"
+  },
+  "owner_irr_incl_grant": {
+   "value": 0.039309776458629056,
+   "unit": "%",
+   "source": "Model!E436"
+  },
+  "senior_debt": {
+   "value": 4343968.232605295,
+   "unit": "currency",
+   "source": "Inputs!E305"
+  },
+  "grant": {
+   "value": 1909600.0,
+   "unit": "currency",
+   "source": "Inputs!E270"
+  },
+  "owner_equity": {
+   "value": 3399694.5065175835,
+   "unit": "currency",
+   "source": "Inputs!E279"
+  },
+  "total_funding": {
+   "value": 9653262.739122879,
+   "unit": "currency",
+   "source": "Inputs!E292"
+  },
+  "connections": {
+   "value": 8680.0,
+   "unit": "connections",
+   "source": "Inputs!E25"
+  },
+  "people_served": {
+   "value": 41320.0,
+   "unit": "people",
+   "source": "Inputs!E27"
+  },
+  "grids": {
+   "value": 26,
+   "unit": "grids",
+   "source": "Inputs!E24"
+  },
+  "min_dscr_repayment": {
+   "value": 0.3684984311826721,
+   "unit": "x",
+   "source": "derived from Model!291, Model!305:311"
+  },
+  "llcr_first_repayment": {
+   "value": 2.8330668446353364,
+   "unit": "x",
+   "source": "derived"
+  },
+  "lot_1_project_irr": {
+   "value": 0.03211779077022242,
+   "unit": "%",
+   "source": "experimental"
+  },
+  "lot_2_project_irr": {
+   "value": 0.07568750011815768,
+   "unit": "%",
+   "source": "experimental"
+  },
+  "lot_3_project_irr": {
+   "value": 0.0986598363237253,
+   "unit": "%",
+   "source": "experimental"
+  }
+ },
+ "series": {
+  "revenue": [
+   0,
+   275456,
+   792821,
+   945980,
+   1063904,
+   1163209,
+   1209290,
+   1257197,
+   1307001,
+   1358778,
+   1412607,
+   1468568,
+   1526746,
+   1587228,
+   1650107,
+   1715476,
+   1783436,
+   1854087,
+   1927538,
+   2003898,
+   2083283
+  ],
+  "opex": [
+   0,
+   163739,
+   361627,
+   405097,
+   473145,
+   480758,
+   462165,
+   458738,
+   470494,
+   482844,
+   495804,
+   494788,
+   509019,
+   523913,
+   539487,
+   541159,
+   558153,
+   575889,
+   579785,
+   599068,
+   619160
+  ],
+  "cfads": [
+   0,
+   111717,
+   431194,
+   491286,
+   471891,
+   577526,
+   654717,
+   716032,
+   681302,
+   700174,
+   1178965,
+   448160,
+   782224,
+   804225,
+   763060,
+   817744,
+   869252,
+   903750,
+   967923,
+   1019028,
+   1043662
+  ],
+  "debt_service": [
+   0,
+   109619,
+   359329,
+   409405,
+   393243,
+   481272,
+   545598,
+   596693,
+   567752,
+   583479,
+   3199375,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "distributions": [
+   0,
+   0,
+   0,
+   131944,
+   32902,
+   60887,
+   79393,
+   127119,
+   100403,
+   0,
+   0,
+   425752,
+   743113,
+   764014,
+   724907,
+   776857,
+   825790,
+   858563,
+   919527,
+   968077,
+   991479
+  ]
+ },
+ "warnings": [
+  "Workbook checks not passed: no_equity_injection",
+  "Derived DSCR falls to 0.37x in a repayment year, below the 1.20x target (the workbook has no DSCR covenant test)."
+ ],
+ "failed_checks": [
+  "no_equity_injection"
+ ]
+}

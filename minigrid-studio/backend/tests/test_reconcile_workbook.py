@@ -11,7 +11,7 @@ from app.engine.model import run_model
 from app.engine.prepare import prepare
 from app.engine.solver import solve
 
-from .conftest import LO_DUMPS, SCENARIOS, WORKBOOK, needs_workbook
+from .conftest import FEATURE_SCENARIOS, LO_DUMPS, LO_FEATURE_DUMPS, SCENARIOS, WORKBOOK, needs_workbook
 
 
 @needs_workbook()
@@ -38,9 +38,12 @@ def test_every_reproduced_cell_matches_excel():
 LO_SKIP = {"Model!372", "Model!429", "Inputs!J364"}
 
 
-@pytest.mark.parametrize("sc", SCENARIOS, ids=[s["id"] for s in SCENARIOS])
-def test_every_reproduced_cell_matches_libreoffice(base_assumptions, sc):
-    dump = LO_DUMPS / f"{sc['id']}_cells.json"
+ALL_LO = [(s, LO_DUMPS) for s in SCENARIOS] + [(s, LO_FEATURE_DUMPS) for s in FEATURE_SCENARIOS]
+
+
+@pytest.mark.parametrize("sc,folder", ALL_LO, ids=[s["id"] for s, _ in ALL_LO])
+def test_every_reproduced_cell_matches_libreoffice(base_assumptions, sc, folder):
+    dump = folder / f"{sc['id']}_cells.json"
     if not dump.exists():
         pytest.skip("LibreOffice cell dumps not generated (tools/phase0/lo_scenarios.py --dump-cells)")
     solved, L, _ = solve(apply_cells(base_assumptions, sc["set"]))

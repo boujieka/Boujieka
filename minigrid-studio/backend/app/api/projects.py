@@ -48,8 +48,10 @@ def get_project(project_id: str, caller: Caller = Depends(current_caller), db: S
 @router.patch("/{project_id}", response_model=ProjectOut)
 def patch_project(project_id: str, body: ProjectPatch, caller: Caller = Depends(current_caller),
                   db: Session = Depends(get_db)):
-    p, _ = project_for(db, caller, project_id, "edit")
     changes = body.model_dump(exclude_none=True)
+    # visibility and archiving are governance decisions: admins only
+    p, _ = project_for(db, caller, project_id,
+                       "manage" if {"restricted", "archived"} & set(changes) else "edit")
     for k, v in changes.items():
         setattr(p, k, v)
     audit.record(db, org_id=p.org_id, user_id=caller.user.id, action="project.update", entity_type="project",
@@ -67,3 +69,15 @@ def add_project_member(project_id: str, user_id: str, caller: Caller = Depends(c
         db.add(ProjectMember(project_id=p.id, user_id=user_id))
         audit.record(db, org_id=p.org_id, user_id=caller.user.id, action="project.member.add",
                      entity_type="project", entity_id=p.id, payload={"user_id": user_id})
+
+
+@router.delete("/{project_id}/members/{user_id}", status_code=204)
+def remove_project_member(project_id: str, user_id: str, caller: Caller = Depends(current_caller),
+                          db: Session = Depends(get_db)):
+    p, _ = project_for(db, caller, project_id, "manage")
+    pm = db.scalar(select(ProjectMember).where(ProjectMember.project_id == p.id, ProjectMember.user_id == user_id))
+    if pm is None:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "not found")
+    db.delete(pm)
+    audit.record(db, org_id=p.org_id, user_id=caller.user.id, action="project.member.remove",
+                 entity_type="project", entity_id=p.id, payload={"user_id": user_id})

@@ -10,7 +10,7 @@ import pytest
 from app.engine.assumptions import apply_cells
 from app.engine.solver import solve
 
-from .conftest import REF_VALUES, SCENARIOS
+from .conftest import FEATURE_SCENARIOS, REF_VALUES, SCENARIOS
 
 TIMELINE = 69
 
@@ -27,7 +27,8 @@ def _compare(L, solved, ref, spec, rel=1e-9, abs_=1e-6):
     for k, (cell, _label, _unit) in spec["scalars"].items():
         exp, got = ref["scalars"][k], _value(L, cell)
         if k.startswith("check_"):
-            ok = abs(exp - got) <= 1e-6   # Excel zeroes such residues (~1e-10) of cancelling sums
+            # Excel zeroes residues (~1e-10) of cancelling sums; large failed-check values compare relatively
+            ok = abs(exp - got) <= max(1e-6, rel * abs(exp))
         else:
             ok = abs(exp - got) <= max(abs_, rel * abs(exp))
         if not ok:
@@ -63,5 +64,13 @@ def test_scenarios_match_libreoffice_crosscheck(base_assumptions, spec, sc):
     ref = json.loads((REF_VALUES / "provisional_libreoffice" / f"{sc['id']}_libreoffice.json").read_text())
     a = apply_cells(base_assumptions, sc["set"])
     solved, L, log = solve(a)
+    assert log.converged
+    assert _compare(L, solved, ref, spec) == []
+
+
+@pytest.mark.parametrize("sc", FEATURE_SCENARIOS, ids=[s["id"] for s in FEATURE_SCENARIOS])
+def test_feature_scenarios_match_libreoffice(base_assumptions, spec, sc):
+    ref = json.loads((REF_VALUES / "provisional_libreoffice" / "features" / f"{sc['id']}_libreoffice.json").read_text())
+    solved, L, log = solve(apply_cells(base_assumptions, sc["set"]))
     assert log.converged
     assert _compare(L, solved, ref, spec) == []

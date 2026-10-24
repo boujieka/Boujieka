@@ -5,8 +5,6 @@ from __future__ import annotations
 import datetime as dt
 import hashlib
 import secrets
-import time
-from collections import defaultdict, deque
 from dataclasses import dataclass
 
 from argon2 import PasswordHasher
@@ -61,22 +59,16 @@ def revoke_token(db: Session, token: str) -> None:
         row.revoked = True
 
 
-class LoginLimiter:
-    """In-memory, per-process limiter for login attempts (per e-mail and IP)."""
-    def __init__(self):
-        self.hits: dict[str, deque] = defaultdict(deque)
-
-    def check(self, key: str) -> None:
-        now = time.monotonic()
-        q = self.hits[key]
-        while q and now - q[0] > 60:
-            q.popleft()
-        if len(q) >= get_settings().login_attempts_per_minute:
-            raise HTTPException(status.HTTP_429_TOO_MANY_REQUESTS, "too many login attempts, retry in a minute")
-        q.append(now)
+# A fixed hash verified for unknown e-mails, so that login time does not reveal
+# whether an account exists.
+_DUMMY_HASH = _ph.hash("timing-equaliser-not-a-password")
 
 
-login_limiter = LoginLimiter()
+def verify_or_dummy(pw: str, h: str | None) -> bool:
+    if h is None:
+        verify_password(pw, _DUMMY_HASH)
+        return False
+    return verify_password(pw, h)
 
 
 @dataclass
@@ -115,9 +107,15 @@ def current_caller(request: Request, db: Session = Depends(get_db)) -> Caller:
     return Caller(user=user, token=token, roles=roles)
 
 
+def revoke_all_tokens(db: Session, user_id: str) -> None:
+    for row in db.scalars(select(SessionToken).where(SessionToken.user_id == user_id, SessionToken.revoked.is_(False))):
+        row.revoked = True
+
+
 def project_for(db: Session, caller: Caller, project_id: str, capability: str = "read") -> tuple[Project, Role]:
     """Load a project the caller may access with ``capability``; 404 otherwise
-    (also for projects of other organisations, so their existence is not leaked)."""
+    (also for projects of other organisations, so their existence is not leaked).
+    Archived projects are read-only."""
     p = db.get(Project, project_id)
     if p is None or caller.role_in(p.org_id) is None:
         raise HTTPException(status.HTTP_404_NOT_FOUND, "not found")
@@ -127,4 +125,6 @@ def project_for(db: Session, caller: Caller, project_id: str, capability: str = 
                                                        ProjectMember.user_id == caller.user.id))
         if member is None:
             raise HTTPException(status.HTTP_404_NOT_FOUND, "not found")
+    if p.archived and capability in ("edit", "review"):
+        raise HTTPException(status.HTTP_409_CONFLICT, "project is archived (read-only)")
     return p, role

@@ -16,6 +16,9 @@ class Issue:
 
 def validate(a: Assumptions) -> list[Issue]:
     out: list[Issue] = []
+    if not 1 <= len(a.lots) <= 50:
+        out.append(Issue("error", "lots", "Between 1 and 50 lots are supported."))
+        return out
     inc = [l for l in a.lots if l.included == 1]
     if not inc or sum(l.grids for l in inc) <= 0:
         out.append(Issue("error", "lots", "No included lot with grids (Portfolio!S14 would be #DIV/0!)."))

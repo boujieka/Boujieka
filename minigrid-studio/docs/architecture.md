@@ -1,11 +1,12 @@
 # Architecture — Mini-Grid Financial Model Studio (Phase 1)
 
 ```
-                 ┌───────────────────────────── backend (Python 3.12+, FastAPI) ─────────────────────────────┐
+                 ┌───────────────────────────── backend (Python 3.11+, FastAPI) ─────────────────────────────┐
  React/TS  ──►   │  app/api/*        REST /api/v1 (auth, orgs, projects, versions, runs, engine)              │
  (frontend/)     │  app/security.py  argon2 passwords · opaque bearer tokens (SHA-256 stored) · roles          │
                  │  app/services/    scenario versions · calculation runs · audit journal                      │
-                 │  app/engine/      DETERMINISTIC ENGINE (pure Python, no I/O, no AI, no randomness)          │
+                 │  app/engine/      DETERMINISTIC ENGINE (pure Python, no AI, no randomness; I/O only in    │
+                 │                   loader.py and reconcile.py)                                              │
                  │     assumptions.py  typed inputs, each field tied to its workbook cell                       │
                  │     loader.py       read inputs from a CrossBoundary-format .xlsm (data only, no macros)     │
                  │     prepare.py      Currency, Portfolio, Inputs-sheet calculations                          │
@@ -48,25 +49,37 @@
 | Table | Content |
 |---|---|
 | organizations, users, memberships | tenants; role per organisation: admin, analyst, reviewer, investor |
+| invitations | SHA-256 of single-use invitation tokens, role, expiry, acceptance |
 | session_tokens | SHA-256 of bearer tokens, expiry, revocation |
 | projects, project_members | projects per organisation; optional restriction to listed members |
 | scenario_versions | **immutable** assumption sets (JSONB), options, solver, parent version, changes vs parent, provenance (template, upload SHA-256), status draft → submitted → approved/rejected |
 | calculation_runs | engine version, input hash, full result (JSONB), duration, error |
 | audit_events | **append-only** journal of every mutation |
 
-Database triggers enforce that `audit_events` cannot be updated or deleted and that a
-version's assumptions, options, solver and hash cannot be rewritten.
+Database triggers (migrations 0001–0002) enforce that `audit_events` cannot be updated, deleted or truncated; that a
+version's content (assumptions, options, solver, hash, project, scenario, number, parent, changes, provenance, author)
+cannot be rewritten and the version cannot be deleted; that status only moves forward (draft/rejected → submitted →
+approved/rejected); and that calculation runs cannot be changed or deleted. Triggers are a second line of defence:
+in production the application should connect with a role that owns no table and has no TRUNCATE or DDL rights.
+Consequence: projects are archived, never hard-deleted.
 
 ## Security
 
 * Passwords: argon2id, minimum 12 characters. Tokens: 256-bit random, only their SHA-256 is stored, 12 h expiry, revocable.
 * Authorisation: every query goes through the caller's memberships; resources of another
   organisation answer **404** (existence not revealed). Investors only see approved versions.
-  Four-eyes rule: the author of a version cannot review it.
-* Login attempts are rate-limited per e-mail and IP (in memory, per process).
+  Four-eyes rule: neither the author nor the submitter of a version can review it.
+* Login attempts are rate-limited per account and, separately, per client IP (sliding window, in memory, per process;
+  `X-Forwarded-For` is used only when `MGS_TRUSTED_PROXY=true`). A failed login costs the same time whether or not
+  the account exists, and is written to the audit journal.
+* Members join by single-use, expiring invitation; an existing account must accept while signed in, so an admin of
+  one organisation cannot take over a user of another. Removing a member revokes all their sessions.
+* Request bodies are capped (`MGS_MAX_JSON_BODY_KB`; uploads `MGS_MAX_UPLOAD_MB`); uploaded archives are checked for
+  decompressed size and compression ratio before parsing. `/docs` is off unless `MGS_EXPOSE_DOCS=true`.
+* Investors see a generic message for failed runs; restriction and archiving of a project are admin decisions.
 * Uploads: size limit, extension and ZIP signature checks; workbooks are read as data with
   openpyxl, formulas are not evaluated and VBA is never executed.
-* Security headers (nosniff, DENY framing, no-referrer, no-store). Secrets only from the environment (`.env.example`).
+* Security headers (nosniff, DENY framing, no-referrer, no-store, HSTS, restrictive CSP on API responses). Secrets only from the environment (`.env.example`).
 * Encryption at rest and TLS are provided by the deployment (managed PostgreSQL with
   encrypted storage, TLS-terminating proxy); they are not implemented in the application.
 * No generative AI and no paid API are called by Phase 1.

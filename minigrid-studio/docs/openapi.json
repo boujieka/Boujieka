@@ -124,6 +124,48 @@
     }
    }
   },
+  "/api/v1/auth/accept-invitation": {
+   "post": {
+    "tags": [
+     "auth"
+    ],
+    "summary": "Accept Invitation",
+    "description": "New users set their own password here. Existing users must call this\nendpoint while signed in as the invited account (bearer token).",
+    "operationId": "accept_invitation_api_v1_auth_accept_invitation_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/AcceptInvitationIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/TokenOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
   "/api/v1/orgs/{org_id}/members": {
    "get": {
     "tags": [
@@ -168,13 +210,16 @@
       }
      }
     }
-   },
+   }
+  },
+  "/api/v1/orgs/{org_id}/invitations": {
    "post": {
     "tags": [
      "organisations"
     ],
-    "summary": "Add Member",
-    "operationId": "add_member_api_v1_orgs__org_id__members_post",
+    "summary": "Invite",
+    "description": "Create a single-use invitation. No account is created and no password is\nset by the admin; existing accounts are never attached without their consent.",
+    "operationId": "invite_api_v1_orgs__org_id__invitations_post",
     "parameters": [
      {
       "name": "org_id",
@@ -191,7 +236,7 @@
      "content": {
       "application/json": {
        "schema": {
-        "$ref": "#/components/schemas/MemberIn"
+        "$ref": "#/components/schemas/InvitationIn"
        }
       }
      }
@@ -202,7 +247,51 @@
       "content": {
        "application/json": {
         "schema": {
-         "$ref": "#/components/schemas/MemberOut"
+         "$ref": "#/components/schemas/InvitationOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "get": {
+    "tags": [
+     "organisations"
+    ],
+    "summary": "Invitations",
+    "operationId": "invitations_api_v1_orgs__org_id__invitations_get",
+    "parameters": [
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Org Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "$ref": "#/components/schemas/InvitationOut"
+         },
+         "title": "Response Invitations Api V1 Orgs  Org Id  Invitations Get"
         }
        }
       }
@@ -221,6 +310,49 @@
    }
   },
   "/api/v1/orgs/{org_id}/members/{user_id}": {
+   "delete": {
+    "tags": [
+     "organisations"
+    ],
+    "summary": "Remove Member",
+    "description": "Remove a member; their project memberships in this organisation go too and\nall their sessions are revoked.",
+    "operationId": "remove_member_api_v1_orgs__org_id__members__user_id__delete",
+    "parameters": [
+     {
+      "name": "org_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Org Id"
+      }
+     },
+     {
+      "name": "user_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "User Id"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
    "put": {
     "tags": [
      "organisations"
@@ -537,6 +669,48 @@
       }
      }
     }
+   },
+   "delete": {
+    "tags": [
+     "projects"
+    ],
+    "summary": "Remove Project Member",
+    "operationId": "remove_project_member_api_v1_projects__project_id__members__user_id__delete",
+    "parameters": [
+     {
+      "name": "project_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Project Id"
+      }
+     },
+     {
+      "name": "user_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "User Id"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
    }
   },
   "/api/v1/projects/{project_id}/versions": {
@@ -641,7 +815,7 @@
      "scenarios"
     ],
     "summary": "Import Xlsm",
-    "description": "Read the assumptions of a workbook in the CrossBoundary format. The file\nis parsed as data only: formulas are not evaluated and macros never run.",
+    "description": "Read the assumptions of a workbook in the CrossBoundary format. The file\nis parsed as data only: formulas are not evaluated and macros never run.\n(Synchronous handler: FastAPI runs it in a worker thread, not on the event loop.)",
     "operationId": "import_xlsm_api_v1_projects__project_id__versions_import_xlsm_post",
     "parameters": [
      {
@@ -1152,6 +1326,46 @@
  },
  "components": {
   "schemas": {
+   "AcceptInvitationIn": {
+    "properties": {
+     "token": {
+      "type": "string",
+      "maxLength": 200,
+      "minLength": 20,
+      "title": "Token"
+     },
+     "name": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 200
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Name"
+     },
+     "password": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 200,
+        "minLength": 12
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Password"
+     }
+    },
+    "type": "object",
+    "required": [
+     "token"
+    ],
+    "title": "AcceptInvitationIn"
+   },
    "AuditOut": {
     "properties": {
      "id": {
@@ -1225,6 +1439,7 @@
      },
      "scenario": {
       "type": "string",
+      "pattern": "^[A-Za-z0-9_\\- ]{1,100}$",
       "title": "Scenario",
       "default": "imported"
      }
@@ -1247,6 +1462,89 @@
     },
     "type": "object",
     "title": "HTTPValidationError"
+   },
+   "InvitationIn": {
+    "properties": {
+     "email": {
+      "type": "string",
+      "format": "email",
+      "title": "Email"
+     },
+     "role": {
+      "type": "string",
+      "enum": [
+       "admin",
+       "analyst",
+       "reviewer",
+       "investor"
+      ],
+      "title": "Role"
+     }
+    },
+    "type": "object",
+    "required": [
+     "email",
+     "role"
+    ],
+    "title": "InvitationIn"
+   },
+   "InvitationOut": {
+    "properties": {
+     "id": {
+      "type": "string",
+      "title": "Id"
+     },
+     "email": {
+      "type": "string",
+      "title": "Email"
+     },
+     "role": {
+      "type": "string",
+      "enum": [
+       "admin",
+       "analyst",
+       "reviewer",
+       "investor"
+      ],
+      "title": "Role"
+     },
+     "expires_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Expires At"
+     },
+     "accepted_at": {
+      "anyOf": [
+       {
+        "type": "string",
+        "format": "date-time"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Accepted At"
+     },
+     "token": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Token"
+     }
+    },
+    "type": "object",
+    "required": [
+     "id",
+     "email",
+     "role",
+     "expires_at"
+    ],
+    "title": "InvitationOut"
    },
    "LoginIn": {
     "properties": {
@@ -1297,45 +1595,6 @@
      "memberships"
     ],
     "title": "MeOut"
-   },
-   "MemberIn": {
-    "properties": {
-     "email": {
-      "type": "string",
-      "format": "email",
-      "title": "Email"
-     },
-     "name": {
-      "type": "string",
-      "maxLength": 200,
-      "minLength": 1,
-      "title": "Name"
-     },
-     "password": {
-      "type": "string",
-      "maxLength": 200,
-      "minLength": 12,
-      "title": "Password"
-     },
-     "role": {
-      "type": "string",
-      "enum": [
-       "admin",
-       "analyst",
-       "reviewer",
-       "investor"
-      ],
-      "title": "Role"
-     }
-    },
-    "type": "object",
-    "required": [
-     "email",
-     "name",
-     "password",
-     "role"
-    ],
-    "title": "MemberIn"
    },
    "MemberOut": {
     "properties": {
@@ -1579,6 +1838,7 @@
      "changes": {
       "additionalProperties": true,
       "type": "object",
+      "maxProperties": 200,
       "title": "Changes",
       "default": {}
      },
@@ -1874,6 +2134,17 @@
       "format": "date-time",
       "title": "Created At"
      },
+     "submitted_by": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Submitted By"
+     },
      "reviewed_by": {
       "anyOf": [
        {
@@ -1936,7 +2207,7 @@
       "type": "string",
       "maxLength": 100,
       "minLength": 1,
-      "pattern": "^[A-Za-z0-9_\\- ]+$",
+      "pattern": "^[A-Za-z0-9_\\- ]{1,100}$",
       "title": "Scenario",
       "default": "base"
      },
@@ -1971,6 +2242,7 @@
      "changes": {
       "additionalProperties": true,
       "type": "object",
+      "maxProperties": 200,
       "title": "Changes",
       "default": {}
      },
@@ -2069,6 +2341,17 @@
       "type": "string",
       "format": "date-time",
       "title": "Created At"
+     },
+     "submitted_by": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Submitted By"
      },
      "reviewed_by": {
       "anyOf": [

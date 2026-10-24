@@ -9,6 +9,8 @@ REF_VALUES = ROOT / "reference_values"
 WORKBOOK = ROOT / "reference" / "CrossBoundary-Access-Open-Source-Model-1.0-October-2023.xlsm"
 LO_DUMPS = ROOT / "work" / "lo_out"
 SCENARIOS = json.loads((ROOT / "tools" / "phase0" / "scenarios.json").read_text())["scenarios"]
+FEATURE_SCENARIOS = json.loads((ROOT / "tools" / "phase0" / "feature_scenarios.json").read_text())["scenarios"]
+LO_FEATURE_DUMPS = ROOT / "work" / "lo_features"
 
 
 @pytest.fixture(scope="session")

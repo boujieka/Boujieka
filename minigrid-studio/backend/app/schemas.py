@@ -39,11 +39,24 @@ class MeOut(BaseModel):
     memberships: list[MembershipOut]
 
 
-class MemberIn(BaseModel):
+class InvitationIn(BaseModel):
     email: EmailStr
-    name: str = Field(min_length=1, max_length=200)
-    password: str = Field(min_length=12, max_length=200)
     role: RoleName
+
+
+class InvitationOut(BaseModel):
+    id: str
+    email: str
+    role: RoleName
+    expires_at: dt.datetime
+    accepted_at: dt.datetime | None = None
+    token: str | None = None   # returned once, at creation; deliver it to the invitee out of band
+
+
+class AcceptInvitationIn(BaseModel):
+    token: str = Field(min_length=20, max_length=200)
+    name: str | None = Field(default=None, max_length=200)
+    password: str | None = Field(default=None, min_length=12, max_length=200)
 
 
 class MemberOut(BaseModel):
@@ -85,18 +98,21 @@ class ProjectOut(BaseModel):
     created_at: dt.datetime
 
 
+SCENARIO_PATTERN = r"^[A-Za-z0-9_\- ]{1,100}$"
+
+
 class VersionIn(BaseModel):
-    scenario: str = Field(default="base", min_length=1, max_length=100, pattern=r"^[A-Za-z0-9_\- ]+$")
+    scenario: str = Field(default="base", min_length=1, max_length=100, pattern=SCENARIO_PATTERN)
     template: Literal["demo_fictitious", "crossboundary_reference"] | None = "demo_fictitious"
     assumptions: dict[str, Any] | None = None   # full assumption set instead of a template
-    changes: dict[str, Any] = {}                # dotted path or workbook cell -> value
+    changes: dict[str, Any] = Field(default={}, max_length=200)  # dotted path or workbook cell -> value
     options: dict[str, bool] = {}
     solver_method: Literal["excel_macros", "exact"] = "excel_macros"
     note: str = Field(default="", max_length=5000)
 
 
 class ReviseIn(BaseModel):
-    changes: dict[str, Any] = {}
+    changes: dict[str, Any] = Field(default={}, max_length=200)
     options: dict[str, bool] | None = None
     solver_method: Literal["excel_macros", "exact"] | None = None
     note: str = Field(default="", max_length=5000)
@@ -123,6 +139,7 @@ class VersionOut(BaseModel):
     status: str
     created_by: str
     created_at: dt.datetime
+    submitted_by: str | None = None
     reviewed_by: str | None
     reviewed_at: dt.datetime | None
     review_comment: str

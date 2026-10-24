@@ -310,15 +310,39 @@ def copy_assumptions(a: Assumptions) -> Assumptions:
 
 
 def set_path(obj: Any, path: str, value: Any) -> None:
+    """Set a value by dotted path. Only declared dataclass fields and list
+    indices are reachable (no private or dunder attributes)."""
     parts = path.split(".")
+    if not parts or any(not p or p.startswith("_") for p in parts):
+        raise ValueError(f"invalid path {path!r}")
+
+    def step(o, p):
+        if isinstance(o, list):
+            if not p.isdigit():
+                raise ValueError(f"list index expected in {path!r}")
+            return o[int(p)]
+        if not dataclasses.is_dataclass(o) or p not in {f.name for f in dataclasses.fields(o)}:
+            raise ValueError(f"unknown field {p!r} in {path!r}")
+        return getattr(o, p)
+
     for p in parts[:-1]:
-        obj = obj[int(p)] if isinstance(obj, list) else getattr(obj, p)
+        obj = step(obj, p)
     last = parts[-1]
+    current = step(obj, last)  # validates the last part
     if isinstance(obj, list):
         obj[int(last)] = value
-    elif isinstance(getattr(obj, last), MoneyInput) and not isinstance(value, MoneyInput):
-        getattr(obj, last).value = value
+    elif isinstance(current, MoneyInput) and not isinstance(value, MoneyInput):
+        if not isinstance(value, (int, float)) or isinstance(value, bool):
+            raise ValueError(f"{path!r} expects a number")
+        current.value = float(value)
+    elif dataclasses.is_dataclass(current) or (isinstance(current, list) and not isinstance(value, list)):
+        raise ValueError(f"{path!r} is a group; set its fields individually")
     else:
+        if isinstance(current, (int, float)) and not isinstance(current, bool) and current is not None:
+            if not isinstance(value, (int, float)) or isinstance(value, bool):
+                raise ValueError(f"{path!r} expects a number")
+        if isinstance(current, str) and not isinstance(value, str):
+            raise ValueError(f"{path!r} expects text")
         setattr(obj, last, value)
 
 

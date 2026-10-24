@@ -70,6 +70,22 @@ class SessionToken(Base):
     revoked: Mapped[bool] = mapped_column(Boolean, default=False)
 
 
+class Invitation(Base):
+    """Single-use invitation: the invitee sets their own password (or, if they
+    already have an account, accepts while signed in as that account)."""
+    __tablename__ = "invitations"
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=_uuid)
+    org_id: Mapped[str] = mapped_column(ForeignKey("organizations.id", ondelete="CASCADE"), index=True)
+    email: Mapped[str] = mapped_column(String(320), index=True)
+    role: Mapped[Role] = mapped_column(Enum(Role, name="role", create_type=False))
+    token_hash: Mapped[str] = mapped_column(String(64), unique=True)
+    invited_by: Mapped[str] = mapped_column(ForeignKey("users.id"))
+    expires_at: Mapped[dt.datetime] = mapped_column(DateTime(timezone=True))
+    accepted_at: Mapped[dt.datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    revoked: Mapped[bool] = mapped_column(Boolean, default=False)
+    created_at: Mapped[dt.datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+
+
 class Project(Base):
     __tablename__ = "projects"
     id: Mapped[str] = mapped_column(String(36), primary_key=True, default=_uuid)
@@ -110,6 +126,7 @@ class ScenarioVersion(Base):
     status: Mapped[VersionStatus] = mapped_column(Enum(VersionStatus, name="version_status"), default=VersionStatus.draft)
     created_by: Mapped[str] = mapped_column(ForeignKey("users.id"))
     created_at: Mapped[dt.datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+    submitted_by: Mapped[str | None] = mapped_column(ForeignKey("users.id"), nullable=True)
     reviewed_by: Mapped[str | None] = mapped_column(ForeignKey("users.id"), nullable=True)
     reviewed_at: Mapped[dt.datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
     review_comment: Mapped[str] = mapped_column(Text, default="")

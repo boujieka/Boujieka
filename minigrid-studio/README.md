@@ -4,8 +4,10 @@ Plateforme de préparation financière, contractuelle, ESG et pédagogique pour 
 Dossier **indépendant** du produit Cartouche hébergé dans le même dépôt.
 
 > **Statut : Phase 1 livrée (moteur, API, base de données).** Le moteur reproduit le classeur CrossBoundary Access
-> Open Source Model 1.0 : 46 860 cellules et 920 cellules de tables égales aux valeurs Excel du cas publié (S1), et
-> égalité avec les rejeux LibreOffice de S2 à S5. Les valeurs étalons **Excel** de S2 à S5 restent à produire
+> Open Source Model 1.0 : 46 860 cellules et 920 cellules de tables égales aux valeurs Excel du cas publié (S1), à
+> max(10⁻⁹ relatif, 10⁻⁶ absolu) près, et égalité avec les rejeux LibreOffice de S2 à S5 et de 10 scénarios
+> fonctionnels, hors TRI glissants `Model!372/429` et trois dates `EOMONTH(0)` (voir `docs/phase1_report.md`).
+> Page d'accueil : https://access360-africa.netlify.app Les valeurs étalons **Excel** de S2 à S5 restent à produire
 > (`docs/reference_scenarios.md`). Rien ici n'est une certification BAD, Banque mondiale ou CrossBoundary, ni un avis
 > juridique ou d'investissement.
 
@@ -25,6 +27,8 @@ Dossier **indépendant** du produit Cartouche hébergé dans le même dépôt.
 | `reference/MANIFEST.md` | Sources (non versionnées : droits non vérifiés), empreintes |
 | `reference_values/` | Hypothèses et sorties Excel de S1 ; sorties LibreOffice de S1 à S5 |
 | `tools/phase0/` | Outils d'audit statique et de rejeu LibreOffice |
+| `tools/excel_benchmark/` | Pont Microsoft Excel (xlwings) : valeurs étalons et comparaison au moteur |
+| `landing/` | Page d'accueil statique (Netlify) |
 
 ## Démarrer
 
@@ -44,7 +48,7 @@ python -m venv .venv && .venv/bin/pip install -e '.[dev]'
 export MGS_DATABASE_URL=postgresql+psycopg://mgs:...@localhost:5432/mgs
 .venv/bin/alembic upgrade head
 MGS_DEMO_ADMIN_EMAIL=you@example.org MGS_DEMO_ADMIN_PASSWORD='a long passphrase' .venv/bin/python -m app.demo.seed
-.venv/bin/uvicorn app.main:app --port 8000          # documentation interactive : http://localhost:8000/docs
+MGS_EXPOSE_DOCS=true .venv/bin/uvicorn app.main:app --port 8000   # documentation interactive : http://localhost:8000/docs
 
 # Front-end (squelette)
 cd ../frontend && npm install && npm run dev          # http://localhost:5173 (proxy /api vers :8000)
@@ -59,9 +63,11 @@ MGS_TEST_DATABASE_URL=postgresql+psycopg://mgs:mgs@127.0.0.1:55432/mgs_test .ven
 cd ../frontend && npm test && npm run build
 ```
 
-Sans `MGS_TEST_DATABASE_URL`, les tests d'API sont ignorés. Sans le classeur source, le rapprochement cellule par
-cellule est ignoré, mais le rapprochement des indicateurs et séries, sur les valeurs versionnées dans
-`reference_values/`, s'exécute toujours.
+Sans `MGS_TEST_DATABASE_URL`, les tests d'API sont ignorés. Sans le classeur source dans `reference/` et sans les
+exports LibreOffice de `work/` (non versionnés), les rapprochements cellule par cellule sont ignorés aussi ; le
+rapprochement des indicateurs et séries, sur les valeurs versionnées dans `reference_values/`, s'exécute toujours.
+L'intégration continue (`.github/workflows/minigrid-studio.yml`) lance pytest sur PostgreSQL 16, l'aller-retour
+Alembic, vitest et le build.
 
 ## Principes
 

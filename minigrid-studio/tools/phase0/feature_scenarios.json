@@ -1,0 +1,84 @@
+{
+ "_comment": "Scenarios activating features that are zero in the published case (VAT, working capital, grid arrival, exit, floating rates with refinancing, equity-first drawdown, tax/AMT/NOL, escalation demand with reserves off). Checked against LibreOffice cell dumps; added after the AI verification of 24/10/2026.",
+ "scenarios": [
+  {
+   "id": "F1a_vat_irrec",
+   "set": {
+    "Inputs!E222": 0.15,
+    "Inputs!E224": "Irrecoverable",
+    "Inputs!E225": "Irrecoverable"
+   }
+  },
+  {
+   "id": "F1b_vat_rec",
+   "set": {
+    "Inputs!E222": 0.15
+   }
+  },
+  {
+   "id": "F2_wc",
+   "set": {
+    "Inputs!E182": 30,
+    "Inputs!E183": 45
+   }
+  },
+  {
+   "id": "F3_grid",
+   "set": {
+    "Inputs!E438": 10
+   }
+  },
+  {
+   "id": "F4_exit",
+   "set": {
+    "Inputs!E448": 12,
+    "Inputs!E447": 5
+   }
+  },
+  {
+   "id": "F5_float_refi",
+   "set": {
+    "Inputs!E316": "Floating",
+    "Inputs!E356": "Floating",
+    "Inputs!G336": 1,
+    "Inputs!I407": 0.03,
+    "Inputs!J407": 0.045,
+    "Inputs!K407": 0.05
+   }
+  },
+  {
+   "id": "F6_equity_first",
+   "set": {
+    "Inputs!E332": "Equity first"
+   }
+  },
+  {
+   "id": "F7_tax",
+   "set": {
+    "Inputs!E217": 0,
+    "Inputs!E230": 0.02,
+    "Currency!K63": -150000,
+    "Inputs!E219": 3
+   }
+  },
+  {
+   "id": "F8_cons_misc",
+   "set": {
+    "Inputs!E432": 2,
+    "Inputs!G166": 0.05,
+    "Inputs!E201": "BNEF New Energy Outlook 2018 forecast for Lithium-Ion batteries",
+    "Inputs!E370": 0,
+    "Inputs!G385": 0
+   }
+  },
+  {
+   "id": "F6b_equity_first_phased",
+   "set": {
+    "Inputs!E332": "Equity first",
+    "Inputs!I135": 0.4,
+    "Inputs!J135": 0.3,
+    "Inputs!K135": 0.3
+   }
+  }
+ ]
+}

@@ -73,7 +73,7 @@ Le classeur contient aussi quatre feuilles de séparation (`INPUTS>>`, `CALCULAT
 La liste complète est dans `docs/variable_dictionary.csv` (colonnes `kind`, `section`, `label`, `unit`, `value_published`, `allowed_values`, `used_by_cells`).
 
 - **[Fait]** **197 entrées modifiables** : Inputs 110, Portfolio 54, Currency 29, Names 4 (y compris les libellés d'option saisis en clair comme « Fixed » ou « Floating »). **21 sélecteurs** à liste fermée. **4 valeurs collées par macro** (`Inputs!G292`, `G300`, `G344`, `E372`).
-- **[Fait]** Le tableau de bord ne contient **aucune saisie** : toutes ses cellules sont des liens. Mais `Inputs!E136` (nombre de réseaux à construire) lit `Dashboard!E7`, qui lit lui-même `Inputs!E24`. L'information fait donc un aller-retour par le tableau de bord, sans créer de cycle.
+- **[Fait]** Le tableau de bord ne contient **aucune saisie** : ses cellules sont des liens vers les autres feuilles, à trois calculs près (`K37 = E13*E17`, `K43`, `K55`). Mais `Inputs!E136` (nombre de réseaux à construire) lit `Dashboard!E7`, qui lit lui-même `Inputs!E24`. L'information fait donc un aller-retour par le tableau de bord, sans créer de cycle.
 - **[Fait]** Montants monétaires : chaque montant est saisi deux fois dans *Currency* (colonne `H` en USD, colonne `I` en LCY), puis sélectionné par `INDEX` selon `Currency!F18`. Certains montants contractés en monnaie locale (frais OpCo, coûts logistiques, tarifs) sont saisis en `K` et convertis au taux de base `F16`.
 - **[Fait]** Le portefeuille est **agrégé en un réseau moyen**. Les paramètres des lots (*Portfolio* `E:J`) sont ramenés à une moyenne pondérée (colonne `S`), par le nombre de connexions ou par le nombre de réseaux selon la ligne. Le modèle calcule ensuite un seul réseau moyen multiplié par le nombre de réseaux. **Il ne produit aucun flux, TRI ou contrôle par lot.**
 
@@ -101,7 +101,7 @@ La liste complète est dans `docs/variable_dictionary.csv` (colonnes `kind`, `se
 - TRI projet (XIRR) et délai de récupération ;
 - emplois et ressources ;
 - ARPU moyen, consommation moyenne, tarif moyen pondéré dans le temps, population desservie ;
-- 12 contrôles (`Dashboard!K42:K55`).
+- 12 contrôles (`Dashboard!K42:K53`) et un contrôle global (`K55 = SUM(K42:K53)`).
 
 D'autres indicateurs sont calculés dans *Model* : TRI fonds propres AssetCo et Owner avec et sans subvention, VAN (XNPV), VAN par connexion.
 
@@ -114,7 +114,7 @@ D'autres indicateurs sont calculés dans *Model* : TRI fonds propres AssetCo et 
 | Signe | Encaissements positifs, décaissements négatifs dans *Model*/*FinStat*. Les emplois (`Model!199:204`) sont négatifs, les ressources positives. | [Fait] |
 | Périodes | Années civiles. Les drapeaux de phase comparent les dates de début et de fin de période aux dates de phase. | [Fait] |
 | Dates des flux | `XIRR`, `XNPV` et `NPV` datent tous les flux au **31/12** de chaque année. Un flux de −1×10⁻⁷ au 31/12/2022 sert d'ancrage aux séries de TRI. | [Fait] |
-| Achat des réseaux | Les réseaux construits en année N sont achetés et financés en N+1 (décalage d'une colonne, `Model!179 = H176`), soit la 1ʳᵉ année d'exploitation. Aucun flux en 2023 dans le cas publié. | [Fait] |
+| Achat des réseaux | Les réseaux construits en année N sont achetés et financés en N+1 (décalage d'une colonne, `Model!J179 = I176`, `I179` vide), soit la 1ʳᵉ année d'exploitation. Aucun flux en 2023 dans le cas publié. | [Fait] |
 | Intérêts | Intérêts de l'année = taux × (solde d'ouverture + tirages de l'année). Les intérêts intercalaires (`Model!255`) ne portent que sur le solde d'ouverture, donc **0** quand la dette est tirée l'année d'achat. | [Fait] |
 | Devise | Devise du modèle sélectionnable (USD ou LCY). Les indices de change sont libellés « Naira », ce qui suggère une origine nigériane du modèle ; la devise reste générique. Les TRI sont reconvertis en USD (`Model!370`). | [Fait] / [Inférence] sur l'origine |
 | Unités | kWh, kWp, kVA, $/W, $/kWh, $/connexion/mois. Les constantes de la feuille *Names* servent aux conversions. | [Fait] |
@@ -160,9 +160,11 @@ La cartographie détaillée est dans `docs/formula_dependency_map.md`. L'essenti
 ## 6. Recalcul de contrôle (LibreOffice) et valeurs étalons (étape D)
 
 - **[Fait]** LibreOffice 24.2 **ne reproduit pas** le classeur tel quel : `OFFSET` à largeur négative renvoie Err:502, ce qui propage des erreurs dans 33 280 cellules.
-- **[Fait]** Sur une **copie de travail** où `OFFSET(réf,0,0,h,−w)` est réécrit en `OFFSET(réf,0,1−w,h,w)` (mêmes cellules), LibreOffice reproduit **52 173 des 52 401 formules à 10⁻⁹ près en relatif**, et les 211 cellules texte à l'identique. Il reste 17 écarts :
-  - 14 TRI glissants négatifs (voir la section 5) ;
-  - 3 quasi-zéros de l'ordre de 10⁻¹⁰.
+- **[Fait]** Sur une **copie de travail** où `OFFSET(réf,0,0,h,−w)` est réécrit en `OFFSET(réf,0,1−w,h,w)` (mêmes cellules), LibreOffice reproduit **52 173 des 52 401 formules à max(10⁻⁹ relatif, 10⁻⁶ absolu) près**, et les 211 cellules texte à l'identique. Il reste 17 écarts :
+  - 14 TRI glissants négatifs (`Model!372` ×4, `Model!429` ×10 ; voir la section 5) ;
+  - 3 dates décalées de 31 jours (`Inputs!J364`, `Inputs!L364`, `Debt!F68`) : `EOMONTH` de la date 0, lue différemment par LibreOffice.
+
+  *Correction du 24/10/2026 : une version antérieure attribuait ces 3 écarts à des quasi-zéros.*
 
   Les 37 indicateurs et 22 séries annuelles retenus concordent avec un écart relatif maximal de 6×10⁻¹⁵ (`tools/phase0/compare_outputs.py`).
 - **[Fait]** Les valeurs étalons Excel n'existent aujourd'hui **que pour S1** (état publié). Les scénarios S2 à S5 ont été calculés **provisoirement** dans LibreOffice avec rejeu des macros. **Ces valeurs ne sont pas des valeurs étalons** : elles doivent être confirmées sous Excel selon la procédure de `reference_scenarios.md`.
@@ -190,7 +192,7 @@ Ces points sont des **constats**, pas des corrections. Le moteur web devra d'abo
 3. **Rémunération OSA ≠ modèle.** L'OSA prévoit un forfait par site et un pourcentage variable de **toutes** les recettes, payés chaque trimestre en monnaie locale. Le modèle prévoit un forfait par réseau (4 000/an) et un forfait par client (2/mois), plus un **ratchet de 30 % des recettes au-delà de la prévision P50**, calculé à l'année. Le rapprochement contrat–modèle de la matrice §7 n'est pas direct. **[À arbitrer par le commanditaire.]**
 4. **TRI « projet ».** La ligne `Model!365` intègre la subvention et un **impôt calculé après intérêts**, donc l'économie d'impôt liée à la dette. Ce n'est pas un TRI « unlevered » au sens strict du critère d'éligibilité des PSA. **[À arbitrer : définir le TRI à comparer au seuil contractuel.]**
 5. **Commissions non imputées.** Les commissions d'engagement (senior et refinancement) et la commission d'émission du refinancement sont saisies mais n'entrent dans aucun flux (section 3.3).
-6. **Pas de covenant DSCR.** Le sculptage vise 1,20 x, mais aucune série de DSCR effectif, aucun test de distribution (lock-up) ni de défaut n'est calculé. L'année de grâce affiche un DSCR dérivé de 0,83 en S1 : la DSRA couvre l'écart (70 359 tirés). Le contrôle « senior debt fully repaid » ne peut pas échouer, car la dernière échéance rembourse tout le solde restant (`IF(I24=1, −I30, …)`).
+6. **Pas de covenant DSCR.** Le sculptage vise 1,20 x, mais aucune série de DSCR effectif, aucun test de distribution (lock-up) ni de défaut n'est calculé. L'année de grâce affiche un DSCR dérivé de 0,83 en S1 : la DSRA couvre l'écart (70 359 tirés). Le contrôle « senior debt fully repaid » ne peut pas échouer, car la dernière échéance rembourse tout le solde restant (`Debt!J32 = IF(J24=1, −J30, …)` ; `I32` est le total de ligne).
 7. **Impôt comptable et impôt payé.** Au compte de résultat, l'impôt est de 30 % × max(EBT, 0), sans exonération temporaire ni report des pertes. L'impôt payé, lui, applique l'exonération, les pertes reportables et les amortissements fiscaux. L'écart s'accumule en « impôt différé passif ». **[À faire valider par un expert-comptable : une exonération temporaire crée en principe une différence permanente.]**
 8. **Lecture d'un total de ligne.** `Model!J188` (réseaux en service en 2023) lit `Model!I183`, le total de toute la ligne des réseaux construits. Sans effet sur les flux (`MIN(…, 0)`), mais l'indicateur vaut 30 en 2023 au lieu de 0.
 9. **Fonctions inactives dans le cas publié.** Arrivée du réseau national (année 30, hors durée de vie), sortie (année 45, hors durée de vie), BFR (0 jour), TVA (0 %), taux variable, refinancement. Elles ne peuvent être validées qu'avec des scénarios dédiés (S4 pour le refinancement). Arrivée du réseau, sortie, BFR et TVA restent **sans scénario de référence** à ce stade.

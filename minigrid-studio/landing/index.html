@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mini-Grid Financial Model Studio · ACCESS360 Africa</title>
+<meta name="description" content="Moteur de modélisation financière déterministe et traçable pour portefeuilles de mini-réseaux africains.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f5132'/%3E%3Cpath d='M9 22l5-12 4 8 2-4 3 8' stroke='%23f5c542' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#f7f6f2;--surface:#fff;--ink:#17201b;--muted:#5a645e;--line:#dfe3dd;--brand:#0f5132;--brand-2:#1b7a4c;--accent:#e2a400;--warn:#9a3412;--warn-bg:#fff4e5;--chip:#e8f2ec;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1512;--surface:#16201b;--ink:#e6ece8;--muted:#9fb0a6;--line:#26332c;--brand:#5fd39a;--brand-2:#3fb57d;--accent:#f5c542;--warn:#fdba74;--warn-bg:#2a1c10;--chip:#1c2d24;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1512;--surface:#16201b;--ink:#e6ece8;--muted:#9fb0a6;--line:#26332c;--brand:#5fd39a;--brand-2:#3fb57d;--accent:#f5c542;--warn:#fdba74;--warn-bg:#2a1c10;--chip:#1c2d24;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--brand-2)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+header{position:sticky;top:0;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:5}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;height:56px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.2px}
+.logo svg{flex:none}
+nav a{color:var(--muted);text-decoration:none;margin-left:16px;font-size:14px}
+nav a:hover{color:var(--ink)}
+.lang{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:6px 10px;font:inherit;font-size:13px;cursor:pointer}
+@media (max-width:720px){nav a{display:none}}
+.hero{padding:64px 0 40px}
+.eyebrow{display:inline-block;background:var(--chip);color:var(--brand);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:600}
+h1{font-size:clamp(30px,5vw,48px);line-height:1.1;margin:16px 0 12px;letter-spacing:-.5px}
+.lead{font-size:19px;color:var(--muted);max-width:760px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.btn{display:inline-block;padding:11px 18px;border-radius:10px;text-decoration:none;font-weight:600;font-size:15px}
+.btn.primary{background:var(--brand);color:#fff}
+:root[data-theme="dark"] .btn.primary{color:#0f1512}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn.primary{color:#0f1512}}
+.btn.ghost{border:1px solid var(--line);color:var(--ink);background:var(--surface)}
+section{padding:40px 0}
+h2{font-size:26px;margin:0 0 8px;letter-spacing:-.3px}
+.sub{color:var(--muted);margin:0 0 24px;max-width:760px}
+.grid{display:grid;gap:16px}
+.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.card h3{margin:0 0 6px;font-size:17px}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.stat{font-size:34px;font-weight:750;color:var(--brand);letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.stat small{font-size:15px;color:var(--muted);font-weight:500}
+.tag{display:inline-block;font-size:12px;font-weight:600;border-radius:6px;padding:2px 8px;margin-bottom:8px}
+.tag.ok{background:var(--chip);color:var(--brand)}
+.tag.wip{background:var(--warn-bg);color:var(--warn)}
+.tag.plan{background:transparent;border:1px solid var(--line);color:var(--muted)}
+.demo{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:16px}
+@media (max-width:820px){.demo{grid-template-columns:1fr}}
+.chart{width:100%;height:auto;display:block}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--muted);margin-top:8px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+td{padding:7px 0;border-bottom:1px solid var(--line);vertical-align:top}
+td.v{text-align:right;font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap;padding-left:8px}
+td .src{display:block;font-size:12px;color:var(--muted);font-weight:400}
+.notice{background:var(--warn-bg);color:var(--warn);border-radius:12px;padding:14px 16px;font-size:14px}
+.notice ul{margin:6px 0 0;padding-left:18px}
+ol.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:12px}
+ol.steps li{counter-increment:s;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px 14px 52px;position:relative}
+ol.steps li::before{content:counter(s);position:absolute;left:16px;top:14px;width:24px;height:24px;border-radius:50%;background:var(--brand);color:var(--bg);font-weight:700;font-size:13px;display:grid;place-items:center}
+footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:13px}
+.tooltip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12px;box-shadow:0 4px 16px rgb(0 0 0 / .12);display:none;white-space:nowrap}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <div class="logo">
+      <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#0f5132"/><path d="M9 22l5-12 4 8 2-4 3 8" stroke="#f5c542" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Mini-Grid Financial Model Studio</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px">
+      <nav><a href="#fidelite" data-i18n="nav_proof">Fidélité</a><a href="#demo" data-i18n="nav_demo">Démonstration</a><a href="#modules" data-i18n="nav_modules">Modules</a><a href="#feuille" data-i18n="nav_road">Feuille de route</a></nav>
+      <button class="lang" id="lang" aria-label="Language">EN</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <span class="eyebrow">ACCESS360 Africa</span>
+    <h1 data-i18n="hero_title">Le financement de projet des mini-réseaux, calculé au centime et traçable jusqu'à la cellule.</h1>
+    <p class="lead" data-i18n="hero_lead">Un moteur déterministe qui reproduit le modèle de référence du secteur, rejoue ses macros de dimensionnement de la dette et rattache chaque chiffre à la formule dont il provient — puis le rend partageable, versionné et validé à quatre yeux.</p>
+    <div class="cta">
+      <a class="btn primary" href="#demo" data-i18n="cta_demo">Voir la démonstration</a>
+      <a class="btn ghost" href="https://github.com/boujieka/Boujieka/tree/ccr-765a1cff-g1fhmq/minigrid-studio" rel="noopener" data-i18n="cta_code">Code et documentation</a>
+    </div>
+  </div>
+
+  <section id="fidelite">
+    <h2 data-i18n="proof_title">Une fidélité mesurée, pas affirmée</h2>
+    <p class="sub" data-i18n="proof_sub">Chaque cellule reproduite est comparée aux valeurs que le classeur de référence a lui-même calculées.</p>
+    <div class="grid g4">
+      <div class="card"><div class="stat">46 860</div><p data-i18n="proof_1">cellules calculées égales aux valeurs Excel du cas publié (écart ≤ 10⁻⁹ relatif ou 10⁻⁶ absolu)</p></div>
+      <div class="card"><div class="stat">920</div><p data-i18n="proof_2">cellules de tables (coûts, change, consommation) égales elles aussi</p></div>
+      <div class="card"><div class="stat">15 <small data-i18n="proof_3u">scénarios</small></div><p data-i18n="proof_3">5 de référence (dimensionnement DSCR, monnaie locale, refinancement, construction étalée) et 10 fonctionnels (TVA, BFR, réseau, sortie, impôt…) : égaux cellule par cellule au recalcul de contrôle LibreOffice, hors deux particularités documentées</p></div>
+      <div class="card"><div class="stat">71 <small>tests</small></div><p data-i18n="proof_4">dont 19 d'intégration sur PostgreSQL : isolation des organisations, rôles, quatre yeux, immuabilité, invitations, limites d'upload</p></div>
+    </div>
+    <p class="sub" style="margin-top:16px;font-size:14px" data-i18n="proof_note">Les valeurs étalons Excel des scénarios 2 à 5 restent à produire avec Microsoft Excel ; le script qui les produit est prêt.</p>
+  </section>
+
+  <section id="demo">
+    <h2 data-i18n="demo_title">Démonstration : portefeuille fictif « Fictitia »</h2>
+    <div class="notice" data-i18n-html="demo_notice">Données <strong>inventées</strong> pour la démonstration : 26 réseaux, 3 lots, pays fictif. Résultats calculés par le moteur (statut <code id="st"></code>), non un projet réel.</div>
+    <div class="demo" style="margin-top:16px">
+      <div class="card" style="position:relative">
+        <h3 data-i18n="chart_title">Flux annuels (unités de la devise du modèle)</h3>
+        <svg class="chart" id="chart" viewBox="0 0 640 320" role="img" aria-label="Annual cash flows"></svg>
+        <div class="legend" id="legend"></div>
+        <div class="tooltip" id="tip"></div>
+      </div>
+      <div class="card">
+        <h3 data-i18n="kpi_title">Indicateurs et leur source</h3>
+        <table id="kpis"></table>
+      </div>
+    </div>
+    <div class="notice" style="margin-top:16px" id="warns"></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="how_title">Comment ça marche</h2>
+    <ol class="steps">
+      <li data-i18n="how_1">Importez un classeur au format CrossBoundary Access Open Source Model 1.0, ou partez d'un gabarit. Le fichier est lu comme des données : aucune macro n'est exécutée.</li>
+      <li data-i18n="how_2">Modifiez les hypothèses par chemin ou par cellule (« Inputs!E302 = DSCR »). Chaque modification crée une version immuable, avec son parent et son empreinte.</li>
+      <li data-i18n="how_3">Calculez. Le moteur rejoue les macros de dimensionnement comme Excel, et signale les contrôles du modèle qui échouent et les DSCR sous la cible.</li>
+      <li data-i18n="how_4">Soumettez à un réviseur. L'auteur ne peut pas approuver sa propre version ; les investisseurs ne voient que les versions approuvées. Tout est journalisé.</li>
+    </ol>
+  </section>
+
+  <section id="modules">
+    <h2 data-i18n="mod_title">Modules</h2>
+    <div class="grid g3">
+      <div class="card"><span class="tag ok" data-i18n="s_ok">Disponible</span><h3>Project Finance</h3><p data-i18n="m1">CAPEX/OPEX, demande, recettes, cascade de trésorerie, états financiers, TRI et VAN.</p></div>
+      <div class="card"><span class="tag ok" data-i18n="s_ok">Disponible</span><h3>Debt &amp; Equity</h3><p data-i18n="m2">Dette sculptée ou par gearing, DSRA, MMRA, refinancement, DSCR et LLCR dérivés.</p></div>
+      <div class="card"><span class="tag ok" data-i18n="s_ok">Disponible</span><h3>Portfolio</h3><p data-i18n="m3">Lots consolidés comme dans le modèle de référence ; TRI par lot en mode expérimental.</p></div>
+      <div class="card"><span class="tag wip" data-i18n="s_wip">En cours</span><h3>Reporting</h3><p data-i18n="m4">Export CSV disponible ; tableaux de bord, Excel avec formules et PDF en phase 2.</p></div>
+      <div class="card"><span class="tag plan" data-i18n="s_plan">Prévu</span><h3>Contract Studio</h3><p data-i18n="m5">Term sheets PSA/OSA reliées aux hypothèses validées, avec contrôle de cohérence et validation humaine.</p></div>
+      <div class="card"><span class="tag plan" data-i18n="s_plan">Prévu</span><h3>Learning Academy · Investment Studio · ESG</h3><p data-i18n="m6">10 leçons FR/EN, teaser et data room, screening E&amp;S. Les vidéos n'existent pas encore.</p></div>
+    </div>
+  </section>
+
+  <section id="feuille">
+    <h2 data-i18n="road_title">Feuille de route</h2>
+    <div class="grid g4">
+      <div class="card"><span class="tag ok" data-i18n="s_done">Fait</span><h3 data-i18n="r0">S0 · Audit</h3><p data-i18n="r0d">Inventaire du classeur, macros, dépendances, scénarios de référence.</p></div>
+      <div class="card"><span class="tag ok" data-i18n="s_done">Fait</span><h3 data-i18n="r1">S1 · Moteur</h3><p data-i18n="r1d">Moteur, API, base de données, rapprochements.</p></div>
+      <div class="card"><span class="tag plan" data-i18n="s_next">Suivant</span><h3 data-i18n="r2">S2 · Interface</h3><p data-i18n="r2d">Saisie, comparaison de scénarios, exports Excel et PDF.</p></div>
+      <div class="card"><span class="tag plan" data-i18n="s_plan">Prévu</span><h3 data-i18n="r3">S3–S4</h3><p data-i18n="r3d">Contrats, académie, investissement.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p data-i18n="foot_1">Outil d'analyse. Ni certification BAD, Banque mondiale ou CrossBoundary, ni avis juridique, fiscal ou d'investissement. Les résultats dépendent des hypothèses saisies.</p>
+    <p data-i18n="foot_2">Compatible avec le format du « CrossBoundary Access Open Source Model 1.0 » (oct. 2023), reproduit de façon indépendante. ACCESS360 Africa n'est ni affiliée à CrossBoundary ni approuvée par elle.</p>
+    <p id="ver"></p>
+  </div>
+</footer>
+
+<script>
+const EN = {
+  nav_proof:"Fidelity", nav_demo:"Demo", nav_modules:"Modules", nav_road:"Roadmap",
+  hero_title:"Mini-grid project finance, computed to the cent and traceable to the cell.",
+  hero_lead:"A deterministic engine that reproduces the sector's reference model, replays its debt-sizing macros and ties every figure to the formula it comes from — then makes it shareable, versioned and four-eyes approved.",
+  cta_demo:"See the demo", cta_code:"Code and documentation",
+  proof_title:"Fidelity that is measured, not claimed", proof_sub:"Every reproduced cell is compared with the values the reference workbook computed itself.",
+  proof_1:"computed cells equal to the Excel values of the published case (gap ≤ 10⁻⁹ relative or 10⁻⁶ absolute)", proof_2:"table cells (costs, FX, demand) equal too",
+  proof_3u:"scenarios", proof_3:"5 reference ones (DSCR sizing, local currency, refinancing, phased build) and 10 feature ones (VAT, working capital, grid, exit, tax…): equal cell by cell to the LibreOffice control recalculation, except two documented quirks",
+  proof_4:"including 19 integration tests on PostgreSQL: tenant isolation, roles, four eyes, immutability, invitations, upload limits",
+  proof_note:"Excel benchmark values for scenarios 2–5 still have to be produced with Microsoft Excel; the script that produces them is ready.",
+  demo_title:"Demo: fictitious “Fictitia” portfolio",
+  demo_notice:"<strong>Invented</strong> data for demonstration: 26 grids, 3 lots, fictitious country. Results computed by the engine (status <code id=\"st\"></code>), not a real project.",
+  chart_title:"Annual flows (model currency units)", kpi_title:"Indicators and their source",
+  how_title:"How it works",
+  how_1:"Import a workbook in the CrossBoundary Access Open Source Model 1.0 format, or start from a template. The file is read as data: no macro is ever run.",
+  how_2:"Change assumptions by path or by cell (“Inputs!E302 = DSCR”). Each change creates an immutable version with its parent and fingerprint.",
+  how_3:"Calculate. The engine replays the sizing macros as Excel does, and flags failing model checks and DSCRs below target.",
+  how_4:"Submit to a reviewer. Authors cannot approve their own version; investors only see approved versions. Everything is logged.",
+  mod_title:"Modules", s_ok:"Available", s_wip:"In progress", s_plan:"Planned", s_done:"Done", s_next:"Next",
+  m1:"CAPEX/OPEX, demand, revenue, cash-flow waterfall, financial statements, IRR and NPV.",
+  m2:"Sculpted or gearing-sized debt, DSRA, MMRA, refinancing, derived DSCR and LLCR.",
+  m3:"Lots consolidated as in the reference model; per-lot IRR in experimental mode.",
+  m4:"CSV export available; dashboards, Excel with formulas and PDF in phase 2.",
+  m5:"PSA/OSA term sheets linked to approved assumptions, with consistency checks and human sign-off.",
+  m6:"10 FR/EN lessons, teaser and data room, E&S screening. The videos do not exist yet.",
+  road_title:"Roadmap", r0:"S0 · Audit", r0d:"Workbook inventory, macros, dependencies, reference scenarios.",
+  r1:"S1 · Engine", r1d:"Engine, API, database, reconciliations.", r2:"S2 · Interface", r2d:"Input screens, scenario comparison, Excel and PDF exports.",
+  r3:"S3–S4", r3d:"Contracts, academy, investment.",
+  foot_1:"Analysis tool. Not a certification by AfDB, the World Bank or CrossBoundary, nor legal, tax or investment advice. Results depend on the assumptions entered.",
+  foot_2:"Compatible with the format of the “CrossBoundary Access Open Source Model 1.0” (Oct 2023), reproduced independently. ACCESS360 Africa is not affiliated with or endorsed by CrossBoundary."
+};
+const FR = {};
+document.querySelectorAll("[data-i18n]").forEach(e => FR[e.dataset.i18n] = e.innerHTML);
+document.querySelectorAll("[data-i18n-html]").forEach(e => FR[e.dataset.i18nHtml] = e.innerHTML);
+const LABELS = {
+  fr: {project_irr:"TRI projet (avec subvention)", payback_years:"Délai de récupération", equity_irr_incl_grant:"TRI fonds propres AssetCo", owner_irr_incl_grant:"TRI de l'investisseur", senior_debt:"Dette senior", grant:"Subvention", owner_equity:"Fonds propres", total_funding:"Besoin de financement", connections:"Raccordements", people_served:"Personnes desservies", grids:"Réseaux", min_dscr_repayment:"DSCR minimum (dérivé)", llcr_first_repayment:"LLCR (dérivé)", lot_1_project_irr:"TRI lot A (expérimental)", lot_2_project_irr:"TRI lot B (expérimental)", lot_3_project_irr:"TRI lot C (expérimental)",
+       revenue:"Recettes", opex:"Charges d'exploitation", cfads:"CFADS", debt_service:"Service de la dette", distributions:"Distributions", years:"ans", warn:"Alertes émises par le moteur", none:"Aucune", ver:"Version du moteur"},
+  en: {project_irr:"Project IRR (incl. grant)", payback_years:"Payback period", equity_irr_incl_grant:"AssetCo equity IRR", owner_irr_incl_grant:"Investor IRR", senior_debt:"Senior debt", grant:"Grant", owner_equity:"Equity", total_funding:"Funding requirement", connections:"Connections", people_served:"People served", grids:"Grids", min_dscr_repayment:"Minimum DSCR (derived)", llcr_first_repayment:"LLCR (derived)", lot_1_project_irr:"Lot A IRR (experimental)", lot_2_project_irr:"Lot B IRR (experimental)", lot_3_project_irr:"Lot C IRR (experimental)",
+       revenue:"Revenue", opex:"Operating costs", cfads:"CFADS", debt_service:"Debt service", distributions:"Distributions", years:"years", warn:"Warnings raised by the engine", none:"None", ver:"Engine version"}
+};
+const WARN_FR = {
+  "Workbook checks not passed: no_equity_injection":"Contrôle du modèle non passé : une injection de fonds propres est nécessaire en cours de vie.",
+};
+let lang = (navigator.language||"fr").toLowerCase().startsWith("fr") ? "fr" : "en";
+try { lang = localStorage.getItem("mgs-lang") || lang; } catch (e) {}
+let DATA = null;
+const COLORS = ["var(--brand-2)","#c2410c","var(--accent)","#2563eb","#7c3aed"];
+
+function fmt(v, unit) {
+  if (v === null || v === undefined) return "n/a";
+  const loc = lang === "fr" ? "fr-FR" : "en-GB";
+  if (unit === "%") return new Intl.NumberFormat(loc,{style:"percent",maximumFractionDigits:1}).format(v);
+  if (unit === "x") return new Intl.NumberFormat(loc,{maximumFractionDigits:2}).format(v) + " x";
+  if (unit === "years") return v + " " + LABELS[lang].years;
+  return new Intl.NumberFormat(loc,{maximumFractionDigits:0}).format(v);
+}
+
+function render() {
+  document.documentElement.lang = lang;
+  document.getElementById("lang").textContent = lang === "fr" ? "EN" : "FR";
+  const dict = lang === "fr" ? FR : EN;
+  document.querySelectorAll("[data-i18n]").forEach(e => { if (dict[e.dataset.i18n]) e.innerHTML = dict[e.dataset.i18n]; });
+  document.querySelectorAll("[data-i18n-html]").forEach(e => { if (dict[e.dataset.i18nHtml]) e.innerHTML = dict[e.dataset.i18nHtml]; });
+  if (!DATA) return;
+  document.getElementById("st").textContent = DATA.status;
+  const L = LABELS[lang];
+  document.getElementById("kpis").innerHTML = Object.entries(DATA.kpis).map(([k, i]) =>
+    `<tr><td>${L[k]||k}<span class="src">${i.source}</span></td><td class="v">${fmt(i.value, i.unit)}</td></tr>`).join("");
+  const w = DATA.warnings.map(x => lang === "fr" ? (WARN_FR[x] || x) : x);
+  document.getElementById("warns").innerHTML = `<strong>${L.warn}</strong>` + (w.length ? "<ul>" + w.map(x => `<li>${x}</li>`).join("") + "</ul>" : ` : ${L.none}`);
+  document.getElementById("ver").textContent = `${L.ver} ${DATA.engine_version}`;
+  drawChart();
+}
+
+function drawChart() {
+  const svg = document.getElementById("chart"), tip = document.getElementById("tip");
+  const keys = ["revenue","opex","cfads","debt_service","distributions"];
+  const yrs = DATA.years, W = 640, H = 320, m = {l:56,r:10,t:10,b:28};
+  const all = keys.flatMap(k => DATA.series[k]);
+  const max = Math.max(...all) * 1.08, min = Math.min(0, ...all);
+  const x = i => m.l + i * (W - m.l - m.r) / (yrs.length - 1);
+  const y = v => m.t + (max - v) * (H - m.t - m.b) / (max - min);
+  const loc = lang === "fr" ? "fr-FR" : "en-GB";
+  const short = v => new Intl.NumberFormat(loc,{notation:"compact",maximumFractionDigits:1}).format(v);
+  let g = "";
+  for (let k = 0; k <= 4; k++) { const v = min + (max - min) * k / 4;
+    g += `<line x1="${m.l}" x2="${W-m.r}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)"/><text x="${m.l-6}" y="${y(v)+4}" font-size="11" text-anchor="end" fill="var(--muted)">${short(v)}</text>`; }
+  yrs.forEach((yr, i) => { if (i % 4 === 0) g += `<text x="${x(i)}" y="${H-8}" font-size="11" text-anchor="middle" fill="var(--muted)">${yr}</text>`; });
+  keys.forEach((k, j) => { const pts = DATA.series[k].map((v, i) => `${x(i)},${y(v)}`).join(" ");
+    g += `<polyline points="${pts}" fill="none" stroke="${COLORS[j]}" stroke-width="2.2" stroke-linejoin="round"/>`; });
+  g += `<line id="hair" y1="${m.t}" y2="${H-m.b}" stroke="var(--muted)" stroke-dasharray="3 3" visibility="hidden"/>`;
+  g += `<rect x="${m.l}" y="${m.t}" width="${W-m.l-m.r}" height="${H-m.t-m.b}" fill="transparent" id="hit"/>`;
+  svg.innerHTML = g;
+  document.getElementById("legend").innerHTML = keys.map((k, j) => `<span><i style="background:${COLORS[j]}"></i>${LABELS[lang][k]}</span>`).join("");
+  const hit = document.getElementById("hit"), hair = document.getElementById("hair");
+  hit.addEventListener("mousemove", ev => {
+    const r = svg.getBoundingClientRect(), px = (ev.clientX - r.left) * W / r.width;
+    const i = Math.max(0, Math.min(yrs.length - 1, Math.round((px - m.l) / ((W - m.l - m.r) / (yrs.length - 1)))));
+    hair.setAttribute("x1", x(i)); hair.setAttribute("x2", x(i)); hair.setAttribute("visibility", "visible");
+    tip.innerHTML = `<strong>${yrs[i]}</strong><br>` + keys.map((k, j) => `<span style="color:${COLORS[j]}">■</span> ${LABELS[lang][k]} : ${new Intl.NumberFormat(loc,{maximumFractionDigits:0}).format(DATA.series[k][i])}`).join("<br>");
+    tip.style.display = "block";
+    const cx = (x(i) / W) * r.width; tip.style.left = Math.min(cx + 24, r.width - 180) + "px"; tip.style.top = "48px";
+  });
+  hit.addEventListener("mouseleave", () => { tip.style.display = "none"; hair.setAttribute("visibility", "hidden"); });
+}
+
+document.getElementById("lang").addEventListener("click", () => {
+  lang = lang === "fr" ? "en" : "fr";
+  try { localStorage.setItem("mgs-lang", lang); } catch (e) {}
+  render();
+});
+fetch("demo_results.json").then(r => r.json()).then(d => { DATA = d; render(); }).catch(() => render());
+render();
+</script>
+</body>
+</html>

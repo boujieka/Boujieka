@@ -4,7 +4,7 @@ Source : analyse statique de 52 401 formules et 258 500 dépendances cellule →
 
 ## 1. Flux entre feuilles
 
-Nombre de références d'une feuille vers une autre. Seuls les flux de plus de 20 références figurent dans le schéma, la liste complète est dans `work/inventory.json`.
+Nombre de références d'une feuille vers une autre. Le schéma montre les principaux flux (sélection) ; la liste complète est dans `work/inventory.json` (`sheet_edges`, non versionné).
 
 ```
  Names ───(976)──────────────────────────────┐
