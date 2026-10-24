@@ -6,3 +6,7 @@ reference/*
 __pycache__/
 *.pyc
 work/
+*.egg-info/
+.pytest_cache/
+frontend/node_modules/
+frontend/dist/

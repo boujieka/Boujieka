@@ -1,44 +1,70 @@
 # Mini-Grid Financial Model Studio
 
-Plateforme de préparation financière, contractuelle, ESG et pédagogique pour mini-réseaux africains, réalisée pour ACCESS360 Africa. Ce dossier est **indépendant** du produit Cartouche hébergé dans le même dépôt.
+Plateforme de préparation financière, contractuelle, ESG et pédagogique pour mini-réseaux africains (ACCESS360 Africa).
+Dossier **indépendant** du produit Cartouche hébergé dans le même dépôt.
 
-> **Statut : Phase 0 (audit) terminée, en attente de la décision S0.** Aucun moteur de calcul, API ni interface n'existe encore. Aucun résultat ne doit être présenté comme validé : le moteur web n'a passé aucun rapprochement avec le classeur Excel. Rien ici ne constitue une certification BAD, Banque mondiale ou CrossBoundary, ni un avis juridique.
+> **Statut : Phase 1 livrée (moteur, API, base de données).** Le moteur reproduit le classeur CrossBoundary Access
+> Open Source Model 1.0 : 46 860 cellules et 920 cellules de tables égales aux valeurs Excel du cas publié (S1), et
+> égalité avec les rejeux LibreOffice de S2 à S5. Les valeurs étalons **Excel** de S2 à S5 restent à produire
+> (`docs/reference_scenarios.md`). Rien ici n'est une certification BAD, Banque mondiale ou CrossBoundary, ni un avis
+> juridique ou d'investissement.
 
 ## Contenu
 
 | Chemin | Rôle |
 |---|---|
-| `docs/audit.md` | Rapport d'audit : inventaire, conventions, macros, cycles, fonctions délicates, observations, questions bloquantes. |
-| `docs/variable_dictionary.csv` | Dictionnaire des entrées, sélecteurs, valeurs collées, lignes calculées et sorties du classeur. |
-| `docs/formula_dependency_map.md` | Carte des dépendances et boucles rompues par macro. |
-| `docs/row_dependencies.csv` | Lignes dont dépend chaque ligne de formules. |
-| `docs/reference_scenarios.md` | Scénarios de référence, procédure des valeurs étalons Excel, tolérances. |
-| `reference/MANIFEST.md` | Empreintes, provenance et droits des documents sources. Les sources ne sont **pas** versionnées. |
-| `reference_values/` | Valeurs Excel de S1 ; valeurs LibreOffice provisoires de S1 à S5 (contrôle, pas étalon). |
-| `tools/phase0/` | Scripts d'analyse statique et de recalcul de contrôle. |
+| `backend/app/engine/` | Moteur déterministe : hypothèses typées tracées jusqu'aux cellules, calculs, rejeu des macros, options d'amélioration, résultats, rapprochement |
+| `backend/app/` | API FastAPI, sécurité, services, modèles SQLAlchemy |
+| `backend/alembic/` | Migrations PostgreSQL |
+| `backend/tests/` | Tests unitaires, de rapprochement et d'intégration API |
+| `frontend/` | Squelette React/TypeScript bilingue (Phase 2 à venir) |
+| `docs/audit.md` | Audit Phase 0 du classeur |
+| `docs/phase1_report.md` | **Rapport Phase 1** : terminé, non terminé, hypothèses, écarts, risques, prochaines étapes |
+| `docs/architecture.md`, `docs/api.md`, `docs/openapi.json` | Architecture et contrat d'API |
+| `docs/reference_scenarios.md` | Scénarios de référence et procédure des valeurs étalons Excel |
+| `reference/MANIFEST.md` | Sources (non versionnées : droits non vérifiés), empreintes |
+| `reference_values/` | Hypothèses et sorties Excel de S1 ; sorties LibreOffice de S1 à S5 |
+| `tools/phase0/` | Outils d'audit statique et de rejeu LibreOffice |
 
-## Reproduire la Phase 0
-
-Prérequis : placer les sources dans `reference/` (voir le manifeste), Python 3.11 ou plus, et LibreOffice avec son pont UNO Python (pour le recalcul de contrôle uniquement).
+## Démarrer
 
 ```bash
-python -m venv .venv && .venv/bin/pip install -r tools/phase0/requirements.txt
-X=reference/CrossBoundary-Access-Open-Source-Model-1.0-October-2023.xlsm
+cd minigrid-studio/backend
+python -m venv .venv && .venv/bin/pip install -e '.[dev]'
 
-# Macros : extraction statique, jamais d'exécution
-.venv/bin/olevba --decode "$X"
+# Calcul sans base de données
+.venv/bin/python -m app.cli --template demo_fictitious --per-lot
+.venv/bin/python -m app.cli --template crossboundary_reference --set Inputs!E302=DSCR
+.venv/bin/python -m app.cli --template crossboundary_reference --option cap_principal_at_balance
 
-# Dictionnaire, dépendances ligne à ligne, statistiques (écrit docs/*.csv et work/)
-.venv/bin/python tools/phase0/inventory.py "$X" .
+# Si le classeur source est présent dans reference/ : rapprochement cellule par cellule
+.venv/bin/python -m app.cli --xlsm ../reference/CrossBoundary-Access-Open-Source-Model-1.0-October-2023.xlsm --reconcile
 
-# Valeurs Excel en cache (S1)
-.venv/bin/python tools/phase0/extract_cached.py "$X" reference_values/S1_base_excel_cached.json
+# API + PostgreSQL (voir ../.env.example)
+export MGS_DATABASE_URL=postgresql+psycopg://mgs:...@localhost:5432/mgs
+.venv/bin/alembic upgrade head
+MGS_DEMO_ADMIN_EMAIL=you@example.org MGS_DEMO_ADMIN_PASSWORD='a long passphrase' .venv/bin/python -m app.demo.seed
+.venv/bin/uvicorn app.main:app --port 8000          # documentation interactive : http://localhost:8000/docs
 
-# Recalcul de contrôle LibreOffice avec rejeu des macros en Python (S1 à S5)
-python3 tools/phase0/lo_scenarios.py "$X" tools/phase0/scenarios.json work/lo_out
-.venv/bin/python tools/phase0/compare_outputs.py reference_values/S1_base_excel_cached.json work/lo_out/S1_base_libreoffice.json
+# Front-end (squelette)
+cd ../frontend && npm install && npm run dev          # http://localhost:5173 (proxy /api vers :8000)
 ```
 
-## Prochaine étape
+## Tests
 
-Décision S0 : réponses aux questions de `docs/audit.md` §9 (droits, valeurs étalons Excel, cible de rapprochement, observations, lots, rémunération OSA). La Phase 1 (moteur, tests, API, PostgreSQL) ne démarrera qu'après cette décision.
+```bash
+cd minigrid-studio/backend
+sudo scripts/test_db.sh                              # PostgreSQL 16 jetable sur le port 55432 (facultatif)
+MGS_TEST_DATABASE_URL=postgresql+psycopg://mgs:mgs@127.0.0.1:55432/mgs_test .venv/bin/python -m pytest
+cd ../frontend && npm test && npm run build
+```
+
+Sans `MGS_TEST_DATABASE_URL`, les tests d'API sont ignorés. Sans le classeur source, le rapprochement cellule par
+cellule est ignoré, mais le rapprochement des indicateurs et séries, sur les valeurs versionnées dans
+`reference_values/`, s'exécute toujours.
+
+## Principes
+
+- **Fidèle par défaut.** Chaque amélioration (`/api/v1/engine/options`) est désactivée par défaut. L'activer marque le résultat `variant`.
+- **Traçable.** Chaque indicateur et chaque série nomme sa cellule ou sa ligne Excel. Les indicateurs sans équivalent Excel sont marqués `derived`, le calcul par lot `experimental`.
+- **Séparé de l'IA.** Le moteur n'appelle aucun service externe ni modèle génératif.

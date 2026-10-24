@@ -1,0 +1,430 @@
+{
+ "_comment": "FICTITIOUS demonstration data: invented portfolio 'Fictitia', not a real project, country or investor. Pasted values solved by the engine (excel_macros).",
+ "timing": {
+  "model_start": "2022-12-31",
+  "construction_start": "2023-01-01",
+  "project_duration_years": 1,
+  "lifetime_years": 20
+ },
+ "currency": {
+  "case": 1,
+  "effective_year": 2023,
+  "base_exchange_rate": 600,
+  "mmra_starting_balance": {
+   "value": 750000.0,
+   "basis": "usd",
+   "vat": "none",
+   "lcy_value": null
+  },
+  "all_in_cost_of_debt": {
+   "value": 0.08,
+   "basis": "usd_and_lcy",
+   "vat": "none",
+   "lcy_value": 0.15
+  },
+  "capex_net_of_grant": {
+   "value": 980,
+   "basis": "usd",
+   "vat": "capex",
+   "lcy_value": null
+  },
+  "grant_per_connection": {
+   "value": 220,
+   "basis": "usd",
+   "vat": "none",
+   "lcy_value": null
+  },
+  "battery_cost": {
+   "value": 400.0,
+   "basis": "usd",
+   "vat": "capex",
+   "lcy_value": null
+  },
+  "transfer_fee": {
+   "value": 0.0,
+   "basis": "usd",
+   "vat": "capex",
+   "lcy_value": null
+  },
+  "fixed_fee_per_grid": {
+   "value": 4500,
+   "basis": "lcy_contracted",
+   "vat": "opex",
+   "lcy_value": null
+  },
+  "diesel_price": {
+   "value": 1.15,
+   "basis": "usd",
+   "vat": "none",
+   "lcy_value": null
+  },
+  "pv_price": {
+   "value": 0.35,
+   "basis": "usd",
+   "vat": "capex",
+   "lcy_value": null
+  },
+  "battery_racking": {
+   "value": 50.0,
+   "basis": "usd",
+   "vat": "capex",
+   "lcy_value": null
+  },
+  "battery_installation": {
+   "value": 20.0,
+   "basis": "lcy_contracted",
+   "vat": "capex",
+   "lcy_value": null
+  },
+  "battery_replacement_2023": {
+   "value": 152.0,
+   "basis": "usd",
+   "vat": "capex",
+   "lcy_value": null
+  },
+  "inverter_price_2020": {
+   "value": 0.15,
+   "basis": "usd",
+   "vat": "capex",
+   "lcy_value": null
+  },
+  "expansion_racking": {
+   "value": 2500.0,
+   "basis": "usd",
+   "vat": "capex",
+   "lcy_value": null
+  },
+  "expansion_logistics": {
+   "value": 1000.0,
+   "basis": "lcy_contracted",
+   "vat": "capex",
+   "lcy_value": null
+  },
+  "bnef_battery_2030": {
+   "value": 58.0,
+   "basis": "usd",
+   "vat": "capex",
+   "lcy_value": null
+  },
+  "inverter_2030": {
+   "value": 0.0898105408857568,
+   "basis": "usd",
+   "vat": "capex",
+   "lcy_value": null
+  },
+  "fee_per_customer": {
+   "value": 1.8,
+   "basis": "lcy_contracted",
+   "vat": "opex",
+   "lcy_value": null
+  },
+  "admin_costs": {
+   "value": 20000,
+   "basis": "usd",
+   "vat": "opex",
+   "lcy_value": null
+  },
+  "tariff": {
+   "value": 0.48,
+   "basis": "lcy_contracted",
+   "vat": "none",
+   "lcy_value": null
+  },
+  "grid_arrival_tariff": {
+   "value": 0.23,
+   "basis": "lcy_contracted",
+   "vat": "none",
+   "lcy_value": null
+  },
+  "amt_threshold": {
+   "value": 0.0,
+   "basis": "lcy_contracted",
+   "vat": "none",
+   "lcy_value": null
+  },
+  "sizing_rounding": {
+   "value": 5.0,
+   "basis": "usd_and_lcy",
+   "vat": "none",
+   "lcy_value": 7.0
+  }
+ },
+ "lots": [
+  {
+   "name": "Demo lot A",
+   "included": 1,
+   "country": "Fictitia",
+   "grids": 8,
+   "connections_per_grid": 260,
+   "kwp_per_grid": 55,
+   "people_per_connection": 4,
+   "baseline_kwh_month": 9,
+   "peak_kwh_month": 18,
+   "expansion_module_kw": 30,
+   "tariff": null,
+   "capex_net_of_grant": null,
+   "transfer_fee": null,
+   "grant_per_connection": null,
+   "battery_cost": null,
+   "fixed_fee_per_grid": null,
+   "fee_per_customer": null,
+   "ratchet_share": null,
+   "diesel_price": null
+  },
+  {
+   "name": "Demo lot B",
+   "included": 1,
+   "country": "Fictitia",
+   "grids": 12,
+   "connections_per_grid": 340,
+   "kwp_per_grid": 70,
+   "people_per_connection": 5,
+   "baseline_kwh_month": 11,
+   "peak_kwh_month": 21,
+   "expansion_module_kw": 35,
+   "tariff": null,
+   "capex_net_of_grant": null,
+   "transfer_fee": null,
+   "grant_per_connection": null,
+   "battery_cost": null,
+   "fixed_fee_per_grid": null,
+   "fee_per_customer": null,
+   "ratchet_share": null,
+   "diesel_price": null
+  },
+  {
+   "name": "Demo lot C",
+   "included": 1,
+   "country": "Fictitia",
+   "grids": 6,
+   "connections_per_grid": 420,
+   "kwp_per_grid": 90,
+   "people_per_connection": 5,
+   "baseline_kwh_month": 12,
+   "peak_kwh_month": 24,
+   "expansion_module_kw": 45,
+   "tariff": null,
+   "capex_net_of_grant": null,
+   "transfer_fee": null,
+   "grant_per_connection": null,
+   "battery_cost": null,
+   "fixed_fee_per_grid": null,
+   "fee_per_customer": null,
+   "ratchet_share": null,
+   "diesel_price": null
+  },
+  {
+   "name": "Spare 1",
+   "included": 0,
+   "country": "Country 1",
+   "grids": 0,
+   "connections_per_grid": 0,
+   "kwp_per_grid": 0,
+   "people_per_connection": 5,
+   "baseline_kwh_month": 0,
+   "peak_kwh_month": 0,
+   "expansion_module_kw": 0,
+   "tariff": null,
+   "capex_net_of_grant": null,
+   "transfer_fee": null,
+   "grant_per_connection": null,
+   "battery_cost": null,
+   "fixed_fee_per_grid": null,
+   "fee_per_customer": null,
+   "ratchet_share": null,
+   "diesel_price": null
+  },
+  {
+   "name": "Spare 2",
+   "included": 0,
+   "country": "Country 1",
+   "grids": 0,
+   "connections_per_grid": 0,
+   "kwp_per_grid": 0,
+   "people_per_connection": 5,
+   "baseline_kwh_month": 0,
+   "peak_kwh_month": 0,
+   "expansion_module_kw": 0,
+   "tariff": null,
+   "capex_net_of_grant": null,
+   "transfer_fee": null,
+   "grant_per_connection": null,
+   "battery_cost": null,
+   "fixed_fee_per_grid": null,
+   "fee_per_customer": null,
+   "ratchet_share": null,
+   "diesel_price": null
+  },
+  {
+   "name": "Spare 3",
+   "included": 0,
+   "country": "Country 1",
+   "grids": 0,
+   "connections_per_grid": 0,
+   "kwp_per_grid": 0,
+   "people_per_connection": 5,
+   "baseline_kwh_month": 0,
+   "peak_kwh_month": 0,
+   "expansion_module_kw": 0,
+   "tariff": null,
+   "capex_net_of_grant": null,
+   "transfer_fee": null,
+   "grant_per_connection": null,
+   "battery_cost": null,
+   "fixed_fee_per_grid": null,
+   "fee_per_customer": null,
+   "ratchet_share": null,
+   "diesel_price": null
+  }
+ ],
+ "technical": {
+  "yield_kwh_per_kwp": 1600,
+  "self_consumption_kwh_day": 7,
+  "meter_consumption_kwh_day": 0.05,
+  "distribution_losses": 0.07,
+  "night_battery_share": 0.5,
+  "battery_discharge_limit": 0.9,
+  "inverter_sizing": 0.75,
+  "diesel_kwh_per_litre": 3,
+  "diesel_kwh_per_litre_10kw": 2,
+  "diesel_litres_per_hour": 2.5,
+  "diesel_threshold": 0.75,
+  "diesel_share_below": 0.03,
+  "diesel_share_above": 0.95,
+  "max_diesel_share": 0.05
+ },
+ "build": {
+  "build_profile": [
+   0.5,
+   0.5,
+   0,
+   null,
+   0,
+   0
+  ],
+  "ramp_up": [
+   1,
+   1,
+   1,
+   1
+  ],
+  "ramp_discount": 1
+ },
+ "demand": {
+  "growth_base": 0.1,
+  "growth_sensitivity": 0,
+  "tariff_sensitivity": 0,
+  "consumption_case": 3,
+  "income_growth": 0.02
+ },
+ "opex": {
+  "ratchet_share": 0.3,
+  "fee_thresholds": [
+   0,
+   5,
+   10,
+   15
+  ],
+  "receivable_days": 0,
+  "payable_days": 0
+ },
+ "replacement": {
+  "battery_life": 10,
+  "inverter_life": 10,
+  "stop_before_end": 3,
+  "pv_cost_decline": 0.1,
+  "battery_cost_decline": 0.1,
+  "battery_forecast": "AssetCo Forecast",
+  "inverter_cost_decline": 0.05,
+  "inverter_reference_year": 2020
+ },
+ "tax": {
+  "corporate_rate": 0.27,
+  "holiday_years": 2,
+  "nol_years": 50,
+  "vat_rate": 0,
+  "vat_capex": "Recoverable",
+  "vat_opex": "Recoverable",
+  "vat_term_days": 30,
+  "minimum_tax": 0.01,
+  "dividend_wht": 0.05,
+  "book_life_initial": 20,
+  "tax_life_initial": 5,
+  "tax_life_replacement": 3,
+  "capital_allowance_limit": 0.5
+ },
+ "funding": {
+  "wacc": 0.12,
+  "irr_period": 20,
+  "grant_drawdown_rate": 0.5,
+  "developer_stake": 0.1,
+  "owner_equity_provision": 1
+ },
+ "debt": {
+  "gearing": 0.45,
+  "sizing_method": "Gearing",
+  "debt_switch": 1,
+  "margin": 0.03,
+  "rate_choice": "Fixed",
+  "arrangement_fee": 0.05,
+  "commitment_fee_share": 0.45,
+  "repayment_start_ops_year": 1,
+  "tenor_years": 10,
+  "grace_years": 1,
+  "target_dscr": 1.2,
+  "drawdown": "Pari Passu",
+  "margin_by_period": null,
+  "fixed_rate_by_period": null
+ },
+ "refi": {
+  "tenor_year": 5,
+  "on": 0,
+  "gearing": 0.5,
+  "sizing_rounding": 5,
+  "sizing_method": "Gearing",
+  "margin": 0.03,
+  "rate_choice": "Fixed",
+  "upfront_fee": 0.01,
+  "commitment_fee_share": 0.5,
+  "tenor_years": 12
+ },
+ "reserves": {
+  "dsra_on": 1,
+  "dsra_months": 6,
+  "dsra_deposit_rate": 0,
+  "mmra_years": 5,
+  "mmra_on": 1
+ },
+ "macro": {
+  "inflation": 0.06,
+  "fx_case": 2,
+  "fx_depreciation": 0.04,
+  "base_rate_years": [
+   2021,
+   2022,
+   "2023+"
+  ],
+  "base_rates": [
+   0.02,
+   0.02,
+   0.02
+  ]
+ },
+ "exit": {
+  "years_before_grid_arrival": 30,
+  "exit_wacc": 0.3,
+  "exit_lookforward_years": 5,
+  "exit_ops_year": 45
+ },
+ "constants": {
+  "days_per_year": 365,
+  "months_per_year": 12,
+  "thousand": 1000
+ },
+ "pasted": {
+  "funding": 9653262.739122879,
+  "dscr_limit": 2127064.077570743,
+  "refi_limit": 0,
+  "dsra_initial": 179664.32749261343
+ }
+}

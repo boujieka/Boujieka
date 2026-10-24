@@ -196,6 +196,10 @@ def build_result(a: Assumptions, L: Ledger, log: SolveLog, options: EngineOption
         warnings.append("Exact solver: sizing differs from Excel by up to the macros' tolerance (50,000).")
     if failed:
         warnings.append("Workbook checks not passed: " + ", ".join(failed))
+    mind = dk.get("min_dscr_repayment")
+    if mind and mind.value is not None and mind.value < a.debt.target_dscr - 1e-9:
+        warnings.append(f"Derived DSCR falls to {mind.value:.2f}x in a repayment year, below the "
+                        f"{a.debt.target_dscr:.2f}x target (the workbook has no DSCR covenant test).")
     if min(L.v["Debt!34"]) < -1:
         warnings.append("Senior debt balance becomes negative: the workbook repays more than is owed "
                         "(Debt!32 is not capped). Option cap_principal_at_balance prevents it.")

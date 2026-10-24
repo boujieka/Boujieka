@@ -44,3 +44,14 @@ class EngineOptions:
 
 
 FAITHFUL = EngineOptions()
+
+
+def option_docs() -> dict[str, str]:
+    """Docstrings written under each field above, for the API."""
+    import inspect
+    src = inspect.getsource(EngineOptions)
+    out = {}
+    for name in EngineOptions.__dataclass_fields__:
+        doc = src.split(f"{name}: bool = False", 1)[1].split('"""')[1]
+        out[name] = " ".join(doc.split())
+    return out

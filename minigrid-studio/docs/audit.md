@@ -223,3 +223,9 @@ Ces points sont des **constats**, pas des corrections. Le moteur web devra d'abo
 - Le fichier fourni n'a pas été comparé à l'archive publiée par CrossBoundary.
 - Les macros n'ont pas été exécutées. Leur comportement est déduit du code source et du p-code, et rejoué en Python.
 - Les observations de la section 7 décrivent ce que font les formules. Elles ne jugent pas de l'intention de l'auteur, sauf mention [Inférence].
+
+---
+
+## Addendum (24/10/2026) — Phase 1
+
+Reproduire le classeur a fait apparaître des constats supplémentaires, listés et qualifiés (test ou lecture de formule) dans `docs/phase1_report.md`, section 4. L'arbitrage des observations 1 à 7 est fait : le classeur est reproduit à l'identique, et les corrections sont proposées comme options désactivées par défaut (`backend/app/engine/options.py`).
