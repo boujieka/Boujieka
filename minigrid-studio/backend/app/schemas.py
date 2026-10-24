@@ -70,18 +70,22 @@ class RoleIn(BaseModel):
     role: RoleName
 
 
+NO_CONTROL = r"^[^\x00-\x08\x0b\x0c\x0e-\x1f\x7f]*$"   # tab and line breaks allowed in descriptions only
+NO_CONTROL_LINE = r"^[^\x00-\x1f\x7f]*$"
+
+
 class ProjectIn(BaseModel):
     org_id: str
-    name: str = Field(min_length=1, max_length=200)
-    country: str = Field(default="", max_length=100)
-    description: str = Field(default="", max_length=5000)
+    name: str = Field(min_length=1, max_length=200, pattern=NO_CONTROL_LINE)
+    country: str = Field(default="", max_length=100, pattern=NO_CONTROL_LINE)
+    description: str = Field(default="", max_length=5000, pattern=NO_CONTROL)
     restricted: bool = False
 
 
 class ProjectPatch(BaseModel):
-    name: str | None = Field(default=None, min_length=1, max_length=200)
-    country: str | None = Field(default=None, max_length=100)
-    description: str | None = Field(default=None, max_length=5000)
+    name: str | None = Field(default=None, min_length=1, max_length=200, pattern=NO_CONTROL_LINE)
+    country: str | None = Field(default=None, max_length=100, pattern=NO_CONTROL_LINE)
+    description: str | None = Field(default=None, max_length=5000, pattern=NO_CONTROL)
     restricted: bool | None = None
     archived: bool | None = None
 

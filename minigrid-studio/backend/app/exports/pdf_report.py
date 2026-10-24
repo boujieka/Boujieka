@@ -19,7 +19,8 @@ from reportlab.platypus import (KeepTogether, PageBreak, Paragraph, SimpleDocTem
                                 TableStyle)
 
 from ..engine import ENGINE_VERSION
-from .labels import CHECKS_EN, CHECKS_FR, kpi_label, labels, series_label, translate_message, unit_label
+from .labels import (CHECKS_EN, CHECKS_FR, field_entries, kpi_label, labels, series_label, source_label,
+                     translate_message, unit_label)
 
 # reference data-viz palette (validated: categorical slots 1-3 on the light surface)
 SERIES_COLORS = ["#2a78d6", "#eb6834", "#1baf7a"]
@@ -40,7 +41,8 @@ TXT = {
                ok="OK", fail="ÉCHEC", assumptions="Hypothèses principales", lots="Sites et lots", page="Page",
                disclaimer="Outil d'analyse. Ni certification BAD, Banque mondiale ou CrossBoundary, ni avis juridique, "
                           "fiscal ou d'investissement. Les résultats dépendent des hypothèses saisies.",
-               failed_check="Contrôle non satisfait", options="Options", solver="Solveur",
+               failed_check="Contrôle non satisfait", failed_run="Calcul en échec",
+               thousands="Montants en milliers de la devise du modèle.", options="Options", solver="Solveur",
                note_amounts="Montants dans la devise du modèle."),
     "en": dict(title="Calculation report", project="Project", country="Country", scenario="Scenario", vstatus="Version status",
                status="Run status", engine="Engine version", hash="Inputs hash", generated="Generated on",
@@ -53,7 +55,8 @@ TXT = {
                ok="OK", fail="FAIL", assumptions="Key assumptions", lots="Sites and lots", page="Page",
                disclaimer="Analysis tool. Not a certification by AfDB, the World Bank or CrossBoundary, nor legal, tax "
                           "or investment advice. Results depend on the assumptions entered.",
-               failed_check="Check not satisfied", options="Options", solver="Solver",
+               failed_check="Check not satisfied", failed_run="Calculation failed",
+               thousands="Amounts in thousands of the model currency.", options="Options", solver="Solver",
                note_amounts="Amounts in the model currency."),
 }
 
@@ -78,10 +81,19 @@ def fmt_value(v, unit: str, lang: str) -> str:
         return "–"
     if isinstance(v, str):
         return v
+    if isinstance(v, bool):
+        v = int(v)
+    if abs(v) < 0.005 and not unit.startswith("%") and unit != "x":
+        v = 0          # no "-0,00" for floating-point residues
+    if isinstance(v, int) and not unit.startswith("%") and unit != "x":
+        s = f"{v:,d}"
+        return s.replace(",", " ") if lang == "fr" else s
     if unit.startswith("%"):
         s = f"{v * 100:,.2f} %"
     elif unit == "x":
         s = f"{v:,.2f} x"
+    elif v == int(v) and abs(v) < 1e15 and unit not in ("currency",) and not unit.startswith("currency"):
+        s = f"{int(v):,d}"
     elif unit in ("year", "date"):
         return str(v)
     elif abs(v) >= 100:
@@ -89,7 +101,7 @@ def fmt_value(v, unit: str, lang: str) -> str:
     else:
         s = f"{v:,.2f}"
     if lang == "fr":
-        s = s.replace(",", " ").replace(".", ",")
+        s = s.replace(",", " ").replace(".", ",")
     return s
 
 
@@ -117,9 +129,17 @@ def _nice_ticks(lo: float, hi: float, n: int = 5) -> list[float]:
     return ticks
 
 
-def line_chart(years, lines, lang, width=250 * mm, height=70 * mm, ref=None, ref_label=""):
-    """One-axis line chart: lines = [(label, values)], colours in fixed slot order."""
+def line_chart(years, lines, lang, width=250 * mm, height=70 * mm, ref=None, ref_label="", cap=None):
+    """One-axis line chart: lines = [(label, values)], colours in fixed slot order. Values above ``cap``
+    are drawn at the cap and labelled with their real value, so one outlier does not flatten the rest."""
     d = Drawing(width, height)
+    over = []
+    if cap is not None:
+        clipped = []
+        for label, vs in lines:
+            over += [(i, v) for i, v in enumerate(vs) if v is not None and v > cap]
+            clipped.append((label, [min(v, cap) if v is not None else None for v in vs]))
+        lines = clipped
     left, right, top, bottom = 18 * mm, 30 * mm, 8 * mm, 10 * mm
     pw, ph = width - left - right, height - top - bottom
     vals = [v for _, vs in lines for v in vs if v is not None]
@@ -145,6 +165,9 @@ def line_chart(years, lines, lang, width=250 * mm, height=70 * mm, ref=None, ref
         d.add(Line(left, y(ref), left + pw, y(ref), strokeColor=INK2, strokeWidth=0.8, strokeDashArray=[3, 2]))
         d.add(String(left + pw + 3, y(ref) - 2.5, f"{ref_label} {fmt_value(ref, 'x', lang)}", fontName="Helvetica",
                      fontSize=7, fillColor=INK2))
+    for i, v in over:
+        d.add(String(x(i), y(hi) + 3, ("hors échelle : " if lang == "fr" else "off scale: ") + fmt_value(v, "x", lang), fontName="Helvetica", fontSize=6.5,
+                     fillColor=INK2, textAnchor="middle"))
     label_y = []
     for k, (label, vs) in enumerate(lines):
         col = colors.HexColor(SERIES_COLORS[k % len(SERIES_COLORS)])
@@ -167,6 +190,14 @@ def line_chart(years, lines, lang, width=250 * mm, height=70 * mm, ref=None, ref
             d.add(Rect(x(last) + 3, ly - 1, 5, 2.2, fillColor=col, strokeColor=None))
             d.add(String(x(last) + 10, ly - 2.5, label, fontName="Helvetica", fontSize=7, fillColor=INK))
     return d
+
+
+def dscr_repaying(series, a: int, b: int) -> list:
+    """DSCR of repayment years only: a stub year with a tiny residual debt service would otherwise
+    give a huge ratio and flatten the covenant breach into the axis."""
+    d = series["dscr"]["values"][a:b + 1]
+    flag = series.get("repayment_flag", {}).get("values")
+    return d if flag is None else [v if f else None for v, f in zip(d, flag[a:b + 1])]
 
 
 def _window(series) -> tuple[int, int]:
@@ -212,8 +243,8 @@ def build_pdf_report(*, project: dict, version: dict, run: dict, lang: str = "fr
              [t["generated"], dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d %H:%M UTC")]]
     story.append(table(ident, [50 * mm, 200 * mm], head=False))
     story.append(Spacer(1, 4))
-    reconciled = run.get("status") == "reconciled-engine"
-    story.append(Paragraph(f"<b>{t['reconciled'] if reconciled else t['variant']}</b>", body))
+    status_text = {"reconciled-engine": t["reconciled"], "variant": t["variant"]}.get(run.get("status"), t["failed_run"])
+    story.append(Paragraph(f"<b>{status_text}</b>", body))
     story.append(Paragraph(esc(t["disclaimer"]), small))
 
     # alerts: icon + label, never colour alone
@@ -238,7 +269,7 @@ def build_pdf_report(*, project: dict, version: dict, run: dict, lang: str = "fr
                 continue
             flag = t["experimental"] if i.get("experimental") else t["derived"] if i.get("derived") else ""
             rows.append([Paragraph(esc(kpi_label(k, i["label"], lang)), small), fmt_value(i["value"], i["unit"], lang),
-                         unit_label(i["unit"], lang), Paragraph(esc(i["source"]), small), flag])
+                         unit_label(i["unit"], lang), Paragraph(esc(source_label(i["source"], lang)), small), flag])
         story.append(table(rows, [95 * mm, 32 * mm, 30 * mm, 70 * mm, 22 * mm], align_right=(1,)))
         story.append(Paragraph(esc(t["note_amounts"]), small))
 
@@ -256,22 +287,27 @@ def build_pdf_report(*, project: dict, version: dict, run: dict, lang: str = "fr
             (t["c2"], [(cn("cfads"), sl("cfads")), (cn("debt_service"), sl("debt_service"))], None),
             (t["c3"], [(cn("senior_debt_balance"), sl("senior_debt_balance")),
                        (cn("refi_debt_balance"), sl("refi_debt_balance")), (cn("dsra_balance"), sl("dsra_balance"))], None),
-            (t["c4"], [("DSCR", sl("dscr"))], (version.get("assumptions") or {}).get("debt", {}).get("target_dscr")),
+            (t["c4"], [("DSCR", dscr_repaying(series, a, b))], (version.get("assumptions") or {}).get("debt", {}).get("target_dscr")),
         ]
         for title, lines, ref in charts:
             story.append(KeepTogether([Paragraph(f"<b>{esc(title)}</b>", body),
                                        line_chart(years, [(l[:34], v) for l, v in lines], lang, ref=ref,
-                                                  ref_label=t["target"]),
+                                                  ref_label=t["target"], cap=max(3 * (ref or 1), 3) if ref else None),
                                        Spacer(1, 4)]))
         # annual summary in blocks of 12 years
-        story += [PageBreak(), Paragraph(t["annual"], h2), Paragraph(esc(t["note_amounts"]), small)]
+        story += [PageBreak(), Paragraph(t["annual"], h2)]
+        big = max((abs(v) for k in SUMMARY_ROWS if k in series and series[k]["unit"] == "currency"
+                   for v in sl(k) if v is not None), default=0) >= 1e7
+        # local-currency amounts are shown in thousands so 12 columns stay readable
+        story.append(Paragraph(esc(t["thousands"] if big else t["note_amounts"]), small))
+        cell = lambda v, u: fmt_value(None if v is None else (v / 1000 if big and u == "currency" else v), u, lang)  # noqa: E731
         for start in range(0, len(years), 12):
             ys = years[start:start + 12]
             rows = [[""] + [str(y) for y in ys]]
             for k in SUMMARY_ROWS:
                 if k in series:
                     rows.append([Paragraph(esc(name(k)), small)] +
-                                [fmt_value(v, series[k]["unit"], lang) for v in sl(k)[start:start + 12]])
+                                [cell(v, series[k]["unit"]) for v in sl(k)[start:start + 12]])
             story.append(table(rows, [52 * mm] + [16.5 * mm] * len(ys), align_right=tuple(range(1, len(ys) + 1))))
             story.append(Spacer(1, 6))
 
@@ -286,15 +322,17 @@ def build_pdf_report(*, project: dict, version: dict, run: dict, lang: str = "fr
 
     # assumptions and lots
     A = version.get("assumptions") or {}
-    rows = [[t["assumptions"], t["value"]]]
+    units = {e["path"]: e["unit"] for e in field_entries()}
+    rows = [[t["assumptions"], t["value"], t["unit"]]]
     for path in KEY_ASSUMPTIONS:
         g, f = path.split(".")
         v = A.get(g, {}).get(f)
         if isinstance(v, dict):
             v = v.get("value")
-        rows.append([lab["fields"].get(path, path), fmt_value(v, "%" if isinstance(v, float) and abs(v) < 1 and
-                                                               any(s in path for s in ("rate", "gearing", "wacc", "inflation")) else "", lang)])
-    story += [Paragraph(t["assumptions"], h2), table(rows, [120 * mm, 50 * mm], align_right=(1,))]
+        u = units.get(path, "")
+        unit = "%" if u.startswith("%") else "x" if u == "x" else ""
+        rows.append([lab["fields"].get(path, path), fmt_value(v, unit, lang), unit_label(u, lang)])
+    story += [Paragraph(t["assumptions"], h2), table(rows, [120 * mm, 40 * mm, 50 * mm], align_right=(1,))]
     lots = A.get("lots") or []
     if lots:
         fields = ["included", "country", "grids", "connections_per_grid", "kwp_per_grid", "baseline_kwh_month", "tariff"]

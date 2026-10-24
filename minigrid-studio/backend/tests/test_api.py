@@ -352,6 +352,28 @@ def test_exports_compare_and_lots(client, world):
     assert {"run.export_xlsx", "run.export_pdf"} <= log
 
 
+def test_text_and_number_inputs_sanitised(client, world):
+    an = world["analyst"]
+    assert client.post("/api/v1/projects", headers=an, json={"org_id": world["a_org"], "name": "Bad\x01"}).status_code == 422
+    p = client.post("/api/v1/projects", headers=an, json={"org_id": world["a_org"], "name": "Ковель 北"}).json()
+    v = client.post(f"/api/v1/projects/{p['id']}/versions", headers=an, json={"template": "demo_fictitious"}).json()
+    lots = client.get(f"/api/v1/versions/{v['id']}", headers=an).json()["assumptions"]["lots"]
+    for bad in ([{**lots[0], "name": "Lot\x01A"}], ):
+        assert client.post(f"/api/v1/versions/{v['id']}/revise", headers=an, json={"changes": {"lots": bad}}).status_code == 422
+    import json as _json
+    body = _json.dumps({"changes": {"lots": [{**lots[0], "grids": float("nan")}]}})   # Python emits NaN
+    r = client.post(f"/api/v1/versions/{v['id']}/revise", headers={**an, "Content-Type": "application/json"}, content=body)
+    assert r.status_code == 422 and "finite" in r.text
+    body = _json.dumps({"changes": {"debt.target_dscr": float("inf")}})
+    r = client.post(f"/api/v1/versions/{v['id']}/revise", headers={**an, "Content-Type": "application/json"}, content=body)
+    assert r.status_code == 422
+    assert client.post(f"/api/v1/versions/{v['id']}/revise", headers=an,
+                       json={"changes": {"lots.0.name": "a\x02b"}}).status_code == 422
+    run = client.post(f"/api/v1/versions/{v['id']}/runs", headers=an, json={}).json()
+    x = client.get(f"/api/v1/runs/{run['id']}/export.xlsx", headers=an)   # non-Latin project name: ASCII filename
+    assert x.status_code == 200 and "attachment" in x.headers["content-disposition"]
+
+
 def test_labels_and_fields_endpoints(client, world):
     fr = client.get("/api/v1/engine/labels?lang=fr").json()
     assert fr["groups"]["debt"] == "Dette senior" and fr["kpis"]["project_irr"].startswith("TRI")

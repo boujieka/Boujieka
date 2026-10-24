@@ -8,6 +8,7 @@ stated in ``unit``; amounts are in the *model currency* selected by
 from __future__ import annotations
 
 import dataclasses
+import math
 import datetime as dt
 from dataclasses import dataclass, field
 from typing import Any, Literal, Optional
@@ -330,10 +331,16 @@ def set_path(obj: Any, path: str, value: Any) -> None:
     last = parts[-1]
     current = step(obj, last)  # validates the last part
     if isinstance(obj, list):
+        if isinstance(current, str):       # text keys such as the base-rate year '2023+'
+            if not isinstance(value, str) or len(value) > 200 or any(ord(ch) < 32 for ch in value):
+                raise ValueError(f"{path!r} expects text")
+        elif isinstance(value, bool) or (value is not None and not isinstance(value, (int, float))) \
+                or (isinstance(value, float) and not math.isfinite(value)):
+            raise ValueError(f"{path!r} expects a finite number")
         obj[int(last)] = value
     elif isinstance(current, MoneyInput) and not isinstance(value, MoneyInput):
-        if not isinstance(value, (int, float)) or isinstance(value, bool):
-            raise ValueError(f"{path!r} expects a number")
+        if not isinstance(value, (int, float)) or isinstance(value, bool) or not math.isfinite(value):
+            raise ValueError(f"{path!r} expects a finite number")
         current.value = float(value)
     elif dataclasses.is_dataclass(current) or (isinstance(current, list) and not isinstance(value, list)):
         raise ValueError(f"{path!r} is a group; set its fields individually")
@@ -341,8 +348,12 @@ def set_path(obj: Any, path: str, value: Any) -> None:
         if isinstance(current, (int, float)) and not isinstance(current, bool) and current is not None:
             if not isinstance(value, (int, float)) or isinstance(value, bool):
                 raise ValueError(f"{path!r} expects a number")
+        if isinstance(value, float) and not math.isfinite(value):
+            raise ValueError(f"{path!r} expects a finite number")
         if isinstance(current, str) and not isinstance(value, str):
             raise ValueError(f"{path!r} expects text")
+        if isinstance(value, str) and (len(value) > 200 or any(ord(ch) < 32 or ord(ch) == 127 for ch in value)):
+            raise ValueError(f"{path!r}: text of 200 characters at most, without control characters")
         setattr(obj, last, value)
 
 

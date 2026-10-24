@@ -50,3 +50,20 @@ describe("router", () => {
     expect(parseHash("").name).toBe("projects");
   });
 });
+
+import { parseNumber } from "./i18n";
+describe("parseNumber", () => {
+  it("reads French and English typing", () => {
+    expect(parseNumber("1 600,5")).toBe(1600.5);
+    expect(parseNumber("1 600,5")).toBe(1600.5);
+    expect(parseNumber("1,600.5")).toBe(1600.5);
+    expect(parseNumber("0.45")).toBe(0.45);
+    expect(parseNumber("0,45")).toBe(0.45);
+    expect(parseNumber("-3")).toBe(-3);
+    expect(Number.isNaN(parseNumber("abc"))).toBe(true);
+    expect(Number.isNaN(parseNumber("1-2"))).toBe(true);
+  });
+  it("shows no negative zero", () => {
+    expect(formatValue(-0.0001, "currency", "fr")).toBe("0");
+  });
+});

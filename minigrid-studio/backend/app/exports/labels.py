@@ -208,7 +208,8 @@ SERIES_FR = {
     "liabilities": "Passif", "net_assets": "Actif net", "equity": "Capitaux propres",
     "balance_check": "Contrôle d'équilibre du bilan (0 = OK)", "period_end": "Date de fin de période",
     "npv_cash_flow": "Flux du projet pour la VAN", "irr_cash_flow": "Flux du projet pour le TRI",
-    "debt_service": "Service de la dette senior et refinancée", "dscr": "DSCR = CFADS / service de la dette",
+    "debt_service": "Service de la dette senior et refinancée",
+    "repayment_flag": "Année de remboursement", "dscr": "DSCR = CFADS / service de la dette",
     "dscr_below_target": "DSCR sous la cible (année de remboursement)",
 }
 
@@ -262,6 +263,7 @@ DERIVED_KPIS_EN = {
 }
 DERIVED_SERIES_EN = {
     "debt_service": "Senior + refinanced debt service", "dscr": "DSCR = CFADS / debt service",
+    "repayment_flag": "Repayment year",
     "dscr_below_target": "DSCR below target (repayment year)",
 }
 
@@ -287,6 +289,15 @@ def kpi_label(key: str, default: str, lang: str) -> str:
     if key.startswith("lot_") and key.endswith("_project_irr"):
         return f"TRI projet du lot {key.split('_')[1]} seul (expérimental)"
     return KPIS_FR.get(key, default)
+
+
+def source_label(source: str, lang: str) -> str:
+    """'derived ...' sources in the interface language."""
+    if lang == "fr" and source.startswith("derived"):
+        return "dérivé" + source[len("derived"):].replace(" from ", " de ")
+    if lang == "fr" and source == "experimental":
+        return "expérimental"
+    return source
 
 
 def series_label(key: str, default: str, lang: str) -> str:
@@ -318,7 +329,7 @@ MESSAGE_RULES_FR = [
     (r"^Exact solver: sizing differs from Excel by up to the macros' tolerance \(50,000\)\.$",
      "Solveur exact : le dimensionnement diffère d'Excel au plus de la tolérance des macros (50 000)."),
     (r"^Workbook checks not passed: (.+)$", r"Contrôles du classeur non satisfaits : \1"),
-    (r"^Derived DSCR falls to ([\d.]+)x in a repayment year, below the ([\d.]+)x target "
+    (r"^Derived DSCR falls to (-?[\d.]+)x in a repayment year, below the (-?[\d.]+)x target "
      r"\(the workbook has no DSCR covenant test\)\.$",
      r"Le DSCR dérivé descend à \1x une année de remboursement, sous la cible de \2x "
      r"(le classeur ne teste aucun covenant de DSCR)."),
@@ -339,7 +350,9 @@ MESSAGE_RULES_FR = [
      r"\1La construction doit commencer après le début du modèle."),
     (r"^(.*)Inputs!E17 is only exact for a 1-year build; consider option fix_ops_start\.$",
      r"\1Inputs!E17 n'est exact que pour une construction d'un an ; voir l'option fix_ops_start."),
-    (r"^(.*)Must be (.+)\.$", r"\1Valeur attendue : \2."),
+    (r"^(.*)Must be 1 \(USD\) or 2 \(LCY\)\.$", r"\1Valeur attendue : 1 (USD) ou 2 (monnaie locale)."),
+    (r"^(.*)Must be 1, 2 or 3\.$", r"\1Valeur attendue : 1, 2 ou 3."),
+    (r"^(.*)Must be '([^']+)' or '([^']+)'\.$", r"\1Valeur attendue : « \2 » ou « \3 »."),
     (r"^(.*)Target DSCR must be positive\.$", r"\1Le DSCR cible doit être positif."),
 ]
 

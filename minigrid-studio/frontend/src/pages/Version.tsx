@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import type { Assumptions, FieldEntry, VersionDetail } from "../api";
 import { canEdit, canReview, useApp } from "../context";
-import { formatDate, formatValue } from "../i18n";
+import { formatDate, formatValue, Lang, parseNumber } from "../i18n";
 import { href, navigate } from "../router";
 import { Alert, errorText, Loading, RunBadge, StatusBadge, useLoad, useMessage } from "../components/ui";
 
@@ -26,12 +26,15 @@ function get(obj: Assumptions, path: string): unknown {
 }
 
 /** Leaf paths of one group as the editor shows them (MoneyInput -> .value, lists -> .i). */
-function leaves(a: Assumptions, f: FieldEntry): { path: string; value: unknown; suffix: string }[] {
+function leaves(a: Assumptions, f: FieldEntry, lang: Lang): { path: string; value: unknown; suffix: string }[] {
   const v = get(a, f.path);
   if (Array.isArray(v)) return v.map((x, i) => ({ path: `${f.path}.${i}`, value: x, suffix: `[${i + 1}]` }));
   if (v && typeof v === "object" && "value" in (v as object)) {
-    const m = v as { value: number; basis: string; vat: string };
-    return [{ path: `${f.path}.value`, value: m.value, suffix: `(${m.basis}${m.vat !== "none" ? `, TVA ${m.vat}` : ""})` }];
+    const m = v as { value: number; basis: string; vat: string; lcy_value: number | null };
+    const vat = m.vat !== "none" ? `, ${lang === "fr" ? "TVA" : "VAT"} ${m.vat}` : "";
+    const out = [{ path: `${f.path}.value`, value: m.value as unknown, suffix: `(${m.basis}${vat})` }];
+    if (m.basis === "usd_and_lcy") out.push({ path: `${f.path}.lcy_value`, value: m.lcy_value, suffix: lang === "fr" ? "(monnaie locale)" : "(local currency)" });
+    return out;
   }
   return [{ path: f.path, value: v, suffix: "" }];
 }
@@ -53,6 +56,7 @@ export function VersionPage({ id }: { id: string }) {
   const [busy, setBusy] = useState(false);
   const [perLot, setPerLot] = useState(false);
   const [comment, setComment] = useState("");
+  const [invalid, setInvalid] = useState<Record<string, string>>({});
 
   const groups = useMemo(() => {
     const g: Record<string, FieldEntry[]> = {};
@@ -68,13 +72,23 @@ export function VersionPage({ id }: { id: string }) {
   const currentOpts = opts ?? v.options;
   const nChanges = Object.keys(draft).length + (lots ? 1 : 0) + (opts ? 1 : 0) + (solver ? 1 : 0);
 
-  const setValue = (path: string, raw: string, original: unknown) => {
+  const setValue = (path: string, raw: string, original: unknown, unit = "") => {
     let val: unknown = raw;
-    if (typeof original === "number" || (original === null && raw !== "" && !Number.isNaN(Number(raw)))) {
-      val = raw === "" ? null : Number(raw.replace(",", "."));
+    const bad = { ...invalid };
+    delete bad[path];
+    if (typeof original === "number" || original === null) {
+      if (raw.trim() === "") val = null;
+      else {
+        val = parseNumber(raw);
+        if (Number.isNaN(val)) { setInvalid({ ...bad, [path]: t("invalidNumber") }); return; }   // keep the last valid change
+      }
+    } else if (unit === "date" && !/^\d{4}-\d{2}-\d{2}$/.test(raw.trim())) {
+      setInvalid({ ...bad, [path]: t("invalidDate") });
+      return;
     }
+    setInvalid(bad);
     const next = { ...draft };
-    if (val === original || (typeof val === "number" && Number.isNaN(val))) delete next[path]; else next[path] = val;
+    if (val === original) delete next[path]; else next[path] = val;
     setDraft(next);
   };
 
@@ -197,7 +211,7 @@ export function VersionPage({ id }: { id: string }) {
               <div className="scroll-x">
                 <table className="data">
                   <thead><tr><th scope="col">{labels.groups[group]}</th><th scope="col" className="num">{t("value")}</th><th scope="col">{t("unit")}</th><th scope="col">{t("cell")}</th></tr></thead>
-                  <tbody>{fieldsShown.flatMap((f) => leaves(v.assumptions, f).map((leaf) => {
+                  <tbody>{fieldsShown.flatMap((f) => leaves(v.assumptions, f, lang).map((leaf) => {
                     const changed = leaf.path in draft;
                     const shown = changed ? draft[leaf.path] : leaf.value;
                     const choices = CHOICES[f.path];
@@ -215,12 +229,14 @@ export function VersionPage({ id }: { id: string }) {
                                 {choices.map((c) => <option key={c} value={c}>{c}</option>)}
                               </select>
                             ) : typeof leaf.value === "number" || leaf.value === null ? (
-                              <input className={`num ${changed ? "changed" : ""}`} inputMode="decimal" aria-label={f[lang]}
-                                defaultValue={shown === null ? "" : String(shown)} key={`${leaf.path}-${v.id}`}
-                                onBlur={(e) => setValue(leaf.path, e.target.value.trim(), leaf.value)} />
-                            ) : (
-                              <input className={changed ? "changed" : ""} aria-label={f[lang]} defaultValue={String(shown ?? "")} key={`${leaf.path}-${v.id}`}
+                              <><input className={`num ${changed ? "changed" : ""}`} inputMode="decimal" aria-label={`${f[lang]} ${leaf.suffix}`}
+                                aria-invalid={!!invalid[leaf.path]} defaultValue={shown === null ? "" : String(shown)} key={`${leaf.path}-${v.id}`}
                                 onBlur={(e) => setValue(leaf.path, e.target.value, leaf.value)} />
+                              {invalid[leaf.path] && <div className="small" role="alert" style={{ color: "var(--critical)" }}>{invalid[leaf.path]}</div>}</>
+                            ) : (
+                              <><input className={changed ? "changed" : ""} aria-label={f[lang]} defaultValue={String(shown ?? "")} key={`${leaf.path}-${v.id}`}
+                                aria-invalid={!!invalid[leaf.path]} onBlur={(e) => setValue(leaf.path, e.target.value, leaf.value, f.unit)} />
+                              {invalid[leaf.path] && <div className="small" role="alert" style={{ color: "var(--critical)" }}>{invalid[leaf.path]}</div>}</>
                             )}
                         </td>
                         <td className="small">{labels.units[f.unit] ?? f.unit}
@@ -251,12 +267,19 @@ function LotsEditor({ lots, original, editable, onChange }: {
   lots: Record<string, unknown>[]; original: Record<string, unknown>[]; editable: boolean;
   onChange: (l: Record<string, unknown>[]) => void;
 }) {
-  const { t, labels } = useApp();
+  const { t, labels, notify } = useApp();
   const set = (i: number, k: string, raw: string) => {
     const next = lots.map((l) => ({ ...l }));
-    next[i][k] = TEXT_LOT.has(k) ? raw : raw.trim() === "" ? (REQUIRED_LOT.has(k) ? 0 : null) : Number(raw.replace(",", "."));
+    if (TEXT_LOT.has(k)) next[i][k] = raw;
+    else if (raw.trim() === "") next[i][k] = REQUIRED_LOT.has(k) ? 0 : null;     // empty optional field: inherit
+    else {
+      const n = parseNumber(raw);
+      if (Number.isNaN(n)) { notify(`${labels.fields[`lots.<i>.${k}`] ?? k} : ${t("invalidNumber")} (« ${raw} »)`, "error"); return; }
+      next[i][k] = n;
+    }
     onChange(next);
   };
+  const before = (l: Record<string, unknown>, i: number) => original.find((o) => o.name === l.name) ?? original[i];
   return (
     <>
       <p className="small muted">{t("lotsNote")}</p>
@@ -270,7 +293,8 @@ function LotsEditor({ lots, original, editable, onChange }: {
             <tr key={k}>
               <th scope="row" style={{ fontWeight: 400 }}>{labels.fields[`lots.<i>.${k}`] ?? k}</th>
               {lots.map((l, i) => {
-                const changed = original[i] === undefined || original[i][k] !== l[k];
+                const o = before(l, i);
+                const changed = o === undefined || o[k] !== l[k];
                 return (
                   <td key={i}>{editable
                     ? <input className={`${TEXT_LOT.has(k) ? "" : "num"} ${changed ? "changed" : ""}`} style={{ width: 120 }}

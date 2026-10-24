@@ -191,6 +191,10 @@ const dict = {
   engineVersion: { fr: "Version du moteur", en: "Engine version" },
   provenance: { fr: "Origine", en: "Provenance" },
   parent: { fr: "Version parente", en: "Parent version" },
+  invalidNumber: { fr: "Nombre non reconnu", en: "Number not recognised" },
+  invalidDate: { fr: "Date attendue au format AAAA-MM-JJ", en: "Date expected as YYYY-MM-DD" },
+  vat: { fr: "TVA", en: "VAT" },
+  lotIrr: { fr: "TRI projet du lot {n} seul (expérimental)", en: "Project IRR of lot {n} alone (experimental)" },
 } as const;
 
 export type Key = keyof typeof dict;
@@ -205,8 +209,18 @@ export function allKeysTranslated(): boolean {
 
 const locale = (lang: Lang) => (lang === "fr" ? "fr-FR" : "en-GB");
 
+/** Parse a number typed in French or English ("1 600,5", "1,600.5", "0.45"); NaN if not a number. */
+export function parseNumber(raw: string): number {
+  let s = raw.trim().replace(/[\s\u00a0\u202f]/g, "");
+  if (s === "") return NaN;
+  if (s.includes(",") && s.includes(".")) s = s.lastIndexOf(",") > s.lastIndexOf(".") ? s.replace(/\./g, "").replace(",", ".") : s.replace(/,/g, "");
+  else s = s.replace(",", ".");
+  return /^[+-]?(\d+\.?\d*|\.\d+)(e[+-]?\d+)?$/i.test(s) ? Number(s) : NaN;
+}
+
 export function formatValue(value: number | null | undefined, unit: string, lang: Lang): string {
   if (value === null || value === undefined || Number.isNaN(value)) return "n/a";
+  if (Math.abs(value) < 0.005 && !unit.startsWith("%") && unit !== "x") value = 0;   // no "-0,00"
   if (unit.startsWith("%")) return new Intl.NumberFormat(locale(lang), { style: "percent", maximumFractionDigits: 2 }).format(value);
   if (unit === "x") return `${new Intl.NumberFormat(locale(lang), { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(value)} x`;
   if (unit === "year") return String(value);

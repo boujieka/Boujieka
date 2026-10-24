@@ -130,22 +130,49 @@ def _cell_xml(attrs: str, value) -> str:
         return f"<c{attrs}><v>{(value - EXCEL_EPOCH).days}</v></c>"
     if isinstance(value, (int, float)):
         return f"<c{attrs}><v>{repr(float(value)) if isinstance(value, float) else value}</v></c>"
-    return f'<c{attrs} t="inlineStr"><is><t xml:space="preserve">{escape(str(value))}</t></is></c>'
+    text = escape(_XML_ILLEGAL.sub("", str(value)))
+    return f'<c{attrs} t="inlineStr"><is><t xml:space="preserve">{text}</t></is></c>'
+
+
+_CELL_TAG = re.compile(r"<c\b[^>]*>")
+_REF = re.compile(r'\br="([A-Z]{1,3}[0-9]{1,7})"')
+_XML_ILLEGAL = re.compile("[\x00-\x08\x0b\x0c\x0e-\x1f\ufffe\uffff]")
 
 
 def _patch_sheet(xml: str, cells: dict[str, object], sheet: str, problems: list[str]) -> str:
+    """Rewrite the given cells. The sheet is scanned once (linear time) to index its cell tags; edits are then
+    applied from the end of the text so earlier offsets stay valid."""
+    index: dict[str, list[re.Match]] = {}
+    for m in _CELL_TAG.finditer(xml):
+        r = _REF.search(m.group(0))
+        if r and r.group(1) in cells:
+            index.setdefault(r.group(1), []).append(m)
+    edits = []
     for addr, value in cells.items():
-        m = re.search(r'<c\b((?:(?!/?>)[^>])*?\br="%s"(?:(?!/?>)[^>])*)(/?)>' % addr, xml)
-        if m is None:
-            problems.append(f"{sheet}!{addr}: cell not found in the template")
+        found = index.get(addr, [])
+        if len(found) != 1:
+            problems.append(f"{sheet}!{addr}: " + ("cell not found in the template" if not found
+                                                    else "cell appears more than once in the sheet XML"))
             continue
-        start, attrs = m.start(), m.group(1)
-        end = m.end() if m.group(2) else xml.index("</c>", m.end()) + 4
+        m = found[0]
+        tag = m.group(0)
+        self_closing = tag.endswith("/>")
+        attrs = tag[2:-2] if self_closing else tag[2:-1]
+        if self_closing:
+            end = m.end()
+        else:
+            close = xml.find("</c>", m.end())
+            if close < 0:
+                problems.append(f"{sheet}!{addr}: malformed cell")
+                continue
+            end = close + 4
         inner = xml[m.end():end]
         if re.search(r'<f\b[^>]*\bt="shared"[^>]*\bref="', inner):
             problems.append(f"{sheet}!{addr}: holds the master of a shared formula; type the value in Excel instead")
             continue
-        xml = xml[:start] + _cell_xml(attrs, value) + xml[end:]
+        edits.append((m.start(), end, _cell_xml(attrs, value)))
+    for start, end, text in sorted(edits, reverse=True):
+        xml = xml[:start] + text + xml[end:]
     return xml
 
 
@@ -156,7 +183,7 @@ def fill_template(template: bytes, a: A.Assumptions, pasted: dict[str, float | N
         try:
             tpl = load_assumptions(tmp)
         except Exception as exc:  # noqa: BLE001
-            raise TemplateMismatch([f"not a CrossBoundary-format workbook: {type(exc).__name__}: {exc}"]) from exc
+            raise TemplateMismatch(["not a CrossBoundary-format workbook (sheets or input cells not found)"]) from exc
         cells, problems = _cells_for(a, tpl)
         for key, ref in PASTED_CELLS.items():
             if pasted.get(key) is not None:
@@ -165,13 +192,21 @@ def fill_template(template: bytes, a: A.Assumptions, pasted: dict[str, float | N
         for ref, v in cells.items():
             sh, addr = ref.split("!")
             by_sheet.setdefault(sh, {})[addr] = v
-        paths = _sheet_paths(z)
+        try:
+            paths = _sheet_paths(z)
+        except (KeyError, AttributeError, UnicodeDecodeError) as exc:
+            raise TemplateMismatch(["workbook structure not recognised"]) from exc
         patched = {}
         for sh, cs in by_sheet.items():
             if sh not in paths:
                 problems.append(f"sheet {sh} not found")
                 continue
-            patched[paths[sh]] = _patch_sheet(z.read(paths[sh]).decode("utf-8"), cs, sh, problems)
+            try:
+                xml = z.read(paths[sh]).decode("utf-8")
+            except (KeyError, UnicodeDecodeError):
+                problems.append(f"sheet {sh}: unreadable")
+                continue
+            patched[paths[sh]] = _patch_sheet(xml, cs, sh, problems)
         if problems:
             raise TemplateMismatch(problems)
         wb = z.read("xl/workbook.xml").decode("utf-8")

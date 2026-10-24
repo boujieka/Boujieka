@@ -75,7 +75,7 @@ await page.locator("a", { hasText: "← " }).first().click();
 await page.getByRole("tab", { name: "Dette senior" }).click();
 const dscr = page.getByLabel("DSCR cible", { exact: true });
 const before = Number((await dscr.inputValue()).replace(",", "."));
-await dscr.fill(String(Math.round((before + 0.1) * 100) / 100));
+await dscr.fill(String(Math.round((before + 0.1) * 100) / 100).replace(".", ","));   // French decimal comma
 await dscr.blur();
 await page.getByRole("button", { name: "Enregistrer comme nouvelle version" }).click();
 const v1Url = page.url();

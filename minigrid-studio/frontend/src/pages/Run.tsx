@@ -53,7 +53,8 @@ export function RunPage({ id }: { id: string }) {
   const sl = (k: string) => (series[k]?.values ?? []).slice(a, b + 1);
   const short = (k: string) => SHORT[k]?.[lang === "fr" ? 0 : 1] ?? k;
   const sLabel = (k: string) => labels.series[k] ?? series[k]?.label ?? k;
-  const kLabel = (k: string) => labels.kpis[k] ?? (k.startsWith("lot_") ? kpis[k]?.label : undefined) ?? kpis[k]?.label ?? k;
+  const lotMatch = (k: string) => /^lot_(\d+)_project_irr$/.exec(k);
+  const kLabel = (k: string) => labels.kpis[k] ?? (lotMatch(k) ? t("lotIrr").replace("{n}", lotMatch(k)![1]) : undefined) ?? kpis[k]?.label ?? k;
   const unitLabel = (u: string) => labels.units[u] ?? u;
   const target = version.assumptions?.debt?.target_dscr as number | undefined;
 
@@ -79,7 +80,7 @@ export function RunPage({ id }: { id: string }) {
             <div className="kpi" key={k}>
               <div className="l">{kLabel(k)}</div>
               <div className="v">{formatValue(kpis[k].value, kpis[k].unit, lang)}</div>
-              <div className="s">{kpis[k].derived ? t("derived") : kpis[k].source}</div>
+              <div className="s">{kpis[k].experimental ? t("experimental") : kpis[k].derived ? t("derived") : kpis[k].source}</div>
             </div>
           ))}
         </div>
@@ -124,7 +125,9 @@ export function RunPage({ id }: { id: string }) {
             series={["senior_debt_balance", "refi_debt_balance", "dsra_balance"].map((k) => ({ key: k, label: short(k), values: sl(k) }))} />
           <LineChart title={t("chart_dscr")} years={years} unit="x" lang={lang} tableLabel={[t("showTable"), t("hideTable")]}
             reference={target ? { value: target, label: t("target") } : undefined}
-            series={[{ key: "dscr", label: "DSCR", values: sl("dscr") }]} />
+            cap={Math.max(3 * (target ?? 1), 3)} offScaleLabel={lang === "fr" ? "hors échelle :" : "off scale:"}
+            series={[{ key: "dscr", label: "DSCR", values: series.repayment_flag
+              ? sl("dscr").map((d, i) => (sl("repayment_flag")[i] ? d : null)) : sl("dscr") }]} />
         </div>
 
         <h2>{t("financials")}</h2>
@@ -156,7 +159,7 @@ export function RunPage({ id }: { id: string }) {
                 <th scope="row" style={{ fontWeight: 400 }}>{kLabel(k)}</th>
                 <td className="num">{formatValue(i.value, i.unit, lang)}</td>
                 <td className="small">{unitLabel(i.unit)}</td>
-                <td className="small">{i.source.startsWith("derived") ? t("derived") : <span className="mono">{i.source}</span>}
+                <td className="small">{i.source.startsWith("derived") ? t("derived") : i.source === "experimental" ? t("experimental") : <span className="mono">{i.source}</span>}
                   {i.derived && !i.source.startsWith("derived") && <> · {t("derived")}</>}{i.experimental && <> · <strong>{t("experimental")}</strong></>}</td>
               </tr>
             ))}</tbody>

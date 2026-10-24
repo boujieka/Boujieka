@@ -13,6 +13,7 @@ import datetime as dt
 import io
 
 from openpyxl import Workbook
+from openpyxl.cell.cell import ILLEGAL_CHARACTERS_RE
 from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
 
@@ -30,13 +31,13 @@ T = {
     "fr": dict(readme="Lisez-moi", kpis="Indicateurs", annual="Annuel", assumptions="Hypothèses", lots="Lots",
                checks="Contrôles", alerts="Alertes", key="Clé", label="Libellé", value="Valeur moteur", unit="Unité",
                source="Source (classeur)", status="Statut", recalc="Recalcul Excel", gap="Écart", anchor="Ancrage",
-               path="Chemin", cell="Cellule", doc="Note", recalc_title="Recalcul par formules Excel (contrôle)",
+               path="Chemin", cell="Cellule", input="Valeur", doc="Note", recalc_title="Recalcul par formules Excel (contrôle)",
                total_gap="Écart absolu total", ok="OK", fail="ÉCHEC", derived="dérivé", experimental="expérimental",
                none="Aucune"),
     "en": dict(readme="ReadMe", kpis="KPIs", annual="Annual", assumptions="Assumptions", lots="Lots",
                checks="Checks", alerts="Warnings", key="Key", label="Label", value="Engine value", unit="Unit",
                source="Source (workbook)", status="Status", recalc="Excel recalculation", gap="Gap", anchor="Anchor",
-               path="Path", cell="Cell", doc="Note", recalc_title="Recalculated with Excel formulas (audit)",
+               path="Path", cell="Cell", input="Value", doc="Note", recalc_title="Recalculated with Excel formulas (audit)",
                total_gap="Total absolute gap", ok="OK", fail="FAIL", derived="derived", experimental="experimental",
                none="None"),
 }
@@ -95,9 +96,16 @@ def _flatten(d, prefix=""):
 
 
 def build_studio_workbook(*, project: dict, version: dict, run: dict, lang: str = "fr") -> bytes:
+    project, version, run = _clean(project), _clean(version), _clean(run)
     t, lab = T[lang], labels(lang)
     res = run["result"]
     wb = Workbook()
+    generated: set[tuple[str, str]] = set()
+
+    def formula(ws, row, col, text):
+        c = ws.cell(row, col, text)
+        generated.add((ws.title, c.coordinate))
+        return c
 
     # ---- ReadMe
     ws = wb.active
@@ -128,7 +136,7 @@ def build_studio_workbook(*, project: dict, version: dict, run: dict, lang: str 
     # ---- Assumptions (written first so formulas can reference the WACC)
     wa = wb.create_sheet(t["assumptions"])
     entries = {e["path"]: e for e in field_entries()}
-    for c, h in enumerate((t["path"], t["label"], t["value"].split()[0], t["unit"], t["cell"], t["doc"]), 1):
+    for c, h in enumerate((t["path"], t["label"], t["input"], t["unit"], t["cell"], t["doc"]), 1):
         wa.cell(1, c, h).font = HEAD
         wa.cell(1, c).fill = HEAD_FILL
     wacc_ref = None
@@ -139,14 +147,27 @@ def build_studio_workbook(*, project: dict, version: dict, run: dict, lang: str 
         if len(parts) > 2:
             base = ".".join(parts[:2])
         e = entries.get(base, {})
+        sub = parts[2] if len(parts) > 2 and not parts[2].isdigit() else ""
+        unit, cell_ref = e.get("unit", ""), e.get("cell", "")
+        if sub in ("basis", "vat"):          # MoneyInput descriptors: no unit, same workbook row
+            unit = ""
+        elif sub == "lcy_value" and cell_ref.startswith("Currency!H"):
+            cell_ref = "Currency!I" + cell_ref[len("Currency!H"):]
+        if unit == "date" and isinstance(value, str):
+            try:
+                value = dt.date.fromisoformat(value[:10])
+            except ValueError:
+                pass
         wa.cell(r, 1, path)
-        wa.cell(r, 2, lab["fields"].get(base, ""))
+        wa.cell(r, 2, lab["fields"].get(base, "") + (f" ({sub})" if sub else ""))
         cell = wa.cell(r, 3, value)
         cell.font = INPUT_FONT
-        if isinstance(value, (int, float)) and "%" in e.get("unit", ""):
+        if isinstance(value, dt.date):
+            cell.number_format = "dd/mm/yyyy"
+        elif isinstance(value, (int, float)) and unit.startswith("%"):
             cell.number_format = "0.00%"
-        wa.cell(r, 4, e.get("unit", ""))
-        wa.cell(r, 5, e.get("cell", ""))
+        wa.cell(r, 4, unit)
+        wa.cell(r, 5, cell_ref)
         wa.cell(r, 6, e.get("doc", ""))
         if path == "funding.wacc":
             wacc_ref = f"'{t['assumptions']}'!$C${r}"
@@ -207,12 +228,12 @@ def build_studio_workbook(*, project: dict, version: dict, run: dict, lang: str 
         for j in range(n):
             col = get_column_letter(FIRST_YEAR_COL + j)
             f = expr.format(**{k: f"{col}{row_of[k]}" for k in needed})
-            c = wn.cell(r, FIRST_YEAR_COL + j, f"={f}")
+            c = formula(wn, r, FIRST_YEAR_COL + j, f"={f}")
             c.font = FORMULA_FONT
             c.number_format = _fmt(series[key]["unit"])
         rng_new = f"{get_column_letter(FIRST_YEAR_COL)}{r}:{last_col}{r}"
         rng_eng = f"{get_column_letter(FIRST_YEAR_COL)}{row_of[key]}:{last_col}{row_of[key]}"
-        wn.cell(r, 5, f"=SUMPRODUCT(ABS({rng_new}-{rng_eng}))").number_format = "0.000E+00"
+        formula(wn, r, 5, f"=SUMPRODUCT(ABS({rng_new}-{rng_eng}))").number_format = "0.000E+00"
         recalc_rows[key] = r
         r += 1
     wn.column_dimensions["A"].width = 24
@@ -250,8 +271,8 @@ def build_studio_workbook(*, project: dict, version: dict, run: dict, lang: str 
         wk.cell(i, 5, k["source"])
         wk.cell(i, 6, t["experimental"] if k.get("experimental") else t["derived"] if k.get("derived") else "")
         if key in formulas:
-            wk.cell(i, 7, formulas[key]).number_format = _fmt(k["unit"])
-            wk.cell(i, 8, f"=G{i}-C{i}").number_format = "0.000E+00"
+            formula(wk, i, 7, formulas[key]).number_format = _fmt(k["unit"])
+            formula(wk, i, 8, f"=G{i}-C{i}").number_format = "0.000E+00"
     for col, w in zip("ABCDEFGH", (30, 52, 18, 18, 30, 14, 18, 14)):
         wk.column_dimensions[col].width = w
 
@@ -287,9 +308,30 @@ def build_studio_workbook(*, project: dict, version: dict, run: dict, lang: str 
         ww.cell(i, 1, w).alignment = Alignment(wrap_text=True)
     ww.column_dimensions["A"].width = 120
 
+    # Only the formulas written above may be formulas: any other text that Excel would read as one
+    # (a lot or project name starting with '=', '+', '-', '@') is forced to plain text.
+    for ws in wb.worksheets:
+        for row in ws.iter_rows():
+            for c in row:
+                if isinstance(c.value, str):
+                    if (ws.title, c.coordinate) in generated:
+                        continue
+                    if c.data_type == "f" or c.value[:1] in ("=", "+", "-", "@", "\t", "\r"):
+                        c.data_type = "s"
     out = io.BytesIO()
     wb.save(out)
     return out.getvalue()
+
+
+def _clean(o):
+    """Drop characters that are illegal in worksheet XML from every text (user names, notes)."""
+    if isinstance(o, str):
+        return ILLEGAL_CHARACTERS_RE.sub("", o)
+    if isinstance(o, dict):
+        return {k: _clean(v) for k, v in o.items()}
+    if isinstance(o, list):
+        return [_clean(v) for v in o]
+    return o
 
 
 def _names(expr: str) -> list[str]:

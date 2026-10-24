@@ -20,7 +20,15 @@ export function ComparePage() {
     return active.length ? [active[0], active[active.length - 1]] : [0, n - 1];
   }, [data]);
 
-  const name = (i: number) => data ? `${data.runs[i].scenario} v${data.runs[i].version}` : "";
+  // unique names: project shown when runs come from several projects, #n when the same version appears twice
+  const name = (i: number) => {
+    if (!data) return "";
+    const r = data.runs[i];
+    const multi = new Set(data.runs.map((x) => x.project)).size > 1;
+    const base = `${multi ? `${r.project} · ` : ""}${r.scenario} v${r.version}`;
+    const same = data.runs.filter((x) => x.project === r.project && x.scenario === r.scenario && x.version === r.version).length > 1;
+    return same ? `${base} #${i + 1}` : base;
+  };
   return (
     <section>
       <div className="row"><h1 className="grow">{t("compareTitle")}</h1>

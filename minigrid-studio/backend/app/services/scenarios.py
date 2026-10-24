@@ -4,6 +4,8 @@ from __future__ import annotations
 import dataclasses
 import hashlib
 import json
+import math
+import re
 import time
 from pathlib import Path
 
@@ -74,6 +76,9 @@ def apply_changes(base: dict, changes: dict) -> dict:
     return to_dict(a)
 
 
+CONTROL_CHARS = re.compile(r"[\x00-\x1f\x7f]")
+
+
 def _parse_lots(lots) -> list[dict]:
     import dataclasses
     from ..engine.assumptions import LOT_COLUMNS, Lot
@@ -93,11 +98,11 @@ def _parse_lots(lots) -> list[dict]:
                     raise HTTPException(422, f"lots.{i}.{name} is required")
                 clean[name] = None
             elif name in ("name", "country"):
-                if not isinstance(v, str) or len(v) > 100:
-                    raise HTTPException(422, f"lots.{i}.{name} must be text (100 characters at most)")
+                if not isinstance(v, str) or len(v) > 100 or CONTROL_CHARS.search(v):
+                    raise HTTPException(422, f"lots.{i}.{name} must be text (100 characters at most, no control characters)")
                 clean[name] = v
-            elif isinstance(v, bool) or not isinstance(v, (int, float)):
-                raise HTTPException(422, f"lots.{i}.{name} must be a number")
+            elif isinstance(v, bool) or not isinstance(v, (int, float)) or not math.isfinite(v):
+                raise HTTPException(422, f"lots.{i}.{name} must be a finite number")
             else:
                 clean[name] = v
         out.append(clean)

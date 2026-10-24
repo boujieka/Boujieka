@@ -39,7 +39,7 @@ def _context(db: Session, caller: Caller, run_id: str):
 
 
 def _filename(project: dict, version: dict, ext: str) -> str:
-    base = "".join(c if c.isalnum() or c in "-_" else "-" for c in f"{project['name']}-{version['scenario']}-v{version['version']}")
+    base = "".join(c if (c.isascii() and c.isalnum()) or c in "-_" else "-" for c in f"{project['name']}-{version['scenario']}-v{version['version']}")
     return f"{base[:80]}.{ext}"
 
 
@@ -132,13 +132,17 @@ def compare(body: CompareIn, caller: Caller = Depends(current_caller), db: Sessi
         kpis[k] = {"label": kpi_label(k, first.get("label", k), body.lang), "unit": first.get("unit", ""),
                    "source": first.get("source", ""), "values": vals,
                    "deltas": [None if v is None or base is None else v - base for v in vals]}
+    # series are aligned on calendar years (runs may start in different years)
+    years = sorted({int(y) for r, *_ in ctx for y in r.result["series"]["year"]["values"]})
     series = {}
     for k in COMPARE_SERIES:
         if all(k in r.result.get("series", {}) for r, *_ in ctx):
             s0 = ctx[0][0].result["series"][k]
-            series[k] = {"label": series_label(k, s0["label"], body.lang), "unit": s0["unit"],
-                         "values": [r.result["series"][k]["values"] for r, *_ in ctx]}
-    years = ctx[0][0].result["series"]["year"]["values"]
+            aligned = []
+            for r, *_ in ctx:
+                by_year = dict(zip((int(y) for y in r.result["series"]["year"]["values"]), r.result["series"][k]["values"]))
+                aligned.append([by_year.get(y) for y in years])
+            series[k] = {"label": series_label(k, s0["label"], body.lang), "unit": s0["unit"], "values": aligned}
     flats = [dict(_flat(ver["assumptions"])) for _r, _p, _proj, ver, _run in ctx]
     paths = []
     for f in flats:

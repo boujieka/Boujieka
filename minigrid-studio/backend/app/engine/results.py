@@ -148,6 +148,8 @@ def _derived(a: Assumptions, L: Ledger) -> tuple[dict, dict]:
     repaying = [t for t in range(T) if v["Debt!23"][t] == 1 and ds[t] > 1e-9]
     grace = [t for t in range(T) if v["Debt!22"][t] == 1 and ds[t] > 1e-9]
     kp, se = {}, {}
+    se["repayment_flag"] = Series([1 if t in repaying else 0 for t in range(T)], "flag",
+                                  "Repayment year with debt service (Debt!23)", "Debt!23", True)
     se["debt_service"] = Series(ds, "currency", "Senior + refinanced debt service (positive)",
                                 "-(Model!305 + 306 + 310 + 311)", True)
     se["dscr"] = Series(dscr, "x", "DSCR = CFADS / (senior + refinanced debt service)", "Model!291 / Model!305:311", True)
