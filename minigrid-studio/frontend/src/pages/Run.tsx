@@ -33,7 +33,7 @@ export function activeWindow(series: Record<string, Series>): [number, number] {
 }
 
 export function RunPage({ id }: { id: string }) {
-  const { api, t, lang, labels, notify, compareRuns, setCompareRuns } = useApp();
+  const { api, t, lang, labels, notify, compareRuns, setCompareRuns, demo } = useApp();
   const msg = useMessage();
   const [run] = useLoad(() => api.getRun(id), [api, id]);
   const [version] = useLoad(() => (run ? api.version(run.version_id) : Promise.resolve(undefined)), [api, run?.version_id]);
@@ -94,13 +94,13 @@ export function RunPage({ id }: { id: string }) {
         <div className="card no-print">
           <h2 style={{ marginTop: 0 }}>{t("exports")}</h2>
           <div className="row">
-            <button onClick={() => download("pdf", () => api.exportPdf(r.id, lang))} disabled={!!busy}>{busy === "pdf" ? t("downloading") : t("exportPdf")}</button>
+            <button onClick={() => download("pdf", () => api.exportPdf(r.id, lang))} disabled={!!busy}>{busy === "pdf" ? t("downloading") : t(demo ? "printPdf" : "exportPdf")}</button>
             <button onClick={() => download("xlsx", () => api.exportXlsx(r.id, lang))} disabled={!!busy}>{busy === "xlsx" ? t("downloading") : t("exportXlsx")}</button>
             <button onClick={() => download("csv", () => api.exportCsv(r.id))} disabled={!!busy}>{busy === "csv" ? t("downloading") : t("exportCsv")}</button>
             {compareRuns.includes(r.id) ? <span className="small muted">{t("inCompare")}</span>
               : <button disabled={compareRuns.length >= 4} onClick={() => setCompareRuns([...compareRuns, r.id])}>{t("addToCompare")}</button>}
           </div>
-          {r.status === "reconciled-engine" && <>
+          {r.status === "reconciled-engine" && !demo && <>
             <h3>{t("exportCb")}</h3>
             <p className="small muted">{t("exportCbNote")}</p>
             <input ref={fileRef} type="file" accept=".xlsm,.xlsx" hidden onChange={(e) => {

@@ -191,6 +191,18 @@ const dict = {
   engineVersion: { fr: "Version du moteur", en: "Engine version" },
   provenance: { fr: "Origine", en: "Provenance" },
   parent: { fr: "Version parente", en: "Parent version" },
+  demoTitle: { fr: "Démo dans le navigateur.", en: "In-browser demo." },
+  demoNote: {
+    fr: "Le moteur de calcul (le même que sur le serveur) tourne dans votre navigateur. Données fictives, enregistrées dans ce navigateur seulement ; pas de comptes, pas de revue à plusieurs, pas d'import de classeur ni d'export au format CrossBoundary. Le rapport PDF passe par l'impression du navigateur.",
+    en: "The calculation engine (the same as on the server) runs in your browser. Fictitious data, saved in this browser only; no accounts, no multi-person review, no workbook import or CrossBoundary-format export. The PDF report uses the browser's print dialog.",
+  },
+  demoLoading: {
+    fr: "Chargement du moteur de calcul dans le navigateur (environ 13 Mo à la première visite)…",
+    en: "Loading the calculation engine in the browser (about 13 MB on the first visit)…",
+  },
+  demoReset: { fr: "Effacer les données de la démo", en: "Erase the demo data" },
+  demoResetConfirm: { fr: "Effacer tous les projets et calculs de la démo dans ce navigateur ?", en: "Erase all demo projects and runs in this browser?" },
+  printPdf: { fr: "Imprimer / enregistrer en PDF", en: "Print / save as PDF" },
   invalidNumber: { fr: "Nombre non reconnu", en: "Number not recognised" },
   invalidDate: { fr: "Date attendue au format AAAA-MM-JJ", en: "Date expected as YYYY-MM-DD" },
   vat: { fr: "TVA", en: "VAT" },

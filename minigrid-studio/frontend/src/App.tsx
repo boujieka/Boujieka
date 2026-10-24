@@ -11,6 +11,10 @@ import { VersionPage } from "./pages/Version";
 import { RunPage } from "./pages/Run";
 import { ComparePage } from "./pages/Compare";
 import { AdminPage } from "./pages/Admin";
+import { DemoApi } from "./demo/DemoApi";
+
+export const DEMO = import.meta.env.VITE_DEMO === "1";
+const demoApi = DEMO ? new DemoApi() : null;
 
 const storage = {
   get: (k: string) => { try { return sessionStorage.getItem(k); } catch { return null; } },
@@ -24,7 +28,7 @@ const prefLang = (): Lang => {
 export default function App() {
   const route = useRoute();
   const [lang, setLangState] = useState<Lang>(prefLang);
-  const [token, setToken] = useState<string | null>(() => storage.get("mgs-token"));
+  const [token, setToken] = useState<string | null>(() => (DEMO ? "demo" : storage.get("mgs-token")));
   const [me, setMe] = useState<Me | null>(null);
   const [labels, setLabels] = useState<Labels | null>(null);
   const [fields, setFields] = useState<FieldEntry[]>([]);
@@ -37,7 +41,7 @@ export default function App() {
     setMe(null);
     if (expired) setToast({ text: t("sessionExpired", lang), kind: "info" });
   }, [lang]);
-  const api = useMemo(() => new Api(token, () => signOut(true)), [token, signOut]);
+  const api = useMemo(() => demoApi ?? new Api(token, () => signOut(true)), [token, signOut]);
   const notify = useCallback((text: string, kind: "error" | "info" = "info") => setToast({ text, kind }), []);
   const setLang = (l: Lang) => {
     setLangState(l);
@@ -85,7 +89,7 @@ export default function App() {
     return <main className="main" style={{ margin: "0 auto", maxWidth: 520 }}>
       <div className="row"><h1 className="grow">{t("title", lang)}</h1>{langSwitch}</div>
       <p className="disclaimer">{t("disclaimer", lang)}</p>
-      {!token ? <LoginPage lang={lang} onToken={onToken} /> : <p className="muted">{t("loading", lang)}</p>}
+      {!token ? <LoginPage lang={lang} onToken={onToken} /> : <p className="muted" aria-live="polite">{t(DEMO ? "demoLoading" : "loading", lang)}</p>}
       {toastEl}
     </main>;
   }
@@ -108,7 +112,7 @@ export default function App() {
   }
 
   return (
-    <AppContext.Provider value={{ api, me, lang, labels, fields, notify, compareRuns, setCompareRuns }}>
+    <AppContext.Provider value={{ api, me, lang, labels, fields, notify, compareRuns, setCompareRuns, demo: DEMO }}>
       <div className="shell">
         <nav className="side" aria-label="Navigation">
           <div className="brand">{t("title", lang)}</div>
@@ -120,11 +124,19 @@ export default function App() {
             {me.memberships.map((m) => `${m.organization} · ${t(`role_${m.role}` as Key, lang)}`).join(", ")}</div>
           <div className="row" style={{ marginTop: 8 }}>
             {langSwitch}
-            <button onClick={() => { api.logout().catch(() => undefined); signOut(); }}>{t("logout", lang)}</button>
+            {!DEMO && <button onClick={() => { api.logout().catch(() => undefined); signOut(); }}>{t("logout", lang)}</button>}
           </div>
         </nav>
         <main className="main">
           <p className="disclaimer">{t("disclaimer", lang)}</p>
+          {DEMO && (
+            <Alert kind="info">
+              <strong>{t("demoTitle", lang)}</strong> {t("demoNote", lang)}{" "}
+              <button className="link" onClick={() => {
+                if (window.confirm(t("demoResetConfirm", lang))) { demoApi!.reset(); setCompareRuns([]); window.location.hash = "#/projects"; window.location.reload(); }
+              }}>{t("demoReset", lang)}</button>
+            </Alert>
+          )}
           {page}
         </main>
       </div>

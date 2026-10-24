@@ -1,4 +1,5 @@
-# Static landing page of Mini-Grid Financial Model Studio (no build step).
+# Landing page (/) and in-browser demo (/app/) of Mini-Grid Financial Model Studio. No build step:
+# /app/ is produced by tools/web_demo/build.sh (frontend in demo mode + Pyodide assets).
 [build]
   publish = "."
 
@@ -9,4 +10,24 @@
     X-Frame-Options = "DENY"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/"
+  [headers.values]
     Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"
+
+# The demo runs Python compiled to WebAssembly: 'wasm-unsafe-eval' is required, nothing is fetched from another origin.
+[[headers]]
+  for = "/app/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"
+
+[[headers]]
+  for = "/app/pyodide/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

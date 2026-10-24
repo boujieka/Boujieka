@@ -11,6 +11,7 @@ export interface AppState {
   fields: FieldEntry[];
   notify: (message: string, kind?: "error" | "info") => void;
   compareRuns: string[];
+  demo: boolean;
   setCompareRuns: (ids: string[]) => void;
 }
 

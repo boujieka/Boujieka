@@ -15,7 +15,7 @@ from ..models import Role, ScenarioVersion
 from ..security import Caller, current_caller
 from ..services import audit
 from ..exports.crossboundary import TemplateMismatch, fill_template
-from ..exports.labels import kpi_label, labels, series_label
+from ..exports.compare import compare_runs
 from ..exports.pdf_report import build_pdf_report
 from ..exports.xlsx_studio import build_studio_workbook
 from .scenarios import _check_zip, _run
@@ -98,60 +98,11 @@ class CompareIn(BaseModel):
     lang: Lang = "fr"
 
 
-COMPARE_SERIES = ["revenue", "ebitda", "cfads", "debt_service", "dscr", "senior_debt_balance", "project_cash_flow",
-                  "distributions"]
-
-
-def _flat(d, prefix=""):
-    if isinstance(d, dict):
-        for k, v in d.items():
-            yield from _flat(v, f"{prefix}{k}.")
-    elif isinstance(d, list):
-        for i, v in enumerate(d):
-            yield from _flat(v, f"{prefix}{i}.")
-    else:
-        yield prefix[:-1], d
-
-
 @router.post("/compare")
 def compare(body: CompareIn, caller: Caller = Depends(current_caller), db: Session = Depends(get_db)):
     """Indicators, key series and differing assumptions of 2 to 4 runs (the first is the base)."""
-    ctx = [_context(db, caller, rid) for rid in body.run_ids]
-    lab = labels(body.lang)
-    runs = [{"run_id": r.id, "project": proj["name"], "scenario": ver["scenario"], "version": ver["version"],
-             "status": r.status, "version_status": ver["status"], "options": r.result.get("options", []),
-             "solver": r.result.get("solver", {}).get("method")} for r, _p, proj, ver, _run in ctx]
-    keys = []
-    for r, *_ in ctx:
-        keys += [k for k in r.result.get("kpis", {}) if k not in keys]
-    kpis = {}
-    for k in keys:
-        vals = [r.result["kpis"].get(k, {}).get("value") for r, *_ in ctx]
-        first = next((r.result["kpis"][k] for r, *_ in ctx if k in r.result["kpis"]), {})
-        base = vals[0]
-        kpis[k] = {"label": kpi_label(k, first.get("label", k), body.lang), "unit": first.get("unit", ""),
-                   "source": first.get("source", ""), "values": vals,
-                   "deltas": [None if v is None or base is None else v - base for v in vals]}
-    # series are aligned on calendar years (runs may start in different years)
-    years = sorted({int(y) for r, *_ in ctx for y in r.result["series"]["year"]["values"]})
-    series = {}
-    for k in COMPARE_SERIES:
-        if all(k in r.result.get("series", {}) for r, *_ in ctx):
-            s0 = ctx[0][0].result["series"][k]
-            aligned = []
-            for r, *_ in ctx:
-                by_year = dict(zip((int(y) for y in r.result["series"]["year"]["values"]), r.result["series"][k]["values"]))
-                aligned.append([by_year.get(y) for y in years])
-            series[k] = {"label": series_label(k, s0["label"], body.lang), "unit": s0["unit"], "values": aligned}
-    flats = [dict(_flat(ver["assumptions"])) for _r, _p, _proj, ver, _run in ctx]
-    paths = []
-    for f in flats:
-        paths += [k for k in f if k not in paths]
-    diffs = []
-    for path in paths:
-        vals = [f.get(path) for f in flats]
-        if any(v != vals[0] for v in vals[1:]):
-            parts = path.split(".")
-            key = f"lots.<i>.{parts[2]}" if parts[0] == "lots" and len(parts) > 2 else ".".join(parts[:2])
-            diffs.append({"path": path, "label": lab["fields"].get(key, path), "values": vals})
-    return {"runs": runs, "years": years, "kpis": kpis, "series": series, "assumption_diffs": diffs[:500]}
+    items = []
+    for rid in body.run_ids:
+        r, _p, proj, ver, run = _context(db, caller, rid)
+        items.append({"run": run, "project": proj["name"], "version": ver})
+    return compare_runs(items, body.lang)

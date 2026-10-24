@@ -71,3 +71,19 @@ messages du moteur traduits.
 
 L'export CrossBoundary a été revérifié après correction par l'outil `tools/phase2/check_crossboundary_export.py`
 (5 cas sur 5 identiques, 46 434 cellules, 0 écart) : journal local dans `work/` (non versionné).
+
+## 7. Déploiement Netlify (24 octobre 2026)
+
+Netlify n'exécutant ni Python ni PostgreSQL, le commanditaire a choisi une **démo dans le navigateur** : le moteur
+Python tourne dans Pyodide (WebAssembly), les projets et calculs restent dans le navigateur. Publiée sur le site
+existant `access360-africa` : https://access360-africa.netlify.app/app/ (lien depuis la page d'accueil).
+
+| Vérification | Résultat |
+|---|---|
+| Égalité navigateur / serveur | Les 3 046 valeurs des séries annuelles du calcul de démonstration exportées par le navigateur sont **identiques** à celles du moteur serveur (écart nul). |
+| Test de bout en bout sur le site en ligne | 12/12 : chargement du moteur (≈ 4,6 s), calcul (TRI 8,11 %), exports .xlsx et .csv, comparaison, conservation après rechargement, anglais, aucune erreur de console sous la politique de sécurité (CSP) de `/app/`. |
+| Sécurité | CSP stricte : seulement le site lui-même, `'wasm-unsafe-eval'` requis par WebAssembly ; aucune ressource tierce. |
+
+Limites de la démo : un seul utilisateur, pas de revue à plusieurs, pas d'import de classeur, pas d'export au format
+CrossBoundary, PDF par l'impression du navigateur, 40 derniers calculs conservés. Les données sont perdues si le
+navigateur efface son stockage.

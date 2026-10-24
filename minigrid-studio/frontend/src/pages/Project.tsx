@@ -5,7 +5,7 @@ import { href, navigate } from "../router";
 import { errorText, Loading, StatusBadge, useLoad } from "../components/ui";
 
 export function ProjectPage({ id }: { id: string }) {
-  const { api, t, lang, notify, roleIn } = useApp();
+  const { api, t, lang, notify, roleIn, demo } = useApp();
   const [project, reloadProject] = useLoad(() => api.project(id), [api, id]);
   const [versions, reloadVersions, loading] = useLoad(() => api.versions(id), [api, id]);
   const [templates] = useLoad(() => api.templates(), [api]);
@@ -63,7 +63,7 @@ export function ProjectPage({ id }: { id: string }) {
       <div className="row"><h2 className="grow">{t("versions")}</h2>
         {editable && <>
           <button onClick={() => setMode(mode === "template" ? "" : "template")} aria-expanded={mode === "template"}>{t("fromTemplate")}</button>
-          <button onClick={() => setMode(mode === "import" ? "" : "import")} aria-expanded={mode === "import"}>{t("import")}</button>
+          {!demo && <button onClick={() => setMode(mode === "import" ? "" : "import")} aria-expanded={mode === "import"}>{t("import")}</button>}
         </>}
       </div>
       {mode === "template" && (

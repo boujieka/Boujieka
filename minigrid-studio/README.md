@@ -7,7 +7,7 @@ Dossier **indépendant** du produit Cartouche hébergé dans le même dépôt.
 > Open Source Model 1.0 : 46 860 cellules et 920 cellules de tables égales aux valeurs Excel du cas publié (S1), à
 > max(10⁻⁹ relatif, 10⁻⁶ absolu) près, et égalité avec les rejeux LibreOffice de S2 à S5 et de 10 scénarios
 > fonctionnels, hors TRI glissants `Model!372/429` et trois dates `EOMONTH(0)` (voir `docs/phase1_report.md`).
-> Page d'accueil : https://access360-africa.netlify.app Les valeurs étalons **Excel** de S2 à S5 restent à produire
+> Page d'accueil : https://access360-africa.netlify.app — démo de l'application dans le navigateur : https://access360-africa.netlify.app/app/ Les valeurs étalons **Excel** de S2 à S5 restent à produire
 > (`docs/reference_scenarios.md`). Rien ici n'est une certification BAD, Banque mondiale ou CrossBoundary, ni un avis
 > juridique ou d'investissement.
 
@@ -29,6 +29,7 @@ Dossier **indépendant** du produit Cartouche hébergé dans le même dépôt.
 | `reference/MANIFEST.md` | Sources (non versionnées : droits non vérifiés), empreintes |
 | `reference_values/` | Hypothèses et sorties Excel de S1 ; sorties LibreOffice de S1 à S5 |
 | `tools/phase0/` | Outils d'audit statique et de rejeu LibreOffice |
+| `tools/web_demo/` | Démo dans le navigateur (moteur en Pyodide) : assemblage, serveur local, construction vers `landing/app/` |
 | `tools/phase2/` | Vérification de l'export CrossBoundary (recalcul LibreOffice) |
 | `tools/excel_benchmark/` | Pont Microsoft Excel (xlwings) : valeurs étalons et comparaison au moteur |
 | `landing/` | Page d'accueil statique (Netlify) |
@@ -79,3 +80,20 @@ Alembic, vitest et le build.
 - **Fidèle par défaut.** Chaque amélioration (`/api/v1/engine/options`) est désactivée par défaut. L'activer marque le résultat `variant`.
 - **Traçable.** Chaque indicateur et chaque série nomme sa cellule ou sa ligne Excel. Les indicateurs sans équivalent Excel sont marqués `derived`, le calcul par lot `experimental`.
 - **Séparé de l'IA.** Le moteur n'appelle aucun service externe ni modèle génératif.
+
+## Démo dans le navigateur (Netlify)
+
+Netlify n'exécute pas de Python côté serveur : la démo publique fait tourner **le même moteur** dans le navigateur
+(Pyodide 0.29.4, WebAssembly), avec l'interface en mode démo. Données fictives uniquement, enregistrées dans le
+navigateur ; pas de comptes, de revue à plusieurs, d'import de classeur, d'export CrossBoundary ni de PDF serveur
+(impression du navigateur à la place). Aucun fichier ni aucune valeur de CrossBoundary n'est inclus.
+
+```bash
+./tools/web_demo/build.sh                       # landing/app/ (non versionné)
+node tools/web_demo/serve.mjs 8888              # http://localhost:8888/app/ avec les en-têtes de landing/netlify.toml
+BASE=http://localhost:8888/app/ node frontend/e2e/demo.mjs
+# puis déployer le dossier landing/ sur le site Netlify
+```
+
+L'application complète (comptes, rôles, revue, base de données, tous les exports) nécessite l'API Python et
+PostgreSQL, à héberger ailleurs que sur Netlify.

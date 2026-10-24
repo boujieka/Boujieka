@@ -40,7 +40,7 @@ function leaves(a: Assumptions, f: FieldEntry, lang: Lang): { path: string; valu
 }
 
 export function VersionPage({ id }: { id: string }) {
-  const { api, t, lang, notify, fields, labels, roleIn, me, compareRuns, setCompareRuns } = useApp();
+  const { api, t, lang, notify, fields, labels, roleIn, me, compareRuns, setCompareRuns, demo } = useApp();
   const msg = useMessage();
   const [version, reloadVersion] = useLoad(() => api.version(id), [api, id]);
   const [project] = useLoad(() => (version ? api.project(version.project_id) : Promise.resolve(undefined)), [api, version?.project_id]);
@@ -142,7 +142,7 @@ export function VersionPage({ id }: { id: string }) {
           {editable && <>
             <label className="row small"><input type="checkbox" checked={perLot} onChange={(e) => setPerLot(e.target.checked)} />{t("perLot")}</label>
             <button className="primary" onClick={calculate} disabled={busy}>{busy ? t("loading") : t("calculate")}</button>
-            {(v.status === "draft" || v.status === "rejected") && <button onClick={() => act(() => api.submit(v.id))} disabled={busy}>{t("submit")}</button>}
+            {!demo && (v.status === "draft" || v.status === "rejected") && <button onClick={() => act(() => api.submit(v.id))} disabled={busy}>{t("submit")}</button>}
           </>}
           {v.status === "submitted" && canReview(role) && (
             reviewer ? <>
