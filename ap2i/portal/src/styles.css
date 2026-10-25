@@ -289,3 +289,47 @@ table.lenders td { vertical-align: middle; }
 @media print { .ph-actions, .tl-track { display: none !important; } .proj-layout { grid-template-columns: 1fr; } .pside { position: static; } }
 /* route-change focus lands on the h1 (screen readers); no visible frame on it */
 main h1[tabindex]:focus, main h1[tabindex]:focus-visible { outline: none; box-shadow: none; }
+
+/* --- home redesign, phase 2 (Oct 2026) --- */
+.gsearch-spacer { flex: 1; }
+.h2-hero { background: linear-gradient(135deg, var(--navy), var(--navy2)); color: #fff; border-radius: 14px; padding: 28px 32px 22px; margin-bottom: 14px; }
+.h2-hero h1 { color: #fff; font-size: 1.75rem; line-height: 1.25; margin: .35rem 0 .4rem; max-width: 900px; }
+.h2-lead { margin: 0 0 16px; opacity: .9; max-width: 760px; }
+.gsearch-hero { max-width: 760px; }
+.gsearch-hero input { font-size: 1.05rem; padding: .8rem 1rem; border-radius: 10px; border: 2px solid transparent; }
+.gsearch-hero input:focus { border-color: var(--gold); outline: none; box-shadow: 0 0 0 4px rgba(217,163,35,.35); }
+.gsearch-hero .gsearch-list { color: var(--ink); }
+.h2-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.h2-chips .chip { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.35); color: #fff; text-decoration: none; padding: 4px 12px; }
+.h2-chips .chip:hover { background: rgba(255,255,255,.2); }
+.h2-chips .chip:focus-visible { outline-color: var(--gold); }
+.h2-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.h2-kpi { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; display: flex; flex-direction: column; gap: 2px; color: inherit; text-decoration: none; min-width: 0; }
+a.h2-kpi:hover { border-color: var(--green); }
+.h2-kpi span { font-size: .76rem; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; font-weight: 600; }
+.h2-kpi b { font-size: 1.7rem; color: var(--navy); font-variant-numeric: tabular-nums; line-height: 1.2; }
+.h2-kpi small { color: var(--muted); font-size: .8rem; }
+.h2-kpi.warn { border-left: 4px solid var(--gold); } .h2-kpi.warn b { color: #7a5600; }
+.h2-asof { margin: 8px 0 16px; }
+.h2-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 16px; align-items: start; }
+.h2-side { display: grid; gap: 16px; } .h2-side .card, .h2-grid > .card { margin-bottom: 0; }
+.watch { list-style: none; margin: 0; padding: 4px 14px 8px; display: grid; }
+.watch li + li { border-top: 1px solid var(--line); }
+.watch a { display: flex; flex-direction: column; gap: 3px; padding: 10px 0; color: var(--ink); text-decoration: none; }
+.watch a:hover b { color: var(--green); }
+.watch-top { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.hbars { list-style: none; margin: 0 0 8px; padding: 0; display: grid; gap: 8px; }
+.hbars a { display: grid; grid-template-columns: minmax(90px, 9rem) 1fr auto; gap: 10px; align-items: center; color: var(--ink); text-decoration: none; font-size: .88rem; }
+.hbars a:hover .hb-l { color: var(--green); }
+.hb-b { height: 10px; background: #edf1f5; border-radius: 3px; overflow: hidden; } .hb-b i { display: block; height: 100%; background: var(--navy); }
+.hb-v { font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+.h2-trust { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 20px; align-items: center; background: #fff; border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 16px 20px; margin-top: 16px; }
+.h2-trust h2 { margin-top: 0; }
+.h2-cta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; } .h2-cta p { flex-basis: 100%; margin: 0; }
+@media (max-width: 1100px) { .h2-grid, .h2-trust { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 860px) {
+  .h2-hero { padding: 20px 18px 16px; } .h2-hero h1 { font-size: 1.35rem; }
+  .h2-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } .h2-kpi b { font-size: 1.35rem; }
+  .hbars a { grid-template-columns: minmax(80px, 7rem) 1fr; } .hb-v { grid-column: 1 / -1; text-align: left; }
+}

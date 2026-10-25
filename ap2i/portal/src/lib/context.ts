@@ -34,7 +34,9 @@ export function useNames(locale: Locale) {
   const s = useSnap();
   return useMemo(() => {
     const sectors = new Map(s.ref.sectors.map((x) => [x.code, locale === "fr" ? x.name_fr : x.name_en]));
-    const partners = new Map(s.ref.partners.map((x) => [x.code, x.short_name]));
+    // usual French short names of the lenders (the reference table holds the English ones)
+    const FR: Record<string, string> = { WB: "Banque mondiale", AFDB: "BAD", EIB: "BEI", EU: "UE", IFAD: "FIDA", GOV: "Gouvernement" };
+    const partners = new Map(s.ref.partners.map((x) => [x.code, (locale === "fr" && FR[x.code]) || x.short_name]));
     const instruments = new Map(s.ref.instruments.map((x) => [x.code, locale === "fr" ? x.name_fr : x.name_en]));
     const countries = new Map(s.ref.countries.map((x) => [x.iso3, locale === "fr" ? x.name_fr : x.name_en]));
     return {

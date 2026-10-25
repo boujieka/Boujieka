@@ -74,7 +74,7 @@ export function Layout({ route, children }: { route: Route; children: ReactNode 
         <header className="topbar">
           <button className="btn xs ghost menu-btn" onClick={() => setOpen((o) => !o)} aria-expanded={open} aria-label={t("nav.menu")}>☰</button>
           <span className="topbar-title">AP²I</span>
-          <GlobalSearch />
+          {route.path[0] ? <GlobalSearch /> : <span className="gsearch-spacer" />}
           <span className="topbar-r">
             <span className="muted small hide-sm">{t("snapshot.latestSource")} : {fmtDate(s.meta.latest_source_update, locale)}</span>
             <a className="btn xs gold hide-xs" href="#/contact" data-testid="cta-demo">{t("nav.contact")}</a>

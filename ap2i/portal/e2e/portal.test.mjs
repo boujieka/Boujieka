@@ -243,8 +243,8 @@ describe("AP²I portal", () => {
     const p = await page();
     await p.goto(BASE + "#/");
     await ready(p);
-    await p.fill('[data-testid="global-search"]', "Nachtigal");
-    await p.waitForSelector("#gsearch-list li[role=option]");
+    await p.fill('[data-testid="hero-search"]', "Nachtigal");
+    await p.waitForSelector("#hsearch-list li[role=option]");
     await p.keyboard.press("Enter");
     await p.waitForFunction(() => location.hash.startsWith("#/project/"));
     await p.waitForSelector(".summary-text");
@@ -271,6 +271,21 @@ describe("AP²I portal", () => {
       assert.ok(w <= width, `scrollWidth ${w}`);
       assert.deepEqual(p.errors, []);
     }
+  });
+
+  it("home: search first, key figures, projects to watch with their reason", async () => {
+    const p = await page();
+    await p.goto(BASE + "#/");
+    await ready(p);
+    assert.ok(await p.isVisible('[data-testid="hero-search"]'));
+    assert.equal(await p.$('[data-testid="global-search"]'), null); // one search box on the home page
+    const items = await p.$$(".watch li");
+    assert.ok(items.length >= 3);
+    assert.match(await items[0].innerText(), /Pourquoi|Why/);
+    await p.fill('[data-testid="hero-search"]', "EIB Nachtigal"); // lender names are searchable
+    await p.waitForSelector("#hsearch-list li[role=option]");
+    assert.match(await p.innerText("#hsearch-list"), /Nachtigal/);
+    assert.deepEqual(p.errors, []);
   });
 
   it("mobile: every module renders without horizontal scrolling", async () => {
