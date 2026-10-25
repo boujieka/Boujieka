@@ -288,6 +288,22 @@ describe("AP²I portal", () => {
     assert.deepEqual(p.errors, []);
   });
 
+  it("navigation: five main entries, tools grouped, current section highlighted", async () => {
+    const p = await page();
+    await p.goto(BASE + "#/project/AP2I-CMR-ENERGY-000014");
+    await p.waitForSelector(".facts");
+    for (const k of ["projects", "finance", "alerts", "map", "about", "country", "africa", "rescue", "data"]) assert.ok(await p.$(`[data-testid="nav-${k}"]`), k);
+    assert.equal(await p.getAttribute('[data-testid="nav-projects"]', "aria-current"), "page"); // a project page belongs to "Projects"
+    await p.click('[data-testid="nav-alerts"]');
+    await p.waitForSelector('[data-testid="alerts-table"]');
+    assert.equal(await p.getAttribute('[data-testid="nav-alerts"]', "aria-current"), "page");
+    await p.click('[data-testid="nav-map"]');
+    await p.waitForFunction(() => location.hash.includes("view=map"));
+    assert.equal(await p.getAttribute('[data-testid="nav-map"]', "aria-current"), "page");
+    assert.equal(await p.getAttribute('[data-testid="nav-projects"]', "aria-current"), null);
+    assert.deepEqual(p.errors, []);
+  });
+
   it("mobile: every module renders without horizontal scrolling", async () => {
     const p = await page(375);
     for (const path of ["", "africa", "country/CMR", "projects", "finance", "performance", "rescue", "data", "about", "plans", "contact", "legal/data"]) {

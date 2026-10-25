@@ -333,3 +333,8 @@ a.h2-kpi:hover { border-color: var(--green); }
   .h2-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } .h2-kpi b { font-size: 1.35rem; }
   .hbars a { grid-template-columns: minmax(80px, 7rem) 1fr; } .hb-v { grid-column: 1 / -1; text-align: left; }
 }
+
+/* --- navigation, phase 3 (Oct 2026) --- */
+.nav-group { margin: 14px 10px 4px; font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; color: rgba(255,255,255,.55); font-weight: 700; }
+.nav-tools a { font-size: .86rem; padding: 6px 10px; color: rgba(255,255,255,.75); }
+.nav-tools .ico { width: 16px; height: 16px; opacity: .7; }

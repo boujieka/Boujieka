@@ -19,14 +19,20 @@ const ICONS: Record<string, string> = {
   about: "M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 11v6M12 7h.01",
   plans: "M4 7h16v13H4zM8 7V4h8v3",
   contact: "M4 6h16v12H4zM4 6l8 7 8-7",
+  alerts: "M6 16V11a6 6 0 1 1 12 0v5l2 2H4zM10 20a2 2 0 0 0 4 0",
+  map: "M9 4L3 6v14l6-2 6 2 6-2V4l-6 2zM9 4v14M15 6v14",
 };
 
-const NAV: { key: string; path: string }[] = [
-  { key: "home", path: "/" }, { key: "africa", path: "/africa" }, { key: "country", path: "/country/CMR" },
-  { key: "projects", path: "/projects" }, { key: "finance", path: "/finance" }, { key: "performance", path: "/performance" },
-  { key: "rescue", path: "/rescue" }, { key: "data", path: "/data" }, { key: "about", path: "/about" },
+// Phase 3 (Oct 2026): five main entries for the questions users ask; the expert tools stay one click away.
+type NavItem = { key: string; path: string; view?: string };
+const NAV: NavItem[] = [
+  { key: "projects", path: "/projects" }, { key: "finance", path: "/finance" }, { key: "alerts", path: "/performance" },
+  { key: "map", path: "/projects", view: "map" }, { key: "about", path: "/about" },
 ];
-const NAV2: { key: string; path: string }[] = [{ key: "plans", path: "/plans" }, { key: "contact", path: "/contact" }];
+const TOOLS: NavItem[] = [{ key: "country", path: "/country/CMR" }, { key: "africa", path: "/africa" }, { key: "rescue", path: "/rescue" }, { key: "data", path: "/data" }];
+// pages that belong to a main entry (a project page is part of "Projects")
+const SECTION: Record<string, string> = { project: "projects", projects: "projects", finance: "finance", performance: "alerts", alerts: "alerts", about: "about",
+  country: "country", africa: "africa", rescue: "rescue", data: "data" };
 
 function Icon({ name }: { name: string }) {
   return (
@@ -40,16 +46,15 @@ export function Layout({ route, children }: { route: Route; children: ReactNode 
   const { t, locale, setLocale } = useI18n();
   const s = useSnap();
   const [open, setOpen] = useState(false);
-  const cur = "/" + (route.path[0] ?? "");
+  const isMap = route.path[0] === "projects" && route.qs.get("view") === "map";
+  const section = isMap ? "map" : SECTION[route.path[0] ?? ""] ?? null;
   const keep = route.path[0] === "project" ? withoutYears(route.filters) : route.filters;
-  const link = (n: { key: string; path: string }, filters: boolean) => {
-    const isCur = n.path === "/" ? cur === "/" : cur === "/" + n.path.split("/")[1];
-    return (
-      <a key={n.key} href={href(n.path, filters ? keep : {})} aria-current={isCur ? "page" : undefined} onClick={() => setOpen(false)} data-testid={`nav-${n.key}`}>
-        <Icon name={n.key} />{t(`nav.${n.key}`)}
-      </a>
-    );
-  };
+  const link = (n: NavItem, filters: boolean) => (
+    <a key={n.key} href={href(n.path, filters ? keep : {}, n.view ? { view: n.view } : undefined)} aria-current={section === n.key ? "page" : undefined}
+      onClick={() => setOpen(false)} data-testid={`nav-${n.key}`}>
+      <Icon name={n.key} />{t(`nav.${n.key}`)}
+    </a>
+  );
   return (
     <div className="shell">
       <a className="skip" href="#/" onClick={(e) => { e.preventDefault(); document.getElementById("main")?.focus(); }}>
@@ -61,9 +66,10 @@ export function Layout({ route, children }: { route: Route; children: ReactNode 
           <span><b>AP²I</b><small>{t("app.name")}</small></span>
         </a>
         <nav aria-label={t("nav.menu")}>
-          {NAV.map((n) => link(n, n.key !== "home" && n.key !== "about"))}
-          <hr />
-          {NAV2.map((n) => link(n, false))}
+          <a href="#/" aria-current={route.path[0] ? undefined : "page"} onClick={() => setOpen(false)} data-testid="nav-home"><Icon name="home" />{t("nav.home")}</a>
+          {NAV.map((n) => link(n, n.key !== "about"))}
+          <p className="nav-group">{t("nav.tools")}</p>
+          <div className="nav-tools">{TOOLS.map((n) => link(n, n.key !== "africa"))}</div>
         </nav>
         <div className="side-foot">
           <span className="badge b-gold">{t("snapshot.badge")}</span>
@@ -77,6 +83,7 @@ export function Layout({ route, children }: { route: Route; children: ReactNode 
           {route.path[0] ? <GlobalSearch /> : <span className="gsearch-spacer" />}
           <span className="topbar-r">
             <span className="muted small hide-sm">{t("snapshot.latestSource")} : {fmtDate(s.meta.latest_source_update, locale)}</span>
+            <a className="btn xs ghost hide-xs" href="#/plans">{t("nav.plans")}</a>
             <a className="btn xs gold hide-xs" href="#/contact" data-testid="cta-demo">{t("nav.contact")}</a>
             <button className={`btn xs ${locale === "fr" ? "" : "ghost"}`} onClick={() => setLocale("fr")} aria-pressed={locale === "fr"} lang="fr">FR</button>
             <button className={`btn xs ${locale === "en" ? "" : "ghost"}`} onClick={() => setLocale("en")} aria-pressed={locale === "en"} lang="en">EN</button>

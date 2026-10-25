@@ -2,8 +2,8 @@
 // Merged over the base dictionaries in i18n.ts (later keys win).
 export const uxFR: Record<string, string> = {
   "nav.africa": "Explorateur Afrique", "nav.country": "Tableau de bord pays", "nav.finance": "Financements",
-  "nav.rescue": "Redressement de projets", "nav.data": "Données à la carte", "nav.plans": "Offres", "nav.contact": "Demander une démo",
-  "africa.title": "Explorateur Afrique", "finance.title": "Analyse des financements", "perf.title": "Performance des projets",
+  "nav.rescue": "Redressement de projets", "nav.data": "Données à la carte", "nav.plans": "Offres", "nav.contact": "Demander une démo", "nav.alerts": "Alertes", "nav.map": "Carte des projets", "nav.tools": "Outils d'analyse",
+  "africa.title": "Explorateur Afrique", "finance.title": "Analyse des financements", "perf.title": "Alertes et performance des projets",
   "rescue.title": "Redressement de projets (Project Rescue)", "data.title": "Données à la carte", "country.title": "Tableau de bord",
   "app.tagline": "Le suivi indépendant et traçable des projets d'investissement public financés par les bailleurs",
   "home.lead": "AP²I rassemble, pour le Cameroun, les données officielles de 6 bailleurs (Banque mondiale, BAD, AFD, UE, BEI, FIDA) et leurs rapports de supervision : engagements, décaissements, retards et signaux d'alerte, chaque chiffre relié à sa source.",
@@ -91,8 +91,8 @@ export const uxFR: Record<string, string> = {
 
 export const uxEN: Record<string, string> = {
   "nav.country": "Country dashboard", "nav.finance": "Financing", "nav.rescue": "Project Rescue", "nav.data": "Custom data",
-  "nav.plans": "Plans", "nav.contact": "Request a demo",
-  "finance.title": "Financing analysis", "perf.title": "Project performance", "data.title": "Custom data", "country.title": "Dashboard",
+  "nav.plans": "Plans", "nav.contact": "Request a demo", "nav.alerts": "Alerts", "nav.map": "Project map", "nav.tools": "Analysis tools",
+  "finance.title": "Financing analysis", "perf.title": "Project alerts and performance", "data.title": "Custom data", "country.title": "Dashboard",
   "app.tagline": "Independent, source-traceable tracking of donor-financed public investment projects",
   "home.lead": "For Cameroon, AP²I brings together the official data of 6 donors (World Bank, AfDB, AFD, EU, EIB, IFAD) and their supervision reports: commitments, disbursements, delays and early-warning signals, every figure linked to its source.",
   "home.audience": "For ministries of planning and finance, donors and development finance institutions, consultancies, journalists and civil society.",

@@ -71,7 +71,7 @@ export function App() {
     case "projects": page = <Projects route={route} />; break;
     case "project": page = <Project route={route} />; break;
     case "finance": page = <Finance route={route} />; break;
-    case "performance": page = <Performance route={route} />; break;
+    case "performance": case "alerts": page = <Performance route={route} />; break;
     case "rescue": page = <Rescue route={route} />; break;
     case "data": page = <DataExplorer route={route} />; break;
     case "about": page = <About />; break;
