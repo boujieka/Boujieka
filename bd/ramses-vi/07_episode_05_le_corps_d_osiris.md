@@ -39,8 +39,8 @@ piliers peints. En haut, à peine visible, la tête de Nout au plafond (rappel d
 > Source : salle F à 4 piliers, 8,44 × 7,22 m, avec descente centrale ; plafond : tête et bras de Nout
 > [TMP]. **V**
 
-**Case 4** — Contrechamp : la paroi ouest, au fond de la salle. Un roi debout devant Osiris trôné, un
-encensoir à la main ; un vase de libation. Copier d'après référence. **[H]**
+**Case 4** — Contrechamp : la paroi ouest, au fond de la salle. Le roi face à Osiris, encensant et versant
+une libation. Postures, objets et couleurs : copier d'après référence, ne rien inventer. **[H]**
 
 > **Mansour** : Le roi encense et verse une libation devant Osiris.
 
@@ -116,15 +116,15 @@ dans cette publication). **[H]**
 **Case 6** — Mansour ouvre son vieux Piankoff & Rambova annoté **[F]** ; une photographie en noir et
 blanc d'une autre tombe glisse entre les pages (à dessiner sans détail lisible). **[H]**
 
-> **Mansour** : Elle est dans la tombe de la reine Néfertari, dans la Vallée des Reines. QV66. Près d'un
-> Rê momiforme à tête de bélier. Un siècle et demi plus tôt, environ.
+> **Mansour** : Elle est dans la tombe de Néfertari. QV66. Près d'un Rê momiforme à tête de bélier.
+> À la dynastie précédente.
 > **Nefertari** *(off)* : Ma presque homonyme. Je ne la laisserai pas déménager chez Ramsès VI.
 
 > Source : formule attestée dans la tombe de Néfertari (QV66), XIXᵉ dynastie, près d'un Rê momiforme à
 > tête de bélier : [OEAE] Luft 2001, p. 142 ; [NATGEO]. **V**. **Elle n'est pas dans KV9** : parallèle
 > seulement. Paroi exacte dans QV66 : **N**, ne pas la préciser.
-> Rigueur : « un siècle et demi » est une approximation (XIXᵉ dyn. vs XXᵉ dyn.) ; en cas de doute, la
-> remplacer par « à la dynastie précédente ».
+> Rigueur : « la dynastie précédente » = XIXᵉ dynastie (KV9 : XXᵉ). Aucun écart en années ne doit être
+> donné sans source.
 
 **Case 7** — Kerbu, un peu vexé, puis il note dans son carnet. Sur la page : deux colonnes, « KV9 » et
 « ailleurs ». **[F]**
