@@ -42,6 +42,15 @@ const CONFIGS = {
       'bible/07_bibliographie.md',
     ],
   },
+  prompts: {
+    out: 'Prompts_images_Volume_1_Les_Mysteres_du_tombeau_de_Ramses_VI.docx',
+    kicker: "PROMPTS D'IMAGES — VOLUME 1",
+    subtitle: 'Le Livre de la Terre : le secret de la renaissance solaire',
+    note: 'Guide de style, fiches personnages et prompts case par case',
+    files: ['prompts/00_guide_prompts.md', 'prompts/01_prompts_couverture_prologue.md',
+      'prompts/02_prompts_ep01-03.md', 'prompts/03_prompts_ep04-06.md',
+      'prompts/04_prompts_ep07-09.md', 'prompts/05_prompts_ep10-12.md'],
+  },
   scenario: {
     out: 'Scenario_Volume_1_Les_Mysteres_du_tombeau_de_Ramses_VI.docx',
     kicker: 'SCÉNARIO — VOLUME 1',
