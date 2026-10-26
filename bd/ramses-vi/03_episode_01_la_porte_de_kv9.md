@@ -123,9 +123,9 @@ Transition : Kerbu pose la main près (sans la toucher) d'un cartouche. Liseré 
 > « XIIᵉ siècle avant notre ère ».
 
 **Case 2** (grande case) — Dans le corridor, des artisans au travail : un tailleur de pierre, un
-dessinateur qui trace à l'ocre rouge une esquisse sur l'enduit, un peintre qui reprend au noir, un
-porteur de lampe. **[H]** pour les métiers et techniques (esquisse rouge, correction noire) — à
-documenter ; **[F]** pour les individus.
+dessinateur qui trace une esquisse sur l'enduit, un peintre qui pose la couleur, un porteur de lampe.
+**[F]** pour les individus ; la technique précise (couleurs de l'esquisse, étapes) n'est **pas encore
+vérifiée** : la dessiner seulement après confirmation (Laboury, Keller).
 
 > Rigueur : les ouvriers de « la Tombe » vivaient à Deir el-Médina (*Set-Maât*, « la Place de
 > Vérité »), répartis en côté droit / côté gauche **V**. Sous Ramsès VI, l'équipe passe de 120 à 60

@@ -21,8 +21,8 @@ pour son film. *Les conditions de la mission (trois heures, capteur) restent fic
 
 ## Planche 1 — Découverte archéologique (7 cases)
 
-**Case 1** (bandeau) — Chambre J. Maya dispose quatre petits projecteurs au sol, câbles soigneusement
-rangés, tablette sur les genoux. **[F]**
+**Case 1** (bandeau) — Chambre J. Maya déplie deux grands écrans portables au centre de la salle, **dos aux
+parois** (jamais de projection sur la peinture), câbles soigneusement rangés, tablette sur les genoux. **[F]**
 
 > Cartouche : Nuit 10 sur 12. Temps autorisé : 3 heures.
 > **Maya** : Cette nuit, j'assemble les quatre parois en un seul panorama. Je peux les faire tourner, les
@@ -36,7 +36,7 @@ rangés, tablette sur les genoux. **[F]**
 > Source : expédition Piankoff 1949-1951, photographies de L. F. Husson ; publication 1954 [ARCHIVE]. **V**.
 > Le scan des photos par Maya est **[F]** (droits : bible 06).
 
-**Case 3** (grande case) — Le panorama s'allume sur la paroi d'un projecteur (ou sur la tablette) : les
+**Case 3** (grande case) — Le panorama s'allume sur les écrans : les
 parois de J « déroulées » à plat, des étiquettes lumineuses posées dessus.
 
 > **Nefertari** : Le découpage traditionnel, celui de Piankoff : quatre sections. A sur la paroi nord. B
@@ -145,7 +145,7 @@ encadrés)
 pelote. Encart en bas : trois petites silhouettes de plans de tombes.
 
 > **Maya** : Cinq savants, cinq chemins. Mon logiciel ne plante pas : il affiche tout.
-> **Mansour** : Roberson parle d'un « ensemble modulable ». Et chaque tombe arrange le livre à sa façon :
+> **Mansour** : Pour Roberson, résume Pleuger, c'est un « ensemble modulable ». Et chaque tombe arrange le livre à sa façon :
 > l'Osireion d'Abydos, la tombe de Mérenptah, celle de Ramsès VII…
 
 > Source : « ensemble modulable » [PLEUGER] p. 50 ; Osireion, KV8 (Mérenptah), KV1 (Ramsès VII) dans le
@@ -231,7 +231,7 @@ de chair. **[H]** — à copier d'après Piankoff & Rambova ; l'apparence des oi
 dans la bible** : recopier, ne pas inventer.
 
 > SFX : *BIP. BIP. BIP.*
-> **Nefertari** : Les oiseaux-ba qui halent la barque. Et dessous, les « bras de Geb ».
+> **Nefertari** : Les oiseaux-ba qui halent la barque. Et autour du tertre, les « bras de Geb ».
 
 > Source : [DARNELL] §6.38-39 ; = scène A12 dans le système Piankoff (bible 05). **V**
 

@@ -51,7 +51,7 @@ Nuit. Les quatre faisceaux de lampe se croisent dessus. **[H]**
 **Case 5** — Maya, de profil, la lampe sur le ventre étoilé de la déesse.
 
 > **Maya** : Deux ciels pour un seul soleil ?
-> **Mansour** : Un pour le jour, un pour la nuit. Nout avale le soleil le soir et le remet au monde le
+> **Mansour** : Le Livre du Jour d'un côté, le Livre de la Nuit de l'autre. Nout avale le soleil le soir et le remet au monde le
 > matin. Tu l'as déjà vue, au plafond du corridor D.
 
 > Source : Nout avale le soleil et le met au monde (Textes des Pyramides, d'après Müller 2001, [OEAE]
@@ -135,7 +135,7 @@ Piankoff & Rambova (1954), plein de marges manuscrites. **[F]** pour les annotat
 **[F]**
 
 > **Maya** : Mon modèle sait où est chaque image. Il ne sait pas dans quel ordre les lire.
-> **Maya** : Et personne ne le sait. C'est toi-même qui me l'as appris, nuit 3.
+> **Maya** : Et personne ne le sait. Nefertari nous l'a montré, nuit 3.
 
 > Note : capacités du modèle **[F]**. Le fait « pas d'accord sur la première ni sur la dernière scène »
 > : [PLEUGER] p. 48-50 **V**.

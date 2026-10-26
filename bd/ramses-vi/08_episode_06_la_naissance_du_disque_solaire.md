@@ -118,10 +118,11 @@ Copier d'après référence. **[H]**
 **Case 5** — Gros plan : un disque d'où sort un scarabée, et la figure que la légende nomme « Celle
 qui détruit » (forme, position et couleurs : copier d'après Piankoff & Rambova 1954, ne rien inventer). **[H]**
 
-> **Nefertari** : Ici, « le cadavre de Celle qui détruit ». Et du disque sort Khépri, le scarabée. Il dit :
+> **Nefertari** : Ici, « le cadavre de Celle qui détruit ». Du disque sort Khépri, le scarabée. Et le soleil dit :
 > **Nefertari** *(bulle à bord doré)* : « Moi-même, je me mets au monde. »
 
-> Source : [DARNELL] §6.16, trad. d'après Darnell & Darnell 2018. **V**
+> Source : [DARNELL] §6.16, trad. d'après Darnell & Darnell 2018. **V** — Locuteur : « le soleil » (bible 02
+> §5), pas Khépri nommément : garder « le soleil » dans toutes les bulles.
 
 **Case 6** — Mansour, son Piankoff & Rambova ouvert **[F]**, montre une page de signes (sans texte
 lisible inventé). **[H]**
@@ -174,7 +175,7 @@ des eaux noires infinies. Au fond, un disque rouge, immobile. **[S]**
 
 **Case 5** (case verticale) — Le disque s'ouvre ; un scarabée doré en sort, ailes à demi déployées. **[S]**
 
-> **Khépri** *(bulle dorée)* : « Moi-même, je me mets au monde. »
+> **Le soleil** *(bulle dorée)* : « Moi-même, je me mets au monde. »
 > Mention : *trad. d'après Darnell & Darnell 2018 (§6.16)*
 
 **Case 6** — Retour au présent, même cadrage : Kerbu rallume sa lampe ; le faisceau tombe exactement sur
@@ -227,7 +228,7 @@ pour le contenu
 > Garde-fou : **personne ne doit affirmer que la 12ᵉ heure a été omise volontairement**. La raison de
 > l'absence est inconnue **[N]**. La réplique de Marsac est réfutée dans la case même.
 
-**Case 7** — Nefertari, la main sur la paroi de H (sans la toucher), le regard vers le fond du tombeau. **[F]**
+**Case 7** — Nefertari, la main levée vers la paroi de H (sans la toucher), le regard vers le fond du tombeau. **[F]**
 
 > **Nefertari** : Peut-être que l'aube est ailleurs dans le tombeau. Sous une autre forme.
 > **Maya** : Alors on la cherchera.
@@ -258,7 +259,7 @@ la porte I. **[H]** décor
   n'a été confirmé.
 - Dans le Livre de la Terre de la chambre J : un grand disque est embrassé par des bras sortant du sol,
   avec 12 étoiles et 12 disques ([DARNELL] §6.3) ; les « deux bras de Noun » soulèvent le disque
-  (§6.11, 6.40) ; Khépri sort du disque et dit : « Moi-même, je me mets au monde » (§6.16).
+  (§6.11, 6.40) ; Khépri sort du disque, et le soleil dit : « Moi-même, je me mets au monde » (§6.16).
 - Khépri, le soleil du matin, a un nom lié au verbe *ḫpr*, « venir à l'existence ». Noun est l'océan des
   origines.
 - L'Amdouat décrit les 12 heures de la nuit. Dans KV9, il est réparti entre la descente de F et les

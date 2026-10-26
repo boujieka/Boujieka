@@ -130,7 +130,8 @@ blanc d'une autre tombe glisse entre les pages (à dessiner sans détail lisible
 « ailleurs ». **[F]**
 
 > **Kerbu** : D'accord. Colonne « ailleurs ».
-> **Mansour** : Mais tu n'as pas tort de chercher la rencontre. Elle existe, dans KV9. Pas sur ce mur.
+> **Mansour** : Mais tu n'as pas tort de chercher la rencontre. Un autre livre peint dans ce tombeau la
+> raconte : l'Amdouat. Pas sur ce mur.
 
 **Case 8** — Mansour pointe sa canne vers le haut, vers la descente et les corridors qu'ils ont
 traversés. **[H]**
@@ -227,8 +228,8 @@ parmi les dieux des piliers, Ptah-Sokar-Osiris (copier d'après référence). **
 > SFX : BIIIP — BIIIP
 > **Maya** : Seuil atteint. On remonte. Tout de suite.
 
-**Case 5** — Remontée rapide dans le corridor. À l'entrée, sous la grille, Julien Marsac attend, la
-tablette de Maya à la main (elle reçoit les données du scan en direct). **[F]**
+**Case 5** — Remontée rapide dans le corridor. À l'entrée, sous la grille, Julien Marsac attend devant
+un écran relié au scanner de Maya (il reçoit les données du scan en direct). **[F]**
 
 > **Marsac** : Vous avez vu ça ? Votre scan, là. Il y a un trou.
 

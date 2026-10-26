@@ -79,7 +79,7 @@ soulève la barque de Rê hors des eaux ; le roi agenouillé ; des décans en ad
 > Source : Amdouat dans la descente de F et les corridors G-H : 11 heures sur 12, la 12ᵉ manque [TMP]
 > **V**.
 
-**Case 2** — Maya projette son modèle 3D : les heures de l'Amdouat s'allument une à une le long de G et
+**Case 2** — Maya affiche son modèle 3D sur sa tablette : les heures de l'Amdouat s'allument une à une le long de G et
 H ; à la place de la 12ᵉ, une case vide. **[F]** pour l'outil
 
 > **Maya** : Dans l'Amdouat complet, la douzième heure, c'est la sortie : la barque traverse un serpent
@@ -120,7 +120,7 @@ tracés de couleurs différentes relient les scènes selon chaque lecture ; une 
 les savants. **[H]** pour les positions, **[F]** pour l'outil
 
 > **Maya** : Je peux toutes les afficher. Piankoff part du nord et finit en D16. Hornung et Roberson
-> finissent en A12. Barta ne voit pas de scène finale nette. Pleuger finit ici, en K.
+> finissent en A12. Barta ne voit pas de scène finale nette. Pleuger propose de finir ici, en K.
 > **Maya** : Chacune tient debout. Aucune n'efface les autres.
 
 > Encadré (en bas de case) : « Partir de la paroi nord : Piankoff, Hornung (1972), Barguet, Cauville.
@@ -314,7 +314,7 @@ dans le même disque. **[H]** pour le disque, **[S]** pour la surimpression
   (XXᵉ dynastie, XIIᵉ siècle avant notre ère ; les dates exactes varient selon les chronologies). [TMP]
 - Son axe est rectiligne, orienté vers l'ouest, long de plus de cent mètres. La salle K, au bout, n'a
   jamais été achevée ; la chambre funéraire J est plus petite que prévu. [TMP], [SIP]
-- En creusant, les ouvriers ont percé une tombe plus ancienne, KV12 ; la brèche a été rebouchée. [TMP]
+- En creusant, les ouvriers ont percé une tombe voisine, KV12 ; la brèche a été rebouchée. [TMP]
 - Les huttes et les déblais du chantier recouvraient l'entrée de la tombe de Toutânkhamon (KV62), où
   Howard Carter trouve la première marche le 4 novembre 1922. [GRIFFITH]
 

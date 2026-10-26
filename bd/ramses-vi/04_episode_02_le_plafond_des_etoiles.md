@@ -35,7 +35,7 @@ Piankoff & Rambova 1954 et du TMP — **ne pas inventer la disposition des figur
 
 **Case 3** — Gros plan sur des étoiles peintes, alignées en rangées, à côté de petites figures. **[H]**
 
-> **Maya** *(murmure)* : Il y en a des centaines.
+> **Maya** *(murmure)* : Il y en a partout.
 
 > Note dessinateur : aucun dénombrement n'est sourcé. Ne pas mettre de chiffre dans une bulle.
 

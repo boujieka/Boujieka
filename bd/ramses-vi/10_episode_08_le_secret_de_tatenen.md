@@ -244,8 +244,8 @@ pas rendre le texte lisible**).
 > **Marsac** : Donc c'est un texte de l'Ancien Empire ! Plus vieux que les pyramides !
 > **Nefertari** : Non. On l'a longtemps cru. Aujourd'hui, on la date de la XXVᵉ dynastie : elle ne peut pas
 > être antérieure à la XIXᵉ.
-> **Mansour** : Donc plus récente que notre Ramsès VI, qui est de la XXᵉ. La datation se discute encore…
-> mais pas dans le sens qui vous arrange.
+> **Mansour** : La pierre elle-même est bien plus récente que notre Ramsès VI. Le texte qu'elle copie, on
+> en discute encore… mais pas dans le sens qui vous arrange.
 
 > Source : datation **C** — aujourd'hui XXVᵉ dynastie, « ne peut être antérieure à la XIXᵉ », « et non plus
 > Ancien Empire » (bible 03 §1). Ne jamais écrire « texte de l'Ancien Empire ». Aucune date en années.

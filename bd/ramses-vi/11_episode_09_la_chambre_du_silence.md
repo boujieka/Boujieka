@@ -127,7 +127,7 @@ texture est trop lisse, trop régulière. **[F]**
 > Source : prêt au Chimei Museum (Tainan) du 29/01/2026 au 10/01/2027 [BM]. **V**. Clin d'œil valable si
 > l'action se situe en 2026 : **à vérifier ou retirer avant impression**.
 
-**Case 7** — Case documentaire en sépia (sans liseré doré) : le visage de granit, seul, sur fond neutre ;
+**Case 7** — Case documentaire en sépia (sans liseré doré) : le visage de conglomérat, seul, sur fond neutre ;
 légende manuscrite.
 
 > Cartouche : EA140 — 98 cm, jusqu'à 600 kg. Prélevé par Belzoni pour le consul Henry Salt.
@@ -290,7 +290,7 @@ Livre de la Terre.
   silence, portant une torche » (d'après Łukaszewicz 2010, cité de seconde main).
 
 **Bloc 2 — Ce qui est inventé [F]**
-- Les personnages, la minute de silence de Kerbu, le geste de Maya sur la réplique.
+- Les personnages, la minute de silence de Kerbu, l'observation de la réplique par Maya.
 - Les deux prêtres de la planche 3, leurs paroles, la procession nocturne : seuls le transfert vers KV35
   et son époque sont historiques.
 - La silhouette de Dadouchios (planche 4) : nous ne savons rien de son apparence.

@@ -29,7 +29,8 @@ du voyage cette nuit, casque trop grand, caméra de poing. **[F]**
 > **Maya** : Julien, tu restes derrière la ligne. Et tu respires lentement. Le capteur compte aussi ton
 > souffle.
 
-**Case 2** — Maya projette sur la paroi, en lumière douce, le calque du plan TMP : KV9 en bleu, KV12 en
+**Case 2** — Maya déplie son écran portable, **dos à la paroi** (jamais de projection sur la peinture,
+voir épisode 2), et affiche le calque du plan TMP : KV9 en bleu, KV12 en
 orange. Le point de contact se trouve au sud du linteau de la porte I. **[F]** pour la projection /
 **[H]** pour le plan
 

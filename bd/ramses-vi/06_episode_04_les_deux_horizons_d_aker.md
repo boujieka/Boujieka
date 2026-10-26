@@ -277,8 +277,7 @@ d'Aker et, à côté, à peine éclairée, une silhouette momiforme peinte. **[F
 **Titre** : Aker, le dieu aux deux horizons
 
 **Bloc 1 — Ce que l'on sait [H]**
-- **Aker** garde l'**horizon de l'est** et celui de
-  l'**ouest**, et porte la barque du Soleil pendant la nuit (bible 03 §1).
+- **Aker** garde l'**horizon de l'est** et celui de l'**ouest**, et porte la barque du Soleil pendant la nuit (bible 03 §1).
 - Son image change avec le temps : d'abord l'avant d'un lion, puis deux avant-corps de lion dos à dos,
   puis un **double sphinx** à tête humaine (d'après Leitz, *LGG*).
 - Dans KV9, il apparaît en double sphinx dans le **Livre des Cavernes** (division 3) et dans le **Livre de
