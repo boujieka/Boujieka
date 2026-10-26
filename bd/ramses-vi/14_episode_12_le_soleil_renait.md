@@ -127,9 +127,10 @@ les savants. **[H]** pour les positions, **[F]** pour l'outil
 > Partir de la paroi sud : Stricker, Abitz, Roberson, Mauric-Barberio, Hornung (à partir de 1999). »
 > — d'après L. Pleuger, 2020, p. 48.
 
-> Source : [PLEUGER] p. 48-50, 68 **V** (positions des savants) ; question de fond : **C**. Toutes les
-> lettres en système Piankoff (« A12 » pour Hornung 2007 et Roberson est celle de Pleuger : vérifier
-> avant impression la correspondance avec le système Roberson, `bible/02` §3, **N**).
+> Source : [PLEUGER] p. 48-50, 68 **V** (positions des savants) ; question de fond : **C**. Lettres des
+> scènes (D16, A12) telles que données par Pleuger, rattachées au système Piankoff dans `bible/05`
+> (ép. 10) ; la correspondance avec le système Roberson / Darnell n'est qu'inférée (`bible/02` §3,
+> **N**) : l'afficher en système Piankoff seulement, et le dire à l'écran.
 
 **Case 7** — Nefertari relit sa liasse, puis lève les yeux vers les parois, comme si elle les voyait
 pour la première fois.

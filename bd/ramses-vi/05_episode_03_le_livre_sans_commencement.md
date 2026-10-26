@@ -161,17 +161,17 @@ paroi vue « en vrai », en sépia, quelques décennies plus tôt.
 > Source : expédition Piankoff 1949-1951 ; photographies de L. F. Husson [ARCHIVE]. **V**
 
 **Case 2** (grande case) — Dans la chambre J, un appareil photographique sur pied, des projecteurs
-d'époque, des câbles. Un photographe (Husson) règle l'appareil ; un homme en veste, carnet à la main
+d'époque, des câbles. La personne chargée des photographies (L. F. Husson) règle l'appareil ; un homme en veste, carnet à la main
 (Piankoff), observe la paroi. **[H]** pour l'expédition / **[F]** pour la mise en scène
 
-> Note dessinateur : la bible ne donne **ni portrait** de Piankoff ni de Husson, **ni la description du
+> Note dessinateur : la bible ne donne **ni portrait** de Piankoff ni de Husson (dont seules les initiales « L. F. » sont connues de nous), **ni la description du
 > matériel**. Utiliser des photographies d'archives sous licence si elles existent ; sinon, figures de
 > dos ou de trois quarts, sans ressemblance revendiquée. Ne pas montrer N. Rambova sur place (sa présence
 > dans la tombe n'est pas documentée dans la bible).
 
 **Case 3** — Piankoff (fictionnalisé) longe la paroi, carnet ouvert. **[F]**
 
-> **Piankoff [F]** : Tout, monsieur Husson. Paroi par paroi. Scène par scène.
+> **Piankoff [F]** : Tout, Husson. Paroi par paroi. Scène par scène.
 > **Husson [F]** : Même les ennemis ligotés en bas des murs ?
 > **Piankoff [F]** : Surtout eux.
 

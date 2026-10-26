@@ -101,7 +101,7 @@ création libre)
 
 > **Nefertari** : Il garde les deux horizons : l'est et l'ouest. Et il porte la barque de la nuit.
 > **Maya** : Un dieu-pont.
-> **Nefertari** : Tu l'appelles comme ça. Les textes disent : un gardien des horizons.
+> **Nefertari** : Tu l'appelles comme ça. Les égyptologues disent : un gardien des horizons.
 
 > Source : Aker, gardien des horizons est et ouest ; porte/passe la barque nocturne ; aide à la naissance
 > de Khépri (bible 03 §1). **V** — « Dieu-pont » est une image de Maya **[S]**, corrigée aussitôt.
@@ -277,10 +277,10 @@ d'Aker et, à côté, à peine éclairée, une silhouette momiforme peinte. **[F
 **Titre** : Aker, le dieu aux deux horizons
 
 **Bloc 1 — Ce que l'on sait [H]**
-- **Aker** est un dieu lié à la terre et aux horizons : il garde l'**horizon de l'est** et celui de
+- **Aker** garde l'**horizon de l'est** et celui de
   l'**ouest**, et porte la barque du Soleil pendant la nuit (bible 03 §1).
 - Son image change avec le temps : d'abord l'avant d'un lion, puis deux avant-corps de lion dos à dos,
-  puis un **double sphinx** à tête humaine (d'après Leitz, *Lexikon der ägyptischen Götter*).
+  puis un **double sphinx** à tête humaine (d'après Leitz, *LGG*).
 - Dans KV9, il apparaît en double sphinx dans le **Livre des Cavernes** (division 3) et dans le **Livre de
   la Terre**, dans la chambre funéraire [TMP], [DARNELL].
 - Dans le Livre de la Terre, une scène montre la barque sur le double Aker, avec **Khépri** et **Thot** à
@@ -307,8 +307,7 @@ d'Aker et, à côté, à peine éclairée, une silhouette momiforme peinte. **[F
   (PDF en libre accès).
 - J. A. Roberson, *The Ancient Egyptian Books of the Earth*, Lockwood Press, 2012, p. 148 (non consulté
   directement).
-- C. Leitz (dir.), *Lexikon der ägyptischen Götter und Götterbezeichnungen* (*LGG*), notice « Aker »
-  (références complètes à relever avant impression).
+- Leitz, *LGG*, notice « Aker » (référence bibliographique complète à relever avant impression).
 - R. H. Wilkinson, *The Complete Gods and Goddesses of Ancient Egypt*, 2003.
 
 **Illustration** : planche « model sheet » d'Aker en trois étapes (avant de lion · deux lions dos à dos ·
