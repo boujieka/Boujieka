@@ -331,7 +331,7 @@ bibliographie).
 
 ---
 
-## Pages hors épisodes (volume d'environ 72 pages)
+## Pages hors épisodes (volume de 80 pages, voir l'édition)
 
 | Page | Contenu |
 |---|---|
@@ -342,3 +342,4 @@ bibliographie).
 | Plan de KV9 (1 p.) | D'après le TMP, avec les livres funéraires salle par salle |
 | 12 × 5 p. = 60 p. | Épisodes |
 | Annexes (3-4 p.) | Lexique, divinités, chronologie (avec plusieurs systèmes), bibliographie |
+| Cahier graphique (8 p.) | Recherches de personnages, model sheets des dieux, coulisses — porte le total à 80 pages (texte sur la tranche, relié possible) |
