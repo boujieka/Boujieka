@@ -78,4 +78,5 @@ fiction et l'interprétation symbolique. »
 ## Dos (tranche)
 
 `LES MYSTÈRES DU TOMBEAU DE RAMSÈS VI · 1 · LE LIVRE DE LA TERRE`
-(Le texte de tranche n'est possible qu'à partir d'un nombre minimal de pages fixé par KDP : **À VÉRIFIER**.)
+(KDP refuse le texte de tranche en dessous de **79 pages** (80 avec Cover Creator) : il faut donc un volume
+d'au moins 80 pages, voir `bible/06_edition_kdp_droits.md`.)

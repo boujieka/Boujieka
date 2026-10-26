@@ -43,8 +43,9 @@ référence — **ne pas inventer de texte lisible**).
 > **Mansour** : On a recensé près de mille graffiti dans KV9, du Iᵉʳ siècle avant notre ère au
 > IVᵉ siècle après. Pour eux, c'était le tombeau de Memnon.
 
-> Source : chiffre de 995 graffiti et appellation « tombeau de Memnon » — voir fiche H6/H7 ; à
-> recouper avec la Mission épigraphique polonaise.
+> Source : « près d'un millier » [TMP] (les décomptes varient de « plusieurs centaines » à « plus de
+> mille » : **C**, voir `bible/01_reference_kv9.md` §5) ; « tombeau de Memnon » [SIP]. Plus ancien
+> graffito daté : 24 décembre 27 av. J.-C., dans ce corridor même [TMP].
 
 **Case 7** — Kerbu, pensif, la lampe sur les graffiti puis sur les dieux peints juste à côté.
 
@@ -61,8 +62,8 @@ programmes peints différents. **[H]**
 > **Nefertari** : Deux livres se font face. Sur une paroi, le Livre des Portes. Sur l'autre, le Livre
 > des Cavernes.
 
-> Rigueur : selon la source consultée, Livre des Portes paroi **sud**, Livre des Cavernes paroi
-> **nord** (fiche H4). Le dessin doit respecter cette orientation.
+> Rigueur [TMP] : Livre des Portes sur la paroi **sud** (à gauche en entrant), Livre des Cavernes sur la
+> paroi **nord** (à droite). Au plafond de B : constellations circumpolaires et décans.
 
 **Case 2** — Maya lève sa tablette vers le plafond : figures astronomiques.
 
@@ -80,11 +81,11 @@ programmes peints différents. **[H]**
 
 **Case 4** — Mansour, en plan rapproché.
 
-> **Mansour** : Ce tombeau a d'abord été creusé pour Ramsès V. Son successeur, Ramsès VI, l'a repris
-> et agrandi pour lui-même.
+> **Mansour** : Ce tombeau a d'abord été creusé pour Ramsès V, jusqu'à la quatrième salle. Son oncle,
+> Ramsès VI, l'a achevé pour lui-même… et a fait regraver les noms.
 
-> Source : fiche H1 (Ramsès V, puis Ramsès VI, son oncle). « Agrandi » : **À VÉRIFIER** dans le
-> Theban Mapping Project avant de garder ce mot.
+> Source [TMP] : Ramsès V a creusé de l'entrée à la salle E ; Ramsès VI achève et fait regraver les noms
+> sur les montants des portes B à F. Lien de parenté : [NMEC], [UEE]. **V**
 
 **Case 5** — Maya, perplexe.
 
@@ -92,8 +93,8 @@ programmes peints différents. **[H]**
 > **Mansour** : « Volé »… ou « repris ». Les égyptologues en discutent encore. On ne sait pas tout des
 > raisons.
 
-> Statut : ne pas présenter de motif comme établi. Si le sort exact de la sépulture de Ramsès V
-> est cité, le vérifier d'abord.
+> Statut : motif inconnu. Ramsès V a été inhumé en l'an 2 de Ramsès VI, mais **où** reste débattu
+> (KV9 ou une tombe non identifiée : **C**). Ne pas trancher dans la bulle.
 
 **Case 6** — Gros plan sur Kerbu, la lampe sous le menton, éclairage dramatique.
 
@@ -118,33 +119,36 @@ Transition : Kerbu pose la main près (sans la toucher) d'un cartouche. Liseré 
 
 > Cartouche : Vallée des Rois, XIIᵉ siècle avant notre ère. Reconstitution.
 
-> Rigueur : préférer « XIIᵉ siècle av. J.-C. » à une année précise tant que la chronologie n'est pas
-> vérifiée (fiche H13).
+> Rigueur : les dates varient selon les chronologies (`bible/04_histoire_ramses_v_vi.md`) → garder
+> « XIIᵉ siècle avant notre ère ».
 
 **Case 2** (grande case) — Dans le corridor, des artisans au travail : un tailleur de pierre, un
 dessinateur qui trace à l'ocre rouge une esquisse sur l'enduit, un peintre qui reprend au noir, un
 porteur de lampe. **[H]** pour les métiers et techniques (esquisse rouge, correction noire) — à
 documenter ; **[F]** pour les individus.
 
-> Rigueur : les artisans des tombes royales vivaient à Deir el-Médina [H, à sourcer]. Ne pas donner
-> de **nom réel** d'artisan sans document qui le rattache à KV9.
+> Rigueur : les ouvriers de « la Tombe » vivaient à Deir el-Médina (*Set-Maât*, « la Place de
+> Vérité »), répartis en côté droit / côté gauche **V**. Sous Ramsès VI, l'équipe passe de 120 à 60
+> hommes **V (secondaire)**. Aucun ouvrier de KV9 n'est identifié par son nom dans nos sources : tous
+> les personnages sont **fictifs**. Technique esquisse rouge / correction noire : **N**, à confirmer
+> (Laboury, Keller) avant de la dessiner.
 
 **Case 3** — Un scribe (fictif) montre un ostracon au chef d'équipe.
 
 > **Scribe [F]** : Le nouveau roi garde ce tombeau. On reprend les noms.
 > **Chef d'équipe [F]** : Alors le travail continue. La tombe ne meurt pas avec son premier maître.
 
-> Rigueur : la **modification des cartouches** de Ramsès V en Ramsès VI dans KV9 est
-> **À VÉRIFIER**. Si elle n'est pas documentée, remplacer par une réplique neutre (« Le nouveau roi
-> garde ce tombeau. On continue vers le fond. »).
+> Source : regravure des noms sur les portes B à F, **V** [TMP]. Option [H] : un ouvrier rappelle que le
+> travail s'est arrêté « par peur de l'ennemi » (papyrus Turin 2044, an 1 de Ramsès V, d'après Peden
+> 1994 : V secondaire).
 
 **Case 4** — Un peintre achève un disque solaire rouge sur la paroi ; dans le reflet de la lampe à
 huile, le disque semble briller.
 
-> **Peintre [F]** : Tout au fond, dans la chambre d'or, on peindra la Terre qui porte le Soleil.
+> **Peintre [F]** : Tout au fond, dans la chambre du roi, on peindra la Terre qui porte le Soleil.
 
-> Statut : « chambre d'or » est une désignation de la chambre funéraire royale attestée dans les
-> textes égyptiens — **À VÉRIFIER** (terme et usage pour cette période) avant de garder l'expression.
+> Statut : l'expression « chambre d'or » a été retirée (non vérifiée). Le Livre de la Terre est bien
+> dans la chambre funéraire J **V** [TMP].
 
 **Case 5** — Plan large : le corridor antique, la pente vers l'obscurité, les lampes qui s'enfoncent.
 
@@ -157,53 +161,47 @@ huile. Le liseré doré disparaît.
 
 ## Planche 4 — Révélation et suspense (7 cases)
 
-**Case 1** — L'équipe arrive au bout des corridors : la chambre funéraire s'ouvre, plafond voûté
-bleu nuit, double figure de **Nout**. **[H]**
+**Case 1** — Retour à l'entrée. Un homme en veste de lin, téléphone à la main, attend près de la grille :
+**Julien Marsac**, le producteur du documentaire qui co-finance la mission. **[F]**
 
-> **Maya** : Oh…
+> **Marsac** : Alors ? Un trésor ? Une chambre secrète ?
+> **Nefertari** : Des touristes romains.
 
-**Case 2** (grande case, demi-planche) — Vue d'ensemble de la chambre funéraire : sur toutes les
-parois, les registres du Livre de la Terre ; au sol, les fragments du sarcophage. **[H]**
+**Case 2** — Marsac montre du doigt, à quelques mètres en contrebas, l'entrée de la tombe de
+Toutânkhamon (KV62). **[H]** décor
 
-> **Nefertari** : Le Livre de la Terre. Toutes les parois.
+> **Marsac** : Et Toutânkhamon ? Il est juste là, sous nos pieds !
 
-> Rigueur : la présence et l'état des fragments du sarcophage doivent être dessinés d'après
-> photographie de référence (fiche : sarcophage non décrit dans la source consultée → **À VÉRIFIER**).
+**Case 3** — Mansour sourit et sort une photo d'archives (Carter, 1922 — photo sous licence ou redessinée).
 
-**Case 3** — Maya balaie la paroi avec le scanner ; à l'écran, la reconstitution 3D aligne les
-scènes côte à côte.
+> **Mansour** : Justement. Pendant trois mille ans, c'est ce tombeau-ci qui l'a caché.
 
-> **Maya** : J'ai tout. Mais je ne trouve pas le début. Où est la première scène ?
+**Case 4** — Case documentaire en sépia : des huttes de pierres sèches au pied de l'entrée de KV9 ; un
+homme en chapeau (Carter) fait dégager la première. **[H]**
 
-**Case 4** — Kerbu suit du faisceau une rangée de figures, puis une autre qui semble aller dans
-l'autre sens.
+> Cartouche : 4 novembre 1922. Sous la première hutte des ouvriers de Ramsès VI, Howard Carter trouve
+> une marche taillée dans la roche.
 
-> **Kerbu** : Ici, les figures marchent vers la droite. Là, vers la gauche. Et ce disque… il est au
-> centre de tout.
+> Source : notes de Carter, Griffith Institute TAA i.12.03-04 [GRIFFITH] : « ces huttes appartenaient
+> évidemment aux ouvriers employés à la construction de la tombe de Ramsès VI ». **V**
 
-> Rigueur : l'orientation des figures doit être **copiée sur la paroi réelle** (photos/relevés). Si
-> elle ne correspond pas à cette réplique, adapter la réplique, pas le dessin.
+**Case 5** — Maya, incrédule.
 
-**Case 5** — Mansour, grave.
+> **Maya** : Les déblais de notre tombeau ont protégé celui de Toutânkhamon ?
+> **Mansour** : Les déblais et les huttes. Une tombe qui en cache une autre.
 
-> **Mansour** : Les savants eux-mêmes ne s'accordent pas sur l'ordre de lecture. Certains comptent
-> quatre parties, d'autres cinq.
+**Case 6** — Kerbu, seul, revient vers la porte B, éclairée par sa lampe : un disque solaire avec un
+scarabée et un dieu à tête de bélier, entre Isis et Nephthys. **[H]** [TMP]
 
-> Source : fiche H12 (désaccord sur la structure). C'est le ressort de la saison.
+> **Kerbu** *(pensée)* : Le scarabée du matin… et le bélier de la nuit. Dans le même disque.
 
-**Case 6** — Le capteur de Maya se met à biper. Lumière rouge sur les visages.
+**Case 7** (bandeau final) — Gros plan sur le disque ; le liseré doré apparaît une seconde.
 
-> SFX : BIP — BIP — BIP
-> **Maya** : Humidité trop haute. On sort. Maintenant.
-
-**Case 7** (bandeau final) — Kerbu, dernier à partir, se retourne vers la paroi. Sa lampe éclaire un
-disque solaire porté par des bras levés. Le liseré doré apparaît une seconde.
-
-> **Kerbu** *(murmure)* : Un livre sans commencement…
+> **Kerbu** *(murmure)* : Dès la porte, il nous dit que la nuit et l'aube ne font qu'un…
 > Cartouche : À suivre — Épisode 2 : *Le plafond des étoiles*.
 
-> Note de cohérence : le titre de l'épisode 3 est « Le livre sans commencement ». Cette réplique
-> l'annonce ; si l'ordre des épisodes change, déplacer la réplique.
+> Statut : la réplique finale est une **interprétation [S]** de Kerbu ; le lien scarabée = matin /
+> bélier = soir est attesté pour ce type de disque [TMP-FC] (à propos de la Litanie de Rê).
 
 ---
 
@@ -217,24 +215,25 @@ disque solaire porté par des bras levés. Le liseré doré apparaît une second
 - Ses corridors portent le Livre des Portes, le Livre des Cavernes et l'Amdouat ; la chambre funéraire
   porte le Livre de la Terre sur les parois et les Livres du Jour et de la Nuit au plafond, sous la
   double figure de la déesse Nout.
-- Ouvert dès l'Antiquité, il porte des centaines de graffiti grecs et latins ; les visiteurs
-  gréco-romains l'appelaient « tombeau de Memnon ».
+- Ouvert dès l'Antiquité, il porte près d'un millier de graffiti (grec, latin, démotique, copte…) ; les
+  visiteurs gréco-romains l'appelaient « tombeau de Memnon ».
+- Les huttes et les déblais de son chantier ont recouvert l'entrée de la tombe de Toutânkhamon (KV62),
+  retrouvée par Howard Carter en novembre 1922.
 
 **Bloc 2 — Ce qui est inventé [F]**
 - Le Dr Kerbu, Nefertari Hassan, Adel Mansour, Maya et leur mission.
 - Les règles de la mission (douze nuits, trois heures, capteur).
-- Le scribe, le chef d'équipe et le peintre de la planche 3.
+- Le scribe, le chef d'équipe et le peintre de la planche 3 ; Julien Marsac.
 
 **Bloc 3 — Ce qui est interprétation [S]**
 - « Le tombeau comme modèle du monde ».
 - « Un lieu qui change de nom et continue de vivre ».
 
 **Bloc 4 — Pour aller plus loin (références à vérifier avant impression)**
-- Erik Hornung, *The Ancient Egyptian Books of the Afterlife*, Cornell University Press, 1999
-  (édition et éditeur : **À VÉRIFIER**).
-- Alexandre Piankoff, travaux sur le tombeau de Ramsès VI et « La Création du disque solaire »
-  (références exactes : **À VÉRIFIER**).
-- Theban Mapping Project, fiche KV9 (site de référence de la Vallée des Rois).
+- Theban Mapping Project, fiche KV9 (thebanmappingproject.com).
+- A. Piankoff & N. Rambova, *The Tomb of Ramesses VI*, Bollingen Series XL-1, New York, 1954.
+- J. C. Darnell & C. Manassa Darnell, *The Ancient Egyptian Netherworld Books*, SBL Press, 2018.
+- E. Hornung, *The Ancient Egyptian Books of the Afterlife*, Cornell University Press, 1999 (non consulté).
 
 **Illustration** : plan schématique de KV9 (entrée → corridors → salle à piliers → corridors →
 antichambre → chambre funéraire), dessiné d'après le plan du Theban Mapping Project, avec la position

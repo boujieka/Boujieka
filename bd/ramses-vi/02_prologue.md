@@ -13,6 +13,9 @@ avancent sur la piste. **[H]** décor / **[F]** scène
 > Cartouche : Vallée des Rois, Louxor. 5 h 42.
 > Cartouche : Le soleil n'a pas encore franchi les montagnes thébaines.
 
+> Note [F] : le site ouvre à 6 h 00 [EGYMON] ; une arrivée à 5 h 42 suppose un accès scientifique
+> spécial, qui est **fictif** (à signaler dans l'avertissement du volume).
+
 **Case 2** — Plan moyen : l'équipe. Maya porte la valise du scanner ; le Pr Mansour s'appuie sur sa
 canne ; Nefertari consulte une tablette ; Kerbu, un peu en avant, lève les yeux vers la falaise. **[F]**
 
