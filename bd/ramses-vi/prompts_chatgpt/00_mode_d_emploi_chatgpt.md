@@ -107,3 +107,4 @@ de couleur (verte, orange ou rouge selon les épisodes).
 | `02_chatgpt_ep04-06.md` | Épisodes 4 à 6 |
 | `03_chatgpt_ep07-09.md` | Épisodes 7 à 9 |
 | `04_chatgpt_ep10-12.md` | Épisodes 10 à 12 |
+| `05_corrections_pages_fautives.md` | Prompts pour corriger les 33 pages fautives et la numérotation |

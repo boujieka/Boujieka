@@ -48,7 +48,8 @@ const CONFIGS = {
     subtitle: 'Le Livre de la Terre : le secret de la renaissance solaire',
     note: 'Mode d\'emploi et un prompt par planche, à coller dans ChatGPT',
     files: ['prompts_chatgpt/00_mode_d_emploi_chatgpt.md', 'prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md',
-      'prompts_chatgpt/02_chatgpt_ep04-06.md', 'prompts_chatgpt/03_chatgpt_ep07-09.md', 'prompts_chatgpt/04_chatgpt_ep10-12.md'],
+      'prompts_chatgpt/02_chatgpt_ep04-06.md', 'prompts_chatgpt/03_chatgpt_ep07-09.md', 'prompts_chatgpt/04_chatgpt_ep10-12.md',
+      'prompts_chatgpt/05_corrections_pages_fautives.md'],
   },
   prompts: {
     out: 'Prompts_images_Volume_1_Les_Mysteres_du_tombeau_de_Ramses_VI.docx',
