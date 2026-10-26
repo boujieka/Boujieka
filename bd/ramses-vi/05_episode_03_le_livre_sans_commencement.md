@@ -38,7 +38,7 @@ la masse sombre du sarcophage restauré (dessin d'après photographies ; détail
 
 > **Kerbu** : Nous y sommes.
 > **Mansour** : La chambre J. Plus petite que prévu, d'ailleurs. Et deux de ces piliers n'ont jamais
-> été dégagés de la roche.
+> été dégagés.
 
 > Source : chambre funéraire voûtée, 4 piliers à l'avant (1ᵉʳ et 4ᵉ jamais dégagés), « plus petite que
 > prévu » ; sarcophage restauré présenté dans J [TMP]. **V** — La raison de la taille réduite n'est pas
