@@ -4,7 +4,7 @@
 
 | Fichier | Rôle |
 |---|---|
-| `sortie/interieur.pdf` (non versionné, trop lourd pour GitHub : relancer `python3 build_kdp.py`) | Intérieur, 39 pages, broché **8,25 × 6 po paysage**, fond perdu (8,375 × 6,25 po) |
+| `sortie/interieur.pdf` (non versionné, trop lourd pour GitHub : relancer `python3 build_kdp.py`) | Intérieur, **67 pages (volume complet)**, broché **8,25 × 6 po paysage**, fond perdu (8,375 × 6,25 po) |
 | `sortie/couverture.pdf` | Couverture complète (4ᵉ + dos + 1ʳᵉ), calculée pour le nombre de pages actuel |
 | `sortie/apercu_*.jpg` | Aperçus |
 | `manifest.txt` | Ordre des pages : ajouter les nouvelles planches ici, puis relancer `python3 build_kdp.py` |
@@ -53,6 +53,34 @@
 | Ép. 5, planche 3, case 6 | Faible | La paroi de QV66 dessinée est imaginaire (le cadre l'indique « attestée ailleurs », mais l'image ne copie pas la vraie paroi) |
 | Toutes | Faible | « PLANCHE x/7 » au lieu de x/5 ; « KERBU » et « DR KERBU » alternent dans les bulles |
 
+## Mise à jour — 3ᵉ et 4ᵉ envois (volume complet)
+
+**Choix entre doublons**
+
+| Page | Versions reçues | Retenue | Raison |
+|---|---|---|---|
+| Ép. 7, planche 4 | 2 | Version 2 | Dieux nettement à tête de bélier (case 4), légendes qui situent les scènes (« paroi nord de D, suite en E ») |
+| Ép. 7, page documentaire | 2 | Version paysage | L'autre version a un format différent (1536 × 1024) et une mise en page de bandeau |
+| Ép. 8, planche 3 | 2 (« 3/6 » et « 3/7 ») | « 3/6 » | L'autre imprime une note interne « (bible 03) » et les balises [S]/[H] dans les cases ; Tatenen debout sur le tertre, conforme au script |
+| Ép. 11, planche 4 | 2 | Version sans notes | L'autre imprime des notes de travail dans les cases (« Source : bible/03… », « Intention : renoncement de Marsac… », « Relevé fictif (F) ») |
+| Ép. 12, planche 4 | 2 | « FIN DU VOLUME 1 » | La surimpression finale montre le scarabée avec un dieu à tête de bélier, comme le disque de la porte B ; l'autre montre deux têtes de faucon |
+| Ép. 12, page documentaire | 2 | Plan lisible A → K | L'autre a des numéros de nuits illisibles (« 3B.10-11 ») ; mais voir l'erreur d'orientation ci-dessous |
+
+**Erreurs relevées (3ᵉ et 4ᵉ envois)**
+
+| Page | Gravité | Problème |
+|---|---|---|
+| Ép. 11, planche 4 | **Grave** | En-tête « **ÉPISODE 12** » alors que c'est l'épisode 11 (le titre « La nuit avant l'aube » est juste) |
+| Ép. 8, planche 2 | **Grave** | En-tête « **VOLUME 2** » au lieu de Volume 1 |
+| Ép. 12, page documentaire | Moyenne | Flèche « **Ouest (≈ 290°)** » placée du côté de l'entrée : c'est l'inverse, l'axe s'enfonce **vers l'ouest** depuis une entrée tournée vers l'est |
+| Ép. 11, page documentaire | Moyenne | « Tête à l'ouest (le soleil entre) / Pieds à l'est (le soleil sort) » : orientation des Nout de la voûte **non sourcée** (N) |
+| Ép. 8, planche 3, case 2 | Moyenne | Faute : « **KEOBU** » au lieu de Kerbu |
+| Ép. 9, planche 1, case 7 ; ép. 8, planche 4, case 7 | Moyenne | Sarcophage dessiné en **caisse rectangulaire** ; la cuve restaurée exposée dans J est **anthropoïde** (ép. 9, planche 2 la montre correctement) |
+| Ép. 12, planche 3, case 2 | À vérifier | Le cartouche dit « tête de bélier » : vérifier que le dieu dans la barque n'a pas une tête de faucon |
+| Ép. 12, planches 1 à 4 | Faible | Numérotation « x/4 » alors que les autres épisodes portent « x/7 » (les deux sont fausses : 4 planches + 1 page doc.) |
+| Ép. 7, page documentaire | Faible | Faute « chaudrns » ; plan de KV12 et orientation inventés |
+| Ép. 9, page documentaire | Faible | Portraits imaginaires de Belzoni et de Loret dans la frise |
+
 ## Pourquoi le format paysage 8,25 × 6 po
 
 Les planches reçues sont en **paysage 4:3** (1448 × 1086 px). KDP propose **un seul format paysage**
@@ -62,11 +90,8 @@ sans les tourner ni les réduire à l'excès. Conséquence : la couverture doit 
 
 ## Bloquant avant publication
 
-1. **Volume incomplet** (39 pages ; le minimum KDP de 24 est atteint, mais l'histoire s'arrête à
-   l'épisode 7, planche 3). Volume complet estimé : 4 pages de début + 2 de prologue +
-   60 pages d'épisodes + 1 = **67 pages**. Pour avoir un texte sur le dos (minimum 79 pages) et la
-   possibilité d'une couverture rigide (75 pages), prévoir des annexes ou un cahier graphique pour
-   atteindre 80 pages.
+1. **Volume complet : 67 pages** (4 pages de début, prologue, 12 épisodes × 5 pages, page de fin). Au-dessus
+   du minimum KDP (24) ; en dessous des 75 pages (couverture rigide) et des 79 pages (texte sur le dos).
 2. **ISBN** : celui de la couverture reçue (978-2-495678-01-5) est **invalide** — son chiffre de contrôle
    devrait être 8, pas 5 — et a été inventé par le générateur d'images. Il a été **effacé**. Utiliser
    l'ISBN gratuit de KDP ou un ISBN AFNIL, et laisser KDP placer le code-barres.

@@ -236,11 +236,11 @@ def page_sommaire(c, page_no, entries):
         y -= 30
 
 
-def page_a_suivre(c, page_no):
+def page_a_suivre(c, page_no, heading="À SUIVRE…"):
     bx, by, bw, bh = content_box(page_no)
     xc = bx + bw / 2
     yc = by + bh / 2
-    centered(c, "À SUIVRE…", yc + 60, "Cinzel", 24, GOLD, xc)
+    centered(c, heading, yc + 60, "Cinzel", 24, GOLD, xc)
     gold_rule(c, xc, yc + 40, 110)
     y = yc + 5
     for line in wrap(MOTTO, "GaramondIt", 14, bw - 140):
@@ -250,7 +250,8 @@ def page_a_suivre(c, page_no):
 
 
 GENERATED = {"@titre": page_titre, "@mentions": page_mentions, "@lecture": page_lecture,
-             "@a_suivre": page_a_suivre}
+             "@a_suivre": page_a_suivre,
+             "@fin": lambda c, n: page_a_suivre(c, n, "FIN DU VOLUME 1")}
 
 
 def build_interior():

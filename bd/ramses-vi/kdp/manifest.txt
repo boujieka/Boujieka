@@ -30,6 +30,7 @@ sources/23_ep05_P1.png | Épisode 5 — Le corps d'Osiris
 sources/24_ep05_P2.png
 sources/25_ep05_P3.png
 sources/26_ep05_P4.png
+sources/35_ep05_doc.png
 sources/27_ep06_P1.png | Épisode 6 — La naissance du disque solaire
 sources/28_ep06_P2.png
 sources/29_ep06_P3.png
@@ -38,4 +39,31 @@ sources/31_ep06_doc.png
 sources/32_ep07_P1.png | Épisode 7 — Les puissances souterraines
 sources/33_ep07_P2.png
 sources/34_ep07_P3.png
-@a_suivre
+sources/36_ep07_P4.png
+sources/37_ep07_doc.png
+sources/38_ep08_P1.png | Épisode 8 — Le secret de Tatenen
+sources/39_ep08_P2.png
+sources/40_ep08_P3.png
+sources/41_ep08_P4.png
+sources/42_ep08_doc.png
+sources/43_ep09_P1.png | Épisode 9 — La chambre du silence
+sources/44_ep09_P2.png
+sources/45_ep09_P3.png
+sources/46_ep09_P4.png
+sources/47_ep09_doc.png
+sources/48_ep10_P1.png | Épisode 10 — Les quatre divisions
+sources/49_ep10_P2.png
+sources/50_ep10_P3.png
+sources/51_ep10_P4.png
+sources/52_ep10_doc.png
+sources/53_ep11_P1.png | Épisode 11 — La nuit avant l'aube
+sources/54_ep11_P2.png
+sources/55_ep11_P3.png
+sources/56_ep11_P4.png
+sources/57_ep11_doc.png
+sources/58_ep12_P1.png | Épisode 12 — Le Soleil renaît
+sources/59_ep12_P2.png
+sources/60_ep12_P3.png
+sources/61_ep12_P4.png
+sources/62_ep12_doc.png
+@fin
