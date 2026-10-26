@@ -4,7 +4,7 @@
 
 | Fichier | Rôle |
 |---|---|
-| `sortie/interieur.pdf` | Intérieur, 39 pages, broché **8,25 × 6 po paysage**, fond perdu (8,375 × 6,25 po) |
+| `sortie/interieur.pdf` (non versionné, trop lourd pour GitHub : relancer `python3 build_kdp.py`) | Intérieur, 39 pages, broché **8,25 × 6 po paysage**, fond perdu (8,375 × 6,25 po) |
 | `sortie/couverture.pdf` | Couverture complète (4ᵉ + dos + 1ʳᵉ), calculée pour le nombre de pages actuel |
 | `sortie/apercu_*.jpg` | Aperçus |
 | `manifest.txt` | Ordre des pages : ajouter les nouvelles planches ici, puis relancer `python3 build_kdp.py` |
