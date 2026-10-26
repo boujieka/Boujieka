@@ -292,7 +292,7 @@ function build(which) {
   for (const f of files) {
     for (const line of fs.readFileSync(path.join(ROOT, f), 'utf8').split('\n')) {
       const m = line.match(/^(#{1,2}) (.*)$/);
-      if (m) TOC_ENTRIES.push({ level: m[1].length, text: strip(m[2]), key: `${f}#${strip(m[2])}` });
+      if (m) TOC_ENTRIES.push({ level: m[1].length, text: strip(m[2]), key: `${f}#${TOC_ENTRIES.length}#${strip(m[2])}` });
     }
   }
   fs.writeFileSync(path.join(__dirname, `toc_${which}.json`), JSON.stringify(TOC_ENTRIES, null, 1));

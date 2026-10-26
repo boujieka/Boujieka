@@ -2,441 +2,441 @@
  {
   "level": 1,
   "text": "Prompts ChatGPT — Mode d'emploi",
-  "key": "prompts_chatgpt/00_mode_d_emploi_chatgpt.md#Prompts ChatGPT — Mode d'emploi"
+  "key": "prompts_chatgpt/00_mode_d_emploi_chatgpt.md#0#Prompts ChatGPT — Mode d'emploi"
  },
  {
   "level": 2,
   "text": "1. Méthode de travail (important pour la cohérence)",
-  "key": "prompts_chatgpt/00_mode_d_emploi_chatgpt.md#1. Méthode de travail (important pour la cohérence)"
+  "key": "prompts_chatgpt/00_mode_d_emploi_chatgpt.md#1#1. Méthode de travail (important pour la cohérence)"
  },
  {
   "level": 2,
   "text": "2. Message n° 1 — Brief de série (à coller en premier)",
-  "key": "prompts_chatgpt/00_mode_d_emploi_chatgpt.md#2. Message n° 1 — Brief de série (à coller en premier)"
+  "key": "prompts_chatgpt/00_mode_d_emploi_chatgpt.md#2#2. Message n° 1 — Brief de série (à coller en premier)"
  },
  {
   "level": 2,
   "text": "3. Message n° 2 — Fiches personnages (à coller en deuxième)",
-  "key": "prompts_chatgpt/00_mode_d_emploi_chatgpt.md#3. Message n° 2 — Fiches personnages (à coller en deuxième)"
+  "key": "prompts_chatgpt/00_mode_d_emploi_chatgpt.md#3#3. Message n° 2 — Fiches personnages (à coller en deuxième)"
  },
  {
   "level": 2,
   "text": "4. Limites à connaître (rigueur historique)",
-  "key": "prompts_chatgpt/00_mode_d_emploi_chatgpt.md#4. Limites à connaître (rigueur historique)"
+  "key": "prompts_chatgpt/00_mode_d_emploi_chatgpt.md#4#4. Limites à connaître (rigueur historique)"
  },
  {
   "level": 2,
   "text": "5. Index",
-  "key": "prompts_chatgpt/00_mode_d_emploi_chatgpt.md#5. Index"
+  "key": "prompts_chatgpt/00_mode_d_emploi_chatgpt.md#5#5. Index"
  },
  {
   "level": 1,
   "text": "Prompts ChatGPT — Couverture, prologue, épisodes 1 à 3",
-  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#Prompts ChatGPT — Couverture, prologue, épisodes 1 à 3"
+  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#6#Prompts ChatGPT — Couverture, prologue, épisodes 1 à 3"
  },
  {
   "level": 2,
   "text": "Couverture — Volume 1",
-  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#Couverture — Volume 1"
+  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#7#Couverture — Volume 1"
  },
  {
   "level": 2,
   "text": "Quatrième de couverture",
-  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#Quatrième de couverture"
+  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#8#Quatrième de couverture"
  },
  {
   "level": 1,
   "text": "Prologue — « Celui qui descend dans la Terre »",
-  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#Prologue — « Celui qui descend dans la Terre »"
+  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#9#Prologue — « Celui qui descend dans la Terre »"
  },
  {
   "level": 2,
   "text": "Prologue · Planche P1 — L'arrivée avant l'aube",
-  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#Prologue · Planche P1 — L'arrivée avant l'aube"
+  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#10#Prologue · Planche P1 — L'arrivée avant l'aube"
  },
  {
   "level": 2,
   "text": "Prologue · Planche P2 — Le premier corridor",
-  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#Prologue · Planche P2 — Le premier corridor"
+  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#11#Prologue · Planche P2 — Le premier corridor"
  },
  {
   "level": 1,
   "text": "Épisode 1 — La porte de KV9",
-  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#Épisode 1 — La porte de KV9"
+  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#12#Épisode 1 — La porte de KV9"
  },
  {
   "level": 2,
   "text": "Ép. 1 · Planche 1 — Découverte archéologique",
-  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#Ép. 1 · Planche 1 — Découverte archéologique"
+  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#13#Ép. 1 · Planche 1 — Découverte archéologique"
  },
  {
   "level": 2,
   "text": "Ép. 1 · Planche 2 — Analyse d'une inscription",
-  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#Ép. 1 · Planche 2 — Analyse d'une inscription"
+  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#14#Ép. 1 · Planche 2 — Analyse d'une inscription"
  },
  {
   "level": 2,
   "text": "Ép. 1 · Planche 3 — Immersion dans l'Égypte antique",
-  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#Ép. 1 · Planche 3 — Immersion dans l'Égypte antique"
+  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#15#Ép. 1 · Planche 3 — Immersion dans l'Égypte antique"
  },
  {
   "level": 2,
   "text": "Ép. 1 · Planche 4 — Révélation et suspense",
-  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#Ép. 1 · Planche 4 — Révélation et suspense"
+  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#16#Ép. 1 · Planche 4 — Révélation et suspense"
  },
  {
   "level": 2,
   "text": "Ép. 1 · Illustration de la page documentaire — « KV9, un tombeau pour deux rois »",
-  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#Ép. 1 · Illustration de la page documentaire — « KV9, un tombeau pour deux rois »"
+  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#17#Ép. 1 · Illustration de la page documentaire — « KV9, un tombeau pour deux rois »"
  },
  {
   "level": 1,
   "text": "Épisode 2 — Le plafond des étoiles",
-  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#Épisode 2 — Le plafond des étoiles"
+  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#18#Épisode 2 — Le plafond des étoiles"
  },
  {
   "level": 2,
   "text": "Ép. 2 · Planche 1 — Découverte archéologique",
-  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#Ép. 2 · Planche 1 — Découverte archéologique"
+  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#19#Ép. 2 · Planche 1 — Découverte archéologique"
  },
  {
   "level": 2,
   "text": "Ép. 2 · Planche 2 — Analyse d'une inscription",
-  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#Ép. 2 · Planche 2 — Analyse d'une inscription"
+  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#20#Ép. 2 · Planche 2 — Analyse d'une inscription"
  },
  {
   "level": 2,
   "text": "Ép. 2 · Planche 3 — Immersion dans l'Égypte antique (reconstitution symbolique)",
-  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#Ép. 2 · Planche 3 — Immersion dans l'Égypte antique (reconstitution symbolique)"
+  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#21#Ép. 2 · Planche 3 — Immersion dans l'Égypte antique (reconstitution symbolique)"
  },
  {
   "level": 2,
   "text": "Ép. 2 · Planche 4 — Révélation et suspense",
-  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#Ép. 2 · Planche 4 — Révélation et suspense"
+  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#22#Ép. 2 · Planche 4 — Révélation et suspense"
  },
  {
   "level": 2,
   "text": "Ép. 2 · Illustration de la page documentaire — « Lire un plafond égyptien »",
-  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#Ép. 2 · Illustration de la page documentaire — « Lire un plafond égyptien »"
+  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#23#Ép. 2 · Illustration de la page documentaire — « Lire un plafond égyptien »"
  },
  {
   "level": 1,
   "text": "Épisode 3 — Le livre sans commencement",
-  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#Épisode 3 — Le livre sans commencement"
+  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#24#Épisode 3 — Le livre sans commencement"
  },
  {
   "level": 2,
   "text": "Ép. 3 · Planche 1 — Découverte archéologique",
-  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#Ép. 3 · Planche 1 — Découverte archéologique"
+  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#25#Ép. 3 · Planche 1 — Découverte archéologique"
  },
  {
   "level": 2,
   "text": "Ép. 3 · Planche 2 — Analyse d'une inscription",
-  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#Ép. 3 · Planche 2 — Analyse d'une inscription"
+  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#26#Ép. 3 · Planche 2 — Analyse d'une inscription"
  },
  {
   "level": 2,
   "text": "Ép. 3 · Planche 3 — Immersion : l'expédition Piankoff, 1949-1951",
-  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#Ép. 3 · Planche 3 — Immersion : l'expédition Piankoff, 1949-1951"
+  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#27#Ép. 3 · Planche 3 — Immersion : l'expédition Piankoff, 1949-1951"
  },
  {
   "level": 2,
   "text": "Ép. 3 · Planche 4 — Révélation et suspense",
-  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#Ép. 3 · Planche 4 — Révélation et suspense"
+  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#28#Ép. 3 · Planche 4 — Révélation et suspense"
  },
  {
   "level": 2,
   "text": "Ép. 3 · Illustration de la page documentaire — « Un livre aux trois noms »",
-  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#Ép. 3 · Illustration de la page documentaire — « Un livre aux trois noms »"
+  "key": "prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md#29#Ép. 3 · Illustration de la page documentaire — « Un livre aux trois noms »"
  },
  {
   "level": 1,
   "text": "Prompts ChatGPT — Épisodes 4 à 6",
-  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#Prompts ChatGPT — Épisodes 4 à 6"
+  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#30#Prompts ChatGPT — Épisodes 4 à 6"
  },
  {
   "level": 1,
   "text": "Épisode 4 — Les deux horizons d'Aker",
-  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#Épisode 4 — Les deux horizons d'Aker"
+  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#31#Épisode 4 — Les deux horizons d'Aker"
  },
  {
   "level": 2,
   "text": "Ép. 4 · Planche 1 — Découverte archéologique",
-  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#Ép. 4 · Planche 1 — Découverte archéologique"
+  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#32#Ép. 4 · Planche 1 — Découverte archéologique"
  },
  {
   "level": 2,
   "text": "Ép. 4 · Planche 2 — Analyse d'une inscription",
-  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#Ép. 4 · Planche 2 — Analyse d'une inscription"
+  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#33#Ép. 4 · Planche 2 — Analyse d'une inscription"
  },
  {
   "level": 2,
   "text": "Ép. 4 · Planche 3 — Immersion dans l'Égypte antique",
-  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#Ép. 4 · Planche 3 — Immersion dans l'Égypte antique"
+  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#34#Ép. 4 · Planche 3 — Immersion dans l'Égypte antique"
  },
  {
   "level": 2,
   "text": "Ép. 4 · Planche 4 — Révélation et suspense",
-  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#Ép. 4 · Planche 4 — Révélation et suspense"
+  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#35#Ép. 4 · Planche 4 — Révélation et suspense"
  },
  {
   "level": 2,
   "text": "Ép. 4 · Page documentaire — Aker, le dieu aux deux horizons (illustration)",
-  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#Ép. 4 · Page documentaire — Aker, le dieu aux deux horizons (illustration)"
+  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#36#Ép. 4 · Page documentaire — Aker, le dieu aux deux horizons (illustration)"
  },
  {
   "level": 1,
   "text": "Épisode 5 — Le corps d'Osiris",
-  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#Épisode 5 — Le corps d'Osiris"
+  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#37#Épisode 5 — Le corps d'Osiris"
  },
  {
   "level": 2,
   "text": "Ép. 5 · Planche 1 — Découverte archéologique",
-  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#Ép. 5 · Planche 1 — Découverte archéologique"
+  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#38#Ép. 5 · Planche 1 — Découverte archéologique"
  },
  {
   "level": 2,
   "text": "Ép. 5 · Planche 2 — Analyse d'une inscription",
-  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#Ép. 5 · Planche 2 — Analyse d'une inscription"
+  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#39#Ép. 5 · Planche 2 — Analyse d'une inscription"
  },
  {
   "level": 2,
   "text": "Ép. 5 · Planche 3 — Immersion dans l'Égypte antique",
-  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#Ép. 5 · Planche 3 — Immersion dans l'Égypte antique"
+  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#40#Ép. 5 · Planche 3 — Immersion dans l'Égypte antique"
  },
  {
   "level": 2,
   "text": "Ép. 5 · Planche 4 — Révélation et suspense",
-  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#Ép. 5 · Planche 4 — Révélation et suspense"
+  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#41#Ép. 5 · Planche 4 — Révélation et suspense"
  },
  {
   "level": 2,
   "text": "Ép. 5 · Page documentaire — Rê et Osiris : deux dieux, une nuit (illustration)",
-  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#Ép. 5 · Page documentaire — Rê et Osiris : deux dieux, une nuit (illustration)"
+  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#42#Ép. 5 · Page documentaire — Rê et Osiris : deux dieux, une nuit (illustration)"
  },
  {
   "level": 1,
   "text": "Épisode 6 — La naissance du disque solaire",
-  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#Épisode 6 — La naissance du disque solaire"
+  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#43#Épisode 6 — La naissance du disque solaire"
  },
  {
   "level": 2,
   "text": "Ép. 6 · Planche 1 — Découverte archéologique",
-  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#Ép. 6 · Planche 1 — Découverte archéologique"
+  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#44#Ép. 6 · Planche 1 — Découverte archéologique"
  },
  {
   "level": 2,
   "text": "Ép. 6 · Planche 2 — Analyse d'une inscription",
-  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#Ép. 6 · Planche 2 — Analyse d'une inscription"
+  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#45#Ép. 6 · Planche 2 — Analyse d'une inscription"
  },
  {
   "level": 2,
   "text": "Ép. 6 · Planche 3 — Immersion dans l'Égypte antique",
-  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#Ép. 6 · Planche 3 — Immersion dans l'Égypte antique"
+  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#46#Ép. 6 · Planche 3 — Immersion dans l'Égypte antique"
  },
  {
   "level": 2,
   "text": "Ép. 6 · Planche 4 — Révélation et suspense",
-  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#Ép. 6 · Planche 4 — Révélation et suspense"
+  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#47#Ép. 6 · Planche 4 — Révélation et suspense"
  },
  {
   "level": 2,
   "text": "Ép. 6 · Page documentaire — Naître de la terre : le disque, les bras et le scarabée (illustration)",
-  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#Ép. 6 · Page documentaire — Naître de la terre : le disque, les bras et le scarabée (illustration)"
+  "key": "prompts_chatgpt/02_chatgpt_ep04-06.md#48#Ép. 6 · Page documentaire — Naître de la terre : le disque, les bras et le scarabée (illustration)"
  },
  {
   "level": 1,
   "text": "Prompts ChatGPT — Épisodes 7 à 9",
-  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#Prompts ChatGPT — Épisodes 7 à 9"
+  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#49#Prompts ChatGPT — Épisodes 7 à 9"
  },
  {
   "level": 2,
   "text": "Consignes propres à ces trois épisodes",
-  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#Consignes propres à ces trois épisodes"
+  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#50#Consignes propres à ces trois épisodes"
  },
  {
   "level": 1,
   "text": "Épisode 7 — Les puissances souterraines",
-  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#Épisode 7 — Les puissances souterraines"
+  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#51#Épisode 7 — Les puissances souterraines"
  },
  {
   "level": 2,
   "text": "Ép. 7 · Planche 1 — Découverte archéologique",
-  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#Ép. 7 · Planche 1 — Découverte archéologique"
+  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#52#Ép. 7 · Planche 1 — Découverte archéologique"
  },
  {
   "level": 2,
   "text": "Ép. 7 · Planche 2 — Analyse d'une inscription",
-  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#Ép. 7 · Planche 2 — Analyse d'une inscription"
+  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#53#Ép. 7 · Planche 2 — Analyse d'une inscription"
  },
  {
   "level": 2,
   "text": "Ép. 7 · Planche 3 — Immersion dans l'Égypte antique",
-  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#Ép. 7 · Planche 3 — Immersion dans l'Égypte antique"
+  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#54#Ép. 7 · Planche 3 — Immersion dans l'Égypte antique"
  },
  {
   "level": 2,
   "text": "Ép. 7 · Planche 4 — Révélation et suspense",
-  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#Ép. 7 · Planche 4 — Révélation et suspense"
+  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#55#Ép. 7 · Planche 4 — Révélation et suspense"
  },
  {
   "level": 2,
   "text": "Ép. 7 · Page documentaire — illustration « Le chaos et sa défaite »",
-  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#Ép. 7 · Page documentaire — illustration « Le chaos et sa défaite »"
+  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#56#Ép. 7 · Page documentaire — illustration « Le chaos et sa défaite »"
  },
  {
   "level": 1,
   "text": "Épisode 8 — Le secret de Tatenen",
-  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#Épisode 8 — Le secret de Tatenen"
+  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#57#Épisode 8 — Le secret de Tatenen"
  },
  {
   "level": 2,
   "text": "Ép. 8 · Planche 1 — Découverte archéologique",
-  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#Ép. 8 · Planche 1 — Découverte archéologique"
+  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#58#Ép. 8 · Planche 1 — Découverte archéologique"
  },
  {
   "level": 2,
   "text": "Ép. 8 · Planche 2 — Analyse d'une inscription",
-  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#Ép. 8 · Planche 2 — Analyse d'une inscription"
+  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#59#Ép. 8 · Planche 2 — Analyse d'une inscription"
  },
  {
   "level": 2,
   "text": "Ép. 8 · Planche 3 — Immersion dans l'Égypte antique (image mythique)",
-  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#Ép. 8 · Planche 3 — Immersion dans l'Égypte antique (image mythique)"
+  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#60#Ép. 8 · Planche 3 — Immersion dans l'Égypte antique (image mythique)"
  },
  {
   "level": 2,
   "text": "Ép. 8 · Planche 4 — Révélation et suspense",
-  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#Ép. 8 · Planche 4 — Révélation et suspense"
+  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#61#Ép. 8 · Planche 4 — Révélation et suspense"
  },
  {
   "level": 2,
   "text": "Ép. 8 · Page documentaire — illustration « Tatenen, la terre surgie »",
-  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#Ép. 8 · Page documentaire — illustration « Tatenen, la terre surgie »"
+  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#62#Ép. 8 · Page documentaire — illustration « Tatenen, la terre surgie »"
  },
  {
   "level": 1,
   "text": "Épisode 9 — La chambre du silence",
-  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#Épisode 9 — La chambre du silence"
+  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#63#Épisode 9 — La chambre du silence"
  },
  {
   "level": 2,
   "text": "Ép. 9 · Planche 1 — Découverte archéologique",
-  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#Ép. 9 · Planche 1 — Découverte archéologique"
+  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#64#Ép. 9 · Planche 1 — Découverte archéologique"
  },
  {
   "level": 2,
   "text": "Ép. 9 · Planche 2 — Analyse du sarcophage",
-  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#Ép. 9 · Planche 2 — Analyse du sarcophage"
+  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#65#Ép. 9 · Planche 2 — Analyse du sarcophage"
  },
  {
   "level": 2,
   "text": "Ép. 9 · Planche 3 — Immersion dans l'Égypte antique",
-  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#Ép. 9 · Planche 3 — Immersion dans l'Égypte antique"
+  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#66#Ép. 9 · Planche 3 — Immersion dans l'Égypte antique"
  },
  {
   "level": 2,
   "text": "Ép. 9 · Planche 4 — Révélation et suspense",
-  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#Ép. 9 · Planche 4 — Révélation et suspense"
+  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#67#Ép. 9 · Planche 4 — Révélation et suspense"
  },
  {
   "level": 2,
   "text": "Ép. 9 · Page documentaire — illustration « Le voyage du roi après sa mort »",
-  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#Ép. 9 · Page documentaire — illustration « Le voyage du roi après sa mort »"
+  "key": "prompts_chatgpt/03_chatgpt_ep07-09.md#68#Ép. 9 · Page documentaire — illustration « Le voyage du roi après sa mort »"
  },
  {
   "level": 1,
   "text": "Prompts ChatGPT — Épisodes 10 à 12",
-  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#Prompts ChatGPT — Épisodes 10 à 12"
+  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#69#Prompts ChatGPT — Épisodes 10 à 12"
  },
  {
   "level": 1,
   "text": "ÉPISODE 10 — Les quatre divisions",
-  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#ÉPISODE 10 — Les quatre divisions"
+  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#70#ÉPISODE 10 — Les quatre divisions"
  },
  {
   "level": 2,
   "text": "Ép. 10 · Planche 1 — Découverte archéologique : le panorama",
-  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#Ép. 10 · Planche 1 — Découverte archéologique : le panorama"
+  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#71#Ép. 10 · Planche 1 — Découverte archéologique : le panorama"
  },
  {
   "level": 2,
   "text": "Ép. 10 · Planche 2 — Analyse : un débat à quatre voix",
-  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#Ép. 10 · Planche 2 — Analyse : un débat à quatre voix"
+  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#72#Ép. 10 · Planche 2 — Analyse : un débat à quatre voix"
  },
  {
   "level": 2,
   "text": "Ép. 10 · Planche 3 — Immersion symbolique : un disque, plusieurs chemins",
-  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#Ép. 10 · Planche 3 — Immersion symbolique : un disque, plusieurs chemins"
+  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#73#Ép. 10 · Planche 3 — Immersion symbolique : un disque, plusieurs chemins"
  },
  {
   "level": 2,
   "text": "Ép. 10 · Planche 4 — Révélation et suspense : les oiseaux qui halent la barque",
-  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#Ép. 10 · Planche 4 — Révélation et suspense : les oiseaux qui halent la barque"
+  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#74#Ép. 10 · Planche 4 — Révélation et suspense : les oiseaux qui halent la barque"
  },
  {
   "level": 2,
   "text": "Ép. 10 · Page documentaire — « Quatre parois, deux systèmes, une controverse »",
-  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#Ép. 10 · Page documentaire — « Quatre parois, deux systèmes, une controverse »"
+  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#75#Ép. 10 · Page documentaire — « Quatre parois, deux systèmes, une controverse »"
  },
  {
   "level": 1,
   "text": "ÉPISODE 11 — La nuit avant l'aube",
-  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#ÉPISODE 11 — La nuit avant l'aube"
+  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#76#ÉPISODE 11 — La nuit avant l'aube"
  },
  {
   "level": 2,
   "text": "Ép. 11 · Planche 1 — Découverte archéologique : la voûte aux deux Nout",
-  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#Ép. 11 · Planche 1 — Découverte archéologique : la voûte aux deux Nout"
+  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#77#Ép. 11 · Planche 1 — Découverte archéologique : la voûte aux deux Nout"
  },
  {
   "level": 2,
   "text": "Ép. 11 · Planche 2 — Analyse d'une inscription : la crise",
-  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#Ép. 11 · Planche 2 — Analyse d'une inscription : la crise"
+  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#78#Ép. 11 · Planche 2 — Analyse d'une inscription : la crise"
  },
  {
   "level": 2,
   "text": "Ép. 11 · Planche 3 — Immersion dans l'Égypte antique : « Je ne sais pas lire les hiéroglyphes ! »",
-  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#Ép. 11 · Planche 3 — Immersion dans l'Égypte antique : « Je ne sais pas lire les hiéroglyphes ! »"
+  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#79#Ép. 11 · Planche 3 — Immersion dans l'Égypte antique : « Je ne sais pas lire les hiéroglyphes ! »"
  },
  {
   "level": 2,
   "text": "Ép. 11 · Planche 4 — Révélation et suspense : trois idées reçues",
-  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#Ép. 11 · Planche 4 — Révélation et suspense : trois idées reçues"
+  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#80#Ép. 11 · Planche 4 — Révélation et suspense : trois idées reçues"
  },
  {
   "level": 2,
   "text": "Ép. 11 · Page documentaire — « Ce que KV9 n'est pas »",
-  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#Ép. 11 · Page documentaire — « Ce que KV9 n'est pas »"
+  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#81#Ép. 11 · Page documentaire — « Ce que KV9 n'est pas »"
  },
  {
   "level": 1,
   "text": "ÉPISODE 12 — Le Soleil renaît",
-  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#ÉPISODE 12 — Le Soleil renaît"
+  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#82#ÉPISODE 12 — Le Soleil renaît"
  },
  {
   "level": 2,
   "text": "Ép. 12 · Planche 1 — Découverte archéologique : l'aube au bout de l'axe",
-  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#Ép. 12 · Planche 1 — Découverte archéologique : l'aube au bout de l'axe"
+  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#83#Ép. 12 · Planche 1 — Découverte archéologique : l'aube au bout de l'axe"
  },
  {
   "level": 2,
   "text": "Ép. 12 · Planche 2 — Analyse : la 12ᵉ heure",
-  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#Ép. 12 · Planche 2 — Analyse : la 12ᵉ heure"
+  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#84#Ép. 12 · Planche 2 — Analyse : la 12ᵉ heure"
  },
  {
   "level": 2,
   "text": "Ép. 12 · Planche 3 — Immersion : les formes du soleil",
-  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#Ép. 12 · Planche 3 — Immersion : les formes du soleil"
+  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#85#Ép. 12 · Planche 3 — Immersion : les formes du soleil"
  },
  {
   "level": 2,
   "text": "Ép. 12 · Planche 4 — Résolution : la lumière qui recommence",
-  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#Ép. 12 · Planche 4 — Résolution : la lumière qui recommence"
+  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#86#Ép. 12 · Planche 4 — Résolution : la lumière qui recommence"
  },
  {
   "level": 2,
   "text": "Ép. 12 · Page documentaire — « Ce que nous savons, ce que nous ignorons »",
-  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#Ép. 12 · Page documentaire — « Ce que nous savons, ce que nous ignorons »"
+  "key": "prompts_chatgpt/04_chatgpt_ep10-12.md#87#Ép. 12 · Page documentaire — « Ce que nous savons, ce que nous ignorons »"
  }
 ]
