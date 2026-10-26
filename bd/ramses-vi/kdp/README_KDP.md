@@ -4,7 +4,7 @@
 
 | Fichier | Rôle |
 |---|---|
-| `sortie/interieur.pdf` | Intérieur, 20 pages, broché **8,25 × 6 po paysage**, fond perdu (8,375 × 6,25 po) |
+| `sortie/interieur.pdf` | Intérieur, 39 pages, broché **8,25 × 6 po paysage**, fond perdu (8,375 × 6,25 po) |
 | `sortie/couverture.pdf` | Couverture complète (4ᵉ + dos + 1ʳᵉ), calculée pour le nombre de pages actuel |
 | `sortie/apercu_*.jpg` | Aperçus |
 | `manifest.txt` | Ordre des pages : ajouter les nouvelles planches ici, puis relancer `python3 build_kdp.py` |
@@ -25,6 +25,34 @@
 6. Épisode 3 : planches 1 à 3 (**planche 4 et page documentaire manquantes**).
 7. Page finale « À suivre » avec la devise de la série.
 
+## Mise à jour — 2ᵉ envoi (19 nouvelles planches)
+
+- **Doublon** : la 1ʳᵉ image de l'envoi est identique, octet pour octet, à l'épisode 3, planche 3, déjà en
+  place : non ajoutée.
+- **Ajoutées dans l'ordre** : ép. 3 (planche 4, page documentaire), ép. 4 (complet), ép. 5 (planches 1-4),
+  ép. 6 (complet), ép. 7 (planches 1-3). Le volume compte maintenant **39 pages** (le minimum KDP de 24
+  est atteint).
+- **Encore manquants** : page documentaire de l'ép. 5 ; ép. 7 planche 4 et page documentaire ; épisodes
+  8 à 12.
+
+### Erreurs relevées dans le 2ᵉ envoi (à corriger avant publication)
+
+| Page | Gravité | Problème |
+|---|---|---|
+| Ép. 3, planche 4, case 4 | **Grave** | **Référence inventée** à l'écran : « L. Pleuger (2020), *The Book of the Earth in the Tomb of Ramesses VI*, *Journal of Egyptian Archaeology* 106, p. 37-56 ». Cet article n'existe pas sous ce titre : la vraie référence est L. Pleuger, « Le Livre de la Terre. À propos du sens de lecture… », *BABELAO* 9 (2020), p. 45-94 |
+| Ép. 7, planche 1, case 5 | **Grave** | Le schéma nomme l'antichambre « **Antichambre I (salle arrière de KV12)** » : faux. L'antichambre I appartient à KV9 ; c'est la salle arrière de KV12 qui a été percée |
+| Ép. 4, planche 4, case 2 | Moyenne | Phrase anglaise attribuée à Darnell à l'écran (« Roberson has suggested that the forward part… ») : **formulation inventée**, non vérifiée dans le livre. Rendre le texte de l'écran illisible |
+| Ép. 4, planche 3 | Moyenne | Note interne imprimée dans la BD : « Source : Rê, la nuit, dans la barque : tête de bélier (**bible 03 §1**) » ; et « À suivre — Épisode 5 : *Le cycle des deux horizons* » : mauvais titre, et ce « À suivre » n'a pas sa place en planche 3 (il est déjà en planche 4) |
+| Ép. 4, page documentaire | Moyenne | Renvois internes visibles (« bible 03 §1 ») et référence incomplète « Wilkinson, 2003, p. … » |
+| Ép. 4, planche 1, cases 2-4 | Moyenne | Aker dessiné en **deux sphinx séparés** ; dans KV9 il s'agit d'un double sphinx (deux corps **joints dos à dos**) |
+| Ép. 7, planche 3 | Moyenne | Le scribe écrit sur une **planchette à pince avec un stylo** (anachronique : ostracon ou papyrus et calame) ; fautes : « est passéé », « CARIER » (carrier), « trvers » (travers) |
+| Ép. 6, planche 1, case 5 | Faible | Texte déformé sur la feuille déchirée (« CACLE E ? ») |
+| Ép. 5, planche 4, case 6 | Faible | Le scan indique « Corridor F » : F est la salle à piliers |
+| Ép. 6, page documentaire ; ép. 7, planche 1 | Faible | Plans de KV9 / KV12 **dessinés librement** (formes inventées) : redessiner d'après le Theban Mapping Project |
+| Ép. 3, page documentaire | Faible | Plan de la chambre J et vignettes « d'après Piankoff 1946 / Hornung 1972… » **inventés** ; disposition à reprendre de Piankoff & Rambova 1954 |
+| Ép. 5, planche 3, case 6 | Faible | La paroi de QV66 dessinée est imaginaire (le cadre l'indique « attestée ailleurs », mais l'image ne copie pas la vraie paroi) |
+| Toutes | Faible | « PLANCHE x/7 » au lieu de x/5 ; « KERBU » et « DR KERBU » alternent dans les bulles |
+
 ## Pourquoi le format paysage 8,25 × 6 po
 
 Les planches reçues sont en **paysage 4:3** (1448 × 1086 px). KDP propose **un seul format paysage**
@@ -34,8 +62,8 @@ sans les tourner ni les réduire à l'excès. Conséquence : la couverture doit 
 
 ## Bloquant avant publication
 
-1. **Nombre de pages : 20 < 24**, minimum KDP en couleur premium. Il manque l'épisode 3 (planche 4 et
-   page documentaire) et les épisodes 4 à 12. Volume complet estimé : 4 pages de début + 2 de prologue +
+1. **Volume incomplet** (39 pages ; le minimum KDP de 24 est atteint, mais l'histoire s'arrête à
+   l'épisode 7, planche 3). Volume complet estimé : 4 pages de début + 2 de prologue +
    60 pages d'épisodes + 1 = **67 pages**. Pour avoir un texte sur le dos (minimum 79 pages) et la
    possibilité d'une couverture rigide (75 pages), prévoir des annexes ou un cahier graphique pour
    atteindre 80 pages.

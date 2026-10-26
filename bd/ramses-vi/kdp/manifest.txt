@@ -19,4 +19,23 @@ sources/12_ep02_doc.png
 sources/13_ep03_P1.png | Épisode 3 — Le livre sans commencement
 sources/14_ep03_P2.png
 sources/15_ep03_P3.png
+sources/16_ep03_P4.png
+sources/17_ep03_doc.png
+sources/18_ep04_P1.png | Épisode 4 — Les deux horizons d'Aker
+sources/19_ep04_P2.png
+sources/20_ep04_P3.png
+sources/21_ep04_P4.png
+sources/22_ep04_doc.png
+sources/23_ep05_P1.png | Épisode 5 — Le corps d'Osiris
+sources/24_ep05_P2.png
+sources/25_ep05_P3.png
+sources/26_ep05_P4.png
+sources/27_ep06_P1.png | Épisode 6 — La naissance du disque solaire
+sources/28_ep06_P2.png
+sources/29_ep06_P3.png
+sources/30_ep06_P4.png
+sources/31_ep06_doc.png
+sources/32_ep07_P1.png | Épisode 7 — Les puissances souterraines
+sources/33_ep07_P2.png
+sources/34_ep07_P3.png
 @a_suivre
