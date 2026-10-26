@@ -273,7 +273,7 @@ seconde.
 
 **Bloc 2 — Ce qui est inventé [F]**
 - Les personnages, leur « procès » à quatre voix et le maître de Mansour.
-- Le panorama et le logiciel de Maya, la scansion des photographies de Husson.
+- Le panorama et le logiciel de Maya, la numérisation des photographies de Husson.
 - La demande de Marsac.
 
 **Bloc 3 — Ce qui est interprétation ou hypothèse [S]**

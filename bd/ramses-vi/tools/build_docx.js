@@ -171,11 +171,12 @@ function convert(md, { firstHeadingPageBreak }) {
       i++; const code = [];
       while (i < lines.length && !lines[i].startsWith('```')) code.push(lines[i++]);
       i++;
-      code.forEach((c, k) => out.push(new Paragraph({
-        spacing: { after: 0, line: 240 }, indent: { left: 340 },
+      // bloc de texte (prompt) : lignes jointes pour un retour à la ligne naturel
+      out.push(new Paragraph({
+        spacing: { after: 0, line: 252 }, indent: { left: 340, right: 200 },
         shading: { type: ShadingType.CLEAR, fill: 'F4F4F4', color: 'auto' },
-        children: [new TextRun({ text: c || ' ', font: 'Consolas', size: 17 })],
-      })));
+        children: [new TextRun({ text: code.join(' ').trim(), font: 'Consolas', size: 17 })],
+      }));
       out.push(new Paragraph({ spacing: { after: 120 }, children: [] }));
       continue;
     }

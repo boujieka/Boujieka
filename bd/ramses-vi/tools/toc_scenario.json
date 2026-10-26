@@ -1,0 +1,407 @@
+[
+ {
+  "level": 1,
+  "text": "Couverture — Volume 1",
+  "key": "01_couverture.md#Couverture — Volume 1"
+ },
+ {
+  "level": 2,
+  "text": "Textes de couverture",
+  "key": "01_couverture.md#Textes de couverture"
+ },
+ {
+  "level": 2,
+  "text": "Composition (brief pour le dessinateur)",
+  "key": "01_couverture.md#Composition (brief pour le dessinateur)"
+ },
+ {
+  "level": 2,
+  "text": "Prompt de génération d'image (si utilisé pour un rough)",
+  "key": "01_couverture.md#Prompt de génération d'image (si utilisé pour un rough)"
+ },
+ {
+  "level": 2,
+  "text": "Quatrième de couverture",
+  "key": "01_couverture.md#Quatrième de couverture"
+ },
+ {
+  "level": 2,
+  "text": "Dos (tranche)",
+  "key": "01_couverture.md#Dos (tranche)"
+ },
+ {
+  "level": 1,
+  "text": "Prologue — « Celui qui descend dans la Terre »",
+  "key": "02_prologue.md#Prologue — « Celui qui descend dans la Terre »"
+ },
+ {
+  "level": 2,
+  "text": "Planche P1 — 6 cases",
+  "key": "02_prologue.md#Planche P1 — 6 cases"
+ },
+ {
+  "level": 2,
+  "text": "Planche P2 — 6 cases",
+  "key": "02_prologue.md#Planche P2 — 6 cases"
+ },
+ {
+  "level": 1,
+  "text": "Épisode 1 — La porte de KV9",
+  "key": "03_episode_01_la_porte_de_kv9.md#Épisode 1 — La porte de KV9"
+ },
+ {
+  "level": 2,
+  "text": "Planche 1 — Découverte archéologique (7 cases)",
+  "key": "03_episode_01_la_porte_de_kv9.md#Planche 1 — Découverte archéologique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 2 — Analyse d'une inscription (7 cases)",
+  "key": "03_episode_01_la_porte_de_kv9.md#Planche 2 — Analyse d'une inscription (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 3 — Immersion dans l'Égypte antique (6 cases)",
+  "key": "03_episode_01_la_porte_de_kv9.md#Planche 3 — Immersion dans l'Égypte antique (6 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 4 — Révélation et suspense (7 cases)",
+  "key": "03_episode_01_la_porte_de_kv9.md#Planche 4 — Révélation et suspense (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Page documentaire — Épisode 1",
+  "key": "03_episode_01_la_porte_de_kv9.md#Page documentaire — Épisode 1"
+ },
+ {
+  "level": 1,
+  "text": "Épisode 2 — Le plafond des étoiles",
+  "key": "04_episode_02_le_plafond_des_etoiles.md#Épisode 2 — Le plafond des étoiles"
+ },
+ {
+  "level": 2,
+  "text": "Planche 1 — Découverte archéologique (7 cases)",
+  "key": "04_episode_02_le_plafond_des_etoiles.md#Planche 1 — Découverte archéologique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 2 — Analyse d'une inscription (7 cases)",
+  "key": "04_episode_02_le_plafond_des_etoiles.md#Planche 2 — Analyse d'une inscription (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 3 — Immersion dans l'Égypte antique (7 cases)",
+  "key": "04_episode_02_le_plafond_des_etoiles.md#Planche 3 — Immersion dans l'Égypte antique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 4 — Révélation et suspense (8 cases)",
+  "key": "04_episode_02_le_plafond_des_etoiles.md#Planche 4 — Révélation et suspense (8 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Page documentaire — Épisode 2",
+  "key": "04_episode_02_le_plafond_des_etoiles.md#Page documentaire — Épisode 2"
+ },
+ {
+  "level": 1,
+  "text": "Épisode 3 — Le livre sans commencement",
+  "key": "05_episode_03_le_livre_sans_commencement.md#Épisode 3 — Le livre sans commencement"
+ },
+ {
+  "level": 2,
+  "text": "Planche 1 — Découverte archéologique (7 cases)",
+  "key": "05_episode_03_le_livre_sans_commencement.md#Planche 1 — Découverte archéologique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 2 — Analyse d'une inscription (7 cases)",
+  "key": "05_episode_03_le_livre_sans_commencement.md#Planche 2 — Analyse d'une inscription (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 3 — Immersion : l'expédition Piankoff, 1949-1951 (7 cases)",
+  "key": "05_episode_03_le_livre_sans_commencement.md#Planche 3 — Immersion : l'expédition Piankoff, 1949-1951 (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 4 — Révélation et suspense (7 cases)",
+  "key": "05_episode_03_le_livre_sans_commencement.md#Planche 4 — Révélation et suspense (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Page documentaire — Épisode 3",
+  "key": "05_episode_03_le_livre_sans_commencement.md#Page documentaire — Épisode 3"
+ },
+ {
+  "level": 1,
+  "text": "Épisode 4 — Les deux horizons d'Aker",
+  "key": "06_episode_04_les_deux_horizons_d_aker.md#Épisode 4 — Les deux horizons d'Aker"
+ },
+ {
+  "level": 2,
+  "text": "Planche 1 — Découverte archéologique (7 cases)",
+  "key": "06_episode_04_les_deux_horizons_d_aker.md#Planche 1 — Découverte archéologique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 2 — Analyse d'une inscription (8 cases)",
+  "key": "06_episode_04_les_deux_horizons_d_aker.md#Planche 2 — Analyse d'une inscription (8 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 3 — Immersion dans l'Égypte antique (7 cases)",
+  "key": "06_episode_04_les_deux_horizons_d_aker.md#Planche 3 — Immersion dans l'Égypte antique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 4 — Révélation et suspense (8 cases)",
+  "key": "06_episode_04_les_deux_horizons_d_aker.md#Planche 4 — Révélation et suspense (8 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Page documentaire — Épisode 4",
+  "key": "06_episode_04_les_deux_horizons_d_aker.md#Page documentaire — Épisode 4"
+ },
+ {
+  "level": 1,
+  "text": "Épisode 5 — Le corps d'Osiris",
+  "key": "07_episode_05_le_corps_d_osiris.md#Épisode 5 — Le corps d'Osiris"
+ },
+ {
+  "level": 2,
+  "text": "Planche 1 — Découverte archéologique (7 cases)",
+  "key": "07_episode_05_le_corps_d_osiris.md#Planche 1 — Découverte archéologique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 2 — Analyse d'une inscription (8 cases)",
+  "key": "07_episode_05_le_corps_d_osiris.md#Planche 2 — Analyse d'une inscription (8 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 3 — Immersion dans l'Égypte antique (7 cases)",
+  "key": "07_episode_05_le_corps_d_osiris.md#Planche 3 — Immersion dans l'Égypte antique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 4 — Révélation et suspense (7 cases)",
+  "key": "07_episode_05_le_corps_d_osiris.md#Planche 4 — Révélation et suspense (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Page documentaire — Épisode 5",
+  "key": "07_episode_05_le_corps_d_osiris.md#Page documentaire — Épisode 5"
+ },
+ {
+  "level": 1,
+  "text": "Épisode 6 — La naissance du disque solaire",
+  "key": "08_episode_06_la_naissance_du_disque_solaire.md#Épisode 6 — La naissance du disque solaire"
+ },
+ {
+  "level": 2,
+  "text": "Planche 1 — Découverte archéologique (7 cases)",
+  "key": "08_episode_06_la_naissance_du_disque_solaire.md#Planche 1 — Découverte archéologique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 2 — Analyse d'une inscription (7 cases)",
+  "key": "08_episode_06_la_naissance_du_disque_solaire.md#Planche 2 — Analyse d'une inscription (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 3 — Immersion dans l'Égypte antique (6 cases)",
+  "key": "08_episode_06_la_naissance_du_disque_solaire.md#Planche 3 — Immersion dans l'Égypte antique (6 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 4 — Révélation et suspense (8 cases)",
+  "key": "08_episode_06_la_naissance_du_disque_solaire.md#Planche 4 — Révélation et suspense (8 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Page documentaire — Épisode 6",
+  "key": "08_episode_06_la_naissance_du_disque_solaire.md#Page documentaire — Épisode 6"
+ },
+ {
+  "level": 1,
+  "text": "Épisode 7 — Les puissances souterraines",
+  "key": "09_episode_07_les_puissances_souterraines.md#Épisode 7 — Les puissances souterraines"
+ },
+ {
+  "level": 2,
+  "text": "Planche 1 — Découverte archéologique (7 cases)",
+  "key": "09_episode_07_les_puissances_souterraines.md#Planche 1 — Découverte archéologique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 2 — Analyse d'une inscription (7 cases)",
+  "key": "09_episode_07_les_puissances_souterraines.md#Planche 2 — Analyse d'une inscription (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 3 — Immersion dans l'Égypte antique (7 cases)",
+  "key": "09_episode_07_les_puissances_souterraines.md#Planche 3 — Immersion dans l'Égypte antique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 4 — Révélation et suspense (8 cases)",
+  "key": "09_episode_07_les_puissances_souterraines.md#Planche 4 — Révélation et suspense (8 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Page documentaire — Épisode 7",
+  "key": "09_episode_07_les_puissances_souterraines.md#Page documentaire — Épisode 7"
+ },
+ {
+  "level": 1,
+  "text": "Épisode 8 — Le secret de Tatenen",
+  "key": "10_episode_08_le_secret_de_tatenen.md#Épisode 8 — Le secret de Tatenen"
+ },
+ {
+  "level": 2,
+  "text": "Planche 1 — Découverte archéologique (7 cases)",
+  "key": "10_episode_08_le_secret_de_tatenen.md#Planche 1 — Découverte archéologique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 2 — Analyse d'une inscription (8 cases)",
+  "key": "10_episode_08_le_secret_de_tatenen.md#Planche 2 — Analyse d'une inscription (8 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 3 — Immersion dans l'Égypte antique (6 cases)",
+  "key": "10_episode_08_le_secret_de_tatenen.md#Planche 3 — Immersion dans l'Égypte antique (6 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 4 — Révélation et suspense (7 cases)",
+  "key": "10_episode_08_le_secret_de_tatenen.md#Planche 4 — Révélation et suspense (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Page documentaire — Épisode 8",
+  "key": "10_episode_08_le_secret_de_tatenen.md#Page documentaire — Épisode 8"
+ },
+ {
+  "level": 1,
+  "text": "Épisode 9 — La chambre du silence",
+  "key": "11_episode_09_la_chambre_du_silence.md#Épisode 9 — La chambre du silence"
+ },
+ {
+  "level": 2,
+  "text": "Planche 1 — Découverte archéologique (7 cases)",
+  "key": "11_episode_09_la_chambre_du_silence.md#Planche 1 — Découverte archéologique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 2 — Analyse du sarcophage (8 cases)",
+  "key": "11_episode_09_la_chambre_du_silence.md#Planche 2 — Analyse du sarcophage (8 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 3 — Immersion dans l'Égypte antique (7 cases)",
+  "key": "11_episode_09_la_chambre_du_silence.md#Planche 3 — Immersion dans l'Égypte antique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 4 — Révélation et suspense (8 cases)",
+  "key": "11_episode_09_la_chambre_du_silence.md#Planche 4 — Révélation et suspense (8 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Page documentaire — Épisode 9",
+  "key": "11_episode_09_la_chambre_du_silence.md#Page documentaire — Épisode 9"
+ },
+ {
+  "level": 1,
+  "text": "Épisode 10 — Les quatre divisions",
+  "key": "12_episode_10_les_quatre_divisions.md#Épisode 10 — Les quatre divisions"
+ },
+ {
+  "level": 2,
+  "text": "Planche 1 — Découverte archéologique (7 cases)",
+  "key": "12_episode_10_les_quatre_divisions.md#Planche 1 — Découverte archéologique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 2 — Analyse : un débat à quatre voix (8 cases)",
+  "key": "12_episode_10_les_quatre_divisions.md#Planche 2 — Analyse : un débat à quatre voix (8 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 3 — Immersion symbolique (6 cases)",
+  "key": "12_episode_10_les_quatre_divisions.md#Planche 3 — Immersion symbolique (6 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 4 — Révélation et suspense (7 cases)",
+  "key": "12_episode_10_les_quatre_divisions.md#Planche 4 — Révélation et suspense (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Page documentaire — Épisode 10",
+  "key": "12_episode_10_les_quatre_divisions.md#Page documentaire — Épisode 10"
+ },
+ {
+  "level": 1,
+  "text": "Épisode 11 — La nuit avant l'aube",
+  "key": "13_episode_11_la_nuit_avant_l_aube.md#Épisode 11 — La nuit avant l'aube"
+ },
+ {
+  "level": 2,
+  "text": "Planche 1 — Découverte archéologique (7 cases)",
+  "key": "13_episode_11_la_nuit_avant_l_aube.md#Planche 1 — Découverte archéologique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 2 — Analyse d'une inscription : la crise (8 cases)",
+  "key": "13_episode_11_la_nuit_avant_l_aube.md#Planche 2 — Analyse d'une inscription : la crise (8 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 3 — Immersion dans l'Égypte antique (7 cases)",
+  "key": "13_episode_11_la_nuit_avant_l_aube.md#Planche 3 — Immersion dans l'Égypte antique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 4 — Révélation et suspense (8 cases)",
+  "key": "13_episode_11_la_nuit_avant_l_aube.md#Planche 4 — Révélation et suspense (8 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Page documentaire — Épisode 11",
+  "key": "13_episode_11_la_nuit_avant_l_aube.md#Page documentaire — Épisode 11"
+ },
+ {
+  "level": 1,
+  "text": "Épisode 12 — Le Soleil renaît",
+  "key": "14_episode_12_le_soleil_renait.md#Épisode 12 — Le Soleil renaît"
+ },
+ {
+  "level": 2,
+  "text": "Planche 1 — Découverte archéologique (7 cases)",
+  "key": "14_episode_12_le_soleil_renait.md#Planche 1 — Découverte archéologique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 2 — Analyse : la 12ᵉ heure (8 cases)",
+  "key": "14_episode_12_le_soleil_renait.md#Planche 2 — Analyse : la 12ᵉ heure (8 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 3 — Immersion : les formes du soleil (8 cases)",
+  "key": "14_episode_12_le_soleil_renait.md#Planche 3 — Immersion : les formes du soleil (8 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 4 — Résolution (8 cases)",
+  "key": "14_episode_12_le_soleil_renait.md#Planche 4 — Résolution (8 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Page documentaire — Épisode 12 · Bilan de la saison",
+  "key": "14_episode_12_le_soleil_renait.md#Page documentaire — Épisode 12 · Bilan de la saison"
+ }
+]

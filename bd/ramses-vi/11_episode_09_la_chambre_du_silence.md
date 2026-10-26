@@ -109,15 +109,15 @@ en forme de cartouche, brisée en deux. **[H]** — dessiner d'après photograph
 > USAID), terrain 2001-2003 **V** ; fin du projet 2004 ou 2005 : **C** mineur → « au début des années
 > 2000 ». Ne pas dire **qui** a brisé la cuve (non précisé par les sources).
 
-**Case 5** — Maya tapote délicatement le visage du couvercle avec l'ongle. Son mat.
+**Case 5** — Maya, sans toucher, passe la lumière rasante de sa lampe sur le visage du couvercle : la
+texture est trop lisse, trop régulière. **[F]**
 
-> SFX : *toc toc*
-> **Maya** : Ça sonne creux. C'est une réplique.
+> **Maya** : Cette surface n'est pas de la pierre. C'est une réplique.
 > **Mansour** : En fibre de verre, fournie par le British Museum. L'original y est entré en 1823.
 
 > Source : réplique du visage en fibre de verre fournie par le BM, 2002 [ARCE], [BM] ; EA140, vendu au BM en
-> 1823 [BM]. **V**. *Le geste de Maya est fictif : dans la réalité, on ne touche pas une pièce exposée —
-> option : Maya lit simplement le panneau.*
+> 1823 [BM]. **V**. *Règle de la série : les personnages ne touchent jamais les parois ni les objets
+> exposés.*
 
 **Case 6** — Maya, sur son téléphone, fait défiler la notice du musée.
 
