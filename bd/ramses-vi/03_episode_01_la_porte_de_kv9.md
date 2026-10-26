@@ -24,10 +24,10 @@ froid des LED. **[F]**
 > Note : l'effet de la fréquentation (humidité, respiration) sur les peintures des tombes est un
 > problème de conservation reconnu en général **[H]** ; aucun chiffre ne doit être cité sans source.
 
-**Case 3** — Kémani s'arrête : sur la paroi, au milieu des scènes peintes, des lettres grecques
+**Case 3** — Kerbu s'arrête : sur la paroi, au milieu des scènes peintes, des lettres grecques
 gravées à la pointe. **[H]**
 
-> **Kémani** : Regardez… Ce ne sont pas des hiéroglyphes.
+> **Kerbu** : Regardez… Ce ne sont pas des hiéroglyphes.
 
 **Case 4** — Gros plan sur les graffiti grecs (à copier d'après une publication ou photographie de
 référence — **ne pas inventer de texte lisible**).
@@ -46,10 +46,10 @@ référence — **ne pas inventer de texte lisible**).
 > Source : chiffre de 995 graffiti et appellation « tombeau de Memnon » — voir fiche H6/H7 ; à
 > recouper avec la Mission épigraphique polonaise.
 
-**Case 7** — Kémani, pensif, la lampe sur les graffiti puis sur les dieux peints juste à côté.
+**Case 7** — Kerbu, pensif, la lampe sur les graffiti puis sur les dieux peints juste à côté.
 
-> **Kémani** : Ils sont venus jusqu'ici, ils ont regardé ces mêmes images… et ils n'ont pas su les lire.
-> **Kémani** *(bulle pensée)* : Saurons-nous faire mieux ?
+> **Kerbu** : Ils sont venus jusqu'ici, ils ont regardé ces mêmes images… et ils n'ont pas su les lire.
+> **Kerbu** *(bulle pensée)* : Saurons-nous faire mieux ?
 
 ---
 
@@ -75,7 +75,7 @@ programmes peints différents. **[H]**
 **Case 3** — Nefertari montre un cartouche royal peint, avec sa loupe.
 
 > **Nefertari** : Et voici le nom du roi.
-> **Kémani** : Ramsès VI.
+> **Kerbu** : Ramsès VI.
 > **Nefertari** : Oui… et non.
 
 **Case 4** — Mansour, en plan rapproché.
@@ -95,14 +95,14 @@ programmes peints différents. **[H]**
 > Statut : ne pas présenter de motif comme établi. Si le sort exact de la sépulture de Ramsès V
 > est cité, le vérifier d'abord.
 
-**Case 6** — Gros plan sur Kémani, la lampe sous le menton, éclairage dramatique.
+**Case 6** — Gros plan sur Kerbu, la lampe sous le menton, éclairage dramatique.
 
-> **Kémani** : Un lieu qui change de nom… et qui continue de vivre.
+> **Kerbu** : Un lieu qui change de nom… et qui continue de vivre.
 
 **Case 7** — Nefertari, ferme.
 
-> **Nefertari** : Attention, Kémani. Ça, c'est une image poétique. Pas une inscription.
-> **Kémani** *(sourire)* : Notée. Case « symbolisme ».
+> **Nefertari** : Attention, Kerbu. Ça, c'est une image poétique. Pas une inscription.
+> **Kerbu** *(sourire)* : Notée. Case « symbolisme ».
 
 > Intention : cette case enseigne au lecteur la règle [H]/[F]/[S] par le dialogue.
 
@@ -110,7 +110,7 @@ programmes peints différents. **[H]**
 
 ## Planche 3 — Immersion dans l'Égypte antique (6 cases)
 
-Transition : Kémani pose la main près (sans la toucher) d'un cartouche. Liseré doré sur les cases :
+Transition : Kerbu pose la main près (sans la toucher) d'un cartouche. Liseré doré sur les cases :
 **reconstitution**.
 
 **Case 1** — Case charnière : le cartouche peint, puis le même cartouche « frais », couleurs vives,
@@ -151,7 +151,7 @@ huile, le disque semble briller.
 **Case 6** — Retour au présent, même cadrage, même pente : les LED de l'équipe à la place des lampes à
 huile. Le liseré doré disparaît.
 
-> **Maya** *(off)* : Kémani ? Tu es encore avec nous ?
+> **Maya** *(off)* : Kerbu ? Tu es encore avec nous ?
 
 ---
 
@@ -175,10 +175,10 @@ scènes côte à côte.
 
 > **Maya** : J'ai tout. Mais je ne trouve pas le début. Où est la première scène ?
 
-**Case 4** — Kémani suit du faisceau une rangée de figures, puis une autre qui semble aller dans
+**Case 4** — Kerbu suit du faisceau une rangée de figures, puis une autre qui semble aller dans
 l'autre sens.
 
-> **Kémani** : Ici, les figures marchent vers la droite. Là, vers la gauche. Et ce disque… il est au
+> **Kerbu** : Ici, les figures marchent vers la droite. Là, vers la gauche. Et ce disque… il est au
 > centre de tout.
 
 > Rigueur : l'orientation des figures doit être **copiée sur la paroi réelle** (photos/relevés). Si
@@ -196,10 +196,10 @@ l'autre sens.
 > SFX : BIP — BIP — BIP
 > **Maya** : Humidité trop haute. On sort. Maintenant.
 
-**Case 7** (bandeau final) — Kémani, dernier à partir, se retourne vers la paroi. Sa lampe éclaire un
+**Case 7** (bandeau final) — Kerbu, dernier à partir, se retourne vers la paroi. Sa lampe éclaire un
 disque solaire porté par des bras levés. Le liseré doré apparaît une seconde.
 
-> **Kémani** *(murmure)* : Un livre sans commencement…
+> **Kerbu** *(murmure)* : Un livre sans commencement…
 > Cartouche : À suivre — Épisode 2 : *Le plafond des étoiles*.
 
 > Note de cohérence : le titre de l'épisode 3 est « Le livre sans commencement ». Cette réplique
@@ -221,7 +221,7 @@ disque solaire porté par des bras levés. Le liseré doré apparaît une second
   gréco-romains l'appelaient « tombeau de Memnon ».
 
 **Bloc 2 — Ce qui est inventé [F]**
-- Le Dr Kémani, Nefertari Hassan, Adel Mansour, Maya et leur mission.
+- Le Dr Kerbu, Nefertari Hassan, Adel Mansour, Maya et leur mission.
 - Les règles de la mission (douze nuits, trois heures, capteur).
 - Le scribe, le chef d'équipe et le peintre de la planche 3.
 

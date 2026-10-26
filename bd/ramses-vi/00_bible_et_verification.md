@@ -47,8 +47,8 @@ Tous les personnages contemporains sont **fictifs [F]**.
 
 | Personnage | Âge | Signes visuels | Fonction dramatique |
 |---|---|---|---|
-| **Dr Kémani** | ~45 ans | Peau foncée, barbe courte grisonnante, chemise de terrain sable, carnet de croquis relié cuir, lampe frontale + lampe à main | Le regard qui relie : il pose les questions de sens. Défaut : il veut que tout ait une signification. |
-| **Dr Nefertari Hassan** | ~38 ans | Lunettes, cheveux attachés sous un foulard, loupe d'épigraphiste, gants nitrile | La rigueur : elle lit le texte et le ramène au texte. Elle freine les sur-interprétations de Kémani. |
+| **Dr Kerbu** | ~45 ans | Peau foncée, barbe courte grisonnante, chemise de terrain sable, carnet de croquis relié cuir, lampe frontale + lampe à main | Le regard qui relie : il pose les questions de sens. Défaut : il veut que tout ait une signification. |
+| **Dr Nefertari Hassan** | ~38 ans | Lunettes, cheveux attachés sous un foulard, loupe d'épigraphiste, gants nitrile | La rigueur : elle lit le texte et le ramène au texte. Elle freine les sur-interprétations de Kerbu. |
 | **Pr Adel Mansour** | ~68 ans | Canne, chapeau de lin, voix posée | Mémoire de la discipline (Champollion, Piankoff, Hornung). Il connaît les désaccords savants. |
 | **Maya** | ~30 ans | Scanner portable, tablette, sac étanche | La technique : photogrammétrie, lumière rasante. Elle pose les questions du lecteur. |
 | **Ramsès VI** | — | Iconographie royale du Nouvel Empire | Reconstitutions historiques uniquement [H]+[F]. |
@@ -60,7 +60,7 @@ Tous les personnages contemporains sont **fictifs [F]**.
   textures de roche calcaire.
 - **Monde mythologique** : aplats ocre, rouge, bleu égyptien, noir et blanc de chaux ; contours
   cernés ; registres horizontaux ; pas de perspective occidentale.
-- **Transition** : une case « charnière » où la lumière de la lampe de Kémani dessine le contour d'une
+- **Transition** : une case « charnière » où la lumière de la lampe de Kerbu dessine le contour d'une
   figure ; la case suivante est entièrement dans le style mural. Un liseré doré sur le bord des cases
   mythologiques signale au lecteur qu'il s'agit d'une **reconstitution**.
 

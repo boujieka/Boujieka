@@ -16,7 +16,7 @@
 
 Format portrait, lecture en trois plans.
 
-1. **Premier plan (tiers inférieur)** — Dr Kémani, de trois quarts dos, une lampe à main levée. Le
+1. **Premier plan (tiers inférieur)** — Dr Kerbu, de trois quarts dos, une lampe à main levée. Le
    faisceau éclaire la paroi devant lui. Visage tourné vers le haut, en partie visible : curiosité,
    pas peur. Poussière dans le faisceau. **[F]**
 2. **Plan médian (parois)** — la chambre funéraire de KV9 : registres du Livre de la Terre sur les
@@ -66,7 +66,7 @@ Empty space at the top for the title. No readable text.
 > Terre** raconte comment, pour les anciens Égyptiens, le Soleil traversait les profondeurs avant de
 > renaître.
 >
-> Le Dr Kémani, l'égyptologue Nefertari Hassan, le professeur Adel Mansour et l'ingénieure Maya
+> Le Dr Kerbu, l'égyptologue Nefertari Hassan, le professeur Adel Mansour et l'ingénieure Maya
 > descendent dans le tombeau. Ils ne cherchent pas un trésor. Ils cherchent une manière de lire.
 >
 > Une aventure où l'archéologie rencontre les grandes questions de l'Égypte ancienne : que devient la

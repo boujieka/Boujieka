@@ -14,20 +14,20 @@ avancent sur la piste. **[H]** décor / **[F]** scène
 > Cartouche : Le soleil n'a pas encore franchi les montagnes thébaines.
 
 **Case 2** — Plan moyen : l'équipe. Maya porte la valise du scanner ; le Pr Mansour s'appuie sur sa
-canne ; Nefertari consulte une tablette ; Kémani, un peu en avant, lève les yeux vers la falaise. **[F]**
+canne ; Nefertari consulte une tablette ; Kerbu, un peu en avant, lève les yeux vers la falaise. **[F]**
 
-**Case 3** — Gros plan sur Kémani, lumière bleue.
+**Case 3** — Gros plan sur Kerbu, lumière bleue.
 
-> **Kémani** : Depuis plus de trois mille ans, ces montagnes protègent une question que les hommes
+> **Kerbu** : Depuis plus de trois mille ans, ces montagnes protègent une question que les hommes
 > n'ont jamais cessé de se poser.
 
 **Case 4** — Nefertari, de profil, sourcil levé.
 
 > **Nefertari** : Quelle question ?
 
-**Case 5** — Kémani, regard vers l'est, où une lueur orange apparaît derrière la crête.
+**Case 5** — Kerbu, regard vers l'est, où une lueur orange apparaît derrière la crête.
 
-> **Kémani** : Que devient la lumière lorsqu'elle disparaît ?
+> **Kerbu** : Que devient la lumière lorsqu'elle disparaît ?
 
 **Case 6** — L'entrée de KV9 : la porte taillée dans la roche, la grille, la plaque signalétique
 « KV9 ». Les lampes convergent vers l'ouverture noire. **[H]** (dessiner d'après photographies de
@@ -57,9 +57,9 @@ divinités, des serpents, des corps étendus, des disques solaires. **[H]**
 > Nefertari est donc une anticipation : elle parle de ce qui les attend au fond. Option : ajouter
 > « … celui qui nous attend tout au fond ».
 
-**Case 4** — Kémani s'approche d'une représentation de disque solaire. Sa lampe rase la surface.
+**Case 4** — Kerbu s'approche d'une représentation de disque solaire. Sa lampe rase la surface.
 
-> **Kémani** : Alors nous devons apprendre à regarder comme les anciens Égyptiens.
+> **Kerbu** : Alors nous devons apprendre à regarder comme les anciens Égyptiens.
 
 **Case 5** — Case charnière : gros plan sur le disque peint ; le faisceau de la lampe dessine un
 halo. Le bord de la case commence à prendre le liseré doré « reconstitution ».
