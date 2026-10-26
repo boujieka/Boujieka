@@ -305,8 +305,8 @@ peints, avec une descente au centre du sol. Les faisceaux des lampes balaient le
 libre en haut pour un cartouche. Style A.
 
 Case 4 : contrechamp sur la paroi du fond de la salle (paroi ouest) : une scène peinte où le roi, debout,
-fait face à Osiris momiforme coiffé de la couronne atef, tenant crosse et flagellum ; le roi encense et
-verse une libation. Rendu sobre de peinture ancienne. Mansour au premier plan, de trois quarts, parle,
+fait face à Osiris momiforme ; le roi encense et verse une libation. Rendu sobre de peinture ancienne,
+attributs et couleurs à reprendre de l'image de référence, sans rien ajouter. Mansour au premier plan, de trois quarts, parle,
 espace libre au-dessus pour la bulle. Style A.
 
 Case 5 : gros plan sur le visage peint d'Osiris, peau verte, dans le faisceau chaud de la lampe de Kerbu,
@@ -483,8 +483,7 @@ Composition en deux colonnes face à face sur fond de papier crème, séparées 
 
 Colonne de gauche (plus large) : quatre vignettes rectangulaires empilées, chacune au trait d'encre et
 lavis aux couleurs minérales égyptiennes, rendu sobre et documentaire, avec un espace libre dessous pour
-une légende : 1) un roi debout encensant devant Osiris momiforme coiffé de l'atef, avec crosse et
-flagellum ; 2) deux déesses penchées sur une figure momiforme qu'elles redressent ; 3) Osiris dans un
+une légende : 1) un roi debout encensant devant Osiris momiforme ; 2) deux déesses penchées sur une figure momiforme qu'elles redressent ; 3) Osiris dans un
 naos ; 4) une barque portant un dieu à tête de bélier dans un naos.
 
 Colonne de droite (plus étroite) : un seul grand cadre aux bords en pointillés dorés, fond couleur
