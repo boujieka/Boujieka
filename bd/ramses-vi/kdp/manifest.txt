@@ -1,0 +1,22 @@
+# Ordre des pages intérieures (une ligne = une page). Les lignes « @… » sont des pages générées.
+# Pour ajouter des planches : déposer l'image dans sources/ et l'insérer ici à sa place.
+@titre
+@mentions
+@lecture
+@sommaire
+sources/01_prologue_P1.png | Prologue — Celui qui descend dans la Terre
+sources/02_prologue_P2.png
+sources/03_ep01_P1.png | Épisode 1 — La porte de KV9
+sources/04_ep01_P2.png
+sources/05_ep01_P3.png
+sources/06_ep01_P4.png
+sources/07_ep01_doc.png
+sources/08_ep02_P1.png | Épisode 2 — Le plafond des étoiles
+sources/09_ep02_P2.png
+sources/10_ep02_P3.png
+sources/11_ep02_P4.png
+sources/12_ep02_doc.png
+sources/13_ep03_P1.png | Épisode 3 — Le livre sans commencement
+sources/14_ep03_P2.png
+sources/15_ep03_P3.png
+@a_suivre
