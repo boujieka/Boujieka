@@ -1,0 +1,452 @@
+[
+ {
+  "level": 1,
+  "text": "Prompts d'images — Guide commun",
+  "key": "prompts/00_guide_prompts.md#Prompts d'images — Guide commun"
+ },
+ {
+  "level": 2,
+  "text": "1. Avertissements (à lire avant toute génération)",
+  "key": "prompts/00_guide_prompts.md#1. Avertissements (à lire avant toute génération)"
+ },
+ {
+  "level": 2,
+  "text": "2. Les deux styles (à copier en tête de chaque prompt)",
+  "key": "prompts/00_guide_prompts.md#2. Les deux styles (à copier en tête de chaque prompt)"
+ },
+ {
+  "level": 2,
+  "text": "3. Fiches personnages (descriptions fixes — à copier mot pour mot)",
+  "key": "prompts/00_guide_prompts.md#3. Fiches personnages (descriptions fixes — à copier mot pour mot)"
+ },
+ {
+  "level": 2,
+  "text": "4. Divinités et éléments récurrents (Style B)",
+  "key": "prompts/00_guide_prompts.md#4. Divinités et éléments récurrents (Style B)"
+ },
+ {
+  "level": 2,
+  "text": "5. Formats",
+  "key": "prompts/00_guide_prompts.md#5. Formats"
+ },
+ {
+  "level": 2,
+  "text": "6. Index des fichiers",
+  "key": "prompts/00_guide_prompts.md#6. Index des fichiers"
+ },
+ {
+  "level": 1,
+  "text": "Prompts d'images — Couverture, 4ᵉ de couverture, Prologue",
+  "key": "prompts/01_prompts_couverture_prologue.md#Prompts d'images — Couverture, 4ᵉ de couverture, Prologue"
+ },
+ {
+  "level": 2,
+  "text": "1. Couverture (format portrait)",
+  "key": "prompts/01_prompts_couverture_prologue.md#1. Couverture (format portrait)"
+ },
+ {
+  "level": 2,
+  "text": "2. Quatrième de couverture",
+  "key": "prompts/01_prompts_couverture_prologue.md#2. Quatrième de couverture"
+ },
+ {
+  "level": 2,
+  "text": "3. Prologue — « Celui qui descend dans la Terre »",
+  "key": "prompts/01_prompts_couverture_prologue.md#3. Prologue — « Celui qui descend dans la Terre »"
+ },
+ {
+  "level": 2,
+  "text": "Récapitulatif",
+  "key": "prompts/01_prompts_couverture_prologue.md#Récapitulatif"
+ },
+ {
+  "level": 1,
+  "text": "Prompts d'images — Épisodes 1 à 3",
+  "key": "prompts/02_prompts_ep01-03.md#Prompts d'images — Épisodes 1 à 3"
+ },
+ {
+  "level": 2,
+  "text": "Mode d'emploi",
+  "key": "prompts/02_prompts_ep01-03.md#Mode d'emploi"
+ },
+ {
+  "level": 1,
+  "text": "Épisode 1 — La porte de KV9",
+  "key": "prompts/02_prompts_ep01-03.md#Épisode 1 — La porte de KV9"
+ },
+ {
+  "level": 2,
+  "text": "Planche 1 — Découverte archéologique (7 cases)",
+  "key": "prompts/02_prompts_ep01-03.md#Planche 1 — Découverte archéologique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 2 — Analyse d'une inscription (7 cases)",
+  "key": "prompts/02_prompts_ep01-03.md#Planche 2 — Analyse d'une inscription (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 3 — Immersion dans l'Égypte antique (6 cases)",
+  "key": "prompts/02_prompts_ep01-03.md#Planche 3 — Immersion dans l'Égypte antique (6 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 4 — Révélation et suspense (7 cases)",
+  "key": "prompts/02_prompts_ep01-03.md#Planche 4 — Révélation et suspense (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Page documentaire — Épisode 1 : KV9, un tombeau pour deux rois",
+  "key": "prompts/02_prompts_ep01-03.md#Page documentaire — Épisode 1 : KV9, un tombeau pour deux rois"
+ },
+ {
+  "level": 1,
+  "text": "Épisode 2 — Le plafond des étoiles",
+  "key": "prompts/02_prompts_ep01-03.md#Épisode 2 — Le plafond des étoiles"
+ },
+ {
+  "level": 2,
+  "text": "Planche 1 — Découverte archéologique (7 cases)",
+  "key": "prompts/02_prompts_ep01-03.md#Planche 1 — Découverte archéologique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 2 — Analyse d'une inscription (7 cases)",
+  "key": "prompts/02_prompts_ep01-03.md#Planche 2 — Analyse d'une inscription (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 3 — Immersion dans l'Égypte antique (7 cases)",
+  "key": "prompts/02_prompts_ep01-03.md#Planche 3 — Immersion dans l'Égypte antique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 4 — Révélation et suspense (8 cases)",
+  "key": "prompts/02_prompts_ep01-03.md#Planche 4 — Révélation et suspense (8 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Page documentaire — Épisode 2 : Lire un plafond égyptien",
+  "key": "prompts/02_prompts_ep01-03.md#Page documentaire — Épisode 2 : Lire un plafond égyptien"
+ },
+ {
+  "level": 1,
+  "text": "Épisode 3 — Le livre sans commencement",
+  "key": "prompts/02_prompts_ep01-03.md#Épisode 3 — Le livre sans commencement"
+ },
+ {
+  "level": 2,
+  "text": "Planche 1 — Découverte archéologique (7 cases)",
+  "key": "prompts/02_prompts_ep01-03.md#Planche 1 — Découverte archéologique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 2 — Analyse d'une inscription (7 cases)",
+  "key": "prompts/02_prompts_ep01-03.md#Planche 2 — Analyse d'une inscription (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 3 — Immersion : l'expédition Piankoff, 1949-1951 (7 cases)",
+  "key": "prompts/02_prompts_ep01-03.md#Planche 3 — Immersion : l'expédition Piankoff, 1949-1951 (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 4 — Révélation et suspense (7 cases)",
+  "key": "prompts/02_prompts_ep01-03.md#Planche 4 — Révélation et suspense (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Page documentaire — Épisode 3 : Un livre aux trois noms",
+  "key": "prompts/02_prompts_ep01-03.md#Page documentaire — Épisode 3 : Un livre aux trois noms"
+ },
+ {
+  "level": 2,
+  "text": "Récapitulatif",
+  "key": "prompts/02_prompts_ep01-03.md#Récapitulatif"
+ },
+ {
+  "level": 1,
+  "text": "Prompts d'images — Épisodes 4 à 6",
+  "key": "prompts/03_prompts_ep04-06.md#Prompts d'images — Épisodes 4 à 6"
+ },
+ {
+  "level": 2,
+  "text": "Épisode 4 — Les deux horizons d'Aker",
+  "key": "prompts/03_prompts_ep04-06.md#Épisode 4 — Les deux horizons d'Aker"
+ },
+ {
+  "level": 2,
+  "text": "Ép. 4 · Planche 1 — Découverte archéologique (7 cases)",
+  "key": "prompts/03_prompts_ep04-06.md#Ép. 4 · Planche 1 — Découverte archéologique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Ép. 4 · Planche 2 — Analyse d'une inscription (8 cases)",
+  "key": "prompts/03_prompts_ep04-06.md#Ép. 4 · Planche 2 — Analyse d'une inscription (8 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Ép. 4 · Planche 3 — Immersion dans l'Égypte antique (7 cases)",
+  "key": "prompts/03_prompts_ep04-06.md#Ép. 4 · Planche 3 — Immersion dans l'Égypte antique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Ép. 4 · Planche 4 — Révélation et suspense (8 cases)",
+  "key": "prompts/03_prompts_ep04-06.md#Ép. 4 · Planche 4 — Révélation et suspense (8 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Ép. 4 · Page documentaire — Aker, le dieu aux deux horizons",
+  "key": "prompts/03_prompts_ep04-06.md#Ép. 4 · Page documentaire — Aker, le dieu aux deux horizons"
+ },
+ {
+  "level": 2,
+  "text": "Épisode 5 — Le corps d'Osiris",
+  "key": "prompts/03_prompts_ep04-06.md#Épisode 5 — Le corps d'Osiris"
+ },
+ {
+  "level": 2,
+  "text": "Ép. 5 · Planche 1 — Découverte archéologique (7 cases)",
+  "key": "prompts/03_prompts_ep04-06.md#Ép. 5 · Planche 1 — Découverte archéologique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Ép. 5 · Planche 2 — Analyse d'une inscription (8 cases)",
+  "key": "prompts/03_prompts_ep04-06.md#Ép. 5 · Planche 2 — Analyse d'une inscription (8 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Ép. 5 · Planche 3 — Immersion dans l'Égypte antique (7 cases)",
+  "key": "prompts/03_prompts_ep04-06.md#Ép. 5 · Planche 3 — Immersion dans l'Égypte antique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Ép. 5 · Planche 4 — Révélation et suspense (7 cases)",
+  "key": "prompts/03_prompts_ep04-06.md#Ép. 5 · Planche 4 — Révélation et suspense (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Ép. 5 · Page documentaire — Rê et Osiris : deux dieux, une nuit",
+  "key": "prompts/03_prompts_ep04-06.md#Ép. 5 · Page documentaire — Rê et Osiris : deux dieux, une nuit"
+ },
+ {
+  "level": 2,
+  "text": "Épisode 6 — La naissance du disque solaire",
+  "key": "prompts/03_prompts_ep04-06.md#Épisode 6 — La naissance du disque solaire"
+ },
+ {
+  "level": 2,
+  "text": "Ép. 6 · Planche 1 — Découverte archéologique (7 cases)",
+  "key": "prompts/03_prompts_ep04-06.md#Ép. 6 · Planche 1 — Découverte archéologique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Ép. 6 · Planche 2 — Analyse d'une inscription (7 cases)",
+  "key": "prompts/03_prompts_ep04-06.md#Ép. 6 · Planche 2 — Analyse d'une inscription (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Ép. 6 · Planche 3 — Immersion dans l'Égypte antique (6 cases)",
+  "key": "prompts/03_prompts_ep04-06.md#Ép. 6 · Planche 3 — Immersion dans l'Égypte antique (6 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Ép. 6 · Planche 4 — Révélation et suspense (8 cases)",
+  "key": "prompts/03_prompts_ep04-06.md#Ép. 6 · Planche 4 — Révélation et suspense (8 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Ép. 6 · Page documentaire — Naître de la terre : le disque, les bras et le scarabée",
+  "key": "prompts/03_prompts_ep04-06.md#Ép. 6 · Page documentaire — Naître de la terre : le disque, les bras et le scarabée"
+ },
+ {
+  "level": 2,
+  "text": "Récapitulatif",
+  "key": "prompts/03_prompts_ep04-06.md#Récapitulatif"
+ },
+ {
+  "level": 1,
+  "text": "Prompts d'images — Épisodes 7 à 9",
+  "key": "prompts/04_prompts_ep07-09.md#Prompts d'images — Épisodes 7 à 9"
+ },
+ {
+  "level": 2,
+  "text": "Consignes propres à ces trois épisodes",
+  "key": "prompts/04_prompts_ep07-09.md#Consignes propres à ces trois épisodes"
+ },
+ {
+  "level": 1,
+  "text": "Épisode 7 — Les puissances souterraines",
+  "key": "prompts/04_prompts_ep07-09.md#Épisode 7 — Les puissances souterraines"
+ },
+ {
+  "level": 2,
+  "text": "Planche 1 — Découverte archéologique (7 cases)",
+  "key": "prompts/04_prompts_ep07-09.md#Planche 1 — Découverte archéologique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 2 — Analyse d'une inscription (7 cases)",
+  "key": "prompts/04_prompts_ep07-09.md#Planche 2 — Analyse d'une inscription (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 3 — Immersion dans l'Égypte antique (7 cases)",
+  "key": "prompts/04_prompts_ep07-09.md#Planche 3 — Immersion dans l'Égypte antique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 4 — Révélation et suspense (8 cases)",
+  "key": "prompts/04_prompts_ep07-09.md#Planche 4 — Révélation et suspense (8 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Page documentaire — Épisode 7",
+  "key": "prompts/04_prompts_ep07-09.md#Page documentaire — Épisode 7"
+ },
+ {
+  "level": 1,
+  "text": "Épisode 8 — Le secret de Tatenen",
+  "key": "prompts/04_prompts_ep07-09.md#Épisode 8 — Le secret de Tatenen"
+ },
+ {
+  "level": 2,
+  "text": "Planche 1 — Découverte archéologique (7 cases)",
+  "key": "prompts/04_prompts_ep07-09.md#Planche 1 — Découverte archéologique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 2 — Analyse d'une inscription (8 cases)",
+  "key": "prompts/04_prompts_ep07-09.md#Planche 2 — Analyse d'une inscription (8 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 3 — Immersion : image mythique (6 cases)",
+  "key": "prompts/04_prompts_ep07-09.md#Planche 3 — Immersion : image mythique (6 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 4 — Révélation et suspense (7 cases)",
+  "key": "prompts/04_prompts_ep07-09.md#Planche 4 — Révélation et suspense (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Page documentaire — Épisode 8",
+  "key": "prompts/04_prompts_ep07-09.md#Page documentaire — Épisode 8"
+ },
+ {
+  "level": 1,
+  "text": "Épisode 9 — La chambre du silence",
+  "key": "prompts/04_prompts_ep07-09.md#Épisode 9 — La chambre du silence"
+ },
+ {
+  "level": 2,
+  "text": "Planche 1 — Découverte archéologique (7 cases)",
+  "key": "prompts/04_prompts_ep07-09.md#Planche 1 — Découverte archéologique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 2 — Analyse du sarcophage (8 cases)",
+  "key": "prompts/04_prompts_ep07-09.md#Planche 2 — Analyse du sarcophage (8 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 3 — Immersion dans l'Égypte antique (7 cases)",
+  "key": "prompts/04_prompts_ep07-09.md#Planche 3 — Immersion dans l'Égypte antique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Planche 4 — Révélation et suspense (8 cases)",
+  "key": "prompts/04_prompts_ep07-09.md#Planche 4 — Révélation et suspense (8 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Page documentaire — Épisode 9",
+  "key": "prompts/04_prompts_ep07-09.md#Page documentaire — Épisode 9"
+ },
+ {
+  "level": 1,
+  "text": "Prompts d'images — Épisodes 10 à 12",
+  "key": "prompts/05_prompts_ep10-12.md#Prompts d'images — Épisodes 10 à 12"
+ },
+ {
+  "level": 2,
+  "text": "Conventions propres à ce fichier",
+  "key": "prompts/05_prompts_ep10-12.md#Conventions propres à ce fichier"
+ },
+ {
+  "level": 2,
+  "text": "Épisode 10 — Les quatre divisions",
+  "key": "prompts/05_prompts_ep10-12.md#Épisode 10 — Les quatre divisions"
+ },
+ {
+  "level": 2,
+  "text": "Ép. 10 · Planche 1 — Découverte archéologique (7 cases)",
+  "key": "prompts/05_prompts_ep10-12.md#Ép. 10 · Planche 1 — Découverte archéologique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Ép. 10 · Planche 2 — Analyse : un débat à quatre voix (8 cases)",
+  "key": "prompts/05_prompts_ep10-12.md#Ép. 10 · Planche 2 — Analyse : un débat à quatre voix (8 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Ép. 10 · Planche 3 — Immersion symbolique (6 cases)",
+  "key": "prompts/05_prompts_ep10-12.md#Ép. 10 · Planche 3 — Immersion symbolique (6 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Ép. 10 · Planche 4 — Révélation et suspense (7 cases)",
+  "key": "prompts/05_prompts_ep10-12.md#Ép. 10 · Planche 4 — Révélation et suspense (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Épisode 11 — La nuit avant l'aube",
+  "key": "prompts/05_prompts_ep10-12.md#Épisode 11 — La nuit avant l'aube"
+ },
+ {
+  "level": 2,
+  "text": "Ép. 11 · Planche 1 — Découverte archéologique (7 cases)",
+  "key": "prompts/05_prompts_ep10-12.md#Ép. 11 · Planche 1 — Découverte archéologique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Ép. 11 · Planche 2 — Analyse d'une inscription : la crise (8 cases)",
+  "key": "prompts/05_prompts_ep10-12.md#Ép. 11 · Planche 2 — Analyse d'une inscription : la crise (8 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Ép. 11 · Planche 3 — Immersion dans l'Égypte antique (7 cases)",
+  "key": "prompts/05_prompts_ep10-12.md#Ép. 11 · Planche 3 — Immersion dans l'Égypte antique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Ép. 11 · Planche 4 — Révélation et suspense (8 cases)",
+  "key": "prompts/05_prompts_ep10-12.md#Ép. 11 · Planche 4 — Révélation et suspense (8 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Épisode 12 — Le Soleil renaît",
+  "key": "prompts/05_prompts_ep10-12.md#Épisode 12 — Le Soleil renaît"
+ },
+ {
+  "level": 2,
+  "text": "Ép. 12 · Planche 1 — Découverte archéologique (7 cases)",
+  "key": "prompts/05_prompts_ep10-12.md#Ép. 12 · Planche 1 — Découverte archéologique (7 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Ép. 12 · Planche 2 — Analyse : la 12ᵉ heure (8 cases)",
+  "key": "prompts/05_prompts_ep10-12.md#Ép. 12 · Planche 2 — Analyse : la 12ᵉ heure (8 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Ép. 12 · Planche 3 — Immersion : les formes du soleil (8 cases)",
+  "key": "prompts/05_prompts_ep10-12.md#Ép. 12 · Planche 3 — Immersion : les formes du soleil (8 cases)"
+ },
+ {
+  "level": 2,
+  "text": "Ép. 12 · Planche 4 — Résolution (8 cases)",
+  "key": "prompts/05_prompts_ep10-12.md#Ép. 12 · Planche 4 — Résolution (8 cases)"
+ }
+]

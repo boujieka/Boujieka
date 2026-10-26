@@ -42,6 +42,14 @@ const CONFIGS = {
       'bible/07_bibliographie.md',
     ],
   },
+  chatgpt: {
+    out: 'Prompts_ChatGPT_Volume_1_Les_Mysteres_du_tombeau_de_Ramses_VI.docx',
+    kicker: 'PROMPTS CHATGPT — VOLUME 1',
+    subtitle: 'Le Livre de la Terre : le secret de la renaissance solaire',
+    note: 'Mode d\'emploi et un prompt par planche, à coller dans ChatGPT',
+    files: ['prompts_chatgpt/00_mode_d_emploi_chatgpt.md', 'prompts_chatgpt/01_chatgpt_couverture_prologue_ep01-03.md',
+      'prompts_chatgpt/02_chatgpt_ep04-06.md', 'prompts_chatgpt/03_chatgpt_ep07-09.md', 'prompts_chatgpt/04_chatgpt_ep10-12.md'],
+  },
   prompts: {
     out: 'Prompts_images_Volume_1_Les_Mysteres_du_tombeau_de_Ramses_VI.docx',
     kicker: "PROMPTS D'IMAGES — VOLUME 1",
@@ -180,12 +188,13 @@ function convert(md, { firstHeadingPageBreak }) {
       i++; const code = [];
       while (i < lines.length && !lines[i].startsWith('```')) code.push(lines[i++]);
       i++;
-      // bloc de texte (prompt) : lignes jointes pour un retour à la ligne naturel
-      out.push(new Paragraph({
-        spacing: { after: 0, line: 252 }, indent: { left: 340, right: 200 },
+      // bloc de texte (prompt) : lignes jointes par paragraphe, paragraphes séparés par une ligne vide
+      const blocks = code.join('\n').split(/\n\s*\n/).map(t => t.split('\n').map(x => x.trim()).join(' ').trim()).filter(Boolean);
+      blocks.forEach((t, k) => out.push(new Paragraph({
+        spacing: { after: k === blocks.length - 1 ? 0 : 80, line: 252 }, indent: { left: 340, right: 200 },
         shading: { type: ShadingType.CLEAR, fill: 'F4F4F4', color: 'auto' },
-        children: [new TextRun({ text: code.join(' ').trim(), font: 'Consolas', size: 17 })],
-      }));
+        children: [new TextRun({ text: t, font: 'Consolas', size: 17 })],
+      })));
       out.push(new Paragraph({ spacing: { after: 120 }, children: [] }));
       continue;
     }
