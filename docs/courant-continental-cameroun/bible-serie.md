@@ -125,6 +125,14 @@ Une BD **drôle d'abord**. On doit rire à chaque planche, comme devant un sketc
 - Coûts : projet global ≈ 240,9 Md FCFA, ou 494 M USD hors dépenses préparatoires, dont **≈ 62 M USD pour l'usine et la ligne** (Journal du Cameroun) ; un autre chiffre (≈ 30 Md FCFA pour l'usine) est déjà dans 4.2. Les périmètres diffèrent ; le coût exact de la seule centrale n'est pas confirmé.
 - **Gag possible** : le chrono de la coordination affiche « Barrage prêt : 2016 » [DATE À VÉRIFIER] et « Usine de pied prête : 2024 ». Pendant ce temps, à Bertoua, les habitants voient passer l'eau du réservoir sans voir leur propre courant.
 
+**Memve'ele : la mariée prête en 2017, le témoin toujours sur la route en 2022** (Investir au Cameroun, Agence Ecofin, Energies Media, Pouvoirs d'Afrique)
+- **Barrage achevé en juin 2017** ; réception provisoire partielle en février 2018. Mais l'énergie n'arrive pas au poste de Nkolkoumou (Yaoundé), faute de raccordement au réseau Sud.
+- Ligne définitive (225 kV, Nyabizan–Yaoundé) **prévue pour octobre 2018**, puis annoncée successivement pour **août 2020 → 31 décembre 2020 → mars 2021 → mai 2022**.
+- **14 avril 2019** : mise sous tension par une **ligne provisoire de 90 kV** ; environ 65 MW évacués selon une source.
+- **Septembre 2021** : ligne réalisée à 92 % ; la centrale **ne produit que 90 MW sur 211**, selon le ministre. L'achèvement attend un **décret d'indemnisation** dans le Mfoundi. Des riverains de Nsimalen (Nkolzock) s'opposent aux pylônes et **réclament des indemnisations attendues depuis 7 ans**.
+- **Mars 2022** : ligne à plus de 94 %. Le raccordement complet à Yaoundé est rapporté en **2023** (Banque mondiale). Environ **six ans** séparent donc la centrale prête de la ligne complète.
+- **Gag possible** : le mariage traditionnel où la mariée (la centrale) attend depuis 2017, en tenue, avec la dot payée. Le témoin (la ligne) envoie un message tous les six mois : « J'arrive, je suis à Nkolzock ! » Pendant ce temps, la ligne provisoire de 90 kV, « la petite cousine », fait le travail de la mariée à moitié.
+
 **Règle « C'est le fey ! »** : le mot camerounais *fey* (arnaque ; *feyman*, escroc) peut être lancé par un personnage, sous le coup de la colère, comme on le dirait au bar. **Immédiatement**, le patron (« Source ? ») ou Fifi recadre. Exemple :
 > Boris : « Payer 420 MW quand la ligne n'en prend que la moitié ? C'est le fey ! »
 > Fifi : « Le fey, c'est un délit, et il faut un juge pour le dire. Ici, on a un contrat signé et une ligne en retard. Le vrai scandale possible, c'est la **coordination**. Et ça, on peut le prouver avec des dates. »
