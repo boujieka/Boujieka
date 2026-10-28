@@ -5,9 +5,9 @@ HERE="$(cd "$(dirname "$0")" && pwd)"
 D="$HERE/../../docs/courant-continental-cameroun"
 TMP="$(mktemp -d)"
 python3 "$HERE/../assemble_courant_continental.py" "$D"
-TITLE="Courant Continental — Cameroun · Saison 1 (illustrateur)"
-pandoc "$D/album-saison-1-illustrateur.md" -f markdown-yaml_metadata_block -t docx -o "$D/album-saison-1-illustrateur.docx" --toc --toc-depth=3 --metadata title="$TITLE"
-pandoc "$D/album-saison-1-illustrateur.md" -f markdown-yaml_metadata_block -t html5 -s --toc --toc-depth=3 --metadata title="$TITLE" --metadata lang=fr -c "$HERE/album.css" --embed-resources -o "$TMP/album.html"
+export LANG=C.UTF-8 LC_ALL=C.UTF-8
+pandoc "$D/album-saison-1-illustrateur.md" -f markdown-yaml_metadata_block -t docx -o "$D/album-saison-1-illustrateur.docx" --toc --toc-depth=3 --metadata-file="$HERE/cover.yaml"
+pandoc "$D/album-saison-1-illustrateur.md" -f markdown-yaml_metadata_block -t html5 -s --toc --toc-depth=3 --metadata-file="$HERE/cover.yaml" -c "$HERE/album.css" --embed-resources -o "$TMP/album.html"
 python3 - "$TMP/album.html" <<'PY'
 import re, sys
 p = sys.argv[1]; h = open(p, encoding='utf-8').read()

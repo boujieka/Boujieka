@@ -14,3 +14,9 @@ blockquote { background: #fff8e1; border-left: 4px solid #f2b705; margin: 6px 0;
 #TOC { page-break-after: always; }
 #TOC ul { list-style: none; padding-left: 14px; }
 code { font-size: 8.5pt; }
+
+#title-block-header { height: 170mm; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+  background: #0b3d63; color: #fff; border-bottom: 10px solid #f2b705; page-break-after: always; margin: -2mm 0 0; }
+#title-block-header h1.title { page-break-before: avoid; border: none; color: #f2b705; font-size: 34pt; letter-spacing: 2px; margin: 0 0 10mm; }
+#title-block-header .subtitle { font-size: 22pt; font-weight: bold; font-style: italic; color: #fff; margin: 0 20mm 12mm; }
+#title-block-header .date { font-size: 12pt; color: #ffe8a3; }
