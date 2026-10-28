@@ -148,6 +148,9 @@ On **critique des choix, des calendriers et des contrats** ; on **n'accuse perso
 ### 4.4 Entreprises (Banque mondiale, Enterprise Survey 2016)
 **92,5 %** des entreprises ont subi des coupures ; pertes moyennes de **9,9 % des ventes annuelles** chez les entreprises touchées.
 
+### 4.4 bis Entreprises (actualité)
+En **septembre 2026**, le GECAM (patronat camerounais) a publiquement interpellé la SOCADEL sur des coupures qui paralysent l'économie (AllAfrica : https://fr.allafrica.com/stories/202609130033.html). C'est un **fait rapporté**, pas une attribution de faute.
+
 ### 4.5 Ailleurs en Afrique (pour les comparaisons)
 | Projet | Pays | Capacité | Coût |
 |---|---|---|---|
