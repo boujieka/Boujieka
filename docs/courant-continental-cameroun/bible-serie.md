@@ -177,6 +177,17 @@ Une BD **drôle d'abord**. On doit rire à chaque planche, comme devant un sketc
 - **Gag possible** : Adamou regarde le ciel de Maroua : « Chez nous, le courant dépend de deux ministres : celui de l'Énergie… et celui de la pluie ! » Lagdo, vieux barrage assoiffé, boit dans une calebasse vide. Le solaire de Maroua travaille le jour et dort la nuit.
 - **Nuance** : la sécheresse n'est pas une excuse inventée ; elle est réelle. La critique porte sur la **dépendance à une seule source** et sur la **réhabilitation annoncée depuis 2017**.
 
+**Kikot-Mbebe : ne pas refaire Nachtigal en plus grand** (Sikafinance 29/06/2026, Investir au Cameroun, AllAfrica 28/11/2025, Ecomatin)
+- **KHPC** : société de projet détenue **à parts égales par l'État et EDF**. 500 MW.
+- **Le devis qui danse** : plus de 1 Md € annoncé au départ (≈ 650 Md FCFA) ; une lettre du PCA de KHPC de 2025 parle d'un besoin de **1 620 Md FCFA** ; le DPEB 2027-2029 (juillet 2026) retient **≈ 872 Md FCFA**, soit un **écart de 748 Md** ; le « coût final [est] toujours en suspens » (Investir au Cameroun).
+- **Audit** : en juin 2026, le gouvernement soumet le projet à un **audit financier**. Le ministre des Finances : « entre Nachtigal et Kikot, le coût semble passer du simple au double » ; « Il ne s'agit pas de faire un procès d'intention, mais de réaliser un audit » ; il évoque des **divergences au sein de KHPC**. Les hausses sont attribuées au Covid-19, à la guerre en Ukraine et au conflit au Moyen-Orient (Sikafinance).
+- **Alerte interne** : dès **septembre 2025**, le PCA de KHPC alerte le ministre de l'Eau et de l'Énergie sur des risques de **coût, de calendrier, de choix techniques et de gouvernance**.
+- **Banque mondiale (28 novembre 2025)** : pas de soutien financier tant que le Cameroun n'a pas engagé une **réforme profonde du secteur de l'électricité** (AllAfrica, camer.be).
+- **Calendrier** : bouclage financier « au plus tôt au second semestre 2027 » (KHPC) ; travaux en 2028 ; service en 2033. Plus de 50 financiers intéressés.
+- **Take or pay** : **les termes du futur contrat d'achat de Kikot ne sont pas publics.** Un article de Sikafinance mentionne un take or pay de « ≈ 10 Md FCFA par mois » ; c'est le montant connu de **Nachtigal**, et le texte ne permet pas de l'attribuer à Kikot. **Ne pas écrire que Kikot a un take or pay de 10 Md.**
+- **La bonne question pour la BD** : « Avant de signer Kikot, montrez-nous : (1) le contrat d'achat est-il en take or pay ? (2) la ligne d'évacuation sera-t-elle prête le même jour que la centrale ? (3) qui paie si elle ne l'est pas ? (4) où est le rapport d'audit ? »
+- **Gag possible** : le devis de Kikot fait le yoyo (650 → 1 620 → 872) comme un ballon de baudruche qu'on gonfle et dégonfle. Le ministre arrive avec une loupe : « Ce n'est pas un procès, c'est un audit ! » Monsieur Congélateur : « Moi aussi, je demande un audit… de mes bières ! »
+
 **Règle « C'est le fey ! »** : le mot camerounais *fey* (arnaque ; *feyman*, escroc) peut être lancé par un personnage, sous le coup de la colère, comme on le dirait au bar. **Immédiatement**, le patron (« Source ? ») ou Fifi recadre. Exemple :
 > Boris : « Payer 420 MW quand la ligne n'en prend que la moitié ? C'est le fey ! »
 > Fifi : « Le fey, c'est un délit, et il faut un juge pour le dire. Ici, on a un contrat signé et une ligne en retard. Le vrai scandale possible, c'est la **coordination**. Et ça, on peut le prouver avec des dates. »
