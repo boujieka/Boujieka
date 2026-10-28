@@ -162,7 +162,7 @@ Lom Pangar se défend d'avoir « caché l'eau ». Son métier est de **stocker e
 | Contrat de construction du barrage seul | ≈ 75 Md FCFA | À ne pas confondre avec le coût global |
 | Points signalés | Prestataires impayés ; audit demandé sur une tranche de 40 Md FCFA | Présentés comme « rapportés par la presse » |
 
-🌍 **Ailleurs** : avec à peu près la même somme (≈ 331 Md FCFA), la Côte d'Ivoire a construit **Soubré (275 MW)**.
+🌍 **Ailleurs** : avec environ 90 Md FCFA de plus (≈ 331 Md FCFA), la Côte d'Ivoire a construit **Soubré (275 MW)**.
 > **Attention, piège !** Lom Pangar est d'abord un régulateur. Sa valeur se mesure aux MW qu'il **garantit** en saison sèche aux centrales en aval.
 
 ### Épisode 6 — « Nachtigal : 420 mégawatts, mais ma bière est toujours chaude ! »
