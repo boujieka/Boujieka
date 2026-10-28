@@ -146,6 +146,15 @@ Une BD **drôle d'abord**. On doit rire à chaque planche, comme devant un sketc
 - **Leçon** : on finance les inaugurations, rarement l'entretien. Pourtant, un vieux barrage en panne fait perdre bien plus de MW qu'une petite centrale neuve n'en apporte.
 - **Nuance** : aucune source ne dit que le barrage est dangereux aujourd'hui. Ne pas dessiner de catastrophe. On parle de **retard de réhabilitation** et de **risque signalé en 2013**.
 
+**Edéa : le doyen qu'on a soigné, mais qui ne peut rien seul** (Power Technology, Wikipédia, News du Cameroun, Energies Media)
+- **Aucun retard de maintenance documenté** n'a été trouvé pour Edéa entre 2023 et 2026. Au contraire, c'est le **contre-exemple** de Song Loulou :
+  - réhabilitation et modernisation **2006-2011** (turbines Andritz) ; capacité passée d'environ **263 à 267 MW** (Wikipédia) ;
+  - selon le directeur général d'Eneo, **≈ 100 Md FCFA investis depuis 2004** pour maintenir et transformer la centrale (News du Cameroun ; déclaration de l'exploitant, non auditée).
+- **Mais** le doyen dépend du réseau. Un incident a provoqué l'**effondrement du réseau interconnecté Sud**, avec l'arrêt d'Edéa et de Song Loulou (date à préciser, [à vérifier]). Un incident sur la ligne 225 kV Edéa–Yaoundé (168 km) a privé une grande partie de Yaoundé de courant (date à préciser).
+- **Querelle de famille** : l'EDC s'est plainte de la « persistance du non-reversement de la redevance d'eau par Eneo » (Energies Media, date à préciser). Le gardien de l'eau (EDC, Lom Pangar) n'est pas payé par celui qui turbine l'eau. C'est un exemple du cercle vicieux financier.
+- **Usage comique** : au concours des mégawatts, Edéa arrive bien habillé (« moi, on m'a soigné ! »). Son voisin Song Loulou tousse. Quand le réseau s'effondre, les deux tombent ensemble : « Ça ne sert à rien d'être en forme si la route est coupée. »
+- **Interdit** : affirmer qu'Edéa est mal entretenue. Aucune source récente ne le dit.
+
 **Règle « C'est le fey ! »** : le mot camerounais *fey* (arnaque ; *feyman*, escroc) peut être lancé par un personnage, sous le coup de la colère, comme on le dirait au bar. **Immédiatement**, le patron (« Source ? ») ou Fifi recadre. Exemple :
 > Boris : « Payer 420 MW quand la ligne n'en prend que la moitié ? C'est le fey ! »
 > Fifi : « Le fey, c'est un délit, et il faut un juge pour le dire. Ici, on a un contrat signé et une ligne en retard. Le vrai scandale possible, c'est la **coordination**. Et ça, on peut le prouver avec des dates. »
