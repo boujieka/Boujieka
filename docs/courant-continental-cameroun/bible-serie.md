@@ -89,6 +89,28 @@ Une BD **drôle d'abord**. On doit rire à chaque planche, comme devant un sketc
 - **Grand Eweng** : environ 1 850 Md FCFA (chiffre du promoteur), financement non bouclé.
 - **PIRECT** : environ 557,5 Md FCFA selon Ecomatin, ou 768 M € selon la fiche PIDA ; travaux lancés en mars 2025 ; tronçon vers la frontière tchadienne en attente de financement.
 
+### 4.2 bis Le dossier « Programmation et mise en œuvre », fil rouge critique de la série
+**Ligne éditoriale** : la BD **interroge sans complaisance** l'ordre dans lequel les projets sont décidés, financés et livrés. On construit la centrale avant la ligne, on signe des contrats où l'on paie même quand le courant ne passe pas, et les factures gonflent. La question « De qui se moque-t-on ? » est légitime dans la bouche des personnages. **Mais la réponse se fait toujours avec des documents.**
+
+**Faits (presse et FMI, à citer avec la date) :**
+- **Nachtigal, contrat « take or pay » ou « capacity payment »** : l'acheteur paie la **puissance disponible** (420 MW), pas l'énergie effectivement consommée. Depuis la mise en service complète (**18 mars 2025**), la facture est d'environ **10 Md FCFA par mois** (Investir au Cameroun, mars 2025).
+- **Évacuation incomplète** : deux lignes étaient prévues (vers Nyom 2/Yaoundé, et vers Bafoussam/Douala). Selon la presse, seul le tronçon vers Yaoundé était achevé. La ligne vers Nyom 2 est retardée par des **litiges fonciers**. Le Compact prévoit **Nachtigal–Bafoussam (225 km) en 2026** et l'interconnexion Sud–Nord en **2028**, ligne qui « contribuera à l'évacuation de Nachtigal » (Compact p. 36). Selon une source, le dispatching n'appelle parfois qu'environ **200 MW** à cause des contraintes du réseau.
+- **Qui paie ?** En cas de défaillance de l'acheteur, **l'État paie** (FMI). Le FMI parle d'un « contrat d'achat ferme » qui pèse sur le budget tant que le transport limite l'usage de la capacité. Selon la presse, Eneo payait parfois **moins de 50 %** des factures en 2025 (non confirmé par l'entreprise). Les arriérés croisés approchaient **70 Md FCFA** début 2026. L'État a négocié une **facilité de 100 Md FCFA** auprès de banques locales.
+- **Projection** : facturation NHPC de **196,16 Md FCFA en 2027** (rapport des conférences budgétaires, septembre 2026). C'est une **projection de facturation**, pas une dépense certaine du Trésor.
+- **Version de NHPC** (à donner aussi, par équité) : c'est un « capacity payment » aux nuances propres ; « sans Nachtigal, les délestages seraient bien plus importants » ; les paiements sont sécurisés par des garanties prévues avec l'État.
+- **Proposition d'un expert** : renégocier certaines clauses pour indexer les paiements sur l'avancement des lignes (tribune, News du Cameroun).
+- **Le Compact lui-même reconnaît** que les contrats BOT des producteurs indépendants (environ 35 % du parc) contiennent des clauses de type « Take or Pay » dont certains risques sont portés par l'État (p. 35).
+- **Autres décalages centrale/ligne** : Memve'ele (centrale en service vers 2019, raccordement complet rapporté en 2023) ; Mekin (11,2 MW injectés sur 15 à cause des contraintes de ligne) ; Bini à Warak et Kikot (devis réestimés, service en 2033).
+
+**Règle « C'est le fey ! »** : le mot camerounais *fey* (arnaque ; *feyman*, escroc) peut être lancé par un personnage, sous le coup de la colère, comme on le dirait au bar. **Immédiatement**, le patron (« Source ? ») ou Fifi recadre. Exemple :
+> Boris : « Payer 420 MW quand la ligne n'en prend que la moitié ? C'est le fey ! »
+> Fifi : « Le fey, c'est un délit, et il faut un juge pour le dire. Ici, on a un contrat signé et une ligne en retard. Le vrai scandale possible, c'est la **coordination**. Et ça, on peut le prouver avec des dates. »
+> Le patron : « Alors sortez les dates ! »
+
+On **critique des choix, des calendriers et des contrats** ; on **n'accuse personne de fraude**.
+
+**Dispositif visuel récurrent, « Le chrono de la coordination »** : deux horloges dessinées côte à côte, « Centrale prête » et « Ligne prête ». L'écart s'affiche en mois, et le compteur de factures tourne.
+
 ### 4.3 Propriété d'Eneo, devenue SOCADEL
 2001 : AES prend 56 % de la SONEL → 2014 : Actis rachète, l'entreprise devient Eneo → capital : Actis 51 %, État 44 %, personnel 5 % → 10 février 2026 : l'État rachète pour **78 Md FCFA** → 4 mai 2026 : décret, Eneo devient **SOCADEL** (capitaux publics).
 
