@@ -13,36 +13,36 @@
 | Case | Image | Texte |
 |---|---|---|
 | 1 | Intérieur du bar, néon qui grésille. Derrière le comptoir, le baromètre à la craie ; dans un coin de l'ardoise, le « cercle vicieux » dessiné par Grâce à l'épisode 12. Mami Chantal accoudée au comptoir, billet à la main. | Récitatif : *Nkoagne, vendredi soir. Depuis l'autopsie du kilowatt, plus personne ne commande sans réfléchir.* · Mami Chantal : « Patron, une bière… et un document daté, s'il te plaît. » |
-| 2 | La porte s'ouvre en grand, contre-jour. Une silhouette en costume trois-pièces traîne un cartable énorme qui racle le sol et laisse un sillon dans la poussière. | SFX : *GRRRRT… GRRRRT…* · Monsieur 2030 (essoufflé) : « Pardon pour le retard… J'arrive de loin. Enfin… j'arrive de plus tard. » |
+| 2 | La porte s'ouvre en grand, contre-jour. La silhouette aperçue à la fin de l'épisode 12 entre enfin : costume trois-pièces, elle traîne un cartable énorme qui racle le sol et laisse un sillon dans la poussière. | SFX : *GRRRRT… GRRRRT…* · Monsieur 2030 (essoufflé) : « Pardon pour le retard… J'arrive de loin. Enfin… j'arrive de plus tard. » |
 | 3 | Il pose le cartable sur une table en plastique : la table se plie en deux. Les bouteilles volent, Boris les rattrape au vol. | SFX : *CRAC !* · Boris : « Eh, tara ! Ton sac pèse combien ? » · Monsieur 2030 : « 12,5 milliards de dollars, cher ami. Mais ce sont des **besoins** : ils pèsent avant même d'exister. » |
 | 4 | Monsieur 2030 au comptoir, index levé, menton haut, très solennel. | Monsieur 2030 : « Patron ! Une bière glacée… pour 2030. » |
-| 5 | Le patron, torchon sur l'épaule, craie à la main, visage impassible. Monsieur 2030 se gonfle d'orgueil, vexé. | Le patron : « Avant de commander une autre bière, donnez-moi la source de votre chiffre ! » · Monsieur 2030 : « Mais… c'est moi, la source ! » · Le patron : « Alors montre-moi ta page. » |
+| 5 | Pater Glaçon, torchon sur l'épaule, craie à la main, visage impassible. Monsieur 2030 se gonfle d'orgueil, vexé. | Pater Glaçon : « Avant de commander une autre bière, donnez-moi la source de votre chiffre ! » · Monsieur 2030 : « Mais… c'est moi, la source ! » · Pater Glaçon : « Alors montre-moi ta page. » |
 
 #### Planche 2 — « Le discours sans bouton d'arrêt »
 | Case | Image | Texte |
 |---|---|---|
-| 1 | Monsieur 2030 est monté sur une caisse en bois pour parler. Des feuilles s'échappent du cartable. Le patron, horrifié, montre la caisse : c'est la caisse de bières promise à l'épisode 1. | Monsieur 2030 : « Chers consommateurs au bout du fil ! L'heure est à l'accélération transformationnelle de la synergie inclusive des… » · Le patron (petite bulle) : « Descends de ma caisse. Elle est réservée au gagnant. » |
-| 2 | Mola Ndip se penche vers Tonton Mballa, la main en cornet. | Mola Ndip : « Massa! Wetin dey happen? Dis man di talk like radio wey no get off button. » [à valider par un relecteur camerounais ; alternative : « Massa ! Cet homme parle comme une radio sans bouton. »] · *Traduction : Massa ! Qu'est-ce qui se passe ? Cet homme parle comme une radio sans bouton d'arrêt.* |
+| 1 | Monsieur 2030 est monté sur une caisse en bois pour parler. Des feuilles s'échappent du cartable. Pater Glaçon, horrifié, montre la caisse : c'est la caisse de bières promise à l'épisode 1. | Monsieur 2030 : « Chers consommateurs au bout du fil ! L'heure est à l'accélération transformationnelle de la synergie inclusive des… » · Pater Glaçon (petite bulle) : « Descends de ma caisse. Elle est réservée au gagnant. » |
+| 2 | Mola Ndip se penche vers Tonton Mballa, la main en cornet. | Mola Ndip : « Massa! Dis man di talk like radio wey no get off button. » [à valider par un relecteur camerounais ; alternative : « Massa ! Cet homme parle comme une radio sans bouton. »] · *Traduction : Massa ! Cet homme parle comme une radio sans bouton d'arrêt.* |
 | 3 | Fifi se plante devant lui, carnet ouvert, stylo pointé comme un micro. Monsieur 2030, flatté, déroule une feuille longue jusqu'au sol. | Fifi : « Source ? Date ? Unité ? » · Monsieur 2030 : « Compact, page 5 ! Accès à l'électricité : **74 % en 2025**. Objectif : **100 % en 2030**. Environ **8 millions** de personnes en plus ! » |
 | 4 | Mami Chantal, téléphone à la main, fait défiler sa liste de contacts à toute vitesse. | Mami Chantal : « Huit millions ? Mais c'est tout mon répertoire, plus celui de ma belle-mère, plus le kongossa de tout le marché ! » |
-| 5 | Tonton Mballa compte sur ses doigts, puis sur ceux de Boris, puis ses doigts finissent noués comme une corde. Grâce, à côté, calme. | Tonton Mballa : « De 74 à 100, ça fait 26 points en cinq ans. Plus de 5 points par an. » · Grâce : « Et avant ? 61 % en 2017, 73 % en 2023, page 37 : environ 2 points par an. » · Tonton Mballa : « Il faut aller deux fois et demie plus vite ? Mes doigts ont fait grève ! » |
+| 5 | Tonton Mballa compte sur ses propres doigts, si vite qu'ils finissent noués comme une corde. Grâce, à côté, calme. | Tonton Mballa : « De 74 à 100, ça fait 26 points en cinq ans. Plus de 5 points par an. » · Grâce : « Et avant ? 61 % en 2017, 73 % en 2023, page 37 : environ 2 points par an. » · Tonton Mballa : « Il faut aller deux fois et demie plus vite ? Mes doigts ont fait grève ! » |
 
 #### Planche 3 — « Le document qui se dispute avec lui-même »
 | Case | Image | Texte |
 |---|---|---|
-| 1 | Le patron écrit à la craie. Monsieur 2030 continue, doigt en l'air. Papa Tchinda ouvre la bouche ; toute la salle se retourne vers lui. | Monsieur 2030 : « Capacité installée : **2 011 MW en 2025**, objectif **3 000 MW** ! » (Compact p. 35 et p. 5) · Papa Tchinda : « Du temps de la SONEL, on… » · Tout le bar : « Plus tard, Papa ! » |
+| 1 | Pater Glaçon écrit à la craie. Monsieur 2030 continue, doigt en l'air. Papa Tchinda ouvre la bouche ; toute la salle se retourne vers lui. | Monsieur 2030 : « Capacité installée : **2 011 MW en 2025**, objectif **3 000 MW** ! » (Compact p. 35 et p. 5) · Papa Tchinda : « Du temps de la SONEL, on… » · Tout le bar : « Plus tard, Papa ! » |
 | 2 | Grâce lève sa pancarte « ATTENTION, PIÈGE ! », triangle jaune. | Grâce : « Attention, piège ! 73 % en 2023 à la page 37, 74 % en 2025 à la page 5 : un seul point en deux ans. Est-ce la même méthode de calcul ? Je ne sais pas. » [DONNÉE À VÉRIFIER : méthode et source des deux taux] |
 | 3 | Monsieur 2030, très fier. Une feuille du cartable se dresse toute seule, comme une langue qui sort de la bouche ; elle porte « p. 8 » et a une petite voix aiguë. | Monsieur 2030 : « Le rendement de distribution passera de 73 % à **88 %** ! » · La feuille p. 8 : « **90 %** ! » · Monsieur 2030 : « 88 ! » · La feuille : « 90 ! » |
 | 4 | Boris s'interpose entre Monsieur 2030 et sa propre feuille, bras écartés comme un arbitre. | Boris : « Ça, c'est une mauvaise soudure ! Le même document dit 88 dans le tableau des engagements et 90 à la page 8 ! » · Fifi (écrit) : « Incohérence interne. Je note les deux. » |
-| 5 | Monsieur 2030, en sueur, sourire gêné, propose un compromis du bout des doigts. Tout le bar hurle, le patron brandit sa craie comme une épée. | Monsieur 2030 : « Euh… disons 89 ? » · Tout le bar : « NON ! » · Le patron : « Ici, on n'arrondit pas pour faire joli. » |
+| 5 | Monsieur 2030, en sueur, sourire gêné, propose un compromis du bout des doigts. Tout le bar hurle, Pater Glaçon brandit sa craie comme une épée. | Monsieur 2030 : « Euh… disons 89 ? » · Tout le bar : « NON ! » · Pater Glaçon : « Ici, on n'arrondit pas pour faire joli. » |
 
 #### Planche 4 — « La bière livrée en 2030 »
 | Case | Image | Texte |
 |---|---|---|
 | 1 | Mami Ngo sort de la cuisine, louche à la main. Derrière elle, sa marmite noire tousse un nuage de fumée (elle parlera à l'épisode 19). | Monsieur 2030 : « Cuisson propre : **23,4 % en 2022**, objectif **40 % en 2030**. Près de **80 %** des ménages utilisent encore des combustibles solides. » (Compact p. 39) · SFX (la marmite) : *KHEU ! KHEU !* · Mami Ngo : « Toi, la marmite, ton procès, c'est plus tard ! » |
-| 2 | Monsieur 2030 feuillette à toute vitesse ; Fifi et Grâce lèvent le même sourcil, en même temps. | Monsieur 2030 : « Recouvrement des factures : de **72 %** à **90 %** ! **1 000 MW** d'échanges avec les voisins d'ici 2030 (p. 5-6) ! **+ 10 %** de femmes dans les postes techniques et de direction (p. 6) ! » · Grâce et Fifi : « Plus 10 %… de points, ou 10 % de plus qu'aujourd'hui ? » [DONNÉE À VÉRIFIER] |
-| 3 | Monsieur 2030 sort une feuille avec une seule case cochée et la brandit comme un trophée. Le patron trace une petite coche à la craie. | Monsieur 2030 : « Engagement page 8 : "Finaliser le rachat des actions d'Actis dans Eneo (2025)". Coché ! Je réclame la caisse ! » · Fifi : « Paiement finalisé le 10 février 2026. C'est fait, avec un peu de retard. » · Le patron : « Une coche sur toute une page de promesses. La caisse attend. » |
-| 4 | Le patron colle une étiquette à la main sur une bouteille et la pose devant Monsieur 2030 : « BIÈRE GLACÉE — LIVRAISON PRÉVUE : 2030 — SOURCE : COMPACT P. 5 ». Monsieur 2030 la touche et retire vite la main. | Monsieur 2030 : « Mais elle est tiède ! » · Le patron : « Normal. Chez nous, un objectif n'est pas une réalisation. » |
+| 2 | Monsieur 2030 feuillette à toute vitesse ; Mami Chantal brandit son sèche-cheveux rafistolé au chatterton ; Fifi et Grâce lèvent le même sourcil, en même temps. | Monsieur 2030 : « Recouvrement des factures : de **72 %** à **90 %** ! **1 000 MW** de transit d'ici 2030 (p. 5-6) ! **+ 10 %** de femmes dans les postes techniques et de direction (p. 6) ! » · Mami Chantal : « Plus de femmes techniciennes ? Commencez par moi : je répare déjà mon sèche-cheveux ! » · Grâce et Fifi : « Plus 10 %… de points, ou 10 % de plus qu'aujourd'hui ? » [DONNÉE À VÉRIFIER] |
+| 3 | Monsieur 2030 sort une feuille avec une seule case cochée et la brandit comme un trophée. Pater Glaçon trace une petite coche à la craie blanche. | Monsieur 2030 : « Engagement page 8 : "Finaliser le rachat des actions d'Actis dans Eneo (2025)". Coché ! Je réclame la caisse ! » · Fifi : « Paiement finalisé le 10 février 2026. C'est fait, avec un peu de retard. » · Pater Glaçon : « Une coche sur toute une page de promesses. La caisse attend. » |
+| 4 | Pater Glaçon colle une étiquette à la main sur une bouteille et la pose devant Monsieur 2030 : « BIÈRE GLACÉE — LIVRAISON PRÉVUE : 2030 — SOURCE : COMPACT P. 5 ». Monsieur 2030 la touche et retire vite la main. Pater Glaçon pose sa craie blanche et en sort une jaune. | Monsieur 2030 : « Mais elle est tiède ! » · Pater Glaçon : « Normal. Chez nous, un objectif n'est pas une réalisation. Désormais, sur mon ardoise : craie jaune pour ce que tu promets, craie blanche pour ce qui est fait. » |
 | 5 | Monsieur Congélateur, dans son coin, s'est épinglé un petit badge « 2030 ». Au comptoir, le client habituel. Monsieur 2030 ouvre son cartable : une avalanche de feuilles l'ensevelit jusqu'au cou. | Monsieur Congélateur : « Moi aussi, je signe un pacte : je serai glacé en 2030 ! » · Le client : « Bon. Et d'ici 2030, qui va payer les bières chaudes ? » · Monsieur 2030 (sous les feuilles) : « Ça… c'est la page 10. Le financement. » · Récitatif : *Prochain épisode : 12,5 milliards de dollars cherchent leur chemin !* |
 
 #### Page documentaire — Les chiffres du Pacte (1) : « Ce que Monsieur 2030 a promis »
@@ -55,17 +55,17 @@
 | Rendement de distribution | **73 %** | **88 %** (tableau des engagements) **ou 90 %** (p. 8) : **incohérence interne** | Compact [page du tableau à préciser] ; p. 8 |
 | Recouvrement des factures | **72 %** | **90 %** | Compact [page à préciser] |
 | Interconnexions | — | **1 000 MW** de transit ; interconnexion avec les voisins à partir de 2028 | Compact p. 5-6 |
-| Rachat des parts d'Actis dans Eneo | Engagement prévu en 2025 | **Réalisé** : paiement de 78 Md FCFA finalisé le 10 février 2026 | Compact p. 8 ; Business in Cameroon, Enerdata (2026) |
+| Rachat des parts d'Actis dans Eneo | Engagement prévu en 2025 | **Réalisé** : paiement de 78 Md FCFA finalisé le 10 février 2026 | Compact p. 8 ; presse (2026) [média précis à ajouter] |
 
 > **Grâce — « Attention, piège ! »** : dans ce tableau, une seule ligne est une **réalisation** : le rachat. Toutes les autres sont des **points de départ** et des **cibles**, et le rachat n'a, à lui seul, pas changé d'un degré la température de la bière. Le prix du rachat a été **débattu** par des économistes ; ce n'est pas un préjudice établi.
 
 #### Baromètre de Nkoagne : ligne mise à jour cette semaine
-**Engagements du Pacte** : « À suivre » → « 8 cibles 2030 écrites à la craie, chacune avec sa page du Compact. Réalisé à ce jour : 1 (rachat des parts d'Actis, février 2026). Le reste : rendez-vous en 2030. »
+**Engagements du Pacte** : « À suivre » → « 7 cibles 2030 écrites à la craie jaune, chacune avec sa page du Compact (accès, cuisson propre, capacité, rendement, recouvrement, interconnexions, femmes). Réalisé à ce jour, à la craie blanche : 1 engagement (rachat des parts d'Actis, février 2026). Le reste : rendez-vous en 2030. »
 
 #### Mini-lexique
 - **Tara** : ami, pote (camfranglais).
 - **Massa !** : exclamation de surprise (pidgin).
-- **Wetin dey happen?** : « Qu'est-ce qui se passe ? » (pidgin).
+- **Radio wey no get off button** : « radio sans bouton d'arrêt » (pidgin).
 - **Kongossa** : commérages, rumeurs.
 - **SONEL** : ancienne société nationale d'électricité, avant la privatisation de 2001.
 
@@ -73,14 +73,17 @@
 - La feuille « p. 8 » qui contredit Monsieur 2030 doit être dessinée comme un petit personnage autonome (yeux, bouche) : elle reviendra à l'épisode 14.
 - La caisse de bières de la planche 2 est **la** caisse promise à l'épisode 1 : même bois, même tampon.
 - L'étiquette de la bouteille (P4C4) doit être lisible : c'est l'image-clé de l'épisode.
-- Le baromètre à la craie est visible dans au moins trois cases.
+- Le baromètre à la craie est visible dans au moins trois cases. Code couleur introduit en P4C3-C4 et gardé jusqu'à la fin de la saison : **craie jaune** pour les objectifs, **craie blanche** pour ce qui est mesuré ou fait.
 
 #### Points à valider
-- Pidgin de Mola Ndip (P2C2) : « wey no get off button » [à valider par un relecteur camerounais].
+- Pidgin de Mola Ndip (P2C2) : « wey no get off button » [à valider par un relecteur camerounais]. Le « Wetin dey happen? » qui précédait a été retiré (dosage).
+- Correction appliquée : « 1 000 MW **de transit** » (et non « d'échanges ») ; le baromètre compte **7 cibles 2030**, et non 8 (le tableau contient aussi un calcul et une réalisation).
+- Correction appliquée : bulles du patron étiquetées « Pater Glaçon » dans tout l'acte ; l'entrée de Monsieur 2030 est révélée ici (l'ép. 12 ne montre que la silhouette et le cartable).
+- Source du rachat (78 Md FCFA, 10 février 2026) : bible 4.3 ; [média précis à ajouter] avant impression.
 - [DONNÉE À VÉRIFIER] : méthode de calcul des taux de 73 % (2023, p. 37) et 74 % (2025, p. 5).
 - [DONNÉE À VÉRIFIER] : page exacte du « tableau des engagements » (rendement 88 %) et du recouvrement 72 % → 90 %.
 - [DONNÉE À VÉRIFIER] : « + 10 % de femmes » (p. 6), en points ou en valeur relative ?
-- La fiche de l'épisode 13 dans `saison-1-scenario.md` cite aussi « ≈ 33,5 millions au total », « 13,4 millions de personnes » pour la cuisson, « 10 % de renouvelables » et une loi révisée « au 1er trimestre 2027 ». **Ces chiffres ne figurent pas dans la bible** : ils ont été écartés et sont à vérifier avant d'être ajoutés.
+- La fiche de l'épisode 13 dans `saison-1-scenario.md` cite aussi « ≈ 33,5 millions au total », « 13,4 millions de personnes » pour la cuisson et « 10 % de renouvelables » : ces chiffres figurent désormais dans la bible (4.1, Compact, préambule p. 1), mais ne sont pas utilisés dans cet épisode. La loi révisée « au 1er trimestre 2027 » reste **absente de la bible** : écartée.
 
 ---
 
@@ -103,7 +106,7 @@
 | 1 | Un car de luxe arrive, vitres teintées, rideaux, climatisation qui fume. Sur la carrosserie : « PRÊTS CONCESSIONNELS ET PHILANTHROPIE — 4 594 ». Un passager en costume descend avec un ventilateur de poche et une pile de rapports. | Prêts concessionnels : « Je monte, mais en VIP climatisé. Avec mes conditions, mes rapports et mes missions de suivi. » · Junior : « VIP, VIP… Grand, tu payes au retour, hein ! » |
 | 2 | Un passager en chemise simple, sueur au front, porte lui-même un gros sac marqué « PUBLIC — 1 588 ». | Public : « Moi, c'est le public. Pas de clim. Mais c'est moi qui porte les bagages depuis le début. » · Petite note de Fifi en bas de case : *Public : État camerounais seul, ou aussi des bailleurs publics ? [DONNÉE À VÉRIFIER]* |
 | 3 | À l'écart, sur le quai, un passager en lunettes noires, valise à roulettes, bras croisés. Étiquette : « PRIVÉ ». Il refuse le marchepied. | Privé : « Je ne monte pas. Le recouvrement est à **72 %**. Les tarifs sont **gelés depuis 2012** (Compact p. 37). » · Junior : « Grand, le car ne va pas t'attendre ! » · Privé : « Si. Sans moi, il manque **plus de la moitié** des places. » |
-| 4 | Mola Ndip, mains sur les hanches, regarde le Privé de haut en bas. Grâce, à côté, explique en montrant une facture géante. | Mola Ndip : « Na so! Wetin he want? » · *Traduction : C'est comme ça ! Qu'est-ce qu'il veut ?* · Grâce : « Être sûr d'être payé. Entre 2012 et 2023, l'État a mobilisé environ **300 milliards FCFA** de compensation tarifaire (Compact p. 42). Le privé lit ça avant d'acheter son billet. » |
+| 4 | Mola Ndip, mains sur les hanches, regarde le Privé de haut en bas. Grâce, à côté, explique en montrant une facture géante. | Mola Ndip : « Na so! Wetin e want? » · *Traduction : C'est comme ça ! Qu'est-ce qu'il veut ?* · Grâce : « Être sûr d'être payé. Entre 2012 et 2023, l'État a mobilisé environ **300 milliards FCFA** de compensation tarifaire (Compact p. 42). Le privé lit ça avant d'acheter son billet. » |
 | 5 | Le Privé sort, en éventail, **trois billets différents** : « 6,5 Md », « 6,4 Md », « 6,372 Md ». Junior se gratte la tête avec son sifflet. | Junior : « Monsieur Privé, vous êtes combien exactement ? » · Privé : « Ça dépend de la page ! » · Fifi : « Préambule : 6,5. Page 5 : 6,4. Tableau page 10 : 6,372. Incohérence interne. Je note les trois. » |
 
 #### Planche 3 — « La soute et le porte-bagages »
@@ -121,8 +124,8 @@
 | 1 | Fifi tape sur une calculatrice ; Tonton Mballa calcule à la craie sur le flanc du car. | Fifi : « En francs CFA : environ **7 751 milliards** (Compact p. 1). » · Tonton Mballa : « À 600 francs le dollar, je trouve plutôt 7 500 ! » · Grâce : « Le Compact ne précise pas son taux de change. On garde 7 751, avec la remarque. » [DONNÉE À VÉRIFIER] |
 | 2 | Mami Chantal, téléphone déjà en main pour envoyer un vocal. | Mami Chantal : « Avec ça, on fait combien de Nachtigal ? » · Fifi : « Nachtigal, environ 787 milliards FCFA : presque **10 Nachtigal**. Ou environ **2,5 GERD** d'Éthiopie. » · Mami Chantal : « Je le raconte au salon ! » · Fifi : « Avec la source ! » |
 | 3 | Boris saute de joie, bras en l'air, au milieu des bagages. | Boris : « J'ai trouvé les 12,5 milliards ! La caisse de bières est à moi ! » · Fifi : « Tu as trouvé la **liste des passagers**, Boris. Pas les passagers. » |
-| 4 | Le car démarre à peine : le Kilowatt seul au fond, la moitié du VIP occupée, le Public assis sur sa valise. Le Privé reste sur le quai avec ses trois billets. Le comité pousse le car à la force des bras. | Monsieur 2030 (au volant) : « Ne poussez pas ! Il faut d'abord le remplir ! » · Boris (en poussant) : « Le car de 2030 roule… à la sueur de Nkoagne ! » |
-| 5 | En sens inverse arrive un vieux car « MAROUA – NKOAGNE », plein à craquer, le toit chargé de sacs de riz jusqu'au ciel. Adamou en descend, boubou impeccable, un sac de riz vide plié sous le bras. | Junior : « Lui, au moins, son car est plein ! » · Adamou : « Jam na ? Chez nous, les cars sont pleins de riz. Moi, je viens remplir un sac… de soleil. » · *Traduction : Jam na ? = Ça va ? (litt. « La paix ? »)* · Récitatif : *Prochain épisode : le soleil de Maroua réclame son contrat !* |
+| 4 | Le car tourne au ralenti sans bouger : le Kilowatt seul au fond, la moitié du VIP occupée, le Public assis sur sa valise, Monsieur 2030 qui tapote le volant. Junior, debout sur le marchepied, siffle. Le Privé reste sur le quai avec ses trois billets et consulte son téléphone. | Junior : « Dernier appel pour le passager Privé ! » · Le Privé (sans lever les yeux) : « Météo du recouvrement : nuageux. J'attends. » · Boris : « Le car de 2030 attend… comme nous. » |
+| 5 | En sens inverse arrive un vieux car « MAROUA – NKOAGNE », plein à craquer, le toit chargé de sacs de riz jusqu'au ciel. Adamou en descend, boubou impeccable, un sac de riz vide plié sous le bras. | Junior : « Lui, au moins, son car est plein ! » · Adamou : « Jam na ? Chez nous, les cars sont pleins de riz. Moi, je viens remplir un sac… de soleil. » · *Traduction : Jam na ? = « Tu vas bien ? » (litt. « La paix ? »)* · Récitatif : *Prochain épisode : le soleil de Maroua réclame son contrat !* |
 
 #### Page documentaire — Les chiffres du Pacte (2) : « Qui doit monter dans le car ? »
 **Un BESOIN de financement, pas de l'argent disponible.** Compact, tableau p. 10, en millions de dollars (M USD).
@@ -156,20 +159,22 @@
 
 #### Mini-lexique
 - **Grand** : façon respectueuse d'appeler un aîné ou un client (« grand frère »).
-- **Chargeur** : rabatteur de gare routière qui remplit les cars [à valider par un relecteur camerounais ; alternative : « rabatteur »].
+- **Chargeur** : jeune qui remplit les cars en criant les destinations, à la gare routière.
 - **Na so!** : « C'est comme ça ! » (pidgin).
-- **Wetin he want?** : « Qu'est-ce qu'il veut ? » (pidgin).
-- **Jam na ?** : salutation en fulfulde, « Ça va ? » (litt. « La paix ? »).
+- **Wetin e want?** : « Qu'est-ce qu'il veut ? » (pidgin).
+- **Jam na ?** : salutation en fulfulde, « Tu vas bien ? » (litt. « La paix ? »).
 
 #### Notes pour le dessinateur
 - Les montants sont peints sur les bagages comme des numéros de place : il faut que le lecteur voie d'un coup d'œil la valise « Production » énorme et les « Kits solaires » minuscules sur le toit.
 - Le Privé n'est **ni un escroc ni un méchant** : c'est un passager prudent qui regarde la météo. Pas de valise de billets, pas de cigare.
 - Le car « Prêts concessionnels » ne porte aucun logo d'institution réelle.
-- P4C4 / P4C5 : contraste visuel fort entre le car du Pacte presque vide et le car de Maroua surchargé.
+- P4C4 / P4C5 : contraste visuel fort entre le car du Pacte presque vide, **immobile** (personne ne le pousse : la poussée appartient à l'ép. 10), et le car de Maroua surchargé.
 
 #### Points à valider
-- « Chargeur » au sens de rabatteur de gare [à valider par un relecteur camerounais].
-- [DONNÉE À VÉRIFIER] : le taux de change utilisé par le Compact pour passer de 12,5 Md USD à 7 751 Md FCFA (implicitement ≈ 620 FCFA par dollar, contre ≈ 600 dans la bible).
+- « Chargeur » : jugé correct par la relecture éditoriale (usage courant des agences de voyage) ; à confirmer par un relecteur camerounais. Terme à garder partout (pas « rabatteur »).
+- Pidgin corrigé : « Wetin **e** want? » (pronom camerounais de 3e personne) [à valider par un relecteur camerounais].
+- Correction appliquée : la poussée du car par le comité (P4C4), doublon de l'ép. 10, est remplacée par le « dernier appel » au Privé.
+- [DONNÉE À VÉRIFIER] : le taux de change utilisé par le Compact pour passer de 12,5 Md USD à 7 751 Md FCFA (implicitement ≈ 620 FCFA par dollar selon la bible 4.1, contre ≈ 600 pour nos conversions) : le Compact ne l'écrit pas.
 - [DONNÉE À VÉRIFIER] : la catégorie « public » (1 588 M USD) inclut-elle des bailleurs publics étrangers ?
 - Les équivalences de `saison-1-scenario.md` (« ≈ 9 Nachtigal », « ≈ 30 Lom Pangar ») **diffèrent de mes calculs** (≈ 9,8 et ≈ 32, en FCFA). Il faut choisir et afficher la méthode. La fourchette « 7 200 à 7 750 Md FCFA » du scénario n'est pas dans la bible.
 - Le car part « quand il est plein » : usage courant des gares routières, à garder comme image et non comme fait.
@@ -212,7 +217,7 @@
 |---|---|---|
 | 1 | Grâce dessine deux cercles séparés, « SUD » et « NORD », puis un pointillé entre eux : « 2028 ? ». Mola Ndip hoche la tête. | Grâce : « La vraie solution, c'est l'interconnexion Sud–Nord, **prévue** pour **2028** : ligne 225 kV double terne, **515 km** (Compact p. 36). Elle doit aussi amener le courant de Nachtigal vers le Nord. Prévue. Pas construite. » · Mola Ndip : « Na so. Small small. » · *Traduction : C'est comme ça. Petit à petit.* |
 | 2 | Grâce écrit deux chiffres au tableau. Tonton Mballa lève les mains ; tout le bar lève les mains pour l'aider à compter. | Grâce : « Pour les villages : **350 mini-centrales solaires** construites, et un programme rural de **1 000 localités**, dont **437 électrifiées** (Compact p. 37-38). » · Tonton Mballa : « Il en reste 563. Prêtez-moi vos doigts, tout le quartier ! » |
-| 3 | Junior, la tête basse, tend son carnet au patron comme une copie d'examen. | Junior : « Patron, j'ai trouvé le coupable : le soleil ne travaille pas la nuit, et la pluie ne travaille pas en saison sèche ! La caisse est à moi ! » · Le patron : « Ni le soleil ni la pluie ne sont branchés sur mon congélateur. Et ton kit a fondu. » |
+| 3 | Junior, la tête basse, tend son carnet à Pater Glaçon comme une copie d'examen. | Junior : « Patron, j'ai trouvé le coupable : le soleil ne travaille pas la nuit, et la pluie ne travaille pas en saison sèche ! La caisse est à moi ! » · Pater Glaçon : « Ni le soleil ni la pluie ne sont branchés sur mon congélateur. Et ton kit a fondu. » |
 | 4 | Le soir tombe. *CLAC* : coupure, tout le bar est noir. Seul Adamou, calme, ouvre son sac de riz : dedans, une vraie batterie avec une étiquette « Conforme à la norme [référence à vérifier] ». La petite lampe de sa machine à coudre s'allume. | SFX : *CLAC !* · Junior : « Le soleil est dans le sac ! » |
 | 5 | Adamou, seul îlot de lumière du bar, enfile son aiguille sous la lampe. Tout le monde s'est rapproché de lui comme d'un feu de camp. Monsieur Congélateur pleure des glaçons… tièdes. | Adamou : « Non, petit. Le soleil dort. C'est la batterie qui fait le service de nuit. » · Monsieur Congélateur : « Et moi ? Un sac de riz pour moi aussi ! » · Adamou : « Toi, il te faut un sac de ciment… la pluie sur Lagdo… et la ligne de 2028. » · Récitatif : *Prochain épisode : un village a reçu les poteaux… mais pas les ampoules !* |
 
@@ -296,7 +301,7 @@
 |---|---|---|
 | 1 | Monsieur 2030 tend les ciseaux vers un nouveau ruban ; Fifi pose la main sur les ciseaux. | Fifi : « Objectif : 100 % d'accès en 2030 (Compact p. 5). Mais vous comptez quoi : les poteaux ou les branchements ? » · Monsieur 2030 (gêné) : « Euh… mon tableau dit "accès". » |
 | 2 | Mami Ngo, venue vendre son poisson à la fête, pointe sa louche vers le poteau comme un procureur. | Mami Ngo : « Je fais un procès au poteau ! Il prend la place et il ne donne rien. C'est le fey ! » · Fifi : « Le fey, c'est un délit, et il faut un juge pour le dire. Ici, il y a un poteau sans fil. Le problème possible, c'est la **coordination**, et ça se prouve avec des dates. » |
-| 3 | Boris a mis le patron sur haut-parleur, téléphone levé vers le chef. Dans la bulle-téléphone, le patron essuie un verre. | Boris : « Patron ! Le chef dit qu'avec trois inaugurations, il a gagné la caisse de bières ! » · Le patron (au téléphone) : « Trois inaugurations, zéro ampoule allumée. Il gagne… un ruban. » |
+| 3 | Boris a mis Pater Glaçon sur haut-parleur, téléphone levé vers le chef. Dans la bulle-téléphone, Pater Glaçon essuie un verre. | Boris : « Patron ! Le chef dit qu'avec trois inaugurations, il a gagné la caisse de bières ! » · Pater Glaçon (au téléphone) : « Trois inaugurations, zéro ampoule allumée. Il gagne… un ruban. » |
 | 4 | Le chef, très digne, visse une ampoule au sommet du poteau, debout sur une échelle tenue par trois villageois. Aucun fil. La fanfare joue. Une banderole est déjà prête : « 4e INAUGURATION : L'AMPOULE ». | Le chef : « Et maintenant… l'inauguration de l'ampoule ! » · L'enfant dans le hamac : « On allume quand ? » · Le chef : « À la cinquième. » |
 | 5 | Au pied du poteau, alignées, **trois chèvres** (une par inauguration), ruban dans la bouche. Mami Ngo les montre. Boris lève l'ardoise du baromètre au-dessus de la foule, comme une pancarte de manifestation pacifique. | Mami Ngo : « Trois inaugurations, trois chèvres. Au rythme où on va, Nkol-Lumière aura un élevage avant d'avoir une ampoule ! » · Boris : « Fini les rubans. Maintenant, le peuple demande des résultats ! » · Récitatif : *Fin de l'acte IV. Acte V : « Le peuple demande des résultats ». Prochain épisode : Kikot, Grand Eweng… les barrages du futur sont-ils déjà invités à la fête ?* |
 

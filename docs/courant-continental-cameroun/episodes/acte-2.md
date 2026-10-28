@@ -3,10 +3,11 @@
 
 > **Rappels de la bible appliqués à tout l'acte**
 > - **Fil rouge critique (section 4.2 bis)** : l'acte interroge sans complaisance la **programmation et la mise en œuvre** des projets : une centrale prête avant sa ligne, des contrats où l'on paie même quand le courant ne passe pas, des devis qui gonflent. « De qui se moque-t-on ? » est une question légitime. **La réponse se fait toujours avec des documents.**
-> - On critique **des choix, des calendriers et des contrats**. On n'accuse **personne de fraude**. Quand un personnage lance « C'est le fey ! », Fifi ou le patron recadre aussitôt.
+> - On critique **des choix, des calendriers et des contrats**. On n'accuse **personne de fraude**. Quand un personnage lance « C'est le fey ! », Fifi ou le patron recadre aussitôt. La scène complète du « fey » n'est jouée **qu'une fois, à l'épisode 6** ; ensuite, le gag évolue (épisode 8 : Boris s'arrête de lui-même devant le carnet de Fifi).
+> - **Papa Tchinda ne finit jamais sa phrase dans cet acte** : on l'interrompt, ou quelqu'un la finit à sa place. Il ne la finira qu'à l'épisode 20.
 > - Dispositif récurrent : **le chrono de la coordination**, deux horloges côte à côte, « Centrale prête » et « Ligne prête ». L'écart s'affiche, le compteur de factures tourne.
 > - Les barrages sont des **personnages imaginaires**. Ils témoignent, plaident, se marient ou concourent, mais **personne n'est condamné**. Les retards et les dépassements sont des **faits rapportés**, avec leur source et leur date.
-> - Les chiffres viennent **uniquement** de la bible (sections 4.1, 4.2, 4.2 bis, 4.5) et des fiches de saison. Fourchettes et « selon les sources » conservés. Donnée manquante : **[DONNÉE À VÉRIFIER]** ; date manquante : **[DATE À VÉRIFIER]**.
+> - Les chiffres viennent **uniquement** de la bible (sections 4.1, 4.2, 4.2 bis, 4.2 ter, 4.5), avec ses arrondis de référence et des fiches de saison. Fourchettes et « selon les sources » conservés. Donnée manquante : **[DONNÉE À VÉRIFIER]** ; date manquante : **[DATE À VÉRIFIER]**.
 > - Chaque comparaison de coût par MW s'accompagne de la bulle de Grâce : **« Attention, piège ! »**
 > - Nous sommes à l'automne 2026 : on écrit « SOCADEL (ex-Eneo) » pour le présent, « Eneo » pour les faits d'avant mai 2026.
 
@@ -22,8 +23,8 @@
 | 1 | À l'aube, devant *Le Dernier Kilowatt*. Un vieux car de brousse cabossé, peint à la main : « COMITÉ EXPRESS — NKOAGNE ⇄ LA SOURCE ». Boris hisse son poste à souder sur le toit, entre les bagages et un régime de plantain. | Récitatif : *Acte II. Le Comité des mégawatts part voir ceux qui fabriquent le courant.* · Boris : « Montez, montez ! Le courant ne viendra pas nous chercher à domicile ! » |
 | 2 | Pater Glaçon monte, une **glacière vide** sous le bras et une **petite ardoise** pendue au cou comme une médaille (« BAROMÈTRE DE VOYAGE »). Mami Chantal le regarde, perplexe. | Mami Chantal : « Patron, ta glacière est vide ! » · Pater Glaçon : « Justement. Je vais ramener le froid du barrage. Ça se conserve, non ? » |
 | 3 | Dans le car. Mola Ndip, assis sur un sac de pièces détachées, tient une carte routière à l'envers ; une grande tache bleue déborde du papier. Fifi la retourne du bout du doigt. | Mola Ndip : « Wetin dey happen? Dis map get too much water! » *(Qu'est-ce qui se passe ? Cette carte a trop d'eau !)* **[à valider par un relecteur camerounais]** · Fifi : « Normal, Mola. On va voir un réservoir. » |
-| 4 | Au fond du car, Papa Tchinda lève un doigt d'ancien. Tout le monde soupire d'avance. Soudain, le car penche : un pneu éclate. | Papa Tchinda : « Du temps de la SONEL, les pneus… » · SFX : *PSCHHHHHH !* · Papa Tchinda : « … crevaient aussi. » |
-| 5 | Tout le car est figé, bouche bée. Papa Tchinda, rayonnant, les bras levés comme un footballeur qui vient de marquer. | Papa Tchinda : « VOUS AVEZ ENTENDU ? J'AI FINI MA PHRASE ! » · Boris : « Mbom, il a fallu une crevaison pour ça ! » |
+| 4 | Au fond du car, Papa Tchinda lève un doigt d'ancien. Tout le monde soupire d'avance. Soudain, le car penche : un pneu éclate. | Papa Tchinda : « Du temps de la SONEL, les pneus… » · SFX : *PSCHHHHHH !* |
+| 5 | Le car penché sur le bas-côté, la roue à plat. Tout le monde se tourne vers Papa Tchinda. Il croise les bras, très digne, comme si le pneu venait de lui donner raison. | Papa Tchinda : « … Voilà. C'est exactement ce que j'allais dire. » · Boris : « Mbom, même le pneu finit tes phrases avant toi ! » |
 
 #### Planche 2 — « Le gardien grognon »
 | Case | Image | Texte |
@@ -40,8 +41,8 @@
 | 1 | Grâce dessine dans le sable avec un bâton : une rivière, **quatre bols** en amont, des turbines en aval. Fifi, carnet ouvert. | Grâce : « Lom Pangar ne travaille pas seul. Quatre barrages-réservoirs régulent la Sanaga : environ 14 milliards de m³ de stockage, à eux quatre. » · Fifi : « Source : Compact énergétique national, page 35. Patron, tu peux écrire. » |
 | 2 | Pater Glaçon écrit sur sa petite ardoise, puis s'arrête, la craie en l'air. | Pater Glaçon : « Quatorze milliards… Fifi, ça fait combien de casiers ? » · Fifi : « Patron ! Source, date, UNITÉ ! Ce sont des mètres cubes d'eau, pas des bières ! » |
 | 3 | Case rêvée, en saison sèche, sol craquelé. Devant un guichet « VERSEMENTS SAISON SÈCHE », trois cousins font la queue avec des calebasses vides : **Song Loulou**, vieux lion qui tousse, **Édéa**, vieux lion bien coiffé et en pleine forme, et **Nachtigal**, jeune homme en costume qui regarde sa montre. Lom Pangar verse l'eau à chacun. | Lom Pangar : « Song Loulou, Édéa, Nachtigal… un par un ! Sans moi, en saison sèche, vos turbines font la sieste ! » · Nachtigal : « Je suis pressé, j'ai des actionnaires. » · Lom Pangar : « Fais la queue comme tout le monde. » |
-| 4 | Fifi tend son carnet vers Lom Pangar comme un micro. Le géant ajuste son képi. Pater Glaçon lève sa craie. Mola Ndip montre la base du barrage, puis tout le paysage. | Fifi : « Combien as-tu coûté ? » · Lom Pangar : « Environ 240,9 milliards de FCFA. Certains disent 238. » · Pater Glaçon : « Avant de commander une autre bière, donnez-moi la source de votre chiffre ! » · Fifi : « Presse, 237online. Et le contrat de construction du barrage seul, environ 75 milliards, ce n'est pas le coût global ! » · Mola Ndip : « Na so! Di wall no be di whole house. » *(Le mur, ce n'est pas toute la maison.)* **[à valider par un relecteur camerounais]** |
-| 5 | Lom Pangar sort de sa poche une chemise cartonnée tamponnée « RAPPORTÉ PAR LA PRESSE ». Mami Chantal, qui allait parler, reste la bouche ouverte, le doigt levé. | Lom Pangar : « Et avant que la coiffeuse lance le kongossa : la presse a rapporté des prestataires impayés, et un audit a été demandé sur une tranche de 40 milliards. » · Mami Chantal : « Il m'a volé mon kongossa ! » · Fifi : « Rapporté, pas jugé. On cherche les documents. » |
+| 4 | Lom Pangar ajuste son képi et ouvre son cahier de comptes. Pater Glaçon lève sa craie. Fifi feuillette son carnet. Mola Ndip montre la base du barrage, puis tout le paysage. | Lom Pangar : « Mon coût ? Environ 240,9 milliards de FCFA. Certains disent 238. » · Pater Glaçon : « Avant de commander une autre bière, donnez-moi la source de votre chiffre ! » · Fifi : « Presse. Et attention : selon le périmètre, on trouve aussi 494 millions de dollars, hors dépenses préparatoires. » · Mola Ndip : « Na so! Di wall no be di whole house. » *(Le mur, ce n'est pas toute la maison.)* **[à valider par un relecteur camerounais]** |
+| 5 | Lom Pangar sort de sa poche une chemise cartonnée tamponnée « RAPPORTÉ PAR LA PRESSE ». Mami Chantal, qui allait parler, reste la bouche ouverte, le doigt levé. | Lom Pangar : « Et avant que la coiffeuse lance le kongossa : la presse a rapporté des prestataires impayés, et l'EDC a demandé un audit des 40 milliards investis par l'AFD. » · Mami Chantal : « Il m'a pris mon kongossa ! » · Fifi : « Rapporté par la presse, pas jugé. Un audit demandé, c'est une question, pas une réponse. On attend les documents. » |
 
 #### Planche 4 — « Le rendez-vous de 2014 »
 | Case | Image | Texte |
@@ -49,16 +50,15 @@
 | 1 | Au pied du barrage, Boris découvre une petite centrale comme un kiosque de quartier, enseigne neuve : « USINE DE PIED — 30 MW ». Au-dessus, le **chrono de la coordination** : deux grandes horloges. Gauche : « RENDEZ-VOUS PRÉVU : juillet 2014 – janvier 2015 ». Droite : « USINE À PLEIN : 2 janvier 2024 ». Entre les deux, en rouge : « ≈ 9 ANS ». | Boris : « Neuf ans de retard ? Moi, si je livre un portail avec neuf jours de retard, le client me poursuit jusqu'au village ! » |
 | 2 | Fifi lit son carnet comme un bulletin météo. Derrière elle, des pages de calendrier s'envolent une à une. | Fifi : « Septembre 2018 : on annonce le premier groupe pour septembre 2020. Les travaux ne démarrent qu'en mars 2019. Novembre 2020 : usine et ligne vers Bertoua à 23 %, premier groupe repoussé à décembre 2021. Il arrive en mai 2023. Les 30 MW tournent à plein depuis le 2 janvier 2024. » · Pater Glaçon : « Source ? » · Fifi : « Investir au Cameroun, Energies Media, L'Économie, Jeune Afrique. » |
 | 3 | Case rêvée, à Bertoua. Des habitants assis sur un muret regardent passer un flot d'eau qui porte l'étiquette « EAU DU RÉSERVOIR ». Au-dessus d'eux, une ampoule éteinte. Le Kilowatt, tout petit, coincé dans une bobine de câble en chantier : « Ligne 90 kV, ≈ 120 km ». | Un habitant : « L'eau du barrage passe chez nous tous les jours… Son courant, lui, cherchait encore la route. » · Le Kilowatt : « J'arrive ! Je suis à 23 % ! » |
-| 4 | Boris bondit sur un rocher, doigt pointé vers Lom Pangar, avec la photo d'un grand barrage ivoirien sur son téléphone. Grâce lève son panneau rouge « ATTENTION, PIÈGE ! ». | Boris : « En Côte d'Ivoire, Soubré : 275 MW pour 331 milliards ! Et toi, gardien : 30 MW et neuf ans de retard. Coupable ! Patron, la caisse est à moi ! » · Grâce : « Attention, piège ! Soubré produit ; Lom Pangar, lui, régule. Et son métier principal, garantir l'eau aux centrales d'en bas en saison sèche, a fonctionné avant l'usine. Ce qui est en retard, c'est l'usine et sa ligne. » · Pater Glaçon : « Pas de caisse. » |
+| 4 | Boris bondit sur un rocher, doigt pointé vers Lom Pangar, avec la photo d'un grand barrage ivoirien sur son téléphone. Grâce lève son panneau rouge « ATTENTION, PIÈGE ! ». | Boris : « En Côte d'Ivoire, Soubré : 275 MW pour 331 milliards ! Et toi, gardien : 30 MW et neuf ans de retard. Coupable ! Patron, la caisse est à moi ! » · Grâce : « Attention, piège ! Soubré produit ; Lom Pangar, lui, régule. Ce qui est en retard de neuf ans, c'est l'usine de pied et sa ligne. Le barrage-réservoir, lui, a été achevé plus tôt [DATE À VÉRIFIER]. » · Pater Glaçon : « Pas de caisse. » |
 | 5 | En douce, Pater Glaçon plonge sa glacière dans le lac et la remplit. Lom Pangar se retourne d'un bloc, sifflet à la bouche, cahier ouvert. | SFX : *TRRRRIIIT !* · Lom Pangar : « HÉ ! Repose ma goutte ! Elle est déjà réservée pour Nachtigal en saison sèche ! » · Pater Glaçon : « Une seule goutte, gardien ? » · Lom Pangar : « Elle est inscrite ! Elle s'appelle Germaine ! Elle, au moins, elle arrive à l'heure ! » · Récitatif : *Prochain épisode : le jeune cadre d'en bas, Nachtigal, est convoqué au Tribunal des mégawatts de Nkoagne.* |
 
 #### Page documentaire — Le carnet de Fifi n° 5 : « Combien ça a coûté ? »
 | Élément | Montant ou date | Source | Remarque |
 |---|---|---|---|
-| Coût global de Lom Pangar | **≈ 240,9 Md FCFA** (≈ 400 M USD) ; variante **238 Md** ; ou **494 M USD hors dépenses préparatoires** | 237online ; Journal du Cameroun (dates [DONNÉE À VÉRIFIER]) | Périmètres différents : garder la fourchette |
-| Usine de pied (30 MW) | ≈ 30 Md FCFA ; ou **≈ 62 M USD pour l'usine ET la ligne** | Africtelegraph ; Journal du Cameroun | Coût exact de la seule centrale **non confirmé** |
-| Contrat de construction du barrage seul | ≈ 75 Md FCFA | Fiche saison 1 (média précis [DONNÉE À VÉRIFIER]) | **Ne pas confondre** avec le coût global |
-| Points signalés | Prestataires impayés ; audit demandé sur une tranche de 40 Md FCFA | 237online ; Ecomatin | **Rapportés par la presse**, pas jugés |
+| Coût global de Lom Pangar | **≈ 240,9 Md FCFA** (≈ 400 M USD) ; variante **238 Md** ; ou **494 M USD hors dépenses préparatoires** | Presse [média précis à ajouter] ; Journal du Cameroun pour les 494 M USD (dates [DONNÉE À VÉRIFIER]) | Périmètres différents : garder la fourchette |
+| Usine de pied (30 MW) | ≈ 30 Md FCFA ; ou **≈ 62 M USD pour l'usine ET la ligne** | Presse [média précis à ajouter] ; Journal du Cameroun | Coût exact de la seule centrale **non confirmé** |
+| Points rapportés par la presse | « 240 milliards investis, des prestataires impayés » (titre d'article) ; l'**EDC a demandé un audit des 40 Md FCFA investis par l'AFD** | 237online (titre d'article) ; Ecomatin (dates [DONNÉE À VÉRIFIER]) | **Rapportés par la presse**, pas jugés : un audit demandé n'est pas un résultat d'audit |
 | Stockage des quatre barrages-réservoirs de la Sanaga | ≈ 14 milliards de m³ ; concession transférée à l'EDC en 2020 | Compact énergétique national (Mission 300), p. 35 | Volume de Lom Pangar seul : [DONNÉE À VÉRIFIER] |
 
 **Le chrono de la coordination — Lom Pangar**
@@ -79,12 +79,12 @@
 
 Soubré a coûté environ 90 Md FCFA de plus que Lom Pangar (331 contre 240,9). Mais les deux ouvrages ne font pas le même métier.
 
-> **Grâce — « Attention, piège ! »** Lom Pangar est d'abord un **régulateur**. Diviser son coût par ses 30 MW n'a pas de sens : sa valeur se mesure aux MW qu'il **garantit** en saison sèche à Song Loulou, Édéa et Nachtigal. Cette régulation a fonctionné **avant** l'usine de pied. Le retard de neuf ans concerne l'usine et sa ligne vers Bertoua, pas le grenier d'eau.
+> **Grâce — « Attention, piège ! »** Lom Pangar est d'abord un **régulateur**. Diviser son coût par ses 30 MW n'a pas de sens : sa valeur se mesure aux MW qu'il **garantit** en saison sèche à Song Loulou, Edéa et Nachtigal. Le retard de neuf ans concerne l'usine de pied et sa ligne vers Bertoua ; le barrage-réservoir, lui, a été achevé plus tôt [DATE À VÉRIFIER].
 
 #### Baromètre de Nkoagne : ligne mise à jour cette semaine
 | Rubrique | Avant | Cette semaine |
 |---|---|---|
-| Preuves publiées | À vérifier | **Lom Pangar = stocker, pas (surtout) produire.** Coût ≈ 240,9 Md FCFA (variante 238). Usine de pied : prévue en 2014-2015, à plein le 2 janvier 2024 (≈ 9 ans d'écart). Audit demandé sur 40 Md : rapporté, documents attendus. |
+| Preuves publiées | À vérifier | **Lom Pangar = stocker, pas (surtout) produire.** Coût ≈ 240,9 Md FCFA (variante 238). Usine de pied : prévue en 2014-2015, à plein le 2 janvier 2024 (≈ 9 ans d'écart). Selon la presse, l'EDC a demandé un audit des 40 Md investis par l'AFD : documents attendus. |
 
 *(Pater Glaçon recopie la ligne de sa petite ardoise sur le grand tableau dès son retour au bar.)*
 
@@ -108,6 +108,9 @@ Soubré a coûté environ 90 Md FCFA de plus que Lom Pangar (331 contre 240,9). 
 - Rattachement précis de chaque date du chrono à son média (Investir au Cameroun, Energies Media, L'Économie, Jeune Afrique) et dates des articles : **[DONNÉE À VÉRIFIER]**.
 - Géographie du gag de Bertoua (l'eau du réservoir « passe-t-elle » réellement près de Bertoua ?) : à confirmer ; sinon, garder la case comme une image rêvée.
 - La fiche de saison écrit que Soubré a coûté « à peu près la même somme » ; l'écart réel est d'environ 90 Md FCFA. Formulation corrigée ici.
+- Prestataires impayés (237online, titre d'article) et audit des 40 Md FCFA investis par l'AFD demandé par l'EDC (Ecomatin) : **bible 4.2 ter**, à présenter uniquement comme « rapporté par la presse », jamais comme une irrégularité établie. Dates des deux articles : **[DONNÉE À VÉRIFIER]**.
+- Supprimé après relecture : le « contrat de construction du barrage seul, ≈ 75 Md FCFA » (absent de la bible). Média précis du coût global (240,9 / 238 Md) et des ≈ 30 Md de l'usine de pied : **[DONNÉE À VÉRIFIER]**.
+- Continuité : Papa Tchinda est interrompu par le pneu (planche 1) et ne finit pas sa phrase ; il ne la finira qu'à l'épisode 20.
 
 ---
 
@@ -128,9 +131,9 @@ Soubré a coûté environ 90 Md FCFA de plus que Lom Pangar (331 contre 240,9). 
 | Case | Image | Texte |
 |---|---|---|
 | 1 | Tonton Mballa pointe son maillet vers Nachtigal. Nachtigal se lève, une main sur le cœur. | Tonton Mballa : « Accusé, vous produisez ou vous faites le beau ? » · Nachtigal : « Je produis, Votre Honneur. Je ne suis pas le câble qui entre dans votre bar ! » |
-| 2 | Nachtigal projette des diapositives sur le mur du bar, à côté du calendrier de la brasserie : « Janvier 2025 : 360 MW disponibles annoncés » puis « 18 mars 2025 : mise en service complète, 420 MW disponibles ». | Boris : « Il nous fait un PowerPoint au tribunal ! » · Nachtigal : « On appelle ça un reporting, mon frère. » |
-| 3 | Pater Glaçon se lève. Nachtigal claque des doigts : une chemise cartonnée sort toute seule de sa mallette. | Pater Glaçon : « Avant de commander une autre bière, donnez-moi la source de votre chiffre ! » · Nachtigal : « Bouclage financier en novembre 2018 : environ 1,2 milliard d'euros. La BEI dit 1,17. » · Fifi : « Soit environ 787 milliards de FCFA. Noté. » |
-| 4 | Tonton Mballa calcule sur ses doigts, puis sur ceux de Boris, puis attrape les mains de Mola Ndip et de Fifi. Une chaîne humaine de doigts traverse le bar. | Mami Chantal : « 787 milliards ! Ça fait combien de sèche-cheveux ? » · Tonton Mballa : « Attendez… Prêtez-moi vos doigts. Tous vos doigts. » |
+| 2 | Nachtigal projette des diapositives sur le mur du bar, à côté du calendrier de la brasserie : une seule diapositive, « 18 mars 2025 : mise en service complète, 420 MW disponibles ». | Boris : « Il nous fait un PowerPoint au tribunal ! » · Nachtigal : « On appelle ça un reporting, mon frère. » |
+| 3 | Pater Glaçon se lève. Nachtigal claque des doigts : une chemise cartonnée sort toute seule de sa mallette. | Pater Glaçon : « Avant de commander une autre bière, donnez-moi la source de votre chiffre ! » · Nachtigal : « Environ 1,2 milliard d'euros. » · Fifi : « Soit environ 787 milliards de FCFA. Noté. » |
+| 4 | Tonton Mballa a déjà épuisé ses dix doigts. Il tend la main vers Mami Chantal, qui y dépose… son peigne. Tonton le regarde, puis commence à compter les dents, très sérieux. | Mami Chantal : « 787 milliards ! Ça fait combien de sèche-cheveux ? » · Tonton Mballa : « Attendez… Prêtez-moi vos doigts. » · Mami Chantal : « Compte les dents. » |
 | 5 | On fait entrer **Monsieur Congélateur** sur un diable, minerve au cou, comme un témoin blessé. Il toise Nachtigal. | Monsieur Congélateur : « Je ne suis qu'un petit consommateur au bout du fil ! Ce monsieur, je ne l'ai jamais vu ! » · Nachtigal : « Évidemment. Entre nous, il y a des lignes, des postes, des transformateurs… On ne fréquente pas les mêmes endroits. » · Monsieur Congélateur : « Snob ! » |
 
 #### Planche 3 — « Le témoin au compteur »
@@ -146,23 +149,24 @@ Soubré a coûté environ 90 Md FCFA de plus que Lom Pangar (331 contre 240,9). 
 | Case | Image | Texte |
 |---|---|---|
 | 1 | Nachtigal se lève pour sa défense, digne, une main sur sa cravate-camembert. Monsieur Congélateur, sur son diable, ouvre sa porte : de l'air tiède en sort. | Nachtigal : « C'est un capacity payment, avec ses nuances. Mes paiements sont sécurisés par des garanties prévues avec l'État. Et sans moi, les délestages seraient bien plus importants ! » · Monsieur Congélateur : « Plus importants que… ÇA ? » |
-| 2 | Grâce au tableau de papier : « Nachtigal ≈ 1,9 Md FCFA/MW (≈ 3,2 M USD) · Bujagali (Ouganda, 250 MW, privé) ≈ 3,4 M USD/MW · Julius Nyerere (Tanzanie, 2 115 MW) ≈ 1,4 M USD/MW · GERD (Éthiopie, 5 150 MW) ≈ 1 M USD/MW ». | Mami Chantal : « Les Éthiopiens ont eu la promo ! » · Grâce : « Attention, piège ! L'effet de taille et le coût du financement privé expliquent une partie des écarts. Le vrai sujet du jour, ce n'est pas le prix du barrage : c'est le courant payé qui ne passe pas. » |
+| 2 | Grâce au tableau de papier : « Nachtigal ≈ 1,9 Md FCFA/MW (≈ 3,1 M USD) · Bujagali (Ouganda, 250 MW, privé) ≈ 3,4 M USD/MW · Julius Nyerere (Tanzanie, 2 115 MW) ≈ 1,4 M USD/MW · GERD (Éthiopie, 5 150 MW) ≈ 1 M USD/MW ». | Mami Chantal : « Les Éthiopiens ont eu la promo ! » · Grâce : « Attention, piège ! L'effet de taille et le coût du financement privé expliquent une partie des écarts. Le vrai sujet du jour, ce n'est pas le prix du barrage : c'est le courant payé qui ne passe pas. » |
 | 3 | Fifi brandit un document tamponné « PROJECTION ». Boris lève son masque de soudeur. Tonton Mballa se lève, solennel. | Fifi : « Facturation projetée pour 2027 : 196,16 milliards. C'est une projection, pas une dépense certaine. Un expert propose d'indexer les paiements sur l'avancement des lignes. » · Boris : « Voilà : on a allumé le poste avant de souder le câble ! » · Tonton Mballa : « Le tribunal ne condamne personne. Il exige les calendriers des lignes, affichés ici, au mur ! » · SFX : *TOC !* |
 | 4 | Pater Glaçon s'approche du juge. Mami Chantal se glisse derrière lui, la main tendue. | Pater Glaçon : « Et ma réparation, Votre Honneur ? » · Tonton Mballa : « Le tribunal restitue au plaignant sa pièce à conviction. » · Mami Chantal : « Et moi, qui ai trouvé le compteur qui tourne, j'ai la caisse ? » · Pater Glaçon : « Le compteur, c'est Fifi qui l'a trouvé. Avec une source. » |
-| 5 | Pater Glaçon ouvre le sachet et boit une gorgée, devant tout le bar suspendu à ses lèvres. Visage impassible. Au mur, le compteur du Contrat cliquette toujours. Un messager en boubou passe la tête par la porte, carte d'invitation dorée à la main. | Pater Glaçon : « … Toujours chaude. Le dossier reste ouvert ! » · SFX : *TIK-TIK-TIK…* · Le messager : « Le tribunal est invité au mariage de Mademoiselle Memve'ele ! Seulement… son témoin n'est pas encore arrivé. » |
+| 5 | Pater Glaçon ouvre le sachet et boit une gorgée, devant tout le bar suspendu à ses lèvres. Visage impassible. Au mur, le compteur du Contrat cliquette toujours. Au comptoir, le client habituel (même casquette, même bouteille) lève la main. Un messager en boubou passe la tête par la porte, carte d'invitation dorée à la main. | Pater Glaçon : « … Toujours chaude. Le dossier reste ouvert ! » · Le client du comptoir : « Le tribunal a fini ? Alors qui va payer les bières chaudes… de la pièce à conviction ? » · Le messager : « Le tribunal est invité au mariage de Mademoiselle Memve'ele ! Seulement… son témoin n'est pas encore arrivé. » |
 
 #### Page documentaire — Le carnet de Fifi n° 6 : « Combien ça a coûté ? Combien ça coûte encore ? »
 | Élément | Montant ou date | Source |
 |---|---|---|
-| Puissance ; actionnaires (société NHPC) | 420 MW ; EDF 40 %, IFC 30 %, État 30 % | Compact énergétique national, p. 35 et 41 ; EDF (communiqué) |
-| Coût total (bouclage financier, novembre 2018) | **≈ 1,2 Md €** ≈ 787 Md FCFA ; la BEI indique **1,17 Md €** | EDF ; Clifford Chance (novembre 2018) ; BEI (référence [DONNÉE À VÉRIFIER]) |
-| Mise en service | 360 MW disponibles annoncés en janvier 2025 ; mise en service complète le **18 mars 2025** | Fiche saison 1 ; Investir au Cameroun (mars 2025) |
+| Puissance ; actionnaires (société NHPC) | 420 MW ; EDF 40 %, IFC 30 %, État 30 % | 420 MW : Compact énergétique national, p. 35 et 41 ; actionnaires : presse |
+| Coût total | **≈ 1,2 Md €** ≈ 787 Md FCFA | Presse |
+| Mise en service | Mise en service complète le **18 mars 2025** | Investir au Cameroun (mars 2025) |
 | Contrat « take or pay » / « capacity payment » | **≈ 10 Md FCFA par mois** pour la puissance disponible, depuis le 18 mars 2025 | Investir au Cameroun (mars 2025) |
-| Évacuation | Selon la presse, seul le tronçon vers Yaoundé était achevé ; ligne vers Nyom 2 retardée par des litiges fonciers ; **Nachtigal–Bafoussam (225 km) prévue en 2026** ; Sud–Nord prévue en **2028** (« contribuera à l'évacuation de Nachtigal ») | Presse ; Compact, p. 36 |
-| Puissance appelée | Parfois **≈ 200 MW** seulement, à cause des contraintes du réseau | Une seule source (à confirmer) |
+| Évacuation | Selon la presse, seul le tronçon vers Yaoundé était achevé ; ligne vers Nyom 2 retardée par des litiges fonciers ; **Nachtigal–Bafoussam (225 km) prévue en 2026** ; Sud–Nord prévue en **2028** (« contribuera à l'évacuation de Nachtigal ») ; puissance appelée parfois **≈ 200 MW** seulement, à cause des contraintes du réseau (une seule source, à confirmer) | Presse ; Compact, p. 36 |
 | Qui paie si l'acheteur fait défaut ? | **L'État** (« contrat d'achat ferme » qui pèse sur le budget tant que le transport limite l'usage) | FMI |
 | Paiements et arriérés | Eneo payait parfois **moins de 50 %** des factures en 2025 (non confirmé par l'entreprise) ; arriérés croisés ≈ **70 Md FCFA** début 2026 ; facilité de **100 Md FCFA** négociée par l'État auprès de banques locales | Presse ; FMI |
 | Projection 2027 | Facturation NHPC de **196,16 Md FCFA** : **projection de facturation**, pas dépense certaine du Trésor | Rapport des conférences budgétaires (septembre 2026) |
+
+*Ce montant ne se compare pas directement aux ≈ 10 Md/mois de 2025 : périmètre et hypothèses de la projection [DONNÉE À VÉRIFIER].*
 
 **Les deux versions, par équité**
 - **NHPC** : c'est un « capacity payment » aux nuances propres ; « sans Nachtigal, les délestages seraient bien plus importants » ; les paiements sont sécurisés par des garanties prévues avec l'État.
@@ -172,9 +176,9 @@ Soubré a coûté environ 90 Md FCFA de plus que Lom Pangar (331 contre 240,9). 
 **Ailleurs en Afrique**
 | Projet | Pays | Capacité | Coût | Coût par MW (calcul) | Source |
 |---|---|---|---|---|---|
-| Nachtigal | Cameroun | 420 MW | ≈ 787 Md FCFA | ≈ 1,9 Md FCFA (≈ 3,2 M USD) | Voir plus haut |
+| Nachtigal | Cameroun | 420 MW | ≈ 787 Md FCFA | ≈ 1,9 Md FCFA (≈ 3,1 M USD) | Voir plus haut |
 | Bujagali (privé) | Ouganda | 250 MW | ≈ 862 M USD | ≈ 3,4 M USD | The EastAfrican |
-| Julius Nyerere | Tanzanie | 2 115 MW | ≈ 2,9 Md USD | ≈ 1,4 M USD (chiffre officiel) | Wikipédia |
+| Julius Nyerere | Tanzanie | 2 115 MW | ≈ 2,9 Md USD | ≈ 1,4 M USD (calcul de l'album) | Wikipédia |
 | GERD | Éthiopie | 5 150 MW | ≈ 5 Md USD (inauguré en septembre 2025) | ≈ 1 M USD | ENR |
 
 > **Grâce — « Attention, piège ! »** Le coût par MW est un indicateur imparfait : un très grand barrage coûte moins cher au MW (effet de taille), et l'argent privé se prête plus cher. Surtout, un MW bon marché qui ne peut pas sortir de la centrale reste un MW payé pour rien. Le chrono de la coordination compte autant que le devis.
@@ -194,11 +198,13 @@ Soubré a coûté environ 90 Md FCFA de plus que Lom Pangar (331 contre 240,9). 
 - Nachtigal est **fier mais pas méchant** : un jeune cadre qui récite ses chiffres et défend sa position avec arguments. Sa cravate-camembert (40/30/30) est son signe distinctif.
 - **Le Contrat** est un objet, pas une personne : un parchemin à lunettes avec un compteur de taxi. Aucun logo, aucun visage reconnaissable d'entreprise ou de responsable.
 - Le **chrono de la coordination** (planche 3, case 2) reprend le modèle de l'épisode 5, avec en plus le compteur de factures entre les deux horloges. Le compteur reste visible dans le décor jusqu'à la dernière case.
-- Planche 3, cases 3 et 4 : la colère de Boris est **légitime et drôle** ; le recadrage de Fifi est **ferme mais pas moralisateur**. On doit sentir que la question reste ouverte.
+- Planche 3, cases 3 et 4 : la colère de Boris est **légitime et drôle** ; le recadrage de Fifi est **ferme mais pas moralisateur**. On doit sentir que la question reste ouverte. C'est la **seule fois de la saison** où la scène « C'est le fey ! » est jouée en entier : la soigner, elle sert de référence aux variantes des épisodes suivants. Planche 4, case 5 : le client du comptoir, toujours le même (casquette, bouteille), comme dans l'acte I.
 
 #### Points à valider
 - « nyanga » et « Independent? With three papa dem? » : **[à valider par un relecteur camerounais]**. Alternatives : « Regardez l'élégance du jeune homme ! » ; « Indépendant ? Avec trois papas ? »
-- Référence BEI (1,17 Md €) et source précise des « 360 MW annoncés en janvier 2025 » : **[DONNÉE À VÉRIFIER]**.
+- Supprimés après relecture (absents de la bible) : « 360 MW annoncés en janvier 2025 », « bouclage financier en novembre 2018 » et « BEI : 1,17 Md € ». Le coût reste « ≈ 1,2 Md € ≈ 787 Md FCFA » (bible 4.2) ; média précis : **[DONNÉE À VÉRIFIER]**.
+- Coût par MW de Nachtigal arrondi à **≈ 3,1 M USD** (bible 4.2 ter) ; le coût par MW de Julius Nyerere est un calcul de l'album, pas un chiffre officiel.
+- Projection 2027 (196,16 Md FCFA) et ≈ 10 Md/mois de 2025 : périmètre et hypothèses de la projection **[DONNÉE À VÉRIFIER]** (écart apparent signalé en page documentaire).
 - Évacuation : la bible indique « deux lignes prévues (vers Nyom 2/Yaoundé, et vers Bafoussam/Douala) », « seul le tronçon vers Yaoundé achevé » et « ligne vers Nyom 2 retardée ». Ces formulations semblent se recouper (Nyom 2 est côté Yaoundé) : **à clarifier** avant impression.
 - « ≈ 200 MW appelés » : une seule source, **à confirmer**. « Moins de 50 % des factures payées » : non confirmé par l'entreprise.
 - Statut « privé » de Bujagali : repris de la fiche de saison, à confirmer.
@@ -221,8 +227,8 @@ Soubré a coûté environ 90 Md FCFA de plus que Lom Pangar (331 contre 240,9). 
 #### Planche 2 — « La dot et la petite cousine »
 | Case | Image | Texte |
 |---|---|---|
-| 1 | Table des négociations. Côté famille de la mariée : **Oncle Budget**, énorme registre, lunettes au bout du nez, et **Tante Évacuation**, calculatrice en bandoulière. Côté marié : Mola Ndip, porte-parole. Il lâche ses noix de cola, qui roulent sous la table. | Oncle Budget : « La dot est payée depuis longtemps : environ 420 milliards de FCFA, dont environ 243 apportés par la partie chinoise ! » · Mola Ndip : « Massa! I no fit understand! » *(Je ne comprends pas !)* |
-| 2 | Mola Ndip se penche, malin, un doigt levé. Tante Évacuation tape sur sa calculatrice. | Mola Ndip : « Et le cortège du témoin ? La ligne, elle est dans la dot, ou à part ? » · Tante Évacuation : « Les ouvrages d'évacuation : environ 97,5 milliards, avec un prêt d'Exim Bank de Chine d'environ 83 milliards, en 2017. » |
+| 1 | Table des négociations. Côté famille de la mariée : **Oncle Budget**, énorme registre, lunettes au bout du nez, et **Tante Évacuation**, calculatrice en bandoulière. Côté marié : Mola Ndip, porte-parole. Il lâche ses noix de cola, qui roulent sous la table. | Oncle Budget : « La dot est payée depuis longtemps : environ 420 milliards de FCFA ! Dont environ 243 apportés par la partie chinoise, selon la presse. » · Mola Ndip : « Massa! I no fit understand! » *(Je ne comprends pas !)* |
+| 2 | Mola Ndip se penche, malin, un doigt levé. Tante Évacuation tape sur sa calculatrice. | Mola Ndip : « Et le cortège du témoin ? La ligne, elle est dans la dot, ou à part ? » · Tante Évacuation : « Les ouvrages d'évacuation : environ 97,5 milliards. La presse rapporte un prêt d'Exim Bank de Chine d'environ 83 milliards, signé en février 2017. » |
 | 3 | Toute la belle-famille se tourne lentement vers Fifi. Fifi abat un énorme tampon sur son carnet. | Mola Ndip : « So… inside di 420, or outside? » *(Alors… dans les 420, ou en dehors ?)* **[à valider par un relecteur camerounais]** · SFX : *BAM !* · Tampon : « NON ÉTABLI » · Boris : « Même la belle-famille ne sait pas si le témoin est compris dans la dot ! » |
 | 4 | Entre en courant une jeune fille dans une robe de mariée **trop grande**, qui ne tient que la moitié du bouquet : **la petite cousine 90 kV**. Récitatif en coin de case. | Récitatif : *14 avril 2019 : mise sous tension par une ligne provisoire de 90 kV.* · La petite cousine : « Je remplace ma cousine en attendant ! Environ 65 MW, selon une source. » |
 | 5 | La mariée et la petite cousine dansent côte à côte ; la mariée ne bouge qu'un bras. Fifi tient un panneau « SEPTEMBRE 2021 : 90 MW SUR 211 ». Mami Chantal commente, les mains sur les hanches. | Memve'ele : « Je danse à moitié ! » · Mami Chantal : « La petite cousine porte la robe, mais la traîne est restée à Nyabizan ! » |
@@ -239,8 +245,8 @@ Soubré a coûté environ 90 Md FCFA de plus que Lom Pangar (331 contre 240,9). 
 #### Planche 4 — « Que la mariée injecte ! »
 | Case | Image | Texte |
 |---|---|---|
-| 1 | Papa Tchinda, en patriarche, tient la cérémonie devant la mariée, le marié (arrivé par la ligne, en silhouette lumineuse), le Témoin et la petite cousine. | Papa Tchinda : « Memve'ele, acceptes-tu de prendre le Réseau Sud pour… Du temps de la SONEL, les mariages… » · Tous : « PAPA ! » · Papa Tchinda : « … duraient moins de six ans. Bon. Vous êtes unis. » |
-| 2 | Pendant le discours de la réception, Grâce se lève avec son panneau rouge. Le marié tousse, gêné. | Grâce : « Memve'ele : environ 2 milliards de FCFA par MW. Soubré, en Côte d'Ivoire : environ 1,2. Par MW, Memve'ele a coûté environ 1,6 fois Soubré. Attention, piège ! Si la ligne est comptée ou non dans les 420 milliards, ce calcul change. Et six ans de mégawatts bridés, ça ne se voit dans aucun devis. » |
+| 1 | Papa Tchinda, en patriarche, tient la cérémonie devant la mariée, le marié (arrivé par la ligne, en silhouette lumineuse), le Témoin et la petite cousine. | Papa Tchinda : « Memve'ele, acceptes-tu de prendre le Réseau Sud pour… Du temps de la SONEL, les mariages… » · Tous : « PAPA ! » · Memve'ele (douce, en lui tapotant la main) : « … duraient moins de six ans. Je sais, Papa. » · Papa Tchinda : « … Bon. Vous êtes unis. » |
+| 2 | Pendant le discours de la réception, Grâce se lève avec son panneau rouge. Le marié tousse, gêné. | Grâce : « Par MW, Memve'ele a coûté environ 1,7 fois Soubré. Attention, piège : on ne sait même pas si le témoin est compris dans la dot. » · Le marié (toussant) : « On peut parler de ça après la lune de miel ? » |
 | 3 | Table des invités d'honneur, cartons nominatifs : **Kaléta** (Guinée) et **Isimba** (Ouganda), deux barrages en tenue de fête. Isimba se cache derrière le menu. | Fifi : « Kaléta, 240 MW : environ 446 à 527 millions de dollars. Isimba, 183 MW : environ 550 à 567 millions. » · Isimba : « Moi aussi j'ai coûté cher, ne me regardez pas ! » · Mami Chantal : « Même les barrages font le kongossa à table ! » |
 | 4 | La mariée, dos aux invités, lance son bouquet de petites turbines. Tout le monde saute : Pater Glaçon le premier, bras tendus. | Pater Glaçon : « Celui qui l'attrape a gagné la caisse, c'est la tradition ! » · Fifi : « Patron, c'est TA caisse. » · Pater Glaçon : « … Ah oui. » |
 | 5 | Le bouquet atterrit dans les bras d'un **tout petit barrage** à lunettes : **Mekin**. Il rougit jusqu'aux vannes. Derrière lui, deux vieux lions : **Édéa**, impeccable dans son costume du dimanche, et **Song Loulou**, qui tousse dans son mouchoir. | Mekin : « Moi ? Le prochain ? Mais j'ai annoncé 15 mégawatts et j'en donne 11,2… à cause de ma ligne, moi aussi ! » · Song Loulou : « Kof, kof… Petit, d'abord le concours. » · Récitatif : *Prochain épisode : le grand concours des mégawatts !* |
@@ -249,10 +255,10 @@ Soubré a coûté environ 90 Md FCFA de plus que Lom Pangar (331 contre 240,9). 
 | Élément | Montant | Source | Remarque |
 |---|---|---|---|
 | Puissance | 211 MW | Fiche saison 1 ; carnet n° 1 | |
-| Coût total de l'ouvrage | **≈ 420 Md FCFA**, dont ≈ 243 Md apportés par la partie chinoise | Presse (média précis [DONNÉE À VÉRIFIER]) | |
-| Ouvrages d'évacuation | ≈ 97,5 Md FCFA (prêt d'Exim Bank de Chine ≈ 83 Md, 2017) | Presse : afrik.com ; Ecomatin (rattachement exact [DONNÉE À VÉRIFIER]) | Inclus ou non dans les 420 Md ? **Non établi** |
-| Ligne définitive | 225 kV, Nyabizan–Yaoundé, ≈ 300 km | Fiche saison 1 ; bible 4.2 bis | Nombre de pylônes : [DONNÉE À VÉRIFIER] |
-| Indemnisation des riverains de la ligne | ≈ 4 Md FCFA | Ecomatin | |
+| Coût total de l'ouvrage | **≈ 420 Md FCFA**, dont ≈ 243 Md apportés par la partie chinoise | 420 Md : presse (média précis [DONNÉE À VÉRIFIER]) ; 243 Md : Afrik.com | **Rapporté par la presse** |
+| Ouvrages d'évacuation | ≈ 97,5 Md FCFA ; prêt d'Exim Bank de Chine ≈ 83 Md FCFA signé en février 2017 (Cameroon Tribune donne ≈ 86 Md) | Afrik.com ; Cameroon Tribune | Rapporté par la presse. Inclus ou non dans les 420 Md ? **Non établi** |
+| Ligne définitive | 225 kV, Nyabizan–Yaoundé, ≈ 300 km | Presse (bible 4.2 et 4.2 bis) | Nombre de pylônes : [DONNÉE À VÉRIFIER] |
+| Indemnisation des riverains de la ligne | ≈ 4 Md FCFA | Ecomatin (date [DONNÉE À VÉRIFIER]) | **Rapporté par la presse** |
 | Coût par MW | ≈ 2 Md FCFA | Calcul de l'album (420 ÷ 211) | Change si la ligne est incluse |
 
 **Le chrono de la coordination — Memve'ele** (Investir au Cameroun, Agence Ecofin, Energies Media, Pouvoirs d'Afrique, Banque mondiale)
@@ -273,7 +279,7 @@ Soubré a coûté environ 90 Md FCFA de plus que Lom Pangar (331 contre 240,9). 
 | Kaléta | Guinée | 240 MW | ≈ 446–527 M USD | Wikipédia |
 | Isimba | Ouganda | 183 MW | ≈ 550–567 M USD | Renewable Energy World ; The EastAfrican |
 
-Par MW, Memve'ele a coûté environ **1,6 fois** Soubré.
+Par MW, Memve'ele a coûté environ **1,7 fois** Soubré (≈ 2 Md FCFA contre ≈ 1,2 Md FCFA, calcul de l'album).
 
 > **Grâce — « Attention, piège ! »** On ne sait pas si la ligne est comprise dans les 420 Md FCFA. Si elle ne l'est pas, le vrai coût « centrale + ligne » est plus élevé ; si elle l'est, on compare un barrage avec sa route à des barrages sans la leur. Et le coût le plus lourd n'est dans aucun tableau : des années de mégawatts prêts mais bridés.
 
@@ -294,7 +300,7 @@ Par MW, Memve'ele a coûté environ **1,6 fois** Soubré.
 
 #### Notes pour le dessinateur
 - Le mariage est **affectueux** : on rit de l'attente, pas de la tradition. La mariée est **belle et digne** ; le comique vient de Mami Chantal, de Mola Ndip, de la petite cousine et du Témoin épuisé.
-- **Les riverains de Nkolzock** (planche 3, case 2) : dessinés avec **dignité**, jamais en obstacle ridicule. Ce sont eux qui ont raison de demander le papier. Le cousin « Partenaire chinois » est un invité souriant : **aucune caricature** physique ou d'accent.
+- **Les riverains de Nkolzock** (planche 3, case 2) : dessinés avec **dignité**, jamais en obstacle ridicule. Ce sont eux qui ont raison de demander le papier. Quand la partie chinoise est citée (planche 2), c'est par une bulle et des chiffres, jamais par un personnage caricaturé.
 - La conversation WhatsApp (planche 1, case 5) doit être lisible : cinq bulles vertes identiques avec cinq dates différentes. C'est le gag visuel de l'épisode.
 - Le chrono de la coordination (planche 3, case 5) reprend le modèle des épisodes 5 et 6.
 
