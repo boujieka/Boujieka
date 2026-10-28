@@ -160,6 +160,7 @@
 - « Everybody wan sit for front! » : tournure pidgin construite pour l'épisode. Alternative : « Wetin dey happen? » seul, avec la traduction. [à valider par un relecteur camerounais]
 - **[DONNÉE À VÉRIFIER]** : répartition exacte des centrales entre l'EDC, la SOCADEL et les producteurs indépendants.
 - **[DONNÉE À VÉRIFIER]** : qui fixe les tarifs et selon quelle procédure. On ne désigne aucun « propriétaire » du tarif gelé.
+- KPDC et DPDC (« pas de paiement, pas de moteur ») annoncent l'épisode 12 : leurs arrêts répondent à des impayés documentés (Investir au Cameroun). Ce sont des créanciers, pas des méchants.
 - Référence exacte de la loi de 2011 (monopole de la SONATREL) et page du Compact qui place l'unité de suivi au MINEE.
 - Titre de l'article de Business in Cameroon cité par Fifi : traduction libre de « Cameroon completes buyback of Eneo in a CFA78 billion deal with Actis ». Vérifier la date exacte de publication.
 
