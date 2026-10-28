@@ -176,7 +176,7 @@
 - Correction appliquée : la poussée du car par le comité (P4C4), doublon de l'ép. 10, est remplacée par le « dernier appel » au Privé.
 - [DONNÉE À VÉRIFIER] : le taux de change utilisé par le Compact pour passer de 12,5 Md USD à 7 751 Md FCFA (implicitement ≈ 620 FCFA par dollar selon la bible 4.1, contre ≈ 600 pour nos conversions) : le Compact ne l'écrit pas.
 - [DONNÉE À VÉRIFIER] : la catégorie « public » (1 588 M USD) inclut-elle des bailleurs publics étrangers ?
-- Les équivalences de `saison-1-scenario.md` (« ≈ 9 Nachtigal », « ≈ 30 Lom Pangar ») **diffèrent de mes calculs** (≈ 9,8 et ≈ 32, en FCFA). Il faut choisir et afficher la méthode. La fourchette « 7 200 à 7 750 Md FCFA » du scénario n'est pas dans la bible.
+- Équivalences **tranchées** : la bible (4.2 ter) retient ≈ **9,8 Nachtigal** et ≈ **32 Lom Pangar** (en FCFA) ; les « ≈ 9 » et « ≈ 30 » de `saison-1-scenario.md` sont abandonnés. La fourchette « 7 200 à 7 750 Md FCFA » du scénario n'est pas dans la bible : écartée.
 - Le car part « quand il est plein » : usage courant des gares routières, à garder comme image et non comme fait.
 
 ---
@@ -188,7 +188,7 @@
 #### Planche 1 — « Un sac de riz pour le soleil »
 | Case | Image | Texte |
 |---|---|---|
-| 1 | Midi, chaleur. Tonton Mballa ouvre les bras à son cousin Adamou : boubou brodé, petite machine à coudre à pédale sous le bras, sac de riz vide plié sous l'autre. | Adamou : « Jam na ? » · Tonton Mballa : « Jam koo ! » · *Traduction : « Ça va ? » « Ça va bien. »* [traduction à valider par un relecteur camerounais] |
+| 1 | Midi, chaleur. Tonton Mballa ouvre les bras à son cousin Adamou : boubou brodé, petite machine à coudre à pédale sous le bras, sac de riz vide plié sous l'autre. | Adamou : « Jam na ? » · Tonton Mballa : « Jam koo ! » · *Traduction : « Tu vas bien ? » (litt. « La paix ? ») « Ça va bien. »* [« Jam koo » à valider par un relecteur camerounais ; alternative : « Jam tan » (« la paix seulement »)] |
 | 2 | Adamou déplie le sac de riz sur la table, avec cérémonie, comme un tissu précieux. Tout le bar regarde. | Adamou : « À Maroua, le soleil travaille dur toute la journée. Le soir, il rentre chez lui… et mon atelier ferme. Je veux mettre le soleil dans un sac de riz pour la nuit. » |
 | 3 | Silence. Une mouche passe. Mami Chantal tend un verre d'eau à Adamou ; Boris lui tâte le front. | Mami Chantal : « Le voyage l'a fatigué. Donnez-lui de l'eau. » · Boris : « Cousin, le soleil ne rentre pas dans un sac de riz ! » · Adamou : « Toi, tu fais rentrer du fer dans du fer avec du feu. Ne me parle pas d'impossible. » |
 | 4 | Junior surgit avec un carton criard : « SUPER SOLAR MEGA 5000 — GARANTI À VIE ». | Junior : « Pas besoin de sac, tonton ! J'ai le kit qu'il te faut, à prix d'ami ! » |
@@ -199,68 +199,71 @@
 |---|---|---|
 | 1 | Grâce tourne le carton dans tous les sens, loupe à la main. | Grâce : « "5000". Cinq mille quoi ? Watts ? Wattheures ? Années de garantie ? » · Junior : « Cinq mille… de qualité, ma sœur ! » |
 | 2 | Fifi sort son carnet. Junior répond en comptant sur ses doigts, très sûr de lui. | Fifi : « Source ? Date ? Unité ? » · Junior : « La source, c'est mon fournisseur. La date, c'est hier. L'unité… c'est le carton. » |
-| 3 | Adamou, assis, enfile une aiguille sans regarder, très calme. | Adamou : « Chez nous, on dit : la chèvre qui bêle le plus fort n'a pas toujours le plus de lait. » *(proverbe inventé pour la série)* · Junior : « Tonton, je ne suis pas une chèvre ! » · Adamou : « Je n'ai rien dit. Tu as entendu tout seul. » |
-| 4 | Grâce montre une page imprimée avec un tampon « NORME ». | Grâce : « Il existe une norme de qualité pour ce genre de kits : IEC/TS 62257-9-8. Le Compact dirait que l'ANOR l'a adoptée. » [DONNÉE À VÉRIFIER : référence, adoption par l'ANOR et seuil d'application, absents de la bible] · Junior : « Une norme ? Moi, je suis débrouillard, pas certifié ! » |
-| 5 | Junior branche le kit sur la lampe d'Adamou : la lampe clignote, puis le kit fume. Le Kilowatt sort de la batterie en se bouchant le nez. | Mola Ndip : « Massa! Dis light don go again! » · *Traduction : Massa ! Le courant est encore parti !* · Le Kilowatt : « Je démissionne de cette batterie ! » |
+| 3 | Adamou, assis, enfile une aiguille sans regarder, très calme. | Adamou : « Mon grand-père disait : la chèvre qui bêle le plus fort n'a pas toujours le plus de lait. » *(proverbe inventé pour la série)* · Junior : « Tonton, je ne suis pas une chèvre ! » · Adamou : « Je n'ai rien dit. Tu as entendu tout seul. » |
+| 4 | Grâce montre une page imprimée avec un tampon « NORME ». | Grâce : « Il existe une norme de qualité pour ce genre de kits : IEC/TS 62257-9-8. Le Compact, page 39, prévoit que l'ANOR l'**adoptera**. Prévue, pas encore adoptée. » [DONNÉE À VÉRIFIER : seuil « moins de 300 kWc », cité mot pour mot par le Compact p. 39 mais très élevé pour des kits individuels] · Junior : « Une norme ? Moi, je suis débrouillard, pas certifié ! » |
+| 5 | Junior branche le kit sur la lampe d'Adamou : la lampe clignote, puis le kit fume. Le Kilowatt sort de la batterie en se bouchant le nez. | Mola Ndip : « Massa! Dis kit don burn! » · *Traduction : Ma parole, ce kit a brûlé !* · Le Kilowatt : « Je démissionne de cette batterie ! » |
 
 #### Planche 3 — « Le Nord suspendu à la pluie »
 | Case | Image | Texte |
 |---|---|---|
-| 1 | Récit d'Adamou, tons ocre. Sur la Bénoué, le barrage de Lagdo, personnifié en vieux monsieur en boubou délavé, boit dans une calebasse vide. Adamou, au premier plan, regarde le ciel sans nuage de Maroua. | Récitatif : *Dans le Nord, selon le récit d'Adamou…* · Grâce (off) : « Le réseau Nord (Adamaoua, Nord, Extrême-Nord) est **séparé** du Sud (Compact p. 35). Il dépend surtout d'un barrage : **Lagdo, 72 MW, mis en eau en 1983**. » · Adamou : « Chez nous, le courant dépend de deux ministres : celui de l'Énergie… et celui de la pluie ! » |
-| 2 | Toujours en ocre. Dans la salle des machines de Lagdo, un seul alternateur tourne au milieu des autres, à l'arrêt. En ville, des boutiques éteintes ; une affiche « PLAN DE DÉLESTAGE » sur un mur de Garoua. | Grâce (off) : « En 2025, Eneo invoque une **pluviométrie insuffisante** sur le bassin de la Bénoué. Un témoin rapporte qu'entre février et mai, Lagdo ne tourne qu'avec **un seul alternateur**. Délestages à **Garoua**, Guider, Tcholliré, Figuil, Dembo, Mayo Oulo (Cameroun24). » · Adamou : « Un alternateur pour trois régions. Même ma machine à coudre a deux pédales. » |
-| 3 | Retour au bar. Grâce dessine à la craie six petits groupes thermiques, chacun relié à un bidon. Boris mime un camion-citerne. | Grâce : « En secours : **six centrales thermiques d'appoint**, qui dépendent du **carburant** (presse, 2025). » · Boris : « Donc quand il ne pleut pas, on allume le courant… avec du gasoil ! » · Grâce : « Attention, piège ! La sécheresse est **réelle**, ce n'est pas une excuse inventée. Le problème, c'est de dépendre d'une seule source. » |
-| 4 | Le « chrono de la coordination » : deux horloges dessinées côte à côte, « RÉHABILITATION ANNONCÉE : 2017 » et « RÉHABILITATION TOUJOURS ANNONCÉE : 2025 », avec un compteur « 8 ANS ». Sous les horloges, Lagdo bloqué sur une jauge « 72 MW ». Boris s'énerve, Fifi le recadre. | Fifi : « Lagdo est à **72 MW chaque année depuis 2015**, selon Eneo. Une réhabilitation à **100 milliards FCFA** est évoquée **dès 2017**. En **2025**, on l'annonce toujours : de 72 à **80 MW**, même coût prévisionnel. Aucun calendrier officiel confirmé. » · Boris : « Huit ans d'annonces ? C'est le fey ! » · Fifi : « Le fey, il faut un juge pour le dire. Ici, on a deux dates et une réhabilitation qui attend. Ça, c'est prouvé. » |
+| 1 | Récit d'Adamou, tons ocre. Sur la Bénoué, le barrage de Lagdo, personnifié en vieux monsieur en boubou délavé, boit dans une calebasse vide. Adamou, au premier plan, regarde le ciel sans nuage de Maroua. | Récitatif : *Dans le Nord, selon le récit d'Adamou…* · Grâce (off) : « Le réseau Nord (Adamaoua, Nord, Extrême-Nord) est **séparé** du Sud (Compact p. 35). Il dépend surtout d'un barrage : **Lagdo, 72 MW, mis en eau en 1983**. » · Adamou : « Chez nous, le courant dépend de deux ministres : celui de l'Énergie… et celui du Ciel ! » |
+| 2 | Toujours en ocre. Dans la salle des machines de Lagdo, un seul alternateur tourne au milieu des autres, à l'arrêt. En ville, des boutiques éteintes ; une affiche « PLAN DE DÉLESTAGE » sur un mur de Garoua. | Grâce (off) : « En 2025, Eneo invoque une **pluviométrie insuffisante** sur le bassin de la Bénoué. Un témoin rapporte qu'entre février et mai, Lagdo ne tourne qu'avec **un seul alternateur**. Délestages à **Garoua** et dans les villes voisines (Cameroun24). » · Adamou : « Un alternateur pour presque tout le Nord. Même ma machine à coudre a deux pédales. » |
+| 3 | Retour au bar. Grâce dessine à la craie six petits groupes thermiques, chacun relié à un bidon. Boris mime un camion-citerne. | Grâce : « En secours : **six centrales thermiques d'appoint**, qui dépendent du **carburant** (presse). » · Boris : « Donc quand il ne pleut pas, on allume le courant… avec du gasoil ! » · Grâce : « Attention, piège ! La sécheresse est **réelle**, ce n'est pas une excuse inventée. Le problème, c'est de dépendre d'une seule source. » |
+| 4 | Le « chrono de la coordination » : deux horloges dessinées côte à côte, « RÉHABILITATION ANNONCÉE : 2017 » et « RÉHABILITATION TOUJOURS ANNONCÉE : 2025 », avec un compteur « 8 ANS ». Sous les horloges, Lagdo bloqué sur une jauge « 72 MW ». Boris s'énerve, ouvre la bouche… croise le regard de Fifi et se reprend tout seul. | Fifi : « Lagdo est à **72 MW chaque année depuis 2015**, selon Eneo. Une réhabilitation à **100 milliards FCFA** est évoquée **dès 2017**. En **2025**, on l'annonce toujours : de 72 à **80 MW**, même coût prévisionnel. Aucun calendrier officiel confirmé. » · Boris : « Huit ans d'annonces ? C'est le f… la coordination ! J'allais dire la coordination. » · Fifi (sans lever les yeux de son carnet) : « Progrès. » |
 | 5 | Le Soleil (personnage rond à casquette) entre dans le bar, manches retroussées, comme un renfort qui arrive sur un chantier. Grâce dessine un panneau avec une flèche « CRÊTE » et, à côté, le sac de riz d'Adamou. | Le Soleil : « Me voilà en renfort : **15 MWc à Maroua**, **15 MWc à Guider** (Compact p. 41 ; renforcement rapporté par Enjeux Économiques et Mongabay, oct. 2025). Et mon contrat ? » · Grâce : « "Crête", c'est en plein soleil. La nuit, il faut stocker : des batteries. » · Adamou : « Mon sac de riz a un nom savant ! » [DONNÉE À VÉRIFIER : acheteur, prix et durée des contrats de Maroua et de Guider] |
 
 #### Planche 4 — « Le courant du Nord dort tout seul »
 | Case | Image | Texte |
 |---|---|---|
 | 1 | Grâce dessine deux cercles séparés, « SUD » et « NORD », puis un pointillé entre eux : « 2028 ? ». Mola Ndip hoche la tête. | Grâce : « La vraie solution, c'est l'interconnexion Sud–Nord, **prévue** pour **2028** : ligne 225 kV double terne, **515 km** (Compact p. 36). Elle doit aussi amener le courant de Nachtigal vers le Nord. Prévue. Pas construite. » · Mola Ndip : « Na so. Small small. » · *Traduction : C'est comme ça. Petit à petit.* |
-| 2 | Grâce écrit deux chiffres au tableau. Tonton Mballa lève les mains ; tout le bar lève les mains pour l'aider à compter. | Grâce : « Pour les villages : **350 mini-centrales solaires** construites, et un programme rural de **1 000 localités**, dont **437 électrifiées** (Compact p. 37-38). » · Tonton Mballa : « Il en reste 563. Prêtez-moi vos doigts, tout le quartier ! » |
+| 2 | Grâce écrit deux chiffres au tableau. Tonton Mballa garde les mains dans les poches ; c'est tout le bar qui lève les mains, sans qu'il emprunte un seul doigt. | Grâce : « Pour les villages : **350 mini-centrales solaires** construites, et un programme rural de **1 000 localités**, dont **437 électrifiées** (Compact p. 37-38). » · Tonton Mballa : « 563 qui attendent ? Je ne compte plus sur mes doigts, je compte sur vous ! » |
 | 3 | Junior, la tête basse, tend son carnet à Pater Glaçon comme une copie d'examen. | Junior : « Patron, j'ai trouvé le coupable : le soleil ne travaille pas la nuit, et la pluie ne travaille pas en saison sèche ! La caisse est à moi ! » · Pater Glaçon : « Ni le soleil ni la pluie ne sont branchés sur mon congélateur. Et ton kit a fondu. » |
 | 4 | Le soir tombe. *CLAC* : coupure, tout le bar est noir. Seul Adamou, calme, ouvre son sac de riz : dedans, une vraie batterie avec une étiquette « Conforme à la norme [référence à vérifier] ». La petite lampe de sa machine à coudre s'allume. | SFX : *CLAC !* · Junior : « Le soleil est dans le sac ! » |
 | 5 | Adamou, seul îlot de lumière du bar, enfile son aiguille sous la lampe. Tout le monde s'est rapproché de lui comme d'un feu de camp. Monsieur Congélateur pleure des glaçons… tièdes. | Adamou : « Non, petit. Le soleil dort. C'est la batterie qui fait le service de nuit. » · Monsieur Congélateur : « Et moi ? Un sac de riz pour moi aussi ! » · Adamou : « Toi, il te faut un sac de ciment… la pluie sur Lagdo… et la ligne de 2028. » · Récitatif : *Prochain épisode : un village a reçu les poteaux… mais pas les ampoules !* |
 
-#### Page documentaire — Le carnet de Fifi : « Le Nord, entre la pluie et le soleil »
+#### Page documentaire — Le carnet de Fifi n° 15 : « Le Nord, entre la pluie et le soleil »
 | Élément | Donnée | Source |
 |---|---|---|
 | Réseau Nord | **Séparé** du réseau Sud (Adamaoua, Nord, Extrême-Nord) | Compact p. 35 |
 | Barrage de Lagdo | **72 MW**, sur la Bénoué, mis en eau en **1983** ; source principale du réseau Nord ; puissance de **72 MW « chaque année depuis 2015 »** selon Eneo | Presse : Agence Ecofin, camer.be, IRD [attribution exacte de chaque fait à vérifier] |
-| Saison sèche 2025 | **Pluviométrie insuffisante** invoquée par Eneo ; **un seul alternateur** entre février et mai (témoignage) ; délestages à Garoua (8 h-18 h, annoncés un 20 janvier, **année à préciser**), Tcholliré, Figuil, Guider, Dembo, Mayo Oulo | Cameroun24 ; presse 2025 |
+| Saison sèche (2025 et délestages récents) | **Pluviométrie insuffisante** invoquée par Eneo ; **un seul alternateur** entre février et mai (témoignage) ; délestages à Garoua (8 h-18 h, annoncés un 20 janvier, **année à préciser**), Tcholliré, Figuil, Guider, Dembo, Mayo Oulo | Cameroun24 ; presse 2025 |
 | Secours thermique | **Six centrales d'appoint**, dépendantes du carburant (≈ 72 MW au total selon **une seule source**) | Presse [source à préciser] |
 | Réhabilitation de Lagdo | **100 Md FCFA** évoqués dès **2017** ; en **2025**, toujours annoncée (72 → 80 MW, coût prévisionnel 100 Md FCFA) ; **aucun calendrier officiel confirmé** | Presse 2017 et 2025 [titres et dates exactes à vérifier] |
 | Solaire de Maroua et Guider | **15 MWc** chacune, développées avec Scatec ; **renforcées** (2025) ; statut détaillé [DONNÉE À VÉRIFIER] | Compact p. 41 ; Enjeux Économiques ; Mongabay (oct. 2025) |
 | Villages | **350 mini-centrales solaires** construites ; **1 000 localités** au programme rural, dont **437 électrifiées** ; kits solaires : **45 M USD** de besoin dans le Pacte | Compact p. 37-38 ; p. 10 |
-| Interconnexion Sud–Nord | **Prévue en 2028** : 225 kV double terne, 515 km ; doit aussi évacuer Nachtigal vers le Nord. Norme des kits IEC/TS 62257-9-8 [DONNÉE À VÉRIFIER] | Compact p. 36 |
+| Interconnexion Sud–Nord | **Prévue en 2028** : 225 kV double terne, 515 km ; doit aussi évacuer Nachtigal vers le Nord | Compact p. 36 |
+| Norme des kits solaires | IEC/TS 62257-9-8 : adoption **prévue** par l'ANOR (« L'ANOR adoptera… ») ; seuil cité : « moins de 300 kWc » [DONNÉE À VÉRIFIER] | Compact p. 39 |
 
 > **Grâce — « Attention, piège ! »** : la sécheresse est réelle ; personne ne commande la pluie. La question du comité porte sur deux choses vérifiables : **pourquoi tout un réseau dépend d'une seule source**, et **pourquoi une réhabilitation annoncée en 2017 l'est encore en 2025**. Et 15 MWc, c'est le maximum en plein soleil, pas 15 MW la nuit.
 
 #### Baromètre de Nkoagne : ligne mise à jour cette semaine
-**Nouvelle ligne, « Courant du Nord »** : « Réseau séparé, suspendu à Lagdo (72 MW, 1983) et à la pluie. Réhabilitation : annoncée en 2017, toujours annoncée en 2025. Renfort : solaire de Maroua et Guider (2 × 15 MWc). Solution prévue : interconnexion en 2028. Kit de Junior : retiré de la vente. »
+**Nouvelle ligne, « Courant du Nord »** : « Réseau séparé, suspendu à Lagdo (72 MW, 1983) et à la pluie. Réhabilitation : annoncée en 2017, toujours annoncée en 2025. Renfort : solaire de Maroua et Guider (2 × 15 MWc). Solution prévue : interconnexion en 2028. Norme des kits : adoption prévue par l'ANOR (Compact p. 39), à la craie jaune. Kit de Junior : retiré de la vente. »
 
 #### Mini-lexique
 - **Jam na ? / Jam koo** : salutation en fulfulde et sa réponse (« Ça va ? » / « Ça va bien »).
 - **Tonton** : oncle, ou tout homme plus âgé que l'on respecte.
 - **Ma sœur** : façon familière d'interpeller une femme de son âge.
 - **Massa!** : exclamation (pidgin).
-- **Dis light don go again!** : « Le courant est encore parti ! » (pidgin).
+- **Dis kit don burn!** : « Ce kit a brûlé ! » (pidgin).
 - **Small small** : « petit à petit » (pidgin).
 
 #### Notes pour le dessinateur
-- Adamou est **digne et drôle par son calme**, jamais ridicule : son accent n'est pas imité, seul son art de la formule fait rire.
+- Adamou est **digne et drôle par son calme**, jamais ridicule : son accent n'est pas imité, seul son art de la formule fait rire. Le carton de Junior ne reprend **aucune marque réelle**.
 - Les cases du Nord (P3C1-C2) sont en tons ocre et sable. Lagdo est un vieux monsieur assoiffé, **sympathique**, jamais coupable ; le Soleil est un personnage rond à casquette, jamais menaçant.
-- P3C4 : le « chrono de la coordination » (deux horloges, 2017 et 2025) doit être lisible d'un coup d'œil. Aucun visage ni nom de responsable réel ; le « ministre de la pluie » d'Adamou reste une boutade, sans dessin de ministre.
+- P3C4 : le « chrono de la coordination » (deux horloges, 2017 et 2025) doit être lisible d'un coup d'œil. Aucun visage ni nom de responsable réel ; le « ministre du Ciel » d'Adamou reste une boutade sur la pluie, sans dessin de ministre.
 - P4C4-C5 : le bar plongé dans le noir, une seule source de lumière (la lampe de couture). Composition « feu de camp ».
-- Le carton de Junior ne reprend **aucune marque réelle**.
 
 #### Points à valider
-- Traduction de *Jam na ? / Jam koo* [à valider par un relecteur camerounais ; alternative : « Bonjour ! » / « Bonjour, ça va bien ! »].
-- Le proverbe d'Adamou est **inventé** pour la série : ne pas le présenter comme un proverbe peul authentique.
-- [DONNÉE À VÉRIFIER] : norme IEC/TS 62257-9-8, son adoption par l'ANOR et le seuil « moins de 300 kWc » demandé par la commande. **Ce seuil paraît très élevé pour des kits individuels** : à vérifier mot pour mot dans le Compact avant de l'écrire dans une bulle.
+- *Jam na ? / Jam koo* : traduction harmonisée pour toute la saison (« Tu vas bien ? », litt. « La paix ? » / « Ça va bien ») ; la réponse « Jam koo » reste [à valider par un relecteur camerounais ; alternative : « Jam tan », « la paix seulement »].
+- Le proverbe d'Adamou est **inventé** pour la série : il est introduit par « Mon grand-père disait », et non « Chez nous, on dit », pour ne pas le faire passer pour un proverbe peul attesté.
+- Norme IEC/TS 62257-9-8 : **corrigé**. La référence figure désormais dans la bible (4.1) ; la bulle et la page documentaire disent que le Compact **prévoit** que l'ANOR l'**adoptera** (p. 39, et non p. 36). Reste [DONNÉE À VÉRIFIER] : le seuil « moins de 300 kWc », cité mot pour mot par le Compact mais très élevé pour des kits individuels ; il n'est pas écrit dans une bulle.
+- Pidgin « Massa! Dis kit don burn! » (P2C5), qui remplace « Dis light don go again! », déjà utilisé aux ép. 1 et 2 [à valider par un relecteur camerounais].
+- « C'est le fey ! » (P3C4) : la version complète reste réservée à l'ép. 6 ; ici, Boris se reprend à mi-mot (« la coordination ») et Fifi note le « progrès ». Pas de répétition mot pour mot.
 - [DONNÉE À VÉRIFIER] : statut, date de mise en service et contrat d'achat des centrales de Maroua et de Guider.
 - [DONNÉE À VÉRIFIER] : année de l'annonce du délestage de Garoua (« 20 janvier ») ; attribution précise de chaque fait sur Lagdo à sa source (Agence Ecofin, Cameroun24, camer.be, Mongabay, Enjeux Économiques, IRD) ; « ≈ 72 MW » de thermique d'appoint (une seule source, non repris en bulle).
 - Le « seul alternateur » de février à mai est un **témoignage** ; la bulle le présente comme tel.
-- Gag d'Adamou sur les « deux ministres » : aucune personne n'est visée, mais un relecteur doit confirmer qu'il ne sera pas lu comme une attaque partisane (garde-fou 6).
+- Gag d'Adamou sur les « deux ministres » : **gardé** par l'éditeur (il vise la pluie, pas une personne) et reformulé « celui de l'Énergie… et celui du Ciel ! ». Il est réservé à cet épisode (l'ép. 18 ne fait qu'un rappel de Lagdo, sans le gag). Aucun ministre dessiné (garde-fou 6).
+- Corrections appliquées : « un alternateur pour presque tout le Nord » (le Nord a aussi six centrales thermiques) ; « (presse) » sans date pour le thermique d'appoint ; liste complète des villes délestées renvoyée en page documentaire.
 - Aucun prix de kit, de batterie ou de kWh n'est donné ; Junior dit seulement « prix d'ami ».
 
 ---
@@ -272,44 +275,44 @@
 #### Planche 1 — « Troisième inauguration du même poteau »
 | Case | Image | Texte |
 |---|---|---|
-| 1 | Plan large : place du village, un seul poteau en béton tout neuf, aucun fil. Ruban rouge, fanfare (tambours, trompette cabossée), enfants, une chèvre attachée. Banderole : « GRANDE INAUGURATION DU POTEAU — 3e ÉDITION ». | Récitatif : *Nkol-Lumière, village imaginaire. Ici, le courant n'est pas encore arrivé… mais les fêtes, si.* |
-| 2 | Un taxi-brousse dépose le comité : Boris, Fifi, Grâce, Mami Chantal, Mola Ndip, Papa Tchinda. Ma'a Odile, villageoise (personnage fictif), les accueille. | Mami Chantal : « On m'a dit qu'il y a la fête. Le courant est arrivé ? » · Ma'a Odile : « Non, ma fille. C'est le poteau qui est arrivé. Pour la troisième fois. » |
-| 3 | Le chef du village (fictif), bonnet traditionnel, parle dans un micro relié… à rien. Il crie pour se faire entendre. | Le chef : « Chers villageois ! Aujourd'hui, nous inaugurons… ce poteau ! » · Les villageois (en chœur, las) : « Encore ? » |
-| 4 | Trois petites vignettes dans la case, comme des photos de famille : « 1re inauguration : le trou » ; « 2e : le poteau debout » ; « 3e : le poteau repeint ». Un enfant lève la main. | L'enfant : « Et la quatrième, c'est quand il va pleuvoir dessus ? » |
-| 5 | La chèvre, détachée, avale le ruban d'un coup, juste avant les ciseaux. Le chef garde les ciseaux en l'air. | SFX : *CROUNCH !* · Le chef : « Coupez quand même ! » · La fanfare : *POUET-POUET-BOUM !* |
+| 1 | Plan large : place du village, un seul poteau en béton tout neuf, aucun fil. Ruban rouge, fanfare (tambours, trompette cabossée), enfants, une chèvre attachée. Sous un dais de bâches, les invités en tenue de fête, éventails à la main. Banderole : « GRANDE INAUGURATION DU POTEAU — 3e ÉDITION ». | Récitatif : *Nkol-Lumière, village imaginaire. Ici, le courant n'est pas encore arrivé… mais les fêtes, si.* |
+| 2 | Un car de brousse dépose le comité : Boris, Fifi, Grâce, Mami Chantal (robe de cérémonie, chapeau immense : elle croyait à une vraie fête), Mola Ndip, Papa Tchinda. Mama Odile, villageoise (personnage fictif), les accueille. | Mami Chantal : « On m'a dit qu'il y a la fête. Le courant est arrivé ? » · Mama Odile : « Non, ma fille. C'est le poteau qui est arrivé. Pour la troisième fois. » |
+| 3 | Le président du comité des fêtes (fictif, badge en carton « COMITÉ DES FÊTES », ciseaux dorés à la ceinture) parle dans un micro relié… à rien. Au premier rang, le chef du village (fictif), bonnet traditionnel, bras croisés, sceptique. | Le président du comité des fêtes : « Chers villageois ! Chers invités ! Aujourd'hui, nous inaugurons… ce poteau ! » · Les villageois (en chœur, las) : « Encore ? » · Le chef (à mi-voix) : « Je les ai prévenus dès le trou. » |
+| 4 | Trois petites vignettes dans la case, comme des photos de famille : « 1re inauguration : le trou » ; « 2e : le poteau debout » ; « 3e : le poteau repeint ». Sur chaque photo, les mêmes invités au premier rang, de plus en plus endimanchés. Un enfant lève la main. | L'enfant : « Et la quatrième, c'est quand il va pleuvoir dessus ? » |
+| 5 | La chèvre, détachée, avale le ruban d'un coup, juste avant les ciseaux. Le président du comité des fêtes garde les ciseaux en l'air ; les invités applaudissent par réflexe. | SFX : *CROUNCH !* · Le président du comité des fêtes : « Coupez quand même ! » · Les invités : « Bravooo ! » · La fanfare : *POUET-POUET-BOUM !* |
 
 #### Planche 2 — « Le poteau, le fil et l'ampoule »
 | Case | Image | Texte |
 |---|---|---|
 | 1 | Les enfants ont tendu un hamac entre le poteau et un manguier. Un mbindi s'y balance, ravi. | L'enfant : « Nous, il nous sert déjà ! » · Boris : « Voilà le seul branchement réussi du village. » |
-| 2 | Grâce trace dans la terre rouge, avec un bâton, un escalier de trois marches. | Grâce : « Marche 1 : le poteau, c'est l'**infrastructure**. Marche 2 : le fil jusqu'à la maison, c'est le **raccordement**. Marche 3 : le courant qui reste allumé, c'est le **service**. Ici, on est sur la première marche. » |
+| 2 | À la buvette de la fête, Grâce aligne sur une table une bouteille fermée, un décapsuleur et un glaçon. | Grâce : « Le poteau, c'est la bouteille : l'**infrastructure**. Le fil, c'est le décapsuleur : le **raccordement**. Le courant qui reste allumé, c'est le froid : le **service**. Ici, on a la bouteille. » · Boris : « Comme au bar, quoi. » |
 | 3 | Fifi lit son carnet ; Mola Ndip, bras croisés, regarde le poteau sans fil. | Fifi : « En ville, **94 %** d'accès. À la campagne, **moins de 25 %**. Compact, page 38. » · Mola Ndip : « Na we go suffer am. » · *Traduction : C'est nous qui allons souffrir.* |
-| 4 | Mami Chantal compte les maisons du village sur ses doigts manucurés. | Mami Chantal : « Donc à la campagne, même pas une maison sur quatre ? » · Fifi : « En moyenne, oui. Mais Nkol-Lumière est un village imaginaire : on n'a pas son chiffre à lui. » |
+| 4 | Mami Chantal compte les maisons du village sur ses doigts manucurés. | Mami Chantal : « Donc à la campagne, même pas une maison sur quatre ? » · Fifi : « En moyenne, à peu près. Mais le Compact parle d'accès, pas de maisons : l'unité est à vérifier. Et Nkol-Lumière est imaginaire : on n'a pas son chiffre à lui. » [DONNÉE À VÉRIFIER : unité du taux d'accès] |
 | 5 | Papa Bekono (villageois fictif) montre fièrement sa case : il a posé un interrupteur au mur, relié à rien. Il l'actionne avec solennité. | SFX : *CLIC.* · Papa Bekono : « Je m'entraîne. Le jour où le courant arrive, je serai prêt. » |
 
 #### Planche 3 — « La rivière qui voulait travailler »
 | Case | Image | Texte |
 |---|---|---|
-| 1 | Derrière le village, une petite rivière et une chute d'eau. Grâce la montre ; le chef s'enthousiasme. | Grâce : « Le Compact prévoit **50 petites centrales hydroélectriques**, dont **25 d'ici 2030** (p. 7 et 37). » · Le chef : « Cinquante ? Alors il y en a une pour nous ! » · Fifi : « Prévues, pas construites. Et la liste des sites, je ne l'ai pas. » [DONNÉE À VÉRIFIER] |
-| 2 | Papa Tchinda lève le doigt. Tout le monde s'apprête à crier… puis s'arrête, bouche bée, parce qu'il parle d'aujourd'hui. | Papa Tchinda : « Une petite centrale existe déjà : **Mbakaou, 1,4 MW**, dans l'Adamaoua, en **avril 2022**. » · Boris (sous le choc) : « Papa Tchinda a fini sa phrase ! » |
-| 3 | Les villageois tendent déjà un ruban en travers de la chute d'eau ; une deuxième chèvre attend, nœud papillon au cou. Boris se jette devant. | Boris : « Non ! On n'inaugure pas une rivière ! » · Le chef : « Pourquoi ? Elle est là depuis plus longtemps que le poteau ! » |
+| 1 | Derrière le village, une petite rivière et une chute d'eau. Grâce la montre ; le président du comité des fêtes s'enthousiasme et fait déjà signe à la fanfare. | Grâce : « Le Compact prévoit **50 petites centrales hydroélectriques**, dont **25 d'ici 2030** (p. 7 et 37). » · Le président du comité des fêtes : « Cinquante ? Alors il y en a une pour nous ! Je réserve la fanfare ! » · Fifi : « Prévues, pas construites. Et la liste des sites, je ne l'ai pas. » [DONNÉE À VÉRIFIER] |
+| 2 | Papa Tchinda lève le doigt. Tout le monde s'apprête à crier… puis s'arrête, bouche bée, parce qu'il parle d'aujourd'hui. Mais au moment où il enchaîne, le chef de fanfare, qui croit à un discours officiel, lance ses musiciens. | Papa Tchinda : « Une petite centrale existe déjà : **Mbakaou, 1,4 MW**, dans l'Adamaoua, en **avril 2022**. Et du temps de la SONEL, on… » · La fanfare : *POUET-POUET-BOUM !* · Boris (sous le choc) : « Papa Tchinda… a parlé d'aujourd'hui ! » · Mami Chantal : « Appelez la télé ! » |
+| 3 | Les invités et le comité des fêtes tendent déjà un ruban en travers de la chute d'eau ; une deuxième chèvre attend, nœud papillon au cou. Boris se jette devant. | Boris : « Non ! On n'inaugure pas une rivière ! » · Un invité (éventail à la main) : « Pourquoi ? Elle est là depuis plus longtemps que le poteau ! » |
 | 4 | Grâce lève sa pancarte « ATTENTION, PIÈGE ! » devant le chiffre « 437 / 1 000 » écrit dans la terre. | Grâce : « Le programme rural : **1 000 localités**, dont **437 électrifiées** (Compact p. 37-38). Attention, piège ! "Localité électrifiée" ne veut pas forcément dire que toutes les maisons sont branchées. » [DONNÉE À VÉRIFIER : définition dans le Compact] |
 | 5 | Monsieur 2030 surgit des fourrés, en sueur, costume plein de brindilles, cartable traîné dans la boue. | Monsieur 2030 : « Pardon pour le retard ! Je viens pour l'inauguration ! » · Tout le village : « Laquelle ? » |
 
 #### Planche 4 — « Le peuple demande des résultats »
 | Case | Image | Texte |
 |---|---|---|
-| 1 | Monsieur 2030 tend les ciseaux vers un nouveau ruban ; Fifi pose la main sur les ciseaux. | Fifi : « Objectif : 100 % d'accès en 2030 (Compact p. 5). Mais vous comptez quoi : les poteaux ou les branchements ? » · Monsieur 2030 (gêné) : « Euh… mon tableau dit "accès". » |
-| 2 | Mami Ngo, venue vendre son poisson à la fête, pointe sa louche vers le poteau comme un procureur. | Mami Ngo : « Je fais un procès au poteau ! Il prend la place et il ne donne rien. C'est le fey ! » · Fifi : « Le fey, c'est un délit, et il faut un juge pour le dire. Ici, il y a un poteau sans fil. Le problème possible, c'est la **coordination**, et ça se prouve avec des dates. » |
-| 3 | Boris a mis Pater Glaçon sur haut-parleur, téléphone levé vers le chef. Dans la bulle-téléphone, Pater Glaçon essuie un verre. | Boris : « Patron ! Le chef dit qu'avec trois inaugurations, il a gagné la caisse de bières ! » · Pater Glaçon (au téléphone) : « Trois inaugurations, zéro ampoule allumée. Il gagne… un ruban. » |
-| 4 | Le chef, très digne, visse une ampoule au sommet du poteau, debout sur une échelle tenue par trois villageois. Aucun fil. La fanfare joue. Une banderole est déjà prête : « 4e INAUGURATION : L'AMPOULE ». | Le chef : « Et maintenant… l'inauguration de l'ampoule ! » · L'enfant dans le hamac : « On allume quand ? » · Le chef : « À la cinquième. » |
+| 1 | Le président du comité des fêtes tend à Monsieur 2030, sur un coussin, les ciseaux dorés, encore entourés d'un bout de ruban mâchonné. Monsieur 2030 les brandit vers un nouveau ruban ; Fifi pose la main sur les ciseaux. | Fifi : « Objectif : 100 % d'accès en 2030 (Compact p. 5). Mais vous comptez quoi : les poteaux ou les branchements ? » · Monsieur 2030 (gêné) : « Euh… mon tableau dit "accès". » |
+| 2 | Mami Ngo, venue vendre son poisson à la fête, pointe sa louche vers le poteau comme un procureur. Grâce lève la main, comme un arbitre. | Mami Ngo : « Je fais un procès au poteau ! » · Grâce : « Les chiffres d'abord, les accusations ensuite ! » · Mami Ngo : « Alors je l'accuse… après les chiffres. » |
+| 3 | Boris a mis Pater Glaçon sur haut-parleur, téléphone levé vers le président du comité des fêtes. Dans la bulle-téléphone, Pater Glaçon essuie un verre. | Boris : « Patron ! Le comité des fêtes dit qu'avec trois inaugurations, il a gagné la caisse de bières ! » · Pater Glaçon (au téléphone) : « Trois inaugurations, zéro ampoule allumée. Il gagne… un ruban. » |
+| 4 | Le président du comité des fêtes, très digne, visse une ampoule au sommet du poteau, debout sur une échelle tenue par trois invités en boubou de fête. Aucun fil. La fanfare joue. Une banderole est déjà prête : « 4e INAUGURATION : L'AMPOULE ». Le chef, au pied de l'échelle, n'applaudit pas. | L'enfant dans le hamac : « On allume quand ? » · Le président du comité des fêtes : « À la cinquième. » · Le chef : « Et nous, on recompte les chèvres. » |
 | 5 | Au pied du poteau, alignées, **trois chèvres** (une par inauguration), ruban dans la bouche. Mami Ngo les montre. Boris lève l'ardoise du baromètre au-dessus de la foule, comme une pancarte de manifestation pacifique. | Mami Ngo : « Trois inaugurations, trois chèvres. Au rythme où on va, Nkol-Lumière aura un élevage avant d'avoir une ampoule ! » · Boris : « Fini les rubans. Maintenant, le peuple demande des résultats ! » · Récitatif : *Fin de l'acte IV. Acte V : « Le peuple demande des résultats ». Prochain épisode : Kikot, Grand Eweng… les barrages du futur sont-ils déjà invités à la fête ?* |
 
-#### Page documentaire — Le carnet de Fifi : « Du poteau à l'ampoule »
+#### Page documentaire — Le carnet de Fifi n° 16 : « Du poteau à l'ampoule »
 | Marche ou donnée | Valeur | Source |
 |---|---|---|
 | Accès en ville | **94 %** | Compact p. 38 |
-| Accès à la campagne | **moins de 25 %** | Compact p. 38 |
+| Accès à la campagne | **moins de 25 %** (taux d'accès : ménages ou personnes ? [DONNÉE À VÉRIFIER]) | Compact p. 38 |
 | Accès national | **74 % (2025)**, objectif **100 % en 2030** | Compact p. 5 |
 | Programme rural | **1 000 localités, dont 437 électrifiées** (563 restantes, calcul) | Compact p. 37-38 |
 | Mini-centrales solaires | **350 construites** | Compact p. 37-38 |
@@ -323,22 +326,24 @@
 **Nouvelle ligne, « Raccordements ruraux »** : « Campagne : moins de 25 % d'accès, ville : 94 % (Compact p. 38). Règle du comité : on compte les maisons branchées et les heures d'éclairage, pas les poteaux ni les inaugurations. »
 
 #### Mini-lexique
-- **Mbindi** : petit, gamin (camfranglais).
-- **Ma'a** : « maman », terme de respect pour une femme âgée [à valider par un relecteur camerounais].
+- **Mbindi** : petit, gamin (camfranglais ; affectueux pour un enfant).
+- **Mama** : « maman », façon respectueuse d'appeler une femme plus âgée (Mama Odile).
 - **Na we go suffer am** : « C'est nous qui allons souffrir » (pidgin).
-- **Le fey** : l'arnaque ; un *feyman* est un escroc (mot de colère, toujours recadré par Fifi ou le patron).
-- **Taxi-brousse** : véhicule collectif de campagne.
+- **Car de brousse** : car collectif qui dessert les villages.
 
 #### Notes pour le dessinateur
-- Nkol-Lumière est **imaginaire** : pas de panneau de région réelle, pas de drapeau, pas d'écharpe officielle. Le chef porte un bonnet traditionnel générique, sans attribut d'un groupe précis.
-- Le compteur de chèvres est un fil visuel : une en P1, deux en P3C3, trois en P4C5.
-- Le hamac reste accroché dans toutes les cases où le poteau apparaît.
+- Nkol-Lumière est **imaginaire** : pas de panneau de région réelle, pas de drapeau, pas d'écharpe officielle. Le **ridicule des inaugurations est partagé** : le comité des fêtes (badge en carton, ciseaux dorés), la fanfare qui joue à contretemps, les invités endimanchés qui applaudissent tout, et Mami Chantal trop habillée. Le chef (bonnet traditionnel générique, sans attribut d'un groupe précis) reste **digne et sceptique** : il n'organise rien et ne visse rien.
+- Les ciseaux dorés et le ruban mâchonné sont dessinés avec soin : l'ép. 17 y fera allusion, sans nouvelle cérémonie. Pas d'escalier dessiné ici (il est réservé à l'ép. 17) : l'image des trois étapes passe par la bouteille, le décapsuleur et le glaçon (P2C2).
+- Le compteur de chèvres est un fil visuel : une en P1, deux en P3C3, trois en P4C5. Le hamac reste accroché dans toutes les cases où le poteau apparaît.
 - Possibilité de glisser, dans un coin de P4C2, le dispositif « Chrono de la coordination » : deux horloges, « Poteau prêt » et « Fil prêt », avec l'écart en mois (valeur fictive, à afficher comme telle).
 
 #### Points à valider
-- *Ma'a* (P1C2, lexique) [à valider par un relecteur camerounais ; alternative : « Maman Odile »].
-- *Mbindi* employé pour un enfant : vérifier que l'usage est affectueux et non péjoratif [à valider par un relecteur camerounais].
+- *Mama Odile* remplace *Ma'a Odile* (forme d'usage incertain dans une BD nationale) ; « car de brousse » remplace « taxi-brousse » (usage plutôt ouest-africain).
+- *Mbindi* employé pour un enfant : jugé affectueux par la relecture éditoriale ; à confirmer [à valider par un relecteur camerounais ; alternative : « un petit »].
+- Papa Tchinda (P3C2) est **interrompu** par la fanfare : il ne finit sa phrase qu'à l'épisode 20. Boris s'étonne seulement qu'il ait « parlé d'aujourd'hui ».
+- « C'est le fey ! » retiré de cet épisode : Mami Ngo fait son procès « après les chiffres », recadrée par Grâce. Pas de répétition mot pour mot.
+- Le président du comité des fêtes, les invités et la fanfare sont **fictifs** et ne représentent aucune autorité réelle.
+- [DONNÉE À VÉRIFIER] : unité du taux d'accès rural (« moins de 25 % » : ménages ou personnes ?) ; la bulle de Fifi ne parle plus de « maisons » comme d'un fait.
 - [DONNÉE À VÉRIFIER] : définition de « localité électrifiée » dans le Compact (p. 37-38).
-- [DONNÉE À VÉRIFIER] : liste des sites des 50 petites centrales prévues.
-- [DONNÉE À VÉRIFIER] : page exacte de la mention de Mbakaou.
+- [DONNÉE À VÉRIFIER] : liste des sites des 50 petites centrales prévues ; page exacte de la mention de Mbakaou.
 - La version antérieure du scénario donnait 87,6 % / 28,4 % (ECAM5) pour l'écart ville/campagne ; cet épisode suit **la bible** (94 % / moins de 25 %, Compact p. 38).

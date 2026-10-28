@@ -50,11 +50,11 @@
 #### Page documentaire — Le carnet de Fifi n° 17 : « Les barrages du futur, marche par marche »
 | Projet | Capacité | Coût **estimé** (pas dépensé) | Calendrier / statut | Et la ligne ? | Source |
 |---|---|---|---|---|---|
-| **Kikot** (KHPC : État 50 %, EDF 50 %) | 500 MW | Devis successifs : > 1 Md € ≈ **650 Md FCFA** (départ) → **1 620 Md** (lettre du PCA de KHPC, 2025) → **≈ 872 Md** (DPEB 2027-2029, juillet 2026), soit 748 Md d'écart ; un chiffre de ≈ 1 050 Md a aussi circulé ; **coût final en suspens** | Alerte du PCA (sept. 2025) ; Banque mondiale : pas de soutien sans réforme profonde du secteur (28 nov. 2025) ; audit financier (juin 2026) ; bouclage financier au plus tôt au 2nd semestre 2027 ; travaux 2028 ; service 2033 | [DONNÉE À VÉRIFIER] ; termes du contrat d'achat **non publics** | Compact p. 41 ; Sikafinance (29/06/2026) ; Investir au Cameroun ; AllAfrica (28/11/2025) ; camer.be ; Ecomatin ; Business in Cameroon |
+| **Kikot** (KHPC : État 50 %, EDF 50 %) | 500 MW | Devis successifs : > 1 Md € ≈ **650 Md FCFA** (départ) → **1 620 Md** (lettre du PCA de KHPC, 2025) → **≈ 872 Md** (DPEB 2027-2029, juillet 2026), soit 748 Md d'écart ; un chiffre de ≈ 1 050 Md a aussi circulé ; **coût final en suspens** | Alerte du PCA (sept. 2025) ; Banque mondiale : pas de soutien sans réforme profonde du secteur (28 nov. 2025) ; audit financier (juin 2026) ; bouclage financier au plus tôt au 2nd semestre 2027 ; travaux 2028 ; service 2033 | [DONNÉE À VÉRIFIER] ; termes du contrat d'achat **non publics** ; raison de la baisse 1 620 → 872 Md **non documentée dans nos sources** | Compact p. 41 ; Sikafinance (29/06/2026) ; Investir au Cameroun ; AllAfrica (28/11/2025) ; camer.be ; Ecomatin |
 | **Bini à Warak** | 90 MW (Compact) | **182 → 393 Md FCFA** (× 2,2) | Service 2033 | [DONNÉE À VÉRIFIER] | Compact p. 41 ; Ecomatin |
 | **Grand Eweng** | 1 035 MW (Compact) | ≈ 1 850 Md FCFA (**chiffre du promoteur**) | Financement non bouclé | [DONNÉE À VÉRIFIER] | Compact p. 41 ; Ecomatin |
 | **Minkouma** | 300 MW (Compact) | [DONNÉE À VÉRIFIER] | [DONNÉE À VÉRIFIER] | [DONNÉE À VÉRIFIER] | Compact p. 41 |
-| **Leçon Nachtigal** (pas Kikot !) | 420 MW | Take or pay ≈ **10 Md FCFA/mois** depuis la mise en service complète (18 mars 2025) | Ligne vers Nyom 2 retardée (litiges fonciers) ; Nachtigal–Bafoussam (225 km) prévue en 2026 | Évacuation incomplète selon la presse | *Investir au Cameroun*, mars 2025 ; Compact p. 36 |
+| **Leçon Nachtigal** (pas Kikot !) | 420 MW | Take or pay ≈ **10 Md FCFA/mois** depuis la mise en service complète (18 mars 2025) | Ligne vers Nyom 2 retardée (litiges fonciers) ; Nachtigal–Bafoussam (225 km) prévue en 2026 | Évacuation incomplète selon la presse. **Version de NHPC** (par équité) : un « capacity payment », paiements sécurisés par des garanties prévues avec l'État ; « sans Nachtigal, les délestages seraient bien plus importants » | *Investir au Cameroun*, mars 2025 ; Compact p. 36 ; NHPC |
 | **Leçon Memve'ele** | 211 MW | ≈ 420 Md FCFA | Barrage achevé en juin 2017 ; ligne provisoire 90 kV en avril 2019 ; ligne définitive annoncée pour oct. 2018, puis août 2020, déc. 2020, mars 2021, mai 2022 ; raccordement complet rapporté en 2023 | Environ **six ans** entre centrale prête et ligne complète | Investir au Cameroun ; Agence Ecofin ; Banque mondiale |
 
 **Ailleurs en Afrique** (1 USD ≈ 600 FCFA) :
@@ -81,19 +81,21 @@
 #### Notes pour le dessinateur
 - L'escalier à la craie reste au sol du bar jusqu'à l'épisode 20 : les maquettes y sont posées à leur vraie marche (Kikot entre Études et Financement, Grand Eweng bloqué sur Financement, Minkouma assis à côté de l'escalier, « en salle d'attente »).
 - **Le chrono de la coordination** (deux horloges « Centrale prête » / « Ligne prête » et le compteur de factures) est un dispositif récurrent : le dessiner simple, réutilisable.
-- Julius Nyerere et le GERD sont dessinés comme des **invités respectés** (cadre photo, fond neutre), jamais moqués.
-- Grand Eweng coincé dans la porte : on voit seulement un nez de béton et deux yeux gênés ; c'est le financement qui bloque, pas le barrage qui est ridicule.
+- Julius Nyerere et le GERD sont dessinés comme des **invités respectés** (cadre photo, fond neutre), jamais moqués. Grand Eweng coincé dans la porte : on voit seulement un nez de béton et deux yeux gênés ; c'est le financement qui bloque, pas le barrage qui est ridicule.
+- **Ni ruban ni ciseaux** dans cet épisode (ils appartiennent à l'épisode 16) : la cérémonie de Kikot repose sur l'escalier à la craie et sur le ballon « DEVIS KIKOT », apporté dégonflé par Monsieur 2030 (pl. 1, c. 4) puis gonflé par Junior (pl. 3, c. 1).
 
 #### Points à valider
 - « And di line? » (Mola Ndip) [à valider par un relecteur camerounais] ; alternative en français : « Et la ligne ? ».
 - Proverbe d'Adamou (« on ne construit pas l'étable avant d'avoir tracé le chemin des vaches ») : **inventé pour la BD**, présenté comme une parole de son grand-père, pas comme un proverbe peul attesté [à valider par un relecteur camerounais].
-- Kikot : devis 650 → 1 620 → 872 Md FCFA (et 1 050 Md cité ailleurs) : écarts non expliqués, coût final en suspens ; conclusions de l'audit de juin 2026 [DONNÉE À VÉRIFIER] ; termes du contrat d'achat non publics (ne jamais lui attribuer les 10 Md FCFA par mois de Nachtigal).
+- Kikot : devis 650 → 1 620 → 872 Md FCFA (et 1 050 Md cité ailleurs) : raison de la baisse non documentée dans nos sources (formulation retenue en pl. 3, c. 2 : « nos sources ne disent pas pourquoi », jamais « aucune explication publique »), coût final en suspens ; conclusions de l'audit de juin 2026 [DONNÉE À VÉRIFIER] ; termes du contrat d'achat non publics (ne jamais lui attribuer les 10 Md FCFA par mois de Nachtigal) ; stade exact de Kikot sur l'escalier [DONNÉE À VÉRIFIER].
+- Papa Tchinda est **interrompu** (pl. 4, c. 3) : il ne finit sa phrase qu'à l'épisode 20. La chronologie de Memve'ele et la version de NHPC passent en page documentaire.
+- « C'est le fey ! » retiré de cet épisode (relecture éditoriale, corr. 7 et 12) ; les « ≈ 200 MW appelés » (une seule source) ne figurent plus dans les cases.
+- Règle des deux montants au plus par bulle : appliquée (pl. 3, c. 1 et c. 2).
 - Le ministre des Finances est cité par sa fonction, jamais nommé ni dessiné (garde-fou n° 6).
 - Bini à Warak : capacité (90 MW dans le Compact, d'autres sources diffèrent) et périmètre du nouveau devis [DONNÉE À VÉRIFIER].
 - Minkouma : coût, stade, ligne [DONNÉE À VÉRIFIER].
 - Lignes d'évacuation prévues pour Kikot, Bini à Warak, Grand Eweng, Minkouma [DONNÉE À VÉRIFIER].
-- « Parfois environ 200 MW appelés » : une seule source, à citer avec prudence.
-- Nachtigal–Bafoussam « prévue en 2026 » : vérifier l'état réel avant impression.
+- Nachtigal–Bafoussam « prévue en 2026 » (page documentaire) : vérifier l'état réel avant impression.
 
 ---
 
@@ -104,8 +106,8 @@
 #### Planche 1 — « Le Kilowatt fait sa valise »
 | Case | Image | Texte |
 |---|---|---|
-| 1 | Gare routière animée : cars chargés jusqu'au toit, vendeurs de beignets, rabatteurs. Le Kilowatt, minuscule, tire une valise plus grande que lui. Ticket : « Douala → N'Djamena ». | Récitatif : *Nkoagne, mardi matin. Une petite étincelle veut vérifier une rumeur.* |
-| 2 | Flashback en encadré, style vieux souvenir : le voisin de l'épisode 1, debout sur sa chaise. Le Kilowatt, au premier plan, hoche la tête. | Le voisin (flashback) : « Et on envoie notre courant au Tchad ! » · Le Kilowatt : « Je vais vérifier moi-même. Fifi dit toujours : "Va à la source !" » |
+| 1 | Gare routière animée : cars chargés jusqu'au toit, vendeurs de beignets, chargeurs. Le Kilowatt, minuscule, tire une valise plus grande que lui. Ticket : « Douala → N'Djamena ». | Récitatif : *Nkoagne, mardi matin. Une petite étincelle veut vérifier une rumeur.* |
+| 2 | Flashback en encadré, style vieux souvenir : le client du comptoir de l'épisode 1, même casquette, même bouteille, accoudé au bar. Le Kilowatt, au premier plan, hoche la tête. | Le client du comptoir (flashback) : « Et on envoie notre courant au Tchad ! » · Le Kilowatt : « Je vais vérifier moi-même. Fifi dit toujours : "Va à la source !" » |
 | 3 | Junior, accroupi, essaie de raisonner le Kilowatt. | Junior : « Petit, tu as ton passeport ? » · Le Kilowatt : « Je suis un électron, mon frère. Je passe par le fil ! » |
 | 4 | Adamou descend d'un car, un sac de riz sur l'épaule (qui brille un peu : il croit y avoir mis du soleil). | Adamou : « *Jam na*, petit ? » *(Tu vas bien ?)* · Le Kilowatt : « *Jam koo !* Tu viens du Nord ? Le courant de Douala arrive chez vous ? » · Adamou (sourire) : « Viens voir toi-même. » |
 | 5 | Le Kilowatt saute dans un câble : *ZZZIP !* Il file à toute vitesse… et s'arrête net au bout d'un câble qui finit dans un champ, devant un panneau : « RÉSEAU INTERCONNECTÉ SUD — FIN DE LIGNE ». | SFX : *ZZZIP !… BONG.* · Le Kilowatt (assis, sonné) : « Euh… le Tchad, c'est ce manguier ? » |
@@ -115,8 +117,8 @@
 |---|---|---|
 | 1 | Grâce, dans la gare, déplie une carte du Cameroun en carton : le Sud colorié en bleu, le Nord en orange, un grand vide entre les deux. Boris, bouche bée, met le doigt dans le vide. | Grâce : « Le Cameroun a deux réseaux séparés : le Réseau interconnecté Sud, sept régions, et le Réseau interconnecté Nord : Adamaoua, Nord, Extrême-Nord. » · Boris : « Donc le courant de Douala ne peut même pas monter à Maroua ? » · Grâce : « Pas par un câble. Pas encore. » |
 | 2 | Adamou, très calme, et Tonton Mballa, son cousin, côte à côte. Tonton Mballa lui met la main sur l'épaule. | Adamou : « Chez moi, à Maroua, on connaît Nachtigal… à la télévision. » · Tonton Mballa : « Hé, mon cousin, ne commence pas à nous sissia devant les gens ! » |
-| 3 | Grâce trace sur la carte une ligne en pointillés de 515 km entre le bleu et l'orange. Tonton Mballa compte sur ses doigts, puis sur ceux de Junior, puis sur ceux de Boris. | Grâce : « L'interconnexion Sud–Nord est prévue en 2028 : une ligne 225 kV double terne de 515 km. Et le Compact dit qu'elle contribuera aussi à l'évacuation de Nachtigal. » · Tonton Mballa : « 515 kilomètres… même mes doigts n'ont pas assez de doigts. » |
-| 4 | Pourquoi d'abord le Nord ? Médaillon sur le Nord de la carte : **Lagdo**, vieux barrage aux cheveux blancs (plaque « 1983 »), boit dans une calebasse presque vide sous un soleil de saison sèche. À côté, le **chrono** : « Réhabilitation annoncée : 2017 » → « Toujours annoncée : 2025 ». Adamou lève les yeux vers le ciel. | Grâce : « Le réseau Nord dépend surtout d'un seul barrage : Lagdo, 72 MW, mis en eau en 1983. En saison sèche, quand la retenue est mal remplie, il produit moins, et ce sont les délestages. Sa réhabilitation, environ 100 milliards de FCFA, est évoquée depuis 2017 et toujours annoncée en 2025. » · Adamou : « Chez nous, le courant dépend de deux ministres : celui de l'Énergie… et celui de la pluie ! » |
+| 3 | Grâce trace sur la carte une ligne en pointillés de 515 km entre le bleu et l'orange. Tonton Mballa regarde ses doigts, puis ses pieds, et renonce. | Grâce : « L'interconnexion Sud–Nord est prévue en 2028 : une ligne 225 kV double terne de 515 km. Et le Compact dit qu'elle contribuera aussi à l'évacuation de Nachtigal. » · Tonton Mballa : « 515 kilomètres… j'ai déjà donné mes orteils à l'épisode 14. » |
+| 4 | Rappel, en petit médaillon sur le Nord de la carte : **Lagdo** (vu à l'épisode 15), vieux barrage aux cheveux blancs, boit toujours dans sa calebasse presque vide. Adamou pose le doigt sur le médaillon. | Grâce : « Lagdo, vous le connaissez : toujours seul, toujours assoiffé. » · Adamou : « Et il attend toujours la pluie… et la ligne. » |
 | 5 | Retour au champ : le Kilowatt est assis sur un pylône, une gourde à la main, l'air résigné. Grâce apparaît en petit médaillon. | Boris (hors champ) : « Donc avant de servir le Tchad, le câble doit d'abord servir Maroua ! » · Le Kilowatt : « Je vais attendre ici jusqu'en 2028, alors ? » · Grâce (médaillon) : « C'est prévu. Prévu, ce n'est pas livré. » |
 
 #### Planche 3 — « Le visa d'interconnexion »
@@ -124,23 +126,23 @@
 |---|---|---|
 | 1 | Séquence de rêve du Kilowatt (bord de case nuageux). Un poste-frontière imaginaire au milieu des pylônes : guichet en bois, panneau « VISAS D'INTERCONNEXION ». Un agent fictif, aimable, en uniforme générique (aucun drapeau, aucun insigne réel). | L'agent : « Bonjour, petit voyageur. Visa d'interconnexion, s'il vous plaît. » |
 | 2 | Le Kilowatt tend un dossier. L'agent le lit avec ses lunettes au bout du nez. Tampon levé, pas encore posé. | L'agent : « Voyons… "Tronçon vers la frontière : en attente de financement." Ah. Votre route n'est pas encore finie. Revenez quand le dernier morceau aura son financement. » |
-| 3 | Fifi surgit dans le rêve, carnet ouvert, comme une avocate. Au-dessus du guichet, le **chrono de la coordination** version PIRECT : trois horloges en rang, « LANCEMENT : NOV. 2023 », « LIVRAISON ANNONCÉE : 2027 » (barrée), « NOUVEL HORIZON : 2030 ? ». Le Kilowatt regarde les aiguilles tourner. | Fifi : « Le PIRECT. Lancé en novembre 2023, livraison annoncée pour 2027. Travaux côté camerounais en mars 2025. Il relie d'abord le Sud et le Nord du Cameroun, et le tronçon vers la frontière attend un financement. Selon Cameroun24, le calendrier glisse vers 2030 : les nouveaux lots prévoient 34 mois après la signature des contrats. » · Le Kilowatt : « 2023, 2027, 2030… Ce n'est pas un calendrier, c'est un compte à rebours qui recule ! » |
-| 4 | Mami Chantal entre dans le rêve, bigoudis sur la tête, sèche-cheveux à la main. | Mami Chantal : « Mais au marché, on dit que le Tchad boit déjà tout notre courant ! » · Fifi : « Le marché n'est pas une source. » · Mami Chantal : « Le marché, c'est MA source ! Et il ne s'est jamais trompé… cette semaine. » |
+| 3 | Fifi surgit dans le rêve, carnet ouvert, comme une avocate. Au-dessus du guichet, le **chrono de la coordination** version PIRECT : trois horloges en rang, « LANCEMENT : NOV. 2023 », « LIVRAISON ANNONCÉE : 2027 » (barrée), « NOUVEL HORIZON : 2030 ? ». Le Kilowatt regarde les aiguilles tourner. | Fifi : « Le PIRECT. Lancé en novembre 2023, livraison annoncée pour 2027. Côté camerounais, il comprend d'abord l'interconnexion Sud–Nord ; le tronçon vers la frontière vient ensuite, et il attend un financement. Selon Cameroun24, le calendrier glisse vers 2030. » · Le Kilowatt : « 2023, 2027, 2030… Ce n'est pas un calendrier, c'est un compte à rebours qui recule ! » |
+| 4 | Mami Chantal entre dans le rêve, bigoudis sur la tête, sèche-cheveux à la main. | Mami Chantal : « Mais au salon, on dit que le Tchad boit déjà tout notre courant ! » · Fifi : « Le salon n'est pas une source. » · Mami Chantal : « Le salon, c'est MA source ! Et il ne s'est jamais trompé… cette semaine. » |
 | 5 | De l'autre côté de la barrière, un autre petit Kilowatt, cousin, agite la main. Les deux étincelles se serrent la main par-dessus la barrière ; une petite gerbe d'étincelles amicales. | Le Kilowatt cousin : « Nous aussi, on attend la ligne ! » · Le Kilowatt : « Alors ce n'est pas "envoyer notre courant". C'est se serrer la main ! » · Grâce (médaillon) : « Une interconnexion permet des échanges entre réseaux, selon les contrats. Ce n'est pas un robinet ouvert dans un seul sens. » |
 
 #### Planche 4 — « Pas de passeport, mais un calendrier »
 | Case | Image | Texte |
 |---|---|---|
-| 1 | Retour au bar, le soir. Monsieur 2030 ouvre son cartable ; une feuille s'envole : « 1 000 MW ». Pater Glaçon prend une craie jaune. Grâce compte sur trois doigts. | Monsieur 2030 : « Objectif : 1 000 MW de transit avec les voisins d'ici 2030, et l'interconnexion avec eux à partir de 2028 ! » · Grâce : « Tchad : en exécution. Congo : projet de Chollet. Nigeria : en études. » · Pater Glaçon : « J'écris tout ça à la craie jaune. La jaune, c'est pour les objectifs. La blanche, c'est pour ce qui est fait. » |
+| 1 | Retour au bar, le soir. Monsieur 2030 ouvre son cartable ; une feuille s'envole : « 1 000 MW ». Pater Glaçon prend une craie jaune. Grâce compte sur trois doigts. | Monsieur 2030 : « Objectif : 1 000 MW de transit avec les voisins d'ici 2030, et l'interconnexion avec eux à partir de 2028 ! » · Grâce : « Tchad : en exécution. Congo : projet de Chollet. Nigeria : en études. » · Pater Glaçon : « Craie jaune, comme d'habitude. » |
 | 2 | Junior ouvre un vieux tiroir du comptoir : nuage de poussière. Il en sort un dossier jauni, tampon « APPEL D'OFFRES — 2017 », avec des lunettes et une canne. Papa Tchinda le reconnaît comme un vieux collègue. | Le dossier de 2017 (voix chevrotante) : « J'ai vieilli… et mes prix aussi ! » · Fifi : « Selon la cellule d'exécution côté tchadien, les études et dossiers de 2017, une fois révisés, ont révélé une hausse des coûts et un déficit de financement. » · Papa Tchinda : « Du temps de la SONEL, les dossiers… » · Tous : « Papa ! » |
-| 3 | Tonton Mballa épingle au mur cinq papiers différents, comme cinq devis d'armoire, chacun d'une couleur. Boris tape du poing ; Fifi lève son carnet comme un carton jaune. | Tonton Mballa : « 557,5 milliards selon Ecomatin. 768 millions d'euros selon la fiche PIDA. Un déficit de 287 milliards en 2025. Ou 142 mobilisés sur 285. Et en octobre 2026, la BAD réévalue la première phase à 221,3 millions d'euros, environ 145 milliards… sur un périmètre réduit ! » · Boris : « Cinq prix pour une seule ligne ? C'est le fey ! » · Fifi : « Le fey, il faut un juge pour le dire. Ici, on a des estimations **successives**, qui ne mesurent pas la même chose. Le problème possible, c'est la programmation : des études de 2017 qu'on révise en 2025. Ça, ça se prouve avec des dates. » · Pater Glaçon : « Alors sortez les dates ! » |
-| 4 | Au comptoir, le client de l'épisode 1 (même casquette, même bouteille). Boris lui pose la main sur l'épaule. Adamou, derrière, lève son verre. | Le client : « Alors ? On envoie notre courant au Tchad, oui ou non ? » · Boris : « Pas encore, mon frère. Pour l'instant, on essaie d'abord de l'envoyer à Maroua ! » · Adamou : « Et Maroua vous remercie d'avance… quand le chrono s'arrêtera. » |
-| 5 | Le Kilowatt ouvre sa valise pour la défaire : il en sort, surpris, un morceau de charbon noir. Au même moment, depuis la cuisine, un nuage de fumée et une toux énorme. | SFX : *KOF ! KOF ! KOF !* · Voix de la cuisine : « Mami Ngo, ça suffit ! Je veux divorcer ! » · Récitatif : *Prochain épisode : une marmite demande le divorce.* |
+| 3 | Tonton Mballa épingle au mur cinq papiers différents, comme cinq devis d'armoire, chacun d'une couleur et chacun avec son montant (voir page documentaire). Boris tape du poing… puis, avant que Fifi ait levé le petit doigt, il lui prend le carnet des mains. Fifi reste bouche bée. | Tonton Mballa : « Cinq devis pour la même armoire ! Chez moi, le client change de menuisier. » · Boris : « Cinq prix pour une seule ligne ? C'est le… » (il feuillette le carnet de Fifi) « … ce sont des estimations successives, qui ne mesurent pas la même chose. Des études de 2017, révisées bien plus tard. Sortez les dates ! » · Tonton Mballa : « Le bois ne ment pas : le garçon a poussé. » |
+| 4 | Au comptoir, le client du comptoir de l'épisode 1 (même casquette, même bouteille), celui de la blague du Tchad. Boris lui pose la main sur l'épaule. Adamou, derrière, lève son verre. | Le client : « Alors ? On envoie notre courant au Tchad, oui ou non ? » · Boris : « Pas encore, mon frère. Pour l'instant, on essaie d'abord de l'envoyer à Maroua ! » · Adamou : « Et Maroua vous remercie d'avance… quand le chrono s'arrêtera. » |
+| 5 | Le Kilowatt ouvre sa valise pour la défaire : il en sort, surpris, un morceau de charbon noir. Au même moment, depuis la cuisine, un nuage de fumée et une toux énorme. | Le Kilowatt : « J'ai démonté la rumeur : j'ai gagné la caisse ? » · SFX : *KOF ! KOF ! KOF !* · Voix de la cuisine : « Mami Ngo, ça suffit ! Je veux divorcer ! » · Récitatif : *Prochain épisode : une marmite demande le divorce.* |
 
 #### Page documentaire — Le carnet de Fifi n° 18 : « Le courant a-t-il un passeport ? »
 | Ce qu'on entend au bar | Ce que disent les documents | Source |
 |---|---|---|
-| « On envoie notre courant au Tchad. » | Le PIRECT relie **d'abord le Sud et le Nord du Cameroun**. Travaux lancés en **mars 2025**. Le tronçon vers la frontière tchadienne **attend un financement**. | Fiche PIDA ; Ecomatin ; Cameroon Tribune |
+| « On envoie notre courant au Tchad. » | Côté camerounais, le PIRECT comprend **d'abord l'interconnexion du réseau Sud et du réseau Nord**, avant le tronçon vers le Tchad. Travaux lancés en **mars 2025**. Le tronçon vers la frontière tchadienne **attend un financement**. | Banque islamique de développement, appel d'offres « South Interconnected Grid (SIG) – North Interconnected Grid (NIG) interconnection » (2023) ; fiche PIDA ; Ecomatin |
 | « Le Cameroun a un seul réseau. » | **Deux réseaux séparés** : Réseau interconnecté Sud (7 régions) et Réseau interconnecté Nord (Adamaoua, Nord, Extrême-Nord). | Compact p. 35 |
 | « Le Nord est déjà relié. » | Interconnexion Sud–Nord **prévue en 2028** : ligne 225 kV double terne de **515 km**, qui « contribuera à l'évacuation de Nachtigal ». | Compact p. 36 |
 | « Le PIRECT sera fini en 2027. » | Lancement en **novembre 2023**, livraison annoncée pour **2027** ; travaux côté camerounais en **mars 2025** ; calendrier **repoussé vers 2030** selon Cameroun24 (nouveaux lots : **34 mois après signature** des contrats, ce qui rend « intenable » la fin 2027 encore affichée par la BAD). Appels d'offres en cours, offres attendues en novembre 2026. | Investir au Cameroun ; Cameroun24 (2025-2026) |
@@ -156,24 +158,28 @@
 #### Mini-lexique
 - **Sissia** : intimider, faire peur.
 - **Mon frère / ma sœur** : façon amicale de s'adresser à quelqu'un.
-- **Jam na ? / Jam koo** (fulfulde) : « Tu vas bien ? » / « Bien, merci ! »
-- **Rabatteur** : celui qui remplit les cars en appelant les voyageurs.
+- **Jam na ?** (fulfulde) : « Tu vas bien ? » (littéralement « La paix ? ») · **Jam koo** : « Ça va bien ».
+- **Chargeur** : celui qui remplit les cars en appelant les voyageurs.
 - **Beignets** : en-cas de rue, vendus à la gare routière.
 
 #### Notes pour le dessinateur
 - **Aucune caricature du Tchad ni d'un pays voisin** : pas de drapeau réel au poste-frontière, agent aimable, Kilowatt cousin dessiné exactement comme le nôtre (même famille).
 - La carte en carton de Grâce (Sud bleu, Nord orange, 515 km en pointillés) servira à l'épisode 20.
-- Craie jaune / craie blanche sur le baromètre : à partir de cet épisode, toute cible est en jaune, tout fait vérifié en blanc. Code visuel à garder jusqu'à la fin.
+- Craie jaune / craie blanche sur le baromètre : code posé à l'épisode 13 (toute cible en jaune, tout fait vérifié en blanc), simplement rappelé ici. Pl. 4, c. 3 : Boris prend lui-même le carnet de Fifi ; la réaction muette de Fifi (bouche bée, puis petit sourire) fait le gag.
 - Le sac de riz d'Adamou brille légèrement (running gag du « soleil dans un sac de riz »).
 
 #### Points à valider
-- Lien exact entre le PIRECT et la ligne Sud–Nord de 515 km du Compact (même projet ou projets liés ?) [DONNÉE À VÉRIFIER].
-- Coût et périmètre du PIRECT (557,5 Md FCFA, 768 M €, déficit 287 Md, 142/285 Md, 221,3 M € sur périmètre réduit) : estimations successives à fixer avec la SONATREL ou la BAD avant impression.
-- Lagdo : coût de 100 Md FCFA « prévisionnel », calendrier de réhabilitation non confirmé [DONNÉE À VÉRIFIER].
+- PIRECT « d'abord Sud–Nord » : **sourcé** (bible 4.2 ter : appel d'offres BID « SIG–NIG interconnection », 2023). Reste à vérifier que ce lot correspond exactement à la ligne 225 kV de 515 km du Compact (p. 36) [DONNÉE À VÉRIFIER].
+- Coût et périmètre du PIRECT (557,5 Md FCFA, 768 M €, déficit 287 Md, 142/285 Md, 221,3 M € sur périmètre réduit) : estimations successives à fixer avec la SONATREL ou la BAD avant impression. Les montants ne figurent plus dans les bulles (deux au plus par bulle) ; ils restent en page documentaire.
+- Lagdo et le gag des « deux ministres » : présentés à l'épisode 15 ; ici, une seule case de rappel, sans chiffre ni gag.
+- « C'est le fey ! » : Boris se recadre seul (pl. 4, c. 3), sans reprise mot pour mot de l'épisode 6.
+- Code craie jaune / craie blanche : suppose qu'il a été posé à l'épisode 13 (relecture éditoriale, corr. 34) ; sinon, rétablir l'explication de Pater Glaçon en pl. 4, c. 1.
+- Flashback (pl. 1, c. 2) : suppose que l'épisode 1 attribue la blague du Tchad au client du comptoir (arbitrage 8).
 - Écart de calendrier : Sud–Nord « 2028 » (Compact) contre PIRECT « vers 2030 » (Cameroun24) et « fin 2027 » (BAD) : présenter les trois dates avec leur source.
 - Résultat des appels d'offres attendus en novembre 2026 [DONNÉE À VÉRIFIER].
 - État d'avancement réel des travaux au moment de l'impression [DONNÉE À VÉRIFIER].
 - « Sissia » employé par Tonton Mballa (55 ans) : vérifier que le mot passe dans sa bouche [à valider par un relecteur camerounais] ; alternative : « nous intimider ».
+- « Jam na ? / Jam koo » : traduction harmonisée ; la réponse « Jam tan » serait plus répandue [à valider par un relecteur camerounais].
 
 ---
 
@@ -194,7 +200,7 @@
 | Case | Image | Texte |
 |---|---|---|
 | 1 | La cour arrière : nattes, tabourets, une table de juge. Arrive la belle-famille du charbon : Oncle Fagot (un fagot de bois avec une canne), Tante Braise (rouge, vexée), des petits cousins copeaux. | Oncle Fagot : « Nous sommes venus réclamer la dot ! Vingt ans que cette marmite mange notre famille ! » |
-| 2 | Mola Ndip, assis au premier rang avec une boîte de pièces détachées, regarde la scène, perplexe. | Mola Ndip : « Wetin dey happen? Na marriage or na market? » *(Qu'est-ce qui se passe ? C'est un mariage ou un marché ?)* [à valider par un relecteur camerounais] |
+| 2 | Mola Ndip, assis au premier rang avec une boîte de pièces détachées, regarde la scène, perplexe. Boris, à côté de lui, lève les yeux au ciel. | Mola Ndip : « Na marriage or na market? » *(C'est un mariage ou un marché ?)* [à valider par un relecteur camerounais] · Boris : « Encore une dot ? Dans ce quartier, tout finit en mariage ! » |
 | 3 | Tonton Mballa, en chef de famille, chapeau traditionnel, s'assoit derrière la table. Il tient un morceau de bois comme un marteau de juge. | Tonton Mballa : « Silence ! Le bois ne ment pas… même quand il brûle. Pièces au dossier ! » |
 | 4 | Fifi témoigne, carnet ouvert. Oncle Fagot bombe le torse, triomphant. | Fifi : « Pièce n° 1 : près de 80 % des ménages utilisent des combustibles solides, bois et charbon. Compact, page 39. » · Oncle Fagot : « Vous voyez ? Nous sommes la majorité ! » |
 | 5 | Mami Ngo se lève, un rideau tout noirci de suie à la main. Tante Braise recule. | Fifi : « Pièce n° 2 : la cuisson propre, c'était 23,4 % en 2022. » · Mami Ngo : « La dot ? C'est vous qui me la devez ! Vingt ans de rideaux noircis, de marmites noircies, d'yeux qui piquent ! » |
@@ -205,7 +211,7 @@
 | 1 | Façon émission de rencontres : trois prétendants alignés sous un spot (la lampe torche de Junior). **Monsieur GPL**, bouteille de gaz en costume bleu ; **Foyer Amélioré**, petit, trapu, modeste ; **Biogaz**, une cuve ronde qui gargouille, en tenue de cultivateur. | Récitatif : *Les prétendants se présentent.* · Junior (présentateur) : « Mesdames et messieurs, voici les candidats à la main de la marmite ! » |
 | 2 | Monsieur GPL fait la roue, sûr de lui. Mami Ngo croise les bras. Fifi lève son carnet. | Monsieur GPL : « Moi, je chauffe vite, je ne fume pas, je ne noircis pas les rideaux ! » · Mami Ngo : « Et ta bouteille, elle coûte combien ? » · Monsieur GPL (il transpire) : « [DONNÉE À VÉRIFIER]… Ça dépend du quartier, du mois, de la taille… » · Fifi : « Pas de prix sans source datée ! » |
 | 3 | Foyer Amélioré, timide, tend une fleur à la marmite. Grâce lève sa pancarte rouge. | Foyer Amélioré : « Moi, je ne te demande pas de quitter toute ta famille. Je promets moins de bois et moins de fumée. » · Grâce : « Attention, piège ! Selon la définition utilisée, un foyer amélioré ne compte pas toujours comme "cuisson propre" dans les statistiques. Vérifiez la définition avant d'applaudir. » |
-| 4 | Biogaz gargouille. Mami Chantal se pince le nez, Biogaz se vexe. Mami Ngo lui tend un seau d'écailles de poisson. | Biogaz : « Moi, je fabrique mon gaz avec les déchets, les épluchures… » · Mami Ngo : « Même avec les écailles de mon poisson ? » · Mami Chantal : « Il sent un peu le village, non ? » · Biogaz : « Je sens l'avenir, madame ! » |
+| 4 | Biogaz gargouille. Mami Chantal se pince le nez, Biogaz se vexe. Mami Ngo lui tend un seau d'écailles de poisson. | Biogaz : « Moi, je fabrique mon gaz avec les déchets, les épluchures… » · Mami Ngo : « Même avec les écailles de mon poisson ? » · Mami Chantal : « Il sent un peu… la poubelle du marché, non ? » · Biogaz : « Je sens l'avenir, madame ! » |
 | 5 | Le Kilowatt sort d'une prise, une toque de chef sur la tête, une plaque électrique sous le bras. Tout le monde se retourne, y compris Monsieur Congélateur (qui passe la tête par la porte de la cuisine). | Le Kilowatt : « Et moi ? La plaque électrique ? » · Tous : « Toi, reviens quand le courant sera stable ! » · Monsieur Congélateur : « Faites la queue derrière moi, petit. Moi, j'attends depuis l'épisode 1. » |
 
 #### Planche 4 — « Le jugement : une période d'essai »
@@ -214,7 +220,7 @@
 | 1 | Monsieur 2030 arrive en retard, essoufflé, et brandit un dossier : « CUISSON PROPRE : 40 % EN 2030 ». Les prétendants applaudissent. | Monsieur 2030 : « Le Compact prévoit 114 millions de dollars pour la cuisson propre ! » · Monsieur GPL : « Bravo ! » |
 | 2 | Tonton Mballa compte sur ses doigts, puis sort une calculatrice en bois. | Tonton Mballa : « 114 millions sur 12 554 millions de dollars du Compact… Même pas un franc sur cent. Pour près de 80 % des ménages ! » · Grâce : « Et c'est un montant **prévu** dans le tableau du Compact, pas un montant décaissé. » |
 | 3 | Pater Glaçon écrit au baromètre : à la craie blanche « 23,4 % (2022) », à la craie jaune « 40 % (2030) ». En dessous : « RÉALISÉ : ? ». | Pater Glaçon : « Blanche pour ce qui est mesuré, jaune pour ce qui est promis. Et le point d'interrogation, c'est pour vous tous : allez chercher la preuve. » |
-| 4 | Tonton Mballa frappe la table avec son morceau de bois. La marmite et la famille du charbon se regardent. | Tonton Mballa : « Le tribunal ne prononce pas le divorce. Il prononce… une période d'essai ! La marmite essaiera chaque prétendant. Et la famille du charbon garde un droit de visite. » · Mami Ngo : « Le dimanche, pour le poisson braisé. Ça, c'est sacré ! » |
+| 4 | Tonton Mballa frappe la table avec son morceau de bois. La marmite et la famille du charbon se regardent. | Tonton Mballa : « Le tribunal ne prononce pas le divorce. Il prononce… une période d'essai ! La marmite essaiera chaque prétendant. Et la famille du charbon garde un droit de visite. » · Mami Ngo : « Le dimanche, pour le poisson braisé. Ça, c'est sacré ! » · La marmite : « Et en période d'essai, j'ai droit à la caisse ? » |
 | 5 | Oncle Fagot tire Pater Glaçon par la manche. Pater Glaçon montre une affiche : « SAMEDI : GRANDE FINALE — MONSIEUR 2030 PRÉSENTE SON BULLETIN ». Monsieur 2030 lâche son cartable, qui s'écrase sur son pied. | Oncle Fagot : « Et la dot, alors ? » · Pater Glaçon : « On réglera tous les comptes samedi : tout le quartier est convoqué. Monsieur 2030 présente son bulletin ! » · Monsieur 2030 : « Un bulletin ?! Mais… je n'ai pas encore passé l'examen ! » · SFX : *BOUM.* · Récitatif : *Prochain épisode : la grande finale.* |
 
 #### Page documentaire — Les chiffres du Pacte : « La marmite et ses prétendants »
@@ -234,7 +240,7 @@
 
 #### Mini-lexique
 - **Ndolè** : plat national à base de feuilles amères.
-- **Wetin dey happen?** (pidgin) : qu'est-ce qui se passe ?
+- **Na marriage or na market?** (pidgin) : c'est un mariage ou un marché ?
 - **Dot** : biens remis à la famille de la mariée lors du mariage coutumier.
 - **Foyer amélioré** : réchaud conçu pour consommer moins de bois ou de charbon.
 - **GPL** : gaz de pétrole liquéfié, en bouteille.
@@ -246,7 +252,8 @@
 - Baromètre : bien montrer le code craie blanche (mesuré) / craie jaune (objectif).
 
 #### Points à valider
-- « Wetin dey happen? Na marriage or na market? » [à valider par un relecteur camerounais] ; alternative : « Qu'est-ce qui se passe ? C'est un mariage ou un marché ? ».
+- « Na marriage or na market? » [à valider par un relecteur camerounais] ; alternative : « C'est un mariage ou un marché ? ». Le « Wetin dey happen? » qui précédait a été retiré (dosage du pidgin).
+- Pl. 3, c. 4 : la réplique « Il sent un peu le village » a été **supprimée** (moquerie des ruraux, arbitrage 10) ; remplacée par « la poubelle du marché », qui vise l'odeur des déchets, pas des personnes.
 - Prix du GPL, du charbon, du bois, des foyers améliorés, du biogaz : **[DONNÉE À VÉRIFIER]** (aucun prix n'est donné dans l'album sans source datée).
 - Définition de la « cuisson propre » dans l'ECAM 5 et dans le Compact (foyers améliorés inclus ou non ; ménages ou personnes) [DONNÉE À VÉRIFIER].
 - Conversion 114 M USD ≈ 68 Md FCFA : ordre de grandeur (± 5 %).
@@ -260,7 +267,7 @@
 #### Planche 1 — « Nkoagne a des preuves ! »
 | Case | Image | Texte |
 |---|---|---|
-| 1 | Le bar en plateau télé : projecteurs fabriqués avec des lampes torches branchées sur la batterie de moto de Junior, banderole « NKOAGNE A DES PREUVES — LA FINALE ». Tout le quartier est là. L'escalier à la craie de l'épisode 17 est toujours au sol. | Récitatif : *Nkoagne, samedi soir. On n'est pas en 2030. Personne ne sait encore ce qui sera atteint. C'est justement pour ça qu'on note les preuves.* |
+| 1 | Le bar en plateau télé : projecteurs fabriqués avec des lampes torches branchées sur la batterie de moto de Junior, banderole « NKOAGNE A DES PREUVES — LA FINALE ». Tout le quartier est là. L'escalier à la craie de l'épisode 17 est toujours au sol. Sur la batterie de Junior, une étiquette neuve : « CONFORME — référence à vérifier ». Grâce passe devant, la lit, hoche la tête. | Récitatif : *Nkoagne, samedi soir. On n'est pas en 2030. Personne ne sait encore ce qui sera atteint. C'est justement pour ça qu'on note les preuves.* · Grâce (au passage, à Junior) : « Enfin. » |
 | 2 | Table du jury : Fifi (pancarte « SOURCE »), Grâce (« TECHNIQUE »), Tonton Mballa (« CALCUL »), Mami Chantal (« AMBIANCE ET KONGOSSA VÉRIFIÉ »). Junior, micro en main (un micro fait d'un bout de tuyau et d'une boule de papier alu). | Junior : « Bonsoir Nkoagne ! Ce soir, le candidat le plus attendu depuis 2025… » · Mami Chantal : « Il est encore en retard, non ? » |
 | 3 | Gros plan sur un carton posé devant le jury, écrit en très gros. Pater Glaçon le désigne avec son torchon. | Carton : « NOTES DU JURY : FICTIVES. ON NOTE LES PREUVES, PAS L'AVENIR. » · Pater Glaçon : « Écrivez-le encore plus gros. Je ne veux pas de procès dans mon bar ! » |
 | 4 | Monsieur 2030 entre en courant, traînant un cartable si lourd qu'il laisse un sillon dans le sol. Il glisse sur l'escalier à la craie. | SFX : *SCRRRR… PATATRAS !* · Monsieur 2030 : « Pardon, pardon ! Il y avait un embouteillage… de projets ! » |
@@ -280,8 +287,8 @@
 |---|---|---|
 | 1 | Silence total. Pater Glaçon sort de derrière le comptoir la caisse de bières promise à l'épisode 1, couverte d'un pagne comme un trophée. | Récitatif : *La caisse promise il y a dix-neuf épisodes.* · Pater Glaçon : « Celui qui a découvert pourquoi ma bière n'était pas glacée… » |
 | 2 | Tout le monde se lève en même temps, chacun le doigt sur sa poitrine. Bulles qui se chevauchent. | Boris : « C'est moi, j'ai lancé le comité ! » · Fifi : « J'ai trouvé les sources ! » · Grâce : « J'ai expliqué les pertes ! » · Junior : « J'ai éclairé le plateau ! » · Mami Ngo : « J'ai nourri tout le monde ! » · La marmite (depuis la cuisine) : « Et moi, j'ai demandé le divorce ! » |
-| 3 | Monsieur Congélateur, tout petit dans son coin, la moustache basse. Pater Glaçon se tourne vers lui. | Monsieur Congélateur : « Et moi ? Je ne suis qu'un petit consommateur au bout du fil… » · Pater Glaçon : « Justement. » |
-| 4 | Pater Glaçon dessine à la craie, sur le baromètre, une longue chaîne : chaque maillon porte un visage. Producteurs, réservoirs, lignes, postes, distribution, compteurs, factures, entretien… et, au bout, Monsieur Congélateur. | Pater Glaçon : « Pourquoi ma bière était chaude ? Il n'y a pas un seul coupable. La réponse, c'est toute la chaîne : produire, stocker, transporter au bon moment, distribuer, encaisser, entretenir… et vérifier. » |
+| 3 | Monsieur Congélateur, tout petit dans son coin, la moustache basse, le seul à n'avoir rien levé. Pater Glaçon se tourne vers lui. | Monsieur Congélateur : « Moi, je n'ai rien réclamé. Je fais juste mon travail… quand on me laisse. » · Pater Glaçon : « Justement. Retiens bien ce que tu viens de dire. » |
+| 4 | Pater Glaçon dessine à la craie, sur le baromètre, une longue chaîne : chaque maillon porte un visage. Producteurs, réservoirs, lignes, postes, distribution, compteurs, factures, entretien… et, au bout, Monsieur Congélateur. En arrière-plan, venues saluer : la technicienne « La Maintenance » (épisode 8) et Mama Diesel (épisode 3), lunettes et chaîne dorée. | Pater Glaçon : « Pourquoi ma bière était chaude ? Il n'y a pas un seul coupable. La réponse, c'est toute la chaîne : produire, stocker, transporter au bon moment, distribuer, encaisser, entretenir… et vérifier. » |
 | 5 | Il soulève la caisse au-dessus de sa tête. Le quartier explose de joie. Boris, déjà à moitié sur la table, s'arrête net. | Pater Glaçon : « Alors cette caisse n'est pas pour un seul. Elle est pour tout le quartier ! » · Tous : « On est ensemble ! » · Boris : « …Même pour ceux qui n'ont rien soudé ? » |
 
 #### Planche 4 — « La première bière glacée… de ce soir »
