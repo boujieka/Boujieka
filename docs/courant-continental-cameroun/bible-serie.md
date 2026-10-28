@@ -197,6 +197,14 @@ On **critique des choix, des calendriers et des contrats** ; on **n'accuse perso
 
 **Dispositif visuel récurrent, « Le chrono de la coordination »** : deux horloges dessinées côte à côte, « Centrale prête » et « Ligne prête ». L'écart s'affiche en mois, et le compteur de factures tourne.
 
+### 4.2 ter Compléments sourcés (validés par l'éditeur après la relecture des faits)
+- **Lom Pangar** : « 240 milliards investis, des prestataires impayés » (237online, titre d'article) ; l'**EDC veut auditer les 40 Md FCFA investis par l'AFD** (Ecomatin). À présenter comme **rapporté par la presse** : « l'EDC a demandé un audit », jamais « il y a eu détournement ».
+- **Memve'ele** : sur les ≈ 420 Md FCFA, ≈ **243 Md** apportés par la partie chinoise (Afrik.com) ; prêt Exim Bank de Chine de ≈ **83 Md FCFA** signé en février 2017 pour des ouvrages d'évacuation de ≈ 97,5 Md (Afrik.com ; Cameroon Tribune donne ≈ 86 Md) ; indemnisation des riverains de la ligne : ≈ **4 Md FCFA** (Ecomatin).
+- **Propriété (complément à 4.3)** : rachat d'AES par Actis en 2014 : **202 M USD** (Journal du Cameroun) ou **220 M USD** pour un ensemble incluant d'autres actifs (Global Private Capital) ; annonce du rachat des 51 % par l'État en juin 2025 (Financial Afrik) ; capital de la SOCADEL : **43,9 Md FCFA** ; premier conseil d'administration le **28 mai 2026** (AllAfrica, article de mai 2026).
+- **PIRECT et réseau Nord** : le PIRECT comprend, côté camerounais, l'**interconnexion du réseau Sud et du réseau Nord** (appel d'offres de la Banque islamique de développement intitulé « South Interconnected Grid (SIG) – North Interconnected Grid (NIG) interconnection », 2023), avant le tronçon vers le Tchad. Le Compact (p. 36) prévoit la ligne Sud–Nord de 515 km pour 2028.
+- **Arrondis de référence** (à utiliser partout) : Nachtigal ≈ **3,1 M USD/MW** ; Memve'ele ≈ **1,7 fois** Soubré par MW ; Mekin ≈ **2,6 fois** Soubré par MW injecté ; les 54 Md manquants de Song Loulou ≈ **1,6 fois** le coût de Mekin ; Pacte ≈ **9,8** Nachtigal (en FCFA) et ≈ **32** Lom Pangar.
+- **Graphies** : « Edéa » (sans accent sur le E majuscule, usage local) ; « ndolè ».
+
 ### 4.3 Propriété d'Eneo, devenue SOCADEL
 2001 : AES prend 56 % de la SONEL → 2014 : Actis rachète, l'entreprise devient Eneo → capital : Actis 51 %, État 44 %, personnel 5 % → 10 février 2026 : l'État rachète pour **78 Md FCFA** → 4 mai 2026 : décret, Eneo devient **SOCADEL** (capitaux publics).
 
