@@ -2,7 +2,7 @@
 
 **LES MYSTÈRES DU TOMBEAU DE RAMSÈS VI — Volume 2 :** *Le Livre noyé — Abydos, là où tout commence*
 
-Choix de l'auteure (27/10/2026) : sujet **Abydos et l'Osireion** ; format **identique au Volume 1**
+Choix validé le 27/10/2026 : sujet **Abydos et l'Osireion** ; format **identique au Volume 1**
 (12 épisodes × 4 planches + 1 page documentaire, mêmes personnages).
 
 | Fichier | Contenu |
