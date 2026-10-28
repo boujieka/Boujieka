@@ -10,7 +10,7 @@
 > **diagnostic du secteur**. Les épisodes 14 et 15 aboutissent au **Pacte énergétique national**.
 >
 > Chaque petite scène de l'acte I plante une « graine » qui germe plus tard. Le lecteur doit
-> pouvoir dire, à l'épisode 13 : « Ah ! C'était donc ça, le congélateur de Mami Ngo ! »
+> pouvoir dire, à l'épisode 13 : « Ah ! C'était donc ça, la bière chaude du *Dernier Kilowatt* ! »
 
 ---
 
@@ -28,6 +28,9 @@
 
 | Personnage | Rôle dans l'histoire | Trait comique |
 |---|---|---|
+| **Boris** | Soudeur à Nkoagne, lanceur de l'enquête | Veut gagner la caisse de bières glacées |
+| **Le patron du *Dernier Kilowatt*** | Propriétaire du bar, arbitre du pari | Son congélateur « démissionne » à chaque coupure |
+| **Tonton Mballa** et **Mami Chantal** | Menuisier ; coiffeuse | Machines et sèche-cheveux « en congé sans solde » |
 | **Mami Ngo** | Vendeuse de poisson à Douala, porte-voix des ménages | Fait des procès à tout ce qui tombe en panne |
 | **Papa Tchinda** | Retraité, ancien gardien d'usine à Edéa | Raconte « l'époque de la SONEL » à chaque coupure |
 | **Fifi** | Étudiante en journalisme, meneuse d'enquête | Ne croit rien sans document tamponné |
@@ -43,19 +46,65 @@ Les barrages, pylônes et compteurs **parlent** à partir de l'acte II (procéd�
 ## ACTE I — « LA VIE À LA BOUGIE » (épisodes 1 à 5)
 *Aucun chiffre technique, aucune fiche. Seulement la vie. Chaque épisode finit sur une phrase-énigme.*
 
-### Épisode 1 — « Le poisson qui a vu trois coupures »
-**Douala, marché de New-Bell, saison sèche.**
-Mami Ngo a cassé sa tirelire pour acheter un congélateur. Première nuit : coupure. Deuxième nuit : coupure. Troisième nuit : le courant revient… trop fort, puis repart. Au matin, elle vend du « poisson rapidement fumé » et rebaptise son étal « Fumage involontaire ».
-- **Gag central** : Mami Ngo évente ses poissons avec un éventail géant en chantant pour les « garder calmes ».
-- **Arrière-plan** : à la radio, un journaliste annonce fièrement « des centaines de nouveaux mégawatts sur la Sanaga ».
-- **Graine plantée** : *« Si on produit plus de courant, pourquoi mon poisson pourrit plus ? »* → réponse à l'épisode 7 et au diagnostic (épisode 12).
+### Épisode 1 — « La bière chaude qui a réveillé tout le CONTINENT (Cameroun) ! »
+*Sous-titre : Au quartier Nkoagne, une bière non glacée déclenche la grande enquête sur les mégawatts du Cameroun.*
 
-### Épisode 2 — « Le coiffeur et son mariage avec le groupe électrogène »
-**Yaoundé, quartier Mvog-Mbi.**
-Le salon « Coupe Prestige » ne survit que grâce à un vieux groupe électrogène baptisé *Mama Diesel*. Le coiffeur dépense en carburant presque autant qu'en loyer. Quand le courant revient, personne ne l'éteint : « On ne quitte pas une femme fidèle pour une femme qui disparaît la nuit ! »
-- **Gag central** : demande en mariage officielle au groupe électrogène, avec dot en bidons de gasoil.
-- **Arrière-plan** : un panneau rouillé au bord de la route : « Ici bientôt : ligne haute tension ».
-- **Graine plantée** : le coût caché de l'électricité de secours (fil rouge jusqu'à l'épisode 12).
+> **Mise en page du titre** : « CONTINENT » en très gros caractères, « (Cameroun) » juste en dessous, en plus petit. C'est un clin d'œil à l'ambition panafricaine de *Courant Continental*.
+
+**Planche 1 — Un vendredi après-midi à Nkoagne, Douala.**
+Après une longue semaine sous la chaleur, les soudeurs, menuisiers, coiffeuses et petits entrepreneurs du quartier se retrouvent au bar **Le Dernier Kilowatt**. On entend des motos-taxis, des klaxons et le ronronnement des groupes électrogènes. Les conversations portent sur les commandes en retard, les machines immobilisées, les factures et les grands projets annoncés à la radio.
+
+Soudain, une nouvelle met le bar en ébullition : **les bières ne sont pas glacées !**
+
+**Boris, le soudeur** : « Patron ! C'est quoi ça ? Même le vendredi, on doit encore souffrir ? Tu nous sers la bière ou l'eau chaude pour faire le thé ? »
+
+**Le patron** : « Mon frère, depuis ce matin, le courant entre et sort comme un candidat en campagne ! Mon congélateur a fini par démissionner ! »
+
+**Tonton Mballa, le menuisier** : « Moi, mon atelier est paralysé. Le poste à souder de Boris ne travaille plus, mes machines sont arrêtées, et même le sèche-cheveux de Mami Chantal a demandé un congé sans solde ! »
+
+**Planche 2 — La grande confusion.**
+**Un client, levant sa bouteille tiède** : « Mais attendez un peu ! On nous parle de Lom Pangar, Nachtigal, Memve'ele, Mekin, PIRECT, ENEO, SOCADEL… Tous ces barrages, tous ces milliards, tous ces projets ! Mais pourquoi ma bière est-elle toujours chaude ? Et on veut même envoyer le courant jusqu'au Tchad ! Est-ce qu'on va aussi leur envoyer nos bières chaudes ? »
+
+*Éclat de rire général.*
+
+**Fifi, sortant son carnet** : « Attention ! Vous venez de mélanger des barrages, des entreprises, des institutions et un projet d'interconnexion. Ce n'est pas la même chose ! »
+
+**Boris** : « Alors explique-nous ! Qui produit ? Qui transporte ? Qui distribue ? Qui encaisse ? Et surtout, qui est responsable quand le courant disparaît ? »
+
+**Planche 3 — Le tableau noir de Fifi (case pédagogique).**
+Fifi retourne l'ardoise des prix du bar et dessine la chaîne. Chaque acteur a son dessin (un barrage, un pylône, un compteur, une balance, un cartable).
+
+| Ce que le client a cité | Ce que c'est vraiment | Son rôle dans la chaîne |
+|---|---|---|
+| **Lom Pangar** | Barrage-réservoir, avec une petite usine de 30 MW | **Stocke** l'eau de la Sanaga pour la saison sèche |
+| **Nachtigal** | Centrale hydroélectrique privée de 420 MW (NHPC : EDF, IFC, État) | **Produit** et vend son électricité |
+| **Memve'ele**, **Mekin** | Centrales hydroélectriques publiques (211 MW et 15 MW) | **Produisent** |
+| **SONATREL** *(ajoutée par Fifi)* | Société publique de transport | **Transporte** sur les lignes haute tension |
+| **ENEO → SOCADEL** | Le même opérateur. Eneo a été transformée en **SOCADEL**, société à capitaux publics, par décret du 4 mai 2026 | **Distribue, vend et encaisse** les factures ; exploite aussi des centrales (Song Loulou, Edéa, thermiques) |
+| **PIRECT** | Projet d'**interconnexion** des réseaux électriques Cameroun–Tchad. Ce n'est **pas un barrage** | **Relier** des réseaux |
+| **ARSEL**, **MINEE** *(ajoutés par Fifi)* | Régulateur ; ministère de l'Eau et de l'Énergie | **Fixent les règles** et contrôlent |
+
+**Fifi** : « Pour comprendre la température de ta bière, il va falloir enquêter sur toute la chaîne de l'électricité, depuis les grands barrages jusqu'au congélateur de Nkoagne ! »
+
+**Planche 4 — Le pari.**
+**Le patron, frappant le comptoir** : « Marché conclu ! Celui qui découvre pourquoi mes bières sont chaudes gagne une caisse entière de bières glacées ! »
+
+**Dernière case** : Boris, Fifi et les artisans se regardent. Derrière eux, un vieux téléviseur diffuse des images de barrages et de lignes électriques.
+**Boris** : « Alors, les amis… allons chercher les mégawatts ! »
+
+*À suivre : Épisode 2 — « Le soudeur qui soudait à la bougie ! »*
+
+- **Graine 1** : *« On parle de tant de mégawatts, pourquoi ma bière est-elle chaude ? »* Réponse à l'épisode 7 (Nachtigal) et au diagnostic (épisode 12).
+- **Graine 2, gag récurrent « les bières chaudes pour le Tchad »** : réponse à l'épisode 13. Révélation : la première phase du PIRECT sert d'abord à relier **le réseau Sud et le réseau Nord du Cameroun**. La section Maroua–Yagoua jusqu'à la frontière tchadienne attend un complément de financement. Le Tchad n'est donc pas responsable de la bière chaude de Nkoagne.
+- **Graine 3, « Qui est responsable ? »** : le fil rouge de toute la saison. Elle est tranchée au tribunal des mégawatts (épisode 7) et dans l'autopsie du kilowatt (épisode 12).
+- **La caisse de bières glacées** : c'est le prix final, remis à l'épisode 15.
+
+### Épisode 2 — « Le soudeur qui soudait à la bougie ! »
+**Nkoagne, l'atelier de Boris, lundi matin.**
+Boris a une grosse commande de portails à livrer. Le courant tombe, revient trop faible, puis repart. Le poste à souder grogne. Boris loue un vieux groupe électrogène baptisé *Mama Diesel*. Il découvre qu'en carburant, il dépense presque autant que pour son loyer. Quand le courant revient, il refuse d'éteindre le groupe : « On ne quitte pas une femme fidèle pour une femme qui disparaît la nuit ! »
+- **Gag central** : demande en mariage officielle à *Mama Diesel*, avec une dot en bidons de gasoil. Tonton Mballa est le témoin.
+- **Arrière-plan** : un panneau rouillé au bord de la route annonce « Ici bientôt : ligne haute tension ».
+- **Graine plantée** : le coût caché de l'électricité de secours, fil rouge jusqu'à l'épisode 12.
 
 ### Épisode 3 — « Le bac à la bougie »
 **Ebolowa, la veille du baccalauréat.**
@@ -69,14 +118,14 @@ Les villageois célèbrent l'arrivée d'un poteau électrique : danse, discours,
 - **Gag central** : les enfants accrochent un hamac au poteau, « au moins il sert à quelque chose ».
 - **Graine plantée** : la différence entre **infrastructure construite** et **service rendu** → diagnostic, épisode 12.
 
-### Épisode 5 — « À Maroua, le soudeur travaille à l'heure du soleil »
+### Épisode 5 — « À Maroua, le tailleur coud à l'heure du soleil »
 **Maroua, Extrême-Nord.**
-Le soudeur Adamou ne travaille qu'entre deux coupures. Junior lui installe un petit kit solaire : la radio marche, mais le poste à souder, lui, refuse. Adamou veut « capturer le soleil dans un sac de riz pour la nuit ».
+Le tailleur Adamou ne coud qu'entre deux coupures. Junior lui installe un petit kit solaire : la radio marche, mais la machine à coudre électrique et le fer à repasser refusent. Adamou veut « capturer le soleil dans un sac de riz pour la nuit ».
 - **Gag central** : Adamou attend minuit avec son sac ouvert, au cas où il resterait du soleil.
 - **Arrière-plan** : un oncle de Garoua parle du « barrage de Lagdo qui fatigue » et d'un réseau du Nord séparé du Sud.
 - **Graine plantée** : *« Pourquoi le courant du Sud ne monte-t-il pas au Nord ? »* → épisode 10 et épisode 13.
 
-> **Chute de l'acte I (dernière planche de l'épisode 5).** Toute la troupe se retrouve, par hasard, dans le même car Douala–Yaoundé. Chacun raconte sa misère. Fifi sort un carnet : « On a cinq histoires et une seule question : *où passe le courant ?* On va enquêter. Barrage par barrage. »
+> **Chute de l'acte I (dernière planche de l'épisode 5).** Toute la troupe se retrouve, par hasard, dans le même car Douala–Yaoundé. Boris tient la photo de la caisse de bières promise par le patron du *Dernier Kilowatt*. Fifi rouvre son carnet : « On a cinq histoires et une seule question : *où passe le courant ?* On va enquêter. Barrage par barrage. »
 
 ---
 
@@ -106,8 +155,8 @@ Avec à peu près la même somme (≈ 331 Md FCFA), la Côte d'Ivoire a construi
 ---
 
 ### Épisode 7 — NACHTIGAL : « 420 mégawatts, mais qui a volé la lumière ? »
-**Réponse à la graine de l'épisode 1 (« on produit plus, pourquoi je suis dans le noir ? »).**
-Mami Ngo porte plainte. **Tribunal des mégawatts** à Douala (extrait déjà écrit, à conserver) : Nachtigal témoigne qu'il produit ; le Transport dit qu'il manque de lignes et de postes ; la Distribution dit que son réseau est fatigué ; Papa Tchinda conclut : « Tout le monde travaille, mais mon ampoule est au chômage ! »
+**Réponse à la graine de l'épisode 1 (« tant de mégawatts, pourquoi ma bière est-elle chaude ? »).**
+Le patron du *Dernier Kilowatt* et Mami Ngo portent plainte ensemble. **Tribunal des mégawatts** à Douala (extrait déjà écrit, à conserver) : Nachtigal témoigne qu'il produit ; le Transport dit qu'il manque de lignes et de postes ; la Distribution dit que son réseau est fatigué ; Papa Tchinda conclut : « Tout le monde travaille, mais mon ampoule est au chômage ! »
 - **Rebondissement** : produire ≠ transporter ≠ livrer. La lumière n'a pas été « volée » : elle s'est perdue en route (indice clé pour l'épisode 12).
 
 **📌 Combien ça a coûté ?**
@@ -187,10 +236,10 @@ Avec le coût de Mekin par MW injecté, Soubré (≈ 1,2 Md FCFA/MW) aurait four
 | Élément | Montant | Source / remarque |
 |---|---|---|
 | Réhabilitation de Song Loulou : besoin total | ≈ 72 milliards FCFA | Cameroun24 |
-| Déjà mobilisé | ≈ 18 Md FCFA (dont ≈ 11 Md sur fonds propres d'Eneo) | Cameroun24 |
+| Déjà mobilisé | ≈ 18 Md FCFA (dont ≈ 11 Md sur fonds propres d'Eneo, avant sa transformation en SOCADEL) | Cameroun24 |
 | **Manque** | **≈ 54 milliards FCFA** | Business in Cameroon, Cameroun24 |
 | Alerte technique | Le cabinet ISL aurait signalé dès 2013 des risques sur les ouvrages en béton, prises d'eau et évacuateurs | Cameroun24 — à présenter comme « rapporté » |
-| Capacité | 384 ou 396 MW selon les sources (Song Loulou) ; 263 MW (Edéa) | Divergence à trancher avec Eneo/ARSEL |
+| Capacité | 384 ou 396 MW selon les sources (Song Loulou) ; 263 MW (Edéa) | Divergence à trancher avec SOCADEL/ARSEL |
 
 **🌍 Comparaison parlante** : les 54 Md FCFA manquants représentent **environ une fois et demie le coût total de Mekin**, mais protègent une centrale **plus de 25 fois plus puissante**.
 
@@ -228,10 +277,11 @@ Le village de Nkol-Lumière (épisode 4) prépare une inauguration… du barrage
 
 | Indice de l'acte I | Ce qu'il révèle | Chiffre officiel (Compact énergétique national) |
 |---|---|---|
-| Le poisson de Mami Ngo (ép. 1) | Le courant produit se perd en route | **Rendement de distribution : 73 %** ; objectif 88 % |
+| La bière chaude du *Dernier Kilowatt* (ép. 1) | Le courant produit se perd en route | **Rendement de distribution : 73 %** ; objectif 88 % |
 | Le compteur et la fraude (fil rouge) | Une partie du courant n'est jamais facturée | **Pertes commerciales : 14 % en 2023** |
-| Le coiffeur et *Mama Diesel* (ép. 2) | Les clients paient deux fois : facture + carburant | — (coût du secours non chiffré dans le Compact) |
+| Boris et *Mama Diesel* (ép. 2) | Les clients paient deux fois : la facture et le carburant | — (coût du secours non chiffré dans le Compact) |
 | Les factures non payées | Le secteur manque d'argent pour entretenir | **Taux de recouvrement : 72 %** ; objectif 90 % en 2030 |
+| « Qui encaisse ? » (ép. 1) | L'opérateur hérite d'une lourde dette | **SOCADEL** (ex-Eneo, publique depuis mai 2026) hérite d'environ **800 Md FCFA de dette**, selon la presse |
 | Le poteau de Nkol-Lumière (ép. 4) | Construire ≠ brancher | Accès estimé entre ≈ 60 et 68 % selon les sources ; ≈ 28 % en milieu rural selon l'ECAM5 de l'INS |
 | Mekin, Memve'ele, Bini à Warak (ép. 8, 9, 11) | Retards et dépassements | Bini à Warak × 2,2 ; Mekin + 38 % |
 | Song Loulou (ép. 10) | L'entretien est le parent pauvre | 54 Md FCFA manquants |
@@ -243,9 +293,11 @@ Fifi : « Le problème n'est pas un barrage. C'est la **chaîne entière**. »
 ---
 
 ### Épisode 13 — « Le courant traverse la frontière sans passeport ! »
-**Réponse à la graine de l'épisode 5 (Nord / Sud).**
-Le Kilowatt veut aller de Yaoundé à Maroua, puis au Tchad. Bloqué : le **Réseau interconnecté Sud** et le **Réseau interconnecté Nord** sont deux mondes. Au poste-frontière, on lui demande un « visa d'interconnexion ».
-- **Révélation** : le Compact prévoit **1 000 MW de capacité de transit transfrontalier d'ici 2030** et des études d'interconnexion avec le Nigeria à achever d'ici fin 2027 (PEAC/WAPP).
+**Réponse aux graines de l'épisode 1 (« les bières chaudes pour le Tchad ») et de l'épisode 5 (Nord / Sud).**
+Le Kilowatt veut aller de Yaoundé à Maroua, puis au Tchad. Il est bloqué : le **Réseau interconnecté Sud** et le **Réseau interconnecté Nord** sont deux mondes séparés. Au poste-frontière, on lui demande un « visa d'interconnexion ».
+- **Révélation 1, le PIRECT** : le projet d'interconnexion Cameroun–Tchad sert d'abord à **relier le Sud et le Nord du Cameroun**. Les travaux ont été lancés en mars 2025. D'après Cameroon Tribune (août 2026), la section Maroua–Yagoua jusqu'à la frontière tchadienne sera lancée plus tard, avec un complément de financement. Business in Cameroon évoque un retard jusqu'à 2029 au moins. Boris : « Donc avant de servir le Tchad, le câble doit d'abord servir Maroua ! »
+- **📌 Combien ça coûte ?** Environ **557,5 Md FCFA** selon Ecomatin (cofinancement Banque mondiale, BAD et BID). Une fiche PIDA de l'Union africaine indique **768 M €** (≈ 504 Md FCFA), dont 43 % acquis à la date de la fiche. Les périmètres diffèrent, et la longueur des lignes varie selon les sources.
+- **Révélation 2** : le Compact prévoit **1 000 MW de capacité de transit transfrontalier d'ici 2030** et des études d'interconnexion avec le Nigeria à achever d'ici fin 2027 (PEAC/WAPP).
 - **Équivalent africain** : l'Éthiopie a annoncé des accords d'exportation d'électricité avec le Soudan, Djibouti et le Kenya (présentés par l'Éthiopie ; leur réalisation reste discutée).
 - **Retour à Maroua** : Adamou découvre le solaire avec stockage. Junior : « Le soleil ne se met pas dans un sac de riz, mais dans une batterie, et ça a un prix. »
 
@@ -280,7 +332,7 @@ Le Kilowatt veut aller de Yaoundé à Maroua, puis au Tchad. Bloqué : le **Rés
 **❓ Question citoyenne** : Combien des 6,5 milliards privés sont-ils déjà engagés par contrat signé ? **Preuve à chercher** : rapports de suivi Mission 300, contrats publiés par le MINEE.
 
 ### Épisode 15 — « Monsieur 2030, présentez votre bulletin de notes ! »
-**Finale de saison : jury citoyen** composé de Mami Ngo, du coiffeur, d'Adamou, du chef de Nkol-Lumière et de Papa Tchinda. Chaque engagement du Pacte reçoit une case « Preuve fournie / Preuve attendue ».
+**Finale de saison : jury citoyen** composé de Boris, du patron du *Dernier Kilowatt*, de Mami Ngo, d'Adamou, du chef de Nkol-Lumière et de Papa Tchinda. Chaque engagement du Pacte reçoit une case « Preuve fournie / Preuve attendue ».
 
 | Matière | Point de départ | Objectif 2030 | Note du jury (fictive) |
 |---|---|---|---|
@@ -290,7 +342,7 @@ Le Kilowatt veut aller de Yaoundé à Maroua, puis au Tchad. Bloqué : le **Rés
 | Cuisson propre | — | 40 % | Mami Ngo convoque le charbon au tribunal (teaser de la saison 2) |
 | Grands projets | Kikot, Bini à Warak, Grand Eweng non mis en service | Calendriers tenus | « On note les dates. On reviendra. » |
 
-**Dernière planche** : Monsieur 2030 range son cartable. Fifi lui tend un carnet : « Chaque année, on vous redemande le bulletin. » Le Kilowatt, revenu à la vie, allume enfin le congélateur de Mami Ngo. Elle regarde la caméra : « Saison 2 : *La guerre des compteurs*. Et cette fois, c'est moi qui lis le compteur ! »
+**Dernière planche** : Monsieur 2030 range son cartable. Fifi lui tend un carnet : « Chaque année, on vous redemande le bulletin. » Retour au *Dernier Kilowatt* : le patron remet la caisse de bières promise… à tout le quartier, car « la réponse, c'est toute la chaîne, pas un seul coupable ». Le Kilowatt, revenu à la vie, allume enfin le congélateur. Elle regarde la caméra : « Saison 2 : *La guerre des compteurs*. Et cette fois, c'est moi qui lis le compteur ! »
 
 ---
 
@@ -311,6 +363,10 @@ Le Kilowatt veut aller de Yaoundé à Maroua, puis au Tchad. Bloqué : le **Rés
 ---
 
 ## 3. Ce qui reste à vérifier avant l'impression
+
+- **Eneo → SOCADEL (mai 2026)** : le Compact, rédigé avant cette date, décrit encore Eneo comme détenue à 51 % par Actis. Tous les textes de l'album doivent dire **SOCADEL (ex-Eneo)** pour la période actuelle et « Eneo » seulement pour les faits antérieurs à mai 2026.
+- **Quartier « Nkoagne »** : je n'ai trouvé aucune trace d'un quartier de ce nom à Douala. Soit il s'agit d'un nom local à confirmer, soit il faut le présenter comme un quartier fictif dans l'ours de l'album.
+- **PIRECT** : le coût (557,5 Md FCFA ou 768 M €), la longueur des lignes et la date de mise en service varient selon les sources.
 
 - **Solaire du Septentrion (Maroua, Guider)** : capacités, coûts et opérateurs non vérifiés ici ; la légende « CFA6bn » du dossier initial n'a pas été confirmée. L'épisode 5 et l'épisode 13 n'utilisent donc aucun chiffre solaire.
 - **Memve'ele** : savoir si les ≈ 97,5 Md FCFA de la ligne sont inclus dans les 420 Md.
@@ -347,6 +403,13 @@ Le Kilowatt veut aller de Yaoundé à Maroua, puis au Tchad. Bloqué : le **Rés
 - Accès à l'électricité (ECAM5) : https://ecomatin.net/electricite-face-aux-disparites-le-cameroun-recherche-une-expertise-pour-elaborer-sa-strategie-nationale-delectrification
 - Accès à l'électricité (67 %, 2024) : https://www.businessincameroon.com/energy/3004-13798-cameroun-sees-modest-rise-in-electricity-access-rural-disparity-remains
 - Coût du Pacte : https://ecomatin.net/cameroun-letat-mise-sur-un-plan-de-pres-de-8-000-milliards-fcfa-pour-electrifier-tout-le-pays-dici-2030 et https://africa24tv.com/?p=150405
+
+- SOCADEL, décret de transformation d'Eneo : https://www.cameroon-tribune.cm/articles/11086/fr/ et https://www.enerdata.net/publications/daily-energy-news/cameroon-renationalises-power-company-eneo-renames-it-socadel.html
+- SOCADEL, dette héritée : https://www.camer.be/93347/30:27/socadel-le-cameroun-reprend-son-electricite-mais-800-milliards-de-dettes-attendent-cameroon.html
+- PIRECT, fiche PIDA : https://lfs.au-pida.org/uploads/files/Fiches/01/Energy/6.Interconnexion-des-R%C3%A9seaux-%C3%89lectriques-du-Cameroun-et-du-Tchad-PIRECT.pdf
+- PIRECT, lancement des travaux : https://ecomatin.net/electricite-les-travaux-dinterconnexion-cameroun-tchad-lances-apres-le-versement-de-54-milliards-fcfa-dindemnisations
+- PIRECT, retard : https://www.businessincameroon.com/energy/0809-16700-cameroon-chad-power-interconnection-faces-delay-to-at-least-2029-under-current-tender-timelines
+- PIRECT, mise en service préparée : https://cameroon-tribune.cm/article.html/79779/fr.html/details_2
 
 **Ailleurs en Afrique**
 - Soubré (Côte d'Ivoire) : https://news.abidjan.net/articles/617859/dun-cout-de-331-milliards-de-fcfa-le-barrage-de-soubre-affiche-sa-grande-capacite
