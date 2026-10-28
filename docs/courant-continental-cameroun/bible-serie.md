@@ -155,6 +155,18 @@ Une BD **drôle d'abord**. On doit rire à chaque planche, comme devant un sketc
 - **Usage comique** : au concours des mégawatts, Edéa arrive bien habillé (« moi, on m'a soigné ! »). Son voisin Song Loulou tousse. Quand le réseau s'effondre, les deux tombent ensemble : « Ça ne sert à rien d'être en forme si la route est coupée. »
 - **Interdit** : affirmer qu'Edéa est mal entretenue. Aucune source récente ne le dit.
 
+**Kribi et Dibamba : les centrales thermiques, le fuel et les impayés** (Globeleq, Investir au Cameroun, Ecomatin, Economie du Cameroun)
+- **Kribi** (KPDC) : **216 MW** au gaz naturel, mise en service en **2013**, 13 moteurs Wärtsilä, contrat d'achat de 20 ans. Gaz du gisement offshore **Sanaga Sud**, fuel léger en secours (Globeleq). **Dibamba** (DPDC) : **88 MW** au **fioul lourd**. Les deux sont des filiales de Globeleq.
+- Selon le Compact (p. 35), le parc est composé de **16,13 % de thermique au fuel et 10,74 % de gaz** (2025) ; près de 23 % de l'énergie produite vient des combustibles fossiles (p. 37). Le Compact prévoit d'**hybrider au solaire** les centrales thermiques d'ici 2027 et les 6 centrales isolées d'ici 2030.
+- **Coût du combustible** : courrier d'Eneo du 14 février 2024 : surcoûts d'achat de combustible de **10 Md FCFA en février** et **8 Md en mars 2024** ; Eneo demande **18 Md** à l'État pour atténuer les délestages (Investir au Cameroun). Déficit financier mensuel moyen d'Eneo : **≈ 13 Md FCFA**.
+- **Contrats de capacité** : selon le gouvernement, ils coûtent **≈ 8 Md FCFA par mois** au système ; une restructuration viserait environ **3 Md d'économie mensuelle** (Economie du Cameroun).
+- **Arrêts pour impayés** : Kribi et Dibamba **arrêtées de septembre 2024 à février 2025**, avec des créances d'environ **137 Md FCFA** sur Eneo (Investir au Cameroun).
+- **Juin 2026** : selon une note du MINEE du 2 juin 2026, KPDC et DPDC **retirent 304 MW** du réseau Sud. Ecomatin rapporte des **délestages touchant 40 % des usagers du Littoral et de l'Ouest**, liés à un blocage des comptes de Globeleq par le fisc.
+- **Réponse de l'État** : après Eneo, **reprise de KPDC** (et de DPDC) en préparation (Economie du Cameroun, Sikafinance).
+- **Lien direct avec la bière chaude** : Nkoagne est à Douala, donc dans le Littoral. Les délestages de juin 2026 touchent précisément ce quartier fictif.
+- **Gag possible** : Dibamba boit du fioul lourd au bar : « Patron, remets-moi un fût ! » Le patron répond : « Paie d'abord l'ardoise ! » Kribi, au gaz, se vante d'être « plus propre », mais boude dès qu'on ne la paie pas. Puis les deux quittent la soirée ensemble, et le bar s'éteint.
+- **Nuances** : Globeleq n'est pas un méchant ; ses arrêts répondent à des **impayés documentés**. Le blocage fiscal est rapporté par la presse. On montre un **conflit financier**, pas une faute morale.
+
 **Règle « C'est le fey ! »** : le mot camerounais *fey* (arnaque ; *feyman*, escroc) peut être lancé par un personnage, sous le coup de la colère, comme on le dirait au bar. **Immédiatement**, le patron (« Source ? ») ou Fifi recadre. Exemple :
 > Boris : « Payer 420 MW quand la ligne n'en prend que la moitié ? C'est le fey ! »
 > Fifi : « Le fey, c'est un délit, et il faut un juge pour le dire. Ici, on a un contrat signé et une ligne en retard. Le vrai scandale possible, c'est la **coordination**. Et ça, on peut le prouver avec des dates. »
