@@ -177,7 +177,7 @@
 ---
 
 ### Épisode 15 — « Le soleil de Maroua réclame son contrat ! »
-*Adamou, tailleur de Maroua, veut mettre le soleil dans un sac de riz pour la nuit ; Junior lui vend du rêve, Grâce lui vend des normes.*
+*Adamou, tailleur de Maroua, veut mettre le soleil dans un sac de riz pour la nuit ; Junior lui vend du rêve, Grâce lui vend des normes, et le Nord découvre qu'il dépend d'un seul barrage et de la pluie.*
 **Lieu / Moment** : *Le Dernier Kilowatt*, dimanche, de midi à la tombée de la nuit, avec un récit d'Adamou qui se passe à Maroua (cases en tons ocre).
 
 #### Planche 1 — « Un sac de riz pour le soleil »
@@ -198,40 +198,40 @@
 | 4 | Grâce montre une page imprimée avec un tampon « NORME ». | Grâce : « Il existe une norme de qualité pour ce genre de kits : IEC/TS 62257-9-8. Le Compact dirait que l'ANOR l'a adoptée. » [DONNÉE À VÉRIFIER : référence, adoption par l'ANOR et seuil d'application, absents de la bible] · Junior : « Une norme ? Moi, je suis débrouillard, pas certifié ! » |
 | 5 | Junior branche le kit sur la lampe d'Adamou : la lampe clignote, puis le kit fume. Le Kilowatt sort de la batterie en se bouchant le nez. | Mola Ndip : « Massa! Dis light don go again! » · *Traduction : Massa ! Le courant est encore parti !* · Le Kilowatt : « Je démissionne de cette batterie ! » |
 
-#### Planche 3 — « Le soleil réclame son contrat »
+#### Planche 3 — « Le Nord suspendu à la pluie »
 | Case | Image | Texte |
 |---|---|---|
-| 1 | Récit d'Adamou, tons ocre. Maroua, un champ de panneaux solaires aux portes de la ville. Le Soleil, personnage rond à casquette, debout sur les panneaux, brandit une feuille « CONTRAT ? ». | Récitatif : *À Maroua, dans le récit d'Adamou…* · Le Soleil : « Je brille sur 15 mégawatts-crête ici, et 15 autres à Guider. Où est mon contrat ? » |
-| 2 | Retour au bar. Grâce dessine à la craie un panneau et un petit soleil, avec une flèche « CRÊTE ». | Grâce : « Maroua, **15 MWc**, et Guider, **15 MWc** : développées avec Scatec, Compact p. 41. "MWc", c'est la puissance-crête : en plein soleil. Pas la nuit, pas sous les nuages. » [DONNÉE À VÉRIFIER : statut des deux centrales, en service ou en projet] |
-| 3 | Adamou s'illumine, il caresse son sac de riz. | Adamou : « Donc le soleil fait sa journée, puis il rentre dormir. Comme moi. » · Grâce : « Oui. Pour la nuit, il faut stocker, avec des batteries. Ton sac de riz, c'est ça. » · Adamou : « Mon sac de riz a un nom savant ! » |
-| 4 | Grâce écrit deux chiffres au tableau. Tonton Mballa lève les mains ; tout le bar lève les mains pour l'aider à compter. | Grâce : « **350 mini-centrales solaires** construites. Un programme rural de **1 000 localités**, dont **437 électrifiées** (Compact p. 37-38). » · Tonton Mballa : « Il en reste 563. Prêtez-moi vos doigts, tout le quartier ! » |
-| 5 | Le Soleil (personnage) apparaît dans l'encadrement de la porte du bar, vexé, sa feuille à la main. Fifi lui répond. | Fifi : « Un contrat d'achat dit qui achète le courant, à quel prix, et pendant combien de temps. » [DONNÉE À VÉRIFIER : acheteur, prix et durée des contrats de Maroua et de Guider, absents de la bible] · Le Soleil : « Je travaille gratis depuis toujours, et c'est moi qui dois signer des papiers ? » |
+| 1 | Récit d'Adamou, tons ocre. Sur la Bénoué, le barrage de Lagdo, personnifié en vieux monsieur en boubou délavé, boit dans une calebasse vide. Adamou, au premier plan, regarde le ciel sans nuage de Maroua. | Récitatif : *Dans le Nord, selon le récit d'Adamou…* · Grâce (off) : « Le réseau Nord (Adamaoua, Nord, Extrême-Nord) est **séparé** du Sud (Compact p. 35). Il dépend surtout d'un barrage : **Lagdo, 72 MW, mis en eau en 1983**. » · Adamou : « Chez nous, le courant dépend de deux ministres : celui de l'Énergie… et celui de la pluie ! » |
+| 2 | Toujours en ocre. Dans la salle des machines de Lagdo, un seul alternateur tourne au milieu des autres, à l'arrêt. En ville, des boutiques éteintes ; une affiche « PLAN DE DÉLESTAGE » sur un mur de Garoua. | Grâce (off) : « En 2025, Eneo invoque une **pluviométrie insuffisante** sur le bassin de la Bénoué. Un témoin rapporte qu'entre février et mai, Lagdo ne tourne qu'avec **un seul alternateur**. Délestages à **Garoua**, Guider, Tcholliré, Figuil, Dembo, Mayo Oulo (Cameroun24). » · Adamou : « Un alternateur pour trois régions. Même ma machine à coudre a deux pédales. » |
+| 3 | Retour au bar. Grâce dessine à la craie six petits groupes thermiques, chacun relié à un bidon. Boris mime un camion-citerne. | Grâce : « En secours : **six centrales thermiques d'appoint**, qui dépendent du **carburant** (presse, 2025). » · Boris : « Donc quand il ne pleut pas, on allume le courant… avec du gasoil ! » · Grâce : « Attention, piège ! La sécheresse est **réelle**, ce n'est pas une excuse inventée. Le problème, c'est de dépendre d'une seule source. » |
+| 4 | Le « chrono de la coordination » : deux horloges dessinées côte à côte, « RÉHABILITATION ANNONCÉE : 2017 » et « RÉHABILITATION TOUJOURS ANNONCÉE : 2025 », avec un compteur « 8 ANS ». Sous les horloges, Lagdo bloqué sur une jauge « 72 MW ». Boris s'énerve, Fifi le recadre. | Fifi : « Lagdo est à **72 MW chaque année depuis 2015**, selon Eneo. Une réhabilitation à **100 milliards FCFA** est évoquée **dès 2017**. En **2025**, on l'annonce toujours : de 72 à **80 MW**, même coût prévisionnel. Aucun calendrier officiel confirmé. » · Boris : « Huit ans d'annonces ? C'est le fey ! » · Fifi : « Le fey, il faut un juge pour le dire. Ici, on a deux dates et une réhabilitation qui attend. Ça, c'est prouvé. » |
+| 5 | Le Soleil (personnage rond à casquette) entre dans le bar, manches retroussées, comme un renfort qui arrive sur un chantier. Grâce dessine un panneau avec une flèche « CRÊTE » et, à côté, le sac de riz d'Adamou. | Le Soleil : « Me voilà en renfort : **15 MWc à Maroua**, **15 MWc à Guider** (Compact p. 41 ; renforcement rapporté par Enjeux Économiques et Mongabay, oct. 2025). Et mon contrat ? » · Grâce : « "Crête", c'est en plein soleil. La nuit, il faut stocker : des batteries. » · Adamou : « Mon sac de riz a un nom savant ! » [DONNÉE À VÉRIFIER : acheteur, prix et durée des contrats de Maroua et de Guider] |
 
 #### Planche 4 — « Le courant du Nord dort tout seul »
 | Case | Image | Texte |
 |---|---|---|
-| 1 | Grâce dessine deux cercles séparés à la craie, « SUD » et « NORD », sans trait entre eux. Adamou fronce les sourcils. | Adamou : « Et quand le soleil de Maroua est fatigué, on prend le courant de Nachtigal ? » · Grâce : « Pas encore. Le réseau Nord (Adamaoua, Nord, Extrême-Nord) est **séparé** du réseau Sud. Compact p. 35. » |
-| 2 | Grâce trace un pointillé entre les deux cercles : « 2028 ? ». Mola Ndip hoche la tête. | Grâce : « L'interconnexion Sud–Nord est **prévue** pour **2028** : ligne 225 kV double terne, **515 km** (Compact p. 36). Prévue. Pas construite. » · Mola Ndip : « Na so. Small small. » · *Traduction : C'est comme ça. Petit à petit.* |
-| 3 | Junior, la tête basse, tend son carnet au patron comme une copie d'examen. | Junior : « Patron, j'ai trouvé le coupable : le soleil ne travaille pas la nuit ! La caisse est à moi ! » · Le patron : « Le soleil de Maroua n'est pas branché sur mon congélateur. Et ton kit a fondu. » |
+| 1 | Grâce dessine deux cercles séparés, « SUD » et « NORD », puis un pointillé entre eux : « 2028 ? ». Mola Ndip hoche la tête. | Grâce : « La vraie solution, c'est l'interconnexion Sud–Nord, **prévue** pour **2028** : ligne 225 kV double terne, **515 km** (Compact p. 36). Elle doit aussi amener le courant de Nachtigal vers le Nord. Prévue. Pas construite. » · Mola Ndip : « Na so. Small small. » · *Traduction : C'est comme ça. Petit à petit.* |
+| 2 | Grâce écrit deux chiffres au tableau. Tonton Mballa lève les mains ; tout le bar lève les mains pour l'aider à compter. | Grâce : « Pour les villages : **350 mini-centrales solaires** construites, et un programme rural de **1 000 localités**, dont **437 électrifiées** (Compact p. 37-38). » · Tonton Mballa : « Il en reste 563. Prêtez-moi vos doigts, tout le quartier ! » |
+| 3 | Junior, la tête basse, tend son carnet au patron comme une copie d'examen. | Junior : « Patron, j'ai trouvé le coupable : le soleil ne travaille pas la nuit, et la pluie ne travaille pas en saison sèche ! La caisse est à moi ! » · Le patron : « Ni le soleil ni la pluie ne sont branchés sur mon congélateur. Et ton kit a fondu. » |
 | 4 | Le soir tombe. *CLAC* : coupure, tout le bar est noir. Seul Adamou, calme, ouvre son sac de riz : dedans, une vraie batterie avec une étiquette « Conforme à la norme [référence à vérifier] ». La petite lampe de sa machine à coudre s'allume. | SFX : *CLAC !* · Junior : « Le soleil est dans le sac ! » |
-| 5 | Adamou, seul îlot de lumière du bar, enfile son aiguille sous la lampe. Tout le monde s'est rapproché de lui comme d'un feu de camp. Monsieur Congélateur pleure des glaçons… tièdes. | Adamou : « Non, petit. Le soleil dort. C'est la batterie qui fait le service de nuit. » · Monsieur Congélateur : « Et moi ? Un sac de riz pour moi aussi ! » · Adamou : « Toi, il te faut un sac de ciment… et la ligne de 2028. » · Récitatif : *Prochain épisode : un village a reçu les poteaux… mais pas les ampoules !* |
+| 5 | Adamou, seul îlot de lumière du bar, enfile son aiguille sous la lampe. Tout le monde s'est rapproché de lui comme d'un feu de camp. Monsieur Congélateur pleure des glaçons… tièdes. | Adamou : « Non, petit. Le soleil dort. C'est la batterie qui fait le service de nuit. » · Monsieur Congélateur : « Et moi ? Un sac de riz pour moi aussi ! » · Adamou : « Toi, il te faut un sac de ciment… la pluie sur Lagdo… et la ligne de 2028. » · Récitatif : *Prochain épisode : un village a reçu les poteaux… mais pas les ampoules !* |
 
-#### Page documentaire — Le carnet de Fifi : « Le soleil du Nord »
+#### Page documentaire — Le carnet de Fifi : « Le Nord, entre la pluie et le soleil »
 | Élément | Donnée | Source |
 |---|---|---|
-| Centrale solaire de Maroua | **15 MWc**, développée avec Scatec ; statut [DONNÉE À VÉRIFIER] | Compact p. 41 |
-| Centrale solaire de Guider | **15 MWc**, développée avec Scatec ; statut [DONNÉE À VÉRIFIER] | Compact p. 41 |
-| Mini-centrales solaires décentralisées | **350 construites** | Compact p. 37-38 |
-| Programme rural | **1 000 localités, dont 437 électrifiées** | Compact p. 37-38 |
-| Part du solaire dans la capacité installée | **3 %** (2025) | Compact p. 35 |
-| Kits solaires dans le Pacte | **45 M USD** sur 12 554 (besoin de financement, pas de l'argent disponible) | Compact p. 10 |
-| Réseaux | Nord **séparé** du Sud ; interconnexion **prévue en 2028** (225 kV, 515 km) | Compact p. 35-36 |
-| Norme des kits | IEC/TS 62257-9-8, adoption par l'ANOR et seuil d'application [DONNÉE À VÉRIFIER] | À vérifier dans le Compact |
+| Réseau Nord | **Séparé** du réseau Sud (Adamaoua, Nord, Extrême-Nord) | Compact p. 35 |
+| Barrage de Lagdo | **72 MW**, sur la Bénoué, mis en eau en **1983** ; source principale du réseau Nord ; puissance de **72 MW « chaque année depuis 2015 »** selon Eneo | Presse : Agence Ecofin, camer.be, IRD [attribution exacte de chaque fait à vérifier] |
+| Saison sèche 2025 | **Pluviométrie insuffisante** invoquée par Eneo ; **un seul alternateur** entre février et mai (témoignage) ; délestages à Garoua (8 h-18 h, annoncés un 20 janvier, **année à préciser**), Tcholliré, Figuil, Guider, Dembo, Mayo Oulo | Cameroun24 ; presse 2025 |
+| Secours thermique | **Six centrales d'appoint**, dépendantes du carburant (≈ 72 MW au total selon **une seule source**) | Presse [source à préciser] |
+| Réhabilitation de Lagdo | **100 Md FCFA** évoqués dès **2017** ; en **2025**, toujours annoncée (72 → 80 MW, coût prévisionnel 100 Md FCFA) ; **aucun calendrier officiel confirmé** | Presse 2017 et 2025 [titres et dates exactes à vérifier] |
+| Solaire de Maroua et Guider | **15 MWc** chacune, développées avec Scatec ; **renforcées** (2025) ; statut détaillé [DONNÉE À VÉRIFIER] | Compact p. 41 ; Enjeux Économiques ; Mongabay (oct. 2025) |
+| Villages | **350 mini-centrales solaires** construites ; **1 000 localités** au programme rural, dont **437 électrifiées** ; kits solaires : **45 M USD** de besoin dans le Pacte | Compact p. 37-38 ; p. 10 |
+| Interconnexion Sud–Nord | **Prévue en 2028** : 225 kV double terne, 515 km ; doit aussi évacuer Nachtigal vers le Nord. Norme des kits IEC/TS 62257-9-8 [DONNÉE À VÉRIFIER] | Compact p. 36 |
 
-> **Grâce — « Attention, piège ! »** : 15 MWc, c'est le maximum en plein soleil, pas 15 MW à toute heure. Sans stockage, une centrale solaire ne fournit rien la nuit.
+> **Grâce — « Attention, piège ! »** : la sécheresse est réelle ; personne ne commande la pluie. La question du comité porte sur deux choses vérifiables : **pourquoi tout un réseau dépend d'une seule source**, et **pourquoi une réhabilitation annoncée en 2017 l'est encore en 2025**. Et 15 MWc, c'est le maximum en plein soleil, pas 15 MW la nuit.
 
 #### Baromètre de Nkoagne : ligne mise à jour cette semaine
-**Nouvelle ligne, « Solaire du Nord »** : « Maroua 15 MWc et Guider 15 MWc cités par le Compact (p. 41), statut à vérifier. Réseau Nord séparé jusqu'à l'interconnexion **prévue** en 2028. Kit du Junior : retiré de la vente. »
+**Nouvelle ligne, « Courant du Nord »** : « Réseau séparé, suspendu à Lagdo (72 MW, 1983) et à la pluie. Réhabilitation : annoncée en 2017, toujours annoncée en 2025. Renfort : solaire de Maroua et Guider (2 × 15 MWc). Solution prévue : interconnexion en 2028. Kit de Junior : retiré de la vente. »
 
 #### Mini-lexique
 - **Jam na ? / Jam koo** : salutation en fulfulde et sa réponse (« Ça va ? » / « Ça va bien »).
@@ -243,7 +243,8 @@
 
 #### Notes pour le dessinateur
 - Adamou est **digne et drôle par son calme**, jamais ridicule : son accent n'est pas imité, seul son art de la formule fait rire.
-- Les cases de Maroua (P3C1) sont en tons ocre et sable ; le Soleil est un personnage rond à casquette, jamais menaçant.
+- Les cases du Nord (P3C1-C2) sont en tons ocre et sable. Lagdo est un vieux monsieur assoiffé, **sympathique**, jamais coupable ; le Soleil est un personnage rond à casquette, jamais menaçant.
+- P3C4 : le « chrono de la coordination » (deux horloges, 2017 et 2025) doit être lisible d'un coup d'œil. Aucun visage ni nom de responsable réel ; le « ministre de la pluie » d'Adamou reste une boutade, sans dessin de ministre.
 - P4C4-C5 : le bar plongé dans le noir, une seule source de lumière (la lampe de couture). Composition « feu de camp ».
 - Le carton de Junior ne reprend **aucune marque réelle**.
 
@@ -252,6 +253,9 @@
 - Le proverbe d'Adamou est **inventé** pour la série : ne pas le présenter comme un proverbe peul authentique.
 - [DONNÉE À VÉRIFIER] : norme IEC/TS 62257-9-8, son adoption par l'ANOR et le seuil « moins de 300 kWc » demandé par la commande. **Ce seuil paraît très élevé pour des kits individuels** : à vérifier mot pour mot dans le Compact avant de l'écrire dans une bulle.
 - [DONNÉE À VÉRIFIER] : statut, date de mise en service et contrat d'achat des centrales de Maroua et de Guider.
+- [DONNÉE À VÉRIFIER] : année de l'annonce du délestage de Garoua (« 20 janvier ») ; attribution précise de chaque fait sur Lagdo à sa source (Agence Ecofin, Cameroun24, camer.be, Mongabay, Enjeux Économiques, IRD) ; « ≈ 72 MW » de thermique d'appoint (une seule source, non repris en bulle).
+- Le « seul alternateur » de février à mai est un **témoignage** ; la bulle le présente comme tel.
+- Gag d'Adamou sur les « deux ministres » : aucune personne n'est visée, mais un relecteur doit confirmer qu'il ne sera pas lu comme une attaque partisane (garde-fou 6).
 - Aucun prix de kit, de batterie ou de kWh n'est donné ; Junior dit seulement « prix d'ami ».
 
 ---
