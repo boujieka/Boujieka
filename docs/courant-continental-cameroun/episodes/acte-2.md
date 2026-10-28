@@ -309,7 +309,7 @@ Par MW, Memve'ele a coûté environ **1,6 fois** Soubré.
 ---
 
 ### Épisode 8 — « Mekin, Edéa et Song Loulou : le concours des mégawatts ! »
-*Grand concours sous chapiteau. Le petit Mekin, complexé, raconte sa vie comme un feuilleton à rebondissements ; les vieux lions Édéa et Song Loulou toussent. Le jury ne note pas la taille, mais la disponibilité, la maintenance et la contribution au réseau.*
+*Grand concours sous chapiteau, trois candidats, trois leçons : le petit Mekin raconte ses retards comme une télénovela, le vieux lion Song Loulou attend ses soins à crédit depuis 2013, et le doyen Édéa, soigné et bien habillé, découvre qu'on ne peut rien seul quand la route est coupée.*
 **Lieu / Moment** : un chapiteau imaginaire à Édéa, au bord de la Sanaga, là où Papa Tchinda a été gardien de centrale. Samedi soir.
 
 #### Planche 1 — « Le chapiteau des mégawatts »
@@ -321,48 +321,64 @@ Par MW, Memve'ele a coûté environ **1,6 fois** Soubré.
 | 4 | Papa Tchinda, déplacé au premier rang du public, déroule une banderole géante. | Papa Tchinda : « Du temps de la SONEL, le jury… » · Pater Glaçon : « PAPA ! » · Papa Tchinda : « … était moins sévère. » |
 | 5 | Plan sur le public : Papa Tchinda souffle dans une vuvuzela, banderole « ÉDÉA, MON FILS ! » ; Mola Ndip vend des cacahuètes ; Mami Chantal installe en coulisses un « salon de coiffure des candidats ». | Pater Glaçon : « Le règlement est clair : le public a le droit d'être de mauvaise foi. » · SFX : *TOUUUUT !* |
 
-#### Planche 2 — « Mekin, le feuilleton : épisodes précédents »
+#### Planche 2 — « Candidat n° 1 : Mekin, le feuilleton des retards »
 | Case | Image | Texte |
 |---|---|---|
 | 1 | Sur scène, **Mekin**, tout petit, grosses lunettes, fiche tremblante. Le pied du micro est plus grand que lui. Soudain, l'éclairage vire au rose, rideau à paillettes : générique de télénovela. Boris prend une voix de bande-annonce. | Mekin : « Euh… Mekin. 15 mégawatts installés… » · Boris : « Dans les épisodes précédents de *Mekin, mon amour, mes milliards*… » · SFX : *TAN-TAN-TAAAAN !* |
-| 2 | Fifi lit le dossier, sur fond de cœurs roses. | Fifi : « Épisode 1 : on prévoit 25 milliards de FCFA. Épisode 2 : en 2020, environ 34,5 milliards, selon Ecomatin. Une autre source dit 25,7 au départ. Financement d'Exim Bank de Chine : 75 % ou 85 %, selon les sources. » |
-| 3 | La musique s'arrête. Éclairage sobre, gris. Case dessinée en ton grave : un pont à moitié sous l'eau, le toit d'une case qui dépasse d'un lac. Mekin baisse la tête. | Récitatif : *Ici, on ne rit pas. La mise en eau du barrage a noyé des ponts et des villages, et retardé les essais (237online ; Wikipédia).* · Mekin : « Ça, je ne le raconte jamais en riant. » |
-| 4 | Retour aux paillettes. Deux silhouettes de dos se font face en duel de télénovela : **Le Constructeur** (casque de chantier, facture à la main) et **L'État** (allégorie en chapeau officiel, chronomètre à la main). | Le Constructeur : « Je réclame environ 5 milliards de plus pour travaux additionnels ! » · L'État : « Et moi, je pourrais réclamer des compensations pour plus de trois ans de retard ! » · SFX : *TAN-TAN-TAAAAN !* |
-| 5 | Tout le public, penché en avant, retient son souffle. Fifi tourne la page de son dossier… blanche. Mami Chantal se lève, outrée. | Boris : « Et alors ? Qui a gagné ? » · Fifi : « L'issue n'est pas connue. » · Public : « OHHHHH ! » · Mami Chantal : « Comme ma série brésilienne : quatre cents épisodes, et on ne sait toujours pas qui est le père ! » |
+| 2 | Fifi lit le dossier sur fond de cœurs roses. À côté, en duel de télénovela, deux allégories de dos : **Le Constructeur** (casque, facture à la main) et **L'État** (chapeau officiel, chronomètre). Le public est penché en avant. Mami Chantal se lève, outrée. | Fifi : « On prévoit 25 milliards ; en 2020, on est à environ 34,5. Le constructeur réclame environ 5 milliards de plus ; l'État pourrait réclamer des compensations pour plus de trois ans de retard. Qui a gagné ? L'issue n'est pas connue. » · Public : « OHHHH ! » · Mami Chantal : « Comme ma série brésilienne : quatre cents épisodes, et on ne sait toujours pas qui est le père ! » |
+| 3 | La musique s'arrête. Éclairage sobre, gris. Case en ton grave : un pont à moitié sous l'eau, le toit d'une case qui dépasse d'un lac. Mekin baisse la tête. | Récitatif : *Ici, on ne rit pas. La mise en eau du barrage a noyé des ponts et des villages, et retardé les essais.* · Mekin : « Ça, je ne le raconte jamais en riant. » |
+| 4 | Le **chrono de la coordination**, version feuilleton : une rangée d'horloges comme des épisodes. « AVRIL 2019 : SOUS TENSION » (Mekin s'allume comme une guirlande… puis s'éteint) · « JUIN 2022 : 11,2 MW SUR 15 » · « JUILLET 2023 : RÉCEPTION » (chapeau de fête) · « SEPTEMBRE 2024 : NOUVEL ARRÊT ? » (Mekin sous une couverture). | Mekin : « Je m'allume, je m'arrête, je reviens à 11,2… à cause de ma ligne… » · Fifi : « Et pour septembre 2024, une seule source rapporte un nouvel arrêt : je mets un point d'interrogation. » · Mola Ndip : « Small small ! » |
+| 5 | Boris se lève, rouge de colère. Fifi se tourne vers lui, calme. Grâce tient son panneau rouge ; Pater Glaçon écrit à la craie. | Boris : « 25 qui deviennent 34,5, des arrêts, des réclamations… C'est le fey ! » · Fifi : « Le fey, il faut un juge pour le dire. Nous, on pose une question précise : y a-t-il eu un audit ? Où est le rapport ? » · Grâce : « Environ 3,1 milliards par MW injecté, 2,5 fois Soubré. Attention, piège ! Effet de taille, et MW bridés par la ligne. » · Pater Glaçon : « J'écris la question au baromètre. Elle y reste jusqu'à la réponse. » |
 
-#### Planche 3 — « Mekin, le feuilleton : le chrono »
+#### Planche 3 — « Candidat n° 2 : Song Loulou, soigné à crédit »
 | Case | Image | Texte |
 |---|---|---|
-| 1 | Le **chrono de la coordination** descend au-dessus de la scène, version « feuilleton » : une suite d'horloges comme des épisodes. Première horloge : « AVRIL 2019 : MISE SOUS TENSION ». Mekin s'allume comme une guirlande… puis s'éteint. | Mekin : « Avril 2019, je m'allume ! » · SFX : *CLIC… pfffft.* · Mekin : « … Puis je m'arrête. » |
-| 2 | Deuxième horloge : « JUIN 2022 : 11,2 MW SUR 15 ». Grâce tend vers Mekin un « mégawattmètre » dont l'aiguille bute avant 15. Troisième horloge : « JUILLET 2023 : RÉCEPTION ». Mekin met un chapeau de fête. | Grâce : « 11,2 sur 15, à cause des contraintes de ligne. » · Mekin : « Et en juillet 2023, réception officielle ! » · Mola Ndip : « Small small ! » |
-| 3 | Quatrième horloge, avec un gros point d'interrogation : « SEPTEMBRE 2024 : NOUVEL ARRÊT ? ». Mekin tire une couverture sur sa tête. Fifi lève un doigt. | Fifi : « Un média rapporte un nouvel arrêt en septembre 2024, après une panne de pompes aggravée par des inondations. Une seule source : je mets un point d'interrogation. » |
-| 4 | Boris se lève, rouge de colère, et pointe la scène. Fifi se tourne vers lui, calme. Pater Glaçon écrit à la craie. | Boris : « 25 qui deviennent 34,5, des arrêts, des réclamations… C'est le fey ! » · Fifi : « Le fey, il faut un juge pour le dire. Nous, on peut poser une question précise : y a-t-il eu un audit ? Où est le rapport ? » · Pater Glaçon : « J'écris la question au baromètre. Elle restera là tant qu'on n'aura pas la réponse. » |
-| 5 | Grâce au tableau, panneau rouge à la main. Mekin éclate en sanglots ; Mami Chantal sort des coulisses et le serre contre elle. Boris chuchote ; Mami Chantal lui marche sur le pied. | Grâce : « Environ 3,1 milliards par MW injecté, environ 2,5 fois Soubré. Attention, piège ! Petit ouvrage, effet de taille, et un MW bridé par la ligne compte double. » · Mekin : « Je suis mbindi… » · Mami Chantal : « Mon petit, la taille ne fait pas l'homme ! » · Boris : « Mais elle fait les mégawatts… AÏE ! » |
+| 1 | Changement de décor : la scène devient une **chambre d'hôpital**. **Song Loulou**, gros lion fatigué, en pyjama sur un lit à roulettes, une ordonnance géante sur la poitrine : « 72 MILLIARDS ». Papa Tchinda, assis à son chevet, lui tient la patte. | Boris : « Candidat numéro deux : Song Loulou, 384… ou 396 mégawatts, selon les sources ! Un pilier du réseau Sud ! » · Song Loulou : « Kof, kof… Même mon poids, les sources ne sont pas d'accord. » |
+| 2 | Au-dessus du lit, le **chrono de la coordination** version hôpital : trois horloges. « 2013 : ALERTE DU CABINET ISL » · « 2020 : PHASE 1 ANNONCÉE "si toutes les conditions sont réunies" » · « 2026 : TOUJOURS EN COURS ». Un **docteur** (allégorie, blouse, stéthoscope en forme de câble) consulte son registre. | Le docteur : « Ordonnance : environ 72 milliards. La famille a payé environ 18 milliards de médicaments. Revenez quand vous aurez le reste. » · Song Loulou : « Il me dit ça chaque année. » |
+| 3 | Fifi lit le dossier médical, Grâce à côté, très sérieuse. | Fifi : « 2013 : ISL alerte sur les ouvrages en béton, les prises d'eau et les évacuateurs de crues, s'ils ne sont pas réhabilités. 2015 : par avenant, Eneo s'engage à investir 11 milliards. ISL estimait les travaux à neuf ans. » · Grâce : « Attention : aucune source ne dit que le barrage est dangereux aujourd'hui. On parle d'un risque signalé en 2013 et d'une réhabilitation en retard. » |
+| 4 | Song Loulou fait passer un petit chapeau : « TONTINE SONG LOULOU ». Mami Chantal y glisse une pièce. Fifi calcule dans son carnet. | Mami Chantal : « Voilà 500 francs. » · Fifi : « Il ne manque plus que 53 milliards 999 millions 999 500 francs. » · Mami Chantal : « Ça avance ! » |
+| 5 | Song Loulou montre un nouveau bracelet d'hôpital : « SOCADEL — 2026 ». Papa Tchinda se lève, en larmes, et tend son livret de pension. | Song Loulou : « En 2026, on m'a changé de famille… mais personne n'a apporté le reste de l'ordonnance. » · Papa Tchinda : « Mon lion ! Prends ma pension ! Du temps de la SONEL, elle aurait suffi pour… » · Tout le chapiteau : « PAPA ! » |
 
-#### Planche 4 — « Les vieux lions et le verdict »
+#### Planche 4 — « Candidat n° 3 : Édéa, et le verdict »
 | Case | Image | Texte |
 |---|---|---|
-| 1 | **Édéa** entre lentement : vieux lion à la crinière grise, canne, médailles. Papa Tchinda pleure de joie et se lève sur sa chaise. | Boris : « Le doyen des vieux lions : Édéa, 263 mégawatts ! » · Édéa : « Kof, kof… Une vieille marmite fait la bonne sauce, à condition de changer les joints ! » · Papa Tchinda : « C'est mon lion ! Comme j'étais son gardien, la caisse de bières est pour moi ! » · Pater Glaçon : « Assis, Papa. » |
-| 2 | **Song Loulou** surgit, gros lion musclé mais poussiéreux, bandeau de sport sur le front. Il tousse, puis fait passer un chapeau : « TONTINE SONG LOULOU ». Mami Chantal y glisse une pièce. Fifi calcule. | Song Loulou : « Song Loulou ! 384… ou 396 mégawatts, selon les sources ! Réhabilitation : il me faut environ 72 milliards, j'en ai environ 18. Il en manque environ 54 ! » · Mami Chantal : « Voilà 500 francs. » · Fifi : « Il ne manque plus que 53 milliards 999 millions 999 500 francs. » |
-| 3 | Le jury délibère. Grâce calcule, Pater Glaçon recopie à la craie, Fifi lit une dernière fiche. | Fifi : « Un rapport du cabinet ISL aurait signalé des risques à Song Loulou dès 2013. C'est rapporté : on n'a pas le document. » · Grâce : « Les 54 milliards qui lui manquent, c'est environ 1,5 fois ce qu'a coûté Mekin… pour une centrale plus de 25 fois plus puissante. Entretenir rapporte souvent plus que construire. » |
-| 4 | Roulement de tambour. Pater Glaçon soulève le trophée : une **boîte à outils dorée** surmontée d'une clé à molette. Une technicienne en bleu de travail, badge « LA MAINTENANCE », monte sur scène, intimidée. Les trois barrages se retournent, bouche bée. | Boris : « Et le grand gagnant est… » · SFX : *BRRRRRRM !* · Pater Glaçon : « … LA MAINTENANCE ! » · Tous : « HEIN ?! » · Mola Ndip : « Massa! Di spanner don win! » *(La clé à molette a gagné !)* **[à valider par un relecteur camerounais]** |
+| 1 | **Édéa** entre d'un pas souple : vieux lion à la crinière grise mais **impeccable**, costume neuf, chaussures cirées, turbines qui brillent. Il fait un tour sur lui-même. Papa Tchinda sanglote de fierté. | Édéa : « Moi, on m'a soigné ! Réhabilité de 2006 à 2011 : de 263 à 267 mégawatts ! » · Fifi : « Et environ 100 milliards investis depuis 2004, selon l'exploitant. Déclaration non auditée. » · Papa Tchinda : « C'est MON lion ! J'étais son gardien : la caisse de bières est pour moi ! » · Pater Glaçon : « Assis, Papa. » |
+| 2 | Édéa et Song Loulou posent côte à côte pour la photo. Soudain : noir total dans le chapiteau. Dans l'obscurité, on ne voit que les yeux des personnages et deux silhouettes de lions qui s'effondrent ensemble comme des dominos. | SFX : *BZZZT… CLAC !* · Récitatif : *Effondrement du réseau interconnecté Sud : Édéa et Song Loulou s'arrêtent ensemble [DATE À VÉRIFIER].* · Édéa, par terre : « Ça ne sert à rien d'être en forme si la route est coupée. » |
+| 3 | Toujours dans le noir, un téléphone s'allume : appel vidéo de **Lom Pangar** (épisode 5), grognon, son cahier de comptes ouvert. | Lom Pangar : « Et pendant qu'on y est : ma redevance d'eau, on ne me la reverse pas ! » · Fifi : « C'est une plainte de l'EDC, rapportée par Energies Media. Le gardien de l'eau n'est pas payé par celui qui la turbine : le cercle vicieux. » · Mola Ndip : « Na we go suffer am. » |
+| 4 | La lumière revient. Roulement de tambour. Pater Glaçon soulève le trophée : une **boîte à outils dorée** surmontée d'une clé à molette. Une technicienne en bleu de travail, badge « LA MAINTENANCE », monte sur scène, intimidée. Les trois barrages se retournent, bouche bée. | Grâce : « Les 54 milliards qui manquent à Song Loulou, c'est environ 1,5 fois le coût de Mekin, pour une centrale plus de 25 fois plus puissante. On finance les inaugurations, rarement l'entretien. » · Pater Glaçon : « Le gagnant est… LA MAINTENANCE ! » · Mola Ndip : « Massa! Di spanner don win! » *(La clé à molette a gagné !)* **[à valider par un relecteur camerounais]** |
 | 5 | Pater Glaçon, stylo en main, devant un **chèque géant en carton** : « PRIX DU CONCOURS — Payez à l'ordre de : ______ ». Il lève les yeux. Silence total : le jury, le public, les trois barrages et la technicienne se regardent. Dans un coin, le **Kilowatt** pointe le nez hors d'un câble. | Pater Glaçon : « Bon. J'écris à l'ordre de qui ? Song Loulou, il est à qui ? Mekin, à qui ? Le câble, à qui ? » · Le Kilowatt : « Au fait… qui possède le courant ? » · Récitatif : *ACTE III — QUI POSSÈDE LE COURANT ?* |
 
-#### Page documentaire — Le carnet de Fifi n° 8 : « Combien ça a coûté ? »
-| Candidat | Fiche | Source |
-|---|---|---|
-| **Mekin** (15 MW) | Prévu **25 Md FCFA** (25,7 Md selon une autre source) ; **≈ 34,5 Md en 2020 (+ 38 %)**. Financement Exim Bank de Chine : 75 % ou 85 % selon les sources. Le constructeur (CNEEC) a réclamé **≈ 5 Md FCFA** de plus pour travaux additionnels ; l'État pouvait réclamer des compensations pour **plus de trois ans de retard**. **Issue inconnue.** | Ecomatin ; Investir au Cameroun (vers 2019) |
-| **Song Loulou** (384 ou 396 MW selon les sources) | Réhabilitation : besoin ≈ 72 Md FCFA, ≈ 18 Md mobilisés, **≈ 54 Md manquants**. Un rapport du cabinet ISL aurait signalé des risques dès 2013 (rapporté) | Business in Cameroon ; cameroun24.net |
-| **Édéa** (263 MW) | Doyen des vieux lions : la maintenance des ouvrages anciens | Bible, section 4.2 (média précis [DONNÉE À VÉRIFIER]) |
+#### Page documentaire — Le carnet de Fifi n° 8 : « Combien ça a coûté ? Combien ça manque ? »
+| Candidat | Leçon | Fiche | Source |
+|---|---|---|---|
+| **Mekin** (15 MW) | Les retards | Prévu **25 Md FCFA** (25,7 Md selon une autre source) ; **≈ 34,5 Md en 2020 (+ 38 %)**. Exim Bank de Chine : 75 % ou 85 % du financement selon les sources. Le constructeur (CNEEC) a réclamé **≈ 5 Md** de plus pour travaux additionnels ; l'État pouvait réclamer des compensations pour **plus de trois ans de retard**. **Issue inconnue.** | Ecomatin ; Investir au Cameroun (vers 2019) |
+| **Song Loulou** (384 ou 396 MW selon les sources) | L'entretien qui manque d'argent | Programme « Dam Safety » : **≈ 72 Md FCFA**, dont **≈ 18 Md engagés** sur fonds propres (phases 1 et 2) et **≈ 54 Md à mobiliser** (vers 2025). Retard « important », attribué à des contraintes techniques et financières. Travaux estimés à **neuf ans** par ISL | Investir au Cameroun ; Business in Cameroon |
+| **Édéa** (263 → 267 MW) | L'entretien fait, mais le réseau fragile | Réhabilitation et modernisation **2006-2011** ; **≈ 100 Md FCFA investis depuis 2004**, selon le directeur général d'Eneo (**déclaration de l'exploitant, non auditée**). Aucun retard de maintenance documenté entre 2023 et 2026 | Wikipédia ; Power Technology ; News du Cameroun |
 
 **Le chrono de la coordination — Mekin, le feuilleton**
 | Date | Épisode | Source |
 |---|---|---|
-| [DATE À VÉRIFIER] | Mise en eau : des ponts et des villages noyés, essais retardés | 237online ; Wikipédia |
+| [DATE À VÉRIFIER] | Mise en eau : ponts et villages noyés, essais retardés | 237online ; Wikipédia |
 | Avril 2019 | Mise sous tension tardive, puis arrêt | Agence Ecofin |
 | Juin 2022 | **11,2 MW injectés sur 15**, à cause des contraintes de ligne, après deux ans d'arrêt | Ecomatin ; Cameroon Tribune |
-| Juillet 2023 | Réception | Presse ([DONNÉE À VÉRIFIER] : média précis) |
-| Septembre 2024 | Nouvel arrêt rapporté, après une panne de pompes aggravée par des inondations | **Une seule source [à confirmer]** |
+| Juillet 2023 | Réception | Presse (média précis [DONNÉE À VÉRIFIER]) |
+| Septembre 2024 | Nouvel arrêt rapporté (panne de pompes aggravée par des inondations) | **Une seule source [à confirmer]** |
+
+**Le chrono de la coordination — Song Loulou, le dossier médical**
+| Date | Étape | Source |
+|---|---|---|
+| 2013 | Le cabinet ISL alerte : ouvrages en béton, prises d'eau et évacuateurs de crues risquent de céder **sans réhabilitation** | Cameroun24 (rapporté) |
+| 2015 | Avenant à la concession : Eneo s'engage à investir **11 Md FCFA** | Jeune Afrique |
+| 2020 | Première phase annoncée comme achevée « si toutes les conditions sont réunies » | 237actu |
+| Vers 2025 | ≈ 72 Md nécessaires, ≈ 18 Md engagés, ≈ 54 Md manquants | Investir au Cameroun ; Business in Cameroon |
+| 2026 | La concession passe à la SOCADEL : la transformation règle le capital, **pas le financement des investissements**. La levée de 60 Md FCFA lancée en juillet 2026 ne vise pas explicitement Song Loulou | Africtelegraph |
+
+**Le réseau, talon d'Achille du doyen**
+| Fait | Source |
+|---|---|
+| Un incident a provoqué l'effondrement du réseau interconnecté Sud, avec l'arrêt d'Édéa et de Song Loulou | Bible 4.2 bis (date et média [DATE À VÉRIFIER]) |
+| Un incident sur la ligne 225 kV Édéa–Yaoundé (168 km) a privé une grande partie de Yaoundé de courant | Bible 4.2 bis (date [DATE À VÉRIFIER]) |
+| L'EDC s'est plainte de la « persistance du non-reversement de la redevance d'eau par Eneo » | Energies Media (date [DATE À VÉRIFIER]) |
 
 > **Question du comité, inscrite au baromètre** : « Y a-t-il eu un audit sur Mekin ? Où est le rapport ? » C'est une **question**, pas une accusation.
 
@@ -373,35 +389,35 @@ Par MW, Memve'ele a coûté environ **1,6 fois** Soubré.
 
 Mekin : ≈ 3,1 Md FCFA par MW **injecté** (34,5 ÷ 11,2, calcul de l'album), soit environ **2,5 fois** Soubré.
 
-> **Verdict du jury** : les 54 Md FCFA qui manquent à Song Loulou représentent environ **1,5 fois** le coût de Mekin, pour une centrale **plus de 25 fois** plus puissante. Entretenir rapporte souvent plus que construire.
+> **Verdict du jury** : les 54 Md FCFA qui manquent à Song Loulou représentent environ **1,5 fois** le coût de Mekin, pour une centrale **plus de 25 fois** plus puissante. On finance les inaugurations, rarement l'entretien. Pourtant, entretenir rapporte souvent plus que construire… à condition que le réseau tienne.
 
 > **Grâce — « Attention, piège ! »** Le coût par MW de Mekin est calculé sur les MW **injectés** (11,2), pas installés (15) : la méthode change le résultat. Un petit ouvrage souffre de l'effet de taille, et une réhabilitation ne se compare pas directement à une construction neuve.
 
 #### Baromètre de Nkoagne : ligne mise à jour cette semaine
 | Rubrique | Avant | Cette semaine |
 |---|---|---|
-| Preuves publiées | Lom Pangar, Nachtigal, Memve'ele | **Mekin : 25 → ≈ 34,5 Md FCFA ; 11,2 MW sur 15 (contraintes de ligne). Litige constructeur/État : issue inconnue. Question ouverte : « Audit ? Rapport ? » Song Loulou : ≈ 54 Md manquants pour sa réhabilitation.** |
+| Preuves publiées | Lom Pangar, Nachtigal, Memve'ele | **Mekin : 25 → ≈ 34,5 Md ; 11,2 MW sur 15 (ligne) ; litige constructeur/État : issue inconnue. Question : « Audit ? Rapport ? » Song Loulou : alerte 2013, ≈ 54 Md toujours manquants. Édéa : soigné, mais dépendant du réseau.** |
 | Qui possède le courant ? | À documenter | **Question posée.** Réponse attendue à l'épisode 11. |
 
 #### Mini-lexique
 - **Le mboa** : le pays, chez nous (camfranglais).
-- **Mbindi** : petit (camfranglais).
 - **Fey** : arnaque ; mot de colère, **pas un verdict**.
 - **Small small** : « Petit à petit » (pidgin).
+- **Na we go suffer am** : « C'est nous qui allons souffrir » (pidgin).
 - **Massa !** : exclamation de surprise (pidgin).
 - **Délestage** : coupure de courant organisée, par zones et à tour de rôle.
 
 #### Notes pour le dessinateur
-- Mekin est **attachant**, jamais ridicule : on rit du feuilleton et de son trac, pas de lui. Les vieux lions sont dignes ; leur toux est un signe d'usure, pas de faiblesse morale.
-- **Planche 2, case 3** : rupture de ton volontaire. Les ponts et les villages noyés sont dessinés **sans gag**, en couleurs sourdes, avant le retour des paillettes.
-- **Le Constructeur** et **L'État** (planche 2, case 4) sont des **allégories de dos**, sans visage ni logo réel. Le duel est théâtral, sans vainqueur.
-- La technicienne « La Maintenance » est un personnage **fictif et anonyme** (bleu de travail, casque, gants). Le choix d'une femme fait écho à l'engagement du Compact (+ 10 % de femmes dans les postes techniques d'ici 2030). Planche 4, case 5 : le chèque reste **vide**.
+- **Trois candidats, trois leçons** : Mekin (les retards) en télénovela rose ; Song Loulou (l'entretien qui manque d'argent) en chambre d'hôpital ; Édéa (l'entretien fait, mais le réseau fragile) en costume neuf. **Édéa ne tousse jamais** : il est en forme ; il tombe seulement quand le réseau tombe.
+- **Song Loulou** : fatigué, attachant, jamais menaçant. **Aucune image de catastrophe** (pas de fissure spectaculaire, pas de vague, pas de rupture). L'hôpital est une consultation qui traîne, pas une urgence.
+- **Planche 2, case 3** : rupture de ton volontaire. Les ponts et villages noyés sont dessinés **sans gag**, en couleurs sourdes. Le Constructeur, L'État et le docteur sont des **allégories** sans visage reconnaissable ni logo réel.
+- La technicienne « La Maintenance » est **fictive et anonyme** (bleu de travail, casque, gants). Le choix d'une femme fait écho à l'engagement du Compact (+ 10 % de femmes dans les postes techniques d'ici 2030). Planche 4, case 5 : le chèque reste **vide**.
 
 #### Points à valider
 - « Di spanner don win! » : **[à valider par un relecteur camerounais]**. Alternative : « La clé à molette a gagné ! »
-- Mekin : date de la mise en eau **[DATE À VÉRIFIER]** ; source précise de la réception de juillet 2023 **[DONNÉE À VÉRIFIER]** ; nouvel arrêt de septembre 2024 **[à confirmer]** (une seule source).
-- Mekin : un média évoque des « soupçons de détournement ». C'est une **allégation non établie** : elle **n'apparaît pas** dans l'épisode, seulement la question « Y a-t-il eu un audit ? Où est le rapport ? »
-- Song Loulou : **384 ou 396 MW**, à trancher. Source précise du chiffre d'Édéa (263 MW) : **[DONNÉE À VÉRIFIER]**. Rapport ISL (2013) : document original **[DONNÉE À VÉRIFIER]**.
+- Mekin : date de la mise en eau **[DATE À VÉRIFIER]** ; média de la réception de juillet 2023 **[DONNÉE À VÉRIFIER]** ; arrêt de septembre 2024 **[à confirmer]** (une seule source). Les « soupçons de détournement » évoqués par un média sont une **allégation non établie** : ils **n'apparaissent pas**, seule la question « audit ? rapport ? » est posée.
+- Song Loulou : **384 ou 396 MW**, à trancher. Rapport ISL (2013) : document original **[DONNÉE À VÉRIFIER]**. Date du communiqué d'Eneo affirmant que le barrage « est stable » **[DATE À VÉRIFIER]** (non utilisé dans les cases).
+- Édéa : date de l'effondrement du réseau Sud **[DATE À VÉRIFIER]** ; date de la plainte de l'EDC sur la redevance d'eau **[DATE À VÉRIFIER]**. Les ≈ 100 Md investis sont une déclaration de l'exploitant, non auditée.
 
 ---
 
@@ -412,4 +428,4 @@ Mekin : ≈ 3,1 Md FCFA par MW **injecté** (34,5 ÷ 11,2, calcul de l'album), s
 | 5 — Lom Pangar | Voyage en car, tontine de l'eau | Usine de pied : prévue 2014-2015, à plein en janvier 2024 (≈ 9 ans) | Boris (« le gardien est coupable ! ») | La goutte « Germaine », réservée pour Nachtigal, « au moins elle arrive à l'heure » | Tribunal de Nkoagne |
 | 6 — Nachtigal | Tribunal de quartier | Centrale prête en mars 2025, lignes prévues en 2026 et 2028 ; compteur à ≈ 10 Md/mois | Mami Chantal (« j'ai trouvé le compteur ! ») | La pièce à conviction est toujours chaude ; le compteur tourne encore | Invitation au mariage de Memve'ele |
 | 7 — Memve'ele | Mariage traditionnel, dot, WhatsApp du témoin | Centrale prête en juin 2017, ligne complète en 2023 (≈ 6 ans) | Pater Glaçon (le bouquet… de sa propre caisse) | Le petit Mekin attrape le bouquet | Le concours des mégawatts |
-| 8 — Mekin, Édéa, Song Loulou | Concours sous chapiteau et télénovela | Feuilleton de Mekin : 2019, 2022, 2023, 2024 [à confirmer] | Papa Tchinda (« j'étais son gardien ! ») | La Maintenance gagne ; le chèque reste sans bénéficiaire | **Acte III : « Qui possède le courant ? »** |
+| 8 — Mekin, Édéa, Song Loulou | Concours : télénovela, hôpital, panne générale | Mekin 2019 → 2024 ; Song Loulou 2013 → toujours en cours | Papa Tchinda (« j'étais son gardien ! ») | La Maintenance gagne ; le chèque reste sans bénéficiaire | **Acte III : « Qui possède le courant ? »** |

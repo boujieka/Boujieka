@@ -167,6 +167,16 @@ Une BD **drôle d'abord**. On doit rire à chaque planche, comme devant un sketc
 - **Gag possible** : Dibamba boit du fioul lourd au bar : « Patron, remets-moi un fût ! » Le patron répond : « Paie d'abord l'ardoise ! » Kribi, au gaz, se vante d'être « plus propre », mais boude dès qu'on ne la paie pas. Puis les deux quittent la soirée ensemble, et le bar s'éteint.
 - **Nuances** : Globeleq n'est pas un méchant ; ses arrêts répondent à des **impayés documentés**. Le blocage fiscal est rapporté par la presse. On montre un **conflit financier**, pas une faute morale.
 
+**Lagdo : le Nord suspendu à un seul barrage et à la pluie** (Agence Ecofin, Cameroun24, camer.be, Mongabay, Enjeux Économiques, IRD)
+- Le **Réseau interconnecté Nord** (Adamaoua, Nord, Extrême-Nord) est **séparé** du réseau Sud (Compact p. 35). Il dépend **principalement du barrage de Lagdo (72 MW)**, sur la Bénoué, mis en eau en **1983**.
+- **Saison sèche = délestages** : quand la retenue est mal remplie, la production baisse. En 2025, Eneo invoque une **pluviométrie insuffisante** sur le bassin de la Bénoué. Un témoignage rapporte qu'entre février et mai, le barrage ne tourne qu'avec **un seul alternateur**. Plan de délestage à **Garoua** (coupures de 8 h à 18 h annoncées le 20 janvier ; année à préciser), ainsi qu'à Tcholliré, Figuil, Guider, Dembo et Mayo Oulo (Cameroun24).
+- **Secours** : six centrales thermiques d'appoint (≈ 72 MW au total selon une source), **dépendantes du carburant**. Les centrales solaires de **Maroua et Guider (15 MWc chacune)** ont été renforcées (Enjeux Économiques ; Mongabay, oct. 2025).
+- **Puissance figée** : 72 MW « chaque année depuis 2015 » selon Eneo.
+- **Réhabilitation qui traîne** : **100 Md FCFA** évoqués **dès 2017** ; en **2025**, le ministre parle toujours d'une réhabilitation complète, de 72 à 80 MW, pour un coût prévisionnel de **100 Md FCFA**. Aucun calendrier officiel n'est confirmé. Le **chrono** affiche : 2017 annoncé → 2025 toujours annoncé.
+- **La solution structurelle** : l'interconnexion Sud–Nord (225 kV, 515 km) prévue en **2028** (Compact p. 36), qui doit aussi évacuer Nachtigal vers le Nord.
+- **Gag possible** : Adamou regarde le ciel de Maroua : « Chez nous, le courant dépend de deux ministres : celui de l'Énergie… et celui de la pluie ! » Lagdo, vieux barrage assoiffé, boit dans une calebasse vide. Le solaire de Maroua travaille le jour et dort la nuit.
+- **Nuance** : la sécheresse n'est pas une excuse inventée ; elle est réelle. La critique porte sur la **dépendance à une seule source** et sur la **réhabilitation annoncée depuis 2017**.
+
 **Règle « C'est le fey ! »** : le mot camerounais *fey* (arnaque ; *feyman*, escroc) peut être lancé par un personnage, sous le coup de la colère, comme on le dirait au bar. **Immédiatement**, le patron (« Source ? ») ou Fifi recadre. Exemple :
 > Boris : « Payer 420 MW quand la ligne n'en prend que la moitié ? C'est le fey ! »
 > Fifi : « Le fey, c'est un délit, et il faut un juge pour le dire. Ici, on a un contrat signé et une ligne en retard. Le vrai scandale possible, c'est la **coordination**. Et ça, on peut le prouver avec des dates. »
