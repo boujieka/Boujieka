@@ -35,7 +35,7 @@ for a in acts:
             todo.append(f"### {h.group(1)}\n{body}\n")
 
 head = f"""# COURANT CONTINENTAL — CAMEROUN
-## « Les mégawatts sont arrivés… mais la bière est chaude ! »
+## « Les mégawatts sont annoncés… mais la bière est chaude ! »
 ### Saison 1 — Scénario complet pour l'illustrateur
 **20 épisodes · 5 actes · 80 planches · 400 cases**
 

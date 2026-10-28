@@ -1,5 +1,5 @@
 # COURANT CONTINENTAL — CAMEROUN
-## « Les mégawatts sont arrivés… mais la bière est chaude ! »
+## « Les mégawatts sont annoncés… mais la bière est chaude ! »
 ### Architecture définitive : 20 épisodes · 5 actes · 80 planches · 400 cases
 
 > **Principe.** Une bière non glacée, un vendredi soir au bar *Le Dernier Kilowatt* (quartier Nkoagne), déclenche une enquête. Elle mène les personnages des petits commerces aux grands barrages, puis aux réseaux et aux actionnaires, ensuite aux milliards et au Pacte énergétique national. À la fin, tout le monde revient au même bar.

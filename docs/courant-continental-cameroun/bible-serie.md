@@ -1,5 +1,5 @@
 # BIBLE DE LA SÉRIE — COURANT CONTINENTAL · CAMEROUN
-## « Les mégawatts sont arrivés… mais la bière est chaude ! »
+## « Les mégawatts sont annoncés… mais la bière est chaude ! »
 
 Document de référence pour tous les scénaristes, humains ou IA. Un scénario qui contredit cette bible est refusé.
 
