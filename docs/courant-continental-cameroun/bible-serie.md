@@ -188,6 +188,17 @@ Une BD **drôle d'abord**. On doit rire à chaque planche, comme devant un sketc
 - **La bonne question pour la BD** : « Avant de signer Kikot, montrez-nous : (1) le contrat d'achat est-il en take or pay ? (2) la ligne d'évacuation sera-t-elle prête le même jour que la centrale ? (3) qui paie si elle ne l'est pas ? (4) où est le rapport d'audit ? »
 - **Gag possible** : le devis de Kikot fait le yoyo (650 → 1 620 → 872) comme un ballon de baudruche qu'on gonfle et dégonfle. Le ministre arrive avec une loupe : « Ce n'est pas un procès, c'est un audit ! » Monsieur Congélateur : « Moi aussi, je demande un audit… de mes bières ! »
 
+**Bini à Warak : le chantier abandonné dont la facture a doublé** (Investir au Cameroun, Business in Cameroon, Ecomatin)
+- **2017** : prêt de l'ICBC de **182 Md FCFA** ; travaux lancés avec Sinohydro. Ils s'arrêtent **au bout d'environ un an**.
+- **Cause avancée par le gouvernement** : la **prime d'assurance** que devait payer l'État n'a pas été réglée, ce qui bloquait le décaissement du prêt. En **novembre 2019**, l'ICBC suspend son financement en invoquant un **défaut du Cameroun envers une autre banque** (Business in Cameroon ; une source situe la suspension dès 2018).
+- **2019** : Sinohydro démobilise 75 % de son personnel ; **2022** : il retire ses engins, « las d'attendre la reprise des travaux depuis 4 ans ».
+- **Avril 2023** : le projet est confié à **Savannah Energy** ; la Banque mondiale et la BID remplaceraient l'ICBC. Un **audit technique et financier** est préparé avant la relance. Les **indemnisations** des riverains sont encore en cours de finalisation après 7 ans d'arrêt.
+- **DPEB 2027-2029 (juillet 2026)** : coût estimé à **393 Md FCFA** contre 182 Md (**× 2,2**), mise en service **repoussée à 2033**, hausse attribuée à une **reconfiguration** du projet. Le volet solaire de cette reconfiguration est **[à vérifier]** : une source le mentionne, une autre ne le confirme pas.
+- Capacité : 75 MW (90 MW selon le Compact). Elle doit renforcer le **réseau Nord** (Adamaoua), qui dépend aujourd'hui de Lagdo.
+- **Chrono** : 2017 lancement → 2018 arrêt → 2023 nouveau partenaire → 2033 mise en service prévue, soit **16 ans** entre le premier coup de pelle et le premier kWh, si le calendrier tient.
+- **Gag possible** : le chantier est envahi par les herbes, une pelleteuse rouillée porte une pancarte « Parti chercher l'assurance… ». La facture, dessinée comme un ballon, grossit de 182 à 393 pendant que le Nord attend à la bougie.
+- **Nuance** : on ne désigne aucun coupable. La cause avancée (prime d'assurance impayée, défaut envers une autre banque) est la **version du gouvernement et de la presse**.
+
 **Règle « C'est le fey ! »** : le mot camerounais *fey* (arnaque ; *feyman*, escroc) peut être lancé par un personnage, sous le coup de la colère, comme on le dirait au bar. **Immédiatement**, le patron (« Source ? ») ou Fifi recadre. Exemple :
 > Boris : « Payer 420 MW quand la ligne n'en prend que la moitié ? C'est le fey ! »
 > Fifi : « Le fey, c'est un délit, et il faut un juge pour le dire. Ici, on a un contrat signé et une ligne en retard. Le vrai scandale possible, c'est la **coordination**. Et ça, on peut le prouver avec des dates. »
