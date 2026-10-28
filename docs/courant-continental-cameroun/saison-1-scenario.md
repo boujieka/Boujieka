@@ -262,7 +262,8 @@ Grâce pratique « l'autopsie du kilowatt ». Chaque graine des actes I et II tr
 | Les fils pirates | Une partie du courant n'est jamais facturée | **Pertes commerciales : 14 % (2023)** |
 | *Mama Diesel* (ép. 3) | Les clients paient deux fois | 9,9 % des ventes perdues (Enterprise Survey 2016) |
 | Les factures impayées, État compris | Le secteur manque d'argent pour entretenir | **Recouvrement : 72 %**, objectif 90 % |
-| L'héritage de la SOCADEL (ép. 11) | Le cercle vicieux de la dette | ≈ 800 Md FCFA (presse) |
+| L'héritage de la SOCADEL (ép. 11) | Le cercle vicieux de la dette | Dettes d'Eneo ≈ **800 Md FCFA** fin 2024, dont ≈ 500 Md de dette fournisseurs ; ≈ 300 Md FCFA de compensation tarifaire par l'État (2012-2023) ; **tarifs gelés depuis 2012** (Compact p. 37 et 42) |
+| Les fils fatigués | Pertes techniques | **14 % (2023)** (Compact p. 42) |
 
 **Dernière planche** : Grâce dessine le **cercle vicieux** : pertes → recettes faibles → impayés → entretien reporté → pannes → clients qui paient moins → pertes.
 Fifi : « Le coupable, ce n'est pas un barrage. C'est la chaîne entière. »
@@ -278,11 +279,12 @@ Monsieur 2030 entre au *Dernier Kilowatt* et commande « une bière glacée pour
 **Page documentaire — Les chiffres du Pacte (Compact énergétique national, Mission 300)**
 | Indicateur | Point de départ | Cible 2030 |
 |---|---|---|
-| Accès à l'électricité | ≈ 60–68 % selon les sources ; ≈ 28 % en milieu rural selon l'ECAM5 de l'INS | **100 %** (≈ 33,5 millions de personnes), rythme accéléré de 5 % par an |
-| Cuisson propre | — | **40 %** (≈ 13,4 millions de personnes) |
+| Accès à l'électricité | **74 % en 2025** (Compact p. 5) ; 61 % en 2017, 73 % en 2023 ; urbain 94 %, rural moins de 25 % | **100 %** (≈ 8 millions de personnes supplémentaires ; ≈ 33,5 millions au total) |
+| Cuisson propre | **23,4 % en 2022** (ECAM 5) ; près de 80 % des ménages utilisent des combustibles solides | **40 %** (≈ 13,4 millions de personnes) |
+| Capacité installée | 800 MW (2010) → ≈ 1 640 MW (2023) → **2 011 MW (2025)** | **3 000 MW** |
 | Renouvelables dans le mix | — | **10 %** (probablement hors grande hydroélectricité, à confirmer) |
 | Recouvrement des factures | 72 % | **90 %** |
-| Rendement de distribution | 73 % | **88 %** |
+| Rendement de distribution | 73 % | **88 %** (tableau des engagements) ou **90 %** (p. 8) : incohérence interne |
 | Interconnexions | 0 | **1 000 MW** de transit transfrontalier |
 | Gouvernance | — | Unité opérationnelle au MINEE ; loi sur l'électricité révisée visée pour le 1er trimestre 2027 |
 
@@ -291,7 +293,10 @@ Gare routière imaginaire. Les financements sont des passagers : les prêts arri
 
 | Engagement | Montant |
 |---|---|
-| Financement additionnel recherché | **12,5 Md USD**, dont **6,5 Md du secteur privé** |
+| Financement recherché | **12,5 Md USD** ≈ 7 751 Md FCFA (Compact p. 1) |
+| Tableau p. 10 (M USD) | Total 12 554 = public 1 588 + concessionnel et philanthropie 4 594 + privé 6 372 |
+| Par segment (M USD) | Production 6 667 · Transport 2 399 · Distribution 1 551 · Mini-réseaux 1 592 · Kits solaires 45 · Cuisson propre 114 · Efficacité 106 · Réformes 80 |
+| Part privée | 6,5 Md (préambule), 6,4 Md (p. 5), 6,372 Md (tableau) : incohérence interne |
 | Équivalent en FCFA | ≈ 7 200 à 7 750 Md FCFA selon les sources |
 
 🌍 **Équivalences** :
@@ -302,12 +307,13 @@ Gare routière imaginaire. Les financements sont des passagers : les prêts arri
 
 ### Épisode 15 — « Le soleil de Maroua réclame son contrat ! »
 Une entrepreneure de Maroua veut alimenter son atelier de couture au solaire. Junior lui explique les panneaux, les batteries, les mini-réseaux et le contrat d'achat d'électricité. Elle veut « mettre le soleil dans un sac de riz pour la nuit ».
-> **À documenter avant écriture des fiches** : capacités, coûts et opérateurs des centrales solaires du Septentrion (Maroua, Guider). Aucun chiffre n'est vérifié à ce stade.
+> **Compact (p. 37-41)** : centrales solaires de **Maroua (15 MWc)** et **Guider (15 MWc)** développées avec Scatec ; **350 mini-centrales solaires** ; programme rural de **1 000 localités, dont 437 électrifiées**. Coûts : [DONNÉE À VÉRIFIER].
 
 ### Épisode 16 — « Le village a reçu les poteaux, mais pas les ampoules ! »
 Le village fictif de Nkol-Lumière inaugure trois fois le même poteau. Les enfants y accrochent un hamac.
 - **Enseignement** : une infrastructure construite n'est pas un raccordement, et un raccordement n'est pas un service fiable.
-- **Écart urbain/rural** : ≈ 87,6 % d'accès en ville contre ≈ 28,4 % à la campagne (ECAM5, INS).
+- **Écart urbain/rural** : 94 % d'accès en ville contre moins de 25 % à la campagne (Compact, p. 38).
+- **Petite hydro** : programme de 50 petites centrales, dont 25 d'ici 2030 ; Mbakaou (1,4 MW) inaugurée en avril 2022.
 
 ---
 
@@ -344,7 +350,7 @@ La marmite de Mami Ngo témoigne au tribunal contre la fumée et le prix du char
 
 | Matière | Départ | Cible 2030 | Appréciation du comité (fictive) |
 |---|---|---|---|
-| Accès | ≈ 60–68 % | 100 % | « Montrez-nous les branchements, pas les poteaux. » |
+| Accès | 74 % (2025) | 100 % | « Montrez-nous les branchements, pas les poteaux. » |
 | Rendement du réseau | 73 % | 88 % | « La bière attend. » |
 | Recouvrement | 72 % | 90 % | « Tout le monde paie, l'État compris. » |
 | Grands projets | Non mis en service | Calendriers tenus | « On note les dates. On reviendra. » |
@@ -365,8 +371,8 @@ Le patron : « La prochaine tournée sera glacée… quand le baromètre le dira
 - **Memve'ele** : savoir si la ligne est incluse dans les 420 Md FCFA.
 - **Song Loulou** : 384 ou 396 MW.
 - **Kikot** : la baisse de 1 050 à 872 Md FCFA n'est pas expliquée.
-- **Solaire du Septentrion, Minkouma, cuisson propre** : données à collecter.
-- **Taux d'accès** : choisir une source unique (WDI de la Banque mondiale ou INS).
+- **Coûts du solaire du Septentrion, Minkouma, prix du GPL** : données à collecter.
+- **Taux d'accès** : le Compact retient 74 % en 2025 ; les autres sources (60–68 %) correspondent à d'autres années ou méthodes.
 - **PIRECT** : coût, périmètre et longueur des lignes à fixer avec la SONATREL ou la BAD.
 
 ---
@@ -374,7 +380,7 @@ Le patron : « La prochaine tournée sera glacée… quand le baromètre le dira
 ## 6. Sources
 
 **Pacte et secteur**
-- Compact énergétique national du Cameroun (Mission 300) : https://thedocs.worldbank.org/en/doc/230ea6e10398ad291f50a89d2d458c8f-0010012025/original/Cameroon-National-Energy-Compact-Mission-300.pdf
+- Compact énergétique national du Cameroun (Mission 300), PDF fourni par l'auteur, pages citées : https://thedocs.worldbank.org/en/doc/230ea6e10398ad291f50a89d2d458c8f-0010012025/original/Cameroon-National-Energy-Compact-Mission-300.pdf
 - Coût du Pacte : https://ecomatin.net/cameroun-letat-mise-sur-un-plan-de-pres-de-8-000-milliards-fcfa-pour-electrifier-tout-le-pays-dici-2030 et https://africa24tv.com/?p=150405
 - Accès (ECAM5) : https://ecomatin.net/electricite-face-aux-disparites-le-cameroun-recherche-une-expertise-pour-elaborer-sa-strategie-nationale-delectrification
 - Accès (67 %, 2024) : https://www.businessincameroon.com/energy/3004-13798-cameroun-sees-modest-rise-in-electricity-access-rural-disparity-remains
