@@ -21,12 +21,12 @@
 | 2 | Intérieur. Boris, Tonton Mballa, Mami Chantal et des voisins autour d'une table en plastique rouge. À la table d'à côté, Mola Ndip trie des bougies d'allumage dans un sachet. Le serveur arrive avec un plateau de bouteilles perlées… de rien du tout. | Tonton Mballa : « Enfin ! Une semaine à raboter, je mérite une bière bien glacée ! » · Boris : « Ce soir, c'est le pater Boris qui paie ! » · Mami Chantal : « Boris paie ? Il faut appeler la télé ! » |
 | 3 | Gros plan sur Boris qui boit une longue gorgée, yeux fermés, en extase. | SFX : *GLOUP…* · Récitatif : *Trois secondes de bonheur…* |
 | 4 | Boris recrache presque sa bière, les yeux exorbités. Les voisins reculent leurs chaises. Mola Ndip protège son sachet de pièces avec son bras. | Boris : « Patron ! Tu vends la bière ou tu prépares le bain des poulets ? » · Mola Ndip : « Massa! Dis beer don hot pass tea! » *(Ma parole ! Cette bière est plus chaude que le thé !)* [à valider par un relecteur camerounais] |
-| 5 | Le patron (Pater Glaçon) derrière le comptoir, torchon sur l'épaule, l'air désolé. Derrière lui, le congélateur « transpire » à grosses gouttes. Un client glisse sa veste sur la poignée du congélateur. | Le patron : « Mon frère, le congélateur est devenu une armoire depuis que le courant joue à cache-cache ! » · Le client : « Une armoire ? Alors range au moins ma veste ! » |
+| 5 | Le patron (Pater Glaçon) derrière le comptoir, torchon sur l'épaule, l'air désolé. Derrière lui, le congélateur « transpire » à grosses gouttes. Accoudé au comptoir, **le client du comptoir** (casquette vissée sur la tête, toujours la même bouteille à la main) glisse sa veste sur la poignée du congélateur. | Pater Glaçon : « Mon frère, le congélateur est devenu une armoire depuis que le courant joue à cache-cache ! » · Le client du comptoir : « Une armoire ? Alors range au moins ma veste ! » |
 
 #### Planche 2 — « Le procès du congélateur »
 | Case | Image | Texte |
 |---|---|---|
-| 1 | Le patron pointe un doigt accusateur vers son congélateur. Mami Ngo, tablier et louche à la main, monte sur une caisse vide et frappe la table avec sa louche comme un marteau de juge. Les clients s'installent en rangs, comme au tribunal. | Mami Ngo : « Silence ! L'audience est ouverte ! » · Le patron : « C'est lui le coupable ! Il ne glace plus rien ! » |
+| 1 | Le patron pointe un doigt accusateur vers son congélateur. Mami Ngo, tablier et louche à la main, monte sur une caisse vide et frappe la table avec sa louche comme un marteau de juge. Les clients s'installent en rangs, comme au tribunal. | Mami Ngo : « Silence ! L'audience est ouverte ! » · Pater Glaçon : « C'est lui le coupable ! Il ne glace plus rien ! » |
 | 2 | Le congélateur prend vie : deux yeux fatigués, une grosse moustache, des bras croisés, une cravate de vieux fonctionnaire. C'est **Monsieur Congélateur**. Une petite flaque à ses pieds. | Monsieur Congélateur : « Pardon, pardon ! Donnez-moi du courant stable et je vous fais des glaçons comme au pôle Nord ! » |
 | 3 | Mami Chantal brandit son sèche-cheveux, une tête de mort dessinée au marqueur dessus. Une voisine se penche vers elle, main devant la bouche. | Mami Chantal : « Moi, mon sèche-cheveux est au chômage technique depuis ce matin ! » · La voisine : « C'est pour ça que ta cliente est sortie avec la moitié de la tête mouillée ? » · Mami Chantal : « Kongossa ! Elle a dit que c'était la nouvelle mode ! » |
 | 4 | Tonton Mballa, très sérieux, compte sur ses doigts. Petite bulle-pensée au-dessus de lui : sa scie circulaire en bonnet de nuit, qui ronfle (« ZZZ »). | Tonton Mballa : « Vous parlez de bière chaude ? Moi, j'ai des meubles à livrer et mes machines dorment depuis midi ! » · Mola Ndip : « Na so! Na we go suffer am. » *(C'est ça ! C'est nous qui allons souffrir.)* |
@@ -37,29 +37,29 @@
 |---|---|---|
 | 1 | Un client debout sur sa chaise en plastique (qui plie dangereusement), bouteille levée. Derrière lui, une vieille télé à antenne montre un barrage en images floues. | Un client : « Mais on nous annonce Nachtigal, Lom Pangar, Memve'ele, Mekin… Tous ces barrages produisent quoi ? Du jus de papaye ? » |
 | 2 | Tout le bar éclate de rire, bouteilles en l'air. La chaise du client finit par céder. Au fond, Papa Tchinda lève un doigt, plein d'espoir. | SFX : *HA HA HA ! · CRAC !* · Papa Tchinda : « Du temps de la SONEL… » · Tout le bar : « PAS MAINTENANT, PAPA ! » |
-| 3 | Bulles qui se superposent et se bousculent, chacune avec une affirmation contradictoire. Une dernière bulle, celle de Mami Chantal, est coupée par le bord de la case. | Voisin 1 : « Nachtigal, c'est 1 000 mégawatts ! » · Voisine 2 : « Non, Lom Pangar, c'est lui qui produit tout ! » · Voisin 3 : « Et on envoie notre courant au Tchad ! » · Mami Chantal : « Moi, on m'a dit que… » |
+| 3 | Bulles qui se superposent et se bousculent, chacune avec une affirmation contradictoire. Au comptoir, le client à la casquette lance la sienne par-dessus les autres, sans lâcher sa bouteille. Une dernière bulle, celle de Mami Chantal, est coupée par le bord de la case. | Un voisin : « Nachtigal, c'est 1 000 mégawatts ! » · Une voisine : « Non, Lom Pangar, c'est lui qui produit tout ! » · Le client du comptoir : « Et on envoie notre courant au Tchad ! » · Mami Chantal : « Moi, on m'a dit que… » |
 | 4 | Dans un coin, Fifi lève les yeux de son téléphone, sourcils froncés, carnet déjà ouvert. Boris se penche vers Tonton Mballa. | Fifi : « Stop ! Vous mélangez les centrales, les lignes, les distributeurs et les compteurs ! » · Boris (bas) : « Voilà la journaliste. Ça va chauffer… mais pas la bière. » |
 | 5 | Fifi se lève, téléphone en main, au centre de la case, comme sur une scène. Au moment où elle finit sa phrase, tout s'éteint : il ne reste que la lumière de son téléphone, braquée sur elle comme un projecteur. | Fifi : « Si nous voulons savoir pourquoi la bière est chaude, il faut remonter le courant jusqu'à sa source ! » · SFX : *TCHOUP !* · Mola Ndip (dans le noir) : « Dis light don go again! » *(Le courant est encore parti !)* |
 
-> **Note pour le dessinateur (case 3)** : les affirmations des voisins sont **volontairement fausses ou imprécises**. Nachtigal fait 420 MW, et Lom Pangar est surtout un réservoir. Elles sont corrigées dans le carnet de Fifi ci-dessous et aux épisodes 5, 6 et 18. Ne pas mettre « 1 000 mégawatts » en gros caractères ni en valeur.
+> **Note pour le dessinateur (case 3)** : les affirmations des voisins sont **volontairement fausses ou imprécises**. Nachtigal fait 420 MW, et Lom Pangar est surtout un réservoir. Elles sont corrigées dans le carnet de Fifi ci-dessous et aux épisodes 5, 6 et 18. La phrase sur le Tchad est celle du **client du comptoir** : c'est lui que l'épisode 18 rappelle en flashback et qui y repose la question. Ne pas mettre « 1 000 mégawatts » en gros caractères ni en valeur.
 
 #### Planche 4 — « Le pari de la caisse de bières »
 | Case | Image | Texte |
 |---|---|---|
 | 1 | Silence. Le bar est éclairé par une forêt de téléphones allumés. Toutes les têtes sont tournées vers Fifi. Une mouche passe lentement, puis se pose sur Monsieur Congélateur. | Récitatif : *Un silence s'installe…* · SFX : *bzzz…* · Monsieur Congélateur (chuchoté) : « Même la mouche cherche le frais. » |
-| 2 | Le patron pose lentement une bouteille tiède sur la table, solennel, comme un trophée. Boris se redresse d'un bond. | Le patron : « Celui qui découvre pourquoi cette bière n'est pas glacée, je lui offre une caisse entière ! » · Boris : « Une caisse ? Glacée ? » · Le patron : « Glacée… si le courant est d'accord. » |
+| 2 | Le patron pose lentement une bouteille tiède sur la table, solennel, comme un trophée. Boris se redresse d'un bond, déjà les yeux brillants. | Pater Glaçon : « Celui qui découvre pourquoi cette bière n'est pas glacée, je lui offre une caisse entière ! » · Mami Chantal : « Pater Glaçon qui offre une caisse chaude… ton surnom est devenu un mensonge ! » · Pater Glaçon : « Mon surnom attend le courant, comme tout le monde. » |
 | 3 | Boris, Tonton Mballa, Mami Chantal et Fifi mettent leurs mains l'une sur l'autre. Sur un carton, au feutre : « COMITÉ DES MÉGAWATTS DE NKOAGNE ». Junior arrive en courant, une batterie de moto sous le bras, et pose sa main tout en haut. | Boris : « Comité des mégawatts de Nkoagne : en route ! » · Junior : « Attendez-moi ! Celui qui veut recharger son téléphone, c'est sur ma batterie ! » |
-| 4 | Le patron accroche un tableau noir vierge derrière le comptoir : « BAROMÈTRE DU COURANT DE NKOAGNE ». Il tient une craie comme un stylo de notaire. | Le patron : « Et ici, on n'écrit que ce qui a une source ! Avant de commander une autre bière, donnez-moi la source de votre chiffre ! » |
-| 5 | Les personnages sortent dans la nuit, vers des pylônes au loin, éclairés à la lampe de téléphone. Au comptoir, un client resté seul crie. Dans l'encadrement de la porte, Monsieur Congélateur agite un petit mouchoir blanc. | Le client : « Hé ! Avant d'aller chercher les mégawatts, qui va payer les bières chaudes ? » · Monsieur Congélateur : « Et ramenez-moi du courant stable ! » · Récitatif : *La grande enquête du courant camerounais vient de commencer.* |
+| 4 | Le patron accroche un tableau noir vierge derrière le comptoir : « BAROMÈTRE DU COURANT DE NKOAGNE ». Il tient une craie comme un stylo de notaire et, sous la dictée de Fifi, y écrit une seule ligne : « PRODUIRE → TRANSPORTER → DISTRIBUER → MESURER ». | Pater Glaçon : « Et ici, on n'écrit que ce qui a une source ! Avant de commander une autre bière, donnez-moi la source de votre chiffre ! » |
+| 5 | Les personnages sortent dans la nuit, vers des pylônes au loin, éclairés à la lampe de téléphone. Au comptoir, le client à la casquette, resté seul, crie. Dans l'encadrement de la porte, Monsieur Congélateur agite un petit mouchoir blanc. Boris, sur le seuil, se retourne. | Le client du comptoir : « Hé ! Avant d'aller chercher les mégawatts, qui va payer les bières chaudes ? » · Monsieur Congélateur : « Et ramenez-moi du courant stable ! » · Boris : « Demain, j'ai dix portails à souder. Avec ou sans courant ! » · Récitatif : *Prochain épisode : le soudeur qui soudait à la bougie !* |
 
 #### Page documentaire — Le carnet de Fifi n° 1 : « Qui fait quoi ? »
 | Nom entendu au bar | Ce que c'est | Rôle | Source |
 |---|---|---|---|
-| Lom Pangar | Barrage-réservoir sur le Lom, avec une petite usine de pied de 30 MW. Les quatre barrages-réservoirs de la Sanaga stockent environ 14 milliards de m³ | **Stocke** l'eau pour la saison sèche | Presse (fiche Lom Pangar, section 6 de saison-1-scenario.md) ; Compact énergétique national (Mission 300), p. 35 |
-| Nachtigal | Centrale hydroélectrique de 420 MW (NHPC : EDF 40 %, IFC 30 %, État 30 %), mise en service complète en 2025 | **Produit** | EDF, communiqué ; presse |
+| Lom Pangar | Barrage-réservoir sur le Lom, avec une petite usine de pied de 30 MW. Les quatre barrages-réservoirs de la Sanaga stockent environ 14 milliards de m³ | **Stocke** l'eau pour la saison sèche | Presse (Investir au Cameroun, Jeune Afrique) ; Compact énergétique national (Mission 300), p. 35 |
+| Nachtigal | Centrale hydroélectrique de 420 MW (NHPC : EDF 40 %, IFC 30 %, État 30 %), mise en service complète en 2025 | **Produit** | Compact, p. 35 et 41 (420 MW) ; presse (actionnaires, mise en service) |
 | Memve'ele, Mekin | Centrales hydroélectriques : 211 MW et 15 MW installés (Mekin : 11,2 MW injectés en 2022) | **Produisent** | Presse (Ecomatin, Cameroon Tribune) |
 | SONATREL | Société publique de transport. Le réseau de transport compte 3 405 km de lignes | **Transporte** à haute tension | Compact, p. 36 |
-| SOCADEL (ex-Eneo) | Opérateur à capitaux publics depuis le décret du 4 mai 2026 | **Distribue, vend, encaisse** ; exploite aussi des centrales | Cameroon Tribune ; Enerdata |
+| SOCADEL (ex-Eneo) | Opérateur à capitaux publics depuis le décret du 4 mai 2026 | **Distribue, vend, encaisse** ; exploite aussi des centrales | Presse |
 | PIRECT | Interconnexion Cameroun–Tchad, **pas un barrage**. Travaux lancés en mars 2025 | **Relie** des réseaux | Ecomatin ; fiche PIDA |
 | ARSEL / MINEE | Régulateur / Ministère de l'Eau et de l'Énergie | **Fixent les règles** et contrôlent | — |
 
@@ -83,9 +83,9 @@
 
 #### Notes pour le dessinateur
 - **Monsieur Congélateur** : vieux congélateur coffre blanc cassé, moustache en joint de caoutchouc, cravate, lunettes sur le front. Son humeur suit la tension : endormi quand elle est faible, en sueur quand le courant est coupé, rayonnant quand il est stable.
-- Ambiance sonore : faire « entendre » le quartier par des onomatopées en arrière-plan (klaxons, groupe électrogène, radio, appel de la vendeuse de soya), sans surcharger les bulles.
-- Planche 3, case 5 et planche 4 : le bar n'est éclairé que par les téléphones. Garder les visages lisibles.
-- Le baromètre est **vide** à la fin de l'épisode : seul le titre est écrit.
+- Ambiance sonore : faire « entendre » le quartier par des onomatopées en arrière-plan, sans surcharger les bulles. Planche 3, case 5 et planche 4 : le bar n'est éclairé que par les téléphones ; garder les visages lisibles.
+- **Le client du comptoir** (pl. 1, c. 5 ; pl. 3, c. 3 ; pl. 4, c. 5) : toujours la même casquette, la même bouteille, accoudé au même coin du comptoir. Il revient à l'épisode 4 et au flashback de l'épisode 18.
+- Le baromètre ne porte qu'**une ligne** à la fin de l'épisode (pl. 4, c. 4) : « Produire → transporter → distribuer → mesurer ».
 
 #### Points à valider
 - « Dis beer don hot pass tea! » [à valider par un relecteur camerounais] ; alternative en français : « Cette bière est plus chaude que le thé ! »
@@ -121,19 +121,19 @@
 | Case | Image | Texte |
 |---|---|---|
 | 1 | Grâce arrive, casque de chantier, multimètre à la ceinture. Elle découvre le portail couvert de cire fondue, la bougie toute tordue. | Grâce : « Boris, avec ta bougie, tu soudes quoi ? Un gâteau d'anniversaire ? » |
-| 2 | Grâce dessine à la craie sur une tôle deux robinets. À gauche, un robinet fermé, rien ne coule. À droite, un robinet ouvert d'où sort un mince filet d'eau. | Grâce : « La coupure, c'est le robinet fermé : plus rien. La chute de tension, c'est le robinet qui goutte : le courant est là, mais il n'a plus de force. » |
+| 2 | Grâce dessine à la craie sur une tôle deux robinets. À gauche, un robinet fermé, rien ne coule. À droite, un robinet ouvert d'où sort un mince filet d'eau. | Grâce : « La coupure, c'est le robinet fermé : plus rien. La chute de tension, c'est le robinet qui goutte : le courant est là, mais il n'a plus de force. » · Boris : « Chez moi, c'est le courant qui goutte… et la sueur qui coule à flots ! » |
 | 3 | Le poste à souder, dessiné avec une petite tête malade, un thermomètre dans la bouche. À côté, des silhouettes d'appareils en file d'attente chez le docteur : un congélateur, une tondeuse, une scie. | Grâce : « Un moteur qui reçoit trop peu de tension force, chauffe et s'use. Ton poste, le congélateur du bar, la scie de Tonton… tous souffrent. » · Boris : « Donc mon poste est malade de fatigue ? » |
-| 4 | Grâce, doigt levé, bulle spéciale « Attention, piège ! ». Boris lit l'étiquette de son poste… à l'envers. | Grâce : « Attention, piège ! Quand le courant revient, il peut revenir par à-coups. Débranche pendant la coupure, rebranche après. Et lis la plaque de ton appareil ! » · Boris : « Je lis, je lis… c'est écrit en chinois ? » · Grâce : « Retourne-la. » |
+| 4 | Grâce, doigt levé, bulle spéciale « Attention, piège ! ». Boris lit l'étiquette de son poste… à l'envers. | Grâce : « Attention, piège ! Quand le courant revient, il peut revenir par à-coups. Débranche pendant la coupure, rebranche après. Et lis la plaque de ton appareil ! » · Boris : « Je lis, je lis… c'est écrit en hiéroglyphes ? » · Grâce : « Retourne-la. » |
 | 5 | En face, de l'autre côté de la rue, un atelier concurrent : un énorme groupe électrogène rugit en crachant de la fumée. Monsieur Béton en sort avec un portail tout neuf et salue Boris. Le masque de Boris glisse et tombe par terre. | SFX : *VROOOOOM !* · Monsieur Béton : « Désolé, Boris. Lui, il a un groupe. Toi, tu as… une bougie. » · Boris : « Le ndem total… » |
 
 #### Planche 4 — « Le carnet des pannes »
 | Case | Image | Texte |
 |---|---|---|
-| 1 | Mercredi soir, au *Dernier Kilowatt*. Boris est effondré sur le comptoir, sa bougie éteinte à la main. Mola Ndip lui tapote le dos. Le patron pose devant lui une bière… tiède, évidemment. | Mola Ndip : « Na we go suffer am, ma broda. » *(C'est nous qui allons souffrir, mon frère.)* [à valider par un relecteur camerounais pour « ma broda »] |
+| 1 | Mercredi soir, au *Dernier Kilowatt*. Boris est effondré sur le comptoir, sa bougie éteinte à la main. Mola Ndip lui tapote le dos. Le patron pose devant lui une bière… tiède, évidemment. | Mola Ndip : « Ma broda, I get every spare part for market… but no spare part for light! » *(Mon frère, j'ai toutes les pièces détachées du marché… sauf une pièce de rechange pour le courant !)* [à valider par un relecteur camerounais] |
 | 2 | Fifi fait glisser un carnet neuf sur le comptoir. Sur la couverture : « RELEVÉ DES PANNES — 30 JOURS ». | Fifi : « Arrête de pleurer, commence à compter. Date, heure, durée, coupure ou chute de tension. Trente jours. » · Boris : « Trente jours ? Je suis soudeur, pas comptable ! » |
 | 3 | Tonton Mballa tend ses dix doigts à Boris, très sérieux, comme s'il les offrait. | Tonton Mballa : « Moi, je compte sur mes doigts depuis que j'ai des doigts. Je te les prête. » |
-| 4 | Boris se redresse, inspiré, et frappe le comptoir. Le patron lève un sourcil, craie à la main. | Boris : « Patron ! J'ai trouvé : c'est la chute de tension ! Donne la caisse ! » · Le patron : « Avant de commander une caisse, donne-moi la source de ton chiffre. Tu as noté combien de pannes ? » · Boris : « …Zéro. » |
-| 5 | Boris écrit fièrement la première ligne du carnet. Case suivante dans la même case (deux temps) : noir complet, seule la bougie de Boris, rallumée, éclaire le carnet. Monsieur Congélateur, en sueur, le regarde. | Boris (écrit) : « Panne n° 1 : 21 h 14, chute de tension. » · SFX : *TCHOUP !* · Boris (dans le noir) : « Panne n° 2 : 21 h 15… » · Monsieur Congélateur : « Mon fils, achète un grand carnet. » · Récitatif : *Pendant ce temps, dans une cour de Nkoagne, un groupe électrogène s'apprête à devenir le plus riche du quartier…* |
+| 4 | Boris se redresse, inspiré, et frappe le comptoir. Le patron lève un sourcil, craie à la main. | Boris : « Patron ! J'ai trouvé : c'est la chute de tension ! Donne la caisse ! » · Pater Glaçon : « Avant de commander une caisse, donne-moi la source de ton chiffre. Tu as noté combien de pannes ? » · Boris : « …Zéro. » |
+| 5 | Boris écrit fièrement la première ligne du carnet. Case suivante dans la même case (deux temps) : noir complet, seule la bougie de Boris, rallumée, éclaire le carnet. Monsieur Congélateur, en sueur, le regarde. | Boris (écrit) : « Panne n° 1 : 21 h 14, chute de tension. » · SFX : *TCHOUP !* · Boris (dans le noir) : « Panne n° 2 : 21 h 15… » · Monsieur Congélateur : « Mon fils, achète un grand carnet. » · Récitatif : *Prochain épisode : dans une cour de Nkoagne, un groupe électrogène s'apprête à devenir le plus riche du quartier…* |
 
 #### Page documentaire — Le carnet de Fifi n° 2 : « Coupure franche ou chute de tension ? »
 | Notion ou donnée | Ce qu'il faut retenir | Source |
@@ -163,7 +163,7 @@
 - **Ndem** : échec, catastrophe (camfranglais).
 - **Ma broda** : mon frère (pidgin) [à valider].
 - **Dis light don go again!** : le courant est encore parti ! (pidgin)
-- **Na we go suffer am** : c'est nous qui allons souffrir (pidgin).
+- **Spare part** : pièce détachée (pidgin, de l'anglais).
 
 #### Notes pour le dessinateur
 - Différencier visuellement **coupure** (noir total, couleurs coupées) et **chute de tension** (lumière jaune-orange, couleurs délavées, objets qui « ralentissent » avec des traits de mouvement mous).
@@ -172,8 +172,7 @@
 - Le carnet « RELEVÉ DES PANNES » devient un accessoire récurrent de Boris dans tout l'acte.
 
 #### Points à valider
-- Réplique « par solidarité » : version retenue « avec le réseau », sans nommer d'entreprise (garde-fou 3).
-- « Ma broda » [à valider par un relecteur camerounais] ; alternative : « mon frère ».
+- « Ma broda, I get every spare part for market… but no spare part for light! » [à valider par un relecteur camerounais] ; alternative : « Mon frère, j'ai toutes les pièces du marché, sauf celle du courant ! »
 - Explication technique des chutes de tension (moteurs qui chauffent, arc instable) : à faire relire par un électricien. Aucune valeur de tension n'est donnée [DONNÉE À VÉRIFIER si on veut la tension nominale].
 
 ---
@@ -206,7 +205,7 @@
 | 1 | Tonton Mballa, en costume du dimanche, un genou à terre devant Mama Diesel, un bouquet de fleurs en plastique à la main. Chantal le regarde, bras croisés. | Mami Chantal : « Tonton, tu fais quoi encore ? » · Tonton Mballa : « Si elle gagne plus que moi, je l'épouse. Au moins l'argent reste dans la famille ! » |
 | 2 | Junior, en porte-parole de « la famille de la mariée », lunettes sur le nez, lit une longue liste qui se déroule jusqu'au sol. | Junior : « La famille de la mariée demande : dix bidons de gasoil, un filtre neuf, une bâche contre la pluie… et un mécanicien à vie ! » |
 | 3 | Tonton compte sur ses doigts, devient tout pâle, et tombe à la renverse dans les copeaux de bois. | Tonton Mballa : « Dix bidons ? Même ma propre dot n'a pas coûté autant ! » · Mami Chantal : « Ça, c'est ton problème. » |
-| 4 | Fifi entre, carnet ouvert, l'air d'une enquêtrice de police. Elle lit sur son téléphone. | Fifi : « Avant le mariage, enquête de moralité. Source ? Date ? Unité ? La Banque mondiale a interrogé des entreprises du Cameroun : en 2016, 92,5 % disaient avoir subi des coupures dans l'année. » · Mami Chantal : « Donc on n'est pas les seuls à épouser des groupes ? » |
+| 4 | Fifi entre, carnet ouvert, l'air d'une enquêtrice de police. Elle lit sur son téléphone. | Fifi : « Avant le mariage, enquête de moralité. Source ? Date ? Unité ? La Banque mondiale a interrogé des entreprises du Cameroun : en 2016, 92,5 % disaient avoir subi des coupures. » · Mami Chantal : « Donc on n'est pas les seuls à épouser des groupes ? » |
 | 5 | Tonton, toujours par terre, lève ses dix doigts au-dessus de lui. L'un d'eux est dessiné en fumée noire qui s'envole. | Fifi : « Et chez les entreprises touchées, les coupures ont fait perdre en moyenne 9,9 % des ventes annuelles. » · Tonton Mballa : « 9,9 % ? Presque un doigt sur dix ! Le bois ne ment pas : un doigt entier part dans la fumée ! » |
 
 #### Planche 4 — « Le calcul qui fait mal »
@@ -214,14 +213,14 @@
 |---|---|---|
 | 1 | Junior écrit sur la planche, en lettres capitales encadrées : « EXEMPLE FICTIF ». Tonton se relève en époussetant son costume. | Sur la planche : « EXEMPLE FICTIF : un atelier qui vend 1 000 000 FCFA par mois » · Junior : « C'est un exemple inventé, pas les vrais comptes de Tonton ! » · Tonton Mballa : « Heureusement ! Mes vrais comptes, même ma femme ne les connaît pas. » |
 | 2 | Junior souligne deux résultats. Chantal se tient la tête à deux mains. | Junior : « 9,9 % d'un million, ça fait environ 99 000 FCFA par mois. Sur un an : environ 1,2 million. » · Mami Chantal : « Un million deux ?! Et il faut encore payer le gasoil de Madame ? » |
-| 3 | Grâce arrive, bulle spéciale « Attention, piège ! ». | Grâce : « Attention, piège ! 9,9 %, c'est une moyenne nationale de 2016. Ce n'est pas la perte de chaque atelier. Faites vos vrais comptes, avec vos vrais chiffres. » |
-| 4 | Junior sort de son sac un carton « KIT SOLAIRE — GARANTI 100 ANS ». Grâce le prend, l'étiquette se décolle toute seule et tombe. | Junior : « Sinon, j'ai la solution : mon kit solaire, qualité top ! » · Grâce : « Junior… on en reparle le jour où tu connaîtras les normes. » |
-| 5 | Le soir, au *Dernier Kilowatt*. Le courant vient de partir. Tonton a branché le bar sur Mama Diesel, amenée sur une brouette. Monsieur Congélateur se réveille, ébloui, et fait les yeux doux à Mama Diesel. | Monsieur Congélateur : « Madame… vous êtes ma lumière. » · Mama Diesel : « Désolée, chéri. Je suis déjà fiancée. » · Tonton Mballa : « Et la dot n'est même pas encore payée ! » · Récitatif : *Et si c'était une usine entière qui devait épouser un groupe électrogène ?* |
+| 3 | Grâce arrive, bulle spéciale « Attention, piège ! ». À peine a-t-elle fini que Junior sort de son sac un carton « KIT SOLAIRE — GARANTI 100 ANS ». Grâce le prend ; l'étiquette se décolle toute seule et tombe. | Grâce : « Attention, piège ! 9,9 %, c'est une moyenne nationale de 2016, pas la perte de chaque atelier. Faites vos vrais comptes. » · Junior : « Ou alors… mon kit solaire, qualité top ! » · Grâce : « Junior… on en reparle le jour où tu connaîtras les normes. » |
+| 4 | Le soir, au *Dernier Kilowatt*. Le courant vient de partir. Tonton a branché le bar sur Mama Diesel, amenée sur une brouette. Monsieur Congélateur se réveille, ébloui, et fait les yeux doux à Mama Diesel. | Monsieur Congélateur : « Madame… vous êtes ma lumière. » · Mama Diesel : « Désolée, chéri. Je suis déjà fiancée. » · Tonton Mballa : « Et la dot n'est même pas encore payée ! » |
+| 5 | Tonton Mballa, illuminé, pointe Mama Diesel du doigt devant Pater Glaçon, qui essuie un verre sans lever les yeux. Mama Diesel avale bruyamment le contenu d'un bidon. | Tonton Mballa : « J'ai trouvé : c'est Mama Diesel qui boit tout ! La caisse ! » · Pater Glaçon : « Elle boit du gasoil, pas ma bière. » · Récitatif : *Prochain épisode : et si c'était une usine entière qui devait épouser un groupe électrogène ?* |
 
 #### Page documentaire — La facture cachée de la panne
 | Donnée réelle | Valeur | Source |
 |---|---|---|
-| Entreprises ayant subi des coupures dans l'année précédant l'enquête | **92,5 %** | Banque mondiale, Enterprise Survey Cameroun 2016 |
+| Entreprises ayant subi des coupures | **92,5 %** | Banque mondiale, Enterprise Survey Cameroun 2016 |
 | Pertes dues aux coupures, en % des ventes annuelles (entreprises touchées) | **9,9 %** | Même source |
 
 **Exemple de calcul (FICTIF, présenté comme tel)**
@@ -292,20 +291,20 @@
 #### Planche 3 — « Papa Diesel et les concurrents d'ailleurs »
 | Case | Image | Texte |
 |---|---|---|
-| 1 | Grâce essore sa manche au-dessus d'un seau, très calme. | Grâce : « Avoir le courant, c'est bien. L'avoir sans coupure et avec la bonne tension, c'est la qualité de service. C'est ça qui fait tourner une usine. » |
+| 1 | Grâce essore sa manche au-dessus d'un seau, très calme. | Grâce : « Avoir le courant, c'est bien. L'avoir sans coupure et avec la bonne tension, c'est la qualité de service. C'est ça qui fait tourner une usine. » · Boris (léchant le jus sur son bras) : « Donc la qualité de service, c'est quand le jus reste dans la bouteille ? » · Grâce : « Voilà. Tu as compris plus vite que la presse. » |
 | 2 | Un camion livre un énorme groupe électrogène bleu, moustachu, avec un nom au pochoir : « PAPA DIESEL ». Tonton Mballa, venu livrer des étagères, recule d'un pas. | Tonton Mballa : « Ah ! C'est le grand frère de Mama Diesel ! Attention, madame : dans cette famille, on demande des dots ! » |
 | 3 | Rêverie de Madame Pulchérie : sur une balance de marché, d'un côté sa bouteille de jus, écrasée sous deux sacs « FACTURE D'ÉLECTRICITÉ » et « GASOIL DE PAPA DIESEL » ; de l'autre, une bouteille de jus importé, légère, qui se balance. | Madame Pulchérie : « Si mon concurrent d'ailleurs a un courant stable, il paie son énergie une fois. Moi, je paie le réseau ET Papa Diesel. Deux fois ! » |
-| 4 | Fifi, carnet en main, corrige Madame Pulchérie, qui fait un grand geste vers toute la ville. | Madame Pulchérie : « Fifi m'a dit 92,5 % ! Donc presque tout Douala épouse des groupes électrogènes ? » · Fifi : « Non, madame : 92,5 % des entreprises interrogées dans tout le pays, en 2016, ont subi des coupures. Ce n'est pas un recensement de Douala. Unité et périmètre ! » |
+| 4 | Fifi, carnet en main, corrige Madame Pulchérie, qui fait un grand geste vers toute la ville. | Madame Pulchérie : « Fifi m'a dit 92,5 % ! Donc presque tout Douala épouse des groupes électrogènes ? » · Fifi : « Non, madame : 92,5 % des entreprises interrogées dans tout le pays, en 2016, ont subi des coupures. Ce n'est pas un recensement de Douala. Unité et périmètre ! » · Madame Pulchérie : « Unité, périmètre… Tu parles comme mon contrôleur des impôts ! » |
 | 5 | Madame Pulchérie écrit le prix de revient de sa bouteille sur un tableau blanc. La dernière ligne est soulignée trois fois. | Sur le tableau : « Fruits + sucre + bouteille + courant + gasoil + PATIENCE » · Boris : « La patience, ça coûte combien ? » · Madame Pulchérie : « C'est le plus cher : on n'en trouve pas au marché ! » |
 
 #### Planche 4 — « Retour au Dernier Kilowatt »
 | Case | Image | Texte |
 |---|---|---|
 | 1 | Samedi soir, au bar. Tout le comité est là, avec Madame Pulchérie et une caisse de jus de papaye. Fifi montre son téléphone au patron. Mola Ndip écoute, bouteille tiède en main. | Fifi : « Ce n'est pas seulement nous : en septembre 2026, le GECAM, le patronat camerounais, a publiquement interpellé la SOCADEL sur les coupures qui pèsent sur l'économie. C'est rapporté par AllAfrica. » · Grâce : « Un fait rapporté, pas un verdict. On cherche la chaîne, pas un coupable. » · Mola Ndip : « Na so! » |
-| 2 | Le patron écrit au baromètre. La craie crisse. Trois lignes sont maintenant remplies. | SFX : *CRRRIIICH…* · Le patron : « Ça, ça a une source. Ça reste au tableau ! » |
+| 2 | Le patron écrit au baromètre. La craie crisse. Quatre lignes sont maintenant remplies. | SFX : *CRRRIIICH…* · Pater Glaçon : « Ça, ça a une source. Ça reste au tableau ! » |
 | 3 | Boris se lève, solennel, bouteille levée. Tout le bar lève la sienne. | Boris : « On connaît le prix de la panne. Maintenant, allons voir ceux qui fabriquent le courant. » |
-| 4 | Boris tend la main vers le patron, plein d'espoir. Le patron croise les bras. | Boris : « Et donc, patron… la caisse ? » · Le patron : « Vous savez ce que la panne coûte. Vous ne savez pas encore pourquoi MA bière est chaude. La caisse reste au frais… enfin, au chaud. » |
-| 5 | Madame Pulchérie ouvre sa caisse : ses bouteilles de jus sont couvertes de givre (refroidies à l'usine, grâce à Papa Diesel). Tout le bar trinque au jus de papaye glacé, sauf le client du comptoir, seul avec sa bière tiède. Sur la vieille télé, un immense lac de barrage. Monsieur Congélateur chuchote vers l'écran. | Le client : « Attendez… maintenant c'est le jus de papaye qui est glacé, et la bière qui est chaude ? Qui va payer les bières chaudes ?! » · Monsieur Congélateur (chuchoté) : « Allez voir Lom Pangar… On dit qu'il garde toute l'eau pour lui… » · Récitatif : *Prochain épisode : « Lom Pangar : le gardien des milliards de gouttes ! »* |
+| 4 | Boris tend la main vers le patron, plein d'espoir. Le patron croise les bras. | Boris : « Et donc, patron… la caisse ? » · Pater Glaçon : « Vous savez ce que la panne coûte. Vous ne savez pas encore pourquoi MA bière est chaude. La caisse reste au frais… enfin, au chaud. » |
+| 5 | Madame Pulchérie ouvre sa caisse : ses bouteilles de jus sont couvertes de givre (refroidies à l'usine, grâce à Papa Diesel). Tout le bar trinque au jus de papaye glacé, sauf le client du comptoir (même casquette qu'à l'épisode 1), seul avec sa bière tiède. Sur la vieille télé, un immense lac de barrage. Monsieur Congélateur chuchote vers l'écran. | Le client du comptoir : « Attendez… maintenant c'est le jus de papaye qui est glacé, et la bière qui est chaude ? Qui va payer les bières chaudes ?! » · Monsieur Congélateur (chuchoté) : « Allez voir Lom Pangar… On dit qu'il garde toute l'eau pour lui… » · Récitatif : *Prochain épisode : « Lom Pangar : le gardien des milliards de gouttes ! »* |
 
 #### Page documentaire — Les chiffres du Pacte : ce qu'une entreprise doit savoir
 | Indicateur | Valeur | Source |
@@ -349,8 +348,7 @@
 - La phrase de Boris (pl. 4, c. 3) est la réplique de fin d'acte : case large, lumière chaude.
 
 #### Points à valider
-- Fait GECAM (septembre 2026, AllAfrica) : il figure dans saison-1-scenario.md mais **pas dans la section 4 de la bible**. À confirmer et à ajouter à la bible, ou à retirer.
-- Taux d'accès : la bible donne 74 % (2025, Compact) ; saison-1-scenario.md donne d'autres chiffres pour les épisodes 13 et 16 (60–68 %, ECAM5). À harmoniser avant impression.
+- Fait GECAM : bible 4.4 bis. La date du 13 septembre 2026 est déduite du lien AllAfrica ; à confirmer.
 - Page exacte du taux de recouvrement (72 %) dans le Compact [DONNÉE À VÉRIFIER].
 - Procédure et délais d'augmentation de puissance et de raccordement [DONNÉE À VÉRIFIER].
 - « Tontine des femmes et chorale » : gag d'énumération, sans dimension religieuse moquée. À faire relire.
