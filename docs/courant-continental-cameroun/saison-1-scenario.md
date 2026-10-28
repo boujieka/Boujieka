@@ -64,7 +64,7 @@ Le patron installe derrière le comptoir un grand tableau à la craie. À chaque
 *Épisodes 1 à 4 · Vie quotidienne et PME. Objectif : montrer que l'électricité ne sert pas qu'à éclairer. Elle décide de la capacité à produire, à employer et à investir.*
 
 ### Épisode 1 — « La bière chaude qui a réveillé tout le Cameroun ! »
-**Lieu** : *Le Dernier Kilowatt*, quartier Nkoagne. **Moment** : samedi soir, après une longue journée de travail.
+**Lieu** : *Le Dernier Kilowatt*, quartier Nkoagne. **Moment** : vendredi soir, après une longue semaine de travail.
 
 #### Planche 1 — « Une tournée à température ambiante ! »
 | Case | Image | Texte |

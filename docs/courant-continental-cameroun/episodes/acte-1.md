@@ -11,13 +11,13 @@
 ---
 
 ### Épisode 1 — « La bière chaude qui a réveillé tout le Cameroun ! »
-*Un samedi soir, une bière tiède met tout un bar en procès… et lance la plus grande enquête de l'histoire de Nkoagne.*
-**Lieu / Moment** : *Le Dernier Kilowatt*, quartier Nkoagne. Samedi soir, après une longue semaine de travail.
+*Un vendredi soir, une bière tiède met tout un bar en procès… et lance la plus grande enquête de l'histoire de Nkoagne.*
+**Lieu / Moment** : *Le Dernier Kilowatt*, quartier Nkoagne. Vendredi soir, après une longue semaine de travail : c'est la paie, c'est le week-end qui commence.
 
 #### Planche 1 — « Une tournée à température ambiante ! »
 | Case | Image | Texte |
 |---|---|---|
-| 1 | Plan large de la rue au coucher du soleil. Motos-taxis qui se faufilent, un taxi jaune qui klaxonne, une vendeuse de soya qui évente son brasero, des enfants qui jouent au foot avec une bouteille en plastique. Devant une boutique, un groupe électrogène fume comme une locomotive. Une radio crache du makossa. Enseigne néon à moitié éteinte : « LE DERNIER KILO…T ». | SFX : *TUUUT ! · VROUM ! · TEUF-TEUF-TEUF…* · La vendeuse : « Soya chaud ! Soya bien chaud ! » · Récitatif : *Nkoagne, samedi soir. Ici, on oublie la semaine… quand le courant le permet.* |
+| 1 | Plan large de la rue au coucher du soleil. Motos-taxis qui se faufilent, un taxi jaune qui klaxonne, une vendeuse de soya qui évente son brasero, des enfants qui jouent au foot avec une bouteille en plastique. Devant une boutique, un groupe électrogène fume comme une locomotive. Une radio crache du makossa. Enseigne néon à moitié éteinte : « LE DERNIER KILO…T ». | SFX : *TUUUT ! · VROUM ! · TEUF-TEUF-TEUF…* · La vendeuse : « Soya chaud ! Soya bien chaud ! » · Récitatif : *Nkoagne, vendredi soir. La semaine est finie, la paie est tombée. Ici, on oublie tout… quand le courant le permet.* |
 | 2 | Intérieur. Boris, Tonton Mballa, Mami Chantal et des voisins autour d'une table en plastique rouge. À la table d'à côté, Mola Ndip trie des bougies d'allumage dans un sachet. Le serveur arrive avec un plateau de bouteilles perlées… de rien du tout. | Tonton Mballa : « Enfin ! Une semaine à raboter, je mérite une bière bien glacée ! » · Boris : « Ce soir, c'est le pater Boris qui paie ! » · Mami Chantal : « Boris paie ? Il faut appeler la télé ! » |
 | 3 | Gros plan sur Boris qui boit une longue gorgée, yeux fermés, en extase. | SFX : *GLOUP…* · Récitatif : *Trois secondes de bonheur…* |
 | 4 | Boris recrache presque sa bière, les yeux exorbités. Les voisins reculent leurs chaises. Mola Ndip protège son sachet de pièces avec son bras. | Boris : « Patron ! Tu vends la bière ou tu prépares le bain des poulets ? » · Mola Ndip : « Massa! Dis beer don hot pass tea! » *(Ma parole ! Cette bière est plus chaude que le thé !)* [à valider par un relecteur camerounais] |
