@@ -134,6 +134,18 @@ Une BD **drôle d'abord**. On doit rire à chaque planche, comme devant un sketc
 - **Mars 2022** : ligne à plus de 94 %. Le raccordement complet à Yaoundé est rapporté en **2023** (Banque mondiale). Environ **six ans** séparent donc la centrale prête de la ligne complète.
 - **Gag possible** : le mariage traditionnel où la mariée (la centrale) attend depuis 2017, en tenue, avec la dot payée. Le témoin (la ligne) envoie un message tous les six mois : « J'arrive, je suis à Nkolzock ! » Pendant ce temps, la ligne provisoire de 90 kV, « la petite cousine », fait le travail de la mariée à moitié.
 
+**Song Loulou : le vieux lion soigné à crédit** (Cameroun24, Investir au Cameroun, Jeune Afrique, 237actu, Eneo)
+- **2013** : le cabinet ISL alerte : les ouvrages en béton, les prises d'eau et les évacuateurs de crues risquent de céder sans réhabilitation (rapporté par Cameroun24).
+- **2015** : par avenant à la concession, Eneo s'engage à investir **11 Md FCFA** dans la réhabilitation (Jeune Afrique).
+- Un article annonçait la **première phase achevée en 2020** « si toutes les conditions sont réunies » (237actu).
+- **Vers 2025** : programme « Dam Safety » estimé à **≈ 72 Md FCFA**, dont **≈ 18 Md engagés** sur fonds propres (phases 1 et 2) et **≈ 54 Md encore à mobiliser**. Retard « important », attribué à des contraintes techniques et financières, notamment liées aux emprunts auprès des bailleurs. L'étude ISL estimait les travaux à **neuf ans** (Investir au Cameroun ; Business in Cameroon).
+- Eneo a dû publier un communiqué affirmant que « le barrage hydroélectrique de Songloulou est stable » (site d'Eneo, date à préciser), signe que l'inquiétude publique existait.
+- **2026** : la concession passe à la **SOCADEL**. La transformation règle la question du capital, **pas celle du financement des investissements** (Africtelegraph). La levée de 60 Md FCFA lancée par la SOCADEL en juillet 2026 ne vise pas explicitement Song Loulou.
+- Capacité de 384 ou 396 MW selon les sources : c'est l'un des piliers du réseau Sud.
+- **Gag possible** : le vieux lion Song Loulou à l'hôpital, avec une ordonnance de 72 Md. La famille a payé 18 Md de médicaments, et le docteur répète tous les ans : « Revenez quand vous aurez le reste. » Papa Tchinda lui tient la main.
+- **Leçon** : on finance les inaugurations, rarement l'entretien. Pourtant, un vieux barrage en panne fait perdre bien plus de MW qu'une petite centrale neuve n'en apporte.
+- **Nuance** : aucune source ne dit que le barrage est dangereux aujourd'hui. Ne pas dessiner de catastrophe. On parle de **retard de réhabilitation** et de **risque signalé en 2013**.
+
 **Règle « C'est le fey ! »** : le mot camerounais *fey* (arnaque ; *feyman*, escroc) peut être lancé par un personnage, sous le coup de la colère, comme on le dirait au bar. **Immédiatement**, le patron (« Source ? ») ou Fifi recadre. Exemple :
 > Boris : « Payer 420 MW quand la ligne n'en prend que la moitié ? C'est le fey ! »
 > Fifi : « Le fey, c'est un délit, et il faut un juge pour le dire. Ici, on a un contrat signé et une ligne en retard. Le vrai scandale possible, c'est la **coordination**. Et ça, on peut le prouver avec des dates. »
