@@ -102,6 +102,21 @@ Une BD **drôle d'abord**. On doit rire à chaque planche, comme devant un sketc
 - **Le Compact lui-même reconnaît** que les contrats BOT des producteurs indépendants (environ 35 % du parc) contiennent des clauses de type « Take or Pay » dont certains risques sont portés par l'État (p. 35).
 - **Autres décalages centrale/ligne** : Memve'ele (centrale en service vers 2019, raccordement complet rapporté en 2023) ; Mekin (11,2 MW injectés sur 15 à cause des contraintes de ligne) ; Bini à Warak et Kikot (devis réestimés, service en 2033).
 
+**PIRECT : le projet qui traîne et dont les coûts imprévus s'emballent** (Investir au Cameroun, Cameroun24, 2025-2026)
+- Au lancement (**novembre 2023**), la livraison était annoncée pour **2027**. Les travaux côté camerounais ont été lancés en mars 2025. Le calendrier est désormais **repoussé vers 2030** selon Cameroun24 ; les nouveaux lots prévoient **34 mois après signature des contrats**, ce qui rend « intenable » l'échéance de fin 2027 encore affichée par la BAD.
+- Cause avancée par la cellule d'exécution tchadienne : les **études et dossiers d'appels d'offres de 2017**, une fois révisés, ont révélé une **hausse des coûts** et un **déficit de financement**.
+- **Déficit** : **287 Md FCFA** signalés en 2025 ; une autre source indique **142 Md FCFA mobilisés sur 285 Md nécessaires** (moitié financée) ; un « déficit moyen de 150 Md FCFA » a aussi été rapporté. Ces chiffres ne mesurent pas tous la même chose : il faut les présenter comme des estimations successives.
+- **Mission BAD d'octobre 2026** : première phase transfrontalière réévaluée à **221,3 M €** (≈ **145,2 Md FCFA**), **sur un périmètre technique réduit**. Ce n'est ni un financement approuvé ni la couverture de tout le projet.
+- Appels d'offres en cours (offres attendues en novembre 2026).
+- **Gag possible** : le dossier d'appel d'offres de 2017 sort de son tiroir couvert de poussière : « J'ai vieilli… et mes prix aussi ! »
+
+**Mekin : la saga** (plusieurs sources ; dates divergentes à présenter comme telles)
+- Coût : **25 Md FCFA** prévus, puis **≈ 34,5 Md** en 2020 (Ecomatin) ; une autre source cite 25,7 Md. Financement Exim Bank de Chine à 75 % ou 85 % selon les sources.
+- Le constructeur **CNEEC a réclamé ≈ 5 Md FCFA supplémentaires** pour des travaux additionnels (Investir au Cameroun, vers 2019) ; l'État pouvait, de son côté, réclamer des compensations pour **plus de trois ans de retard**. L'issue de ce litige n'est pas connue.
+- La **mise en eau a noyé des ponts et des villages** (237online ; Wikipédia), ce qui a retardé les essais.
+- Dates à afficher comme un **feuilleton** : mise sous tension tardive en **avril 2019**, puis arrêt (Agence Ecofin) ; injection de 11,2 MW sur 15 depuis **juin 2022** ; **réception en juillet 2023** ; un média rapporte un **nouvel arrêt en septembre 2024** après une panne de pompes aggravée par des inondations (une seule source, **[à confirmer]**).
+- **Interdit** : un média évoque des « soupçons de détournement ». C'est une **allégation non établie** ; elle ne doit **pas** figurer dans la BD, sauf sous forme d'une question : « Y a-t-il eu un audit ? Où est le rapport ? »
+
 **Règle « C'est le fey ! »** : le mot camerounais *fey* (arnaque ; *feyman*, escroc) peut être lancé par un personnage, sous le coup de la colère, comme on le dirait au bar. **Immédiatement**, le patron (« Source ? ») ou Fifi recadre. Exemple :
 > Boris : « Payer 420 MW quand la ligne n'en prend que la moitié ? C'est le fey ! »
 > Fifi : « Le fey, c'est un délit, et il faut un juge pour le dire. Ici, on a un contrat signé et une ligne en retard. Le vrai scandale possible, c'est la **coordination**. Et ça, on peut le prouver avec des dates. »
