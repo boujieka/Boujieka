@@ -117,6 +117,14 @@ Une BD **drôle d'abord**. On doit rire à chaque planche, comme devant un sketc
 - Dates à afficher comme un **feuilleton** : mise sous tension tardive en **avril 2019**, puis arrêt (Agence Ecofin) ; injection de 11,2 MW sur 15 depuis **juin 2022** ; **réception en juillet 2023** ; un média rapporte un **nouvel arrêt en septembre 2024** après une panne de pompes aggravée par des inondations (une seule source, **[à confirmer]**).
 - **Interdit** : un média évoque des « soupçons de détournement ». C'est une **allégation non établie** ; elle ne doit **pas** figurer dans la BD, sauf sous forme d'une question : « Y a-t-il eu un audit ? Où est le rapport ? »
 
+**Lom Pangar : l'usine de pied qui arrive neuf ans après le rendez-vous** (Investir au Cameroun, Energies Media, L'Économie, Jeune Afrique)
+- Prévu à l'origine : barrage **et** usine de pied de 30 MW en service **entre juillet 2014 et janvier 2015**.
+- En **septembre 2018**, le ministre annonce le premier groupe pour **septembre 2020**. Le contrat de l'entrepreneur tarde à entrer en vigueur ; les travaux **ne démarrent qu'en mars 2019**.
+- Fin **novembre 2020** : usine **et** ligne d'évacuation vers Bertoua (90 kV, ≈ 120 km) avancées à **23 %**. Le premier groupe de 7,5 MW est repoussé à **décembre 2021**.
+- Premier groupe lancé en **mai 2023** ; les **30 MW** fonctionnent « de façon optimale » depuis le **2 janvier 2024**. Écart d'environ **neuf ans** avec le calendrier initial.
+- Coûts : projet global ≈ 240,9 Md FCFA, ou 494 M USD hors dépenses préparatoires, dont **≈ 62 M USD pour l'usine et la ligne** (Journal du Cameroun) ; un autre chiffre (≈ 30 Md FCFA pour l'usine) est déjà dans 4.2. Les périmètres diffèrent ; le coût exact de la seule centrale n'est pas confirmé.
+- **Gag possible** : le chrono de la coordination affiche « Barrage prêt : 2016 » [DATE À VÉRIFIER] et « Usine de pied prête : 2024 ». Pendant ce temps, à Bertoua, les habitants voient passer l'eau du réservoir sans voir leur propre courant.
+
 **Règle « C'est le fey ! »** : le mot camerounais *fey* (arnaque ; *feyman*, escroc) peut être lancé par un personnage, sous le coup de la colère, comme on le dirait au bar. **Immédiatement**, le patron (« Source ? ») ou Fifi recadre. Exemple :
 > Boris : « Payer 420 MW quand la ligne n'en prend que la moitié ? C'est le fey ! »
 > Fifi : « Le fey, c'est un délit, et il faut un juge pour le dire. Ici, on a un contrat signé et une ligne en retard. Le vrai scandale possible, c'est la **coordination**. Et ça, on peut le prouver avec des dates. »
