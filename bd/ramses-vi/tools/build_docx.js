@@ -42,6 +42,16 @@ const CONFIGS = {
       'bible/07_bibliographie.md',
     ],
   },
+  bible2: {
+    out: 'volume2/Bible_Volume_2_Les_Mysteres_du_tombeau_de_Ramses_VI.docx',
+    kicker: 'BIBLE — VOLUME 2',
+    subtitle: 'Le Livre noyé — Abydos, là où tout commence',
+    note: 'L\'Osireion d\'Abydos : référence historique sourcée, 12 épisodes planche par planche',
+    files: ['volume2/bible/00_index.md', 'volume2/bible/01_reference_osireion.md',
+      'volume2/bible/02_decor_livres.md', 'volume2/bible/03_abydos_contexte.md',
+      'volume2/bible/04_theories_marginales.md', 'volume2/bible/05_episodes_et_planches_volume_2.md',
+      'volume2/bible/06_bibliographie.md'],
+  },
   chatgpt: {
     out: 'Prompts_ChatGPT_Volume_1_Les_Mysteres_du_tombeau_de_Ramses_VI.docx',
     kicker: 'PROMPTS CHATGPT — VOLUME 1',
