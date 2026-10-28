@@ -250,7 +250,7 @@
 ---
 
 ### Épisode 12 — « Le compteur qui avalait les milliards ! »
-*Le Kilowatt s'évanouit au comptoir. Grâce pratique son autopsie, et chaque blessure raconte où se perdent le courant et l'argent.*
+*Le Kilowatt s'évanouit au comptoir. Grâce pratique son autopsie : chaque blessure raconte où se perdent le courant et l'argent, jusqu'au taximètre qui tourne même quand le taxi est à l'arrêt.*
 **Lieu / Moment** : *Le Dernier Kilowatt*, vendredi soir, coupure en cours. La table du fond devient une table d'autopsie éclairée à la lampe frontale.
 
 #### Planche 1 — « Le Kilowatt est tombé ! »
@@ -278,15 +278,15 @@
 | 2 | Changement de décor imaginaire : une cour familiale, chaises en plastique en cercle, une natte au milieu avec une facture géante posée dessus. Pancarte sur un poteau : « Recouvrement : 72 % — objectif : 90 % (Compact) ». | Récitatif : *Réunion de famille. Ordre du jour : la facture.* · Fifi : « En gros, sur 100 francs facturés, environ 72 rentrent dans la caisse. » |
 | 3 | La facture fait le tour du cercle comme une patate brûlante, chacun la passe à son voisin. Parmi les participants : un ménage, un commerçant, et une chaise couverte d'une pancarte « ADMINISTRATIONS ». | Un oncle : « Ce n'est pas pour moi, c'est pour le grand frère ! » · Une tante : « Je paie à la fin du mois… de quelle année ? » · Pancarte « Administrations » : « Mon dossier est en circuit ! » |
 | 4 | Grâce se lève au centre du cercle et montre une seconde facture, encore plus grande, qui arrive dans le dos de la SOCADEL (le tee-shirt rebadgé de l'épisode 10). | Grâce : « Quand l'argent ne rentre pas, la société d'électricité doit, elle aussi : dette fournisseurs d'environ 500 Md FCFA, dettes totales d'environ 800 Md fin 2024 (Compact, p. 42). » · Tonton Mballa : « C'est le **njangi** : celui qui ne cotise pas empêche le njangi de payer les autres. » |
-| 5 | Monsieur Congélateur est assis lui aussi dans le cercle, sur une chaise en plastique trop petite pour lui. Le patron lève les bras au ciel. Au fond, le client de toujours. | Monsieur Congélateur : « Moi, je paie ! … Enfin, le patron paie pour moi. » · Le patron : « Et je paie pour un congélateur qui fait armoire ! » · Le client : « Et les bières chaudes, alors, qui les paie ? » |
+| 5 | Retour au bar. Junior tient le bloc de glace « TARIF — 2012 » de l'épisode 10, qui ne fond toujours pas. Soudain, le stéthoscope de Grâce posé sur le ventre du Kilowatt fait *TIC… TIC… TIC…*. Tout le monde se tait. | Fifi : « Les tarifs sont gelés depuis 2012. Entre 2012 et 2023, l'État a mobilisé environ 300 Md FCFA de compensation tarifaire (Compact, p. 37 et 42). » · Junior : « Le seul glaçon du pays, et il coûte des milliards ! » · Grâce, l'oreille collée au stéthoscope : « Attendez… Il y a un troisième organe. Et il fait tic-tac. » |
 
-#### Planche 4 — « Le rond-point infernal »
+#### Planche 4 — « Le taximètre qui tourne à l'arrêt »
 | Case | Image | Texte |
 |---|---|---|
-| 1 | Grâce trace à la craie, sur le sol du bar, un grand rond-point. Le taxi de l'épisode 9 tourne dedans sans fin. Six panneaux de sortie, tous barrés : « Pertes » → « Recettes faibles » → « Impayés » → « Entretien reporté » → « Pannes » → « Clients qui paient moins » → retour à « Pertes ». | Grâce : « Voilà le cercle vicieux. Le taxi tourne, tourne… et n'arrive jamais à Nkoagne. » · Boris-chauffeur (dans le taxi) : « J'ai encore raté la sortie ! » |
-| 2 | Sur le côté du rond-point, le bloc de glace « TARIF — 2012 » de l'épisode 10 fond à peine. Un camion-citerne marqué « ÉTAT — COMPENSATION TARIFAIRE » verse des sacs dans le rond-point pour que le taxi continue de rouler. | Fifi : « Les tarifs sont gelés depuis 2012. Entre 2012 et 2023, l'État a mobilisé environ 300 Md FCFA de compensation tarifaire (Compact, p. 37 et 42). » · Junior : « Le seul glaçon du pays, et il coûte des milliards ! » |
-| 3 | Sur la table d'autopsie, le Kilowatt se redresse d'un coup, torchon sur la tête comme un voile. Tout le bar sursaute. | SFX : *BZZT !* · Le Kilowatt : « Alors… c'est qui, le coupable ? » |
-| 4 | Toutes les têtes se tournent vers Fifi. Elle referme son carnet, très calme. Grand silence, une mouche passe. | Fifi : « Le coupable, ce n'est pas un barrage. C'est la chaîne entière. » · Boris : « Donc la caisse… je la gagne ou pas ? » · Le patron : « Quand la chaîne entière sera réparée, on en reparle. » |
+| 1 | Grâce sort du ventre du Kilowatt un vieux **taximètre** de taxi, qui tourne tout seul, étiqueté « CONTRAT TAKE OR PAY — NACHTIGAL ». Vignette imaginaire au-dessus : le taxi « Nachtigal » de l'épisode 10, chargé, arrêté au bord du ravin de l'épisode 9 (le pont n'est pas fini), et son taximètre tourne quand même. En haut de case, le **chrono de la coordination** : deux horloges, « Centrale prête : 18 mars 2025 » et « Ligne vers Bafoussam : prévue en 2026 · Sud–Nord : prévue en 2028 ». | Grâce : « Troisième organe : le contrat **take or pay**. On paie la **puissance disponible**, 420 MW, pas le courant effectivement consommé. Même quand la ligne ne suit pas. » · Bas de case : *Environ 10 Md FCFA par mois depuis la mise en service complète (Investir au Cameroun, mars 2025). Lignes : Compact, p. 36.* |
+| 2 | Boris se lève d'un bond, renverse sa chaise, le doigt pointé vers le taximètre. Fifi lève la main, ferme. Le patron pose son torchon sur le comptoir. | Boris : « Payer 420 MW quand la ligne ne suit pas ? C'est le **fey** ! » · Fifi : « Le fey, c'est un délit, et il faut un juge pour le dire. Ici, on a un contrat signé et une ligne en retard. Même le Compact écrit que ces contrats ont des clauses de type take or pay, dont certains risques sont portés par l'État (p. 35). Le vrai scandale possible, c'est la **coordination**. Et ça, on le prouve avec des dates. » · Le patron : « Alors sortez les dates ! » |
+| 3 | Fifi épingle trois feuilles sur le câble du mur des preuves (épisode 11). Dans un coin, le passager « Nachtigal » de l'épisode 10 lève la main pour se défendre. Encadré « Attention, piège ! ». | Fifi : « Qui paie ? Si l'acheteur ne paie pas, c'est l'État (FMI). Arriérés croisés : environ 70 Md FCFA début 2026. Facilité négociée auprès de banques locales : 100 Md. » · Encadré Grâce : « **Attention, piège !** 196,16 Md FCFA en 2027, c'est une **projection de facturation** (conférences budgétaires, septembre 2026), pas une dépense certaine. » · Nachtigal : « Sans moi, les délestages seraient bien plus importants ! » |
+| 4 | Grâce trace à la craie, sur le sol du bar, un grand rond-point. Le taxi de l'épisode 9 y tourne sans fin, taximètre allumé. Six sorties, toutes barrées : « Pertes » → « Recettes faibles » → « Impayés » → « Entretien reporté » → « Pannes » → « Clients qui paient moins » → retour à « Pertes ». Sur la table, le Kilowatt se redresse d'un coup, torchon sur la tête. | Le Kilowatt : « Alors… c'est qui, le coupable ? » · Fifi : « Ce n'est pas un barrage. C'est la chaîne entière : les lignes en retard, les contrats, les factures impayées. » · Boris, dans le taxi qui tourne : « J'ai encore raté la sortie ! » |
 | 5 | *BLAM !* La porte du bar s'ouvre dans un coup de vent. Un homme en costume trois-pièces, essoufflé, traîne un cartable énorme qui racle le sol. Il trébuche sur le rond-point à la craie : le cartable s'ouvre et des feuilles marquées « OBJECTIF 2030 » s'envolent dans tout le bar. Le patron ne lève pas les yeux de son verre. | Monsieur 2030 : « Pardon pour le retard ! J'apporte la solution… pour 2030 ! » · Le patron : « Avant de commander une bière : la source de votre chiffre ? » · Récitatif : *Prochain épisode : le Pacte énergétique débarque au bar.* |
 
 #### Page documentaire — Les chiffres du Pacte : « L'autopsie du kilowatt »
@@ -298,26 +298,36 @@
 | La réunion de famille | Factures impayées, administrations comprises | **Recouvrement : 72 %** ; objectif **90 %** | Compact [page à confirmer] |
 | L'héritage (ép. 11) | La société doit plus qu'on ne lui doit | Dettes ≈ **800 Md FCFA** ; créances ≈ **80 Md** ; dette fournisseurs ≈ **500 Md** (fin décembre 2024) | Compact, p. 42 |
 | Le glaçon du tarif (ép. 10) | Prix bloqué, écart comblé par l'État | **Tarifs gelés depuis 2012** ; compensation tarifaire ≈ **300 Md FCFA** entre 2012 et 2023 | Compact, p. 37 et 42 |
+| Le taximètre (organe n° 3) | Contrat **take or pay** de Nachtigal : on paie la puissance disponible (420 MW), pas l'énergie consommée | ≈ **10 Md FCFA par mois** depuis la mise en service complète (**18 mars 2025**) | Investir au Cameroun, mars 2025 |
+| Le chrono de la coordination | Centrale prête avant ses lignes | Ligne Nachtigal–Bafoussam (225 km) **prévue en 2026** ; interconnexion Sud–Nord **prévue en 2028**, qui « contribuera à l'évacuation de Nachtigal » | Compact, p. 36 |
+| Qui paie le taximètre ? | En cas de défaillance de l'acheteur, l'État paie ; le FMI parle d'un « contrat d'achat ferme » qui pèse sur le budget | Arriérés croisés ≈ **70 Md FCFA** (début 2026) ; facilité de **100 Md FCFA** négociée auprès de banques locales | FMI ; presse (bible, section 4.2 bis) **[date et titre exacts à ajouter]** |
+| La projection 2027 | Facturation NHPC attendue | **196,16 Md FCFA en 2027** : une **projection de facturation**, pas une dépense certaine du Trésor | Rapport des conférences budgétaires, septembre 2026 |
+| L'aveu du Compact | Les contrats BOT des producteurs indépendants contiennent des clauses de type take or pay, dont certains risques sont portés par l'État | Producteurs indépendants : ≈ 35 % du parc (p. 35) ou ≈ 36 % de la puissance installée (p. 35 et 41) | Compact, p. 35 |
 | *Mama Diesel* (ép. 3) | Les entreprises paient deux fois | **92,5 %** des entreprises ont subi des coupures ; pertes de **9,9 %** des ventes annuelles chez les entreprises touchées | Banque mondiale, Enterprise Survey Cameroun 2016 |
 
 > **Grâce — « Attention, piège ! »** : 14 % + 14 % ne se lisent pas forcément comme « 28 % du courant perdu ». Les deux taux peuvent être calculés sur des bases différentes. **[DONNÉE À VÉRIFIER]** auprès du rapport de gestion Eneo 2023.
 >
+> **Version de NHPC, par équité** : il s'agit d'un « capacity payment » aux nuances propres ; « sans Nachtigal, les délestages seraient bien plus importants » ; les paiements sont sécurisés par des garanties prévues avec l'État. **Proposition d'un expert** (tribune, News du Cameroun) : renégocier certaines clauses pour indexer les paiements sur l'avancement des lignes.
+>
 > **Le cercle vicieux** : pertes → recettes faibles → impayés → entretien reporté → pannes → clients qui paient moins → pertes.
 
 #### Baromètre de Nkoagne : ligne mise à jour cette semaine
-**Preuves publiées** : « Pertes techniques 14 % et pertes commerciales 14 % (2023) ; recouvrement 72 % ; dettes ≈ 800 Md FCFA (fin 2024) ; tarifs gelés depuis 2012 ; compensation ≈ 300 Md FCFA (2012-2023). Source : Compact, p. 37 et 42. Verdict : la chaîne entière. »
+**Preuves publiées** : « Pertes techniques 14 % et pertes commerciales 14 % (2023) ; recouvrement 72 % ; dettes ≈ 800 Md FCFA (fin 2024) ; tarifs gelés depuis 2012 ; compensation ≈ 300 Md FCFA (2012-2023) (Compact, p. 37 et 42). Contrat take or pay de Nachtigal : ≈ 10 Md FCFA par mois depuis mars 2025 (Investir au Cameroun), lignes d'évacuation prévues en 2026 et 2028 (Compact, p. 36). Verdict : la chaîne entière, et d'abord sa coordination. »
 
 #### Mini-lexique
 - **Tonton** : oncle, ou tout homme plus âgé que l'on respecte.
 - **Njoh** : gratuit. [à valider par un relecteur camerounais]
 - **Njangi** : tontine.
 - **Massa!** (pidgin) : exclamation de surprise, « ça alors ! ».
+- **Fey** : arnaque (un *feyman* est un escroc). Mot de colère au bar, aussitôt recadré : sans juge, pas de fey.
 - **Le dossier est en circuit** : il circule dans l'administration, on attend. [à valider par un relecteur camerounais]
 
 #### Notes pour le dessinateur
 - L'autopsie reste **burlesque, jamais macabre** : gants de vaisselle, torchon à carreaux, Kilowatt qui proteste. Pas de sang, pas d'instruments tranchants.
 - Les deux « blessures » du Kilowatt ont la **même taille** (14 % et 14 %). Ne pas les dessiner comme une moitié manquante.
 - Planche 3, case 3 : la chaise « ADMINISTRATIONS » est une pancarte sur une chaise. Aucun uniforme, aucun drapeau, aucun visage. On rit de la patate brûlante, pas d'une personne.
+- Planche 4, case 1 : premier usage du **chrono de la coordination** (deux horloges « Centrale prête » / « Ligne prête »). Les dates de ligne sont des **prévisions** : écrire « prévue », jamais « prête ».
+- Planche 4, cases 1 à 3 : le passager « Nachtigal » reste un objet-personnage de l'épisode 10, sympathique, qui se défend. Ni sac d'argent ni sourire de profiteur : le gag porte sur le taximètre, donc sur le contrat et le calendrier.
 - Planche 4, case 5 : Monsieur 2030 est vu en entier pour la première fois. Son cartable doit paraître **trop lourd pour lui**, comme le veut la bible. Les feuilles volantes portent « OBJECTIF », jamais « RÉALISÉ ».
 
 #### Points à valider
@@ -326,5 +336,9 @@
 - « Massa! Even finger fit make mistake! » : tournure pidgin construite pour l'épisode. Alternative : « Massa! » seul, avec la traduction. [à valider par un relecteur camerounais]
 - **[DONNÉE À VÉRIFIER]** : bases de calcul des pertes techniques et commerciales (rapport de gestion Eneo 2023).
 - Page exacte du Compact pour le recouvrement de 72 %.
+- « C'est le fey ! » (Boris, planche 4, case 2) : recadré dans la même case par Fifi et le patron, selon la règle de la bible (section 4.2 bis). Vérifier avec un relecteur que le mot reste compris comme une colère de bar et non comme une accusation. [à valider par un relecteur camerounais]
+- **[DONNÉE À VÉRIFIER]** : références datées pour le FMI (« l'État paie »), les arriérés croisés (≈ 70 Md FCFA) et la facilité bancaire (100 Md FCFA).
+- Part des producteurs indépendants : ≈ 35 % du parc (bible, 4.2 bis) ou ≈ 36 % de la puissance installée (bible, 4.1). Les deux chiffres figurent dans le Compact, sur des bases peut-être différentes.
+- Non utilisés volontairement dans les bulles : « le dispatching n'appelle parfois qu'environ 200 MW » (une seule source) et « Eneo payait parfois moins de 50 % des factures en 2025 » (non confirmé par l'entreprise).
 - Objectif de rendement de distribution : 88 % ou 90 % (incohérence interne du Compact, à signaler telle quelle).
 - La réplique de Fifi « sur 100 francs facturés, environ 72 rentrent » suppose que le taux de recouvrement se calcule sur le montant facturé : définition à confirmer dans le Compact.
