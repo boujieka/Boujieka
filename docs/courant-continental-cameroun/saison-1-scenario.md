@@ -302,8 +302,8 @@ Gare routière imaginaire. Les financements sont des passagers : les prêts arri
 🌍 **Équivalences** :
 - ≈ **2,5 GERD** ;
 - ≈ **4 Julius Nyerere** ;
-- ≈ **9 Nachtigal** ;
-- ≈ **30 Lom Pangar**.
+- ≈ **9 à 10 Nachtigal** (selon que l'on compte en USD ou en FCFA) ;
+- ≈ **30 à 32 Lom Pangar**.
 
 ### Épisode 15 — « Le soleil de Maroua réclame son contrat ! »
 Une entrepreneure de Maroua veut alimenter son atelier de couture au solaire. Junior lui explique les panneaux, les batteries, les mini-réseaux et le contrat d'achat d'électricité. Elle veut « mettre le soleil dans un sac de riz pour la nuit ».
