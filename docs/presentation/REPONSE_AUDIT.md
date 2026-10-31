@@ -133,3 +133,20 @@
    - Diapo 13 : le titre, sur deux lignes, touche le tableau.
    - Diapo 15 : la phrase d'avertissement déborde du cadre.
    - Diapos 23–24 : colonnes de texte alignées à droite.
+
+## Version 8.1 (réalisée)
+
+Fichier : `Flux_miniers_Cameroun_2000-2025_v8.1.pptx` (35 diapositives, design de la v8 conservé).
+
+**Ajouts**
+- **Diapo 18** : tableau des prélèvements à l'export sur l'or artisanal (même assiette, en % de la valeur exportée) : Cameroun 28,75 % ; Tanzanie 7 % (4 % si vente à la Banque centrale) ; Mali 2–3 % ; Ghana 0 % depuis 2025 ; Zimbabwe 1–2 % ; Rwanda 0,5 % ; Ouganda ≈ 0,25 %. Le Cameroun taxe donc 4 à 115 fois plus que ses pairs. Les taux des pairs, appliqués aux 1 732 Md FCFA déclarés sur 2021–2025, représentent 26 à 121 Md FCFA.
+- **Diapo 19** : en 2023, 10,48 Md FCFA collectés par la Sonamines, soit 1,5 % des 694,7 Md FCFA déclarés par les partenaires, contre 29 % de la production déclarée.
+
+**Corrections**
+- Diapo 17 : renvoi aux diapos 18–19.
+- Diapo 15 : période ambiguë des 165 Md FCFA ; texte d'avertissement raccourci pour ne plus déborder.
+- Diapo 13 : titre raccourci.
+- Diapo 22 : exportations de diamants supérieures à la production aussi en 2016.
+- Diapo 25 : sentence Mbalam documentée (Reuters, Sundance).
+- Diapos 25–26 : texte aligné à gauche.
+- Numéros de page renumérotés ; journal de révision (diapo 35) mis à jour.
