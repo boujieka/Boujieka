@@ -204,7 +204,7 @@ const frows = fy.map(y => [String(y), nf(PUB[y], 2), nf(PUB[y] * 1e3 / rate[y], 
 frows.push(["2021–2025", nf(PX, 2), nf(PU / 1e6, 1)]);
 tbl(s, [HDR(["Année", "Md FCFA", "M USD"]), ...frows.map((r, i) => r.map((c, j) => cell(c, { bold: i === 5, align: j ? "right" : "left" })))],
   { x: 7.5, y: 1.5, w: 5.2, colW: [1.8, 1.7, 1.7], rowH: 0.5, objectName: "Tableau fiscal" });
-tx(s, "L'ITIE estime de son côté à 165 Md FCFA (≈ " + nf(165e9 / rate[2023] / 1e6, 0) + " M USD) les pertes potentielles de la seule année 2023.", { x: 7.5, y: 5.2, w: 5.2, h: 1.1, fontSize: 14 });
+tx(s, "Le rapport ITIE 2023 estime de son côté les pertes potentielles à 165 Md FCFA (≈ " + nf(165e9 / rate[2023] / 1e6, 0) + " M USD).", { x: 7.5, y: 5.2, w: 5.2, h: 1.1, fontSize: 14 });
 caption(s, "Sources : MINMIDT, tableau 2021–2025 (juillet 2026, via la presse) ; ITIE, avril 2026. Conversion en USD au taux moyen annuel. Réconciliation des montants : annexe B2.");
 
 // ===== Section autres minerais
