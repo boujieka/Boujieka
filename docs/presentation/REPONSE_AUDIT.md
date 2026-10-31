@@ -74,3 +74,28 @@
 - **Graphiques en formes dessinées.** Les diapos 5, 7 et 15 sont dessinées avec des formes, pas avec de vrais graphiques PowerPoint. Elles n'ont ni axe ni étiquettes de valeurs, et ne sont donc pas modifiables comme des graphiques.
 - **Contenus de la v3 absents de la version réorganisée** : valorisation au cours mondial, conversions en FCFA, scénarios fiscaux et tableau comparatif des six minerais. Ils restent dans les présentations FR/EN v3.
 - **Décret n° 2025/040 du 12/02/2025 (Geovic).** Nos sources donnaient le 12, le 14 ou le 25 février. Je n'ai pas pu vérifier ce décret.
+
+---
+
+# Quatrième revue : présentation produite avec Perplexity (v6)
+
+*31/10/2026. Version 6 : `Flux_miniers_Cameroun_2000-2025_v6.pptx`, 28 diapositives. Elle part de la v5 et intègre les apports vérifiables de Perplexity.*
+
+## Apports de Perplexity intégrés
+
+| Point | Intégration (v6) |
+|---|---|
+| Décret n° 2025/040 du 12/02/2025 retirant le permis n° 33 de Geovic (URL prc.cm) | Lève l'incertitude sur la date (12, 14 ou 25 février) : diapo 15 et annexe B4 |
+| Production de diamants du Processus de Kimberley, au centième (2024 : 11 219,81 ct) | Colonne « Production » ajoutée à l'annexe A3 ; exportations supérieures à la production en 2016, 2023 et 2024 signalées en B3 |
+| 2023 en champ « quantité » WITS : 18 227 kg, dont Portugal et Pérou (1 kg chacun) | Annexe B1. Concorde avec nos données : 18 255 kg en poids net |
+| Écart de 1 kg en 2024–2025 entre composantes et total | Expliqué par les arrondis (6 745,68 + 3 196,54 = 9 942,22 kg) : annexe B1 |
+| Canyon, communiqué du 25/06/2026 : réserves JORC de 144 Mt à 51,2 % d'alumine ; essai au T3 et premier envoi au T4 2026 | Diapo 15 et annexe B4. **Attention** : notre recherche relève un retrait de cet objectif en août 2026, postérieur au document consulté par Perplexity |
+| Reuters (27/07/2026) : 616 M USD, sentence Sundance | Ajouté aux sources (C2) |
+
+## Points de Perplexity non retenus tels quels
+
+| Affirmation de Perplexity | Vérification | Décision |
+|---|---|---|
+| « 577,51 Md FCFA non réconciliés : retirés de la synthèse » | Business in Cameroon (28/07/2026) attribue ce montant **au gouvernement** (« Cameroon says undeclared gold exports cost state CFAF577 billion in five years »), avec une série annuelle qui totalise exactement 577,51. Le chiffre de 557 Md ne figure que dans l'index de la page MINMIDT, dont Perplexity n'a pas lu le texte intégral. | Maintenu dans la synthèse, attribué au gouvernement ; le chiffre de 557 Md est signalé en annexe B2 |
+| « 165 Md FCFA : estimation annuelle » | Les sources divergent. Business in Cameroon rattache le chiffre au rapport ITIE 2023 sans préciser de période ; un blog parle de pertes « annuelles ». Le MINMIDT donne 161,79 Md pour 2023, ce qui plaide pour une estimation propre à 2023. | Période présentée comme ambiguë (annexe B2) ; dans le corps : « 165 Md FCFA (rapport ITIE 2023) » |
+| 20 kg (Cameroun → EAU 2023) « non revalidés » | Chiffre issu de la vérification WITS du premier auditeur ; ni Perplexity ni moi n'avons pu le recontrôler | Maintenu dans le cas 2023 avec sa source (WITS) |
