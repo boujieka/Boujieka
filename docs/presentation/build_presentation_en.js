@@ -170,7 +170,7 @@ s.addText([
 caption(s, "Source: UN Comtrade, extracted 31/10/2026. Sum of rounded bars: 138.2 t; exact total: 138.5 t. Sonamines: ≈ 12.2 t in Dubai in 2024, unverified.");
 
 // ===== 6. Destinations
-s = content("The United Arab Emirates receive 80% of the gold");
+s = content("UAE: 80.3% of recorded volumes (2024–25 incomplete)");
 const dest = [["United Arab Emirates", 111.3], ["Rwanda", 16.0], ["Uganda", 7.7], ["Germany", 1.9], ["United States", 0.55], ["Belgium", 0.42], ["Switzerland", 0.31], ["South Korea", 0.22]].reverse();
 s.addChart(pres.charts.BAR, [{ name: "Cumulative 2000–2025 (t)", labels: dest.map(d => d[0]), values: dest.map(d => d[1]) }], {
   x: 0.6, y: 1.4, w: 7.6, h: 5.0, barDir: "bar", chartColors: [H.accent5], showLegend: false,
@@ -189,6 +189,25 @@ facts6.forEach((f, i) => {
   s.addText(f[1], { x: 8.75, y: y + 0.75, w: 3.8, h: 0.55, fontSize: 14, color: C.text1, margin: 0, isTextBox: true });
 });
 caption(s, "UN Comtrade, HS 7108. The 8 countries shown total 138.37 t; the remaining 0.13 t: Spain 0.11 t, Italy, Saudi Arabia, Israel, France, Türkiye… No regional aggregate included.");
+
+// ===== 6b. Cameroon-UAE
+s = content("Cameroon–UAE: twenty years of declared gold flows");
+const uy = years.filter(y => y >= 2004 && y <= 2023);
+s.addChart(pres.charts.BAR, [{ name: "UAE (t)", labels: uy.map(String), values: uy.map(y => +(decl[y].eau / 1000).toFixed(2)) }], {
+  x: 0.6, y: 1.4, w: 7.9, h: 5.0, barDir: "col", chartColors: [H.accent5], showLegend: false,
+  showTitle: true, title: "Unwrought gold imports reported by the UAE from Cameroon (t)",
+  valAxisMinVal: 0, catAxisLabelRotate: -45, ...chartBase(), objectName: "UAE annual chart",
+});
+const per = [[2004, 2009], [2010, 2014], [2015, 2019], [2020, 2023]];
+const phd = ["Period", "Reported by UAE"].map(t => ({ text: t, options: { bold: true, color: H.lt1, fill: { color: H.dk2 } } }));
+const prow = per.map(([a, b]) => { let t = 0; for (let y = a; y <= b; y++) t += decl[y].eau; return [a + "–" + b, fr(t / 1000, 3) + " t"]; });
+prow.push(["2004–2023", fr(111.273, 3) + " t"], ["2024–2025", "Not published"]);
+s.addTable([phd, ...prow.map((r, i) => r.map(c => ({ text: c, options: { bold: i === 4, color: H.dk1 } })))], {
+  x: 8.8, y: 1.5, w: 3.9, colW: [1.8, 2.1], fontSize: 14, fontFace: THEME.bodyFontFace, rowH: 0.5,
+  border: { type: "solid", pt: 0.75, color: "D9D3C8" }, fill: { color: H.lt1 }, valign: "middle", objectName: "UAE periods table",
+});
+s.addText("These are UAE import declarations, not documented purchases from Cameroonian producers.", { x: 8.8, y: 5.25, w: 3.9, h: 1.1, fontSize: 14, italic: true, color: C.text2, valign: "top", margin: 0, isTextBox: true });
+caption(s, "Source: UN Comtrade, HS 7108, reporter 784 (UAE), partner 120 (Cameroon), net weight. Subtotals computed on unrounded values.");
 
 // ===== 7. Ecart
 s = content("A few kilograms declared out, tonnes declared in");
@@ -270,22 +289,24 @@ caption(s, "Sources: UN Comtrade; World Bank Pink Sheet (LBMA PM average; spot p
 // ===== 10. Couts fiscaux
 s = content("Tax losses: estimates, not demonstrated");
 const fy = [2021, 2022, 2023, 2024, 2025];
-const pub = { 2021: 52.8, 2022: 50.6, 2023: 165, 2024: 159.2, 2025: 153.2 };
+const pub = { 2021: 52.81, 2022: 50.55, 2023: 161.79, 2024: 159.15, 2025: 153.2 };
+const eiti = { 2021: 0, 2022: 0, 2023: 165, 2024: 0, 2025: 0 };
 s.addChart(pres.charts.BAR, [
   { name: "Low scenario: ad valorem tax only", labels: fy.map(String), values: fy.map(y => +(data[y].lo / 1e9).toFixed(1)) },
   { name: "High scenario: ISML 25% + export duty", labels: fy.map(String), values: fy.map(y => +(data[y].hi / 1e9).toFixed(1)) },
-  { name: "Published estimates (EITI 2023, MINMIDT)", labels: fy.map(String), values: fy.map(y => pub[y]) },
+  { name: "MINMIDT series 2021–2025 (577.5 total)", labels: fy.map(String), values: fy.map(y => pub[y]) },
+  { name: "EITI estimate, 2023", labels: fy.map(String), values: fy.map(y => eiti[y]) },
 ], {
-  x: 0.6, y: 1.4, w: 8.4, h: 5.0, barDir: "col", barGrouping: "clustered", chartColors: [H.accent6, H.accent1, H.accent2],
+  x: 0.6, y: 1.4, w: 8.4, h: 5.0, barDir: "col", barGrouping: "clustered", chartColors: [H.accent6, H.accent1, H.accent2, H.accent3],
   showLegend: true, legendPos: "b", showTitle: true, title: "Potential revenue shortfall on unreconciled gold (FCFA bn)",
-  showValue: true, dataLabelPosition: "outEnd", dataLabelFormatCode: "0", ...chartBase(), objectName: "Tax loss chart",
+  showValue: true, dataLabelPosition: "outEnd", dataLabelFormatCode: "0;-0;;", ...chartBase(), objectName: "Tax loss chart",
 });
 card(s, 9.3, 1.4, 3.4, 5.0, "Loss comment");
 s.addText([
   { text: "A risk, not a proven loss", options: { bold: true, fontSize: 18, color: C.accent2, breakLine: true } },
   { text: "The high scenario assumes all the gold is Cameroonian and falls under the semi-mechanised regime (ISML: 25% in kind on gross output). Neither origin nor regime is established.", options: { breakLine: true } },
   { text: " ", options: { breakLine: true } },
-  { text: "EITI's FCFA 165 bn (2023) is a published estimate, not independently verified.", options: { breakLine: true } },
+  { text: "Two distinct 2023 estimates: FCFA 161.8 bn (MINMIDT) and 165 bn (EITI). The MINMIDT web page of 24/07/2026 cites 557 bn instead of 577.5: to be reconciled.", options: { breakLine: true } },
   { text: " ", options: { breakLine: true } },
   { text: "2024–2025: excluding the UAE", options: { italic: true } },
 ], { x: 9.55, y: 1.6, w: 2.95, h: 4.6, fontSize: 13, color: C.text1, valign: "top", margin: 0, isTextBox: true });
@@ -339,10 +360,10 @@ four.forEach((f, i) => {
 caption(s, "\"No flow found\" does not mean \"proven absence\": Comtrade could not be queried for these minerals. Sources: web excerpts (USGS, BGS, press, ASX, ICC award of 26/07/2026).");
 
 // ===== 14. Comparatif
-s = content("Six minerals, one real gap: gold");
+s = content("Six minerals: gold shows the best-documented gaps");
 const ch = ["Mineral", "Official flows found", "Mirror flows found", "Estimated cost", "Reliability"].map(t => ({ text: t, options: { bold: true, color: H.lt1, fill: { color: H.dk2 } } }));
 const comp = [
-  ["Gold", "A few kg/yr", "5 to 18 t/yr (USD 280–1,145 M)", "Est. FCFA 50–165 bn/yr (published)", "High (volumes)"],
+  ["Gold", "A few kg/yr", "5 to 18 t/yr (USD 280–1,145 M)", "Est. FCFA 51–162 bn/yr (MINMIDT)", "High (volumes)"],
   ["Diamonds", "250 to 18,000 ct/yr (≤ USD 0.6 M)", "Negligible in sources", "FCFA 0.03–0.2 bn/yr (calc.)", "Low"],
   ["Cobalt", "None", "≈ USD 3,000 (2023)", "Negligible", "Medium"],
   ["Iron", "None confirmed", "≈ 0", "Arbitration: ≈ FCFA 355 bn", "Medium"],
@@ -377,12 +398,12 @@ caption(s, "Contradictions and sources are detailed in the per-mineral reports (
 s = pres.addSlide({ masterName: "TITRE_SOMBRE", sectionTitle: cur() });
 s.addText("Conclusions and next steps", { x: 0.8, y: 0.6, w: 11.7, h: 0.9, fontSize: 36, bold: true, color: C.background1, fontFace: THEME.headFontFace, margin: 0, isTextBox: true });
 const concl = [
-  "Over a long period, gold imports reported from Cameroon far exceed its official exports; Interpol, EITI and WITS corroborate this",
-  "Mirror data establish neither the geological origin of the gold, nor the legality of transactions, nor the exact size of losses",
-  "The risk of revenue shortfall is substantial; published amounts (EITI, MINMIDT) remain to be verified",
+  "Documented fact: partners report gold imports attributed to Cameroon far above its official exports (Interpol, EITI, WITS)",
+  "Hypothesis to investigate: much of the gap may stem from informal channels, smuggling or regional transit",
+  "Still to establish: volumes of Cameroonian origin exported irregularly and the exact revenue lost",
 ];
 const nexts = [
-  "Analyse origin: production capacity, cross-border flows, transit and re-exports",
+  "Compare Rwanda's and Uganda's exports to the UAE with their imports attributed to Cameroon; examine refiners and intermediaries",
   "Build a documented tax model by mining regime, with scenarios and legal texts",
   "Obtain UAE 2024–2025 data, check Rwanda and Uganda, query Comtrade for the other minerals",
 ];
@@ -399,36 +420,55 @@ nexts.forEach((t, i) => {
 
 // ===== Annexes
 section("Annexes");
-const ah = ["Year", "Total (kg)", "UAE (kg)", "Rwanda (kg)", "Uganda (kg)", "Other (kg)", "Value (USD M)"].map(t => ({ text: t, options: { bold: true, color: H.lt1, fill: { color: H.dk2 } } }));
+const ugaQty = { 2023: 1116.8, 2024: 3175.4, 2025: 3321.0 };
+const ah = ["Year", "Total (kg)", "UAE (kg)", "Rwanda (kg)", "Uganda, net weight", "Uganda, quantity", "Other (kg)", "Value (USD M)"].map(t => ({ text: t, options: { bold: true, color: H.lt1, fill: { color: H.dk2 } } }));
 const fk = x => x ? Math.round(x).toLocaleString("en-US") : "–";
 [[2000, 2012], [2013, 2025]].forEach(([a, b], k) => {
   s = content("Annex A" + (k + 1) + ": unwrought gold by reporter, " + a + "–" + b);
   const rr = [];
   for (let y = a; y <= b; y++) {
     const d = decl[y] || { eau: 0, rwa: 0, uga: 0, aut: 0 };
-    rr.push([String(y) + (y >= 2024 ? " *" : ""), fk(data[y].kg), y >= 2024 ? "n/p" : fk(d.eau), fk(d.rwa), fk(d.uga), fk(d.aut), fr(data[y].usd / 1e6, 1)].map(c => ({ text: c, options: { color: H.dk1 } })));
+    rr.push([String(y) + (y >= 2024 ? " *" : ""), fk(data[y].kg), y >= 2024 ? "n/p" : fk(d.eau), fk(d.rwa), fk(d.uga), fk(ugaQty[y] || 0), fk(d.aut), fr(data[y].usd / 1e6, 1)].map(c => ({ text: c, options: { color: H.dk1 } })));
   }
   s.addTable([ah, ...rr], {
-    x: 0.6, y: 1.4, w: 12.1, colW: [1.3, 1.8, 1.8, 1.8, 1.8, 1.7, 1.9], fontSize: 14, fontFace: THEME.bodyFontFace, rowH: 0.36, align: "right",
+    x: 0.6, y: 1.4, w: 12.1, colW: [1.1, 1.55, 1.55, 1.45, 1.7, 1.7, 1.35, 1.7], fontSize: 14, fontFace: THEME.bodyFontFace, rowH: 0.34, align: "right",
     border: { type: "solid", pt: 0.5, color: "D9D3C8" }, fill: { color: H.lt1 }, valign: "middle", objectName: "Annexe table " + (k + 1),
   });
-  caption(s, k ? "* Partial: UAE not published (n/p). Source file: docs/recherche-or-cameroun/donnees_miroir_or_tous_declarants.csv (283 rows, 3 HS codes)." : "Source: UN Comtrade public preview API, flow M, partner 120 (Cameroon), extracted 31/10/2026. Net weight in kg, CIF values in USD.");
+  caption(s, k ? "* Partial: UAE not published (n/p). Totals use net weight (netWgt); quantity (qty) differs materially only for Uganda. File: donnees_miroir_or_tous_declarants.csv." : "Source: UN Comtrade public preview API, flow M, partner 120 (Cameroon), extracted 31/10/2026. Net weight in kg, CIF values in USD.");
 });
 s = content("Annex A3: reproducibility and scope");
 const meta = [
   ["Query", "comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=…&partnerCode=120&flowCode=M&cmdCode=7108 (then 7112, 7113)"],
-  ["Reporters", "254 countries from the Comtrade \"Reporters\" table; groups and regional aggregates (EU, etc.) excluded to avoid double counting"],
+  ["Reporters", "254 countries and territories queried (“Reporters” table, groups and regional aggregates excluded); 19 reported non-zero unwrought gold imports"],
+  ["Requests", "5 batches of 44–57 codes × 26 years × 3 HS codes = 390 annual requests, plus retries after timeouts; 283 non-zero observations"],
+  ["Checks", "No truncated response (“truncated” flag false, 500-row cap never reached); duplicates removed on the HS code × year × reporter key"],
   ["Period", "2000–2025, annual; extracted 31/10/2026; data subject to revision"],
   ["Conversions", "USD/XAF rate: World Bank PA.NUS.FCRF; gold price: World Bank Pink Sheet (LBMA PM)"],
-  ["Files", "donnees_miroir_or_tous_declarants.csv, tableau_annuel_consolide.csv, valeurs_annuelles_or.csv, chiffres_officiels_or.csv, PERTES_FISCALES.md"],
 ];
 meta.forEach((m, i) => {
-  const y = 1.45 + i * 1.0;
-  card(s, 0.6, y, 12.1, 0.85, "Meta " + (i + 1));
-  s.addText(m[0], { x: 0.85, y: y + 0.1, w: 2.2, h: 0.65, fontSize: 15, bold: true, color: C.accent5, valign: "middle", margin: 0, isTextBox: true });
-  s.addText(m[1], { x: 3.1, y: y + 0.1, w: 9.4, h: 0.65, fontSize: 14, color: C.text1, valign: "middle", margin: 0, isTextBox: true });
+  const y = 1.4 + i * 0.86;
+  card(s, 0.6, y, 12.1, 0.76, "Meta " + (i + 1));
+  s.addText(m[0], { x: 0.85, y: y + 0.06, w: 2.2, h: 0.64, fontSize: 15, bold: true, color: C.accent5, valign: "middle", margin: 0, isTextBox: true });
+  s.addText(m[1], { x: 3.1, y: y + 0.06, w: 9.4, h: 0.64, fontSize: 14, color: C.text1, valign: "middle", margin: 0, isTextBox: true });
 });
 caption(s, "GitHub repository boujieka/Boujieka, docs/ folder. Other minerals rely on web search excerpts, without Comtrade extraction.");
+
+s = content("Annex A4: primary sources");
+const srcs = [
+  ["UN Comtrade", "Public preview API · comtradeapi.un.org/public/v1/preview/C/A/HS · HS 7108, 7112, 7113 · partner 120 · extracted 31/10/2026"],
+  ["INTERPOL (2021)", "Illegal Gold Mining in Central Africa · interpol.int/content/download/16493 · UAE series 2008–2018"],
+  ["EITI", "“Cameroon's gold gap” · eiti.org/impact-story/cameroons-gold-gap-how-eiti-data-driving-reforms · 2023 report presented 10/12/2025"],
+  ["MINMIDT", "2021–2025 series (FCFA 577.51 bn) reported by sikafinance.com (07/2026); MINMIDT page of 24/07/2026 citing 557 bn: to be reconciled"],
+  ["SWISSAID (2025)", "“United Arab Emirates: More Than Ever a Hub for Conflict Gold” · swissaid.ch · 04/11/2025 (UAE 2024 data withdrawn)"],
+  ["World Bank", "PA.NUS.FCRF exchange rate · api.worldbank.org; gold price: annual Pink Sheet, CMO-Historical-Data-Annual.xlsx"],
+];
+srcs.forEach((m, i) => {
+  const y = 1.4 + i * 0.86;
+  card(s, 0.6, y, 12.1, 0.76, "Source " + (i + 1));
+  s.addText(m[0], { x: 0.85, y: y + 0.06, w: 2.5, h: 0.64, fontSize: 14, bold: true, color: C.accent5, valign: "middle", margin: 0, isTextBox: true });
+  s.addText(m[1], { x: 3.4, y: y + 0.06, w: 9.1, h: 0.64, fontSize: 13, color: C.text1, valign: "middle", margin: 0, isTextBox: true });
+});
+caption(s, "Full URL list in the per-mineral reports (repository boujieka/Boujieka, docs/ folder). WITS 2023: external check of 31/10/2026.");
 
 (async () => {
   await pres.writeFile({ fileName: OUT });

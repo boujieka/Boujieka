@@ -22,3 +22,23 @@
 
 - **Vérifications externes non refaites ici.** Les chiffres WITS 2023 (20 kg, 1 117 kg) viennent de l'audit. Je n'ai pas pu les vérifier moi-même : WITS est inaccessible depuis cette session.
 - **Origine de l'or (Cameroun ou transit), modèle fiscal par régime, données EAU 2024–2025, Comtrade pour les cinq autres minerais** : ces points sont toujours à traiter (voir les « prochaines étapes » de la présentation).
+
+---
+
+# Réponse au deuxième audit (version 2 → version 3)
+
+*31/10/2026. Version 3 de la présentation : 22 diapositives, en français et en anglais.*
+
+| # | Point de l'audit | Vérification faite | Correction (v3) |
+|---|---|---|---|
+| 1 | Série fiscale : 165 contre 161,79 Md FCFA en 2023 ; total 580,8 contre 577,5 | Exact. La série du MINMIDT (52,81 / 50,55 / 161,79 / 159,15 / 153,20) totalise **577,50**. Les 165 Md FCFA de l'ITIE sont une estimation distincte. | Diapo 12 : série MINMIDT et estimation ITIE 2023 affichées comme deux séries séparées. Ajout d'une note sur le chiffre de 557 Md cité par la page MINMIDT du 24/07/2026 (divergence relevée par l'audit, non vérifiée de mon côté) |
+| 2 | Poids net et quantité mélangés | Dans les réponses Comtrade conservées, les deux champs coïncident pour les EAU et le Rwanda. Ils diffèrent pour l'Ouganda (1 144,7 / 1 116,8 kg en 2023 ; 3 196,5 / 3 175,4 kg en 2024 ; 3 322,8 / 3 321,0 kg en 2025) et, de moins de 1 kg, pour quelques petits déclarants. | Annexes A1–A2 : colonnes séparées « Ouganda, poids net » et « Ouganda, quantité ». Tous les totaux sont en poids net. |
+| 3 | Les « 80 % » reposent sur une série partielle | 111,273 ÷ 138,503 = **80,34 %** | Titre de la diapo 6 : « EAU : 80,3 % des volumes recensés (2024–2025 incomplets) » |
+| 4 | « Un seul vrai écart » | Fondé : les autres minerais n'ont pas été interrogés dans Comtrade. | Diapo 16 : « l'or a les divergences les mieux documentées » |
+| 5 | Qualification de l'extraction Comtrade | 5 lots × 26 années × 3 codes SH = 390 requêtes annuelles (plus relances). 216 réponses conservées, aucune tronquée. 283 observations non nulles. 19 déclarants avec des importations d'or brut non nulles. | Annexe A3 : lignes « Requêtes » et « Contrôles » ajoutées ; formulation « pays et territoires interrogés » |
+| + | Diapositive consacrée aux EAU | Sous-totaux calculés sur les valeurs non arrondies : 2,399 / 29,118 / 52,964 / 26,792 t (l'audit, parti des valeurs arrondies, trouvait 29,120 et 26,790) | Nouvelle diapo 7 « Cameroun–EAU : vingt ans de flux aurifères déclarés » |
+| + | Rwanda et Ouganda | Pas de nouvelle donnée : la question des réexportations reste ouverte. | Prochaine étape n° 1 reformulée |
+| + | Annexe des sources primaires | – | Nouvelle annexe A4 (titres, dates, URL) |
+| + | Trois niveaux de conclusion | – | Conclusion structurée en fait documenté, hypothèse à investiguer et résultat à établir |
+
+**Limite persistante.** Les chiffres WITS cités par l'audit (Ouganda 1 117 kg, Cameroun → EAU 20 kg) et le chiffre de 557 Md sur la page MINMIDT n'ont pas pu être revérifiés depuis cette session, car WITS et le site du MINMIDT y sont inaccessibles.
