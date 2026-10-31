@@ -22,6 +22,9 @@ const H = THEME.colors;
 const rows = fs.readFileSync(CSV, "utf8").trim().split("\n").slice(1).map(l => l.split(","));
 const data = {};
 for (const r of rows) data[+r[0]] = { kg: +r[1], usd: +r[2], xaf: +r[3], ecart: r[4] === "" ? null : +r[4], lo: +r[6], hi: +r[7] };
+const M = fs.readFileSync("/home/user/Boujieka/docs/recherche-or-cameroun/donnees_miroir_or_tous_declarants.csv", "utf8").trim().split("\n").slice(1).map(l => l.split(",")).filter(r => r[0] === "7108");
+const decl = {};
+for (const r of M) { const y = +r[1]; decl[y] = decl[y] || { eau: 0, rwa: 0, uga: 0, aut: 0 }; const kg = +r[4] || 0; if (r[2] === "784") decl[y].eau += kg; else if (r[2] === "646") decl[y].rwa += kg; else if (r[2] === "800") decl[y].uga += kg; else decl[y].aut += kg; }
 const years = Object.keys(data).map(Number).sort((a, b) => a - b);
 
 const pres = new pptxgen();
@@ -91,15 +94,15 @@ section("Introduction");
 let s = pres.addSlide({ masterName: "TITRE_SOMBRE", sectionTitle: cur() });
 s.addText("Où va l'or du Cameroun ?", { placeholder: "title" });
 s.addText("Flux miniers déclarés et réels, 2000–2025 : or, diamant, cobalt, fer, manganèse, bauxite", { placeholder: "body" });
-s.addText("Recherche documentaire · données au 31 octobre 2026", { x: 0.8, y: 6.5, w: 8, h: 0.4, fontSize: 14, color: C.accent4, margin: 0, isTextBox: true });
+s.addText("Recherche documentaire · version 2 révisée après audit · données au 31 octobre 2026", { x: 0.8, y: 6.5, w: 8, h: 0.4, fontSize: 14, color: C.accent4, margin: 0, isTextBox: true });
 s.addNotes("Présentation des résultats : analyse miroir UN Comtrade (tous déclarants) pour l'or, recherches documentaires pour les cinq autres minerais.");
 
 // ===== 2. L'essentiel
 s = content("L'essentiel : l'or pèse presque tout");
 const stats = [
-  ["138,5 t", "d'or déclarées à l'arrivée par les pays partenaires comme venant du Cameroun, 2000–2025"],
+  ["138,5 t", "d'or brut (SH 7108) déclarées par les partenaires comme venant du Cameroun, 2000–2025 ; 2024–2025 partiels (sans les EAU)"],
   ["6,58 Md USD", "de valeur déclarée, soit ≈ 3 744 Md FCFA (taux Banque mondiale)"],
-  ["577,5 Md FCFA", "de pertes fiscales sur 2021–2025 selon le ministère des Mines"],
+  ["577,5 Md FCFA", "de manque à gagner 2021–2025 estimé par le ministère des Mines : chiffre publié, non vérifié de façon indépendante"],
 ];
 stats.forEach((st, i) => {
   const x = 0.6 + i * 4.1;
@@ -111,7 +114,7 @@ s.addText([
   { text: "À retenir : ", options: { bold: true, color: C.accent2 } },
   { text: "le Cameroun déclare quelques kilos d'or exportés par an quand ses partenaires en déclarent des tonnes. Diamant, cobalt, fer, manganèse et bauxite ne présentent pas d'écart comparable : flux faibles ou inexistants." },
 ], { x: 0.6, y: 5.2, w: 12.1, h: 1.1, fontSize: 16, color: C.text1, margin: 0, valign: "top", isTextBox: true });
-caption(s, "Sources : UN Comtrade (SH 7108, partenaire Cameroun, 254 déclarants) ; Banque mondiale ; MINMIDT via Sikafinance (juillet 2026).");
+caption(s, "Sources : UN Comtrade (SH 7108, partenaire Cameroun, 254 déclarants, agrégats régionaux exclus) ; Banque mondiale ; MINMIDT via Sikafinance (07/2026). Détail ligne à ligne : annexes A1–A3.");
 
 // ===== 3. Méthode
 s = content("Méthode : comparer ce qui part et ce qui arrive");
@@ -140,13 +143,16 @@ s.addText([
 section("L'or");
 s = pres.addSlide({ masterName: "SECTION_SOMBRE", sectionTitle: cur() });
 s.addText("L'or : 138 tonnes déclarées à l'étranger", { placeholder: "title" });
-s.addText("Analyse miroir complète, 254 pays déclarants, codes SH 7108, 7112 et 7113", { placeholder: "body" });
+s.addText("Graphiques : or brut SH 7108 uniquement. Déchets (SH 7112) et bijouterie (SH 7113) sont traités à part et ne sont pas additionnés", { placeholder: "body" });
 
 // ===== 5. Volumes annuels
 s = content("Les volumes explosent après 2009 et culminent en 2023");
 const yrs = years.filter(y => y >= 2000);
-s.addChart(pres.charts.BAR, [{ name: "Or déclaré par les partenaires (t)", labels: yrs.map(String), values: yrs.map(y => +(data[y].kg / 1000).toFixed(1)) }], {
-  x: 0.6, y: 1.4, w: 8.4, h: 5.0, barDir: "col", chartColors: [H.accent1], showLegend: false,
+s.addChart(pres.charts.BAR, [
+  { name: "Séries complètes", labels: yrs.map(String), values: yrs.map(y => y >= 2024 ? 0 : +(data[y].kg / 1000).toFixed(1)) },
+  { name: "Partiel : EAU non publiés", labels: yrs.map(String), values: yrs.map(y => y >= 2024 ? +(data[y].kg / 1000).toFixed(1) : 0) },
+], {
+  x: 0.6, y: 1.4, w: 8.4, h: 5.0, barDir: "col", barGrouping: "stacked", chartColors: [H.accent1, H.accent4], showLegend: true, legendPos: "b",
   showTitle: true, title: "Or brut (SH 7108) déclaré « en provenance du Cameroun », en tonnes",
   showValue: false, valAxisMinVal: 0, catAxisLabelRotate: -45, ...chartBase(), objectName: "Graphique volumes or",
 });
@@ -159,9 +165,9 @@ s.addText([
   { text: "2023", options: { bold: true, breakLine: true } },
   { text: "Record : 18,3 t, 1,15 Md USD", options: { breakLine: true } },
   { text: "2024–2025", options: { bold: true, color: C.accent2, breakLine: true } },
-  { text: "Sans les EAU, non publiés : sous-estimé" },
+  { text: "Partiels : données des EAU non publiées (retirées de Comtrade selon SWISSAID). Ce ne sont pas des totaux." },
 ], { x: 9.55, y: 1.6, w: 2.95, h: 4.6, fontSize: 14, color: C.text1, valign: "top", margin: 0, paraSpaceAfter: 4, isTextBox: true });
-caption(s, "Source : UN Comtrade, aperçu public de l'API, extrait le 31/10/2026. Sonamines : ≈ 12,2 t enregistrées à Dubaï en 2024 (non vérifié dans Comtrade).");
+caption(s, "Source : UN Comtrade, extrait le 31/10/2026. Somme des barres arrondies : 138,2 t ; total exact : 138,5 t. Sonamines : ≈ 12,2 t à Dubaï en 2024, non vérifié.");
 
 // ===== 6. Destinations
 s = content("Les Émirats arabes unis reçoivent 80 % de l'or");
@@ -172,7 +178,7 @@ s.addChart(pres.charts.BAR, [{ name: "Cumul 2000–2025 (t)", labels: dest.map(d
   showValue: true, dataLabelPosition: "outEnd", dataLabelFormatCode: "0.0", ...chartBase(), objectName: "Graphique destinations",
 });
 const facts6 = [
-  ["111,3 t", "EAU, 2004–2023, pour 4,81 Md USD"],
+  ["111,3 t", "EAU, 2004–2023 (4,81 Md USD) ; série confirmée par Interpol pour 2010–2018"],
   ["16,0 t", "Rwanda, 2019–2025 : nouveau relais régional"],
   ["7,7 t", "Ouganda, 2023–2025"],
 ];
@@ -182,7 +188,7 @@ facts6.forEach((f, i) => {
   s.addText(f[0], { x: 8.75, y: y + 0.15, w: 3.8, h: 0.6, fontSize: 26, bold: true, color: C.accent5, fontFace: THEME.headFontFace, margin: 0, isTextBox: true });
   s.addText(f[1], { x: 8.75, y: y + 0.75, w: 3.8, h: 0.55, fontSize: 14, color: C.text1, margin: 0, isTextBox: true });
 });
-caption(s, "Source : UN Comtrade, SH 7108. Le Rwanda et l'Ouganda pourraient servir de transit vers Dubaï : hypothèse non vérifiée.");
+caption(s, "UN Comtrade, SH 7108. Les 8 pays affichés font 138,37 t ; les 0,13 t restantes : Espagne 0,11 t, Italie, Arabie saoudite, Israël, France, Turquie… Pas d'agrégat régional inclus.");
 
 // ===== 7. Ecart
 s = content("Quelques kilos déclarés au départ, des tonnes à l'arrivée");
@@ -192,7 +198,7 @@ const tbl = [
   ["2018", "13 kg", "11 712 kg", "× 900"],
   ["2021", "40 kg (73 kg selon l'ITIE)", "5 602 kg", "× 140"],
   ["2022", "3,5 kg (47,9 kg selon l'ITIE)", "4 820 kg", "× 1 380"],
-  ["2023", "22,3 kg (ITIE)", "18 255 kg", "× 820"],
+  ["2023", "22,3 kg (ITIE) ; 20 kg vers les EAU (WITS)", "18 255 kg (EAU seuls : 14 048 kg)", "× 820 (EAU : × 702)"],
 ];
 s.addTable([hdr, ...tbl.map(r => r.map((c, j) => ({ text: c, options: { bold: j === 3, color: j === 3 ? H.accent2 : H.dk1 } })))], {
   x: 0.6, y: 1.5, w: 12.1, colW: [1.6, 4.3, 3.8, 2.4], fontSize: 16, fontFace: THEME.bodyFontFace, rowH: 0.62,
@@ -200,14 +206,14 @@ s.addTable([hdr, ...tbl.map(r => r.map((c, j) => ({ text: c, options: { bold: j 
 });
 card(s, 0.6, 5.4, 12.1, 1.0, "Lecture écart");
 s.addText("Le rapport « Reçu ÷ Exporté » atteint plusieurs centaines : l'essentiel de l'or quitte le pays hors des circuits déclarés, ou est attribué au Cameroun alors qu'il vient d'ailleurs.", { x: 0.9, y: 5.45, w: 11.5, h: 0.9, fontSize: 15, color: C.text1, valign: "middle", margin: 0, isTextBox: true });
-caption(s, "Sources : UN Comtrade (flux X et M), rapports ITIE Cameroun 2021–2023 via la presse. Rapport calculé sur les chiffres Comtrade, sauf 2023 (ITIE).");
+caption(s, "Même code SH 7108 et même unité (kg nets) des deux côtés. Sources : UN Comtrade/WITS (flux X et M), ITIE 2021–2023 via la presse. 2023 : rapport sur la base ITIE.");
 
 // ===== 8. Recoupement ITIE
-s = content("Nos chiffres recoupent presque exactement l'ITIE");
+s = content("ITIE et Comtrade concordent, à périmètre précisé");
 const itie = [
   ["2021", "5,6 t", "5,60 t", "EAU 4,81 t + Rwanda 0,79 t"],
   ["2022", "4,8 t", "4,82 t", "EAU 4,71 t + Rwanda 0,11 t"],
-  ["2023", "15,2 t", "15,19 t", "EAU 14,05 t + Ouganda 1,14 t ; le Rwanda (3,06 t) n'est pas compté"],
+  ["2023", "15,2 t", "15,19 t", "Périmètre EAU 14,05 t + Ouganda 1,14 t. Tous déclarants : 18,26 t (diapo 7), car le Rwanda (3,06 t) s'ajoute"],
 ];
 itie.forEach((r, i) => {
   const x = 0.6 + i * 4.1;
@@ -219,7 +225,29 @@ itie.forEach((r, i) => {
   s.addText(r[2], { x: x + 2.0, y: 2.9, w: 1.6, h: 0.7, fontSize: 30, bold: true, color: C.accent3, margin: 0, isTextBox: true });
   s.addText(r[3], { x: x + 0.3, y: 3.9, w: 3.2, h: 2.1, fontSize: 15, color: C.text1, valign: "top", margin: 0, isTextBox: true });
 });
-caption(s, "L'écart de 2023 suggère que l'ITIE n'a pas intégré l'enregistrement rwandais, peut-être publié plus tard : inférence non vérifiée.");
+caption(s, "Le périmètre exact retenu par l'ITIE n'est pas publié : la correspondance est une inférence. Ouganda 2023 : 1 144,7 kg nets (Comtrade) contre 1 117 kg (WITS, quantité).");
+
+// ===== 8b. Vérifications externes
+s = content("Ce que les vérifications externes confirment");
+const ihd = ["Année", "Comtrade, EAU (t)", "Interpol 2021, EAU (t)"].map(t => ({ text: t, options: { bold: true, color: H.lt1, fill: { color: H.dk2 } } }));
+const iy = [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018];
+const ivals = { 2010: "2,37", 2011: "3,53", 2012: "4,98", 2013: "9,57", 2014: "8,67", 2015: "10,42", 2016: "9,94", 2017: "10,90", 2018: "11,70" };
+s.addTable([ihd, ...iy.map(y => [String(y), fr(decl[y].eau / 1000, 2), ivals[y]].map(c => ({ text: c, options: { color: H.dk1 } })))], {
+  x: 0.6, y: 1.45, w: 6.0, colW: [1.4, 2.3, 2.3], fontSize: 14, fontFace: THEME.bodyFontFace, rowH: 0.48,
+  border: { type: "solid", pt: 0.75, color: "D9D3C8" }, fill: { color: H.lt1 }, valign: "middle", objectName: "Tableau Interpol",
+});
+const vf = [
+  ["Interpol 2021", "Série EAU 2010–2018 identique à Comtrade, à l'arrondi près. En 2017 : 4 kg déclarés par le Cameroun vers les EAU contre 10,9 t reçues"],
+  ["WITS 2023", "EAU 14 048 kg (879,7 M USD), Rwanda 3 060 kg, Ouganda 1 117 kg ; le Cameroun déclare 20 kg vers les EAU"],
+  ["SWISSAID 2025", "Les données 2024 des EAU, mises en ligne puis retirées de Comtrade « pour vérification » : 2024–2025 restent partiels"],
+];
+vf.forEach((f, i) => {
+  const y = 1.45 + i * 1.7;
+  card(s, 6.9, y, 5.8, 1.55, "Vérification " + (i + 1));
+  s.addText(f[0], { x: 7.15, y: y + 0.12, w: 5.3, h: 0.4, fontSize: 16, bold: true, color: C.accent3, margin: 0, isTextBox: true });
+  s.addText(f[1], { x: 7.15, y: y + 0.52, w: 5.3, h: 0.95, fontSize: 13, color: C.text1, valign: "top", margin: 0, isTextBox: true });
+});
+caption(s, "Sources : INTERPOL, Illegal Gold Mining in Central Africa (2021) ; WITS/UN Comtrade (vérification externe du 31/10/2026) ; SWISSAID, communiqué du 04/11/2025 et Swissinfo.");
 
 // ===== 9. Ecart au cours
 s = content("Les valeurs déclarées suivent le cours mondial de l'or");
@@ -240,29 +268,28 @@ s.addText([
 caption(s, "Sources : UN Comtrade ; Banque mondiale, Pink Sheet (moyenne LBMA PM ; cours spot à partir de juin 2025).");
 
 // ===== 10. Couts fiscaux
-s = content("Le coût fiscal atteint 50 à 165 Md FCFA par an depuis 2021");
+s = content("Pertes fiscales : des estimations, non démontrées");
 const fy = [2021, 2022, 2023, 2024, 2025];
 const pub = { 2021: 52.8, 2022: 50.6, 2023: 165, 2024: 159.2, 2025: 153.2 };
 s.addChart(pres.charts.BAR, [
-  { name: "Calcul, taux bas", labels: fy.map(String), values: fy.map(y => +(data[y].lo / 1e9).toFixed(1)) },
-  { name: "Calcul, taux haut", labels: fy.map(String), values: fy.map(y => +(data[y].hi / 1e9).toFixed(1)) },
-  { name: "Publié (ITIE 2023, MINMIDT)", labels: fy.map(String), values: fy.map(y => pub[y]) },
+  { name: "Scénario bas : taxe ad valorem seule", labels: fy.map(String), values: fy.map(y => +(data[y].lo / 1e9).toFixed(1)) },
+  { name: "Scénario haut : ISML 25 % + droit de sortie", labels: fy.map(String), values: fy.map(y => +(data[y].hi / 1e9).toFixed(1)) },
+  { name: "Estimations publiées (ITIE 2023, MINMIDT)", labels: fy.map(String), values: fy.map(y => pub[y]) },
 ], {
   x: 0.6, y: 1.4, w: 8.4, h: 5.0, barDir: "col", barGrouping: "clustered", chartColors: [H.accent6, H.accent1, H.accent2],
-  showLegend: true, legendPos: "b", showTitle: true, title: "Perte fiscale sur l'or non déclaré (Md FCFA)",
+  showLegend: true, legendPos: "b", showTitle: true, title: "Manque à gagner potentiel sur l'or non réconcilié (Md FCFA)",
   showValue: true, dataLabelPosition: "outEnd", dataLabelFormatCode: "0", ...chartBase(), objectName: "Graphique pertes fiscales",
 });
 card(s, 9.3, 1.4, 3.4, 5.0, "Commentaire pertes");
 s.addText([
-  { text: "164 à 835 Md FCFA", options: { bold: true, fontSize: 22, color: C.accent2, breakLine: true } },
-  { text: "de perte calculée sur 2000–2025", options: { breakLine: true } },
+  { text: "Risque, pas perte établie", options: { bold: true, fontSize: 18, color: C.accent2, breakLine: true } },
+  { text: "Le scénario haut suppose que tout l'or est camerounais et relève du régime semi-mécanisé (ISML de 25 % en nature sur la production brute). Ni l'origine ni le régime ne sont établis.", options: { breakLine: true } },
   { text: " ", options: { breakLine: true } },
-  { text: "Pourquoi la hausse ?", options: { bold: true, breakLine: true } },
-  { text: "3 % de taxe avant 2014, puis prélèvement de 15 % (2014), impôt de 25 % sur le semi-mécanisé (2017), droit de sortie (2020)", options: { breakLine: true } },
+  { text: "Les 165 Md FCFA de l'ITIE (2023) sont une estimation publiée, non vérifiée de façon indépendante.", options: { breakLine: true } },
   { text: " ", options: { breakLine: true } },
-  { text: "2024–2025 : calcul sans les EAU, donc minoré", options: { italic: true } },
+  { text: "2024–2025 : sans les EAU", options: { italic: true } },
 ], { x: 9.55, y: 1.6, w: 2.95, h: 4.6, fontSize: 13, color: C.text1, valign: "top", margin: 0, isTextBox: true });
-caption(s, "Calcul : valeur non déclarée × taux × taux de change Banque mondiale ; il suppose que tout l'or est camerounais. Publié : ITIE 2023 (165), MINMIDT 2021–2025 (577,5 au total).");
+caption(s, "Il faut distinguer valeur non réconciliée, prélèvements légalement exigibles, recettes perçues et pertes. Taux par période et textes : PERTES_FISCALES.md. Scénarios = calculs de l'auteur.");
 
 // ===== 11. Section autres
 section("Les autres minerais");
@@ -294,11 +321,11 @@ dfacts.forEach((f, i) => {
 caption(s, "Sources : Processus de Kimberley (extraits), Panel d'experts ONU S/2014/762, PAC/IMPACT 2016. Prix 2024 : alignement des colonnes incertain.");
 
 // ===== 13. Quatre minerais
-s = content("Cobalt, fer, manganèse, bauxite : des projets, pas de flux");
+s = content("Quatre minerais : aucun flux trouvé, sans preuve d'absence");
 const four = [
   ["Cobalt", "Geovic à Nkamouna (Lomié) jamais exploité ; permis retiré en février 2025 et confié à la Sonamines", "Miroir : ≈ 3 000 USD (Chine, 2023)"],
   ["Fer", "Aucune exportation confirmée ; Grand Zambi inaugurée en septembre 2025", "Arbitrage Mbalam : 616 M USD (≈ 355 Md FCFA) dus à Sundance"],
-  ["Manganèse", "Coproduit de Nkamouna, jamais exploité ; aucun permis actif connu", "Aucun flux miroir trouvé"],
+  ["Manganèse", "Coproduit de Nkamouna, jamais exploité ; aucun permis actif connu", "Aucun flux miroir trouvé (recherche web seulement)"],
   ["Bauxite", "Minim-Martap (Canyon/Camalco) : première exportation repoussée, objectif retiré en août 2026", "Recettes attendues : 9,5–16,6 Md FCFA/an à 3 Mt"],
 ];
 four.forEach((f, i) => {
@@ -309,18 +336,18 @@ four.forEach((f, i) => {
   s.addText(f[1], { x: x + 0.25, y: y + 0.95, w: 5.45, h: 0.8, fontSize: 14, color: C.text1, valign: "top", margin: 0, isTextBox: true });
   s.addText(f[2], { x: x + 0.25, y: y + 1.75, w: 5.45, h: 0.45, fontSize: 14, bold: true, color: C.accent2, valign: "top", margin: 0, isTextBox: true });
 });
-caption(s, "Sources : extraits de recherche web (USGS, BGS, presse, communiqués ASX, sentence CCI du 26/07/2026 via la presse). Aucune extraction Comtrade possible pour ces minerais.");
+caption(s, "« Aucun flux trouvé » ne signifie pas « absence prouvée » : Comtrade n'a pas pu être interrogé pour ces minerais. Sources : extraits web (USGS, BGS, presse, ASX, sentence CCI du 26/07/2026).");
 
 // ===== 14. Comparatif
 s = content("Six minerais, un seul vrai écart : l'or");
-const ch = ["Minerai", "Flux officiels", "Flux miroir", "Coût estimé", "Fiabilité"].map(t => ({ text: t, options: { bold: true, color: H.lt1, fill: { color: H.dk2 } } }));
+const ch = ["Minerai", "Flux officiels trouvés", "Flux miroir trouvés", "Coût estimé", "Fiabilité"].map(t => ({ text: t, options: { bold: true, color: H.lt1, fill: { color: H.dk2 } } }));
 const comp = [
-  ["Or", "Quelques kg/an", "5 à 18 t/an (280–1 145 M USD)", "50–165 Md FCFA/an (2021–2025)", "Élevée"],
+  ["Or", "Quelques kg/an", "5 à 18 t/an (280–1 145 M USD)", "Estimé 50–165 Md FCFA/an (publié)", "Élevée (volumes)"],
   ["Diamant", "250 à 18 000 ct/an (≤ 0,6 M USD)", "Négligeable dans les sources", "0,03–0,2 Md FCFA/an (calcul)", "Faible"],
   ["Cobalt", "Aucun", "≈ 3 000 USD (2023)", "Négligeable", "Moyenne"],
   ["Fer", "Aucun confirmé", "≈ 0", "Arbitrage : ≈ 355 Md FCFA", "Moyenne"],
-  ["Manganèse", "Aucun", "Rien trouvé", "–", "Faible"],
-  ["Bauxite", "Aucun", "Rien trouvé", "–", "Faible"],
+  ["Manganèse", "Aucun trouvé", "Non interrogé dans Comtrade", "–", "Faible"],
+  ["Bauxite", "Aucun trouvé", "Non interrogé dans Comtrade", "–", "Faible"],
 ];
 s.addTable([ch, ...comp.map((r, i) => r.map((c, j) => ({ text: c, options: { bold: j === 0, color: (i === 0 && j === 3) ? H.accent2 : H.dk1, fill: { color: i === 0 ? "F6EED3" : H.lt1 } } })))], {
   x: 0.6, y: 1.45, w: 12.1, colW: [1.6, 2.9, 3.0, 3.1, 1.5], fontSize: 14, fontFace: THEME.bodyFontFace, rowH: 0.66,
@@ -350,14 +377,14 @@ caption(s, "Le détail des contradictions et des sources figure dans les rapport
 s = pres.addSlide({ masterName: "TITRE_SOMBRE", sectionTitle: cur() });
 s.addText("Conclusions et prochaines étapes", { x: 0.8, y: 0.6, w: 11.7, h: 0.9, fontSize: 36, bold: true, color: C.background1, fontFace: THEME.headFontFace, margin: 0, isTextBox: true });
 const concl = [
-  "L'or est le seul flux massif : ≈ 138 t et 6,6 Md USD déclarés à l'étranger sur 2000–2025",
-  "Le manque à gagner fiscal récent atteint ≈ 50–165 Md FCFA par an",
-  "Les autres minerais posent des questions de traçabilité (diamant) et de contrats (fer, bauxite, cobalt)",
+  "Sur une longue période, les importations d'or déclarées depuis le Cameroun dépassent de loin ses exportations officielles ; Interpol, l'ITIE et WITS le corroborent",
+  "Les données miroir n'établissent ni l'origine géologique de l'or, ni la légalité des transactions, ni le montant exact des pertes",
+  "Le risque de manque à gagner est substantiel ; les montants publiés (ITIE, MINMIDT) restent à vérifier",
 ];
 const nexts = [
-  "Ouvrir l'accès à UN Comtrade pour refaire l'analyse miroir des cinq autres minerais",
-  "Obtenir les données 2024–2025 des EAU et vérifier le Rwanda et l'Ouganda",
-  "Lire les textes originaux : Journal officiel, ITIE, rapports de l'ONU et de Kimberley",
+  "Analyser l'origine : capacités de production, flux transfrontaliers, transit et réexportations",
+  "Construire un modèle fiscal documenté par régime d'exploitation, avec scénarios et textes juridiques",
+  "Obtenir les données EAU 2024–2025, vérifier Rwanda et Ouganda, interroger Comtrade pour les autres minerais",
 ];
 s.addText("Conclusions", { x: 0.8, y: 1.7, w: 5.6, h: 0.5, fontSize: 20, bold: true, color: C.accent1, margin: 0, isTextBox: true });
 s.addText("Prochaines étapes", { x: 6.9, y: 1.7, w: 5.6, h: 0.5, fontSize: 20, bold: true, color: C.accent1, margin: 0, isTextBox: true });
@@ -369,6 +396,39 @@ nexts.forEach((t, i) => {
   circleNum(s, i + 1, 6.9, 2.4 + i * 1.4, 0.55, C.accent3);
   s.addText(t, { x: 7.65, y: 2.35 + i * 1.4, w: 4.9, h: 1.2, fontSize: 15, color: C.background1, valign: "top", margin: 0, isTextBox: true });
 });
+
+// ===== Annexes
+section("Annexes");
+const ah = ["Année", "Total (kg)", "EAU (kg)", "Rwanda (kg)", "Ouganda (kg)", "Autres (kg)", "Valeur (M USD)"].map(t => ({ text: t, options: { bold: true, color: H.lt1, fill: { color: H.dk2 } } }));
+const fk = x => x ? Math.round(x).toLocaleString("fr-FR") : "–";
+[[2000, 2012], [2013, 2025]].forEach(([a, b], k) => {
+  s = content("Annexe A" + (k + 1) + " : or brut par déclarant, " + a + "–" + b);
+  const rr = [];
+  for (let y = a; y <= b; y++) {
+    const d = decl[y] || { eau: 0, rwa: 0, uga: 0, aut: 0 };
+    rr.push([String(y) + (y >= 2024 ? " *" : ""), fk(data[y].kg), y >= 2024 ? "n. p." : fk(d.eau), fk(d.rwa), fk(d.uga), fk(d.aut), fr(data[y].usd / 1e6, 1)].map(c => ({ text: c, options: { color: H.dk1 } })));
+  }
+  s.addTable([ah, ...rr], {
+    x: 0.6, y: 1.4, w: 12.1, colW: [1.3, 1.8, 1.8, 1.8, 1.8, 1.7, 1.9], fontSize: 14, fontFace: THEME.bodyFontFace, rowH: 0.36, align: "right",
+    border: { type: "solid", pt: 0.5, color: "D9D3C8" }, fill: { color: H.lt1 }, valign: "middle", objectName: "Annexe table " + (k + 1),
+  });
+  caption(s, k ? "* Partiel : EAU non publiés (n. p.). Fichier source : docs/recherche-or-cameroun/donnees_miroir_or_tous_declarants.csv (283 lignes, 3 codes SH)." : "Source : UN Comtrade, aperçu public de l'API, flux M, partenaire 120 (Cameroun), extrait le 31/10/2026. Poids nets en kg, valeurs CIF en USD.");
+});
+s = content("Annexe A3 : reproductibilité et périmètre");
+const meta = [
+  ["Requête", "comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=…&partnerCode=120&flowCode=M&cmdCode=7108 (puis 7112, 7113)"],
+  ["Déclarants", "254 pays de la table « Reporters » de Comtrade ; groupes et agrégats régionaux (UE, etc.) exclus pour éviter tout double comptage"],
+  ["Période", "2000–2025, fréquence annuelle ; extraction du 31/10/2026 ; données révisables"],
+  ["Conversions", "Taux USD/XAF : Banque mondiale PA.NUS.FCRF ; cours de l'or : Banque mondiale Pink Sheet (LBMA PM)"],
+  ["Fichiers", "donnees_miroir_or_tous_declarants.csv, tableau_annuel_consolide.csv, valeurs_annuelles_or.csv, chiffres_officiels_or.csv, PERTES_FISCALES.md"],
+];
+meta.forEach((m, i) => {
+  const y = 1.45 + i * 1.0;
+  card(s, 0.6, y, 12.1, 0.85, "Méta " + (i + 1));
+  s.addText(m[0], { x: 0.85, y: y + 0.1, w: 2.2, h: 0.65, fontSize: 15, bold: true, color: C.accent5, valign: "middle", margin: 0, isTextBox: true });
+  s.addText(m[1], { x: 3.1, y: y + 0.1, w: 9.4, h: 0.65, fontSize: 14, color: C.text1, valign: "middle", margin: 0, isTextBox: true });
+});
+caption(s, "Dépôt GitHub boujieka/Boujieka, dossier docs/. Les autres minerais reposent sur des extraits de recherche web, sans extraction Comtrade.");
 
 (async () => {
   await pres.writeFile({ fileName: OUT });
