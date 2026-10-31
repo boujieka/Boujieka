@@ -1,6 +1,6 @@
 # Importations d'or en provenance du Cameroun (2000–2026) : Émirats arabes unis et reste du monde
 
-*Recherche documentaire. Version 2 du 31 octobre 2026 : couverture étendue à **tous les pays déclarants** de UN Comtrade et aux codes **SH 7108, 7112 et 7113**.*
+*Recherche documentaire. Version 3 du 31 octobre 2026 (§ 6 bis : valeurs et coûts année par année). Version 2 : couverture étendue à **tous les pays déclarants** de UN Comtrade et aux codes **SH 7108, 7112 et 7113**.*
 *Données brutes : [`donnees_miroir_or_tous_declarants.csv`](donnees_miroir_or_tous_declarants.csv) (283 enregistrements non nuls).*
 
 ## 1. Méthode
@@ -121,6 +121,94 @@ Total cumulé 2000–2025 : **≈ 5,5 M USD**, ce qui est marginal.
 3. **Cumul 2000–2025, ordre de grandeur** : 138,5 t (Comtrade) + 0,6 t (débris SH 7112 des EAU) + environ 20 t (EAU 2024–2025, estimation Sonamines) ≈ **160 t**.
 4. **Le Rwanda et l'Ouganda sont devenus des destinations importantes à partir de 2019 et 2023.** Ces deux pays exportent eux-mêmes de grandes quantités d'or, en grande partie vers les EAU. Une partie de l'or camerounais pourrait donc rejoindre Dubaï *via* ces pays, auquel cas il serait compté comme origine Rwanda ou Ouganda à Dubaï. Cette hypothèse n'est pas vérifiée.
 5. **Valeurs unitaires plausibles** : 2023, EAU, 62,6 USD/g. 2025, Ouganda, 113,5 USD/g. Ces niveaux sont cohérents avec la hausse du cours de l'or en 2025. Les poids déclarés correspondent donc vraisemblablement à de l'or presque pur.
+
+## 6 bis. Tableau annuel consolidé : volumes, valeurs et coûts (2000–2025)
+
+*Tableau ajouté en version 3. Il fusionne trois recherches :*
+- *les valeurs de l'or, en USD, en FCFA et au cours mondial ;*
+- *le régime fiscal et les pertes publiées ;*
+- *les chiffres officiels de production.*
+
+*Fichiers associés :*
+- [`tableau_annuel_consolide.csv`](tableau_annuel_consolide.csv)
+- [`valeurs_annuelles_or.csv`](valeurs_annuelles_or.csv)
+- [`chiffres_officiels_or.csv`](chiffres_officiels_or.csv) (50 indicateurs sourcés)
+- [`PERTES_FISCALES.md`](PERTES_FISCALES.md) (régime fiscal détaillé et estimations publiées)
+
+**Sources des conversions**
+- **Taux de change USD/FCFA** : Banque mondiale, série PA.NUS.FCRF, moyenne annuelle ([API](https://api.worldbank.org/v2/country/CMR/indicator/PA.NUS.FCRF?format=json&date=2000:2025&per_page=100)).
+- **Cours de l'or** : Banque mondiale, « Pink Sheet » annuel, moyenne du fixing de l'après-midi à Londres (LBMA PM) ([fichier xlsx](https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Annual.xlsx)). À partir de juin 2025, la série passe aux cours spot.
+
+**Définition des colonnes**
+- **Écart / cours mondial** = (valeur déclarée − poids × cours) ÷ (poids × cours).
+- **Non déclaré** = valeur miroir − exportations déclarées par le Cameroun. Ces exportations sont valorisées à la valeur unitaire miroir de l'année.
+- **Perte fiscale calculée** = non déclaré × taux × taux de change.
+  - **Taux bas** : taxe ad valorem seule, 3 % jusqu'en 2016 puis 5 %.
+  - **Taux haut** : régime de l'exploitation semi-mécanisée, plus le droit de sortie.
+
+| Période | Taux haut | Composition |
+|---|---:|---|
+| ≤ 2013 | 3 % | taxe ad valorem |
+| 2014 | 8 % | prorata de l'année |
+| 2015–2016 | 15 % | prélèvement en nature, décret 2014/2349/PM |
+| 2017–2019 | 25 % | ISML, art. 28 de la loi 2016/017 |
+| 2020–2022 | 32,5 % | ISML + droit de sortie de 10 % (LF 2020) sur la part de 75 % — **cette assiette est une hypothèse** |
+| 2023–2025 | 28,75 % | ISML 25 % + droit de sortie de 5 % FOB (LF 2023) sur 75 % ; loi 2023/014 |
+
+| Année | Or miroir (kg) | Valeur déclarée (M USD) | Valeur (Md FCFA) | Écart / cours mondial | Non déclaré (M USD) | Perte fiscale calculée, basse–haute (Md FCFA) | Perte publiée (Md FCFA) | Production officielle ou estimée (kg) |
+|---|---:|---:|---:|---:|---:|---:|---|---|
+| 2000 | 0 | 0,0 | 0,0 | – | 0,0 | 0,0 – 0,0 | – | – |
+| 2001 | 5 | 0,0 | 0,0 | -6,9 % | 0,0 | 0,0 – 0,0 | – | – |
+| 2002 | 69 | 0,7 | 0,5 | -1,5 % | 0,7 | 0,0 – 0,0 | – | – |
+| 2003 | 291 | 3,4 | 2,0 | -1,0 % | 3,4 | 0,1 – 0,1 | – | – |
+| 2004 | 130 | 1,7 | 0,9 | 0,9 % | 1,7 | 0,0 – 0,0 | – | – |
+| 2005 | 101 | 1,5 | 0,8 | 4,2 % | 1,5 | 0,0 – 0,0 | – | ≈1 500 (USGS est.) |
+| 2006 | 293 | 5,7 | 3,0 | 0,6 % | 5,7 | 0,1 – 0,1 | – | – |
+| 2007 | 304 | 6,5 | 3,1 | -4,5 % | 6,5 | 0,1 – 0,1 | – | – |
+| 2008 | 338 | 8,7 | 3,9 | -7,9 % | 8,7 | 0,1 – 0,1 | – | – |
+| 2009 | 1 418 | 41,6 | 19,5 | -6,3 % | 41,6 | 0,6 – 0,6 | – | 1 800 (USGS via CEIC) |
+| 2010 | 2 406 | 88,1 | 43,6 | -7,0 % | 88,1 | 1,3 – 1,3 | – | 1 500 (USGS est.) |
+| 2011 | 3 535 | 176,1 | 83,0 | -1,3 % | 176,1 | 2,5 – 2,5 | – | 1 600 (USGS via KPMG) |
+| 2012 | 4 982 | 252,6 | 129,0 | -5,6 % | 243,3 | 3,7 – 3,7 | – | 1 500 (USGS est.) |
+| 2013 | 11 490 | 507,4 | 250,6 | -2,7 % | 497,9 | 7,4 – 7,4 | – | 1 500 (USGS est.) ; 43 CAPAM + 52,9 C&K (ITIE) |
+| 2014 | 8 839 | 340,0 | 167,9 | -5,5 % | 337,0 | 5,0 – 13,3 | – | 257,4 (REF) ; 1 500 (USGS est.) |
+| 2015 | 10 435 | 367,6 | 217,3 | -5,6 % | 367,2 | 6,5 – 32,6 | – | 795,3 (REF) ; 1 800 (USGS est.) |
+| 2016 | 10 240 | 350,4 | 207,6 | -14,8 % | 350,1 | 6,2 – 31,1 | ≈12/an (DGI via Interpol) | 1 800 (USGS est.) |
+| 2017 | 10 913 | 382,2 | 221,9 | -13,4 % | 382,0 | 11,1 – 55,5 | – | 712,6 (REF) ; 701 (USGS) |
+| 2018 | 11 712 | 415,3 | 230,7 | -13,1 % | 414,8 | 11,5 – 57,6 | – | 448,2 (REF) ; 478 (USGS) |
+| 2019 | 11 414 | 452,9 | 265,4 | -11,3 % | 449,7 | 13,2 – 65,9 | – | 314,5 (REF) ; 341 (USGS) |
+| 2020 | 5 828 | 280,7 | 161,6 | -15,4 % | 280,5 | 8,1 – 52,5 | – | 326 (USGS) |
+| 2021 | 5 602 | 312,2 | 173,1 | -3,7 % | 310,0 | 8,6 – 55,9 | 52,8 (MINMIDT) | 354 (USGS) |
+| 2022 | 4 820 | 278,8 | 173,9 | -0,1 % | 278,6 | 8,7 – 56,5 | 50,6 (MINMIDT) | 859,9 (ITIE/SONAMINES) ; 860 (USGS) |
+| 2023 | 18 255 | 1 145,3 | 694,7 | 0,4 % | 1 144,6 | 34,7 – 199,6 | 165 (ITIE) / 161,8 (MINMIDT) | 946,8 (ITIE) ; 947 (USGS) |
+| 2024 | 9 942 | 661,3 | 401,0 | -13,4 % | 661,3 | 20,0 – 115,3 | 159,2 (MINMIDT) | 855 (USGS) |
+| 2025 | 5 139 | 497,4 | 289,5 | -12,5 % | 497,4 | 14,5 – 83,2 | 153,2 (MINMIDT) | – |
+| **Total** | **138 502** | **6 578** | **3 744** | | **6 549** | **164 – 835** | 577,5 sur 2021–2025 (MINMIDT) | |
+
+*Les colonnes « Perte publiée » et « Production » viennent de sources de presse ou d'extraits de documents : voir `chiffres_officiels_or.csv` et `PERTES_FISCALES.md` pour le statut de chaque chiffre. 2024–2025 : sans les EAU (non publiés dans Comtrade).*
+
+**À retenir**
+1. **Valeur cumulée de l'or miroir 2000–2025 : ≈ 6,58 Md USD, soit ≈ 3 744 Md FCFA.** Ce montant exclut les EAU pour 2024–2025. Selon la Sonamines, ils représenteraient environ 12,2 t en 2024 et environ 8,4 t en 2025.
+2. **Les valeurs déclarées suivent le cours mondial** à ±8 % en 2001–2015 et en 2021–2023.
+   - L'écart est de −11 à −15 % en 2016–2020 et en 2024–2025.
+   - Cela pourrait venir d'or doré déclaré au poids brut, ou de valeurs rwandaises basses (−20 % en 2024, −40 % en 2025). Hypothèse non vérifiée.
+3. **Perte fiscale calculée 2000–2025 : 164 à 835 Md FCFA.**
+   - Le coût est faible avant 2014 (taux de 3 %).
+   - Il bondit avec le prélèvement de 15 % (2014), l'ISML de 25 % (2017) et le droit de sortie (2020).
+4. **Recoupement avec les chiffres officiels.**
+   - Pour 2021–2022, le taux haut donne 56 Md FCFA par an, contre 52,8 et 50,6 Md publiés par le MINMIDT.
+   - Pour 2023, la base « EAU + Ouganda » à 28,75 % donne environ 166 Md FCFA, contre 165 Md pour l'ITIE. On en déduit que les sources officielles appliquent l'ISML et le droit de sortie : c'est une inférence, leur formule n'a pas été lue.
+5. **Production officielle contre or miroir.**
+   - Production déclarée : 257 à 947 kg par an selon le REF du MINFI, l'ITIE et l'USGS après 2017.
+   - Or miroir : 5 à 18 t par an.
+   - Même l'estimation de production artisanale de l'USGS pour 2010–2016 (1,5 à 1,8 t) est 5 à 7 fois inférieure à l'or miroir. Une partie pourrait donc être de l'or en transit, venu d'autres pays : hypothèse.
+6. **Contradictions non résolues.**
+   - Taxe ad valorem avant 2016 : 3 % ou 5 % ?
+   - Droit de sortie avant 2020 : non trouvé.
+   - Exportations camerounaises de 2013 : 84,9 kg selon l'ITIE, 214 kg selon Comtrade.
+   - Collectes SONAMINES de 2022 : 175 kg ou 218,5 kg.
+
+**Limite d'accès.** Seuls le rapport ITIE 2013 et deux pages web ont été lus en entier. Les autres chiffres de production et de fiscalité viennent d'extraits de moteur de recherche. Les sites eiti.org, minmidt.cm et usgs.gov étaient bloqués par le réseau de la session, et les crédits Firecrawl étaient épuisés.
 
 ## 7. Limites et explications concurrentes
 
