@@ -321,7 +321,7 @@ s.addText("Small or absent flows; traceability and contract issues", { placehold
 // ===== 12. Diamant
 s = content("Diamonds: a traceability issue, not a revenue one");
 const dy = [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024];
-const dv = [236, 156, 242, 179, 84, 274, 127, 92, 249, 117, 35, 15];
+const dv = [236, 156, 242, 179, 84, 274, 127, 92, 249, 117, 35, 16];
 s.addChart(pres.charts.BAR, [{ name: "USD per carat", labels: dy.map(String), values: dv }], {
   x: 0.6, y: 1.4, w: 6.6, h: 5.0, barDir: "col", chartColors: [H.accent3], showLegend: false,
   showTitle: true, title: "Average price of exported diamonds (USD/carat, Kimberley)",
@@ -329,7 +329,7 @@ s.addChart(pres.charts.BAR, [{ name: "USD per carat", labels: dy.map(String), va
 });
 const dfacts = [
   ["≤ USD 0.6 M", "of official exports per year"],
-  ["140,000 ct", "of Central African diamonds sold illegally across the border (UN, 2013–2014)"],
+  ["140,000 ct", "smuggled out of the CAR after May 2013 (UN), all routes combined"],
   ["4,523 ct", "on a forged Cameroonian Kimberley certificate (2016)"],
   ["FCFA 25–175 M", "calculated tax loss per year"],
 ];

@@ -35,7 +35,7 @@ Sources : résumés globaux annuels du KP (`kimberleyprocessstatistics.org/.../A
 | 2021 | 2 668 | 253 708 | 251 | 62 723 | 249 | Copie du résumé global KP |
 | 2022 | 2 431 | ≈ 248 266 | 422 | ≈ 49 339 | ≈ 117 | |
 | 2023 | 3 306 | 272 167 | 4 840 | 168 871 | 35 | Tableau en partie illisible |
-| 2024 | 11 220 (KP) / 6 220 (presse) | ≈ 332 893 | 17 955 | ≈ 277 595 | ≈ 15 | Alignement des colonnes incertain |
+| 2024 | 11 220 (KP) / 6 220 (presse) | ≈ 332 893 | 18 002,56 (page pays KP, selon l'audit externe) ; 17 955 (extrait du résumé global) | 283 887 ; ≈ 277 595 | ≈ 15,8 | Valeur de la page pays KP retenue |
 | 2025 | 15 382 (secrétariat national KP) | – | 14 647 (source secondaire) | 240 244 | ≈ 16 | |
 
 **Destinations** : en 2018, selon la BEAC, 55,31 % des exportations sont allées aux EAU, 40,95 % en Belgique et 3,73 % en Suisse ([Investir au Cameroun](https://www.investiraucameroun.com/mines/1006-16489-les-emirats-arabes-unis-et-la-belgique-sont-les-principales-destinations-des-diamants-camerounais-beac)).
@@ -53,7 +53,7 @@ Ce sont des volumes minimes. L'extrait TrendEconomy pour les EAU en 2023 (« 44 
 ## 2. Contrebande, transit centrafricain et Mobilong
 
 - **RCA et Kimberley** : la RCA est suspendue du KP le 23/05/2013. Des « zones conformes » sont créées à partir de 2015–2016 (Berberati en mai 2016). La suspension est levée le 15/11/2024.
-- **Panel d'experts de l'ONU (S/2014/762)** : environ 140 000 ct, soit environ 24 M USD, vendus illégalement entre mai 2013 et octobre 2014 *via* la frontière camerounaise. Les sources décrivent ce flux soit comme « sorti de RCA », soit comme « entré au Cameroun ».
+- **Panel d'experts de l'ONU (S/2014/762)** : environ 140 000 ct (environ 24 M USD) **sortis clandestinement de RCA** entre mai 2013 et octobre 2014, tous itinéraires confondus. *Correction (audit du 31/10/2026) : le rapport n'attribue pas ce volume au seul corridor camerounais ; la version précédente l'imputait à tort à la frontière camerounaise.*
 - **PAC/IMPACT (décembre 2016)** : le Cameroun est décrit comme « principal pays de transit ». Un faux certificat KP camerounais de **4 523 ct** a été présenté au premier semestre 2016, soit plus que la production nationale estimée à environ 3 000 ct/an ([IMPACT](https://impacttransform.org/wp-content/uploads/2017/09/2016-Dec-From-Conflict-to-Illicit-Mapping-the-diamond-trade-from-Central-African-Republic-to-Cameroon.pdf)).
   - Selon Business in Cameroon, la mission de revue KP de décembre 2016 n'a pas confirmé ces accusations. Le rapport de mission n'a pas été trouvé.
 - **100 Reporters (2016)** : 6 722 ct couverts par de faux certificats confirmés en 2013. Un colis de 281 869 ct serait sorti par Douala fin 2009 ([100r](https://100r.org/2016/09/washed-clean-cameroon-kimberley-officials-launder-conflict-diamonds-onto-world-markets/)).

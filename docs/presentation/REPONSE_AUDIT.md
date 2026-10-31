@@ -42,3 +42,35 @@
 | + | Trois niveaux de conclusion | – | Conclusion structurée en fait documenté, hypothèse à investiguer et résultat à établir |
 
 **Limite persistante.** Les chiffres WITS cités par l'audit (Ouganda 1 117 kg, Cameroun → EAU 20 kg) et le chiffre de 557 Md sur la page MINMIDT n'ont pas pu être revérifiés depuis cette session, car WITS et le site du MINMIDT y sont inaccessibles.
+
+---
+
+# Troisième audit : version réorganisée de 27 diapositives (v4)
+
+*31/10/2026. Fichier : `Flux_mineraux_Cameroun_2000-2025_v4_reorganisee.pptx`, version de l'auditeur relue et corrigée.*
+
+## Corrections de l'audit retenues
+
+| Point | Décision |
+|---|---|
+| 140 000 ct (ONU S/2014/762) attribués à tort au corridor camerounais | **Retenu.** Corrigé dans les présentations FR/EN v3 et dans `recherche-diamant-cameroun/RAPPORT.md` : ce chiffre porte sur les sorties de RCA, tous itinéraires confondus |
+| Exportations KP 2024 : 18 002,56 ct pour 283 887 USD | **Retenu**, en signalant qu'il diffère de notre extrait du résumé global (17 955 ct, ≈ 277 595 USD). Prix 2024 porté à ≈ 15,8 USD/ct. Non revérifié ici : kimberleyprocess.com est inaccessible depuis cette session |
+| Séparation 577,51 / 557 / 165 Md FCFA | Retenu (déjà fait en v3) |
+
+## Erreurs ou incohérences corrigées dans la version réorganisée
+
+| Diapo | Problème | Correction |
+|---|---|---|
+| 14 | « ITIE, estimation annuelle : 165 Md FCFA/an ». Or les 165 Md portent sur **2023 seulement** | « ITIE, estimation pour 2023 » ; « pour la seule année 2023 (et non par an) » |
+| 19 | Diamants « Vérifié » alors que les sources KP divergent pour 2016 (1 661 contre 1 807 ct), 2020 (732 contre 788 ct) et 2024 (17 955 contre 18 003 ct) | « Vérifié ; écarts KP 2016, 2020, 2024 » |
+| 10 | Le tableau utilise le champ « quantity », contrairement à la règle posée en diapo 3 (ne pas mélanger quantité et poids net) | Avertissement explicite : ne pas additionner aux poids nets des diapos 11–12 et des annexes |
+| 27 | Journal : « 15 t et 14,048 t fusionnés ». Les versions 2 et 3 ne fusionnaient pas ces chiffres : elles rapprochaient 15,2 t (ITIE) de EAU + Ouganda (15,19 t) | « 15,2 t (ITIE) rapprochés de EAU + Ouganda » |
+| 6, 25 | Décimales anglaises (111.3 t ; 235.6) dans un document en français | Virgules décimales |
+| 23 | Séparateurs de milliers manquants (1364, 2367, 3533, 4978) | Séparateurs ajoutés |
+
+## Points non modifiés, à connaître
+
+- **Police Aptos.** Elle n'est pas installée sur les anciennes versions d'Office. Le rendu peut donc varier ailleurs que sous Office 365.
+- **Graphiques en formes dessinées.** Les diapos 5, 7 et 15 sont dessinées avec des formes, pas avec de vrais graphiques PowerPoint. Elles n'ont ni axe ni étiquettes de valeurs, et ne sont donc pas modifiables comme des graphiques.
+- **Contenus de la v3 absents de la version réorganisée** : valorisation au cours mondial, conversions en FCFA, scénarios fiscaux et tableau comparatif des six minerais. Ils restent dans les présentations FR/EN v3.
+- **Décret n° 2025/040 du 12/02/2025 (Geovic).** Nos sources donnaient le 12, le 14 ou le 25 février. Je n'ai pas pu vérifier ce décret.

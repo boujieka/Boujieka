@@ -321,7 +321,7 @@ s.addText("Des flux faibles ou inexistants, des enjeux de traçabilité et de co
 // ===== 12. Diamant
 s = content("Diamant : un enjeu de traçabilité, pas de recettes");
 const dy = [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024];
-const dv = [236, 156, 242, 179, 84, 274, 127, 92, 249, 117, 35, 15];
+const dv = [236, 156, 242, 179, 84, 274, 127, 92, 249, 117, 35, 16];
 s.addChart(pres.charts.BAR, [{ name: "USD par carat", labels: dy.map(String), values: dv }], {
   x: 0.6, y: 1.4, w: 6.6, h: 5.0, barDir: "col", chartColors: [H.accent3], showLegend: false,
   showTitle: true, title: "Prix moyen des diamants exportés (USD/carat, Kimberley)",
@@ -329,7 +329,7 @@ s.addChart(pres.charts.BAR, [{ name: "USD par carat", labels: dy.map(String), va
 });
 const dfacts = [
   ["≤ 0,6 M USD", "d'exportations officielles par an"],
-  ["140 000 ct", "de diamants centrafricains vendus illégalement via la frontière (ONU, 2013–2014)"],
+  ["140 000 ct", "sortis clandestinement de RCA après mai 2013 (ONU), tous corridors confondus"],
   ["4 523 ct", "sur un faux certificat Kimberley camerounais (2016)"],
   ["25–175 M FCFA", "de perte fiscale calculée par an"],
 ];
