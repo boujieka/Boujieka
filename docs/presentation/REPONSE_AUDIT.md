@@ -99,3 +99,37 @@
 | « 577,51 Md FCFA non réconciliés : retirés de la synthèse » | Business in Cameroon (28/07/2026) attribue ce montant **au gouvernement** (« Cameroon says undeclared gold exports cost state CFAF577 billion in five years »), avec une série annuelle qui totalise exactement 577,51. Le chiffre de 557 Md ne figure que dans l'index de la page MINMIDT, dont Perplexity n'a pas lu le texte intégral. | Maintenu dans la synthèse, attribué au gouvernement ; le chiffre de 557 Md est signalé en annexe B2 |
 | « 165 Md FCFA : estimation annuelle » | Les sources divergent. Business in Cameroon rattache le chiffre au rapport ITIE 2023 sans préciser de période ; un blog parle de pertes « annuelles ». Le MINMIDT donne 161,79 Md pour 2023, ce qui plaide pour une estimation propre à 2023. | Période présentée comme ambiguë (annexe B2) ; dans le corps : « 165 Md FCFA (rapport ITIE 2023) » |
 | 20 kg (Cameroun → EAU 2023) « non revalidés » | Chiffre issu de la vérification WITS du premier auditeur ; ni Perplexity ni moi n'avons pu le recontrôler | Maintenu dans le cas 2023 avec sa source (WITS) |
+
+---
+
+# Revue de la version 8 (version finale transmise)
+
+*31/10/2026. Fichier archivé tel quel : `Flux_miniers_Cameroun_2000-2025_v8_amelioree.pptx` (33 diapositives).*
+
+## Vérifications : chiffres cohérents avec nos données
+
+| Affirmation v8 | Recalcul | Statut |
+|---|---|---|
+| Rapport de 149,5 sur 2012–2022 (96 275 kg contre 643,8 kg) | 96 275,3 kg ÷ 643,98 kg = 149,5 | **Exact. Correction justifiée** : notre « ≈ 180 fois » (v5–v7) rapportait le total partenaires 2012–2023 aux exportations camerounaises 2012–2022, le poids de 2023 n'étant pas renseigné côté Cameroun |
+| 138,5 t ; 111,3 t (80,3 %) ; 6,58 Md USD ; 3 744 Md FCFA | Identiques au fichier de données | Exact |
+| 2023 : 14 048 kg contre 20 kg (×702,4) ; 0,631 M USD vers les EAU | Cohérent avec 0,675 M USD d'exportations camerounaises toutes destinations | Plausible, non revérifié ici |
+| Série MINMIDT de 577,50 Md FCFA ; texte du MINMIDT à 557 Md | Identique | Exact |
+| Diamants (Processus de Kimberley) : 51 714 ct, 18 002,56 ct en 2024 | Identique | Exact |
+
+## Points d'attention
+
+1. **La fiscalité comparée a été retirée.** La v8 juge les comparaisons internationales « non homogènes » (diapo 17). C'est vrai pour les parts de l'État des mines industrielles, qui mêlent redevance, impôt sur les bénéfices et participation. Ce n'est **pas** vrai pour la comparaison des taxes à l'export de l'or artisanal, toutes exprimées en % de la valeur exportée :
+   - Cameroun : 28,75 % ;
+   - Ghana : 0 à 3 % ;
+   - Mali : 2 à 3 % ;
+   - Rwanda : 0,5 % ;
+   - Ouganda : ≈ 0,25 %.
+
+   Cette comparaison, et le constat du taux élevé appliqué à une assiette étroite (1,5 % de l'or déclaré par les partenaires collecté en 2023), répondent à la demande d'analyse du manque à gagner réglementaire. Elles pourraient être réintroduites.
+2. **Période des 165 Md FCFA.** La v8 retient « 165 Md par an » (diapo 15). La période reste ambiguë : le MINMIDT donne 161,79 Md pour 2023.
+3. **Mbalam « à documenter » (diapo 23).** La sentence de 616 M USD est documentée par Reuters (27/07/2026) et par le communiqué de Sundance.
+4. **Diamant (diapo 20).** Les exportations dépassent aussi la production en 2016, pas seulement en 2023–2024.
+5. **Mise en page (rendu LibreOffice).**
+   - Diapo 13 : le titre, sur deux lignes, touche le tableau.
+   - Diapo 15 : la phrase d'avertissement déborde du cadre.
+   - Diapos 23–24 : colonnes de texte alignées à droite.
