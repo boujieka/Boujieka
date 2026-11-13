@@ -31,7 +31,7 @@ const LOTS = [
 ];
 const fmt = n => Math.round(n).toLocaleString('fr-FR').replace(/ | /g, ' ');
 
-const nb = t => typeof t === 'string' ? t.replace(/(\d) (?=\d{3}\b)/g, '$1\u00a0').replace(/ (€|%|HT\b)/g, '\u00a0$1') : Array.isArray(t) ? t.map(r => Object.assign({}, r, { text: nb(r.text) })) : t;
+const nb = t => typeof t === 'string' ? t.replace(/(\d) (?=\d{3}\b)/g, '$1\u00a0').replace(/ (k€|M€|€|%|HT\b)/g, '\u00a0$1') : Array.isArray(t) ? t.map(r => Object.assign({}, r, { text: nb(r.text) })) : t;
 async function icon(Comp, color = 'FFFFFF') {
   const svg = ReactDOMServer.renderToStaticMarkup(React.createElement(Comp, { color: '#' + color, size: 256 }));
   const buf = await sharp(Buffer.from(svg)).resize(256, 256).png().toBuffer();
@@ -120,6 +120,44 @@ async function icon(Comp, color = 'FFFFFF') {
     txt(s, 'Tuile texte ' + (i + 1), b, { x: x + 0.2, y: 6.17, w: 3.5, h: 0.6, fontSize: 14 });
   });
   s.addNotes('La décision est volontairement étroite. Nous n’arrêtons ni la puissance de la centrale, ni les prix, ni le financement. Si le Comité approuve, il reverra le dossier au jalon G1 avant toute nouvelle dépense.');
+
+  // ---------- 2 bis. Carte mentale
+  s = pres.addSlide({ masterName: 'CONTENU', sectionTitle: 'Décision' });
+  s.addText('Le projet en une page', { placeholder: 'title' });
+  s.addText('Six angles pour situer la décision du jour', { placeholder: 'body' });
+  const CX = 4.87, CY = 3.15, CW = 3.6, CH = 2.0;
+  const branches = [
+    ['Objet', 'Collecter, trier, recycler, puis valoriser le seul résiduel, sur un site à Maluku', 0, 0],
+    ['Options', 'A sans électricité, B 16 MW, C 32 MW, D capacité ajustée au gisement réel', 0, 1],
+    ['Études', 'Douze volets, du gisement de déchets jusqu’aux contrats et au financement', 0, 2],
+    ['Budget', 'Quatre tranches de 200, 572, 842 et 295 k€, soit 1,91 M€ HT au total', 1, 0],
+    ['Jalons', 'Cinq jalons, de G0 à G4, et rien d’industriel avant le dernier', 1, 1],
+    ['Garde-fous', 'Sept motifs d’arrêt, des mesures de terrain et des contrôles indépendants', 1, 2],
+  ];
+  const BW = 3.6, BH = 1.45;
+  const L = (name, x, y, w, h) => s.addShape(pres.shapes.LINE, { x, y, w, h, line: { color: HEX.accent5, width: 2 }, objectName: name });
+  [0, 1].forEach(side => {
+    const edge = side ? 12.7 - BW : 0.6 + BW, spine = side ? (edge + CX + CW) / 2 : (edge + CX) / 2;
+    const ys = [0, 1, 2].map(r => 1.8 + r * 1.75 + BH / 2);
+    ys.forEach((y, r) => L(`Lien ${side}-${r}`, Math.min(edge, spine), y, Math.abs(spine - edge), 0));
+    L('Tronc ' + side, spine, ys[0], 0, ys[2] - ys[0]);
+    const cxe = side ? CX + CW : CX;
+    L('Accès ' + side, Math.min(spine, cxe), CY + CH / 2, Math.abs(cxe - spine), 0);
+  });
+  branches.forEach(([h, b, side, row], i) => {
+    const bx = side ? 12.7 - BW : 0.6, by = 1.8 + row * 1.75;
+    card(s, 'Branche ' + h, bx, by, BW, BH);
+    circle(s, 'Branche numéro fond ' + h, bx + 0.2, by + 0.18, 0.42, side ? C.accent2 : C.accent1);
+    txt(s, 'Branche numéro ' + h, String(i + 1), { x: bx + 0.2, y: by + 0.18, w: 0.42, h: 0.42, fontSize: 14, bold: true, color: C.background1, align: 'center', valign: 'middle' });
+    txt(s, 'Branche titre ' + h, h, { x: bx + 0.75, y: by + 0.18, w: BW - 0.95, h: 0.42, fontSize: 17, bold: true, fontFace: THEME.headFontFace, valign: 'middle' });
+    txt(s, 'Branche texte ' + h, b, { x: bx + 0.2, y: by + 0.7, w: BW - 0.4, h: 0.7, fontSize: 14 });
+  });
+  card(s, 'Noyau', CX, CY, CW, CH, C.text2);
+  txt(s, 'Noyau titre', 'Kia Mona II', { x: CX + 0.2, y: CY + 0.2, w: CW - 0.4, h: 0.6, fontSize: 28, bold: true, color: C.background1, fontFace: THEME.headFontFace, align: 'center', valign: 'middle' });
+  txt(s, 'Noyau texte', 'Gestion intégrée des déchets et valorisation du résiduel', { x: CX + 0.2, y: CY + 0.8, w: CW - 0.4, h: 0.5, fontSize: 14, color: C.accent5, align: 'center' });
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: CX + 0.35, y: CY + 1.38, w: CW - 0.7, h: 0.42, fill: { color: C.accent2 }, line: { color: C.accent2 }, rectRadius: 0.08, objectName: 'Noyau décision fond' });
+  txt(s, 'Noyau décision', 'À voter : T1, 199 600 € HT', { x: CX + 0.35, y: CY + 1.38, w: CW - 0.7, h: 0.42, fontSize: 15, bold: true, color: C.text2, align: 'center', valign: 'middle' });
+  s.addNotes('Cette carte donne la vue d’ensemble avant d’entrer dans le détail. À gauche, ce que le projet veut faire et ce qu’il faut étudier ; à droite, la manière dont l’argent est engagé et protégé. Au centre, la seule décision demandée aujourd’hui.');
 
   // ---------- 3. Pourquoi étudier d'abord
   pres.addSection({ title: 'Analyse' });
