@@ -88,43 +88,10 @@ async function icon(Comp, color = 'FFFFFF') {
 
   // ---------- 1. Couverture
   pres.addSection({ title: 'Décision' });
-  let s = pres.addSlide({ masterName: 'COUVERTURE', sectionTitle: 'Décision' });
-  s.addText('Kia Mona II : engager la première tranche d’étude', { placeholder: 'title' });
-  s.addText('Comité d’investissement de VIPRO S.A, séance de novembre 2026\nDécision demandée : tranche T1, plafonnée à 199 600 € HT', { placeholder: 'body' });
-  s.addNotes('Ce support résume les termes de référence V3.0 du 13 novembre 2026. Il ne demande qu’une seule décision : autoriser la première tranche de l’étude. Tout le reste sera soumis au Comité plus tard, jalon par jalon.');
-
-  // ---------- 2. La décision demandée
-  s = pres.addSlide({ masterName: 'CONTENU', sectionTitle: 'Décision' });
-  s.addText('Ce que nous vous demandons de décider', { placeholder: 'title' });
-  s.addText('Un engagement limité, réversible et assorti de conditions', { placeholder: 'body' });
-  card(s, 'Montant', 0.6, 1.8, 4.6, 3.6, C.text2);
-  txt(s, 'Montant chiffre', '199 600 €', { x: 0.9, y: 2.1, w: 4.0, h: 1.1, fontSize: 60, bold: true, color: C.accent2, fontFace: THEME.headFontFace, valign: 'middle' });
-  txt(s, 'Montant libellé', 'hors taxes, pour la tranche T1, sur une enveloppe d’étude de 1 907 500 € HT engagée tranche par tranche', { x: 0.9, y: 3.3, w: 4.0, h: 1.0, fontSize: 15, color: C.background1 });
-  txt(s, 'Montant part', 'Soit 10 % de l’enveloppe totale', { x: 0.9, y: 4.6, w: 4.0, h: 0.5, fontSize: 15, bold: true, color: C.accent5 });
-  txt(s, 'Reco titre', 'Recommandation : approuver T1 sous quatre conditions', { x: 5.6, y: 1.8, w: 7.1, h: 0.45, fontSize: 18, bold: true, fontFace: THEME.headFontFace, color: C.accent1 });
-  txt(s, 'Reco liste', [
-    { text: 'Nommer un Directeur d’étude, responsable et signataire des livrables.', options: { bullet: { type: 'number' }, breakLine: true } },
-    { text: 'Ne lancer la tranche T2 qu’après la revue du jalon G1, au troisième ou quatrième mois.', options: { bullet: { type: 'number' }, breakLine: true } },
-    { text: 'Confier les contrôles à un ingénieur et à un auditeur indépendants, sous contrats distincts.', options: { bullet: { type: 'number' }, breakLine: true } },
-    { text: 'N’engager ni contrat de construction, ni dette, ni garantie avant le jalon G4.', options: { bullet: { type: 'number' } } },
-  ], { x: 5.6, y: 2.5, w: 7.1, h: 2.9, fontSize: 16, paraSpaceAfter: 10 });
-  const tiles = [
-    ['Le vote engage', '199 600 € HT et trois à quatre mois de travail'],
-    ['Le vote n’engage pas', 'La puissance, les tarifs, la construction, la dette, une garantie de l’État'],
-    ['Prochain rendez-vous', 'Jalon G1, avec les premiers résultats et la demande de T2'],
-  ];
-  tiles.forEach(([h, b], i) => {
-    const x = 0.6 + i * 4.1;
-    card(s, 'Tuile ' + (i + 1), x, 5.75, 3.9, 1.05);
-    txt(s, 'Tuile titre ' + (i + 1), h, { x: x + 0.2, y: 5.85, w: 3.5, h: 0.3, fontSize: 14, bold: true, color: C.accent1 });
-    txt(s, 'Tuile texte ' + (i + 1), b, { x: x + 0.2, y: 6.17, w: 3.5, h: 0.6, fontSize: 14 });
-  });
-  s.addNotes('La décision est volontairement étroite. Nous n’arrêtons ni la puissance de la centrale, ni les prix, ni le financement. Si le Comité approuve, il reverra le dossier au jalon G1 avant toute nouvelle dépense.');
-
   // ---------- 2 bis. Carte mentale
-  s = pres.addSlide({ masterName: 'CONTENU', sectionTitle: 'Décision' });
-  s.addText('Le projet en une page', { placeholder: 'title' });
-  s.addText('Six angles pour situer la décision du jour', { placeholder: 'body' });
+  let s = pres.addSlide({ masterName: 'CONTENU', sectionTitle: 'Décision' });
+  s.addText('Kia Mona II : le projet en une page', { placeholder: 'title' });
+  s.addText('Six angles pour situer la décision soumise au Comité d’investissement', { placeholder: 'body' });
   const CX = 4.87, CY = 3.15, CW = 3.6, CH = 2.0;
   const branches = [
     ['Objet', 'Collecter, trier, recycler, puis valoriser le seul résiduel, sur un site à Maluku', 0, 0],
@@ -158,6 +125,39 @@ async function icon(Comp, color = 'FFFFFF') {
   s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: CX + 0.35, y: CY + 1.38, w: CW - 0.7, h: 0.42, fill: { color: C.accent2 }, line: { color: C.accent2 }, rectRadius: 0.08, objectName: 'Noyau décision fond' });
   txt(s, 'Noyau décision', 'À voter : T1, 199 600 € HT', { x: CX + 0.35, y: CY + 1.38, w: CW - 0.7, h: 0.42, fontSize: 15, bold: true, color: C.text2, align: 'center', valign: 'middle' });
   s.addNotes('Cette carte donne la vue d’ensemble avant d’entrer dans le détail. À gauche, ce que le projet veut faire et ce qu’il faut étudier ; à droite, la manière dont l’argent est engagé et protégé. Au centre, la seule décision demandée aujourd’hui.');
+
+  s = pres.addSlide({ masterName: 'COUVERTURE', sectionTitle: 'Décision' });
+  s.addText('Kia Mona II : engager la première tranche d’étude', { placeholder: 'title' });
+  s.addText('Comité d’investissement de VIPRO S.A, séance de novembre 2026\nDécision demandée : tranche T1, plafonnée à 199 600 € HT', { placeholder: 'body' });
+  s.addNotes('Ce support résume les termes de référence V3.0 du 13 novembre 2026. Il ne demande qu’une seule décision : autoriser la première tranche de l’étude. Tout le reste sera soumis au Comité plus tard, jalon par jalon.');
+
+  // ---------- 2. La décision demandée
+  s = pres.addSlide({ masterName: 'CONTENU', sectionTitle: 'Décision' });
+  s.addText('Ce que nous vous demandons de décider', { placeholder: 'title' });
+  s.addText('Un engagement limité, réversible et assorti de conditions', { placeholder: 'body' });
+  card(s, 'Montant', 0.6, 1.8, 4.6, 3.6, C.text2);
+  txt(s, 'Montant chiffre', '199 600 €', { x: 0.9, y: 2.1, w: 4.0, h: 1.1, fontSize: 60, bold: true, color: C.accent2, fontFace: THEME.headFontFace, valign: 'middle' });
+  txt(s, 'Montant libellé', 'hors taxes, pour la tranche T1, sur une enveloppe d’étude de 1 907 500 € HT engagée tranche par tranche', { x: 0.9, y: 3.3, w: 4.0, h: 1.0, fontSize: 15, color: C.background1 });
+  txt(s, 'Montant part', 'Soit 10 % de l’enveloppe totale', { x: 0.9, y: 4.6, w: 4.0, h: 0.5, fontSize: 15, bold: true, color: C.accent5 });
+  txt(s, 'Reco titre', 'Recommandation : approuver T1 sous quatre conditions', { x: 5.6, y: 1.8, w: 7.1, h: 0.45, fontSize: 18, bold: true, fontFace: THEME.headFontFace, color: C.accent1 });
+  txt(s, 'Reco liste', [
+    { text: 'Nommer un Directeur d’étude, responsable et signataire des livrables.', options: { bullet: { type: 'number' }, breakLine: true } },
+    { text: 'Ne lancer la tranche T2 qu’après la revue du jalon G1, au troisième ou quatrième mois.', options: { bullet: { type: 'number' }, breakLine: true } },
+    { text: 'Confier les contrôles à un ingénieur et à un auditeur indépendants, sous contrats distincts.', options: { bullet: { type: 'number' }, breakLine: true } },
+    { text: 'N’engager ni contrat de construction, ni dette, ni garantie avant le jalon G4.', options: { bullet: { type: 'number' } } },
+  ], { x: 5.6, y: 2.5, w: 7.1, h: 2.9, fontSize: 16, paraSpaceAfter: 10 });
+  const tiles = [
+    ['Le vote engage', '199 600 € HT et trois à quatre mois de travail'],
+    ['Le vote n’engage pas', 'La puissance, les tarifs, la construction, la dette, une garantie de l’État'],
+    ['Prochain rendez-vous', 'Jalon G1, avec les premiers résultats et la demande de T2'],
+  ];
+  tiles.forEach(([h, b], i) => {
+    const x = 0.6 + i * 4.1;
+    card(s, 'Tuile ' + (i + 1), x, 5.75, 3.9, 1.05);
+    txt(s, 'Tuile titre ' + (i + 1), h, { x: x + 0.2, y: 5.85, w: 3.5, h: 0.3, fontSize: 14, bold: true, color: C.accent1 });
+    txt(s, 'Tuile texte ' + (i + 1), b, { x: x + 0.2, y: 6.17, w: 3.5, h: 0.6, fontSize: 14 });
+  });
+  s.addNotes('La décision est volontairement étroite. Nous n’arrêtons ni la puissance de la centrale, ni les prix, ni le financement. Si le Comité approuve, il reverra le dossier au jalon G1 avant toute nouvelle dépense.');
 
   // ---------- 3. Pourquoi étudier d'abord
   pres.addSection({ title: 'Analyse' });
