@@ -1,0 +1,235 @@
+<title>Central Africa Clean Cooking Map</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: header + legend, then a left-to-right collapsible tree that scrolls sideways inside its own frame */
+:root{
+  --bg:#f6f7f5; --surface:#ffffff; --fg:#1d2321; --muted:#5d6763; --line:#c9d0cc;
+  --root:#1d2321; --root-fg:#ffffff;
+  --c-country:#2f6f9f; --c-tech:#c2561c; --c-bundle:#1f8a70; --c-carbon:#6b5bb5; --c-verdict:#8a6d1f;
+  --tag-v:#1f7a4a; --tag-i:#2f6f9f; --tag-a:#a15c00; --tag-o:#7a4a9a;
+  --f-display:"Sora",system-ui,sans-serif; --f-body:"Inter",system-ui,sans-serif; --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#141917; --surface:#1d2421; --fg:#e7ece9; --muted:#9aa5a0; --line:#3a4440;
+  --root:#e7ece9; --root-fg:#141917;
+  --c-country:#6aa9d8; --c-tech:#ec8a55; --c-bundle:#4cc3a0; --c-carbon:#a597e6; --c-verdict:#d6b45a;
+  --tag-v:#5ccf8f; --tag-i:#6aa9d8; --tag-a:#e6a650; --tag-o:#c39ae0; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#141917; --surface:#1d2421; --fg:#e7ece9; --muted:#9aa5a0; --line:#3a4440;
+  --root:#e7ece9; --root-fg:#141917;
+  --c-country:#6aa9d8; --c-tech:#ec8a55; --c-bundle:#4cc3a0; --c-carbon:#a597e6; --c-verdict:#d6b45a;
+  --tag-v:#5ccf8f; --tag-i:#6aa9d8; --tag-a:#e6a650; --tag-o:#c39ae0; color-scheme:dark }
+
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);line-height:1.45}
+.wrap{padding-block:24px 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:18px}
+header{display:grid;gap:6px;max-width:72ch}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(1.4rem,3.2vw,2rem);margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:0}
+.bar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.legend{display:flex;flex-wrap:wrap;gap:8px;font-size:12px;color:var(--muted)}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+button{font:500 13px var(--f-body);color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:6px 12px;cursor:pointer}
+button:hover{border-color:var(--muted)}
+button:focus-visible,.node:focus-visible{outline:2px solid var(--c-bundle);outline-offset:2px}
+
+.tag{font:500 10.5px var(--f-mono);letter-spacing:.04em;padding:1px 5px;border-radius:4px;border:1px solid currentColor;white-space:nowrap}
+.tag.V{color:var(--tag-v)}.tag.I{color:var(--tag-i)}.tag.A{color:var(--tag-a)}.tag.O{color:var(--tag-o)}
+
+.frame{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px 16px}
+/* tree */
+ul.tree,ul.tree ul{list-style:none;margin:0;padding:0}
+.tree li{display:flex;align-items:center;position:relative}
+.tree li>ul{display:flex;flex-direction:column;gap:6px;padding-left:28px;position:relative}
+/* connectors */
+.tree li>ul::before{content:"";position:absolute;left:0;top:50%;width:14px;border-top:1.5px solid var(--line)}
+.tree li>ul>li{padding-left:14px}
+.tree li>ul>li::before{content:"";position:absolute;left:0;top:50%;width:14px;border-top:1.5px solid var(--line)}
+.tree li>ul>li::after{content:"";position:absolute;left:0;top:0;bottom:0;border-left:1.5px solid var(--line)}
+.tree li>ul>li:first-child::after{top:50%}
+.tree li>ul>li:last-child::after{bottom:50%}
+.tree li>ul>li:only-child::after{display:none}
+.tree li.closed>ul{display:none}
+
+.node{flex:0 0 auto;max-width:300px;padding:7px 11px;border-radius:7px;background:var(--surface);border:1px solid var(--line);font-size:13px;display:flex;flex-direction:column;gap:3px;position:relative;z-index:1}
+.node .t{font-weight:600;display:flex;gap:6px;align-items:baseline;flex-wrap:wrap}
+.node .d{color:var(--muted);font-size:12px}
+.node.has{cursor:pointer}
+.node.has .t::after{content:"−";font:500 12px var(--f-mono);color:var(--muted);margin-left:auto;padding-left:8px}
+li.closed>.node.has .t::after{content:"+"}
+.node.root{background:var(--root);color:var(--root-fg);border-color:var(--root);font-family:var(--f-display);font-size:15px;max-width:220px}
+.node.root .d{color:inherit;opacity:.75}
+.node.b1{border-left:4px solid var(--br)}
+.node.b1 .t{font-family:var(--f-display);font-size:14px;color:var(--br)}
+.node.b2{border-left:2px solid var(--br)}
+.score{font:500 11px var(--f-mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.dots{letter-spacing:1px;color:var(--br)}
+footer{font-size:12px;color:var(--muted);max-width:80ch}
+@media (prefers-reduced-motion:no-preference){.node{transition:border-color .15s}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Clean cooking in six Central African countries</h1>
+    <p class="sub">LPG, eCooking, bioethanol, biogas and carbon models, scored for affordability, scalability and investment readiness. Click any branch to fold or unfold it.</p>
+  </header>
+  <div class="bar">
+    <div class="btns">
+      <button id="btn-expand" type="button">Expand all</button>
+      <button id="btn-collapse" type="button">Collapse to branches</button>
+    </div>
+    <div class="legend">
+      <span><span class="tag V">V</span> verified source</span>
+      <span><span class="tag I">I</span> inference</span>
+      <span><span class="tag A">A</span> assumption</span>
+      <span><span class="tag O">O</span> opinion</span>
+      <span class="score">●●●○○ = score out of 5 (opinion)</span>
+    </div>
+  </div>
+  <div class="frame"><ul class="tree" id="tree"></ul></div>
+  <footer>Desk study dated 15 Nov 2026. Baseline figures: World Bank WDI (access 2024, population and GDP per capita 2025). Full report with sources: docs/clean-cooking-central-africa-assessment.md. Scores are analyst judgment, not measured values.</footer>
+</div>
+
+<script>
+const D = {t:"Clean cooking market", d:"6 countries · ~155 m without access", c:[
+ {t:"Countries", br:"--c-country", c:[
+  {t:"Cameroon", s:4, d:"Cooking 32% · electricity 72% · 29.9 m people", c:[
+    {t:"LPG: 6,500 FCFA per 12.5 kg (official)", g:"V"},
+    {t:"Subsidy 48.96 bn FCFA (2025); black market up to 13,000", g:"V"},
+    {t:"40-point electricity-vs-cooking gap ≈ 12 m people", g:"I"},
+    {t:"Best fit: LPG supply + grid / mini-grid eCooking pilots", g:"O"}]},
+  {t:"DR Congo", s:3, d:"Cooking 5% · electricity 22.5% (rural 1%) · 112.8 m", c:[
+    {t:"Goma EPC trial: −30% charcoal, >$8/month saved", g:"V"},
+    {t:"LPG use ≈ 25,000 t in 2025", g:"V"},
+    {t:"Best fit: hydro mini-grid eCooking in the east", g:"O"},
+    {t:"Risk: conflict in the east (not assessed)", g:"I"}]},
+  {t:"Republic of Congo", s:3, d:"Cooking 40% · electricity 53% · 6.5 m", c:[
+    {t:"Regulated 6,400 FCFA cylinder, cost pressure toward ~8,300", g:"V"},
+    {t:"Domestic butane from CORAF refinery", g:"V"},
+    {t:"Best fit: LPG distribution and cylinder recirculation", g:"O"}]},
+  {t:"São Tomé & Príncipe", s:3, d:"Cooking 7% · electricity 77.7% · 0.24 m", c:[
+    {t:"71-point gap: best eCooking ratio in the region", g:"I"},
+    {t:"Tiny market: suits a national utility programme", g:"O"},
+    {t:"Power believed diesel-heavy (unverified)", g:"A"}]},
+  {t:"Chad", s:2, d:"Cooking 11% (WFP says 3%) · electricity 13.4% · 21 m", c:[
+    {t:"Butane kit subsidy removed, refill fixed (Dec 2025)", g:"V"},
+    {t:"WFP LPG for 5,000+ refugee families", g:"V"},
+    {t:"Best fit: humanitarian LPG channel", g:"O"}]},
+  {t:"Burundi", s:1.5, d:"Cooking ~0% · electricity 20.1% · GDP/cap $234", c:[
+    {t:"Fuel crisis since late 2023; reserves ≈ 1.6 months", g:"V"},
+    {t:"Urban charcoal prices ×2–3 (May 2026)", g:"V"},
+    {t:"Filed Article 6.4 host-party form", g:"V"},
+    {t:"Best fit: results-based / carbon-financed local options", g:"O"}]}
+ ]},
+ {t:"Technologies", br:"--c-tech", c:[
+  {t:"LPG", sc:[3,4,3], d:"Affordability · scalability · readiness", c:[
+    {t:"Proven in Cameroon and Rep. of Congo", g:"I"},
+    {t:"Affordability depends on subsidy; ~2× without it", g:"I"},
+    {t:"2026 Hormuz shock: import prices +70–100%", g:"V"},
+    {t:"Bottlenecks: FX, import logistics, cylinder deposits", g:"I"}]},
+  {t:"eCooking: grid", sc:[3,3,2], c:[
+    {t:"Strong where electricity ≫ cooking access", g:"I"},
+    {t:"Needs a cooking tariff (Uganda 2022 precedent)", g:"V"},
+    {t:"Grid reliability not assessed", g:"I"}]},
+  {t:"eCooking: mini-grid", sc:[2,2,3], d:"3 on hydro sites", c:[
+    {t:"Goma: 85% durable adoption with free cooker", g:"V"},
+    {t:"Viable at ≤ $0.25/kWh cooking tariff", g:"I"},
+    {t:"Fails at $0.55–0.85/kWh (Tanzania pilot)", g:"V"}]},
+  {t:"eCooking: SHS", sc:[1,2,2], c:[
+    {t:"Full cooking needs ~1 kWh/day", g:"A"},
+    {t:"→ ~320 Wp + battery, several × a typical SHS", g:"I"},
+    {t:"No DRC SHS–EPC bundle found (Bboxx cooks with LPG)", g:"V"}]},
+  {t:"Bioethanol", sc:[2,1,1], c:[
+    {t:"One pilot: WESAF, South West Cameroon (company claims)", g:"V"},
+    {t:"Competes with SAF and industrial uses", g:"I"}]},
+  {t:"Biogas", sc:[2,1,1], c:[
+    {t:"No country programme data found", g:"V"},
+    {t:"Institutional niche: schools, prisons, agro-processors", g:"O"}]}
+ ]},
+ {t:"eCooking bundling", br:"--c-bundle", c:[
+  {t:"Why operators bundle", c:[
+    {t:"Higher load factor → lower tariff", g:"V"},
+    {t:"+18–36 kWh/month per household", g:"A"},
+    {t:"Metered kWh → carbon credits", g:"I"}]},
+  {t:"Three conditions for success", c:[
+    {t:"Cooking tariff ≈ $0.25/kWh or less", g:"I"},
+    {t:"Spare capacity: hydro or solar surplus", g:"I"},
+    {t:"Cooker financed or subsidised", g:"V"}]},
+  {t:"Failure mode", c:[
+    {t:"Regulator blocked daily bundles in Tanzania; usage fell", g:"V"}]},
+  {t:"Archetypes ranked", c:[
+    {t:"A · Hydro mini-grid + free EPC + cooking tariff", d:"Eastern DRC", g:"O"},
+    {t:"B · Solar mini-grid + midday tariff", d:"Cameroon, STP, Rep. of Congo", g:"O"},
+    {t:"C · Utility grid + PAYG EPC", d:"STP, urban Cameroon, Brazzaville", g:"O"},
+    {t:"D · 300 Wp+ SHS + small EPC + LPG backup", d:"Peri-urban DRC, Cameroon", g:"O"},
+    {t:"E · Standard SHS + EPC: not recommended", g:"O"}]}
+ ]},
+ {t:"Carbon finance", br:"--c-carbon", c:[
+  {t:"ICVCM approved metered cooking methodology", g:"V"},
+  {t:"fNRB pushed below 0.5 (market avg 0.86)", g:"V", c:[
+    {t:"≈ half the credits for legacy biomass stoves", g:"I"}]},
+  {t:"Article 6.4: first credits (Myanmar cookstoves, 2026)", g:"V"},
+  {t:"No verified cookstove CCP credit price", g:"V"},
+  {t:"Metered eCooking fits the new integrity rules best", g:"I"}
+ ]},
+ {t:"Verdict & risks", br:"--c-verdict", c:[
+  {t:"Readiness ranking", g:"O", c:[
+    {t:"1 · Cameroon"},
+    {t:"2 · Rep. of Congo (LPG) ≈ DRC east (eCooking)"},
+    {t:"3 · São Tomé & Príncipe"},
+    {t:"4 · Chad"},
+    {t:"5 · Burundi"}]},
+  {t:"Key risks", c:[
+    {t:"Tariff approval for cooking"},
+    {t:"LPG subsidy reform and import shocks"},
+    {t:"FX scarcity (acute in Burundi)"},
+    {t:"Carbon price and Article 6 authorisation"},
+    {t:"Security: eastern DRC and eastern Chad"},
+    {t:"Conflicting baseline data"}]},
+  {t:"Would change the conclusion", c:[
+    {t:"Measured kWh per household per day"},
+    {t:"Regulators' stance on cooking tariffs"},
+    {t:"Grid reliability in Cameroon and STP"},
+    {t:"Duration of the 2026 LPG price shock"}]},
+  {t:"Confidence", d:"Direction ~75% · ranking ~65% · cited figures ~90%", g:"O"}
+ ]}
+]};
+
+function dots(n){const f=Math.floor(n),h=n-f>=.5;return "●".repeat(f)+(h?"◐":"")+"○".repeat(5-f-(h?1:0));}
+function el(tag,cls,txt){const e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;}
+
+function build(n,depth,br){
+  const li=el("li"); const node=el("div","node");
+  br=n.br||br;
+  if(depth===0) node.classList.add("root");
+  else if(depth===1) node.classList.add("b1"); else if(depth===2) node.classList.add("b2");
+  if(br) node.style.setProperty("--br","var("+br+")");
+  const t=el("div","t"); t.append(el("span",null,n.t));
+  if(n.g) t.append(el("span","tag "+n.g,n.g));
+  node.append(t);
+  if(n.d) node.append(el("div","d",n.d));
+  if(n.s!=null){const s=el("div","score");s.append(el("span","dots",dots(n.s)));s.append(" readiness "+n.s+"/5");node.append(s);}
+  if(n.sc){const s=el("div","score");s.textContent="Afford "+n.sc[0]+" · Scale "+n.sc[1]+" · Ready "+n.sc[2];node.append(s);}
+  li.append(node);
+  if(n.c&&n.c.length){
+    node.classList.add("has"); node.tabIndex=0; node.setAttribute("role","button");
+    const ul=el("ul"); n.c.forEach(ch=>ul.append(build(ch,depth+1,br))); li.append(ul);
+    const toggle=()=>{li.classList.toggle("closed");node.setAttribute("aria-expanded",!li.classList.contains("closed"));};
+    node.addEventListener("click",toggle);
+    node.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();toggle();}});
+    node.setAttribute("aria-expanded","true");
+    li.dataset.depth=depth;
+  }
+  return li;
+}
+const tree=document.getElementById("tree");
+tree.append(build(D,0));
+function setAll(open,minDepth){tree.querySelectorAll("li[data-depth]").forEach(li=>{
+  const d=+li.dataset.depth; const close=!open&&d>=minDepth;
+  li.classList.toggle("closed",close); li.firstChild.setAttribute("aria-expanded",!close);});}
+document.getElementById("btn-expand").onclick=()=>setAll(true,0);
+document.getElementById("btn-collapse").onclick=()=>setAll(false,1);
+// start with countries and technologies open to depth 2, details folded on narrow screens
+if(window.innerWidth<700) setAll(false,1);
+</script>
