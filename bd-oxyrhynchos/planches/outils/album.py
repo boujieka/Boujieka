@@ -34,6 +34,24 @@ PLANCHES = [  # (numéro, partie, titre, fichier)
     (12, 'Chapitre 2 — Qui faisait les images ?', 'Les cailloux qui parlent', '71b99610'),
     (13, 'Chapitre 2 — Qui faisait les images ?', 'Le peintre dans sa propre tombe / La grille qui agrandit', '660f380a'),
     (14, 'Chapitre 3 — La vie en images', 'La vie en images', 'baf9d858'),
+    (15, 'Chapitre 3 — La vie en images', 'Labourer, moissonner, compter', '2001a0de'),
+    (16, 'Chapitre 3 — La vie en images', 'Dans les marais', 'f756c234'),
+    (17, 'Chapitre 3 — La vie en images', 'Musiciennes et danseuses', '32664b31'),
+    (18, 'Chapitre 3 — La vie en images', 'Soigner par écrit / Ce ne sont pas des photos', '54a72007'),
+    (19, 'Chapitre 4 — Isis, mille visages', 'Un trône pour nom', '0cb4604e'),
+    (20, 'Chapitre 4 — Isis, mille visages', 'La reine et la déesse', 'e9746133'),
+    (21, 'Chapitre 4 — Isis, mille visages', 'Des cornes, un disque, des ailes', '1789126a'),
+    (22, 'Chapitre 4 — Isis, mille visages', 'Les visages d’Isis (1/2)', '294ee4ec'),
+    (24, 'Chapitre 4 — Isis, mille visages', 'Seuil I « Le trône » [N2]', '887bddd5'),
+    (25, 'Chapitre 5 — Osiris et le voyage des morts', 'Un livre qui n’en est pas un', '7aaa07cd'),
+    (26, 'Chapitre 5 — Osiris et le voyage des morts', 'La pesée du cœur', '0acb9c2f'),
+    (28, 'Chapitre 5 — Osiris et le voyage des morts', 'Le gardien couché', '5f904ab8'),
+    (29, 'Chapitre 5 — Osiris et le voyage des morts', 'Croire, étudier', 'e8500d65'),
+    (30, 'Chapitre 6 — Les serpents : protéger, nourrir, menacer', 'Des serpents partout', '7d5730c8'),
+    (31, 'Chapitre 6 — Les serpents : protéger, nourrir, menacer', 'Trois serpents, trois métiers', 'ce5c47f6'),
+    (32, 'Chapitre 6 — Les serpents : protéger, nourrir, menacer', 'La nuit du soleil', 'c6f9e353'),
+    (33, 'Chapitre 6 — Les serpents : protéger, nourrir, menacer', 'Une pierre couverte de formules', REPO + 'Tome2_planche_33_v4.png'),
+    (34, 'Chapitre 6 — Les serpents : protéger, nourrir, menacer', 'Ni bons, ni mauvais', '87fd8a6e'),
 ]
 EXTRAIT = (33, 'Chapitre 6 — Les serpents : protéger, nourrir, menacer', 'Une pierre couverte de formules', REPO + 'Tome2_planche_33_v4.png')
 VARIANTES = [  # (planche, description, fichier)
@@ -42,6 +60,9 @@ VARIANTES = [  # (planche, description, fichier)
     (3, 'Première version, bandeau « Images d’Afrique »', 'f823dd17'),
     (3, 'Autre version « Courant Continental » (non retenue)', '5c088a01'),
     (12, 'Autre version (non retenue)', 'fa62237f'),
+    (33, 'Version à emplacements vides (base de la version retenue)', 'aa68f44a'),
+    (33, 'Version avec images : « XXVe dynastie » erroné, bulle 33.5 coupée, 33.7 non vérifiée', 'c6c26df6'),
+    (34, 'Première version : date d’Apédémak non sourcée, ordre 34.7–34.8 inversé', 'bafa48b0'),
 ]
 src = lambda f: f if f.startswith('/') else U + f + '-image.png'
 JT = '/tmp/claude-0/-home-user-Boujieka/5dea6e80-461c-5e41-9605-3557cec92eb1/scratchpad/jpg_album/'
@@ -55,8 +76,8 @@ def jpg(path):
 
 P_W, P_H = A4            # portrait
 L_W, L_H = landscape(A4)
-c = canvas.Canvas(out + '/Tome2_Les_mille_visages_planches_1-14.pdf', pagesize=A4)
-c.setTitle('Les mille visages de l’Égypte ancienne — Tome 2 — Planches 1 à 14')
+c = canvas.Canvas(out + '/Tome2_Les_mille_visages_planches_1-34.pdf', pagesize=A4)
+c.setTitle('Les mille visages de l’Égypte ancienne — Tome 2 — Planches 1 à 34')
 c.setAuthor('Projet Courant Continental / Images d’Afrique')
 page_no = [0]
 
@@ -89,22 +110,22 @@ c.showPage()
 new_page(A4)
 c.setFillColorRGB(0.23, 0.18, 0.12)
 c.setFont('SerifB', 22); c.drawString(60, P_H - 80, 'Les mille visages de l’Égypte ancienne')
-c.setFont('Serif', 13); c.drawString(60, P_H - 102, 'Tome 2 — Planches 1 à 14 (version de travail, novembre 2026)')
-y = P_H - 145
+c.setFont('Serif', 13); c.drawString(60, P_H - 102, 'Tome 2 — Planches 1 à 34 (version de travail, novembre 2026)')
+y = P_H - 128
 first_page = 3
 part = None
 for i, (n, pt, t, f) in enumerate(PLANCHES):
     if pt != part:
-        part = pt; y -= 10
-        c.setFont('SerifB', 12.5); c.setFillColorRGB(0.65, 0.49, 0.18); c.drawString(60, y, pt); y -= 19
-    c.setFont('Serif', 11.5); c.setFillColorRGB(0.15, 0.13, 0.12)
+        part = pt; y -= 6
+        c.setFont('SerifB', 12.5); c.setFillColorRGB(0.65, 0.49, 0.18); c.drawString(60, y, pt); y -= 15
+    c.setFont('Serif', 10.5); c.setFillColorRGB(0.15, 0.13, 0.12)
     c.drawString(80, y, f'Planche {n} — {t}')
-    c.drawRightString(P_W - 60, y, str(first_page + i)); y -= 17
+    c.drawRightString(P_W - 60, y, str(first_page + i)); y -= 13.5
 y -= 12
 c.setFont('SerifB', 12.5); c.setFillColorRGB(0.65, 0.49, 0.18); c.drawString(60, y, 'Annexes'); y -= 19
 c.setFont('Serif', 11.5); c.setFillColorRGB(0.15, 0.13, 0.12)
-c.drawString(80, y, f'Extrait du chapitre 6 — Planche 33 (travail en cours)'); c.drawRightString(P_W - 60, y, str(first_page + len(PLANCHES))); y -= 17
-c.drawString(80, y, 'Variantes non retenues'); c.drawRightString(P_W - 60, y, str(first_page + len(PLANCHES) + 1)); y -= 30
+c.drawString(80, y, 'Variantes non retenues'); c.drawRightString(P_W - 60, y, str(first_page + len(PLANCHES))); y -= 17
+c.drawString(80, y, 'Planches manquantes : 23 et 27 (à recevoir)'); y -= 30
 c.setFont('SerifI', 9.5); c.setFillGray(0.35)
 for line in ['Document de travail. Les images d’œuvres dessinées ou générées sont provisoires : elles seront remplacées',
              'ou contrôlées d’après les photographies et notices des institutions (voir le registre iconographique).',
@@ -120,12 +141,6 @@ for n, pt, t, f in PLANCHES:
     footer(f'{pt} — Planche {n} — {t} — p. {page_no[0]}', L_W)
     c.showPage()
     shutil.copy(src(f), f'{out}/tome2/Tome2_planche_{n:02d}.png')
-
-# 4. Extrait planche 33
-new_page(landscape(A4))
-draw_image(EXTRAIT[3], L_W, L_H)
-footer(f'Annexe — {EXTRAIT[1]} — Planche 33 — {EXTRAIT[2]} (travail en cours, images provisoires) — p. {page_no[0]}', L_W)
-c.showPage()
 
 # 5. Variantes (titre puis une variante par page)
 for k, (n, d, f) in enumerate(VARIANTES):
