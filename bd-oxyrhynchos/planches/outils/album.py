@@ -42,6 +42,7 @@ PLANCHES = [  # (numéro, partie, titre, fichier)
     (20, 'Chapitre 4 — Isis, mille visages', 'La reine et la déesse', 'e9746133'),
     (21, 'Chapitre 4 — Isis, mille visages', 'Des cornes, un disque, des ailes', '1789126a'),
     (22, 'Chapitre 4 — Isis, mille visages', 'Les visages d’Isis (1/2)', '294ee4ec'),
+    (23, 'Chapitre 4 — Isis, mille visages', 'Les visages d’Isis (2/2)', '325c3aa4'),
     (24, 'Chapitre 4 — Isis, mille visages', 'Seuil I « Le trône » [N2]', '887bddd5'),
     (25, 'Chapitre 5 — Osiris et le voyage des morts', 'Un livre qui n’en est pas un', '7aaa07cd'),
     (26, 'Chapitre 5 — Osiris et le voyage des morts', 'La pesée du cœur', '0acb9c2f'),
@@ -126,7 +127,7 @@ c.showPage()
 new_page(A4)
 c.setFillColorRGB(0.23, 0.18, 0.12)
 c.setFont('SerifB', 22); c.drawString(60, P_H - 80, 'Les mille visages de l’Égypte ancienne')
-c.setFont('Serif', 13); c.drawString(60, P_H - 102, 'Tome 2 — Planches 1 à 46 (version de travail, novembre 2026)')
+c.setFont('Serif', 13); c.drawString(60, P_H - 102, 'Tome 2 — Planches 1 à 46 complètes (version de travail, novembre 2026)')
 first_page = 3
 COLW = (P_W - 100) / 2
 cols = [50, 50 + COLW + 10]
@@ -151,7 +152,7 @@ y -= 14
 c.setFont('SerifB', 10.5); c.setFillColorRGB(0.65, 0.49, 0.18); c.drawString(cols[col], y, 'Annexes'); y -= 14
 c.setFont('Serif', 9.5); c.setFillColorRGB(0.15, 0.13, 0.12)
 c.drawString(cols[col] + 10, y, 'Variantes non retenues'); c.drawRightString(cols[col] + COLW, y, str(first_page + len(PLANCHES))); y -= 12.5
-c.drawString(cols[col] + 10, y, 'Planche manquante : 23 (à recevoir)')
+
 c.setFont('SerifI', 8.5); c.setFillGray(0.35); y = 52
 for line in ['Document de travail. Les images d’œuvres dessinées ou générées sont provisoires : elles seront remplacées ou contrôlées',
              'd’après les photographies et notices des institutions (registre iconographique). Les mentions [H], [I], [F] et [À VÉRIFIER]',
