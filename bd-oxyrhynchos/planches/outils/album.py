@@ -45,13 +45,26 @@ PLANCHES = [  # (numéro, partie, titre, fichier)
     (24, 'Chapitre 4 — Isis, mille visages', 'Seuil I « Le trône » [N2]', '887bddd5'),
     (25, 'Chapitre 5 — Osiris et le voyage des morts', 'Un livre qui n’en est pas un', '7aaa07cd'),
     (26, 'Chapitre 5 — Osiris et le voyage des morts', 'La pesée du cœur', '0acb9c2f'),
+    (27, 'Chapitre 5 — Osiris et le voyage des morts', 'Qui a fait ce rouleau ?', '8d70fd49'),
     (28, 'Chapitre 5 — Osiris et le voyage des morts', 'Le gardien couché', '5f904ab8'),
     (29, 'Chapitre 5 — Osiris et le voyage des morts', 'Croire, étudier', 'e8500d65'),
     (30, 'Chapitre 6 — Les serpents : protéger, nourrir, menacer', 'Des serpents partout', '7d5730c8'),
     (31, 'Chapitre 6 — Les serpents : protéger, nourrir, menacer', 'Trois serpents, trois métiers', 'ce5c47f6'),
     (32, 'Chapitre 6 — Les serpents : protéger, nourrir, menacer', 'La nuit du soleil', 'c6f9e353'),
-    (33, 'Chapitre 6 — Les serpents : protéger, nourrir, menacer', 'Une pierre couverte de formules', REPO + 'Tome2_planche_33_v4.png'),
+    (33, 'Chapitre 6 — Les serpents : protéger, nourrir, menacer', 'Une pierre couverte de formules', REPO + 'Tome2_planche_33_v5.png'),
     (34, 'Chapitre 6 — Les serpents : protéger, nourrir, menacer', 'Ni bons, ni mauvais', '87fd8a6e'),
+    (35, 'Chapitre 6 — Les serpents : protéger, nourrir, menacer', 'Seuil II « La douzième heure » [N2]', '515fb4f2'),
+    (36, 'Chapitre 7 — Amarna : quand l’image change', 'Berlin, la salle qui ne ressemble pas aux autres', '79ac36a9'),
+    (37, 'Chapitre 7 — Amarna : quand l’image change', 'Une famille sous le soleil', '73943958'),
+    (38, 'Chapitre 7 — Amarna : quand l’image change', 'Le buste et son voyage', '7eda70cb'),
+    (39, 'Chapitre 7 — Amarna : quand l’image change', 'Le retour et la leçon', '2cfabbd3'),
+    (40, 'Chapitre 8 — Grecs et Romains au bord du Nil', 'Après Alexandre', 'f85751ee'),
+    (41, 'Chapitre 8 — Grecs et Romains au bord du Nil', 'Un ciel au plafond', '739a0fe2'),
+    (42, 'Chapitre 8 — Grecs et Romains au bord du Nil', 'Retour à Leyde (les sept regards, 1)', 'b603a463'),
+    (43, 'Chapitre 8 — Grecs et Romains au bord du Nil', 'Ce que dit la stèle (les sept regards, 2)', '97767062'),
+    (44, 'Chapitre 8 — Grecs et Romains au bord du Nil', 'Seuil III « Les deux mondes » [N2]', '6842cce6'),
+    (45, 'Épilogue — Ce qui reste des images', 'Ce qui reste des images', 'ae24c203'),
+    (46, 'Épilogue — Ce qui reste des images', 'Une ressemblance n’est pas une preuve', 'e07d4cee'),
 ]
 EXTRAIT = (33, 'Chapitre 6 — Les serpents : protéger, nourrir, menacer', 'Une pierre couverte de formules', REPO + 'Tome2_planche_33_v4.png')
 VARIANTES = [  # (planche, description, fichier)
@@ -63,6 +76,9 @@ VARIANTES = [  # (planche, description, fichier)
     (33, 'Version à emplacements vides (base de la version retenue)', 'aa68f44a'),
     (33, 'Version avec images : « XXVe dynastie » erroné, bulle 33.5 coupée, 33.7 non vérifiée', 'c6c26df6'),
     (34, 'Première version : date d’Apédémak non sourcée, ordre 34.7–34.8 inversé', 'bafa48b0'),
+    (33, 'Version composée v4 (remplacée par la version illustrée corrigée)', REPO + 'Tome2_planche_33_v4.png'),
+    (33, 'Version illustrée d’origine : 33.7 non vérifiée (« chancelier autrichien, 1828 »)', '85dd3616'),
+    (34, 'Troisième version : « Ier siècle » non sourcé, coquille « din serpent »', '77e42714'),
 ]
 src = lambda f: f if f.startswith('/') else U + f + '-image.png'
 JT = '/tmp/claude-0/-home-user-Boujieka/5dea6e80-461c-5e41-9605-3557cec92eb1/scratchpad/jpg_album/'
@@ -76,8 +92,8 @@ def jpg(path):
 
 P_W, P_H = A4            # portrait
 L_W, L_H = landscape(A4)
-c = canvas.Canvas(out + '/Tome2_Les_mille_visages_planches_1-34.pdf', pagesize=A4)
-c.setTitle('Les mille visages de l’Égypte ancienne — Tome 2 — Planches 1 à 34')
+c = canvas.Canvas(out + '/Tome2_Les_mille_visages_complet.pdf', pagesize=A4)
+c.setTitle('Les mille visages de l’Égypte ancienne — Tome 2 — Planches 1 à 46')
 c.setAuthor('Projet Courant Continental / Images d’Afrique')
 page_no = [0]
 
@@ -110,27 +126,37 @@ c.showPage()
 new_page(A4)
 c.setFillColorRGB(0.23, 0.18, 0.12)
 c.setFont('SerifB', 22); c.drawString(60, P_H - 80, 'Les mille visages de l’Égypte ancienne')
-c.setFont('Serif', 13); c.drawString(60, P_H - 102, 'Tome 2 — Planches 1 à 34 (version de travail, novembre 2026)')
-y = P_H - 128
+c.setFont('Serif', 13); c.drawString(60, P_H - 102, 'Tome 2 — Planches 1 à 46 (version de travail, novembre 2026)')
 first_page = 3
+COLW = (P_W - 100) / 2
+cols = [50, 50 + COLW + 10]
+col, y = 0, P_H - 130
 part = None
+def short(t, n=46):
+    return t if len(t) <= n else t[:n - 1] + '…'
 for i, (n, pt, t, f) in enumerate(PLANCHES):
     if pt != part:
+        need = 32
+        if y - need < 70 and col == 0:
+            col, y = 1, P_H - 130
         part = pt; y -= 6
-        c.setFont('SerifB', 12.5); c.setFillColorRGB(0.65, 0.49, 0.18); c.drawString(60, y, pt); y -= 15
-    c.setFont('Serif', 10.5); c.setFillColorRGB(0.15, 0.13, 0.12)
-    c.drawString(80, y, f'Planche {n} — {t}')
-    c.drawRightString(P_W - 60, y, str(first_page + i)); y -= 13.5
-y -= 12
-c.setFont('SerifB', 12.5); c.setFillColorRGB(0.65, 0.49, 0.18); c.drawString(60, y, 'Annexes'); y -= 19
-c.setFont('Serif', 11.5); c.setFillColorRGB(0.15, 0.13, 0.12)
-c.drawString(80, y, 'Variantes non retenues'); c.drawRightString(P_W - 60, y, str(first_page + len(PLANCHES))); y -= 17
-c.drawString(80, y, 'Planches manquantes : 23 et 27 (à recevoir)'); y -= 30
-c.setFont('SerifI', 9.5); c.setFillGray(0.35)
-for line in ['Document de travail. Les images d’œuvres dessinées ou générées sont provisoires : elles seront remplacées',
-             'ou contrôlées d’après les photographies et notices des institutions (voir le registre iconographique).',
-             'Les mentions [H], [I], [F] et [À VÉRIFIER] visibles sur certaines planches sont des repères de travail.']:
-    c.drawString(60, y, line); y -= 13
+        c.setFont('SerifB', 10.5); c.setFillColorRGB(0.65, 0.49, 0.18); c.drawString(cols[col], y, short(pt, 52)); y -= 14
+    if y < 70 and col == 0:
+        col, y = 1, P_H - 130
+    x = cols[col]
+    c.setFont('Serif', 9.5); c.setFillColorRGB(0.15, 0.13, 0.12)
+    c.drawString(x + 10, y, short(f'{n}. {t}'))
+    c.drawRightString(x + COLW, y, str(first_page + i)); y -= 12.5
+y -= 14
+c.setFont('SerifB', 10.5); c.setFillColorRGB(0.65, 0.49, 0.18); c.drawString(cols[col], y, 'Annexes'); y -= 14
+c.setFont('Serif', 9.5); c.setFillColorRGB(0.15, 0.13, 0.12)
+c.drawString(cols[col] + 10, y, 'Variantes non retenues'); c.drawRightString(cols[col] + COLW, y, str(first_page + len(PLANCHES))); y -= 12.5
+c.drawString(cols[col] + 10, y, 'Planche manquante : 23 (à recevoir)')
+c.setFont('SerifI', 8.5); c.setFillGray(0.35); y = 52
+for line in ['Document de travail. Les images d’œuvres dessinées ou générées sont provisoires : elles seront remplacées ou contrôlées',
+             'd’après les photographies et notices des institutions (registre iconographique). Les mentions [H], [I], [F] et [À VÉRIFIER]',
+             'visibles sur certaines planches sont des repères de travail.']:
+    c.drawString(50, y, line); y -= 11
 footer('Sommaire', P_W)
 c.showPage()
 
