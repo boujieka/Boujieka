@@ -1,0 +1,278 @@
+[
+ {
+  "n": 1,
+  "part": "Prologue — La question",
+  "title": "La question",
+  "file": "kdp/src/p01.png"
+ },
+ {
+  "n": 2,
+  "part": "Prologue — La question",
+  "title": "Un serpent avec une barbe",
+  "file": "kdp/src/p02.png"
+ },
+ {
+  "n": 3,
+  "part": "Chapitre 1 — Les premières images royales",
+  "title": "Bien avant les rois",
+  "file": "kdp/src/p03.png"
+ },
+ {
+  "n": 4,
+  "part": "Chapitre 1 — Les premières images royales",
+  "title": "Une palette pour quoi faire ?",
+  "file": "kdp/src/p04.png"
+ },
+ {
+  "n": 5,
+  "part": "Chapitre 1 — Les premières images royales",
+  "title": "Le roi est grand (mais pas géant)",
+  "file": "kdp/src/p05.png"
+ },
+ {
+  "n": 6,
+  "part": "Chapitre 1 — Les premières images royales",
+  "title": "Des chats-girafes et un porteur de sandales",
+  "file": "kdp/src/p06.png"
+ },
+ {
+  "n": 7,
+  "part": "Chapitre 1 — Les premières images royales",
+  "title": "Narmer, version Malik",
+  "file": "kdp/src/p07.png"
+ },
+ {
+  "n": 8,
+  "part": "Chapitre 2 — Qui faisait les images ?",
+  "title": "Le Scribe qui regarde",
+  "file": "kdp/src/p08.png"
+ },
+ {
+  "n": 9,
+  "part": "Chapitre 2 — Qui faisait les images ?",
+  "title": "La grille",
+  "file": "kdp/src/p09.png"
+ },
+ {
+  "n": 10,
+  "part": "Chapitre 2 — Qui faisait les images ?",
+  "title": "Le village des artisans",
+  "file": "kdp/src/p10.png"
+ },
+ {
+  "n": 11,
+  "part": "Chapitre 2 — Qui faisait les images ?",
+  "title": "Le village des faiseurs d’images",
+  "file": "kdp/src/p11.png"
+ },
+ {
+  "n": 12,
+  "part": "Chapitre 2 — Qui faisait les images ?",
+  "title": "Les cailloux qui parlent",
+  "file": "kdp/src/p12.png"
+ },
+ {
+  "n": 13,
+  "part": "Chapitre 2 — Qui faisait les images ?",
+  "title": "Le peintre dans sa propre tombe / La grille qui agrandit",
+  "file": "kdp/src/p13.png"
+ },
+ {
+  "n": 14,
+  "part": "Chapitre 3 — La vie en images",
+  "title": "La vie en images",
+  "file": "kdp/src/p14.png"
+ },
+ {
+  "n": 15,
+  "part": "Chapitre 3 — La vie en images",
+  "title": "Labourer, moissonner, compter",
+  "file": "kdp/src/p15.png"
+ },
+ {
+  "n": 16,
+  "part": "Chapitre 3 — La vie en images",
+  "title": "Dans les marais",
+  "file": "kdp/src/p16.png"
+ },
+ {
+  "n": 17,
+  "part": "Chapitre 3 — La vie en images",
+  "title": "Musiciennes et danseuses",
+  "file": "kdp/src/p17.png"
+ },
+ {
+  "n": 18,
+  "part": "Chapitre 3 — La vie en images",
+  "title": "Soigner par écrit / Ce ne sont pas des photos",
+  "file": "kdp/src/p18.png"
+ },
+ {
+  "n": 19,
+  "part": "Chapitre 4 — Isis, mille visages",
+  "title": "Un trône pour nom",
+  "file": "kdp/src/p19.png"
+ },
+ {
+  "n": 20,
+  "part": "Chapitre 4 — Isis, mille visages",
+  "title": "La reine et la déesse",
+  "file": "kdp/src/p20.png"
+ },
+ {
+  "n": 21,
+  "part": "Chapitre 4 — Isis, mille visages",
+  "title": "Des cornes, un disque, des ailes",
+  "file": "kdp/src/p21.png"
+ },
+ {
+  "n": 22,
+  "part": "Chapitre 4 — Isis, mille visages",
+  "title": "Les visages d’Isis (1/2)",
+  "file": "kdp/src/p22.png"
+ },
+ {
+  "n": 23,
+  "part": "Chapitre 4 — Isis, mille visages",
+  "title": "Les visages d’Isis (2/2)",
+  "file": "kdp/src/p23.png"
+ },
+ {
+  "n": 24,
+  "part": "Chapitre 4 — Isis, mille visages",
+  "title": "Seuil I « Le trône » [N2]",
+  "file": "kdp/src/p24.png"
+ },
+ {
+  "n": 25,
+  "part": "Chapitre 5 — Osiris et le voyage des morts",
+  "title": "Un livre qui n’en est pas un",
+  "file": "kdp/src/p25.png"
+ },
+ {
+  "n": 26,
+  "part": "Chapitre 5 — Osiris et le voyage des morts",
+  "title": "La pesée du cœur",
+  "file": "kdp/src/p26.png"
+ },
+ {
+  "n": 27,
+  "part": "Chapitre 5 — Osiris et le voyage des morts",
+  "title": "Qui a fait ce rouleau ?",
+  "file": "kdp/src/p27.png"
+ },
+ {
+  "n": 28,
+  "part": "Chapitre 5 — Osiris et le voyage des morts",
+  "title": "Le gardien couché",
+  "file": "kdp/src/p28.png"
+ },
+ {
+  "n": 29,
+  "part": "Chapitre 5 — Osiris et le voyage des morts",
+  "title": "Croire, étudier",
+  "file": "kdp/src/p29.png"
+ },
+ {
+  "n": 30,
+  "part": "Chapitre 6 — Les serpents : protéger, nourrir, menacer",
+  "title": "Des serpents partout",
+  "file": "kdp/src/p30.png"
+ },
+ {
+  "n": 31,
+  "part": "Chapitre 6 — Les serpents : protéger, nourrir, menacer",
+  "title": "Trois serpents, trois métiers",
+  "file": "kdp/src/p31.png"
+ },
+ {
+  "n": 32,
+  "part": "Chapitre 6 — Les serpents : protéger, nourrir, menacer",
+  "title": "La nuit du soleil",
+  "file": "kdp/src/p32.png"
+ },
+ {
+  "n": 33,
+  "part": "Chapitre 6 — Les serpents : protéger, nourrir, menacer",
+  "title": "Une pierre couverte de formules",
+  "file": "kdp/src/p33.png"
+ },
+ {
+  "n": 34,
+  "part": "Chapitre 6 — Les serpents : protéger, nourrir, menacer",
+  "title": "Ni bons, ni mauvais",
+  "file": "kdp/src/p34.png"
+ },
+ {
+  "n": 35,
+  "part": "Chapitre 6 — Les serpents : protéger, nourrir, menacer",
+  "title": "Seuil II « La douzième heure » [N2]",
+  "file": "kdp/src/p35.png"
+ },
+ {
+  "n": 36,
+  "part": "Chapitre 7 — Amarna : quand l’image change",
+  "title": "Berlin, la salle qui ne ressemble pas aux autres",
+  "file": "kdp/src/p36.png"
+ },
+ {
+  "n": 37,
+  "part": "Chapitre 7 — Amarna : quand l’image change",
+  "title": "Une famille sous le soleil",
+  "file": "kdp/src/p37.png"
+ },
+ {
+  "n": 38,
+  "part": "Chapitre 7 — Amarna : quand l’image change",
+  "title": "Le buste et son voyage",
+  "file": "kdp/src/p38.png"
+ },
+ {
+  "n": 39,
+  "part": "Chapitre 7 — Amarna : quand l’image change",
+  "title": "Le retour et la leçon",
+  "file": "kdp/src/p39.png"
+ },
+ {
+  "n": 40,
+  "part": "Chapitre 8 — Grecs et Romains au bord du Nil",
+  "title": "Après Alexandre",
+  "file": "kdp/src/p40.png"
+ },
+ {
+  "n": 41,
+  "part": "Chapitre 8 — Grecs et Romains au bord du Nil",
+  "title": "Un ciel au plafond",
+  "file": "kdp/src/p41.png"
+ },
+ {
+  "n": 42,
+  "part": "Chapitre 8 — Grecs et Romains au bord du Nil",
+  "title": "Retour à Leyde (les sept regards, 1)",
+  "file": "kdp/src/p42.png"
+ },
+ {
+  "n": 43,
+  "part": "Chapitre 8 — Grecs et Romains au bord du Nil",
+  "title": "Ce que dit la stèle (les sept regards, 2)",
+  "file": "kdp/src/p43.png"
+ },
+ {
+  "n": 44,
+  "part": "Chapitre 8 — Grecs et Romains au bord du Nil",
+  "title": "Seuil III « Les deux mondes » [N2]",
+  "file": "kdp/src/p44.png"
+ },
+ {
+  "n": 45,
+  "part": "Épilogue — Ce qui reste des images",
+  "title": "Ce qui reste des images",
+  "file": "kdp/src/p45.png"
+ },
+ {
+  "n": 46,
+  "part": "Épilogue — Ce qui reste des images",
+  "title": "Une ressemblance n’est pas une preuve",
+  "file": "kdp/src/p46.png"
+ }
+]
