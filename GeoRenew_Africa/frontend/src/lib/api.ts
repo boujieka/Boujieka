@@ -26,7 +26,15 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(`/api/v1${path}`, init);
   if (res.status === 204) return undefined as T;
   const text = await res.text();
-  const body = text ? JSON.parse(text) : null;
+  let body: unknown = null;
+  if (text) {
+    try {
+      body = JSON.parse(text);
+    } catch {
+      throw new ApiError(res.status, "reponse_non_json",
+        `Le serveur d'API ne répond pas correctement (HTTP ${res.status}, réponse non JSON). Vérifier que l'API est en ligne.`);
+    }
+  }
   if (!res.ok) {
     const { code, message } = errorMessage(body, res.status);
     throw new ApiError(res.status, code, message);

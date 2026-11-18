@@ -13,6 +13,11 @@ Afrique. **Résultats indicatifs, non bancables.**
 Méthode de calcul : [`docs/METHODES_P1.md`](docs/METHODES_P1.md).
 Choix d'architecture : [`docs/adr/0001-architecture-p1.md`](docs/adr/0001-architecture-p1.md).
 
+## En ligne
+
+Interface : https://georenew-africa.netlify.app — **API pas encore branchée** (voir
+[`docs/DEPLOIEMENT.md`](docs/DEPLOIEMENT.md)).
+
 ## Démarrer — commande unique (Docker Compose)
 
 ```bash

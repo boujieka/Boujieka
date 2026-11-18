@@ -1,0 +1,16 @@
+# Netlify — interface GeoRenew Africa (dossier de base : GeoRenew_Africa/frontend).
+# L'API FastAPI + PostGIS n'est PAS hébergée par Netlify : définir GEORENEW_API_ORIGIN
+# (variable d'environnement du site Netlify, pas dans ce fichier) puis relancer un build.
+[build]
+  command = "npm run build:netlify"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "same-origin"

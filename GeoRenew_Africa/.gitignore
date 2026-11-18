@@ -9,3 +9,4 @@ backend/var/
 test-results/
 playwright-report/
 .env
+.netlify/

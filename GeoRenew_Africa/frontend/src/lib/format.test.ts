@@ -20,5 +20,6 @@ describe("format", () => {
     expect(errorMessage({ detail: { code: "x", message: "Refusé" } }, 422)).toEqual({ code: "x", message: "Refusé" });
     expect(errorMessage({ detail: [{ loc: ["body", "name"], msg: "trop court" }] }, 422).message).toBe("name : trop court");
     expect(errorMessage(null, 500).message).toBe("Erreur HTTP 500");
+    expect(errorMessage({ detail: { code: "api_non_configuree", message: "API non configurée" } }, 503).code).toBe("api_non_configuree");
   });
 });
