@@ -1,0 +1,35 @@
+# GeoRenew Africa — pile de développement local (commande unique : docker compose up --build).
+# Identifiants pour usage local uniquement ; en production, les secrets viennent d'un gestionnaire
+# de secrets, jamais de ce fichier. Ports choisis pour ne pas gêner la pile Cartouche du dépôt.
+name: georenew
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    environment:
+      POSTGRES_USER: georenew
+      POSTGRES_PASSWORD: georenew-local
+      POSTGRES_DB: georenew
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U georenew"]
+      interval: 5s
+      retries: 20
+
+  api:
+    build: { context: ., dockerfile: backend/Dockerfile }
+    image: georenew-api:local
+    environment:
+      GEORENEW_DATABASE_URL: postgresql+psycopg://georenew:georenew-local@db:5432/georenew
+      GEORENEW_CORS_ORIGINS: '["http://localhost:8080"]'
+    ports: ["127.0.0.1:8001:8000"]   # API et OpenAPI : http://localhost:8001/docs
+    depends_on:
+      db: { condition: service_healthy }
+
+  web:
+    build: ./frontend
+    image: georenew-web:local
+    ports: ["127.0.0.1:8080:80"]     # Interface : http://localhost:8080
+    depends_on: [api]
+
+volumes:
+  pgdata:

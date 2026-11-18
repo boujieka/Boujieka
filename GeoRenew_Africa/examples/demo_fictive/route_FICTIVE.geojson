@@ -1,0 +1,29 @@
+{
+ "type": "FeatureCollection",
+ "name": "DONNEES_FICTIVES",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      27.198818081231792,
+      -26.57157466130478
+     ],
+     [
+      27.210869251369225,
+      -26.572460241663066
+     ],
+     [
+      27.236980419349603,
+      -26.574225012684565
+     ]
+    ]
+   },
+   "properties": {
+    "nom": "Route fictive"
+   }
+  }
+ ]
+}

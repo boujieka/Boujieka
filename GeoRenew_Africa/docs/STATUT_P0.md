@@ -38,7 +38,13 @@ aucun code, document ni donnée n'est partagé entre les deux.
 | API FastAPI + tests | implémentés | non | non |
 | Tout le périmètre P1 (PostGIS, multi-projets, import multi-format, persistance, exports, React) | à construire | non | non |
 
-## Prochaine étape
+## Mise à jour du 18/11/2026
+
+Le propriétaire a déclaré le prototype **perdu**. Les fichiers listés comme manquants ne seront pas
+reçus. La phase P1 a été reconstruite de zéro : voir `P1_RAPPORT.md`. La section ci-dessous est
+conservée pour l'historique et n'est plus d'actualité.
+
+## Prochaine étape (historique)
 
 Dès réception de l'archive complète du kit :
 1. copier `docs/`, `backend/`, `frontend/`, `examples/` dans ce sous-dossier en vérifiant les empreintes ;

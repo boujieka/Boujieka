@@ -1,63 +1,84 @@
-# GeoRenew Africa — kit de démarrage pour Claude Code
+# GeoRenew Africa — phase P1
 
-**Version :** 0.1 · 18 novembre 2026  
-**Origine :** descriptif fourni par l'utilisateur, *GIS Specialist – Renewable Energy Projects* (annonce localisée à Johannesburg, Afrique du Sud).  
-**Cible proposée :** plateforme SIG et technico-économique multi-pays pour l'Afrique, avec méthodes configurables par pays et par projet.
+Plateforme web de **screening géospatial préliminaire** pour projets solaires PV, éoliens et BESS en
+Afrique. **Résultats indicatifs, non bancables.**
 
-## Ce qui est fourni
+> **Origine.** Le kit de démarrage (v0.1, 18/11/2026) comportait un prototype (`geo_engine.py`, front
+> Leaflet) et quatre documents (`CAHIER_DES_CHARGES`, `SOURCES_DONNEES`, `METHODES_ET_CALCULS`,
+> `BACKLOG_ET_RECETTE`). **Ils n'ont pas été reçus et le prototype est déclaré perdu par le
+> propriétaire.** P1 a été reconstruite de zéro à partir de `PROMPT_CLAUDE_CODE.md` et `CLAUDE.md`.
+> Aucun calcul de l'ancien prototype n'a donc pu être comparé ni préservé.
 
-1. `PROMPT_CLAUDE_CODE.md` — prompt maître à transmettre à Claude Code.
-2. `CLAUDE.md` — règles persistantes du projet pour Claude Code.
-3. `docs/CAHIER_DES_CHARGES.md` — spécifications fonctionnelles et non fonctionnelles.
-4. `docs/SOURCES_DONNEES.md` — catalogue de données et contraintes d'utilisation.
-5. `docs/METHODES_ET_CALCULS.md` — spécifications calculatoires et règles de prudence.
-6. `docs/BACKLOG_ET_RECETTE.md` — plan d'implémentation, tests et critères de recette.
-7. `backend/` + `frontend/` + `examples/` — **MVP exécutable de screening géospatial** (pas une plateforme complète).
+État détaillé, tableau de conformité et limites : [`docs/P1_RAPPORT.md`](docs/P1_RAPPORT.md).
+Méthode de calcul : [`docs/METHODES_P1.md`](docs/METHODES_P1.md).
+Choix d'architecture : [`docs/adr/0001-architecture-p1.md`](docs/adr/0001-architecture-p1.md).
 
-## Démarrer le MVP existant
-
-Prérequis : Python 3.11+ et accès Internet pour charger les dépendances de carte du front-end (Leaflet) et, si souhaité, les tuiles de démonstration OSM.
+## Démarrer — commande unique (Docker Compose)
 
 ```bash
-cd GeoRenew_Africa_Claude_Code
-python -m venv .venv
-source .venv/bin/activate                  # Windows PowerShell : .venv\Scripts\Activate.ps1
-pip install -r backend/requirements.txt
-PYTHONPATH=backend uvicorn app.main:app --app-dir backend --reload --port 8000
+cd GeoRenew_Africa
+docker compose up --build
 ```
 
-Puis ouvrir `http://127.0.0.1:8000/`.
+- Interface : http://localhost:8080
+- API et documentation OpenAPI : http://localhost:8001/docs
+- Base : PostgreSQL 16 + PostGIS 3.4 (volume `pgdata`). Au démarrage, l'API applique les migrations
+  et charge le **projet de démonstration (DONNÉES FICTIVES)**.
 
-**Fonctions déjà implémentées :** import GeoJSON, affichage cartographique, tracé de polygones, exclusions dures / indicatives, buffer de recul de parcelle, calcul de surfaces en projection métrique UTM, estimation *strictement indicative* de MWp DC selon densité paramétrée, API FastAPI et tests.
+Derrière un proxy TLS d'entreprise, fournir son certificat à la construction :
+`docker build --secret id=extra_ca,src=chemin/ca.crt …` (voir les `Dockerfile`).
 
-**Fonctions non implémentées :** cadastre réel, analyse de relief sur MNT, accès automatique aux réseaux, téléchargement de données solaires, modèle PV horaire, modèle éolien, dispatch BESS, étude financière, PDF/Word/Excel, authentification, stockage PostGIS, géométrie de corridors, audit trail persistant. Ces fonctionnalités sont décrites pour construction par Claude Code.
+## Option locale Python (sans Docker, sans serveur de base de données)
 
-### Tester le moteur actuel
+Prérequis : Python 3.11+ (testé en 3.13), Node 20+ (testé en 22).
 
 ```bash
+cd GeoRenew_Africa
+python -m venv .venv && source .venv/bin/activate
+pip install -r backend/requirements-dev.txt
+
+# Tests backend (SQLite temporaire, aucun service externe)
+cd backend && PYTHONPATH=. pytest -q && cd ..
+
+# Front : dépendances, contrôle de types, tests unitaires, build
+cd frontend && npm ci && npm run typecheck && npm test && npm run build && cd ..
+
+# Application complète servie par FastAPI (SQLite dans backend/var/)
 cd backend
-PYTHONPATH=. pytest -q
+alembic upgrade head
+python -m app.demo load              # projet de démonstration FICTIF (facultatif)
+uvicorn app.main:app --port 8000     # http://127.0.0.1:8000 (front construit inclus)
 ```
 
-### Lancer Claude Code sur ce dossier
+Développement du front avec rechargement : `cd frontend && npm run dev` (port 5173, `/api` relayé
+vers le port 8000).
 
-```bash
-cd GeoRenew_Africa_Claude_Code
-claude
+Tests sur PostGIS plutôt que SQLite (base dédiée, vidée à chaque test) :
+`GEORENEW_TEST_DATABASE_URL=postgresql+psycopg://user@host/base_test PYTHONPATH=. pytest -q`
+
+Test de bout en bout (navigateur, Playwright) contre une instance en marche avec la démo chargée :
+`cd frontend && GEORENEW_URL=http://127.0.0.1:8000 node e2e/smoke.mjs`
+
+## Structure
+
+```
+backend/   FastAPI, SQLAlchemy 2, Alembic, Shapely/pyproj/pyogrio (GDAL)
+  app/geo/       moteur de screening, SCR, validation, import de fichiers
+  app/api/v1.py  API REST /api/v1
+  alembic/       migrations (PostGIS + index GiST ; compatibles SQLite)
+  tests/         moteur (cas de référence), import, API, stockage, démo
+frontend/  React 18 + TypeScript + Vite + MapLibre GL + React Query ; e2e/ (Playwright)
+examples/demo_fictive/  GeoJSON FICTIFS de la démonstration
+docs/      rapport P1, méthode, ADR, inventaire P0, README d'origine archivé
 ```
 
-Ouvrir `PROMPT_CLAUDE_CODE.md` et donner son contenu à Claude Code, ou demander :
+## Règles de prudence appliquées
 
-> Lis CLAUDE.md, PROMPT_CLAUDE_CODE.md et tous les documents de `docs/`. Commence la phase P1 décrite dans le backlog, exécute les tests et documente ce qui fonctionne réellement.
-
-## Conventions de qualité
-
-- Chaque résultat doit mentionner **source, millésime, résolution spatiale, licence, projection, paramètres et niveau de confiance**.
-- Aucun réseau, limite de parcelle ou statut environnemental fictif ne doit être affiché comme réel.
-- L'application ne doit jamais assimiler un *screening* à une étude de faisabilité bancable.
-- Les propriétés et parcelles ne doivent être déclarées vérifiées que sur preuves foncières officielles ou relevés qualifiés.
-- Un jeu de données avec conditions d'utilisation restrictives n'est pas intégré au logiciel commercial sans permission/licence appropriée.
-
-## Licence du kit
-
-Les fichiers de code et documents créés pour ce kit sont fournis à l'utilisateur pour modification et adaptation. Les licences des bibliothèques et données externes restent régies par leurs propres conditions.
+- Surfaces et longueurs mesurées en UTM (WGS 84), jamais en EPSG:4326/3857 ; contrôle géodésique.
+- Chaque valeur est étiquetée **renseigné / calculé / hypothétique / inconnu** ; aucune valeur inventée.
+- Aucun buffer « réglementaire » fourni par le logiciel : chaque buffer exige une justification de
+  l'utilisateur, conservée dans l'analyse.
+- « Foncier vérifié » et « raccordement confirmé » exigent une pièce du bon type, non fictive.
+- Chaque analyse conserve l'instantané de ses entrées, leur empreinte SHA-256, les versions des
+  données et du moteur ; une relance identique réutilise le résultat (idempotence).
+- L'**authentification n'est pas implémentée** : ne pas exposer cette version hors d'un poste local.
