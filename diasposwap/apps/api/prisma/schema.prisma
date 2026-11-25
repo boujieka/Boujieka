@@ -1,0 +1,345 @@
+// DiaspoSwap - target PostgreSQL schema (Phase 4).
+// STATUS: design artifact. The current API keeps state in memory (SwapSimulator); this schema is not wired yet.
+// Rules: all amounts are BigInt MINOR units; no floats. Ledger rows are append-only (enforced by DB role grants + trigger, see docs/ARCHITECTURE.md).
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum KycLevel {
+  NONE
+  BASIC
+  VERIFIED
+  ENHANCED
+}
+enum ComplianceStatus {
+  NOT_CHECKED
+  CLEARED
+  REVIEW
+  BLOCKED
+}
+enum TransferState {
+  DRAFT
+  QUOTED
+  PENDING_VERIFICATION
+  PENDING_FUNDING
+  FUNDED
+  QUEUED
+  PARTIALLY_MATCHED
+  MATCHED
+  SETTLEMENT_PENDING
+  SETTLED
+  FAILED
+  EXPIRED
+  CANCELLED
+  REFUND_PENDING
+  REFUNDED
+  DISPUTED
+}
+enum CorridorMode {
+  SIMULATION
+  DISABLED
+  LIVE
+}
+enum ProviderOpKind {
+  COLLECTION
+  PAYOUT
+  REFUND
+}
+enum ProviderOpStatus {
+  PENDING
+  SUCCEEDED
+  FAILED
+}
+enum PayoutStatus {
+  PENDING
+  SUCCEEDED
+  FAILED
+  EXCEPTION
+}
+enum AccountType {
+  COLLECTION
+  CUSTOMER_FUNDS
+  BENEFICIARY_PAYABLE
+  FEE_REVENUE
+  REFUND_PAYABLE
+  CLEARING
+  RECONCILIATION
+  FX_DIFFERENCE
+}
+enum AdminRole {
+  OPS
+  COMPLIANCE
+  FINANCE
+  AUDITOR
+  SUPERADMIN
+}
+
+model User {
+  id             String       @id @default(cuid())
+  email          String       @unique
+  phoneE164      String       @unique
+  fullName       String
+  countryCode    String       @db.Char(2)
+  kycLevel       KycLevel     @default(NONE)
+  pep            Boolean      @default(false)
+  emailVerified  Boolean      @default(false)
+  phoneVerified  Boolean      @default(false)
+  mfaEnabled     Boolean      @default(false)
+  createdAt      DateTime     @default(now())
+  deletedAt      DateTime?
+  beneficiaries  Beneficiary[]
+  quotes         Quote[]
+  orders         TransferOrder[]
+  kycChecks      KycCheck[]
+  sessions       Session[]
+}
+
+model Session {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id])
+  tokenHash  String   @unique // never store raw tokens
+  deviceId   String?
+  createdAt  DateTime @default(now())
+  expiresAt  DateTime
+  revokedAt  DateTime?
+  @@index([userId])
+}
+
+model KycCheck {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id])
+  provider   String   // e.g. "SIMULATED"; real KYC provider TBD
+  level      KycLevel
+  result     String
+  simulated  Boolean  @default(true)
+  checkedAt  DateTime @default(now())
+  @@index([userId])
+}
+
+model Beneficiary {
+  id            String   @id @default(cuid())
+  ownerId       String
+  owner         User     @relation(fields: [ownerId], references: [id])
+  fullName      String
+  countryCode   String   @db.Char(2)
+  /// Encrypted at rest (application-level envelope encryption); only a masked value is ever returned.
+  accountRefEnc Bytes
+  accountMasked String
+  verified      Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  orders        TransferOrder[]
+  @@index([ownerId])
+}
+
+model Corridor {
+  id              String       @id // e.g. "FR-CM"
+  countryA        String       @db.Char(2)
+  countryB        String       @db.Char(2)
+  mode            CorridorMode @default(SIMULATION)
+  maxOrderEurCents BigInt
+  minFillEurCents BigInt
+  updatedAt       DateTime     @updatedAt
+  updatedBy       String
+}
+
+model FxRate {
+  id        String   @id @default(cuid())
+  base      String   @db.Char(3)
+  quote     String   @db.Char(3)
+  num       BigInt
+  den       BigInt
+  source    String   // OFFICIAL_PEG | SIMULATED | <licensed feed>
+  asOf      DateTime
+  validFor  Int      // seconds
+  @@index([base, quote, asOf])
+}
+
+model Quote {
+  id               String   @id @default(cuid())
+  userId           String
+  user             User     @relation(fields: [userId], references: [id])
+  fromCountry      String   @db.Char(2)
+  toCountry        String   @db.Char(2)
+  sendCurrency     String   @db.Char(3)
+  receiveCurrency  String   @db.Char(3)
+  principal        BigInt
+  fee              BigInt
+  rateNum          BigInt
+  rateDen          BigInt
+  estimatedReceive BigInt
+  createdAt        DateTime @default(now())
+  expiresAt        DateTime
+  orders           TransferOrder[]
+}
+
+model TransferOrder {
+  id               String           @id @default(cuid())
+  userId           String
+  user             User             @relation(fields: [userId], references: [id])
+  quoteId          String
+  quote            Quote            @relation(fields: [quoteId], references: [id])
+  beneficiaryId    String
+  beneficiary      Beneficiary      @relation(fields: [beneficiaryId], references: [id])
+  idempotencyKey   String
+  fromCountry      String           @db.Char(2)
+  toCountry        String           @db.Char(2)
+  sendCurrency     String           @db.Char(3)
+  receiveCurrency  String           @db.Char(3)
+  principal        BigInt
+  remaining        BigInt
+  fee              BigInt
+  refundedPrincipal BigInt          @default(0)
+  refundedFee      BigInt           @default(0)
+  allowPartial     Boolean          @default(true)
+  state            TransferState    @default(DRAFT)
+  compliance       ComplianceStatus @default(NOT_CHECKED)
+  /// optimistic locking: every update must match the version it read
+  version          Int              @default(0)
+  createdAt        DateTime         @default(now())
+  expiresAt        DateTime
+  stateChanges     StateChange[]
+  takerAllocations Allocation[]     @relation("taker")
+  makerAllocations Allocation[]     @relation("maker")
+  @@unique([userId, idempotencyKey])
+  @@index([state, fromCountry, toCountry, createdAt]) // matching scan (SELECT ... FOR UPDATE SKIP LOCKED)
+}
+
+model StateChange {
+  id        BigInt        @id @default(autoincrement())
+  orderId   String
+  order     TransferOrder @relation(fields: [orderId], references: [id])
+  from      TransferState
+  to        TransferState
+  reason    String
+  actor     String
+  at        DateTime      @default(now())
+  @@index([orderId])
+}
+
+model MatchRun {
+  id          String       @id
+  startedAt   DateTime     @default(now())
+  finishedAt  DateTime?
+  engineVer   String
+  allocations Allocation[]
+}
+
+model Allocation {
+  id            String        @id
+  runId         String
+  run           MatchRun      @relation(fields: [runId], references: [id])
+  kind          String        // EXACT | PARTIAL
+  takerOrderId  String
+  taker         TransferOrder @relation("taker", fields: [takerOrderId], references: [id])
+  makerOrderId  String
+  maker         TransferOrder @relation("maker", fields: [makerOrderId], references: [id])
+  takerAmount   BigInt
+  takerCurrency String        @db.Char(3)
+  makerAmount   BigInt
+  makerCurrency String        @db.Char(3)
+  rateNum       BigInt
+  rateDen       BigInt
+  createdAt     DateTime      @default(now())
+  payouts       Payout[]
+}
+
+model ProviderOperation {
+  id             String           @id @default(cuid())
+  providerId     String
+  providerRef    String
+  kind           ProviderOpKind
+  idempotencyKey String
+  amount         BigInt
+  currency       String           @db.Char(3)
+  countryCode    String           @db.Char(2)
+  status         ProviderOpStatus @default(PENDING)
+  failureReason  String?
+  createdAt      DateTime         @default(now())
+  @@unique([providerId, providerRef])
+  @@unique([providerId, kind, idempotencyKey])
+}
+
+model Payout {
+  id                 String       @id @default(cuid())
+  allocationId       String
+  allocation         Allocation   @relation(fields: [allocationId], references: [id])
+  beneficiaryOrderId String
+  fundingOrderId     String
+  amount             BigInt
+  currency           String       @db.Char(3)
+  countryCode        String       @db.Char(2)
+  providerId         String
+  providerRef        String
+  attempts           Int          @default(0)
+  status             PayoutStatus @default(PENDING)
+}
+
+model WebhookEvent {
+  providerId String
+  eventId    String
+  receivedAt DateTime @default(now())
+  payloadSha String
+  @@id([providerId, eventId]) // replay protection
+}
+
+model LedgerEntry {
+  id             BigInt          @id @default(autoincrement())
+  idempotencyKey String          @unique
+  reference      String
+  description    String
+  reversesId     BigInt?         @unique
+  simulated      Boolean         @default(true)
+  at             DateTime        @default(now())
+  postings       LedgerPosting[]
+  @@index([reference])
+}
+
+model LedgerPosting {
+  id          BigInt      @id @default(autoincrement())
+  entryId     BigInt
+  entry       LedgerEntry @relation(fields: [entryId], references: [id])
+  accountType AccountType
+  currency    String      @db.Char(3)
+  scope       String
+  amount      BigInt      // + debit / - credit; sum per (entry, currency) = 0 enforced by deferred constraint trigger
+  @@index([accountType, currency, scope])
+}
+
+model AdminUser {
+  id        String    @id @default(cuid())
+  email     String    @unique
+  role      AdminRole
+  mfaSecretEnc Bytes
+  createdAt DateTime  @default(now())
+}
+
+model DualApproval {
+  id          String   @id @default(cuid())
+  subjectType String   // e.g. COMPLIANCE_DECISION, CORRIDOR_CHANGE
+  subjectId   String
+  firstBy     String
+  secondBy    String?
+  decision    String
+  createdAt   DateTime @default(now())
+  completedAt DateTime?
+  @@index([subjectType, subjectId])
+}
+
+model AuditLog {
+  id        BigInt   @id @default(autoincrement())
+  actor     String
+  action    String
+  target    String
+  ip        String?
+  at        DateTime @default(now())
+  details   Json?
+  @@index([target])
+}

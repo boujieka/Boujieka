@@ -1,0 +1,53 @@
+{
+  "expo": {
+    "name": "DiaspoSwap",
+    "slug": "diasposwap",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/brand/icon.png",
+    "scheme": "diasposwap",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "icon": "./assets/brand/icon.png",
+      "bundleIdentifier": "app.diasposwap.simulation",
+      "supportsTablet": false
+    },
+    "android": {
+      "package": "app.diasposwap.simulation",
+      "adaptiveIcon": {
+        "backgroundColor": "#082F35",
+        "foregroundImage": "./assets/brand/android-icon-foreground.png",
+        "backgroundImage": "./assets/brand/android-icon-background.png",
+        "monochromeImage": "./assets/brand/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "output": "single",
+      "favicon": "./assets/brand/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#082F35",
+          "image": "./assets/brand/splash-icon.png",
+          "imageWidth": 160,
+          "dark": {
+            "backgroundColor": "#082F35",
+            "image": "./assets/brand/splash-icon.png"
+          }
+        }
+      ],
+      "expo-secure-store",
+      "expo-localization"
+    ],
+    "experiments": {
+      "typedRoutes": false,
+      "reactCompiler": false
+    },
+    "description": "DiaspoSwap \u2014 simulation mode, no real money."
+  }
+}
