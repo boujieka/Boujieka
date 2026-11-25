@@ -14,7 +14,10 @@ export default defineConfig({
       '@diasposwap/liquidity': pkg('liquidity'),
     },
   },
+  // legacy decorators for the NestJS API (explicit @Inject tokens are used, so metadata is not required)
+  oxc: { decorator: { legacy: true, emitDecoratorMetadata: true } } as never,
   test: {
     include: ['packages/*/test/**/*.test.ts', 'apps/api/test/**/*.test.ts'],
+    setupFiles: [],
   },
 });

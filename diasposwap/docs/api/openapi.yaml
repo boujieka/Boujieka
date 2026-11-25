@@ -1,0 +1,161 @@
+openapi: 3.1.0
+info:
+  title: DiaspoSwap API (simulation)
+  version: 0.1.0
+  description: |
+    SIMULATION ONLY - no real money moves. Amounts are strings of MINOR units (EUR cents, XAF units).
+    Demo authentication: users send `X-Demo-User`; admins send `X-Admin-Key` (roles ops / compliance).
+    Every response carries `X-DiaspoSwap-Mode: SIMULATION`.
+servers: [{ url: http://localhost:3000 }]
+components:
+  securitySchemes:
+    demoUser: { type: apiKey, in: header, name: X-Demo-User }
+    adminKey: { type: apiKey, in: header, name: X-Admin-Key }
+  schemas:
+    MinorAmount: { type: string, pattern: '^-?\d+$', description: 'Integer minor units as a string' }
+    Country: { type: string, enum: [FR, CM, CG, CA, SN, CI, US, GB, NG, ZA] }
+    TransferState:
+      type: string
+      enum: [DRAFT, QUOTED, PENDING_VERIFICATION, PENDING_FUNDING, FUNDED, QUEUED, PARTIALLY_MATCHED, MATCHED, SETTLEMENT_PENDING, SETTLED, FAILED, EXPIRED, CANCELLED, REFUND_PENDING, REFUNDED, DISPUTED]
+    Rate:
+      type: object
+      properties:
+        base: { type: string }
+        quote: { type: string }
+        num: { $ref: '#/components/schemas/MinorAmount' }
+        den: { $ref: '#/components/schemas/MinorAmount' }
+        source: { type: string, enum: [OFFICIAL_PEG, SIMULATED] }
+        asOf: { type: string, format: date-time }
+        validForSeconds: { type: integer }
+    Quote:
+      type: object
+      properties:
+        id: { type: string }
+        from: { $ref: '#/components/schemas/Country' }
+        to: { $ref: '#/components/schemas/Country' }
+        sendCurrency: { type: string }
+        receiveCurrency: { type: string }
+        principal: { $ref: '#/components/schemas/MinorAmount' }
+        fee: { $ref: '#/components/schemas/MinorAmount' }
+        total: { $ref: '#/components/schemas/MinorAmount' }
+        estimatedReceive: { $ref: '#/components/schemas/MinorAmount' }
+        rate: { $ref: '#/components/schemas/Rate' }
+        expiresAt: { type: string, format: date-time }
+    OrderView:
+      type: object
+      description: User-safe view. Never contains counterparty identity or account data.
+      properties:
+        id: { type: string }
+        state: { $ref: '#/components/schemas/TransferState' }
+        principal: { $ref: '#/components/schemas/MinorAmount' }
+        fee: { $ref: '#/components/schemas/MinorAmount' }
+        matched: { $ref: '#/components/schemas/MinorAmount' }
+        refunded: { $ref: '#/components/schemas/MinorAmount' }
+        beneficiaryReceived: { $ref: '#/components/schemas/MinorAmount' }
+        beneficiaryPending: { $ref: '#/components/schemas/MinorAmount' }
+        matchCount: { type: integer }
+        simulated: { const: true }
+    Error:
+      type: object
+      properties: { code: { type: string }, message: { type: string } }
+paths:
+  /health:
+    get: { summary: Liveness and mode, responses: { '200': { description: OK } } }
+  /v1/corridors:
+    get: { summary: Configured corridors (all SIMULATION), responses: { '200': { description: OK } } }
+  /v1/rates:
+    get: { summary: Reference rates against EUR (CFA pegs official; others simulated), responses: { '200': { description: OK } } }
+  /v1/quotes:
+    post:
+      security: [{ demoUser: [] }]
+      summary: Price a transfer (fee, rate, estimated amount received)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [from, to, amount]
+              properties:
+                from: { $ref: '#/components/schemas/Country' }
+                to: { $ref: '#/components/schemas/Country' }
+                amount: { type: string, description: 'Major units as decimal string, e.g. "1000" or "1000.50"' }
+      responses:
+        '201': { description: Quote, content: { application/json: { schema: { $ref: '#/components/schemas/Quote' } } } }
+        '400': { description: Validation / corridor / amount error, content: { application/json: { schema: { $ref: '#/components/schemas/Error' } } } }
+        '401': { description: Missing demo user }
+  /v1/orders:
+    get:
+      security: [{ demoUser: [] }]
+      summary: The caller's orders
+      responses: { '200': { description: OK } }
+    post:
+      security: [{ demoUser: [] }]
+      summary: Create an order from a quote (runs simulated compliance)
+      parameters:
+        - { in: header, name: Idempotency-Key, required: true, schema: { type: string, minLength: 8 } }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [quoteId, beneficiaryId]
+              properties:
+                quoteId: { type: string }
+                beneficiaryId: { type: string }
+                allowPartial: { type: boolean, default: true }
+      responses:
+        '201': { description: Order (state PENDING_FUNDING, PENDING_VERIFICATION or FAILED) }
+        '400': { description: Missing idempotency key, expired quote, ... }
+        '404': { description: Unknown quote or beneficiary }
+  /v1/orders/{id}:
+    get:
+      security: [{ demoUser: [] }]
+      parameters: [{ in: path, name: id, required: true, schema: { type: string } }]
+      responses:
+        '200': { description: OK, content: { application/json: { schema: { $ref: '#/components/schemas/OrderView' } } } }
+        '404': { description: Not found or not owned }
+  /v1/orders/{id}/fund:
+    post:
+      security: [{ demoUser: [] }]
+      summary: Start the simulated local collection
+      parameters: [{ in: path, name: id, required: true, schema: { type: string } }]
+      responses: { '201': { description: Provider operation (PENDING) } }
+  /v1/orders/{id}/cancel:
+    post:
+      security: [{ demoUser: [] }]
+      summary: Cancel before funding, or refund while queued and unmatched
+      parameters: [{ in: path, name: id, required: true, schema: { type: string } }]
+      responses: { '201': { description: OK }, '400': { description: Not cancellable } }
+  /v1/webhooks/{providerId}:
+    post:
+      summary: Provider callback. HMAC-SHA256 hex of the raw body in X-Signature.
+      parameters:
+        - { in: path, name: providerId, required: true, schema: { type: string } }
+        - { in: header, name: X-Signature, required: true, schema: { type: string } }
+      responses: { '200': { description: 'Accepted ({accepted:true} or {accepted:true, duplicate:true})' }, '403': { description: Invalid signature / unknown reference } }
+  /v1/admin/matching/run:
+    post: { security: [{ adminKey: [] }], summary: Run SwapEngine (role ops), responses: { '201': { description: Allocations }, '401': { description: No key }, '403': { description: Wrong role } } }
+  /v1/admin/reconciliation:
+    get: { security: [{ adminKey: [] }], summary: Ledger vs provider reconciliation + trial balance, responses: { '200': { description: OK } } }
+  /v1/admin/liquidity:
+    get: { security: [{ adminKey: [] }], summary: Corridor liquidity + multilateral simulation, responses: { '200': { description: OK } } }
+  /v1/admin/stats:
+    get: { security: [{ adminKey: [] }], summary: Counts by state, review queue, exceptions, responses: { '200': { description: OK } } }
+  /v1/admin/audit/{orderId}:
+    get:
+      security: [{ adminKey: [] }]
+      parameters: [{ in: path, name: orderId, required: true, schema: { type: string } }]
+      responses: { '200': { description: State changes and ledger entries } }
+  /v1/admin/compliance/{orderId}/decision:
+    post:
+      security: [{ adminKey: [] }]
+      summary: Four-eyes decision on an order under review (role compliance; two different officers)
+      parameters: [{ in: path, name: orderId, required: true, schema: { type: string } }]
+      requestBody: { required: true, content: { application/json: { schema: { type: object, required: [approve], properties: { approve: { type: boolean } } } } } }
+      responses: { '201': { description: 'AWAITING_SECOND_APPROVAL | APPLIED | CONFLICT_ESCALATED' }, '403': { description: Same officer or wrong role } }
+  /v1/demo/settle-pending:
+    post: { security: [{ adminKey: [] }], summary: Complete all pending simulated provider operations (role ops), responses: { '201': { description: OK } } }
+  /v1/demo/users:
+    get: { security: [{ adminKey: [] }], summary: 'Fictional demo users (id, country, beneficiary ids) - simulation helper', responses: { '200': { description: OK } } }

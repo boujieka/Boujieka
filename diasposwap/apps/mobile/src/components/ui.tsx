@@ -23,7 +23,7 @@ export function SimulationBanner() {
   const { t } = useTranslation();
   return (
     <View accessibilityRole="alert" className="bg-gold-100 dark:bg-petrol-700 border-b border-gold px-4 py-1.5">
-      <Text className="text-center text-xs font-semibold text-gold-700 dark:text-gold">⚠︎ {t('sim')}</Text>
+      <Text className="text-center text-xs font-semibold text-petrol dark:text-gold">⚠︎ {t('sim')}</Text>
     </View>
   );
 }
@@ -95,7 +95,7 @@ const STATE_TONE: Partial<Record<TransferState, string>> = {
 
 export function StatePill({ state }: { state: TransferState }) {
   const { t } = useTranslation();
-  const tone = STATE_TONE[state] ?? 'bg-gold-100 text-gold-700';
+  const tone = STATE_TONE[state] ?? 'bg-gold-100 text-petrol';
   const [bg, fg] = tone.split(' ');
   return (
     <View className={`self-start rounded-full px-2.5 py-1 ${bg}`}>

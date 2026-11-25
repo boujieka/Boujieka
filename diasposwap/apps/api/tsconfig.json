@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "paths": {
+      "@diasposwap/shared-types": ["../../packages/shared-types/src/index.ts"],
+      "@diasposwap/ledger": ["../../packages/ledger/src/index.ts"],
+      "@diasposwap/matching-engine": ["../../packages/matching-engine/src/index.ts"],
+      "@diasposwap/compliance-engine": ["../../packages/compliance-engine/src/index.ts"],
+      "@diasposwap/settlement-engine": ["../../packages/settlement-engine/src/index.ts"],
+      "@diasposwap/liquidity": ["../../packages/liquidity/src/index.ts"]
+    }
+  },
+  "include": ["src/**/*.ts", "test/**/*.ts"]
+}

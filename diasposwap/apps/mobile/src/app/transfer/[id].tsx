@@ -34,7 +34,7 @@ export default function Tracking() {
         {v.beneficiaryPending > 0n ? <Row label={t('tracking.pending')} value={fmt(v.beneficiaryPending, o.receiveCurrency, locale)} /> : null}
         {v.refunded > 0n ? <Row label={t('tracking.refunded')} value={fmt(v.refunded, o.sendCurrency, locale)} /> : null}
         {o.state === 'FAILED' ? <Text className="text-sm text-danger">{t('confirm.blocked')}</Text> : null}
-        {o.state === 'PENDING_VERIFICATION' ? <Text className="text-sm text-gold-700">{t('confirm.review')}</Text> : null}
+        {o.state === 'PENDING_VERIFICATION' ? <Text className="text-sm text-gold-700 dark:text-gold">{t('confirm.review')}</Text> : null}
         <Muted className="text-xs">{t('tracking.privacy')}</Muted>
       </Card>
 

@@ -10,5 +10,5 @@
       "@diasposwap/liquidity": ["./packages/liquidity/src/index.ts"]
     }
   },
-  "include": ["./packages/*/src/**/*.ts", "packages/*/test/**/*.ts", "apps/api/src/**/*.ts", "apps/api/test/**/*.ts"]
+  "include": ["./packages/*/src/**/*.ts", "packages/*/test/**/*.ts"]
 }
