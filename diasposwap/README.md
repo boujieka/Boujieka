@@ -31,6 +31,11 @@ across the border.
 Not built yet (see `ROADMAP.md`): `apps/admin` web console, Postgres persistence, BullMQ jobs, WebSocket notifications,
 push notifications, real authentication/MFA, 17 of the 30 requested screens.
 
+## Live demo (simulation)
+
+**https://diasposwap.expo.app** — web version on EAS Hosting (project `boujieks-conglomerate-group/diasposwap`).
+Same simulation as the app: fictional profiles, no real money. Data lives in the browser tab and resets on reload.
+
 ## Quick start
 
 Requires Node.js 22.
