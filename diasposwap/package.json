@@ -1,0 +1,21 @@
+{
+  "name": "diasposwap",
+  "private": true,
+  "version": "0.1.0",
+  "description": "DiaspoSwap - community transfer-compensation simulator (simulation mode only, no real money)",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test:mobile:typecheck": "npm --workspace apps/mobile exec tsc -- --noEmit"
+  },
+  "devDependencies": {
+    "fast-check": "^4.11.0",
+    "typescript": "~6.0.3",
+    "vitest": "^5.1.2",
+    "@types/node": "^22.0.0"
+  }
+}
