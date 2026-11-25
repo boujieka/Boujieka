@@ -65,6 +65,15 @@ Persistence slice 1 (local PostgreSQL 16.15):
 | Same without a database but `CI=true` | fails with "TEST_DATABASE_URL is required in CI" (no silent skip in CI) |
 | `npm run typecheck` | passed (now regenerates the Prisma client first) |
 
+## Web deployment (EAS Hosting) — 2026-11-25
+- Production: https://diasposwap.expo.app (deployed from `ccr-10b3b2ad-q10mdo`, merged into the main branch via PR #5).
+- Verified on the live URL: the Playwright walkthrough (FR → CM, through SETTLED and receipt) passes in light and
+  dark mode with 0 console errors; HTTP 200 on `/` and deep links.
+- Problem found only in production: EAS Hosting served `index.html` instead of the per-route JS chunks whose file
+  names contain brackets (`[id]-….js`), so `/transfer/[id]` and `/receipt/[id]` were blank. Fix: Expo Router
+  `asyncRoutes: { web: false }` (one web bundle, no bracketed file names). The local static server had masked it.
+- Right after promotion, one run still got the previous version (propagation delay); re-runs passed.
+
 ## Problems met and how they were handled
 - Headless Chromium reports `en-US`, so the app started in English and the French-text e2e selectors failed — fixed by
   running the walkthrough with `fr-FR` (the app's locale detection was correct).
