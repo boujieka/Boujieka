@@ -28,7 +28,14 @@
       "bundler": "metro"
     },
     "plugins": [
-      "expo-router",
+      [
+        "expo-router",
+        {
+          "asyncRoutes": {
+            "web": false
+          }
+        }
+      ],
       [
         "expo-splash-screen",
         {
@@ -48,6 +55,12 @@
       "typedRoutes": false,
       "reactCompiler": false
     },
-    "description": "DiaspoSwap \u2014 simulation mode, no real money."
+    "description": "DiaspoSwap — simulation mode, no real money.",
+    "owner": "boujieks-conglomerate-group",
+    "extra": {
+      "eas": {
+        "projectId": "382dc242-36d3-43f7-9c74-e2da8883edf0"
+      }
+    }
   }
 }
