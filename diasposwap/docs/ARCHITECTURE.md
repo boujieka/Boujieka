@@ -99,6 +99,21 @@ stateDiagram-v2
 
 The full table (including `CANCELLED`) is `TRANSITIONS` in `packages/shared-types/src/transfer.ts`.
 
+## Persistence (PostgreSQL, Prisma 7)
+
+Slice 1 persists the **ledger**. Rules live in two layers on purpose:
+
+| Rule | Application (`PostgresLedger`) | Database (migration `ledger_integrity`) |
+|---|---|---|
+| Balanced per currency, ≥ 2 postings, no zero amounts | `validatePostings` (clear error) | deferred constraint triggers + CHECK, at COMMIT |
+| Append-only | no update/delete methods | triggers refuse UPDATE / DELETE / TRUNCATE |
+| History can't be extended | entry + postings in one transaction | postings only in the transaction that created the entry |
+| Idempotency | look-up by key, compare postings | `idempotencyKey` UNIQUE (race: loser re-reads the winner) |
+| One reversal per entry | checked before insert | `reversesId` UNIQUE + self-FK |
+
+Production hardening still to do: run the app with a role that has only INSERT/SELECT on ledger tables (triggers can be
+disabled by a table owner), and back the trigger check with periodic reconciliation.
+
 ## Concurrency and idempotency
 
 | Risk | In this version | Phase 4 (Postgres) |

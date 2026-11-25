@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-11-25. Everything runs in **simulation mode**; no real money, provider, KYC or market-data
+Last updated: 2026-11-25 (persistence slice 1 added on branch `diasposwap/postgres-persistence`). Everything runs in **simulation mode**; no real money, provider, KYC or market-data
 integration exists.
 
 ## Phase 1 — Architecture ✅
@@ -24,6 +24,17 @@ integration exists.
 - Prisma schema written and validated; **not wired** (no Postgres connection, no migrations run).
 - Not done: real auth/MFA, Postgres persistence, Redis/BullMQ jobs, WebSocket notifications, mobile app → API.
 
+## Phase 4a — PostgreSQL persistence, slice 1: the ledger ✅
+- Prisma **7.10.1** (latest stable; npm's `latest` tag points to an RC, 8.0.0-rc.35, deliberately not used) with the
+  `@prisma/adapter-pg` driver adapter and `prisma.config.ts`. Generated client in `apps/api/src/generated/` (gitignored).
+- Migrations: `20261125225829_init` (generated from the schema) and `20261125230000_ledger_integrity` (hand-written).
+  The database itself enforces: balanced per currency at COMMIT, at least two postings, no zero posting, append-only
+  (UPDATE/DELETE/TRUNCATE refused), no postings added to an entry from an earlier transaction, one reversal per entry.
+- `LedgerStore` async interface (`packages/ledger`), with `InMemoryLedgerStore` and `PostgresLedger`
+  (`apps/api/src/persistence/`). One contract suite runs against both.
+- **Not yet wired**: `SwapSimulator` and the API still use the in-memory ledger; orders, payouts, provider operations
+  and webhooks are not persisted. Next slice: make the orchestrator async over repository interfaces.
+
 ## Phase 5 — Administration ❌ not started
 - `apps/admin` does not exist. Admin capabilities exist only as API endpoints (`/v1/admin/*`) and the in-app
   read-only liquidity screen.
@@ -44,8 +55,18 @@ integration exists.
 | GitHub Actions workflow | YAML parse only | **not executed** on GitHub yet |
 | Native iOS/Android run | — | **not run** (no simulator/device here); only web was exercised |
 
+Persistence slice 1 (local PostgreSQL 16.15):
+| Check | Result |
+|---|---|
+| `prisma migrate deploy` on an empty database | both migrations applied |
+| Drift, migrations vs schema (`migrate diff --exit-code`) | none; a deliberate schema change is detected (exit 2) |
+| `npm test` with `TEST_DATABASE_URL` | **59/59 passed** (42 previous + 17 ledger: 6 contract × 2 stores, 5 raw-SQL attacks) |
+| `npm test` without a database | 48 passed, 5 database-only tests skipped with a warning |
+| Same without a database but `CI=true` | fails with "TEST_DATABASE_URL is required in CI" (no silent skip in CI) |
+| `npm run typecheck` | passed (now regenerates the Prisma client first) |
+
 ## Web deployment (EAS Hosting) — 2026-11-25
-- Production: https://diasposwap.expo.app (deploys from branch `ccr-10b3b2ad-q10mdo` = main + EAS link).
+- Production: https://diasposwap.expo.app (deployed from `ccr-10b3b2ad-q10mdo`, merged into the main branch via PR #5).
 - Verified on the live URL: the Playwright walkthrough (FR → CM, through SETTLED and receipt) passes in light and
   dark mode with 0 console errors; HTTP 200 on `/` and deep links.
 - Problem found only in production: EAS Hosting served `index.html` instead of the per-route JS chunks whose file
@@ -64,6 +85,11 @@ integration exists.
   shared `configureApp()`.
 - Contrast audit: gold-on-light-gold text (4.21:1) failed WCAG AA for small text in the simulation banner and state
   pills. Switched to petrol text (11.94:1).
+
+## Problems met (persistence slice)
+- `prisma migrate dev` is interactive and hung in a non-TTY shell; `migrate deploy` / `migrate diff` are used instead.
+- A hand-written FK on `reversesId` would have shown up as schema drift; the reversal is now a declared self-relation.
+- The typecheck passed against a stale generated client, so `typecheck` (and CI) now run `prisma generate` first.
 
 ## Decisions
 - React Compiler off: the simulator mutates objects in place and compiler memoisation could hide updates. Revisit

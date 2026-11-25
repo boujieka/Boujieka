@@ -24,11 +24,11 @@ across the border.
 | `packages/liquidity` | **SwapLiquidity**: corridor imbalance, prefunding need, uncertainty | tested |
 | `apps/mobile` | Expo SDK 58 app (FR/EN, light/dark) running the engines in-app | typechecked, web bundle driven end-to-end in Chromium |
 | `apps/api` | NestJS REST API over the same engines, in-memory state | e2e-tested with supertest; boots with `tsx` |
-| `apps/api/prisma/schema.prisma` | target PostgreSQL schema | `prisma validate` passes; **not wired yet** |
+| `apps/api/prisma/` | PostgreSQL schema + migrations (Prisma 7) | ledger persisted with DB-enforced integrity, tested; other tables **not wired yet** |
 | `infrastructure/` | Dockerfile + Compose (API, Postgres, Redis) | compose config validated; image build **not run** (no Docker daemon here) |
 | `docs/` | architecture, matching engine, security, risks, API spec, design system, brand | |
 
-Not built yet (see `ROADMAP.md`): `apps/admin` web console, Postgres persistence, BullMQ jobs, WebSocket notifications,
+Not built yet (see `ROADMAP.md`): `apps/admin` web console, persistence beyond the ledger, BullMQ jobs, WebSocket notifications,
 push notifications, real authentication/MFA, 17 of the 30 requested screens.
 
 ## Live demo (simulation)
@@ -43,7 +43,7 @@ Requires Node.js 22.
 ```bash
 cd diasposwap
 npm install
-npm test               # 42 tests: engines, property tests, API e2e
+npm test               # engines, property tests, API e2e (+ PostgreSQL ledger tests if TEST_DATABASE_URL is set)
 npm run typecheck      # engines + API + mobile
 npm run mobile         # Expo dev server (Expo Go / dev build / press w for web)
 DIASPOSWAP_ADMIN_KEYS=ops-dev-key:ops npm run api    # API on :3000

@@ -1,14 +1,15 @@
 // DiaspoSwap - target PostgreSQL schema (Phase 4).
-// STATUS: design artifact. The current API keeps state in memory (SwapSimulator); this schema is not wired yet.
+// STATUS: ledger tables are wired (src/persistence/postgres-ledger.ts); other tables are not used yet.
 // Rules: all amounts are BigInt MINOR units; no floats. Ledger rows are append-only (enforced by DB role grants + trigger, see docs/ARCHITECTURE.md).
 
 generator client {
-  provider = "prisma-client-js"
+  provider     = "prisma-client"
+  output       = "../src/generated/prisma"
+  moduleFormat = "esm"
 }
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 
 enum KycLevel {
@@ -296,6 +297,8 @@ model LedgerEntry {
   reference      String
   description    String
   reversesId     BigInt?         @unique
+  reverses       LedgerEntry?    @relation("Reversal", fields: [reversesId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+  reversedBy     LedgerEntry?    @relation("Reversal")
   simulated      Boolean         @default(true)
   at             DateTime        @default(now())
   postings       LedgerPosting[]

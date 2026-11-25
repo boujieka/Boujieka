@@ -11,7 +11,8 @@ Proposed by the project brief; scope and order are design proposals to validate,
 | V5.0 | Infrastructure | Institutional SwapEngine API, white label | not started |
 
 ## Next steps for V1.0 (ordered)
-1. Persistence: wire `apps/api/prisma/schema.prisma` (Postgres), repository layer, migrations; ledger immutability via DB grants/trigger.
+1. Persistence: ~~ledger in Postgres with DB-enforced integrity~~ (slice 1 done); next: repositories for orders, quotes,
+   allocations, payouts, provider operations and webhook events; async orchestrator; row locking for matching.
 2. Point the mobile app at the API (TanStack Query hooks already isolate rates; extend to quotes/orders).
 3. Real authentication: email/phone OTP, password or passkey, MFA, session rotation.
 4. `apps/admin` (web): stats, corridor configuration with four-eyes, review queue, reconciliation, world flow map.

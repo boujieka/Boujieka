@@ -9,3 +9,4 @@ coverage/
 !.env.example
 .e2e-shots/
 boot.log
+apps/api/src/generated/

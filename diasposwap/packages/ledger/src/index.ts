@@ -73,7 +73,7 @@ export class Ledger {
       }
       return existing;
     }
-    validate(input.postings);
+    validatePostings(input.postings);
     const seq = this.entries.length + 1;
     const entry: JournalEntry = deepFreeze({
       id: `je_${seq.toString().padStart(6, '0')}`,
@@ -162,7 +162,8 @@ export class Ledger {
   }
 }
 
-function validate(postings: Posting[]): void {
+/** Shared validation used by every LedgerStore implementation. */
+export function validatePostings(postings: readonly Posting[]): void {
   if (postings.length < 2) throw new LedgerError('An entry needs at least two postings');
   const perCurrency = new Map<CurrencyCode, bigint>();
   for (const p of postings) {
@@ -173,7 +174,7 @@ function validate(postings: Posting[]): void {
   for (const [c, v] of perCurrency) if (v !== 0n) throw new LedgerError(`Unbalanced entry in ${c}: ${v}`);
 }
 
-function samePostings(a: readonly Posting[], b: readonly Posting[]): boolean {
+export function samePostings(a: readonly Posting[], b: readonly Posting[]): boolean {
   if (a.length !== b.length) return false;
   return a.every((p, i) => {
     const q = b[i];
@@ -187,4 +188,25 @@ function deepFreeze<T>(o: T): T {
     for (const v of Object.values(o as object)) if (v && typeof v === 'object' && !Object.isFrozen(v)) deepFreeze(v);
   }
   return o;
+}
+
+/**
+ * Async ledger contract, implemented in memory (InMemoryLedgerStore) and in PostgreSQL (apps/api PostgresLedger).
+ * Same semantics everywhere: balanced per currency, idempotent by key, append-only, one reversal per entry.
+ */
+export interface LedgerStore {
+  post(input: PostInput): Promise<JournalEntry>;
+  reverse(entryId: string, at: string, reason: string): Promise<JournalEntry>;
+  balance(account: AccountRef): Promise<bigint>;
+  forReference(reference: string): Promise<JournalEntry[]>;
+  trialBalance(): Promise<Map<CurrencyCode, bigint>>;
+}
+
+export class InMemoryLedgerStore implements LedgerStore {
+  constructor(readonly ledger: Ledger = new Ledger()) {}
+  async post(input: PostInput) { return this.ledger.post(input); }
+  async reverse(entryId: string, at: string, reason: string) { return this.ledger.reverse(entryId, at, reason); }
+  async balance(account: AccountRef) { return this.ledger.balance(account); }
+  async forReference(reference: string) { return this.ledger.forReference(reference); }
+  async trialBalance() { return this.ledger.trialBalance(); }
 }
