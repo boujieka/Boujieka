@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased — PostgreSQL persistence, slice 1
+### Added
+- Prisma 7.10.1 + `@prisma/adapter-pg`; migrations `init` and `ledger_integrity` (database-enforced double entry,
+  append-only history, one reversal per entry).
+- `LedgerStore` interface with in-memory and PostgreSQL implementations, shared contract tests, raw-SQL rule tests.
+- CI: PostgreSQL 16 service, migrations applied to an empty database, drift check.
+
 ## 0.1.0 — 2026-11-25 (simulation)
 ### Added
 - Financial core packages: shared-types (bigint money, exact FX, corridors, state machine), ledger, matching-engine

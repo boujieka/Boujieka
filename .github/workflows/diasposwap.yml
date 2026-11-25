@@ -10,6 +10,19 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: diasposwap
+          POSTGRES_PASSWORD: ci-only-password
+          POSTGRES_DB: diasposwap
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U diasposwap" --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      DATABASE_URL: postgresql://diasposwap:ci-only-password@localhost:5432/diasposwap
+      TEST_DATABASE_URL: postgresql://diasposwap:ci-only-password@localhost:5432/postgres
     defaults:
       run:
         working-directory: diasposwap
@@ -21,9 +34,13 @@ jobs:
           cache: npm
           cache-dependency-path: diasposwap/package-lock.json
       - run: npm ci
-      - name: Typecheck (engines, API, mobile)
+      - name: Typecheck (generates the Prisma client first)
         run: npm run typecheck
-      - name: Tests (unit, property, API e2e)
+      - name: Apply migrations to an empty database and check for drift
+        run: |
+          npm run db:migrate
+          npx --workspace apps/api prisma migrate diff --from-config-datasource --to-schema prisma/schema.prisma --exit-code
+      - name: Tests (unit, property, API e2e, PostgreSQL ledger)
         run: npm test
       - name: Bundle the mobile app for web
         run: npm run mobile:web:export
