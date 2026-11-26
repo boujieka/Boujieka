@@ -10,7 +10,10 @@
     "ios": {
       "icon": "./assets/brand/icon.png",
       "bundleIdentifier": "app.diasposwap.simulation",
-      "supportsTablet": false
+      "supportsTablet": false,
+      "config": {
+        "usesNonExemptEncryption": false
+      }
     },
     "android": {
       "package": "app.diasposwap.simulation",
