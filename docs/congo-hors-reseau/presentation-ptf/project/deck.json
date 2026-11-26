@@ -11,11 +11,10 @@
    "project/deck.css"
   ]
  },
- "title": "PEZoR – Consultation des PTF : préparation bancable hors réseau (v2.0)",
+ "title": "PEZoR – Consultation des PTF : préparation bancable hors réseau",
  "cover": "cover",
  "order": [
   "cover",
-  "nouveautes",
   "objet",
   "pacte",
   "pezor",
@@ -49,11 +48,11 @@
  ],
  "sections": {
   "s1": {
-   "description": "Objet, changements de la v2.0 et cadre du Pacte National Énergétique.",
+   "description": "Objet de la consultation et cadre du Pacte National Énergétique.",
    "start": "cover"
   },
   "s2": {
-   "description": "Le portefeuille PEZoR après dédoublonnage et vérification du statut juridique.",
+   "description": "Le portefeuille PEZoR sans doublon et son statut juridique.",
    "start": "pezor"
   },
   "s3": {

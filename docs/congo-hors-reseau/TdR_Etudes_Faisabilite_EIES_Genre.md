@@ -1,20 +1,9 @@
 ---
 title: "TERMES DE RÉFÉRENCE"
 subtitle: "Études de faisabilité technique, financière et économique, études d'impact environnemental et social (EIES/NIES) et études genre – Mini-réseaux verts et localités en systèmes solaires domestiques du PEZoR – République du Congo"
-date: "Version 2.0 – novembre 2026 – Révisée après contre-expertise indépendante – Mission B des TdR-cadre v2.0"
+date: "Novembre 2026 – Mission B des TdR-cadre de préparation bancable des investissements hors réseau du PEZoR"
 lang: fr-FR
 ---
-
-# Ce qui change dans la version 2.0
-
-- **Périmètre.** Il est fixé par la **Mission 0** (audit préalable) : 80 / 162 enregistrements de référence, soit 77 / 160 localités uniques. **Aucun remplacement obligatoire** des sites écartés.
-- **Statut juridique.** Il est vérifié que les **10 plus grands sites MRV** (47 % du CAPEX) sont des communes ou communautés urbaines, donc hors « zone rurale » au sens du décret 2017-250. Leur maintien dépend du régime arrêté par la Mission 0 puis par la Mission A.
-- **Solaire domestique.** La structuration commerciale du solaire domestique est transférée à la **Mission S**. La présente mission fournit les données d'enquête et de screening.
-- **Demande.** L'enquête est stratifiée et complétée par des comportements observés. Les « 88 kWhommes-mois » ne sont pas repris.
-- **Coûts.** Précision de ± 15 % définie, repère international normalisé, coûts rendus site par site, scénarios de stress combinés, analyse économique sans double comptage.
-- **Gates.** La mission livre **G3a** (bancabilité technique). G3b relève des certificats environnementaux et des non-objections.
-- **E&S.** NIES regroupées uniquement par localité (article 8 du décret 2025-316). Inventaires en deux saisons. Provision pour les 5 % de frais administratifs. Matrice de conformité.
-- **Contrat.** Mixte : forfait, prix unitaires et tranche conditionnelle. Références internationales équivalentes acceptées. Gabarits communs validés par le maître d'ouvrage.
 
 # Fiche de la mission
 
@@ -24,17 +13,17 @@ lang: fr-FR
 | Client / autorité contractante | MEH, par l'ANER, agissant à travers l'UGP |
 | Programme | PEZoR : fenêtre hors réseau, contribution à la cible rurale du Pacte National Énergétique (Mission 300) |
 | Intitulé | Études de faisabilité, EIES/NIES et genre des mini-réseaux verts (MRV) et des localités en systèmes solaires domestiques (SSD) |
-| Périmètre physique | Localités MRV **revalidées par la Mission 0**, sur une référence de 80 enregistrements (77 localités uniques, dont 37 pilotes) ; localités SSD revalidées, sur une référence de 162 enregistrements (160 uniques, dont 30 pilotes), pour les enquêtes, le screening E&S et la segmentation |
+| Périmètre physique | **77 localités MRV** et **160 localités SSD** du portefeuille, **revalidées par la Mission 0** ; phase pilote : 37 localités MRV et 30 localités SSD. Les localités SSD font l'objet des enquêtes, du screening E&S et de la segmentation |
 | Découpage | **Tranche 1 (ferme)** : MRV pilotes revalidés et 30 localités SSD pilotes. **Tranche 2 (conditionnelle)** : autres MRV et localités SSD revalidés |
 | Nature | Études jusqu'à l'APD ; modèles financiers ; analyse économique ; instruments E&S cadres et par site ; plan d'action genre ; dossiers de faisabilité par lot MRV ; données SSD transmises à la Mission S |
 | Financement envisagé | ESMAP, autres fonds gérés par la BAD, avances de préparation BM (jusqu'à 6 MUSD par opération) ou BAD, autres PTF. **SEFA : 0 dans le scénario de base** (§ 13) |
 | Méthode de sélection | SFQC/QCBS selon le règlement du bailleur finançant le contrat |
 | Type de contrat | Mixte : forfait, prix unitaires pour les quantités variables, tranche conditionnelle |
 | Durée | 24 mois : G3a de la Tranche 1 aux mois 10–12 ; certificats environnementaux de la Tranche 1 aux mois 15–17 ; Tranche 2 au mois 22 ; rapport final au mois 24 |
-| Effort et budget indicatifs | 125 hommes-mois internationaux et 156 nationaux, plus le terrain ; **≈ 8,96 MUSD**, plus une provision de 0,45 MUSD pour les frais administratifs du certificat environnemental (à confirmer) |
-| Lien avec les autres missions | Mission 0 (audit préalable), A (régulation, financement, passation), C (UGP, données, vérification, revue indépendante), S (filière rapide SSD) des TdR-cadre v2.0 |
+| Effort et budget indicatifs | 125 hommes-mois internationaux et 156 nationaux, plus le terrain ; **≈ 8,87 MUSD**, plus une provision de 0,44 MUSD pour les frais administratifs du certificat environnemental (à confirmer) |
+| Lien avec les autres missions | Mission 0 (audit préalable), A (régulation, financement, passation), C (UGP, données, vérification, revue indépendante), S (filière rapide SSD) des TdR-cadre |
 
-**Note de lecture.** Ces TdR détaillent la **Mission B** des TdR-cadre v2.0. Leur structure suit celle de TdR comparables de la Banque mondiale et de la BAD (Annexe 8). La v2.0 intègre les recommandations d'une contre-expertise indépendante ; la matrice de traitement figure dans les TdR-cadre v2.0 (Annexe VII.10). Les données de portefeuille sont reprises de la pré-faisabilité PEZoR. Les budgets et effectifs sont des estimations à valider. « Hommes-mois » désigne des personnes-mois.
+**Note de lecture.** Ces TdR détaillent la **Mission B** des TdR-cadre. Leur structure suit celle de TdR comparables de la Banque mondiale et de la BAD (Annexe 8). Le portefeuille est celui de la pré-faisabilité PEZoR, sans doublon. Les budgets et effectifs sont des estimations à valider. « Hommes-mois » désigne des personnes-mois.
 
 # 1. Contexte
 
@@ -50,27 +39,27 @@ Le Pacte suppose que 90 % de la hausse de l'accès rural viendra de systèmes so
 
 ## 1.2 Le PEZoR et la pré-faisabilité d'août 2026
 
-Le PEZoR, porté par le MEH et l'ANER avec l'appui du PNUD, couvre 242 localités, dont 67 en phase pilote. La pré-faisabilité retient une règle de pré-orientation : **1 000 habitants et plus → mini-réseau vert PV/BESS ; moins de 1 000 → SSD**. La technologie définitive est arrêtée site par site au moindre coût (gate G2).
+Le PEZoR, porté par le MEH et l'ANER avec l'appui du PNUD, couvre **237 localités** (77 MRV, 160 SSD), et une phase pilote de 67 localités. La pré-faisabilité retient une règle de pré-orientation : **1 000 habitants et plus → mini-réseau vert PV/BESS ; moins de 1 000 → SSD**. La technologie définitive est arrêtée site par site au moindre coût (gate G2).
 
-| Indicateur | Phase pilote (67 localités) | Programme Cadre (242 localités) |
+| Indicateur | Phase pilote (67 localités) | Programme Cadre (237 localités) |
 |---|---|---|
-| Localités MRV / ménages MRV | 37 / 35 225 | 80 / 59 467 (77 / 57 750 après dédoublonnage) |
-| PV / stockage MRV | 25,44 MWc / 105,68 MWh | 42,95 MWc / 178,40 MWh |
-| CAPEX technique MRV | 186,92 MUSD | 317,61 MUSD (409,72 MUSD rebasés) |
-| Localités SSD / ménages SSD | 30 / 5 003 | 162 / 20 855 (160 / 20 543 après dédoublonnage) |
-| CAPEX SSD | 8,24 MUSD | 33,62 MUSD |
-| Lots MRV / concessions SSD (PEZoR) | 7 / 6 | 10 / 9 |
+| Localités MRV / ménages MRV | 37 / 35 225 | 77 / 57 750 |
+| PV / stockage MRV | 25,44 MWc / 105,68 MWh | 41,71 MWc / 173,25 MWh |
+| CAPEX technique MRV | 186,92 MUSD | 308,83 MUSD (398,39 MUSD avec provisions) |
+| Localités SSD / ménages SSD | 30 / 5 003 | 160 / 20 543 |
+| CAPEX SSD | 8,24 MUSD | 33,12 MUSD |
+| Lots MRV / concessions SSD (PEZoR, indicatifs) | 7 / 6 | 10 / 9 |
 
-Les 67 localités pilotes sont incluses dans les 242. Quatorze localités disposent d'une **alternative hydroélectrique (MCHE)** documentée par des études antérieures ; cette alternative n'est jamais cumulée au solaire.
+Selon le PEZoR, les localités pilotes sont incluses dans le Programme Cadre ; 11 d'entre elles sont toutefois à rapprocher de la liste du Programme Cadre (TdR-cadre, § I.3.1). Quatorze localités disposent d'une **alternative hydroélectrique (MCHE)** documentée par des études antérieures ; cette alternative n'est jamais cumulée au solaire.
 
 ## 1.3 Pourquoi ces études : passer de la pré-faisabilité à la bancabilité
 
 La pré-faisabilité ne permet pas encore de décider d'investir. Les verrous qui relèvent de cette mission sont les suivants :
 
-1. **Coût par connexion.** 5 341 USD par ménage potentiel en MRV (6 890 USD rebasé). Si 80 % seulement des ménages sont raccordés, le coût rebasé atteint ≈ 8 612 USD par connexion réalisée. Le repère de 1 000 à 2 100 USD (ESMAP 2019, source secondaire) doit être **normalisé** avant toute comparaison.
-2. **Demande non mesurée.** Les « ≈ 88 kWhommes-mois par ménage » sont la production totale répartie entre les ménages (4,0 kWh/kWc/j × 42,95 MWc ≈ 62,7 GWh/an, divisés par 59 467 ménages). Ce n'est pas une demande.
+1. **Coût par connexion.** 5 348 USD par ménage potentiel en MRV (6 899 USD avec provisions). Si 80 % seulement des ménages sont raccordés, le coût atteint ≈ 8 623 USD par connexion réalisée. Le repère de 1 000 à 2 100 USD (ESMAP 2019, source secondaire) doit être **normalisé** avant toute comparaison.
+2. **Demande non mesurée.** Les « ≈ 88 kWh/mois par ménage » sont la production totale répartie entre les ménages (4,0 kWh/kWc/j × 41,71 MWc ≈ 60,9 GWh/an, divisés par 57 750 ménages). Ce n'est pas une demande.
 3. **Données du portefeuille.**
-   - 5 paires de doublons ; après dédoublonnage, 78 293 ménages, en deçà des 79 000 du Pacte.
+   - 78 293 ménages potentiels, en deçà des 79 000 du Pacte ; 11 localités pilotes à rapprocher de la liste du Programme Cadre.
    - Les 10 plus grands sites sont des communes ou communautés urbaines (décret 2017-250).
    - Boko et Louingui raccordées selon la presse.
    - Coordonnées GPS manquantes.
@@ -80,7 +69,7 @@ La pré-faisabilité ne permet pas encore de décider d'investir. Les verrous qu
 
 ## 1.4 Articulation avec les autres travaux
 
-- **Mission 0** : fournit le registre dédoublonné, géoréférencé et qualifié (réseau, juridique). C'est la **donnée d'entrée** de la présente mission.
+- **Mission 0** : fournit le registre contrôlé, géoréférencé et qualifié (réseau, juridique). C'est la **donnée d'entrée** de la présente mission.
 - **Mission A** : méthode tarifaire, déficit de viabilité, architectures contractuelles, RBF, DAO. Elle utilise les enquêtes, APD et modèles de la présente mission.
 - **Mission C** : gabarits communs validés par le maître d'ouvrage, plateforme, protocole de vérification, **revue technique indépendante** des APD et des modèles.
 - **Mission S** : filière rapide solaire domestique. Elle reçoit les données SSD de la présente mission.
@@ -90,7 +79,7 @@ La pré-faisabilité ne permet pas encore de décider d'investir. Les verrous qu
 
 ## 2.1 Objectif général
 
-Établir, pour chaque localité MRV revalidée (référence : 77 localités uniques), la faisabilité technique, financière, économique, environnementale, sociale et de genre, et fournir à la Mission S les données des localités SSD. Le résultat attendu est que chaque lot MRV franchisse le **gate G3a** (bancabilité technique) et soit prêt pour :
+Établir, pour chaque localité MRV revalidée (référence : 77 localités), la faisabilité technique, financière, économique, environnementale, sociale et de genre, et fournir à la Mission S les données des localités SSD. Le résultat attendu est que chaque lot MRV franchisse le **gate G3a** (bancabilité technique) et soit prêt pour :
 
 - l'évaluation par les bailleurs (BAD, Banque mondiale, autres PTF) ;
 - la préparation des dossiers d'appel d'offres par la Mission A.
@@ -115,8 +104,8 @@ La pré-faisabilité ne permet pas encore de décider d'investir. Les verrous qu
 
 | Composante | Tranche 1 (ferme) | Tranche 2 (conditionnelle) | Référence |
 |---|---|---|---|
-| MRV : études complètes (demande, moindre coût, APD, finance, EIES/NIES et PGES) | MRV pilotes revalidés (référence : 37) | Autres MRV revalidés (référence : 40 localités uniques) | 77 localités uniques |
-| Localités SSD : enquête allégée, screening E&S, segmentation (données pour la Mission S) | 30 | Autres localités revalidées (référence : 130) | 160 localités uniques |
+| MRV : études complètes (demande, moindre coût, APD, finance, EIES/NIES et PGES) | MRV pilotes revalidés (référence : 37) | Autres MRV revalidés (référence : 42) | 77 |
+| Localités SSD : enquête allégée, screening E&S, segmentation (données pour la Mission S) | 30 | Autres localités revalidées (référence : 140) | 160 |
 | Sites de réserve : études jusqu'au G2, sur ordre du client et aux prix unitaires | – | – | Selon besoin |
 | Alternatives MCHE : revue documentaire et re-chiffrage par bassin de desserte | Selon la localisation | Selon la localisation | 14 localités |
 
@@ -173,7 +162,7 @@ Le Consultant applique simultanément les cadres ci-dessous. Il établit au dém
 
 **Tâche 0.1 – Revue documentaire et lancement.**
 
-- Documents à exploiter : résultats de la **Mission 0** (registre dédoublonné et géoréférencé, statut électrique et juridique), pré-faisabilité, Annexe A2, ProDoc, études MCHE, documents PASEL, Pacte, CDN 3.0, textes.
+- Documents à exploiter : résultats de la **Mission 0** (registre contrôlé et géoréférencé, statut électrique et juridique), pré-faisabilité, Annexe A2, ProDoc, études MCHE, documents PASEL, Pacte, CDN 3.0, textes.
 - Rencontres : ANER, ARSEL, E2C, FDSEL, Agence nationale de l'environnement, autorités locales.
 
 **Tâche 0.2 – Contrôle de cohérence.** Signaler toute anomalie résiduelle du registre de la Mission 0, constatée sur le terrain. Ne pas engager d'études détaillées sur une localité non validée au G0.
@@ -261,7 +250,7 @@ Analyse des biais de réponse.
 - **Indicateurs** : coût actualisé de l'énergie (LCOE), coût complet du service et **coût par connexion**.
 - **Livrable** : une note de décision d'une page par localité, avec la recommandation et les valeurs de bascule (distance au réseau, demande, prix du diesel).
 
-**Tâche B.3 – Dimensionnement optimisé.** Les « 88 kWhommes-mois par ménage » de la pré-faisabilité ne sont pas une hypothèse de demande et ne sont pas repris. Les **exigences minimales de performance** (énergie non servie, disponibilité, tension) sont fixées avec la Mission A pour le contrat type.
+**Tâche B.3 – Dimensionnement optimisé.** Les « 88 kWh/mois par ménage » de la pré-faisabilité ne sont pas une hypothèse de demande et ne sont pas repris. Les **exigences minimales de performance** (énergie non servie, disponibilité, tension) sont fixées avec la Mission A pour le contrat type.
 
 - Optimisation de la production (PV, BESS, onduleurs, éventuel appoint) à l'aide d'un logiciel reconnu de simulation horaire. Les fichiers sont fournis.
 - La demande de dimensionnement est la **demande mesurée projetée à 3 ans**. L'architecture est **modulaire et extensible**, pour suivre la croissance réelle.
@@ -277,7 +266,7 @@ Analyse des biais de réponse.
 **Tâche B.4 – Ingénierie de la valeur et configurations types.**
 
 - Proposer **4 à 6 configurations types de MRV** (par exemple S, M, L, XL) et des kits SSD par niveau MTF.
-- Proposer, au mois 6, une **cible de coût par connexion réalisée**, justifiée, à comparer à la pré-faisabilité (5 341 USD par ménage potentiel).
+- Proposer, au mois 6, une **cible de coût par connexion réalisée**, justifiée, à comparer à la pré-faisabilité (5 348 USD par ménage potentiel).
 - La comparer à des repères internationaux **normalisés** :
   - année des prix ;
   - USD par kWc ;
@@ -400,7 +389,7 @@ Analyse des biais de réponse.
 
 **Tâche F.2 – Screening et catégorisation.**
 
-- Fiche de screening pour **chacune des 242 localités et des sites de réserve**. Rubriques :
+- Fiche de screening pour **chacune des 237 localités, des localités pilotes rapprochées et des sites de réserve**. Rubriques :
   - foncier et déplacements ;
   - biodiversité et aires protégées ;
   - eau ;
@@ -680,22 +669,22 @@ Le client ne fournit ni véhicules, ni personnel d'enquête, ni assurance : ces 
 | Géomaticien (national) | 12 | 84 000 |
 | Géotechnicien (national) | 6 | 42 000 |
 | Statisticien d’enquête (national) | 6 | 42 000 |
-| Enquêtes ménages, demande et MTF, enquête stratifiée : 80 sites MRV (≈ 15 000 USD/site) | – | 1 200 000 |
-| Mesures de charge, relevés de diesel, préinscriptions (≈ 1 900 USD/site MRV) | – | 150 000 |
-| Enquêtes allégées : 162 localités SSD (≈ 3 000 USD/localité) | – | 486 000 |
-| Levés topographiques et GPS : 80 sites MRV (≈ 8 000 USD/site) | – | 640 000 |
+| Enquêtes ménages, demande et MTF, enquête stratifiée : 77 sites MRV (≈ 15 000 USD/site) | – | 1 155 000 |
+| Mesures de charge, relevés de diesel, préinscriptions (≈ 1 900 USD/site MRV) | – | 146 000 |
+| Enquêtes allégées : 160 localités SSD (≈ 3 000 USD/localité) | – | 480 000 |
+| Levés topographiques et GPS : 77 sites MRV (≈ 8 000 USD/site) | – | 616 000 |
 | Géotechnique légère | – | 250 000 |
 | Inventaires écologiques de seconde saison | – | 150 000 |
 | Consultations publiques, audiences EIES, divulgation | – | 250 000 |
 | Logistique de terrain (véhicules, pirogues, hébergement) | – | 500 000 |
 | Sécurité, HSE, communications satellitaires et évacuation | – | 200 000 |
 | Ateliers de restitution et formations | – | 100 000 |
-| Sous-total | 281 | 8 143 000 |
-| Imprévus (10 %) | – | 814 000 |
-| **Total mission B** | **281** | **8 957 000** |
+| Sous-total | 281 | 8 064 000 |
+| Imprévus (10 %) | – | 806 000 |
+| **Total mission B** | **281** | **8 870 000** |
 
 
-**Provision** pour les frais administratifs du certificat de conformité environnementale : **≈ 0,45 MUSD** (5 % du montant HT, si l'assiette est le montant total de la prestation ; à confirmer).
+**Provision** pour les frais administratifs du certificat de conformité environnementale : **≈ 0,44 MUSD** (5 % du montant HT, si l'assiette est le montant total de la prestation ; à confirmer).
 
 **Type de contrat : mixte.**
 
@@ -717,7 +706,7 @@ La recevabilité de cette structure est à confirmer selon les documents types d
 | Risque | Mesures |
 |---|---|
 | Accès difficile (saison des pluies, voies fluviales) | Planification saisonnière ; deux lots géographiques possibles ; équipes nationales |
-| Sites écartés (doublons, raccordement, statut urbain) | Registre de la Mission 0 ; prix unitaires ; pas de remplacement obligatoire |
+| Sites écartés (raccordement, statut urbain, moindre coût) | Registre de la Mission 0 ; prix unitaires ; pas de remplacement obligatoire |
 | Demande plus faible que prévu | Conception modulaire ; dimensionnement à 3 ans ; recherche active de charges d'ancrage |
 | Lenteur des procédures nationales d'EIES : examen des TdR (1 mois), avis de la commission (3 mois), inventaires en deux saisons | Enquêtes publiques et TdR d'études dès le mois 2 ; inventaires planifiés selon les saisons ; regroupement au titre de l'article 8 ; bureau national agréé ; suivi par l'ANER |
 | Divergence d'exigences E&S entre la BM et la BAD | Matrice de conformité validée par les bailleurs ; instruments communs ; revue conjointe |
@@ -728,11 +717,11 @@ La recevabilité de cette structure est à confirmer selon les documents types d
 
 # ANNEXES
 
-## Annexe 1 – Liste des 80 enregistrements MRV et alertes (Mission 0)
+## Annexe 1 – Liste des 77 localités MRV et points à traiter (Mission 0)
 
 Source : Annexe A2 du PEZoR (août 2026). Données reprises sans modification. La colonne « Alerte G0 » est ajoutée par l'auteur. La colonne « Pilote » signale les 37 sites de la Tranche 1.
 
-| # | Localité | Département | Pop. 2030 | Ménages | PV (kWc) | BESS (kWh) | CAPEX A2 (MUSD) | Pilote | Alerte G0 (Mission 0) |
+| # | Localité | Département | Pop. 2030 | Ménages | PV (kWc) | BESS (kWh) | CAPEX (MUSD) | Pilote | Point à traiter au gate G0 (Mission 0) |
 |---|---|---|---|---|---|---|---|---|---|
 | 1 | Minga | Bouenza | 1 535 | 394 | 284,6 | 1 182 | 1,93 |  |  |
 | 2 | Lissanga | Brazzaville | 2 167 | 542 | 391,4 | 1 626 | 2,31 |  | Rattachement et distance au réseau à vérifier |
@@ -754,87 +743,84 @@ Source : Annexe A2 du PEZoR (août 2026). Données reprises sans modification. L
 | 18 | Mbama | Cuvette-Ouest | 3 838 | 651 | 470,2 | 1 953 | 3,65 | Oui |  |
 | 19 | Olloba | Cuvette-Ouest | 2 900 | 491 | 354,6 | 1 473 | 2,77 |  |  |
 | 20 | Lebayi | Cuvette-Ouest | 1 345 | 228 | 164,7 | 684 | 1,33 | Oui |  |
-| 21 | Tsama I | Cuvette-Ouest | 1 279 | 217 | 156,7 | 651 | 1,27 |  | Doublon (occurrence conservée) |
-| 22 | Tsama I | Cuvette-Ouest | 1 279 | 217 | 156,7 | 651 | 1,27 |  | Doublon : 2e occurrence, à supprimer |
-| 23 | Talas | Cuvette-Ouest | 1 228 | 208 | 150,2 | 624 | 1,22 | Oui |  |
-| 24 | Ngoua | Cuvette-Ouest | 1 063 | 180 | 130,0 | 540 | 1,07 | Oui |  |
-| 25 | Beyi - Mbolo | Cuvette-Ouest | 1 040 | 176 | 127,1 | 528 | 1,05 | Oui |  |
-| 26 | Mbandza | Cuvette-Ouest | 1 026 | 174 | 125,7 | 522 | 1,04 | Oui |  |
-| 27 | Kakamoeka | Kouilou | 1 392 | 435 | 314,2 | 1 305 | 1,96 |  |  |
-| 28 | Ndembouanou | Kouilou | 1 241 | 388 | 280,2 | 1 164 | 1,75 |  |  |
-| 29 | Dongou | Likouala | 17 017 | 2 701 | 1 950,7 | 8 103 | 16,40 |  | Communauté urbaine : hors zone rurale (décret 2017-250) ; statut réseau E2C à vérifier |
-| 30 | Epena | Likouala | 6 575 | 1 044 | 754,0 | 3 132 | 6,40 |  | Communauté urbaine : hors zone rurale (décret 2017-250) ; statut réseau E2C à vérifier |
-| 31 | Bouanela | Likouala | 6 149 | 976 | 704,9 | 2 928 | 5,99 |  |  |
-| 32 | Moungouma-Bailly | Likouala | 3 306 | 525 | 379,2 | 1 575 | 3,26 |  |  |
-| 33 | Kinami | Likouala | 3 116 | 495 | 357,5 | 1 485 | 3,08 |  |  |
-| 34 | Ebambe | Likouala | 1 905 | 302 | 218,1 | 906 | 1,92 |  |  |
-| 35 | Botongo | Likouala | 1 342 | 213 | 153,8 | 639 | 1,38 |  |  |
-| 36 | Komono | Lékoumou | 6 488 | 1 664 | 1 201,8 | 4 992 | 8,55 | Oui | Communauté urbaine : hors zone rurale (décret 2017-250) ; statut réseau E2C à vérifier |
-| 37 | Zanaga | Lékoumou | 4 545 | 1 165 | 841,4 | 3 495 | 6,01 | Oui |  |
-| 38 | Bambama | Lékoumou | 5 202 | 948 | 684,7 | 2 844 | 4,91 |  |  |
-| 39 | Tongo | Lékoumou | 2 458 | 630 | 455,0 | 1 890 | 3,29 | Oui |  |
-| 40 | Loyo | Lékoumou | 1 747 | 448 | 323,6 | 1 344 | 2,36 | Oui |  |
-| 41 | Mbomo | Lékoumou | 1 651 | 423 | 305,5 | 1 269 | 2,23 | Oui |  |
-| 42 | Mapati | Lékoumou | 1 320 | 338 | 244,1 | 1 014 | 1,80 | Oui |  |
-| 43 | Léfoutou | Lékoumou | 1 267 | 325 | 234,7 | 975 | 1,74 |  |  |
-| 44 | Yomi | Lékoumou | 1 228 | 315 | 227,5 | 945 | 1,68 |  |  |
-| 45 | Moukassi | Lékoumou | 1 184 | 304 | 219,6 | 912 | 1,63 | Oui |  |
-| 46 | Kengue | Lékoumou | 1 170 | 300 | 216,7 | 900 | 1,61 | Oui |  |
-| 47 | Ingolo I | Lékoumou | 1 103 | 283 | 204,4 | 849 | 1,52 |  |  |
-| 48 | Mambouana | Lékoumou | 1 064 | 273 | 197,2 | 819 | 1,47 | Oui |  |
-| 49 | Ngonaka | Lékoumou | 1 011 | 259 | 187,1 | 777 | 1,40 |  |  |
-| 50 | Mossendjo | Niari | 19 005 | 4 132 | 2 984,2 | 12 396 | 20,34 | Oui | Commune : hors zone rurale (décret 2017-250) ; statut réseau E2C à vérifier |
-| 51 | Makabana | Niari | 9 307 | 2 023 | 1 461,1 | 6 069 | 10,00 | Oui | Communauté urbaine : hors zone rurale (décret 2017-250) ; statut réseau E2C à vérifier |
-| 52 | Mbinda | Niari | 4 845 | 1 053 | 760,5 | 3 159 | 5,24 |  |  |
-| 53 | Divénié | Niari | 4 416 | 960 | 693,3 | 2 880 | 4,79 | Oui |  |
-| 54 | Mila-Mila | Niari | 3 808 | 828 | 598,0 | 2 484 | 4,14 | Oui | Doublon (occurrence conservée) |
-| 55 | Mila-Mila | Niari | 3 808 | 828 | 598,0 | 2 484 | 4,14 | Oui | Doublon : 2e occurrence, à supprimer |
-| 56 | Banda | Niari | 3 115 | 677 | 488,9 | 2 031 | 3,40 |  |  |
-| 57 | Nyanga | Niari | 3 092 | 672 | 485,3 | 2 016 | 3,37 | Oui | Doublon (occurrence conservée) |
-| 58 | Nyanga | Niari | 3 092 | 672 | 485,3 | 2 016 | 3,37 | Oui | Doublon : 2e occurrence, à supprimer |
-| 59 | Moutamba | Niari | 2 976 | 647 | 467,3 | 1 941 | 3,25 | Oui |  |
-| 60 | Kibangou | Niari | 2 208 | 480 | 346,7 | 1 440 | 2,43 |  |  |
-| 61 | Moukouassi | Niari | 1 538 | 334 | 241,2 | 1 002 | 1,72 |  |  |
-| 62 | Moukondo | Niari | 1 404 | 305 | 220,3 | 915 | 1,57 | Oui |  |
-| 63 | Les banda | Niari | 1 392 | 303 | 218,8 | 909 | 1,56 |  |  |
-| 64 | Boko | Pool | 4 080 | 1 103 | 796,6 | 3 309 | 5,06 | Oui | Raccordée au réseau selon la presse (juil. 2026) |
-| 65 | Louingui | Pool | 3 761 | 1 016 | 733,8 | 3 048 | 4,67 | Oui | Raccordée au réseau selon la presse (juil. 2026) |
-| 66 | Kindama-Ngouendi | Pool | 2 275 | 615 | 444,2 | 1 845 | 2,86 |  |  |
-| 67 | Nzinzi | Pool | 1 866 | 504 | 364,0 | 1 512 | 2,35 |  |  |
-| 68 | Ngandou-Boudzoua | Pool | 1 753 | 474 | 342,3 | 1 422 | 2,22 |  |  |
-| 69 | Pk Loualou | Pool | 1 747 | 472 | 340,9 | 1 416 | 2,21 |  |  |
-| 70 | Ntari | Pool | 1 334 | 361 | 260,7 | 1 083 | 1,71 |  |  |
-| 71 | Mantsiedi | Pool | 1 311 | 354 | 255,7 | 1 062 | 1,67 |  |  |
-| 72 | Sissia Ntonkama | Pool | 1 298 | 351 | 253,5 | 1 053 | 1,66 |  |  |
-| 73 | Mpassa Mines | Pool | 1 238 | 334 | 241,2 | 1 002 | 1,58 |  |  |
-| 74 | Moussolo-Dakar | Pool | 1 130 | 305 | 220,3 | 915 | 1,45 | Oui |  |
-| 75 | Mimpalla | Pool | 1 101 | 298 | 215,2 | 894 | 1,42 |  |  |
-| 76 | Ngongo | Pool | 1 091 | 295 | 213,1 | 885 | 1,41 |  |  |
-| 77 | Yangui | Pool | 1 074 | 290 | 209,4 | 870 | 1,38 |  |  |
-| 78 | Souanké | Sangha | 13 426 | 2 533 | 1 829,4 | 7 599 | 14,90 | Oui | Communauté urbaine : hors zone rurale (décret 2017-250) ; statut réseau E2C à vérifier |
-| 79 | Sembé | Sangha | 11 928 | 2 251 | 1 625,7 | 6 753 | 13,25 | Oui | Communauté urbaine : hors zone rurale (décret 2017-250) ; statut réseau E2C à vérifier |
-| 80 | Ngbala | Sangha | 2 403 | 453 | 327,2 | 1 359 | 2,74 |  |  |
-| | **Total (80 enregistrements)** | | **297 974** | **59 467** | **42 948,5** | **178 401** | **317,61** | **37** | |
+| 21 | Tsama I | Cuvette-Ouest | 1 279 | 217 | 156,7 | 651 | 1,27 | Oui |  |
+| 22 | Talas | Cuvette-Ouest | 1 228 | 208 | 150,2 | 624 | 1,22 | Oui |  |
+| 23 | Ngoua | Cuvette-Ouest | 1 063 | 180 | 130,0 | 540 | 1,07 | Oui |  |
+| 24 | Beyi - Mbolo | Cuvette-Ouest | 1 040 | 176 | 127,1 | 528 | 1,05 | Oui |  |
+| 25 | Mbandza | Cuvette-Ouest | 1 026 | 174 | 125,7 | 522 | 1,04 | Oui |  |
+| 26 | Kakamoeka | Kouilou | 1 392 | 435 | 314,2 | 1 305 | 1,96 |  |  |
+| 27 | Ndembouanou | Kouilou | 1 241 | 388 | 280,2 | 1 164 | 1,75 |  |  |
+| 28 | Dongou | Likouala | 17 017 | 2 701 | 1 950,7 | 8 103 | 16,40 |  | Communauté urbaine : hors zone rurale (décret 2017-250) ; statut réseau E2C à vérifier |
+| 29 | Epena | Likouala | 6 575 | 1 044 | 754,0 | 3 132 | 6,40 |  | Communauté urbaine : hors zone rurale (décret 2017-250) ; statut réseau E2C à vérifier |
+| 30 | Bouanela | Likouala | 6 149 | 976 | 704,9 | 2 928 | 5,99 |  |  |
+| 31 | Moungouma-Bailly | Likouala | 3 306 | 525 | 379,2 | 1 575 | 3,26 |  |  |
+| 32 | Kinami | Likouala | 3 116 | 495 | 357,5 | 1 485 | 3,08 |  |  |
+| 33 | Ebambe | Likouala | 1 905 | 302 | 218,1 | 906 | 1,92 |  |  |
+| 34 | Botongo | Likouala | 1 342 | 213 | 153,8 | 639 | 1,38 |  |  |
+| 35 | Komono | Lékoumou | 6 488 | 1 664 | 1 201,8 | 4 992 | 8,55 | Oui | Communauté urbaine : hors zone rurale (décret 2017-250) ; statut réseau E2C à vérifier |
+| 36 | Zanaga | Lékoumou | 4 545 | 1 165 | 841,4 | 3 495 | 6,01 | Oui |  |
+| 37 | Bambama | Lékoumou | 5 202 | 948 | 684,7 | 2 844 | 4,91 |  |  |
+| 38 | Tongo | Lékoumou | 2 458 | 630 | 455,0 | 1 890 | 3,29 | Oui |  |
+| 39 | Loyo | Lékoumou | 1 747 | 448 | 323,6 | 1 344 | 2,36 | Oui |  |
+| 40 | Mbomo | Lékoumou | 1 651 | 423 | 305,5 | 1 269 | 2,23 | Oui |  |
+| 41 | Mapati | Lékoumou | 1 320 | 338 | 244,1 | 1 014 | 1,80 | Oui |  |
+| 42 | Léfoutou | Lékoumou | 1 267 | 325 | 234,7 | 975 | 1,74 | Oui | Département différent dans la liste pilote (Niari) |
+| 43 | Yomi | Lékoumou | 1 228 | 315 | 227,5 | 945 | 1,68 | Oui |  |
+| 44 | Moukassi | Lékoumou | 1 184 | 304 | 219,6 | 912 | 1,63 | Oui |  |
+| 45 | Kengue | Lékoumou | 1 170 | 300 | 216,7 | 900 | 1,61 | Oui |  |
+| 46 | Ingolo I | Lékoumou | 1 103 | 283 | 204,4 | 849 | 1,52 | Oui |  |
+| 47 | Mambouana | Lékoumou | 1 064 | 273 | 197,2 | 819 | 1,47 | Oui |  |
+| 48 | Ngonaka | Lékoumou | 1 011 | 259 | 187,1 | 777 | 1,40 | Oui | Département différent dans la liste pilote (Niari) |
+| 49 | Mossendjo | Niari | 19 005 | 4 132 | 2 984,2 | 12 396 | 20,34 | Oui | Commune : hors zone rurale (décret 2017-250) ; statut réseau E2C à vérifier |
+| 50 | Makabana | Niari | 9 307 | 2 023 | 1 461,1 | 6 069 | 10,00 | Oui | Communauté urbaine : hors zone rurale (décret 2017-250) ; statut réseau E2C à vérifier |
+| 51 | Mbinda | Niari | 4 845 | 1 053 | 760,5 | 3 159 | 5,24 |  |  |
+| 52 | Divénié | Niari | 4 416 | 960 | 693,3 | 2 880 | 4,79 | Oui |  |
+| 53 | Mila-Mila | Niari | 3 808 | 828 | 598,0 | 2 484 | 4,14 | Oui |  |
+| 54 | Banda | Niari | 3 115 | 677 | 488,9 | 2 031 | 3,40 |  |  |
+| 55 | Nyanga | Niari | 3 092 | 672 | 485,3 | 2 016 | 3,37 | Oui |  |
+| 56 | Moutamba | Niari | 2 976 | 647 | 467,3 | 1 941 | 3,25 | Oui |  |
+| 57 | Kibangou | Niari | 2 208 | 480 | 346,7 | 1 440 | 2,43 |  |  |
+| 58 | Moukouassi | Niari | 1 538 | 334 | 241,2 | 1 002 | 1,72 |  |  |
+| 59 | Moukondo | Niari | 1 404 | 305 | 220,3 | 915 | 1,57 | Oui |  |
+| 60 | Les banda | Niari | 1 392 | 303 | 218,8 | 909 | 1,56 |  |  |
+| 61 | Boko | Pool | 4 080 | 1 103 | 796,6 | 3 309 | 5,06 | Oui | Raccordée au réseau selon la presse (juil. 2026) |
+| 62 | Louingui | Pool | 3 761 | 1 016 | 733,8 | 3 048 | 4,67 | Oui | Raccordée au réseau selon la presse (juil. 2026) |
+| 63 | Kindama-Ngouendi | Pool | 2 275 | 615 | 444,2 | 1 845 | 2,86 |  |  |
+| 64 | Nzinzi | Pool | 1 866 | 504 | 364,0 | 1 512 | 2,35 |  |  |
+| 65 | Ngandou-Boudzoua | Pool | 1 753 | 474 | 342,3 | 1 422 | 2,22 |  |  |
+| 66 | Pk Loualou | Pool | 1 747 | 472 | 340,9 | 1 416 | 2,21 |  |  |
+| 67 | Ntari | Pool | 1 334 | 361 | 260,7 | 1 083 | 1,71 |  |  |
+| 68 | Mantsiedi | Pool | 1 311 | 354 | 255,7 | 1 062 | 1,67 |  |  |
+| 69 | Sissia Ntonkama | Pool | 1 298 | 351 | 253,5 | 1 053 | 1,66 |  |  |
+| 70 | Mpassa Mines | Pool | 1 238 | 334 | 241,2 | 1 002 | 1,58 |  |  |
+| 71 | Moussolo-Dakar | Pool | 1 130 | 305 | 220,3 | 915 | 1,45 | Oui |  |
+| 72 | Mimpalla | Pool | 1 101 | 298 | 215,2 | 894 | 1,42 |  |  |
+| 73 | Ngongo | Pool | 1 091 | 295 | 213,1 | 885 | 1,41 |  |  |
+| 74 | Yangui | Pool | 1 074 | 290 | 209,4 | 870 | 1,38 |  |  |
+| 75 | Souanké | Sangha | 13 426 | 2 533 | 1 829,4 | 7 599 | 14,90 | Oui | Communauté urbaine : hors zone rurale (décret 2017-250) ; statut réseau E2C à vérifier |
+| 76 | Sembé | Sangha | 11 928 | 2 251 | 1 625,7 | 6 753 | 13,25 | Oui | Communauté urbaine : hors zone rurale (décret 2017-250) ; statut réseau E2C à vérifier |
+| 77 | Ngbala | Sangha | 2 403 | 453 | 327,2 | 1 359 | 2,74 |  |  |
+| | **Total** | | **289 795** | **57 750** | **41 708,5** | **173 250** | **308,83** | **35** | |
 
 
-**Répartition par lot géographique (option § 3.3), en enregistrements avant dédoublonnage.** Lot Sud : 47 (Niari 14, Lékoumou 14, Pool 14, Kouilou 2, Brazzaville 2, Bouenza 1), dont 2 doublons (Mila-Mila, Nyanga). Lot Nord : 33 (Cuvette-Ouest 12, Cuvette 11, Likouala 7, Sangha 3), dont 1 doublon (Tsama I).
+**Répartition par lot géographique (option § 3.3).** Lot Sud : 45 localités (Niari 12, Lékoumou 14, Pool 14, Kouilou 2, Brazzaville 2, Bouenza 1). Lot Nord : 32 localités (Cuvette-Ouest 11, Cuvette 11, Likouala 7, Sangha 3).
 
 ## Annexe 2 – Localités SSD par territoire (données de référence pour la Mission S)
 
-**Programme Cadre : 162 localités, 9 territoires**
+**Programme Cadre : 160 localités, 9 territoires**
 
 | Territoire (département) | Localités | Population 2030 | Ménages | CAPEX SSD (MUSD) | CAPEX/ménage (USD) |
 |---|---|---|---|---|---|
-| Pool | 54 | 30 340 | 8 251 | 12,80 | 1 552 |
+| Pool | 53 | 29 512 | 8 027 | 12,45 | 1 552 |
 | Bouenza | 24 | 13 033 | 3 342 | 5,40 | 1 616 |
 | Kouilou | 31 | 9 978 | 3 119 | 4,64 | 1 487 |
 | Cuvette | 25 | 11 940 | 2 058 | 3,86 | 1 875 |
-| Niari | 15 | 8 725 | 1 897 | 3,19 | 1 681 |
+| Niari | 14 | 8 321 | 1 809 | 3,04 | 1 681 |
 | Lékoumou | 8 | 5 833 | 1 495 | 2,61 | 1 746 |
 | Cuvette-Ouest | 3 | 1 761 | 298 | 0,56 | 1 875 |
 | Brazzaville | 1 | 856 | 214 | 0,30 | 1 422 |
 | Pointe-Noire | 1 | 670 | 181 | 0,26 | 1 422 |
-| **Total** | **162** | **83 136** | **20 855** | **33,62** | **1 612** |
+| **Total** | **160** | **81 904** | **20 543** | **33,12** | **1 612** |
 
 
 **Tranche 1 (pilote) : 30 localités, 6 territoires**
@@ -850,7 +836,7 @@ Source : Annexe A2 du PEZoR (août 2026). Données reprises sans modification. L
 | **Total** | **30** | **21 297** | **5 003** | **8,24** | **1 647** |
 
 
-**Segmentation par niveau de service** (présentation PEZoR, diapositive 7 bis) :
+**Segmentation par niveau de service** (présentation PEZoR, diapositive 7 bis ; établie sur la liste initiale de 162 enregistrements, à actualiser par la Mission S) :
 
 | Niveau MTF | Puissance type | Localités | Ménages |
 |---|---|---|---|
@@ -866,9 +852,9 @@ Source : Annexe A2 du PEZoR (août 2026). Données reprises sans modification. L
 
 | Donnée | Source | Statut |
 |---|---|---|
-| Liste des 242 localités, population 2030, ménages, pré-orientation, CAPEX, PV, BESS | Annexe A2 du PEZoR | Pré-faisabilité ; coordonnées en grande partie à renseigner |
+| Liste des localités (237 après retrait de 5 doublons), population 2030, ménages, pré-orientation, CAPEX, PV, BESS | Annexe A2 du PEZoR | Pré-faisabilité ; coordonnées en grande partie à renseigner |
 | Registre géospatial (33 colonnes par site) | PEZoR | Rattachement aux grappes GEP/VIDA à valider |
-| Modèle financier PEZoR (445 MUSD) | PEZoR | Agrégé ; non ventilé par site après rebasage |
+| Modèle financier PEZoR | PEZoR | Agrégé ; non ventilé par site après rebasage |
 | Études MCHE (Lébama, Itsibou, Foula, Léoué, etc.) et E&S du projet FEM 5424 | MEH/ANER, PNUD | À revoir et actualiser |
 | SEN, plan de développement au moindre coût, plans d'extension | PASEL / MEH / E2C | Disponibilité à confirmer |
 | Textes législatifs et réglementaires | MEH, Journal officiel | – |
@@ -981,12 +967,11 @@ Les TdR et avis publics ci-dessous ont servi à aligner la structure, les tâche
 - l'analyse géospatiale au moindre coût ;
 - la cible de coût par connexion.
 
-La durée (24 mois) est plus longue que celle des précédents (6 mois pour ≈ 25 sites en RDC, 36 semaines pour 100 localités au Tchad). Elle s'explique par l'échelle (80 MRV et 162 localités SSD), les procédures nationales d'EIES et les inventaires en deux saisons.
+La durée (24 mois) est plus longue que celle des précédents (6 mois pour ≈ 25 sites en RDC, 36 semaines pour 100 localités au Tchad). Elle s'explique par l'échelle (77 MRV et 160 localités SSD), les procédures nationales d'EIES et les inventaires en deux saisons.
 
 
 ## Annexe 9 – Sources
 
-- Contre-expertise indépendante de la v1.0 (novembre 2026) et matrice de traitement : TdR-cadre v2.0, Annexe VII.10.
 - Décret 2017-250 : https://liziba.cg/wp-content/uploads/2024/10/Decret-n°2017-250-du-17-juillet-2017-fixant-les-conditions-dexploitation-des-installations-electriques-dans-les-zones-rurales.pdf
 - Rappel ministériel sur le certificat de conformité environnementale (21/10/2026) : https://developpement-durable.gouv.cg/2026/10/21/certificat-de-conformite-environnementale-cce-la-ministre-rappelle-les-conditions-de-constitution-du-dossier-administratif/
 - Directive BM sur le financement de projets d'investissement (2023) : https://thedocs.worldbank.org/en/doc/a63d7e40de1c13802a096eddf6d105bb-0290012023/original/Bank-Directive-Investment-project-financing.pdf
@@ -999,4 +984,4 @@ La durée (24 mois) est plus longue que celle des précédents (6 mois pour ≈ 
 - Lighting Global, IEC TS 62257-9-8 : https://www.lightingglobal.org/iec-adopts-lighting-global-quality-standards/
 - ESMAP/SEforALL, Multi-Tier Framework : https://www.seforall.org/sites/default/files/Beyond-Connections-Introducing-Multi-Tier-Framework-for-Tracking-Energy-Access.pdf
 - PEZoR : ProDoc, étude de pré-faisabilité, Annexe A2 et présentation (août 2026), documents remis par le client.
-- TdR-cadre v2.0 « Préparation bancable des investissements hors réseau du PEZoR » (novembre 2026).
+- TdR-cadre « Préparation bancable des investissements hors réseau du PEZoR » (novembre 2026).
