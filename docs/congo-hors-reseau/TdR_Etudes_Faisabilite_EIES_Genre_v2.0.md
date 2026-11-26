@@ -1,28 +1,40 @@
 ---
 title: "TERMES DE RÉFÉRENCE"
-subtitle: "Études de faisabilité technique, financière et économique, études d'impact environnemental et social (EIES) et études genre – Phase 1 du programme hors réseau du PEZoR : 80 mini-réseaux verts et 9 concessions de systèmes solaires domestiques – République du Congo"
-date: "Projet v1.0 – novembre 2026 – Document de travail soumis à validation du MEH/ANER et des bailleurs"
+subtitle: "Études de faisabilité technique, financière et économique, études d'impact environnemental et social (EIES/NIES) et études genre – Mini-réseaux verts et localités en systèmes solaires domestiques du PEZoR – République du Congo"
+date: "Version 2.0 – novembre 2026 – Révisée après contre-expertise indépendante – Mission B des TdR-cadre v2.0"
 lang: fr-FR
 ---
+
+# Ce qui change dans la version 2.0
+
+- **Périmètre.** Il est fixé par la **Mission 0** (audit préalable) : 80 / 162 enregistrements de référence, soit 77 / 160 localités uniques. **Aucun remplacement obligatoire** des sites écartés.
+- **Statut juridique.** Il est vérifié que les **10 plus grands sites MRV** (47 % du CAPEX) sont des communes ou communautés urbaines, donc hors « zone rurale » au sens du décret 2017-250. Leur maintien dépend du régime arrêté par la Mission 0 puis par la Mission A.
+- **Solaire domestique.** La structuration commerciale du solaire domestique est transférée à la **Mission S**. La présente mission fournit les données d'enquête et de screening.
+- **Demande.** L'enquête est stratifiée et complétée par des comportements observés. Les « 88 kWhommes-mois » ne sont pas repris.
+- **Coûts.** Précision de ± 15 % définie, repère international normalisé, coûts rendus site par site, scénarios de stress combinés, analyse économique sans double comptage.
+- **Gates.** La mission livre **G3a** (bancabilité technique). G3b relève des certificats environnementaux et des non-objections.
+- **E&S.** NIES regroupées uniquement par localité (article 8 du décret 2025-316). Inventaires en deux saisons. Provision pour les 5 % de frais administratifs. Matrice de conformité.
+- **Contrat.** Mixte : forfait, prix unitaires et tranche conditionnelle. Références internationales équivalentes acceptées. Gabarits communs validés par le maître d'ouvrage.
 
 # Fiche de la mission
 
 | Rubrique | Contenu |
 |---|---|
 | Pays | République du Congo |
-| Client / autorité contractante | Ministère de l'Énergie et de l'Hydraulique (MEH), par l'Agence Nationale d'Électrification Rurale (ANER), agissant à travers l'Unité de Gestion du Programme (UGP) |
-| Programme | Programme d'Électrification des Zones Rurales (PEZoR) : fenêtre hors réseau, contribution à la cible rurale du Pacte National Énergétique (Mission 300) |
-| Intitulé | Études de faisabilité technique, financière et économique, EIES et genre des 80 mini-réseaux verts (MRV) et des 9 concessions territoriales de systèmes solaires domestiques (SSD) |
-| Périmètre physique | **80 localités MRV** de 1 000 habitants et plus (dont 37 en phase pilote) et **162 localités SSD** regroupées en **9 concessions** (dont 30 localités et 6 concessions en phase pilote). Données : pré-faisabilité PEZoR et Annexe A2, août 2026 |
-| Découpage | **Tranche 1** (pilote) : 37 MRV et 6 concessions SSD (30 localités). **Tranche 2** : 43 MRV et extension aux 9 concessions (132 localités) |
-| Nature de la mission | Mission de consultant : études jusqu'au niveau d'avant-projet détaillé (APD), modèles financiers, analyse économique, instruments E&S cadres et site par site, plan d'action genre, dossiers d'investissement par lot |
-| Financement envisagé | Dons ESMAP (Banque mondiale) et BAD/SEFA ou autre fonds géré par la BAD, avances de préparation adossées aux futures opérations, autres PTF. **Sources et règles applicables à confirmer** (voir § 13) |
-| Méthode de sélection | Sélection fondée sur la qualité et le coût (SFQC/QCBS), selon le règlement du bailleur finançant le contrat |
-| Durée | 24 mois (Tranche 1 au gate G3 au mois 10 ; Tranche 2 au mois 22 ; rapport final au mois 24) |
-| Effort et budget indicatifs | ≈ 133 h/mois d'experts internationaux et ≈ 126 h/mois d'experts nationaux, plus le terrain ; **≈ 8,4 MUSD** (estimation de l'auteur, § 13) |
-| Lien avec les autres missions | Mission A (conseil réglementaire, financier et transactionnel) et Mission C (UGP, données, vérification) des TdR-cadre v1.0 |
+| Client / autorité contractante | MEH, par l'ANER, agissant à travers l'UGP |
+| Programme | PEZoR : fenêtre hors réseau, contribution à la cible rurale du Pacte National Énergétique (Mission 300) |
+| Intitulé | Études de faisabilité, EIES/NIES et genre des mini-réseaux verts (MRV) et des localités en systèmes solaires domestiques (SSD) |
+| Périmètre physique | Localités MRV **revalidées par la Mission 0**, sur une référence de 80 enregistrements (77 localités uniques, dont 37 pilotes) ; localités SSD revalidées, sur une référence de 162 enregistrements (160 uniques, dont 30 pilotes), pour les enquêtes, le screening E&S et la segmentation |
+| Découpage | **Tranche 1 (ferme)** : MRV pilotes revalidés et 30 localités SSD pilotes. **Tranche 2 (conditionnelle)** : autres MRV et localités SSD revalidés |
+| Nature | Études jusqu'à l'APD ; modèles financiers ; analyse économique ; instruments E&S cadres et par site ; plan d'action genre ; dossiers de faisabilité par lot MRV ; données SSD transmises à la Mission S |
+| Financement envisagé | ESMAP, autres fonds gérés par la BAD, avances de préparation BM (jusqu'à 6 MUSD par opération) ou BAD, autres PTF. **SEFA : 0 dans le scénario de base** (§ 13) |
+| Méthode de sélection | SFQC/QCBS selon le règlement du bailleur finançant le contrat |
+| Type de contrat | Mixte : forfait, prix unitaires pour les quantités variables, tranche conditionnelle |
+| Durée | 24 mois : G3a de la Tranche 1 aux mois 10–12 ; certificats environnementaux de la Tranche 1 aux mois 15–17 ; Tranche 2 au mois 22 ; rapport final au mois 24 |
+| Effort et budget indicatifs | 125 hommes-mois internationaux et 156 nationaux, plus le terrain ; **≈ 8,96 MUSD**, plus une provision de 0,45 MUSD pour les frais administratifs du certificat environnemental (à confirmer) |
+| Lien avec les autres missions | Mission 0 (audit préalable), A (régulation, financement, passation), C (UGP, données, vérification, revue indépendante), S (filière rapide SSD) des TdR-cadre v2.0 |
 
-**Note de lecture.** Ces TdR détaillent la **Mission B** des TdR-cadre v1.0 (« Préparation bancable des investissements hors réseau du PEZoR »). Ils sont rédigés pour être joints tels quels à une demande de propositions. Leur structure suit celle des TdR de consultants utilisés pour les opérations hors réseau financées par la Banque mondiale et par la BAD : contexte, objectifs, périmètre, tâches, livrables, équipe, obligations du client. Les données de portefeuille sont reprises sans modification de la pré-faisabilité PEZoR. Les budgets et effectifs sont des estimations à valider.
+**Note de lecture.** Ces TdR détaillent la **Mission B** des TdR-cadre v2.0. Leur structure suit celle de TdR comparables de la Banque mondiale et de la BAD (Annexe 8). La v2.0 intègre les recommandations d'une contre-expertise indépendante ; la matrice de traitement figure dans les TdR-cadre v2.0 (Annexe VII.10). Les données de portefeuille sont reprises de la pré-faisabilité PEZoR. Les budgets et effectifs sont des estimations à valider. « Hommes-mois » désigne des personnes-mois.
 
 # 1. Contexte
 
@@ -42,53 +54,54 @@ Le PEZoR, porté par le MEH et l'ANER avec l'appui du PNUD, couvre 242 localité
 
 | Indicateur | Phase pilote (67 localités) | Programme Cadre (242 localités) |
 |---|---|---|
-| Localités MRV / ménages MRV | 37 / 35 225 | 80 / 59 467 |
+| Localités MRV / ménages MRV | 37 / 35 225 | 80 / 59 467 (77 / 57 750 après dédoublonnage) |
 | PV / stockage MRV | 25,44 MWc / 105,68 MWh | 42,95 MWc / 178,40 MWh |
 | CAPEX technique MRV | 186,92 MUSD | 317,61 MUSD (409,72 MUSD rebasés) |
-| Localités SSD / ménages SSD | 30 / 5 003 | 162 / 20 855 |
+| Localités SSD / ménages SSD | 30 / 5 003 | 162 / 20 855 (160 / 20 543 après dédoublonnage) |
 | CAPEX SSD | 8,24 MUSD | 33,62 MUSD |
-| Lots MRV / concessions SSD | 7 / 6 | 10 / 9 |
+| Lots MRV / concessions SSD (PEZoR) | 7 / 6 | 10 / 9 |
 
 Les 67 localités pilotes sont incluses dans les 242. Quatorze localités disposent d'une **alternative hydroélectrique (MCHE)** documentée par des études antérieures ; cette alternative n'est jamais cumulée au solaire.
 
 ## 1.3 Pourquoi ces études : passer de la pré-faisabilité à la bancabilité
 
-La pré-faisabilité ne permet pas encore de décider d'investir. Les TdR-cadre v1.0 relèvent huit verrous. Cinq relèvent directement de cette mission :
+La pré-faisabilité ne permet pas encore de décider d'investir. Les verrous qui relèvent de cette mission sont les suivants :
 
-1. **Coût par connexion élevé.** Le CAPEX technique atteint 5 341 USD par ménage en MRV, contre une fourchette de 1 000 à 2 100 USD par connexion attribuée à l'ESMAP (2019, source secondaire).
-2. **Demande non mesurée.** Le dimensionnement repose sur ≈ 0,72 kWc et ≈ 88 kWh par mois et par ménage, sans enquête de terrain.
-3. **Données de portefeuille à fiabiliser.**
-   - 10 enregistrements signalés en doublon, dont 3 doublons de MRV : Mila-Mila, Nyanga, Tsama I.
-   - Boko et Louingui raccordées au réseau selon la presse (juillet 2026).
-   - Mouyondzi sans population renseignée.
-   - Capacité SSD donnée à 31,4 MWc dans le registre contre 6,8 MWc après recalcul.
+1. **Coût par connexion.** 5 341 USD par ménage potentiel en MRV (6 890 USD rebasé). Si 80 % seulement des ménages sont raccordés, le coût rebasé atteint ≈ 8 612 USD par connexion réalisée. Le repère de 1 000 à 2 100 USD (ESMAP 2019, source secondaire) doit être **normalisé** avant toute comparaison.
+2. **Demande non mesurée.** Les « ≈ 88 kWhommes-mois par ménage » sont la production totale répartie entre les ménages (4,0 kWh/kWc/j × 42,95 MWc ≈ 62,7 GWh/an, divisés par 59 467 ménages). Ce n'est pas une demande.
+3. **Données du portefeuille.**
+   - 5 paires de doublons ; après dédoublonnage, 78 293 ménages, en deçà des 79 000 du Pacte.
+   - Les 10 plus grands sites sont des communes ou communautés urbaines (décret 2017-250).
+   - Boko et Louingui raccordées selon la presse.
    - Coordonnées GPS manquantes.
-4. **Absence d'instruments E&S** conformes au CES de la Banque mondiale et au SSI de la BAD.
-5. **Concessions SSD peu attractives.** Elles comptent en moyenne ≈ 2 300 ménages chacune, et moins de 300 dans trois territoires.
+   Ces points sont traités en amont par la **Mission 0**.
+4. **Absence d'instruments E&S** conformes au CES de la Banque mondiale, au SSI 2023 de la BAD et au décret 2025-316.
+5. **Provisions uniformes de 29 %**, quelle que soit l'accessibilité des sites.
 
 ## 1.4 Articulation avec les autres travaux
 
-- **Mission A** (conseil réglementaire, financier et transactionnel) : méthode tarifaire, mécanisme RBF, contrats types, dossiers d'appel d'offres (DAO). Elle utilise les données d'enquête, les APD et les modèles financiers de la présente mission.
-- **Mission C** (appui à l'UGP) : plateforme géoréférencée et protocole de vérification. Elle reçoit toutes les données produites ici.
-- **PASEL** (Banque mondiale, P501343) : finance la SEN et le plan de développement au moindre coût. Les plans d'extension du réseau qui en résultent sont une donnée d'entrée du gate G0.
-- **GET.transform** (UE) : appuie la réglementation des mini-réseaux. Les normes techniques retenues ici doivent rester cohérentes avec ses travaux.
+- **Mission 0** : fournit le registre dédoublonné, géoréférencé et qualifié (réseau, juridique). C'est la **donnée d'entrée** de la présente mission.
+- **Mission A** : méthode tarifaire, déficit de viabilité, architectures contractuelles, RBF, DAO. Elle utilise les enquêtes, APD et modèles de la présente mission.
+- **Mission C** : gabarits communs validés par le maître d'ouvrage, plateforme, protocole de vérification, **revue technique indépendante** des APD et des modèles.
+- **Mission S** : filière rapide solaire domestique. Elle reçoit les données SSD de la présente mission.
+- **PASEL** (SEN, plan au moindre coût) et **GET.transform** (réglementation des mini-réseaux).
 
 # 2. Objectifs
 
 ## 2.1 Objectif général
 
-Établir, pour chacun des 80 MRV et chacune des 9 concessions SSD, la faisabilité technique, financière, économique, environnementale, sociale et de genre. Le résultat attendu est que chaque lot franchisse le **gate G3 du PEZoR** (« bancabilité ») et soit prêt pour :
+Établir, pour chaque localité MRV revalidée (référence : 77 localités uniques), la faisabilité technique, financière, économique, environnementale, sociale et de genre, et fournir à la Mission S les données des localités SSD. Le résultat attendu est que chaque lot MRV franchisse le **gate G3a** (bancabilité technique) et soit prêt pour :
 
 - l'évaluation par les bailleurs (BAD, Banque mondiale, autres PTF) ;
 - la préparation des dossiers d'appel d'offres par la Mission A.
 
 ## 2.2 Objectifs spécifiques
 
-1. Revalider le portefeuille (gate G0) et constituer une **liste de réserve** pour maintenir les cibles de 80 MRV et 162 localités SSD.
+1. Reprendre le portefeuille revalidé par la Mission 0. Constituer une **liste de réserve**, mobilisable seulement si elle améliore le coût par connexion vérifiée (pas de remplacement obligatoire).
 2. **Mesurer la demande**, la capacité et la volonté de payer, et la situation de référence d'accès (MTF), de façon désagrégée par sexe.
 3. Déterminer la **solution au moindre coût** pour chaque localité (gate G2).
 4. Concevoir chaque MRV au niveau **APD**, avec un bordereau quantitatif et estimatif précis à ± 15 %. Réduire le coût par connexion par l'ingénierie de la valeur et la standardisation.
-5. Structurer techniquement et commercialement les **9 concessions SSD**.
+5. Fournir à la Mission S les **données SSD** : enquêtes, segmentation par niveau MTF, screening E&S, services sociaux isolés.
 6. Produire un **modèle financier** par site et par lot, et calculer le **déficit de viabilité** et la **subvention par connexion**.
 7. Réaliser l'**analyse économique** (VANE, TRIE, valeurs de bascule) et le bilan des GES évités.
 8. Préparer les **instruments E&S cadres** communs à la Banque mondiale et à la BAD, puis les **instruments site par site**, jusqu'aux certificats nationaux de conformité environnementale.
@@ -100,37 +113,35 @@ La pré-faisabilité ne permet pas encore de décider d'investir. Les TdR-cadre 
 
 ## 3.1 Périmètre physique
 
-| Composante | Tranche 1 (pilote) | Tranche 2 | Total |
+| Composante | Tranche 1 (ferme) | Tranche 2 (conditionnelle) | Référence |
 |---|---|---|---|
-| MRV : études complètes (demande, moindre coût, APD, financier, EIES/PGES) | 37 | 43 | **80** |
-| Localités SSD : enquête allégée, screening E&S, segmentation | 30 | 132 | **162** |
-| Concessions SSD : dossier de structuration | 6 | 3 nouvelles + mise à jour des 6 | **9** |
-| Sites de réserve, de 1 000 habitants et plus : études jusqu'au G2 | – | – | **≥ 12 MRV, ≥ 20 localités SSD** |
-| Alternatives MCHE : revue documentaire et re-chiffrage par bassin | Selon la localisation | Selon la localisation | 14 localités concernées |
+| MRV : études complètes (demande, moindre coût, APD, finance, EIES/NIES et PGES) | MRV pilotes revalidés (référence : 37) | Autres MRV revalidés (référence : 40 localités uniques) | 77 localités uniques |
+| Localités SSD : enquête allégée, screening E&S, segmentation (données pour la Mission S) | 30 | Autres localités revalidées (référence : 130) | 160 localités uniques |
+| Sites de réserve : études jusqu'au G2, sur ordre du client et aux prix unitaires | – | – | Selon besoin |
+| Alternatives MCHE : revue documentaire et re-chiffrage par bassin de desserte | Selon la localisation | Selon la localisation | 14 localités |
 
-La liste des 80 MRV, avec les alertes à traiter au gate G0, figure en Annexe 1. La répartition des localités SSD par territoire figure en Annexe 2.
+Le nombre définitif de localités par tranche résulte de la Mission 0. **Les sites ajoutés ou retirés sont valorisés aux prix unitaires** du contrat (§ 13).
 
 ## 3.2 Exclusions
 
-- Extension du réseau national, sauf pour en comparer le coût au moindre coût.
-- Décarbonation des clients commerciaux et industriels (composante 3 du PEZoR).
-- Rédaction des textes réglementaires, de la méthode tarifaire, du mécanisme RBF et des DAO : ces tâches relèvent de la Mission A. La présente mission lui fournit les données et analyses nécessaires.
+- Extension du réseau national, sauf pour la comparaison au moindre coût.
+- Décarbonation des clients commerciaux et industriels.
+- Textes réglementaires, méthode tarifaire, RBF, DAO (Mission A).
+- Structuration commerciale du solaire domestique (Mission S).
 - Supervision des travaux.
 
 ## 3.3 Allotissement de la mission (option)
 
-La mission peut être attribuée :
+La mission peut être attribuée en un lot, ou en deux lots géographiques :
 
-- **(a)** en un seul lot ;
-- **(b)** en deux lots géographiques :
-  - **Lot Sud** : Niari, Lékoumou, Bouenza, Kouilou, Pool, Brazzaville, Pointe-Noire ;
-  - **Lot Nord** : Cuvette, Cuvette-Ouest, Sangha, Likouala.
+- **Sud** : Niari, Lékoumou, Bouenza, Kouilou, Pool, Brazzaville, Pointe-Noire ;
+- **Nord** : Cuvette, Cuvette-Ouest, Sangha, Likouala.
 
-En option (b), le titulaire du Lot Sud définit la méthodologie, les questionnaires, les gabarits de modèle financier et la structure des rapports dans son rapport de démarrage. Ces outils sont **imposés** au Lot Nord, pour garantir des résultats comparables. Le client précise l'option retenue dans la demande de propositions.
+Dans les deux cas, les titulaires utilisent les **gabarits communs** (questionnaires, modèle financier, fiche de screening, rapport de site) préparés par la Mission C et **validés par le maître d'ouvrage**. Aucun titulaire n'impose ses outils à l'autre.
 
 # 4. Cadre de référence et normes applicables
 
-Le Consultant applique simultanément les cadres ci-dessous. En cas de divergence, il retient la disposition la plus exigeante ou propose une solution d'harmonisation au client et aux bailleurs.
+Le Consultant applique simultanément les cadres ci-dessous. Il établit au démarrage une **matrice de conformité** : pour chaque exigence, ce que prévoient le droit congolais, la BM et la BAD, la disposition proposée, le responsable et la preuve. Les divergences ne sont pas toujours hiérarchisables (institutions, calendriers de divulgation, classements du risque) : la matrice est validée par les bailleurs et ne se substitue jamais au droit national.
 
 | Domaine | Références |
 |---|---|
@@ -151,57 +162,49 @@ Le Consultant applique simultanément les cadres ci-dessous. En cas de divergenc
 3. **Neutralité technologique.** Le seuil de 1 000 habitants oriente le choix, mais c'est le **moindre coût complet du service**, à niveau de service égal, qui décide.
 4. **Standardiser.** Les configurations types (MRV et kits) réduisent les coûts de conception, d'achat et d'O&M.
 5. **Intégrer l'E&S et le genre dès le départ.** Le screening E&S et les consultations précèdent le choix des emprises. Le genre est traité dans chaque enquête et chaque instrument.
-6. **Avancer par tranches.** La Tranche 1 (pilote) est livrée en premier. Ses enseignements, coûts et gabarits sont réutilisés pour la Tranche 2.
-7. **Pas de double comptage.** Pilote et Programme Cadre ne s'additionnent pas ; les MCHE ne s'ajoutent pas au solaire ; un ménage retenu n'est pas une connexion vérifiée.
-8. **Données ouvertes.** Bases de données, modèles et fichiers SIG sont livrés en formats ouverts, déverrouillés et documentés, à la Mission C, pour la plateforme géoréférencée.
+6. **Mesurer le succès en connexions, pas en nombre d'APD.** Le résultat attendu est le portefeuille le plus efficient, abordable, durable et finançable. Conclure qu'un site doit sortir, changer de technologie ou relever d'un autre régime est un résultat légitime.
+7. **Avancer par tranches.** La Tranche 1 (pilote) est livrée en premier. Ses enseignements, coûts et gabarits sont réutilisés pour la Tranche 2.
+8. **Pas de double comptage.** Pilote et Programme Cadre ne s'additionnent pas ; les MCHE ne s'ajoutent pas au solaire ; un ménage retenu n'est pas une connexion vérifiée.
+9. **Données ouvertes.** Bases de données, modèles et fichiers SIG sont livrés en formats ouverts, déverrouillés et documentés, à la Mission C, pour la plateforme géoréférencée.
 
 # 6. Description détaillée des tâches
 
-## Volet 0 – Démarrage et revalidation du portefeuille (gate G0)
+## Volet 0 – Démarrage et reprise du portefeuille revalidé
 
-**Tâche 0.1 – Revue documentaire et réunion de lancement.**
+**Tâche 0.1 – Revue documentaire et lancement.**
 
-- Documents à exploiter : pré-faisabilité PEZoR, Annexe A2, ProDoc, études MCHE, documents PASEL (SEN, plan au moindre coût, plans d'extension d'E2C), Pacte, CDN 3.0, textes nationaux.
-- Rencontres : ANER, ARSEL, E2C, FDSEL, Direction générale de l'environnement, préfectures et sous-préfectures concernées.
+- Documents à exploiter : résultats de la **Mission 0** (registre dédoublonné et géoréférencé, statut électrique et juridique), pré-faisabilité, Annexe A2, ProDoc, études MCHE, documents PASEL, Pacte, CDN 3.0, textes.
+- Rencontres : ANER, ARSEL, E2C, FDSEL, Agence nationale de l'environnement, autorités locales.
 
-**Tâche 0.2 – Contrôle G0 des 242 localités.**
+**Tâche 0.2 – Contrôle de cohérence.** Signaler toute anomalie résiduelle du registre de la Mission 0, constatée sur le terrain. Ne pas engager d'études détaillées sur une localité non validée au G0.
 
-- Croiser l'Annexe A2 avec les bases GEP et VIDA, l'imagerie satellitaire, les données administratives et les plans d'extension du réseau.
-- Pour chaque localité, statuer sur :
-  - son existence et sa localisation (coordonnées WGS84) ;
-  - les doublons ;
-  - son statut réseau : raccordée, raccordement programmé et financé, ou centre isolé d'E2C ;
-  - sa population et son nombre de ménages, avec un ordre de grandeur à confirmer sur le terrain ;
-  - les contraintes d'accès.
-- Traiter **chaque alerte de l'Annexe 1**. Points nominatifs :
-  - Boko et Louingui ;
-  - Mouyondzi ;
-  - Lissanga, Kitengue et Nzete-Moko (département de Brazzaville) ;
-  - Ewo, Mossendjo, Dongou, Loukolela, Souanké, Sembé et Etoumbi (grands chefs-lieux).
-
-**Tâche 0.3 – Liste de réserve.**
-
-- Proposer au moins **12 localités MRV** de 1 000 habitants et plus et au moins **20 localités SSD**, identifiées à partir des bases géospatiales.
-- Préciser les critères de priorisation : population, charges d'ancrage, accessibilité, distance au réseau, risques E&S.
-- Chaque site écarté au G0 est remplacé par un site de réserve validé par le comité de pilotage.
+**Tâche 0.3 – Liste de réserve (optionnelle).** Proposer des localités de 1 000 habitants et plus, identifiées à partir des bases géospatiales. Une localité de réserve n'est étudiée que sur **ordre du client**, aux prix unitaires, et si elle améliore le coût par connexion vérifiée ou la contribution à la cible du Pacte.
 
 **Tâche 0.4 – Rapport de démarrage.**
 
-- Méthodologie détaillée et plan de travail.
-- Plan d'échantillonnage statistique et questionnaires.
-- Gabarits : rapport de site, modèle financier, fiche de screening E&S.
-- Plan de logistique et de sécurité du terrain.
-- Calendrier des consultations.
-- Matrice de conformité au droit national, au CES et au SSI.
+- Méthodologie ; plan d'échantillonnage stratifié ; questionnaires.
+- Utilisation des gabarits communs.
+- **Plan HSE et de sécurité** : sécurité fluviale, communications, évacuation médicale, codes de conduite.
+- **Plan de mobilisation en jours-équipe par site.**
+- **Calendrier saisonnier des inventaires écologiques.**
+- Calendrier des enquêtes publiques et des procédures nationales.
+- **Matrice de conformité** droit national / BM / BAD.
 
 ## Volet A – Enquêtes socio-économiques, demande et situation de référence
 
-**Tâche A.1 – Plan d'échantillonnage.**
+**Tâche A.1 – Plan d'échantillonnage stratifié.**
 
-- **MRV** : au moins **100 ménages par localité**, ou tous les ménages si la localité en compte moins. Le tirage est stratifié (quartiers, ménages dirigés par une femme).
-- **Recensement exhaustif** des charges non domestiques : commerces, ateliers, moulins, transformation, froid, pompage, télécoms, centres de santé, écoles, administrations, lieux de culte.
-- **SSD** : au moins **30 ménages par localité**, et la totalité dans les localités de moins de 30 ménages.
-- **Précision** : le plan justifie la précision statistique obtenue sur les principales variables (consommation, dépenses énergétiques, capacité de payer).
+- **MRV** : au moins **100 ménages par localité**, ou tous si la localité en compte moins. Strates : quartier, niveau de revenu, accès actuel à l'énergie, vulnérabilité, sexe du chef de ménage.
+- **Recensement exhaustif** des charges non domestiques.
+- **SSD** : au moins **30 ménages par localité**. Cet échantillon est **exploratoire** ; la précision est recherchée au niveau du territoire ou du programme.
+- **Précision déclarée.** Le plan indique le niveau auquel chaque estimation est fiable : localité, grappe, territoire, programme. Repère pour une proportion à 95 % de confiance, en échantillonnage aléatoire simple :
+
+| Échantillon | Marge d'erreur maximale |
+|---|---|
+| 30 | ± 17,9 points |
+| 100 | ± 9,8 points |
+| 200 | ± 6,9 points |
+| 385 | ± 5,0 points |
 
 **Tâche A.2 – Contenu des enquêtes.**
 
@@ -220,6 +223,15 @@ Le Consultant applique simultanément les cadres ci-dessous. En cas de divergenc
 - Pour chaque localité MRV, inventorier les **groupes diesel existants** : puissance, heures de fonctionnement, consommation, coût complet rendu du carburant.
 - Inventorier les **charges d'ancrage** potentielles : centres de santé, écoles, pompage, télécoms, agro-transformation.
 - Établir une **courbe de charge horaire** par catégorie de clients et une **projection de la demande** à 3, 10 et 20 ans, selon trois scénarios (bas, central, haut).
+
+**Tâche A.3 bis – Comportements observés.** Distinguer volonté déclarée, capacité réelle et comportement observé, par quatre moyens :
+
+- **mesures de charge** et relevés chez les utilisateurs existants (groupes, kits, centres isolés) ;
+- **expériences de choix** entre niveaux de service et tarifs ;
+- **revenus et saisonnalité** ;
+- **préinscriptions** ou engagements de clients lorsque c'est approprié.
+
+Analyse des biais de réponse.
 
 **Tâche A.4 – Consultations communautaires préalables.**
 
@@ -249,7 +261,7 @@ Le Consultant applique simultanément les cadres ci-dessous. En cas de divergenc
 - **Indicateurs** : coût actualisé de l'énergie (LCOE), coût complet du service et **coût par connexion**.
 - **Livrable** : une note de décision d'une page par localité, avec la recommandation et les valeurs de bascule (distance au réseau, demande, prix du diesel).
 
-**Tâche B.3 – Dimensionnement optimisé.**
+**Tâche B.3 – Dimensionnement optimisé.** Les « 88 kWhommes-mois par ménage » de la pré-faisabilité ne sont pas une hypothèse de demande et ne sont pas repris. Les **exigences minimales de performance** (énergie non servie, disponibilité, tension) sont fixées avec la Mission A pour le contrat type.
 
 - Optimisation de la production (PV, BESS, onduleurs, éventuel appoint) à l'aide d'un logiciel reconnu de simulation horaire. Les fichiers sont fournis.
 - La demande de dimensionnement est la **demande mesurée projetée à 3 ans**. L'architecture est **modulaire et extensible**, pour suivre la croissance réelle.
@@ -265,7 +277,18 @@ Le Consultant applique simultanément les cadres ci-dessous. En cas de divergenc
 **Tâche B.4 – Ingénierie de la valeur et configurations types.**
 
 - Proposer **4 à 6 configurations types de MRV** (par exemple S, M, L, XL) et des kits SSD par niveau MTF.
-- Proposer, au mois 6, une **cible de coût par connexion** justifiée, à comparer à la pré-faisabilité (5 341 USD par ménage).
+- Proposer, au mois 6, une **cible de coût par connexion réalisée**, justifiée, à comparer à la pré-faisabilité (5 341 USD par ménage potentiel).
+- La comparer à des repères internationaux **normalisés** :
+  - année des prix ;
+  - USD par kWc ;
+  - USD par kWh **utile** de stockage ;
+  - km de réseau par connexion ;
+  - logistique rendue ;
+  - fiscalité ;
+  - qualité de service ;
+  - coût du cycle de vie.
+  Les mini-réseaux de zones peu denses, forestières ou enclavées sont les références à privilégier.
+- Remplacer les **provisions uniformes de 29 %** par des **coûts rendus site par site** (route, fleuve, saison).
 - Leviers à analyser :
   - dimensionnement ;
   - densité et tracé du réseau BT ;
@@ -286,7 +309,7 @@ Le Consultant applique simultanément les cadres ci-dessous. En cas de divergenc
 - Protections, mise à la terre, parafoudres.
 - Bâtiments et clôture ; sécurité incendie (BESS).
 - Plan d'O&M et liste des pièces de rechange.
-- **Bordereau quantitatif et estimatif à ± 15 %**, qui distingue :
+- **Bordereau quantitatif et estimatif à ± 15 %**, avec la date de référence des prix, des quantités vérifiables, au moins deux cotations indépendantes pour les équipements majeurs, une analyse de risque et des méthodes de chiffrage distinctes pour les équipements importés, le génie civil et la logistique. Il distingue :
   - le CAPEX technique ;
   - le foncier ;
   - la logistique ;
@@ -299,33 +322,15 @@ Le Consultant applique simultanément les cadres ci-dessous. En cas de divergenc
 
 **Tâche B.6 – Résilience climatique.** Pour chaque site : risques (chaleur sur les batteries, inondation, érosion, foudre, vents, accès) et mesures de conception correspondantes.
 
-## Volet C – Concessions de systèmes solaires domestiques
+## Volet C – Données pour la filière solaire domestique (Mission S)
 
-**Tâche C.1 – Étude de marché SSD.**
+**Tâche C.1 – Enquêtes SSD.** Réaliser les enquêtes allégées et le screening E&S des localités SSD revalidées (Volet A et Volet F).
 
-- Acteurs présents : distributeurs, PAYGo, importateurs.
-- Canaux de distribution, prix des kits certifiés et coûts logistiques par territoire.
-- Moyens de paiement (MTN Mobile Money, Airtel Money).
-- Contraintes de la réglementation des changes CEMAC pour les importateurs.
-- Contraintes douanières.
+**Tâche C.2 – Segmentation.** Segmenter les localités par niveau MTF, y compris les 26 localités non segmentées. Identifier les ménages de niveaux 4 et 5 (800 à 2 000 Wc), qui peuvent relever de nano-réseaux ou d'un rattachement à un MRV voisin (analyse au moindre coût du Volet B).
 
-**Tâche C.2 – Segmentation et niveaux de service.**
+**Tâche C.3 – Services sociaux isolés.** Inventaire des centres de santé, écoles et points d'eau, et besoins.
 
-- Segmenter les 162 localités et les ménages dispersés des territoires par niveau MTF, y compris les **26 localités non segmentées**.
-- Arrêter la capacité SSD du programme : le registre donne **31,4 MWc**, le recalcul **6,8 MWc** ; trancher.
-- Les **5 219 ménages de niveaux 4 et 5** (800 à 2 000 Wc) : kits, nano-réseaux ou rattachement à un MRV voisin.
-
-**Tâche C.3 – Structuration des concessions.**
-
-- Pour chacune des 9 concessions : périmètre, volume de clients (localités PEZoR et population hors réseau dispersée), niveaux de service.
-- Coût complet : fourniture, installation, SAV, recouvrement, remplacement des batteries.
-- Subvention de référence par niveau.
-- Logistique ; électrification des services sociaux isolés.
-- Tester **deux variantes** et recommander :
-  - **(a)** concession élargie à tous les ménages hors réseau du territoire ;
-  - **(b)** regroupement des petits territoires, notamment Brazzaville, Pointe-Noire et Cuvette-Ouest.
-
-**Tâche C.4 – Spécifications.** Kits par niveau, conformes à l'IEC TS 62257-9-8 / VeraSol ; exigences de garantie, de SAV, de télésurveillance PAYGo et de reprise des batteries en fin de vie.
+**Tâche C.4 – Transmission.** Base de données et note de synthèse remises à la **Mission S**, qui reconstruit le moteur de coûts, compare les modèles de distribution et conçoit le RBF solaire domestique.
 
 ## Volet D – Étude financière
 
@@ -349,16 +354,18 @@ Le Consultant applique simultanément les cadres ci-dessous. En cas de divergenc
 
 - Financement : fonds propres, dette concessionnelle et commerciale, subvention d'investissement, RBF.
 - Indicateurs : TRI du projet et des fonds propres, VAN, DSCR, LLCR, période de retour.
-- **Déficit de viabilité** pour un TRI des fonds propres cible (à proposer et justifier) et **subvention par connexion vérifiée** qui comble ce déficit.
+- **Déficit de viabilité** : subvention **minimale** qui respecte simultanément, sur toute la durée, un TRI des fonds propres au moins égal au TRI cible justifié, un DSCR au moins égal au minimum exigé et une trésorerie positive à chaque période. Calcul avec la Mission A, pour les cinq architectures contractuelles (concession avec subvention de viabilité, EPC public et O&M, affermage, hybride, contrat de disponibilité).
+- Distinguer la rentabilité économique pour la collectivité de la viabilité financière pour un opérateur.
 
 **Tâche D.3 – Sensibilités et scénarios.**
 
 - Variations : CAPEX ±20 % ; demande –20 % / +20 % ; tarif –15 % ; OPEX +20 % ; retard de 12 mois ; dépréciation monétaire ; remplacement anticipé des batteries ; RBF à 0, 25 et 50 % du CAPEX éligible ; avec ou sans exonération des droits et taxes.
+- **Scénarios de stress combinés** (par exemple demande –20 %, CAPEX +20 % et retard de 12 mois simultanés) et tests de solvabilité.
 - Calcul des **valeurs de bascule**.
 
 **Tâche D.4 – Abordabilité.** Facture type par niveau de service, rapportée aux revenus et aux dépenses énergétiques actuelles mesurés (Volet A). Identification des ménages exclus et options de tranche sociale.
 
-**Tâche D.5 – Modèle SSD par concession.** Même logique : coûts, ventes, défauts de paiement, fonds de roulement, besoin de financement en monnaie locale et subvention par niveau.
+**Tâche D.5 – Coût par connexion réalisée.** Tous les modèles distinguent les **ménages potentiels** des **connexions réalisées**, selon des hypothèses explicites de taux de raccordement. Le modèle SSD relève de la Mission S.
 
 ## Volet E – Étude économique et climatique
 
@@ -372,6 +379,7 @@ Le Consultant applique simultanément les cadres ci-dessous. En cas de divergenc
   - usages productifs ;
   - services sociaux ;
   - temps libéré.
+- **Méthode qui évite le double comptage** : consentement à payer, économies sur les énergies substituées et revenus des usages productifs peuvent se recouvrir. Une même valeur n'est comptée qu'une fois, avec une justification écrite.
 - Indicateurs : VANE, TRIE, coût par connexion et par kWh, valeurs de bascule.
 - Méthode et taux d'actualisation de chaque bailleur.
 
@@ -405,7 +413,7 @@ Le Consultant applique simultanément les cadres ci-dessous. En cas de divergenc
 - Catégorisation selon le **décret n° 2025-316** et proposition de classement du risque selon chaque bailleur (BAD : catégories 1, 2 ou 3 ; BM : risque élevé, substantiel, modéré ou faible).
   - Catégorie nationale A (risque élevé) : EIES ; catégorie B (risque modéré) : notice d'impact (NIES).
   - L'arrêté ministériel fixant la liste des projets par catégorie n'a pas pu être confirmé : le Consultant vérifie son existence et, à défaut, propose le classement avec l'Agence nationale de l'environnement.
-- **Regroupement.** L'article 8 du décret autorise une NIES unique pour des sous-projets de catégorie B fonctionnellement liés dans une même localité. Le Consultant propose le regroupement le plus efficace : par localité, ou par lot si l'Administration l'accepte.
+- **Regroupement.** L'article 8 du décret autorise une NIES unique pour des sous-projets de catégorie B fonctionnellement liés dans une même localité. Le regroupement se fait **uniquement par localité**. Le lot commercial n'est pas un périmètre environnemental.
 
 **Tâche F.3 – Instruments cadres du programme**, communs à la Banque mondiale et à la BAD :
 
@@ -415,7 +423,7 @@ Le Consultant applique simultanément les cadres ci-dessous. En cas de divergenc
 - Plan de mobilisation des parties prenantes (**PMPP**) et mécanisme de gestion des plaintes, avec un canal sensible pour l'EAS/HS ;
 - Procédures de gestion de la main-d'œuvre (**PGMO**) ;
 - **Évaluation du risque d'EAS/HS et plan d'action** : codes de conduite, prestataires de services aux survivant·e·s ;
-- **Plan de gestion des déchets dangereux** : batteries et modules, dont ≈ 3 800 t de batteries et ≈ 2 700 t de modules sur 20 ans selon le PEZoR ;
+- **Plan de gestion des déchets dangereux** : batteries et modules, sur la base de masses **recalculées** par technologie et par cycle de remplacement ; les ≈ 3 800 t de batteries et ≈ 2 700 t de modules du PEZoR ne sont pas justifiés ;
 - Projet de Plan d'engagement environnemental et social (**PEES**).
 
 **Tâche F.4 – Instruments site par site.**
@@ -426,7 +434,7 @@ Le Consultant applique simultanément les cadres ci-dessous. En cas de divergenc
   - plan d'action de réinstallation ou plan de restauration des moyens de subsistance (emprises, lignes) ;
   - plan en faveur des peuples autochtones, notamment pour les ≈ 10 localités de la Likouala et de la Sangha signalées par le PEZoR ;
   - plan de gestion de la biodiversité si un habitat sensible est touché.
-- **Pour les concessions SSD** : PGES type de programme (installation, SAV, collecte des batteries).
+- **Pour le solaire domestique** : données de screening transmises à la Mission S, qui prépare le PGES type de programme (installation, SAV, collecte des batteries).
 
 **Tâche F.5 – Consultations et divulgation.**
 
@@ -443,7 +451,9 @@ Le Consultant applique simultanément les cadres ci-dessous. En cas de divergenc
 - **Avis** de la commission technique interministérielle dans un délai de 3 mois ; le silence vaut avis favorable (art. 25 et 29).
 - **Certificat de conformité environnementale**, valable 5 ans (art. 28).
 
-Le Consultant tient un tableau de suivi des procédures par site.
+**Frais administratifs.** Une circulaire ministérielle du 16 octobre 2026 (n° 1728/MEBCDD-CAB.26) exige, pour le dossier du certificat de conformité environnementale, la preuve d'un **virement par le bureau d'études de 5 % du montant total HT de sa prestation**. Le promoteur paie en outre les frais d'examen. L'assiette applicable à un contrat qui associe ingénierie et EIES est à confirmer par l'administration. Le Consultant chiffre ce poste séparément dans sa proposition financière.
+
+Le Consultant tient un tableau de suivi des procédures par site. **Le silence de l'administration ne dispense ni des exigences des bailleurs, ni de documenter les actes et notifications.**
 
 **Tâche F.7 – Coût des mesures E&S.** Chiffrage des mesures, intégré aux bordereaux quantitatifs et estimatifs (Volet B) et aux modèles financiers (Volet D).
 
@@ -471,7 +481,7 @@ Le Consultant tient un tableau de suivi des procédures par site.
   - accessibilité pour les personnes en situation de handicap.
 - Indicateurs, situation de référence, cibles, responsables et budget.
 - Conformité au **marqueur genre de la Banque mondiale** (analyse, actions, indicateurs) et au **système de marqueur genre de la BAD**.
-- Rendre mesurable la cible PEZoR de **plus de 51 % de femmes** parmi les bénéficiaires directs.
+- Rendre mesurable la cible PEZoR de **plus de 51 % de femmes** parmi les bénéficiaires directs, et la compléter par des **indicateurs d'écarts** entre femmes et hommes, mesurés avant et après : raccordement, part du revenu consacrée à l'électricité, usages productifs, accès au crédit et au PAYGo, emploi technique, participation aux décisions, temps, plaintes.
 
 **Tâche G.3 – Usages productifs.** Plan de développement de la demande par grappe :
 
@@ -491,7 +501,7 @@ Le Consultant tient un tableau de suivi des procédures par site.
 
 ## Volet I – Synthèse et dossiers d'investissement
 
-**Tâche I.1 – Rapport de faisabilité par lot.** Pour chaque lot MRV et chaque concession SSD, un dossier autoportant, structuré selon l'Annexe 4 :
+**Tâche I.1 – Rapport de faisabilité par lot MRV.** Pour chaque lot MRV, un dossier autoportant, structuré selon l'Annexe 4 :
 
 - synthèse ;
 - demande ;
@@ -508,7 +518,7 @@ Le Consultant tient un tableau de suivi des procédures par site.
 
 **Tâche I.2 – Rapport de synthèse du programme.**
 
-- Consolidation des 80 MRV et 9 concessions : capacités, connexions, coûts, financement, GES, risques.
+- Consolidation du portefeuille MRV revalidé et des données SSD : capacités, **connexions réalisables**, coûts, financement, GES, risques.
 - Mise à jour du **cadre de résultats** avec les valeurs de référence mesurées.
 - Contribution attendue à la cible rurale du Pacte, avec un calendrier réaliste.
 
@@ -524,25 +534,29 @@ Mois comptés à partir de l'ordre de service. Chaque livrable est remis en vers
 
 | Code | Livrable | Mois | Critère d'acceptation | Paiement |
 |---|---|---|---|---|
-| L0 | Rapport de démarrage : méthodologie, échantillonnage, questionnaires, gabarits, logistique, matrice de conformité | 1 | Validé par l'ANER ; questionnaires testés sur le terrain | 5 % |
-| L1 | Rapport G0 : portefeuille revalidé, coordonnées WGS84, liste de réserve | 2 | Chaque alerte de l'Annexe 1 traitée et sourcée | 5 % |
-| L2 | Cadre juridique E&S, analyse des écarts et screening des 242 localités | 3 | Fiche de screening pour 100 % des localités | 5 % |
-| L3 | Enquêtes et levés de la **Tranche 1** (37 MRV, 30 localités SSD) et base de données | 5 | Base complète, nettoyée, documentée ; contrôle qualité sur 5 % des questionnaires | 10 % |
-| L4 | Instruments E&S cadres : CGES, CPR, CPPA, PMPP, PGMO, plan d'action EAS/HS, plan déchets, projet de PEES | 6 | Classement du risque et non-objection de la BM et de la BAD | 10 % |
-| L5 | Notes de moindre coût de la Tranche 1 (G2), configurations types, cible de coût par connexion | 7 | Une note par localité ; cible justifiée | 7 % |
-| L6 | **Dossiers de faisabilité de la Tranche 1** : APD, bordereaux, modèles financiers, analyse économique, EIES/PGES, analyse genre, pour 37 MRV et 6 concessions | 10 | Bordereaux à ± 15 % ; modèles reproductibles ; revue indépendante favorable ; EIES déposées | 15 % |
-| L7 | Certificats de conformité environnementale de la Tranche 1 (ou état de procédure motivé) | 15 | Actes obtenus, ou retard non imputable au Consultant documenté (délais réglementaires, inventaires en deux saisons) | 3 % |
-| L8 | Enquêtes, levés et notes de moindre coût de la **Tranche 2** (43 MRV, 132 localités SSD, sites de réserve) | 16 | Mêmes critères que L3 et L5 | 10 % |
-| L9 | **Dossiers de faisabilité de la Tranche 2** et dossiers des 9 concessions SSD | 22 | Mêmes critères que L6 | 15 % |
-| L10 | Plan d'action genre et plans d'usages productifs du programme ; revue MCHE | 22 | Conforme aux marqueurs genre BM et BAD ; une décision H2 par site MCHE | 5 % |
-| L11 | Rapport de synthèse du programme, transfert des données, formations, rapport final | 24 | Données remises à la Mission C ; au moins 4 formations réalisées | 10 % |
+| L0 | Rapport de démarrage : méthodologie, échantillonnage stratifié, gabarits communs, plan HSE, plan de mobilisation, calendrier saisonnier, matrice de conformité | 1 | Validé par l'ANER ; questionnaires testés | 5 % |
+| L1 | Note de reprise du registre de la Mission 0 et liste de réserve | 2 | Anomalies résiduelles documentées | 3 % |
+| L2 | Cadre juridique E&S, analyse des écarts, screening des localités revalidées ; TdR des EIES/NIES déposés | 3 | Screening de 100 % des localités ; TdR déposés auprès de l'Agence nationale de l'environnement | 6 % |
+| L3 | Enquêtes, mesures et levés de la **Tranche 1** et base de données | 5 | Base nettoyée et documentée ; contrôle qualité sur 5 % des questionnaires | 10 % |
+| L4 | Instruments E&S cadres (CGES, CPR, CPPA, PMPP, PGMO, plan d'action EAS/HS, plan de gestion des déchets, projet de PEES) | 6 | Classement du risque et non-objection de la BM et de la BAD | 10 % |
+| L5 | Notes de moindre coût de la Tranche 1 (G2), configurations types, cible de coût par connexion réalisée, repère normalisé | 7 | Une note par localité ; cible justifiée | 7 % |
+| L6 | **Dossiers de faisabilité de la Tranche 1 (G3a)** : APD, bordereaux, modèles financiers et déficit de viabilité, analyse économique, EIES/NIES déposées, analyse genre | 10–12 | Bordereaux définis selon le § B.5 ; revue technique indépendante favorable ; EIES/NIES déposées | 15 % |
+| L7 | Certificats de conformité environnementale de la Tranche 1 (G3b), ou état de procédure motivé | 15–17 | Actes obtenus, ou diligences documentées (retard non imputable au Consultant) | 4 % |
+| L8 | Données SSD transmises à la Mission S (Tranche 1, puis Tranche 2) | 6 / 16 | Base et note de synthèse acceptées par l'UGP | 3 % |
+| L9 | Enquêtes et moindre coût de la **Tranche 2** | 16 | Mêmes critères que L3 et L5 | 9 % |
+| L10 | **Dossiers de faisabilité de la Tranche 2 (G3a)** | 22 | Mêmes critères que L6 | 13 % |
+| L11 | Certificats de conformité environnementale de la Tranche 2, ou état de procédure motivé | 24 | Comme L7 | 3 % |
+| L12 | Plan d'action genre, plans d'usages productifs, revue MCHE | 22 | Indicateurs d'écarts ; une décision H2 par site MCHE | 4 % |
+| L13 | Rapport de synthèse, transfert des données, formations, rapport final | 24 | Données remises à la Mission C ; au moins 4 formations | 8 % |
 | | **Total** | | | **100 %** |
+
+**Distinction de quatre étapes.** Le paiement d'un livrable dépend de son **acceptation technique**, ou de diligences documentées lorsque la décision dépend d'un tiers. La validation administrative, la non-objection du bailleur et l'autorisation d'engagement des investissements sont des étapes distinctes, hors du contrôle du Consultant.
 
 **Rapports d'avancement.** Rapport mensuel de 2 à 3 pages (avancement, difficultés, prochaines étapes) et réunion mensuelle avec l'UGP. Rapport trimestriel aux formats des bailleurs.
 
-**Revue indépendante.** Les APD et les modèles financiers (L6, L9) sont revus par un ingénieur-conseil du maître d'ouvrage ou par un expert désigné par les bailleurs avant acceptation. Le Consultant répond par écrit à chaque observation.
+**Revue indépendante.** Les APD et les modèles financiers (L6, L10) sont revus par la **revue technique indépendante** gérée par la Mission C avant acceptation. Le Consultant répond par écrit à chaque observation.
 
-**Circuit de validation.** L'UGP transmet des observations consolidées sous **15 jours ouvrables**. La version définitive est remise sous **10 jours ouvrables**. Les livrables L4, L6 et L9 sont soumis à la **non-objection** du bailleur concerné.
+**Circuit de validation.** L'UGP transmet des observations consolidées sous **15 jours ouvrables**. La version définitive est remise sous **10 jours ouvrables**. Les livrables L4, L6 et L10 sont soumis à la **non-objection** du bailleur concerné.
 
 # 8. Organisation de la mission
 
@@ -560,7 +574,6 @@ Mois comptés à partir de l'ordre de service. Chaque livrable est remis en vers
 | Chef de mission, ingénieur en électrification hors réseau | Bac+5 en ingénierie ; 15 ans d'expérience ; chef de mission d'au moins 2 programmes de mini-réseaux de 20 sites ou plus, préparés jusqu'au DAO ; maîtrise du français | 24 |
 | Ingénieur principal mini-réseaux PV/BESS | Bac+5 en génie électrique ; 10 ans ; conception d'au moins 20 MRV avec stockage lithium ; maîtrise d'un outil de simulation horaire | 20 |
 | Ingénieur réseaux de distribution MT/BT | Bac+5 ; 10 ans ; réseaux ruraux en Afrique subsaharienne | 12 |
-| Expert SSD, PAYGo et concessions | 8 ans ; conception ou mise en œuvre de programmes SSD à grande échelle | 8 |
 | Expert géospatial et planification au moindre coût | 8 ans ; planification géospatiale de l'électrification | 8 |
 | Expert financier (modélisation de projets) | 10 ans ; modèles financiers de projets d'énergie ayant atteint le bouclage financier | 10 |
 | Économiste de l'énergie | 10 ans ; analyses coûts-avantages selon les méthodes de la BM ou de la BAD | 5 |
@@ -568,16 +581,19 @@ Mois comptés à partir de l'ordre de service. Chaque livrable est remis en vers
 | Expert social, réinstallation et peuples autochtones | 10 ans ; NES 5 et 7 ; expérience en Afrique centrale appréciée | 14 |
 | Expert genre et VBG/EAS/HS | 8 ans ; plans d'action genre dans l'énergie ou les infrastructures | 6 |
 
-Effort indicatif des experts clés : 121 h/mois. Avec les experts internationaux non clés (hydrologue/MCHE, usages productifs), le total international atteint ≈ 133 h/mois. Il est légèrement supérieur aux 123 h/mois des TdR-cadre v1.0, car la présente mission ajoute un expert financier dédié aux modèles par lot.
+Effort indicatif des experts clés : 113 hommes-mois. Avec les experts internationaux non clés (hydrologue/MCHE, usages productifs), le total international atteint 125 hommes-mois.
 
 ## 9.2 Experts non clés (non évalués individuellement)
 
-- Ingénieurs électriciens nationaux (≈ 48 h/mois).
-- Spécialistes E&S nationaux (≈ 36 h/mois).
-- Sociologues et facilitateurs communautaires (≈ 24 h/mois).
-- Géomaticien (≈ 12 h/mois).
-- Expert international en usages productifs et microfinance (≈ 8 h/mois).
-- Hydrologue ou ingénieur MCHE (≈ 4 h/mois).
+- Ingénieurs électriciens nationaux (≈ 48 hommes-mois).
+- Spécialistes E&S nationaux (≈ 36 hommes-mois).
+- Sociologues et facilitateurs communautaires (≈ 24 hommes-mois).
+- Géomaticien (≈ 12 hommes-mois).
+- Écologues, botaniste et spécialiste de la faune pour les inventaires en deux saisons (≈ 24 hommes-mois).
+- Géotechnicien (≈ 6 hommes-mois).
+- Ingénieur génie civil, expert BESS et sécurité incendie, spécialiste sécurité de terrain : à prévoir dans la proposition.
+- Expert international en usages productifs et microfinance (≈ 8 hommes-mois).
+- Hydrologue ou ingénieur MCHE (≈ 4 hommes-mois).
 - Statisticien d'enquête.
 - Topographes et enquêteurs.
 
@@ -586,7 +602,7 @@ Les experts nationaux représentent **au moins 30 %** du temps total.
 ## 9.3 Qualifications du cabinet ou du groupement
 
 - Au moins 10 ans d'expérience dans l'électrification hors réseau.
-- Au moins **3 missions comparables** (faisabilité, APD et EIES de programmes de mini-réseaux ou de SSD) financées par la Banque mondiale et/ou la BAD, dont au moins une en Afrique francophone.
+- Au moins **3 missions comparables** (faisabilité, APD et EIES de programmes de mini-réseaux). Celles financées par la BM ou la BAD sont appréciées ; les **références internationales équivalentes** sont acceptées. Une expérience en Afrique francophone est appréciée.
 - Au moins une EIES ou un CGES approuvé par la Banque mondiale ou la BAD au cours des 7 dernières années.
 - La participation d'un bureau d'études national **agréé** pour les EIES et les NIES (décret n° 2025-316, art. 19) est **exigée**.
 
@@ -608,7 +624,8 @@ Le client ne fournit ni véhicules, ni personnel d'enquête, ni assurance : ces 
 - Tous les livrables, données brutes et traitées, modèles et fichiers SIG sont la **propriété du Gouvernement**. Les bailleurs en reçoivent copie.
 - Les données personnelles des enquêtes sont traitées et stockées de façon sécurisée, et anonymisées avant tout partage.
 - Le Consultant, ses associés et ses affiliés sont **exclus** des marchés de travaux, de fourniture, d'exploitation et de concession qui découlent de la mission.
-- Le Consultant ne peut pas être titulaire de la Mission A ni être l'agent de vérification indépendant (IVA).
+- Le Consultant ne peut pas être titulaire de la Mission A ou de la Mission S, ni être l'IVA ou la revue technique indépendante.
+- Ces exclusions s'étendent aux **entités liées par des liens capitalistiques**, aux **sous-traitants** et aux **experts clés**. Les informations privilégiées sont protégées. Toute dérogation est motivée et soumise à la non-objection du bailleur.
 
 # 12. Mode de sélection et critères d'évaluation
 
@@ -623,9 +640,9 @@ Le client ne fournit ni véhicules, ni personnel d'enquête, ni assurance : ces 
 
 | Critère | Points |
 |---|---|
-| Expérience spécifique du cabinet en lien avec la mission | 10 |
+| Expérience spécifique du cabinet (références internationales équivalentes acceptées) | 10 |
 | Méthodologie et plan de travail, dont : | 30 |
-| – compréhension des verrous (coût par connexion, demande, concessions SSD) | 8 |
+| – compréhension des verrous (coût par connexion réalisée, demande, statut des sites) | 8 |
 | – enquêtes et échantillonnage | 7 |
 | – ingénierie de la valeur et standardisation | 7 |
 | – approche E&S conjointe BM/BAD et procédures nationales | 5 |
@@ -635,18 +652,19 @@ Le client ne fournit ni véhicules, ni personnel d'enquête, ni assurance : ces 
 | Participation d'experts nationaux | 5 |
 | **Total** | **100** |
 
-# 13. Budget indicatif et financement
+# 13. Budget indicatif, type de contrat et financement
 
 **Statut.** L'estimation ci-dessous est celle de l'auteur. Elle n'est pas issue d'une cotation. Le client établit une **estimation confidentielle** avant le lancement.
 
-Hypothèses : taux tout compris de 25 000 USD par mois pour un expert international et de 7 000 USD pour un expert national ; coûts de terrain unitaires indiqués ligne à ligne ; imprévus de 10 %.
+**Hypothèses.** Taux tout compris (honoraires, frais généraux, rémunération) : 25 000 USD par mois pour un expert international, 7 000 USD pour un expert national. Les postes de terrain couvrent les **dépenses remboursables**, sans double imputation avec les taux. Imprévus : 10 %.
+
+**Mission B – Études de faisabilité, APD, EIES et genre (mini-réseaux et localités SSD)**
 
 | Poste | H/mois | Montant (USD) |
 |---|---|---|
 | Chef de mission (international) | 24 | 600 000 |
 | Ingénieur principal MRV PV/BESS (international) | 20 | 500 000 |
 | Ingénieur réseaux MT/BT (international) | 12 | 300 000 |
-| Expert SSD, PAYGo et concessions (international) | 8 | 200 000 |
 | Expert géospatial et moindre coût (international) | 8 | 200 000 |
 | Expert financier (international) | 10 | 250 000 |
 | Économiste de l’énergie (international) | 5 | 125 000 |
@@ -657,53 +675,69 @@ Hypothèses : taux tout compris de 25 000 USD par mois pour un expert internatio
 | Expert usages productifs et microfinance (non clé) (international) | 8 | 200 000 |
 | Ingénieurs électriciens nationaux (×4) (national) | 48 | 336 000 |
 | Spécialistes E&S nationaux (×2) (national) | 36 | 252 000 |
+| Écologues, botaniste, spécialiste faune (inventaires en deux saisons) (national) | 24 | 168 000 |
 | Sociologues / facilitateurs (×2) (national) | 24 | 168 000 |
 | Géomaticien (national) | 12 | 84 000 |
+| Géotechnicien (national) | 6 | 42 000 |
 | Statisticien d’enquête (national) | 6 | 42 000 |
-| Enquêtes ménages, demande et MTF : 80 sites MRV (≈ 15 000 USD/site) | – | 1 200 000 |
+| Enquêtes ménages, demande et MTF, enquête stratifiée : 80 sites MRV (≈ 15 000 USD/site) | – | 1 200 000 |
+| Mesures de charge, relevés de diesel, préinscriptions (≈ 1 900 USD/site MRV) | – | 150 000 |
 | Enquêtes allégées : 162 localités SSD (≈ 3 000 USD/localité) | – | 486 000 |
 | Levés topographiques et GPS : 80 sites MRV (≈ 8 000 USD/site) | – | 640 000 |
-| Relevés de charges et de diesel, géotechnique légère | – | 250 000 |
+| Géotechnique légère | – | 250 000 |
+| Inventaires écologiques de seconde saison | – | 150 000 |
 | Consultations publiques, audiences EIES, divulgation | – | 250 000 |
 | Logistique de terrain (véhicules, pirogues, hébergement) | – | 500 000 |
+| Sécurité, HSE, communications satellitaires et évacuation | – | 200 000 |
 | Ateliers de restitution et formations | – | 100 000 |
-| Sous-total | 259 | 7 633 000 |
-| Imprévus (10 %) | – | 763 000 |
-| **Total indicatif** | **259** | **8 396 000** |
+| Sous-total | 281 | 8 143 000 |
+| Imprévus (10 %) | – | 814 000 |
+| **Total mission B** | **281** | **8 957 000** |
 
 
-**Financement de la mission : à confirmer.**
+**Provision** pour les frais administratifs du certificat de conformité environnementale : **≈ 0,45 MUSD** (5 % du montant HT, si l'assiette est le montant total de la prestation ; à confirmer).
 
-- **Dons ESMAP et BAD.** Ils peuvent couvrir la Tranche 1 en tout ou partie.
-  - Le SEFA se déclarait « à pleine capacité » en novembre 2026 ; sa recevabilité doit être confirmée auprès de la BAD.
-  - À défaut, d'autres fonds gérés par la BAD peuvent être mobilisés.
-- **Avance de préparation.** Le financement complet de la mission suppose vraisemblablement une avance adossée aux futures opérations d'investissement de la Banque mondiale ou de la BAD.
-- **Ajustement du contrat.** Le contrat peut être structuré avec une **tranche ferme** (Tranche 1) et une **tranche conditionnelle** (Tranche 2), affermie lorsque le financement est confirmé.
+**Type de contrat : mixte.**
+
+- **Forfait** pour les prestations définies, par livrable.
+- **Prix unitaires** pour les quantités variables : localité MRV ajoutée ou retirée, localité SSD, EIES de catégorie A au lieu d'une NIES, PAR ou plan de restauration des moyens de subsistance, inventaire écologique complémentaire.
+- **Tranche conditionnelle** (Tranche 2), affermie lorsque le financement est confirmé.
+
+La recevabilité de cette structure est à confirmer selon les documents types du bailleur.
+
+**Financement : à confirmer.**
+
+- **SEFA : 0 dans le scénario de base**, le fonds se déclarant « à pleine capacité ».
+- **ESMAP** et autres fonds gérés par la BAD : à instruire pour la Tranche 1.
+- **Avance de préparation de la Banque mondiale** (jusqu'à 6 MUSD par opération selon la directive OPS5.03-DIR.117 de 2023) ou dispositif BAD équivalent : vraisemblablement nécessaire. Elle suppose une opération identifiée.
+- La tranche conditionnelle permet d'engager la Tranche 2 sans attendre que tout le financement soit réuni.
 
 # 14. Risques de la mission et mesures d'atténuation
 
 | Risque | Mesures |
 |---|---|
 | Accès difficile (saison des pluies, voies fluviales) | Planification saisonnière ; deux lots géographiques possibles ; équipes nationales |
-| Sites écartés au G0 (doublons, raccordement au réseau) | Liste de réserve ; règle de remplacement validée par le comité de pilotage |
+| Sites écartés (doublons, raccordement, statut urbain) | Registre de la Mission 0 ; prix unitaires ; pas de remplacement obligatoire |
 | Demande plus faible que prévu | Conception modulaire ; dimensionnement à 3 ans ; recherche active de charges d'ancrage |
 | Lenteur des procédures nationales d'EIES : examen des TdR (1 mois), avis de la commission (3 mois), inventaires en deux saisons | Enquêtes publiques et TdR d'études dès le mois 2 ; inventaires planifiés selon les saisons ; regroupement au titre de l'article 8 ; bureau national agréé ; suivi par l'ANER |
-| Divergence d'exigences E&S entre la BM et la BAD | Instruments communs ; revue conjointe ; norme la plus exigeante |
+| Divergence d'exigences E&S entre la BM et la BAD | Matrice de conformité validée par les bailleurs ; instruments communs ; revue conjointe |
+| Sécurité du personnel ; évacuation | Plan HSE et de sécurité ; communications satellitaires ; protocole d'évacuation médicale |
+| Statut urbain des 10 plus grands sites | Études de ces sites engagées seulement après décision sur leur régime (Mission 0, puis Mission A) |
 | Financement de la Tranche 2 non confirmé | Tranche conditionnelle ; outils standardisés réutilisables |
 | Incidents d'EAS/HS liés aux équipes d'enquête | Codes de conduite signés, formation, mécanisme de plainte dès le démarrage |
 
 # ANNEXES
 
-## Annexe 1 – Liste des 80 MRV et alertes à traiter au gate G0
+## Annexe 1 – Liste des 80 enregistrements MRV et alertes (Mission 0)
 
 Source : Annexe A2 du PEZoR (août 2026). Données reprises sans modification. La colonne « Alerte G0 » est ajoutée par l'auteur. La colonne « Pilote » signale les 37 sites de la Tranche 1.
 
-| # | Localité | Département | Pop. 2030 | Ménages | PV (kWc) | BESS (kWh) | CAPEX A2 (MUSD) | Pilote | Alerte G0 |
+| # | Localité | Département | Pop. 2030 | Ménages | PV (kWc) | BESS (kWh) | CAPEX A2 (MUSD) | Pilote | Alerte G0 (Mission 0) |
 |---|---|---|---|---|---|---|---|---|---|
 | 1 | Minga | Bouenza | 1 535 | 394 | 284,6 | 1 182 | 1,93 |  |  |
-| 2 | Lissanga | Brazzaville | 2 167 | 542 | 391,4 | 1 626 | 2,31 |  | Vérifier rattachement et distance réseau |
-| 3 | Kitengue | Brazzaville | 1 697 | 424 | 306,2 | 1 272 | 1,83 |  | Vérifier rattachement et distance réseau |
-| 4 | Loukolela | Cuvette | 15 716 | 2 710 | 1 957,2 | 8 130 | 14,91 |  | Vérifier statut réseau / centre isolé E2C |
+| 2 | Lissanga | Brazzaville | 2 167 | 542 | 391,4 | 1 626 | 2,31 |  | Rattachement et distance au réseau à vérifier |
+| 3 | Kitengue | Brazzaville | 1 697 | 424 | 306,2 | 1 272 | 1,83 |  | Rattachement et distance au réseau à vérifier |
+| 4 | Loukolela | Cuvette | 15 716 | 2 710 | 1 957,2 | 8 130 | 14,91 |  | Communauté urbaine : hors zone rurale (décret 2017-250) ; statut réseau E2C à vérifier |
 | 5 | Matoko | Cuvette | 2 503 | 432 | 312,0 | 1 296 | 2,45 |  |  |
 | 6 | Konda | Cuvette | 2 359 | 407 | 293,9 | 1 221 | 2,31 |  |  |
 | 7 | Loboko | Cuvette | 2 181 | 376 | 271,6 | 1 128 | 2,14 |  |  |
@@ -714,28 +748,28 @@ Source : Annexe A2 du PEZoR (août 2026). Données reprises sans modification. L
 | 12 | Bokoma | Cuvette | 1 298 | 224 | 161,8 | 672 | 1,31 |  |  |
 | 13 | Irebou | Cuvette | 1 092 | 188 | 135,8 | 564 | 1,11 |  |  |
 | 14 | Bonga | Cuvette | 1 002 | 173 | 124,9 | 519 | 1,03 |  |  |
-| 15 | Ewo | Cuvette-Ouest | 35 760 | 6 061 | 4 377,4 | 18 183 | 33,24 | Oui | Vérifier statut réseau / centre isolé E2C |
-| 16 | Etoumbi | Cuvette-Ouest | 13 467 | 2 283 | 1 648,8 | 6 849 | 12,57 | Oui | Vérifier statut réseau / centre isolé E2C |
+| 15 | Ewo | Cuvette-Ouest | 35 760 | 6 061 | 4 377,4 | 18 183 | 33,24 | Oui | Commune : hors zone rurale (décret 2017-250) ; statut réseau E2C à vérifier |
+| 16 | Etoumbi | Cuvette-Ouest | 13 467 | 2 283 | 1 648,8 | 6 849 | 12,57 | Oui | Communauté urbaine : hors zone rurale (décret 2017-250) ; statut réseau E2C à vérifier |
 | 17 | Kellé | Cuvette-Ouest | 5 752 | 975 | 704,2 | 2 925 | 5,42 | Oui |  |
 | 18 | Mbama | Cuvette-Ouest | 3 838 | 651 | 470,2 | 1 953 | 3,65 | Oui |  |
 | 19 | Olloba | Cuvette-Ouest | 2 900 | 491 | 354,6 | 1 473 | 2,77 |  |  |
 | 20 | Lebayi | Cuvette-Ouest | 1 345 | 228 | 164,7 | 684 | 1,33 | Oui |  |
-| 21 | Tsama I | Cuvette-Ouest | 1 279 | 217 | 156,7 | 651 | 1,27 |  | Doublon à résoudre |
-| 22 | Tsama I | Cuvette-Ouest | 1 279 | 217 | 156,7 | 651 | 1,27 |  | Doublon à résoudre |
+| 21 | Tsama I | Cuvette-Ouest | 1 279 | 217 | 156,7 | 651 | 1,27 |  | Doublon (occurrence conservée) |
+| 22 | Tsama I | Cuvette-Ouest | 1 279 | 217 | 156,7 | 651 | 1,27 |  | Doublon : 2e occurrence, à supprimer |
 | 23 | Talas | Cuvette-Ouest | 1 228 | 208 | 150,2 | 624 | 1,22 | Oui |  |
 | 24 | Ngoua | Cuvette-Ouest | 1 063 | 180 | 130,0 | 540 | 1,07 | Oui |  |
 | 25 | Beyi - Mbolo | Cuvette-Ouest | 1 040 | 176 | 127,1 | 528 | 1,05 | Oui |  |
 | 26 | Mbandza | Cuvette-Ouest | 1 026 | 174 | 125,7 | 522 | 1,04 | Oui |  |
 | 27 | Kakamoeka | Kouilou | 1 392 | 435 | 314,2 | 1 305 | 1,96 |  |  |
 | 28 | Ndembouanou | Kouilou | 1 241 | 388 | 280,2 | 1 164 | 1,75 |  |  |
-| 29 | Dongou | Likouala | 17 017 | 2 701 | 1 950,7 | 8 103 | 16,40 |  | Vérifier statut réseau / centre isolé E2C |
-| 30 | Epena | Likouala | 6 575 | 1 044 | 754,0 | 3 132 | 6,40 |  |  |
+| 29 | Dongou | Likouala | 17 017 | 2 701 | 1 950,7 | 8 103 | 16,40 |  | Communauté urbaine : hors zone rurale (décret 2017-250) ; statut réseau E2C à vérifier |
+| 30 | Epena | Likouala | 6 575 | 1 044 | 754,0 | 3 132 | 6,40 |  | Communauté urbaine : hors zone rurale (décret 2017-250) ; statut réseau E2C à vérifier |
 | 31 | Bouanela | Likouala | 6 149 | 976 | 704,9 | 2 928 | 5,99 |  |  |
 | 32 | Moungouma-Bailly | Likouala | 3 306 | 525 | 379,2 | 1 575 | 3,26 |  |  |
 | 33 | Kinami | Likouala | 3 116 | 495 | 357,5 | 1 485 | 3,08 |  |  |
 | 34 | Ebambe | Likouala | 1 905 | 302 | 218,1 | 906 | 1,92 |  |  |
 | 35 | Botongo | Likouala | 1 342 | 213 | 153,8 | 639 | 1,38 |  |  |
-| 36 | Komono | Lékoumou | 6 488 | 1 664 | 1 201,8 | 4 992 | 8,55 | Oui |  |
+| 36 | Komono | Lékoumou | 6 488 | 1 664 | 1 201,8 | 4 992 | 8,55 | Oui | Communauté urbaine : hors zone rurale (décret 2017-250) ; statut réseau E2C à vérifier |
 | 37 | Zanaga | Lékoumou | 4 545 | 1 165 | 841,4 | 3 495 | 6,01 | Oui |  |
 | 38 | Bambama | Lékoumou | 5 202 | 948 | 684,7 | 2 844 | 4,91 |  |  |
 | 39 | Tongo | Lékoumou | 2 458 | 630 | 455,0 | 1 890 | 3,29 | Oui |  |
@@ -749,22 +783,22 @@ Source : Annexe A2 du PEZoR (août 2026). Données reprises sans modification. L
 | 47 | Ingolo I | Lékoumou | 1 103 | 283 | 204,4 | 849 | 1,52 |  |  |
 | 48 | Mambouana | Lékoumou | 1 064 | 273 | 197,2 | 819 | 1,47 | Oui |  |
 | 49 | Ngonaka | Lékoumou | 1 011 | 259 | 187,1 | 777 | 1,40 |  |  |
-| 50 | Mossendjo | Niari | 19 005 | 4 132 | 2 984,2 | 12 396 | 20,34 | Oui | Vérifier statut réseau / centre isolé E2C |
-| 51 | Makabana | Niari | 9 307 | 2 023 | 1 461,1 | 6 069 | 10,00 | Oui |  |
+| 50 | Mossendjo | Niari | 19 005 | 4 132 | 2 984,2 | 12 396 | 20,34 | Oui | Commune : hors zone rurale (décret 2017-250) ; statut réseau E2C à vérifier |
+| 51 | Makabana | Niari | 9 307 | 2 023 | 1 461,1 | 6 069 | 10,00 | Oui | Communauté urbaine : hors zone rurale (décret 2017-250) ; statut réseau E2C à vérifier |
 | 52 | Mbinda | Niari | 4 845 | 1 053 | 760,5 | 3 159 | 5,24 |  |  |
 | 53 | Divénié | Niari | 4 416 | 960 | 693,3 | 2 880 | 4,79 | Oui |  |
-| 54 | Mila-Mila | Niari | 3 808 | 828 | 598,0 | 2 484 | 4,14 | Oui | Doublon à résoudre |
-| 55 | Mila-Mila | Niari | 3 808 | 828 | 598,0 | 2 484 | 4,14 | Oui | Doublon à résoudre |
+| 54 | Mila-Mila | Niari | 3 808 | 828 | 598,0 | 2 484 | 4,14 | Oui | Doublon (occurrence conservée) |
+| 55 | Mila-Mila | Niari | 3 808 | 828 | 598,0 | 2 484 | 4,14 | Oui | Doublon : 2e occurrence, à supprimer |
 | 56 | Banda | Niari | 3 115 | 677 | 488,9 | 2 031 | 3,40 |  |  |
-| 57 | Nyanga | Niari | 3 092 | 672 | 485,3 | 2 016 | 3,37 | Oui | Doublon à résoudre |
-| 58 | Nyanga | Niari | 3 092 | 672 | 485,3 | 2 016 | 3,37 | Oui | Doublon à résoudre |
+| 57 | Nyanga | Niari | 3 092 | 672 | 485,3 | 2 016 | 3,37 | Oui | Doublon (occurrence conservée) |
+| 58 | Nyanga | Niari | 3 092 | 672 | 485,3 | 2 016 | 3,37 | Oui | Doublon : 2e occurrence, à supprimer |
 | 59 | Moutamba | Niari | 2 976 | 647 | 467,3 | 1 941 | 3,25 | Oui |  |
 | 60 | Kibangou | Niari | 2 208 | 480 | 346,7 | 1 440 | 2,43 |  |  |
 | 61 | Moukouassi | Niari | 1 538 | 334 | 241,2 | 1 002 | 1,72 |  |  |
 | 62 | Moukondo | Niari | 1 404 | 305 | 220,3 | 915 | 1,57 | Oui |  |
 | 63 | Les banda | Niari | 1 392 | 303 | 218,8 | 909 | 1,56 |  |  |
-| 64 | Boko | Pool | 4 080 | 1 103 | 796,6 | 3 309 | 5,06 | Oui | Raccordée au réseau (presse, juil. 2026) |
-| 65 | Louingui | Pool | 3 761 | 1 016 | 733,8 | 3 048 | 4,67 | Oui | Raccordée au réseau (presse, juil. 2026) |
+| 64 | Boko | Pool | 4 080 | 1 103 | 796,6 | 3 309 | 5,06 | Oui | Raccordée au réseau selon la presse (juil. 2026) |
+| 65 | Louingui | Pool | 3 761 | 1 016 | 733,8 | 3 048 | 4,67 | Oui | Raccordée au réseau selon la presse (juil. 2026) |
 | 66 | Kindama-Ngouendi | Pool | 2 275 | 615 | 444,2 | 1 845 | 2,86 |  |  |
 | 67 | Nzinzi | Pool | 1 866 | 504 | 364,0 | 1 512 | 2,35 |  |  |
 | 68 | Ngandou-Boudzoua | Pool | 1 753 | 474 | 342,3 | 1 422 | 2,22 |  |  |
@@ -777,15 +811,15 @@ Source : Annexe A2 du PEZoR (août 2026). Données reprises sans modification. L
 | 75 | Mimpalla | Pool | 1 101 | 298 | 215,2 | 894 | 1,42 |  |  |
 | 76 | Ngongo | Pool | 1 091 | 295 | 213,1 | 885 | 1,41 |  |  |
 | 77 | Yangui | Pool | 1 074 | 290 | 209,4 | 870 | 1,38 |  |  |
-| 78 | Souanké | Sangha | 13 426 | 2 533 | 1 829,4 | 7 599 | 14,90 | Oui | Vérifier statut réseau / centre isolé E2C |
-| 79 | Sembé | Sangha | 11 928 | 2 251 | 1 625,7 | 6 753 | 13,25 | Oui | Vérifier statut réseau / centre isolé E2C |
+| 78 | Souanké | Sangha | 13 426 | 2 533 | 1 829,4 | 7 599 | 14,90 | Oui | Communauté urbaine : hors zone rurale (décret 2017-250) ; statut réseau E2C à vérifier |
+| 79 | Sembé | Sangha | 11 928 | 2 251 | 1 625,7 | 6 753 | 13,25 | Oui | Communauté urbaine : hors zone rurale (décret 2017-250) ; statut réseau E2C à vérifier |
 | 80 | Ngbala | Sangha | 2 403 | 453 | 327,2 | 1 359 | 2,74 |  |  |
-| | **Total** | | **297 974** | **59 467** | **42 948,5** | **178 401** | **317,61** | **32** | |
+| | **Total (80 enregistrements)** | | **297 974** | **59 467** | **42 948,5** | **178 401** | **317,61** | **37** | |
 
 
-**Répartition par lot géographique (option § 3.3).** Lot Sud : 47 MRV (Niari 14, Lékoumou 14, Pool 14, Kouilou 2, Brazzaville 2, Bouenza 1). Lot Nord : 33 MRV (Cuvette-Ouest 12, Cuvette 11, Likouala 7, Sangha 3).
+**Répartition par lot géographique (option § 3.3), en enregistrements avant dédoublonnage.** Lot Sud : 47 (Niari 14, Lékoumou 14, Pool 14, Kouilou 2, Brazzaville 2, Bouenza 1), dont 2 doublons (Mila-Mila, Nyanga). Lot Nord : 33 (Cuvette-Ouest 12, Cuvette 11, Likouala 7, Sangha 3), dont 1 doublon (Tsama I).
 
-## Annexe 2 – Localités SSD par territoire de concession
+## Annexe 2 – Localités SSD par territoire (données de référence pour la Mission S)
 
 **Programme Cadre : 162 localités, 9 territoires**
 
@@ -952,6 +986,11 @@ La durée (24 mois) est plus longue que celle des précédents (6 mois pour ≈ 
 
 ## Annexe 9 – Sources
 
+- Contre-expertise indépendante de la v1.0 (novembre 2026) et matrice de traitement : TdR-cadre v2.0, Annexe VII.10.
+- Décret 2017-250 : https://liziba.cg/wp-content/uploads/2024/10/Decret-n°2017-250-du-17-juillet-2017-fixant-les-conditions-dexploitation-des-installations-electriques-dans-les-zones-rurales.pdf
+- Rappel ministériel sur le certificat de conformité environnementale (21/10/2026) : https://developpement-durable.gouv.cg/2026/10/21/certificat-de-conformite-environnementale-cce-la-ministre-rappelle-les-conditions-de-constitution-du-dossier-administratif/
+- Directive BM sur le financement de projets d'investissement (2023) : https://thedocs.worldbank.org/en/doc/a63d7e40de1c13802a096eddf6d105bb-0290012023/original/Bank-Directive-Investment-project-financing.pdf
+
 - Pacte National Énergétique – Mission 300 : https://thedocs.worldbank.org/en/doc/ce91545b5a0c9e201bc7622f58b26618-0010012025/original/Congo-National-Energy-Compact-Mission-300.pdf
 - BM, Normes environnementales et sociales : https://www.worldbank.org/en/projects-operations/environmental-and-social-framework/brief/environmental-and-social-standards
 - BAD, Système de sauvegardes intégré 2023 : https://www.afdb.org/en/documents/african-development-bank-groups-integrated-safeguards-system-2023
@@ -960,4 +999,4 @@ La durée (24 mois) est plus longue que celle des précédents (6 mois pour ≈ 
 - Lighting Global, IEC TS 62257-9-8 : https://www.lightingglobal.org/iec-adopts-lighting-global-quality-standards/
 - ESMAP/SEforALL, Multi-Tier Framework : https://www.seforall.org/sites/default/files/Beyond-Connections-Introducing-Multi-Tier-Framework-for-Tracking-Energy-Access.pdf
 - PEZoR : ProDoc, étude de pré-faisabilité, Annexe A2 et présentation (août 2026), documents remis par le client.
-- TdR-cadre v1.0 « Préparation bancable des investissements hors réseau du PEZoR » (novembre 2026).
+- TdR-cadre v2.0 « Préparation bancable des investissements hors réseau du PEZoR » (novembre 2026).
