@@ -13,7 +13,8 @@ import {
   Easing,
 } from "remotion";
 
-// Vertical 9:16 product demo for DiaspoSwap (simulation build).
+// Product demo for DiaspoSwap (simulation build): 9:16 (1080x1920) or 16:9 (1920x1080),
+// chosen from the composition size.
 // Colours come from diasposwap/docs/DESIGN_SYSTEM.md.
 const C = {
   petrol: "#082F35",
@@ -34,21 +35,29 @@ export type DiaspoSwapDemoProps = {
   duration: number;
 };
 
-const PHONE_H = 1400;
-const PHONE_W = Math.round((PHONE_H * 780) / 1688); // 665
-const PHONE_TOP = 230;
+type Geo = { w: number; h: number; left: number; top: number };
+const useWide = () => {
+  const { width, height } = useVideoConfig();
+  return width > height;
+};
+const phoneGeo = (wide: boolean): Geo => {
+  const h = wide ? 940 : 1400;
+  const w = Math.round((h * 780) / 1688);
+  return wide ? { w, h, left: 300, top: 70 } : { w, h, left: (1080 - w) / 2, top: 230 };
+};
 
 const Phone: React.FC<{ highlights: DiaspoSwapDemoProps["highlights"] }> = ({ highlights }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const t = frame / fps;
+  const { w: PHONE_W, h: PHONE_H, left, top } = phoneGeo(useWide());
   const enter = spring({ frame, fps, config: { damping: 200 }, durationInFrames: 20 });
   return (
     <div
       style={{
         position: "absolute",
-        left: (1080 - PHONE_W) / 2 - 14,
-        top: PHONE_TOP - 14,
+        left: left - 14,
+        top: top - 14,
         width: PHONE_W + 28,
         height: PHONE_H + 28,
         borderRadius: 64,
@@ -113,6 +122,30 @@ const Chapter: React.FC<{ label: string; len: number }> = ({ label, len }) => {
   const { fps } = useVideoConfig();
   const inP = spring({ frame, fps, config: { damping: 18, stiffness: 160 } });
   const out = interpolate(frame, [len - 8, len], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  if (useWide()) {
+    return (
+      <div
+        style={{
+          position: "absolute",
+          left: 880,
+          right: 120,
+          top: 250,
+          opacity: Math.min(inP, out),
+          transform: `translateX(${(1 - inP) * 30}px)`,
+          fontFamily: FONT,
+          fontWeight: 800,
+          fontSize: 62,
+          lineHeight: 1.1,
+          letterSpacing: -1,
+          color: C.petrol,
+          borderLeft: `10px solid ${C.gold}`,
+          paddingLeft: 32,
+        }}
+      >
+        {label}
+      </div>
+    );
+  }
   return (
     <div
       style={{
@@ -144,9 +177,29 @@ const Chapter: React.FC<{ label: string; len: number }> = ({ label, len }) => {
   );
 };
 
-const Caption: React.FC<{ text: string; len: number }> = ({ text, len }) => {
+const Caption: React.FC<{ text: string; len: number; bottom?: boolean }> = ({ text, len, bottom }) => {
   const frame = useCurrentFrame();
   const o = interpolate(frame, [0, 4, len - 3, len], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  if (useWide() && !bottom) {
+    return (
+      <div
+        style={{
+          position: "absolute",
+          left: 922,
+          right: 120,
+          top: 560,
+          opacity: o,
+          fontFamily: FONT,
+          fontWeight: 600,
+          fontSize: 56,
+          lineHeight: 1.22,
+          color: C.anthracite,
+        }}
+      >
+        {text}
+      </div>
+    );
+  }
   return (
     <div
       style={{
@@ -183,25 +236,27 @@ const EndCard: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const p = spring({ frame, fps, config: { damping: 200 }, durationInFrames: 18 });
+  const wide = useWide();
   return (
     <AbsoluteFill
       style={{
         background: C.petrol,
         opacity: p,
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: wide ? "flex-start" : "center",
+        paddingTop: wide ? 70 : 0,
         fontFamily: FONT,
         color: C.ivory,
         textAlign: "center",
       }}
     >
-      <Img src={staticFile("diasposwap/mark-light.svg")} style={{ width: 220, height: 220, marginBottom: 40 }} />
+      <Img src={staticFile("diasposwap/mark-light.svg")} style={{ width: wide ? 160 : 220, height: wide ? 160 : 220, marginBottom: wide ? 24 : 40 }} />
       <div style={{ fontSize: 92, fontWeight: 800, letterSpacing: -2 }}>DiaspoSwap</div>
       <div style={{ fontSize: 44, marginTop: 18, opacity: 0.9 }}>L'argent circule localement.</div>
       <div style={{ fontSize: 44, opacity: 0.9 }}>La valeur voyage.</div>
       <div
         style={{
-          marginTop: 90,
+          marginTop: wide ? 50 : 90,
           border: `3px solid ${C.gold}`,
           color: C.gold,
           borderRadius: 18,
@@ -215,19 +270,46 @@ const EndCard: React.FC = () => {
         <br />
         aucun argent réel n'est transféré
       </div>
-      <div style={{ marginTop: 60, fontSize: 40, opacity: 0.85 }}>diasposwap.expo.app</div>
+      <div style={{ marginTop: wide ? 36 : 60, fontSize: 40, opacity: 0.85 }}>diasposwap.expo.app</div>
     </AbsoluteFill>
   );
 };
 
+const WideFrame: React.FC = () => (
+  <>
+    <div style={{ position: "absolute", left: 922, top: 120, display: "flex", alignItems: "center", gap: 18 }}>
+      <Img src={staticFile("diasposwap/mark-light.svg")} style={{ width: 64, height: 64, background: C.petrol, borderRadius: 16, padding: 8 }} />
+      <div style={{ fontFamily: FONT, fontWeight: 800, fontSize: 40, color: C.petrol, letterSpacing: -0.5 }}>DiaspoSwap</div>
+    </div>
+    <div
+      style={{
+        position: "absolute",
+        left: 922,
+        bottom: 110,
+        fontFamily: FONT,
+        fontWeight: 700,
+        fontSize: 30,
+        color: "#8A6A1F",
+        border: `3px solid ${C.gold}`,
+        borderRadius: 14,
+        padding: "10px 20px",
+      }}
+    >
+      Mode simulation — aucun argent réel
+    </div>
+  </>
+);
+
 export const DiaspoSwapDemo: React.FC<DiaspoSwapDemoProps> = ({ captions, chapters, highlights, screenEnd, duration }) => {
   const { fps } = useVideoConfig();
   const f = (s: number) => Math.round(s * fps);
+  const wide = useWide();
   return (
-    <AbsoluteFill style={{ background: `linear-gradient(180deg, ${C.ivory} 0%, #EFEBDD 100%)` }}>
+    <AbsoluteFill style={{ background: `linear-gradient(${wide ? 90 : 180}deg, ${C.ivory} 0%, #EFEBDD 100%)` }}>
       <Audio src={staticFile("diasposwap/narration.wav")} />
       <Sequence durationInFrames={f(screenEnd) + 10}>
         <Phone highlights={highlights} />
+        {wide && <WideFrame />}
       </Sequence>
       {chapters.map((c) => (
         <Sequence key={c.label} from={f(c.start)} durationInFrames={f(c.end) - f(c.start)}>
@@ -242,7 +324,7 @@ export const DiaspoSwapDemo: React.FC<DiaspoSwapDemoProps> = ({ captions, chapte
         const end = next ? Math.min(next.start, c.end + 0.35) : c.end + 0.3;
         return (
           <Sequence key={i} from={f(c.start)} durationInFrames={Math.max(1, f(end) - f(c.start))}>
-            <Caption text={c.text} len={Math.max(1, f(end) - f(c.start))} />
+            <Caption text={c.text} len={Math.max(1, f(end) - f(c.start))} bottom={c.start >= screenEnd} />
           </Sequence>
         );
       })}

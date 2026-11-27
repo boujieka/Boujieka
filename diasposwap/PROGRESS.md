@@ -64,7 +64,10 @@ integration exists.
   The take ran 59 s, so it is played 1.1× faster.
 - Problem: Playwright's video recorder ignores `deviceScaleFactor`; the 390×844 capture sits in the top-left of the
   frame. It is cropped and upscaled 2× (lanczos), so screen text is slightly soft.
-- The MP4 is not committed and has not been published.
+- 16:9 version (1920×1080) added the same day from the same capture and voice (no extra credits): same component,
+  landscape layout. Checked: 54.0 s, no black frames, −18.2 LUFS, banner visible on the app frames plus a permanent
+  "Mode simulation — aucun argent réel" tag in the side panel. The 9:16 render was redone after the shared-code change.
+- The MP4s are not committed and have not been published.
 
 ## Problems met and how they were handled
 - Headless Chromium reports `en-US`, so the app started in English and the French-text e2e selectors failed — fixed by

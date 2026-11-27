@@ -1,6 +1,6 @@
 # Demo video (OpenMontage)
 
-A vertical 9:16 demo of the simulation build (France → Cameroon, 1 000 €), about 54 s, with a French voice-over.
+Two formats of a demo of the simulation build, vertical 9:16 (1080×1920) and horizontal 16:9 (1920×1080), for the France → Cameroon flow (1 000 €), about 54 s each, with the same French voice-over.
 The video shows the app exactly as it is: fictional profiles, a fictional counterparty, simulated payouts and the
 "Mode simulation — aucun argent réel" banner on every screen. The end card repeats that no real money moves.
 
@@ -17,7 +17,7 @@ before commercial use (companies above a size threshold need a company licence).
 | `retime.py` | ffmpeg: cuts the capture into the narration windows of `retime_segments.json` → `screen.mp4` |
 | `narration_fr.txt` | Voice-over text (numbers written out for text-to-speech) |
 | `props.json` | Caption timings (from the voice-over's word timestamps, ×1/1.1), chapter chips, highlight boxes |
-| `DiaspoSwapDemo.tsx` | Remotion composition (1080×1920, 30 fps), DiaspoSwap colours from `docs/DESIGN_SYSTEM.md` |
+| `DiaspoSwapDemo.tsx` | Remotion composition, 30 fps; the layout follows the composition size (portrait: phone centred, chips and captions above/below; landscape: phone left, chapter and caption panel right). Colours from `docs/DESIGN_SYSTEM.md` |
 
 ## Reproduce
 
@@ -37,11 +37,12 @@ python3 video/retime.py /tmp/dsw/capture.webm /tmp/dsw/screen.mp4
    timings: re-transcribe it and rebuild the captions and `retime_segments.json`.
 4. Copy `screen.mp4`, `narration.wav`, `props.json` and `docs/brand/mark-light.svg` into
    `OpenMontage/remotion-composer/public/diasposwap/`, copy `DiaspoSwapDemo.tsx` into `remotion-composer/src/`,
-   register it in `src/Root.tsx` (id `DiaspoSwapDemo`, 1080×1920, 30 fps, `durationInFrames = ceil(duration × 30)`),
-   then:
+   register it twice in `src/Root.tsx` (ids `DiaspoSwapDemo` at 1080×1920 and `DiaspoSwapDemoWide` at 1920×1080, 30 fps,
+   `durationInFrames = ceil(duration × 30)`), then:
 
 ```bash
-npx remotion render src/index.tsx DiaspoSwapDemo out/diasposwap-demo.mp4 --props=public/diasposwap/props.json --codec=h264 --crf=18
+npx remotion render src/index.tsx DiaspoSwapDemo     out/diasposwap-demo-9x16.mp4 --props=public/diasposwap/props.json --codec=h264 --crf=18
+npx remotion render src/index.tsx DiaspoSwapDemoWide out/diasposwap-demo-16x9.mp4 --props=public/diasposwap/props.json --codec=h264 --crf=18
 ```
 
-The rendered MP4 is not committed. Do not publish it without the owner's approval (see `CLAUDE.md`).
+The rendered MP4s are not committed. Do not publish it without the owner's approval (see `CLAUDE.md`).
