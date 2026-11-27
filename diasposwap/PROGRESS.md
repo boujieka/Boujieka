@@ -53,6 +53,19 @@ integration exists.
   `asyncRoutes: { web: false }` (one web bundle, no bracketed file names). The local static server had masked it.
 - Right after promotion, one run still got the previous version (propagation delay); re-runs passed.
 
+## Demo video (OpenMontage) — 2026-11-27
+- Vertical 9:16 demo, 54 s, French voice-over, made with OpenMontage (cloned next to the repo, not vendored; AGPL)
+  using its `screen-demo` pipeline with Remotion. Recipe and inputs in `video/` (see `video/README.md`).
+- What was run: `npm ci`, `npm run mobile:web:export`, `video/record-demo.cjs` on the local build (the live URL
+  was not reachable from the build machine), `video/retime.py`, Remotion render, post-render check (54.0 s,
+  1080×1920, no black frames, −18.2 LUFS, banner visible on every app frame).
+- Voice: ElevenLabs "Aquilas" (`eleven_multilingual_v2`), 2 takes, 1,504 credits on the owner's free plan, approved
+  by the owner before generation. Captions come from an ElevenLabs transcription of the chosen take (0 credits).
+  The take ran 59 s, so it is played 1.1× faster.
+- Problem: Playwright's video recorder ignores `deviceScaleFactor`; the 390×844 capture sits in the top-left of the
+  frame. It is cropped and upscaled 2× (lanczos), so screen text is slightly soft.
+- The MP4 is not committed and has not been published.
+
 ## Problems met and how they were handled
 - Headless Chromium reports `en-US`, so the app started in English and the French-text e2e selectors failed — fixed by
   running the walkthrough with `fr-FR` (the app's locale detection was correct).

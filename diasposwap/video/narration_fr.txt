@@ -1,0 +1,7 @@
+Envoyer de l'argent au pays, sans le faire traverser la frontière ? Voici DiaspoSwap, en mode simulation.
+Amina, un profil fictif, vit en France. Elle veut envoyer mille euros à Paul, au Cameroun.
+Avant de payer, tout est affiché : la parité fixe officielle, les frais, ici une hypothèse de zéro virgule soixante-quinze pour cent, et le montant reçu : six cent cinquante-cinq mille neuf cent cinquante-sept francs CFA.
+Son ordre attend un envoi en sens inverse, du Cameroun vers la France. Dans la démo, cette contrepartie est fictive. Quand les deux se rencontrent, ils se compensent.
+Chacun est payé localement, avec l'argent de l'autre côté.
+Reçu, historique : chaque étape est tracée.
+Ceci est une démonstration : aucun argent réel n'est transféré.

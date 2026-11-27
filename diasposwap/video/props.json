@@ -1,0 +1,162 @@
+{
+ "captions": [
+  {
+   "text": "Envoyer de l'argent au pays,",
+   "start": 0.0,
+   "end": 1.573
+  },
+  {
+   "text": "sans le faire traverser la frontière ?",
+   "start": 1.91,
+   "end": 4.032
+  },
+  {
+   "text": "Voici DiaspoSwap, en mode simulation.",
+   "start": 4.37,
+   "end": 7.356
+  },
+  {
+   "text": "Amina, un profil fictif, vit en France.",
+   "start": 7.599,
+   "end": 10.745
+  },
+  {
+   "text": "Elle veut envoyer 1 000 € à Paul, au Cameroun.",
+   "start": 10.903,
+   "end": 14.333
+  },
+  {
+   "text": "Avant de payer, tout est affiché :",
+   "start": 14.545,
+   "end": 16.359
+  },
+  {
+   "text": "la parité fixe officielle, les frais,",
+   "start": 16.507,
+   "end": 19.251
+  },
+  {
+   "text": "ici une hypothèse de 0,75 %,",
+   "start": 19.431,
+   "end": 23.589
+  },
+  {
+   "text": "et le montant reçu :",
+   "start": 23.821,
+   "end": 24.919
+  },
+  {
+   "text": "655 957 francs CFA.",
+   "start": 25.194,
+   "end": 30.629
+  },
+  {
+   "text": "Son ordre attend un envoi en sens inverse,",
+   "start": 31.315,
+   "end": 33.732
+  },
+  {
+   "text": "du Cameroun vers la France.",
+   "start": 33.911,
+   "end": 35.664
+  },
+  {
+   "text": "Dans la démo, cette contrepartie est fictive.",
+   "start": 35.916,
+   "end": 38.365
+  },
+  {
+   "text": "Quand les deux se rencontrent,",
+   "start": 38.661,
+   "end": 40.033
+  },
+  {
+   "text": "ils se compensent.",
+   "start": 40.065,
+   "end": 41.109
+  },
+  {
+   "text": "Chacun est payé localement,",
+   "start": 41.405,
+   "end": 42.998
+  },
+  {
+   "text": "avec l'argent de l'autre côté.",
+   "start": 43.135,
+   "end": 44.951
+  },
+  {
+   "text": "Reçu, historique :",
+   "start": 45.299,
+   "end": 47.052
+  },
+  {
+   "text": "chaque étape est tracée.",
+   "start": 47.273,
+   "end": 48.919
+  },
+  {
+   "text": "Ceci est une démonstration :",
+   "start": 49.215,
+   "end": 51.094
+  },
+  {
+   "text": "aucun argent réel n'est transféré.",
+   "start": 51.346,
+   "end": 53.616
+  }
+ ],
+ "chapters": [
+  {
+   "label": "DiaspoSwap",
+   "start": 0,
+   "end": 7.6
+  },
+  {
+   "label": "1 · Un profil fictif",
+   "start": 7.6,
+   "end": 14.54
+  },
+  {
+   "label": "2 · Tout est affiché avant de payer",
+   "start": 14.54,
+   "end": 30.63
+  },
+  {
+   "label": "3 · L'ordre attend un envoi inverse",
+   "start": 30.63,
+   "end": 35.66
+  },
+  {
+   "label": "4 · Appariement (contrepartie fictive)",
+   "start": 35.66,
+   "end": 41.4
+  },
+  {
+   "label": "5 · Paiements locaux simulés",
+   "start": 41.4,
+   "end": 45.3
+  },
+  {
+   "label": "6 · Reçu et historique",
+   "start": 45.3,
+   "end": 49.21
+  }
+ ],
+ "screenEnd": 49.21,
+ "duration": 53.9,
+ "highlights": [
+  {
+   "start": 16.5,
+   "end": 23.65,
+   "y0": 0.46800947867298576,
+   "y1": 0.6018957345971564
+  },
+  {
+   "start": 23.8,
+   "end": 30.6,
+   "y0": 0.5983412322274881,
+   "y1": 0.6327014218009479
+  }
+ ]
+}
