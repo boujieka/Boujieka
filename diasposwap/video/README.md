@@ -45,4 +45,4 @@ npx remotion render src/index.tsx DiaspoSwapDemo     out/diasposwap-demo-9x16.mp
 npx remotion render src/index.tsx DiaspoSwapDemoWide out/diasposwap-demo-16x9.mp4 --props=public/diasposwap/props.json --codec=h264 --crf=18
 ```
 
-The rendered MP4s are not committed. Do not publish it without the owner's approval (see `CLAUDE.md`).
+The rendered MP4s are not committed. Do not publish them without the owner's approval (see `CLAUDE.md`).
